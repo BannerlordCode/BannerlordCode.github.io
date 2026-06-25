@@ -23,7 +23,7 @@ Treat `MBGameModel` as a Model-style extension point: first identify who creates
 ### Initialize
 `public void Initialize(T baseModel)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBGameModel from the subsystem API first

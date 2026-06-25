@@ -23,7 +23,7 @@ Treat `MultiplayerAchievementComponent` as a Component-style extension point: fi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerAchievementComponent.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerAchievementComponent.EarlyStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
@@ -56,7 +56,7 @@ multiplayerAchievementComponent.OnMissionTick(0);
 ### OnAgentMount
 `public override void OnAgentMount(Agent agent)`
 
-**Purpose:** Invoked when the `agent mount` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent mount event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
@@ -67,7 +67,7 @@ multiplayerAchievementComponent.OnAgentMount(agent);
 ### OnAgentDismount
 `public override void OnAgentDismount(Agent agent)`
 
-**Purpose:** Invoked when the `agent dismount` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent dismount event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
@@ -78,7 +78,7 @@ multiplayerAchievementComponent.OnAgentDismount(agent);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first
@@ -89,7 +89,7 @@ multiplayerAchievementComponent.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAchievementComponent from the subsystem API first

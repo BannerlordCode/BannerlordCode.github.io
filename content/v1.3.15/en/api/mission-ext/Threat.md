@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Threat from the subsystem API first
@@ -41,7 +41,7 @@ var result = threat.GetHashCode();
 ### ComputeGlobalTargetingBoundingBoxMinMax
 `public ValueTuple<Vec3, Vec3> ComputeGlobalTargetingBoundingBoxMinMax()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ComputeGlobalTargetingBoundingBoxMinMax logic.
 
 ```csharp
 // Obtain an instance of Threat from the subsystem API first
@@ -52,7 +52,7 @@ var result = threat.ComputeGlobalTargetingBoundingBoxMinMax();
 ### GetGlobalVelocity
 `public Vec3 GetGlobalVelocity()`
 
-**Purpose:** Reads and returns the `global velocity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the global velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Threat from the subsystem API first
@@ -63,7 +63,7 @@ var result = threat.GetGlobalVelocity();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of Threat from the subsystem API first
@@ -74,7 +74,7 @@ var result = threat.Equals(obj);
 ### DisplayDebugInfo
 `public void DisplayDebugInfo()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisplayDebugInfo logic.
 
 ```csharp
 // Obtain an instance of Threat from the subsystem API first

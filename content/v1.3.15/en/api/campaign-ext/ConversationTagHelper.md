@@ -23,7 +23,7 @@ Treat `ConversationTagHelper` as a Helper-style extension point: first identify 
 ### UsesHighRegister
 `public static bool UsesHighRegister(CharacterObject character)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UsesHighRegister logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ConversationTagHelper.UsesHighRegister(character);
 ### UsesLowRegister
 `public static bool UsesLowRegister(CharacterObject character)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UsesLowRegister logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ConversationTagHelper.UsesLowRegister(character);
 ### TribalVoiceGroup
 `public static bool TribalVoiceGroup(CharacterObject character)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TribalVoiceGroup logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ConversationTagHelper.TribalVoiceGroup(character);
 ### EducatedClass
 `public static bool EducatedClass(CharacterObject character)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EducatedClass logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ ConversationTagHelper.EducatedClass(character);
 ### TraitCompatibility
 `public static int TraitCompatibility(Hero hero1, Hero hero2, TraitObject trait)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TraitCompatibility logic.
 
 ```csharp
 // Static call; no instance required

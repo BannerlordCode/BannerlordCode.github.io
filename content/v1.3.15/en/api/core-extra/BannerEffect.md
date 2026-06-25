@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Initialize
 `public void Initialize(string name, string description, float level1Bonus, float level2Bonus, float level3Bonus, EffectIncrementType incrementType)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BannerEffect from the subsystem API first
@@ -40,7 +40,7 @@ bannerEffect.Initialize("example", "example", 0, 0, 0, incrementType);
 ### GetBonusAtLevel
 `public float GetBonusAtLevel(int bannerLevel)`
 
-**Purpose:** Reads and returns the `bonus at level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bonus at level value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerEffect from the subsystem API first
@@ -51,7 +51,7 @@ var result = bannerEffect.GetBonusAtLevel(0);
 ### GetBonusStringAtLevel
 `public string GetBonusStringAtLevel(int bannerLevel)`
 
-**Purpose:** Reads and returns the `bonus string at level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bonus string at level value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerEffect from the subsystem API first
@@ -62,7 +62,7 @@ var result = bannerEffect.GetBonusStringAtLevel(0);
 ### GetDescription
 `public TextObject GetDescription(int bannerLevel)`
 
-**Purpose:** Reads and returns the `description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerEffect from the subsystem API first
@@ -73,7 +73,7 @@ var result = bannerEffect.GetDescription(0);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BannerEffect from the subsystem API first

@@ -32,7 +32,7 @@ Treat `ModuleInfoModel` as a Model-style extension point: first identify who cre
 ### ShouldIncludeInSession
 `public static bool ShouldIncludeInSession(ModuleInfo moduleInfo)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShouldIncludeInSession logic.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ ModuleInfoModel.ShouldIncludeInSession(moduleInfo);
 ### TryCreateForSession
 `public static bool TryCreateForSession(ModuleInfo moduleInfo, out ModuleInfoModel moduleInfoModel)`
 
-**Purpose:** Attempts to retrieve `create for session`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve create for session, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ ModuleInfoModel.TryCreateForSession(moduleInfo, moduleInfoModel);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ModuleInfoModel from the subsystem API first
@@ -63,7 +63,7 @@ var result = moduleInfoModel.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ModuleInfoModel from the subsystem API first

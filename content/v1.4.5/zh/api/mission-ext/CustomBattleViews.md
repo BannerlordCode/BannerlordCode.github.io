@@ -23,7 +23,7 @@ description: "CustomBattleViews 的自动生成类参考。"
 ### OpenCustomBattleMission
 `public static MissionView OpenCustomBattleMission(Mission mission)`
 
-**用途 / Purpose:** 打开「custom battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开custom battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CustomBattleViews.OpenCustomBattleMission(mission);
 ### OpenCustomSiegeBattleMission
 `public static MissionView OpenCustomSiegeBattleMission(Mission mission)`
 
-**用途 / Purpose:** 打开「custom siege battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开custom siege battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ CustomBattleViews.OpenCustomSiegeBattleMission(mission);
 ### OpenCustomBattleLordsHallMission
 `public static MissionView OpenCustomBattleLordsHallMission(Mission mission)`
 
-**用途 / Purpose:** 打开「custom battle lords hall mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开custom battle lords hall mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

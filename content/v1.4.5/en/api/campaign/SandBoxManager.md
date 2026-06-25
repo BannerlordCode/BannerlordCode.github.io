@@ -33,7 +33,7 @@ Treat `SandBoxManager` as a Manager-style extension point: first identify who cr
 ### Initialize
 `public void Initialize(CampaignGameStarter gameStarter)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SandBoxManager from the subsystem API first
@@ -44,7 +44,7 @@ sandBoxManager.Initialize(gameStarter);
 ### OnCampaignStart
 `public void OnCampaignStart(CampaignGameStarter gameInitializer, GameManagerBase gameManager, bool isSavedCampaign)`
 
-**Purpose:** Invoked when the `campaign start` event is raised.
+**Purpose:** **Purpose:** Invoked when the campaign start event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxManager from the subsystem API first
@@ -55,7 +55,7 @@ sandBoxManager.OnCampaignStart(gameInitializer, gameManager, false);
 ### InitializeSandboxXMLs
 `public void InitializeSandboxXMLs(bool isSavedCampaign)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `sandbox x m ls`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sandbox x m ls.
 
 ```csharp
 // Obtain an instance of SandBoxManager from the subsystem API first
@@ -66,7 +66,7 @@ sandBoxManager.InitializeSandboxXMLs(false);
 ### InitializeCharactersAfterLoad
 `public void InitializeCharactersAfterLoad(bool isSavedCampaign)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `characters after load`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by characters after load.
 
 ```csharp
 // Obtain an instance of SandBoxManager from the subsystem API first
@@ -77,7 +77,7 @@ sandBoxManager.InitializeCharactersAfterLoad(false);
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**Purpose:** Invoked when the `before save` event is raised.
+**Purpose:** **Purpose:** Invoked when the before save event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxManager from the subsystem API first
@@ -88,7 +88,7 @@ sandBoxManager.OnBeforeSave();
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**Purpose:** Invoked when the `after save` event is raised.
+**Purpose:** **Purpose:** Invoked when the after save event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxManager from the subsystem API first

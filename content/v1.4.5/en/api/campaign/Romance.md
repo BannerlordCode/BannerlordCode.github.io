@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Partner logic.
 
 ```csharp
 // Obtain an instance of Romance from the subsystem API first
@@ -34,7 +34,7 @@ var result = romance.Partner(hero);
 ### GetCourtedHeroInOtherClan
 `public static Hero GetCourtedHeroInOtherClan(Hero person1, Hero person2)`
 
-**Purpose:** Reads and returns the `courted hero in other clan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the courted hero in other clan value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ Romance.GetCourtedHeroInOtherClan(person1, person2);
 ### GetRomanticLevel
 `public static RomanceLevelEnum GetRomanticLevel(Hero person1, Hero person2)`
 
-**Purpose:** Reads and returns the `romantic level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the romantic level value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ Romance.GetRomanticLevel(person1, person2);
 ### GetRomanticState
 `public static RomanticState GetRomanticState(Hero person1, Hero person2)`
 
-**Purpose:** Reads and returns the `romantic state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the romantic state value held by the this instance.
 
 ```csharp
 // Static call; no instance required

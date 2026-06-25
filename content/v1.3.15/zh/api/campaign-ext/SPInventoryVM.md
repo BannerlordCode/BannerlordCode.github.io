@@ -179,7 +179,7 @@ description: "SPInventoryVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -190,7 +190,7 @@ sPInventoryVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -201,7 +201,7 @@ sPInventoryVM.OnFinalize();
 ### RefreshCallbacks
 `public void RefreshCallbacks()`
 
-**用途 / Purpose:** 使 「callbacks」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 callbacks 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -212,7 +212,7 @@ sPInventoryVM.RefreshCallbacks();
 ### ExecuteShowRecap
 `public void ExecuteShowRecap()`
 
-**用途 / Purpose:** 执行 「show recap」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 show recap 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -223,7 +223,7 @@ sPInventoryVM.ExecuteShowRecap();
 ### ExecuteCancelRecap
 `public void ExecuteCancelRecap()`
 
-**用途 / Purpose:** 执行 「cancel recap」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel recap 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -234,7 +234,7 @@ sPInventoryVM.ExecuteCancelRecap();
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**用途 / Purpose:** 执行 「remove zero counts」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 remove zero counts 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -245,7 +245,7 @@ sPInventoryVM.ExecuteRemoveZeroCounts();
 ### ClosePreview
 `public void ClosePreview()`
 
-**用途 / Purpose:** 关闭「preview」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭preview对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -256,7 +256,7 @@ sPInventoryVM.ClosePreview();
 ### ProcessItemTooltip
 `public void ProcessItemTooltip(ItemVM item)`
 
-**用途 / Purpose:** 处理与 「process item tooltip」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessItemTooltip 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -267,7 +267,7 @@ sPInventoryVM.ProcessItemTooltip(item);
 ### ResetSelectedItem
 `public void ResetSelectedItem()`
 
-**用途 / Purpose:** 将 「selected item」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 selected item 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -278,7 +278,7 @@ sPInventoryVM.ResetSelectedItem();
 ### RefreshComparedItem
 `public void RefreshComparedItem()`
 
-**用途 / Purpose:** 使 「compared item」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 compared item 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -289,7 +289,7 @@ sPInventoryVM.RefreshComparedItem();
 ### IsItemEquipmentPossible
 `public bool IsItemEquipmentPossible(SPItemVM itemVM)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「item equipment possible」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 item equipment possible 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -300,7 +300,7 @@ var result = sPInventoryVM.IsItemEquipmentPossible(itemVM);
 ### CompareNextItem
 `public void CompareNextItem()`
 
-**用途 / Purpose:** 比较两个「next item」对象并返回大小/顺序结果。
+**用途 / Purpose:** **用途 / Purpose:** 比较两个next item对象并返回大小/顺序结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -311,7 +311,7 @@ sPInventoryVM.CompareNextItem();
 ### ExecuteSelectItem
 `public void ExecuteSelectItem(ItemVM item)`
 
-**用途 / Purpose:** 执行 「select item」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -322,7 +322,7 @@ sPInventoryVM.ExecuteSelectItem(item);
 ### ExecuteClearSelectedItem
 `public void ExecuteClearSelectedItem()`
 
-**用途 / Purpose:** 执行 「clear selected item」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 clear selected item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -333,7 +333,7 @@ sPInventoryVM.ExecuteClearSelectedItem();
 ### IsAnyEquippedItemSelected
 `public bool IsAnyEquippedItemSelected()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「any equipped item selected」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any equipped item selected 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -344,7 +344,7 @@ var result = sPInventoryVM.IsAnyEquippedItemSelected();
 ### ExecuteSelectStealthOutfit
 `public void ExecuteSelectStealthOutfit()`
 
-**用途 / Purpose:** 执行 「select stealth outfit」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select stealth outfit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -355,7 +355,7 @@ sPInventoryVM.ExecuteSelectStealthOutfit();
 ### ExecuteSelectBattleOutfit
 `public void ExecuteSelectBattleOutfit()`
 
-**用途 / Purpose:** 执行 「select battle outfit」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select battle outfit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -366,7 +366,7 @@ sPInventoryVM.ExecuteSelectBattleOutfit();
 ### ExecuteSelectCivilianOutfit
 `public void ExecuteSelectCivilianOutfit()`
 
-**用途 / Purpose:** 执行 「select civilian outfit」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select civilian outfit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -377,7 +377,7 @@ sPInventoryVM.ExecuteSelectCivilianOutfit();
 ### ExecuteBuyAllItems
 `public void ExecuteBuyAllItems()`
 
-**用途 / Purpose:** 执行 「buy all items」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 buy all items 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -388,7 +388,7 @@ sPInventoryVM.ExecuteBuyAllItems();
 ### ExecuteSellAllItems
 `public void ExecuteSellAllItems()`
 
-**用途 / Purpose:** 执行 「sell all items」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sell all items 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -399,7 +399,7 @@ sPInventoryVM.ExecuteSellAllItems();
 ### ExecuteBuyItemTest
 `public void ExecuteBuyItemTest()`
 
-**用途 / Purpose:** 执行 「buy item test」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 buy item test 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -410,7 +410,7 @@ sPInventoryVM.ExecuteBuyItemTest();
 ### ExecuteResetTranstactions
 `public void ExecuteResetTranstactions()`
 
-**用途 / Purpose:** 执行 「reset transtactions」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset transtactions 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -421,7 +421,7 @@ sPInventoryVM.ExecuteResetTranstactions();
 ### ExecuteResetAndCompleteTranstactions
 `public void ExecuteResetAndCompleteTranstactions()`
 
-**用途 / Purpose:** 执行 「reset and complete transtactions」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset and complete transtactions 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -432,7 +432,7 @@ sPInventoryVM.ExecuteResetAndCompleteTranstactions();
 ### ExecuteCompleteTranstactions
 `public void ExecuteCompleteTranstactions()`
 
-**用途 / Purpose:** 执行 「complete transtactions」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 complete transtactions 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -443,7 +443,7 @@ sPInventoryVM.ExecuteCompleteTranstactions();
 ### ExecuteTransferWithParameters
 `public void ExecuteTransferWithParameters(SPItemVM item, int index, string targetTag)`
 
-**用途 / Purpose:** 执行 「transfer with parameters」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 transfer with parameters 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -454,7 +454,7 @@ sPInventoryVM.ExecuteTransferWithParameters(item, 0, "example");
 ### ExecuteFilterNone
 `public void ExecuteFilterNone()`
 
-**用途 / Purpose:** 执行 「filter none」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 filter none 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -465,7 +465,7 @@ sPInventoryVM.ExecuteFilterNone();
 ### ExecuteFilterWeapons
 `public void ExecuteFilterWeapons()`
 
-**用途 / Purpose:** 执行 「filter weapons」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 filter weapons 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -476,7 +476,7 @@ sPInventoryVM.ExecuteFilterWeapons();
 ### ExecuteFilterArmors
 `public void ExecuteFilterArmors()`
 
-**用途 / Purpose:** 执行 「filter armors」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 filter armors 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -487,7 +487,7 @@ sPInventoryVM.ExecuteFilterArmors();
 ### ExecuteFilterShieldsAndRanged
 `public void ExecuteFilterShieldsAndRanged()`
 
-**用途 / Purpose:** 执行 「filter shields and ranged」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 filter shields and ranged 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -498,7 +498,7 @@ sPInventoryVM.ExecuteFilterShieldsAndRanged();
 ### ExecuteFilterMounts
 `public void ExecuteFilterMounts()`
 
-**用途 / Purpose:** 执行 「filter mounts」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 filter mounts 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -509,7 +509,7 @@ sPInventoryVM.ExecuteFilterMounts();
 ### ExecuteFilterMisc
 `public void ExecuteFilterMisc()`
 
-**用途 / Purpose:** 执行 「filter misc」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 filter misc 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -520,7 +520,7 @@ sPInventoryVM.ExecuteFilterMisc();
 ### CycleBetweenWeaponSlots
 `public void CycleBetweenWeaponSlots()`
 
-**用途 / Purpose:** 处理与 「cycle between weapon slots」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CycleBetweenWeaponSlots 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -531,7 +531,7 @@ sPInventoryVM.CycleBetweenWeaponSlots();
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -542,7 +542,7 @@ sPInventoryVM.SetResetInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey gameKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -553,7 +553,7 @@ sPInventoryVM.SetCancelInputKey(gameKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -564,7 +564,7 @@ sPInventoryVM.SetDoneInputKey(hotKey);
 ### SetPreviousCharacterInputKey
 `public void SetPreviousCharacterInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「previous character input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 previous character input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -575,7 +575,7 @@ sPInventoryVM.SetPreviousCharacterInputKey(hotKey);
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「next character input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next character input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -586,7 +586,7 @@ sPInventoryVM.SetNextCharacterInputKey(hotKey);
 ### SetBuyAllInputKey
 `public void SetBuyAllInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「buy all input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 buy all input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -597,7 +597,7 @@ sPInventoryVM.SetBuyAllInputKey(hotKey);
 ### SetSellAllInputKey
 `public void SetSellAllInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「sell all input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sell all input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -608,7 +608,7 @@ sPInventoryVM.SetSellAllInputKey(hotKey);
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**用途 / Purpose:** 为 「get key text from key i d func」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 get key text from key i d func 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例
@@ -619,7 +619,7 @@ sPInventoryVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
 ### Compare
 `public int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventoryVM 实例

@@ -29,7 +29,7 @@ description: "BoardGameTablut 的自动生成类参考。"
 ### IsCitadelTile
 `public static bool IsCitadelTile(int tileX, int tileY)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「citadel tile」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 citadel tile 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ BoardGameTablut.IsCitadelTile(0, 0);
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 units 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -50,7 +50,7 @@ boardGameTablut.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 tiles 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -61,7 +61,7 @@ boardGameTablut.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 sound 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -72,7 +72,7 @@ boardGameTablut.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -83,7 +83,7 @@ boardGameTablut.Reset();
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算valid moves的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -94,7 +94,7 @@ var result = boardGameTablut.CalculateValidMoves(pawn);
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**用途 / Purpose:** 为 「pawn captured」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 pawn captured 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -105,7 +105,7 @@ boardGameTablut.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public bool AIMakeMove(Move move)`
 
-**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AIMakeMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -116,7 +116,7 @@ var result = boardGameTablut.AIMakeMove(move);
 ### HasAvailableMoves
 `public bool HasAvailableMoves(PawnTablut pawn)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「available moves」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 available moves。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -127,7 +127,7 @@ var result = boardGameTablut.HasAvailableMoves(pawn);
 ### GetRandomAvailableMove
 `public Move GetRandomAvailableMove(PawnTablut pawn)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random available move」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random available move 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -138,7 +138,7 @@ var result = boardGameTablut.GetRandomAvailableMove(pawn);
 ### GetWinningMoveIfPresent
 `public Move GetWinningMoveIfPresent(BoardGameSide side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「winning move if present」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 winning move if present 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -149,7 +149,7 @@ var result = boardGameTablut.GetWinningMoveIfPresent(side);
 ### TakeBoardSnapshot
 `public BoardGameTablut.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TakeBoardSnapshot 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -160,7 +160,7 @@ var result = boardGameTablut.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameTablut.BoardInformation board)`
 
-**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UndoMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -171,7 +171,7 @@ boardGameTablut.UndoMove(board);
 ### CheckGameState
 `public BoardGameTablut.State CheckGameState()`
 
-**用途 / Purpose:** 检查「game state」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查game state在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例

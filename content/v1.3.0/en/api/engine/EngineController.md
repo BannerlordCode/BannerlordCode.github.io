@@ -23,7 +23,7 @@ Treat `EngineController` as a Controller-style extension point: first identify w
 ### GetVersionStr
 `public static string GetVersionStr()`
 
-**Purpose:** Reads and returns the `version str` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the version str value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ EngineController.GetVersionStr();
 ### GetApplicationPlatformName
 `public static string GetApplicationPlatformName()`
 
-**Purpose:** Reads and returns the `application platform name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the application platform name value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ EngineController.GetApplicationPlatformName();
 ### GetModulesVersionStr
 `public static string GetModulesVersionStr()`
 
-**Purpose:** Reads and returns the `modules version str` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the modules version str value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "EncounterGameMenuModel 的自动生成类参考。"
 ### GetEncounterMenu
 `public abstract string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「encounter menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encounter menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncounterGameMenuModel 实例
@@ -34,7 +34,7 @@ var result = encounterGameMenuModel.GetEncounterMenu(attackerParty, defenderPart
 ### GetRaidCompleteMenu
 `public abstract string GetRaidCompleteMenu()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「raid complete menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 raid complete menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncounterGameMenuModel 实例
@@ -45,7 +45,7 @@ var result = encounterGameMenuModel.GetRaidCompleteMenu();
 ### GetNewPartyJoinMenu
 `public abstract string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「new party join menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 new party join menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncounterGameMenuModel 实例
@@ -56,7 +56,7 @@ var result = encounterGameMenuModel.GetNewPartyJoinMenu(newParty);
 ### GetGenericStateMenu
 `public abstract string GetGenericStateMenu()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「generic state menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 generic state menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncounterGameMenuModel 实例
@@ -67,7 +67,7 @@ var result = encounterGameMenuModel.GetGenericStateMenu();
 ### IsPlunderMenu
 `public abstract bool IsPlunderMenu(string menuId)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「plunder menu」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 plunder menu 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EncounterGameMenuModel 实例

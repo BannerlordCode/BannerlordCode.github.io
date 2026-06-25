@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPLobbyClanMemberItemVM
 `public unsafe MPLobbyClanMemberItemVM(ClanPlayer member, bool isOnline, string selectedBadgeID, AnotherPlayerState state, Action<MPLobbyClanMemberItemVM> executeActivate = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MPLobbyClanMemberItemVM logic.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMemberItemVM from the subsystem API first
@@ -47,7 +47,7 @@ var result = mPLobbyClanMemberItemVM.MPLobbyClanMemberItemVM(member, false, "exa
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMemberItemVM from the subsystem API first
@@ -58,7 +58,7 @@ mPLobbyClanMemberItemVM.RefreshValues();
 ### SetNotEligibleInfo
 `public void SetNotEligibleInfo(PlayerNotEligibleError notEligibleError)`
 
-**Purpose:** Assigns a new value to `not eligible info` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to not eligible info and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMemberItemVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionNetwork 的自动生成类参考。"
 ### OnAfterMissionCreated
 `public override void OnAfterMissionCreated()`
 
-**用途 / Purpose:** 在 「after mission created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 after mission created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetwork 实例
@@ -34,7 +34,7 @@ missionNetwork.OnAfterMissionCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetwork 实例
@@ -45,7 +45,7 @@ missionNetwork.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetwork 实例
@@ -56,7 +56,7 @@ missionNetwork.OnRemoveBehavior();
 ### OnPlayerConnectedToServer
 `public virtual void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 在 「player connected to server」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player connected to server 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetwork 实例
@@ -67,7 +67,7 @@ missionNetwork.OnPlayerConnectedToServer(networkPeer);
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player disconnected from server 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNetwork 实例

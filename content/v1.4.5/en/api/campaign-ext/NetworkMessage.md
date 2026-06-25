@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Write
 `public void Write(string data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -34,7 +34,7 @@ networkMessage.Write("example");
 ### Write
 `public void Write(int data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -45,7 +45,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(short data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -56,7 +56,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(bool data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -67,7 +67,7 @@ networkMessage.Write(false);
 ### Write
 `public void Write(byte data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -78,7 +78,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(float data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -89,7 +89,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(long data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -100,7 +100,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(ulong data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -111,7 +111,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(Guid data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -122,7 +122,7 @@ networkMessage.Write(data);
 ### Write
 `public void Write(byte data)`
 
-**Purpose:** Writes the current object's data to the target location.
+**Purpose:** **Purpose:** Writes the this instance's data to the target location.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -133,7 +133,7 @@ networkMessage.Write(0);
 ### ReadInt32
 `public int ReadInt32()`
 
-**Purpose:** Reads the data or state of `int32`.
+**Purpose:** **Purpose:** Reads the data or state of int32.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -144,7 +144,7 @@ var result = networkMessage.ReadInt32();
 ### ReadInt16
 `public short ReadInt16()`
 
-**Purpose:** Reads the data or state of `int16`.
+**Purpose:** **Purpose:** Reads the data or state of int16.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -155,7 +155,7 @@ var result = networkMessage.ReadInt16();
 ### ReadBoolean
 `public bool ReadBoolean()`
 
-**Purpose:** Reads the data or state of `boolean`.
+**Purpose:** **Purpose:** Reads the data or state of boolean.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -166,7 +166,7 @@ var result = networkMessage.ReadBoolean();
 ### ReadByte
 `public byte ReadByte()`
 
-**Purpose:** Reads the data or state of `byte`.
+**Purpose:** **Purpose:** Reads the data or state of byte.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -177,7 +177,7 @@ var result = networkMessage.ReadByte();
 ### ReadString
 `public string ReadString()`
 
-**Purpose:** Reads the data or state of `string`.
+**Purpose:** **Purpose:** Reads the data or state of string.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -188,7 +188,7 @@ var result = networkMessage.ReadString();
 ### ReadFloat
 `public float ReadFloat()`
 
-**Purpose:** Reads the data or state of `float`.
+**Purpose:** **Purpose:** Reads the data or state of float.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -199,7 +199,7 @@ var result = networkMessage.ReadFloat();
 ### ReadInt64
 `public long ReadInt64()`
 
-**Purpose:** Reads the data or state of `int64`.
+**Purpose:** **Purpose:** Reads the data or state of int64.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -210,7 +210,7 @@ var result = networkMessage.ReadInt64();
 ### ReadUInt64
 `public ulong ReadUInt64()`
 
-**Purpose:** Reads the data or state of `u int64`.
+**Purpose:** **Purpose:** Reads the data or state of u int64.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -221,7 +221,7 @@ var result = networkMessage.ReadUInt64();
 ### ReadGuid
 `public Guid ReadGuid()`
 
-**Purpose:** Reads the data or state of `guid`.
+**Purpose:** **Purpose:** Reads the data or state of guid.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first
@@ -232,7 +232,7 @@ var result = networkMessage.ReadGuid();
 ### ReadByteArray
 `public byte ReadByteArray()`
 
-**Purpose:** Reads the data or state of `byte array`.
+**Purpose:** **Purpose:** Reads the data or state of byte array.
 
 ```csharp
 // Obtain an instance of NetworkMessage from the subsystem API first

@@ -35,7 +35,7 @@ description: "MultiplayerAdminPanelVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelVM 实例
@@ -46,7 +46,7 @@ multiplayerAdminPanelVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelVM 实例
@@ -57,7 +57,7 @@ multiplayerAdminPanelVM.OnFinalize();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelVM 实例
@@ -68,7 +68,7 @@ multiplayerAdminPanelVM.OnTick(0);
 ### ExecuteApplyChanges
 `public void ExecuteApplyChanges()`
 
-**用途 / Purpose:** 执行 「apply changes」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 apply changes 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelVM 实例
@@ -79,7 +79,7 @@ multiplayerAdminPanelVM.ExecuteApplyChanges();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminPanelVM 实例

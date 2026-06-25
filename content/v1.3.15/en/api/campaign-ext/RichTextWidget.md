@@ -32,7 +32,7 @@ Treat `RichTextWidget` as a Widget-style extension point: first identify who cre
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**Purpose:** Invoked when the `brush changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the brush changed event is raised.
 
 ```csharp
 // Obtain an instance of RichTextWidget from the subsystem API first

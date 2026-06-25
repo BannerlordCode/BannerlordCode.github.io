@@ -23,7 +23,7 @@ Treat `SceneModel` as a Model-style extension point: first identify who creates 
 ### GetConversationSceneForMapPosition
 `public abstract string GetConversationSceneForMapPosition(CampaignVec2 campaignPosition)`
 
-**Purpose:** Reads and returns the `conversation scene for map position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the conversation scene for map position value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = sceneModel.GetConversationSceneForMapPosition(campaignPosition);
 ### GetBattleSceneForMapPatch
 `public abstract string GetBattleSceneForMapPatch(MapPatchData mapPatch, bool isNavalEncounter)`
 
-**Purpose:** Reads and returns the `battle scene for map patch` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the battle scene for map patch value held by the this instance.
 
 ```csharp
 // Obtain an instance of SceneModel from the subsystem API first

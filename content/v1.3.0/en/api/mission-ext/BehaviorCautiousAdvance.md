@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBehaviorCanceled
 `public override void OnBehaviorCanceled()`
 
-**Purpose:** Invoked when the `behavior canceled` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior canceled event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorCautiousAdvance from the subsystem API first
@@ -34,7 +34,7 @@ behaviorCautiousAdvance.OnBehaviorCanceled();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Advances the `occasionally` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorCautiousAdvance from the subsystem API first

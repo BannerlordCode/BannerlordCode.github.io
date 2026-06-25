@@ -23,7 +23,7 @@ Treat `TableauView` as a View-style extension point: first identify who creates 
 ### CreateTableauView
 `public static TableauView CreateTableauView(string viewName)`
 
-**Purpose:** Constructs a new `tableau view` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new tableau view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TableauView.CreateTableauView("example");
 ### SetSortingEnabled
 `public void SetSortingEnabled(bool value)`
 
-**Purpose:** Assigns a new value to `sorting enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sorting enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TableauView from the subsystem API first
@@ -44,7 +44,7 @@ tableauView.SetSortingEnabled(false);
 ### SetContinuousRendering
 `public void SetContinuousRendering(bool value)`
 
-**Purpose:** Assigns a new value to `continuous rendering` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to continuous rendering and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TableauView from the subsystem API first
@@ -55,7 +55,7 @@ tableauView.SetContinuousRendering(false);
 ### SetDoNotRenderThisFrame
 `public void SetDoNotRenderThisFrame(bool value)`
 
-**Purpose:** Assigns a new value to `do not render this frame` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to do not render this frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TableauView from the subsystem API first
@@ -66,7 +66,7 @@ tableauView.SetDoNotRenderThisFrame(false);
 ### SetDeleteAfterRendering
 `public void SetDeleteAfterRendering(bool value)`
 
-**Purpose:** Assigns a new value to `delete after rendering` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to delete after rendering and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TableauView from the subsystem API first
@@ -77,7 +77,7 @@ tableauView.SetDeleteAfterRendering(false);
 ### AddTableau
 `public static Texture AddTableau(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
 
-**Purpose:** Adds `tableau` to the current collection or state.
+**Purpose:** **Purpose:** Adds tableau to the current collection or state.
 
 ```csharp
 // Static call; no instance required

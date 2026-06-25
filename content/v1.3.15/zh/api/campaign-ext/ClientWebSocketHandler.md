@@ -29,7 +29,7 @@ description: "ClientWebSocketHandler 的自动生成类参考。"
 ### Connect
 `public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
 
-**用途 / Purpose:** 处理与 「connect」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Connect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
@@ -40,7 +40,7 @@ var result = clientWebSocketHandler.Connect("example", "example", list<KeyValueP
 ### Disconnect
 `public Task Disconnect(string reason, bool onDisconnectCommand)`
 
-**用途 / Purpose:** 处理与 「disconnect」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Disconnect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
@@ -51,7 +51,7 @@ var result = clientWebSocketHandler.Disconnect("example", false);
 ### SendTextMessage
 `public void SendTextMessage(string postBoxId, string text)`
 
-**用途 / Purpose:** 处理与 「send text message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SendTextMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
@@ -62,7 +62,7 @@ clientWebSocketHandler.SendTextMessage("example", "example");
 ### MessageReceivedDelegate
 `public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)`
 
-**用途 / Purpose:** 处理与 「message received delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MessageReceivedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
@@ -73,7 +73,7 @@ clientWebSocketHandler.MessageReceivedDelegate(message, socket);
 ### OnErrorDelegate
 `public delegate void OnErrorDelegate(ClientWebSocketHandler sender, Exception ex)`
 
-**用途 / Purpose:** 在 「error delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 error delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
@@ -84,7 +84,7 @@ clientWebSocketHandler.OnErrorDelegate(sender, ex);
 ### DisconnectedDelegate
 `public delegate Task DisconnectedDelegate(ClientWebSocketHandler sender, bool onDisconnectCommand)`
 
-**用途 / Purpose:** 处理与 「disconnected delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisconnectedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例
@@ -95,7 +95,7 @@ var result = clientWebSocketHandler.DisconnectedDelegate(sender, false);
 ### ConnectedDelegate
 `public delegate Task ConnectedDelegate(ClientWebSocketHandler sender)`
 
-**用途 / Purpose:** 处理与 「connected delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ConnectedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientWebSocketHandler 实例

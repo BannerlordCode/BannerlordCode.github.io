@@ -33,7 +33,7 @@ Treat `MissionCameraFadeView` as a View-style extension point: first identify wh
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionCameraFadeView from the subsystem API first
@@ -44,7 +44,7 @@ missionCameraFadeView.OnMissionScreenInitialize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionCameraFadeView from the subsystem API first
@@ -55,7 +55,7 @@ missionCameraFadeView.OnMissionScreenTick(0);
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeOutAndIn logic.
 
 ```csharp
 // Obtain an instance of MissionCameraFadeView from the subsystem API first
@@ -66,7 +66,7 @@ missionCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeOut logic.
 
 ```csharp
 // Obtain an instance of MissionCameraFadeView from the subsystem API first
@@ -77,7 +77,7 @@ missionCameraFadeView.BeginFadeOut(0);
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeIn logic.
 
 ```csharp
 // Obtain an instance of MissionCameraFadeView from the subsystem API first

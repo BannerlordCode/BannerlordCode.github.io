@@ -23,7 +23,7 @@ description: "StringHelpers 的自动生成类参考。"
 ### SplitCamelCase
 `public static string SplitCamelCase(string text)`
 
-**用途 / Purpose:** 将「camel case」拆分为多个部分或子项。
+**用途 / Purpose:** **用途 / Purpose:** 将camel case拆分为多个部分或子项。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ StringHelpers.SplitCamelCase("example");
 ### CamelCaseToSnakeCase
 `public static string CamelCaseToSnakeCase(string camelCaseString)`
 
-**用途 / Purpose:** 处理与 「camel case to snake case」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CamelCaseToSnakeCase 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ StringHelpers.CamelCaseToSnakeCase("example");
 ### SetSettlementProperties
 `public static void SetSettlementProperties(string tag, Settlement settlement, TextObject parent = null, bool isRepeatable = false)`
 
-**用途 / Purpose:** 为 「settlement properties」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 settlement properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ StringHelpers.SetSettlementProperties("example", settlement, null, false);
 ### SetRepeatableCharacterProperties
 `public static void SetRepeatableCharacterProperties(string tag, CharacterObject character, bool includeDetails = false)`
 
-**用途 / Purpose:** 为 「repeatable character properties」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 repeatable character properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ StringHelpers.SetRepeatableCharacterProperties("example", character, false);
 ### SetCharacterProperties
 `public static TextObject SetCharacterProperties(string tag, CharacterObject character, TextObject parent = null, bool includeDetails = false)`
 
-**用途 / Purpose:** 为 「character properties」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 character properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ StringHelpers.SetCharacterProperties("example", character, null, false);
 ### RemoveDiacritics
 `public static string RemoveDiacritics(string originalText)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「diacritics」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 diacritics。
 
 ```csharp
 // 静态调用，不需要实例

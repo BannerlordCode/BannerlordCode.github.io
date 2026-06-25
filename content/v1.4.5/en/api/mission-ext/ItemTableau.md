@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -40,7 +40,7 @@ itemTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -51,7 +51,7 @@ itemTableau.OnFinalize();
 ### SetStringId
 `public void SetStringId(string stringId)`
 
-**Purpose:** Assigns a new value to `string id` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to string id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -62,7 +62,7 @@ itemTableau.SetStringId("example");
 ### SetAmmo
 `public void SetAmmo(int ammo)`
 
-**Purpose:** Assigns a new value to `ammo` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to ammo and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -73,7 +73,7 @@ itemTableau.SetAmmo(0);
 ### SetAverageUnitCost
 `public void SetAverageUnitCost(int averageUnitCost)`
 
-**Purpose:** Assigns a new value to `average unit cost` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to average unit cost and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -84,7 +84,7 @@ itemTableau.SetAverageUnitCost(0);
 ### SetItemModifierId
 `public void SetItemModifierId(string itemModifierId)`
 
-**Purpose:** Assigns a new value to `item modifier id` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to item modifier id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -95,7 +95,7 @@ itemTableau.SetItemModifierId("example");
 ### SetBannerCode
 `public void SetBannerCode(string bannerCode)`
 
-**Purpose:** Assigns a new value to `banner code` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to banner code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -106,7 +106,7 @@ itemTableau.SetBannerCode("example");
 ### Recalculate
 `public void Recalculate()`
 
-**Purpose:** Recalculates `recalculate` to reflect the latest state.
+**Purpose:** **Purpose:** Recalculates recalculate to reflect the latest state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -117,7 +117,7 @@ itemTableau.Recalculate();
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -128,7 +128,7 @@ itemTableau.Initialize();
 ### RotateItem
 `public void RotateItem(bool value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RotateItem logic.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -139,7 +139,7 @@ itemTableau.RotateItem(false);
 ### RotateItemVerticalWithAmount
 `public void RotateItemVerticalWithAmount(float value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RotateItemVerticalWithAmount logic.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -150,7 +150,7 @@ itemTableau.RotateItemVerticalWithAmount(0);
 ### RotateItemHorizontalWithAmount
 `public void RotateItemHorizontalWithAmount(float value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RotateItemHorizontalWithAmount logic.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -161,7 +161,7 @@ itemTableau.RotateItemHorizontalWithAmount(0);
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -172,7 +172,7 @@ itemTableau.OnTick(0);
 ### SetInitialTiltRotation
 `public void SetInitialTiltRotation(float amount)`
 
-**Purpose:** Assigns a new value to `initial tilt rotation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to initial tilt rotation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -183,7 +183,7 @@ itemTableau.SetInitialTiltRotation(0);
 ### SetInitialPanRotation
 `public void SetInitialPanRotation(float amount)`
 
-**Purpose:** Assigns a new value to `initial pan rotation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to initial pan rotation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -194,7 +194,7 @@ itemTableau.SetInitialPanRotation(0);
 ### Zoom
 `public void Zoom(double value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Zoom logic.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first
@@ -205,7 +205,7 @@ itemTableau.Zoom(0);
 ### SetItem
 `public void SetItem(ItemRosterElement itemRosterElement)`
 
-**Purpose:** Assigns a new value to `item` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to item and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableau from the subsystem API first

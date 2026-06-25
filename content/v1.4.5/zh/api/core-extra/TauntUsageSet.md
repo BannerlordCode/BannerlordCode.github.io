@@ -23,7 +23,7 @@ description: "TauntUsageSet 的自动生成类参考。"
 ### AddUsage
 `public void AddUsage(TauntUsage usage)`
 
-**用途 / Purpose:** 将 「usage」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 usage 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsageSet 实例
@@ -34,7 +34,7 @@ tauntUsageSet.AddUsage(usage);
 ### GetUsages
 `public MBReadOnlyList<TauntUsage> GetUsages()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usages」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usages 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsageSet 实例

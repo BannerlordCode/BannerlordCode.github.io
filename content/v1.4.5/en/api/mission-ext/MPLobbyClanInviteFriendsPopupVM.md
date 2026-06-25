@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInviteFriendsPopupVM from the subsystem API first
@@ -45,7 +45,7 @@ mPLobbyClanInviteFriendsPopupVM.RefreshValues();
 ### Open
 `public void Open()`
 
-**Purpose:** Opens the resource or UI represented by the current object.
+**Purpose:** **Purpose:** Opens the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInviteFriendsPopupVM from the subsystem API first
@@ -56,7 +56,7 @@ mPLobbyClanInviteFriendsPopupVM.Open();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanInviteFriendsPopupVM from the subsystem API first

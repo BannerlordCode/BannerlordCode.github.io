@@ -29,7 +29,7 @@ description: "DefeatTheConspiracyQuest 的自动生成类参考。"
 ### IsMobilePartyCreatedForQuest
 `public bool IsMobilePartyCreatedForQuest(MobileParty mobileParty)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「mobile party created for quest」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 mobile party created for quest 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatTheConspiracyQuest 实例
@@ -40,7 +40,7 @@ var result = defeatTheConspiracyQuest.IsMobilePartyCreatedForQuest(mobileParty);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatTheConspiracyQuest 实例
@@ -51,7 +51,7 @@ defeatTheConspiracyQuest.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatTheConspiracyQuest 实例
@@ -62,7 +62,7 @@ defeatTheConspiracyQuest.SyncData(dataStore);
 ### CalculateReinforcedWarScore
 `public void CalculateReinforcedWarScore()`
 
-**用途 / Purpose:** 计算「reinforced war score」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算reinforced war score的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatTheConspiracyQuest 实例

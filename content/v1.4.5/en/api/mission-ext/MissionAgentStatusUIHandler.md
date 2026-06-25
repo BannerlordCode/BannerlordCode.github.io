@@ -23,7 +23,7 @@ Treat `MissionAgentStatusUIHandler` as a Handler-style extension point: first id
 ### AddInteractionMessage
 `public virtual void AddInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Adds `interaction message` to the current collection or state.
+**Purpose:** **Purpose:** Adds interaction message to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionAgentStatusUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionAgentStatusUIHandler.AddInteractionMessage(message);
 ### RemoveInteractionMessage
 `public virtual void RemoveInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Removes `interaction message` from the current collection or state.
+**Purpose:** **Purpose:** Removes interaction message from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionAgentStatusUIHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionAgentStatusUIHandler.RemoveInteractionMessage(message);
 ### HasInteractionMessage
 `public virtual bool HasInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Determines whether the current object already holds `interaction message`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds interaction message.
 
 ```csharp
 // Obtain an instance of MissionAgentStatusUIHandler from the subsystem API first

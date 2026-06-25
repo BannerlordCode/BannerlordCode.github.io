@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Screens` to place it in the 
 ### StartedRendering
 `public bool StartedRendering()`
 
-**Purpose:** Starts the `ed rendering` flow or state machine.
+**Purpose:** **Purpose:** Starts the ed rendering flow or state machine.
 
 ```csharp
 // Obtain an instance of VisualTestsScreen from the subsystem API first
@@ -34,7 +34,7 @@ var result = visualTestsScreen.StartedRendering();
 ### GetSubTestName
 `public string GetSubTestName(CameraPointTestType type)`
 
-**Purpose:** Reads and returns the `sub test name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sub test name value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualTestsScreen from the subsystem API first
@@ -45,7 +45,7 @@ var result = visualTestsScreen.GetSubTestName(type);
 ### GetRenderMode
 `public EngineRenderDisplayMode GetRenderMode(CameraPointTestType type)`
 
-**Purpose:** Reads and returns the `render mode` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the render mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualTestsScreen from the subsystem API first
@@ -56,7 +56,7 @@ var result = visualTestsScreen.GetRenderMode(type);
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of VisualTestsScreen from the subsystem API first

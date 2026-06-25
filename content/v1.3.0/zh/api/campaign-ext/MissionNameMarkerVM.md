@@ -31,7 +31,7 @@ description: "MissionNameMarkerVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerVM 实例
@@ -42,7 +42,7 @@ missionNameMarkerVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerVM 实例
@@ -53,7 +53,7 @@ missionNameMarkerVM.OnFinalize();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerVM 实例
@@ -64,7 +64,7 @@ missionNameMarkerVM.Tick(0);
 ### SetTargetsDirty
 `public void SetTargetsDirty()`
 
-**用途 / Purpose:** 为 「targets dirty」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 targets dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerVM 实例
@@ -75,7 +75,7 @@ missionNameMarkerVM.SetTargetsDirty();
 ### Compare
 `public int Compare(MissionNameMarkerTargetBaseVM x, MissionNameMarkerTargetBaseVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerVM 实例

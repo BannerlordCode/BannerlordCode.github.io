@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ### SmoothDecreaseIndicatorFillBar
 `public class SmoothDecreaseIndicatorFillBar(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SmoothDecreaseIndicatorFillBar logic.
 
 ```csharp
 // Obtain an instance of SmoothDecreaseIndicatorFillBar from the subsystem API first

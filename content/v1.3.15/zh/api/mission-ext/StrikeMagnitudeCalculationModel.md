@@ -23,7 +23,7 @@ description: "StrikeMagnitudeCalculationModel 的自动生成类参考。"
 ### CalculateStrikeMagnitudeForMissile
 `public abstract float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**用途 / Purpose:** 计算「strike magnitude for missile」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for missile的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -34,7 +34,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForMissile(
 ### CalculateStrikeMagnitudeForSwing
 `public abstract float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**用途 / Purpose:** 计算「strike magnitude for swing」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for swing的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -45,7 +45,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForSwing(at
 ### CalculateStrikeMagnitudeForThrust
 `public abstract float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**用途 / Purpose:** 计算「strike magnitude for thrust」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for thrust的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -56,7 +56,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForThrust(a
 ### ComputeRawDamage
 `public abstract float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**用途 / Purpose:** 处理与 「compute raw damage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeRawDamage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -67,7 +67,7 @@ var result = strikeMagnitudeCalculationModel.ComputeRawDamage(damageType, 0, 0, 
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public abstract float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**用途 / Purpose:** 计算「strike magnitude for unarmed attack」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for unarmed attack的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -78,7 +78,7 @@ var result = strikeMagnitudeCalculationModel.CalculateStrikeMagnitudeForUnarmedA
 ### GetBluntDamageFactorByDamageType
 `public abstract float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「blunt damage factor by damage type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 blunt damage factor by damage type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -89,7 +89,7 @@ var result = strikeMagnitudeCalculationModel.GetBluntDamageFactorByDamageType(da
 ### CalculateHorseArcheryFactor
 `public abstract float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 计算「horse archery factor」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算horse archery factor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例
@@ -100,7 +100,7 @@ var result = strikeMagnitudeCalculationModel.CalculateHorseArcheryFactor(charact
 ### CalculateAdjustedArmorForBlow
 `public virtual float CalculateAdjustedArmorForBlow(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseArmor, BasicCharacterObject attackerCharacter, BasicCharacterObject attackerCaptainCharacter, BasicCharacterObject victimCharacter, BasicCharacterObject victimCaptainCharacter, WeaponComponentData weaponComponent)`
 
-**用途 / Purpose:** 计算「adjusted armor for blow」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算adjusted armor for blow的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StrikeMagnitudeCalculationModel 实例

@@ -23,7 +23,7 @@ Treat `FakeMarketData` as a Data-style extension point: first identify who creat
 ### GetPrice
 `public int GetPrice(ItemObject item, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**Purpose:** Reads and returns the `price` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the price value held by the this instance.
 
 ```csharp
 // Obtain an instance of FakeMarketData from the subsystem API first
@@ -34,7 +34,7 @@ var result = fakeMarketData.GetPrice(item, tradingParty, false, merchantParty);
 ### GetPrice
 `public int GetPrice(EquipmentElement itemRosterElement, MobileParty tradingParty, bool isSelling, PartyBase merchantParty)`
 
-**Purpose:** Reads and returns the `price` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the price value held by the this instance.
 
 ```csharp
 // Obtain an instance of FakeMarketData from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isPersonalFeedEnabled)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MPKillFeedVM from the subsystem API first
@@ -41,7 +41,7 @@ mPKillFeedVM.OnAgentRemoved(affectedAgent, affectorAgent, false);
 ### OnPersonalDamage
 `public void OnPersonalDamage(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyDamage, bool isHeadshot, string killedAgentName)`
 
-**Purpose:** Invoked when the `personal damage` event is raised.
+**Purpose:** **Purpose:** Invoked when the personal damage event is raised.
 
 ```csharp
 // Obtain an instance of MPKillFeedVM from the subsystem API first

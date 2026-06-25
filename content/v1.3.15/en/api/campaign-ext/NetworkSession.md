@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### SendDisconnectMessage
 `public void SendDisconnectMessage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendDisconnectMessage logic.
 
 ```csharp
 // Obtain an instance of NetworkSession from the subsystem API first
@@ -43,7 +43,7 @@ networkSession.SendDisconnectMessage();
 ### Tick
 `public virtual void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of NetworkSession from the subsystem API first
@@ -54,7 +54,7 @@ networkSession.Tick();
 ### SendMessage
 `public void SendMessage(MessageContract message)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendMessage logic.
 
 ```csharp
 // Obtain an instance of NetworkSession from the subsystem API first
@@ -65,7 +65,7 @@ networkSession.SendMessage(message);
 ### ComponentMessageHandlerDelegate
 `public delegate void ComponentMessageHandlerDelegate(NetworkMessage networkMessage)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ComponentMessageHandlerDelegate logic.
 
 ```csharp
 // Obtain an instance of NetworkSession from the subsystem API first

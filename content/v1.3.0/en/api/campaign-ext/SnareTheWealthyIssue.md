@@ -44,7 +44,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -55,7 +55,7 @@ snareTheWealthyIssue.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -66,7 +66,7 @@ snareTheWealthyIssue.SyncData(dataStore);
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the alternative solution skill value held by the this instance.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -77,7 +77,7 @@ var result = snareTheWealthyIssue.GetAlternativeSolutionSkill(hero);
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -88,7 +88,7 @@ var result = snareTheWealthyIssue.AlternativeSolutionCondition(explanation);
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -99,7 +99,7 @@ var result = snareTheWealthyIssue.IsTroopTypeNeededByAlternativeSolution(charact
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -110,7 +110,7 @@ var result = snareTheWealthyIssue.DoTroopsSatisfyAlternativeSolution(troopRoster
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -121,7 +121,7 @@ var result = snareTheWealthyIssue.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -132,7 +132,7 @@ var result = snareTheWealthyIssue.IssueStayAliveConditions();
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -143,7 +143,7 @@ snareTheWealthyIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ### GetMountAndHarnessVisualIdsForQuestCaravan
 `public void GetMountAndHarnessVisualIdsForQuestCaravan(CultureObject culture, out string mountStringId, out string harnessStringId)`
 
-**Purpose:** Reads and returns the `mount and harness visual ids for quest caravan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount and harness visual ids for quest caravan value held by the this instance.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -154,7 +154,7 @@ snareTheWealthyIssue.GetMountAndHarnessVisualIdsForQuestCaravan(culture, mountSt
 ### OnWarDeclared
 `public void OnWarDeclared(IFaction faction1, IFaction faction2, DeclareWarAction.DeclareWarDetail reason)`
 
-**Purpose:** Invoked when the `war declared` event is raised.
+**Purpose:** **Purpose:** Invoked when the war declared event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -165,7 +165,7 @@ snareTheWealthyIssue.OnWarDeclared(faction1, faction2, reason);
 ### OnVillageStateChanged
 `public void OnVillageStateChanged(Village village, Village.VillageStates oldState, Village.VillageStates newState, MobileParty raiderParty)`
 
-**Purpose:** Invoked when the `village state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the village state changed event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -176,7 +176,7 @@ snareTheWealthyIssue.OnVillageStateChanged(village, oldState, newState, raiderPa
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**Purpose:** Invoked when the `map event ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the map event ended event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -187,7 +187,7 @@ snareTheWealthyIssue.OnMapEventEnded(mapEvent);
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)`
 
-**Purpose:** Invoked when the `settlement entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -198,7 +198,7 @@ snareTheWealthyIssue.OnSettlementEntered(party, settlement, hero);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty party, Settlement settlement)`
 
-**Purpose:** Invoked when the `settlement left` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement left event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first
@@ -209,7 +209,7 @@ snareTheWealthyIssue.OnSettlementLeft(party, settlement);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssue from the subsystem API first

@@ -23,7 +23,7 @@ description: "BoardGameAIMuTorere 的自动生成类参考。"
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算movement stage move的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIMuTorere 实例

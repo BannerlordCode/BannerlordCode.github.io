@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Log
 `public void Log(GameLog log)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Log logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameLogger from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerGameLogger.Log(log);
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**Purpose:** Invoked when the `before save` event is raised.
+**Purpose:** **Purpose:** Invoked when the before save event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameLogger from the subsystem API first
@@ -45,7 +45,7 @@ multiplayerGameLogger.OnBeforeSave();
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**Purpose:** Invoked when the `after save` event is raised.
+**Purpose:** **Purpose:** Invoked when the after save event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGameLogger from the subsystem API first

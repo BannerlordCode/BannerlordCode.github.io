@@ -23,7 +23,7 @@ description: "TournamentModel 的自动生成类参考。"
 ### GetTournamentStartChance
 `public abstract float GetTournamentStartChance(Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tournament start chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tournament start chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -34,7 +34,7 @@ var result = tournamentModel.GetTournamentStartChance(town);
 ### CreateTournament
 `public abstract TournamentGame CreateTournament(Town town)`
 
-**用途 / Purpose:** 构建一个新的 「tournament」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 tournament 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -45,7 +45,7 @@ var result = tournamentModel.CreateTournament(town);
 ### GetTournamentEndChance
 `public abstract float GetTournamentEndChance(TournamentGame tournament)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tournament end chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tournament end chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -56,7 +56,7 @@ var result = tournamentModel.GetTournamentEndChance(tournament);
 ### GetNumLeaderboardVictoriesAtGameStart
 `public abstract int GetNumLeaderboardVictoriesAtGameStart()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num leaderboard victories at game start」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num leaderboard victories at game start 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -67,7 +67,7 @@ var result = tournamentModel.GetNumLeaderboardVictoriesAtGameStart();
 ### GetTournamentSimulationScore
 `public abstract float GetTournamentSimulationScore(CharacterObject character)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tournament simulation score」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tournament simulation score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -78,7 +78,7 @@ var result = tournamentModel.GetTournamentSimulationScore(character);
 ### GetRenownReward
 `public abstract int GetRenownReward(Hero winner, Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「renown reward」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 renown reward 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -89,7 +89,7 @@ var result = tournamentModel.GetRenownReward(winner, town);
 ### GetInfluenceReward
 `public abstract int GetInfluenceReward(Hero winner, Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence reward」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence reward 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -100,7 +100,7 @@ var result = tournamentModel.GetInfluenceReward(winner, town);
 ### GetSkillXpGainFromTournament
 `public abstract ValueTuple<SkillObject, int> GetSkillXpGainFromTournament(Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「skill xp gain from tournament」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp gain from tournament 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -111,7 +111,7 @@ var result = tournamentModel.GetSkillXpGainFromTournament(town);
 ### GetParticipantArmor
 `public abstract Equipment GetParticipantArmor(CharacterObject participant)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「participant armor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 participant armor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -122,7 +122,7 @@ var result = tournamentModel.GetParticipantArmor(participant);
 ### GetRegularRewardItems
 `public abstract MBList<ItemObject> GetRegularRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「regular reward items」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 regular reward items 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例
@@ -133,7 +133,7 @@ var result = tournamentModel.GetRegularRewardItems(town, 0, 0);
 ### GetEliteRewardItems
 `public abstract MBList<ItemObject> GetEliteRewardItems(Town town, int regularRewardMinValue, int regularRewardMaxValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「elite reward items」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 elite reward items 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentModel 实例

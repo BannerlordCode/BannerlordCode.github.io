@@ -29,7 +29,7 @@ description: "AgentProximityMap 的自动生成类参考。"
 ### CanSearchRadius
 `public static bool CanSearchRadius(float searchRadius)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「search radius」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 search radius 的前置条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ AgentProximityMap.CanSearchRadius(0);
 ### BeginSearch
 `public static ProximityMapSearchStruct BeginSearch(Mission mission, Vec2 searchPos, float searchRadius, bool extendRangeByBiggestAgentCollisionPadding = false)`
 
-**用途 / Purpose:** 处理与 「begin search」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginSearch 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ AgentProximityMap.BeginSearch(mission, searchPos, 0, false);
 ### FindNext
 `public static void FindNext(Mission mission, ref ProximityMapSearchStruct searchStruct)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的next。
 
 ```csharp
 // 静态调用，不需要实例

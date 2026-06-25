@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.ProfileSelect
 ### OnActivate
 `public void OnActivate(bool isDirectPlayPossible)`
 
-**Purpose:** Invoked when the `activate` event is raised.
+**Purpose:** **Purpose:** Invoked when the activate event is raised.
 
 ```csharp
 // Obtain an instance of ProfileSelectionVM from the subsystem API first
@@ -44,7 +44,7 @@ profileSelectionVM.OnActivate(false);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ProfileSelectionVM from the subsystem API first

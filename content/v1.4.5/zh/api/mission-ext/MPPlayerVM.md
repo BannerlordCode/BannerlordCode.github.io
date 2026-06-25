@@ -42,7 +42,7 @@ description: "MPPlayerVM 的自动生成类参考。"
 ### UpdateDisabled
 `public void UpdateDisabled()`
 
-**用途 / Purpose:** 重新计算并更新 「disabled」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 disabled 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -53,7 +53,7 @@ mPPlayerVM.UpdateDisabled();
 ### RefreshDivision
 `public void RefreshDivision(bool useCultureColors = false)`
 
-**用途 / Purpose:** 使 「division」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 division 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -64,7 +64,7 @@ mPPlayerVM.RefreshDivision(false);
 ### RefreshGold
 `public void RefreshGold()`
 
-**用途 / Purpose:** 使 「gold」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 gold 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -75,7 +75,7 @@ mPPlayerVM.RefreshGold();
 ### RefreshTeam
 `public void RefreshTeam()`
 
-**用途 / Purpose:** 使 「team」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 team 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -86,7 +86,7 @@ mPPlayerVM.RefreshTeam();
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**用途 / Purpose:** 使 「properties」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 properties 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -97,7 +97,7 @@ mPPlayerVM.RefreshProperties();
 ### RefreshPreview
 `public void RefreshPreview(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, bool isFemale)`
 
-**用途 / Purpose:** 使 「preview」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 preview 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -108,7 +108,7 @@ mPPlayerVM.RefreshPreview(character, dynamicBodyProperties, false);
 ### RefreshActivePerks
 `public void RefreshActivePerks()`
 
-**用途 / Purpose:** 使 「active perks」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 active perks 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -119,7 +119,7 @@ mPPlayerVM.RefreshActivePerks();
 ### RefreshAvatar
 `public void RefreshAvatar()`
 
-**用途 / Purpose:** 使 「avatar」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 avatar 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -130,7 +130,7 @@ mPPlayerVM.RefreshAvatar();
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**用途 / Purpose:** 执行 「focus begin」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 focus begin 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例
@@ -141,7 +141,7 @@ mPPlayerVM.ExecuteFocusBegin();
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**用途 / Purpose:** 执行 「focus end」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 focus end 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPlayerVM 实例

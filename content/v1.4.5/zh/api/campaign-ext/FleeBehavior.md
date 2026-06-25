@@ -31,7 +31,7 @@ description: "FleeBehavior 的自动生成类参考。"
 ### TargetReached
 `public abstract void TargetReached()`
 
-**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TargetReached 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -42,7 +42,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public abstract void GoToTarget()`
 
-**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToTarget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -53,7 +53,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public abstract bool IsGoalAchievable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achievable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achievable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -64,7 +64,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public abstract bool IsGoalAchieved()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achieved」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achieved 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -75,7 +75,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToTarget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -86,7 +86,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achievable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achievable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -97,7 +97,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achieved」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achieved 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -108,7 +108,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TargetReached 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -119,7 +119,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToTarget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -130,7 +130,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achievable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achievable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -141,7 +141,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achieved」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achieved 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -152,7 +152,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TargetReached 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -163,7 +163,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToTarget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -174,7 +174,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achievable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achievable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -185,7 +185,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achieved」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achieved 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -196,7 +196,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TargetReached 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -207,7 +207,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToTarget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -218,7 +218,7 @@ fleeBehavior.GoToTarget();
 ### IsGoalAchievable
 `public override bool IsGoalAchievable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achievable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achievable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -229,7 +229,7 @@ var result = fleeBehavior.IsGoalAchievable();
 ### IsGoalAchieved
 `public override bool IsGoalAchieved()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「goal achieved」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 goal achieved 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -240,7 +240,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TargetReached 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -251,7 +251,7 @@ fleeBehavior.TargetReached();
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -262,7 +262,7 @@ fleeBehavior.Tick(0, false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -273,7 +273,7 @@ var result = fleeBehavior.GetDebugInfo();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例

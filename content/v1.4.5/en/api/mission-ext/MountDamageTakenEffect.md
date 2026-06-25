@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetMountDamageTaken
 `public override float GetMountDamageTaken(WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Reads and returns the `mount damage taken` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount damage taken value held by the this instance.
 
 ```csharp
 // Obtain an instance of MountDamageTakenEffect from the subsystem API first

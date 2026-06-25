@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
@@ -41,7 +41,7 @@ recruitVolunteerOwnerVM.RefreshValues();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open encyclopedia.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
@@ -52,7 +52,7 @@ recruitVolunteerOwnerVM.ExecuteOpenEncyclopedia();
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**Purpose:** Runs the operation or workflow associated with `focus`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with focus.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first
@@ -63,7 +63,7 @@ recruitVolunteerOwnerVM.ExecuteFocus();
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**Purpose:** Runs the operation or workflow associated with `unfocus`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with unfocus.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerOwnerVM from the subsystem API first

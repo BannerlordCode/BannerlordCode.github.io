@@ -30,7 +30,7 @@ description: "MissionMultiplayerTeamDeathmatch 的自动生成类参考。"
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「mission type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mission type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
@@ -41,7 +41,7 @@ var result = missionMultiplayerTeamDeathmatch.GetMissionType();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
@@ -52,7 +52,7 @@ missionMultiplayerTeamDeathmatch.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
@@ -63,7 +63,7 @@ missionMultiplayerTeamDeathmatch.AfterStart();
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**用途 / Purpose:** 在 「peer changed team」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 peer changed team 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
@@ -74,7 +74,7 @@ missionMultiplayerTeamDeathmatch.OnPeerChangedTeam(peer, oldTeam, newTeam);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
@@ -85,7 +85,7 @@ missionMultiplayerTeamDeathmatch.OnAgentRemoved(affectedAgent, affectorAgent, ag
 ### CheckForMatchEnd
 `public override bool CheckForMatchEnd()`
 
-**用途 / Purpose:** 检查「for match end」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查for match end在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例
@@ -96,7 +96,7 @@ var result = missionMultiplayerTeamDeathmatch.CheckForMatchEnd();
 ### GetWinnerTeam
 `public override Team GetWinnerTeam()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「winner team」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 winner team 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatch 实例

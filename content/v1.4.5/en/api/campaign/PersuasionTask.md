@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### AddOptionToTask
 `public void AddOptionToTask(PersuasionOptionArgs option)`
 
-**Purpose:** Adds `option to task` to the current collection or state.
+**Purpose:** **Purpose:** Adds option to task to the current collection or state.
 
 ```csharp
 // Obtain an instance of PersuasionTask from the subsystem API first
@@ -34,7 +34,7 @@ persuasionTask.AddOptionToTask(option);
 ### BlockAllOptions
 `public void BlockAllOptions()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BlockAllOptions logic.
 
 ```csharp
 // Obtain an instance of PersuasionTask from the subsystem API first
@@ -45,7 +45,7 @@ persuasionTask.BlockAllOptions();
 ### UnblockAllOptions
 `public void UnblockAllOptions()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnblockAllOptions logic.
 
 ```csharp
 // Obtain an instance of PersuasionTask from the subsystem API first
@@ -56,7 +56,7 @@ persuasionTask.UnblockAllOptions();
 ### ApplyEffects
 `public void ApplyEffects(float moveToNextStageChance, float blockRandomOptionChance)`
 
-**Purpose:** Applies the effect of `effects` to the current object.
+**Purpose:** **Purpose:** Applies the effect of effects to the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionTask from the subsystem API first

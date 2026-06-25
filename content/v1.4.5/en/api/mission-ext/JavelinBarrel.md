@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Usables` to place it in t
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of JavelinBarrel from the subsystem API first

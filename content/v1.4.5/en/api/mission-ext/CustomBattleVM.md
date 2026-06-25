@@ -49,7 +49,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### SetActiveState
 `public void SetActiveState(bool isActive)`
 
-**Purpose:** Assigns a new value to `active state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to active state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -60,7 +60,7 @@ customBattleVM.SetActiveState(false);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -71,7 +71,7 @@ customBattleVM.RefreshValues();
 ### ExecuteBack
 `public void ExecuteBack()`
 
-**Purpose:** Runs the operation or workflow associated with `back`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with back.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -82,7 +82,7 @@ customBattleVM.ExecuteBack();
 ### ExecuteStart
 `public void ExecuteStart()`
 
-**Purpose:** Runs the operation or workflow associated with `start`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with start.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -93,7 +93,7 @@ customBattleVM.ExecuteStart();
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Runs the operation or workflow associated with `randomize`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -104,7 +104,7 @@ customBattleVM.ExecuteRandomize();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -115,7 +115,7 @@ customBattleVM.OnFinalize();
 ### ExecuteSwitchToNextCustomBattle
 `public void ExecuteSwitchToNextCustomBattle()`
 
-**Purpose:** Runs the operation or workflow associated with `switch to next custom battle`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to next custom battle.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -126,7 +126,7 @@ customBattleVM.ExecuteSwitchToNextCustomBattle();
 ### SetStartInputKey
 `public void SetStartInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `start input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to start input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -137,7 +137,7 @@ customBattleVM.SetStartInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -148,7 +148,7 @@ customBattleVM.SetCancelInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first
@@ -159,7 +159,7 @@ customBattleVM.SetResetInputKey(hotkey);
 ### SetRandomizeInputKey
 `public void SetRandomizeInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `randomize input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to randomize input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomBattleVM from the subsystem API first

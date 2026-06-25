@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.MissionLogics.Arena` to place it in the s
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of ArenaDuelMissionBehavior from the subsystem API first

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of RaidAnEnemyTerritoryIssue from the subsystem API first
@@ -44,7 +44,7 @@ var result = raidAnEnemyTerritoryIssue.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of RaidAnEnemyTerritoryIssue from the subsystem API first
@@ -55,7 +55,7 @@ var result = raidAnEnemyTerritoryIssue.IssueStayAliveConditions();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of RaidAnEnemyTerritoryIssue from the subsystem API first
@@ -66,7 +66,7 @@ raidAnEnemyTerritoryIssue.RegisterEvents();
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Invoked when the `check for issue` event is raised.
+**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of RaidAnEnemyTerritoryIssue from the subsystem API first
@@ -77,7 +77,7 @@ raidAnEnemyTerritoryIssue.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of RaidAnEnemyTerritoryIssue from the subsystem API first

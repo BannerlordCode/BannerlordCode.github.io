@@ -33,7 +33,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Runs the operation or workflow associated with `remove`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of SettlementNotificationItemBaseVM from the subsystem API first

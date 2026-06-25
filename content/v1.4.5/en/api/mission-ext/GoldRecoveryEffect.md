@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnTick
 `public override void OnTick(Agent agent, int tickCount)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of GoldRecoveryEffect from the subsystem API first

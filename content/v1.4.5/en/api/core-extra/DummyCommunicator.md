@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### OnSynchronizeComponentTo
 `public void OnSynchronizeComponentTo(VirtualPlayer peer, PeerComponent component)`
 
-**Purpose:** Invoked when the `synchronize component to` event is raised.
+**Purpose:** **Purpose:** Invoked when the synchronize component to event is raised.
 
 ```csharp
 // Obtain an instance of DummyCommunicator from the subsystem API first
@@ -41,7 +41,7 @@ dummyCommunicator.OnSynchronizeComponentTo(peer, component);
 ### OnAddComponent
 `public void OnAddComponent(PeerComponent component)`
 
-**Purpose:** Invoked when the `add component` event is raised.
+**Purpose:** **Purpose:** Invoked when the add component event is raised.
 
 ```csharp
 // Obtain an instance of DummyCommunicator from the subsystem API first
@@ -52,7 +52,7 @@ dummyCommunicator.OnAddComponent(component);
 ### OnRemoveComponent
 `public void OnRemoveComponent(PeerComponent component)`
 
-**Purpose:** Invoked when the `remove component` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove component event is raised.
 
 ```csharp
 // Obtain an instance of DummyCommunicator from the subsystem API first
@@ -63,7 +63,7 @@ dummyCommunicator.OnRemoveComponent(component);
 ### CreateAsServer
 `public static DummyCommunicator CreateAsServer(int index, string name)`
 
-**Purpose:** Constructs a new `as server` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new as server entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ DummyCommunicator.CreateAsServer(0, "example");
 ### CreateAsClient
 `public static DummyCommunicator CreateAsClient(string name, int index)`
 
-**Purpose:** Constructs a new `as client` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new as client entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

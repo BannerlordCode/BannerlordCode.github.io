@@ -23,7 +23,7 @@ description: "ConversationTagHelper 的自动生成类参考。"
 ### UsesHighRegister
 `public static bool UsesHighRegister(CharacterObject character)`
 
-**用途 / Purpose:** 处理与 「uses high register」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UsesHighRegister 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ConversationTagHelper.UsesHighRegister(character);
 ### UsesLowRegister
 `public static bool UsesLowRegister(CharacterObject character)`
 
-**用途 / Purpose:** 处理与 「uses low register」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UsesLowRegister 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ConversationTagHelper.UsesLowRegister(character);
 ### TribalVoiceGroup
 `public static bool TribalVoiceGroup(CharacterObject character)`
 
-**用途 / Purpose:** 处理与 「tribal voice group」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TribalVoiceGroup 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ConversationTagHelper.TribalVoiceGroup(character);
 ### EducatedClass
 `public static bool EducatedClass(CharacterObject character)`
 
-**用途 / Purpose:** 处理与 「educated class」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EducatedClass 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ConversationTagHelper.EducatedClass(character);
 ### TraitCompatibility
 `public static int TraitCompatibility(Hero hero1, Hero hero2, TraitObject trait)`
 
-**用途 / Purpose:** 处理与 「trait compatibility」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TraitCompatibility 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

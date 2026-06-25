@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TroopSuppliers` to place it in t
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SupplyTroops logic.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyGroupTroopSupplier.SupplyTroops(0);
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SupplyOneTroop logic.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyGroupTroopSupplier.SupplyOneTroop();
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Reads and returns the `all troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -56,7 +56,7 @@ var result = partyGroupTroopSupplier.GetAllTroops();
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** Reads and returns the `general character` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the general character value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -67,7 +67,7 @@ var result = partyGroupTroopSupplier.GetGeneralCharacter();
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -78,7 +78,7 @@ var result = partyGroupTroopSupplier.GetNumberOfPlayerControllableTroops();
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Invoked when the `troop wounded` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop wounded event is raised.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -89,7 +89,7 @@ partyGroupTroopSupplier.OnTroopWounded(troopDescriptor);
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Invoked when the `troop killed` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop killed event is raised.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -100,7 +100,7 @@ partyGroupTroopSupplier.OnTroopKilled(troopDescriptor);
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopDescriptor, bool isOrderRetreat)`
 
-**Purpose:** Invoked when the `troop routed` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop routed event is raised.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -111,7 +111,7 @@ partyGroupTroopSupplier.OnTroopRouted(troopDescriptor, false);
 ### GetParty
 `public PartyBase GetParty(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Reads and returns the `party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first
@@ -122,7 +122,7 @@ var result = partyGroupTroopSupplier.GetParty(troopDescriptor);
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor descriptor, BasicCharacterObject attackedCharacter, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon)`
 
-**Purpose:** Invoked when the `troop score hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop score hit event is raised.
 
 ```csharp
 // Obtain an instance of PartyGroupTroopSupplier from the subsystem API first

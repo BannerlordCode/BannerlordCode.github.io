@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize(EngineType engineType, Platform currentPlatform, Runtime currentRuntimeLibrary)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ ApplicationPlatform.Initialize(engineType, currentPlatform, currentRuntimeLibrar
 ### IsPlatformWindows
 `public static bool IsPlatformWindows()`
 
-**Purpose:** Determines whether the current object is in the `platform windows` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the platform windows state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ ApplicationPlatform.IsPlatformWindows();
 ### IsPlatformConsole
 `public static bool IsPlatformConsole()`
 
-**Purpose:** Determines whether the current object is in the `platform console` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the platform console state or condition.
 
 ```csharp
 // Static call; no instance required

@@ -42,7 +42,7 @@ description: "WeaponDesignElement 的自动生成类参考。"
 ### SetScale
 `public void SetScale(int scalePercentage)`
 
-**用途 / Purpose:** 为 「scale」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 scale 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignElement 实例
@@ -53,7 +53,7 @@ weaponDesignElement.SetScale(0);
 ### GetCopy
 `public WeaponDesignElement GetCopy()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignElement 实例
@@ -64,7 +64,7 @@ var result = weaponDesignElement.GetCopy();
 ### GetInvalidPieceForType
 `public static WeaponDesignElement GetInvalidPieceForType(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「invalid piece for type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 invalid piece for type 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -74,7 +74,7 @@ WeaponDesignElement.GetInvalidPieceForType(pieceType);
 ### CreateUsablePiece
 `public static WeaponDesignElement CreateUsablePiece(CraftingPiece craftingPiece, int scalePercentage = 100)`
 
-**用途 / Purpose:** 构建一个新的 「usable piece」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 usable piece 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

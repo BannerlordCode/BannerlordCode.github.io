@@ -23,7 +23,7 @@ Treat `EncounterGameMenuModel` as a Model-style extension point: first identify 
 ### GetEncounterMenu
 `public abstract string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**Purpose:** Reads and returns the `encounter menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the encounter menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = encounterGameMenuModel.GetEncounterMenu(attackerParty, defenderPart
 ### GetRaidCompleteMenu
 `public abstract string GetRaidCompleteMenu()`
 
-**Purpose:** Reads and returns the `raid complete menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the raid complete menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = encounterGameMenuModel.GetRaidCompleteMenu();
 ### GetNewPartyJoinMenu
 `public abstract string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**Purpose:** Reads and returns the `new party join menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the new party join menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = encounterGameMenuModel.GetNewPartyJoinMenu(newParty);
 ### GetGenericStateMenu
 `public abstract string GetGenericStateMenu()`
 
-**Purpose:** Reads and returns the `generic state menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the generic state menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = encounterGameMenuModel.GetGenericStateMenu();
 ### IsPlunderMenu
 `public abstract bool IsPlunderMenu(string menuId)`
 
-**Purpose:** Determines whether the current object is in the `plunder menu` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the plunder menu state or condition.
 
 ```csharp
 // Obtain an instance of EncounterGameMenuModel from the subsystem API first

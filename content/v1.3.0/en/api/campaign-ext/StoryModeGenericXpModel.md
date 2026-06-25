@@ -23,7 +23,7 @@ Treat `StoryModeGenericXpModel` as a Model-style extension point: first identify
 ### GetXpMultiplier
 `public override float GetXpMultiplier(Hero hero)`
 
-**Purpose:** Reads and returns the `xp multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeGenericXpModel from the subsystem API first

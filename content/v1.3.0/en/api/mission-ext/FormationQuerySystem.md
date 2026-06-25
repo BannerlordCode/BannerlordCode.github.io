@@ -119,7 +119,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### EvaluateAllPreliminaryQueryData
 `public void EvaluateAllPreliminaryQueryData()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EvaluateAllPreliminaryQueryData logic.
 
 ```csharp
 // Obtain an instance of FormationQuerySystem from the subsystem API first
@@ -130,7 +130,7 @@ formationQuerySystem.EvaluateAllPreliminaryQueryData();
 ### ForceExpireCavalryUnitRatio
 `public void ForceExpireCavalryUnitRatio()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceExpireCavalryUnitRatio logic.
 
 ```csharp
 // Obtain an instance of FormationQuerySystem from the subsystem API first
@@ -141,7 +141,7 @@ formationQuerySystem.ForceExpireCavalryUnitRatio();
 ### Expire
 `public void Expire()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Expire logic.
 
 ```csharp
 // Obtain an instance of FormationQuerySystem from the subsystem API first
@@ -152,7 +152,7 @@ formationQuerySystem.Expire();
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExpireAfterUnitAddRemove logic.
 
 ```csharp
 // Obtain an instance of FormationQuerySystem from the subsystem API first
@@ -163,7 +163,7 @@ formationQuerySystem.ExpireAfterUnitAddRemove();
 ### GetClassWeightedFactor
 `public float GetClassWeightedFactor(float infantryWeight, float rangedWeight, float cavalryWeight, float rangedCavalryWeight)`
 
-**Purpose:** Reads and returns the `class weighted factor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the class weighted factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of FormationQuerySystem from the subsystem API first

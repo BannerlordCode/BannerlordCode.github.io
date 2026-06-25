@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateTexture
 `public override Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Constructs a new `texture` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new texture entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of BannerLargeThumbnailCache from the subsystem API first

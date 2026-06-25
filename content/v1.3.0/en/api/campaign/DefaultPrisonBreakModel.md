@@ -23,7 +23,7 @@ Treat `DefaultPrisonBreakModel` as a Model-style extension point: first identify
 ### GetNumberOfGuardsToSpawn
 `public override int GetNumberOfGuardsToSpawn(Settlement settlement)`
 
-**Purpose:** Reads and returns the `number of guards to spawn` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of guards to spawn value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPrisonBreakModel.GetNumberOfGuardsToSpawn(settlement);
 ### CanPlayerStagePrisonBreak
 `public override bool CanPlayerStagePrisonBreak(Settlement settlement)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `player stage prison break`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player stage prison break.
 
 ```csharp
 // Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPrisonBreakModel.CanPlayerStagePrisonBreak(settlement);
 ### GetPrisonBreakStartCost
 `public override int GetPrisonBreakStartCost(Hero prisonerHero)`
 
-**Purpose:** Reads and returns the `prison break start cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prison break start cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultPrisonBreakModel.GetPrisonBreakStartCost(prisonerHero);
 ### GetRelationRewardOnPrisonBreak
 `public override int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
 
-**Purpose:** Reads and returns the `relation reward on prison break` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relation reward on prison break value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPrisonBreakModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultPrisonBreakModel.GetRelationRewardOnPrisonBreak(prisonerHero
 ### GetRogueryRewardOnPrisonBreak
 `public override float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
 
-**Purpose:** Reads and returns the `roguery reward on prison break` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the roguery reward on prison break value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPrisonBreakModel from the subsystem API first

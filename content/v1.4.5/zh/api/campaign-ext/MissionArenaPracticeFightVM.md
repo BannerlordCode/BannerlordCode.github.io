@@ -32,7 +32,7 @@ description: "MissionArenaPracticeFightVM 的自动生成类参考。"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionArenaPracticeFightVM 实例
@@ -43,7 +43,7 @@ missionArenaPracticeFightVM.Tick();
 ### UpdatePrizeText
 `public void UpdatePrizeText()`
 
-**用途 / Purpose:** 重新计算并更新 「prize text」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 prize text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionArenaPracticeFightVM 实例

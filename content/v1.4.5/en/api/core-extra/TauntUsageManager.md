@@ -30,7 +30,7 @@ Treat `TauntUsageManager` as a Manager-style extension point: first identify who
 ### Compare
 `public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -41,7 +41,7 @@ var result = tauntUsageManager.Compare(x, y);
 ### AddUsage
 `public void AddUsage(TauntUsage usage)`
 
-**Purpose:** Adds `usage` to the current collection or state.
+**Purpose:** **Purpose:** Adds usage to the current collection or state.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -52,7 +52,7 @@ tauntUsageManager.AddUsage(usage);
 ### GetUsages
 `public MBReadOnlyList<TauntUsage> GetUsages()`
 
-**Purpose:** Reads and returns the `usages` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the usages value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -63,7 +63,7 @@ var result = tauntUsageManager.GetUsages();
 ### IsSuitable
 `public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Determines whether the current object is in the `suitable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the suitable state or condition.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -74,7 +74,7 @@ var result = tauntUsageManager.IsSuitable(false, false, mainHandWeapon, offhandW
 ### GetIsNotSuitableReason
 `public TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Reads and returns the `is not suitable reason` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is not suitable reason value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -85,7 +85,7 @@ var result = tauntUsageManager.GetIsNotSuitableReason(false, false, mainHandWeap
 ### GetAction
 `public string GetAction()`
 
-**Purpose:** Reads and returns the `action` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -96,7 +96,7 @@ var result = tauntUsageManager.GetAction();
 ### Initialize
 `public static TauntUsageManager Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -106,7 +106,7 @@ TauntUsageManager.Initialize();
 ### Read
 `public void Read()`
 
-**Purpose:** Reads the data or state of the current object.
+**Purpose:** **Purpose:** Reads the data or state of the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -117,7 +117,7 @@ tauntUsageManager.Read();
 ### GetUsageSet
 `public TauntUsageSet GetUsageSet(string id)`
 
-**Purpose:** Reads and returns the `usage set` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the usage set value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -128,7 +128,7 @@ var result = tauntUsageManager.GetUsageSet("example");
 ### GetAction
 `public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Reads and returns the `action` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -139,7 +139,7 @@ var result = tauntUsageManager.GetAction(0, false, false, mainHandWeapon, offhan
 ### GetActionDisabledReasonText
 `public static string GetActionDisabledReasonText(TauntUsage.TauntUsageFlag disabledReasonFlag)`
 
-**Purpose:** Reads and returns the `action disabled reason text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action disabled reason text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ TauntUsageManager.GetActionDisabledReasonText(disabledReasonFlag);
 ### GetIsActionNotSuitableReason
 `public TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**Purpose:** Reads and returns the `is action not suitable reason` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is action not suitable reason value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -160,7 +160,7 @@ var result = tauntUsageManager.GetIsActionNotSuitableReason(0, false, false, mai
 ### GetTauntItemCount
 `public int GetTauntItemCount()`
 
-**Purpose:** Reads and returns the `taunt item count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the taunt item count value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -171,7 +171,7 @@ var result = tauntUsageManager.GetTauntItemCount();
 ### GetIndexOfAction
 `public int GetIndexOfAction(string id)`
 
-**Purpose:** Reads and returns the `index of action` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index of action value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first
@@ -182,7 +182,7 @@ var result = tauntUsageManager.GetIndexOfAction("example");
 ### GetDefaultAction
 `public string GetDefaultAction(int index)`
 
-**Purpose:** Reads and returns the `default action` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default action value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntUsageManager from the subsystem API first

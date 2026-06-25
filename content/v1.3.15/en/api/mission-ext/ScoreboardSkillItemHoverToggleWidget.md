@@ -30,7 +30,7 @@ Treat `ScoreboardSkillItemHoverToggleWidget` as a Widget-style extension point: 
 ### GetAllSkillWidgets
 `public List<Widget> GetAllSkillWidgets()`
 
-**Purpose:** Reads and returns the `all skill widgets` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all skill widgets value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScoreboardSkillItemHoverToggleWidget from the subsystem API first

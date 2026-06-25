@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle
 ### SetInitialFormation
 `public void SetInitialFormation(OrderOfBattleFormationItemVM formation)`
 
-**Purpose:** Assigns a new value to `initial formation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to initial formation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
@@ -55,7 +55,7 @@ orderOfBattleHeroItemVM.SetInitialFormation(formation);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
@@ -66,7 +66,7 @@ orderOfBattleHeroItemVM.RefreshValues();
 ### OnAssignmentRemoved
 `public void OnAssignmentRemoved()`
 
-**Purpose:** Invoked when the `assignment removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the assignment removed event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
@@ -77,7 +77,7 @@ orderOfBattleHeroItemVM.OnAssignmentRemoved();
 ### RefreshInformation
 `public void RefreshInformation()`
 
-**Purpose:** Keeps the display or cache of `information` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of information in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
@@ -88,7 +88,7 @@ orderOfBattleHeroItemVM.RefreshInformation();
 ### RefreshAssignmentInfo
 `public void RefreshAssignmentInfo()`
 
-**Purpose:** Keeps the display or cache of `assignment info` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of assignment info in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first
@@ -99,7 +99,7 @@ orderOfBattleHeroItemVM.RefreshAssignmentInfo();
 ### SetIsPreAssigned
 `public void SetIsPreAssigned(bool isPreAssigned)`
 
-**Purpose:** Assigns a new value to `is pre assigned` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is pre assigned and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderOfBattleHeroItemVM from the subsystem API first

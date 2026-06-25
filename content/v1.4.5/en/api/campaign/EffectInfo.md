@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ### GetEffectValue
 `public float GetEffectValue(int i)`
 
-**Purpose:** Reads and returns the `effect value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effect value value held by the this instance.
 
 ```csharp
 // Obtain an instance of EffectInfo from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitializeShipEntityCache
 `public static void InitializeShipEntityCache(Scene scene)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `ship entity cache`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by ship entity cache.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ VisualShipFactory.InitializeShipEntityCache(scene);
 ### DeregisterVisualShipCache
 `public static void DeregisterVisualShipCache()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeregisterVisualShipCache logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ VisualShipFactory.DeregisterVisualShipCache();
 ### CreateVisualShip
 `public static GameEntity CreateVisualShip(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, float hitPointRatio, uint sailColor1 = 4294967295U, uint sailColor2 = 4294967295U, bool createPhysics = false)`
 
-**Purpose:** Constructs a new `visual ship` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new visual ship entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ VisualShipFactory.CreateVisualShip("example", scene, upgrades, 0, 0, 0, 0, false
 ### CreateVisualShipForCampaign
 `public static GameEntity CreateVisualShipForCampaign(string shipPrefab, Scene scene, List<ShipVisualSlotInfo> upgrades, int shipSeed, string shipCustomSailPatternId, uint sailColor1 = 4294967295U, uint sailColor2 = 4294967295U)`
 
-**Purpose:** Constructs a new `visual ship for campaign` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new visual ship for campaign entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ VisualShipFactory.CreateVisualShipForCampaign("example", scene, upgrades, 0, "ex
 ### RefreshUpgrades
 `public static void RefreshUpgrades(WeakGameEntity shipEntity, List<ShipVisualSlotInfo> upgrades)`
 
-**Purpose:** Keeps the display or cache of `upgrades` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of upgrades in sync with the underlying state.
 
 ```csharp
 // Static call; no instance required

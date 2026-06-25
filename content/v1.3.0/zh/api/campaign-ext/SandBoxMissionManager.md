@@ -23,7 +23,7 @@ description: "SandBoxMissionManager 的自动生成类参考。"
 ### OpenTournamentFightMission
 `public IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament fight mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxMissionManager 实例
@@ -34,7 +34,7 @@ var result = sandBoxMissionManager.OpenTournamentFightMission("example", tournam
 ### OpenTournamentHorseRaceMission
 `public IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament horse race mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxMissionManager 实例
@@ -45,7 +45,7 @@ var result = sandBoxMissionManager.OpenTournamentHorseRaceMission("example", tou
 ### OpenTournamentJoustingMission
 `public IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament jousting mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxMissionManager 实例
@@ -56,7 +56,7 @@ var result = sandBoxMissionManager.OpenTournamentJoustingMission("example", tour
 ### OpenTournamentArcheryMission
 `public IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament archery mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxMissionManager 实例

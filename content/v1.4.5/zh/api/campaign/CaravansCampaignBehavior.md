@@ -29,7 +29,7 @@ description: "CaravansCampaignBehavior 的自动生成类参考。"
 ### OnSellAction
 `public void OnSellAction(Settlement soldSettlement, int sellPrice)`
 
-**用途 / Purpose:** 在 「sell action」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 sell action 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -40,7 +40,7 @@ caravansCampaignBehavior.OnSellAction(soldSettlement, 0);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -51,7 +51,7 @@ caravansCampaignBehavior.Reset();
 ### CreateNewLog
 `public TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 构建一个新的 「new log」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new log 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -62,7 +62,7 @@ var result = caravansCampaignBehavior.CreateNewLog(boughtSettlement, 0, itemRost
 ### ReleaseLog
 `public void ReleaseLog(TradeActionLog log)`
 
-**用途 / Purpose:** 处理与 「release log」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseLog 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -73,7 +73,7 @@ caravansCampaignBehavior.ReleaseLog(log);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -84,7 +84,7 @@ var result = caravansCampaignBehavior.ToString();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -95,7 +95,7 @@ caravansCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -106,7 +106,7 @@ caravansCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 session launched 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -117,7 +117,7 @@ caravansCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### SpawnCaravan
 `public void SpawnCaravan(Hero hero, bool initialSpawn = false)`
 
-**用途 / Purpose:** 处理与 「spawn caravan」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnCaravan 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -128,7 +128,7 @@ caravansCampaignBehavior.SpawnCaravan(hero, false);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DailyTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -139,7 +139,7 @@ caravansCampaignBehavior.DailyTick();
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理与 「hourly tick party」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HourlyTickParty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -150,7 +150,7 @@ caravansCampaignBehavior.HourlyTickParty(mobileParty);
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 在 「settlement entered」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 settlement entered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -161,7 +161,7 @@ caravansCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty mobileParty, Settlement settlement)`
 
-**用途 / Purpose:** 在 「settlement left」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 settlement left 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例

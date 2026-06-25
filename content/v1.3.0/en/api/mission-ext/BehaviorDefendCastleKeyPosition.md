@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Reads and returns the `behavior string` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the behavior string value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
@@ -40,7 +40,7 @@ var result = behaviorDefendCastleKeyPosition.GetBehaviorString();
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**Purpose:** Invoked when the `valid behavior side changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the valid behavior side changed event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
@@ -51,7 +51,7 @@ behaviorDefendCastleKeyPosition.OnValidBehaviorSideChanged();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Advances the `occasionally` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first
@@ -62,7 +62,7 @@ behaviorDefendCastleKeyPosition.TickOccasionally();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of BehaviorDefendCastleKeyPosition from the subsystem API first

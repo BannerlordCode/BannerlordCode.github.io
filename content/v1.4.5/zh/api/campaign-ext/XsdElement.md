@@ -23,7 +23,7 @@ description: "XsdElement 的自动生成类参考。"
 ### XsdElement
 `public struct XsdElement(string xPath, bool alwaysPreferMerge)`
 
-**用途 / Purpose:** 处理与 「xsd element」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 XsdElement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 XsdElement 实例

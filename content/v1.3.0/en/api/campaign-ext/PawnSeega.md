@@ -32,7 +32,7 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PawnSeega from the subsystem API first
@@ -43,7 +43,7 @@ pawnSeega.Reset();
 ### UpdateMoveBackAvailable
 `public void UpdateMoveBackAvailable()`
 
-**Purpose:** Recalculates and stores the latest representation of `move back available`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of move back available.
 
 ```csharp
 // Obtain an instance of PawnSeega from the subsystem API first
@@ -54,7 +54,7 @@ pawnSeega.UpdateMoveBackAvailable();
 ### AISetMovedThisTurn
 `public void AISetMovedThisTurn(bool moved)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AISetMovedThisTurn logic.
 
 ```csharp
 // Obtain an instance of PawnSeega from the subsystem API first

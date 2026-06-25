@@ -63,7 +63,7 @@ description: "TutorialHelper 的自动生成类参考。"
 ### IsThereAvailableCompanionInLocation
 `public static bool? IsThereAvailableCompanionInLocation(Location location)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「there available companion in location」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there available companion in location 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

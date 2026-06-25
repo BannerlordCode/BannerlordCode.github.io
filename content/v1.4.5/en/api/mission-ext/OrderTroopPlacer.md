@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Order` to place
 ### GetGroundOrNormalCursor
 `public CursorState GetGroundOrNormalCursor()`
 
-**Purpose:** Reads and returns the `ground or normal cursor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ground or normal cursor value held by the this instance.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -41,7 +41,7 @@ var result = orderTroopPlacer.GetGroundOrNormalCursor();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -52,7 +52,7 @@ orderTroopPlacer.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -63,7 +63,7 @@ orderTroopPlacer.OnMissionTick(0);
 ### RestrictOrdersToDeploymentBoundaries
 `public void RestrictOrdersToDeploymentBoundaries(bool enabled)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RestrictOrdersToDeploymentBoundaries logic.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -74,7 +74,7 @@ orderTroopPlacer.RestrictOrdersToDeploymentBoundaries(false);
 ### UpdateFormationDrawing
 `public void UpdateFormationDrawing(bool giveOrder)`
 
-**Purpose:** Recalculates and stores the latest representation of `formation drawing`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of formation drawing.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first
@@ -85,7 +85,7 @@ orderTroopPlacer.UpdateFormationDrawing(false);
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of OrderTroopPlacer from the subsystem API first

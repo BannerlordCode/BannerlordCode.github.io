@@ -29,7 +29,7 @@ description: "DefencePoint 的自动生成类参考。"
 ### AddDefender
 `public void AddDefender(Agent defender)`
 
-**用途 / Purpose:** 将 「defender」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 defender 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例
@@ -40,7 +40,7 @@ defencePoint.AddDefender(defender);
 ### RemoveDefender
 `public bool RemoveDefender(Agent defender)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「defender」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 defender。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例
@@ -51,7 +51,7 @@ var result = defencePoint.RemoveDefender(defender);
 ### PurgeInactiveDefenders
 `public void PurgeInactiveDefenders()`
 
-**用途 / Purpose:** 处理与 「purge inactive defenders」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PurgeInactiveDefenders 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例
@@ -62,7 +62,7 @@ defencePoint.PurgeInactiveDefenders();
 ### GetVacantPosition
 `public MatrixFrame GetVacantPosition(Agent a)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「vacant position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vacant position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例
@@ -73,7 +73,7 @@ var result = defencePoint.GetVacantPosition(a);
 ### CountOccupiedDefenderPositions
 `public int CountOccupiedDefenderPositions()`
 
-**用途 / Purpose:** 处理与 「count occupied defender positions」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CountOccupiedDefenderPositions 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例

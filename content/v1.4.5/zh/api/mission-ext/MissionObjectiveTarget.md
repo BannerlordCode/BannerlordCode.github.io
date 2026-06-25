@@ -23,7 +23,7 @@ description: "MissionObjectiveTarget 的自动生成类参考。"
 ### IsActive
 `public abstract bool IsActive()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「active」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 active 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveTarget 实例
@@ -34,7 +34,7 @@ var result = missionObjectiveTarget.IsActive();
 ### GetName
 `public abstract TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveTarget 实例
@@ -45,7 +45,7 @@ var result = missionObjectiveTarget.GetName();
 ### GetGlobalPosition
 `public abstract Vec3 GetGlobalPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「global position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveTarget 实例

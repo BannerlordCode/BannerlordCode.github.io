@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.SteamWorkshop` to place it in the
 ### LoadFrom
 `public override void LoadFrom(XmlNode xmlNode)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CreateItemTask from the subsystem API first
@@ -34,7 +34,7 @@ createItemTask.LoadFrom(xmlNode);
 ### DoJob
 `public override void DoJob()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoJob logic.
 
 ```csharp
 // Obtain an instance of CreateItemTask from the subsystem API first

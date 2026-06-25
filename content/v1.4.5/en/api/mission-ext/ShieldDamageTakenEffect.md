@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetShieldDamageTaken
 `public override float GetShieldDamageTaken(bool isCorrectSideBlock)`
 
-**Purpose:** Reads and returns the `shield damage taken` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the shield damage taken value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShieldDamageTakenEffect from the subsystem API first

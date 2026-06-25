@@ -32,7 +32,7 @@ description: "TeamQuerySystem 的自动生成类参考。"
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 处理与 「expire」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Expire 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例
@@ -43,7 +43,7 @@ teamQuerySystem.Expire();
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**用途 / Purpose:** 处理与 「expire after unit add remove」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ExpireAfterUnitAddRemove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例
@@ -54,7 +54,7 @@ teamQuerySystem.ExpireAfterUnitAddRemove();
 ### RegisterDeath
 `public void RegisterDeath()`
 
-**用途 / Purpose:** 将「death」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将death注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例
@@ -65,7 +65,7 @@ teamQuerySystem.RegisterDeath();
 ### RegisterDeathByRanged
 `public void RegisterDeathByRanged()`
 
-**用途 / Purpose:** 将「death by ranged」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将death by ranged注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例
@@ -76,7 +76,7 @@ teamQuerySystem.RegisterDeathByRanged();
 ### GetLocalAllyPower
 `public float GetLocalAllyPower(Vec2 target)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「local ally power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local ally power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例
@@ -87,7 +87,7 @@ var result = teamQuerySystem.GetLocalAllyPower(target);
 ### GetLocalEnemyPower
 `public float GetLocalEnemyPower(Vec2 target)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「local enemy power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local enemy power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例

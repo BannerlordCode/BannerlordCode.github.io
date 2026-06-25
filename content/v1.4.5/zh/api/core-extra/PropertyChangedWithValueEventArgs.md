@@ -30,7 +30,7 @@ description: "PropertyChangedWithValueEventArgs 的自动生成类参考。"
 ### PropertyChangedWithValueEventArgs
 `public struct PropertyChangedWithValueEventArgs(string propertyName, object value)`
 
-**用途 / Purpose:** 处理与 「property changed with value event args」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PropertyChangedWithValueEventArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyChangedWithValueEventArgs 实例

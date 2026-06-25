@@ -23,7 +23,7 @@ Treat `SearchBodyMissionHandler` as a Handler-style extension point: first ident
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `agent interaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent interaction event is raised.
 
 ```csharp
 // Obtain an instance of SearchBodyMissionHandler from the subsystem API first
@@ -34,7 +34,7 @@ searchBodyMissionHandler.OnAgentInteraction(userAgent, agent, 0);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there agent action state or condition.
 
 ```csharp
 // Obtain an instance of SearchBodyMissionHandler from the subsystem API first

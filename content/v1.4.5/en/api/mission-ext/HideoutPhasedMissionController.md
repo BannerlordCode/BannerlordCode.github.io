@@ -23,7 +23,7 @@ Treat `HideoutPhasedMissionController` as a Controller-style extension point: fi
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of HideoutPhasedMissionController from the subsystem API first
@@ -34,7 +34,7 @@ hideoutPhasedMissionController.OnMissionTick(0);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of HideoutPhasedMissionController from the subsystem API first
@@ -45,7 +45,7 @@ hideoutPhasedMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of HideoutPhasedMissionController from the subsystem API first

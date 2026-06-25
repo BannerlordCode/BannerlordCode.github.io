@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
@@ -45,7 +45,7 @@ clanRoleMemberItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
@@ -56,7 +56,7 @@ clanRoleMemberItemVM.OnFinalize();
 ### ExecuteAssignHeroToRole
 `public void ExecuteAssignHeroToRole()`
 
-**Purpose:** Runs the operation or workflow associated with `assign hero to role`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with assign hero to role.
 
 ```csharp
 // Obtain an instance of ClanRoleMemberItemVM from the subsystem API first
@@ -67,7 +67,7 @@ clanRoleMemberItemVM.ExecuteAssignHeroToRole();
 ### GetEffectsList
 `public string GetEffectsList(PartyRole role)`
 
-**Purpose:** Reads and returns the `effects list` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effects list value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanRoleMemberItemVM from the subsystem API first

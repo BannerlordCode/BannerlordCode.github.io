@@ -23,7 +23,7 @@ description: "DXGI 的自动生成类参考。"
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 DXGI 实例
@@ -34,7 +34,7 @@ var result = dXGI.Equals(o);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 DXGI 实例
@@ -45,7 +45,7 @@ var result = dXGI.GetHashCode();
 ### CreateDXGIFactory
 `public static extern int CreateDXGIFactory(ref Guid riid, out IntPtr factory)`
 
-**用途 / Purpose:** 构建一个新的 「d x g i factory」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 d x g i factory 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

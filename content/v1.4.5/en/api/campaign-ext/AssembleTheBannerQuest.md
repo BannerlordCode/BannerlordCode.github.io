@@ -23,7 +23,7 @@ Start from namespace `StoryMode.Quests.FirstPhase` to place it in the stack, the
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Invoked when the `failed` event is raised.
+**Purpose:** **Purpose:** Invoked when the failed event is raised.
 
 ```csharp
 // Obtain an instance of AssembleTheBannerQuest from the subsystem API first
@@ -34,7 +34,7 @@ assembleTheBannerQuest.OnFailed();
 ### OnCanceled
 `public override void OnCanceled()`
 
-**Purpose:** Invoked when the `canceled` event is raised.
+**Purpose:** **Purpose:** Invoked when the canceled event is raised.
 
 ```csharp
 // Obtain an instance of AssembleTheBannerQuest from the subsystem API first

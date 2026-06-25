@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetStringId
 `public override string GetStringId()`
 
-**Purpose:** Reads and returns the `string id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the string id value held by the this instance.
 
 ```csharp
 // Obtain an instance of GenericSaveId from the subsystem API first
@@ -41,7 +41,7 @@ var result = genericSaveId.GetStringId();
 ### WriteTo
 `public override void WriteTo(IWriter writer)`
 
-**Purpose:** Writes `to` to the target location.
+**Purpose:** **Purpose:** Writes to to the target location.
 
 ```csharp
 // Obtain an instance of GenericSaveId from the subsystem API first
@@ -52,7 +52,7 @@ genericSaveId.WriteTo(writer);
 ### ReadFrom
 `public static GenericSaveId ReadFrom(IReader reader)`
 
-**Purpose:** Reads the data or state of `from`.
+**Purpose:** **Purpose:** Reads the data or state of from.
 
 ```csharp
 // Static call; no instance required
@@ -62,7 +62,7 @@ GenericSaveId.ReadFrom(reader);
 ### GetSizeInBytes
 `public override int GetSizeInBytes()`
 
-**Purpose:** Reads and returns the `size in bytes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the size in bytes value held by the this instance.
 
 ```csharp
 // Obtain an instance of GenericSaveId from the subsystem API first

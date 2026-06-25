@@ -23,7 +23,7 @@ description: "DefaultIncidentModel 的自动生成类参考。"
 ### GetMinGlobalCooldownTime
 `public override CampaignTime GetMinGlobalCooldownTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「min global cooldown time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 min global cooldown time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIncidentModel 实例
@@ -34,7 +34,7 @@ var result = defaultIncidentModel.GetMinGlobalCooldownTime();
 ### GetMaxGlobalCooldownTime
 `public override CampaignTime GetMaxGlobalCooldownTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max global cooldown time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max global cooldown time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIncidentModel 实例
@@ -45,7 +45,7 @@ var result = defaultIncidentModel.GetMaxGlobalCooldownTime();
 ### GetIncidentTriggerGlobalProbability
 `public override float GetIncidentTriggerGlobalProbability()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「incident trigger global probability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 incident trigger global probability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIncidentModel 实例
@@ -56,7 +56,7 @@ var result = defaultIncidentModel.GetIncidentTriggerGlobalProbability();
 ### GetIncidentTriggerProbabilityDuringSiege
 `public override float GetIncidentTriggerProbabilityDuringSiege()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during siege」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 incident trigger probability during siege 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIncidentModel 实例
@@ -67,7 +67,7 @@ var result = defaultIncidentModel.GetIncidentTriggerProbabilityDuringSiege();
 ### GetIncidentTriggerProbabilityDuringWait
 `public override float GetIncidentTriggerProbabilityDuringWait()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during wait」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 incident trigger probability during wait 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIncidentModel 实例

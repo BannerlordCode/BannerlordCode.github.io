@@ -33,7 +33,7 @@ Treat `ObjectiveMarkersParentWidget` as a Widget-style extension point: first id
 ### Compare
 `public int Compare(ObjectiveMarkerWidget x, ObjectiveMarkerWidget y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ObjectiveMarkersParentWidget from the subsystem API first
@@ -44,7 +44,7 @@ var result = objectiveMarkersParentWidget.Compare(x, y);
 ### Compare
 `public int Compare(Widget x, Widget y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ObjectiveMarkersParentWidget from the subsystem API first

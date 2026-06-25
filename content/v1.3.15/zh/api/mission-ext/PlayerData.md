@@ -56,7 +56,7 @@ description: "PlayerData 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)`
 
-**用途 / Purpose:** 处理与 「fill with」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例
@@ -67,7 +67,7 @@ playerData.FillWith(playerId, ownerPlayerId, bodyProperties, false, "example", 0
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)`
 
-**用途 / Purpose:** 处理与 「fill with new player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillWithNewPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例
@@ -78,7 +78,7 @@ playerData.FillWithNewPlayer(playerId, ownerPlayerId, "example");
 ### HasGameStats
 `public bool HasGameStats(string gameType)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「game stats」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 game stats。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例
@@ -89,7 +89,7 @@ var result = playerData.HasGameStats("example");
 ### GetGameStats
 `public PlayerStatsBase GetGameStats(string gameType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「game stats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game stats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例
@@ -100,7 +100,7 @@ var result = playerData.GetGameStats("example");
 ### UpdateGameStats
 `public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)`
 
-**用途 / Purpose:** 重新计算并更新 「game stats」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 game stats 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例

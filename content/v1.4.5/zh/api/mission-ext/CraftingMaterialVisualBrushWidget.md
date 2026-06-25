@@ -30,7 +30,7 @@ description: "CraftingMaterialVisualBrushWidget 的自动生成类参考。"
 ### CraftingMaterialVisualBrushWidget
 `public class CraftingMaterialVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「crafting material visual brush widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CraftingMaterialVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingMaterialVisualBrushWidget 实例

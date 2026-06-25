@@ -23,7 +23,7 @@ Start from namespace `StoryMode.View` to place it in the stack, then inspect its
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Invoked when the `game initialization finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeViewSubModule from the subsystem API first
@@ -34,7 +34,7 @@ storyModeViewSubModule.OnGameInitializationFinished(game);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Invoked when the `game end` event is raised.
+**Purpose:** **Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeViewSubModule from the subsystem API first
@@ -45,7 +45,7 @@ storyModeViewSubModule.OnGameEnd(game);
 ### OnSubModuleDeactivated
 `public override void OnSubModuleDeactivated()`
 
-**Purpose:** Invoked when the `sub module deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the sub module deactivated event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeViewSubModule from the subsystem API first
@@ -56,7 +56,7 @@ storyModeViewSubModule.OnSubModuleDeactivated();
 ### OnSubModuleActivated
 `public override void OnSubModuleActivated()`
 
-**Purpose:** Invoked when the `sub module activated` event is raised.
+**Purpose:** **Purpose:** Invoked when the sub module activated event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeViewSubModule from the subsystem API first

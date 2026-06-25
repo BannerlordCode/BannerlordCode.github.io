@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### OnSellAction
 `public void OnSellAction(Settlement soldSettlement, int sellPrice)`
 
-**Purpose:** Invoked when the `sell action` event is raised.
+**Purpose:** **Purpose:** Invoked when the sell action event is raised.
 
 ```csharp
 // Obtain an instance of TradeActionLog from the subsystem API first
@@ -34,7 +34,7 @@ tradeActionLog.OnSellAction(soldSettlement, 0);
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TradeActionLog from the subsystem API first

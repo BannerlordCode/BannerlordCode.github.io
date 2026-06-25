@@ -23,7 +23,7 @@ Treat `DebugAgentTeleporterMissionController` as a Controller-style extension po
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of DebugAgentTeleporterMissionController from the subsystem API first
@@ -34,7 +34,7 @@ debugAgentTeleporterMissionController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of DebugAgentTeleporterMissionController from the subsystem API first

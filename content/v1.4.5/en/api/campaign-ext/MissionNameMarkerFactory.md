@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### AddProvider
 `public void AddProvider(Type tProvider)`
 
-**Purpose:** Adds `provider` to the current collection or state.
+**Purpose:** **Purpose:** Adds provider to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerFactory from the subsystem API first
@@ -42,7 +42,7 @@ missionNameMarkerFactory.AddProvider(tProvider);
 ### RemoveProvider
 `public void RemoveProvider(Type tProvider)`
 
-**Purpose:** Removes `provider` from the current collection or state.
+**Purpose:** **Purpose:** Removes provider from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerFactory from the subsystem API first
@@ -53,7 +53,7 @@ missionNameMarkerFactory.RemoveProvider(tProvider);
 ### PushContext
 `public static INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PushContext logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MissionNameMarkerFactory.PushContext("example", false);
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PopContext logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MissionNameMarkerFactory.PopContext("example");
 ### PopContext
 `public static void PopContext(INameMarkerProviderContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PopContext logic.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MissionNameMarkerFactory.PopContext(context);
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectProviders logic.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ MissionNameMarkerFactory.CollectProviders();
 ### UpdateProviders
 `public static void UpdateProviders(MissionNameMarkerProvider existingProviders, out List<MissionNameMarkerProvider> addedProviders, out List<MissionNameMarkerProvider> removedProviders)`
 
-**Purpose:** Recalculates and stores the latest representation of `providers`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of providers.
 
 ```csharp
 // Static call; no instance required

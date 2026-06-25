@@ -30,7 +30,7 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of SecondPhase from the subsystem API first
@@ -41,7 +41,7 @@ secondPhase.OnSessionLaunched();
 ### TriggerConspiracy
 `public void TriggerConspiracy()`
 
-**Purpose:** Triggers the logic or event associated with `conspiracy`.
+**Purpose:** **Purpose:** Triggers the logic or event associated with conspiracy.
 
 ```csharp
 // Obtain an instance of SecondPhase from the subsystem API first
@@ -52,7 +52,7 @@ secondPhase.TriggerConspiracy();
 ### IncreaseConspiracyStrength
 `public void IncreaseConspiracyStrength()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IncreaseConspiracyStrength logic.
 
 ```csharp
 // Obtain an instance of SecondPhase from the subsystem API first
@@ -63,7 +63,7 @@ secondPhase.IncreaseConspiracyStrength();
 ### DecreaseConspiracyStrength
 `public void DecreaseConspiracyStrength(float amount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecreaseConspiracyStrength logic.
 
 ```csharp
 // Obtain an instance of SecondPhase from the subsystem API first
@@ -74,7 +74,7 @@ secondPhase.DecreaseConspiracyStrength(0);
 ### ActivateConspiracy
 `public void ActivateConspiracy()`
 
-**Purpose:** Activates the resource, state, or feature associated with `conspiracy`.
+**Purpose:** **Purpose:** Activates the resource, state, or feature associated with conspiracy.
 
 ```csharp
 // Obtain an instance of SecondPhase from the subsystem API first
@@ -85,7 +85,7 @@ secondPhase.ActivateConspiracy();
 ### CreateNextConspiracyQuest
 `public void CreateNextConspiracyQuest()`
 
-**Purpose:** Constructs a new `next conspiracy quest` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new next conspiracy quest entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of SecondPhase from the subsystem API first

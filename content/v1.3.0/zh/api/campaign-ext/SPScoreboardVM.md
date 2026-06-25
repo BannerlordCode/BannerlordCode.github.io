@@ -29,7 +29,7 @@ description: "SPScoreboardVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -40,7 +40,7 @@ sPScoreboardVM.RefreshValues();
 ### Initialize
 `public override void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -51,7 +51,7 @@ sPScoreboardVM.Initialize(missionScreen, mission, releaseSimulationSources, onTo
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -62,7 +62,7 @@ sPScoreboardVM.Tick(0);
 ### ExecutePlayAction
 `public override void ExecutePlayAction()`
 
-**用途 / Purpose:** 执行 「play action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 play action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -73,7 +73,7 @@ sPScoreboardVM.ExecutePlayAction();
 ### ExecuteFastForwardAction
 `public override void ExecuteFastForwardAction()`
 
-**用途 / Purpose:** 执行 「fast forward action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 fast forward action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -84,7 +84,7 @@ sPScoreboardVM.ExecuteFastForwardAction();
 ### ExecutePauseSimulationAction
 `public override void ExecutePauseSimulationAction()`
 
-**用途 / Purpose:** 执行 「pause simulation action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 pause simulation action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -95,7 +95,7 @@ sPScoreboardVM.ExecutePauseSimulationAction();
 ### ExecuteEndSimulationAction
 `public override void ExecuteEndSimulationAction()`
 
-**用途 / Purpose:** 执行 「end simulation action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end simulation action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -106,7 +106,7 @@ sPScoreboardVM.ExecuteEndSimulationAction();
 ### ExecuteQuitAction
 `public override void ExecuteQuitAction()`
 
-**用途 / Purpose:** 执行 「quit action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 quit action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -117,7 +117,7 @@ sPScoreboardVM.ExecuteQuitAction();
 ### OnBattleOver
 `public void OnBattleOver()`
 
-**用途 / Purpose:** 在 「battle over」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 battle over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -128,7 +128,7 @@ sPScoreboardVM.OnBattleOver();
 ### OnExitBattle
 `public void OnExitBattle()`
 
-**用途 / Purpose:** 在 「exit battle」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 exit battle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -139,7 +139,7 @@ sPScoreboardVM.OnExitBattle();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**用途 / Purpose:** 响应 「troop number changed」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TroopNumberChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -150,7 +150,7 @@ sPScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0, 
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** 处理与 「hero skill increased」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HeroSkillIncreased 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -161,7 +161,7 @@ sPScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter, upgraded
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**用途 / Purpose:** 处理与 「battle results ready」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BattleResultsReady 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例
@@ -172,7 +172,7 @@ sPScoreboardVM.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**用途 / Purpose:** 响应 「troop side changed」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TroopSideChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardVM 实例

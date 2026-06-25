@@ -23,7 +23,7 @@ description: "DefaultValuationModel 的自动生成类参考。"
 ### GetMilitaryValueOfParty
 `public override float GetMilitaryValueOfParty(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「military value of party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 military value of party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultValuationModel 实例
@@ -34,7 +34,7 @@ var result = defaultValuationModel.GetMilitaryValueOfParty(party);
 ### GetValueOfTroop
 `public override float GetValueOfTroop(CharacterObject troop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of troop」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultValuationModel 实例
@@ -45,7 +45,7 @@ var result = defaultValuationModel.GetValueOfTroop(troop);
 ### GetValueOfHero
 `public override float GetValueOfHero(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultValuationModel 实例

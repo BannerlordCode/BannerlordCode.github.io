@@ -90,6 +90,4 @@ public class MyBehavior : CampaignBehaviorBase
 
 ## 使用示例
 
-```csharp
-var example = new 存档系统();
-```
+// （占位示例已移除，见正文说明）

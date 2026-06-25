@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PrisonBreakCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ prisonBreakCampaignBehavior.RegisterEvents();
 ### CreatePrisonBreakGuard
 `public LocationCharacter CreatePrisonBreakGuard()`
 
-**Purpose:** Constructs a new `prison break guard` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new prison break guard entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of PrisonBreakCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = prisonBreakCampaignBehavior.CreatePrisonBreakGuard();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PrisonBreakCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ prisonBreakCampaignBehavior.SyncData(dataStore);
 ### game_menu_prison_menu_on_init
 `public static void game_menu_prison_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_prison_menu_on_init logic.
 
 ```csharp
 // Static call; no instance required

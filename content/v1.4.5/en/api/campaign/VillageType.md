@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### Initialize
 `public VillageType Initialize(TextObject shortName, string meshName, string meshNameUnderConstruction, string meshNameBurned, (ItemObject, float) productions)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of VillageType from the subsystem API first
@@ -40,7 +40,7 @@ var result = villageType.Initialize(shortName, "example", "example", "example", 
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of VillageType from the subsystem API first
@@ -51,7 +51,7 @@ var result = villageType.ToString();
 ### AddProductions
 `public void AddProductions(IEnumerable<(ItemObject, float)> productions)`
 
-**Purpose:** Adds `productions` to the current collection or state.
+**Purpose:** **Purpose:** Adds productions to the current collection or state.
 
 ```csharp
 // Obtain an instance of VillageType from the subsystem API first
@@ -62,7 +62,7 @@ villageType.AddProductions(iEnumerable<(ItemObject, 0);
 ### GetProductionPerDay
 `public float GetProductionPerDay(ItemObject item)`
 
-**Purpose:** Reads and returns the `production per day` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the production per day value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageType from the subsystem API first
@@ -73,7 +73,7 @@ var result = villageType.GetProductionPerDay(item);
 ### GetProductionPerDay
 `public float GetProductionPerDay(ItemCategory itemCategory)`
 
-**Purpose:** Reads and returns the `production per day` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the production per day value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageType from the subsystem API first

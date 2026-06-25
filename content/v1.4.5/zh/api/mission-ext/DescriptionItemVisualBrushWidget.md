@@ -29,7 +29,7 @@ description: "DescriptionItemVisualBrushWidget 的自动生成类参考。"
 ### DescriptionItemVisualBrushWidget
 `public class DescriptionItemVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「description item visual brush widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DescriptionItemVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DescriptionItemVisualBrushWidget 实例

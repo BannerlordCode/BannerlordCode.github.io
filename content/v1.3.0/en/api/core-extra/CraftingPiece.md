@@ -63,7 +63,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetInvalidCraftingPiece
 `public static CraftingPiece GetInvalidCraftingPiece(CraftingPiece.PieceTypes pieceType)`
 
-**Purpose:** Reads and returns the `invalid crafting piece` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the invalid crafting piece value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ CraftingPiece.GetInvalidCraftingPiece(pieceType);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of CraftingPiece from the subsystem API first

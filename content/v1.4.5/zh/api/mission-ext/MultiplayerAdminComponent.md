@@ -23,7 +23,7 @@ description: "MultiplayerAdminComponent 的自动生成类参考。"
 ### OnSelectPlayerToKickDelegate
 `public delegate void OnSelectPlayerToKickDelegate(bool banPlayer)`
 
-**用途 / Purpose:** 在 「select player to kick delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 select player to kick delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -34,7 +34,7 @@ multiplayerAdminComponent.OnSelectPlayerToKickDelegate(false);
 ### OnSetAdminMenuActiveStateDelegate
 `public delegate void OnSetAdminMenuActiveStateDelegate(bool showMenu)`
 
-**用途 / Purpose:** 在 「set admin menu active state delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 set admin menu active state delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -45,7 +45,7 @@ multiplayerAdminComponent.OnSetAdminMenuActiveStateDelegate(false);
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**用途 / Purpose:** 在 「mission state activated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission state activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -56,7 +56,7 @@ multiplayerAdminComponent.OnMissionStateActivated();
 ### ChangeAdminMenuActiveState
 `public void ChangeAdminMenuActiveState(bool isActive)`
 
-**用途 / Purpose:** 获取或更新 「change admin menu active state」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeAdminMenuActiveState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -67,7 +67,7 @@ multiplayerAdminComponent.ChangeAdminMenuActiveState(false);
 ### KickPlayer
 `public void KickPlayer(NetworkCommunicator peerToKick, bool banPlayer)`
 
-**用途 / Purpose:** 处理与 「kick player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 KickPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -78,7 +78,7 @@ multiplayerAdminComponent.KickPlayer(peerToKick, false);
 ### GlobalMuteUnmutePlayer
 `public void GlobalMuteUnmutePlayer(NetworkCommunicator peerToMute, bool unmute)`
 
-**用途 / Purpose:** 处理与 「global mute unmute player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GlobalMuteUnmutePlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -89,7 +89,7 @@ multiplayerAdminComponent.GlobalMuteUnmutePlayer(peerToMute, false);
 ### EndWarmup
 `public void EndWarmup()`
 
-**用途 / Purpose:** 处理与 「end warmup」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndWarmup 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -100,7 +100,7 @@ multiplayerAdminComponent.EndWarmup();
 ### ChangeWelcomeMessage
 `public void ChangeWelcomeMessage(string newWelcomeMessage)`
 
-**用途 / Purpose:** 处理与 「change welcome message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeWelcomeMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -111,7 +111,7 @@ multiplayerAdminComponent.ChangeWelcomeMessage("example");
 ### AdminAnnouncement
 `public void AdminAnnouncement(string message, bool isBroadcast)`
 
-**用途 / Purpose:** 处理与 「admin announcement」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AdminAnnouncement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -122,7 +122,7 @@ multiplayerAdminComponent.AdminAnnouncement("example", false);
 ### ChangeClassRestriction
 `public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool newValue)`
 
-**用途 / Purpose:** 处理与 「change class restriction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeClassRestriction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -133,7 +133,7 @@ multiplayerAdminComponent.ChangeClassRestriction(classToChangeRestriction, false
 ### AdminEndMission
 `public void AdminEndMission()`
 
-**用途 / Purpose:** 处理与 「admin end mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AdminEndMission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -144,7 +144,7 @@ multiplayerAdminComponent.AdminEndMission();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -155,7 +155,7 @@ multiplayerAdminComponent.OnBehaviorInitialize();
 ### MPAdminAnnouncement
 `public static string MPAdminAnnouncement(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp admin announcement」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPAdminAnnouncement 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -165,7 +165,7 @@ MultiplayerAdminComponent.MPAdminAnnouncement(strings);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminComponent 实例
@@ -176,7 +176,7 @@ multiplayerAdminComponent.OnRemoveBehavior();
 ### MPAdminKickPlayer
 `public static string MPAdminKickPlayer(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp admin kick player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPAdminKickPlayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -186,7 +186,7 @@ MultiplayerAdminComponent.MPAdminKickPlayer(strings);
 ### MPAdminBanPlayer
 `public static string MPAdminBanPlayer(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp admin ban player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPAdminBanPlayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -196,7 +196,7 @@ MultiplayerAdminComponent.MPAdminBanPlayer(strings);
 ### MPAdminChangeWelcomeMessage
 `public static string MPAdminChangeWelcomeMessage(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp admin change welcome message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPAdminChangeWelcomeMessage 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -206,7 +206,7 @@ MultiplayerAdminComponent.MPAdminChangeWelcomeMessage(strings);
 ### MPAdminChangeClassRestriction
 `public static string MPAdminChangeClassRestriction(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp admin change class restriction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPAdminChangeClassRestriction 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -216,7 +216,7 @@ MultiplayerAdminComponent.MPAdminChangeClassRestriction(strings);
 ### MPHostRestartGame
 `public static string MPHostRestartGame(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp host restart game」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPHostRestartGame 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -226,7 +226,7 @@ MultiplayerAdminComponent.MPHostRestartGame(strings);
 ### MPAdminChangeServerSlots
 `public static string MPAdminChangeServerSlots(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp admin change server slots」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPAdminChangeServerSlots 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

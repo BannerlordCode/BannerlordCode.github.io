@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ElementWiseProduct
 `public LinearFrictionTerm ElementWiseProduct(LinearFrictionTerm o)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ElementWiseProduct logic.
 
 ```csharp
 // Obtain an instance of LinearFrictionTerm from the subsystem API first
@@ -40,7 +40,7 @@ var result = linearFrictionTerm.ElementWiseProduct(o);
 ### NearlyEquals
 `public bool NearlyEquals(in LinearFrictionTerm o, float epsilon = 1E-05f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NearlyEquals logic.
 
 ```csharp
 // Obtain an instance of LinearFrictionTerm from the subsystem API first

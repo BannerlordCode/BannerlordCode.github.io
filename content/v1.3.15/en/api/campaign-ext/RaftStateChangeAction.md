@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ### ActivateRaftStateForParty
 `public static void ActivateRaftStateForParty(MobileParty mobileParty)`
 
-**Purpose:** Activates the resource, state, or feature associated with `raft state for party`.
+**Purpose:** **Purpose:** Activates the resource, state, or feature associated with raft state for party.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ RaftStateChangeAction.ActivateRaftStateForParty(mobileParty);
 ### DeactivateRaftStateForParty
 `public static void DeactivateRaftStateForParty(MobileParty mobileParty)`
 
-**Purpose:** Deactivates the resource, state, or feature associated with `raft state for party`.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature associated with raft state for party.
 
 ```csharp
 // Static call; no instance required

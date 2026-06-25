@@ -32,7 +32,7 @@ description: "BannerEditorView 的自动生成类参考。"
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorView 实例
@@ -43,7 +43,7 @@ bannerEditorView.OnTick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorView 实例
@@ -54,7 +54,7 @@ bannerEditorView.OnFinalize();
 ### Exit
 `public void Exit(bool isCancel)`
 
-**用途 / Purpose:** 处理与 「exit」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Exit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorView 实例
@@ -65,7 +65,7 @@ bannerEditorView.Exit(false);
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**用途 / Purpose:** 在 「deactivate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deactivate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorView 实例
@@ -76,7 +76,7 @@ bannerEditorView.OnDeactivate();
 ### GoToIndex
 `public void GoToIndex(int index)`
 
-**用途 / Purpose:** 处理与 「go to index」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorView 实例

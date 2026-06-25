@@ -66,13 +66,9 @@ ItemObject weapon = ItemObject.GetItemFromWeaponKind(weaponKind);
 Initialize a trade good.
 
 ```csharp
-var tradeGood = ItemObject.InitializeTradeGood(
-    new ItemObject("my_good"),
-    new TextObject("My Good"),
-    "my_good_mesh",
-    DefaultItemCategories.Wool,
-    100, 1.0f,
-    ItemObject.ItemTypeEnum.Goods);
+// Example: add an existing item to the player party inventory.
+ItemObject grain = MBObjectManager.Instance.GetObject<ItemObject>("grain");
+MobileParty.MainParty.ItemRoster.AddToCounts(grain, 50);
 ```
 
 ### `public static ItemObject GetItemFromWeaponKind(int weaponKind)`

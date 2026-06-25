@@ -32,7 +32,7 @@ description: "SiegeTowerRecord 的自动生成类参考。"
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 读取「from network」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取from network的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTowerRecord 实例

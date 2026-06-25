@@ -34,7 +34,7 @@ description: "RundownTooltipVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RundownTooltipVM 实例
@@ -45,7 +45,7 @@ rundownTooltipVM.RefreshValues();
 ### RefreshGenericRundownTooltip
 `public static void RefreshGenericRundownTooltip(RundownTooltipVM rundownTooltip, object args)`
 
-**用途 / Purpose:** 使 「generic rundown tooltip」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 generic rundown tooltip 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例

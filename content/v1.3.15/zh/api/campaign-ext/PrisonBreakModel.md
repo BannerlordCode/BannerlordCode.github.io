@@ -23,7 +23,7 @@ description: "PrisonBreakModel 的自动生成类参考。"
 ### GetNumberOfGuardsToSpawn
 `public abstract int GetNumberOfGuardsToSpawn(Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of guards to spawn」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of guards to spawn 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakModel 实例
@@ -34,7 +34,7 @@ var result = prisonBreakModel.GetNumberOfGuardsToSpawn(settlement);
 ### CanPlayerStagePrisonBreak
 `public abstract bool CanPlayerStagePrisonBreak(Settlement settlement)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「player stage prison break」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 player stage prison break 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakModel 实例
@@ -45,7 +45,7 @@ var result = prisonBreakModel.CanPlayerStagePrisonBreak(settlement);
 ### GetPrisonBreakStartCost
 `public abstract int GetPrisonBreakStartCost(Hero prisonerHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「prison break start cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prison break start cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakModel 实例
@@ -56,7 +56,7 @@ var result = prisonBreakModel.GetPrisonBreakStartCost(prisonerHero);
 ### GetRelationRewardOnPrisonBreak
 `public abstract int GetRelationRewardOnPrisonBreak(Hero prisonerHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relation reward on prison break」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation reward on prison break 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakModel 实例
@@ -67,7 +67,7 @@ var result = prisonBreakModel.GetRelationRewardOnPrisonBreak(prisonerHero);
 ### GetRogueryRewardOnPrisonBreak
 `public abstract float GetRogueryRewardOnPrisonBreak(Hero prisonerHero, bool isSuccess)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「roguery reward on prison break」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 roguery reward on prison break 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakModel 实例

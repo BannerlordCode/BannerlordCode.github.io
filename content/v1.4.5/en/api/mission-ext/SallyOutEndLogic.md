@@ -29,7 +29,7 @@ Treat `SallyOutEndLogic` as a Logic-style extension point: first identify who cr
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutEndLogic from the subsystem API first
@@ -40,7 +40,7 @@ sallyOutEndLogic.OnMissionTick(0);
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of SallyOutEndLogic from the subsystem API first

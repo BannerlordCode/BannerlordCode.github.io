@@ -23,7 +23,7 @@ Treat `SelectionData` as a Data-style extension point: first identify who create
 ### SelectionData
 `public struct SelectionData(bool isLocalizationId, string data)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectionData logic.
 
 ```csharp
 // Obtain an instance of SelectionData from the subsystem API first

@@ -40,7 +40,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker` to place 
 ### UpdatePosition
 `public abstract void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
@@ -51,7 +51,7 @@ missionNameMarkerTargetBaseVM.UpdatePosition(missionCamera);
 ### Equals
 `public abstract bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
@@ -62,7 +62,7 @@ var result = missionNameMarkerTargetBaseVM.Equals(other);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first
@@ -73,7 +73,7 @@ missionNameMarkerTargetBaseVM.RefreshValues();
 ### SetEnabledState
 `public void SetEnabledState(bool enabled)`
 
-**Purpose:** Assigns a new value to `enabled state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enabled state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerTargetBaseVM from the subsystem API first

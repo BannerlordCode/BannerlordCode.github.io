@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### UpdateNextPossibleAttackTime
 `public void UpdateNextPossibleAttackTime()`
 
-**Purpose:** Recalculates and stores the latest representation of `next possible attack time`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of next possible attack time.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -44,7 +44,7 @@ hideout.UpdateNextPossibleAttackTime();
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**Purpose:** Reads and returns the `defender parties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the defender parties value held by the this instance.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -55,7 +55,7 @@ var result = hideout.GetDefenderParties(battleType);
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**Purpose:** Reads and returns the `next defender party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next defender party value held by the this instance.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -66,7 +66,7 @@ var result = hideout.GetNextDefenderParty(partyIndex, battleType);
 ### OnPartyEntered
 `public override void OnPartyEntered(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `party entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the party entered event is raised.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -77,7 +77,7 @@ hideout.OnPartyEntered(mobileParty);
 ### OnPartyLeft
 `public override void OnPartyLeft(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `party left` event is raised.
+**Purpose:** **Purpose:** Invoked when the party left event is raised.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -88,7 +88,7 @@ hideout.OnPartyLeft(mobileParty);
 ### OnRelatedPartyRemoved
 `public override void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `related party removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the related party removed event is raised.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -99,7 +99,7 @@ hideout.OnRelatedPartyRemoved(mobileParty);
 ### OnInit
 `public override void OnInit()`
 
-**Purpose:** Invoked when the `init` event is raised.
+**Purpose:** **Purpose:** Invoked when the init event is raised.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first
@@ -110,7 +110,7 @@ hideout.OnInit();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Hideout from the subsystem API first

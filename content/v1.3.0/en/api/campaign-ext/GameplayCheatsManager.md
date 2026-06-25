@@ -23,7 +23,7 @@ Treat `GameplayCheatsManager` as a Manager-style extension point: first identify
 ### GetMapCheatList
 `public static IEnumerable<GameplayCheatBase> GetMapCheatList()`
 
-**Purpose:** Reads and returns the `map cheat list` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the map cheat list value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GameplayCheatsManager.GetMapCheatList();
 ### GetMissionCheatList
 `public static IEnumerable<GameplayCheatBase> GetMissionCheatList()`
 
-**Purpose:** Reads and returns the `mission cheat list` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission cheat list value held by the this instance.
 
 ```csharp
 // Static call; no instance required

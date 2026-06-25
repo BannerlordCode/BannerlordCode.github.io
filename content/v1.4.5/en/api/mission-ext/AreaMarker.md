@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### IsPositionInRange
 `public bool IsPositionInRange(Vec3 position)`
 
-**Purpose:** Determines whether the current object is in the `position in range` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the position in range state or condition.
 
 ```csharp
 // Obtain an instance of AreaMarker from the subsystem API first
@@ -34,7 +34,7 @@ var result = areaMarker.IsPositionInRange(position);
 ### GetUsableMachinesInRange
 `public virtual List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**Purpose:** Reads and returns the `usable machines in range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the usable machines in range value held by the this instance.
 
 ```csharp
 // Obtain an instance of AreaMarker from the subsystem API first
@@ -45,7 +45,7 @@ var result = areaMarker.GetUsableMachinesInRange("example");
 ### GetUsableMachinesWithTagInRange
 `public virtual List<UsableMachine> GetUsableMachinesWithTagInRange(string tag)`
 
-**Purpose:** Reads and returns the `usable machines with tag in range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the usable machines with tag in range value held by the this instance.
 
 ```csharp
 // Obtain an instance of AreaMarker from the subsystem API first
@@ -56,7 +56,7 @@ var result = areaMarker.GetUsableMachinesWithTagInRange("example");
 ### GetGameEntitiesWithTagInRange
 `public virtual List<GameEntity> GetGameEntitiesWithTagInRange(string tag)`
 
-**Purpose:** Reads and returns the `game entities with tag in range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game entities with tag in range value held by the this instance.
 
 ```csharp
 // Obtain an instance of AreaMarker from the subsystem API first
@@ -67,7 +67,7 @@ var result = areaMarker.GetGameEntitiesWithTagInRange("example");
 ### GetName
 `public virtual TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of AreaMarker from the subsystem API first
@@ -78,7 +78,7 @@ var result = areaMarker.GetName();
 ### GetPosition
 `public virtual Vec3 GetPosition()`
 
-**Purpose:** Reads and returns the `position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of AreaMarker from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Core.ImageIdentifiers` to place it in the stack
 ### Equals
 `public bool Equals(ImageIdentifier other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ImageIdentifier from the subsystem API first

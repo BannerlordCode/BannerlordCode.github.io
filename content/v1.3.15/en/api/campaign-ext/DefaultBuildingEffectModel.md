@@ -23,7 +23,7 @@ Treat `DefaultBuildingEffectModel` as a Model-style extension point: first ident
 ### GetBuildingEffect
 `public override ExplainedNumber GetBuildingEffect(Building building, BuildingEffectEnum effect)`
 
-**Purpose:** Reads and returns the `building effect` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the building effect value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBuildingEffectModel from the subsystem API first

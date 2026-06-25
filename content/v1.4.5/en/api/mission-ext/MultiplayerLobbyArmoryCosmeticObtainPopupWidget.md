@@ -36,7 +36,7 @@ Treat `MultiplayerLobbyArmoryCosmeticObtainPopupWidget` as a Widget-style extens
 ### MultiplayerLobbyArmoryCosmeticObtainPopupWidget
 `public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerLobbyArmoryCosmeticObtainPopupWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyArmoryCosmeticObtainPopupWidget from the subsystem API first

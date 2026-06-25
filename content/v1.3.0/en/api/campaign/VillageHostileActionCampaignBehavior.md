@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of VillageHostileActionCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ villageHostileActionCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of VillageHostileActionCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ villageHostileActionCampaignBehavior.RegisterEvents();
 ### AddGameMenus
 `public void AddGameMenus(CampaignGameStarter campaignGameSystemStarter)`
 
-**Purpose:** Adds `game menus` to the current collection or state.
+**Purpose:** **Purpose:** Adds game menus to the current collection or state.
 
 ```csharp
 // Obtain an instance of VillageHostileActionCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ villageHostileActionCampaignBehavior.AddGameMenus(campaignGameSystemStarter);
 ### hostile_action_village_on_init
 `public static void hostile_action_village_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the hostile_action_village_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -66,7 +66,7 @@ VillageHostileActionCampaignBehavior.hostile_action_village_on_init(args);
 ### wait_menu_raiding_village_on_tick
 `public static void wait_menu_raiding_village_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the wait_menu_raiding_village_on_tick logic.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ VillageHostileActionCampaignBehavior.wait_menu_raiding_village_on_tick(args, dt)
 ### wait_menu_start_raiding_on_condition
 `public static bool wait_menu_start_raiding_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the wait_menu_start_raiding_on_condition logic.
 
 ```csharp
 // Static call; no instance required
@@ -86,7 +86,7 @@ VillageHostileActionCampaignBehavior.wait_menu_start_raiding_on_condition(args);
 ### wait_menu_end_raiding_on_consequence
 `public static void wait_menu_end_raiding_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the wait_menu_end_raiding_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -96,7 +96,7 @@ VillageHostileActionCampaignBehavior.wait_menu_end_raiding_on_consequence(args);
 ### game_menu_village_raid_ended_menu_sound_on_init
 `public static void game_menu_village_raid_ended_menu_sound_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_village_raid_ended_menu_sound_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -106,7 +106,7 @@ VillageHostileActionCampaignBehavior.game_menu_village_raid_ended_menu_sound_on_
 ### game_menu_village_menu_on_init
 `public static void game_menu_village_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_village_menu_on_init logic.
 
 ```csharp
 // Static call; no instance required

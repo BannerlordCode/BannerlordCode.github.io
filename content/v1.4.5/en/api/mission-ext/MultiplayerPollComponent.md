@@ -34,7 +34,7 @@ Treat `MultiplayerPollComponent` as a Component-style extension point: first ide
 ### IsCancelled
 `public virtual bool IsCancelled()`
 
-**Purpose:** Determines whether the current object is in the `cancelled` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the cancelled state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -45,7 +45,7 @@ var result = multiplayerPollComponent.IsCancelled();
 ### GetPollProgressReceivers
 `public virtual List<NetworkCommunicator> GetPollProgressReceivers()`
 
-**Purpose:** Reads and returns the `poll progress receivers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the poll progress receivers value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -56,7 +56,7 @@ var result = multiplayerPollComponent.GetPollProgressReceivers();
 ### Tick
 `public void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -67,7 +67,7 @@ multiplayerPollComponent.Tick();
 ### Close
 `public void Close()`
 
-**Purpose:** Closes the resource or UI represented by the current object.
+**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -78,7 +78,7 @@ multiplayerPollComponent.Close();
 ### Cancel
 `public void Cancel()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `cel`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -89,7 +89,7 @@ multiplayerPollComponent.Cancel();
 ### ApplyVote
 `public bool ApplyVote(NetworkCommunicator peer, bool accepted)`
 
-**Purpose:** Applies the effect of `vote` to the current object.
+**Purpose:** **Purpose:** Applies the effect of vote to the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -100,7 +100,7 @@ var result = multiplayerPollComponent.ApplyVote(peer, false);
 ### GotEnoughAcceptVotesToEnd
 `public bool GotEnoughAcceptVotesToEnd()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GotEnoughAcceptVotesToEnd logic.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -111,7 +111,7 @@ var result = multiplayerPollComponent.GotEnoughAcceptVotesToEnd();
 ### IsCancelled
 `public override bool IsCancelled()`
 
-**Purpose:** Determines whether the current object is in the `cancelled` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the cancelled state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -122,7 +122,7 @@ var result = multiplayerPollComponent.IsCancelled();
 ### GetPollProgressReceivers
 `public override List<NetworkCommunicator> GetPollProgressReceivers()`
 
-**Purpose:** Reads and returns the `poll progress receivers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the poll progress receivers value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -133,7 +133,7 @@ var result = multiplayerPollComponent.GetPollProgressReceivers();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -144,7 +144,7 @@ multiplayerPollComponent.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -155,7 +155,7 @@ multiplayerPollComponent.OnMissionTick(0);
 ### Vote
 `public void Vote(bool accepted)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Vote logic.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first
@@ -166,7 +166,7 @@ multiplayerPollComponent.Vote(false);
 ### RequestKickPlayerPoll
 `public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestKickPlayerPoll logic.
 
 ```csharp
 // Obtain an instance of MultiplayerPollComponent from the subsystem API first

@@ -53,7 +53,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -64,7 +64,7 @@ clanLordItemVM.RefreshValues();
 ### ExecuteLocationLink
 `public void ExecuteLocationLink(string link)`
 
-**Purpose:** Runs the operation or workflow associated with `location link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with location link.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -75,7 +75,7 @@ clanLordItemVM.ExecuteLocationLink("example");
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Recalculates and stores the latest representation of `properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -86,7 +86,7 @@ clanLordItemVM.UpdateProperties();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -97,7 +97,7 @@ clanLordItemVM.ExecuteLink();
 ### OnCharacterSelect
 `public void OnCharacterSelect()`
 
-**Purpose:** Invoked when the `character select` event is raised.
+**Purpose:** **Purpose:** Invoked when the character select event is raised.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -108,7 +108,7 @@ clanLordItemVM.OnCharacterSelect();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -119,7 +119,7 @@ clanLordItemVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -130,7 +130,7 @@ clanLordItemVM.ExecuteEndHint();
 ### GetHero
 `public Hero GetHero()`
 
-**Purpose:** Reads and returns the `hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -141,7 +141,7 @@ var result = clanLordItemVM.GetHero();
 ### ExecuteRename
 `public void ExecuteRename()`
 
-**Purpose:** Runs the operation or workflow associated with `rename`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with rename.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -152,7 +152,7 @@ clanLordItemVM.ExecuteRename();
 ### ExecuteShowOnMap
 `public void ExecuteShowOnMap()`
 
-**Purpose:** Runs the operation or workflow associated with `show on map`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with show on map.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -163,7 +163,7 @@ clanLordItemVM.ExecuteShowOnMap();
 ### ExecuteRecall
 `public void ExecuteRecall()`
 
-**Purpose:** Runs the operation or workflow associated with `recall`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with recall.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -174,7 +174,7 @@ clanLordItemVM.ExecuteRecall();
 ### ExecuteTalk
 `public void ExecuteTalk()`
 
-**Purpose:** Runs the operation or workflow associated with `talk`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with talk.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first
@@ -185,7 +185,7 @@ clanLordItemVM.ExecuteTalk();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanLordItemVM from the subsystem API first

@@ -29,7 +29,7 @@ description: "ClanMemberPartyRoleModel 的自动生成类参考。"
 ### GetAssignablePartyRoles
 `public abstract IEnumerable<PartyRole> GetAssignablePartyRoles()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「assignable party roles」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 assignable party roles 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
@@ -40,7 +40,7 @@ var result = clanMemberPartyRoleModel.GetAssignablePartyRoles();
 ### GetRelevantSkillForPartyRole
 `public abstract SkillObject GetRelevantSkillForPartyRole(PartyRole role)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relevant skill for party role」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relevant skill for party role 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
@@ -51,7 +51,7 @@ var result = clanMemberPartyRoleModel.GetRelevantSkillForPartyRole(role);
 ### IsHeroAssignableForPartyRole
 `public abstract bool IsHeroAssignableForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「hero assignable for party role」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hero assignable for party role 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
@@ -62,7 +62,7 @@ var result = clanMemberPartyRoleModel.IsHeroAssignableForPartyRole(hero, role, p
 ### DoesHeroHaveEnoughSkillForPartyRole
 `public abstract bool DoesHeroHaveEnoughSkillForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**用途 / Purpose:** 返回「hero have enough skill for party role」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回hero have enough skill for party role对当前对象是否成立的布尔结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例
@@ -73,7 +73,7 @@ var result = clanMemberPartyRoleModel.DoesHeroHaveEnoughSkillForPartyRole(hero, 
 ### IsHeroAssignableForPartyRoleInParty
 `public abstract bool IsHeroAssignableForPartyRoleInParty(PartyRole role, Hero hero, MobileParty party)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「hero assignable for party role in party」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hero assignable for party role in party 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanMemberPartyRoleModel 实例

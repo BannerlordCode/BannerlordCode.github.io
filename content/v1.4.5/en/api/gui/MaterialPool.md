@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### New
 `public T New()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the New logic.
 
 ```csharp
 // Obtain an instance of MaterialPool from the subsystem API first
@@ -34,7 +34,7 @@ var result = materialPool.New();
 ### ResetAll
 `public void ResetAll()`
 
-**Purpose:** Returns `all` to its default or initial condition.
+**Purpose:** **Purpose:** Returns all to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MaterialPool from the subsystem API first

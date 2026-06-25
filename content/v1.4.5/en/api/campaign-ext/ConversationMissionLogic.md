@@ -31,7 +31,7 @@ Treat `ConversationMissionLogic` as a Logic-style extension point: first identif
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of ConversationMissionLogic from the subsystem API first
@@ -42,7 +42,7 @@ conversationMissionLogic.AfterStart();
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Invoked when the `rendering started` event is raised.
+**Purpose:** **Purpose:** Invoked when the rendering started event is raised.
 
 ```csharp
 // Obtain an instance of ConversationMissionLogic from the subsystem API first
@@ -53,7 +53,7 @@ conversationMissionLogic.OnRenderingStarted();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ConversationMissionLogic from the subsystem API first

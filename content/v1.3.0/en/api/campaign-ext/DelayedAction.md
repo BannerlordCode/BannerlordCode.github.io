@@ -23,7 +23,7 @@ Start from namespace `StoryMode.Missions` to place it in the stack, then inspect
 ### Update
 `public bool Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of DelayedAction from the subsystem API first

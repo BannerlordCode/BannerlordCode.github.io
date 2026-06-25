@@ -29,7 +29,7 @@ description: "TradeRumor 的自动生成类参考。"
 ### IsCompatable
 `public bool IsCompatable(ItemObject item)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「compatable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 compatable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumor 实例
@@ -40,7 +40,7 @@ var result = tradeRumor.IsCompatable(item);
 ### IsExpired
 `public bool IsExpired()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「expired」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 expired 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumor 实例

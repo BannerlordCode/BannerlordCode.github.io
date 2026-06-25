@@ -23,7 +23,7 @@ description: "InformationRestrictionModel 的自动生成类参考。"
 ### DoesPlayerKnowDetailsOf
 `public abstract bool DoesPlayerKnowDetailsOf(Settlement settlement)`
 
-**用途 / Purpose:** 返回「player know details of」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回player know details of对当前对象是否成立的布尔结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InformationRestrictionModel 实例
@@ -34,7 +34,7 @@ var result = informationRestrictionModel.DoesPlayerKnowDetailsOf(settlement);
 ### DoesPlayerKnowDetailsOf
 `public abstract bool DoesPlayerKnowDetailsOf(Hero hero)`
 
-**用途 / Purpose:** 返回「player know details of」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回player know details of对当前对象是否成立的布尔结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InformationRestrictionModel 实例

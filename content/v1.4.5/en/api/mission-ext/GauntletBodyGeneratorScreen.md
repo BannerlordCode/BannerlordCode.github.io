@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator` to plac
 ### OnExit
 `public void OnExit()`
 
-**Purpose:** Invoked when the `exit` event is raised.
+**Purpose:** **Purpose:** Invoked when the exit event is raised.
 
 ```csharp
 // Obtain an instance of GauntletBodyGeneratorScreen from the subsystem API first

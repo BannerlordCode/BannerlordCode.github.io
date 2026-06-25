@@ -23,7 +23,7 @@ description: "EpicFriendListService 的自动生成类参考。"
 ### UserStatusChanged
 `public void UserStatusChanged(PlayerId playerId)`
 
-**用途 / Purpose:** 响应 「user status changed」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UserStatusChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicFriendListService 实例

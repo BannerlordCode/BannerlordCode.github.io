@@ -23,7 +23,7 @@ description: "SceneProblemsLogger 的自动生成类参考。"
 ### LogScene
 `public void LogScene(int sceneIndex, string sceneId, string log)`
 
-**用途 / Purpose:** 处理与 「log scene」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 LogScene 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneProblemsLogger 实例
@@ -34,7 +34,7 @@ sceneProblemsLogger.LogScene(0, "example", "example");
 ### FinishLogging
 `public void FinishLogging()`
 
-**用途 / Purpose:** 结束「logging」流程并执行必要的收尾工作。
+**用途 / Purpose:** **用途 / Purpose:** 结束logging流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneProblemsLogger 实例

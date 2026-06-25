@@ -23,7 +23,7 @@ description: "BehaviorDefend 的自动生成类参考。"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefend 实例
@@ -34,7 +34,7 @@ behaviorDefend.TickOccasionally();
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**用途 / Purpose:** 将 「behavior」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 behavior 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefend 实例

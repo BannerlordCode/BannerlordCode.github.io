@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.GauntletUI.GamepadNavigation` to place it in th
 ### IsAvailable
 `public bool IsAvailable()`
 
-**Purpose:** Determines whether the current object is in the `available` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the available state or condition.
 
 ```csharp
 // Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
@@ -47,7 +47,7 @@ var result = gamepadNavigationForcedScopeCollection.IsAvailable();
 ### AddScope
 `public void AddScope(GamepadNavigationScope scope)`
 
-**Purpose:** Adds `scope` to the current collection or state.
+**Purpose:** **Purpose:** Adds scope to the current collection or state.
 
 ```csharp
 // Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
@@ -58,7 +58,7 @@ gamepadNavigationForcedScopeCollection.AddScope(scope);
 ### RemoveScope
 `public void RemoveScope(GamepadNavigationScope scope)`
 
-**Purpose:** Removes `scope` from the current collection or state.
+**Purpose:** **Purpose:** Removes scope from the current collection or state.
 
 ```csharp
 // Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
@@ -69,7 +69,7 @@ gamepadNavigationForcedScopeCollection.RemoveScope(scope);
 ### ClearScopes
 `public void ClearScopes()`
 
-**Purpose:** Removes all `scopes` from the current object.
+**Purpose:** **Purpose:** Removes all scopes from the this instance.
 
 ```csharp
 // Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first
@@ -80,7 +80,7 @@ gamepadNavigationForcedScopeCollection.ClearScopes();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of GamepadNavigationForcedScopeCollection from the subsystem API first

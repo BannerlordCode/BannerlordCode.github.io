@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### Initialize
 `public static void Initialize(IGameNetworkHandler gameNetworkHandler)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MultiplayerMain.Initialize(gameNetworkHandler);
 ### InitializeAsDedicatedServer
 `public static void InitializeAsDedicatedServer(IGameNetworkHandler gameNetworkHandler)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `as dedicated server`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by as dedicated server.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ MultiplayerMain.InitializeAsDedicatedServer(gameNetworkHandler);
 ### GetAvailableRankedGameModes
 `public static MultiplayerGameType GetAvailableRankedGameModes()`
 
-**Purpose:** Reads and returns the `available ranked game modes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available ranked game modes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ MultiplayerMain.GetAvailableRankedGameModes();
 ### GetAvailableCustomGameModes
 `public static MultiplayerGameType GetAvailableCustomGameModes()`
 
-**Purpose:** Reads and returns the `available custom game modes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available custom game modes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ MultiplayerMain.GetAvailableCustomGameModes();
 ### GetAvailableQuickPlayGameModes
 `public static MultiplayerGameType GetAvailableQuickPlayGameModes()`
 
-**Purpose:** Reads and returns the `available quick play game modes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available quick play game modes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ MultiplayerMain.GetAvailableQuickPlayGameModes();
 ### GetAvailableMatchmakerRegions
 `public static string GetAvailableMatchmakerRegions()`
 
-**Purpose:** Reads and returns the `available matchmaker regions` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available matchmaker regions value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -89,7 +89,7 @@ MultiplayerMain.GetAvailableMatchmakerRegions();
 ### GetUserDefaultRegion
 `public static string GetUserDefaultRegion()`
 
-**Purpose:** Reads and returns the `user default region` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the user default region value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -99,7 +99,7 @@ MultiplayerMain.GetUserDefaultRegion();
 ### GetUserCurrentRegion
 `public static string GetUserCurrentRegion()`
 
-**Purpose:** Reads and returns the `user current region` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the user current region value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -109,7 +109,7 @@ MultiplayerMain.GetUserCurrentRegion();
 ### GetUserSelectedGameTypes
 `public static string GetUserSelectedGameTypes()`
 
-**Purpose:** Reads and returns the `user selected game types` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the user selected game types value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -119,7 +119,7 @@ MultiplayerMain.GetUserSelectedGameTypes();
 ### GetDedicatedCustomServerAuthToken
 `public static string GetDedicatedCustomServerAuthToken(List<string> strings)`
 
-**Purpose:** Reads and returns the `dedicated custom server auth token` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the dedicated custom server auth token value held by the this instance.
 
 ```csharp
 // Static call; no instance required

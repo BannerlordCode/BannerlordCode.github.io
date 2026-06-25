@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Create
 `public static ImageDrawObject Create(in Rectangle2D rectangle, in Vec2 uvMin, in Vec2 uvMax)`
 
-**Purpose:** Creates a new instance or related entity for the current object.
+**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required

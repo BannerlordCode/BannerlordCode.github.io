@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerFactionBanVM from the subsystem API first
@@ -43,7 +43,7 @@ multiplayerFactionBanVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerFactionBanVM from the subsystem API first

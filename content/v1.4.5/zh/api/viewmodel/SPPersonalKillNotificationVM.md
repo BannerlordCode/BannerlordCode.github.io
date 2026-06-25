@@ -29,7 +29,7 @@ description: "SPPersonalKillNotificationVM 的自动生成类参考。"
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**用途 / Purpose:** 在 「personal kill」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 personal kill 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPPersonalKillNotificationVM 实例
@@ -40,7 +40,7 @@ sPPersonalKillNotificationVM.OnPersonalKill(0, false, false, false, "example", f
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isMountDamage, bool isFriendlyFire, string killedAgentName)`
 
-**用途 / Purpose:** 在 「personal hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 personal hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPPersonalKillNotificationVM 实例
@@ -51,7 +51,7 @@ sPPersonalKillNotificationVM.OnPersonalHit(0, false, false, "example");
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**用途 / Purpose:** 在 「personal message」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 personal message 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SPPersonalKillNotificationVM 实例

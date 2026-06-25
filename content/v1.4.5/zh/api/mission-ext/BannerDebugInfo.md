@@ -23,7 +23,7 @@ description: "BannerDebugInfo 的自动生成类参考。"
 ### CreateManual
 `public static BannerDebugInfo CreateManual(string sourceName)`
 
-**用途 / Purpose:** 构建一个新的 「manual」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 manual 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ BannerDebugInfo.CreateManual("example");
 ### CreateWidget
 `public static BannerDebugInfo CreateWidget(string sourceName)`
 
-**用途 / Purpose:** 构建一个新的 「widget」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 widget 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ BannerDebugInfo.CreateWidget("example");
 ### CreateName
 `public string CreateName()`
 
-**用途 / Purpose:** 构建一个新的 「name」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 name 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerDebugInfo 实例
@@ -54,7 +54,7 @@ var result = bannerDebugInfo.CreateName();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerDebugInfo 实例

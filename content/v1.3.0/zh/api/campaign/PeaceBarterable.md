@@ -31,7 +31,7 @@ description: "PeaceBarterable 的自动生成类参考。"
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction factionToEvaluateFor)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「unit value for faction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unit value for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PeaceBarterable 实例
@@ -42,7 +42,7 @@ var result = peaceBarterable.GetUnitValueForFaction(factionToEvaluateFor);
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「compatible」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 compatible 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PeaceBarterable 实例
@@ -53,7 +53,7 @@ var result = peaceBarterable.IsCompatible(barterable);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「visual identifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PeaceBarterable 实例
@@ -64,7 +64,7 @@ var result = peaceBarterable.GetVisualIdentifier();
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia link」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encyclopedia link 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PeaceBarterable 实例
@@ -75,7 +75,7 @@ var result = peaceBarterable.GetEncyclopediaLink();
 ### Apply
 `public override void Apply()`
 
-**用途 / Purpose:** 将当前对象的效果应用到目标。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ```csharp
 // 先通过子系统 API 拿到 PeaceBarterable 实例

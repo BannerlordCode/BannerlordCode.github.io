@@ -23,7 +23,7 @@ description: "ClosestFlagCondition 的自动生成类参考。"
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClosestFlagCondition 实例
@@ -34,7 +34,7 @@ var result = closestFlagCondition.Check(peer);
 ### Check
 `public override bool Check(Agent agent)`
 
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClosestFlagCondition 实例

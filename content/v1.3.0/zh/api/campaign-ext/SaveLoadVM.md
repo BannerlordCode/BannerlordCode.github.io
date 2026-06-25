@@ -50,7 +50,7 @@ description: "SaveLoadVM 的自动生成类参考。"
 ### Initialize
 `public async void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -61,7 +61,7 @@ saveLoadVM.Initialize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -72,7 +72,7 @@ saveLoadVM.RefreshValues();
 ### ExecuteCreateNewSaveGame
 `public void ExecuteCreateNewSaveGame()`
 
-**用途 / Purpose:** 执行 「create new save game」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 create new save game 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -83,7 +83,7 @@ saveLoadVM.ExecuteCreateNewSaveGame();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -94,7 +94,7 @@ saveLoadVM.ExecuteDone();
 ### ExecuteLoadSave
 `public void ExecuteLoadSave()`
 
-**用途 / Purpose:** 执行 「load save」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 load save 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -105,7 +105,7 @@ saveLoadVM.ExecuteLoadSave();
 ### DeleteSelectedSave
 `public void DeleteSelectedSave()`
 
-**用途 / Purpose:** 处理与 「delete selected save」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteSelectedSave 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -116,7 +116,7 @@ saveLoadVM.DeleteSelectedSave();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -127,7 +127,7 @@ saveLoadVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -138,7 +138,7 @@ saveLoadVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例
@@ -149,7 +149,7 @@ saveLoadVM.SetCancelInputKey(hotkey);
 ### SetDeleteInputKey
 `public void SetDeleteInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「delete input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 delete input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveLoadVM 实例

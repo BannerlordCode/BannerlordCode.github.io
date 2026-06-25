@@ -42,7 +42,7 @@ description: "AudioData 的自动生成类参考。"
 ### CreatePsaiDotNetVersion
 `public psai.net.AudioData CreatePsaiDotNetVersion()`
 
-**用途 / Purpose:** 构建一个新的 「psai dot net version」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 psai dot net version 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -53,7 +53,7 @@ var result = audioData.CreatePsaiDotNetVersion();
 ### GetMillisecondsFromSampleCount
 `public int GetMillisecondsFromSampleCount(int sampleCount)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「milliseconds from sample count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 milliseconds from sample count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -64,7 +64,7 @@ var result = audioData.GetMillisecondsFromSampleCount(0);
 ### GetSampleCountFromMilliseconds
 `public int GetSampleCountFromMilliseconds(int durationMs)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sample count from milliseconds」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sample count from milliseconds 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -75,7 +75,7 @@ var result = audioData.GetSampleCountFromMilliseconds(0);
 ### GetLengthInSamplesBasedOnBeats
 `public int GetLengthInSamplesBasedOnBeats(float bpm, float beats)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「length in samples based on beats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 length in samples based on beats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -86,7 +86,7 @@ var result = audioData.GetLengthInSamplesBasedOnBeats(0, 0);
 ### GetPostbeatLengthInSamplesBasedOnBeats
 `public int GetPostbeatLengthInSamplesBasedOnBeats()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「postbeat length in samples based on beats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 postbeat length in samples based on beats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -97,7 +97,7 @@ var result = audioData.GetPostbeatLengthInSamplesBasedOnBeats();
 ### GetPrebeatLengthInSamplesBasedOnBeats
 `public int GetPrebeatLengthInSamplesBasedOnBeats()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「prebeat length in samples based on beats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prebeat length in samples based on beats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -108,7 +108,7 @@ var result = audioData.GetPrebeatLengthInSamplesBasedOnBeats();
 ### CalculateTotalLengthInSamples
 `public static int CalculateTotalLengthInSamples(int lengthOfWaveformDataInBytes, int bitsPerSample, int channelCount)`
 
-**用途 / Purpose:** 计算「total length in samples」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算total length in samples的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -118,7 +118,7 @@ AudioData.CalculateTotalLengthInSamples(0, 0, 0);
 ### DoUpdateMembersBasedOnWaveHeader
 `public bool DoUpdateMembersBasedOnWaveHeader(string fullPathToAudioFile, out string errorMessage)`
 
-**用途 / Purpose:** 处理与 「do update members based on wave header」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoUpdateMembersBasedOnWaveHeader 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -129,7 +129,7 @@ var result = audioData.DoUpdateMembersBasedOnWaveHeader("example", errorMessage)
 ### SeekChunkInWaveHeader
 `public static bool SeekChunkInWaveHeader(ref BinaryReader reader, string chunk)`
 
-**用途 / Purpose:** 处理与 「seek chunk in wave header」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SeekChunkInWaveHeader 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -139,7 +139,7 @@ AudioData.SeekChunkInWaveHeader(reader, "example");
 ### ReadWaveHeader
 `public static PsaiResult ReadWaveHeader(Stream stream, out int outChannelCount, out int outSampleRate, out int outBitsPerSample, out int outLengthOfWaveformDatablockInBytes, out long outBytePositionOfWaveformData)`
 
-**用途 / Purpose:** 读取「wave header」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取wave header的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -149,7 +149,7 @@ AudioData.ReadWaveHeader(stream, outChannelCount, outSampleRate, outBitsPerSampl
 ### LoadWaveformDataToByteArray
 `public static byte LoadWaveformDataToByteArray(string fullFilePath, long byteIndexOfWaveformDataWithinAudioFile, int lengthOfWaveformDataInBytes)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「waveform data to byte array」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 waveform data to byte array。
 
 ```csharp
 // 静态调用，不需要实例
@@ -159,7 +159,7 @@ AudioData.LoadWaveformDataToByteArray("example", 0, 0);
 ### Clone
 `public object Clone()`
 
-**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例

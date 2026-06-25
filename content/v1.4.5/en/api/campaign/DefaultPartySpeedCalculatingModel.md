@@ -23,7 +23,7 @@ Treat `DefaultPartySpeedCalculatingModel` as a Model-style extension point: firs
 ### CalculateBaseSpeed
 `public override ExplainedNumber CalculateBaseSpeed(MobileParty mobileParty, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**Purpose:** Calculates the current value or result of `base speed`.
+**Purpose:** **Purpose:** Calculates the current value or result of base speed.
 
 ```csharp
 // Obtain an instance of DefaultPartySpeedCalculatingModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartySpeedCalculatingModel.CalculateBaseSpeed(mobileParty, f
 ### CalculateFinalSpeed
 `public override ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**Purpose:** Calculates the current value or result of `final speed`.
+**Purpose:** **Purpose:** Calculates the current value or result of final speed.
 
 ```csharp
 // Obtain an instance of DefaultPartySpeedCalculatingModel from the subsystem API first

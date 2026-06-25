@@ -23,7 +23,7 @@ description: "WidgetContainer 的自动生成类参考。"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetContainer 实例
@@ -34,7 +34,7 @@ widgetContainer.Clear();
 ### GetActiveList
 `public MBReadOnlyList<Widget> GetActiveList()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「active list」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active list 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetContainer 实例
@@ -45,7 +45,7 @@ var result = widgetContainer.GetActiveList();
 ### Defrag
 `public void Defrag()`
 
-**用途 / Purpose:** 处理与 「defrag」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Defrag 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetContainer 实例

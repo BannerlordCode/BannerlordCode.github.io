@@ -32,7 +32,7 @@ description: "DevelopmentNameTextWidget 的自动生成类参考。"
 ### DevelopmentNameTextWidget
 `public class DevelopmentNameTextWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「development name text widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DevelopmentNameTextWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DevelopmentNameTextWidget 实例
@@ -43,7 +43,7 @@ var result = developmentNameTextWidget.DevelopmentNameTextWidget(context);
 ### StartMaxTextAnimation
 `public void StartMaxTextAnimation()`
 
-**用途 / Purpose:** 启动「max text animation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动max text animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 DevelopmentNameTextWidget 实例

@@ -23,7 +23,7 @@ description: "PopupSceneCameraPath 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -34,7 +34,7 @@ popupSceneCameraPath.Initialize();
 ### SetInitialState
 `public void SetInitialState()`
 
-**用途 / Purpose:** 为 「initial state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 initial state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -45,7 +45,7 @@ popupSceneCameraPath.SetInitialState();
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**用途 / Purpose:** 为 「positive state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 positive state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -56,7 +56,7 @@ popupSceneCameraPath.SetPositiveState();
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**用途 / Purpose:** 为 「negative state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 negative state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -67,7 +67,7 @@ popupSceneCameraPath.SetNegativeState();
 ### SetIsReady
 `public void SetIsReady(bool isReady)`
 
-**用途 / Purpose:** 为 「is ready」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is ready 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -78,7 +78,7 @@ popupSceneCameraPath.SetIsReady(false);
 ### GetCameraFade
 `public float GetCameraFade()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「camera fade」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 camera fade 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -89,7 +89,7 @@ var result = popupSceneCameraPath.GetCameraFade();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例
@@ -100,7 +100,7 @@ popupSceneCameraPath.Destroy();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneCameraPath 实例

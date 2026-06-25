@@ -23,7 +23,7 @@ Treat `EditorSceneMissionManager` as a Manager-style extension point: first iden
 ### OnAfterCampaignStart
 `public override void OnAfterCampaignStart(Game game)`
 
-**Purpose:** Invoked when the `after campaign start` event is raised.
+**Purpose:** **Purpose:** Invoked when the after campaign start event is raised.
 
 ```csharp
 // Obtain an instance of EditorSceneMissionManager from the subsystem API first
@@ -34,7 +34,7 @@ editorSceneMissionManager.OnAfterCampaignStart(game);
 ### OnLoadFinished
 `public override void OnLoadFinished()`
 
-**Purpose:** Invoked when the `load finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the load finished event is raised.
 
 ```csharp
 // Obtain an instance of EditorSceneMissionManager from the subsystem API first

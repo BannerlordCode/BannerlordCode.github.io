@@ -32,7 +32,7 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### OnMapClick
 `public abstract bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Invoked when the `map click` event is raised.
+**Purpose:** **Purpose:** Invoked when the map click event is raised.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -43,7 +43,7 @@ var result = mapEntityVisual.OnMapClick(false);
 ### OnHover
 `public abstract void OnHover()`
 
-**Purpose:** Invoked when the `hover` event is raised.
+**Purpose:** **Purpose:** Invoked when the hover event is raised.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -54,7 +54,7 @@ mapEntityVisual.OnHover();
 ### OnOpenEncyclopedia
 `public abstract void OnOpenEncyclopedia()`
 
-**Purpose:** Invoked when the `open encyclopedia` event is raised.
+**Purpose:** **Purpose:** Invoked when the open encyclopedia event is raised.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -65,7 +65,7 @@ mapEntityVisual.OnOpenEncyclopedia();
 ### IsVisibleOrFadingOut
 `public abstract bool IsVisibleOrFadingOut()`
 
-**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the visible or fading out state or condition.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -76,7 +76,7 @@ var result = mapEntityVisual.IsVisibleOrFadingOut();
 ### GetVisualPosition
 `public abstract Vec3 GetVisualPosition()`
 
-**Purpose:** Reads and returns the `visual position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -87,7 +87,7 @@ var result = mapEntityVisual.GetVisualPosition();
 ### ReleaseResources
 `public virtual void ReleaseResources()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseResources logic.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -98,7 +98,7 @@ mapEntityVisual.ReleaseResources();
 ### OnHoverEnd
 `public virtual void OnHoverEnd()`
 
-**Purpose:** Invoked when the `hover end` event is raised.
+**Purpose:** **Purpose:** Invoked when the hover end event is raised.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -109,7 +109,7 @@ mapEntityVisual.OnHoverEnd();
 ### OnTrackAction
 `public virtual void OnTrackAction()`
 
-**Purpose:** Invoked when the `track action` event is raised.
+**Purpose:** **Purpose:** Invoked when the track action event is raised.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -120,7 +120,7 @@ mapEntityVisual.OnTrackAction();
 ### IsEnemyOf
 `public virtual bool IsEnemyOf(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -131,7 +131,7 @@ var result = mapEntityVisual.IsEnemyOf(faction);
 ### IsAllyOf
 `public virtual bool IsAllyOf(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `ally of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ally of state or condition.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first
@@ -142,7 +142,7 @@ var result = mapEntityVisual.IsAllyOf(faction);
 ### IsInSameFaction
 `public virtual bool IsInSameFaction(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `in same faction` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the in same faction state or condition.
 
 ```csharp
 // Obtain an instance of MapEntityVisual from the subsystem API first

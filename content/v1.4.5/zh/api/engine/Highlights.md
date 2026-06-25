@@ -23,7 +23,7 @@ description: "Highlights 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Highlights.Initialize();
 ### OpenGroup
 `public static void OpenGroup(string id)`
 
-**用途 / Purpose:** 打开「group」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开group对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Highlights.OpenGroup("example");
 ### CloseGroup
 `public static void CloseGroup(string id, bool destroy = false)`
 
-**用途 / Purpose:** 关闭「group」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭group对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Highlights.CloseGroup("example", false);
 ### SaveScreenshot
 `public static void SaveScreenshot(string highlightId, string groupId)`
 
-**用途 / Purpose:** 将 「screenshot」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 screenshot 写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Highlights.SaveScreenshot("example", "example");
 ### SaveVideo
 `public static void SaveVideo(string highlightId, string groupId, int startDelta, int endDelta)`
 
-**用途 / Purpose:** 将 「video」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 video 写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Highlights.SaveVideo("example", "example", 0, 0);
 ### OpenSummary
 `public static void OpenSummary(List<string> groups)`
 
-**用途 / Purpose:** 打开「summary」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开summary对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ Highlights.OpenSummary(groups);
 ### AddHighlight
 `public static void AddHighlight(string id, string name)`
 
-**用途 / Purpose:** 将 「highlight」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 highlight 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ Highlights.AddHighlight("example", "example");
 ### RemoveHighlight
 `public static void RemoveHighlight(string id)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「highlight」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 highlight。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetMouseVisible
 `public static bool GetMouseVisible()`
 
-**Purpose:** Reads and returns the `mouse visible` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mouse visible value held by the this instance.
 
 ```csharp
 // Static call; no instance required

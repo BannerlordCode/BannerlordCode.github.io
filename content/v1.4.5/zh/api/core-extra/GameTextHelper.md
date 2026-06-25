@@ -23,7 +23,7 @@ description: "GameTextHelper 的自动生成类参考。"
 ### Variation
 `public GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 处理与 「variation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Variation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GameTextHelper 实例
@@ -34,7 +34,7 @@ var result = gameTextHelper.Variation("example", propertiesAndWeights);
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**用途 / Purpose:** 处理与 「merge text objects with comma」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MergeTextObjectsWithComma 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ GameTextHelper.MergeTextObjectsWithComma(textObjects, false);
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**用途 / Purpose:** 处理与 「merge text objects with symbol」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MergeTextObjectsWithSymbol 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

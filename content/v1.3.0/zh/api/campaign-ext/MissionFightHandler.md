@@ -32,7 +32,7 @@ description: "MissionFightHandler 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -43,7 +43,7 @@ missionFightHandler.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -54,7 +54,7 @@ missionFightHandler.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -65,7 +65,7 @@ missionFightHandler.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -76,7 +76,7 @@ missionFightHandler.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -87,7 +87,7 @@ missionFightHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, kil
 ### StartCustomFight
 `public void StartCustomFight(List<Agent> playerSideAgents, List<Agent> opponentSideAgents, bool dropWeapons, bool isItemUseDisabled, MissionFightHandler.OnFightEndDelegate onFightEndDelegate, float minimumEndTime = 1E-45f)`
 
-**用途 / Purpose:** 启动「custom fight」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动custom fight流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -98,7 +98,7 @@ missionFightHandler.StartCustomFight(playerSideAgents, opponentSideAgents, false
 ### StartFistFight
 `public void StartFistFight(Agent opponent, MissionFightHandler.OnFightEndDelegate onFightEndDelegate, float minimumEndTime = 1E-45f)`
 
-**用途 / Purpose:** 启动「fist fight」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动fist fight流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -109,7 +109,7 @@ missionFightHandler.StartFistFight(opponent, onFightEndDelegate, 0);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -120,7 +120,7 @@ var result = missionFightHandler.OnEndMissionRequest(canPlayerLeave);
 ### GetAgentToSpectate
 `public static Agent GetAgentToSpectate()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「agent to spectate」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent to spectate 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -130,7 +130,7 @@ MissionFightHandler.GetAgentToSpectate();
 ### BeginEndFight
 `public void BeginEndFight()`
 
-**用途 / Purpose:** 处理与 「begin end fight」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginEndFight 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -141,7 +141,7 @@ missionFightHandler.BeginEndFight();
 ### EndFight
 `public void EndFight(bool overrideDuelWonByPlayer = false)`
 
-**用途 / Purpose:** 处理与 「end fight」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndFight 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -152,7 +152,7 @@ missionFightHandler.EndFight(false);
 ### IsThereActiveFight
 `public bool IsThereActiveFight()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「there active fight」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there active fight 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -163,7 +163,7 @@ var result = missionFightHandler.IsThereActiveFight();
 ### AddAgentToSide
 `public void AddAgentToSide(Agent agent, bool isPlayerSide)`
 
-**用途 / Purpose:** 将 「agent to side」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 agent to side 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -174,7 +174,7 @@ missionFightHandler.AddAgentToSide(agent, false);
 ### GetDangerSources
 `public IEnumerable<Agent> GetDangerSources(Agent ownerAgent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「danger sources」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 danger sources 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例
@@ -185,7 +185,7 @@ var result = missionFightHandler.GetDangerSources(ownerAgent);
 ### IsAgentAggressive
 `public static bool IsAgentAggressive(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent aggressive」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent aggressive 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -195,7 +195,7 @@ MissionFightHandler.IsAgentAggressive(agent);
 ### IsAgentJusticeWarrior
 `public static bool IsAgentJusticeWarrior(CharacterObject character)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent justice warrior」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent justice warrior 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -205,7 +205,7 @@ MissionFightHandler.IsAgentJusticeWarrior(character);
 ### IsAgentVillian
 `public static bool IsAgentVillian(CharacterObject character)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent villian」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent villian 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -215,7 +215,7 @@ MissionFightHandler.IsAgentVillian(character);
 ### OnFightEndDelegate
 `public delegate void OnFightEndDelegate(bool isPlayerSideWon)`
 
-**用途 / Purpose:** 在 「fight end delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 fight end delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFightHandler 实例

@@ -34,7 +34,7 @@ description: "WidgetCreationData 的自动生成类参考。"
 ### AddExtensionData
 `public void AddExtensionData(string name, object data)`
 
-**用途 / Purpose:** 将 「extension data」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetCreationData 实例
@@ -45,7 +45,7 @@ widgetCreationData.AddExtensionData("example", data);
 ### AddExtensionData
 `public void AddExtensionData(object data)`
 
-**用途 / Purpose:** 将 「extension data」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 extension data 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetCreationData 实例

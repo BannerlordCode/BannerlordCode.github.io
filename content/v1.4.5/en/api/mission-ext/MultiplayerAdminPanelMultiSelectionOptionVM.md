@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
@@ -42,7 +42,7 @@ multiplayerAdminPanelMultiSelectionOptionVM.RefreshValues();
 ### UpdateValues
 `public override void UpdateValues()`
 
-**Purpose:** Recalculates and stores the latest representation of `values`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of values.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
@@ -53,7 +53,7 @@ multiplayerAdminPanelMultiSelectionOptionVM.UpdateValues();
 ### ExecuteRestoreDefaults
 `public override void ExecuteRestoreDefaults()`
 
-**Purpose:** Runs the operation or workflow associated with `restore defaults`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with restore defaults.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first
@@ -64,7 +64,7 @@ multiplayerAdminPanelMultiSelectionOptionVM.ExecuteRestoreDefaults();
 ### ExecuteRevertChanges
 `public override void ExecuteRevertChanges()`
 
-**Purpose:** Runs the operation or workflow associated with `revert changes`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with revert changes.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelMultiSelectionOptionVM from the subsystem API first

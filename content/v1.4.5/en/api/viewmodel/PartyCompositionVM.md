@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### OnTroopRemoved
 `public void OnTroopRemoved(FormationClass formationClass, int count)`
 
-**Purpose:** Invoked when the `troop removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop removed event is raised.
 
 ```csharp
 // Obtain an instance of PartyCompositionVM from the subsystem API first
@@ -47,7 +47,7 @@ partyCompositionVM.OnTroopRemoved(formationClass, 0);
 ### OnTroopAdded
 `public void OnTroopAdded(FormationClass formationClass, int count)`
 
-**Purpose:** Invoked when the `troop added` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop added event is raised.
 
 ```csharp
 // Obtain an instance of PartyCompositionVM from the subsystem API first
@@ -58,7 +58,7 @@ partyCompositionVM.OnTroopAdded(formationClass, 0);
 ### RefreshCounts
 `public void RefreshCounts(MBBindingList<PartyCharacterVM> list)`
 
-**Purpose:** Keeps the display or cache of `counts` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of counts in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyCompositionVM from the subsystem API first

@@ -62,7 +62,7 @@ description: "StyleLayer 的自动生成类参考。"
 ### CreateFrom
 `public static StyleLayer CreateFrom(StyleLayer source)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -72,7 +72,7 @@ StyleLayer.CreateFrom(source);
 ### FillFrom
 `public void FillFrom(StyleLayer source)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleLayer 实例
@@ -83,7 +83,7 @@ styleLayer.FillFrom(source);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value as float」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as float 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleLayer 实例
@@ -94,7 +94,7 @@ var result = styleLayer.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value as color」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleLayer 实例
@@ -105,7 +105,7 @@ var result = styleLayer.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value as sprite」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as sprite 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleLayer 实例
@@ -116,7 +116,7 @@ var result = styleLayer.GetValueAsSprite(propertyType);
 ### GetIsValueChanged
 `public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is value changed」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is value changed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StyleLayer 实例

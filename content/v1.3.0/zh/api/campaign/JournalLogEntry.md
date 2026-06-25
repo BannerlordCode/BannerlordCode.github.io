@@ -29,7 +29,7 @@ description: "JournalLogEntry 的自动生成类参考。"
 ### IsRelatedTo
 `public bool IsRelatedTo(MBObjectBase obj)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「related to」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 related to 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例
@@ -40,7 +40,7 @@ var result = journalLogEntry.IsRelatedTo(obj);
 ### GetEntries
 `public IEnumerable<JournalLog> GetEntries()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「entries」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entries 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例
@@ -51,7 +51,7 @@ var result = journalLogEntry.GetEntries();
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, IssueBase.IssueUpdateDetails issueStatus = IssueBase.IssueUpdateDetails.None)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例
@@ -62,7 +62,7 @@ journalLogEntry.Update(entries, issueBase.IssueUpdateDetails.None);
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, QuestBase.QuestCompleteDetails questCompletionDetail)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例
@@ -73,7 +73,7 @@ journalLogEntry.Update(entries, questCompletionDetail);
 ### IsEndedUnsuccessfully
 `public bool IsEndedUnsuccessfully()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「ended unsuccessfully」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 ended unsuccessfully 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例
@@ -84,7 +84,7 @@ var result = journalLogEntry.IsEndedUnsuccessfully();
 ### IsEnded
 `public bool IsEnded()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「ended」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 ended 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例
@@ -95,7 +95,7 @@ var result = journalLogEntry.IsEnded();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 JournalLogEntry 实例

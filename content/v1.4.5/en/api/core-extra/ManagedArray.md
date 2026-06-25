@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ManagedArray
 `public struct ManagedArray(IntPtr array, int length)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ManagedArray logic.
 
 ```csharp
 // Obtain an instance of ManagedArray from the subsystem API first

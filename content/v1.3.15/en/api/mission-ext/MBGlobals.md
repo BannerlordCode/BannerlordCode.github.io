@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitializeReferences
 `public static void InitializeReferences()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `references`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by references.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBGlobals.InitializeReferences();
 ### GetActionSetWithSuffix
 `public static MBActionSet GetActionSetWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**Purpose:** Reads and returns the `action set with suffix` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action set with suffix value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBGlobals.GetActionSetWithSuffix(monster, false, "example");
 ### GetActionSet
 `public static MBActionSet GetActionSet(string actionSetCode)`
 
-**Purpose:** Reads and returns the `action set` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action set value held by the this instance.
 
 ```csharp
 // Static call; no instance required

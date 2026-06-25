@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### AddNonSerializedListener
 `public void AddNonSerializedListener(object owner, ReferenceAction<T1> action)`
 
-**Purpose:** Adds `non serialized listener` to the current collection or state.
+**Purpose:** **Purpose:** Adds non serialized listener to the current collection or state.
 
 ```csharp
 // Obtain an instance of ReferenceMBEvent from the subsystem API first
@@ -34,7 +34,7 @@ referenceMBEvent.AddNonSerializedListener(owner, action);
 ### Invoke
 `public void Invoke(ref T1 t1)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Invoke logic.
 
 ```csharp
 // Obtain an instance of ReferenceMBEvent from the subsystem API first
@@ -45,7 +45,7 @@ referenceMBEvent.Invoke(t1);
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**Purpose:** Removes all `listeners` from the current object.
+**Purpose:** **Purpose:** Removes all listeners from the this instance.
 
 ```csharp
 // Obtain an instance of ReferenceMBEvent from the subsystem API first

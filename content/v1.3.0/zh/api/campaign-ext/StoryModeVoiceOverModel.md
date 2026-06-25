@@ -23,7 +23,7 @@ description: "StoryModeVoiceOverModel 的自动生成类参考。"
 ### GetSoundPathForCharacter
 `public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sound path for character」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sound path for character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeVoiceOverModel 实例
@@ -34,7 +34,7 @@ var result = storyModeVoiceOverModel.GetSoundPathForCharacter(character, voiceOb
 ### GetAccentClass
 `public override string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「accent class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 accent class 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeVoiceOverModel 实例

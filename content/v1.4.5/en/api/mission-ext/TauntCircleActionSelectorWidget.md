@@ -29,7 +29,7 @@ Treat `TauntCircleActionSelectorWidget` as a Widget-style extension point: first
 ### TauntCircleActionSelectorWidget
 `public class TauntCircleActionSelectorWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TauntCircleActionSelectorWidget logic.
 
 ```csharp
 // Obtain an instance of TauntCircleActionSelectorWidget from the subsystem API first

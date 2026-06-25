@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -54,7 +54,7 @@ itemModifier.Deserialize(objectManager, node);
 ### IsBeneficial
 `public bool IsBeneficial()`
 
-**Purpose:** Determines whether the current object is in the `beneficial` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the beneficial state or condition.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -65,7 +65,7 @@ var result = itemModifier.IsBeneficial();
 ### Equals
 `public bool Equals(ItemModifier other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -76,7 +76,7 @@ var result = itemModifier.Equals(other);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -87,7 +87,7 @@ var result = itemModifier.GetHashCode();
 ### ModifyDamage
 `public int ModifyDamage(int baseDamage)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyDamage logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -98,7 +98,7 @@ var result = itemModifier.ModifyDamage(0);
 ### ModifySpeed
 `public int ModifySpeed(int baseSpeed)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifySpeed logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -109,7 +109,7 @@ var result = itemModifier.ModifySpeed(0);
 ### ModifyMountSpeed
 `public int ModifyMountSpeed(int baseSpeed)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyMountSpeed logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -120,7 +120,7 @@ var result = itemModifier.ModifyMountSpeed(0);
 ### ModifyMountManeuver
 `public int ModifyMountManeuver(int baseManeuver)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyMountManeuver logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -131,7 +131,7 @@ var result = itemModifier.ModifyMountManeuver(0);
 ### ModifyMountCharge
 `public int ModifyMountCharge(int baseCharge)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyMountCharge logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -142,7 +142,7 @@ var result = itemModifier.ModifyMountCharge(0);
 ### ModifyMountHitPoints
 `public int ModifyMountHitPoints(int baseCharge)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyMountHitPoints logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -153,7 +153,7 @@ var result = itemModifier.ModifyMountHitPoints(0);
 ### ModifyMissileSpeed
 `public int ModifyMissileSpeed(int baseSpeed)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyMissileSpeed logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -164,7 +164,7 @@ var result = itemModifier.ModifyMissileSpeed(0);
 ### ModifyArmor
 `public int ModifyArmor(int armorValue)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyArmor logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -175,7 +175,7 @@ var result = itemModifier.ModifyArmor(0);
 ### ModifyHitPoints
 `public short ModifyHitPoints(short baseHitPoints)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyHitPoints logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first
@@ -186,7 +186,7 @@ var result = itemModifier.ModifyHitPoints(0);
 ### ModifyStackCount
 `public short ModifyStackCount(short baseStackCount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ModifyStackCount logic.
 
 ```csharp
 // Obtain an instance of ItemModifier from the subsystem API first

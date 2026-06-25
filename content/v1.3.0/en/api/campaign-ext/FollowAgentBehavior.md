@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetTargetAgent
 `public void SetTargetAgent(Agent agent)`
 
-**Purpose:** Assigns a new value to `target agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FollowAgentBehavior from the subsystem API first
@@ -34,7 +34,7 @@ followAgentBehavior.SetTargetAgent(agent);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of FollowAgentBehavior from the subsystem API first
@@ -45,7 +45,7 @@ followAgentBehavior.Tick(0, false);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of FollowAgentBehavior from the subsystem API first
@@ -56,7 +56,7 @@ followAgentBehavior.OnAgentRemoved(agent);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Reads and returns the `debug info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of FollowAgentBehavior from the subsystem API first
@@ -67,7 +67,7 @@ var result = followAgentBehavior.GetDebugInfo();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Reads and returns the `availability` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of FollowAgentBehavior from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**Purpose:** Reads and returns the `visual position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual position value held by the this instance.
 
 ```csharp
 // Obtain an instance of TrackVisual from the subsystem API first
@@ -41,7 +41,7 @@ var result = trackVisual.GetVisualPosition();
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the visible or fading out state or condition.
 
 ```csharp
 // Obtain an instance of TrackVisual from the subsystem API first
@@ -52,7 +52,7 @@ var result = trackVisual.IsVisibleOrFadingOut();
 ### OnHover
 `public override void OnHover()`
 
-**Purpose:** Invoked when the `hover` event is raised.
+**Purpose:** **Purpose:** Invoked when the hover event is raised.
 
 ```csharp
 // Obtain an instance of TrackVisual from the subsystem API first
@@ -63,7 +63,7 @@ trackVisual.OnHover();
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Invoked when the `map click` event is raised.
+**Purpose:** **Purpose:** Invoked when the map click event is raised.
 
 ```csharp
 // Obtain an instance of TrackVisual from the subsystem API first
@@ -74,7 +74,7 @@ var result = trackVisual.OnMapClick(false);
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**Purpose:** Invoked when the `open encyclopedia` event is raised.
+**Purpose:** **Purpose:** Invoked when the open encyclopedia event is raised.
 
 ```csharp
 // Obtain an instance of TrackVisual from the subsystem API first
@@ -85,7 +85,7 @@ trackVisual.OnOpenEncyclopedia();
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseResources logic.
 
 ```csharp
 // Obtain an instance of TrackVisual from the subsystem API first

@@ -23,7 +23,7 @@ description: "TournamentMissionStarter 的自动生成类参考。"
 ### OpenTournamentArcheryMission
 `public static Mission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament archery mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament archery mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TournamentMissionStarter.OpenTournamentArcheryMission("example", tournamentGame,
 ### OpenTournamentFightMission
 `public static Mission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament fight mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament fight mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ TournamentMissionStarter.OpenTournamentFightMission("example", tournamentGame, s
 ### OpenTournamentHorseRaceMission
 `public static Mission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament horse race mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament horse race mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ TournamentMissionStarter.OpenTournamentHorseRaceMission("example", tournamentGam
 ### OpenTournamentJoustingMission
 `public static Mission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「tournament jousting mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开tournament jousting mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ TournamentMissionStarter.OpenTournamentJoustingMission("example", tournamentGame
 ### OpenBattleChallengeMission
 `public static Mission OpenBattleChallengeMission(string scene, IList<Hero> priorityCharsAttacker, IList<Hero> priorityCharsDefender)`
 
-**用途 / Purpose:** 打开「battle challenge mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开battle challenge mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

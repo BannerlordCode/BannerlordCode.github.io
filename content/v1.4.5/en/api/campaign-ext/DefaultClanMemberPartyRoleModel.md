@@ -23,7 +23,7 @@ Treat `DefaultClanMemberPartyRoleModel` as a Model-style extension point: first 
 ### GetAssignablePartyRoles
 `public override IEnumerable<PartyRole> GetAssignablePartyRoles()`
 
-**Purpose:** Reads and returns the `assignable party roles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the assignable party roles value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultClanMemberPartyRoleModel.GetAssignablePartyRoles();
 ### GetRelevantSkillForPartyRole
 `public override SkillObject GetRelevantSkillForPartyRole(PartyRole role)`
 
-**Purpose:** Reads and returns the `relevant skill for party role` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relevant skill for party role value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultClanMemberPartyRoleModel.GetRelevantSkillForPartyRole(role);
 ### IsHeroAssignableForPartyRole
 `public override bool IsHeroAssignableForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for party role` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for party role state or condition.
 
 ```csharp
 // Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultClanMemberPartyRoleModel.IsHeroAssignableForPartyRole(hero, 
 ### DoesHeroHaveEnoughSkillForPartyRole
 `public override bool DoesHeroHaveEnoughSkillForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Returns a boolean answer to whether `hero have enough skill for party role` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether hero have enough skill for party role is true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultClanMemberPartyRoleModel.DoesHeroHaveEnoughSkillForPartyRole
 ### IsHeroAssignableForPartyRoleInParty
 `public override bool IsHeroAssignableForPartyRoleInParty(PartyRole role, Hero hero, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for party role in party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for party role in party state or condition.
 
 ```csharp
 // Obtain an instance of DefaultClanMemberPartyRoleModel from the subsystem API first

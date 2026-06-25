@@ -23,7 +23,7 @@ description: "StreamHelpers 的自动生成类参考。"
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**用途 / Purpose:** 把当前对象的「stream」状态复制到目标对象。
+**用途 / Purpose:** **用途 / Purpose:** 把当前对象的stream状态复制到目标对象。
 
 ```csharp
 // 静态调用，不需要实例

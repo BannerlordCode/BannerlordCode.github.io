@@ -23,7 +23,7 @@ description: "TooltipHelper 的自动生成类参考。"
 ### GetSendTroopsPowerContextTooltipForMapEvent
 `public static TextObject GetSendTroopsPowerContextTooltipForMapEvent()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「send troops power context tooltip for map event」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 send troops power context tooltip for map event 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TooltipHelper.GetSendTroopsPowerContextTooltipForMapEvent();
 ### GetSendTroopsPowerContextTooltipForSiege
 `public static TextObject GetSendTroopsPowerContextTooltipForSiege()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「send troops power context tooltip for siege」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 send troops power context tooltip for siege 的结果。
 
 ```csharp
 // 静态调用，不需要实例

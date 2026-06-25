@@ -23,7 +23,7 @@ description: "CanvasTextBox 的自动生成类参考。"
 ### LoadFrom
 `public override void LoadFrom(XmlNode canvasTextNode)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasTextBox 实例
@@ -34,7 +34,7 @@ canvasTextBox.LoadFrom(canvasTextNode);
 ### GetVerticalPositionOf
 `public float GetVerticalPositionOf(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「vertical position of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vertical position of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasTextBox 实例

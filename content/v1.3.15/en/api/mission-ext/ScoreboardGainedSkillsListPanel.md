@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard` to
 ### SetCurrentUnit
 `public void SetCurrentUnit(ScoreboardSkillItemHoverToggleWidget unit)`
 
-**Purpose:** Assigns a new value to `current unit` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current unit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScoreboardGainedSkillsListPanel from the subsystem API first

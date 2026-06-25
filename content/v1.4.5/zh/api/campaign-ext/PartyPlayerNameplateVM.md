@@ -31,7 +31,7 @@ description: "PartyPlayerNameplateVM 的自动生成类参考。"
 ### InitializePlayerNameplate
 `public void InitializePlayerNameplate(Action resetCamera)`
 
-**用途 / Purpose:** 为 「player nameplate」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 player nameplate 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
@@ -42,7 +42,7 @@ partyPlayerNameplateVM.InitializePlayerNameplate(resetCamera);
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
@@ -53,7 +53,7 @@ partyPlayerNameplateVM.Clear();
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 dynamic properties 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
@@ -64,7 +64,7 @@ partyPlayerNameplateVM.RefreshDynamicProperties(false);
 ### RefreshBinding
 `public override void RefreshBinding()`
 
-**用途 / Purpose:** 使 「binding」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 binding 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
@@ -75,7 +75,7 @@ partyPlayerNameplateVM.RefreshBinding();
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例
@@ -86,7 +86,7 @@ partyPlayerNameplateVM.RefreshPosition();
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**用途 / Purpose:** 执行 「set camera position」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set camera position 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyPlayerNameplateVM 实例

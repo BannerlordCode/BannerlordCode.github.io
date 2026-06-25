@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CreateUnavailableClanInfo
 `public static ClanInfo CreateUnavailableClanInfo()`
 
-**Purpose:** Constructs a new `unavailable clan info` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new unavailable clan info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

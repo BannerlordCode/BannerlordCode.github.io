@@ -23,7 +23,7 @@ description: "OrderOfBattleCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleCampaignBehavior 实例
@@ -34,7 +34,7 @@ orderOfBattleCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleCampaignBehavior 实例
@@ -45,7 +45,7 @@ orderOfBattleCampaignBehavior.SyncData(dataStore);
 ### GetFormationDataAtIndex
 `public OrderOfBattleCampaignBehavior.OrderOfBattleFormationData GetFormationDataAtIndex(int formationIndex, bool isSiegeBattle, bool isInArmy)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation data at index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation data at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleCampaignBehavior 实例
@@ -56,7 +56,7 @@ var result = orderOfBattleCampaignBehavior.GetFormationDataAtIndex(0, false, fal
 ### SetFormationInfos
 `public void SetFormationInfos(List<OrderOfBattleCampaignBehavior.OrderOfBattleFormationData> formationInfos, bool isSiegeBattle, bool isInArmy)`
 
-**用途 / Purpose:** 为 「formation infos」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 formation infos 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleCampaignBehavior 实例

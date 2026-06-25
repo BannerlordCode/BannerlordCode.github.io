@@ -23,7 +23,7 @@ description: "TownHorseRaceAgentController 的自动生成类参考。"
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
@@ -34,7 +34,7 @@ townHorseRaceAgentController.OnInitialize();
 ### DisableMovement
 `public void DisableMovement()`
 
-**用途 / Purpose:** 处理与 「disable movement」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableMovement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
@@ -45,7 +45,7 @@ townHorseRaceAgentController.DisableMovement();
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 TownHorseRaceAgentController 实例
@@ -56,7 +56,7 @@ townHorseRaceAgentController.Start();
 ### OnEnterCheckPoint
 `public void OnEnterCheckPoint(VolumeBox checkPoint)`
 
-**用途 / Purpose:** 在 「enter check point」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 enter check point 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TownHorseRaceAgentController 实例

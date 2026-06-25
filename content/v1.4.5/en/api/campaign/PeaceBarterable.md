@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction factionToEvaluateFor)`
 
-**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of PeaceBarterable from the subsystem API first
@@ -41,7 +41,7 @@ var result = peaceBarterable.GetUnitValueForFaction(factionToEvaluateFor);
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**Purpose:** Determines whether the current object is in the `compatible` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the compatible state or condition.
 
 ```csharp
 // Obtain an instance of PeaceBarterable from the subsystem API first
@@ -52,7 +52,7 @@ var result = peaceBarterable.IsCompatible(barterable);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of PeaceBarterable from the subsystem API first
@@ -63,7 +63,7 @@ var result = peaceBarterable.GetVisualIdentifier();
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**Purpose:** Reads and returns the `encyclopedia link` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the encyclopedia link value held by the this instance.
 
 ```csharp
 // Obtain an instance of PeaceBarterable from the subsystem API first
@@ -74,7 +74,7 @@ var result = peaceBarterable.GetEncyclopediaLink();
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies the current object's effect to its target.
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of PeaceBarterable from the subsystem API first

@@ -29,7 +29,7 @@ Treat `QueryData` as a Data-style extension point: first identify who creates it
 ### Evaluate
 `public void Evaluate(float currentTime)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Evaluate logic.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first
@@ -40,7 +40,7 @@ queryData.Evaluate(0);
 ### SetValue
 `public void SetValue(T value, float currentTime)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first
@@ -51,7 +51,7 @@ queryData.SetValue(value, 0);
 ### GetCachedValue
 `public T GetCachedValue()`
 
-**Purpose:** Reads and returns the `cached value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cached value value held by the this instance.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first
@@ -62,7 +62,7 @@ var result = queryData.GetCachedValue();
 ### GetCachedValueUnlessTooOld
 `public T GetCachedValueUnlessTooOld()`
 
-**Purpose:** Reads and returns the `cached value unless too old` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cached value unless too old value held by the this instance.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first
@@ -73,7 +73,7 @@ var result = queryData.GetCachedValueUnlessTooOld();
 ### GetCachedValueWithMaxAge
 `public T GetCachedValueWithMaxAge(float age)`
 
-**Purpose:** Reads and returns the `cached value with max age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cached value with max age value held by the this instance.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first
@@ -84,7 +84,7 @@ var result = queryData.GetCachedValueWithMaxAge(0);
 ### Expire
 `public void Expire()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Expire logic.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first
@@ -95,7 +95,7 @@ queryData.Expire();
 ### SetupSyncGroup
 `public static void SetupSyncGroup(params IQueryData groupItems)`
 
-**Purpose:** Assigns a new value to `up sync group` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to up sync group and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -105,7 +105,7 @@ QueryData.SetupSyncGroup(groupItems);
 ### SetSyncGroup
 `public void SetSyncGroup(IQueryData syncGroup)`
 
-**Purpose:** Assigns a new value to `sync group` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sync group and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of QueryData from the subsystem API first

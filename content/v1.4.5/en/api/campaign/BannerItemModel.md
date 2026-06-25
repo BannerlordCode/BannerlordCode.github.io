@@ -23,7 +23,7 @@ Treat `BannerItemModel` as a Model-style extension point: first identify who cre
 ### GetPossibleRewardBannerItems
 `public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**Purpose:** Reads and returns the `possible reward banner items` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the possible reward banner items value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerItemModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = bannerItemModel.GetPossibleRewardBannerItems();
 ### GetPossibleRewardBannerItemsForHero
 `public abstract IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**Purpose:** Reads and returns the `possible reward banner items for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the possible reward banner items for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerItemModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = bannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
 ### GetBannerItemLevelForHero
 `public abstract int GetBannerItemLevelForHero(Hero hero)`
 
-**Purpose:** Reads and returns the `banner item level for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner item level for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerItemModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = bannerItemModel.GetBannerItemLevelForHero(hero);
 ### CanBannerBeUpdated
 `public abstract bool CanBannerBeUpdated(ItemObject item)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `banner be updated`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for banner be updated.
 
 ```csharp
 // Obtain an instance of BannerItemModel from the subsystem API first

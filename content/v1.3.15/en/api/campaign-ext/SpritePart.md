@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### UpdateInitValues
 `public void UpdateInitValues()`
 
-**Purpose:** Recalculates and stores the latest representation of `init values`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of init values.
 
 ```csharp
 // Obtain an instance of SpritePart from the subsystem API first

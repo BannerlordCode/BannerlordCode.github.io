@@ -32,7 +32,7 @@ description: "MPOptionsVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOptionsVM 实例
@@ -43,7 +43,7 @@ mPOptionsVM.RefreshValues();
 ### ExecuteCancel
 `public new void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOptionsVM 实例
@@ -54,7 +54,7 @@ mPOptionsVM.ExecuteCancel();
 ### ExecuteApply
 `public void ExecuteApply()`
 
-**用途 / Purpose:** 执行 「apply」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 apply 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOptionsVM 实例
@@ -65,7 +65,7 @@ mPOptionsVM.ExecuteApply();
 ### ForceCancel
 `public void ForceCancel()`
 
-**用途 / Purpose:** 处理与 「force cancel」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceCancel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOptionsVM 实例

@@ -23,7 +23,7 @@ description: "DefaultDailyTroopXpBonusModel 的自动生成类参考。"
 ### CalculateDailyTroopXpBonus
 `public override int CalculateDailyTroopXpBonus(Town town)`
 
-**用途 / Purpose:** 计算「daily troop xp bonus」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算daily troop xp bonus的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDailyTroopXpBonusModel 实例
@@ -34,7 +34,7 @@ var result = defaultDailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
 ### CalculateGarrisonXpBonusMultiplier
 `public override float CalculateGarrisonXpBonusMultiplier(Town town)`
 
-**用途 / Purpose:** 计算「garrison xp bonus multiplier」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算garrison xp bonus multiplier的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDailyTroopXpBonusModel 实例

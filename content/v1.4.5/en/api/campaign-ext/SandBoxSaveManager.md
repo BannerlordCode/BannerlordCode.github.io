@@ -23,7 +23,7 @@ Treat `SandBoxSaveManager` as a Manager-style extension point: first identify wh
 ### GetAutoSaveInterval
 `public int GetAutoSaveInterval()`
 
-**Purpose:** Reads and returns the `auto save interval` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the auto save interval value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandBoxSaveManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = sandBoxSaveManager.GetAutoSaveInterval();
 ### IsAutoSaveDisabled
 `public bool IsAutoSaveDisabled()`
 
-**Purpose:** Determines whether the current object is in the `auto save disabled` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the auto save disabled state or condition.
 
 ```csharp
 // Obtain an instance of SandBoxSaveManager from the subsystem API first
@@ -45,7 +45,7 @@ var result = sandBoxSaveManager.IsAutoSaveDisabled();
 ### OnSaveOver
 `public void OnSaveOver(bool isSuccessful, string newSaveGameName)`
 
-**Purpose:** Invoked when the `save over` event is raised.
+**Purpose:** **Purpose:** Invoked when the save over event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxSaveManager from the subsystem API first

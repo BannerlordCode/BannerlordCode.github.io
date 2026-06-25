@@ -37,7 +37,7 @@ description: "MapNotificationItemBaseVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -48,7 +48,7 @@ mapNotificationItemBaseVM.RefreshValues();
 ### SetNavigationHandler
 `public void SetNavigationHandler(INavigationHandler navigationHandler)`
 
-**用途 / Purpose:** 为 「navigation handler」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 navigation handler 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -59,7 +59,7 @@ mapNotificationItemBaseVM.SetNavigationHandler(navigationHandler);
 ### SetFastMoveCameraToPosition
 `public void SetFastMoveCameraToPosition(Action<CampaignVec2> fastMoveCameraToPosition)`
 
-**用途 / Purpose:** 为 「fast move camera to position」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 fast move camera to position 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -70,7 +70,7 @@ mapNotificationItemBaseVM.SetFastMoveCameraToPosition(fastMoveCameraToPosition);
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -81,7 +81,7 @@ mapNotificationItemBaseVM.ExecuteAction();
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 remove 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -92,7 +92,7 @@ mapNotificationItemBaseVM.ExecuteRemove();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** 执行 「set focused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -103,7 +103,7 @@ mapNotificationItemBaseVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** 执行 「set unfocused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -114,7 +114,7 @@ mapNotificationItemBaseVM.ExecuteSetUnfocused();
 ### ManualRefreshRelevantStatus
 `public virtual void ManualRefreshRelevantStatus()`
 
-**用途 / Purpose:** 获取或更新 「manual refresh relevant status」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ManualRefreshRelevantStatus 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例
@@ -125,7 +125,7 @@ mapNotificationItemBaseVM.ManualRefreshRelevantStatus();
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「remove input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 remove input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemBaseVM 实例

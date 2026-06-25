@@ -31,7 +31,7 @@ description: "MissionLobbyComponent 的自动生成类参考。"
 ### AddLobbyComponentType
 `public static void AddLobbyComponentType(Type type, LobbyMissionType missionType, bool isSeverComponent)`
 
-**用途 / Purpose:** 将 「lobby component type」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 lobby component type 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ MissionLobbyComponent.AddLobbyComponentType(type, missionType, false);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -52,7 +52,7 @@ missionLobbyComponent.OnBehaviorInitialize();
 ### CreateBehavior
 `public static MissionLobbyComponent CreateBehavior()`
 
-**用途 / Purpose:** 构建一个新的 「behavior」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 behavior 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ MissionLobbyComponent.CreateBehavior();
 ### QuitMission
 `public virtual void QuitMission()`
 
-**用途 / Purpose:** 处理与 「quit mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 QuitMission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -73,7 +73,7 @@ missionLobbyComponent.QuitMission();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -84,7 +84,7 @@ missionLobbyComponent.AfterStart();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -95,7 +95,7 @@ missionLobbyComponent.EarlyStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -106,7 +106,7 @@ missionLobbyComponent.OnMissionTick(0);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -117,7 +117,7 @@ missionLobbyComponent.OnRemoveBehavior();
 ### IsClassAvailable
 `public bool IsClassAvailable(FormationClass formationClass)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「class available」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 class available 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -128,7 +128,7 @@ var result = missionLobbyComponent.IsClassAvailable(formationClass);
 ### ChangeClassRestriction
 `public void ChangeClassRestriction(FormationClass classToChangeRestriction, bool value)`
 
-**用途 / Purpose:** 处理与 「change class restriction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeClassRestriction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -139,7 +139,7 @@ missionLobbyComponent.ChangeClassRestriction(classToChangeRestriction, false);
 ### DespawnPlayer
 `public void DespawnPlayer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 处理与 「despawn player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DespawnPlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -150,7 +150,7 @@ missionLobbyComponent.DespawnPlayer(missionPeer);
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** 在 「score hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -161,7 +161,7 @@ missionLobbyComponent.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, f
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -172,7 +172,7 @@ missionLobbyComponent.OnAgentRemoved(affectedAgent, affectorAgent, agentState, k
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -183,7 +183,7 @@ missionLobbyComponent.OnAgentBuild(agent, banner);
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -194,7 +194,7 @@ missionLobbyComponent.OnClearScene();
 ### GetSpawnPeriodDurationForPeer
 `public static int GetSpawnPeriodDurationForPeer(MissionPeer peer)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn period duration for peer」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn period duration for peer 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -204,7 +204,7 @@ MissionLobbyComponent.GetSpawnPeriodDurationForPeer(peer);
 ### SetStateEndingAsServer
 `public virtual void SetStateEndingAsServer()`
 
-**用途 / Purpose:** 为 「state ending as server」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 state ending as server 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -215,7 +215,7 @@ missionLobbyComponent.SetStateEndingAsServer();
 ### RequestCultureSelection
 `public void RequestCultureSelection()`
 
-**用途 / Purpose:** 处理与 「request culture selection」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestCultureSelection 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -226,7 +226,7 @@ missionLobbyComponent.RequestCultureSelection();
 ### RequestAdminMessage
 `public void RequestAdminMessage(string message, bool isBroadcast)`
 
-**用途 / Purpose:** 处理与 「request admin message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestAdminMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -237,7 +237,7 @@ missionLobbyComponent.RequestAdminMessage("example", false);
 ### RequestTroopSelection
 `public void RequestTroopSelection()`
 
-**用途 / Purpose:** 处理与 「request troop selection」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestTroopSelection 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -248,7 +248,7 @@ missionLobbyComponent.RequestTroopSelection();
 ### OnCultureSelected
 `public void OnCultureSelected(BasicCultureObject culture)`
 
-**用途 / Purpose:** 在 「culture selected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 culture selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -259,7 +259,7 @@ missionLobbyComponent.OnCultureSelected(culture);
 ### GetRandomFaceSeedForCharacter
 `public int GetRandomFaceSeedForCharacter(BasicCharacterObject character, int addition = 0)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random face seed for character」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random face seed for character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyComponent 实例
@@ -270,7 +270,7 @@ var result = missionLobbyComponent.GetRandomFaceSeedForCharacter(character, 0);
 ### MPHostChangeParam
 `public static string MPHostChangeParam(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「mp host change param」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPHostChangeParam 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

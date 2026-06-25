@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### Initialize
 `public void Initialize(FrameworkDomain frameworkDomains)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of WindowsFramework from the subsystem API first
@@ -42,7 +42,7 @@ windowsFramework.Initialize(frameworkDomains);
 ### RegisterMessageCommunicator
 `public void RegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**Purpose:** Registers `message communicator` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers message communicator with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of WindowsFramework from the subsystem API first
@@ -53,7 +53,7 @@ windowsFramework.RegisterMessageCommunicator(communicator);
 ### UnRegisterMessageCommunicator
 `public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnRegisterMessageCommunicator logic.
 
 ```csharp
 // Obtain an instance of WindowsFramework from the subsystem API first
@@ -64,7 +64,7 @@ windowsFramework.UnRegisterMessageCommunicator(communicator);
 ### Stop
 `public void Stop()`
 
-**Purpose:** Stops the current object's flow or state machine.
+**Purpose:** **Purpose:** Stops the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of WindowsFramework from the subsystem API first
@@ -75,7 +75,7 @@ windowsFramework.Stop();
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of WindowsFramework from the subsystem API first
@@ -86,7 +86,7 @@ windowsFramework.OnFinalize();
 ### Start
 `public void Start()`
 
-**Purpose:** Starts the current object's flow or state machine.
+**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of WindowsFramework from the subsystem API first

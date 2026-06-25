@@ -23,7 +23,7 @@ description: "GameModelsManager 的自动生成类参考。"
 ### GetGameModels
 `public MBReadOnlyList<GameModel> GetGameModels()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「game models」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game models 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameModelsManager 实例

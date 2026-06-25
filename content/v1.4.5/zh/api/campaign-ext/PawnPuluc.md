@@ -33,7 +33,7 @@ description: "PawnPuluc 的自动生成类参考。"
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例
@@ -44,7 +44,7 @@ pawnPuluc.Reset();
 ### AddGoalPosition
 `public override void AddGoalPosition(Vec3 goal)`
 
-**用途 / Purpose:** 将 「goal position」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 goal position 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例
@@ -55,7 +55,7 @@ pawnPuluc.AddGoalPosition(goal);
 ### MovePawnToGoalPositions
 `public override void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**用途 / Purpose:** 移动「pawn to goal positions」到新的位置或状态。
+**用途 / Purpose:** **用途 / Purpose:** 移动pawn to goal positions到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例
@@ -66,7 +66,7 @@ pawnPuluc.MovePawnToGoalPositions(false, 0, false);
 ### SetPawnAtPosition
 `public override void SetPawnAtPosition(Vec3 position)`
 
-**用途 / Purpose:** 为 「pawn at position」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 pawn at position 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例
@@ -77,7 +77,7 @@ pawnPuluc.SetPawnAtPosition(position);
 ### EnableCollisionBody
 `public override void EnableCollisionBody()`
 
-**用途 / Purpose:** 处理与 「enable collision body」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EnableCollisionBody 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例
@@ -88,7 +88,7 @@ pawnPuluc.EnableCollisionBody();
 ### DisableCollisionBody
 `public override void DisableCollisionBody()`
 
-**用途 / Purpose:** 处理与 「disable collision body」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableCollisionBody 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例
@@ -99,7 +99,7 @@ pawnPuluc.DisableCollisionBody();
 ### MovePawnBackToSpawn
 `public void MovePawnBackToSpawn(bool instantMove, float speed, bool fake = false)`
 
-**用途 / Purpose:** 移动「pawn back to spawn」到新的位置或状态。
+**用途 / Purpose:** **用途 / Purpose:** 移动pawn back to spawn到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnPuluc 实例

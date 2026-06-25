@@ -29,7 +29,7 @@ Treat `MapEncyclopediaView` as a View-style extension point: first identify who 
 ### CloseEncyclopedia
 `public virtual void CloseEncyclopedia()`
 
-**Purpose:** Closes the resource or UI associated with `encyclopedia`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with encyclopedia.
 
 ```csharp
 // Obtain an instance of MapEncyclopediaView from the subsystem API first

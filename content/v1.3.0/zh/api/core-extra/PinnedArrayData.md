@@ -33,7 +33,7 @@ description: "PinnedArrayData 的自动生成类参考。"
 ### CheckIfTypeRequiresManualPinning
 `public static bool CheckIfTypeRequiresManualPinning(Type type)`
 
-**用途 / Purpose:** 检查「if type requires manual pinning」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查if type requires manual pinning在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ PinnedArrayData.CheckIfTypeRequiresManualPinning(type);
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 释放当前对象占用的非托管资源。
+**用途 / Purpose:** **用途 / Purpose:** 释放当前对象占用的非托管资源。
 
 ```csharp
 // 先通过子系统 API 拿到 PinnedArrayData 实例

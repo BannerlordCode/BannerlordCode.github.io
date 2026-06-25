@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### ClassConfiguration
 `public struct ClassConfiguration(int formationIndex, DeploymentFormationClass formationClass)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClassConfiguration logic.
 
 ```csharp
 // Obtain an instance of ClassConfiguration from the subsystem API first

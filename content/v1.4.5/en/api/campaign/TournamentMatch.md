@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### End
 `public void End()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the End logic.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first
@@ -40,7 +40,7 @@ tournamentMatch.End();
 ### Start
 `public void Start()`
 
-**Purpose:** Starts the current object's flow or state machine.
+**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first
@@ -51,7 +51,7 @@ tournamentMatch.Start();
 ### GetParticipant
 `public TournamentParticipant GetParticipant(int uniqueSeed)`
 
-**Purpose:** Reads and returns the `participant` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the participant value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first
@@ -62,7 +62,7 @@ var result = tournamentMatch.GetParticipant(0);
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**Purpose:** Determines whether the current object is in the `participant required` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the participant required state or condition.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first
@@ -73,7 +73,7 @@ var result = tournamentMatch.IsParticipantRequired();
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime)`
 
-**Purpose:** Adds `participant` to the current collection or state.
+**Purpose:** **Purpose:** Adds participant to the current collection or state.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first
@@ -84,7 +84,7 @@ tournamentMatch.AddParticipant(participant, false);
 ### IsPlayerParticipating
 `public bool IsPlayerParticipating()`
 
-**Purpose:** Determines whether the current object is in the `player participating` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player participating state or condition.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first
@@ -95,7 +95,7 @@ var result = tournamentMatch.IsPlayerParticipating();
 ### IsPlayerWinner
 `public bool IsPlayerWinner()`
 
-**Purpose:** Determines whether the current object is in the `player winner` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player winner state or condition.
 
 ```csharp
 // Obtain an instance of TournamentMatch from the subsystem API first

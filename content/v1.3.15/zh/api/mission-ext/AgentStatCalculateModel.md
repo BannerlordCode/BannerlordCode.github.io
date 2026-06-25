@@ -23,7 +23,7 @@ description: "AgentStatCalculateModel 的自动生成类参考。"
 ### InitializeAgentStats
 `public abstract void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**用途 / Purpose:** 为 「agent stats」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 agent stats 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -34,7 +34,7 @@ agentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agentDrivenP
 ### InitializeMissionEquipment
 `public virtual void InitializeMissionEquipment(Agent agent)`
 
-**用途 / Purpose:** 为 「mission equipment」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 mission equipment 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -45,7 +45,7 @@ agentStatCalculateModel.InitializeMissionEquipment(agent);
 ### InitializeAgentStatsAfterDeploymentFinished
 `public virtual void InitializeAgentStatsAfterDeploymentFinished(Agent agent)`
 
-**用途 / Purpose:** 为 「agent stats after deployment finished」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 agent stats after deployment finished 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -56,7 +56,7 @@ agentStatCalculateModel.InitializeAgentStatsAfterDeploymentFinished(agent);
 ### InitializeMissionEquipmentAfterDeploymentFinished
 `public virtual void InitializeMissionEquipmentAfterDeploymentFinished(Agent agent)`
 
-**用途 / Purpose:** 为 「mission equipment after deployment finished」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 mission equipment after deployment finished 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -67,7 +67,7 @@ agentStatCalculateModel.InitializeMissionEquipmentAfterDeploymentFinished(agent)
 ### UpdateAgentStats
 `public abstract void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**用途 / Purpose:** 重新计算并更新 「agent stats」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 agent stats 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -78,7 +78,7 @@ agentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties);
 ### GetDifficultyModifier
 `public abstract float GetDifficultyModifier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「difficulty modifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 difficulty modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -89,7 +89,7 @@ var result = agentStatCalculateModel.GetDifficultyModifier();
 ### CanAgentRideMount
 `public abstract bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「agent ride mount」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent ride mount 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -100,7 +100,7 @@ var result = agentStatCalculateModel.CanAgentRideMount(agent, targetMount);
 ### HasHeavyArmor
 `public virtual bool HasHeavyArmor(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「heavy armor」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 heavy armor。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -111,7 +111,7 @@ var result = agentStatCalculateModel.HasHeavyArmor(agent);
 ### GetEffectiveArmorEncumbrance
 `public virtual float GetEffectiveArmorEncumbrance(Agent agent, Equipment equipment)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective armor encumbrance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective armor encumbrance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -122,7 +122,7 @@ var result = agentStatCalculateModel.GetEffectiveArmorEncumbrance(agent, equipme
 ### GetEffectiveMaxHealth
 `public virtual float GetEffectiveMaxHealth(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective max health」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective max health 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -133,7 +133,7 @@ var result = agentStatCalculateModel.GetEffectiveMaxHealth(agent);
 ### GetEnvironmentSpeedFactor
 `public virtual float GetEnvironmentSpeedFactor(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「environment speed factor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 environment speed factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -144,7 +144,7 @@ var result = agentStatCalculateModel.GetEnvironmentSpeedFactor(agent);
 ### CalculateAIAttackOnDecideMaxValue
 `public float CalculateAIAttackOnDecideMaxValue()`
 
-**用途 / Purpose:** 计算「a i attack on decide max value」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算a i attack on decide max value的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -155,7 +155,7 @@ var result = agentStatCalculateModel.CalculateAIAttackOnDecideMaxValue();
 ### GetWeaponInaccuracy
 `public virtual float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon inaccuracy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -166,7 +166,7 @@ var result = agentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
 ### GetDetachmentCostMultiplierOfAgent
 `public virtual float GetDetachmentCostMultiplierOfAgent(Agent agent, IDetachment detachment)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「detachment cost multiplier of agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 detachment cost multiplier of agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -177,7 +177,7 @@ var result = agentStatCalculateModel.GetDetachmentCostMultiplierOfAgent(agent, d
 ### GetInteractionDistance
 `public virtual float GetInteractionDistance(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「interaction distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 interaction distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -188,7 +188,7 @@ var result = agentStatCalculateModel.GetInteractionDistance(agent);
 ### GetMaxCameraZoom
 `public virtual float GetMaxCameraZoom(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max camera zoom」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max camera zoom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -199,7 +199,7 @@ var result = agentStatCalculateModel.GetMaxCameraZoom(agent);
 ### GetEffectiveSkill
 `public virtual int GetEffectiveSkill(Agent agent, SkillObject skill)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective skill」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective skill 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -210,7 +210,7 @@ var result = agentStatCalculateModel.GetEffectiveSkill(agent, skill);
 ### GetEffectiveSkillForWeapon
 `public virtual int GetEffectiveSkillForWeapon(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective skill for weapon」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective skill for weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -221,7 +221,7 @@ var result = agentStatCalculateModel.GetEffectiveSkillForWeapon(agent, weapon);
 ### GetWeaponDamageMultiplier
 `public abstract float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon damage multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon damage multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -232,7 +232,7 @@ var result = agentStatCalculateModel.GetWeaponDamageMultiplier(agent, weapon);
 ### GetEquipmentStealthBonus
 `public abstract float GetEquipmentStealthBonus(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment stealth bonus」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment stealth bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -243,7 +243,7 @@ var result = agentStatCalculateModel.GetEquipmentStealthBonus(agent);
 ### GetSneakAttackMultiplier
 `public abstract float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sneak attack multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sneak attack multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -254,7 +254,7 @@ var result = agentStatCalculateModel.GetSneakAttackMultiplier(agent, weapon);
 ### GetKnockBackResistance
 `public abstract float GetKnockBackResistance(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「knock back resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock back resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -265,7 +265,7 @@ var result = agentStatCalculateModel.GetKnockBackResistance(agent);
 ### GetKnockDownResistance
 `public abstract float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「knock down resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock down resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -276,7 +276,7 @@ var result = agentStatCalculateModel.GetKnockDownResistance(agent, strikeType.In
 ### GetDismountResistance
 `public abstract float GetDismountResistance(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「dismount resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 dismount resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -287,7 +287,7 @@ var result = agentStatCalculateModel.GetDismountResistance(agent);
 ### GetBreatheHoldMaxDuration
 `public abstract float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「breathe hold max duration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 breathe hold max duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -298,7 +298,7 @@ var result = agentStatCalculateModel.GetBreatheHoldMaxDuration(agent, 0);
 ### GetMissionDebugInfoForAgent
 `public virtual string GetMissionDebugInfoForAgent(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「mission debug info for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mission debug info for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -309,7 +309,7 @@ var result = agentStatCalculateModel.GetMissionDebugInfoForAgent(agent);
 ### ResetAILevelMultiplier
 `public void ResetAILevelMultiplier()`
 
-**用途 / Purpose:** 将 「a i level multiplier」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 a i level multiplier 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例
@@ -320,7 +320,7 @@ agentStatCalculateModel.ResetAILevelMultiplier();
 ### SetAILevelMultiplier
 `public void SetAILevelMultiplier(float multiplier)`
 
-**用途 / Purpose:** 为 「a i level multiplier」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 a i level multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentStatCalculateModel 实例

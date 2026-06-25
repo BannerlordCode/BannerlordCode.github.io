@@ -29,7 +29,7 @@ description: "BannerEditorState 的自动生成类参考。"
 ### GetClan
 `public Clan GetClan()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「clan」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorState 实例
@@ -40,7 +40,7 @@ var result = bannerEditorState.GetClan();
 ### GetCharacter
 `public CharacterObject GetCharacter()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「character」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorState 实例

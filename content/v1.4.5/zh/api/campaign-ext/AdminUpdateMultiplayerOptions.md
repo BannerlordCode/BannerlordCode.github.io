@@ -35,7 +35,7 @@ description: "AdminUpdateMultiplayerOptions 的自动生成类参考。"
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, bool value)`
 
-**用途 / Purpose:** 将 「multiplayer option」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 multiplayer option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminUpdateMultiplayerOptions 实例
@@ -46,7 +46,7 @@ adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, false
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, int value)`
 
-**用途 / Purpose:** 将 「multiplayer option」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 multiplayer option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminUpdateMultiplayerOptions 实例
@@ -57,7 +57,7 @@ adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, 0);
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, string value)`
 
-**用途 / Purpose:** 将 「multiplayer option」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 multiplayer option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminUpdateMultiplayerOptions 实例

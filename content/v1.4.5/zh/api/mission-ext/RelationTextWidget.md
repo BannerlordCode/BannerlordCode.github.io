@@ -32,7 +32,7 @@ description: "RelationTextWidget 的自动生成类参考。"
 ### RelationTextWidget
 `public class RelationTextWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「relation text widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RelationTextWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RelationTextWidget 实例

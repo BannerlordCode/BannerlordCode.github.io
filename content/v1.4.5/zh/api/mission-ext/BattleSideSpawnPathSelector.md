@@ -23,7 +23,7 @@ description: "BattleSideSpawnPathSelector 的自动生成类参考。"
 ### HasReinforcementPath
 `public bool HasReinforcementPath(Path path)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「reinforcement path」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 reinforcement path。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSideSpawnPathSelector 实例

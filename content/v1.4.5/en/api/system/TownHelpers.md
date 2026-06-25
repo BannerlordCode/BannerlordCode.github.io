@@ -23,7 +23,7 @@ Start from namespace `Helpers` to place it in the stack, then inspect its public
 ### IsThereAnyoneToMeetInTown
 `public static bool IsThereAnyoneToMeetInTown(Settlement settlement)`
 
-**Purpose:** Determines whether the current object is in the `there anyone to meet in town` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there anyone to meet in town state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TownHelpers.IsThereAnyoneToMeetInTown(settlement);
 ### GetHeroesToMeetInTown
 `public static List<Hero> GetHeroesToMeetInTown(Settlement settlement)`
 
-**Purpose:** Reads and returns the `heroes to meet in town` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the heroes to meet in town value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ TownHelpers.GetHeroesToMeetInTown(settlement);
 ### GetHeroesInSettlement
 `public static MBList<Hero> GetHeroesInSettlement(Settlement settlement, Predicate<Hero> predicate = null)`
 
-**Purpose:** Reads and returns the `heroes in settlement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the heroes in settlement value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ TownHelpers.GetHeroesInSettlement(settlement, null);
 ### RequestAMeetingPartyCondition
 `public static bool RequestAMeetingPartyCondition(MobileParty party)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestAMeetingPartyCondition logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ TownHelpers.RequestAMeetingPartyCondition(party);
 ### RequestAMeetingHeroWithoutPartyCondition
 `public static bool RequestAMeetingHeroWithoutPartyCondition(Hero hero)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestAMeetingHeroWithoutPartyCondition logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ TownHelpers.RequestAMeetingHeroWithoutPartyCondition(hero);
 ### CalculatePriceDeviationRatio
 `public static float CalculatePriceDeviationRatio(Town town, EquipmentElement equipmentElement)`
 
-**Purpose:** Calculates the current value or result of `price deviation ratio`.
+**Purpose:** **Purpose:** Calculates the current value or result of price deviation ratio.
 
 ```csharp
 // Static call; no instance required

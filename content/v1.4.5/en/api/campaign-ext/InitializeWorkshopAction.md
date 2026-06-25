@@ -19,7 +19,7 @@ InitializeWorkshopAction is a set of static methods that trigger "InitializeWork
 public static void ApplyByNewGame(Workshop workshop, Hero workshopOwner, WorkshopType workshopType)
 ```
 
-**Purpose:** new game.
+**Purpose:** **Purpose:** Applies the effect of by new game to the this instance.
 
 ## Usage Example
 

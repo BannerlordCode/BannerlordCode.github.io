@@ -23,7 +23,7 @@ Treat `DefaultSettlementValueModel` as a Model-style extension point: first iden
 ### FindMostSuitableHomeSettlement
 `public override Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**Purpose:** Looks up the matching `most suitable home settlement` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching most suitable home settlement in the current collection or scope.
 
 ```csharp
 // Obtain an instance of DefaultSettlementValueModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultSettlementValueModel.FindMostSuitableHomeSettlement(clan);
 ### CalculateSettlementBaseValue
 `public override float CalculateSettlementBaseValue(Settlement settlement)`
 
-**Purpose:** Calculates the current value or result of `settlement base value`.
+**Purpose:** **Purpose:** Calculates the current value or result of settlement base value.
 
 ```csharp
 // Obtain an instance of DefaultSettlementValueModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultSettlementValueModel.CalculateSettlementBaseValue(settlement
 ### CalculateSettlementValueForFaction
 `public override float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**Purpose:** Calculates the current value or result of `settlement value for faction`.
+**Purpose:** **Purpose:** Calculates the current value or result of settlement value for faction.
 
 ```csharp
 // Obtain an instance of DefaultSettlementValueModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultSettlementValueModel.CalculateSettlementValueForFaction(sett
 ### CalculateSettlementValueForEnemyHero
 `public override float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**Purpose:** Calculates the current value or result of `settlement value for enemy hero`.
+**Purpose:** **Purpose:** Calculates the current value or result of settlement value for enemy hero.
 
 ```csharp
 // Obtain an instance of DefaultSettlementValueModel from the subsystem API first

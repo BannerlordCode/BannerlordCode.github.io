@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
@@ -34,7 +34,7 @@ mPArmoryClothingCosmeticCategoryVM.RefreshValues();
 ### SetDefaultEquipments
 `public void SetDefaultEquipments(Equipment equipment)`
 
-**Purpose:** Assigns a new value to `default equipments` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to default equipments and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
@@ -45,7 +45,7 @@ mPArmoryClothingCosmeticCategoryVM.SetDefaultEquipments(equipment);
 ### ReplaceCosmeticWithDefaultItem
 `public void ReplaceCosmeticWithDefaultItem(MPArmoryCosmeticClothingItemVM cosmetic, MPArmoryCosmeticsVM.ClothingCategory clothingCategory, MPHeroClass selectedClass, List<string> ownedCosmetics)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReplaceCosmeticWithDefaultItem logic.
 
 ```csharp
 // Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first
@@ -56,7 +56,7 @@ mPArmoryClothingCosmeticCategoryVM.ReplaceCosmeticWithDefaultItem(cosmetic, clot
 ### OnEquipmentRefreshed
 `public void OnEquipmentRefreshed(EquipmentIndex equipmentIndex)`
 
-**Purpose:** Invoked when the `equipment refreshed` event is raised.
+**Purpose:** **Purpose:** Invoked when the equipment refreshed event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryClothingCosmeticCategoryVM from the subsystem API first

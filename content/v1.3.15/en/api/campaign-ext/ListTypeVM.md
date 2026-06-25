@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ListTypeVM from the subsystem API first
@@ -43,7 +43,7 @@ listTypeVM.RefreshValues();
 ### Execute
 `public void Execute()`
 
-**Purpose:** Runs the operation or workflow represented by the current object.
+**Purpose:** **Purpose:** Runs the operation or workflow represented by the this instance.
 
 ```csharp
 // Obtain an instance of ListTypeVM from the subsystem API first

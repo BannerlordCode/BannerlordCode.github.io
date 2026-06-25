@@ -23,7 +23,7 @@ Treat `RansomValueCalculationModel` as a Model-style extension point: first iden
 ### PrisonerRansomValue
 `public abstract int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PrisonerRansomValue logic.
 
 ```csharp
 // Obtain an instance of RansomValueCalculationModel from the subsystem API first

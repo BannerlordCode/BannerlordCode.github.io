@@ -39,7 +39,7 @@ description: "CharacterCreationClanNamingStageVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -50,7 +50,7 @@ characterCreationClanNamingStageVM.RefreshValues();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「advance to next stage」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 advance to next stage 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -61,7 +61,7 @@ var result = characterCreationClanNamingStageVM.CanAdvanceToNextStage();
 ### OnNextStage
 `public override void OnNextStage()`
 
-**用途 / Purpose:** 在 「next stage」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 next stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -72,7 +72,7 @@ characterCreationClanNamingStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**用途 / Purpose:** 在 「previous stage」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 previous stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -83,7 +83,7 @@ characterCreationClanNamingStageVM.OnPreviousStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -94,7 +94,7 @@ characterCreationClanNamingStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -105,7 +105,7 @@ characterCreationClanNamingStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -116,7 +116,7 @@ characterCreationClanNamingStageVM.SetDoneInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -127,7 +127,7 @@ characterCreationClanNamingStageVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例
@@ -138,7 +138,7 @@ characterCreationClanNamingStageVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageVM 实例

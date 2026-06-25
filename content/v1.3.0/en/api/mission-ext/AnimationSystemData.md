@@ -23,7 +23,7 @@ Treat `AnimationSystemData` as a Data-style extension point: first identify who 
 ### GetHardcodedAnimationSystemDataForHumanSkeleton
 `public static AnimationSystemData GetHardcodedAnimationSystemDataForHumanSkeleton()`
 
-**Purpose:** Reads and returns the `hardcoded animation system data for human skeleton` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hardcoded animation system data for human skeleton value held by the this instance.
 
 ```csharp
 // Static call; no instance required

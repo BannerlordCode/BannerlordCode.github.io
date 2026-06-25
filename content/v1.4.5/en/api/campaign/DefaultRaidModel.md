@@ -23,7 +23,7 @@ Treat `DefaultRaidModel` as a Model-style extension point: first identify who cr
 ### CalculateHitDamage
 `public override ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** Calculates the current value or result of `hit damage`.
+**Purpose:** **Purpose:** Calculates the current value or result of hit damage.
 
 ```csharp
 // Obtain an instance of DefaultRaidModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultRaidModel.CalculateHitDamage(attackerSide, 0);
 ### GetRaidLootMultiplier
 `public override ExplainedNumber GetRaidLootMultiplier(PartyBase receivingParty)`
 
-**Purpose:** Reads and returns the `raid loot multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the raid loot multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultRaidModel from the subsystem API first

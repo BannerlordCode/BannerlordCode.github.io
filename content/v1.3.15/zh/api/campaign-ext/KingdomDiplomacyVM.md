@@ -45,7 +45,7 @@ description: "KingdomDiplomacyVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDiplomacyVM 实例
@@ -56,7 +56,7 @@ kingdomDiplomacyVM.RefreshValues();
 ### RefreshDiplomacyList
 `public void RefreshDiplomacyList()`
 
-**用途 / Purpose:** 使 「diplomacy list」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 diplomacy list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDiplomacyVM 实例
@@ -67,7 +67,7 @@ kingdomDiplomacyVM.RefreshDiplomacyList();
 ### SelectKingdom
 `public void SelectKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 处理与 「select kingdom」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectKingdom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDiplomacyVM 实例

@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ tavernEmployeesCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ tavernEmployeesCampaignBehavior.SyncData(dataStore);
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ tavernEmployeesCampaignBehavior.DailyTick();
 ### WeeklyTick
 `public void WeeklyTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WeeklyTick logic.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ tavernEmployeesCampaignBehavior.WeeklyTick();
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ tavernEmployeesCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### OnMissionStarted
 `public void OnMissionStarted(IMission mission)`
 
-**Purpose:** Invoked when the `mission started` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission started event is raised.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ tavernEmployeesCampaignBehavior.OnMissionStarted(mission);
 ### FindCompanionWithType
 `public void FindCompanionWithType(PartyRole role)`
 
-**Purpose:** Looks up the matching `companion with type` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching companion with type in the current collection or scope.
 
 ```csharp
 // Obtain an instance of TavernEmployeesCampaignBehavior from the subsystem API first

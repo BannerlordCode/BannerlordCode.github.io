@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BasicCultureObject from the subsystem API first
@@ -53,7 +53,7 @@ var result = basicCultureObject.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of BasicCultureObject from the subsystem API first

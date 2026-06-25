@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### IsUrbanOccupation
 `public static bool IsUrbanOccupation(string occupation)`
 
-**Purpose:** Determines whether the current object is in the `urban occupation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the urban occupation state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CharacterCreationCampaignBehavior.IsUrbanOccupation("example");
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -44,7 +44,7 @@ characterCreationCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -55,7 +55,7 @@ characterCreationCampaignBehavior.SyncData(dataStore);
 ### InitializeCharacterCreationStages
 `public void InitializeCharacterCreationStages(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `character creation stages`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by character creation stages.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -66,7 +66,7 @@ characterCreationCampaignBehavior.InitializeCharacterCreationStages(characterCre
 ### InitializeCharacterCreationCultures
 `public void InitializeCharacterCreationCultures(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `character creation cultures`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by character creation cultures.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -77,7 +77,7 @@ characterCreationCampaignBehavior.InitializeCharacterCreationCultures(characterC
 ### InitializeData
 `public void InitializeData(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `data`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by data.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -88,7 +88,7 @@ characterCreationCampaignBehavior.InitializeData(characterCreationManager);
 ### FaceGenUpdated
 `public void FaceGenUpdated()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FaceGenUpdated logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -99,7 +99,7 @@ characterCreationCampaignBehavior.FaceGenUpdated();
 ### UpdateParentEquipment
 `public void UpdateParentEquipment(CharacterCreationManager characterCreationManager, MBEquipmentRoster motherEquipment, MBEquipmentRoster fatherEquipment, string motherAnimation, string fatherAnimation)`
 
-**Purpose:** Recalculates and stores the latest representation of `parent equipment`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of parent equipment.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -110,7 +110,7 @@ characterCreationCampaignBehavior.UpdateParentEquipment(characterCreationManager
 ### AddEducationMenu
 `public void AddEducationMenu(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Adds `education menu` to the current collection or state.
+**Purpose:** **Purpose:** Adds education menu to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first
@@ -121,7 +121,7 @@ characterCreationCampaignBehavior.AddEducationMenu(characterCreationManager);
 ### SetHeroAge
 `public void SetHeroAge(float age)`
 
-**Purpose:** Assigns a new value to `hero age` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to hero age and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationCampaignBehavior from the subsystem API first

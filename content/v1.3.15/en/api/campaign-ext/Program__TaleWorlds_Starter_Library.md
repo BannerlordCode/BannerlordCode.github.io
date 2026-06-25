@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Starter.Library` to place it in the stack, then
 ### Main
 `public static int Main(string args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Main logic.
 
 ```csharp
 // Static call; no instance required

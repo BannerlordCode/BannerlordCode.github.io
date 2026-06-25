@@ -23,7 +23,7 @@ Treat `AgentMoraleInteractionLogic` as a Logic-style extension point: first iden
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AgentMoraleInteractionLogic from the subsystem API first
@@ -34,7 +34,7 @@ agentMoraleInteractionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentSt
 ### OnAgentFleeing
 `public override void OnAgentFleeing(Agent affectedAgent)`
 
-**Purpose:** Invoked when the `agent fleeing` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent fleeing event is raised.
 
 ```csharp
 // Obtain an instance of AgentMoraleInteractionLogic from the subsystem API first

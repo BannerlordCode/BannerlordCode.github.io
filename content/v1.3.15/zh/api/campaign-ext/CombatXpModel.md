@@ -29,7 +29,7 @@ description: "CombatXpModel 的自动生成类参考。"
 ### GetSkillForWeapon
 `public abstract SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「skill for weapon」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill for weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatXpModel 实例
@@ -40,7 +40,7 @@ var result = combatXpModel.GetSkillForWeapon(weapon, false);
 ### GetXpFromHit
 `public abstract ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp from hit」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp from hit 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatXpModel 实例
@@ -51,7 +51,7 @@ var result = combatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, a
 ### GetXpMultiplierFromShotDifficulty
 `public abstract float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp multiplier from shot difficulty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp multiplier from shot difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CombatXpModel 实例

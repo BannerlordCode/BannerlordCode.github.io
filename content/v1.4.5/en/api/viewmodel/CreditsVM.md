@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Credits` to p
 ### FillFromFile
 `public void FillFromFile(string path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFromFile logic.
 
 ```csharp
 // Obtain an instance of CreditsVM from the subsystem API first
@@ -42,7 +42,7 @@ creditsVM.FillFromFile("example");
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CreditsVM from the subsystem API first

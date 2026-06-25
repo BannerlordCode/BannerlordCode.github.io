@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### Log
 `public static void Log(string message, int logLevel = 0, DebugColor color = (DebugColor)4)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Log logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ModLogger.Log("example", 0, (DebugColor)4);
 ### Warn
 `public static void Warn(string message)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Warn logic.
 
 ```csharp
 // Static call; no instance required

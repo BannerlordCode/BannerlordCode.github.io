@@ -23,7 +23,7 @@ description: "BannerVisualExtensions 的自动生成类参考。"
 ### GetTableauTextureSmall
 `public static Texture GetTableauTextureSmall(this Banner banner, Action<Texture> setAction)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tableau texture small」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tableau texture small 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ BannerVisualExtensions.GetTableauTextureSmall(banner, setAction);
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, Action<Texture> setAction)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tableau texture large」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tableau texture large 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ BannerVisualExtensions.GetTableauTextureLarge(banner, setAction);
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, Action<Texture> setAction, out BannerThumbnailCreationData creationData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tableau texture large」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tableau texture large 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ BannerVisualExtensions.GetTableauTextureLarge(banner, setAction, creationData);
 ### ConvertToMultiMesh
 `public static MetaMesh ConvertToMultiMesh(this Banner banner)`
 
-**用途 / Purpose:** 把「to multi mesh」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把to multi mesh转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例

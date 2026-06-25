@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -50,7 +50,7 @@ missionSpectatorControlVM.RefreshValues();
 ### OnSpectatedAgentFocusIn
 `public void OnSpectatedAgentFocusIn(Agent followedAgent)`
 
-**Purpose:** Invoked when the `spectated agent focus in` event is raised.
+**Purpose:** **Purpose:** Invoked when the spectated agent focus in event is raised.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -61,7 +61,7 @@ missionSpectatorControlVM.OnSpectatedAgentFocusIn(followedAgent);
 ### OnSpectatedAgentFocusOut
 `public void OnSpectatedAgentFocusOut(Agent followedAgent)`
 
-**Purpose:** Invoked when the `spectated agent focus out` event is raised.
+**Purpose:** **Purpose:** Invoked when the spectated agent focus out event is raised.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -72,7 +72,7 @@ missionSpectatorControlVM.OnSpectatedAgentFocusOut(followedAgent);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -83,7 +83,7 @@ missionSpectatorControlVM.OnFinalize();
 ### SetMainAgentStatus
 `public void SetMainAgentStatus(bool isDead)`
 
-**Purpose:** Assigns a new value to `main agent status` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to main agent status and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -94,7 +94,7 @@ missionSpectatorControlVM.SetMainAgentStatus(false);
 ### SetPrevCharacterInputKey
 `public void SetPrevCharacterInputKey(GameKey gameKey)`
 
-**Purpose:** Assigns a new value to `prev character input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to prev character input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -105,7 +105,7 @@ missionSpectatorControlVM.SetPrevCharacterInputKey(gameKey);
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(GameKey gameKey)`
 
-**Purpose:** Assigns a new value to `next character input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next character input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first
@@ -116,7 +116,7 @@ missionSpectatorControlVM.SetNextCharacterInputKey(gameKey);
 ### SetTakeControlInputKey
 `public void SetTakeControlInputKey(GameKey gameKey)`
 
-**Purpose:** Assigns a new value to `take control input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to take control input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionSpectatorControlVM from the subsystem API first

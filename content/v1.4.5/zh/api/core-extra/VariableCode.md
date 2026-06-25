@@ -32,7 +32,7 @@ description: "VariableCode 的自动生成类参考。"
 ### GenerateLine
 `public string GenerateLine()`
 
-**用途 / Purpose:** 生成「line」的实例、数据或表示。
+**用途 / Purpose:** **用途 / Purpose:** 生成line的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 VariableCode 实例

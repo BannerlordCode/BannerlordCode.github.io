@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateDefaultBannerCamera
 `public static Camera CreateDefaultBannerCamera()`
 
-**Purpose:** Constructs a new `default banner camera` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new default banner camera entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BannerThumbnailCache.CreateDefaultBannerCamera();
 ### CreateNineGridBannerCamera
 `public static Camera CreateNineGridBannerCamera()`
 
-**Purpose:** Constructs a new `nine grid banner camera` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new nine grid banner camera entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

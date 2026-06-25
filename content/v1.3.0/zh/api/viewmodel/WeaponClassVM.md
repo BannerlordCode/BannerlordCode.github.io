@@ -37,7 +37,7 @@ description: "WeaponClassVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassVM 实例
@@ -48,7 +48,7 @@ weaponClassVM.RefreshValues();
 ### RegisterSelectedPiece
 `public void RegisterSelectedPiece(CraftingPiece.PieceTypes type, string pieceID)`
 
-**用途 / Purpose:** 将「selected piece」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将selected piece注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassVM 实例
@@ -59,7 +59,7 @@ weaponClassVM.RegisterSelectedPiece(type, "example");
 ### GetSelectedPieceData
 `public string GetSelectedPieceData(CraftingPiece.PieceTypes type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「selected piece data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 selected piece data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassVM 实例
@@ -70,7 +70,7 @@ var result = weaponClassVM.GetSelectedPieceData(type);
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponClassVM 实例

@@ -23,7 +23,7 @@ description: "MissionGauntletMultiplayerHUDExtension 的自动生成类参考。
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMultiplayerHUDExtension 实例
@@ -34,7 +34,7 @@ missionGauntletMultiplayerHUDExtension.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMultiplayerHUDExtension 实例
@@ -45,7 +45,7 @@ missionGauntletMultiplayerHUDExtension.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletMultiplayerHUDExtension 实例

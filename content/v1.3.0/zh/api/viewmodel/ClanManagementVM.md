@@ -85,7 +85,7 @@ description: "ClanManagementVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -96,7 +96,7 @@ clanManagementVM.RefreshValues();
 ### SelectHero
 `public void SelectHero(Hero hero)`
 
-**用途 / Purpose:** 处理与 「select hero」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectHero 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -107,7 +107,7 @@ clanManagementVM.SelectHero(hero);
 ### SelectParty
 `public void SelectParty(PartyBase party)`
 
-**用途 / Purpose:** 处理与 「select party」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectParty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -118,7 +118,7 @@ clanManagementVM.SelectParty(party);
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 处理与 「select settlement」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectSettlement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -129,7 +129,7 @@ clanManagementVM.SelectSettlement(settlement);
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 处理与 「select workshop」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectWorkshop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -140,7 +140,7 @@ clanManagementVM.SelectWorkshop(workshop);
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**用途 / Purpose:** 处理与 「select alley」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectAlley 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -151,7 +151,7 @@ clanManagementVM.SelectAlley(alley);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**用途 / Purpose:** 处理与 「select previous category」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectPreviousCategory 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -162,7 +162,7 @@ clanManagementVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**用途 / Purpose:** 处理与 「select next category」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectNextCategory 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -173,7 +173,7 @@ clanManagementVM.SelectNextCategory();
 ### ExecuteOpenBannerEditor
 `public void ExecuteOpenBannerEditor()`
 
-**用途 / Purpose:** 执行 「open banner editor」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open banner editor 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -184,7 +184,7 @@ clanManagementVM.ExecuteOpenBannerEditor();
 ### UpdateBannerVisuals
 `public void UpdateBannerVisuals()`
 
-**用途 / Purpose:** 重新计算并更新 「banner visuals」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 banner visuals 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -195,7 +195,7 @@ clanManagementVM.UpdateBannerVisuals();
 ### SetSelectedCategory
 `public void SetSelectedCategory(int index)`
 
-**用途 / Purpose:** 为 「selected category」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 selected category 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -206,7 +206,7 @@ clanManagementVM.SetSelectedCategory(0);
 ### RefreshDailyValues
 `public void RefreshDailyValues()`
 
-**用途 / Purpose:** 使 「daily values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 daily values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -217,7 +217,7 @@ clanManagementVM.RefreshDailyValues();
 ### RefreshCategoryValues
 `public void RefreshCategoryValues()`
 
-**用途 / Purpose:** 使 「category values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 category values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -228,7 +228,7 @@ clanManagementVM.RefreshCategoryValues();
 ### ExecuteChangeClanName
 `public void ExecuteChangeClanName()`
 
-**用途 / Purpose:** 执行 「change clan name」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 change clan name 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -239,7 +239,7 @@ clanManagementVM.ExecuteChangeClanName();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -250,7 +250,7 @@ clanManagementVM.ExecuteClose();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -261,7 +261,7 @@ clanManagementVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -272,7 +272,7 @@ clanManagementVM.SetDoneInputKey(hotkey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「previous tab input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 previous tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -283,7 +283,7 @@ clanManagementVM.SetPreviousTabInputKey(hotkey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「next tab input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例

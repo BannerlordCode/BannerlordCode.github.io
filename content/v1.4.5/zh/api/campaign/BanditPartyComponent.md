@@ -32,7 +32,7 @@ description: "BanditPartyComponent 的自动生成类参考。"
 ### InitializeBanditOnCreation
 `public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**用途 / Purpose:** 为 「bandit on creation」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 bandit on creation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditPartyComponent 实例
@@ -43,7 +43,7 @@ banditPartyComponent.InitializeBanditOnCreation(mobileParty);
 ### CreateBanditParty
 `public static MobileParty CreateBanditParty(string stringId, Clan clan, Hideout hideout, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
 
-**用途 / Purpose:** 构建一个新的 「bandit party」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 bandit party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ BanditPartyComponent.CreateBanditParty("example", clan, hideout, false, pt, init
 ### ConvertPartyToBanditParty
 `public static void ConvertPartyToBanditParty(MobileParty mobileParty, Clan clan, Hideout hideout, bool isBossParty)`
 
-**用途 / Purpose:** 把「party to bandit party」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把party to bandit party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ BanditPartyComponent.ConvertPartyToBanditParty(mobileParty, clan, hideout, false
 ### CreateLooterParty
 `public static MobileParty CreateLooterParty(string stringId, Clan clan, Settlement relatedSettlement, bool isBossParty, PartyTemplateObject pt, CampaignVec2 initialPosition)`
 
-**用途 / Purpose:** 构建一个新的 「looter party」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 looter party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ BanditPartyComponent.CreateLooterParty("example", clan, relatedSettlement, false
 ### ConvertPartyToLooterParty
 `public static void ConvertPartyToLooterParty(MobileParty mobileParty, Clan clan, Settlement relatedSettlement)`
 
-**用途 / Purpose:** 把「party to looter party」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把party to looter party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ BanditPartyComponent.ConvertPartyToLooterParty(mobileParty, clan, relatedSettlem
 ### SetHomeHideout
 `public void SetHomeHideout(Hideout hideout)`
 
-**用途 / Purpose:** 为 「home hideout」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 home hideout 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditPartyComponent 实例
@@ -94,7 +94,7 @@ banditPartyComponent.SetHomeHideout(hideout);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** 清空当前对象中的「cached name」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached name。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditPartyComponent 实例

@@ -29,7 +29,7 @@ description: "MetaData 的自动生成类参考。"
 ### Add
 `public void Add(string key, string value)`
 
-**用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaData 实例
@@ -40,7 +40,7 @@ metaData.Add("example", "example");
 ### TryGetValue
 `public bool TryGetValue(string key, out string value)`
 
-**用途 / Purpose:** 尝试获取 「get value」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get value 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaData 实例
@@ -51,7 +51,7 @@ var result = metaData.TryGetValue("example", value);
 ### Serialize
 `public void Serialize(Stream stream)`
 
-**用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaData 实例
@@ -62,7 +62,7 @@ metaData.Serialize(stream);
 ### Deserialize
 `public static MetaData Deserialize(Stream stream)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 静态调用，不需要实例

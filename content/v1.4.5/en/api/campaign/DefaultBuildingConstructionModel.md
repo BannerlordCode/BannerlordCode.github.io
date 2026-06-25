@@ -23,7 +23,7 @@ Treat `DefaultBuildingConstructionModel` as a Model-style extension point: first
 ### CalculateDailyConstructionPower
 `public override ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `daily construction power`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily construction power.
 
 ```csharp
 // Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultBuildingConstructionModel.CalculateDailyConstructionPower(to
 ### CalculateDailyConstructionPowerWithoutBoost
 `public override int CalculateDailyConstructionPowerWithoutBoost(Town town)`
 
-**Purpose:** Calculates the current value or result of `daily construction power without boost`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily construction power without boost.
 
 ```csharp
 // Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultBuildingConstructionModel.CalculateDailyConstructionPowerWit
 ### GetBoostAmount
 `public override int GetBoostAmount(Town town)`
 
-**Purpose:** Reads and returns the `boost amount` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boost amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultBuildingConstructionModel.GetBoostAmount(town);
 ### GetBoostCost
 `public override int GetBoostCost(Town town)`
 
-**Purpose:** Reads and returns the `boost cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boost cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBuildingConstructionModel from the subsystem API first

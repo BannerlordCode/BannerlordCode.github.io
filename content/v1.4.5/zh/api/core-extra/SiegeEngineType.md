@@ -43,7 +43,7 @@ description: "SiegeEngineType 的自动生成类参考。"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEngineType 实例
@@ -54,7 +54,7 @@ var result = siegeEngineType.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEngineType 实例

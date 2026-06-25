@@ -30,7 +30,7 @@ description: "DiamondClientApplication 的自动生成类参考。"
 ### GetObject
 `public object GetObject(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DiamondClientApplication 实例
@@ -41,7 +41,7 @@ var result = diamondClientApplication.GetObject("example");
 ### AddObject
 `public void AddObject(string name, DiamondClientApplicationObject applicationObject)`
 
-**用途 / Purpose:** 将 「object」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 object 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DiamondClientApplication 实例
@@ -52,7 +52,7 @@ diamondClientApplication.AddObject("example", applicationObject);
 ### Initialize
 `public void Initialize(ClientApplicationConfiguration applicationConfiguration)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 DiamondClientApplication 实例
@@ -63,7 +63,7 @@ diamondClientApplication.Initialize(applicationConfiguration);
 ### CreateClientSessionProvider
 `public object CreateClientSessionProvider(string clientName, Type clientType, SessionProviderType sessionProviderType, ParameterContainer parameters)`
 
-**用途 / Purpose:** 构建一个新的 「client session provider」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 client session provider 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 DiamondClientApplication 实例
@@ -74,7 +74,7 @@ var result = diamondClientApplication.CreateClientSessionProvider("example", cli
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DiamondClientApplication 实例

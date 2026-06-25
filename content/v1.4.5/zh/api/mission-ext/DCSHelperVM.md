@@ -53,7 +53,7 @@ description: "DCSHelperVM 的自动生成类参考。"
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -64,7 +64,7 @@ dCSHelperVM.Refresh();
 ### GetPanelSubtitle
 `public string GetPanelSubtitle(string serverName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「panel subtitle」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 panel subtitle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -75,7 +75,7 @@ var result = dCSHelperVM.GetPanelSubtitle("example");
 ### GetProgressCounter
 `public string GetProgressCounter(int downloadedCount, int totalCount)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「progress counter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 progress counter 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -86,7 +86,7 @@ var result = dCSHelperVM.GetProgressCounter(0, 0);
 ### GetDownloadCompleteMessageSingular
 `public string GetDownloadCompleteMessageSingular(string mapName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「download complete message singular」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 download complete message singular 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -97,7 +97,7 @@ var result = dCSHelperVM.GetDownloadCompleteMessageSingular("example");
 ### GetDownloadCompleteMessagePlural
 `public string GetDownloadCompleteMessagePlural(int mapCount)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「download complete message plural」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 download complete message plural 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -108,7 +108,7 @@ var result = dCSHelperVM.GetDownloadCompleteMessagePlural(0);
 ### GetReplacementConfirmationMessage
 `public string GetReplacementConfirmationMessage(string mapName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「replacement confirmation message」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 replacement confirmation message 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -119,7 +119,7 @@ var result = dCSHelperVM.GetReplacementConfirmationMessage("example");
 ### OpenPopup
 `public async Task OpenPopup()`
 
-**用途 / Purpose:** 打开「popup」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开popup对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -130,7 +130,7 @@ var result = dCSHelperVM.OpenPopup();
 ### ExecuteDownloadMap
 `public async Task ExecuteDownloadMap()`
 
-**用途 / Purpose:** 执行 「download map」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 download map 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -141,7 +141,7 @@ var result = dCSHelperVM.ExecuteDownloadMap();
 ### ExecuteCloseOrCancel
 `public void ExecuteCloseOrCancel()`
 
-**用途 / Purpose:** 执行 「close or cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close or cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -152,7 +152,7 @@ dCSHelperVM.ExecuteCloseOrCancel();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例
@@ -163,7 +163,7 @@ dCSHelperVM.ExecuteClosePopup();
 ### ExecuteCancelDownload
 `public void ExecuteCancelDownload()`
 
-**用途 / Purpose:** 执行 「cancel download」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel download 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 DCSHelperVM 实例

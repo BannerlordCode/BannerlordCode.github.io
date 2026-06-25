@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames.AI` to place it in the stack, then insp
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BoardGameAITablut from the subsystem API first
@@ -34,7 +34,7 @@ boardGameAITablut.Initialize();
 ### OnSetGameOver
 `public override void OnSetGameOver()`
 
-**Purpose:** Invoked when the `set game over` event is raised.
+**Purpose:** **Purpose:** Invoked when the set game over event is raised.
 
 ```csharp
 // Obtain an instance of BoardGameAITablut from the subsystem API first
@@ -45,7 +45,7 @@ boardGameAITablut.OnSetGameOver();
 ### CalculateMovementStageMove
 `public override Move CalculateMovementStageMove()`
 
-**Purpose:** Calculates the current value or result of `movement stage move`.
+**Purpose:** **Purpose:** Calculates the current value or result of movement stage move.
 
 ```csharp
 // Obtain an instance of BoardGameAITablut from the subsystem API first

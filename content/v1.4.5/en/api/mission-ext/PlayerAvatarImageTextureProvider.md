@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.Image
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of PlayerAvatarImageTextureProvider from the subsystem API first

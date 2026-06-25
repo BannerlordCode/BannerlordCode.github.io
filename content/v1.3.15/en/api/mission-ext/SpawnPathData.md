@@ -29,7 +29,7 @@ Treat `SpawnPathData` as a Data-style extension point: first identify who create
 ### Invert
 `public SpawnPathData Invert()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Invert logic.
 
 ```csharp
 // Obtain an instance of SpawnPathData from the subsystem API first
@@ -40,7 +40,7 @@ var result = spawnPathData.Invert();
 ### ClampPathOffset
 `public float ClampPathOffset(float pathOffsetRatio)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClampPathOffset logic.
 
 ```csharp
 // Obtain an instance of SpawnPathData from the subsystem API first
@@ -51,7 +51,7 @@ var result = spawnPathData.ClampPathOffset(0);
 ### GetOffsetOverflow
 `public float GetOffsetOverflow(float pathOffset)`
 
-**Purpose:** Reads and returns the `offset overflow` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the offset overflow value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnPathData from the subsystem API first
@@ -62,7 +62,7 @@ var result = spawnPathData.GetOffsetOverflow(0);
 ### GetSpawnPathFrameFacingTarget
 `public void GetSpawnPathFrameFacingTarget(float baseOffset, float targetOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
 
-**Purpose:** Reads and returns the `spawn path frame facing target` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn path frame facing target value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnPathData from the subsystem API first
@@ -73,7 +73,7 @@ spawnPathData.GetSpawnPathFrameFacingTarget(0, 0, false, spawnPathPosition, spaw
 ### GetSpawnPathFrameFacingPivot
 `public void GetSpawnPathFrameFacingPivot(float pathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
 
-**Purpose:** Reads and returns the `spawn path frame facing pivot` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn path frame facing pivot value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnPathData from the subsystem API first
@@ -84,7 +84,7 @@ spawnPathData.GetSpawnPathFrameFacingPivot(0, false, spawnPathPosition, spawnPat
 ### GetSpawnPathFrameFacingTangentDirection
 `public void GetSpawnPathFrameFacingTangentDirection(float baseOffset, int tangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
 
-**Purpose:** Reads and returns the `spawn path frame facing tangent direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn path frame facing tangent direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnPathData from the subsystem API first
@@ -95,7 +95,7 @@ spawnPathData.GetSpawnPathFrameFacingTangentDirection(0, 0, spawnPathPosition, s
 ### Create
 `public static SpawnPathData Create(Scene scene, Path path, float pivotRatio = 0f, bool isInverted = false, SpawnPathData.SnapMethod snapType = SpawnPathData.SnapMethod.DontSnap)`
 
-**Purpose:** Creates a new instance or related entity for the current object.
+**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required

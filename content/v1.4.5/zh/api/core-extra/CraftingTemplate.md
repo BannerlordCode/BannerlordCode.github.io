@@ -39,7 +39,7 @@ description: "CraftingTemplate 的自动生成类参考。"
 ### GetIndexOfUsageDataWithId
 `public int GetIndexOfUsageDataWithId(string weaponDescriptionId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「index of usage data with id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index of usage data with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingTemplate 实例
@@ -50,7 +50,7 @@ var result = craftingTemplate.GetIndexOfUsageDataWithId("example");
 ### IsPieceTypeHiddenOnHolster
 `public bool IsPieceTypeHiddenOnHolster(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「piece type hidden on holster」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 piece type hidden on holster 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingTemplate 实例
@@ -61,7 +61,7 @@ var result = craftingTemplate.IsPieceTypeHiddenOnHolster(pieceType);
 ### GetStatDatas
 `public IEnumerable<KeyValuePair<CraftingStatTypes, float>> GetStatDatas(string weaponDescriptionId, DamageTypes thrustDamageType, DamageTypes swingDamageType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「stat datas」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stat datas 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingTemplate 实例
@@ -72,7 +72,7 @@ var result = craftingTemplate.GetStatDatas("example", thrustDamageType, swingDam
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingTemplate 实例
@@ -83,7 +83,7 @@ var result = craftingTemplate.ToString();
 ### IsPieceTypeUsable
 `public bool IsPieceTypeUsable(CraftingPiece.PieceTypes pieceType)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「piece type usable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 piece type usable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingTemplate 实例
@@ -94,7 +94,7 @@ var result = craftingTemplate.IsPieceTypeUsable(pieceType);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingTemplate 实例
@@ -105,7 +105,7 @@ craftingTemplate.Deserialize(objectManager, node);
 ### GetTemplateFromId
 `public static CraftingTemplate GetTemplateFromId(string templateId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「template from id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 template from id 的结果。
 
 ```csharp
 // 静态调用，不需要实例

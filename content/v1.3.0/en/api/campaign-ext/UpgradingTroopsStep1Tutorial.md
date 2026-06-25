@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of UpgradingTroopsStep1Tutorial from the subsystem API first
@@ -34,7 +34,7 @@ var result = upgradingTroopsStep1Tutorial.IsConditionsMetForCompletion();
 ### OnPlayerUpgradeTroop
 `public override void OnPlayerUpgradeTroop(CharacterObject arg1, CharacterObject arg2, int arg3)`
 
-**Purpose:** Invoked when the `player upgrade troop` event is raised.
+**Purpose:** **Purpose:** Invoked when the player upgrade troop event is raised.
 
 ```csharp
 // Obtain an instance of UpgradingTroopsStep1Tutorial from the subsystem API first
@@ -45,7 +45,7 @@ upgradingTroopsStep1Tutorial.OnPlayerUpgradeTroop(arg1, arg2, 0);
 ### OnTutorialContextChanged
 `public override void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**Purpose:** Invoked when the `tutorial context changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the tutorial context changed event is raised.
 
 ```csharp
 // Obtain an instance of UpgradingTroopsStep1Tutorial from the subsystem API first
@@ -56,7 +56,7 @@ upgradingTroopsStep1Tutorial.OnTutorialContextChanged(obj);
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of UpgradingTroopsStep1Tutorial from the subsystem API first
@@ -67,7 +67,7 @@ var result = upgradingTroopsStep1Tutorial.IsConditionsMetForActivation();
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of UpgradingTroopsStep1Tutorial from the subsystem API first

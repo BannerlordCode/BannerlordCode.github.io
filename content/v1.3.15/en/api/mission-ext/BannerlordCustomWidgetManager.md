@@ -23,7 +23,7 @@ Treat `BannerlordCustomWidgetManager` as a Manager-style extension point: first 
 ### TouchAssembly
 `public static void TouchAssembly()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TouchAssembly logic.
 
 ```csharp
 // Static call; no instance required

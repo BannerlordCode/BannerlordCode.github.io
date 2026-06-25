@@ -35,7 +35,7 @@ description: "ContainerHeaderLoadData 的自动生成类参考。"
 ### GetObjectTypeDefinition
 `public bool GetObjectTypeDefinition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「object type definition」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object type definition 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerHeaderLoadData 实例
@@ -46,7 +46,7 @@ var result = containerHeaderLoadData.GetObjectTypeDefinition();
 ### CreateObject
 `public void CreateObject()`
 
-**用途 / Purpose:** 构建一个新的 「object」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerHeaderLoadData 实例
@@ -57,7 +57,7 @@ containerHeaderLoadData.CreateObject();
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** 为 「ialie readers」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 ialie readers 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerHeaderLoadData 实例

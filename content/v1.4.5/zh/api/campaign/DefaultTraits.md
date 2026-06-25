@@ -23,7 +23,7 @@ description: "DefaultTraits 的自动生成类参考。"
 ### RegisterAll
 `public void RegisterAll()`
 
-**用途 / Purpose:** 将「all」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将all注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTraits 实例

@@ -32,7 +32,7 @@ Treat `SpriteData` as a Data-style extension point: first identify who creates i
 ### GetSprite
 `public Sprite GetSprite(string name)`
 
-**Purpose:** Reads and returns the `sprite` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sprite value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpriteData from the subsystem API first
@@ -43,7 +43,7 @@ var result = spriteData.GetSprite("example");
 ### SpriteExists
 `public bool SpriteExists(string spriteName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpriteExists logic.
 
 ```csharp
 // Obtain an instance of SpriteData from the subsystem API first
@@ -54,7 +54,7 @@ var result = spriteData.SpriteExists("example");
 ### Load
 `public void Load(ResourceDepot resourceDepot)`
 
-**Purpose:** Reads the current object's data from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SpriteData from the subsystem API first
@@ -65,7 +65,7 @@ spriteData.Load(resourceDepot);
 ### Reload
 `public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Reload logic.
 
 ```csharp
 // Obtain an instance of SpriteData from the subsystem API first

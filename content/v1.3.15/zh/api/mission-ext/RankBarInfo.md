@@ -37,7 +37,7 @@ description: "RankBarInfo 的自动生成类参考。"
 ### CreateBarInfo
 `public static RankBarInfo CreateBarInfo(string rankId, string previousRankId, string nextRankId, float progressPercentage, int rating, int ratingToNextRank)`
 
-**用途 / Purpose:** 构建一个新的 「bar info」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 bar info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -47,7 +47,7 @@ RankBarInfo.CreateBarInfo("example", "example", "example", 0, 0, 0);
 ### CreateUnrankedInfo
 `public static RankBarInfo CreateUnrankedInfo(int matchesPlayed, int totalMatchesRequired)`
 
-**用途 / Purpose:** 构建一个新的 「unranked info」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 unranked info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

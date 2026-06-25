@@ -23,7 +23,7 @@ description: "BattleSpawnModel 的自动生成类参考。"
 ### OnMissionStart
 `public virtual void OnMissionStart()`
 
-**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnModel 实例
@@ -34,7 +34,7 @@ battleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public virtual void OnMissionEnd()`
 
-**用途 / Purpose:** 在 「mission end」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnModel 实例
@@ -45,7 +45,7 @@ battleSpawnModel.OnMissionEnd();
 ### GetInitialSpawnAssignments
 `public abstract List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「initial spawn assignments」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial spawn assignments 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnModel 实例
@@ -56,7 +56,7 @@ var result = battleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigin
 ### GetReinforcementAssignments
 `public abstract List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「reinforcement assignments」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 reinforcement assignments 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleSpawnModel 实例

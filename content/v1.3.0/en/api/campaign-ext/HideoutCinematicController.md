@@ -34,7 +34,7 @@ Treat `HideoutCinematicController` as a Controller-style extension point: first 
 ### StartCinematic
 `public void StartCinematic(HideoutCinematicController.OnInitialFadeOutFinished initialFadeOutFinished, Action cinematicFinishedCallback, float transitionDuration = 0.4f, float stateDuration = 0.2f, float cinematicDuration = 8f, bool forceDismountAgents = false)`
 
-**Purpose:** Starts the `cinematic` flow or state machine.
+**Purpose:** **Purpose:** Starts the cinematic flow or state machine.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -45,7 +45,7 @@ hideoutCinematicController.StartCinematic(initialFadeOutFinished, cinematicFinis
 ### GetBossStandingEyePosition
 `public void GetBossStandingEyePosition(out Vec3 eyePosition)`
 
-**Purpose:** Reads and returns the `boss standing eye position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boss standing eye position value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -56,7 +56,7 @@ hideoutCinematicController.GetBossStandingEyePosition(eyePosition);
 ### GetPlayerStandingEyePosition
 `public void GetPlayerStandingEyePosition(out Vec3 eyePosition)`
 
-**Purpose:** Reads and returns the `player standing eye position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player standing eye position value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -67,7 +67,7 @@ hideoutCinematicController.GetPlayerStandingEyePosition(eyePosition);
 ### GetBanditsInitialFrame
 `public MatrixFrame GetBanditsInitialFrame()`
 
-**Purpose:** Reads and returns the `bandits initial frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bandits initial frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -78,7 +78,7 @@ var result = hideoutCinematicController.GetBanditsInitialFrame();
 ### GetScenePrefabParameters
 `public void GetScenePrefabParameters(out float innerRadius, out float outerRadius, out float walkDistance)`
 
-**Purpose:** Reads and returns the `scene prefab parameters` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scene prefab parameters value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -89,7 +89,7 @@ hideoutCinematicController.GetScenePrefabParameters(innerRadius, outerRadius, wa
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -100,7 +100,7 @@ hideoutCinematicController.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -111,7 +111,7 @@ hideoutCinematicController.OnMissionTick(0);
 ### OnInitialFadeOutFinished
 `public delegate void OnInitialFadeOutFinished(ref Agent playerAgent, ref List<Agent> playerCompanions, ref Agent bossAgent, ref List<Agent> bossCompanions, ref float placementPerturbation, ref float placementAngle)`
 
-**Purpose:** Invoked when the `initial fade out finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the initial fade out finished event is raised.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -122,7 +122,7 @@ hideoutCinematicController.OnInitialFadeOutFinished(playerAgent, playerCompanion
 ### OnHideoutCinematicFinished
 `public delegate void OnHideoutCinematicFinished()`
 
-**Purpose:** Invoked when the `hideout cinematic finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the hideout cinematic finished event is raised.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first
@@ -133,7 +133,7 @@ hideoutCinematicController.OnHideoutCinematicFinished();
 ### HasReachedTarget
 `public bool HasReachedTarget(float proximityThreshold = 0.5f)`
 
-**Purpose:** Determines whether the current object already holds `reached target`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds reached target.
 
 ```csharp
 // Obtain an instance of HideoutCinematicController from the subsystem API first

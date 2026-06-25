@@ -23,7 +23,7 @@ description: "MbEvent 的自动生成类参考。"
 ### AddNonSerializedListener
 `public void AddNonSerializedListener(object owner, Action action)`
 
-**用途 / Purpose:** 将 「non serialized listener」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 non serialized listener 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MbEvent 实例
@@ -34,7 +34,7 @@ mbEvent.AddNonSerializedListener(owner, action);
 ### Invoke
 `public void Invoke()`
 
-**用途 / Purpose:** 处理与 「invoke」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Invoke 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MbEvent 实例
@@ -45,7 +45,7 @@ mbEvent.Invoke();
 ### ClearListeners
 `public void ClearListeners(object o)`
 
-**用途 / Purpose:** 清空当前对象中的「listeners」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的listeners。
 
 ```csharp
 // 先通过子系统 API 拿到 MbEvent 实例

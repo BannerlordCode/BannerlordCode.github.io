@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -42,7 +42,7 @@ caravansCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -53,7 +53,7 @@ caravansCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -64,7 +64,7 @@ caravansCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### SpawnCaravan
 `public void SpawnCaravan(Hero hero, bool initialSpawn = false)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnCaravan logic.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -75,7 +75,7 @@ caravansCampaignBehavior.SpawnCaravan(hero, false);
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -86,7 +86,7 @@ caravansCampaignBehavior.DailyTick();
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HourlyTickParty logic.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -97,7 +97,7 @@ caravansCampaignBehavior.HourlyTickParty(mobileParty);
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Invoked when the `settlement entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -108,7 +108,7 @@ caravansCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Invoked when the `settlement left` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement left event is raised.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -119,7 +119,7 @@ caravansCampaignBehavior.OnSettlementLeft(mobileParty, settlement);
 ### OnSellAction
 `public void OnSellAction(Settlement soldSettlement, int sellPrice)`
 
-**Purpose:** Invoked when the `sell action` event is raised.
+**Purpose:** **Purpose:** Invoked when the sell action event is raised.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -130,7 +130,7 @@ caravansCampaignBehavior.OnSellAction(soldSettlement, 0);
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -141,7 +141,7 @@ caravansCampaignBehavior.Reset();
 ### CreateNewLog
 `public CaravansCampaignBehavior.TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
-**Purpose:** Constructs a new `new log` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new log entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -152,7 +152,7 @@ var result = caravansCampaignBehavior.CreateNewLog(boughtSettlement, 0, itemRost
 ### ReleaseLog
 `public void ReleaseLog(CaravansCampaignBehavior.TradeActionLog log)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseLog logic.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first
@@ -163,7 +163,7 @@ caravansCampaignBehavior.ReleaseLog(log);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CaravansCampaignBehavior from the subsystem API first

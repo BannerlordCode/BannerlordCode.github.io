@@ -23,7 +23,7 @@ description: "VisualTrackerMissionBehavior 的自动生成类参考。"
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**用途 / Purpose:** 在 「agent created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
@@ -34,7 +34,7 @@ visualTrackerMissionBehavior.OnAgentCreated(agent);
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
@@ -45,7 +45,7 @@ visualTrackerMissionBehavior.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
@@ -56,7 +56,7 @@ visualTrackerMissionBehavior.OnMissionTick(0);
 ### RegisterLocalOnlyObject
 `public void RegisterLocalOnlyObject(ITrackableBase obj)`
 
-**用途 / Purpose:** 将「local only object」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将local only object注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
@@ -67,7 +67,7 @@ visualTrackerMissionBehavior.RegisterLocalOnlyObject(obj);
 ### GetCompassTargets
 `public override List<CompassItemUpdateParams> GetCompassTargets()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「compass targets」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compass targets 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
@@ -78,7 +78,7 @@ var result = visualTrackerMissionBehavior.GetCompassTargets();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例
@@ -89,7 +89,7 @@ visualTrackerMissionBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentS
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**用途 / Purpose:** 在 「agent deleted」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent deleted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualTrackerMissionBehavior 实例

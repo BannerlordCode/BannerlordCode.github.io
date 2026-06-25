@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerGameTypes.Initialize();
 ### CheckGameTypeInfoExists
 `public static bool CheckGameTypeInfoExists(string gameType)`
 
-**Purpose:** Verifies whether `game type info exists` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether game type info exists holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerGameTypes.CheckGameTypeInfoExists("example");
 ### GetGameTypeInfo
 `public static MultiplayerGameTypeInfo GetGameTypeInfo(string gameType)`
 
-**Purpose:** Reads and returns the `game type info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game type info value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `CharacterData` as a Data-style extension point: first identify who create
 ### ExportCharacter
 `public static void ExportCharacter(Hero hero, string path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExportCharacter logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CharacterData.ExportCharacter(hero, "example");
 ### ImportCharacter
 `public static void ImportCharacter(Hero hero, string path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ImportCharacter logic.
 
 ```csharp
 // Static call; no instance required

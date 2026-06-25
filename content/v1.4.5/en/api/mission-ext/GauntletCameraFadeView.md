@@ -23,7 +23,7 @@ Treat `GauntletCameraFadeView` as a View-style extension point: first identify w
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GauntletCameraFadeView.Initialize();
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeOutAndIn logic.
 
 ```csharp
 // Obtain an instance of GauntletCameraFadeView from the subsystem API first
@@ -44,7 +44,7 @@ gauntletCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeOut logic.
 
 ```csharp
 // Obtain an instance of GauntletCameraFadeView from the subsystem API first
@@ -55,7 +55,7 @@ gauntletCameraFadeView.BeginFadeOut(0);
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeIn logic.
 
 ```csharp
 // Obtain an instance of GauntletCameraFadeView from the subsystem API first
@@ -66,7 +66,7 @@ gauntletCameraFadeView.BeginFadeIn(0);
 ### GetScreenFadeState
 `public ScreenFadeState GetScreenFadeState()`
 
-**Purpose:** Reads and returns the `screen fade state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the screen fade state value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletCameraFadeView from the subsystem API first

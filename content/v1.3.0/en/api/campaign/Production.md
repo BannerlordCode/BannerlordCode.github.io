@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Workshops` to place 
 ### AddInput
 `public void AddInput(ItemCategory item, int count = 1)`
 
-**Purpose:** Adds `input` to the current collection or state.
+**Purpose:** **Purpose:** Adds input to the current collection or state.
 
 ```csharp
 // Obtain an instance of Production from the subsystem API first
@@ -42,7 +42,7 @@ production.AddInput(item, 0);
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
-**Purpose:** Adds `output` to the current collection or state.
+**Purpose:** **Purpose:** Adds output to the current collection or state.
 
 ```csharp
 // Obtain an instance of Production from the subsystem API first
@@ -53,7 +53,7 @@ production.AddOutput(outputCategory, 0);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Production from the subsystem API first

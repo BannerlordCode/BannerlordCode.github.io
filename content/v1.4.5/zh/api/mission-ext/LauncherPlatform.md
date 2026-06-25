@@ -23,7 +23,7 @@ description: "LauncherPlatform 的自动生成类参考。"
 ### Initialize
 `public static void Initialize(List<string> args)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ LauncherPlatform.Initialize(args);
 ### Destroy
 `public static void Destroy()`
 
-**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ LauncherPlatform.Destroy();
 ### SetLauncherMode
 `public static void SetLauncherMode(bool isLauncherModeActive)`
 
-**用途 / Purpose:** 为 「launcher mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 launcher mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

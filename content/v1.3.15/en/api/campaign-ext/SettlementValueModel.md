@@ -23,7 +23,7 @@ Treat `SettlementValueModel` as a Model-style extension point: first identify wh
 ### FindMostSuitableHomeSettlement
 `public abstract Settlement FindMostSuitableHomeSettlement(Clan clan)`
 
-**Purpose:** Looks up the matching `most suitable home settlement` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching most suitable home settlement in the current collection or scope.
 
 ```csharp
 // Obtain an instance of SettlementValueModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = settlementValueModel.FindMostSuitableHomeSettlement(clan);
 ### CalculateSettlementValueForFaction
 `public abstract float CalculateSettlementValueForFaction(Settlement settlement, IFaction faction)`
 
-**Purpose:** Calculates the current value or result of `settlement value for faction`.
+**Purpose:** **Purpose:** Calculates the current value or result of settlement value for faction.
 
 ```csharp
 // Obtain an instance of SettlementValueModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = settlementValueModel.CalculateSettlementValueForFaction(settlement,
 ### CalculateSettlementBaseValue
 `public abstract float CalculateSettlementBaseValue(Settlement settlement)`
 
-**Purpose:** Calculates the current value or result of `settlement base value`.
+**Purpose:** **Purpose:** Calculates the current value or result of settlement base value.
 
 ```csharp
 // Obtain an instance of SettlementValueModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = settlementValueModel.CalculateSettlementBaseValue(settlement);
 ### CalculateSettlementValueForEnemyHero
 `public abstract float CalculateSettlementValueForEnemyHero(Settlement settlement, Hero hero)`
 
-**Purpose:** Calculates the current value or result of `settlement value for enemy hero`.
+**Purpose:** **Purpose:** Calculates the current value or result of settlement value for enemy hero.
 
 ```csharp
 // Obtain an instance of SettlementValueModel from the subsystem API first

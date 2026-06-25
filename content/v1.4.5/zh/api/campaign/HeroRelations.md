@@ -23,7 +23,7 @@ description: "HeroRelations 的自动生成类参考。"
 ### GetRelation
 `public int GetRelation(Hero hero1, Hero hero2)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroRelations 实例
@@ -34,7 +34,7 @@ var result = heroRelations.GetRelation(hero1, hero2);
 ### SetRelation
 `public void SetRelation(Hero hero1, Hero hero2, int value)`
 
-**用途 / Purpose:** 为 「relation」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 relation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroRelations 实例
@@ -45,7 +45,7 @@ heroRelations.SetRelation(hero1, hero2, 0);
 ### Remove
 `public void Remove(Hero hero)`
 
-**用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroRelations 实例
@@ -56,7 +56,7 @@ heroRelations.Remove(hero);
 ### ClearOldData
 `public void ClearOldData()`
 
-**用途 / Purpose:** 清空当前对象中的「old data」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的old data。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroRelations 实例

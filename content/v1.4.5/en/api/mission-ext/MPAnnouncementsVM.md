@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPAnnouncementsVM from the subsystem API first
@@ -42,7 +42,7 @@ mPAnnouncementsVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPAnnouncementsVM from the subsystem API first
@@ -53,7 +53,7 @@ mPAnnouncementsVM.OnTick(0);
 ### UpdateAnnouncements
 `public async void UpdateAnnouncements()`
 
-**Purpose:** Recalculates and stores the latest representation of `announcements`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of announcements.
 
 ```csharp
 // Obtain an instance of MPAnnouncementsVM from the subsystem API first

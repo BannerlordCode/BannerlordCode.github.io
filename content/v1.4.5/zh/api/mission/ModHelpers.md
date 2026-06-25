@@ -23,7 +23,7 @@ description: "ModHelpers 的自动生成类参考。"
 ### GetSceneObjRootPath
 `public static string GetSceneObjRootPath()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「scene obj root path」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene obj root path 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ModHelpers.GetSceneObjRootPath();
 ### DoesSceneFolderAlreadyExist
 `public static bool DoesSceneFolderAlreadyExist(string sceneName)`
 
-**用途 / Purpose:** 返回「scene folder already exist」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回scene folder already exist对当前对象是否成立的布尔结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ModHelpers.DoesSceneFolderAlreadyExist("example");
 ### GetTempFilePath
 `public static string GetTempFilePath(string anyIdentifier)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「temp file path」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 temp file path 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ModHelpers.GetTempFilePath("example");
 ### ReadSceneNameOfDirectory
 `public static string ReadSceneNameOfDirectory(string sceneDirectoryPath)`
 
-**用途 / Purpose:** 读取「scene name of directory」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取scene name of directory的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ModHelpers.ReadSceneNameOfDirectory("example");
 ### WriteBufferToTempFile
 `public static string WriteBufferToTempFile(byte buffer)`
 
-**用途 / Purpose:** 将「buffer to temp file」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将buffer to temp file写入目标位置。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ ModHelpers.WriteBufferToTempFile(0);
 ### GetTempFileStream
 `public static FileStream GetTempFileStream()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「temp file stream」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 temp file stream 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ ModHelpers.GetTempFileStream();
 ### ExtractZipToTempDirectory
 `public static string ExtractZipToTempDirectory(string sourceZipFilePath)`
 
-**用途 / Purpose:** 处理与 「extract zip to temp directory」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ExtractZipToTempDirectory 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ ModHelpers.ExtractZipToTempDirectory("example");
 ### DownloadToTempFile
 `public static async Task<string> DownloadToTempFile(HttpClient httpClient, string url, IProgress<ProgressUpdate> progress = null, CancellationToken cancellationToken = default(CancellationToken))`
 
-**用途 / Purpose:** 处理与 「download to temp file」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DownloadToTempFile 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

@@ -29,7 +29,7 @@ Start from namespace `StoryMode.Quests.ThirdPhase` to place it in the stack, the
 ### CalculateReinforcedWarScore
 `public void CalculateReinforcedWarScore()`
 
-**Purpose:** Calculates the current value or result of `reinforced war score`.
+**Purpose:** **Purpose:** Calculates the current value or result of reinforced war score.
 
 ```csharp
 // Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
@@ -40,7 +40,7 @@ defeatTheConspiracyQuestBehavior.CalculateReinforcedWarScore();
 ### IsMobilePartyCreatedForQuest
 `public bool IsMobilePartyCreatedForQuest(MobileParty mobileParty)`
 
-**Purpose:** Determines whether the current object is in the `mobile party created for quest` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the mobile party created for quest state or condition.
 
 ```csharp
 // Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
@@ -51,7 +51,7 @@ var result = defeatTheConspiracyQuestBehavior.IsMobilePartyCreatedForQuest(mobil
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first
@@ -62,7 +62,7 @@ defeatTheConspiracyQuestBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of DefeatTheConspiracyQuestBehavior from the subsystem API first

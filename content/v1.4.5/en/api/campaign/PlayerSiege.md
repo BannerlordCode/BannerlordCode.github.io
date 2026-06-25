@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### StartSiegePreparation
 `public static void StartSiegePreparation()`
 
-**Purpose:** Starts the `siege preparation` flow or state machine.
+**Purpose:** **Purpose:** Starts the siege preparation flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ PlayerSiege.StartSiegePreparation();
 ### OnSiegeEventFinalized
 `public static void OnSiegeEventFinalized(bool besiegerPartyDefeated)`
 
-**Purpose:** Invoked when the `siege event finalized` event is raised.
+**Purpose:** **Purpose:** Invoked when the siege event finalized event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ PlayerSiege.OnSiegeEventFinalized(false);
 ### StartPlayerSiege
 `public static void StartPlayerSiege(BattleSideEnum playerSide, bool isSimulation = false, Settlement settlement = null)`
 
-**Purpose:** Starts the `player siege` flow or state machine.
+**Purpose:** **Purpose:** Starts the player siege flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ PlayerSiege.StartPlayerSiege(playerSide, false, null);
 ### FinalizePlayerSiege
 `public static void FinalizePlayerSiege()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizePlayerSiege logic.
 
 ```csharp
 // Static call; no instance required
@@ -71,7 +71,7 @@ PlayerSiege.FinalizePlayerSiege();
 ### StartSiegeMission
 `public static void StartSiegeMission(Settlement settlement = null)`
 
-**Purpose:** Starts the `siege mission` flow or state machine.
+**Purpose:** **Purpose:** Starts the siege mission flow or state machine.
 
 ```csharp
 // Static call; no instance required

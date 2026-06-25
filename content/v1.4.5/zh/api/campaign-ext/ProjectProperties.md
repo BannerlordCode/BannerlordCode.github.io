@@ -40,7 +40,7 @@ description: "ProjectProperties 的自动生成类参考。"
 ### ShallowCopy
 `public ProjectProperties ShallowCopy()`
 
-**用途 / Purpose:** 处理与 「shallow copy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShallowCopy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ProjectProperties 实例
@@ -51,7 +51,7 @@ var result = projectProperties.ShallowCopy();
 ### Clone
 `public object Clone()`
 
-**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 ProjectProperties 实例

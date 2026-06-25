@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GenerateActionSetNameWithSuffix
 `public static string GenerateActionSetNameWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**Purpose:** Generates an instance, data, or representation of `action set name with suffix`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of action set name with suffix.
 
 ```csharp
 // Static call; no instance required

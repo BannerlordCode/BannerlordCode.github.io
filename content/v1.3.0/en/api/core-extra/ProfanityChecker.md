@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### IsProfane
 `public bool IsProfane(string word)`
 
-**Purpose:** Determines whether the current object is in the `profane` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the profane state or condition.
 
 ```csharp
 // Obtain an instance of ProfanityChecker from the subsystem API first
@@ -34,7 +34,7 @@ var result = profanityChecker.IsProfane("example");
 ### ContainsProfanity
 `public bool ContainsProfanity(string text, ProfanityChecker.ProfanityChechkerType checkType)`
 
-**Purpose:** Indicates whether the current object contains `profanity`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains profanity.
 
 ```csharp
 // Obtain an instance of ProfanityChecker from the subsystem API first
@@ -45,7 +45,7 @@ var result = profanityChecker.ContainsProfanity("example", checkType);
 ### CensorText
 `public string CensorText(string text)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CensorText logic.
 
 ```csharp
 // Obtain an instance of ProfanityChecker from the subsystem API first

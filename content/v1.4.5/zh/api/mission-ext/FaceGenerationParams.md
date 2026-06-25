@@ -23,7 +23,7 @@ description: "FaceGenerationParams 的自动生成类参考。"
 ### Create
 `public static FaceGenerationParams Create()`
 
-**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ FaceGenerationParams.Create();
 ### SetRaceGenderAndAdjustParams
 `public void SetRaceGenderAndAdjustParams(int race, int gender, int curAge)`
 
-**用途 / Purpose:** 为 「race gender and adjust params」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 race gender and adjust params 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenerationParams 实例
@@ -44,7 +44,7 @@ faceGenerationParams.SetRaceGenderAndAdjustParams(0, 0, 0);
 ### SetRandomParamsExceptKeys
 `public void SetRandomParamsExceptKeys(int race, int gender, int minAge, out float scale)`
 
-**用途 / Purpose:** 为 「random params except keys」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 random params except keys 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenerationParams 实例

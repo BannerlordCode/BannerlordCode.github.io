@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### CheckForUpdate
 `public bool CheckForUpdate()`
 
-**Purpose:** Verifies whether `for update` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for update holds true for the this instance.
 
 ```csharp
 // Obtain an instance of CustomWidgetType from the subsystem API first

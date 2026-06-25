@@ -41,7 +41,7 @@ description: "HeroExecutionSceneNotificationData 的自动生成类参考。"
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene notification characters 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroExecutionSceneNotificationData 实例
@@ -52,7 +52,7 @@ var result = heroExecutionSceneNotificationData.GetSceneNotificationCharacters()
 ### OnAffirmativeAction
 `public override void OnAffirmativeAction()`
 
-**用途 / Purpose:** 在 「affirmative action」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 affirmative action 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroExecutionSceneNotificationData 实例
@@ -63,7 +63,7 @@ heroExecutionSceneNotificationData.OnAffirmativeAction();
 ### CreateForPlayerExecutingHero
 `public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any, bool showNegativeOption = true)`
 
-**用途 / Purpose:** 构建一个新的 「for player executing hero」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for player executing hero 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ HeroExecutionSceneNotificationData.CreateForPlayerExecutingHero(dyingHero, onAff
 ### CreateForInformingPlayer
 `public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, SceneNotificationData.RelevantContextType relevantContextType = SceneNotificationData.RelevantContextType.Any)`
 
-**用途 / Purpose:** 构建一个新的 「for informing player」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 for informing player 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

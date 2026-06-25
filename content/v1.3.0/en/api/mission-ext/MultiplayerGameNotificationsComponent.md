@@ -29,7 +29,7 @@ Treat `MultiplayerGameNotificationsComponent` as a Component-style extension poi
 ### WarmupEnding
 `public void WarmupEnding()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WarmupEnding logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -40,7 +40,7 @@ multiplayerGameNotificationsComponent.WarmupEnding();
 ### GameOver
 `public void GameOver(Team winnerTeam)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GameOver logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -51,7 +51,7 @@ multiplayerGameNotificationsComponent.GameOver(winnerTeam);
 ### PreparationStarted
 `public void PreparationStarted()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreparationStarted logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -62,7 +62,7 @@ multiplayerGameNotificationsComponent.PreparationStarted();
 ### FlagsXRemoved
 `public void FlagsXRemoved(FlagCapturePoint removedFlag)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FlagsXRemoved logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -73,7 +73,7 @@ multiplayerGameNotificationsComponent.FlagsXRemoved(removedFlag);
 ### FlagXRemaining
 `public void FlagXRemaining(FlagCapturePoint remainingFlag)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FlagXRemaining logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -84,7 +84,7 @@ multiplayerGameNotificationsComponent.FlagXRemaining(remainingFlag);
 ### FlagsWillBeRemovedInXSeconds
 `public void FlagsWillBeRemovedInXSeconds(int timeLeft)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FlagsWillBeRemovedInXSeconds logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -95,7 +95,7 @@ multiplayerGameNotificationsComponent.FlagsWillBeRemovedInXSeconds(0);
 ### FlagXCapturedByTeamX
 `public void FlagXCapturedByTeamX(SynchedMissionObject flag, Team capturingTeam)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FlagXCapturedByTeamX logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -106,7 +106,7 @@ multiplayerGameNotificationsComponent.FlagXCapturedByTeamX(flag, capturingTeam);
 ### GoldCarriedFromPreviousRound
 `public void GoldCarriedFromPreviousRound(int carriedGoldAmount, NetworkCommunicator syncToPeer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GoldCarriedFromPreviousRound logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -117,7 +117,7 @@ multiplayerGameNotificationsComponent.GoldCarriedFromPreviousRound(0, syncToPeer
 ### PlayerIsInactive
 `public void PlayerIsInactive(NetworkCommunicator peer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayerIsInactive logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -128,7 +128,7 @@ multiplayerGameNotificationsComponent.PlayerIsInactive(peer);
 ### FormationAutoFollowEnforced
 `public void FormationAutoFollowEnforced(NetworkCommunicator peer)`
 
-**Purpose:** Formats `ion auto follow enforced` into a string suitable for display or storage.
+**Purpose:** **Purpose:** Formats ion auto follow enforced into a string suitable for display or storage.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -139,7 +139,7 @@ multiplayerGameNotificationsComponent.FormationAutoFollowEnforced(peer);
 ### PollRejected
 `public void PollRejected(MultiplayerPollRejectReason reason)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PollRejected logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first
@@ -150,7 +150,7 @@ multiplayerGameNotificationsComponent.PollRejected(reason);
 ### PlayerKicked
 `public void PlayerKicked(NetworkCommunicator kickedPeer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayerKicked logic.
 
 ```csharp
 // Obtain an instance of MultiplayerGameNotificationsComponent from the subsystem API first

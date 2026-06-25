@@ -29,7 +29,7 @@ description: "BoardGameBaghChal 的自动生成类参考。"
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 units 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -40,7 +40,7 @@ boardGameBaghChal.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 tiles 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -51,7 +51,7 @@ boardGameBaghChal.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 sound 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -62,7 +62,7 @@ boardGameBaghChal.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -73,7 +73,7 @@ boardGameBaghChal.Reset();
 ### CalculateAllValidMoves
 `public override List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**用途 / Purpose:** 计算「all valid moves」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算all valid moves的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -84,7 +84,7 @@ var result = boardGameBaghChal.CalculateAllValidMoves(side);
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算valid moves的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -95,7 +95,7 @@ var result = boardGameBaghChal.CalculateValidMoves(pawn);
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**用途 / Purpose:** 为 「pawn captured」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 pawn captured 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -106,7 +106,7 @@ boardGameBaghChal.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AIMakeMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -117,7 +117,7 @@ boardGameBaghChal.AIMakeMove(move);
 ### TakeBoardSnapshot
 `public BoardGameBaghChal.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TakeBoardSnapshot 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -128,7 +128,7 @@ var result = boardGameBaghChal.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameBaghChal.BoardInformation board)`
 
-**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UndoMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例
@@ -139,7 +139,7 @@ boardGameBaghChal.UndoMove(board);
 ### GetANonePlacedGoat
 `public PawnBaghChal GetANonePlacedGoat()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「a none placed goat」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 a none placed goat 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBaghChal 实例

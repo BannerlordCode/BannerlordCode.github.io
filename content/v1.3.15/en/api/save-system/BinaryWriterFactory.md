@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetBinaryWriter
 `public static BinaryWriter GetBinaryWriter()`
 
-**Purpose:** Reads and returns the `binary writer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the binary writer value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BinaryWriterFactory.GetBinaryWriter();
 ### ReleaseBinaryWriter
 `public static void ReleaseBinaryWriter(BinaryWriter writer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseBinaryWriter logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ BinaryWriterFactory.ReleaseBinaryWriter(writer);
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ BinaryWriterFactory.Initialize();
 ### Release
 `public static void Release()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Static call; no instance required

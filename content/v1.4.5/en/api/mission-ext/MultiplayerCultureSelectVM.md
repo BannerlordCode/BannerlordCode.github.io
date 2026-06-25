@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.T
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerCultureSelectVM from the subsystem API first
@@ -49,7 +49,7 @@ multiplayerCultureSelectVM.RefreshValues();
 ### ExecuteSelectCulture
 `public void ExecuteSelectCulture(int cultureIndex)`
 
-**Purpose:** Runs the operation or workflow associated with `select culture`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select culture.
 
 ```csharp
 // Obtain an instance of MultiplayerCultureSelectVM from the subsystem API first
@@ -60,7 +60,7 @@ multiplayerCultureSelectVM.ExecuteSelectCulture(0);
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Runs the operation or workflow associated with `close`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of MultiplayerCultureSelectVM from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Partner logic.
 
 ```csharp
 // Obtain an instance of RomanticState from the subsystem API first

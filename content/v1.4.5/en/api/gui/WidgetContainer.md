@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of WidgetContainer from the subsystem API first
@@ -34,7 +34,7 @@ widgetContainer.Clear();
 ### GetActiveList
 `public MBReadOnlyList<Widget> GetActiveList()`
 
-**Purpose:** Reads and returns the `active list` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active list value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetContainer from the subsystem API first
@@ -45,7 +45,7 @@ var result = widgetContainer.GetActiveList();
 ### Defrag
 `public void Defrag()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Defrag logic.
 
 ```csharp
 // Obtain an instance of WidgetContainer from the subsystem API first

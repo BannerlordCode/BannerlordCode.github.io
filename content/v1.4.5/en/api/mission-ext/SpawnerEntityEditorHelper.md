@@ -30,7 +30,7 @@ Treat `SpawnerEntityEditorHelper` as a Helper-style extension point: first ident
 ### Permission
 `public struct Permission(PermissionType permission, Axis axis)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Permission logic.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -41,7 +41,7 @@ var result = spawnerEntityEditorHelper.Permission(permission, axis);
 ### GetGhostEntityOrChild
 `public GameEntity GetGhostEntityOrChild(string name)`
 
-**Purpose:** Reads and returns the `ghost entity or child` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ghost entity or child value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -52,7 +52,7 @@ var result = spawnerEntityEditorHelper.GetGhostEntityOrChild("example");
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -63,7 +63,7 @@ spawnerEntityEditorHelper.Tick(0);
 ### GivePermission
 `public void GivePermission(string childName, Permission permission, Action<float> onChangeFunction)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GivePermission logic.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -74,7 +74,7 @@ spawnerEntityEditorHelper.GivePermission("example", permission, onChangeFunction
 ### ChangeStableChildMatrixFrameAndApply
 `public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeStableChildMatrixFrameAndApply logic.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -85,7 +85,7 @@ spawnerEntityEditorHelper.ChangeStableChildMatrixFrameAndApply("example", matrix
 ### GetPrefabName
 `public string GetPrefabName()`
 
-**Purpose:** Reads and returns the `prefab name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prefab name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -96,7 +96,7 @@ var result = spawnerEntityEditorHelper.GetPrefabName();
 ### SetupGhostMovement
 `public void SetupGhostMovement(string pathName)`
 
-**Purpose:** Assigns a new value to `up ghost movement` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to up ghost movement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first
@@ -107,7 +107,7 @@ spawnerEntityEditorHelper.SetupGhostMovement("example");
 ### SetEnableAutoGhostMovement
 `public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)`
 
-**Purpose:** Assigns a new value to `enable auto ghost movement` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enable auto ghost movement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnerEntityEditorHelper from the subsystem API first

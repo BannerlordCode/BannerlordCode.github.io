@@ -23,7 +23,7 @@ Treat `MapEventManager` as a Manager-style extension point: first identify who c
 ### OnMapEventCreated
 `public void OnMapEventCreated(MapEvent mapEvent)`
 
-**Purpose:** Invoked when the `map event created` event is raised.
+**Purpose:** **Purpose:** Invoked when the map event created event is raised.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -34,7 +34,7 @@ mapEventManager.OnMapEventCreated(mapEvent);
 ### GetMapEvent
 `public MapEvent GetMapEvent(int attackerPartyIndex)`
 
-**Purpose:** Reads and returns the `map event` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the map event value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapEventManager.GetMapEvent(0);
 ### GetMapEventsBetweenFactions
 `public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Reads and returns the `map events between factions` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the map events between factions value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -56,7 +56,7 @@ var result = mapEventManager.GetMapEventsBetweenFactions(faction1, faction2);
 ### FinalizePlayerMapEvent
 `public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizePlayerMapEvent logic.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -67,7 +67,7 @@ mapEventManager.FinalizePlayerMapEvent(null);
 ### StartSiegeMapEvent
 `public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Starts the `siege map event` flow or state machine.
+**Purpose:** **Purpose:** Starts the siege map event flow or state machine.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -78,7 +78,7 @@ var result = mapEventManager.StartSiegeMapEvent(attackerParty, defenderParty);
 ### StartSallyOutMapEvent
 `public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Starts the `sally out map event` flow or state machine.
+**Purpose:** **Purpose:** Starts the sally out map event flow or state machine.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -89,7 +89,7 @@ var result = mapEventManager.StartSallyOutMapEvent(attackerParty, defenderParty)
 ### StartSiegeOutsideMapEvent
 `public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Starts the `siege outside map event` flow or state machine.
+**Purpose:** **Purpose:** Starts the siege outside map event flow or state machine.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first
@@ -100,7 +100,7 @@ var result = mapEventManager.StartSiegeOutsideMapEvent(attackerParty, defenderPa
 ### StartBlockadeBattleMapEvent
 `public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Starts the `blockade battle map event` flow or state machine.
+**Purpose:** **Purpose:** Starts the blockade battle map event flow or state machine.
 
 ```csharp
 // Obtain an instance of MapEventManager from the subsystem API first

@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first
@@ -49,7 +49,7 @@ multiplayerReportPlayerVM.RefreshValues();
 ### OpenNewReportWithGamePlayerId
 `public void OpenNewReportWithGamePlayerId(string gameId, PlayerId playerId, string playerName, bool isRequestedFromMission)`
 
-**Purpose:** Opens the resource or UI associated with `new report with game player id`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with new report with game player id.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first
@@ -60,7 +60,7 @@ multiplayerReportPlayerVM.OpenNewReportWithGamePlayerId("example", playerId, "ex
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first
@@ -71,7 +71,7 @@ multiplayerReportPlayerVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first
@@ -82,7 +82,7 @@ multiplayerReportPlayerVM.ExecuteCancel();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first
@@ -93,7 +93,7 @@ multiplayerReportPlayerVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first
@@ -104,7 +104,7 @@ multiplayerReportPlayerVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerReportPlayerVM from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Compare
 `public int Compare(CampaignOptionItemVM x, CampaignOptionItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of CampaignOptionsControllerVM from the subsystem API first
@@ -40,7 +40,7 @@ var result = campaignOptionsControllerVM.Compare(x, y);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CampaignOptionsControllerVM from the subsystem API first

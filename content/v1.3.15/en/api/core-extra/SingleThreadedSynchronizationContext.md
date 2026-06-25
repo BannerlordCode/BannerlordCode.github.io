@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Send
 `public override void Send(SendOrPostCallback callback, object state)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Send logic.
 
 ```csharp
 // Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
@@ -34,7 +34,7 @@ singleThreadedSynchronizationContext.Send(callback, state);
 ### Post
 `public override void Post(SendOrPostCallback callback, object state)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Post logic.
 
 ```csharp
 // Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
@@ -45,7 +45,7 @@ singleThreadedSynchronizationContext.Post(callback, state);
 ### Tick
 `public void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first
@@ -56,7 +56,7 @@ singleThreadedSynchronizationContext.Tick();
 ### Invoke
 `public void Invoke()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Invoke logic.
 
 ```csharp
 // Obtain an instance of SingleThreadedSynchronizationContext from the subsystem API first

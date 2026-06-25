@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### ClassConfiguration
 `public struct ClassConfiguration(int formationIndex, DeploymentFormationClass formationClass)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClassConfiguration logic.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -57,7 +57,7 @@ var result = missionOrderVM.ClassConfiguration(0, formationClass);
 ### FormationConfiguration
 `public struct FormationConfiguration(int formationIndex, List<FormationFilterType> filters)`
 
-**Purpose:** Formats `ion configuration` into a string suitable for display or storage.
+**Purpose:** **Purpose:** Formats ion configuration into a string suitable for display or storage.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -68,7 +68,7 @@ var result = missionOrderVM.FormationConfiguration(0, filters);
 ### SetDeploymentParemeters
 `public void SetDeploymentParemeters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-**Purpose:** Assigns a new value to `deployment paremeters` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to deployment paremeters and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -79,7 +79,7 @@ missionOrderVM.SetDeploymentParemeters(deploymentCamera, deploymentPoints);
 ### SetCallbacks
 `public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-**Purpose:** Assigns a new value to `callbacks` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to callbacks and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -90,7 +90,7 @@ missionOrderVM.SetCallbacks(callbacks);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -101,7 +101,7 @@ missionOrderVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -112,7 +112,7 @@ missionOrderVM.OnFinalize();
 ### OnOrderExecuted
 `public void OnOrderExecuted(OrderItemVM orderItem)`
 
-**Purpose:** Invoked when the `order executed` event is raised.
+**Purpose:** **Purpose:** Invoked when the order executed event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -123,7 +123,7 @@ missionOrderVM.OnOrderExecuted(orderItem);
 ### OnOrderLayoutTypeChanged
 `public virtual void OnOrderLayoutTypeChanged()`
 
-**Purpose:** Invoked when the `order layout type changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the order layout type changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -134,7 +134,7 @@ missionOrderVM.OnOrderLayoutTypeChanged();
 ### OpenToggleOrder
 `public void OpenToggleOrder(bool fromHold, bool displayMessage = true)`
 
-**Purpose:** Opens the resource or UI associated with `toggle order`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with toggle order.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -145,7 +145,7 @@ missionOrderVM.OpenToggleOrder(false, false);
 ### TryCloseToggleOrder
 `public bool TryCloseToggleOrder(bool applySelectedOrders = false)`
 
-**Purpose:** Attempts to retrieve `close toggle order`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve close toggle order, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -156,7 +156,7 @@ var result = missionOrderVM.TryCloseToggleOrder(false);
 ### SetActiveOrders
 `public void SetActiveOrders()`
 
-**Purpose:** Assigns a new value to `active orders` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to active orders and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -167,7 +167,7 @@ missionOrderVM.SetActiveOrders();
 ### SetFocusedFormations
 `public void SetFocusedFormations(MBReadOnlyList<Formation> focusedFormationsCache)`
 
-**Purpose:** Assigns a new value to `focused formations` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to focused formations and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -178,7 +178,7 @@ missionOrderVM.SetFocusedFormations(focusedFormationsCache);
 ### AfterInitialize
 `public void AfterInitialize()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterInitialize logic.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -189,7 +189,7 @@ missionOrderVM.AfterInitialize();
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -200,7 +200,7 @@ missionOrderVM.Update();
 ### OnEscape
 `public void OnEscape()`
 
-**Purpose:** Invoked when the `escape` event is raised.
+**Purpose:** **Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -211,7 +211,7 @@ missionOrderVM.OnEscape();
 ### ViewOrders
 `public void ViewOrders()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ViewOrders logic.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -222,7 +222,7 @@ missionOrderVM.ViewOrders();
 ### GetOrderSetAtIndex
 `public OrderSetVM GetOrderSetAtIndex(int orderSetIndex)`
 
-**Purpose:** Reads and returns the `order set at index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the order set at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -233,7 +233,7 @@ var result = missionOrderVM.GetOrderSetAtIndex(0);
 ### TrySelectOrderSet
 `public bool TrySelectOrderSet(OrderSetVM orderSet)`
 
-**Purpose:** Attempts to retrieve `select order set`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve select order set, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -244,7 +244,7 @@ var result = missionOrderVM.TrySelectOrderSet(orderSet);
 ### OnTroopFormationSelected
 `public void OnTroopFormationSelected(int formationTroopIndex)`
 
-**Purpose:** Invoked when the `troop formation selected` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop formation selected event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -255,7 +255,7 @@ missionOrderVM.OnTroopFormationSelected(0);
 ### OnTroopHighlightSelection
 `public void OnTroopHighlightSelection(bool isDirectionLeft)`
 
-**Purpose:** Invoked when the `troop highlight selection` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop highlight selection event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -266,7 +266,7 @@ missionOrderVM.OnTroopHighlightSelection(false);
 ### ExecuteSelectHighlightedFormation
 `public void ExecuteSelectHighlightedFormation()`
 
-**Purpose:** Runs the operation or workflow associated with `select highlighted formation`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select highlighted formation.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -277,7 +277,7 @@ missionOrderVM.ExecuteSelectHighlightedFormation();
 ### ExecuteToggleHighlightedFormation
 `public void ExecuteToggleHighlightedFormation()`
 
-**Purpose:** Runs the operation or workflow associated with `toggle highlighted formation`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle highlighted formation.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -288,7 +288,7 @@ missionOrderVM.ExecuteToggleHighlightedFormation();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -299,7 +299,7 @@ missionOrderVM.OnDeploymentFinished();
 ### OnAfterDeploymentFinished
 `public void OnAfterDeploymentFinished()`
 
-**Purpose:** Invoked when the `after deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the after deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -310,7 +310,7 @@ missionOrderVM.OnAfterDeploymentFinished();
 ### OnFiltersSet
 `public void OnFiltersSet(List<FormationConfiguration> filterData)`
 
-**Purpose:** Invoked when the `filters set` event is raised.
+**Purpose:** **Purpose:** Invoked when the filters set event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -321,7 +321,7 @@ missionOrderVM.OnFiltersSet(filterData);
 ### UpdateCanUseShortcuts
 `public void UpdateCanUseShortcuts(bool value)`
 
-**Purpose:** Recalculates and stores the latest representation of `can use shortcuts`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of can use shortcuts.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -332,7 +332,7 @@ missionOrderVM.UpdateCanUseShortcuts(false);
 ### SetOrderIndexKey
 `public void SetOrderIndexKey(int orderIndex, GameKey gameKey)`
 
-**Purpose:** Assigns a new value to `order index key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to order index key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -343,7 +343,7 @@ missionOrderVM.SetOrderIndexKey(0, gameKey);
 ### SetReturnKey
 `public void SetReturnKey(GameKey gameKey)`
 
-**Purpose:** Assigns a new value to `return key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to return key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first
@@ -354,7 +354,7 @@ missionOrderVM.SetReturnKey(gameKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderVM from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetSpeedBonusEffectiveness
 `public override float GetSpeedBonusEffectiveness(Agent attacker, WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**Purpose:** Reads and returns the `speed bonus effectiveness` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the speed bonus effectiveness value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpeedBonusEffect from the subsystem API first

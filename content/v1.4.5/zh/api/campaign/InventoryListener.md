@@ -23,7 +23,7 @@ description: "InventoryListener 的自动生成类参考。"
 ### GetGold
 `public abstract int GetGold()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「gold」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryListener 实例
@@ -34,7 +34,7 @@ var result = inventoryListener.GetGold();
 ### GetTraderName
 `public abstract TextObject GetTraderName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「trader name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trader name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryListener 实例
@@ -45,7 +45,7 @@ var result = inventoryListener.GetTraderName();
 ### SetGold
 `public abstract void SetGold(int gold)`
 
-**用途 / Purpose:** 为 「gold」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 gold 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryListener 实例
@@ -56,7 +56,7 @@ inventoryListener.SetGold(0);
 ### GetOppositeParty
 `public abstract PartyBase GetOppositeParty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「opposite party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 opposite party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryListener 实例
@@ -67,7 +67,7 @@ var result = inventoryListener.GetOppositeParty();
 ### OnTransaction
 `public abstract void OnTransaction()`
 
-**用途 / Purpose:** 在 「transaction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 transaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryListener 实例

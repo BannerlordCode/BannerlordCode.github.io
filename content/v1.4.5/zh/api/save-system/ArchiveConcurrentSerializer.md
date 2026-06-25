@@ -23,7 +23,7 @@ description: "ArchiveConcurrentSerializer 的自动生成类参考。"
 ### SerializeFolderConcurrent
 `public void SerializeFolderConcurrent(SaveEntryFolder folder)`
 
-**用途 / Purpose:** 将「folder concurrent」序列化为可存储或传输的格式。
+**用途 / Purpose:** **用途 / Purpose:** 将folder concurrent序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 ArchiveConcurrentSerializer 实例
@@ -34,7 +34,7 @@ archiveConcurrentSerializer.SerializeFolderConcurrent(folder);
 ### CreateFolder
 `public SaveEntryFolder CreateFolder(SaveEntryFolder parentFolder, FolderId folderId, int entryCount)`
 
-**用途 / Purpose:** 构建一个新的 「folder」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 folder 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ArchiveConcurrentSerializer 实例
@@ -45,7 +45,7 @@ var result = archiveConcurrentSerializer.CreateFolder(parentFolder, folderId, 0)
 ### FinalizeAndGetBinaryDataConcurrent
 `public byte FinalizeAndGetBinaryDataConcurrent()`
 
-**用途 / Purpose:** 处理与 「finalize and get binary data concurrent」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeAndGetBinaryDataConcurrent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ArchiveConcurrentSerializer 实例

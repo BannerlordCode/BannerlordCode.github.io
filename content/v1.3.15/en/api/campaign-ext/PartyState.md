@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### RequestUserInput
 `public void RequestUserInput(string text, Action accept, Action cancel)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestUserInput logic.
 
 ```csharp
 // Obtain an instance of PartyState from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionLosingTargetVM from the subsystem API first
@@ -42,7 +42,7 @@ missionLosingTargetVM.RefreshValues();
 ### UpdateLosingTargetValues
 `public void UpdateLosingTargetValues(bool isLosingTarget, float losingTargetTimer, float losingTargetTreshold)`
 
-**Purpose:** Recalculates and stores the latest representation of `losing target values`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of losing target values.
 
 ```csharp
 // Obtain an instance of MissionLosingTargetVM from the subsystem API first

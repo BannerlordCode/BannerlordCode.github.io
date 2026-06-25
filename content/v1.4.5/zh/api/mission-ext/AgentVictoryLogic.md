@@ -30,7 +30,7 @@ description: "AgentVictoryLogic 的自动生成类参考。"
 ### CheerReactionTimeSettings
 `public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
 
-**用途 / Purpose:** 处理与 「cheer reaction time settings」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CheerReactionTimeSettings 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -41,7 +41,7 @@ var result = agentVictoryLogic.CheerReactionTimeSettings(0, 0);
 ### OrderReceived
 `public void OrderReceived()`
 
-**用途 / Purpose:** 处理与 「order received」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OrderReceived 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -52,7 +52,7 @@ agentVictoryLogic.OrderReceived();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -63,7 +63,7 @@ agentVictoryLogic.AfterStart();
 ### SetCheerActionGroup
 `public void SetCheerActionGroup(CheerActionGroupEnum cheerActionGroup = CheerActionGroupEnum.None)`
 
-**用途 / Purpose:** 为 「cheer action group」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cheer action group 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -74,7 +74,7 @@ agentVictoryLogic.SetCheerActionGroup(cheerActionGroupEnum.None);
 ### SetCheerReactionTimerSettings
 `public void SetCheerReactionTimerSettings(float minDuration = 1f, float maxDuration = 8f)`
 
-**用途 / Purpose:** 为 「cheer reaction timer settings」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cheer reaction timer settings 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -85,7 +85,7 @@ agentVictoryLogic.SetCheerReactionTimerSettings(0, 0);
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -96,7 +96,7 @@ agentVictoryLogic.OnClearScene();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -107,7 +107,7 @@ agentVictoryLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killi
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -118,7 +118,7 @@ agentVictoryLogic.OnMissionTick(0);
 ### SetTimersOfVictoryReactionsOnBattleEnd
 `public void SetTimersOfVictoryReactionsOnBattleEnd(BattleSideEnum side)`
 
-**用途 / Purpose:** 为 「timers of victory reactions on battle end」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 timers of victory reactions on battle end 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -129,7 +129,7 @@ agentVictoryLogic.SetTimersOfVictoryReactionsOnBattleEnd(side);
 ### SetTimersOfVictoryReactionsOnRetreat
 `public void SetTimersOfVictoryReactionsOnRetreat(BattleSideEnum side)`
 
-**用途 / Purpose:** 为 「timers of victory reactions on retreat」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 timers of victory reactions on retreat 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -140,7 +140,7 @@ agentVictoryLogic.SetTimersOfVictoryReactionsOnRetreat(side);
 ### SetTimersOfVictoryReactionsOnTournamentVictoryForAgent
 `public void SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(Agent agent, float minStartTime, float maxStartTime)`
 
-**用途 / Purpose:** 为 「timers of victory reactions on tournament victory for agent」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 timers of victory reactions on tournament victory for agent 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例

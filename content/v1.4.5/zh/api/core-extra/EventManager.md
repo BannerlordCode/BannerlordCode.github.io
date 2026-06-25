@@ -23,7 +23,7 @@ description: "EventManager 的自动生成类参考。"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例
@@ -34,7 +34,7 @@ eventManager.Clear();
 ### GetCloneOfEventDictionary
 `public IDictionary<Type, object> GetCloneOfEventDictionary()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「clone of event dictionary」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clone of event dictionary 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EventManager 实例

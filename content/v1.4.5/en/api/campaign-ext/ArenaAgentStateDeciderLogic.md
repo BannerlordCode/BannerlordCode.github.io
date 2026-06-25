@@ -23,7 +23,7 @@ Treat `ArenaAgentStateDeciderLogic` as a Logic-style extension point: first iden
 ### GetAgentState
 `public AgentState GetAgentState(Agent effectedAgent, float deathProbability, out bool usedSurgery)`
 
-**Purpose:** Reads and returns the `agent state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent state value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArenaAgentStateDeciderLogic from the subsystem API first

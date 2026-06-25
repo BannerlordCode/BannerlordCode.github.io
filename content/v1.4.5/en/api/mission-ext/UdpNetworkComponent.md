@@ -23,7 +23,7 @@ Treat `UdpNetworkComponent` as a Component-style extension point: first identify
 ### OnUdpNetworkHandlerClose
 `public virtual void OnUdpNetworkHandlerClose()`
 
-**Purpose:** Invoked when the `udp network handler close` event is raised.
+**Purpose:** **Purpose:** Invoked when the udp network handler close event is raised.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -34,7 +34,7 @@ udpNetworkComponent.OnUdpNetworkHandlerClose();
 ### OnUdpNetworkHandlerTick
 `public virtual void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** Invoked when the `udp network handler tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the udp network handler tick event is raised.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -45,7 +45,7 @@ udpNetworkComponent.OnUdpNetworkHandlerTick(0);
 ### HandleNewClientConnect
 `public virtual void HandleNewClientConnect(PlayerConnectionInfo clientConnectionInfo)`
 
-**Purpose:** Executes the response logic associated with `new client connect`.
+**Purpose:** **Purpose:** Executes the response logic associated with new client connect.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -56,7 +56,7 @@ udpNetworkComponent.HandleNewClientConnect(clientConnectionInfo);
 ### HandleEarlyNewClientAfterLoadingFinished
 `public virtual void HandleEarlyNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `early new client after loading finished`.
+**Purpose:** **Purpose:** Executes the response logic associated with early new client after loading finished.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -67,7 +67,7 @@ udpNetworkComponent.HandleEarlyNewClientAfterLoadingFinished(networkPeer);
 ### HandleNewClientAfterLoadingFinished
 `public virtual void HandleNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `new client after loading finished`.
+**Purpose:** **Purpose:** Executes the response logic associated with new client after loading finished.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -78,7 +78,7 @@ udpNetworkComponent.HandleNewClientAfterLoadingFinished(networkPeer);
 ### HandleLateNewClientAfterLoadingFinished
 `public virtual void HandleLateNewClientAfterLoadingFinished(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `late new client after loading finished`.
+**Purpose:** **Purpose:** Executes the response logic associated with late new client after loading finished.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -89,7 +89,7 @@ udpNetworkComponent.HandleLateNewClientAfterLoadingFinished(networkPeer);
 ### HandleNewClientAfterSynchronized
 `public virtual void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `new client after synchronized`.
+**Purpose:** **Purpose:** Executes the response logic associated with new client after synchronized.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -100,7 +100,7 @@ udpNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
 ### HandleLateNewClientAfterSynchronized
 `public virtual void HandleLateNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `late new client after synchronized`.
+**Purpose:** **Purpose:** Executes the response logic associated with late new client after synchronized.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -111,7 +111,7 @@ udpNetworkComponent.HandleLateNewClientAfterSynchronized(networkPeer);
 ### OnEveryoneUnSynchronized
 `public virtual void OnEveryoneUnSynchronized()`
 
-**Purpose:** Invoked when the `everyone un synchronized` event is raised.
+**Purpose:** **Purpose:** Invoked when the everyone un synchronized event is raised.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -122,7 +122,7 @@ udpNetworkComponent.OnEveryoneUnSynchronized();
 ### HandleEarlyPlayerDisconnect
 `public void HandleEarlyPlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `early player disconnect`.
+**Purpose:** **Purpose:** Executes the response logic associated with early player disconnect.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -133,7 +133,7 @@ udpNetworkComponent.HandleEarlyPlayerDisconnect(networkPeer);
 ### HandlePlayerDisconnect
 `public virtual void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `player disconnect`.
+**Purpose:** **Purpose:** Executes the response logic associated with player disconnect.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -144,7 +144,7 @@ udpNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Invoked when the `player disconnected from server` event is raised.
+**Purpose:** **Purpose:** Invoked when the player disconnected from server event is raised.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first
@@ -155,7 +155,7 @@ udpNetworkComponent.OnPlayerDisconnectedFromServer(networkPeer);
 ### OnDisconnectedFromServer
 `public virtual void OnDisconnectedFromServer()`
 
-**Purpose:** Invoked when the `disconnected from server` event is raised.
+**Purpose:** **Purpose:** Invoked when the disconnected from server event is raised.
 
 ```csharp
 // Obtain an instance of UdpNetworkComponent from the subsystem API first

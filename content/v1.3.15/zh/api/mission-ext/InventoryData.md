@@ -29,7 +29,7 @@ description: "InventoryData 的自动生成类参考。"
 ### GetItemWithIndex
 `public ItemData GetItemWithIndex(int itemIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item with index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item with index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryData 实例
@@ -40,7 +40,7 @@ var result = inventoryData.GetItemWithIndex(0);
 ### DebugPrint
 `public void DebugPrint()`
 
-**用途 / Purpose:** 处理与 「debug print」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DebugPrint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryData 实例

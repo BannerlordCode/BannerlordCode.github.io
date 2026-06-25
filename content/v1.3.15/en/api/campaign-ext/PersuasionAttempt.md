@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### IsSuccesful
 `public bool IsSuccesful()`
 
-**Purpose:** Determines whether the current object is in the `succesful` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the succesful state or condition.
 
 ```csharp
 // Obtain an instance of PersuasionAttempt from the subsystem API first
@@ -34,7 +34,7 @@ var result = persuasionAttempt.IsSuccesful();
 ### Matches
 `public bool Matches(Hero targetHero, int reservationType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Matches logic.
 
 ```csharp
 // Obtain an instance of PersuasionAttempt from the subsystem API first

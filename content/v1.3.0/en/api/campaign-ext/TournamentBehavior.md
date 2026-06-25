@@ -44,7 +44,7 @@ Start from namespace `SandBox.Tournaments.MissionLogics` to place it in the stac
 ### GetMissionCameraLockMode
 `public SpectatorCameraTypes GetMissionCameraLockMode(bool lockedToMainPlayer)`
 
-**Purpose:** Reads and returns the `mission camera lock mode` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission camera lock mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -55,7 +55,7 @@ var result = tournamentBehavior.GetMissionCameraLockMode(false);
 ### GetAllPossibleParticipants
 `public MBList<CharacterObject> GetAllPossibleParticipants()`
 
-**Purpose:** Reads and returns the `all possible participants` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all possible participants value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -66,7 +66,7 @@ var result = tournamentBehavior.GetAllPossibleParticipants();
 ### DeleteTournamentSetsExcept
 `public static void DeleteTournamentSetsExcept(GameEntity selectedSetEntity)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteTournamentSetsExcept logic.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ TournamentBehavior.DeleteTournamentSetsExcept(selectedSetEntity);
 ### DeleteAllTournamentSets
 `public static void DeleteAllTournamentSets()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteAllTournamentSets logic.
 
 ```csharp
 // Static call; no instance required
@@ -86,7 +86,7 @@ TournamentBehavior.DeleteAllTournamentSets();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -97,7 +97,7 @@ tournamentBehavior.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -108,7 +108,7 @@ tournamentBehavior.OnMissionTick(0);
 ### StartMatch
 `public void StartMatch()`
 
-**Purpose:** Starts the `match` flow or state machine.
+**Purpose:** **Purpose:** Starts the match flow or state machine.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -119,7 +119,7 @@ tournamentBehavior.StartMatch();
 ### SkipMatch
 `public void SkipMatch(bool isLeave = false)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SkipMatch logic.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -130,7 +130,7 @@ tournamentBehavior.SkipMatch(false);
 ### EndTournamentViaLeave
 `public void EndTournamentViaLeave()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndTournamentViaLeave logic.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -141,7 +141,7 @@ tournamentBehavior.EndTournamentViaLeave();
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -152,7 +152,7 @@ var result = tournamentBehavior.OnEndMissionRequest(canPlayerLeave);
 ### PlaceABet
 `public void PlaceABet(int bet)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlaceABet logic.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -163,7 +163,7 @@ tournamentBehavior.PlaceABet(0);
 ### GetExpectedDenarsForBet
 `public int GetExpectedDenarsForBet(int bet)`
 
-**Purpose:** Reads and returns the `expected denars for bet` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the expected denars for bet value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first
@@ -174,7 +174,7 @@ var result = tournamentBehavior.GetExpectedDenarsForBet(0);
 ### GetMaximumBet
 `public int GetMaximumBet()`
 
-**Purpose:** Reads and returns the `maximum bet` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum bet value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentBehavior from the subsystem API first

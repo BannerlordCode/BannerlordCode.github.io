@@ -31,7 +31,7 @@ description: "MissionNameMarkerFactory 的自动生成类参考。"
 ### PushContext
 `public static MissionNameMarkerFactory.INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**用途 / Purpose:** 获取或维护 「push context」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PushContext 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ MissionNameMarkerFactory.PushContext("example", false);
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**用途 / Purpose:** 获取或维护 「pop context」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PopContext 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ MissionNameMarkerFactory.PopContext("example");
 ### PopContext
 `public static void PopContext(MissionNameMarkerFactory.INameMarkerProviderContext context)`
 
-**用途 / Purpose:** 获取或维护 「pop context」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PopContext 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ MissionNameMarkerFactory.PopContext(context);
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**用途 / Purpose:** 处理与 「collect providers」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CollectProviders 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -71,7 +71,7 @@ MissionNameMarkerFactory.CollectProviders();
 ### UpdateProviders
 `public static void UpdateProviders(MissionNameMarkerProvider existingProviders, out List<MissionNameMarkerProvider> addedProviders, out List<MissionNameMarkerProvider> removedProviders)`
 
-**用途 / Purpose:** 重新计算并更新 「providers」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 providers 的最新表示。
 
 ```csharp
 // 静态调用，不需要实例
@@ -81,7 +81,7 @@ MissionNameMarkerFactory.UpdateProviders(existingProviders, addedProviders, remo
 ### AddProvider
 `public void AddProvider(Type tProvider)`
 
-**用途 / Purpose:** 将 「provider」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 provider 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerFactory 实例
@@ -92,7 +92,7 @@ missionNameMarkerFactory.AddProvider(tProvider);
 ### RemoveProvider
 `public void RemoveProvider(Type tProvider)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「provider」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 provider。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerFactory 实例

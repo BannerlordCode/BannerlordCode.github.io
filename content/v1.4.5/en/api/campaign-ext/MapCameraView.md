@@ -34,7 +34,7 @@ Treat `MapCameraView` as a View-style extension point: first identify who create
 ### OnActivate
 `public virtual void OnActivate(bool leftButtonDraggingMode, Vec3 clickedPosition)`
 
-**Purpose:** Invoked when the `activate` event is raised.
+**Purpose:** **Purpose:** Invoked when the activate event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -45,7 +45,7 @@ mapCameraView.OnActivate(false, clickedPosition);
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -56,7 +56,7 @@ mapCameraView.Initialize();
 ### SetCameraMode
 `public virtual void SetCameraMode(CameraFollowMode cameraMode)`
 
-**Purpose:** Assigns a new value to `camera mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to camera mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -67,7 +67,7 @@ mapCameraView.SetCameraMode(cameraMode);
 ### ResetCamera
 `public virtual void ResetCamera(bool resetDistance, bool teleportToMainParty)`
 
-**Purpose:** Returns `camera` to its default or initial condition.
+**Purpose:** **Purpose:** Returns camera to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -78,7 +78,7 @@ mapCameraView.ResetCamera(false, false);
 ### TeleportCameraToMainParty
 `public virtual void TeleportCameraToMainParty()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TeleportCameraToMainParty logic.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -89,7 +89,7 @@ mapCameraView.TeleportCameraToMainParty();
 ### FastMoveCameraToMainParty
 `public virtual void FastMoveCameraToMainParty()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FastMoveCameraToMainParty logic.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -100,7 +100,7 @@ mapCameraView.FastMoveCameraToMainParty();
 ### FastMoveCameraToPosition
 `public virtual void FastMoveCameraToPosition(CampaignVec2 target, bool isInMenu)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FastMoveCameraToPosition logic.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -111,7 +111,7 @@ mapCameraView.FastMoveCameraToPosition(target, false);
 ### OnFastMoveCameraMovementStart
 `public void OnFastMoveCameraMovementStart()`
 
-**Purpose:** Invoked when the `fast move camera movement start` event is raised.
+**Purpose:** **Purpose:** Invoked when the fast move camera movement start event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -122,7 +122,7 @@ mapCameraView.OnFastMoveCameraMovementStart();
 ### StopCameraMovementSoundEvents
 `public void StopCameraMovementSoundEvents()`
 
-**Purpose:** Stops the `camera movement sound events` flow or state machine.
+**Purpose:** **Purpose:** Stops the camera movement sound events flow or state machine.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -133,7 +133,7 @@ mapCameraView.StopCameraMovementSoundEvents();
 ### IsCameraLockedToPlayerParty
 `public virtual bool IsCameraLockedToPlayerParty()`
 
-**Purpose:** Determines whether the current object is in the `camera locked to player party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the camera locked to player party state or condition.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -144,7 +144,7 @@ var result = mapCameraView.IsCameraLockedToPlayerParty();
 ### StartCameraAnimation
 `public virtual void StartCameraAnimation(CampaignVec2 targetPosition, float animationStopDuration)`
 
-**Purpose:** Starts the `camera animation` flow or state machine.
+**Purpose:** **Purpose:** Starts the camera animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -155,7 +155,7 @@ mapCameraView.StartCameraAnimation(targetPosition, 0);
 ### SiegeEngineClick
 `public virtual void SiegeEngineClick(MatrixFrame siegeEngineFrame)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SiegeEngineClick logic.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -166,7 +166,7 @@ mapCameraView.SiegeEngineClick(siegeEngineFrame);
 ### OnExit
 `public virtual void OnExit()`
 
-**Purpose:** Invoked when the `exit` event is raised.
+**Purpose:** **Purpose:** Invoked when the exit event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -177,7 +177,7 @@ mapCameraView.OnExit();
 ### OnEscapeMenuToggled
 `public virtual void OnEscapeMenuToggled(bool isOpened)`
 
-**Purpose:** Invoked when the `escape menu toggled` event is raised.
+**Purpose:** **Purpose:** Invoked when the escape menu toggled event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -188,7 +188,7 @@ mapCameraView.OnEscapeMenuToggled(false);
 ### HandleMouse
 `public virtual void HandleMouse(bool rightMouseButtonPressed, float verticalCameraInput, float mouseMoveY, float dt)`
 
-**Purpose:** Executes the response logic associated with `mouse`.
+**Purpose:** **Purpose:** Executes the response logic associated with mouse.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -199,7 +199,7 @@ mapCameraView.HandleMouse(false, 0, 0, 0);
 ### HandleLeftMouseButtonClick
 `public virtual void HandleLeftMouseButtonClick(bool isMouseActive)`
 
-**Purpose:** Executes the response logic associated with `left mouse button click`.
+**Purpose:** **Purpose:** Executes the response logic associated with left mouse button click.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -210,7 +210,7 @@ mapCameraView.HandleLeftMouseButtonClick(false);
 ### OnSetMapSiegeOverlayState
 `public virtual void OnSetMapSiegeOverlayState(bool isActive, bool isMapSiegeOverlayViewNull)`
 
-**Purpose:** Invoked when the `set map siege overlay state` event is raised.
+**Purpose:** **Purpose:** Invoked when the set map siege overlay state event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -221,7 +221,7 @@ mapCameraView.OnSetMapSiegeOverlayState(false, false);
 ### OnRefreshMapSiegeOverlayRequired
 `public virtual void OnRefreshMapSiegeOverlayRequired(bool isMapSiegeOverlayViewNull)`
 
-**Purpose:** Invoked when the `refresh map siege overlay required` event is raised.
+**Purpose:** **Purpose:** Invoked when the refresh map siege overlay required event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first
@@ -232,7 +232,7 @@ mapCameraView.OnRefreshMapSiegeOverlayRequired(false);
 ### OnBeforeTick
 `public virtual void OnBeforeTick(in InputInformation inputInformation)`
 
-**Purpose:** Invoked when the `before tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the before tick event is raised.
 
 ```csharp
 // Obtain an instance of MapCameraView from the subsystem API first

@@ -23,7 +23,7 @@ description: "DividableTask 的自动生成类参考。"
 ### ResetTaskStatus
 `public void ResetTaskStatus()`
 
-**用途 / Purpose:** 将 「task status」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 task status 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DividableTask 实例
@@ -34,7 +34,7 @@ dividableTask.ResetTaskStatus();
 ### SetTaskFinished
 `public void SetTaskFinished(bool callLastAction = false)`
 
-**用途 / Purpose:** 为 「task finished」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 task finished 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DividableTask 实例
@@ -45,7 +45,7 @@ dividableTask.SetTaskFinished(false);
 ### Update
 `public bool Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DividableTask 实例
@@ -56,7 +56,7 @@ var result = dividableTask.Update();
 ### SetLastAction
 `public void SetLastAction(Action action)`
 
-**用途 / Purpose:** 为 「last action」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 last action 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DividableTask 实例

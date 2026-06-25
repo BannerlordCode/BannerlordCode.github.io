@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PopupSceneSkeletonAnimationScript from the subsystem API first
@@ -34,7 +34,7 @@ popupSceneSkeletonAnimationScript.Initialize();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of PopupSceneSkeletonAnimationScript from the subsystem API first
@@ -45,7 +45,7 @@ var result = popupSceneSkeletonAnimationScript.GetTickRequirement();
 ### SetState
 `public void SetState(int state)`
 
-**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSkeletonAnimationScript from the subsystem API first

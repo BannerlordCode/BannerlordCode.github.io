@@ -31,7 +31,7 @@ description: "HumanAIComponent 的自动生成类参考。"
 ### SetStandGroundPositionForTeleport
 `public void SetStandGroundPositionForTeleport(Vec3 newFormationPosition)`
 
-**用途 / Purpose:** 为 「stand ground position for teleport」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 stand ground position for teleport 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -42,7 +42,7 @@ humanAIComponent.SetStandGroundPositionForTeleport(newFormationPosition);
 ### OverrideBehaviorParams
 `public void OverrideBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
 
-**用途 / Purpose:** 处理与 「override behavior params」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OverrideBehaviorParams 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -53,7 +53,7 @@ humanAIComponent.OverrideBehaviorParams(behavior, 0, 0, 0, 0, 0);
 ### SyncBehaviorParamsIfNecessary
 `public void SyncBehaviorParamsIfNecessary()`
 
-**用途 / Purpose:** 将「behavior params if necessary」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将behavior params if necessary同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -64,7 +64,7 @@ humanAIComponent.SyncBehaviorParamsIfNecessary();
 ### DisablePickUpForAgentIfNeeded
 `public void DisablePickUpForAgentIfNeeded()`
 
-**用途 / Purpose:** 处理与 「disable pick up for agent if needed」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisablePickUpForAgentIfNeeded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -75,7 +75,7 @@ humanAIComponent.DisablePickUpForAgentIfNeeded();
 ### OnTickParallel
 `public override void OnTickParallel(float dt)`
 
-**用途 / Purpose:** 在 「tick parallel」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick parallel 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -86,7 +86,7 @@ humanAIComponent.OnTickParallel(0);
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -97,7 +97,7 @@ humanAIComponent.OnTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved()`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -108,7 +108,7 @@ humanAIComponent.OnAgentRemoved();
 ### OnAgentTeleported
 `public override void OnAgentTeleported()`
 
-**用途 / Purpose:** 在 「agent teleported」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent teleported 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -119,7 +119,7 @@ humanAIComponent.OnAgentTeleported();
 ### OnComponentRemoved
 `public override void OnComponentRemoved()`
 
-**用途 / Purpose:** 在 「component removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 component removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -130,7 +130,7 @@ humanAIComponent.OnComponentRemoved();
 ### IsInImportantCombatAction
 `public bool IsInImportantCombatAction()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「in important combat action」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 in important combat action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -141,7 +141,7 @@ var result = humanAIComponent.IsInImportantCombatAction();
 ### GetCurrentlyMovingGameObject
 `public UsableMissionObject GetCurrentlyMovingGameObject()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「currently moving game object」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 currently moving game object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -152,7 +152,7 @@ var result = humanAIComponent.GetCurrentlyMovingGameObject();
 ### GetCurrentlyDefendingGameObject
 `public UsableMissionObject GetCurrentlyDefendingGameObject()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「currently defending game object」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 currently defending game object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -163,7 +163,7 @@ var result = humanAIComponent.GetCurrentlyDefendingGameObject();
 ### MoveToUsableGameObject
 `public void MoveToUsableGameObject(UsableMissionObject usedObject, IDetachment detachment, Agent.AIScriptedFrameFlags scriptedFrameFlags = Agent.AIScriptedFrameFlags.NoAttack)`
 
-**用途 / Purpose:** 移动「to usable game object」到新的位置或状态。
+**用途 / Purpose:** **用途 / Purpose:** 移动to usable game object到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -174,7 +174,7 @@ humanAIComponent.MoveToUsableGameObject(usedObject, detachment, agent.AIScripted
 ### MoveToClear
 `public void MoveToClear()`
 
-**用途 / Purpose:** 移动「to clear」到新的位置或状态。
+**用途 / Purpose:** **用途 / Purpose:** 移动to clear到新的位置或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -185,7 +185,7 @@ humanAIComponent.MoveToClear();
 ### StartDefendingGameObject
 `public void StartDefendingGameObject(UsableMissionObject usedObject, IDetachment detachment)`
 
-**用途 / Purpose:** 启动「defending game object」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动defending game object流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -196,7 +196,7 @@ humanAIComponent.StartDefendingGameObject(usedObject, detachment);
 ### StopDefendingGameObject
 `public void StopDefendingGameObject()`
 
-**用途 / Purpose:** 停止「defending game object」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止defending game object流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -207,7 +207,7 @@ humanAIComponent.StopDefendingGameObject();
 ### IsInterestedInAnyGameObject
 `public bool IsInterestedInAnyGameObject()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「interested in any game object」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 interested in any game object 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -218,7 +218,7 @@ var result = humanAIComponent.IsInterestedInAnyGameObject();
 ### IsInterestedInGameObject
 `public bool IsInterestedInGameObject(UsableMissionObject usableMissionObject)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「interested in game object」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 interested in game object 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -229,7 +229,7 @@ var result = humanAIComponent.IsInterestedInGameObject(usableMissionObject);
 ### FollowAgent
 `public void FollowAgent(Agent agent)`
 
-**用途 / Purpose:** 处理与 「follow agent」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FollowAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -240,7 +240,7 @@ humanAIComponent.FollowAgent(agent);
 ### GetDesiredSpeedInFormation
 `public float GetDesiredSpeedInFormation(bool isCharging)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「desired speed in formation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 desired speed in formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -251,7 +251,7 @@ var result = humanAIComponent.GetDesiredSpeedInFormation(false);
 ### AdjustSpeedLimit
 `public void AdjustSpeedLimit(Agent agent, float desiredSpeed, bool limitIsMultiplier)`
 
-**用途 / Purpose:** 处理与 「adjust speed limit」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AdjustSpeedLimit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -262,7 +262,7 @@ humanAIComponent.AdjustSpeedLimit(agent, 0, false);
 ### ParallelUpdateFormationMovement
 `public unsafe void ParallelUpdateFormationMovement()`
 
-**用途 / Purpose:** 处理与 「parallel update formation movement」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ParallelUpdateFormationMovement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -273,7 +273,7 @@ humanAIComponent.ParallelUpdateFormationMovement();
 ### OnRetreating
 `public override void OnRetreating()`
 
-**用途 / Purpose:** 在 「retreating」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 retreating 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -284,7 +284,7 @@ humanAIComponent.OnRetreating();
 ### OnDismount
 `public override void OnDismount(Agent mount)`
 
-**用途 / Purpose:** 在 「dismount」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 dismount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -295,7 +295,7 @@ humanAIComponent.OnDismount(mount);
 ### SetBehaviorValueSet
 `public void SetBehaviorValueSet(HumanAIComponent.BehaviorValueSet behaviorValueSet)`
 
-**用途 / Purpose:** 为 「behavior value set」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 behavior value set 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -306,7 +306,7 @@ humanAIComponent.SetBehaviorValueSet(behaviorValueSet);
 ### RefreshBehaviorValues
 `public void RefreshBehaviorValues(MovementOrder.MovementOrderEnum movementOrder, ArrangementOrder.ArrangementOrderEnum arrangementOrder)`
 
-**用途 / Purpose:** 使 「behavior values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 behavior values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -317,7 +317,7 @@ humanAIComponent.RefreshBehaviorValues(movementOrder, arrangementOrder);
 ### ForceDisablePickUpForAgent
 `public void ForceDisablePickUpForAgent()`
 
-**用途 / Purpose:** 处理与 「force disable pick up for agent」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceDisablePickUpForAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -328,7 +328,7 @@ humanAIComponent.ForceDisablePickUpForAgent();
 ### GetValueAt
 `public float GetValueAt(float x)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value at」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value at 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例

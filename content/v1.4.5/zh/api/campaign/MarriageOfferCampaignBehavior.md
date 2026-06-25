@@ -23,7 +23,7 @@ description: "MarriageOfferCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -34,7 +34,7 @@ marriageOfferCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -45,7 +45,7 @@ marriageOfferCampaignBehavior.SyncData(dataStore);
 ### CreateMarriageOffer
 `public void CreateMarriageOffer(Hero currentOfferedPlayerClanHero, Hero currentOfferedOtherClanHero)`
 
-**用途 / Purpose:** 构建一个新的 「marriage offer」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 marriage offer 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -56,7 +56,7 @@ marriageOfferCampaignBehavior.CreateMarriageOffer(currentOfferedPlayerClanHero, 
 ### GetMarriageAcceptedConsequences
 `public MBBindingList<TextObject> GetMarriageAcceptedConsequences()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「marriage accepted consequences」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 marriage accepted consequences 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -67,7 +67,7 @@ var result = marriageOfferCampaignBehavior.GetMarriageAcceptedConsequences();
 ### OnMarriageOfferAcceptedOnPopUp
 `public void OnMarriageOfferAcceptedOnPopUp()`
 
-**用途 / Purpose:** 在 「marriage offer accepted on pop up」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 marriage offer accepted on pop up 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -78,7 +78,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferAcceptedOnPopUp();
 ### OnMarriageOfferedToPlayer
 `public void OnMarriageOfferedToPlayer(Hero suitor, Hero maiden)`
 
-**用途 / Purpose:** 在 「marriage offered to player」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 marriage offered to player 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -89,7 +89,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferedToPlayer(suitor, maiden);
 ### OnMarriageOfferDeclinedOnPopUp
 `public void OnMarriageOfferDeclinedOnPopUp()`
 
-**用途 / Purpose:** 在 「marriage offer declined on pop up」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 marriage offer declined on pop up 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -100,7 +100,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferDeclinedOnPopUp();
 ### OnMarriageOfferCanceled
 `public void OnMarriageOfferCanceled(Hero suitor, Hero maiden)`
 
-**用途 / Purpose:** 在 「marriage offer canceled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 marriage offer canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例
@@ -111,7 +111,7 @@ marriageOfferCampaignBehavior.OnMarriageOfferCanceled(suitor, maiden);
 ### IsHeroEngaged
 `public bool IsHeroEngaged(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「hero engaged」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hero engaged 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferCampaignBehavior 实例

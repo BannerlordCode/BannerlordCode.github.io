@@ -19,7 +19,7 @@ MarriageAction is a set of static methods that trigger "Marriage" in the campaig
 public static void Apply(Hero firstHero, Hero secondHero, bool showNotification = true)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

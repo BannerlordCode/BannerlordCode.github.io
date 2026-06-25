@@ -23,7 +23,7 @@ description: "StoryModeEncounterGameMenuModel 的自动生成类参考。"
 ### GetEncounterMenu
 `public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「encounter menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encounter menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
@@ -34,7 +34,7 @@ var result = storyModeEncounterGameMenuModel.GetEncounterMenu(attackerParty, def
 ### GetGenericStateMenu
 `public override string GetGenericStateMenu()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「generic state menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 generic state menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
@@ -45,7 +45,7 @@ var result = storyModeEncounterGameMenuModel.GetGenericStateMenu();
 ### GetNewPartyJoinMenu
 `public override string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「new party join menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 new party join menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
@@ -56,7 +56,7 @@ var result = storyModeEncounterGameMenuModel.GetNewPartyJoinMenu(newParty);
 ### GetRaidCompleteMenu
 `public override string GetRaidCompleteMenu()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「raid complete menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 raid complete menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例
@@ -67,7 +67,7 @@ var result = storyModeEncounterGameMenuModel.GetRaidCompleteMenu();
 ### IsPlunderMenu
 `public override bool IsPlunderMenu(string menuId)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「plunder menu」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 plunder menu 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeEncounterGameMenuModel 实例

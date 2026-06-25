@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetMissionType
 `public abstract MultiplayerGameType GetMissionType()`
 
-**Purpose:** Reads and returns the `mission type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -43,7 +43,7 @@ var result = missionMultiplayerGameModeBase.GetMissionType();
 ### CheckIfOvertime
 `public virtual bool CheckIfOvertime()`
 
-**Purpose:** Verifies whether `if overtime` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if overtime holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -54,7 +54,7 @@ var result = missionMultiplayerGameModeBase.CheckIfOvertime();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -65,7 +65,7 @@ missionMultiplayerGameModeBase.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -76,7 +76,7 @@ missionMultiplayerGameModeBase.OnMissionTick(0);
 ### CheckForWarmupEnd
 `public virtual bool CheckForWarmupEnd()`
 
-**Purpose:** Verifies whether `for warmup end` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for warmup end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -87,7 +87,7 @@ var result = missionMultiplayerGameModeBase.CheckForWarmupEnd();
 ### CheckForRoundEnd
 `public virtual bool CheckForRoundEnd()`
 
-**Purpose:** Verifies whether `for round end` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for round end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -98,7 +98,7 @@ var result = missionMultiplayerGameModeBase.CheckForRoundEnd();
 ### CheckForMatchEnd
 `public virtual bool CheckForMatchEnd()`
 
-**Purpose:** Verifies whether `for match end` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for match end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -109,7 +109,7 @@ var result = missionMultiplayerGameModeBase.CheckForMatchEnd();
 ### UseCultureSelection
 `public virtual bool UseCultureSelection()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UseCultureSelection logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -120,7 +120,7 @@ var result = missionMultiplayerGameModeBase.UseCultureSelection();
 ### UseRoundController
 `public virtual bool UseRoundController()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UseRoundController logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -131,7 +131,7 @@ var result = missionMultiplayerGameModeBase.UseRoundController();
 ### GetWinnerTeam
 `public virtual Team GetWinnerTeam()`
 
-**Purpose:** Reads and returns the `winner team` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the winner team value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -142,7 +142,7 @@ var result = missionMultiplayerGameModeBase.GetWinnerTeam();
 ### OnPeerChangedTeam
 `public virtual void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Invoked when the `peer changed team` event is raised.
+**Purpose:** **Purpose:** Invoked when the peer changed team event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -153,7 +153,7 @@ missionMultiplayerGameModeBase.OnPeerChangedTeam(peer, oldTeam, newTeam);
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Invoked when the `clear scene` event is raised.
+**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -164,7 +164,7 @@ missionMultiplayerGameModeBase.OnClearScene();
 ### ClearPeerCounts
 `public void ClearPeerCounts()`
 
-**Purpose:** Removes all `peer counts` from the current object.
+**Purpose:** **Purpose:** Removes all peer counts from the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -175,7 +175,7 @@ missionMultiplayerGameModeBase.ClearPeerCounts();
 ### ShouldSpawnVisualsForServer
 `public bool ShouldSpawnVisualsForServer(NetworkCommunicator spawningNetworkPeer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShouldSpawnVisualsForServer logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -186,7 +186,7 @@ var result = missionMultiplayerGameModeBase.ShouldSpawnVisualsForServer(spawning
 ### HandleAgentVisualSpawning
 `public void HandleAgentVisualSpawning(NetworkCommunicator spawningNetworkPeer, AgentBuildData spawningAgentBuildData, int troopCountInFormation = 0, bool useCosmetics = true)`
 
-**Purpose:** Executes the response logic associated with `agent visual spawning`.
+**Purpose:** **Purpose:** Executes the response logic associated with agent visual spawning.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -197,7 +197,7 @@ missionMultiplayerGameModeBase.HandleAgentVisualSpawning(spawningNetworkPeer, sp
 ### AllowCustomPlayerBanners
 `public virtual bool AllowCustomPlayerBanners()`
 
-**Purpose:** Permits `custom player banners` to be enabled or performed on the current object.
+**Purpose:** **Purpose:** Permits custom player banners to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -208,7 +208,7 @@ var result = missionMultiplayerGameModeBase.AllowCustomPlayerBanners();
 ### GetScoreForKill
 `public virtual int GetScoreForKill(Agent killedAgent)`
 
-**Purpose:** Reads and returns the `score for kill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score for kill value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -219,7 +219,7 @@ var result = missionMultiplayerGameModeBase.GetScoreForKill(killedAgent);
 ### GetTroopNumberMultiplierForMissingPlayer
 `public virtual float GetTroopNumberMultiplierForMissingPlayer(MissionPeer spawningPeer)`
 
-**Purpose:** Reads and returns the `troop number multiplier for missing player` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop number multiplier for missing player value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -230,7 +230,7 @@ var result = missionMultiplayerGameModeBase.GetTroopNumberMultiplierForMissingPl
 ### GetCurrentGoldForPeer
 `public int GetCurrentGoldForPeer(MissionPeer peer)`
 
-**Purpose:** Reads and returns the `current gold for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current gold for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -241,7 +241,7 @@ var result = missionMultiplayerGameModeBase.GetCurrentGoldForPeer(peer);
 ### ChangeCurrentGoldForPeer
 `public void ChangeCurrentGoldForPeer(MissionPeer peer, int newAmount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeCurrentGoldForPeer logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -252,7 +252,7 @@ missionMultiplayerGameModeBase.ChangeCurrentGoldForPeer(peer, 0);
 ### CheckIfPlayerCanDespawn
 `public virtual bool CheckIfPlayerCanDespawn(MissionPeer missionPeer)`
 
-**Purpose:** Verifies whether `if player can despawn` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if player can despawn holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -263,7 +263,7 @@ var result = missionMultiplayerGameModeBase.CheckIfPlayerCanDespawn(missionPeer)
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -274,7 +274,7 @@ missionMultiplayerGameModeBase.OnPreMissionTick(0);
 ### GetUsedCosmeticsFromPeer
 `public Dictionary<string, string> GetUsedCosmeticsFromPeer(MissionPeer missionPeer, BasicCharacterObject selectedTroopCharacter)`
 
-**Purpose:** Reads and returns the `used cosmetics from peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the used cosmetics from peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -285,7 +285,7 @@ var result = missionMultiplayerGameModeBase.GetUsedCosmeticsFromPeer(missionPeer
 ### AddCosmeticItemsToEquipment
 `public void AddCosmeticItemsToEquipment(Equipment equipment, Dictionary<string, string> choosenCosmetics)`
 
-**Purpose:** Adds `cosmetic items to equipment` to the current collection or state.
+**Purpose:** **Purpose:** Adds cosmetic items to equipment to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first
@@ -296,7 +296,7 @@ missionMultiplayerGameModeBase.AddCosmeticItemsToEquipment(equipment, dictionary
 ### IsClassAvailable
 `public bool IsClassAvailable(MultiplayerClassDivisions.MPHeroClass heroClass)`
 
-**Purpose:** Determines whether the current object is in the `class available` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the class available state or condition.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeBase from the subsystem API first

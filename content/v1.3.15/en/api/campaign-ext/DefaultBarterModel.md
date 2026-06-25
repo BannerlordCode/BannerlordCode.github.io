@@ -30,7 +30,7 @@ Treat `DefaultBarterModel` as a Model-style extension point: first identify who 
 ### CalculateOverpayRelationIncreaseCosts
 `public override int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)`
 
-**Purpose:** Calculates the current value or result of `overpay relation increase costs`.
+**Purpose:** **Purpose:** Calculates the current value or result of overpay relation increase costs.
 
 ```csharp
 // Obtain an instance of DefaultBarterModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = defaultBarterModel.CalculateOverpayRelationIncreaseCosts(hero, 0);
 ### GetBarterPenalty
 `public override ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)`
 
-**Purpose:** Reads and returns the `barter penalty` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the barter penalty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBarterModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.Epic` to place it in the stack,
 ### UserStatusChanged
 `public void UserStatusChanged(PlayerId playerId)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UserStatusChanged logic.
 
 ```csharp
 // Obtain an instance of EpicFriendListService from the subsystem API first

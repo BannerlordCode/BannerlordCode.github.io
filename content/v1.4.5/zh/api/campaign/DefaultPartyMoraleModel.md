@@ -23,7 +23,7 @@ description: "DefaultPartyMoraleModel 的自动生成类参考。"
 ### GetDailyStarvationMoralePenalty
 `public override int GetDailyStarvationMoralePenalty(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily starvation morale penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily starvation morale penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyMoraleModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyMoraleModel.GetDailyStarvationMoralePenalty(party);
 ### GetDailyNoWageMoralePenalty
 `public override int GetDailyNoWageMoralePenalty(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily no wage morale penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily no wage morale penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyMoraleModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyMoraleModel.GetDailyNoWageMoralePenalty(party);
 ### GetStandardBaseMorale
 `public override float GetStandardBaseMorale(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「standard base morale」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 standard base morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyMoraleModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartyMoraleModel.GetStandardBaseMorale(party);
 ### GetVictoryMoraleChange
 `public override float GetVictoryMoraleChange(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「victory morale change」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 victory morale change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyMoraleModel 实例
@@ -67,7 +67,7 @@ var result = defaultPartyMoraleModel.GetVictoryMoraleChange(party);
 ### GetDefeatMoraleChange
 `public override float GetDefeatMoraleChange(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「defeat morale change」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defeat morale change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyMoraleModel 实例
@@ -78,7 +78,7 @@ var result = defaultPartyMoraleModel.GetDefeatMoraleChange(party);
 ### GetEffectivePartyMorale
 `public override ExplainedNumber GetEffectivePartyMorale(MobileParty mobileParty, bool includeDescription = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective party morale」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective party morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyMoraleModel 实例

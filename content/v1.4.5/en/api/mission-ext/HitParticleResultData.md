@@ -23,7 +23,7 @@ Treat `HitParticleResultData` as a Data-style extension point: first identify wh
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of HitParticleResultData from the subsystem API first

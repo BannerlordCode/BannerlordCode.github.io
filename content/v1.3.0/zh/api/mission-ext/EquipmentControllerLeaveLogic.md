@@ -29,7 +29,7 @@ description: "EquipmentControllerLeaveLogic 的自动生成类参考。"
 ### SetIsEquipmentSelectionActive
 `public void SetIsEquipmentSelectionActive(bool isActive)`
 
-**用途 / Purpose:** 为 「is equipment selection active」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is equipment selection active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentControllerLeaveLogic 实例
@@ -40,7 +40,7 @@ equipmentControllerLeaveLogic.SetIsEquipmentSelectionActive(false);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EquipmentControllerLeaveLogic 实例

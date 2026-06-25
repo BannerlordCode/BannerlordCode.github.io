@@ -23,7 +23,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**Purpose:** Constructs a new `and open mission controller` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new and open mission controller entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of TrainingFieldEncounter from the subsystem API first

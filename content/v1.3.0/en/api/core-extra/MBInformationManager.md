@@ -23,7 +23,7 @@ Treat `MBInformationManager` as a Manager-style extension point: first identify 
 ### AddQuickInformation
 `public static void AddQuickInformation(TextObject message, int extraTimeInMs = 0, BasicCharacterObject announcerCharacter = null, Equipment equipment = null, string soundEventPath = "")`
 
-**Purpose:** Adds `quick information` to the current collection or state.
+**Purpose:** **Purpose:** Adds quick information to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBInformationManager.AddQuickInformation(message, 0, null, null, "example");
 ### ShowMultiSelectionInquiry
 `public static void ShowMultiSelectionInquiry(MultiSelectionInquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
 
-**Purpose:** Displays the UI or element associated with `multi selection inquiry`.
+**Purpose:** **Purpose:** Displays the UI or element associated with multi selection inquiry.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBInformationManager.ShowMultiSelectionInquiry(data, false, false);
 ### AddNotice
 `public static void AddNotice(InformationData data)`
 
-**Purpose:** Adds `notice` to the current collection or state.
+**Purpose:** **Purpose:** Adds notice to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MBInformationManager.AddNotice(data);
 ### MapNoticeRemoved
 `public static void MapNoticeRemoved(InformationData data)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MapNoticeRemoved logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MBInformationManager.MapNoticeRemoved(data);
 ### ShowHint
 `public static void ShowHint(string hint)`
 
-**Purpose:** Displays the UI or element associated with `hint`.
+**Purpose:** **Purpose:** Displays the UI or element associated with hint.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MBInformationManager.ShowHint("example");
 ### HideInformations
 `public static void HideInformations()`
 
-**Purpose:** Hides the UI or element associated with `informations`.
+**Purpose:** **Purpose:** Hides the UI or element associated with informations.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MBInformationManager.HideInformations();
 ### ShowSceneNotification
 `public static void ShowSceneNotification(SceneNotificationData data)`
 
-**Purpose:** Displays the UI or element associated with `scene notification`.
+**Purpose:** **Purpose:** Displays the UI or element associated with scene notification.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ MBInformationManager.ShowSceneNotification(data);
 ### HideSceneNotification
 `public static void HideSceneNotification()`
 
-**Purpose:** Hides the UI or element associated with `scene notification`.
+**Purpose:** **Purpose:** Hides the UI or element associated with scene notification.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ MBInformationManager.HideSceneNotification();
 ### GetIsAnySceneNotificationActive
 `public static bool? GetIsAnySceneNotificationActive()`
 
-**Purpose:** Reads and returns the `is any scene notification active` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is any scene notification active value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ MBInformationManager.GetIsAnySceneNotificationActive();
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required

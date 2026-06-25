@@ -23,7 +23,7 @@ description: "UISoundsHelper 的自动生成类参考。"
 ### PlayUISound
 `public static void PlayUISound(string soundName)`
 
-**用途 / Purpose:** 处理与 「play ui sound」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlayUISound 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

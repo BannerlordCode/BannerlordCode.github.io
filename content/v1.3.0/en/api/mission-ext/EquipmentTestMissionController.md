@@ -23,7 +23,7 @@ Treat `EquipmentTestMissionController` as a Controller-style extension point: fi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of EquipmentTestMissionController from the subsystem API first

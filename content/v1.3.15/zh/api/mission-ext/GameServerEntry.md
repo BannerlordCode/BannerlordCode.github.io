@@ -49,7 +49,7 @@ description: "GameServerEntry 的自动生成类参考。"
 ### FilterGameServerEntriesBasedOnCrossplay
 `public static void FilterGameServerEntriesBasedOnCrossplay(ref List<GameServerEntry> serverList, bool hasCrossplayPrivilege)`
 
-**用途 / Purpose:** 处理与 「filter game server entries based on crossplay」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FilterGameServerEntriesBasedOnCrossplay 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

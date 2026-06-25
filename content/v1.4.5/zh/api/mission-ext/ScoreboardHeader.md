@@ -23,7 +23,7 @@ description: "ScoreboardHeader 的自动生成类参考。"
 ### ScoreboardHeader
 `public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
 
-**用途 / Purpose:** 处理与 「scoreboard header」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ScoreboardHeader 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardHeader 实例
@@ -34,7 +34,7 @@ var result = scoreboardHeader.ScoreboardHeader("example", func<MissionPeer, "exa
 ### GetValueOf
 `public string GetValueOf(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardHeader 实例
@@ -45,7 +45,7 @@ var result = scoreboardHeader.GetValueOf(missionPeer);
 ### GetValueOf
 `public string GetValueOf(BotData botData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardHeader 实例

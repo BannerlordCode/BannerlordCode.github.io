@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### AddAnimationProperty
 `public void AddAnimationProperty(BrushAnimationProperty property)`
 
-**Purpose:** Adds `animation property` to the current collection or state.
+**Purpose:** **Purpose:** Adds animation property to the current collection or state.
 
 ```csharp
 // Obtain an instance of BrushAnimation from the subsystem API first
@@ -45,7 +45,7 @@ brushAnimation.AddAnimationProperty(property);
 ### RemoveAnimationProperty
 `public void RemoveAnimationProperty(BrushAnimationProperty property)`
 
-**Purpose:** Removes `animation property` from the current collection or state.
+**Purpose:** **Purpose:** Removes animation property from the current collection or state.
 
 ```csharp
 // Obtain an instance of BrushAnimation from the subsystem API first
@@ -56,7 +56,7 @@ brushAnimation.RemoveAnimationProperty(property);
 ### FillFrom
 `public void FillFrom(BrushAnimation animation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of BrushAnimation from the subsystem API first
@@ -67,7 +67,7 @@ brushAnimation.FillFrom(animation);
 ### GetLayerAnimation
 `public BrushLayerAnimation GetLayerAnimation(string name)`
 
-**Purpose:** Reads and returns the `layer animation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layer animation value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushAnimation from the subsystem API first
@@ -78,7 +78,7 @@ var result = brushAnimation.GetLayerAnimation("example");
 ### GetLayerAnimations
 `public IEnumerable<BrushLayerAnimation> GetLayerAnimations()`
 
-**Purpose:** Reads and returns the `layer animations` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layer animations value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushAnimation from the subsystem API first

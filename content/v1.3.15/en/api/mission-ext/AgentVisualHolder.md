@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetAction
 `public void SetAction(in ActionIndexCache actionName, float startProgress = 0f, bool forceFaceMorphRestart = true)`
 
-**Purpose:** Assigns a new value to `action` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to action and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -34,7 +34,7 @@ agentVisualHolder.SetAction(actionName, 0, false);
 ### GetEntity
 `public GameEntity GetEntity()`
 
-**Purpose:** Reads and returns the `entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -45,7 +45,7 @@ var result = agentVisualHolder.GetEntity();
 ### GetVisuals
 `public MBAgentVisuals GetVisuals()`
 
-**Purpose:** Reads and returns the `visuals` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visuals value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -56,7 +56,7 @@ var result = agentVisualHolder.GetVisuals();
 ### SetFrame
 `public void SetFrame(ref MatrixFrame frame)`
 
-**Purpose:** Assigns a new value to `frame` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -67,7 +67,7 @@ agentVisualHolder.SetFrame(frame);
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**Purpose:** Reads and returns the `frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -78,7 +78,7 @@ var result = agentVisualHolder.GetFrame();
 ### GetBodyProperties
 `public BodyProperties GetBodyProperties()`
 
-**Purpose:** Reads and returns the `body properties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the body properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -89,7 +89,7 @@ var result = agentVisualHolder.GetBodyProperties();
 ### SetBodyProperties
 `public void SetBodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** Assigns a new value to `body properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to body properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -100,7 +100,7 @@ agentVisualHolder.SetBodyProperties(bodyProperties);
 ### GetIsFemale
 `public bool GetIsFemale()`
 
-**Purpose:** Reads and returns the `is female` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is female value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -111,7 +111,7 @@ var result = agentVisualHolder.GetIsFemale();
 ### GetCharacterObjectID
 `public string GetCharacterObjectID()`
 
-**Purpose:** Reads and returns the `character object i d` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character object i d value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -122,7 +122,7 @@ var result = agentVisualHolder.GetCharacterObjectID();
 ### SetCharacterObjectID
 `public void SetCharacterObjectID(string id)`
 
-**Purpose:** Assigns a new value to `character object i d` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to character object i d and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -133,7 +133,7 @@ agentVisualHolder.SetCharacterObjectID("example");
 ### GetEquipment
 `public Equipment GetEquipment()`
 
-**Purpose:** Reads and returns the `equipment` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -144,7 +144,7 @@ var result = agentVisualHolder.GetEquipment();
 ### RefreshWithNewEquipment
 `public void RefreshWithNewEquipment(Equipment equipment)`
 
-**Purpose:** Keeps the display or cache of `with new equipment` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of with new equipment in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -155,7 +155,7 @@ agentVisualHolder.RefreshWithNewEquipment(equipment);
 ### SetClothingColors
 `public void SetClothingColors(uint color1, uint color2)`
 
-**Purpose:** Assigns a new value to `clothing colors` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to clothing colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -166,7 +166,7 @@ agentVisualHolder.SetClothingColors(0, 0);
 ### GetClothingColors
 `public void GetClothingColors(out uint color1, out uint color2)`
 
-**Purpose:** Reads and returns the `clothing colors` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the clothing colors value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -177,7 +177,7 @@ agentVisualHolder.GetClothingColors(color1, color2);
 ### GetCopyAgentVisualsData
 `public AgentVisualsData GetCopyAgentVisualsData()`
 
-**Purpose:** Reads and returns the `copy agent visuals data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the copy agent visuals data value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first
@@ -188,7 +188,7 @@ var result = agentVisualHolder.GetCopyAgentVisualsData();
 ### Refresh
 `public void Refresh(bool needBatchedVersionForWeaponMeshes, AgentVisualsData data, bool forceUseFaceCache = false)`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of AgentVisualHolder from the subsystem API first

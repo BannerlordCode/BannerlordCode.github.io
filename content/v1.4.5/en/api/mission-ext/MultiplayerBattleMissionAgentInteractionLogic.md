@@ -23,7 +23,7 @@ Treat `MultiplayerBattleMissionAgentInteractionLogic` as a Logic-style extension
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there agent action state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerBattleMissionAgentInteractionLogic from the subsystem API first

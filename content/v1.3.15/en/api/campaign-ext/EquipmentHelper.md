@@ -23,7 +23,7 @@ Treat `EquipmentHelper` as a Helper-style extension point: first identify who cr
 ### AssignHeroEquipmentFromEquipment
 `public static void AssignHeroEquipmentFromEquipment(Hero hero, Equipment equipment)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AssignHeroEquipmentFromEquipment logic.
 
 ```csharp
 // Static call; no instance required

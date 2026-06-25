@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MBTeam from the subsystem API first
@@ -34,7 +34,7 @@ var result = mBTeam.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MBTeam from the subsystem API first
@@ -45,7 +45,7 @@ var result = mBTeam.Equals(obj);
 ### IsEnemyOf
 `public bool IsEnemyOf(MBTeam otherTeam)`
 
-**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of MBTeam from the subsystem API first
@@ -56,7 +56,7 @@ var result = mBTeam.IsEnemyOf(otherTeam);
 ### SetIsEnemyOf
 `public void SetIsEnemyOf(MBTeam otherTeam, bool isEnemyOf)`
 
-**Purpose:** Assigns a new value to `is enemy of` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is enemy of and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBTeam from the subsystem API first
@@ -67,7 +67,7 @@ mBTeam.SetIsEnemyOf(otherTeam, false);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MBTeam from the subsystem API first

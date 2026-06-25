@@ -23,7 +23,7 @@ description: "SearchBodyMissionHandler 的自动生成类参考。"
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SearchBodyMissionHandler 实例
@@ -34,7 +34,7 @@ searchBodyMissionHandler.OnAgentInteraction(userAgent, agent, 0);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SearchBodyMissionHandler 实例

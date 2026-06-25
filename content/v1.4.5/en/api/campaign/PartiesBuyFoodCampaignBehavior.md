@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ partiesBuyFoodCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ partiesBuyFoodCampaignBehavior.SyncData(dataStore);
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HourlyTickParty logic.
 
 ```csharp
 // Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ partiesBuyFoodCampaignBehavior.HourlyTickParty(mobileParty);
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Invoked when the `settlement entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of PartiesBuyFoodCampaignBehavior from the subsystem API first

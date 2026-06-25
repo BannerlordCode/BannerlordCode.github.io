@@ -75,7 +75,7 @@ description: "TournamentVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -86,7 +86,7 @@ tournamentVM.RefreshValues();
 ### ExecuteBet
 `public void ExecuteBet()`
 
-**用途 / Purpose:** 执行 「bet」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 bet 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -97,7 +97,7 @@ tournamentVM.ExecuteBet();
 ### ExecuteJoinTournament
 `public void ExecuteJoinTournament()`
 
-**用途 / Purpose:** 执行 「join tournament」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 join tournament 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -108,7 +108,7 @@ tournamentVM.ExecuteJoinTournament();
 ### ExecuteSkipRound
 `public void ExecuteSkipRound()`
 
-**用途 / Purpose:** 执行 「skip round」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 skip round 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -119,7 +119,7 @@ tournamentVM.ExecuteSkipRound();
 ### ExecuteSkipAllRounds
 `public void ExecuteSkipAllRounds()`
 
-**用途 / Purpose:** 执行 「skip all rounds」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 skip all rounds 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -130,7 +130,7 @@ tournamentVM.ExecuteSkipAllRounds();
 ### ExecuteWatchRound
 `public void ExecuteWatchRound()`
 
-**用途 / Purpose:** 执行 「watch round」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 watch round 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -141,7 +141,7 @@ tournamentVM.ExecuteWatchRound();
 ### ExecuteLeave
 `public void ExecuteLeave()`
 
-**用途 / Purpose:** 执行 「leave」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 leave 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -152,7 +152,7 @@ tournamentVM.ExecuteLeave();
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -163,7 +163,7 @@ tournamentVM.Refresh();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -174,7 +174,7 @@ tournamentVM.OnAgentRemoved(agent);
 ### ExecuteShowPrizeItemTooltip
 `public void ExecuteShowPrizeItemTooltip()`
 
-**用途 / Purpose:** 执行 「show prize item tooltip」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 show prize item tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -185,7 +185,7 @@ tournamentVM.ExecuteShowPrizeItemTooltip();
 ### ExecuteHidePrizeItemTooltip
 `public void ExecuteHidePrizeItemTooltip()`
 
-**用途 / Purpose:** 执行 「hide prize item tooltip」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 hide prize item tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -196,7 +196,7 @@ tournamentVM.ExecuteHidePrizeItemTooltip();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -207,7 +207,7 @@ tournamentVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例
@@ -218,7 +218,7 @@ tournamentVM.SetDoneInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentVM 实例

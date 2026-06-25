@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### SetParent
 `public void SetParent(IntPtr parentHandle)`
 
-**Purpose:** Assigns a new value to `parent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to parent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WindowsForm from the subsystem API first
@@ -43,7 +43,7 @@ windowsForm.SetParent(parentHandle);
 ### Show
 `public void Show()`
 
-**Purpose:** Displays the UI or element associated with the current object.
+**Purpose:** **Purpose:** Displays the UI or element associated with the this instance.
 
 ```csharp
 // Obtain an instance of WindowsForm from the subsystem API first
@@ -54,7 +54,7 @@ windowsForm.Show();
 ### Hide
 `public void Hide()`
 
-**Purpose:** Hides the UI or element associated with the current object.
+**Purpose:** **Purpose:** Hides the UI or element associated with the this instance.
 
 ```csharp
 // Obtain an instance of WindowsForm from the subsystem API first
@@ -65,7 +65,7 @@ windowsForm.Hide();
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of WindowsForm from the subsystem API first
@@ -76,7 +76,7 @@ windowsForm.Destroy();
 ### AddMessageHandler
 `public void AddMessageHandler(WindowsFormMessageHandler messageHandler)`
 
-**Purpose:** Adds `message handler` to the current collection or state.
+**Purpose:** **Purpose:** Adds message handler to the current collection or state.
 
 ```csharp
 // Obtain an instance of WindowsForm from the subsystem API first

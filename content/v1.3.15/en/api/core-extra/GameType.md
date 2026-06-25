@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### OnStateChanged
 `public abstract void OnStateChanged(GameState oldState)`
 
-**Purpose:** Invoked when the `state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the state changed event is raised.
 
 ```csharp
 // Obtain an instance of GameType from the subsystem API first
@@ -55,7 +55,7 @@ gameType.OnStateChanged(oldState);
 ### DoLoadingForGameType
 `public bool DoLoadingForGameType()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoLoadingForGameType logic.
 
 ```csharp
 // Obtain an instance of GameType from the subsystem API first
@@ -66,7 +66,7 @@ var result = gameType.DoLoadingForGameType();
 ### OnDestroy
 `public abstract void OnDestroy()`
 
-**Purpose:** Invoked when the `destroy` event is raised.
+**Purpose:** **Purpose:** Invoked when the destroy event is raised.
 
 ```csharp
 // Obtain an instance of GameType from the subsystem API first
@@ -77,7 +77,7 @@ gameType.OnDestroy();
 ### OnMissionIsStarting
 `public virtual void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**Purpose:** Invoked when the `mission is starting` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission is starting event is raised.
 
 ```csharp
 // Obtain an instance of GameType from the subsystem API first
@@ -88,7 +88,7 @@ gameType.OnMissionIsStarting("example", rec);
 ### InitializeParameters
 `public virtual void InitializeParameters()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `parameters`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by parameters.
 
 ```csharp
 // Obtain an instance of GameType from the subsystem API first

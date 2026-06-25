@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### HasReinforcementPath
 `public bool HasReinforcementPath(Path path)`
 
-**Purpose:** Determines whether the current object already holds `reinforcement path`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds reinforcement path.
 
 ```csharp
 // Obtain an instance of BattleSideSpawnPathSelector from the subsystem API first

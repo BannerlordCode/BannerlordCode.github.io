@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### Save
 `public Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`
 
-**Purpose:** Writes the current object's data to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -34,7 +34,7 @@ var result = inMemDriver.Save("example", 0, metaData, gameData);
 ### LoadMetaData
 `public MetaData LoadMetaData(string saveName)`
 
-**Purpose:** Reads `meta data` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads meta data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -45,7 +45,7 @@ var result = inMemDriver.LoadMetaData("example");
 ### Load
 `public LoadData Load(string saveName)`
 
-**Purpose:** Reads the current object's data from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads the this instance's data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -56,7 +56,7 @@ var result = inMemDriver.Load("example");
 ### GetSaveGameFileInfos
 `public SaveGameFileInfo GetSaveGameFileInfos()`
 
-**Purpose:** Reads and returns the `save game file infos` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the save game file infos value held by the this instance.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -67,7 +67,7 @@ var result = inMemDriver.GetSaveGameFileInfos();
 ### GetSaveGameFileNames
 `public string GetSaveGameFileNames()`
 
-**Purpose:** Reads and returns the `save game file names` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the save game file names value held by the this instance.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -78,7 +78,7 @@ var result = inMemDriver.GetSaveGameFileNames();
 ### Delete
 `public bool Delete(string saveName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Delete logic.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -89,7 +89,7 @@ var result = inMemDriver.Delete("example");
 ### IsSaveGameFileExists
 `public bool IsSaveGameFileExists(string saveName)`
 
-**Purpose:** Determines whether the current object is in the `save game file exists` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the save game file exists state or condition.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first
@@ -100,7 +100,7 @@ var result = inMemDriver.IsSaveGameFileExists("example");
 ### IsWorkingAsync
 `public bool IsWorkingAsync()`
 
-**Purpose:** Determines whether the current object is in the `working async` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the working async state or condition.
 
 ```csharp
 // Obtain an instance of InMemDriver from the subsystem API first

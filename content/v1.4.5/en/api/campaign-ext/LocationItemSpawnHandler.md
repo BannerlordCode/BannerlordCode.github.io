@@ -23,7 +23,7 @@ Treat `LocationItemSpawnHandler` as a Handler-style extension point: first ident
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of LocationItemSpawnHandler from the subsystem API first
@@ -34,7 +34,7 @@ locationItemSpawnHandler.AfterStart();
 ### OnEntityRemoved
 `public override void OnEntityRemoved(GameEntity entity)`
 
-**Purpose:** Invoked when the `entity removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the entity removed event is raised.
 
 ```csharp
 // Obtain an instance of LocationItemSpawnHandler from the subsystem API first

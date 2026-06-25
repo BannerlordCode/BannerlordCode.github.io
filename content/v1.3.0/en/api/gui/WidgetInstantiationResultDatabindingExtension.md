@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### GetGauntletView
 `public static GauntletView GetGauntletView(this WidgetInstantiationResult widgetInstantiationResult)`
 
-**Purpose:** Reads and returns the `gauntlet view` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gauntlet view value held by the this instance.
 
 ```csharp
 // Static call; no instance required

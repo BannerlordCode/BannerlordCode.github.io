@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### EducationCharacterProperties
 `public struct EducationCharacterProperties(CharacterObject character, Equipment equipment, string actionId, string prefabId, bool useOffHand)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EducationCharacterProperties logic.
 
 ```csharp
 // Obtain an instance of EducationCharacterProperties from the subsystem API first
@@ -34,7 +34,7 @@ var result = educationCharacterProperties.EducationCharacterProperties(character
 ### Equals
 `public bool Equals(EducationCharacterProperties other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of EducationCharacterProperties from the subsystem API first
@@ -45,7 +45,7 @@ var result = educationCharacterProperties.Equals(other);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of EducationCharacterProperties from the subsystem API first
@@ -56,7 +56,7 @@ var result = educationCharacterProperties.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of EducationCharacterProperties from the subsystem API first
@@ -67,7 +67,7 @@ var result = educationCharacterProperties.GetHashCode();
 ### GetUsedHandBoneIndex
 `public sbyte GetUsedHandBoneIndex()`
 
-**Purpose:** Reads and returns the `used hand bone index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the used hand bone index value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCharacterProperties from the subsystem API first

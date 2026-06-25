@@ -30,7 +30,7 @@ Treat `TauntSlotData` as a Data-style extension point: first identify who create
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Determines whether the current object already holds `same content with`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of TauntSlotData from the subsystem API first

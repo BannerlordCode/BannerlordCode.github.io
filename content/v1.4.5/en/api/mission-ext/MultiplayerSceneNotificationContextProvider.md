@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### IsContextAllowed
 `public bool IsContextAllowed(RelevantContextType relevantType)`
 
-**Purpose:** Determines whether the current object is in the `context allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the context allowed state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerSceneNotificationContextProvider from the subsystem API first

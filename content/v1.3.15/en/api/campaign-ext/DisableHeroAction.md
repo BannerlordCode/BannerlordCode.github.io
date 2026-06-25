@@ -19,7 +19,7 @@ DisableHeroAction is a set of static methods that trigger "DisableHero" in the c
 public static void Apply(Hero hero)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

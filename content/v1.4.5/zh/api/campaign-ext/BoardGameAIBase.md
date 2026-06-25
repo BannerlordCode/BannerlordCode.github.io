@@ -29,7 +29,7 @@ description: "BoardGameAIBase 的自动生成类参考。"
 ### CalculatePreMovementStageMove
 `public virtual Move CalculatePreMovementStageMove()`
 
-**用途 / Purpose:** 计算「pre movement stage move」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算pre movement stage move的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -40,7 +40,7 @@ var result = boardGameAIBase.CalculatePreMovementStageMove();
 ### CalculateMovementStageMove
 `public abstract Move CalculateMovementStageMove()`
 
-**用途 / Purpose:** 计算「movement stage move」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算movement stage move的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -51,7 +51,7 @@ var result = boardGameAIBase.CalculateMovementStageMove();
 ### WantsToForfeit
 `public virtual bool WantsToForfeit()`
 
-**用途 / Purpose:** 处理与 「wants to forfeit」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 WantsToForfeit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -62,7 +62,7 @@ var result = boardGameAIBase.WantsToForfeit();
 ### OnSetGameOver
 `public virtual void OnSetGameOver()`
 
-**用途 / Purpose:** 在 「set game over」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 set game over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -73,7 +73,7 @@ boardGameAIBase.OnSetGameOver();
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -84,7 +84,7 @@ boardGameAIBase.Initialize();
 ### SetDifficulty
 `public void SetDifficulty(AIDifficulty difficulty)`
 
-**用途 / Purpose:** 为 「difficulty」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 difficulty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -95,7 +95,7 @@ boardGameAIBase.SetDifficulty(difficulty);
 ### HowLongDidAIThinkAboutMove
 `public float HowLongDidAIThinkAboutMove()`
 
-**用途 / Purpose:** 处理与 「how long did ai think about move」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HowLongDidAIThinkAboutMove 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -106,7 +106,7 @@ var result = boardGameAIBase.HowLongDidAIThinkAboutMove();
 ### UpdateThinkingAboutMove
 `public void UpdateThinkingAboutMove(float dt)`
 
-**用途 / Purpose:** 重新计算并更新 「thinking about move」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 thinking about move 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -117,7 +117,7 @@ boardGameAIBase.UpdateThinkingAboutMove(0);
 ### ResetThinking
 `public void ResetThinking()`
 
-**用途 / Purpose:** 将 「thinking」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 thinking 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -128,7 +128,7 @@ boardGameAIBase.ResetThinking();
 ### CanMakeMove
 `public bool CanMakeMove()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「make move」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 make move 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例

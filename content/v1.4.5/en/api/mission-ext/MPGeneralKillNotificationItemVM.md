@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### InitProperties
 `public unsafe virtual void InitProperties(Agent affectedAgent, Agent affectorAgent)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `properties`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by properties.
 
 ```csharp
 // Obtain an instance of MPGeneralKillNotificationItemVM from the subsystem API first
@@ -56,7 +56,7 @@ mPGeneralKillNotificationItemVM.InitProperties(affectedAgent, affectorAgent);
 ### InitDeathProperties
 `public void InitDeathProperties(Agent affectedAgent, Agent affectorAgent, Agent assistedAgent)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `death properties`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by death properties.
 
 ```csharp
 // Obtain an instance of MPGeneralKillNotificationItemVM from the subsystem API first
@@ -67,7 +67,7 @@ mPGeneralKillNotificationItemVM.InitDeathProperties(affectedAgent, affectorAgent
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Runs the operation or workflow associated with `remove`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of MPGeneralKillNotificationItemVM from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### GetHash2
 `public static long GetHash2(MBGUID id1, MBGUID id2)`
 
-**Purpose:** Reads and returns the `hash2` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hash2 value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ MBGUID.GetHash2(id1, id2);
 ### CompareTo
 `public int CompareTo(object a)`
 
-**Purpose:** Compares the current object with the supplied instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of MBGUID from the subsystem API first
@@ -51,7 +51,7 @@ var result = mBGUID.CompareTo(a);
 ### GetTypeIndex
 `public uint GetTypeIndex()`
 
-**Purpose:** Reads and returns the `type index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the type index value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBGUID from the subsystem API first
@@ -62,7 +62,7 @@ var result = mBGUID.GetTypeIndex();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MBGUID from the subsystem API first
@@ -73,7 +73,7 @@ var result = mBGUID.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MBGUID from the subsystem API first
@@ -84,7 +84,7 @@ var result = mBGUID.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MBGUID from the subsystem API first
@@ -95,7 +95,7 @@ var result = mBGUID.Equals(obj);
 ### Equals
 `public bool Equals(MBGUID other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MBGUID from the subsystem API first

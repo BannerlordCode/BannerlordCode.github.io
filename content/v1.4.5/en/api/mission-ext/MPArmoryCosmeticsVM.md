@@ -50,7 +50,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -61,7 +61,7 @@ mPArmoryCosmeticsVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -72,7 +72,7 @@ var result = mPArmoryCosmeticsVM.Compare(x, y);
 ### Compare
 `public override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -83,7 +83,7 @@ var result = mPArmoryCosmeticsVM.Compare(x, y);
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -94,7 +94,7 @@ var result = mPArmoryCosmeticsVM.Compare(x, y);
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -105,7 +105,7 @@ var result = mPArmoryCosmeticsVM.Compare(x, y);
 ### Compare
 `public unsafe override int Compare(MPArmoryCosmeticItemBaseVM x, MPArmoryCosmeticItemBaseVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -116,7 +116,7 @@ var result = mPArmoryCosmeticsVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -127,7 +127,7 @@ mPArmoryCosmeticsVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -138,7 +138,7 @@ mPArmoryCosmeticsVM.OnFinalize();
 ### OnTick
 `public async void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -149,7 +149,7 @@ mPArmoryCosmeticsVM.OnTick(0);
 ### RefreshAvailableCategoriesBy
 `public void RefreshAvailableCategoriesBy(CosmeticType type)`
 
-**Purpose:** Keeps the display or cache of `available categories by` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of available categories by in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -160,7 +160,7 @@ mPArmoryCosmeticsVM.RefreshAvailableCategoriesBy(type);
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of player data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -171,7 +171,7 @@ mPArmoryCosmeticsVM.RefreshPlayerData(playerData);
 ### RefreshCosmeticInfoFromNetwork
 `public void RefreshCosmeticInfoFromNetwork()`
 
-**Purpose:** Keeps the display or cache of `cosmetic info from network` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of cosmetic info from network in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -182,7 +182,7 @@ mPArmoryCosmeticsVM.RefreshCosmeticInfoFromNetwork();
 ### RefreshSelectedClass
 `public void RefreshSelectedClass(MPHeroClass selectedClass, List<IReadOnlyPerkObject> selectedPerks)`
 
-**Purpose:** Keeps the display or cache of `selected class` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of selected class in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -193,7 +193,7 @@ mPArmoryCosmeticsVM.RefreshSelectedClass(selectedClass, selectedPerks);
 ### ClearTauntSelections
 `public void ClearTauntSelections()`
 
-**Purpose:** Removes all `taunt selections` from the current object.
+**Purpose:** **Purpose:** Removes all taunt selections from the this instance.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -204,7 +204,7 @@ mPArmoryCosmeticsVM.ClearTauntSelections();
 ### OnItemObtained
 `public void OnItemObtained(string cosmeticID, int finalLoot)`
 
-**Purpose:** Invoked when the `item obtained` event is raised.
+**Purpose:** **Purpose:** Invoked when the item obtained event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first
@@ -215,7 +215,7 @@ mPArmoryCosmeticsVM.OnItemObtained("example", 0);
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey actionKey, HotKey previewKey)`
 
-**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of key bindings in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticsVM from the subsystem API first

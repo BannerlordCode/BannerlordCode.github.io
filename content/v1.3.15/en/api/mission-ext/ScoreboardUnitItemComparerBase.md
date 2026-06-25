@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScoreboardUnitItemComparerBase from the subsystem API first
@@ -34,7 +34,7 @@ scoreboardUnitItemComparerBase.SetSortMode(false);
 ### Compare
 `public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ScoreboardUnitItemComparerBase from the subsystem API first

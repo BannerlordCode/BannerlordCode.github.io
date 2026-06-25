@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -58,7 +58,7 @@ clanPartiesVM.RefreshValues();
 ### RefreshTotalExpense
 `public void RefreshTotalExpense()`
 
-**Purpose:** Keeps the display or cache of `total expense` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of total expense in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -69,7 +69,7 @@ clanPartiesVM.RefreshTotalExpense();
 ### RefreshPartiesList
 `public void RefreshPartiesList()`
 
-**Purpose:** Keeps the display or cache of `parties list` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of parties list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -80,7 +80,7 @@ clanPartiesVM.RefreshPartiesList();
 ### ExecuteCreateNewParty
 `public void ExecuteCreateNewParty()`
 
-**Purpose:** Runs the operation or workflow associated with `create new party`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with create new party.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -91,7 +91,7 @@ clanPartiesVM.ExecuteCreateNewParty();
 ### SelectParty
 `public void SelectParty(PartyBase party)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectParty logic.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -102,7 +102,7 @@ clanPartiesVM.SelectParty(party);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -113,7 +113,7 @@ clanPartiesVM.OnFinalize();
 ### OnShowNewPartyPopup
 `public void OnShowNewPartyPopup()`
 
-**Purpose:** Invoked when the `show new party popup` event is raised.
+**Purpose:** **Purpose:** Invoked when the show new party popup event is raised.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first
@@ -124,7 +124,7 @@ clanPartiesVM.OnShowNewPartyPopup();
 ### OnShowChangeLeaderPopup
 `public void OnShowChangeLeaderPopup()`
 
-**Purpose:** Invoked when the `show change leader popup` event is raised.
+**Purpose:** **Purpose:** Invoked when the show change leader popup event is raised.
 
 ```csharp
 // Obtain an instance of ClanPartiesVM from the subsystem API first

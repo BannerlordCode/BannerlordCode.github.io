@@ -23,7 +23,7 @@ Treat `FactionManager` as a Manager-style extension point: first identify who cr
 ### DeclareWar
 `public static void DeclareWar(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeclareWar logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ FactionManager.DeclareWar(faction1, faction2);
 ### SetNeutral
 `public static void SetNeutral(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Assigns a new value to `neutral` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to neutral and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ FactionManager.SetNeutral(faction1, faction2);
 ### IsAtWarAgainstFaction
 `public static bool IsAtWarAgainstFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Determines whether the current object is in the `at war against faction` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the at war against faction state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ FactionManager.IsAtWarAgainstFaction(faction1, faction2);
 ### IsAtConstantWarAgainstFaction
 `public static bool IsAtConstantWarAgainstFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Determines whether the current object is in the `at constant war against faction` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the at constant war against faction state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ FactionManager.IsAtConstantWarAgainstFaction(faction1, faction2);
 ### IsNeutralWithFaction
 `public static bool IsNeutralWithFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Determines whether the current object is in the `neutral with faction` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the neutral with faction state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ FactionManager.IsNeutralWithFaction(faction1, faction2);
 ### GetRelationBetweenClans
 `public static int GetRelationBetweenClans(Clan clan1, Clan clan2)`
 
-**Purpose:** Reads and returns the `relation between clans` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relation between clans value held by the this instance.
 
 ```csharp
 // Static call; no instance required

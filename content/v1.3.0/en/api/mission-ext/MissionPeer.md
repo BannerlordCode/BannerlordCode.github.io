@@ -61,7 +61,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetMutedFromPlatform
 `public void SetMutedFromPlatform(bool isMuted)`
 
-**Purpose:** Assigns a new value to `muted from platform` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to muted from platform and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -72,7 +72,7 @@ missionPeer.SetMutedFromPlatform(false);
 ### SetMuted
 `public void SetMuted(bool isMuted)`
 
-**Purpose:** Assigns a new value to `muted` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to muted and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -83,7 +83,7 @@ missionPeer.SetMuted(false);
 ### ResetRequestedKickPollCount
 `public void ResetRequestedKickPollCount()`
 
-**Purpose:** Returns `requested kick poll count` to its default or initial condition.
+**Purpose:** **Purpose:** Returns requested kick poll count to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -94,7 +94,7 @@ missionPeer.ResetRequestedKickPollCount();
 ### IncrementRequestedKickPollCount
 `public void IncrementRequestedKickPollCount()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IncrementRequestedKickPollCount logic.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -105,7 +105,7 @@ missionPeer.IncrementRequestedKickPollCount();
 ### GetSelectedPerkIndexWithPerkListIndex
 `public int GetSelectedPerkIndexWithPerkListIndex(int troopIndex, int perkListIndex)`
 
-**Purpose:** Reads and returns the `selected perk index with perk list index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the selected perk index with perk list index value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -116,7 +116,7 @@ var result = missionPeer.GetSelectedPerkIndexWithPerkListIndex(0, 0);
 ### SelectPerk
 `public bool SelectPerk(int perkListIndex, int perkIndex, int enforcedSelectedTroopIndex = -1)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectPerk logic.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -127,7 +127,7 @@ var result = missionPeer.SelectPerk(0, 0, 0);
 ### HandleVoteChange
 `public void HandleVoteChange(CultureVoteTypes voteType, BasicCultureObject culture)`
 
-**Purpose:** Executes the response logic associated with `vote change`.
+**Purpose:** **Purpose:** Executes the response logic associated with vote change.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -138,7 +138,7 @@ missionPeer.HandleVoteChange(voteType, culture);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -149,7 +149,7 @@ missionPeer.OnFinalize();
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** Invoked when the `initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -160,7 +160,7 @@ missionPeer.OnInitialize();
 ### GetAmountOfAgentVisualsForPeer
 `public int GetAmountOfAgentVisualsForPeer()`
 
-**Purpose:** Reads and returns the `amount of agent visuals for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the amount of agent visuals for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -171,7 +171,7 @@ var result = missionPeer.GetAmountOfAgentVisualsForPeer();
 ### GetVisuals
 `public PeerVisualsHolder GetVisuals(int visualIndex)`
 
-**Purpose:** Reads and returns the `visuals` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visuals value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -182,7 +182,7 @@ var result = missionPeer.GetVisuals(0);
 ### ClearVisuals
 `public void ClearVisuals(int visualIndex)`
 
-**Purpose:** Removes all `visuals` from the current object.
+**Purpose:** **Purpose:** Removes all visuals from the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -193,7 +193,7 @@ missionPeer.ClearVisuals(0);
 ### ClearAllVisuals
 `public void ClearAllVisuals(bool freeResources = false)`
 
-**Purpose:** Removes all `all visuals` from the current object.
+**Purpose:** **Purpose:** Removes all all visuals from the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -204,7 +204,7 @@ missionPeer.ClearAllVisuals(false);
 ### OnVisualsSpawned
 `public void OnVisualsSpawned(PeerVisualsHolder visualsHolder, int visualIndex)`
 
-**Purpose:** Invoked when the `visuals spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the visuals spawned event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -215,7 +215,7 @@ missionPeer.OnVisualsSpawned(visualsHolder, 0);
 ### GetAllAgentVisualsForPeer
 `public IEnumerable<IAgentVisual> GetAllAgentVisualsForPeer()`
 
-**Purpose:** Reads and returns the `all agent visuals for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all agent visuals for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -226,7 +226,7 @@ var result = missionPeer.GetAllAgentVisualsForPeer();
 ### GetAgentVisualForPeer
 `public IAgentVisual GetAgentVisualForPeer(int visualsIndex)`
 
-**Purpose:** Reads and returns the `agent visual for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent visual for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -237,7 +237,7 @@ var result = missionPeer.GetAgentVisualForPeer(0);
 ### GetAgentVisualForPeer
 `public IAgentVisual GetAgentVisualForPeer(int visualsIndex, out IAgentVisual mountAgentVisuals)`
 
-**Purpose:** Reads and returns the `agent visual for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent visual for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -248,7 +248,7 @@ var result = missionPeer.GetAgentVisualForPeer(0, mountAgentVisuals);
 ### TickInactivityStatus
 `public void TickInactivityStatus()`
 
-**Purpose:** Advances the `inactivity status` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the inactivity status state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -259,7 +259,7 @@ missionPeer.TickInactivityStatus();
 ### OnKillAnotherPeer
 `public void OnKillAnotherPeer(MissionPeer victimPeer)`
 
-**Purpose:** Invoked when the `kill another peer` event is raised.
+**Purpose:** **Purpose:** Invoked when the kill another peer event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -270,7 +270,7 @@ missionPeer.OnKillAnotherPeer(victimPeer);
 ### OverrideCultureWithTeamCulture
 `public void OverrideCultureWithTeamCulture()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the OverrideCultureWithTeamCulture logic.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -281,7 +281,7 @@ missionPeer.OverrideCultureWithTeamCulture();
 ### GetNumberOfTimesPeerKilledPeer
 `public int GetNumberOfTimesPeerKilledPeer(MissionPeer killedPeer)`
 
-**Purpose:** Reads and returns the `number of times peer killed peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of times peer killed peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -292,7 +292,7 @@ var result = missionPeer.GetNumberOfTimesPeerKilledPeer(killedPeer);
 ### ResetKillRegistry
 `public void ResetKillRegistry()`
 
-**Purpose:** Returns `kill registry` to its default or initial condition.
+**Purpose:** **Purpose:** Returns kill registry to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -303,7 +303,7 @@ missionPeer.ResetKillRegistry();
 ### RefreshSelectedPerks
 `public bool RefreshSelectedPerks()`
 
-**Purpose:** Keeps the display or cache of `selected perks` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of selected perks in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -314,7 +314,7 @@ var result = missionPeer.RefreshSelectedPerks();
 ### OnTeamInitialPerkInfoReceived
 `public void OnTeamInitialPerkInfoReceived(int perks)`
 
-**Purpose:** Invoked when the `team initial perk info received` event is raised.
+**Purpose:** **Purpose:** Invoked when the team initial perk info received event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -325,7 +325,7 @@ missionPeer.OnTeamInitialPerkInfoReceived(0);
 ### OnUpdateEquipmentSetIndexEventDelegate
 `public delegate void OnUpdateEquipmentSetIndexEventDelegate(MissionPeer lobbyPeer, int equipmentSetIndex)`
 
-**Purpose:** Invoked when the `update equipment set index event delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the update equipment set index event delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -336,7 +336,7 @@ missionPeer.OnUpdateEquipmentSetIndexEventDelegate(lobbyPeer, 0);
 ### OnPerkUpdateEventDelegate
 `public delegate void OnPerkUpdateEventDelegate(MissionPeer peer)`
 
-**Purpose:** Invoked when the `perk update event delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the perk update event delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -347,7 +347,7 @@ missionPeer.OnPerkUpdateEventDelegate(peer);
 ### OnTeamChangedDelegate
 `public delegate void OnTeamChangedDelegate(NetworkCommunicator peer, Team previousTeam, Team newTeam)`
 
-**Purpose:** Invoked when the `team changed delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the team changed delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -358,7 +358,7 @@ missionPeer.OnTeamChangedDelegate(peer, previousTeam, newTeam);
 ### OnCultureChangedDelegate
 `public delegate void OnCultureChangedDelegate(BasicCultureObject newCulture)`
 
-**Purpose:** Invoked when the `culture changed delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the culture changed delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first
@@ -369,7 +369,7 @@ missionPeer.OnCultureChangedDelegate(newCulture);
 ### OnPlayerKilledDelegate
 `public delegate void OnPlayerKilledDelegate(MissionPeer killerPeer, MissionPeer killedPeer)`
 
-**Purpose:** Invoked when the `player killed delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the player killed delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionPeer from the subsystem API first

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPCustomGameFiltersVM from the subsystem API first
@@ -43,7 +43,7 @@ mPCustomGameFiltersVM.RefreshValues();
 ### GetFilteredServerList
 `public List<GameServerEntry> GetFilteredServerList(IEnumerable<GameServerEntry> unfilteredList)`
 
-**Purpose:** Reads and returns the `filtered server list` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the filtered server list value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPCustomGameFiltersVM from the subsystem API first

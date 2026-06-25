@@ -23,7 +23,7 @@ Treat `DefaultSiegeStrategyActionModel` as a Model-style extension point: first 
 ### GetLogicalActionForStrategy
 `public override void GetLogicalActionForStrategy(ISiegeEventSide side, out SiegeStrategyActionModel.SiegeAction siegeAction, out SiegeEngineType siegeEngineType, out int deploymentIndex, out int reserveIndex)`
 
-**Purpose:** Reads and returns the `logical action for strategy` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the logical action for strategy value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSiegeStrategyActionModel from the subsystem API first

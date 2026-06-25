@@ -23,7 +23,7 @@ Treat `RecordMissionLogic` as a Logic-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of RecordMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ recordMissionLogic.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of RecordMissionLogic from the subsystem API first
@@ -45,7 +45,7 @@ recordMissionLogic.OnMissionTick(0);
 ### OnEndMissionInternal
 `public override void OnEndMissionInternal()`
 
-**Purpose:** Invoked when the `end mission internal` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission internal event is raised.
 
 ```csharp
 // Obtain an instance of RecordMissionLogic from the subsystem API first

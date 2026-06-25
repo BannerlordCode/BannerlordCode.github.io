@@ -29,7 +29,7 @@ description: "StandingPointForRangedArea 的自动生成类参考。"
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointForRangedArea 实例
@@ -40,7 +40,7 @@ var result = standingPointForRangedArea.IsDisabledForAgent(agent);
 ### GetUsageScoreForAgent
 `public override float GetUsageScoreForAgent(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usage score for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usage score for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointForRangedArea 实例
@@ -51,7 +51,7 @@ var result = standingPointForRangedArea.GetUsageScoreForAgent(agent);
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「alternative」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 alternative。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointForRangedArea 实例
@@ -62,7 +62,7 @@ var result = standingPointForRangedArea.HasAlternative();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointForRangedArea 实例

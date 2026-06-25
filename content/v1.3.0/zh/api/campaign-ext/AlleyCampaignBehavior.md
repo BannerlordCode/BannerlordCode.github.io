@@ -23,7 +23,7 @@ description: "AlleyCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -34,7 +34,7 @@ alleyCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -45,7 +45,7 @@ alleyCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 session launched 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -56,7 +56,7 @@ alleyCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### GetIsPlayerAlleyUnderAttack
 `public bool GetIsPlayerAlleyUnderAttack(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is player alley under attack」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is player alley under attack 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -67,7 +67,7 @@ var result = alleyCampaignBehavior.GetIsPlayerAlleyUnderAttack(alley);
 ### GetPlayerOwnedAlleyTroopCount
 `public int GetPlayerOwnedAlleyTroopCount(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player owned alley troop count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player owned alley troop count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -78,7 +78,7 @@ var result = alleyCampaignBehavior.GetPlayerOwnedAlleyTroopCount(alley);
 ### GetResponseTimeLeftForAttackInDays
 `public int GetResponseTimeLeftForAttackInDays(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「response time left for attack in days」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 response time left for attack in days 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -89,7 +89,7 @@ var result = alleyCampaignBehavior.GetResponseTimeLeftForAttackInDays(alley);
 ### AbandonAlleyFromClanMenu
 `public void AbandonAlleyFromClanMenu(Alley alley)`
 
-**用途 / Purpose:** 处理与 「abandon alley from clan menu」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AbandonAlleyFromClanMenu 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -100,7 +100,7 @@ alleyCampaignBehavior.AbandonAlleyFromClanMenu(alley);
 ### IsHeroAlleyLeaderOfAnyPlayerAlley
 `public bool IsHeroAlleyLeaderOfAnyPlayerAlley(Hero hero)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「hero alley leader of any player alley」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 hero alley leader of any player alley 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -111,7 +111,7 @@ var result = alleyCampaignBehavior.IsHeroAlleyLeaderOfAnyPlayerAlley(hero);
 ### GetAllAssignedClanMembersForOwnedAlleys
 `public List<Hero> GetAllAssignedClanMembersForOwnedAlleys()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all assigned clan members for owned alleys」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all assigned clan members for owned alleys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -122,7 +122,7 @@ var result = alleyCampaignBehavior.GetAllAssignedClanMembersForOwnedAlleys();
 ### ChangeAlleyMember
 `public void ChangeAlleyMember(Alley alley, Hero newAlleyLead)`
 
-**用途 / Purpose:** 处理与 「change alley member」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeAlleyMember 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -133,7 +133,7 @@ alleyCampaignBehavior.ChangeAlleyMember(alley, newAlleyLead);
 ### OnPlayerRetreatedFromMission
 `public void OnPlayerRetreatedFromMission()`
 
-**用途 / Purpose:** 在 「player retreated from mission」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player retreated from mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -144,7 +144,7 @@ alleyCampaignBehavior.OnPlayerRetreatedFromMission();
 ### OnPlayerDiedInMission
 `public void OnPlayerDiedInMission()`
 
-**用途 / Purpose:** 在 「player died in mission」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player died in mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -155,7 +155,7 @@ alleyCampaignBehavior.OnPlayerDiedInMission();
 ### GetAssignedClanMemberOfAlley
 `public Hero GetAssignedClanMemberOfAlley(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「assigned clan member of alley」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 assigned clan member of alley 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -166,7 +166,7 @@ var result = alleyCampaignBehavior.GetAssignedClanMemberOfAlley(alley);
 ### alley_related_menu_on_init
 `public static void alley_related_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理与 「alley_related_menu_on_init」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 alley_related_menu_on_init 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

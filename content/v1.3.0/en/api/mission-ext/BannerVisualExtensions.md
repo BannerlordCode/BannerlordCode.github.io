@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetTableauTextureSmall
 `public static Texture GetTableauTextureSmall(this Banner banner, Action<Texture> setAction)`
 
-**Purpose:** Reads and returns the `tableau texture small` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tableau texture small value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BannerVisualExtensions.GetTableauTextureSmall(banner, setAction);
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, Action<Texture> setAction)`
 
-**Purpose:** Reads and returns the `tableau texture large` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tableau texture large value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ BannerVisualExtensions.GetTableauTextureLarge(banner, setAction);
 ### GetTableauTextureLarge
 `public static Texture GetTableauTextureLarge(this Banner banner, Action<Texture> setAction, out BannerThumbnailCreationData creationData)`
 
-**Purpose:** Reads and returns the `tableau texture large` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tableau texture large value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ BannerVisualExtensions.GetTableauTextureLarge(banner, setAction, creationData);
 ### ConvertToMultiMesh
 `public static MetaMesh ConvertToMultiMesh(this Banner banner)`
 
-**Purpose:** Converts `to multi mesh` into another representation or type.
+**Purpose:** **Purpose:** Converts to multi mesh into another representation or type.
 
 ```csharp
 // Static call; no instance required

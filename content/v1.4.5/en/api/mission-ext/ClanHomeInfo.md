@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CreateInClanInfo
 `public static ClanHomeInfo CreateInClanInfo(ClanInfo clanInfo, ClanPlayerInfo clanPlayerInfos)`
 
-**Purpose:** Constructs a new `in clan info` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new in clan info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ ClanHomeInfo.CreateInClanInfo(clanInfo, clanPlayerInfos);
 ### CreateCanCreateClanInfo
 `public static ClanHomeInfo CreateCanCreateClanInfo()`
 
-**Purpose:** Constructs a new `can create clan info` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new can create clan info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ ClanHomeInfo.CreateCanCreateClanInfo();
 ### CreateCantCreateClanInfo
 `public static ClanHomeInfo CreateCantCreateClanInfo(NotEnoughPlayersInfo notEnoughPlayersInfo, PlayerNotEligibleInfo playerNotEligibleInfos)`
 
-**Purpose:** Constructs a new `cant create clan info` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new cant create clan info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ ClanHomeInfo.CreateCantCreateClanInfo(notEnoughPlayersInfo, playerNotEligibleInf
 ### CreateInvalidStateClanInfo
 `public static ClanHomeInfo CreateInvalidStateClanInfo()`
 
-**Purpose:** Constructs a new `invalid state clan info` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new invalid state clan info entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

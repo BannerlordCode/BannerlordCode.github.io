@@ -23,7 +23,7 @@ description: "MobilePartyMoraleModel 的自动生成类参考。"
 ### CalculateMoraleChange
 `public abstract float CalculateMoraleChange(MobileParty party)`
 
-**用途 / Purpose:** 计算「morale change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算morale change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyMoraleModel 实例
@@ -34,7 +34,7 @@ var result = mobilePartyMoraleModel.CalculateMoraleChange(party);
 ### GetMoraleTooltipText
 `public abstract TextObject GetMoraleTooltipText(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「morale tooltip text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morale tooltip text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyMoraleModel 实例

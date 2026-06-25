@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
@@ -51,7 +51,7 @@ mPLobbyBadgeItemVM.RefreshValues();
 ### RefreshKeyBindings
 `public void RefreshKeyBindings(HotKey inspectProgressKey)`
 
-**Purpose:** Keeps the display or cache of `key bindings` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of key bindings in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
@@ -62,7 +62,7 @@ mPLobbyBadgeItemVM.RefreshKeyBindings(inspectProgressKey);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
@@ -73,7 +73,7 @@ mPLobbyBadgeItemVM.OnFinalize();
 ### UpdateWith
 `public void UpdateWith(Badge badge)`
 
-**Purpose:** Recalculates and stores the latest representation of `with`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of with.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
@@ -84,7 +84,7 @@ mPLobbyBadgeItemVM.UpdateWith(badge);
 ### UpdateIsSelected
 `public void UpdateIsSelected()`
 
-**Purpose:** Recalculates and stores the latest representation of `is selected`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of is selected.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first
@@ -95,7 +95,7 @@ mPLobbyBadgeItemVM.UpdateIsSelected();
 ### SetGroup
 `public void SetGroup(MPLobbyAchievementBadgeGroupVM group, Action<MPLobbyAchievementBadgeGroupVM> onBadgeProgressInfoRequested)`
 
-**Purpose:** Assigns a new value to `group` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to group and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeItemVM from the subsystem API first

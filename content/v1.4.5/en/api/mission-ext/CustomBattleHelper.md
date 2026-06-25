@@ -23,7 +23,7 @@ Treat `CustomBattleHelper` as a Helper-style extension point: first identify who
 ### GetIndexFromGameTypeStringId
 `public static int GetIndexFromGameTypeStringId(string gameTypeStringId)`
 
-**Purpose:** Reads and returns the `index from game type string id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index from game type string id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CustomBattleHelper.GetIndexFromGameTypeStringId("example");
 ### StartGame
 `public static void StartGame(CustomBattleData data)`
 
-**Purpose:** Starts the `game` flow or state machine.
+**Purpose:** **Purpose:** Starts the game flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CustomBattleHelper.StartGame(data);
 ### GetTroopCounts
 `public static int GetTroopCounts(int armySize, CustomBattleCompositionData compositionData)`
 
-**Purpose:** Reads and returns the `troop counts` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop counts value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CustomBattleHelper.GetTroopCounts(0, compositionData);
 ### GetWallHitpointPercentages
 `public static float GetWallHitpointPercentages(int breachedWallCount)`
 
-**Purpose:** Reads and returns the `wall hitpoint percentages` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the wall hitpoint percentages value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ CustomBattleHelper.GetWallHitpointPercentages(0);
 ### GetSiegeWeaponType
 `public static SiegeEngineType GetSiegeWeaponType(SiegeEngineType siegeWeaponType)`
 
-**Purpose:** Reads and returns the `siege weapon type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege weapon type value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ CustomBattleHelper.GetSiegeWeaponType(siegeWeaponType);
 ### PrepareBattleData
 `public static CustomBattleData PrepareBattleData(BasicCharacterObject playerCharacter, BasicCharacterObject playerSideGeneralCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, CustomBattlePlayerSide playerSide, CustomBattlePlayerType battlePlayerType, string gameTypeStringId, string scene, string season, float timeOfDay, List<MissionSiegeWeapon> attackerMachines, List<MissionSiegeWeapon> defenderMachines, float wallHitPointsPercentages, int sceneUpgradeLevel, bool isSallyOut, string forcedSceneLevel)`
 
-**Purpose:** Finishes prerequisite setup for the upcoming `battle data` operation.
+**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming battle data operation.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ CustomBattleHelper.PrepareBattleData(playerCharacter, playerSideGeneralCharacter
 ### GetCustomBattleParties
 `public static CustomBattleCombatant GetCustomBattleParties(BasicCharacterObject playerCharacter, BasicCharacterObject playerSideGeneralCharacter, BasicCharacterObject enemyCharacter, BasicCultureObject playerFaction, int playerNumbers, List<BasicCharacterObject> playerTroopSelections, BasicCultureObject enemyFaction, int enemyNumbers, List<BasicCharacterObject> enemyTroopSelections, bool isPlayerAttacker)`
 
-**Purpose:** Reads and returns the `custom battle parties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the custom battle parties value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ CustomBattleHelper.GetCustomBattleParties(playerCharacter, playerSideGeneralChar
 ### AssertMissingTroopsForDebug
 `public static void AssertMissingTroopsForDebug()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AssertMissingTroopsForDebug logic.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ CustomBattleHelper.AssertMissingTroopsForDebug();
 ### GetDefaultTroopOfFormationForFaction
 `public static BasicCharacterObject GetDefaultTroopOfFormationForFaction(BasicCultureObject culture, FormationClass formation)`
 
-**Purpose:** Reads and returns the `default troop of formation for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default troop of formation for faction value held by the this instance.
 
 ```csharp
 // Static call; no instance required

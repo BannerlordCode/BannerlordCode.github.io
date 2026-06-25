@@ -47,7 +47,7 @@ description: "ClanSettlementItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSettlementItemVM 实例
@@ -58,7 +58,7 @@ clanSettlementItemVM.RefreshValues();
 ### OnSettlementSelection
 `public void OnSettlementSelection()`
 
-**用途 / Purpose:** 在 「settlement selection」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 settlement selection 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSettlementItemVM 实例
@@ -69,7 +69,7 @@ clanSettlementItemVM.OnSettlementSelection();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSettlementItemVM 实例
@@ -80,7 +80,7 @@ clanSettlementItemVM.ExecuteLink();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** 执行 「close tooltip」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSettlementItemVM 实例
@@ -91,7 +91,7 @@ clanSettlementItemVM.ExecuteCloseTooltip();
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**用途 / Purpose:** 执行 「open tooltip」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSettlementItemVM 实例
@@ -102,7 +102,7 @@ clanSettlementItemVM.ExecuteOpenTooltip();
 ### ExecuteSendMembers
 `public void ExecuteSendMembers()`
 
-**用途 / Purpose:** 执行 「send members」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 send members 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSettlementItemVM 实例

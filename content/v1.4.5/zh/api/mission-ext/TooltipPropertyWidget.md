@@ -50,7 +50,7 @@ description: "TooltipPropertyWidget 的自动生成类参考。"
 ### SetBattleScope
 `public void SetBattleScope(bool battleScope)`
 
-**用途 / Purpose:** 为 「battle scope」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 battle scope 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipPropertyWidget 实例
@@ -61,7 +61,7 @@ tooltipPropertyWidget.SetBattleScope(false);
 ### RefreshSize
 `public void RefreshSize(bool inBattleScope, float battleScopeSize, float maxValueLabelSizeX, float maxDefinitionLabelSizeX, Brush definitionRelationBrush = null, Brush valueRelationBrush = null)`
 
-**用途 / Purpose:** 使 「size」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 size 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipPropertyWidget 实例

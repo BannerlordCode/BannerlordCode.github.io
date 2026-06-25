@@ -40,7 +40,7 @@ description: "SPScoreboardSortControllerVM 的自动生成类参考。"
 ### ExecuteSortByRemaining
 `public void ExecuteSortByRemaining()`
 
-**用途 / Purpose:** 执行 「sort by remaining」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by remaining 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -51,7 +51,7 @@ sPScoreboardSortControllerVM.ExecuteSortByRemaining();
 ### ExecuteSortByKill
 `public void ExecuteSortByKill()`
 
-**用途 / Purpose:** 执行 「sort by kill」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by kill 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -62,7 +62,7 @@ sPScoreboardSortControllerVM.ExecuteSortByKill();
 ### ExecuteSortByUpgrade
 `public void ExecuteSortByUpgrade()`
 
-**用途 / Purpose:** 执行 「sort by upgrade」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by upgrade 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -73,7 +73,7 @@ sPScoreboardSortControllerVM.ExecuteSortByUpgrade();
 ### ExecuteSortByDead
 `public void ExecuteSortByDead()`
 
-**用途 / Purpose:** 执行 「sort by dead」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by dead 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -84,7 +84,7 @@ sPScoreboardSortControllerVM.ExecuteSortByDead();
 ### ExecuteSortByWounded
 `public void ExecuteSortByWounded()`
 
-**用途 / Purpose:** 执行 「sort by wounded」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by wounded 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -95,7 +95,7 @@ sPScoreboardSortControllerVM.ExecuteSortByWounded();
 ### ExecuteSortByRouted
 `public void ExecuteSortByRouted()`
 
-**用途 / Purpose:** 执行 「sort by routed」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by routed 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -106,7 +106,7 @@ sPScoreboardSortControllerVM.ExecuteSortByRouted();
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -117,7 +117,7 @@ sPScoreboardSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -128,7 +128,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -139,7 +139,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -150,7 +150,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -161,7 +161,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -172,7 +172,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -183,7 +183,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例
@@ -194,7 +194,7 @@ var result = sPScoreboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPScoreboardSortControllerVM 实例

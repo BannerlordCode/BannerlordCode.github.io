@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -42,7 +42,7 @@ duelMissionRepresentative.Initialize();
 ### AddRemoveMessageHandlers
 `public void AddRemoveMessageHandlers(GameNetwork.NetworkMessageHandlerRegisterer.RegisterMode mode)`
 
-**Purpose:** Adds `remove message handlers` to the current collection or state.
+**Purpose:** **Purpose:** Adds remove message handlers to the current collection or state.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -53,7 +53,7 @@ duelMissionRepresentative.AddRemoveMessageHandlers(mode);
 ### OnInteraction
 `public void OnInteraction()`
 
-**Purpose:** Invoked when the `interaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the interaction event is raised.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -64,7 +64,7 @@ duelMissionRepresentative.OnInteraction();
 ### DuelRequested
 `public void DuelRequested(Agent requesterAgent, TroopType selectedAreaTroopType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DuelRequested logic.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -75,7 +75,7 @@ duelMissionRepresentative.DuelRequested(requesterAgent, selectedAreaTroopType);
 ### CheckHasRequestFromAndRemoveRequestIfNeeded
 `public bool CheckHasRequestFromAndRemoveRequestIfNeeded(MissionPeer requestOwner)`
 
-**Purpose:** Verifies whether `has request from and remove request if needed` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether has request from and remove request if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -86,7 +86,7 @@ var result = duelMissionRepresentative.CheckHasRequestFromAndRemoveRequestIfNeed
 ### OnDuelPreparation
 `public void OnDuelPreparation(MissionPeer requesterPeer, MissionPeer requesteePeer)`
 
-**Purpose:** Invoked when the `duel preparation` event is raised.
+**Purpose:** **Purpose:** Invoked when the duel preparation event is raised.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -97,7 +97,7 @@ duelMissionRepresentative.OnDuelPreparation(requesterPeer, requesteePeer);
 ### OnObjectFocused
 `public void OnObjectFocused(IFocusable focusedObject)`
 
-**Purpose:** Invoked when the `object focused` event is raised.
+**Purpose:** **Purpose:** Invoked when the object focused event is raised.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -108,7 +108,7 @@ duelMissionRepresentative.OnObjectFocused(focusedObject);
 ### OnObjectFocusLost
 `public void OnObjectFocusLost()`
 
-**Purpose:** Invoked when the `object focus lost` event is raised.
+**Purpose:** **Purpose:** Invoked when the object focus lost event is raised.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -119,7 +119,7 @@ duelMissionRepresentative.OnObjectFocusLost();
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**Purpose:** Invoked when the `agent spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent spawned event is raised.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -130,7 +130,7 @@ duelMissionRepresentative.OnAgentSpawned();
 ### ResetBountyAndNumberOfWins
 `public void ResetBountyAndNumberOfWins()`
 
-**Purpose:** Returns `bounty and number of wins` to its default or initial condition.
+**Purpose:** **Purpose:** Returns bounty and number of wins to its default or initial condition.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first
@@ -141,7 +141,7 @@ duelMissionRepresentative.ResetBountyAndNumberOfWins();
 ### OnDuelWon
 `public void OnDuelWon(float gainedScore)`
 
-**Purpose:** Invoked when the `duel won` event is raised.
+**Purpose:** **Purpose:** Invoked when the duel won event is raised.
 
 ```csharp
 // Obtain an instance of DuelMissionRepresentative from the subsystem API first

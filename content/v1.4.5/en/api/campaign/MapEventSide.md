@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ### GetTroops
 `public IReadOnlyList<UniqueTroopDescriptor> GetTroops()`
 
-**Purpose:** Reads and returns the `troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapEventSide.GetTroops();
 ### GetTotalHealthyHeroCountOfSide
 `public int GetTotalHealthyHeroCountOfSide()`
 
-**Purpose:** Reads and returns the `total healthy hero count of side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total healthy hero count of side value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -56,7 +56,7 @@ var result = mapEventSide.GetTotalHealthyHeroCountOfSide();
 ### CountTroops
 `public int CountTroops(Func<FlattenedTroopRosterElement, bool> pred)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CountTroops logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -67,7 +67,7 @@ var result = mapEventSide.CountTroops(func<FlattenedTroopRosterElement, false);
 ### GetTotalHealthyTroopCountOfSide
 `public int GetTotalHealthyTroopCountOfSide()`
 
-**Purpose:** Reads and returns the `total healthy troop count of side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total healthy troop count of side value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -78,7 +78,7 @@ var result = mapEventSide.GetTotalHealthyTroopCountOfSide();
 ### RecalculateMemberCountOfSide
 `public int RecalculateMemberCountOfSide()`
 
-**Purpose:** Recalculates `member count of side` to reflect the latest state.
+**Purpose:** **Purpose:** Recalculates member count of side to reflect the latest state.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -89,7 +89,7 @@ var result = mapEventSide.RecalculateMemberCountOfSide();
 ### RecalculateStrengthOfSide
 `public float RecalculateStrengthOfSide()`
 
-**Purpose:** Recalculates `strength of side` to reflect the latest state.
+**Purpose:** **Purpose:** Recalculates strength of side to reflect the latest state.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -100,7 +100,7 @@ var result = mapEventSide.RecalculateStrengthOfSide();
 ### IsMainPartyAmongParties
 `public bool IsMainPartyAmongParties()`
 
-**Purpose:** Determines whether the current object is in the `main party among parties` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the main party among parties state or condition.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -111,7 +111,7 @@ var result = mapEventSide.IsMainPartyAmongParties();
 ### CalculateRenownAndInfluenceValuesOnPartyInvolved
 `public void CalculateRenownAndInfluenceValuesOnPartyInvolved(float strengthOfSide)`
 
-**Purpose:** Calculates the current value or result of `renown and influence values on party involved`.
+**Purpose:** **Purpose:** Calculates the current value or result of renown and influence values on party involved.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -122,7 +122,7 @@ mapEventSide.CalculateRenownAndInfluenceValuesOnPartyInvolved(0);
 ### GetSideMorale
 `public float GetSideMorale()`
 
-**Purpose:** Reads and returns the `side morale` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the side morale value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -133,7 +133,7 @@ var result = mapEventSide.GetSideMorale();
 ### HandleMapEventEnd
 `public void HandleMapEventEnd()`
 
-**Purpose:** Executes the response logic associated with `map event end`.
+**Purpose:** **Purpose:** Executes the response logic associated with map event end.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -144,7 +144,7 @@ mapEventSide.HandleMapEventEnd();
 ### AddHeroDamage
 `public static void AddHeroDamage(Hero character, int damage)`
 
-**Purpose:** Adds `hero damage` to the current collection or state.
+**Purpose:** **Purpose:** Adds hero damage to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -154,7 +154,7 @@ MapEventSide.AddHeroDamage(character, 0);
 ### AllocateShips
 `public void AllocateShips()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AllocateShips logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -165,7 +165,7 @@ mapEventSide.AllocateShips();
 ### AllocateSiegeEngines
 `public void AllocateSiegeEngines()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AllocateSiegeEngines logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -176,7 +176,7 @@ mapEventSide.AllocateSiegeEngines();
 ### AllocateTroops
 `public void AllocateTroops(ref List<UniqueTroopDescriptor> troopsList, int numberToAllocate, Func<UniqueTroopDescriptor, MapEventParty, bool> customAllocationConditions = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AllocateTroops logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -187,7 +187,7 @@ mapEventSide.AllocateTroops(troopsList, 0, func<UniqueTroopDescriptor, mapEventP
 ### GetAllTroops
 `public void GetAllTroops(ref List<UniqueTroopDescriptor> troopsList)`
 
-**Purpose:** Reads and returns the `all troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -198,7 +198,7 @@ mapEventSide.GetAllTroops(troopsList);
 ### GetAllocatedTroop
 `public CharacterObject GetAllocatedTroop(UniqueTroopDescriptor troopDesc0)`
 
-**Purpose:** Reads and returns the `allocated troop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the allocated troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -209,7 +209,7 @@ var result = mapEventSide.GetAllocatedTroop(troopDesc0);
 ### GetReadyTroop
 `public CharacterObject GetReadyTroop(UniqueTroopDescriptor troopDesc0)`
 
-**Purpose:** Reads and returns the `ready troop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ready troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -220,7 +220,7 @@ var result = mapEventSide.GetReadyTroop(troopDesc0);
 ### GetAllocatedTroopParty
 `public PartyBase GetAllocatedTroopParty(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Reads and returns the `allocated troop party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the allocated troop party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -231,7 +231,7 @@ var result = mapEventSide.GetAllocatedTroopParty(troopDescriptor);
 ### GetReadyTroopParty
 `public PartyBase GetReadyTroopParty(UniqueTroopDescriptor troopDescriptor)`
 
-**Purpose:** Reads and returns the `ready troop party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ready troop party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -242,7 +242,7 @@ var result = mapEventSide.GetReadyTroopParty(troopDescriptor);
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopDesc1)`
 
-**Purpose:** Invoked when the `troop wounded` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop wounded event is raised.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -253,7 +253,7 @@ mapEventSide.OnTroopWounded(troopDesc1);
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopDesc1)`
 
-**Purpose:** Invoked when the `troop killed` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop killed event is raised.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -264,7 +264,7 @@ mapEventSide.OnTroopKilled(troopDesc1);
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopDesc1, bool isOrderRetreat)`
 
-**Purpose:** Invoked when the `troop routed` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop routed event is raised.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -275,7 +275,7 @@ mapEventSide.OnTroopRouted(troopDesc1, false);
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor troopDesc1, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
 
-**Purpose:** Invoked when the `troop score hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop score hit event is raised.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -286,7 +286,7 @@ mapEventSide.OnTroopScoreHit(troopDesc1, attackedTroop, 0, false, false, attacke
 ### OnShipScoreHit
 `public void OnShipScoreHit(Ship strikerShip, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
 
-**Purpose:** Invoked when the `ship score hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the ship score hit event is raised.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -297,7 +297,7 @@ mapEventSide.OnShipScoreHit(strikerShip, struckShip, siegeEngine, 0, false);
 ### OnShipDamaged
 `public void OnShipDamaged(Ship struckShip, SiegeEngineType siegeEngine, int damage)`
 
-**Purpose:** Invoked when the `ship damaged` event is raised.
+**Purpose:** **Purpose:** Invoked when the ship damaged event is raised.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -308,7 +308,7 @@ mapEventSide.OnShipDamaged(struckShip, siegeEngine, 0);
 ### MakeReadyForSimulation
 `public void MakeReadyForSimulation(FlattenedTroopRoster priorTroops, int sizeOfSide)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MakeReadyForSimulation logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -319,7 +319,7 @@ mapEventSide.MakeReadyForSimulation(priorTroops, 0);
 ### MakeReadyForMission
 `public void MakeReadyForMission(FlattenedTroopRoster priorTroops)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MakeReadyForMission logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -330,7 +330,7 @@ mapEventSide.MakeReadyForMission(priorTroops);
 ### EndSimulation
 `public void EndSimulation()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndSimulation logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -341,7 +341,7 @@ mapEventSide.EndSimulation();
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -352,7 +352,7 @@ mapEventSide.Clear();
 ### SelectRandomSimulationTroop
 `public UniqueTroopDescriptor SelectRandomSimulationTroop()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectRandomSimulationTroop logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -363,7 +363,7 @@ var result = mapEventSide.SelectRandomSimulationTroop();
 ### GetRandomSimulationShip
 `public Ship GetRandomSimulationShip()`
 
-**Purpose:** Reads and returns the `random simulation ship` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the random simulation ship value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -374,7 +374,7 @@ var result = mapEventSide.GetRandomSimulationShip();
 ### Surrender
 `public void Surrender()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Surrender logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -385,7 +385,7 @@ mapEventSide.Surrender();
 ### Route
 `public void Route()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Route logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -396,7 +396,7 @@ mapEventSide.Route();
 ### CommitXpGains
 `public void CommitXpGains()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CommitXpGains logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -407,7 +407,7 @@ mapEventSide.CommitXpGains();
 ### CommitRenownChanges
 `public void CommitRenownChanges()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CommitRenownChanges logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -418,7 +418,7 @@ mapEventSide.CommitRenownChanges();
 ### CommitInfluenceChanges
 `public void CommitInfluenceChanges()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CommitInfluenceChanges logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -429,7 +429,7 @@ mapEventSide.CommitInfluenceChanges();
 ### CommitMoraleChanges
 `public void CommitMoraleChanges()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CommitMoraleChanges logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first
@@ -440,7 +440,7 @@ mapEventSide.CommitMoraleChanges();
 ### CommitGoldChanges
 `public void CommitGoldChanges()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CommitGoldChanges logic.
 
 ```csharp
 // Obtain an instance of MapEventSide from the subsystem API first

@@ -23,7 +23,7 @@ description: "GarrisonTroopsCampaignBehavior 的自动生成类参考。"
 ### GetNumberOfTroopsToLeaveForParty
 `public int GetNumberOfTroopsToLeaveForParty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of troops to leave for party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of troops to leave for party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -34,7 +34,7 @@ var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToLeaveForParty();
 ### GetNumberOfTroopsToTakeForParty
 `public int GetNumberOfTroopsToTakeForParty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of troops to take for party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of troops to take for party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -45,7 +45,7 @@ var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToTakeForParty();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -56,7 +56,7 @@ garrisonTroopsCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例

@@ -23,7 +23,7 @@ description: "JavelinBarrel 的自动生成类参考。"
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 JavelinBarrel 实例

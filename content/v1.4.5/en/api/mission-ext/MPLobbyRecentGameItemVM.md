@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGameItemVM from the subsystem API first
@@ -57,7 +57,7 @@ mPLobbyRecentGameItemVM.RefreshValues();
 ### FillFrom
 `public void FillFrom(MatchHistoryData match)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGameItemVM from the subsystem API first
@@ -68,7 +68,7 @@ mPLobbyRecentGameItemVM.FillFrom(match);
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** Invoked when the `friend list updated` event is raised.
+**Purpose:** **Purpose:** Invoked when the friend list updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGameItemVM from the subsystem API first

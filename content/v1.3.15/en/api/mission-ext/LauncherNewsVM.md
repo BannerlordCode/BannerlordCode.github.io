@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Refresh
 `public void Refresh(bool isMultiplayer)`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of LauncherNewsVM from the subsystem API first

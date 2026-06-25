@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### IsConditionSatisfiedDelegate
 `public delegate bool IsConditionSatisfiedDelegate()`
 
-**Purpose:** Determines whether the current object is in the `condition satisfied delegate` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the condition satisfied delegate state or condition.
 
 ```csharp
 // Obtain an instance of WaitForSpecialCase from the subsystem API first

@@ -30,7 +30,7 @@ description: "StealthFailCounterMissionLogic 的自动生成类参考。"
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, AIStateFlag flag)`
 
-**用途 / Purpose:** 在 「agent alarmed state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent alarmed state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
@@ -41,7 +41,7 @@ stealthFailCounterMissionLogic.OnAgentAlarmedStateChanged(agent, flag);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
@@ -52,7 +52,7 @@ stealthFailCounterMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agen
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例
@@ -63,7 +63,7 @@ stealthFailCounterMissionLogic.OnMissionTick(0);
 ### SetFailTexts
 `public void SetFailTexts(TextObject title, TextObject description)`
 
-**用途 / Purpose:** 为 「fail texts」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 fail texts 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthFailCounterMissionLogic 实例

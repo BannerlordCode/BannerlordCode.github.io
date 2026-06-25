@@ -29,7 +29,7 @@ description: "DefaultClanFinanceModel 的自动生成类参考。"
 ### CalculateClanGoldChange
 `public override ExplainedNumber CalculateClanGoldChange(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 计算「clan gold change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算clan gold change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -40,7 +40,7 @@ var result = defaultClanFinanceModel.CalculateClanGoldChange(clan, false, false,
 ### CalculateClanIncome
 `public override ExplainedNumber CalculateClanIncome(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 计算「clan income」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算clan income的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -51,7 +51,7 @@ var result = defaultClanFinanceModel.CalculateClanIncome(clan, false, false, fal
 ### CalculateClanExpensesInternal
 `public void CalculateClanExpensesInternal(Clan clan, ref ExplainedNumber goldChange, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 计算「clan expenses internal」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算clan expenses internal的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -62,7 +62,7 @@ defaultClanFinanceModel.CalculateClanExpensesInternal(clan, goldChange, false, f
 ### CalculateClanExpenses
 `public override ExplainedNumber CalculateClanExpenses(Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)`
 
-**用途 / Purpose:** 计算「clan expenses」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算clan expenses的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -73,7 +73,7 @@ var result = defaultClanFinanceModel.CalculateClanExpenses(clan, false, false, f
 ### CalculateTownIncomeFromTariffs
 `public override ExplainedNumber CalculateTownIncomeFromTariffs(Clan clan, Town town, bool applyWithdrawals = false)`
 
-**用途 / Purpose:** 计算「town income from tariffs」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算town income from tariffs的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -84,7 +84,7 @@ var result = defaultClanFinanceModel.CalculateTownIncomeFromTariffs(clan, town, 
 ### CalculateTownIncomeFromProjects
 `public override int CalculateTownIncomeFromProjects(Town town)`
 
-**用途 / Purpose:** 计算「town income from projects」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算town income from projects的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -95,7 +95,7 @@ var result = defaultClanFinanceModel.CalculateTownIncomeFromProjects(town);
 ### CalculateVillageIncome
 `public override int CalculateVillageIncome(Clan clan, Village village, bool applyWithdrawals = false)`
 
-**用途 / Purpose:** 计算「village income」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算village income的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -106,7 +106,7 @@ var result = defaultClanFinanceModel.CalculateVillageIncome(clan, village, false
 ### CalculateOwnerIncomeFromCaravan
 `public override int CalculateOwnerIncomeFromCaravan(MobileParty caravan)`
 
-**用途 / Purpose:** 计算「owner income from caravan」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算owner income from caravan的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -117,7 +117,7 @@ var result = defaultClanFinanceModel.CalculateOwnerIncomeFromCaravan(caravan);
 ### CalculateOwnerIncomeFromWorkshop
 `public override int CalculateOwnerIncomeFromWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 计算「owner income from workshop」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算owner income from workshop的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -128,7 +128,7 @@ var result = defaultClanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop);
 ### RevenueSmoothenFraction
 `public override float RevenueSmoothenFraction()`
 
-**用途 / Purpose:** 处理与 「revenue smoothen fraction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RevenueSmoothenFraction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例
@@ -139,7 +139,7 @@ var result = defaultClanFinanceModel.RevenueSmoothenFraction();
 ### CalculateNotableDailyGoldChange
 `public override int CalculateNotableDailyGoldChange(Hero hero, bool applyWithdrawals)`
 
-**用途 / Purpose:** 计算「notable daily gold change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算notable daily gold change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanFinanceModel 实例

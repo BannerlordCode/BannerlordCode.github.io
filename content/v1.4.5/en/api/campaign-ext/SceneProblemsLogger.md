@@ -23,7 +23,7 @@ Start from namespace `(global)` to place it in the stack, then inspect its publi
 ### LogScene
 `public void LogScene(int sceneIndex, string sceneId, string log)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LogScene logic.
 
 ```csharp
 // Obtain an instance of SceneProblemsLogger from the subsystem API first
@@ -34,7 +34,7 @@ sceneProblemsLogger.LogScene(0, "example", "example");
 ### FinishLogging
 `public void FinishLogging()`
 
-**Purpose:** Concludes the `logging` flow and performs any cleanup.
+**Purpose:** **Purpose:** Concludes the logging flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of SceneProblemsLogger from the subsystem API first

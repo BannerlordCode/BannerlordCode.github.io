@@ -37,7 +37,7 @@ Treat `StoryModeData` as a Data-style extension point: first identify who create
 ### OnGameEnd
 `public static void OnGameEnd()`
 
-**Purpose:** Invoked when the `game end` event is raised.
+**Purpose:** **Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ StoryModeData.OnGameEnd();
 ### IsKingdomImperial
 `public static bool IsKingdomImperial(Kingdom kingdomToCheck)`
 
-**Purpose:** Determines whether the current object is in the `kingdom imperial` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the kingdom imperial state or condition.
 
 ```csharp
 // Static call; no instance required

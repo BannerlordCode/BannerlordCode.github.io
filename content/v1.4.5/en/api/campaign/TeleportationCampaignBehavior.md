@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ teleportationCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ teleportationCampaignBehavior.SyncData(dataStore);
 ### GetTargetOfTeleportingHero
 `public bool GetTargetOfTeleportingHero(Hero teleportingHero, out bool isGovernor, out bool isPartyLeader, out IMapPoint target)`
 
-**Purpose:** Reads and returns the `target of teleporting hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target of teleporting hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of TeleportationCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = teleportationCampaignBehavior.GetTargetOfTeleportingHero(teleportin
 ### GetHeroArrivalTimeToDestination
 `public CampaignTime GetHeroArrivalTimeToDestination(Hero teleportingHero)`
 
-**Purpose:** Reads and returns the `hero arrival time to destination` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hero arrival time to destination value held by the this instance.
 
 ```csharp
 // Obtain an instance of TeleportationCampaignBehavior from the subsystem API first

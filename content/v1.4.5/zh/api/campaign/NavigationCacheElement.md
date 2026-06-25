@@ -23,7 +23,7 @@ description: "NavigationCacheElement 的自动生成类参考。"
 ### Sort
 `public static void Sort(ref NavigationCacheElement<T> settlement1, ref NavigationCacheElement<T> settlement2, out bool isPairChanged)`
 
-**用途 / Purpose:** 对当前对象中的内容进行排序。
+**用途 / Purpose:** **用途 / Purpose:** 对当前对象中的内容进行排序。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ NavigationCacheElement.Sort(settlement1, settlement2, isPairChanged);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCacheElement 实例
@@ -44,7 +44,7 @@ var result = navigationCacheElement.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCacheElement 实例
@@ -55,7 +55,7 @@ var result = navigationCacheElement.Equals(obj);
 ### Equals
 `public bool Equals(NavigationCacheElement<T> other)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationCacheElement 实例

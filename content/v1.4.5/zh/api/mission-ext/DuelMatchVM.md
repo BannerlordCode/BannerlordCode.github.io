@@ -39,7 +39,7 @@ description: "DuelMatchVM 的自动生成类参考。"
 ### OnDuelPrepStarted
 `public void OnDuelPrepStarted(MissionPeer opponentPeer, int prepDuration)`
 
-**用途 / Purpose:** 在 「duel prep started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 duel prep started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelMatchVM 实例
@@ -50,7 +50,7 @@ duelMatchVM.OnDuelPrepStarted(opponentPeer, 0);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelMatchVM 实例
@@ -61,7 +61,7 @@ duelMatchVM.Tick(0);
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer, int arenaType)`
 
-**用途 / Purpose:** 在 「duel started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 duel started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelMatchVM 实例
@@ -72,7 +72,7 @@ duelMatchVM.OnDuelStarted(firstPeer, secondPeer, 0);
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**用途 / Purpose:** 在 「duel ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 duel ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelMatchVM 实例
@@ -83,7 +83,7 @@ duelMatchVM.OnDuelEnded();
 ### OnPeerScored
 `public void OnPeerScored(MissionPeer peer)`
 
-**用途 / Purpose:** 在 「peer scored」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 peer scored 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelMatchVM 实例
@@ -94,7 +94,7 @@ duelMatchVM.OnPeerScored(peer);
 ### RefreshNames
 `public void RefreshNames(bool changeGenericNames = false)`
 
-**用途 / Purpose:** 使 「names」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 names 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelMatchVM 实例

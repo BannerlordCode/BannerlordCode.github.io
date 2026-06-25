@@ -19,7 +19,7 @@ TakePrisonerAction is a set of static methods that trigger "TakePrisoner" in the
 public static void Apply(PartyBase capturerParty, Hero prisonerCharacter)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyByTakenFromPartyScreen
 
@@ -27,7 +27,7 @@ public static void Apply(PartyBase capturerParty, Hero prisonerCharacter)
 public static void ApplyByTakenFromPartyScreen(FlattenedTroopRoster roster)
 ```
 
-**Purpose:** taken from party screen.
+**Purpose:** **Purpose:** Applies the effect of by taken from party screen to the this instance.
 
 ## Usage Example
 

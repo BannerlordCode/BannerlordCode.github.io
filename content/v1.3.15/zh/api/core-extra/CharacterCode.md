@@ -39,7 +39,7 @@ description: "CharacterCode 的自动生成类参考。"
 ### CalculateEquipment
 `public Equipment CalculateEquipment()`
 
-**用途 / Purpose:** 计算「equipment」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算equipment的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCode 实例
@@ -50,7 +50,7 @@ var result = characterCode.CalculateEquipment();
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ CharacterCode.CreateFrom(character);
 ### CreateFrom
 `public static CharacterCode CreateFrom(BasicCharacterObject character, Equipment equipment)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ CharacterCode.CreateFrom(character, equipment);
 ### CreateFrom
 `public static CharacterCode CreateFrom(string equipmentCode, BodyProperties bodyProperties, bool isFemale, bool isHero, uint color1, uint color2, FormationClass formationClass, int race)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -80,7 +80,7 @@ CharacterCode.CreateFrom("example", bodyProperties, false, false, 0, 0, formatio
 ### CreateNewCodeString
 `public string CreateNewCodeString()`
 
-**用途 / Purpose:** 构建一个新的 「new code string」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new code string 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCode 实例
@@ -91,7 +91,7 @@ var result = characterCode.CreateNewCodeString();
 ### CreateEmpty
 `public static CharacterCode CreateEmpty()`
 
-**用途 / Purpose:** 构建一个新的 「empty」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 empty 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -101,7 +101,7 @@ CharacterCode.CreateEmpty();
 ### CreateFrom
 `public static CharacterCode CreateFrom(string code)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

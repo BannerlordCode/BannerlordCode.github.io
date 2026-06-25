@@ -32,7 +32,7 @@ description: "MPCustomGameFiltersVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameFiltersVM 实例
@@ -43,7 +43,7 @@ mPCustomGameFiltersVM.RefreshValues();
 ### GetFilteredServerList
 `public List<GameServerEntry> GetFilteredServerList(IEnumerable<GameServerEntry> unfilteredList)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「filtered server list」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 filtered server list 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCustomGameFiltersVM 实例

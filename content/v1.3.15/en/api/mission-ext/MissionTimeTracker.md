@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Tick
 `public void Tick(float seconds)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionTimeTracker from the subsystem API first
@@ -41,7 +41,7 @@ missionTimeTracker.Tick(0);
 ### UpdateSync
 `public void UpdateSync(float newValue)`
 
-**Purpose:** Recalculates and stores the latest representation of `sync`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of sync.
 
 ```csharp
 // Obtain an instance of MissionTimeTracker from the subsystem API first
@@ -52,7 +52,7 @@ missionTimeTracker.UpdateSync(0);
 ### GetLastSyncDifference
 `public float GetLastSyncDifference()`
 
-**Purpose:** Reads and returns the `last sync difference` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the last sync difference value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionTimeTracker from the subsystem API first

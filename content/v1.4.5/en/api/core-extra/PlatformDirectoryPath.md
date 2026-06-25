@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PlatformDirectoryPath
 `public struct PlatformDirectoryPath(PlatformFileType type, string path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlatformDirectoryPath logic.
 
 ```csharp
 // Obtain an instance of PlatformDirectoryPath from the subsystem API first
@@ -34,7 +34,7 @@ var result = platformDirectoryPath.PlatformDirectoryPath(type, "example");
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PlatformDirectoryPath from the subsystem API first

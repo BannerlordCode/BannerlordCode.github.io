@@ -23,7 +23,7 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### ControllerStickInput
 `public struct ControllerStickInput(MovementTypes movementType, bool isLeftStick)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ControllerStickInput logic.
 
 ```csharp
 // Obtain an instance of ControllerStickInput from the subsystem API first

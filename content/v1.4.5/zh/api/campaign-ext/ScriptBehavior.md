@@ -23,7 +23,7 @@ description: "ScriptBehavior 的自动生成类参考。"
 ### ScriptBehavior
 `public class ScriptBehavior(AgentBehaviorGroup behaviorGroup)`
 
-**用途 / Purpose:** 处理与 「script behavior」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ScriptBehavior 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -34,7 +34,7 @@ var result = scriptBehavior.ScriptBehavior(behaviorGroup);
 ### SelectTargetDelegate
 `public delegate bool SelectTargetDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame, ref float customTargetReachedRangeThreshold, ref float customTargetReachedRotationThreshold)`
 
-**用途 / Purpose:** 处理与 「select target delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectTargetDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -45,7 +45,7 @@ var result = scriptBehavior.SelectTargetDelegate(agent, targetAgent, targetUsabl
 ### OnTargetReachedDelegate
 `public delegate bool OnTargetReachedDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame)`
 
-**用途 / Purpose:** 在 「target reached delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 target reached delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -56,7 +56,7 @@ var result = scriptBehavior.OnTargetReachedDelegate(agent, targetAgent, targetUs
 ### OnTargetReachedWaitDelegate
 `public delegate void OnTargetReachedWaitDelegate(Agent agent, ref float waitTimeInSeconds)`
 
-**用途 / Purpose:** 在 「target reached wait delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 target reached wait delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -67,7 +67,7 @@ scriptBehavior.OnTargetReachedWaitDelegate(agent, waitTimeInSeconds);
 ### AddUsableMachineTarget
 `public static void AddUsableMachineTarget(Agent ownerAgent, UsableMachine targetUsableMachine)`
 
-**用途 / Purpose:** 将 「usable machine target」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 usable machine target 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ ScriptBehavior.AddUsableMachineTarget(ownerAgent, targetUsableMachine);
 ### AddAgentTarget
 `public static void AddAgentTarget(Agent ownerAgent, Agent targetAgent)`
 
-**用途 / Purpose:** 将 「agent target」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 agent target 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ ScriptBehavior.AddAgentTarget(ownerAgent, targetAgent);
 ### AddWorldFrameTarget
 `public static void AddWorldFrameTarget(Agent ownerAgent, WorldFrame targetWorldFrame)`
 
-**用途 / Purpose:** 将 「world frame target」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 world frame target 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -97,7 +97,7 @@ ScriptBehavior.AddWorldFrameTarget(ownerAgent, targetWorldFrame);
 ### AddTargetWithDelegate
 `public static void AddTargetWithDelegate(Agent ownerAgent, SelectTargetDelegate selectTargetDelegate, OnTargetReachedWaitDelegate onTargetReachWaitDelegate, OnTargetReachedDelegate onTargetReachedDelegate, float initialWaitInSeconds = 0f)`
 
-**用途 / Purpose:** 将 「target with delegate」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 target with delegate 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -107,7 +107,7 @@ ScriptBehavior.AddTargetWithDelegate(ownerAgent, selectTargetDelegate, onTargetR
 ### IsNearTarget
 `public bool IsNearTarget(Agent targetAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「near target」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 near target 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -118,7 +118,7 @@ var result = scriptBehavior.IsNearTarget(targetAgent);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -129,7 +129,7 @@ scriptBehavior.Tick(0, false);
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -140,7 +140,7 @@ var result = scriptBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例

@@ -23,7 +23,7 @@ description: "UserStatsAndAchievementsRetrieveListener 的自动生成类参考�
 ### UserStatsAndAchievementsRetrieved
 `public delegate void UserStatsAndAchievementsRetrieved(GalaxyID userID, bool success, FailureReason? failureReason)`
 
-**用途 / Purpose:** 处理与 「user stats and achievements retrieved」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UserStatsAndAchievementsRetrieved 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UserStatsAndAchievementsRetrieveListener 实例
@@ -34,7 +34,7 @@ userStatsAndAchievementsRetrieveListener.UserStatsAndAchievementsRetrieved(userI
 ### OnUserStatsAndAchievementsRetrieveSuccess
 `public override void OnUserStatsAndAchievementsRetrieveSuccess(GalaxyID userID)`
 
-**用途 / Purpose:** 在 「user stats and achievements retrieve success」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 user stats and achievements retrieve success 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UserStatsAndAchievementsRetrieveListener 实例
@@ -45,7 +45,7 @@ userStatsAndAchievementsRetrieveListener.OnUserStatsAndAchievementsRetrieveSucce
 ### OnUserStatsAndAchievementsRetrieveFailure
 `public override void OnUserStatsAndAchievementsRetrieveFailure(GalaxyID userID, FailureReason failureReason)`
 
-**用途 / Purpose:** 在 「user stats and achievements retrieve failure」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 user stats and achievements retrieve failure 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UserStatsAndAchievementsRetrieveListener 实例

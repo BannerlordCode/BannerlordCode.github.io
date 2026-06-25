@@ -36,7 +36,7 @@ description: "RangedSiegeEngine 的自动生成类参考。"
 ### Hold
 `public void Hold()`
 
-**用途 / Purpose:** 处理与 「hold」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Hold 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeEngine 实例
@@ -47,7 +47,7 @@ rangedSiegeEngine.Hold();
 ### Reload
 `public void Reload()`
 
-**用途 / Purpose:** 处理与 「reload」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Reload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeEngine 实例
@@ -58,7 +58,7 @@ rangedSiegeEngine.Reload();
 ### OnFireDecisionTaken
 `public void OnFireDecisionTaken(SiegeEvent siegeEvent, BattleSideEnum battleSide, int targetSlotIndex, SiegeBombardTargets targetType)`
 
-**用途 / Purpose:** 在 「fire decision taken」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 fire decision taken 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeEngine 实例

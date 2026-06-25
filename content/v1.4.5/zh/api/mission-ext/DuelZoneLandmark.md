@@ -23,7 +23,7 @@ description: "DuelZoneLandmark 的自动生成类参考。"
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**用途 / Purpose:** 在 「focus gain」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus gain 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelZoneLandmark 实例
@@ -34,7 +34,7 @@ duelZoneLandmark.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**用途 / Purpose:** 在 「focus lose」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus lose 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelZoneLandmark 实例
@@ -45,7 +45,7 @@ duelZoneLandmark.OnFocusLose(userAgent);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「info text for being not interactable」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 info text for being not interactable 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelZoneLandmark 实例
@@ -56,7 +56,7 @@ var result = duelZoneLandmark.GetInfoTextForBeingNotInteractable(userAgent);
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelZoneLandmark 实例

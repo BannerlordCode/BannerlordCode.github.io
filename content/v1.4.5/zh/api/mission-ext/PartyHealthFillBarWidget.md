@@ -31,7 +31,7 @@ description: "PartyHealthFillBarWidget 的自动生成类参考。"
 ### PartyHealthFillBarWidget
 `public class PartyHealthFillBarWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「party health fill bar widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PartyHealthFillBarWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyHealthFillBarWidget 实例

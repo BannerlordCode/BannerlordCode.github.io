@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateWithTexture
 `public static ThumbnailRenderRequest CreateWithTexture(Scene scene, Camera camera, Texture texture, GameEntity entity, string renderId, string debugName, int allocationGroupIndex)`
 
-**Purpose:** Constructs a new `with texture` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new with texture entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ThumbnailRenderRequest.CreateWithTexture(scene, camera, texture, entity, "exampl
 ### CreateWithoutTexture
 `public static ThumbnailRenderRequest CreateWithoutTexture(Scene scene, Camera camera, GameEntity entity, string renderId, int width, int height, string debugName, int allocationGroupIndex)`
 
-**Purpose:** Constructs a new `without texture` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new without texture entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ThumbnailRenderRequest.CreateWithoutTexture(scene, camera, entity, "example", 0,
 ### CreateForCachedEntity
 `public static ThumbnailRenderRequest CreateForCachedEntity(Scene scene, Camera camera, Texture texture, string cachedEntityId, string renderId, string debugName, int allocationGroupIndex)`
 
-**Purpose:** Constructs a new `for cached entity` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new for cached entity entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ThumbnailRenderRequest.CreateForCachedEntity(scene, camera, texture, "example", 
 ### CreateForCachedEntityWithoutTexture
 `public static ThumbnailRenderRequest CreateForCachedEntityWithoutTexture(Scene scene, Camera camera, string cachedEntityId, string renderId, int width, int height, string debugName, int allocationGroupIndex)`
 
-**Purpose:** Constructs a new `for cached entity without texture` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new for cached entity without texture entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

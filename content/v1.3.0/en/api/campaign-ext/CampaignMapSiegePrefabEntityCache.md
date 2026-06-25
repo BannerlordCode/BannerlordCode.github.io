@@ -23,7 +23,7 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetLaunchEntitialFrameForSiegeEngine
 `public MatrixFrame GetLaunchEntitialFrameForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `launch entitial frame for siege engine` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the launch entitial frame for siege engine value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignMapSiegePrefabEntityCache from the subsystem API first
@@ -34,7 +34,7 @@ var result = campaignMapSiegePrefabEntityCache.GetLaunchEntitialFrameForSiegeEng
 ### GetScaleForSiegeEngine
 `public Vec3 GetScaleForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `scale for siege engine` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scale for siege engine value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignMapSiegePrefabEntityCache from the subsystem API first

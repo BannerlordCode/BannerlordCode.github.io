@@ -32,7 +32,7 @@ description: "JoustingAgentController 的自动生成类参考。"
 ### OnInitialize
 `public override void OnInitialize()`
 
-**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 JoustingAgentController 实例
@@ -43,7 +43,7 @@ joustingAgentController.OnInitialize();
 ### UpdateState
 `public void UpdateState()`
 
-**用途 / Purpose:** 重新计算并更新 「state」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 state 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 JoustingAgentController 实例
@@ -54,7 +54,7 @@ joustingAgentController.UpdateState();
 ### PrepareAgentToSwordDuel
 `public void PrepareAgentToSwordDuel()`
 
-**用途 / Purpose:** 为即将执行的「agent to sword duel」操作完成前置准备工作。
+**用途 / Purpose:** **用途 / Purpose:** 为即将执行的agent to sword duel操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 JoustingAgentController 实例
@@ -65,7 +65,7 @@ joustingAgentController.PrepareAgentToSwordDuel();
 ### PrepareEquipmentsForSwordDuel
 `public void PrepareEquipmentsForSwordDuel()`
 
-**用途 / Purpose:** 为即将执行的「equipments for sword duel」操作完成前置准备工作。
+**用途 / Purpose:** **用途 / Purpose:** 为即将执行的equipments for sword duel操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 JoustingAgentController 实例
@@ -76,7 +76,7 @@ joustingAgentController.PrepareEquipmentsForSwordDuel();
 ### IsRiding
 `public bool IsRiding()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「riding」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 riding 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 JoustingAgentController 实例

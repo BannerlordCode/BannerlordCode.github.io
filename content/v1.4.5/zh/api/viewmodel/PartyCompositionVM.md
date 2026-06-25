@@ -36,7 +36,7 @@ description: "PartyCompositionVM 的自动生成类参考。"
 ### OnTroopRemoved
 `public void OnTroopRemoved(FormationClass formationClass, int count)`
 
-**用途 / Purpose:** 在 「troop removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCompositionVM 实例
@@ -47,7 +47,7 @@ partyCompositionVM.OnTroopRemoved(formationClass, 0);
 ### OnTroopAdded
 `public void OnTroopAdded(FormationClass formationClass, int count)`
 
-**用途 / Purpose:** 在 「troop added」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop added 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCompositionVM 实例
@@ -58,7 +58,7 @@ partyCompositionVM.OnTroopAdded(formationClass, 0);
 ### RefreshCounts
 `public void RefreshCounts(MBBindingList<PartyCharacterVM> list)`
 
-**用途 / Purpose:** 使 「counts」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 counts 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCompositionVM 实例

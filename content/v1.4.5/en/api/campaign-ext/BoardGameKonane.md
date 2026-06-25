@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BoardInformation logic.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -34,7 +34,7 @@ var result = boardGameKonane.BoardInformation(pawns, tiles);
 ### PawnInformation
 `public struct PawnInformation(int x, int y, int prevX, int prevY, bool captured, Vec3 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PawnInformation logic.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -45,7 +45,7 @@ var result = boardGameKonane.PawnInformation(0, 0, 0, 0, false, position);
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `units`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by units.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -56,7 +56,7 @@ boardGameKonane.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tiles.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -67,7 +67,7 @@ boardGameKonane.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sound.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -78,7 +78,7 @@ boardGameKonane.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -89,7 +89,7 @@ boardGameKonane.Reset();
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Calculates the current value or result of `valid moves`.
+**Purpose:** **Purpose:** Calculates the current value or result of valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -100,7 +100,7 @@ var result = boardGameKonane.CalculateValidMoves(pawn);
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**Purpose:** Assigns a new value to `pawn captured` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to pawn captured and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -111,7 +111,7 @@ boardGameKonane.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AIMakeMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -122,7 +122,7 @@ boardGameKonane.AIMakeMove(move);
 ### CheckForRemovablePawns
 `public int CheckForRemovablePawns(bool playerOne)`
 
-**Purpose:** Verifies whether `for removable pawns` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for removable pawns holds true for the this instance.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -133,7 +133,7 @@ var result = boardGameKonane.CheckForRemovablePawns(false);
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TakeBoardSnapshot logic.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first
@@ -144,7 +144,7 @@ var result = boardGameKonane.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UndoMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameKonane from the subsystem API first

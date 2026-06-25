@@ -38,7 +38,7 @@ description: "MPLobbyClanRosterVM 的自动生成类参考。"
 ### Compare
 `public int Compare(MPLobbyClanMemberItemVM x, MPLobbyClanMemberItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
@@ -49,7 +49,7 @@ var result = mPLobbyClanRosterVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
@@ -60,7 +60,7 @@ mPLobbyClanRosterVM.RefreshValues();
 ### RefreshClanInformation
 `public void RefreshClanInformation(ClanHomeInfo info)`
 
-**用途 / Purpose:** 使 「clan information」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 clan information 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例
@@ -71,7 +71,7 @@ mPLobbyClanRosterVM.RefreshClanInformation(info);
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**用途 / Purpose:** 在 「player name updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanRosterVM 实例

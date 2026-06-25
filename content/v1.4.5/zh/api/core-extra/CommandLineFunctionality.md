@@ -23,7 +23,7 @@ description: "CommandLineFunctionality 的自动生成类参考。"
 ### Call
 `public string Call(List<string> objects)`
 
-**用途 / Purpose:** 处理与 「call」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Call 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CommandLineFunctionality 实例
@@ -34,7 +34,7 @@ var result = commandLineFunctionality.Call(objects);
 ### CollectCommandLineFunctions
 `public static List<string> CollectCommandLineFunctions()`
 
-**用途 / Purpose:** 处理与 「collect command line functions」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CollectCommandLineFunctions 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ CommandLineFunctionality.CollectCommandLineFunctions();
 ### HasFunctionForCommand
 `public static bool HasFunctionForCommand(string command)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「function for command」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 function for command。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ CommandLineFunctionality.HasFunctionForCommand("example");
 ### CallFunction
 `public static string CallFunction(string concatName, string concatArguments, out bool found)`
 
-**用途 / Purpose:** 处理与 「call function」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CallFunction 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -64,7 +64,7 @@ CommandLineFunctionality.CallFunction("example", "example", found);
 ### CallFunction
 `public static string CallFunction(string concatName, List<string> argList, out bool found)`
 
-**用途 / Purpose:** 处理与 「call function」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CallFunction 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

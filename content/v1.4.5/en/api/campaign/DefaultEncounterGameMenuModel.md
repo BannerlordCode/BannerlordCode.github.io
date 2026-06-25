@@ -23,7 +23,7 @@ Treat `DefaultEncounterGameMenuModel` as a Model-style extension point: first id
 ### GetEncounterMenu
 `public override string GetEncounterMenu(PartyBase attackerParty, PartyBase defenderParty, out bool startBattle, out bool joinBattle)`
 
-**Purpose:** Reads and returns the `encounter menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the encounter menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterGameMenuModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultEncounterGameMenuModel.GetEncounterMenu(attackerParty, defen
 ### GetRaidCompleteMenu
 `public override string GetRaidCompleteMenu()`
 
-**Purpose:** Reads and returns the `raid complete menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the raid complete menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterGameMenuModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultEncounterGameMenuModel.GetRaidCompleteMenu();
 ### GetNewPartyJoinMenu
 `public override string GetNewPartyJoinMenu(MobileParty newParty)`
 
-**Purpose:** Reads and returns the `new party join menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the new party join menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterGameMenuModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultEncounterGameMenuModel.GetNewPartyJoinMenu(newParty);
 ### GetGenericStateMenu
 `public override string GetGenericStateMenu()`
 
-**Purpose:** Reads and returns the `generic state menu` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the generic state menu value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterGameMenuModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultEncounterGameMenuModel.GetGenericStateMenu();
 ### IsPlunderMenu
 `public override bool IsPlunderMenu(string gameMenuId)`
 
-**Purpose:** Determines whether the current object is in the `plunder menu` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the plunder menu state or condition.
 
 ```csharp
 // Obtain an instance of DefaultEncounterGameMenuModel from the subsystem API first

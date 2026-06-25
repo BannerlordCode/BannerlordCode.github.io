@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ConversationAnimationToolCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ conversationAnimationToolCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ConversationAnimationToolCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ conversationAnimationToolCampaignBehavior.SyncData(dataStore);
 ### CloseConversationAnimationTool
 `public static void CloseConversationAnimationTool()`
 
-**Purpose:** Closes the resource or UI associated with `conversation animation tool`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with conversation animation tool.
 
 ```csharp
 // Static call; no instance required

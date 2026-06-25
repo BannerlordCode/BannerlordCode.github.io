@@ -32,7 +32,7 @@ Start from namespace `SandBox.View.Map.Navigation.NavigationElements` to place i
 ### OpenView
 `public override void OpenView()`
 
-**Purpose:** Opens the resource or UI associated with `view`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with view.
 
 ```csharp
 // Obtain an instance of ClanNavigationElement from the subsystem API first
@@ -43,7 +43,7 @@ clanNavigationElement.OpenView();
 ### OpenView
 `public override void OpenView(params object parameters)`
 
-**Purpose:** Opens the resource or UI associated with `view`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with view.
 
 ```csharp
 // Obtain an instance of ClanNavigationElement from the subsystem API first
@@ -54,7 +54,7 @@ clanNavigationElement.OpenView(parameters);
 ### OnClanScreenPermission
 `public void OnClanScreenPermission(bool isAvailable, TextObject reasonString)`
 
-**Purpose:** Invoked when the `clan screen permission` event is raised.
+**Purpose:** **Purpose:** Invoked when the clan screen permission event is raised.
 
 ```csharp
 // Obtain an instance of ClanNavigationElement from the subsystem API first

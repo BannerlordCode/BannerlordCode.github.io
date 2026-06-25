@@ -29,7 +29,7 @@ description: "MapEventVisualBrushWidget 的自动生成类参考。"
 ### MapEventVisualBrushWidget
 `public class MapEventVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「map event visual brush widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MapEventVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventVisualBrushWidget 实例

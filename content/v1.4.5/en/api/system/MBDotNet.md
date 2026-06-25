@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Starter.Library` to place it in the stack, then
 ### WotsMainDotNet
 `public static extern int WotsMainDotNet(string args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WotsMainDotNet logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBDotNet.WotsMainDotNet("example");
 ### PassControllerMethods
 `public static extern void PassControllerMethods(Delegate currentDomainInitializer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PassControllerMethods logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MBDotNet.PassControllerMethods(currentDomainInitializer);
 ### PassManagedInitializeMethodPointerDotNet
 `public static extern void PassManagedInitializeMethodPointerDotNet( Delegate initalizer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PassManagedInitializeMethodPointerDotNet logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MBDotNet.PassManagedInitializeMethodPointerDotNet(initalizer);
 ### PassManagedEngineCallbackMethodPointersDotNet
 `public static extern void PassManagedEngineCallbackMethodPointersDotNet( Delegate methodDelegate)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PassManagedEngineCallbackMethodPointersDotNet logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MBDotNet.PassManagedEngineCallbackMethodPointersDotNet(methodDelegate);
 ### SetCurrentDirectory
 `public static extern int SetCurrentDirectory(string args)`
 
-**Purpose:** Assigns a new value to `current directory` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current directory and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

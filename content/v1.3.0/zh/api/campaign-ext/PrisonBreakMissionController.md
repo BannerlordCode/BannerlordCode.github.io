@@ -23,7 +23,7 @@ description: "PrisonBreakMissionController 的自动生成类参考。"
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -34,7 +34,7 @@ prisonBreakMissionController.OnCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -45,7 +45,7 @@ prisonBreakMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -56,7 +56,7 @@ prisonBreakMissionController.AfterStart();
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -67,7 +67,7 @@ prisonBreakMissionController.OnAgentInteraction(userAgent, agent, 0);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -78,7 +78,7 @@ var result = prisonBreakMissionController.IsThereAgentAction(userAgent, otherAge
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
 
-**用途 / Purpose:** 在 「agent alarmed state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent alarmed state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -89,7 +89,7 @@ prisonBreakMissionController.OnAgentAlarmedStateChanged(agent, flag);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -100,7 +100,7 @@ prisonBreakMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentS
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -111,7 +111,7 @@ var result = prisonBreakMissionController.OnEndMissionRequest(canLeave);
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**用途 / Purpose:** 在 「stealth mission counter failed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 stealth mission counter failed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例
@@ -122,7 +122,7 @@ prisonBreakMissionController.OnStealthMissionCounterFailed(obj);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonBreakMissionController 实例

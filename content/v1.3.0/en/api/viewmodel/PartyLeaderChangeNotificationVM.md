@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of PartyLeaderChangeNotificationVM from the subsystem API first

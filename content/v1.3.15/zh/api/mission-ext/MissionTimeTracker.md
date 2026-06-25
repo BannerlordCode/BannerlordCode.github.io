@@ -30,7 +30,7 @@ description: "MissionTimeTracker 的自动生成类参考。"
 ### Tick
 `public void Tick(float seconds)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimeTracker 实例
@@ -41,7 +41,7 @@ missionTimeTracker.Tick(0);
 ### UpdateSync
 `public void UpdateSync(float newValue)`
 
-**用途 / Purpose:** 重新计算并更新 「sync」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 sync 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimeTracker 实例
@@ -52,7 +52,7 @@ missionTimeTracker.UpdateSync(0);
 ### GetLastSyncDifference
 `public float GetLastSyncDifference()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「last sync difference」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last sync difference 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTimeTracker 实例

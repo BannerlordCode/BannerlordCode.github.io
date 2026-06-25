@@ -31,7 +31,7 @@ Start from namespace `SandBox.Objects.Cinematics` to place it in the stack, then
 ### GetPlayerFrames
 `public void GetPlayerFrames(out MatrixFrame initialFrame, out MatrixFrame targetFrame, float perturbAmount = 0f)`
 
-**Purpose:** Reads and returns the `player frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -42,7 +42,7 @@ hideoutBossFightBehavior.GetPlayerFrames(initialFrame, targetFrame, 0);
 ### GetBossFrames
 `public void GetBossFrames(out MatrixFrame initialFrame, out MatrixFrame targetFrame, float perturbAmount = 0f)`
 
-**Purpose:** Reads and returns the `boss frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boss frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -53,7 +53,7 @@ hideoutBossFightBehavior.GetBossFrames(initialFrame, targetFrame, 0);
 ### GetAllyFrames
 `public void GetAllyFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, int agentCount = 10, float agentOffsetAngle = 0.15707964f, float perturbAmount = 0f)`
 
-**Purpose:** Reads and returns the `ally frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ally frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -64,7 +64,7 @@ hideoutBossFightBehavior.GetAllyFrames(initialFrames, targetFrames, 0, 0, 0);
 ### GetBanditFrames
 `public void GetBanditFrames(out List<MatrixFrame> initialFrames, out List<MatrixFrame> targetFrames, int agentCount = 10, float agentOffsetAngle = 0.15707964f, float perturbAmount = 0f)`
 
-**Purpose:** Reads and returns the `bandit frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bandit frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -75,7 +75,7 @@ hideoutBossFightBehavior.GetBanditFrames(initialFrames, targetFrames, 0, 0, 0);
 ### GetAlliesInitialFrame
 `public void GetAlliesInitialFrame(out MatrixFrame frame)`
 
-**Purpose:** Reads and returns the `allies initial frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the allies initial frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -86,7 +86,7 @@ hideoutBossFightBehavior.GetAlliesInitialFrame(frame);
 ### GetBanditsInitialFrame
 `public void GetBanditsInitialFrame(out MatrixFrame frame)`
 
-**Purpose:** Reads and returns the `bandits initial frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bandits initial frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -97,7 +97,7 @@ hideoutBossFightBehavior.GetBanditsInitialFrame(frame);
 ### IsWorldPointInsideCameraVolume
 `public bool IsWorldPointInsideCameraVolume(in Vec3 worldPoint)`
 
-**Purpose:** Determines whether the current object is in the `world point inside camera volume` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the world point inside camera volume state or condition.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first
@@ -108,7 +108,7 @@ var result = hideoutBossFightBehavior.IsWorldPointInsideCameraVolume(worldPoint)
 ### ClampWorldPointToCameraVolume
 `public bool ClampWorldPointToCameraVolume(in Vec3 worldPoint, out Vec3 clampedPoint)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClampWorldPointToCameraVolume logic.
 
 ```csharp
 // Obtain an instance of HideoutBossFightBehavior from the subsystem API first

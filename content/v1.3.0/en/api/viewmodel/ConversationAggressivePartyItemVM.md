@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### ExecuteShowPartyTooltip
 `public void ExecuteShowPartyTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `show party tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with show party tooltip.
 
 ```csharp
 // Obtain an instance of ConversationAggressivePartyItemVM from the subsystem API first
@@ -42,7 +42,7 @@ conversationAggressivePartyItemVM.ExecuteShowPartyTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with hide tooltip.
 
 ```csharp
 // Obtain an instance of ConversationAggressivePartyItemVM from the subsystem API first

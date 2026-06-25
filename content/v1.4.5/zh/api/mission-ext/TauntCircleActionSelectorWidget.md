@@ -29,7 +29,7 @@ description: "TauntCircleActionSelectorWidget 的自动生成类参考。"
 ### TauntCircleActionSelectorWidget
 `public class TauntCircleActionSelectorWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「taunt circle action selector widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TauntCircleActionSelectorWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntCircleActionSelectorWidget 实例

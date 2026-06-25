@@ -23,7 +23,7 @@ description: "ConsolesModuleExtension 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ConsolesModuleExtension 实例
@@ -34,7 +34,7 @@ consolesModuleExtension.Initialize();
 ### GetModulePaths
 `public string GetModulePaths()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「module paths」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 module paths 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ConsolesModuleExtension 实例
@@ -45,7 +45,7 @@ var result = consolesModuleExtension.GetModulePaths();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConsolesModuleExtension 实例
@@ -56,7 +56,7 @@ consolesModuleExtension.Destroy();
 ### SetLauncherMode
 `public void SetLauncherMode(bool isLauncherModeActive)`
 
-**用途 / Purpose:** 为 「launcher mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 launcher mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ConsolesModuleExtension 实例
@@ -67,7 +67,7 @@ consolesModuleExtension.SetLauncherMode(false);
 ### CheckEntitlement
 `public bool CheckEntitlement(string title)`
 
-**用途 / Purpose:** 检查「entitlement」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查entitlement在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 ConsolesModuleExtension 实例

@@ -29,7 +29,7 @@ Treat `FieldBattleEventComponent` as a Component-style extension point: first id
 ### CreateFieldBattleEvent
 `public static FieldBattleEventComponent CreateFieldBattleEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Constructs a new `field battle event` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new field battle event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ FieldBattleEventComponent.CreateFieldBattleEvent(attackerParty, defenderParty);
 ### CreateComponentForOldSaves
 `public static FieldBattleEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new component for old saves entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

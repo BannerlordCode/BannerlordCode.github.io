@@ -19,7 +19,7 @@ EndCaptivityAction is a set of static methods that trigger "EndCaptivity" in the
 public static void ApplyByReleasedAfterBattle(Hero character)
 ```
 
-**Purpose:** released after battle.
+**Purpose:** **Purpose:** Applies the effect of by released after battle to the this instance.
 
 ### ApplyByRansom
 
@@ -27,7 +27,7 @@ public static void ApplyByReleasedAfterBattle(Hero character)
 public static void ApplyByRansom(Hero character, Hero facilitator)
 ```
 
-**Purpose:** ransom.
+**Purpose:** **Purpose:** Applies the effect of by ransom to the this instance.
 
 ### ApplyByPeace
 
@@ -35,7 +35,7 @@ public static void ApplyByRansom(Hero character, Hero facilitator)
 public static void ApplyByPeace(Hero character, Hero facilitator = null)
 ```
 
-**Purpose:** peace.
+**Purpose:** **Purpose:** Applies the effect of by peace to the this instance.
 
 ### ApplyByEscape
 
@@ -43,7 +43,7 @@ public static void ApplyByPeace(Hero character, Hero facilitator = null)
 public static void ApplyByEscape(Hero character, Hero facilitator = null, bool showNotification = true)
 ```
 
-**Purpose:** escape.
+**Purpose:** **Purpose:** Applies the effect of by escape to the this instance.
 
 ### ApplyByDeath
 
@@ -51,7 +51,7 @@ public static void ApplyByEscape(Hero character, Hero facilitator = null, bool s
 public static void ApplyByDeath(Hero character)
 ```
 
-**Purpose:** death.
+**Purpose:** **Purpose:** Applies the effect of by death to the this instance.
 
 ### ApplyByReleasedByChoice
 
@@ -59,7 +59,7 @@ public static void ApplyByDeath(Hero character)
 public static void ApplyByReleasedByChoice(FlattenedTroopRoster troopRoster)
 ```
 
-**Purpose:** released by choice.
+**Purpose:** **Purpose:** Applies the effect of by released by choice to the this instance.
 
 ### ApplyByReleasedByChoice
 
@@ -67,7 +67,7 @@ public static void ApplyByReleasedByChoice(FlattenedTroopRoster troopRoster)
 public static void ApplyByReleasedByChoice(Hero character, Hero facilitator = null)
 ```
 
-**Purpose:** released by choice.
+**Purpose:** **Purpose:** Applies the effect of by released by choice to the this instance.
 
 ### ApplyByReleasedByCompensation
 
@@ -75,7 +75,7 @@ public static void ApplyByReleasedByChoice(Hero character, Hero facilitator = nu
 public static void ApplyByReleasedByCompensation(Hero character)
 ```
 
-**Purpose:** released by compensation.
+**Purpose:** **Purpose:** Applies the effect of by released by compensation to the this instance.
 
 ## Usage Example
 

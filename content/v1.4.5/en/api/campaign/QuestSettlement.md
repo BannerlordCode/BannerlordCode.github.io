@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**Purpose:** Determines whether the current object is in the `scouting completed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the scouting completed state or condition.
 
 ```csharp
 // Obtain an instance of QuestSettlement from the subsystem API first
@@ -34,7 +34,7 @@ var result = questSettlement.IsScoutingCompleted();
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**Purpose:** Assigns a new value to `scouting completed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scouting completed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of QuestSettlement from the subsystem API first
@@ -45,7 +45,7 @@ questSettlement.SetScoutingCompleted();
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**Purpose:** Returns `current progress` to its default or initial condition.
+**Purpose:** **Purpose:** Returns current progress to its default or initial condition.
 
 ```csharp
 // Obtain an instance of QuestSettlement from the subsystem API first

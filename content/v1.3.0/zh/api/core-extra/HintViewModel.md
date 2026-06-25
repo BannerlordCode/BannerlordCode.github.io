@@ -23,7 +23,7 @@ description: "HintViewModel 的自动生成类参考。"
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 HintViewModel 实例
@@ -34,7 +34,7 @@ hintViewModel.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 HintViewModel 实例

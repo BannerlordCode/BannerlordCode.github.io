@@ -31,7 +31,7 @@ Treat `NewsManager` as a Manager-style extension point: first identify who creat
 ### GetNewsItems
 `public Task<MBReadOnlyList<NewsItem>> GetNewsItems(bool forceRefresh)`
 
-**Purpose:** Reads and returns the `news items` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the news items value held by the this instance.
 
 ```csharp
 // Obtain an instance of NewsManager from the subsystem API first
@@ -42,7 +42,7 @@ var result = newsManager.GetNewsItems(false);
 ### SetNewsSourceURL
 `public void SetNewsSourceURL(string url)`
 
-**Purpose:** Assigns a new value to `news source u r l` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to news source u r l and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NewsManager from the subsystem API first
@@ -53,7 +53,7 @@ newsManager.SetNewsSourceURL("example");
 ### UpdateNewsItems
 `public Task UpdateNewsItems(bool forceRefresh)`
 
-**Purpose:** Recalculates and stores the latest representation of `news items`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of news items.
 
 ```csharp
 // Obtain an instance of NewsManager from the subsystem API first
@@ -64,7 +64,7 @@ var result = newsManager.UpdateNewsItems(false);
 ### UpdateLocalizationID
 `public void UpdateLocalizationID(string localizationID)`
 
-**Purpose:** Recalculates and stores the latest representation of `localization i d`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of localization i d.
 
 ```csharp
 // Obtain an instance of NewsManager from the subsystem API first
@@ -75,7 +75,7 @@ newsManager.UpdateLocalizationID("example");
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of NewsManager from the subsystem API first

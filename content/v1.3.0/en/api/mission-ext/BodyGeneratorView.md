@@ -32,7 +32,7 @@ Treat `BodyGeneratorView` as a View-style extension point: first identify who cr
 ### ResetFaceToDefault
 `public void ResetFaceToDefault()`
 
-**Purpose:** Returns `face to default` to its default or initial condition.
+**Purpose:** **Purpose:** Returns face to default to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BodyGeneratorView from the subsystem API first
@@ -43,7 +43,7 @@ bodyGeneratorView.ResetFaceToDefault();
 ### FaceGenShowDebug
 `public static string FaceGenShowDebug(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FaceGenShowDebug logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ BodyGeneratorView.FaceGenShowDebug(strings);
 ### FaceGenUpdateDeformKeys
 `public static string FaceGenUpdateDeformKeys(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FaceGenUpdateDeformKeys logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ BodyGeneratorView.FaceGenUpdateDeformKeys(strings);
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**Purpose:** Reads the data or state of `y to render`.
+**Purpose:** **Purpose:** Reads the data or state of y to render.
 
 ```csharp
 // Obtain an instance of BodyGeneratorView from the subsystem API first
@@ -74,7 +74,7 @@ var result = bodyGeneratorView.ReadyToRender();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of BodyGeneratorView from the subsystem API first
@@ -85,7 +85,7 @@ bodyGeneratorView.OnTick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BodyGeneratorView from the subsystem API first
@@ -96,7 +96,7 @@ bodyGeneratorView.OnFinalize();
 ### InitCamera
 `public static MatrixFrame InitCamera(Camera camera, Vec3 cameraPosition)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `camera`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by camera.
 
 ```csharp
 // Static call; no instance required

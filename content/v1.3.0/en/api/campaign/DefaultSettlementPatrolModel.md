@@ -23,7 +23,7 @@ Treat `DefaultSettlementPatrolModel` as a Model-style extension point: first ide
 ### GetPatrolPartySpawnDuration
 `public override CampaignTime GetPatrolPartySpawnDuration(Settlement settlement)`
 
-**Purpose:** Reads and returns the `patrol party spawn duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the patrol party spawn duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultSettlementPatrolModel.GetPatrolPartySpawnDuration(settlement
 ### CanSettlementHavePatrolParties
 `public override bool CanSettlementHavePatrolParties(Settlement settlement)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `settlement have patrol parties`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for settlement have patrol parties.
 
 ```csharp
 // Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultSettlementPatrolModel.CanSettlementHavePatrolParties(settlem
 ### GetPartyTemplateForPatrolParty
 `public override PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement)`
 
-**Purpose:** Reads and returns the `party template for patrol party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party template for patrol party value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first

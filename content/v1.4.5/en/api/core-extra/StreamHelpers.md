@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CopyStream
 `public static Stream CopyStream(Stream inputStream)`
 
-**Purpose:** Copies the `stream` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the stream state of the this instance to a target.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `CrossRoadScoreData` as a Data-style extension point: first identify who c
 ### GetPointOfInterestType
 `public override PointOfInterests GetPointOfInterestType()`
 
-**Purpose:** Reads and returns the `point of interest type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the point of interest type value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrossRoadScoreData from the subsystem API first
@@ -34,7 +34,7 @@ var result = crossRoadScoreData.GetPointOfInterestType();
 ### IsInRadius
 `public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
 
-**Purpose:** Determines whether the current object is in the `in radius` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the in radius state or condition.
 
 ```csharp
 // Obtain an instance of CrossRoadScoreData from the subsystem API first
@@ -45,7 +45,7 @@ var result = crossRoadScoreData.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**Purpose:** Reads and returns the `location ratio` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the location ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of CrossRoadScoreData from the subsystem API first

@@ -32,7 +32,7 @@ description: "ResourceDepotLocation 的自动生成类参考。"
 ### StartWatchingChanges
 `public void StartWatchingChanges(FileSystemEventHandler onChangeEvent, RenamedEventHandler onRenameEvent)`
 
-**用途 / Purpose:** 启动「watching changes」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动watching changes流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepotLocation 实例
@@ -43,7 +43,7 @@ resourceDepotLocation.StartWatchingChanges(onChangeEvent, onRenameEvent);
 ### StopWatchingChanges
 `public void StopWatchingChanges()`
 
-**用途 / Purpose:** 停止「watching changes」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止watching changes流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ResourceDepotLocation 实例

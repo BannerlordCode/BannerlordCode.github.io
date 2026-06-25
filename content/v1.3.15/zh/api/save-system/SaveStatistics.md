@@ -23,7 +23,7 @@ description: "SaveStatistics 的自动生成类参考。"
 ### GetObjectCounts
 `public ValueTuple<int, int, int, long> GetObjectCounts(string key)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「object counts」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object counts 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -34,7 +34,7 @@ var result = saveStatistics.GetObjectCounts("example");
 ### GetContainerCounts
 `public ValueTuple<int, int, int, int, long> GetContainerCounts(string key)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「container counts」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 container counts 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -45,7 +45,7 @@ var result = saveStatistics.GetContainerCounts("example");
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「container size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 container size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -56,7 +56,7 @@ var result = saveStatistics.GetContainerSize("example");
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「type keys」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 type keys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例
@@ -67,7 +67,7 @@ var result = saveStatistics.GetTypeKeys();
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「container keys」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 container keys 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveStatistics 实例

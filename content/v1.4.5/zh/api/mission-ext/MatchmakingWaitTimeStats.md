@@ -29,7 +29,7 @@ description: "MatchmakingWaitTimeStats 的自动生成类参考。"
 ### AddRegionStats
 `public void AddRegionStats(MatchmakingWaitTimeRegionStats regionStats)`
 
-**用途 / Purpose:** 将 「region stats」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 region stats 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingWaitTimeStats 实例
@@ -40,7 +40,7 @@ matchmakingWaitTimeStats.AddRegionStats(regionStats);
 ### GetRegionStats
 `public MatchmakingWaitTimeRegionStats GetRegionStats(string region)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「region stats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 region stats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingWaitTimeStats 实例
@@ -51,7 +51,7 @@ var result = matchmakingWaitTimeStats.GetRegionStats("example");
 ### GetWaitTime
 `public int GetWaitTime(string region, string gameType, WaitTimeStatType statType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「wait time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 wait time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingWaitTimeStats 实例

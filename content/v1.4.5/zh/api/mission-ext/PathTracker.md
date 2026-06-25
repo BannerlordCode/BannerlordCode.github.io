@@ -31,7 +31,7 @@ description: "PathTracker 的自动生成类参考。"
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**用途 / Purpose:** 重新计算并更新 「version」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 version 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PathTracker 实例
@@ -42,7 +42,7 @@ pathTracker.UpdateVersion();
 ### PathExists
 `public bool PathExists()`
 
-**用途 / Purpose:** 处理与 「path exists」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PathExists 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PathTracker 实例
@@ -53,7 +53,7 @@ var result = pathTracker.PathExists();
 ### Advance
 `public void Advance(float deltaDistance)`
 
-**用途 / Purpose:** 处理与 「advance」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Advance 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PathTracker 实例
@@ -64,7 +64,7 @@ pathTracker.Advance(0);
 ### GetPathLength
 `public float GetPathLength()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「path length」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 path length 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PathTracker 实例
@@ -75,7 +75,7 @@ var result = pathTracker.GetPathLength();
 ### CurrentFrameAndColor
 `public void CurrentFrameAndColor(out MatrixFrame frame, out Vec3 color)`
 
-**用途 / Purpose:** 处理与 「current frame and color」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CurrentFrameAndColor 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PathTracker 实例
@@ -86,7 +86,7 @@ pathTracker.CurrentFrameAndColor(frame, color);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PathTracker 实例

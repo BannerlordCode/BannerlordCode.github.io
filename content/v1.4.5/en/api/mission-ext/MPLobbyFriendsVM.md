@@ -48,7 +48,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -59,7 +59,7 @@ mPLobbyFriendsVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -70,7 +70,7 @@ mPLobbyFriendsVM.OnFinalize();
 ### OnStateActivate
 `public void OnStateActivate()`
 
-**Purpose:** Invoked when the `state activate` event is raised.
+**Purpose:** **Purpose:** Invoked when the state activate event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -81,7 +81,7 @@ mPLobbyFriendsVM.OnStateActivate();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -92,7 +92,7 @@ mPLobbyFriendsVM.OnTick(0);
 ### OnPlayerInvitedToParty
 `public void OnPlayerInvitedToParty(PlayerId playerId)`
 
-**Purpose:** Invoked when the `player invited to party` event is raised.
+**Purpose:** **Purpose:** Invoked when the player invited to party event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -103,7 +103,7 @@ mPLobbyFriendsVM.OnPlayerInvitedToParty(playerId);
 ### OnPlayerAddedToParty
 `public void OnPlayerAddedToParty(PlayerId playerId)`
 
-**Purpose:** Invoked when the `player added to party` event is raised.
+**Purpose:** **Purpose:** Invoked when the player added to party event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -114,7 +114,7 @@ mPLobbyFriendsVM.OnPlayerAddedToParty(playerId);
 ### OnPlayerRemovedFromParty
 `public void OnPlayerRemovedFromParty(PlayerId playerId)`
 
-**Purpose:** Invoked when the `player removed from party` event is raised.
+**Purpose:** **Purpose:** Invoked when the player removed from party event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -125,7 +125,7 @@ mPLobbyFriendsVM.OnPlayerRemovedFromParty(playerId);
 ### UpdateCanInviteOtherPlayersToParty
 `public void UpdateCanInviteOtherPlayersToParty()`
 
-**Purpose:** Recalculates and stores the latest representation of `can invite other players to party`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of can invite other players to party.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -136,7 +136,7 @@ mPLobbyFriendsVM.UpdateCanInviteOtherPlayersToParty();
 ### UpdatePartyLeader
 `public void UpdatePartyLeader()`
 
-**Purpose:** Recalculates and stores the latest representation of `party leader`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of party leader.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -147,7 +147,7 @@ mPLobbyFriendsVM.UpdatePartyLeader();
 ### OnFriendRequestNotificationsReceived
 `public void OnFriendRequestNotificationsReceived(List<LobbyNotification> notifications)`
 
-**Purpose:** Invoked when the `friend request notifications received` event is raised.
+**Purpose:** **Purpose:** Invoked when the friend request notifications received event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -158,7 +158,7 @@ mPLobbyFriendsVM.OnFriendRequestNotificationsReceived(notifications);
 ### GetAllFriends
 `public MBBindingList<MPLobbyPlayerBaseVM> GetAllFriends()`
 
-**Purpose:** Reads and returns the `all friends` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all friends value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -169,7 +169,7 @@ var result = mPLobbyFriendsVM.GetAllFriends();
 ### OnSupportedFeaturesRefreshed
 `public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)`
 
-**Purpose:** Invoked when the `supported features refreshed` event is raised.
+**Purpose:** **Purpose:** Invoked when the supported features refreshed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -180,7 +180,7 @@ mPLobbyFriendsVM.OnSupportedFeaturesRefreshed(supportedFeatures);
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**Purpose:** Invoked when the `friend list updated` event is raised.
+**Purpose:** **Purpose:** Invoked when the friend list updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first
@@ -191,7 +191,7 @@ mPLobbyFriendsVM.OnFriendListUpdated(false);
 ### SetToggleFriendListKey
 `public void SetToggleFriendListKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `toggle friend list key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to toggle friend list key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyFriendsVM from the subsystem API first

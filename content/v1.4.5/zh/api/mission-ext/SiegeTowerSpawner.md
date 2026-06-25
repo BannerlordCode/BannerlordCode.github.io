@@ -23,7 +23,7 @@ description: "SiegeTowerSpawner 的自动生成类参考。"
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**用途 / Purpose:** 处理与 「assign parameters」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AssignParameters 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTowerSpawner 实例

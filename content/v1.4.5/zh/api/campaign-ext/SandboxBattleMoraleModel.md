@@ -23,7 +23,7 @@ description: "SandboxBattleMoraleModel 的自动生成类参考。"
 ### CalculateMoraleChangeToCharacter
 `public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**用途 / Purpose:** 计算「morale change to character」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算morale change to character的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -34,7 +34,7 @@ var result = sandboxBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0)
 ### GetEffectiveInitialMorale
 `public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective initial morale」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective initial morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -45,7 +45,7 @@ var result = sandboxBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
 ### CanPanicDueToMorale
 `public override bool CanPanicDueToMorale(Agent agent)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「panic due to morale」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 panic due to morale 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -56,7 +56,7 @@ var result = sandboxBattleMoraleModel.CanPanicDueToMorale(agent);
 ### CalculateCasualtiesFactor
 `public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**用途 / Purpose:** 计算「casualties factor」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算casualties factor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -67,7 +67,7 @@ var result = sandboxBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
 ### GetAverageMorale
 `public override float GetAverageMorale(Formation formation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「average morale」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 average morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -78,7 +78,7 @@ var result = sandboxBattleMoraleModel.GetAverageMorale(formation);
 ### CalculateMoraleChangeOnShipSunk
 `public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**用途 / Purpose:** 计算「morale change on ship sunk」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算morale change on ship sunk的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -89,7 +89,7 @@ var result = sandboxBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin
 ### CalculateMoraleOnRamming
 `public override float CalculateMoraleOnRamming(Agent agent, IShipOrigin rammingShip, IShipOrigin rammedShip)`
 
-**用途 / Purpose:** 计算「morale on ramming」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算morale on ramming的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例
@@ -100,7 +100,7 @@ var result = sandboxBattleMoraleModel.CalculateMoraleOnRamming(agent, rammingShi
 ### CalculateMoraleOnShipsConnected
 `public override float CalculateMoraleOnShipsConnected(Agent agent, IShipOrigin ownerShip, IShipOrigin targetShip)`
 
-**用途 / Purpose:** 计算「morale on ships connected」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算morale on ships connected的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleMoraleModel 实例

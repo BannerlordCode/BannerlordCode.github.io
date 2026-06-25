@@ -29,7 +29,7 @@ description: "MapConversationMission 的自动生成类参考。"
 ### ConversationPlayArgs
 `public struct ConversationPlayArgs(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**用途 / Purpose:** 处理与 「conversation play args」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ConversationPlayArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationMission 实例
@@ -40,7 +40,7 @@ var result = mapConversationMission.ConversationPlayArgs("example", "example", "
 ### SetConversationTableau
 `public void SetConversationTableau(MapConversationTableau tableau)`
 
-**用途 / Purpose:** 为 「conversation tableau」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 conversation tableau 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationMission 实例
@@ -51,7 +51,7 @@ mapConversationMission.SetConversationTableau(tableau);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationMission 实例
@@ -62,7 +62,7 @@ mapConversationMission.Tick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationMission 实例

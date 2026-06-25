@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ToHexadecimalString
 `public static string ToHexadecimalString(this uint number)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToHexadecimalString logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Extensions.ToHexadecimalString(number);
 ### Description
 `public static string Description(this Enum value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Description logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Extensions.Description(value);
 ### NextFloat
 `public static float NextFloat(this Random random)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextFloat logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Extensions.NextFloat(random);
 ### Add
 `public static string Add(this string str, string appendant, bool newLine = true)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ Extensions.Add(str, "example", false);
 ### Split
 `public static IEnumerable<string> Split(this string str, int maxChunkSize)`
 
-**Purpose:** Splits `split` into multiple parts or sub-items.
+**Purpose:** **Purpose:** Splits split into multiple parts or sub-items.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ Extensions.Split(str, 0);
 ### GetOppositeSide
 `public static BattleSideEnum GetOppositeSide(this BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `opposite side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the opposite side value held by the this instance.
 
 ```csharp
 // Static call; no instance required

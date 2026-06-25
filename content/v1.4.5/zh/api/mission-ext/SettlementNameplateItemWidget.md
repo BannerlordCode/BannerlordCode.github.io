@@ -39,7 +39,7 @@ description: "SettlementNameplateItemWidget 的自动生成类参考。"
 ### ParallelUpdate
 `public void ParallelUpdate(float dt)`
 
-**用途 / Purpose:** 处理与 「parallel update」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ParallelUpdate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplateItemWidget 实例

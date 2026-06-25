@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -49,7 +49,7 @@ sPInventorySortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -60,7 +60,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -71,7 +71,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -82,7 +82,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -93,7 +93,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -104,7 +104,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### SortByOption
 `public void SortByOption(InventoryItemSortOption sortOption, InventoryItemSortState sortState)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SortByOption logic.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -115,7 +115,7 @@ sPInventorySortControllerVM.SortByOption(sortOption, sortState);
 ### SortByDefaultState
 `public void SortByDefaultState()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SortByDefaultState logic.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -126,7 +126,7 @@ sPInventorySortControllerVM.SortByDefaultState();
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SortByCurrentState logic.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -137,7 +137,7 @@ sPInventorySortControllerVM.SortByCurrentState();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by name`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by name.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -148,7 +148,7 @@ sPInventorySortControllerVM.ExecuteSortByName();
 ### ExecuteSortByType
 `public void ExecuteSortByType()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by type`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by type.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -159,7 +159,7 @@ sPInventorySortControllerVM.ExecuteSortByType();
 ### ExecuteSortByQuantity
 `public void ExecuteSortByQuantity()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by quantity`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by quantity.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first
@@ -170,7 +170,7 @@ sPInventorySortControllerVM.ExecuteSortByQuantity();
 ### ExecuteSortByCost
 `public void ExecuteSortByCost()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by cost`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by cost.
 
 ```csharp
 // Obtain an instance of SPInventorySortControllerVM from the subsystem API first

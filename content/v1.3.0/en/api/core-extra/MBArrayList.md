@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### IndexOf
 `public int IndexOf(T item)`
 
-**Purpose:** Finds the position index of the specified content in the current object.
+**Purpose:** **Purpose:** Finds the position index of the specified content in the this instance.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -45,7 +45,7 @@ var result = mBArrayList.IndexOf(item);
 ### Contains
 `public bool Contains(T item)`
 
-**Purpose:** Indicates whether the current object contains the specified item.
+**Purpose:** **Purpose:** Indicates whether the this instance contains the specified item.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -56,7 +56,7 @@ var result = mBArrayList.Contains(item);
 ### GetEnumerator
 `public IEnumerator<T> GetEnumerator()`
 
-**Purpose:** Reads and returns the `enumerator` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the enumerator value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -67,7 +67,7 @@ var result = mBArrayList.GetEnumerator();
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -78,7 +78,7 @@ mBArrayList.Clear();
 ### Add
 `public void Add(T item)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -89,7 +89,7 @@ mBArrayList.Add(item);
 ### AddRange
 `public void AddRange(IEnumerable<T> list)`
 
-**Purpose:** Adds `range` to the current collection or state.
+**Purpose:** **Purpose:** Adds range to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -100,7 +100,7 @@ mBArrayList.AddRange(list);
 ### Remove
 `public bool Remove(T item)`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first
@@ -111,7 +111,7 @@ var result = mBArrayList.Remove(item);
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**Purpose:** Copies the `to` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the to state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of MBArrayList from the subsystem API first

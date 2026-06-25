@@ -35,7 +35,7 @@ description: "MPLobbyPartyJoinRequestPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPartyJoinRequestPopupVM 实例
@@ -46,7 +46,7 @@ mPLobbyPartyJoinRequestPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(PlayerId joiningPlayer, PlayerId viaPlayerId, string viaPlayerName)`
 
-**用途 / Purpose:** 打开「with」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPartyJoinRequestPopupVM 实例
@@ -57,7 +57,7 @@ mPLobbyPartyJoinRequestPopupVM.OpenWith(joiningPlayer, viaPlayerId, "example");
 ### OpenWithNewParty
 `public void OpenWithNewParty(PlayerId joiningPlayer)`
 
-**用途 / Purpose:** 打开「with new party」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with new party对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPartyJoinRequestPopupVM 实例
@@ -68,7 +68,7 @@ mPLobbyPartyJoinRequestPopupVM.OpenWithNewParty(joiningPlayer);
 ### Close
 `public void Close()`
 
-**用途 / Purpose:** 关闭当前对象代表的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭当前对象代表的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPartyJoinRequestPopupVM 实例
@@ -79,7 +79,7 @@ mPLobbyPartyJoinRequestPopupVM.Close();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyPartyJoinRequestPopupVM 实例

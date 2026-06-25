@@ -23,7 +23,7 @@ Treat `ShipStatModel` as a Model-style extension point: first identify who creat
 ### GetShipTierf
 `public abstract float GetShipTierf(Ship ship)`
 
-**Purpose:** Reads and returns the `ship tierf` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship tierf value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipStatModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = shipStatModel.GetShipTierf(ship);
 ### GetShipFlagshipScore
 `public abstract float GetShipFlagshipScore(Ship ship)`
 
-**Purpose:** Reads and returns the `ship flagship score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship flagship score value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipStatModel from the subsystem API first

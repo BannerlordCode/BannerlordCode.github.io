@@ -23,7 +23,7 @@ description: "DefaultPartyNavigationModel 的自动生成类参考。"
 ### GetEmbarkDisembarkThresholdDistance
 `public override float GetEmbarkDisembarkThresholdDistance()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「embark disembark threshold distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 embark disembark threshold distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyNavigationModel.GetEmbarkDisembarkThresholdDistance();
 ### GetInvalidTerrainTypesForNavigationType
 `public override int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「invalid terrain types for navigation type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 invalid terrain types for navigation type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyNavigationModel.GetInvalidTerrainTypesForNavigationType
 ### IsTerrainTypeValidForNavigationType
 `public override bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「terrain type valid for navigation type」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 terrain type valid for navigation type 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartyNavigationModel.IsTerrainTypeValidForNavigationType(ter
 ### HasNavalNavigationCapability
 `public override bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「naval navigation capability」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 naval navigation capability。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyNavigationModel 实例

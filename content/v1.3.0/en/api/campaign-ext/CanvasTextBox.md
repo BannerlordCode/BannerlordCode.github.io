@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public override void LoadFrom(XmlNode canvasTextNode)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CanvasTextBox from the subsystem API first
@@ -34,7 +34,7 @@ canvasTextBox.LoadFrom(canvasTextNode);
 ### GetVerticalPositionOf
 `public float GetVerticalPositionOf(int index)`
 
-**Purpose:** Reads and returns the `vertical position of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the vertical position of value held by the this instance.
 
 ```csharp
 // Obtain an instance of CanvasTextBox from the subsystem API first

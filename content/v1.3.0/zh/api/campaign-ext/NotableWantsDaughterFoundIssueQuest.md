@@ -30,7 +30,7 @@ description: "NotableWantsDaughterFoundIssueQuest 的自动生成类参考。"
 ### OnBeforeMissionOpened
 `public void OnBeforeMissionOpened()`
 
-**用途 / Purpose:** 在 「before mission opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 before mission opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NotableWantsDaughterFoundIssueQuest 实例
@@ -41,7 +41,7 @@ notableWantsDaughterFoundIssueQuest.OnBeforeMissionOpened();
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NotableWantsDaughterFoundIssueQuest 实例
@@ -52,7 +52,7 @@ notableWantsDaughterFoundIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(h
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public override void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can move to settlement info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can move to settlement info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 NotableWantsDaughterFoundIssueQuest 实例

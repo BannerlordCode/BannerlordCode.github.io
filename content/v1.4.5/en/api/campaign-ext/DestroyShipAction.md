@@ -19,7 +19,7 @@ DestroyShipAction is a set of static methods that trigger "DestroyShip" in the c
 public static void Apply(Ship ship)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyByDiscard
 
@@ -27,7 +27,7 @@ public static void Apply(Ship ship)
 public static void ApplyByDiscard(Ship ship)
 ```
 
-**Purpose:** discard.
+**Purpose:** **Purpose:** Applies the effect of by discard to the this instance.
 
 ## Usage Example
 

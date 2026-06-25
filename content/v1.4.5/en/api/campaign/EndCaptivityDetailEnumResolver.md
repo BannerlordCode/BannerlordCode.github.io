@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### ResolveObject
 `public string ResolveObject(string originalObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResolveObject logic.
 
 ```csharp
 // Obtain an instance of EndCaptivityDetailEnumResolver from the subsystem API first

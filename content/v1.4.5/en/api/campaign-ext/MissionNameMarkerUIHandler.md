@@ -23,7 +23,7 @@ Treat `MissionNameMarkerUIHandler` as a Handler-style extension point: first ide
 ### SetMarkersDirty
 `public virtual void SetMarkersDirty()`
 
-**Purpose:** Assigns a new value to `markers dirty` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to markers dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionNameMarkerUIHandler from the subsystem API first

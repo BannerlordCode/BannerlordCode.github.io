@@ -29,7 +29,7 @@ description: "ManagedParameters 的自动生成类参考。"
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedParameters 实例
@@ -40,7 +40,7 @@ managedParameters.Initialize("example");
 ### GetManagedParameter
 `public bool GetManagedParameter(ManagedParametersEnum _managedParametersEnum)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「managed parameter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 managed parameter 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedParameters 实例
@@ -51,7 +51,7 @@ var result = managedParameters.GetManagedParameter(_managedParametersEnum);
 ### SetManagedParameter
 `public bool SetManagedParameter(ManagedParametersEnum _managedParametersEnum, bool value)`
 
-**用途 / Purpose:** 为 「managed parameter」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 managed parameter 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedParameters 实例

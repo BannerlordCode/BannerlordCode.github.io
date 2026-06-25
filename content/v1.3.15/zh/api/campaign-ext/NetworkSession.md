@@ -32,7 +32,7 @@ description: "NetworkSession 的自动生成类参考。"
 ### SendDisconnectMessage
 `public void SendDisconnectMessage()`
 
-**用途 / Purpose:** 处理与 「send disconnect message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SendDisconnectMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkSession 实例
@@ -43,7 +43,7 @@ networkSession.SendDisconnectMessage();
 ### Tick
 `public virtual void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkSession 实例
@@ -54,7 +54,7 @@ networkSession.Tick();
 ### SendMessage
 `public void SendMessage(MessageContract message)`
 
-**用途 / Purpose:** 处理与 「send message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SendMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkSession 实例
@@ -65,7 +65,7 @@ networkSession.SendMessage(message);
 ### ComponentMessageHandlerDelegate
 `public delegate void ComponentMessageHandlerDelegate(NetworkMessage networkMessage)`
 
-**用途 / Purpose:** 处理与 「component message handler delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ComponentMessageHandlerDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkSession 实例

@@ -35,7 +35,7 @@ description: "MapNavigationElementBase 的自动生成类参考。"
 ### OpenView
 `public abstract void OpenView()`
 
-**用途 / Purpose:** 打开「view」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开view对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationElementBase 实例
@@ -46,7 +46,7 @@ mapNavigationElementBase.OpenView();
 ### OpenView
 `public abstract void OpenView(params object parameters)`
 
-**用途 / Purpose:** 打开「view」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开view对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationElementBase 实例

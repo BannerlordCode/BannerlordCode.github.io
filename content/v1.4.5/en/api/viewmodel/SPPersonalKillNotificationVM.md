@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### OnPersonalKill
 `public void OnPersonalKill(int damageAmount, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName, bool isUnconscious)`
 
-**Purpose:** Invoked when the `personal kill` event is raised.
+**Purpose:** **Purpose:** Invoked when the personal kill event is raised.
 
 ```csharp
 // Obtain an instance of SPPersonalKillNotificationVM from the subsystem API first
@@ -40,7 +40,7 @@ sPPersonalKillNotificationVM.OnPersonalKill(0, false, false, false, "example", f
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isMountDamage, bool isFriendlyFire, string killedAgentName)`
 
-**Purpose:** Invoked when the `personal hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the personal hit event is raised.
 
 ```csharp
 // Obtain an instance of SPPersonalKillNotificationVM from the subsystem API first
@@ -51,7 +51,7 @@ sPPersonalKillNotificationVM.OnPersonalHit(0, false, false, "example");
 ### OnPersonalMessage
 `public void OnPersonalMessage(string message)`
 
-**Purpose:** Invoked when the `personal message` event is raised.
+**Purpose:** **Purpose:** Invoked when the personal message event is raised.
 
 ```csharp
 // Obtain an instance of SPPersonalKillNotificationVM from the subsystem API first

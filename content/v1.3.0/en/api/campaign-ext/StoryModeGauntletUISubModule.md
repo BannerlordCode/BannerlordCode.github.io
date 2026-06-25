@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI` to place it in the stack, then inspe
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Invoked when the `game initialization finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeGauntletUISubModule from the subsystem API first
@@ -34,7 +34,7 @@ storyModeGauntletUISubModule.OnGameInitializationFinished(game);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Invoked when the `game end` event is raised.
+**Purpose:** **Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeGauntletUISubModule from the subsystem API first

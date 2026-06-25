@@ -30,7 +30,7 @@ Treat `MarriageModel` as a Model-style extension point: first identify who creat
 ### IsCoupleSuitableForMarriage
 `public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Determines whether the current object is in the `couple suitable for marriage` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the couple suitable for marriage state or condition.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = marriageModel.IsCoupleSuitableForMarriage(firstHero, secondHero);
 ### GetEffectiveRelationIncrease
 `public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Reads and returns the `effective relation increase` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective relation increase value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -52,7 +52,7 @@ var result = marriageModel.GetEffectiveRelationIncrease(firstHero, secondHero);
 ### GetClanAfterMarriage
 `public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Reads and returns the `clan after marriage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the clan after marriage value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -63,7 +63,7 @@ var result = marriageModel.GetClanAfterMarriage(firstHero, secondHero);
 ### IsSuitableForMarriage
 `public abstract bool IsSuitableForMarriage(Hero hero)`
 
-**Purpose:** Determines whether the current object is in the `suitable for marriage` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the suitable for marriage state or condition.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -74,7 +74,7 @@ var result = marriageModel.IsSuitableForMarriage(hero);
 ### IsClanSuitableForMarriage
 `public abstract bool IsClanSuitableForMarriage(Clan clan)`
 
-**Purpose:** Determines whether the current object is in the `clan suitable for marriage` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the clan suitable for marriage state or condition.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -85,7 +85,7 @@ var result = marriageModel.IsClanSuitableForMarriage(clan);
 ### NpcCoupleMarriageChance
 `public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NpcCoupleMarriageChance logic.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -96,7 +96,7 @@ var result = marriageModel.NpcCoupleMarriageChance(firstHero, secondHero);
 ### ShouldNpcMarriageBetweenClansBeAllowed
 `public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShouldNpcMarriageBetweenClansBeAllowed logic.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first
@@ -107,7 +107,7 @@ var result = marriageModel.ShouldNpcMarriageBetweenClansBeAllowed(consideringCla
 ### GetAdultChildrenSuitableForMarriage
 `public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
 
-**Purpose:** Reads and returns the `adult children suitable for marriage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the adult children suitable for marriage value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageModel from the subsystem API first

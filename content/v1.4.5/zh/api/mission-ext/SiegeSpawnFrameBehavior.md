@@ -23,7 +23,7 @@ description: "SiegeSpawnFrameBehavior 的自动生成类参考。"
 ### Initialize
 `public override void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeSpawnFrameBehavior 实例
@@ -34,7 +34,7 @@ siegeSpawnFrameBehavior.Initialize();
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeSpawnFrameBehavior 实例
@@ -45,7 +45,7 @@ var result = siegeSpawnFrameBehavior.GetSpawnFrame(team, false, false);
 ### OnFlagDeactivated
 `public void OnFlagDeactivated(FlagCapturePoint flag)`
 
-**用途 / Purpose:** 在 「flag deactivated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 flag deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeSpawnFrameBehavior 实例

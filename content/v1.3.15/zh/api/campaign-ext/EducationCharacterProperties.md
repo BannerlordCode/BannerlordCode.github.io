@@ -23,7 +23,7 @@ description: "EducationCharacterProperties 的自动生成类参考。"
 ### Equals
 `public bool Equals(EducationCampaignBehavior.EducationCharacterProperties other)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCharacterProperties 实例
@@ -34,7 +34,7 @@ var result = educationCharacterProperties.Equals(other);
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCharacterProperties 实例
@@ -45,7 +45,7 @@ var result = educationCharacterProperties.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCharacterProperties 实例
@@ -56,7 +56,7 @@ var result = educationCharacterProperties.GetHashCode();
 ### GetUsedHandBoneIndex
 `public sbyte GetUsedHandBoneIndex()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「used hand bone index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 used hand bone index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCharacterProperties 实例

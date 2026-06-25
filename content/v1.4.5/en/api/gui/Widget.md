@@ -137,7 +137,7 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetAllChildrenAndThisRecursive
 `public List<Widget> GetAllChildrenAndThisRecursive()`
 
-**Purpose:** Reads and returns the `all children and this recursive` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all children and this recursive value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -148,7 +148,7 @@ var result = widget.GetAllChildrenAndThisRecursive();
 ### ApplyActionToAllChildren
 `public void ApplyActionToAllChildren(Action<Widget> action)`
 
-**Purpose:** Applies the effect of `action to all children` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action to all children to the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -159,7 +159,7 @@ widget.ApplyActionToAllChildren(action);
 ### ApplyActionToAllChildrenRecursive
 `public void ApplyActionToAllChildrenRecursive(Action<Widget> action)`
 
-**Purpose:** Applies the effect of `action to all children recursive` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action to all children recursive to the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -170,7 +170,7 @@ widget.ApplyActionToAllChildrenRecursive(action);
 ### GetAllChildrenRecursive
 `public List<Widget> GetAllChildrenRecursive(Func<Widget, bool> predicate = null)`
 
-**Purpose:** Reads and returns the `all children recursive` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all children recursive value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -181,7 +181,7 @@ var result = widget.GetAllChildrenRecursive(func<Widget, false);
 ### GetAllParents
 `public List<Widget> GetAllParents()`
 
-**Purpose:** Reads and returns the `all parents` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all parents value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -192,7 +192,7 @@ var result = widget.GetAllParents();
 ### AddComponent
 `public void AddComponent(WidgetComponent component)`
 
-**Purpose:** Adds `component` to the current collection or state.
+**Purpose:** **Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -203,7 +203,7 @@ widget.AddComponent(component);
 ### AddState
 `public void AddState(string stateName)`
 
-**Purpose:** Adds `state` to the current collection or state.
+**Purpose:** **Purpose:** Adds state to the current collection or state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -214,7 +214,7 @@ widget.AddState("example");
 ### ContainsState
 `public bool ContainsState(string stateName)`
 
-**Purpose:** Indicates whether the current object contains `state`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -225,7 +225,7 @@ var result = widget.ContainsState("example");
 ### SetState
 `public virtual void SetState(string stateName)`
 
-**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -236,7 +236,7 @@ widget.SetState("example");
 ### FindChild
 `public Widget FindChild(BindingPath path)`
 
-**Purpose:** Looks up the matching `child` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching child in the current collection or scope.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -247,7 +247,7 @@ var result = widget.FindChild(path);
 ### FindChild
 `public Widget FindChild(string singlePathNode)`
 
-**Purpose:** Looks up the matching `child` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching child in the current collection or scope.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -258,7 +258,7 @@ var result = widget.FindChild("example");
 ### FindChild
 `public Widget FindChild(WidgetSearchDelegate widgetSearchDelegate)`
 
-**Purpose:** Looks up the matching `child` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching child in the current collection or scope.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -269,7 +269,7 @@ var result = widget.FindChild(widgetSearchDelegate);
 ### FindChild
 `public Widget FindChild(string id, bool includeAllChildren = false)`
 
-**Purpose:** Looks up the matching `child` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching child in the current collection or scope.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -280,7 +280,7 @@ var result = widget.FindChild("example", false);
 ### GetFirstInChildrenAndThisRecursive
 `public Widget GetFirstInChildrenAndThisRecursive(Func<Widget, bool> predicate)`
 
-**Purpose:** Reads and returns the `first in children and this recursive` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the first in children and this recursive value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -291,7 +291,7 @@ var result = widget.GetFirstInChildrenAndThisRecursive(func<Widget, false);
 ### GetFirstInChildrenRecursive
 `public Widget GetFirstInChildrenRecursive(Func<Widget, bool> predicate)`
 
-**Purpose:** Reads and returns the `first in children recursive` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the first in children recursive value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -302,7 +302,7 @@ var result = widget.GetFirstInChildrenRecursive(func<Widget, false);
 ### RemoveAllChildren
 `public void RemoveAllChildren()`
 
-**Purpose:** Removes `all children` from the current collection or state.
+**Purpose:** **Purpose:** Removes all children from the current collection or state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -313,7 +313,7 @@ widget.RemoveAllChildren();
 ### UpdateAnimationPropertiesSubTask
 `public virtual void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**Purpose:** Recalculates and stores the latest representation of `animation properties sub task`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of animation properties sub task.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -324,7 +324,7 @@ widget.UpdateAnimationPropertiesSubTask(0);
 ### Measure
 `public void Measure(Vector2 measureSpec)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Measure logic.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -335,7 +335,7 @@ widget.Measure(measureSpec);
 ### CheckIsMyChildRecursive
 `public bool CheckIsMyChildRecursive(Widget child)`
 
-**Purpose:** Verifies whether `is my child recursive` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether is my child recursive holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -346,7 +346,7 @@ var result = widget.CheckIsMyChildRecursive(child);
 ### AddChild
 `public void AddChild(Widget widget)`
 
-**Purpose:** Adds `child` to the current collection or state.
+**Purpose:** **Purpose:** Adds child to the current collection or state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -357,7 +357,7 @@ widget.AddChild(widget);
 ### AddChildAtIndex
 `public void AddChildAtIndex(Widget widget, int index)`
 
-**Purpose:** Adds `child at index` to the current collection or state.
+**Purpose:** **Purpose:** Adds child at index to the current collection or state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -368,7 +368,7 @@ widget.AddChildAtIndex(widget, 0);
 ### SwapChildren
 `public void SwapChildren(Widget widget1, Widget widget2)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwapChildren logic.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -379,7 +379,7 @@ widget.SwapChildren(widget1, widget2);
 ### RemoveChild
 `public void RemoveChild(Widget widget)`
 
-**Purpose:** Removes `child` from the current collection or state.
+**Purpose:** **Purpose:** Removes child from the current collection or state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -390,7 +390,7 @@ widget.RemoveChild(widget);
 ### OnBeforeRemovedChild
 `public virtual void OnBeforeRemovedChild(Widget widget)`
 
-**Purpose:** Invoked when the `before removed child` event is raised.
+**Purpose:** **Purpose:** Invoked when the before removed child event is raised.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -401,7 +401,7 @@ widget.OnBeforeRemovedChild(widget);
 ### HasChild
 `public bool HasChild(Widget widget)`
 
-**Purpose:** Determines whether the current object already holds `child`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds child.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -412,7 +412,7 @@ var result = widget.HasChild(widget);
 ### UpdateBrushes
 `public virtual void UpdateBrushes(float dt)`
 
-**Purpose:** Recalculates and stores the latest representation of `brushes`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of brushes.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -423,7 +423,7 @@ widget.UpdateBrushes(0);
 ### GetChildIndex
 `public int GetChildIndex(Widget child)`
 
-**Purpose:** Reads and returns the `child index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the child index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -434,7 +434,7 @@ var result = widget.GetChildIndex(child);
 ### GetVisibleChildIndex
 `public int GetVisibleChildIndex(Widget child)`
 
-**Purpose:** Reads and returns the `visible child index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visible child index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -445,7 +445,7 @@ var result = widget.GetVisibleChildIndex(child);
 ### GetFilterChildIndex
 `public int GetFilterChildIndex(Widget child, Func<Widget, bool> childrenFilter)`
 
-**Purpose:** Reads and returns the `filter child index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the filter child index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -456,7 +456,7 @@ var result = widget.GetFilterChildIndex(child, func<Widget, false);
 ### GetChild
 `public Widget GetChild(int i)`
 
-**Purpose:** Reads and returns the `child` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the child value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -467,7 +467,7 @@ var result = widget.GetChild(0);
 ### Layout
 `public void Layout(float left, float bottom, float right, float top)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Layout logic.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -478,7 +478,7 @@ widget.Layout(0, 0, 0, 0);
 ### HandleInput
 `public virtual void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Executes the response logic associated with `input`.
+**Purpose:** **Purpose:** Executes the response logic associated with input.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -489,7 +489,7 @@ widget.HandleInput(lastKeysPressed);
 ### IsPointInsideMeasuredArea
 `public bool IsPointInsideMeasuredArea(Vector2 p)`
 
-**Purpose:** Determines whether the current object is in the `point inside measured area` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the point inside measured area state or condition.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -500,7 +500,7 @@ var result = widget.IsPointInsideMeasuredArea(p);
 ### IsPointInsideGamepadCursorArea
 `public bool IsPointInsideGamepadCursorArea(Vector2 p)`
 
-**Purpose:** Determines whether the current object is in the `point inside gamepad cursor area` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the point inside gamepad cursor area state or condition.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -511,7 +511,7 @@ var result = widget.IsPointInsideGamepadCursorArea(p);
 ### Hide
 `public void Hide()`
 
-**Purpose:** Hides the UI or element associated with the current object.
+**Purpose:** **Purpose:** Hides the UI or element associated with the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -522,7 +522,7 @@ widget.Hide();
 ### Show
 `public void Show()`
 
-**Purpose:** Displays the UI or element associated with the current object.
+**Purpose:** **Purpose:** Displays the UI or element associated with the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -533,7 +533,7 @@ widget.Show();
 ### GetLocalPoint
 `public Vector2 GetLocalPoint(Vector2 globalPoint)`
 
-**Purpose:** Reads and returns the `local point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local point value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -544,7 +544,7 @@ var result = widget.GetLocalPoint(globalPoint);
 ### SetSiblingIndex
 `public void SetSiblingIndex(int index, bool force = false)`
 
-**Purpose:** Assigns a new value to `sibling index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sibling index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -555,7 +555,7 @@ widget.SetSiblingIndex(0, false);
 ### GetSiblingIndex
 `public int GetSiblingIndex()`
 
-**Purpose:** Reads and returns the `sibling index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sibling index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -566,7 +566,7 @@ var result = widget.GetSiblingIndex();
 ### GetVisibleSiblingIndex
 `public int GetVisibleSiblingIndex()`
 
-**Purpose:** Reads and returns the `visible sibling index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visible sibling index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -577,7 +577,7 @@ var result = widget.GetVisibleSiblingIndex();
 ### Render
 `public void Render(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Render logic.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -588,7 +588,7 @@ widget.Render(twoDimensionContext, drawContext);
 ### IsRecursivelyVisible
 `public bool IsRecursivelyVisible()`
 
-**Purpose:** Determines whether the current object is in the `recursively visible` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the recursively visible state or condition.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -599,7 +599,7 @@ var result = widget.IsRecursivelyVisible();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first
@@ -610,7 +610,7 @@ var result = widget.ToString();
 ### OnGamepadNavigationFocusGain
 `public void OnGamepadNavigationFocusGain()`
 
-**Purpose:** Invoked when the `gamepad navigation focus gain` event is raised.
+**Purpose:** **Purpose:** Invoked when the gamepad navigation focus gain event is raised.
 
 ```csharp
 // Obtain an instance of Widget from the subsystem API first

@@ -31,7 +31,7 @@ description: "TextQueryPopUpVM 的自动生成类参考。"
 ### SetData
 `public void SetData(TextInquiryData data)`
 
-**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextQueryPopUpVM 实例
@@ -42,7 +42,7 @@ textQueryPopUpVM.SetData(data);
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**用途 / Purpose:** 执行 「affirmative action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 affirmative action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TextQueryPopUpVM 实例
@@ -53,7 +53,7 @@ textQueryPopUpVM.ExecuteAffirmativeAction();
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**用途 / Purpose:** 执行 「negative action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 negative action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TextQueryPopUpVM 实例
@@ -64,7 +64,7 @@ textQueryPopUpVM.ExecuteNegativeAction();
 ### OnClearData
 `public override void OnClearData()`
 
-**用途 / Purpose:** 在 「clear data」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clear data 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TextQueryPopUpVM 实例

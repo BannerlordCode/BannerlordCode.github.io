@@ -32,7 +32,7 @@ Treat `DevelopmentNameTextWidget` as a Widget-style extension point: first ident
 ### StartMaxTextAnimation
 `public void StartMaxTextAnimation()`
 
-**Purpose:** Starts the `max text animation` flow or state machine.
+**Purpose:** **Purpose:** Starts the max text animation flow or state machine.
 
 ```csharp
 // Obtain an instance of DevelopmentNameTextWidget from the subsystem API first

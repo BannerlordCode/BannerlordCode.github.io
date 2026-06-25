@@ -23,7 +23,7 @@ description: "MissionGenericInteractionItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGenericInteractionItemVM 实例
@@ -34,7 +34,7 @@ missionGenericInteractionItemVM.RefreshValues();
 ### SetData
 `public void SetData(TextObject message, bool isDisabled = false)`
 
-**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGenericInteractionItemVM 实例
@@ -45,7 +45,7 @@ missionGenericInteractionItemVM.SetData(message, false);
 ### ResetData
 `public void ResetData()`
 
-**用途 / Purpose:** 将 「data」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 data 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGenericInteractionItemVM 实例

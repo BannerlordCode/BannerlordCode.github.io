@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### GetAxisState
 `public float GetAxisState(bool isKeysAllowed, bool isMouseButtonAllowed, bool isMouseWheelAllowed, bool isControllerAllowed)`
 
-**Purpose:** Reads and returns the `axis state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the axis state value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameAxisKey from the subsystem API first
@@ -45,7 +45,7 @@ var result = gameAxisKey.GetAxisState(false, false, false, false);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of GameAxisKey from the subsystem API first

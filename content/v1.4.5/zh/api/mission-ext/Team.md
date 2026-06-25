@@ -51,7 +51,7 @@ description: "Team 的自动生成类参考。"
 ### SetCustomOrderController
 `public void SetCustomOrderController(OrderController customMasterOrderController, OrderController customPlayerOrderController)`
 
-**用途 / Purpose:** 为 「custom order controller」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 custom order controller 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -62,7 +62,7 @@ team.SetCustomOrderController(customMasterOrderController, customPlayerOrderCont
 ### UpdateCachedEnemyDataForFleeing
 `public void UpdateCachedEnemyDataForFleeing()`
 
-**用途 / Purpose:** 重新计算并更新 「cached enemy data for fleeing」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 cached enemy data for fleeing 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -73,7 +73,7 @@ team.UpdateCachedEnemyDataForFleeing();
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -84,7 +84,7 @@ team.Reset();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -95,7 +95,7 @@ team.Clear();
 ### DoesFirstFormationClassContainSecond
 `public static bool DoesFirstFormationClassContainSecond(FormationClass f1, FormationClass f2)`
 
-**用途 / Purpose:** 返回「first formation class contain second」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回first formation class contain second对当前对象是否成立的布尔结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -105,7 +105,7 @@ Team.DoesFirstFormationClassContainSecond(f1, f2);
 ### GetFormationFormationClass
 `public static FormationClass GetFormationFormationClass(Formation f)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation formation class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation formation class 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -115,7 +115,7 @@ Team.GetFormationFormationClass(f);
 ### GetPlayerTeamFormationClass
 `public static FormationClass GetPlayerTeamFormationClass(Agent mainAgent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player team formation class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player team formation class 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -125,7 +125,7 @@ Team.GetPlayerTeamFormationClass(mainAgent);
 ### AssignPlayerAsSergeantOfFormation
 `public void AssignPlayerAsSergeantOfFormation(MissionPeer peer, FormationClass formationClass)`
 
-**用途 / Purpose:** 处理与 「assign player as sergeant of formation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AssignPlayerAsSergeantOfFormation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -136,7 +136,7 @@ team.AssignPlayerAsSergeantOfFormation(peer, formationClass);
 ### AddTacticOption
 `public void AddTacticOption(TacticComponent tacticOption)`
 
-**用途 / Purpose:** 将 「tactic option」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 tactic option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -147,7 +147,7 @@ team.AddTacticOption(tacticOption);
 ### RemoveTacticOption
 `public void RemoveTacticOption(Type tacticType)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「tactic option」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 tactic option。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -158,7 +158,7 @@ team.RemoveTacticOption(tacticType);
 ### ClearTacticOptions
 `public void ClearTacticOptions()`
 
-**用途 / Purpose:** 清空当前对象中的「tactic options」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的tactic options。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -169,7 +169,7 @@ team.ClearTacticOptions();
 ### ResetTactic
 `public void ResetTactic()`
 
-**用途 / Purpose:** 将 「tactic」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 tactic 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -180,7 +180,7 @@ team.ResetTactic();
 ### AddTeamAI
 `public void AddTeamAI(TeamAIComponent teamAI, bool forceNotAIControlled = false)`
 
-**用途 / Purpose:** 将 「team a i」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 team a i 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -191,7 +191,7 @@ team.AddTeamAI(teamAI, false);
 ### DelegateCommandToAI
 `public void DelegateCommandToAI()`
 
-**用途 / Purpose:** 处理与 「delegate command to ai」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DelegateCommandToAI 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -202,7 +202,7 @@ team.DelegateCommandToAI();
 ### RearrangeFormationsAccordingToFilter
 `public void RearrangeFormationsAccordingToFilter(List<(Formation formation, int troopCount, TroopTraitsMask troopFilter, List<Agent> excludedAgents)> MassTransferData)`
 
-**用途 / Purpose:** 处理与 「rearrange formations according to filter」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RearrangeFormationsAccordingToFilter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -213,7 +213,7 @@ team.RearrangeFormationsAccordingToFilter(formation, 0, troopFilter, massTransfe
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -224,7 +224,7 @@ team.Tick(0);
 ### GetFormation
 `public Formation GetFormation(FormationClass formationIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -235,7 +235,7 @@ var result = team.GetFormation(formationIndex);
 ### SetIsEnemyOf
 `public void SetIsEnemyOf(Team otherTeam, bool isEnemyOf)`
 
-**用途 / Purpose:** 为 「is enemy of」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is enemy of 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -246,7 +246,7 @@ team.SetIsEnemyOf(otherTeam, false);
 ### IsEnemyOf
 `public bool IsEnemyOf(Team otherTeam)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「enemy of」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 enemy of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -257,7 +257,7 @@ var result = team.IsEnemyOf(otherTeam);
 ### IsFriendOf
 `public bool IsFriendOf(Team otherTeam)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「friend of」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 friend of 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -268,7 +268,7 @@ var result = team.IsFriendOf(otherTeam);
 ### AddAgentToTeam
 `public void AddAgentToTeam(Agent unit)`
 
-**用途 / Purpose:** 将 「agent to team」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 agent to team 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -279,7 +279,7 @@ team.AddAgentToTeam(unit);
 ### RemoveAgentFromTeam
 `public void RemoveAgentFromTeam(Agent unit)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「agent from team」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 agent from team。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -290,7 +290,7 @@ team.RemoveAgentFromTeam(unit);
 ### DeactivateAgent
 `public void DeactivateAgent(Agent agent)`
 
-**用途 / Purpose:** 停用「agent」对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 停用agent对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -301,7 +301,7 @@ team.DeactivateAgent(agent);
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -312,7 +312,7 @@ team.OnAgentRemoved(agent);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -323,7 +323,7 @@ var result = team.ToString();
 ### OnMissionEnded
 `public void OnMissionEnded()`
 
-**用途 / Purpose:** 在 「mission ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -334,7 +334,7 @@ team.OnMissionEnded();
 ### TriggerOnFormationsChanged
 `public void TriggerOnFormationsChanged(Formation formation)`
 
-**用途 / Purpose:** 触发「on formations changed」对应的逻辑或事件。
+**用途 / Purpose:** **用途 / Purpose:** 触发on formations changed对应的逻辑或事件。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -345,7 +345,7 @@ team.TriggerOnFormationsChanged(formation);
 ### TriggerOnFormationsChangedInDeployment
 `public void TriggerOnFormationsChangedInDeployment()`
 
-**用途 / Purpose:** 触发「on formations changed in deployment」对应的逻辑或事件。
+**用途 / Purpose:** **用途 / Purpose:** 触发on formations changed in deployment对应的逻辑或事件。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -356,7 +356,7 @@ team.TriggerOnFormationsChangedInDeployment();
 ### GetOrderControllerOf
 `public OrderController GetOrderControllerOf(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「order controller of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order controller of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -367,7 +367,7 @@ var result = team.GetOrderControllerOf(agent);
 ### SetPlayerRole
 `public void SetPlayerRole(bool isPlayerGeneral, bool isPlayerSergeant)`
 
-**用途 / Purpose:** 为 「player role」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 player role 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -378,7 +378,7 @@ team.SetPlayerRole(false, false);
 ### HasAnyEnemyTeamsWithAgents
 `public bool HasAnyEnemyTeamsWithAgents(bool ignoreMountedAgents)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「any enemy teams with agents」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any enemy teams with agents。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -389,7 +389,7 @@ var result = team.HasAnyEnemyTeamsWithAgents(false);
 ### HasAnyFormationsIncludingSpecialThatIsNotEmpty
 `public bool HasAnyFormationsIncludingSpecialThatIsNotEmpty()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「any formations including special that is not empty」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any formations including special that is not empty。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -400,7 +400,7 @@ var result = team.HasAnyFormationsIncludingSpecialThatIsNotEmpty();
 ### GetFormationCount
 `public int GetFormationCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -411,7 +411,7 @@ var result = team.GetFormationCount();
 ### GetAIControlledFormationCount
 `public int GetAIControlledFormationCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「a i controlled formation count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 a i controlled formation count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -422,7 +422,7 @@ var result = team.GetAIControlledFormationCount();
 ### GetAveragePositionOfEnemies
 `public Vec2 GetAveragePositionOfEnemies()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「average position of enemies」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 average position of enemies 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -433,7 +433,7 @@ var result = team.GetAveragePositionOfEnemies();
 ### GetAveragePosition
 `public Vec2 GetAveragePosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「average position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 average position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -444,7 +444,7 @@ var result = team.GetAveragePosition();
 ### GetMedianPosition
 `public WorldPosition GetMedianPosition(Vec2 averagePosition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「median position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 median position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -455,7 +455,7 @@ var result = team.GetMedianPosition(averagePosition);
 ### GetWeightedAverageOfEnemies
 `public Vec2 GetWeightedAverageOfEnemies(Vec2 basePoint)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weighted average of enemies」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weighted average of enemies 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -466,7 +466,7 @@ var result = team.GetWeightedAverageOfEnemies(basePoint);
 ### DisableDetachmentTicking
 `public void DisableDetachmentTicking()`
 
-**用途 / Purpose:** 处理与 「disable detachment ticking」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableDetachmentTicking 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例

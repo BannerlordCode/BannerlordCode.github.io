@@ -30,7 +30,7 @@ description: "TauntUsage 的自动生成类参考。"
 ### Compare
 `public int Compare(TauntUsage.TauntUsageFlag x, TauntUsage.TauntUsageFlag y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -41,7 +41,7 @@ var result = tauntUsage.Compare(x, y);
 ### AddUsage
 `public void AddUsage(TauntUsage usage)`
 
-**用途 / Purpose:** 将 「usage」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 usage 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -52,7 +52,7 @@ tauntUsage.AddUsage(usage);
 ### GetUsages
 `public MBReadOnlyList<TauntUsage> GetUsages()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usages」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usages 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -63,7 +63,7 @@ var result = tauntUsage.GetUsages();
 ### IsSuitable
 `public bool IsSuitable(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「suitable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 suitable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -74,7 +74,7 @@ var result = tauntUsage.IsSuitable(false, false, mainHandWeapon, offhandWeapon);
 ### GetIsNotSuitableReason
 `public TauntUsageFlag GetIsNotSuitableReason(bool isLeftStance, bool isOnFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is not suitable reason」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is not suitable reason 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -85,7 +85,7 @@ var result = tauntUsage.GetIsNotSuitableReason(false, false, mainHandWeapon, off
 ### GetAction
 `public string GetAction()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -96,7 +96,7 @@ var result = tauntUsage.GetAction();
 ### Initialize
 `public static TauntUsageManager Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ TauntUsage.Initialize();
 ### Read
 `public void Read()`
 
-**用途 / Purpose:** 读取当前对象的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取当前对象的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -117,7 +117,7 @@ tauntUsage.Read();
 ### GetUsageSet
 `public TauntUsageSet GetUsageSet(string id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usage set」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usage set 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -128,7 +128,7 @@ var result = tauntUsage.GetUsageSet("example");
 ### GetAction
 `public string GetAction(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -139,7 +139,7 @@ var result = tauntUsage.GetAction(0, false, false, mainHandWeapon, offhandWeapon
 ### GetActionDisabledReasonText
 `public static string GetActionDisabledReasonText(TauntUsage.TauntUsageFlag disabledReasonFlag)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action disabled reason text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action disabled reason text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -149,7 +149,7 @@ TauntUsage.GetActionDisabledReasonText(disabledReasonFlag);
 ### GetIsActionNotSuitableReason
 `public TauntUsage.TauntUsageFlag GetIsActionNotSuitableReason(int index, bool isLeftStance, bool onFoot, WeaponComponentData mainHandWeapon, WeaponComponentData offhandWeapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is action not suitable reason」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is action not suitable reason 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -160,7 +160,7 @@ var result = tauntUsage.GetIsActionNotSuitableReason(0, false, false, mainHandWe
 ### GetTauntItemCount
 `public int GetTauntItemCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「taunt item count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 taunt item count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -171,7 +171,7 @@ var result = tauntUsage.GetTauntItemCount();
 ### GetIndexOfAction
 `public int GetIndexOfAction(string id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「index of action」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index of action 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例
@@ -182,7 +182,7 @@ var result = tauntUsage.GetIndexOfAction("example");
 ### GetDefaultAction
 `public string GetDefaultAction(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default action」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default action 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TauntUsage 实例

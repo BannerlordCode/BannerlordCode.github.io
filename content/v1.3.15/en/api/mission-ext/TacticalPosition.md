@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of TacticalPosition from the subsystem API first
@@ -49,7 +49,7 @@ tacticalPosition.AfterMissionStart();
 ### SetWidth
 `public void SetWidth(float width)`
 
-**Purpose:** Assigns a new value to `width` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to width and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TacticalPosition from the subsystem API first

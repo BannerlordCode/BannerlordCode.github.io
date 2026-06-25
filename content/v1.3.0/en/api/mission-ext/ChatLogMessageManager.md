@@ -23,7 +23,7 @@ Treat `ChatLogMessageManager` as a Manager-style extension point: first identify
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of ChatLogMessageManager from the subsystem API first

@@ -23,7 +23,7 @@ Treat `ReplayCaptureLogic` as a Logic-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of ReplayCaptureLogic from the subsystem API first
@@ -34,7 +34,7 @@ replayCaptureLogic.OnBehaviorInitialize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ReplayCaptureLogic from the subsystem API first

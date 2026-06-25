@@ -29,7 +29,7 @@ description: "BarterData 的自动生成类参考。"
 ### AddBarterGroup
 `public void AddBarterGroup(BarterGroup barterGroup)`
 
-**用途 / Purpose:** 将 「barter group」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 barter group 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterData 实例
@@ -40,7 +40,7 @@ barterData.AddBarterGroup(barterGroup);
 ### GetBarterGroups
 `public List<BarterGroup> GetBarterGroups()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「barter groups」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 barter groups 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterData 实例
@@ -51,7 +51,7 @@ var result = barterData.GetBarterGroups();
 ### GetBarterables
 `public List<Barterable> GetBarterables()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「barterables」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 barterables 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterData 实例
@@ -62,7 +62,7 @@ var result = barterData.GetBarterables();
 ### GetOfferedBarterables
 `public List<Barterable> GetOfferedBarterables()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「offered barterables」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 offered barterables 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterData 实例

@@ -33,7 +33,7 @@ description: "WalkModeItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkModeItemVM 实例
@@ -44,7 +44,7 @@ walkModeItemVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkModeItemVM 实例
@@ -55,7 +55,7 @@ walkModeItemVM.OnFinalize();
 ### OnEnabled
 `public void OnEnabled()`
 
-**用途 / Purpose:** 在 「enabled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 enabled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkModeItemVM 实例
@@ -66,7 +66,7 @@ walkModeItemVM.OnEnabled();
 ### ToggleState
 `public void ToggleState()`
 
-**用途 / Purpose:** 获取或更新 「toggle state」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkModeItemVM 实例
@@ -77,7 +77,7 @@ walkModeItemVM.ToggleState();
 ### SetToggleInputKey
 `public void SetToggleInputKey(HotKey hotKey, bool isHotKeyConsoleOnly)`
 
-**用途 / Purpose:** 为 「toggle input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 toggle input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkModeItemVM 实例
@@ -88,7 +88,7 @@ walkModeItemVM.SetToggleInputKey(hotKey, false);
 ### SetToggleInputKey
 `public void SetToggleInputKey(GameKey gameKey, bool isHotKeyConsoleOnly)`
 
-**用途 / Purpose:** 为 「toggle input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 toggle input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WalkModeItemVM 实例

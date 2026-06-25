@@ -29,7 +29,7 @@ Treat `ClanLordStatusWidget` as a Widget-style extension point: first identify w
 ### ClanLordStatusWidget
 `public class ClanLordStatusWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClanLordStatusWidget logic.
 
 ```csharp
 // Obtain an instance of ClanLordStatusWidget from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanSupporterGroupVM from the subsystem API first
@@ -46,7 +46,7 @@ clanSupporterGroupVM.RefreshValues();
 ### AddSupporter
 `public void AddSupporter(Hero hero)`
 
-**Purpose:** Adds `supporter` to the current collection or state.
+**Purpose:** **Purpose:** Adds supporter to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClanSupporterGroupVM from the subsystem API first
@@ -57,7 +57,7 @@ clanSupporterGroupVM.AddSupporter(hero);
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of ClanSupporterGroupVM from the subsystem API first
@@ -68,7 +68,7 @@ clanSupporterGroupVM.Refresh();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Runs the operation or workflow associated with `select`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of ClanSupporterGroupVM from the subsystem API first

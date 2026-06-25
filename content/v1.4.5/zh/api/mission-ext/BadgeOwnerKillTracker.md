@@ -23,7 +23,7 @@ description: "BadgeOwnerKillTracker 的自动生成类参考。"
 ### OnPlayerJoin
 `public override void OnPlayerJoin(PlayerData playerData)`
 
-**用途 / Purpose:** 在 「player join」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player join 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BadgeOwnerKillTracker 实例
@@ -34,7 +34,7 @@ badgeOwnerKillTracker.OnPlayerJoin(playerData);
 ### OnKill
 `public override void OnKill(KillData killData)`
 
-**用途 / Purpose:** 在 「kill」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 kill 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BadgeOwnerKillTracker 实例

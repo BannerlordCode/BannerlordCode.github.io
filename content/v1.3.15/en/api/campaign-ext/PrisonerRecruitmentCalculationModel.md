@@ -23,7 +23,7 @@ Treat `PrisonerRecruitmentCalculationModel` as a Model-style extension point: fi
 ### GetConformityNeededToRecruitPrisoner
 `public abstract int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**Purpose:** Reads and returns the `conformity needed to recruit prisoner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the conformity needed to recruit prisoner value held by the this instance.
 
 ```csharp
 // Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = prisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPri
 ### GetConformityChangePerHour
 `public abstract ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**Purpose:** Reads and returns the `conformity change per hour` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the conformity change per hour value held by the this instance.
 
 ```csharp
 // Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = prisonerRecruitmentCalculationModel.GetConformityChangePerHour(part
 ### GetPrisonerRecruitmentMoraleEffect
 `public abstract int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**Purpose:** Reads and returns the `prisoner recruitment morale effect` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prisoner recruitment morale effect value held by the this instance.
 
 ```csharp
 // Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = prisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEff
 ### IsPrisonerRecruitable
 `public abstract bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**Purpose:** Determines whether the current object is in the `prisoner recruitable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the prisoner recruitable state or condition.
 
 ```csharp
 // Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = prisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, ch
 ### ShouldPartyRecruitPrisoners
 `public abstract bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShouldPartyRecruitPrisoners logic.
 
 ```csharp
 // Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = prisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(par
 ### CalculateRecruitableNumber
 `public abstract int CalculateRecruitableNumber(PartyBase party, CharacterObject character)`
 
-**Purpose:** Calculates the current value or result of `recruitable number`.
+**Purpose:** **Purpose:** Calculates the current value or result of recruitable number.
 
 ```csharp
 // Obtain an instance of PrisonerRecruitmentCalculationModel from the subsystem API first

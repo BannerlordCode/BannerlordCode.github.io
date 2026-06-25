@@ -23,7 +23,7 @@ description: "EncyclopediaListUnitComparer 的自动生成类参考。"
 ### CompareUnits
 `public int CompareUnits(EncyclopediaListItem x, EncyclopediaListItem y, Func<CharacterObject, CharacterObject, int> comparison)`
 
-**用途 / Purpose:** 比较两个「units」对象并返回大小/顺序结果。
+**用途 / Purpose:** **用途 / Purpose:** 比较两个units对象并返回大小/顺序结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListUnitComparer 实例

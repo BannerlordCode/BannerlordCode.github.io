@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party` to pl
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -51,7 +51,7 @@ partyTradeVM.RefreshValues();
 ### UpdateTroopData
 `public void UpdateTroopData(TroopRosterElement troopRoster, PartyScreenLogic.PartyRosterSide side, bool forceUpdate = true)`
 
-**Purpose:** Recalculates and stores the latest representation of `troop data`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of troop data.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -62,7 +62,7 @@ partyTradeVM.UpdateTroopData(troopRoster, side, false);
 ### FindTroopFromSide
 `public TroopRosterElement? FindTroopFromSide(CharacterObject character, PartyScreenLogic.PartyRosterSide side, bool isPrisoner)`
 
-**Purpose:** Looks up the matching `troop from side` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching troop from side in the current collection or scope.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -73,7 +73,7 @@ var result = partyTradeVM.FindTroopFromSide(character, side, false);
 ### ExecuteIncreasePlayerStock
 `public void ExecuteIncreasePlayerStock()`
 
-**Purpose:** Runs the operation or workflow associated with `increase player stock`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with increase player stock.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -84,7 +84,7 @@ partyTradeVM.ExecuteIncreasePlayerStock();
 ### ExecuteIncreaseOtherStock
 `public void ExecuteIncreaseOtherStock()`
 
-**Purpose:** Runs the operation or workflow associated with `increase other stock`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with increase other stock.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -95,7 +95,7 @@ partyTradeVM.ExecuteIncreaseOtherStock();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Runs the operation or workflow associated with `reset`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -106,7 +106,7 @@ partyTradeVM.ExecuteReset();
 ### ExecuteApplyTransaction
 `public void ExecuteApplyTransaction()`
 
-**Purpose:** Runs the operation or workflow associated with `apply transaction`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with apply transaction.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first
@@ -117,7 +117,7 @@ partyTradeVM.ExecuteApplyTransaction();
 ### ExecuteRemoveZeroCounts
 `public void ExecuteRemoveZeroCounts()`
 
-**Purpose:** Runs the operation or workflow associated with `remove zero counts`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove zero counts.
 
 ```csharp
 // Obtain an instance of PartyTradeVM from the subsystem API first

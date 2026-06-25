@@ -23,7 +23,7 @@ description: "AmmoBarrelBase 的自动生成类参考。"
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoBarrelBase 实例
@@ -34,7 +34,7 @@ ammoBarrelBase.OnDeploymentFinished();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoBarrelBase 实例
@@ -45,7 +45,7 @@ var result = ammoBarrelBase.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public abstract override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoBarrelBase 实例
@@ -56,7 +56,7 @@ var result = ammoBarrelBase.GetDescriptionText(gameEntity);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoBarrelBase 实例
@@ -67,7 +67,7 @@ var result = ammoBarrelBase.GetTickRequirement();
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「order」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AmmoBarrelBase 实例

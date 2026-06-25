@@ -23,7 +23,7 @@ Treat `ValuationModel` as a Model-style extension point: first identify who crea
 ### GetValueOfTroop
 `public abstract float GetValueOfTroop(CharacterObject troop)`
 
-**Purpose:** Reads and returns the `value of troop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value of troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of ValuationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = valuationModel.GetValueOfTroop(troop);
 ### GetMilitaryValueOfParty
 `public abstract float GetMilitaryValueOfParty(MobileParty party)`
 
-**Purpose:** Reads and returns the `military value of party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the military value of party value held by the this instance.
 
 ```csharp
 // Obtain an instance of ValuationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = valuationModel.GetMilitaryValueOfParty(party);
 ### GetValueOfHero
 `public abstract float GetValueOfHero(Hero hero)`
 
-**Purpose:** Reads and returns the `value of hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value of hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of ValuationModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultEncyclopediaShipPage.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Reads and returns the `compared value text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compared value text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultEncyclopediaShipPage.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Reads and returns the `compared value text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compared value text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultEncyclopediaShipPage.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Reads and returns the `compared value text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compared value text value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
 ### IsRelevant
 `public override bool IsRelevant()`
 
-**Purpose:** Determines whether the current object is in the `relevant` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the relevant state or condition.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultEncyclopediaShipPage.IsRelevant();
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**Purpose:** Reads and returns the `view fully qualified name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the view fully qualified name value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultEncyclopediaShipPage.GetViewFullyQualifiedName();
 ### GetStringID
 `public override string GetStringID()`
 
-**Purpose:** Reads and returns the `string i d` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the string i d value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -122,7 +122,7 @@ var result = defaultEncyclopediaShipPage.GetStringID();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -133,7 +133,7 @@ var result = defaultEncyclopediaShipPage.GetName();
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**Purpose:** Reads and returns the `object` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the object value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first
@@ -144,7 +144,7 @@ var result = defaultEncyclopediaShipPage.GetObject("example", "example");
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**Purpose:** Determines whether the current object is in the `valid encyclopedia item` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid encyclopedia item state or condition.
 
 ```csharp
 // Obtain an instance of DefaultEncyclopediaShipPage from the subsystem API first

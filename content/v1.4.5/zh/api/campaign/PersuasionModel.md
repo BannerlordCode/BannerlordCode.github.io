@@ -23,7 +23,7 @@ description: "PersuasionModel 的自动生成类参考。"
 ### GetSkillXpFromPersuasion
 `public abstract int GetSkillXpFromPersuasion(PersuasionDifficulty difficulty, int argumentDifficultyBonusCoefficient)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「skill xp from persuasion」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp from persuasion 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例
@@ -34,7 +34,7 @@ var result = persuasionModel.GetSkillXpFromPersuasion(difficulty, 0);
 ### GetChances
 `public abstract void GetChances(PersuasionOptionArgs optionArgs, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance, float difficultyMultiplier)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「chances」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例
@@ -45,7 +45,7 @@ persuasionModel.GetChances(optionArgs, successChance, critSuccessChance, critFai
 ### GetEffectChances
 `public abstract void GetEffectChances(PersuasionOptionArgs option, out float moveToNextStageChance, out float blockRandomOptionChance, float difficultyMultiplier)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effect chances」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effect chances 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例
@@ -56,7 +56,7 @@ persuasionModel.GetEffectChances(option, moveToNextStageChance, blockRandomOptio
 ### GetArgumentStrengthBasedOnTargetTraits
 `public abstract PersuasionArgumentStrength GetArgumentStrengthBasedOnTargetTraits(CharacterObject character, Tuple<TraitObject, int> traitCorrelation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「argument strength based on target traits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 argument strength based on target traits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例
@@ -67,7 +67,7 @@ var result = persuasionModel.GetArgumentStrengthBasedOnTargetTraits(character, t
 ### GetDifficulty
 `public abstract float GetDifficulty(PersuasionDifficulty difficulty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「difficulty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例
@@ -78,7 +78,7 @@ var result = persuasionModel.GetDifficulty(difficulty);
 ### CalculateInitialPersuasionProgress
 `public abstract float CalculateInitialPersuasionProgress(CharacterObject character, float goalValue, float successValue)`
 
-**用途 / Purpose:** 计算「initial persuasion progress」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算initial persuasion progress的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例
@@ -89,7 +89,7 @@ var result = persuasionModel.CalculateInitialPersuasionProgress(character, 0, 0)
 ### CalculatePersuasionGoalValue
 `public abstract float CalculatePersuasionGoalValue(CharacterObject oneToOneConversationCharacter, float successValue)`
 
-**用途 / Purpose:** 计算「persuasion goal value」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算persuasion goal value的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionModel 实例

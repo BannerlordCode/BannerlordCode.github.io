@@ -23,7 +23,7 @@ description: "MissionStealthSentryNameMarkerTargetVM 的自动生成类参考。
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionStealthSentryNameMarkerTargetVM 实例

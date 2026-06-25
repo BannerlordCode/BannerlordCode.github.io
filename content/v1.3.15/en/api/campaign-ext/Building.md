@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Buildings` to place 
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first
@@ -44,7 +44,7 @@ var result = building.GetHashCode();
 ### GetConstructionCost
 `public int GetConstructionCost()`
 
-**Purpose:** Reads and returns the `construction cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the construction cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first
@@ -55,7 +55,7 @@ var result = building.GetConstructionCost();
 ### LevelUp
 `public void LevelUp()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LevelUp logic.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first
@@ -66,7 +66,7 @@ building.LevelUp();
 ### LevelDown
 `public void LevelDown()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LevelDown logic.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first
@@ -77,7 +77,7 @@ building.LevelDown();
 ### HitPointChanged
 `public void HitPointChanged(float change)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitPointChanged logic.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first
@@ -88,7 +88,7 @@ building.HitPointChanged(0);
 ### AddEffectOfBuilding
 `public void AddEffectOfBuilding(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)`
 
-**Purpose:** Adds `effect of building` to the current collection or state.
+**Purpose:** **Purpose:** Adds effect of building to the current collection or state.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first
@@ -99,7 +99,7 @@ building.AddEffectOfBuilding(buildingEffect, result);
 ### GetBonusExplanation
 `public TextObject GetBonusExplanation()`
 
-**Purpose:** Reads and returns the `bonus explanation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bonus explanation value held by the this instance.
 
 ```csharp
 // Obtain an instance of Building from the subsystem API first

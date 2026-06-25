@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddAiBehavior
 `public void AddAiBehavior(BehaviorComponent behaviorComponent)`
 
-**Purpose:** Adds `ai behavior` to the current collection or state.
+**Purpose:** **Purpose:** Adds ai behavior to the current collection or state.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -42,7 +42,7 @@ formationAI.AddAiBehavior(behaviorComponent);
 ### AddSpecialBehavior
 `public void AddSpecialBehavior(BehaviorComponent behavior, bool purgePreviousSpecialBehaviors = false)`
 
-**Purpose:** Adds `special behavior` to the current collection or state.
+**Purpose:** **Purpose:** Adds special behavior to the current collection or state.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -53,7 +53,7 @@ formationAI.AddSpecialBehavior(behavior, false);
 ### Tick
 `public void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -64,7 +64,7 @@ formationAI.Tick();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -75,7 +75,7 @@ formationAI.OnDeploymentFinished();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -86,7 +86,7 @@ formationAI.OnAgentRemoved(agent);
 ### GetBehaviorAtIndex
 `public BehaviorComponent GetBehaviorAtIndex(int index)`
 
-**Purpose:** Reads and returns the `behavior at index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the behavior at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -97,7 +97,7 @@ var result = formationAI.GetBehaviorAtIndex(0);
 ### DebugMore
 `public void DebugMore()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugMore logic.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -108,7 +108,7 @@ formationAI.DebugMore();
 ### DebugScores
 `public void DebugScores()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugScores logic.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first
@@ -119,7 +119,7 @@ formationAI.DebugScores();
 ### ResetBehaviorWeights
 `public void ResetBehaviorWeights()`
 
-**Purpose:** Returns `behavior weights` to its default or initial condition.
+**Purpose:** **Purpose:** Returns behavior weights to its default or initial condition.
 
 ```csharp
 // Obtain an instance of FormationAI from the subsystem API first

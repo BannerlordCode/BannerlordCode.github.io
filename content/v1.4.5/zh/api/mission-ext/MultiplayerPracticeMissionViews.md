@@ -23,7 +23,7 @@ description: "MultiplayerPracticeMissionViews 的自动生成类参考。"
 ### OpenMultiplayerPracticeMission
 `public static MissionView OpenMultiplayerPracticeMission(Mission mission)`
 
-**用途 / Purpose:** 打开「multiplayer practice mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开multiplayer practice mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

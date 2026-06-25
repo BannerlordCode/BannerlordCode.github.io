@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.GauntletInput` to place it in the st
 ### GetIsMouseActive
 `public bool GetIsMouseActive()`
 
-**Purpose:** Reads and returns the `is mouse active` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is mouse active value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -34,7 +34,7 @@ var result = gauntletInputContext.GetIsMouseActive();
 ### GetMousePosition
 `public Vector2 GetMousePosition()`
 
-**Purpose:** Reads and returns the `mouse position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mouse position value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -45,7 +45,7 @@ var result = gauntletInputContext.GetMousePosition();
 ### GetMouseMovement
 `public Vector2 GetMouseMovement()`
 
-**Purpose:** Reads and returns the `mouse movement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mouse movement value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -56,7 +56,7 @@ var result = gauntletInputContext.GetMouseMovement();
 ### GetClickKeys
 `public InputKey GetClickKeys()`
 
-**Purpose:** Reads and returns the `click keys` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the click keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -67,7 +67,7 @@ var result = gauntletInputContext.GetClickKeys();
 ### GetAlternateClickKeys
 `public InputKey GetAlternateClickKeys()`
 
-**Purpose:** Reads and returns the `alternate click keys` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the alternate click keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -78,7 +78,7 @@ var result = gauntletInputContext.GetAlternateClickKeys();
 ### GetMouseScrollDelta
 `public float GetMouseScrollDelta()`
 
-**Purpose:** Reads and returns the `mouse scroll delta` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mouse scroll delta value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -89,7 +89,7 @@ var result = gauntletInputContext.GetMouseScrollDelta();
 ### GetControllerLeftStickState
 `public Vector2 GetControllerLeftStickState()`
 
-**Purpose:** Reads and returns the `controller left stick state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the controller left stick state value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -100,7 +100,7 @@ var result = gauntletInputContext.GetControllerLeftStickState();
 ### GetControllerRightStickState
 `public Vector2 GetControllerRightStickState()`
 
-**Purpose:** Reads and returns the `controller right stick state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the controller right stick state value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -111,7 +111,7 @@ var result = gauntletInputContext.GetControllerRightStickState();
 ### SetMousePositionOverride
 `public void SetMousePositionOverride(Vector2 mousePosition)`
 
-**Purpose:** Assigns a new value to `mouse position override` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mouse position override and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first
@@ -122,7 +122,7 @@ gauntletInputContext.SetMousePositionOverride(mousePosition);
 ### ResetMousePositionOverride
 `public void ResetMousePositionOverride()`
 
-**Purpose:** Returns `mouse position override` to its default or initial condition.
+**Purpose:** **Purpose:** Returns mouse position override to its default or initial condition.
 
 ```csharp
 // Obtain an instance of GauntletInputContext from the subsystem API first

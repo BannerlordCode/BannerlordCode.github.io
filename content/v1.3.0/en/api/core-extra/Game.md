@@ -52,7 +52,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateBannerVisual
 `public IBannerVisual CreateBannerVisual(Banner banner)`
 
-**Purpose:** Constructs a new `banner visual` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new banner visual entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -63,7 +63,7 @@ var result = game.CreateBannerVisual(banner);
 ### GetDefaultEquipmentWithName
 `public Equipment GetDefaultEquipmentWithName(string equipmentName)`
 
-**Purpose:** Reads and returns the `default equipment with name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default equipment with name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -74,7 +74,7 @@ var result = game.GetDefaultEquipmentWithName("example");
 ### SetDefaultEquipments
 `public void SetDefaultEquipments(IReadOnlyDictionary<string, Equipment> defaultEquipments)`
 
-**Purpose:** Assigns a new value to `default equipments` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to default equipments and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -85,7 +85,7 @@ game.SetDefaultEquipments(iReadOnlyDictionary<string, defaultEquipments);
 ### CreateGame
 `public static Game CreateGame(GameType gameType, GameManagerBase gameManager, int seed)`
 
-**Purpose:** Constructs a new `game` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new game entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -95,7 +95,7 @@ Game.CreateGame(gameType, gameManager, 0);
 ### CreateGame
 `public static Game CreateGame(GameType gameType, GameManagerBase gameManager)`
 
-**Purpose:** Constructs a new `game` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new game entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -105,7 +105,7 @@ Game.CreateGame(gameType, gameManager);
 ### LoadSaveGame
 `public static Game LoadSaveGame(LoadResult loadResult, GameManagerBase gameManager)`
 
-**Purpose:** Reads `save game` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads save game from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -115,7 +115,7 @@ Game.LoadSaveGame(loadResult, gameManager);
 ### Save
 `public void Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)`
 
-**Purpose:** Writes the current object's data to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -126,7 +126,7 @@ game.Save(metaData, "example", driver, onSaveCompleted);
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -137,7 +137,7 @@ game.Destroy();
 ### CreateGameManager
 `public void CreateGameManager()`
 
-**Purpose:** Constructs a new `game manager` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new game manager entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -148,7 +148,7 @@ game.CreateGameManager();
 ### OnStateChanged
 `public void OnStateChanged(GameState oldState)`
 
-**Purpose:** Invoked when the `state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the state changed event is raised.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -159,7 +159,7 @@ game.OnStateChanged(oldState);
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -170,7 +170,7 @@ game.Initialize();
 ### RegisterTypes
 `public static void RegisterTypes(GameType gameType, MBObjectManager objectManager, GameManagerBase gameManager)`
 
-**Purpose:** Registers `types` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers types with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -180,7 +180,7 @@ Game.RegisterTypes(gameType, objectManager, gameManager);
 ### SetBasicModels
 `public void SetBasicModels(IEnumerable<GameModel> models)`
 
-**Purpose:** Assigns a new value to `basic models` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to basic models and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -191,7 +191,7 @@ game.SetBasicModels(models);
 ### OnGameStart
 `public void OnGameStart()`
 
-**Purpose:** Invoked when the `game start` event is raised.
+**Purpose:** **Purpose:** Invoked when the game start event is raised.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -202,7 +202,7 @@ game.OnGameStart();
 ### DoLoading
 `public bool DoLoading()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoLoading logic.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -213,7 +213,7 @@ var result = game.DoLoading();
 ### OnMissionIsStarting
 `public void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
 
-**Purpose:** Invoked when the `mission is starting` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission is starting event is raised.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -224,7 +224,7 @@ game.OnMissionIsStarting("example", rec);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -235,7 +235,7 @@ game.OnFinalize();
 ### InitializeDefaultGameObjects
 `public void InitializeDefaultGameObjects()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `default game objects`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by default game objects.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -246,7 +246,7 @@ game.InitializeDefaultGameObjects();
 ### LoadBasicFiles
 `public void LoadBasicFiles()`
 
-**Purpose:** Reads `basic files` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads basic files from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first
@@ -257,7 +257,7 @@ game.LoadBasicFiles();
 ### ItemObjectDeserialized
 `public void ItemObjectDeserialized(ItemObject itemObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ItemObjectDeserialized logic.
 
 ```csharp
 // Obtain an instance of Game from the subsystem API first

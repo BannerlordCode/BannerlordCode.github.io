@@ -23,7 +23,7 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### GetCheats
 `public override IEnumerable<GameplayCheatBase> GetCheats()`
 
-**Purpose:** Reads and returns the `cheats` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cheats value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoostSkillCheatGroup from the subsystem API first
@@ -34,7 +34,7 @@ var result = boostSkillCheatGroup.GetCheats();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoostSkillCheatGroup from the subsystem API first
@@ -45,7 +45,7 @@ var result = boostSkillCheatGroup.GetName();
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**Purpose:** Runs the operation or workflow associated with `cheat`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cheat.
 
 ```csharp
 // Obtain an instance of BoostSkillCheatGroup from the subsystem API first
@@ -56,7 +56,7 @@ boostSkillCheatGroup.ExecuteCheat();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoostSkillCheatGroup from the subsystem API first

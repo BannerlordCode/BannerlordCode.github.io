@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetPropertyValue
 `public void SetPropertyValue(T attribute, int value)`
 
-**Purpose:** Assigns a new value to `property value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to property value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PropertyOwner from the subsystem API first
@@ -34,7 +34,7 @@ propertyOwner.SetPropertyValue(attribute, 0);
 ### GetPropertyValue
 `public int GetPropertyValue(T attribute)`
 
-**Purpose:** Reads and returns the `property value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the property value value held by the this instance.
 
 ```csharp
 // Obtain an instance of PropertyOwner from the subsystem API first
@@ -45,7 +45,7 @@ var result = propertyOwner.GetPropertyValue(attribute);
 ### HasProperty
 `public bool HasProperty(T attribute)`
 
-**Purpose:** Determines whether the current object already holds `property`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds property.
 
 ```csharp
 // Obtain an instance of PropertyOwner from the subsystem API first
@@ -56,7 +56,7 @@ var result = propertyOwner.HasProperty(attribute);
 ### ClearAllProperty
 `public void ClearAllProperty()`
 
-**Purpose:** Removes all `all property` from the current object.
+**Purpose:** **Purpose:** Removes all all property from the this instance.
 
 ```csharp
 // Obtain an instance of PropertyOwner from the subsystem API first
@@ -67,7 +67,7 @@ propertyOwner.ClearAllProperty();
 ### GetProperties
 `public MBList<T> GetProperties()`
 
-**Purpose:** Reads and returns the `properties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of PropertyOwner from the subsystem API first
@@ -78,7 +78,7 @@ var result = propertyOwner.GetProperties();
 ### Deserialize
 `public void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of PropertyOwner from the subsystem API first

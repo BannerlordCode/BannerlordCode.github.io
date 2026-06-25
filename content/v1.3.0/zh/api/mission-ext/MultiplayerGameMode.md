@@ -29,7 +29,7 @@ description: "MultiplayerGameMode 的自动生成类参考。"
 ### JoinCustomGame
 `public abstract void JoinCustomGame(JoinGameData joinGameData)`
 
-**用途 / Purpose:** 把若干「custom game」连接成一个整体。
+**用途 / Purpose:** **用途 / Purpose:** 把若干custom game连接成一个整体。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameMode 实例
@@ -40,7 +40,7 @@ multiplayerGameMode.JoinCustomGame(joinGameData);
 ### StartMultiplayerGame
 `public abstract void StartMultiplayerGame(string scene)`
 
-**用途 / Purpose:** 启动「multiplayer game」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动multiplayer game流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGameMode 实例

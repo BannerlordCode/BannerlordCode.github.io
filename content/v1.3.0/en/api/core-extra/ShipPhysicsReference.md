@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ShipPhysicsReference from the subsystem API first
@@ -45,7 +45,7 @@ shipPhysicsReference.Deserialize(objectManager, node);
 ### GetDefaultWaterDensity
 `public static float GetDefaultWaterDensity()`
 
-**Purpose:** Reads and returns the `default water density` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default water density value held by the this instance.
 
 ```csharp
 // Static call; no instance required

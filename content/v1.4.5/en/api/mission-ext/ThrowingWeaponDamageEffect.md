@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetDamage
 `public override float GetDamage(WeaponComponentData attackerWeapon, DamageTypes damageType, bool isAlternativeAttack)`
 
-**Purpose:** Reads and returns the `damage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of ThrowingWeaponDamageEffect from the subsystem API first

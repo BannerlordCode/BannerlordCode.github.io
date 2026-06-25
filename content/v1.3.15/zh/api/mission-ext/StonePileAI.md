@@ -23,7 +23,7 @@ description: "StonePileAI 的自动生成类参考。"
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile usableMachine, StandingPoint standingPoint, List<Agent> agents, List<Agent> usedAgents)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「suitable agent for standing point」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 suitable agent for standing point 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ StonePileAI.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agent
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile stonePile, StandingPoint standingPoint, List<ValueTuple<Agent, float>> agents, List<Agent> usedAgents, float weight)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「suitable agent for standing point」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 suitable agent for standing point 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ StonePileAI.GetSuitableAgentForStandingPoint(stonePile, standingPoint, list<Valu
 ### IsAgentAssignable
 `public static bool IsAgentAssignable(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent assignable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent assignable 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

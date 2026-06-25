@@ -23,7 +23,7 @@ description: "MessageContractHandler 的自动生成类参考。"
 ### Invoke
 `public abstract void Invoke(MessageContract messageContract)`
 
-**用途 / Purpose:** 处理与 「invoke」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Invoke 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageContractHandler 实例

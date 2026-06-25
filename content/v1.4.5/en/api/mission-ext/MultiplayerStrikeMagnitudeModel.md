@@ -23,7 +23,7 @@ Treat `MultiplayerStrikeMagnitudeModel` as a Model-style extension point: first 
 ### CalculateStrikeMagnitudeForMissile
 `public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**Purpose:** Calculates the current value or result of `strike magnitude for missile`.
+**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for missile.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForMissile(
 ### CalculateStrikeMagnitudeForSwing
 `public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPoint, float extraLinearSpeed)`
 
-**Purpose:** Calculates the current value or result of `strike magnitude for swing`.
+**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for swing.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForSwing(at
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**Purpose:** Calculates the current value or result of `strike magnitude for unarmed attack`.
+**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for unarmed attack.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForUnarmedA
 ### CalculateStrikeMagnitudeForThrust
 `public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**Purpose:** Calculates the current value or result of `strike magnitude for thrust`.
+**Purpose:** **Purpose:** Calculates the current value or result of strike magnitude for thrust.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateStrikeMagnitudeForThrust(a
 ### ComputeRawDamage
 `public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ComputeRawDamage logic.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = multiplayerStrikeMagnitudeModel.ComputeRawDamage(damageType, 0, 0, 
 ### GetBluntDamageFactorByDamageType
 `public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**Purpose:** Reads and returns the `blunt damage factor by damage type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the blunt damage factor by damage type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = multiplayerStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(da
 ### CalculateHorseArcheryFactor
 `public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**Purpose:** Calculates the current value or result of `horse archery factor`.
+**Purpose:** **Purpose:** Calculates the current value or result of horse archery factor.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = multiplayerStrikeMagnitudeModel.CalculateHorseArcheryFactor(charact
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public override float CalculateBaseBlowMagnitudeForPassiveUsage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float extraLinearSpeed)`
 
-**Purpose:** Calculates the current value or result of `base blow magnitude for passive usage`.
+**Purpose:** **Purpose:** Calculates the current value or result of base blow magnitude for passive usage.
 
 ```csharp
 // Obtain an instance of MultiplayerStrikeMagnitudeModel from the subsystem API first

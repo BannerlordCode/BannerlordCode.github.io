@@ -30,7 +30,7 @@ description: "RestDataJsonConverter 的自动生成类参考。"
 ### ReadJson
 `public override RestData ReadJson(JsonReader reader, Type objectType, RestData existingValue, bool hasExistingValue, JsonSerializer serializer)`
 
-**用途 / Purpose:** 读取「json」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取json的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RestDataJsonConverter 实例
@@ -41,7 +41,7 @@ var result = restDataJsonConverter.ReadJson(reader, objectType, existingValue, f
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, RestData value, JsonSerializer serializer)`
 
-**用途 / Purpose:** 将「json」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将json写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 RestDataJsonConverter 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SaveFile
 `public SaveResult SaveFile(PlatformFilePath path, byte data)`
 
-**Purpose:** Writes `file` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes file to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -34,7 +34,7 @@ var result = platformFileHelperPC.SaveFile(path, 0);
 ### SaveFileString
 `public SaveResult SaveFileString(PlatformFilePath path, string data)`
 
-**Purpose:** Writes `file string` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes file string to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -45,7 +45,7 @@ var result = platformFileHelperPC.SaveFileString(path, "example");
 ### SaveFileAsync
 `public Task<SaveResult> SaveFileAsync(PlatformFilePath path, byte data)`
 
-**Purpose:** Writes `file async` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes file async to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -56,7 +56,7 @@ var result = platformFileHelperPC.SaveFileAsync(path, 0);
 ### SaveFileStringAsync
 `public Task<SaveResult> SaveFileStringAsync(PlatformFilePath path, string data)`
 
-**Purpose:** Writes `file string async` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes file string async to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -67,7 +67,7 @@ var result = platformFileHelperPC.SaveFileStringAsync(path, "example");
 ### AppendLineToFileString
 `public SaveResult AppendLineToFileString(PlatformFilePath path, string data)`
 
-**Purpose:** Appends `line to file string` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends line to file string to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -78,7 +78,7 @@ var result = platformFileHelperPC.AppendLineToFileString(path, "example");
 ### GetFileFullPath
 `public string GetFileFullPath(PlatformFilePath filePath)`
 
-**Purpose:** Reads and returns the `file full path` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file full path value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -89,7 +89,7 @@ var result = platformFileHelperPC.GetFileFullPath(filePath);
 ### FileExists
 `public bool FileExists(PlatformFilePath path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FileExists logic.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -100,7 +100,7 @@ var result = platformFileHelperPC.FileExists(path);
 ### GetFileContentStringAsync
 `public async Task<string> GetFileContentStringAsync(PlatformFilePath path)`
 
-**Purpose:** Reads and returns the `file content string async` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file content string async value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -111,7 +111,7 @@ var result = platformFileHelperPC.GetFileContentStringAsync(path);
 ### GetFileContentString
 `public string GetFileContentString(PlatformFilePath path)`
 
-**Purpose:** Reads and returns the `file content string` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file content string value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -122,7 +122,7 @@ var result = platformFileHelperPC.GetFileContentString(path);
 ### GetMetaDataContent
 `public byte GetMetaDataContent(PlatformFilePath path)`
 
-**Purpose:** Reads and returns the `meta data content` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the meta data content value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -133,7 +133,7 @@ var result = platformFileHelperPC.GetMetaDataContent(path);
 ### GetFileContent
 `public byte GetFileContent(PlatformFilePath path)`
 
-**Purpose:** Reads and returns the `file content` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file content value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -144,7 +144,7 @@ var result = platformFileHelperPC.GetFileContent(path);
 ### DeleteFile
 `public bool DeleteFile(PlatformFilePath path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteFile logic.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -155,7 +155,7 @@ var result = platformFileHelperPC.DeleteFile(path);
 ### CreateDirectory
 `public void CreateDirectory(PlatformDirectoryPath path)`
 
-**Purpose:** Constructs a new `directory` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new directory entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -166,7 +166,7 @@ platformFileHelperPC.CreateDirectory(path);
 ### GetFiles
 `public PlatformFilePath GetFiles(PlatformDirectoryPath path, string searchPattern, SearchOption searchOption)`
 
-**Purpose:** Reads and returns the `files` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the files value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -177,7 +177,7 @@ var result = platformFileHelperPC.GetFiles(path, "example", searchOption);
 ### RenameFile
 `public void RenameFile(PlatformFilePath filePath, string newName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RenameFile logic.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first
@@ -188,7 +188,7 @@ platformFileHelperPC.RenameFile(filePath, "example");
 ### GetError
 `public string GetError()`
 
-**Purpose:** Reads and returns the `error` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the error value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFileHelperPC from the subsystem API first

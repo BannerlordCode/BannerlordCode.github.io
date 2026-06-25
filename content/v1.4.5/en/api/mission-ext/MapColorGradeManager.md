@@ -23,7 +23,7 @@ Treat `MapColorGradeManager` as a Manager-style extension point: first identify 
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapColorGradeManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = mapColorGradeManager.GetTickRequirement();
 ### ApplyAtmosphere
 `public void ApplyAtmosphere(bool forceLoadTextures)`
 
-**Purpose:** Applies the effect of `atmosphere` to the current object.
+**Purpose:** **Purpose:** Applies the effect of atmosphere to the this instance.
 
 ```csharp
 // Obtain an instance of MapColorGradeManager from the subsystem API first
@@ -45,7 +45,7 @@ mapColorGradeManager.ApplyAtmosphere(false);
 ### ApplyColorGrade
 `public void ApplyColorGrade(float dt)`
 
-**Purpose:** Applies the effect of `color grade` to the current object.
+**Purpose:** **Purpose:** Applies the effect of color grade to the this instance.
 
 ```csharp
 // Obtain an instance of MapColorGradeManager from the subsystem API first

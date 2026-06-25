@@ -23,7 +23,7 @@ Treat `SiegeMissionPreparationHandler` as a Handler-style extension point: first
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SiegeMissionPreparationHandler from the subsystem API first

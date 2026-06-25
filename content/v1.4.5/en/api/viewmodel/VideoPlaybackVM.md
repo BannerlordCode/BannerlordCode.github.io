@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback
 ### Tick
 `public void Tick(float totalElapsedTimeInVideoInSeconds)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of VideoPlaybackVM from the subsystem API first
@@ -40,7 +40,7 @@ videoPlaybackVM.Tick(0);
 ### GetItemInTimeframe
 `public SRTHelper.SubtitleItem GetItemInTimeframe(float timeInSecondsInVideo)`
 
-**Purpose:** Reads and returns the `item in timeframe` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item in timeframe value held by the this instance.
 
 ```csharp
 // Obtain an instance of VideoPlaybackVM from the subsystem API first
@@ -51,7 +51,7 @@ var result = videoPlaybackVM.GetItemInTimeframe(0);
 ### SetSubtitles
 `public void SetSubtitles(List<SRTHelper.SubtitleItem> lines)`
 
-**Purpose:** Assigns a new value to `subtitles` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to subtitles and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VideoPlaybackVM from the subsystem API first

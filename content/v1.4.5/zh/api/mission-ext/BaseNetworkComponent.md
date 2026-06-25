@@ -31,7 +31,7 @@ description: "BaseNetworkComponent 的自动生成类参考。"
 ### WelcomeMessageReceivedDelegate
 `public delegate void WelcomeMessageReceivedDelegate(string messageText)`
 
-**用途 / Purpose:** 处理与 「welcome message received delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 WelcomeMessageReceivedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -42,7 +42,7 @@ baseNetworkComponent.WelcomeMessageReceivedDelegate("example");
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**用途 / Purpose:** 在 「udp network handler tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -53,7 +53,7 @@ baseNetworkComponent.OnUdpNetworkHandlerTick(0);
 ### HandleNewClientConnect
 `public override void HandleNewClientConnect(PlayerConnectionInfo playerConnectionInfo)`
 
-**用途 / Purpose:** 执行与 「new client connect」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 new client connect 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -64,7 +64,7 @@ baseNetworkComponent.HandleNewClientConnect(playerConnectionInfo);
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 player disconnect 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -75,7 +75,7 @@ baseNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### IntermissionCastVote
 `public void IntermissionCastVote(string itemID, int voteCount)`
 
-**用途 / Purpose:** 处理与 「intermission cast vote」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IntermissionCastVote 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -86,7 +86,7 @@ baseNetworkComponent.IntermissionCastVote("example", 0);
 ### HandleNewClientAfterSynchronized
 `public override void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 执行与 「new client after synchronized」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 new client after synchronized 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -97,7 +97,7 @@ baseNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**用途 / Purpose:** 在 「udp network handler close」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler close 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -108,7 +108,7 @@ baseNetworkComponent.OnUdpNetworkHandlerClose();
 ### SetDisplayingWelcomeMessage
 `public void SetDisplayingWelcomeMessage(bool displaying)`
 
-**用途 / Purpose:** 为 「displaying welcome message」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 displaying welcome message 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例

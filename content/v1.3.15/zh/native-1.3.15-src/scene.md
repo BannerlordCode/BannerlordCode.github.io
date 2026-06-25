@@ -974,6 +974,4 @@ rglOutput_text_file_stream::vftable
 
 ## 使用示例
 
-```csharp
-var example = new 场景系统();
-```
+// （占位示例已移除，见正文说明）

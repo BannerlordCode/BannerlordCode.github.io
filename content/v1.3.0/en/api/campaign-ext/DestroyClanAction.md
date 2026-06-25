@@ -19,7 +19,7 @@ DestroyClanAction is a set of static methods that trigger "DestroyClan" in the c
 public static void Apply(Clan destroyedClan)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyByFailedRebellion
 
@@ -27,7 +27,7 @@ public static void Apply(Clan destroyedClan)
 public static void ApplyByFailedRebellion(Clan failedRebellionClan)
 ```
 
-**Purpose:** failed rebellion.
+**Purpose:** **Purpose:** Applies the effect of by failed rebellion to the this instance.
 
 ### ApplyByClanLeaderDeath
 
@@ -35,7 +35,7 @@ public static void ApplyByFailedRebellion(Clan failedRebellionClan)
 public static void ApplyByClanLeaderDeath(Clan destroyedClan)
 ```
 
-**Purpose:** clan leader death.
+**Purpose:** **Purpose:** Applies the effect of by clan leader death to the this instance.
 
 ## Usage Example
 

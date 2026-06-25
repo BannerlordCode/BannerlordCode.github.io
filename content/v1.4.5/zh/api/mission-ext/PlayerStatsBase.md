@@ -36,7 +36,7 @@ description: "PlayerStatsBase 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount)`
 
-**用途 / Purpose:** 处理与 「fill with」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsBase 实例
@@ -47,7 +47,7 @@ playerStatsBase.FillWith(playerId, 0, 0, 0, 0, 0, 0);
 ### Update
 `public virtual void Update(BattlePlayerStatsBase battleStats, bool won)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsBase 实例

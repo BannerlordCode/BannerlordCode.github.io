@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Reads the data or state of `from network`.
+**Purpose:** **Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -49,7 +49,7 @@ var result = rangedSiegeWeapon.ReadFromNetwork(bufferReadValid);
 ### OnSiegeWeaponReloadDone
 `public delegate void OnSiegeWeaponReloadDone()`
 
-**Purpose:** Invoked when the `siege weapon reload done` event is raised.
+**Purpose:** **Purpose:** Invoked when the siege weapon reload done event is raised.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -60,7 +60,7 @@ rangedSiegeWeapon.OnSiegeWeaponReloadDone();
 ### SetAmmo
 `public virtual void SetAmmo(int ammoLeft)`
 
-**Purpose:** Assigns a new value to `ammo` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to ammo and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -71,7 +71,7 @@ rangedSiegeWeapon.SetAmmo(0);
 ### SetStartAmmo
 `public virtual void SetStartAmmo(int ammoLeft)`
 
-**Purpose:** Assigns a new value to `start ammo` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to start ammo and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -82,7 +82,7 @@ rangedSiegeWeapon.SetStartAmmo(0);
 ### ChangeProjectileEntityClient
 `public void ChangeProjectileEntityClient(int index)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeProjectileEntityClient logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -93,7 +93,7 @@ rangedSiegeWeapon.ChangeProjectileEntityClient(0);
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**Purpose:** Writes `to network` to the target location.
+**Purpose:** **Purpose:** Writes to network to the target location.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -104,7 +104,7 @@ rangedSiegeWeapon.WriteToNetwork();
 ### IsInRangeToCheckAlternativePoints
 `public override bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `in range to check alternative points` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the in range to check alternative points state or condition.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -115,7 +115,7 @@ var result = rangedSiegeWeapon.IsInRangeToCheckAlternativePoints(agent);
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**Purpose:** Reads and returns the `best point alternative to` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the best point alternative to value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -126,7 +126,7 @@ var result = rangedSiegeWeapon.GetBestPointAlternativeTo(standingPoint, agent);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -137,7 +137,7 @@ var result = rangedSiegeWeapon.GetTickRequirement();
 ### GiveInput
 `public void GiveInput(float inputX, float inputY)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GiveInput logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -148,7 +148,7 @@ rangedSiegeWeapon.GiveInput(0, 0);
 ### GiveExactInput
 `public void GiveExactInput(float targetX, float targetY)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GiveExactInput logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -159,7 +159,7 @@ rangedSiegeWeapon.GiveExactInput(0, 0);
 ### GetTargetReleaseAngle
 `public virtual float GetTargetReleaseAngle(Vec3 target)`
 
-**Purpose:** Reads and returns the `target release angle` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target release angle value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -170,7 +170,7 @@ var result = rangedSiegeWeapon.GetTargetReleaseAngle(target);
 ### AimAtThreat
 `public virtual bool AimAtThreat(Threat threat)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AimAtThreat logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -181,7 +181,7 @@ var result = rangedSiegeWeapon.AimAtThreat(threat);
 ### AimAtTarget
 `public bool AimAtTarget(Vec3 target)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AimAtTarget logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -192,7 +192,7 @@ var result = rangedSiegeWeapon.AimAtTarget(target);
 ### CheckIsTargetReached
 `public virtual bool CheckIsTargetReached(Vec3 target)`
 
-**Purpose:** Verifies whether `is target reached` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether is target reached holds true for the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -203,7 +203,7 @@ var result = rangedSiegeWeapon.CheckIsTargetReached(target);
 ### GetEstimatedTargetGlobalPoint
 `public Vec3 GetEstimatedTargetGlobalPoint(Threat threat)`
 
-**Purpose:** Reads and returns the `estimated target global point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the estimated target global point value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -214,7 +214,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetGlobalPoint(threat);
 ### GetEstimatedTargetGlobalPointForAgent
 `public Vec3 GetEstimatedTargetGlobalPointForAgent(Agent agent)`
 
-**Purpose:** Reads and returns the `estimated target global point for agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the estimated target global point for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -225,7 +225,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetGlobalPointForAgent(agent);
 ### AimAtRotation
 `public virtual void AimAtRotation(float horizontalRotation, float verticalRotation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AimAtRotation logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -236,7 +236,7 @@ rangedSiegeWeapon.AimAtRotation(0, 0);
 ### Shoot
 `public bool Shoot()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Shoot logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -247,7 +247,7 @@ var result = rangedSiegeWeapon.Shoot();
 ### ManualReload
 `public void ManualReload()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ManualReload logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -258,7 +258,7 @@ rangedSiegeWeapon.ManualReload();
 ### AiRequestsShoot
 `public void AiRequestsShoot()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AiRequestsShoot logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -269,7 +269,7 @@ rangedSiegeWeapon.AiRequestsShoot();
 ### AiRequestsManualReload
 `public void AiRequestsManualReload()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AiRequestsManualReload logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -280,7 +280,7 @@ rangedSiegeWeapon.AiRequestsManualReload();
 ### GetSiegeEngineType
 `public abstract override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -291,7 +291,7 @@ var result = rangedSiegeWeapon.GetSiegeEngineType();
 ### CanShootAtThreat
 `public bool CanShootAtThreat(Threat threat, int attemptCount = 5)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `shoot at threat`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for shoot at threat.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -302,7 +302,7 @@ var result = rangedSiegeWeapon.CanShootAtThreat(threat, 0);
 ### CanShootAtAgent
 `public bool CanShootAtAgent(Agent agent, int attemptCount = 5)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `shoot at agent`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for shoot at agent.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -313,7 +313,7 @@ var result = rangedSiegeWeapon.CanShootAtAgent(agent, 0);
 ### GetEstimatedTargetMovementVector
 `public virtual Vec3 GetEstimatedTargetMovementVector(Vec3 targetCurrentPosition, Vec3 targetVelocity)`
 
-**Purpose:** Reads and returns the `estimated target movement vector` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the estimated target movement vector value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -324,7 +324,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetMovementVector(targetCurrentPos
 ### CanShootAtPoint
 `public bool CanShootAtPoint(Vec3 target)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `shoot at point`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for shoot at point.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -335,7 +335,7 @@ var result = rangedSiegeWeapon.CanShootAtPoint(target);
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the order value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -346,7 +346,7 @@ var result = rangedSiegeWeapon.GetOrder(side);
 ### ProcessTargetValue
 `public abstract float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessTargetValue logic.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -357,7 +357,7 @@ var result = rangedSiegeWeapon.ProcessTargetValue(0, flags);
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** Invoked when the `after read from network` event is raised.
+**Purpose:** **Purpose:** Invoked when the after read from network event is raised.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -368,7 +368,7 @@ rangedSiegeWeapon.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord
 ### GetGlobalVelocity
 `public virtual Vec3 GetGlobalVelocity()`
 
-**Purpose:** Reads and returns the `global velocity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the global velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -379,7 +379,7 @@ var result = rangedSiegeWeapon.GetGlobalVelocity();
 ### SetPlayerForceUse
 `public void SetPlayerForceUse(bool value)`
 
-**Purpose:** Assigns a new value to `player force use` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to player force use and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -390,7 +390,7 @@ rangedSiegeWeapon.SetPlayerForceUse(false);
 ### OnShipCaptured
 `public override void OnShipCaptured(BattleSideEnum newDefaultSide)`
 
-**Purpose:** Invoked when the `ship captured` event is raised.
+**Purpose:** **Purpose:** Invoked when the ship captured event is raised.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first
@@ -401,7 +401,7 @@ rangedSiegeWeapon.OnShipCaptured(newDefaultSide);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of RangedSiegeWeapon from the subsystem API first

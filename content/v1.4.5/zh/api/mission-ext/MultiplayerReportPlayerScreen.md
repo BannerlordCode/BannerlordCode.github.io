@@ -29,7 +29,7 @@ description: "MultiplayerReportPlayerScreen 的自动生成类参考。"
 ### OnInitialize
 `public static void OnInitialize()`
 
-**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 initialize 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MultiplayerReportPlayerScreen.OnInitialize();
 ### OnFinalize
 `public static void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

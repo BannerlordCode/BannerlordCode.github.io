@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### CreateNewLog
 `public TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
-**Purpose:** Constructs a new `new log` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new log entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of TradeActionLogPool from the subsystem API first
@@ -34,7 +34,7 @@ var result = tradeActionLogPool.CreateNewLog(boughtSettlement, 0, itemRosterElem
 ### ReleaseLog
 `public void ReleaseLog(TradeActionLog log)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseLog logic.
 
 ```csharp
 // Obtain an instance of TradeActionLogPool from the subsystem API first
@@ -45,7 +45,7 @@ tradeActionLogPool.ReleaseLog(log);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of TradeActionLogPool from the subsystem API first

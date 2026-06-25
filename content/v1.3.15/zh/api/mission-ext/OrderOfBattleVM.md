@@ -51,7 +51,7 @@ description: "OrderOfBattleVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -62,7 +62,7 @@ orderOfBattleVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -73,7 +73,7 @@ orderOfBattleVM.OnFinalize();
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -84,7 +84,7 @@ orderOfBattleVM.Tick();
 ### Initialize
 `public void Initialize(Mission mission, Camera missionCamera, Action<int> selectFormationAtIndex, Action<int> deselectFormationAtIndex, Action clearFormationSelection, Action onAutoDeploy, Action onBeginMission, Dictionary<int, Agent> formationIndicesAndSergeants)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -95,7 +95,7 @@ orderOfBattleVM.Initialize(mission, missionCamera, selectFormationAtIndex, desel
 ### OnAllFormationsAssignedSergeants
 `public void OnAllFormationsAssignedSergeants(Dictionary<int, Agent> preAssignedCaptains)`
 
-**用途 / Purpose:** 在 「all formations assigned sergeants」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 all formations assigned sergeants 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -106,7 +106,7 @@ orderOfBattleVM.OnAllFormationsAssignedSergeants(dictionary<int, preAssignedCapt
 ### IsAnyClassSelectionEnabled
 `public bool IsAnyClassSelectionEnabled()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「any class selection enabled」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any class selection enabled 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -117,7 +117,7 @@ var result = orderOfBattleVM.IsAnyClassSelectionEnabled();
 ### ExecuteDisableAllClassSelections
 `public void ExecuteDisableAllClassSelections()`
 
-**用途 / Purpose:** 执行 「disable all class selections」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 disable all class selections 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -128,7 +128,7 @@ orderOfBattleVM.ExecuteDisableAllClassSelections();
 ### ExecuteAcceptHeroes
 `public void ExecuteAcceptHeroes()`
 
-**用途 / Purpose:** 执行 「accept heroes」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 accept heroes 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -139,7 +139,7 @@ orderOfBattleVM.ExecuteAcceptHeroes();
 ### ExecuteSelectAllHeroes
 `public void ExecuteSelectAllHeroes()`
 
-**用途 / Purpose:** 执行 「select all heroes」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select all heroes 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -150,7 +150,7 @@ orderOfBattleVM.ExecuteSelectAllHeroes();
 ### ExecuteClearHeroSelection
 `public void ExecuteClearHeroSelection()`
 
-**用途 / Purpose:** 执行 「clear hero selection」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 clear hero selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -161,7 +161,7 @@ orderOfBattleVM.ExecuteClearHeroSelection();
 ### OnDeploymentFinalized
 `public void OnDeploymentFinalized(bool playerDeployed)`
 
-**用途 / Purpose:** 在 「deployment finalized」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finalized 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -172,7 +172,7 @@ orderOfBattleVM.OnDeploymentFinalized(false);
 ### SelectFormationItemAtIndex
 `public void SelectFormationItemAtIndex(int index)`
 
-**用途 / Purpose:** 处理与 「select formation item at index」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectFormationItemAtIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -183,7 +183,7 @@ orderOfBattleVM.SelectFormationItemAtIndex(0);
 ### FocusFormationItemAtIndex
 `public void FocusFormationItemAtIndex(int index)`
 
-**用途 / Purpose:** 处理与 「focus formation item at index」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FocusFormationItemAtIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -194,7 +194,7 @@ orderOfBattleVM.FocusFormationItemAtIndex(0);
 ### DeselectAllFormations
 `public void DeselectAllFormations()`
 
-**用途 / Purpose:** 处理与 「deselect all formations」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeselectAllFormations 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -205,7 +205,7 @@ orderOfBattleVM.DeselectAllFormations();
 ### OnUnitDeployed
 `public void OnUnitDeployed()`
 
-**用途 / Purpose:** 在 「unit deployed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 unit deployed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -216,7 +216,7 @@ orderOfBattleVM.OnUnitDeployed();
 ### OnEscape
 `public bool OnEscape()`
 
-**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -227,7 +227,7 @@ var result = orderOfBattleVM.OnEscape();
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**用途 / Purpose:** 执行 「auto deploy」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 auto deploy 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -238,7 +238,7 @@ orderOfBattleVM.ExecuteAutoDeploy();
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**用途 / Purpose:** 执行 「begin mission」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin mission 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -249,7 +249,7 @@ orderOfBattleVM.ExecuteBeginMission();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -260,7 +260,7 @@ orderOfBattleVM.SetDoneInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### Exit
 `public void Exit(bool isCancel)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Exit logic.
 
 ```csharp
 // Obtain an instance of GauntletBannerBuilderScreen from the subsystem API first

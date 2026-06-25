@@ -76,7 +76,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### FormationIntegrityDataGroup
 `public struct FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)`
 
-**Purpose:** Formats `ion integrity data group` into a string suitable for display or storage.
+**Purpose:** **Purpose:** Formats ion integrity data group into a string suitable for display or storage.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -87,7 +87,7 @@ var result = formation.FormationIntegrityDataGroup(averageVelocityExcludeFarAgen
 ### GetRetreatPositionFromCache
 `public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
 
-**Purpose:** Reads and returns the `retreat position from cache` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the retreat position from cache value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -98,7 +98,7 @@ var result = formation.GetRetreatPositionFromCache(agentPosition);
 ### AddNewPositionToCache
 `public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
 
-**Purpose:** Adds `new position to cache` to the current collection or state.
+**Purpose:** **Purpose:** Adds new position to cache to the current collection or state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -109,7 +109,7 @@ formation.AddNewPositionToCache(agentPostion, retreatingPosition);
 ### CreateNewOrderWorldPosition
 `public WorldPosition CreateNewOrderWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
 
-**Purpose:** Constructs a new `new order world position` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new order world position entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -120,7 +120,7 @@ var result = formation.CreateNewOrderWorldPosition(worldPositionEnforcedCache);
 ### SetMovementOrder
 `public void SetMovementOrder(MovementOrder input)`
 
-**Purpose:** Assigns a new value to `movement order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to movement order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -131,7 +131,7 @@ formation.SetMovementOrder(input);
 ### SetFacingOrder
 `public void SetFacingOrder(FacingOrder order)`
 
-**Purpose:** Assigns a new value to `facing order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to facing order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -142,7 +142,7 @@ formation.SetFacingOrder(order);
 ### SetArrangementOrder
 `public void SetArrangementOrder(ArrangementOrder order)`
 
-**Purpose:** Assigns a new value to `arrangement order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to arrangement order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -153,7 +153,7 @@ formation.SetArrangementOrder(order);
 ### SetFormOrder
 `public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)`
 
-**Purpose:** Assigns a new value to `form order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to form order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -164,7 +164,7 @@ formation.SetFormOrder(order, false);
 ### SetRidingOrder
 `public void SetRidingOrder(RidingOrder order)`
 
-**Purpose:** Assigns a new value to `riding order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to riding order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -175,7 +175,7 @@ formation.SetRidingOrder(order);
 ### SetFiringOrder
 `public void SetFiringOrder(FiringOrder order)`
 
-**Purpose:** Assigns a new value to `firing order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to firing order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -186,7 +186,7 @@ formation.SetFiringOrder(order);
 ### SetControlledByAI
 `public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)`
 
-**Purpose:** Assigns a new value to `controlled by a i` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to controlled by a i and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -197,7 +197,7 @@ formation.SetControlledByAI(false, false);
 ### SetTargetFormation
 `public void SetTargetFormation(Formation targetFormation)`
 
-**Purpose:** Assigns a new value to `target formation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target formation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -208,7 +208,7 @@ formation.SetTargetFormation(targetFormation);
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -219,7 +219,7 @@ formation.OnDeploymentFinished();
 ### ResetArrangementOrderTickTimer
 `public void ResetArrangementOrderTickTimer()`
 
-**Purpose:** Returns `arrangement order tick timer` to its default or initial condition.
+**Purpose:** **Purpose:** Returns arrangement order tick timer to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -230,7 +230,7 @@ formation.ResetArrangementOrderTickTimer();
 ### SetPositioning
 `public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)`
 
-**Purpose:** Assigns a new value to `positioning` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to positioning and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -241,7 +241,7 @@ formation.SetPositioning(null, null, 0);
 ### GetCountOfUnitsWithCondition
 `public int GetCountOfUnitsWithCondition(Func<Agent, bool> function)`
 
-**Purpose:** Reads and returns the `count of units with condition` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the count of units with condition value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -252,7 +252,7 @@ var result = formation.GetCountOfUnitsWithCondition(func<Agent, false);
 ### GetReadonlyMovementOrderReference
 `public ref readonly MovementOrder GetReadonlyMovementOrderReference()`
 
-**Purpose:** Reads and returns the `readonly movement order reference` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the readonly movement order reference value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -263,7 +263,7 @@ var result = formation.GetReadonlyMovementOrderReference();
 ### GetFirstUnit
 `public Agent GetFirstUnit()`
 
-**Purpose:** Reads and returns the `first unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the first unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -274,7 +274,7 @@ var result = formation.GetFirstUnit();
 ### GetCountOfUnitsBelongingToLogicalClass
 `public int GetCountOfUnitsBelongingToLogicalClass(FormationClass logicalClass)`
 
-**Purpose:** Reads and returns the `count of units belonging to logical class` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the count of units belonging to logical class value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -285,7 +285,7 @@ var result = formation.GetCountOfUnitsBelongingToLogicalClass(logicalClass);
 ### GetCountOfUnitsBelongingToPhysicalClass
 `public int GetCountOfUnitsBelongingToPhysicalClass(FormationClass physicalClass, bool excludeBannerBearers)`
 
-**Purpose:** Reads and returns the `count of units belonging to physical class` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the count of units belonging to physical class value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -296,7 +296,7 @@ var result = formation.GetCountOfUnitsBelongingToPhysicalClass(physicalClass, fa
 ### SetSpawnIndex
 `public void SetSpawnIndex(int value = 0)`
 
-**Purpose:** Assigns a new value to `spawn index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to spawn index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -307,7 +307,7 @@ formation.SetSpawnIndex(0);
 ### GetNextSpawnIndex
 `public int GetNextSpawnIndex()`
 
-**Purpose:** Reads and returns the `next spawn index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next spawn index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -318,7 +318,7 @@ var result = formation.GetNextSpawnIndex();
 ### GetUnitWithIndex
 `public Agent GetUnitWithIndex(int unitIndex)`
 
-**Purpose:** Reads and returns the `unit with index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit with index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -329,7 +329,7 @@ var result = formation.GetUnitWithIndex(0);
 ### GetAveragePositionOfUnits
 `public Vec2 GetAveragePositionOfUnits(bool excludeDetachedUnits, bool excludePlayer)`
 
-**Purpose:** Reads and returns the `average position of units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the average position of units value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -340,7 +340,7 @@ var result = formation.GetAveragePositionOfUnits(false, false);
 ### GetMedianAgent
 `public Agent GetMedianAgent(bool excludeDetachedUnits, bool excludePlayer, Vec2 averagePosition)`
 
-**Purpose:** Reads and returns the `median agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the median agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -351,7 +351,7 @@ var result = formation.GetMedianAgent(false, false, averagePosition);
 ### GetUnderAttackTypeOfUnits
 `public Agent.UnderAttackType GetUnderAttackTypeOfUnits(float timeLimit = 3f)`
 
-**Purpose:** Reads and returns the `under attack type of units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the under attack type of units value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -362,7 +362,7 @@ var result = formation.GetUnderAttackTypeOfUnits(0);
 ### GetMovementTypeOfUnits
 `public Agent.MovementBehaviorType GetMovementTypeOfUnits()`
 
-**Purpose:** Reads and returns the `movement type of units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the movement type of units value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -373,7 +373,7 @@ var result = formation.GetMovementTypeOfUnits();
 ### GetUnitsWithoutDetachedOnes
 `public IEnumerable<Agent> GetUnitsWithoutDetachedOnes()`
 
-**Purpose:** Reads and returns the `units without detached ones` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units without detached ones value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -384,7 +384,7 @@ var result = formation.GetUnitsWithoutDetachedOnes();
 ### GetWallDirectionOfRelativeFormationLocation
 `public Vec2 GetWallDirectionOfRelativeFormationLocation(Agent unit)`
 
-**Purpose:** Reads and returns the `wall direction of relative formation location` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the wall direction of relative formation location value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -395,7 +395,7 @@ var result = formation.GetWallDirectionOfRelativeFormationLocation(unit);
 ### GetDirectionOfUnit
 `public Vec2 GetDirectionOfUnit(Agent unit)`
 
-**Purpose:** Reads and returns the `direction of unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the direction of unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -406,7 +406,7 @@ var result = formation.GetDirectionOfUnit(unit);
 ### GetMovementState
 `public MovementOrder.MovementStateEnum GetMovementState()`
 
-**Purpose:** Reads and returns the `movement state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the movement state value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -417,7 +417,7 @@ var result = formation.GetMovementState();
 ### GetOrderPositionOfUnit
 `public WorldPosition GetOrderPositionOfUnit(Agent unit)`
 
-**Purpose:** Reads and returns the `order position of unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the order position of unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -428,7 +428,7 @@ var result = formation.GetOrderPositionOfUnit(unit);
 ### GetCurrentGlobalPositionOfUnit
 `public Vec2 GetCurrentGlobalPositionOfUnit(Agent unit, bool blendWithOrderDirection)`
 
-**Purpose:** Reads and returns the `current global position of unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current global position of unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -439,7 +439,7 @@ var result = formation.GetCurrentGlobalPositionOfUnit(unit, false);
 ### GetAverageMaximumMovementSpeedOfUnits
 `public float GetAverageMaximumMovementSpeedOfUnits()`
 
-**Purpose:** Reads and returns the `average maximum movement speed of units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the average maximum movement speed of units value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -450,7 +450,7 @@ var result = formation.GetAverageMaximumMovementSpeedOfUnits();
 ### GetFormationPower
 `public float GetFormationPower()`
 
-**Purpose:** Reads and returns the `formation power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation power value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -461,7 +461,7 @@ var result = formation.GetFormationPower();
 ### GetFormationMeleeFightingPower
 `public float GetFormationMeleeFightingPower()`
 
-**Purpose:** Reads and returns the `formation melee fighting power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation melee fighting power value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -472,7 +472,7 @@ var result = formation.GetFormationMeleeFightingPower();
 ### GetDetachmentFrame
 `public WorldFrame? GetDetachmentFrame(Agent agent)`
 
-**Purpose:** Reads and returns the `detachment frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the detachment frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -483,7 +483,7 @@ var result = formation.GetDetachmentFrame(agent);
 ### GetMiddleFrontUnitPositionOffset
 `public Vec2 GetMiddleFrontUnitPositionOffset()`
 
-**Purpose:** Reads and returns the `middle front unit position offset` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the middle front unit position offset value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -494,7 +494,7 @@ var result = formation.GetMiddleFrontUnitPositionOffset();
 ### GetUnitsToPopWithReferencePosition
 `public List<IFormationUnit> GetUnitsToPopWithReferencePosition(int count, Vec3 targetPosition)`
 
-**Purpose:** Reads and returns the `units to pop with reference position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units to pop with reference position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -505,7 +505,7 @@ var result = formation.GetUnitsToPopWithReferencePosition(0, targetPosition);
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count)`
 
-**Purpose:** Reads and returns the `units to pop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units to pop value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -516,7 +516,7 @@ var result = formation.GetUnitsToPop(0);
 ### GetUnitSpawnFrameWithIndex
 `public void GetUnitSpawnFrameWithIndex(int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitCount, int unitSpacing, bool isMountedFormation, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)`
 
-**Purpose:** Reads and returns the `unit spawn frame with index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit spawn frame with index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -527,7 +527,7 @@ formation.GetUnitSpawnFrameWithIndex(0, formationPosition, formationDirection, 0
 ### GetUnitPositionWithIndexAccordingToNewOrder
 `public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)`
 
-**Purpose:** Reads and returns the `unit position with index according to new order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit position with index according to new order value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -538,7 +538,7 @@ formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, fo
 ### GetUnitPositionWithIndexAccordingToNewOrder
 `public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, int overridenUnitCount, out WorldPosition? unitPosition, out Vec2? unitDirection)`
 
-**Purpose:** Reads and returns the `unit position with index according to new order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit position with index according to new order value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -549,7 +549,7 @@ formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, fo
 ### GetUnitPositionWithIndexAccordingToNewOrder
 `public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection, out float actualWidth)`
 
-**Purpose:** Reads and returns the `unit position with index according to new order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit position with index according to new order value held by the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -560,7 +560,7 @@ formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, fo
 ### HasUnitsWithCondition
 `public bool HasUnitsWithCondition(Func<Agent, bool> function)`
 
-**Purpose:** Determines whether the current object already holds `units with condition`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds units with condition.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -571,7 +571,7 @@ var result = formation.HasUnitsWithCondition(func<Agent, false);
 ### HasUnitsWithCondition
 `public bool HasUnitsWithCondition(Func<Agent, bool> function, out Agent result)`
 
-**Purpose:** Determines whether the current object already holds `units with condition`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds units with condition.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -582,7 +582,7 @@ var result = formation.HasUnitsWithCondition(func<Agent, false, result);
 ### HasAnyEnemyFormationsThatIsNotEmpty
 `public bool HasAnyEnemyFormationsThatIsNotEmpty()`
 
-**Purpose:** Determines whether the current object already holds `any enemy formations that is not empty`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds any enemy formations that is not empty.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -593,7 +593,7 @@ var result = formation.HasAnyEnemyFormationsThatIsNotEmpty();
 ### HasUnitWithConditionLimitedRandom
 `public bool HasUnitWithConditionLimitedRandom(Func<Agent, bool> function, int startingIndex, int willBeCheckedUnitCount, out Agent resultAgent)`
 
-**Purpose:** Determines whether the current object already holds `unit with condition limited random`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds unit with condition limited random.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -604,7 +604,7 @@ var result = formation.HasUnitWithConditionLimitedRandom(func<Agent, false, 0, 0
 ### CollectUnitIndices
 `public int CollectUnitIndices()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectUnitIndices logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -615,7 +615,7 @@ var result = formation.CollectUnitIndices();
 ### ApplyActionOnEachUnit
 `public void ApplyActionOnEachUnit(Action<Agent> action, Agent ignoreAgent = null)`
 
-**Purpose:** Applies the effect of `action on each unit` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action on each unit to the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -626,7 +626,7 @@ formation.ApplyActionOnEachUnit(action, null);
 ### ApplyActionOnEachAttachedUnit
 `public void ApplyActionOnEachAttachedUnit(Action<Agent> action)`
 
-**Purpose:** Applies the effect of `action on each attached unit` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action on each attached unit to the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -637,7 +637,7 @@ formation.ApplyActionOnEachAttachedUnit(action);
 ### ApplyActionOnEachDetachedUnit
 `public void ApplyActionOnEachDetachedUnit(Action<Agent> action)`
 
-**Purpose:** Applies the effect of `action on each detached unit` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action on each detached unit to the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -648,7 +648,7 @@ formation.ApplyActionOnEachDetachedUnit(action);
 ### ApplyActionOnEachUnitViaBackupList
 `public void ApplyActionOnEachUnitViaBackupList(Action<Agent> action)`
 
-**Purpose:** Applies the effect of `action on each unit via backup list` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action on each unit via backup list to the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -659,7 +659,7 @@ formation.ApplyActionOnEachUnitViaBackupList(action);
 ### ApplyActionOnEachUnit
 `public void ApplyActionOnEachUnit(Action<Agent, List<WorldPosition>> action, List<WorldPosition> list)`
 
-**Purpose:** Applies the effect of `action on each unit` to the current object.
+**Purpose:** **Purpose:** Applies the effect of action on each unit to the this instance.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -670,7 +670,7 @@ formation.ApplyActionOnEachUnit(action<Agent, action, list);
 ### CountUnitsOnNavMeshIDMod10
 `public int CountUnitsOnNavMeshIDMod10(int navMeshID, bool includeOnlyPositionedUnits)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CountUnitsOnNavMeshIDMod10 logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -681,7 +681,7 @@ var result = formation.CountUnitsOnNavMeshIDMod10(0, false);
 ### OnAgentControllerChanged
 `public void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)`
 
-**Purpose:** Invoked when the `agent controller changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent controller changed event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -692,7 +692,7 @@ formation.OnAgentControllerChanged(agent, oldController);
 ### OnMassUnitTransferStart
 `public void OnMassUnitTransferStart()`
 
-**Purpose:** Invoked when the `mass unit transfer start` event is raised.
+**Purpose:** **Purpose:** Invoked when the mass unit transfer start event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -703,7 +703,7 @@ formation.OnMassUnitTransferStart();
 ### OnMassUnitTransferEnd
 `public void OnMassUnitTransferEnd()`
 
-**Purpose:** Invoked when the `mass unit transfer end` event is raised.
+**Purpose:** **Purpose:** Invoked when the mass unit transfer end event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -714,7 +714,7 @@ formation.OnMassUnitTransferEnd();
 ### OnBatchUnitRemovalStart
 `public void OnBatchUnitRemovalStart()`
 
-**Purpose:** Invoked when the `batch unit removal start` event is raised.
+**Purpose:** **Purpose:** Invoked when the batch unit removal start event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -725,7 +725,7 @@ formation.OnBatchUnitRemovalStart();
 ### OnBatchUnitRemovalEnd
 `public void OnBatchUnitRemovalEnd()`
 
-**Purpose:** Invoked when the `batch unit removal end` event is raised.
+**Purpose:** **Purpose:** Invoked when the batch unit removal end event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -736,7 +736,7 @@ formation.OnBatchUnitRemovalEnd();
 ### OnUnitAddedOrRemoved
 `public void OnUnitAddedOrRemoved()`
 
-**Purpose:** Invoked when the `unit added or removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the unit added or removed event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -747,7 +747,7 @@ formation.OnUnitAddedOrRemoved();
 ### OnAgentLostMount
 `public void OnAgentLostMount(Agent agent)`
 
-**Purpose:** Invoked when the `agent lost mount` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent lost mount event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -758,7 +758,7 @@ formation.OnAgentLostMount(agent);
 ### OnFormationDispersed
 `public void OnFormationDispersed()`
 
-**Purpose:** Invoked when the `formation dispersed` event is raised.
+**Purpose:** **Purpose:** Invoked when the formation dispersed event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -769,7 +769,7 @@ formation.OnFormationDispersed();
 ### OnUnitDetachmentChanged
 `public void OnUnitDetachmentChanged(Agent unit, bool isOldDetachmentLoose, bool isNewDetachmentLoose)`
 
-**Purpose:** Invoked when the `unit detachment changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the unit detachment changed event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -780,7 +780,7 @@ formation.OnUnitDetachmentChanged(unit, false, false);
 ### OnUndetachableNonPlayerUnitAdded
 `public void OnUndetachableNonPlayerUnitAdded(Agent unit)`
 
-**Purpose:** Invoked when the `undetachable non player unit added` event is raised.
+**Purpose:** **Purpose:** Invoked when the undetachable non player unit added event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -791,7 +791,7 @@ formation.OnUndetachableNonPlayerUnitAdded(unit);
 ### OnUndetachableNonPlayerUnitRemoved
 `public void OnUndetachableNonPlayerUnitRemoved(Agent unit)`
 
-**Purpose:** Invoked when the `undetachable non player unit removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the undetachable non player unit removed event is raised.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -802,7 +802,7 @@ formation.OnUndetachableNonPlayerUnitRemoved(unit);
 ### ResetMovementOrderPositionCache
 `public void ResetMovementOrderPositionCache()`
 
-**Purpose:** Returns `movement order position cache` to its default or initial condition.
+**Purpose:** **Purpose:** Returns movement order position cache to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -813,7 +813,7 @@ formation.ResetMovementOrderPositionCache();
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -824,7 +824,7 @@ formation.Reset();
 ### Split
 `public IEnumerable<Formation> Split(int count = 2)`
 
-**Purpose:** Splits `split` into multiple parts or sub-items.
+**Purpose:** **Purpose:** Splits split into multiple parts or sub-items.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -835,7 +835,7 @@ var result = formation.Split(0);
 ### TransferUnits
 `public void TransferUnits(Formation target, int unitCount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransferUnits logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -846,7 +846,7 @@ formation.TransferUnits(target, 0);
 ### TransferUnitsAux
 `public void TransferUnitsAux(Formation target, int unitCount, bool isPlayerOrder, bool useSelectivePop)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransferUnitsAux logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -857,7 +857,7 @@ formation.TransferUnitsAux(target, 0, false, false);
 ### DebugArrangements
 `public void DebugArrangements()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugArrangements logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -868,7 +868,7 @@ formation.DebugArrangements();
 ### AddUnit
 `public void AddUnit(Agent unit)`
 
-**Purpose:** Adds `unit` to the current collection or state.
+**Purpose:** **Purpose:** Adds unit to the current collection or state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -879,7 +879,7 @@ formation.AddUnit(unit);
 ### RemoveUnit
 `public void RemoveUnit(Agent unit)`
 
-**Purpose:** Removes `unit` from the current collection or state.
+**Purpose:** **Purpose:** Removes unit from the current collection or state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -890,7 +890,7 @@ formation.RemoveUnit(unit);
 ### DetachUnit
 `public void DetachUnit(Agent unit, bool isLoose)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DetachUnit logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -901,7 +901,7 @@ formation.DetachUnit(unit, false);
 ### AttachUnit
 `public void AttachUnit(Agent unit)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AttachUnit logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -912,7 +912,7 @@ formation.AttachUnit(unit);
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(Agent firstUnit, Agent secondUnit)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwitchUnitLocations logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -923,7 +923,7 @@ formation.SwitchUnitLocations(firstUnit, secondUnit);
 ### ForceCalculateCaches
 `public void ForceCalculateCaches()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceCalculateCaches logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -934,7 +934,7 @@ formation.ForceCalculateCaches();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -945,7 +945,7 @@ formation.Tick(0);
 ### SetHasPendingUnitPositions
 `public void SetHasPendingUnitPositions(bool hasPendingUnitPositions)`
 
-**Purpose:** Assigns a new value to `has pending unit positions` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to has pending unit positions and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -956,7 +956,7 @@ formation.SetHasPendingUnitPositions(false);
 ### JoinDetachment
 `public void JoinDetachment(IDetachment detachment)`
 
-**Purpose:** Joins several `detachment` items into a single whole.
+**Purpose:** **Purpose:** Joins several detachment items into a single whole.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -967,7 +967,7 @@ formation.JoinDetachment(detachment);
 ### FormAttackEntityDetachment
 `public void FormAttackEntityDetachment(GameEntity targetEntity)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FormAttackEntityDetachment logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -978,7 +978,7 @@ formation.FormAttackEntityDetachment(targetEntity);
 ### LeaveDetachment
 `public void LeaveDetachment(IDetachment detachment)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LeaveDetachment logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -989,7 +989,7 @@ formation.LeaveDetachment(detachment);
 ### DisbandAttackEntityDetachment
 `public void DisbandAttackEntityDetachment()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisbandAttackEntityDetachment logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1000,7 +1000,7 @@ formation.DisbandAttackEntityDetachment();
 ### Rearrange
 `public void Rearrange(IFormationArrangement arrangement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Rearrange logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1011,7 +1011,7 @@ formation.Rearrange(arrangement);
 ### TickForColumnArrangementInitialPositioning
 `public void TickForColumnArrangementInitialPositioning(Formation formation)`
 
-**Purpose:** Advances the `for column arrangement initial positioning` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the for column arrangement initial positioning state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1022,7 +1022,7 @@ formation.TickForColumnArrangementInitialPositioning(formation);
 ### CalculateFormationDirectionEnforcingFactorForRank
 `public float CalculateFormationDirectionEnforcingFactorForRank(int rankIndex)`
 
-**Purpose:** Calculates the current value or result of `formation direction enforcing factor for rank`.
+**Purpose:** **Purpose:** Calculates the current value or result of formation direction enforcing factor for rank.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1033,7 +1033,7 @@ var result = formation.CalculateFormationDirectionEnforcingFactorForRank(0);
 ### BeginSpawn
 `public void BeginSpawn(int unitCount, bool isMounted)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginSpawn logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1044,7 +1044,7 @@ formation.BeginSpawn(0, false);
 ### EndSpawn
 `public void EndSpawn()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndSpawn logic.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1055,7 +1055,7 @@ formation.EndSpawn();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Formation from the subsystem API first
@@ -1066,7 +1066,7 @@ var result = formation.GetHashCode();
 ### GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth
 `public static float GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(Formation simulationFormation)`
 
-**Purpose:** Reads and returns the `last simulated formations occupation width if lesser than actual width` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the last simulated formations occupation width if lesser than actual width value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1076,7 +1076,7 @@ Formation.GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(simul
 ### GetFormationFramesForBeforeFormationCreation
 `public static List<WorldFrame> GetFormationFramesForBeforeFormationCreation(float width, int manCount, bool areMounted, WorldPosition spawnOrigin, Mat3 spawnRotation)`
 
-**Purpose:** Reads and returns the `formation frames for before formation creation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation frames for before formation creation value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1086,7 +1086,7 @@ Formation.GetFormationFramesForBeforeFormationCreation(0, 0, false, spawnOrigin,
 ### GetDefaultUnitDiameter
 `public static float GetDefaultUnitDiameter(bool isMounted)`
 
-**Purpose:** Reads and returns the `default unit diameter` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default unit diameter value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1096,7 +1096,7 @@ Formation.GetDefaultUnitDiameter(false);
 ### GetDefaultMinimumUnitInterval
 `public static float GetDefaultMinimumUnitInterval(bool isMounted)`
 
-**Purpose:** Reads and returns the `default minimum unit interval` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default minimum unit interval value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1106,7 +1106,7 @@ Formation.GetDefaultMinimumUnitInterval(false);
 ### GetDefaultUnitInterval
 `public static float GetDefaultUnitInterval(bool isMounted, int unitSpacing)`
 
-**Purpose:** Reads and returns the `default unit interval` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default unit interval value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1116,7 +1116,7 @@ Formation.GetDefaultUnitInterval(false, 0);
 ### GetDefaultMinimumUnitDistance
 `public static float GetDefaultMinimumUnitDistance(bool isMounted)`
 
-**Purpose:** Reads and returns the `default minimum unit distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default minimum unit distance value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1126,7 +1126,7 @@ Formation.GetDefaultMinimumUnitDistance(false);
 ### GetDefaultUnitDistance
 `public static float GetDefaultUnitDistance(bool isMounted, int unitSpacing)`
 
-**Purpose:** Reads and returns the `default unit distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default unit distance value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1136,7 +1136,7 @@ Formation.GetDefaultUnitDistance(false, 0);
 ### GetDefaultFileWidth
 `public static float GetDefaultFileWidth(int fileUnitCount, int unitSpacing, bool isMounted)`
 
-**Purpose:** Reads and returns the `default file width` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default file width value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1146,7 +1146,7 @@ Formation.GetDefaultFileWidth(0, 0, false);
 ### GetDefaultRankDepth
 `public static float GetDefaultRankDepth(int rankUnitCount, int unitSpacing, bool isMounted)`
 
-**Purpose:** Reads and returns the `default rank depth` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default rank depth value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -1156,7 +1156,7 @@ Formation.GetDefaultRankDepth(0, 0, false);
 ### InfantryInterval
 `public static float InfantryInterval(int unitSpacing)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InfantryInterval logic.
 
 ```csharp
 // Static call; no instance required
@@ -1166,7 +1166,7 @@ Formation.InfantryInterval(0);
 ### CavalryInterval
 `public static float CavalryInterval(int unitSpacing)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CavalryInterval logic.
 
 ```csharp
 // Static call; no instance required
@@ -1176,7 +1176,7 @@ Formation.CavalryInterval(0);
 ### InfantryDistance
 `public static float InfantryDistance(int unitSpacing)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InfantryDistance logic.
 
 ```csharp
 // Static call; no instance required
@@ -1186,7 +1186,7 @@ Formation.InfantryDistance(0);
 ### CavalryDistance
 `public static float CavalryDistance(int unitSpacing)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CavalryDistance logic.
 
 ```csharp
 // Static call; no instance required
@@ -1196,7 +1196,7 @@ Formation.CavalryDistance(0);
 ### IsDefenseRelatedAIDrivenComponent
 `public static bool IsDefenseRelatedAIDrivenComponent(DrivenProperty drivenProperty)`
 
-**Purpose:** Determines whether the current object is in the `defense related a i driven component` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the defense related a i driven component state or condition.
 
 ```csharp
 // Static call; no instance required

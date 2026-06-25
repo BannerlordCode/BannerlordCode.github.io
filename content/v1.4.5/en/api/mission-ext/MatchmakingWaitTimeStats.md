@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### AddRegionStats
 `public void AddRegionStats(MatchmakingWaitTimeRegionStats regionStats)`
 
-**Purpose:** Adds `region stats` to the current collection or state.
+**Purpose:** **Purpose:** Adds region stats to the current collection or state.
 
 ```csharp
 // Obtain an instance of MatchmakingWaitTimeStats from the subsystem API first
@@ -40,7 +40,7 @@ matchmakingWaitTimeStats.AddRegionStats(regionStats);
 ### GetRegionStats
 `public MatchmakingWaitTimeRegionStats GetRegionStats(string region)`
 
-**Purpose:** Reads and returns the `region stats` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the region stats value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingWaitTimeStats from the subsystem API first
@@ -51,7 +51,7 @@ var result = matchmakingWaitTimeStats.GetRegionStats("example");
 ### GetWaitTime
 `public int GetWaitTime(string region, string gameType, WaitTimeStatType statType)`
 
-**Purpose:** Reads and returns the `wait time` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the wait time value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingWaitTimeStats from the subsystem API first

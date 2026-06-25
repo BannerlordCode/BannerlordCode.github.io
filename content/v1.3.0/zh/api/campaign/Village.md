@@ -43,7 +43,7 @@ description: "Village 的自动生成类参考。"
 ### GetDefenderParties
 `public IEnumerable<PartyBase> GetDefenderParties(MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「defender parties」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defender parties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -54,7 +54,7 @@ var result = village.GetDefenderParties(battleType);
 ### GetNextDefenderParty
 `public PartyBase GetNextDefenderParty(ref int partyIndex, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「next defender party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next defender party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -65,7 +65,7 @@ var result = village.GetNextDefenderParty(partyIndex, battleType);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DailyTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -76,7 +76,7 @@ village.DailyTick();
 ### OnInit
 `public override void OnInit()`
 
-**用途 / Purpose:** 在 「init」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 init 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -87,7 +87,7 @@ village.OnInit();
 ### GetWarehouseCapacity
 `public int GetWarehouseCapacity()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「warehouse capacity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 warehouse capacity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -98,7 +98,7 @@ var result = village.GetWarehouseCapacity();
 ### GetItemPrice
 `public override int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item price」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -109,7 +109,7 @@ var result = village.GetItemPrice(item, null, false);
 ### GetItemPrice
 `public override int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item price」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -120,7 +120,7 @@ var result = village.GetItemPrice(itemRosterElement, null, false);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -131,7 +131,7 @@ var result = village.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -142,7 +142,7 @@ village.Deserialize(objectManager, node);
 ### IsProducing
 `public bool IsProducing(ItemObject item)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「producing」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 producing 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -153,7 +153,7 @@ var result = village.IsProducing(item);
 ### GetHearthLevel
 `public int GetHearthLevel()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hearth level」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hearth level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例
@@ -164,7 +164,7 @@ var result = village.GetHearthLevel();
 ### GetProsperityLevel
 `public override SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「prosperity level」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prosperity level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Village 实例

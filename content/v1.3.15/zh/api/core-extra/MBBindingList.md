@@ -29,7 +29,7 @@ description: "MBBindingList 的自动生成类参考。"
 ### Sort
 `public void Sort()`
 
-**用途 / Purpose:** 对当前对象中的内容进行排序。
+**用途 / Purpose:** **用途 / Purpose:** 对当前对象中的内容进行排序。
 
 ```csharp
 // 先通过子系统 API 拿到 MBBindingList 实例
@@ -40,7 +40,7 @@ mBBindingList.Sort();
 ### Sort
 `public void Sort(IComparer<T> comparer)`
 
-**用途 / Purpose:** 对当前对象中的内容进行排序。
+**用途 / Purpose:** **用途 / Purpose:** 对当前对象中的内容进行排序。
 
 ```csharp
 // 先通过子系统 API 拿到 MBBindingList 实例
@@ -51,7 +51,7 @@ mBBindingList.Sort(comparer);
 ### IsOrdered
 `public bool IsOrdered(IComparer<T> comparer)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「ordered」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 ordered 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MBBindingList 实例
@@ -62,7 +62,7 @@ var result = mBBindingList.IsOrdered(comparer);
 ### ApplyActionOnAllItems
 `public void ApplyActionOnAllItems(Action<T> action)`
 
-**用途 / Purpose:** 将 「action on all items」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 action on all items 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBBindingList 实例

@@ -38,7 +38,7 @@ Treat `HeroExecutionSceneNotificationData` as a Data-style extension point: firs
 ### GetSceneNotificationCharacters
 `public override SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroExecutionSceneNotificationData from the subsystem API first
@@ -49,7 +49,7 @@ var result = heroExecutionSceneNotificationData.GetSceneNotificationCharacters()
 ### OnCloseAction
 `public override void OnCloseAction()`
 
-**Purpose:** Invoked when the `close action` event is raised.
+**Purpose:** **Purpose:** Invoked when the close action event is raised.
 
 ```csharp
 // Obtain an instance of HeroExecutionSceneNotificationData from the subsystem API first
@@ -60,7 +60,7 @@ heroExecutionSceneNotificationData.OnCloseAction();
 ### OnAffirmativeAction
 `public override void OnAffirmativeAction()`
 
-**Purpose:** Invoked when the `affirmative action` event is raised.
+**Purpose:** **Purpose:** Invoked when the affirmative action event is raised.
 
 ```csharp
 // Obtain an instance of HeroExecutionSceneNotificationData from the subsystem API first
@@ -71,7 +71,7 @@ heroExecutionSceneNotificationData.OnAffirmativeAction();
 ### CreateForPlayerExecutingHero
 `public static HeroExecutionSceneNotificationData CreateForPlayerExecutingHero(Hero dyingHero, Action onAffirmativeAction, RelevantContextType relevantContextType = RelevantContextType.Any, bool showNegativeOption = true)`
 
-**Purpose:** Constructs a new `for player executing hero` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new for player executing hero entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -81,7 +81,7 @@ HeroExecutionSceneNotificationData.CreateForPlayerExecutingHero(dyingHero, onAff
 ### CreateForInformingPlayer
 `public static HeroExecutionSceneNotificationData CreateForInformingPlayer(Hero executingHero, Hero dyingHero, RelevantContextType relevantContextType = RelevantContextType.Any, Action onClose = null)`
 
-**Purpose:** Constructs a new `for informing player` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new for informing player entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

@@ -34,7 +34,7 @@ description: "SkeletonScale 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 SkeletonScale 实例
@@ -45,7 +45,7 @@ skeletonScale.Deserialize(objectManager, node);
 ### SetBoneIndices
 `public void SetBoneIndices(sbyte boneIndices)`
 
-**用途 / Purpose:** 为 「bone indices」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 bone indices 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SkeletonScale 实例

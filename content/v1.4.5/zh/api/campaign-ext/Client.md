@@ -30,7 +30,7 @@ description: "Client 的自动生成类参考。"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Client 实例
@@ -41,7 +41,7 @@ client.Update();
 ### HandleMessage
 `public void HandleMessage(Message message)`
 
-**用途 / Purpose:** 执行与 「message」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 message 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Client 实例
@@ -52,7 +52,7 @@ client.HandleMessage(message);
 ### OnConnected
 `public virtual void OnConnected()`
 
-**用途 / Purpose:** 在 「connected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 connected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Client 实例
@@ -63,7 +63,7 @@ client.OnConnected();
 ### OnCantConnect
 `public virtual void OnCantConnect()`
 
-**用途 / Purpose:** 在 「cant connect」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 cant connect 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Client 实例
@@ -74,7 +74,7 @@ client.OnCantConnect();
 ### OnDisconnected
 `public virtual void OnDisconnected()`
 
-**用途 / Purpose:** 在 「disconnected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 disconnected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Client 实例
@@ -85,7 +85,7 @@ client.OnDisconnected();
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**用途 / Purpose:** 检查「connection」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查connection在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Client 实例

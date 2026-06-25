@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### SetDone
 `public void SetDone()`
 
-**Purpose:** Assigns a new value to `done` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RevenueVillage from the subsystem API first
@@ -34,7 +34,7 @@ revenueVillage.SetDone();
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**Purpose:** Assigns a new value to `additional progress` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to additional progress and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RevenueVillage from the subsystem API first
@@ -45,7 +45,7 @@ revenueVillage.SetAdditionalProgress(0);
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**Purpose:** Reads and returns the `is completed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is completed value held by the this instance.
 
 ```csharp
 // Obtain an instance of RevenueVillage from the subsystem API first

@@ -29,7 +29,7 @@ description: "TimedDictionaryCache 的自动生成类参考。"
 ### PruneExpiredItems
 `public void PruneExpiredItems()`
 
-**用途 / Purpose:** 处理与 「prune expired items」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PruneExpiredItems 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例
@@ -40,7 +40,7 @@ timedDictionaryCache.PruneExpiredItems();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例
@@ -51,7 +51,7 @@ timedDictionaryCache.Clear();
 ### ContainsKey
 `public bool ContainsKey(TKey key)`
 
-**用途 / Purpose:** 判断当前对象是否包含「key」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含key。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例
@@ -62,7 +62,7 @@ var result = timedDictionaryCache.ContainsKey(key);
 ### Remove
 `public bool Remove(TKey key)`
 
-**用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例
@@ -73,7 +73,7 @@ var result = timedDictionaryCache.Remove(key);
 ### TryGetValue
 `public bool TryGetValue(TKey key, out TValue value)`
 
-**用途 / Purpose:** 尝试获取 「get value」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get value 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例
@@ -84,7 +84,7 @@ var result = timedDictionaryCache.TryGetValue(key, value);
 ### AsReadOnlyDictionary
 `public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()`
 
-**用途 / Purpose:** 处理与 「as read only dictionary」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AsReadOnlyDictionary 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例

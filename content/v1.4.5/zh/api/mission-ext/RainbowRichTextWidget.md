@@ -23,7 +23,7 @@ description: "RainbowRichTextWidget 的自动生成类参考。"
 ### RainbowRichTextWidget
 `public class RainbowRichTextWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「rainbow rich text widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RainbowRichTextWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RainbowRichTextWidget 实例

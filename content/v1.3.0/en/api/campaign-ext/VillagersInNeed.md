@@ -30,7 +30,7 @@ Start from namespace `StoryMode.Quests.TutorialPhase` to place it in the stack, 
 ### OnRescueMissionFailed
 `public void OnRescueMissionFailed()`
 
-**Purpose:** Invoked when the `rescue mission failed` event is raised.
+**Purpose:** **Purpose:** Invoked when the rescue mission failed event is raised.
 
 ```csharp
 // Obtain an instance of VillagersInNeed from the subsystem API first
@@ -41,7 +41,7 @@ villagersInNeed.OnRescueMissionFailed();
 ### OnHeadmanRescued
 `public void OnHeadmanRescued()`
 
-**Purpose:** Invoked when the `headman rescued` event is raised.
+**Purpose:** **Purpose:** Invoked when the headman rescued event is raised.
 
 ```csharp
 // Obtain an instance of VillagersInNeed from the subsystem API first

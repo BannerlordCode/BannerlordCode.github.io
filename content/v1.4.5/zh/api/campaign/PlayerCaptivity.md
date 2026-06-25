@@ -31,7 +31,7 @@ description: "PlayerCaptivity 的自动生成类参考。"
 ### StartCaptivity
 `public static void StartCaptivity(PartyBase captorParty)`
 
-**用途 / Purpose:** 启动「captivity」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动captivity流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ PlayerCaptivity.StartCaptivity(captorParty);
 ### OnPlayerCharacterChanged
 `public static void OnPlayerCharacterChanged()`
 
-**用途 / Purpose:** 在 「player character changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player character changed 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ PlayerCaptivity.OnPlayerCharacterChanged();
 ### SetRansomAmount
 `public void SetRansomAmount()`
 
-**用途 / Purpose:** 为 「ransom amount」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 ransom amount 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerCaptivity 实例
@@ -62,7 +62,7 @@ playerCaptivity.SetRansomAmount();
 ### EndCaptivity
 `public static void EndCaptivity()`
 
-**用途 / Purpose:** 处理与 「end captivity」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndCaptivity 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

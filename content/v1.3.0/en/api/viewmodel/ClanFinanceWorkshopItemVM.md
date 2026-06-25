@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
@@ -58,7 +58,7 @@ clanFinanceWorkshopItemVM.RefreshValues();
 ### ExecuteToggleWarehouseUsage
 `public void ExecuteToggleWarehouseUsage()`
 
-**Purpose:** Runs the operation or workflow associated with `toggle warehouse usage`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle warehouse usage.
 
 ```csharp
 // Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
@@ -69,7 +69,7 @@ clanFinanceWorkshopItemVM.ExecuteToggleWarehouseUsage();
 ### ExecuteBeginWorkshopHint
 `public void ExecuteBeginWorkshopHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin workshop hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin workshop hint.
 
 ```csharp
 // Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
@@ -80,7 +80,7 @@ clanFinanceWorkshopItemVM.ExecuteBeginWorkshopHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
@@ -91,7 +91,7 @@ clanFinanceWorkshopItemVM.ExecuteEndHint();
 ### OnStoreOutputInWarehousePercentageUpdated
 `public void OnStoreOutputInWarehousePercentageUpdated(SelectorVM<WorkshopPercentageSelectorItemVM> selector)`
 
-**Purpose:** Invoked when the `store output in warehouse percentage updated` event is raised.
+**Purpose:** **Purpose:** Invoked when the store output in warehouse percentage updated event is raised.
 
 ```csharp
 // Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first
@@ -102,7 +102,7 @@ clanFinanceWorkshopItemVM.OnStoreOutputInWarehousePercentageUpdated(selector);
 ### ExecuteManageWorkshop
 `public void ExecuteManageWorkshop()`
 
-**Purpose:** Runs the operation or workflow associated with `manage workshop`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with manage workshop.
 
 ```csharp
 // Obtain an instance of ClanFinanceWorkshopItemVM from the subsystem API first

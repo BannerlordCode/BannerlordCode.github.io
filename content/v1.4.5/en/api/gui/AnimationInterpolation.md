@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Ease
 `public float Ease(Function function, float t)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Ease logic.
 
 ```csharp
 // Obtain an instance of AnimationInterpolation from the subsystem API first
@@ -34,7 +34,7 @@ var result = animationInterpolation.Ease(function, 0);
 ### Ease
 `public float Ease(Function function, float t)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Ease logic.
 
 ```csharp
 // Obtain an instance of AnimationInterpolation from the subsystem API first
@@ -45,7 +45,7 @@ var result = animationInterpolation.Ease(function, 0);
 ### Ease
 `public float Ease(Function function, float t)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Ease logic.
 
 ```csharp
 // Obtain an instance of AnimationInterpolation from the subsystem API first
@@ -56,7 +56,7 @@ var result = animationInterpolation.Ease(function, 0);
 ### Ease
 `public static float Ease(Type type, Function function, float ratio)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Ease logic.
 
 ```csharp
 // Static call; no instance required

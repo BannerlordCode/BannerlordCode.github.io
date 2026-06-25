@@ -29,7 +29,7 @@ Start from namespace `SandBox.View.Menu` to place it in the stack, then inspect 
 ### UpdateMenuContext
 `public void UpdateMenuContext(MenuContext menuContext)`
 
-**Purpose:** Recalculates and stores the latest representation of `menu context`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of menu context.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -40,7 +40,7 @@ menuViewContext.UpdateMenuContext(menuContext);
 ### AddLayer
 `public void AddLayer(ScreenLayer layer)`
 
-**Purpose:** Adds `layer` to the current collection or state.
+**Purpose:** **Purpose:** Adds layer to the current collection or state.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -51,7 +51,7 @@ menuViewContext.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(ScreenLayer layer)`
 
-**Purpose:** Removes `layer` from the current collection or state.
+**Purpose:** **Purpose:** Removes layer from the current collection or state.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -62,7 +62,7 @@ menuViewContext.RemoveLayer(layer);
 ### OnFrameTick
 `public void OnFrameTick(float dt)`
 
-**Purpose:** Invoked when the `frame tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -73,7 +73,7 @@ menuViewContext.OnFrameTick(0);
 ### OnResume
 `public void OnResume()`
 
-**Purpose:** Invoked when the `resume` event is raised.
+**Purpose:** **Purpose:** Invoked when the resume event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -84,7 +84,7 @@ menuViewContext.OnResume();
 ### OnHourlyTick
 `public void OnHourlyTick()`
 
-**Purpose:** Invoked when the `hourly tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the hourly tick event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -95,7 +95,7 @@ menuViewContext.OnHourlyTick();
 ### OnActivate
 `public void OnActivate()`
 
-**Purpose:** Invoked when the `activate` event is raised.
+**Purpose:** **Purpose:** Invoked when the activate event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -106,7 +106,7 @@ menuViewContext.OnActivate();
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**Purpose:** Invoked when the `deactivate` event is raised.
+**Purpose:** **Purpose:** Invoked when the deactivate event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -117,7 +117,7 @@ menuViewContext.OnDeactivate();
 ### OnInitialize
 `public void OnInitialize()`
 
-**Purpose:** Invoked when the `initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -128,7 +128,7 @@ menuViewContext.OnInitialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -139,7 +139,7 @@ menuViewContext.OnFinalize();
 ### StopAllSounds
 `public void StopAllSounds()`
 
-**Purpose:** Stops the `all sounds` flow or state machine.
+**Purpose:** **Purpose:** Stops the all sounds flow or state machine.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -150,7 +150,7 @@ menuViewContext.StopAllSounds();
 ### OnMapConversationActivated
 `public void OnMapConversationActivated()`
 
-**Purpose:** Invoked when the `map conversation activated` event is raised.
+**Purpose:** **Purpose:** Invoked when the map conversation activated event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -161,7 +161,7 @@ menuViewContext.OnMapConversationActivated();
 ### OnMapConversationDeactivated
 `public void OnMapConversationDeactivated()`
 
-**Purpose:** Invoked when the `map conversation deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the map conversation deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -172,7 +172,7 @@ menuViewContext.OnMapConversationDeactivated();
 ### OnGameStateDeactivate
 `public void OnGameStateDeactivate()`
 
-**Purpose:** Invoked when the `game state deactivate` event is raised.
+**Purpose:** **Purpose:** Invoked when the game state deactivate event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -183,7 +183,7 @@ menuViewContext.OnGameStateDeactivate();
 ### OnGameStateInitialize
 `public void OnGameStateInitialize()`
 
-**Purpose:** Invoked when the `game state initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the game state initialize event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -194,7 +194,7 @@ menuViewContext.OnGameStateInitialize();
 ### OnGameStateFinalize
 `public void OnGameStateFinalize()`
 
-**Purpose:** Invoked when the `game state finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the game state finalize event is raised.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -205,7 +205,7 @@ menuViewContext.OnGameStateFinalize();
 ### CloseCharacterDeveloper
 `public void CloseCharacterDeveloper()`
 
-**Purpose:** Closes the resource or UI associated with `character developer`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with character developer.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -216,7 +216,7 @@ menuViewContext.CloseCharacterDeveloper();
 ### RemoveMenuView
 `public void RemoveMenuView(MenuView menuView)`
 
-**Purpose:** Removes `menu view` from the current collection or state.
+**Purpose:** **Purpose:** Removes menu view from the current collection or state.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -227,7 +227,7 @@ menuViewContext.RemoveMenuView(menuView);
 ### CloseTownManagement
 `public void CloseTownManagement()`
 
-**Purpose:** Closes the resource or UI associated with `town management`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with town management.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -238,7 +238,7 @@ menuViewContext.CloseTownManagement();
 ### CloseRecruitVolunteers
 `public void CloseRecruitVolunteers()`
 
-**Purpose:** Closes the resource or UI associated with `recruit volunteers`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with recruit volunteers.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -249,7 +249,7 @@ menuViewContext.CloseRecruitVolunteers();
 ### CloseTournamentLeaderboard
 `public void CloseTournamentLeaderboard()`
 
-**Purpose:** Closes the resource or UI associated with `tournament leaderboard`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with tournament leaderboard.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first
@@ -260,7 +260,7 @@ menuViewContext.CloseTournamentLeaderboard();
 ### CloseTroopSelection
 `public void CloseTroopSelection()`
 
-**Purpose:** Closes the resource or UI associated with `troop selection`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with troop selection.
 
 ```csharp
 // Obtain an instance of MenuViewContext from the subsystem API first

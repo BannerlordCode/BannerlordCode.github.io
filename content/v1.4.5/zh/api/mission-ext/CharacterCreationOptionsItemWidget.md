@@ -33,7 +33,7 @@ description: "CharacterCreationOptionsItemWidget 的自动生成类参考。"
 ### CharacterCreationOptionsItemWidget
 `public class CharacterCreationOptionsItemWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「character creation options item widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CharacterCreationOptionsItemWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationOptionsItemWidget 实例

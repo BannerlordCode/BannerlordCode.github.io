@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the drop gizmo position value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicContainer from the subsystem API first
@@ -41,7 +41,7 @@ var result = basicContainer.GetDropGizmoPosition(draggedWidgetPosition);
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**Purpose:** Reads and returns the `index for drop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index for drop value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicContainer from the subsystem API first
@@ -52,7 +52,7 @@ var result = basicContainer.GetIndexForDrop(draggedWidgetPosition);
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**Purpose:** Invoked when the `child selected` event is raised.
+**Purpose:** **Purpose:** Invoked when the child selected event is raised.
 
 ```csharp
 // Obtain an instance of BasicContainer from the subsystem API first

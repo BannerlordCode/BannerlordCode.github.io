@@ -23,7 +23,7 @@ description: "MissionSiegeEnginesLogic 的自动生成类参考。"
 ### GetSiegeWeaponsController
 `public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「siege weapons controller」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege weapons controller 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEnginesLogic 实例
@@ -34,7 +34,7 @@ var result = missionSiegeEnginesLogic.GetSiegeWeaponsController(side);
 ### GetMissionSiegeWeapons
 `public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「mission siege weapons」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mission siege weapons 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEnginesLogic 实例

@@ -35,7 +35,7 @@ Treat `AgeModel` as a Model-style extension point: first identify who creates it
 ### GetAgeLimitForLocation
 `public abstract void GetAgeLimitForLocation(CharacterObject character, out int minimumAge, out int maximumAge, string additionalTags = "")`
 
-**Purpose:** Reads and returns the `age limit for location` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the age limit for location value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgeModel from the subsystem API first

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.GauntletUI.Data` to place it in the stack, then
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of GeneratedGauntletMovie from the subsystem API first
@@ -43,7 +43,7 @@ generatedGauntletMovie.Update();
 ### Release
 `public void Release()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of GeneratedGauntletMovie from the subsystem API first
@@ -54,7 +54,7 @@ generatedGauntletMovie.Release();
 ### RefreshBindingWithChildren
 `public void RefreshBindingWithChildren()`
 
-**Purpose:** Keeps the display or cache of `binding with children` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of binding with children in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GeneratedGauntletMovie from the subsystem API first
@@ -65,7 +65,7 @@ generatedGauntletMovie.RefreshBindingWithChildren();
 ### OnResourcesRefreshed
 `public void OnResourcesRefreshed(SpriteData spriteData, WidgetFactory widgetFactory, BrushFactory brushFactory, FontFactory fontFactory)`
 
-**Purpose:** Invoked when the `resources refreshed` event is raised.
+**Purpose:** **Purpose:** Invoked when the resources refreshed event is raised.
 
 ```csharp
 // Obtain an instance of GeneratedGauntletMovie from the subsystem API first

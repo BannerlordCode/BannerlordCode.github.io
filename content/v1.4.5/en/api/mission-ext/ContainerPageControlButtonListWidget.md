@@ -32,7 +32,7 @@ Treat `ContainerPageControlButtonListWidget` as a Widget-style extension point: 
 ### ContainerPageControlButtonListWidget
 `public class ContainerPageControlButtonListWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ContainerPageControlButtonListWidget logic.
 
 ```csharp
 // Obtain an instance of ContainerPageControlButtonListWidget from the subsystem API first

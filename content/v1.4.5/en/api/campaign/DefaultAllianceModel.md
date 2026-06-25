@@ -23,7 +23,7 @@ Treat `DefaultAllianceModel` as a Model-style extension point: first identify wh
 ### GetCallToWarCost
 `public override int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**Purpose:** Reads and returns the `call to war cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the call to war cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultAllianceModel.GetCallToWarCost(callingKingdom, calledKingdom
 ### GetScoreOfStartingAlliance
 `public override ExplainedNumber GetScoreOfStartingAlliance(Kingdom querierKingdom, Kingdom queriedKingdom, out TextObject explanationText, bool includeDescription = false)`
 
-**Purpose:** Reads and returns the `score of starting alliance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score of starting alliance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultAllianceModel.GetScoreOfStartingAlliance(querierKingdom, que
 ### GetSupportScoreOfStartingAllianceForClan
 `public override float GetSupportScoreOfStartingAllianceForClan(Kingdom querierKingdom, Kingdom queriedKingdom, Clan evaluatingClan, out TextObject explanationText, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the `support score of starting alliance for clan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the support score of starting alliance for clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultAllianceModel.GetSupportScoreOfStartingAllianceForClan(queri
 ### CanMakeAlliance
 `public override bool CanMakeAlliance(Kingdom kingdom, Kingdom targetKingdom, IFaction evaluatingFaction, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `make alliance`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for make alliance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultAllianceModel.CanMakeAlliance(kingdom, targetKingdom, evalua
 ### GetInfluenceCostOfProposingStartingAlliance
 `public override int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
 
-**Purpose:** Reads and returns the `influence cost of proposing starting alliance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the influence cost of proposing starting alliance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultAllianceModel.GetInfluenceCostOfProposingStartingAlliance(pr
 ### GetScoreOfCallingToWar
 `public override float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**Purpose:** Reads and returns the `score of calling to war` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score of calling to war value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultAllianceModel.GetScoreOfCallingToWar(callingKingdom, calledK
 ### GetScoreOfJoiningWar
 `public override float GetScoreOfJoiningWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**Purpose:** Reads and returns the `score of joining war` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score of joining war value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultAllianceModel.GetScoreOfJoiningWar(callingKingdom, calledKin
 ### GetInfluenceCostOfCallingToWar
 `public override int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
 
-**Purpose:** Reads and returns the `influence cost of calling to war` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the influence cost of calling to war value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultAllianceModel.GetInfluenceCostOfCallingToWar(proposingClan);
 ### GetAllianceFactorForDeclaringWar
 `public override float GetAllianceFactorForDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar)`
 
-**Purpose:** Reads and returns the `alliance factor for declaring war` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the alliance factor for declaring war value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = defaultAllianceModel.GetAllianceFactorForDeclaringWar(factionDeclar
 ### GetAllianceFactorForDeclaringPeace
 `public override float GetAllianceFactorForDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)`
 
-**Purpose:** Reads and returns the `alliance factor for declaring peace` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the alliance factor for declaring peace value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = defaultAllianceModel.GetAllianceFactorForDeclaringPeace(factionDecl
 ### GetProposerClanForAllianceDecision
 `public override Clan GetProposerClanForAllianceDecision(Kingdom proposerKingdom, Kingdom proposedKingdom)`
 
-**Purpose:** Reads and returns the `proposer clan for alliance decision` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the proposer clan for alliance decision value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAllianceModel from the subsystem API first

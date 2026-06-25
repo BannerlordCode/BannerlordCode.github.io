@@ -23,7 +23,7 @@ Treat `DefaultBribeCalculationModel` as a Model-style extension point: first ide
 ### IsBribeNotNeededToEnterKeep
 `public override bool IsBribeNotNeededToEnterKeep(Settlement settlement)`
 
-**Purpose:** Determines whether the current object is in the `bribe not needed to enter keep` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the bribe not needed to enter keep state or condition.
 
 ```csharp
 // Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterKeep(settlement
 ### IsBribeNotNeededToEnterDungeon
 `public override bool IsBribeNotNeededToEnterDungeon(Settlement settlement)`
 
-**Purpose:** Determines whether the current object is in the `bribe not needed to enter dungeon` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the bribe not needed to enter dungeon state or condition.
 
 ```csharp
 // Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultBribeCalculationModel.IsBribeNotNeededToEnterDungeon(settlem
 ### GetBribeToEnterLordsHall
 `public override int GetBribeToEnterLordsHall(Settlement settlement)`
 
-**Purpose:** Reads and returns the `bribe to enter lords hall` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bribe to enter lords hall value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBribeCalculationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultBribeCalculationModel.GetBribeToEnterLordsHall(settlement);
 ### GetBribeToEnterDungeon
 `public override int GetBribeToEnterDungeon(Settlement settlement)`
 
-**Purpose:** Reads and returns the `bribe to enter dungeon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bribe to enter dungeon value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBribeCalculationModel from the subsystem API first

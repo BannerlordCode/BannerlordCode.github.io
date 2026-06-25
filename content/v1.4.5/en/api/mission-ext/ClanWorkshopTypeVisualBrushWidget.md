@@ -29,7 +29,7 @@ Treat `ClanWorkshopTypeVisualBrushWidget` as a Widget-style extension point: fir
 ### ClanWorkshopTypeVisualBrushWidget
 `public class ClanWorkshopTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClanWorkshopTypeVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of ClanWorkshopTypeVisualBrushWidget from the subsystem API first

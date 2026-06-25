@@ -30,7 +30,7 @@ description: "ScoreboardSkillItemHoverToggleWidget 的自动生成类参考。"
 ### GetAllSkillWidgets
 `public List<Widget> GetAllSkillWidgets()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all skill widgets」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all skill widgets 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardSkillItemHoverToggleWidget 实例

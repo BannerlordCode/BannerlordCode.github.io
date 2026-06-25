@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### CreateMessageContract
 `public static MessageContract CreateMessageContract(Type messageContractType)`
 
-**Purpose:** Constructs a new `message contract` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new message contract entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MessageContract.CreateMessageContract(messageContractType);
 ### SerializeToNetworkMessage
 `public abstract void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**Purpose:** Serializes `to network message` into a storable or transmittable format.
+**Purpose:** **Purpose:** Serializes to network message into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of MessageContract from the subsystem API first
@@ -50,7 +50,7 @@ messageContract.SerializeToNetworkMessage(networkMessage);
 ### DeserializeFromNetworkMessage
 `public abstract void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**Purpose:** Restores `from network message` from serialized data.
+**Purpose:** **Purpose:** Restores from network message from serialized data.
 
 ```csharp
 // Obtain an instance of MessageContract from the subsystem API first

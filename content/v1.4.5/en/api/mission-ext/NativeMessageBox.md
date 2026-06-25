@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Show
 `public static Result Show(string text, string caption = "Message", Buttons buttons = Buttons.OK, Icon icon = Icon.None)`
 
-**Purpose:** Displays the UI or element associated with the current object.
+**Purpose:** **Purpose:** Displays the UI or element associated with the this instance.
 
 ```csharp
 // Static call; no instance required

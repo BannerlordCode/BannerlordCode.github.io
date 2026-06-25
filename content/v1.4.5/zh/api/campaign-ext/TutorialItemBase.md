@@ -31,7 +31,7 @@ description: "TutorialItemBase 的自动生成类参考。"
 ### IsConditionsMetForCompletion
 `public abstract bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for completion 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -42,7 +42,7 @@ var result = tutorialItemBase.IsConditionsMetForCompletion();
 ### IsConditionsMetForActivation
 `public abstract bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for activation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -53,7 +53,7 @@ var result = tutorialItemBase.IsConditionsMetForActivation();
 ### GetTutorialsRelevantContext
 `public abstract TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tutorials relevant context 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -64,7 +64,7 @@ var result = tutorialItemBase.GetTutorialsRelevantContext();
 ### OnDeactivate
 `public virtual void OnDeactivate()`
 
-**用途 / Purpose:** 在 「deactivate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deactivate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -75,7 +75,7 @@ tutorialItemBase.OnDeactivate();
 ### IsConditionsMetForVisibility
 `public virtual bool IsConditionsMetForVisibility()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for visibility」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for visibility 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -86,7 +86,7 @@ var result = tutorialItemBase.IsConditionsMetForVisibility();
 ### OnInventoryTransferItem
 `public virtual void OnInventoryTransferItem(InventoryTransferItemEvent obj)`
 
-**用途 / Purpose:** 在 「inventory transfer item」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 inventory transfer item 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -97,7 +97,7 @@ tutorialItemBase.OnInventoryTransferItem(obj);
 ### OnTutorialContextChanged
 `public virtual void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**用途 / Purpose:** 在 「tutorial context changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tutorial context changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -108,7 +108,7 @@ tutorialItemBase.OnTutorialContextChanged(obj);
 ### OnInventoryFilterChanged
 `public virtual void OnInventoryFilterChanged(InventoryFilterChangedEvent obj)`
 
-**用途 / Purpose:** 在 「inventory filter changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 inventory filter changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -119,7 +119,7 @@ tutorialItemBase.OnInventoryFilterChanged(obj);
 ### OnPerkSelectedByPlayer
 `public virtual void OnPerkSelectedByPlayer(PerkSelectedByPlayerEvent obj)`
 
-**用途 / Purpose:** 在 「perk selected by player」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 perk selected by player 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -130,7 +130,7 @@ tutorialItemBase.OnPerkSelectedByPlayer(obj);
 ### OnFocusAddedByPlayer
 `public virtual void OnFocusAddedByPlayer(FocusAddedByPlayerEvent obj)`
 
-**用途 / Purpose:** 在 「focus added by player」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus added by player 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -141,7 +141,7 @@ tutorialItemBase.OnFocusAddedByPlayer(obj);
 ### OnGameMenuOpened
 `public virtual void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**用途 / Purpose:** 在 「game menu opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game menu opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -152,7 +152,7 @@ tutorialItemBase.OnGameMenuOpened(obj);
 ### OnMainMapCameraMove
 `public virtual void OnMainMapCameraMove(MapScreen.MainMapCameraMoveEvent obj)`
 
-**用途 / Purpose:** 在 「main map camera move」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 main map camera move 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -163,7 +163,7 @@ tutorialItemBase.OnMainMapCameraMove(obj);
 ### OnCharacterPortraitPopUpOpened
 `public virtual void OnCharacterPortraitPopUpOpened(CharacterObject obj)`
 
-**用途 / Purpose:** 在 「character portrait pop up opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 character portrait pop up opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -174,7 +174,7 @@ tutorialItemBase.OnCharacterPortraitPopUpOpened(obj);
 ### OnPlayerStartTalkFromMenuOverlay
 `public virtual void OnPlayerStartTalkFromMenuOverlay(Hero obj)`
 
-**用途 / Purpose:** 在 「player start talk from menu overlay」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player start talk from menu overlay 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -185,7 +185,7 @@ tutorialItemBase.OnPlayerStartTalkFromMenuOverlay(obj);
 ### OnGameMenuOptionSelected
 `public virtual void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**用途 / Purpose:** 在 「game menu option selected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game menu option selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -196,7 +196,7 @@ tutorialItemBase.OnGameMenuOptionSelected(obj);
 ### OnPlayerStartRecruitment
 `public virtual void OnPlayerStartRecruitment(CharacterObject obj)`
 
-**用途 / Purpose:** 在 「player start recruitment」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player start recruitment 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -207,7 +207,7 @@ tutorialItemBase.OnPlayerStartRecruitment(obj);
 ### OnNewCompanionAdded
 `public virtual void OnNewCompanionAdded(Hero obj)`
 
-**用途 / Purpose:** 在 「new companion added」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 new companion added 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -218,7 +218,7 @@ tutorialItemBase.OnNewCompanionAdded(obj);
 ### OnPlayerRecruitedUnit
 `public virtual void OnPlayerRecruitedUnit(CharacterObject obj, int count)`
 
-**用途 / Purpose:** 在 「player recruited unit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player recruited unit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -229,7 +229,7 @@ tutorialItemBase.OnPlayerRecruitedUnit(obj, 0);
 ### OnPlayerInventoryExchange
 `public virtual void OnPlayerInventoryExchange(List<(ItemRosterElement, int)> purchasedItems, List<(ItemRosterElement, int)> soldItems, bool isTrading)`
 
-**用途 / Purpose:** 在 「player inventory exchange」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player inventory exchange 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -240,7 +240,7 @@ tutorialItemBase.OnPlayerInventoryExchange(list<(ItemRosterElement, 0, list<(Ite
 ### OnMissionNameMarkerToggled
 `public virtual void OnMissionNameMarkerToggled(MissionNameMarkerToggleEvent obj)`
 
-**用途 / Purpose:** 在 「mission name marker toggled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission name marker toggled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -251,7 +251,7 @@ tutorialItemBase.OnMissionNameMarkerToggled(obj);
 ### OnPlayerToggleTrackSettlementFromEncyclopedia
 `public virtual void OnPlayerToggleTrackSettlementFromEncyclopedia(PlayerToggleTrackSettlementFromEncyclopediaEvent obj)`
 
-**用途 / Purpose:** 在 「player toggle track settlement from encyclopedia」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player toggle track settlement from encyclopedia 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -262,7 +262,7 @@ tutorialItemBase.OnPlayerToggleTrackSettlementFromEncyclopedia(obj);
 ### OnInventoryEquipmentTypeChange
 `public virtual void OnInventoryEquipmentTypeChange(InventoryEquipmentTypeChangedEvent obj)`
 
-**用途 / Purpose:** 在 「inventory equipment type change」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 inventory equipment type change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -273,7 +273,7 @@ tutorialItemBase.OnInventoryEquipmentTypeChange(obj);
 ### OnArmyCohesionByPlayerBoosted
 `public virtual void OnArmyCohesionByPlayerBoosted(ArmyCohesionBoostedByPlayerEvent obj)`
 
-**用途 / Purpose:** 在 「army cohesion by player boosted」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 army cohesion by player boosted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -284,7 +284,7 @@ tutorialItemBase.OnArmyCohesionByPlayerBoosted(obj);
 ### OnPartyAddedToArmyByPlayer
 `public virtual void OnPartyAddedToArmyByPlayer(PartyAddedToArmyByPlayerEvent obj)`
 
-**用途 / Purpose:** 在 「party added to army by player」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 party added to army by player 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -295,7 +295,7 @@ tutorialItemBase.OnPartyAddedToArmyByPlayer(obj);
 ### OnPlayerStartEngineConstruction
 `public virtual void OnPlayerStartEngineConstruction(PlayerStartEngineConstructionEvent obj)`
 
-**用途 / Purpose:** 在 「player start engine construction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player start engine construction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -306,7 +306,7 @@ tutorialItemBase.OnPlayerStartEngineConstruction(obj);
 ### OnPlayerUpgradeTroop
 `public virtual void OnPlayerUpgradeTroop(CharacterObject arg1, CharacterObject arg2, int arg3)`
 
-**用途 / Purpose:** 在 「player upgrade troop」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player upgrade troop 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -317,7 +317,7 @@ tutorialItemBase.OnPlayerUpgradeTroop(arg1, arg2, 0);
 ### OnPlayerMoveTroop
 `public virtual void OnPlayerMoveTroop(PlayerMoveTroopEvent obj)`
 
-**用途 / Purpose:** 在 「player move troop」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player move troop 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -328,7 +328,7 @@ tutorialItemBase.OnPlayerMoveTroop(obj);
 ### OnPerkSelectionToggle
 `public virtual void OnPerkSelectionToggle(PerkSelectionToggleEvent obj)`
 
-**用途 / Purpose:** 在 「perk selection toggle」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 perk selection toggle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -339,7 +339,7 @@ tutorialItemBase.OnPerkSelectionToggle(obj);
 ### OnPlayerInspectedPartySpeed
 `public virtual void OnPlayerInspectedPartySpeed(PlayerInspectedPartySpeedEvent obj)`
 
-**用途 / Purpose:** 在 「player inspected party speed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player inspected party speed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -350,7 +350,7 @@ tutorialItemBase.OnPlayerInspectedPartySpeed(obj);
 ### OnPlayerMovementFlagChanged
 `public virtual void OnPlayerMovementFlagChanged(MissionPlayerMovementFlagsChangeEvent obj)`
 
-**用途 / Purpose:** 在 「player movement flag changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player movement flag changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -361,7 +361,7 @@ tutorialItemBase.OnPlayerMovementFlagChanged(obj);
 ### OnPlayerToggledUpgradePopup
 `public virtual void OnPlayerToggledUpgradePopup(PlayerToggledUpgradePopupEvent obj)`
 
-**用途 / Purpose:** 在 「player toggled upgrade popup」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player toggled upgrade popup 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -372,7 +372,7 @@ tutorialItemBase.OnPlayerToggledUpgradePopup(obj);
 ### OnOrderOfBattleHeroAssignedToFormation
 `public virtual void OnOrderOfBattleHeroAssignedToFormation(OrderOfBattleHeroAssignedToFormationEvent obj)`
 
-**用途 / Purpose:** 在 「order of battle hero assigned to formation」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 order of battle hero assigned to formation 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -383,7 +383,7 @@ tutorialItemBase.OnOrderOfBattleHeroAssignedToFormation(obj);
 ### OnOrderOfBattleFormationClassChanged
 `public virtual void OnOrderOfBattleFormationClassChanged(OrderOfBattleFormationClassChangedEvent obj)`
 
-**用途 / Purpose:** 在 「order of battle formation class changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 order of battle formation class changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -394,7 +394,7 @@ tutorialItemBase.OnOrderOfBattleFormationClassChanged(obj);
 ### OnOrderOfBattleFormationWeightChanged
 `public virtual void OnOrderOfBattleFormationWeightChanged(OrderOfBattleFormationWeightChangedEvent obj)`
 
-**用途 / Purpose:** 在 「order of battle formation weight changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 order of battle formation weight changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -405,7 +405,7 @@ tutorialItemBase.OnOrderOfBattleFormationWeightChanged(obj);
 ### OnCraftingWeaponClassSelectionOpened
 `public virtual void OnCraftingWeaponClassSelectionOpened(CraftingWeaponClassSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 在 「crafting weapon class selection opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting weapon class selection opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -416,7 +416,7 @@ tutorialItemBase.OnCraftingWeaponClassSelectionOpened(obj);
 ### OnCraftingOnWeaponResultPopupOpened
 `public virtual void OnCraftingOnWeaponResultPopupOpened(CraftingWeaponResultPopupToggledEvent obj)`
 
-**用途 / Purpose:** 在 「crafting on weapon result popup opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting on weapon result popup opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -427,7 +427,7 @@ tutorialItemBase.OnCraftingOnWeaponResultPopupOpened(obj);
 ### OnCraftingOrderTabOpened
 `public virtual void OnCraftingOrderTabOpened(CraftingOrderTabOpenedEvent obj)`
 
-**用途 / Purpose:** 在 「crafting order tab opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting order tab opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -438,7 +438,7 @@ tutorialItemBase.OnCraftingOrderTabOpened(obj);
 ### OnCraftingOrderSelectionOpened
 `public virtual void OnCraftingOrderSelectionOpened(CraftingOrderSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 在 「crafting order selection opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting order selection opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -449,7 +449,7 @@ tutorialItemBase.OnCraftingOrderSelectionOpened(obj);
 ### OnInventoryItemInspected
 `public virtual void OnInventoryItemInspected(InventoryItemInspectedEvent obj)`
 
-**用途 / Purpose:** 在 「inventory item inspected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 inventory item inspected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -460,7 +460,7 @@ tutorialItemBase.OnInventoryItemInspected(obj);
 ### OnCrimeValueInspectedInSettlementOverlay
 `public virtual void OnCrimeValueInspectedInSettlementOverlay(CrimeValueInspectedInSettlementOverlayEvent obj)`
 
-**用途 / Purpose:** 在 「crime value inspected in settlement overlay」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crime value inspected in settlement overlay 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -471,7 +471,7 @@ tutorialItemBase.OnCrimeValueInspectedInSettlementOverlay(obj);
 ### OnClanRoleAssignedThroughClanScreen
 `public virtual void OnClanRoleAssignedThroughClanScreen(ClanRoleAssignedThroughClanScreenEvent obj)`
 
-**用途 / Purpose:** 在 「clan role assigned through clan screen」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clan role assigned through clan screen 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例
@@ -482,7 +482,7 @@ tutorialItemBase.OnClanRoleAssignedThroughClanScreen(obj);
 ### OnPlayerSelectedAKingdomDecisionOption
 `public virtual void OnPlayerSelectedAKingdomDecisionOption(PlayerSelectedAKingdomDecisionOptionEvent obj)`
 
-**用途 / Purpose:** 在 「player selected a kingdom decision option」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player selected a kingdom decision option 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialItemBase 实例

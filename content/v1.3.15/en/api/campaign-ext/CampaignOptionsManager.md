@@ -23,7 +23,7 @@ Treat `CampaignOptionsManager` as a Manager-style extension point: first identif
 ### GetOptionWithIdExists
 `public static bool GetOptionWithIdExists(string identifier)`
 
-**Purpose:** Reads and returns the `option with id exists` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option with id exists value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CampaignOptionsManager.GetOptionWithIdExists("example");
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CampaignOptionsManager.Initialize();
 ### ClearCachedOptions
 `public static void ClearCachedOptions()`
 
-**Purpose:** Removes all `cached options` from the current object.
+**Purpose:** **Purpose:** Removes all cached options from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CampaignOptionsManager.ClearCachedOptions();
 ### GetGameplayCampaignOptions
 `public static List<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** Reads and returns the `gameplay campaign options` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gameplay campaign options value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ CampaignOptionsManager.GetGameplayCampaignOptions();
 ### GetCharacterCreationCampaignOptions
 `public static List<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** Reads and returns the `character creation campaign options` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character creation campaign options value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -29,7 +29,7 @@ description: "VisualStateTemplate 的自动生成类参考。"
 ### SetAttribute
 `public void SetAttribute(string name, string value)`
 
-**用途 / Purpose:** 为 「attribute」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 attribute 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualStateTemplate 实例
@@ -40,7 +40,7 @@ visualStateTemplate.SetAttribute("example", "example");
 ### GetAttributes
 `public Dictionary<string, string> GetAttributes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attributes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attributes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualStateTemplate 实例
@@ -51,7 +51,7 @@ var result = visualStateTemplate.GetAttributes();
 ### ClearAttribute
 `public void ClearAttribute(string name)`
 
-**用途 / Purpose:** 清空当前对象中的「attribute」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的attribute。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualStateTemplate 实例
@@ -62,7 +62,7 @@ visualStateTemplate.ClearAttribute("example");
 ### CreateVisualState
 `public VisualState CreateVisualState(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 构建一个新的 「visual state」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 visual state 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualStateTemplate 实例

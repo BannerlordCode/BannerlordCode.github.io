@@ -29,7 +29,7 @@ description: "MapConversationTableau 的自动生成类参考。"
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -40,7 +40,7 @@ mapConversationTableau.SetEnabled(false);
 ### SetData
 `public void SetData(object data)`
 
-**用途 / Purpose:** 为 「data」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -51,7 +51,7 @@ mapConversationTableau.SetData(data);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -62,7 +62,7 @@ mapConversationTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize(bool clearNextFrame)`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -73,7 +73,7 @@ mapConversationTableau.OnFinalize(false);
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -84,7 +84,7 @@ mapConversationTableau.OnTick(0);
 ### OnConversationPlay
 `public void OnConversationPlay(string idleActionId, string idleFaceAnimId, string reactionId, string reactionFaceAnimId, string soundPath)`
 
-**用途 / Purpose:** 在 「conversation play」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 conversation play 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -95,7 +95,7 @@ mapConversationTableau.OnConversationPlay("example", "example", "example", "exam
 ### RemovePreviousAgentsSoundEvent
 `public void RemovePreviousAgentsSoundEvent()`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「previous agents sound event」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 previous agents sound event。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例
@@ -106,7 +106,7 @@ mapConversationTableau.RemovePreviousAgentsSoundEvent();
 ### StopConversationSoundEvent
 `public void StopConversationSoundEvent()`
 
-**用途 / Purpose:** 停止「conversation sound event」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止conversation sound event流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MapConversationTableau 实例

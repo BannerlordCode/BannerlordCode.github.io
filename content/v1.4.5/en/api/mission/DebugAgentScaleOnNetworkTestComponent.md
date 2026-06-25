@@ -23,7 +23,7 @@ Treat `DebugAgentScaleOnNetworkTestComponent` as a Component-style extension poi
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** Invoked when the `udp network handler tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the udp network handler tick event is raised.
 
 ```csharp
 // Obtain an instance of DebugAgentScaleOnNetworkTestComponent from the subsystem API first
@@ -34,7 +34,7 @@ debugAgentScaleOnNetworkTestComponent.OnUdpNetworkHandlerTick(0);
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**Purpose:** Invoked when the `udp network handler close` event is raised.
+**Purpose:** **Purpose:** Invoked when the udp network handler close event is raised.
 
 ```csharp
 // Obtain an instance of DebugAgentScaleOnNetworkTestComponent from the subsystem API first

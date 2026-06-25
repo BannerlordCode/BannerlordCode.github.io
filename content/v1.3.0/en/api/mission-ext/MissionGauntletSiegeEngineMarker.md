@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletSiegeEngineMarker.OnDeploymentFinished();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletSiegeEngineMarker.OnMissionScreenTick(0);
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Invoked when the `photo mode activated` event is raised.
+**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletSiegeEngineMarker.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSiegeEngineMarker from the subsystem API first

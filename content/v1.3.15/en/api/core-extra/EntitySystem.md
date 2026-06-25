@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### AddComponent
 `public T AddComponent(Type componentType)`
 
-**Purpose:** Adds `component` to the current collection or state.
+**Purpose:** **Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of EntitySystem from the subsystem API first
@@ -40,7 +40,7 @@ var result = entitySystem.AddComponent(componentType);
 ### GetComponent
 `public T GetComponent(Type componentType)`
 
-**Purpose:** Reads and returns the `component` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the component value held by the this instance.
 
 ```csharp
 // Obtain an instance of EntitySystem from the subsystem API first
@@ -51,7 +51,7 @@ var result = entitySystem.GetComponent(componentType);
 ### GetComponents
 `public MBList<T> GetComponents()`
 
-**Purpose:** Reads and returns the `components` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the components value held by the this instance.
 
 ```csharp
 // Obtain an instance of EntitySystem from the subsystem API first
@@ -62,7 +62,7 @@ var result = entitySystem.GetComponents();
 ### Finalize
 `public void Finalize(T component)`
 
-**Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
+**Purpose:** **Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
 
 ```csharp
 // Obtain an instance of EntitySystem from the subsystem API first
@@ -73,7 +73,7 @@ entitySystem.Finalize(component);
 ### RemoveComponent
 `public void RemoveComponent(T component)`
 
-**Purpose:** Removes `component` from the current collection or state.
+**Purpose:** **Purpose:** Removes component from the current collection or state.
 
 ```csharp
 // Obtain an instance of EntitySystem from the subsystem API first

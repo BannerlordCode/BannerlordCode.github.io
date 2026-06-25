@@ -23,7 +23,7 @@ description: "MapSiegeConstructionControllerWidget 的自动生成类参考。"
 ### SetCurrentPOIWidget
 `public void SetCurrentPOIWidget(MapSiegePOIBrushWidget widget)`
 
-**用途 / Purpose:** 为 「current p o i widget」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 current p o i widget 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeConstructionControllerWidget 实例

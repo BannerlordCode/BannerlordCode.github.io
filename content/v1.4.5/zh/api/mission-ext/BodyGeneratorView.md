@@ -32,7 +32,7 @@ description: "BodyGeneratorView 的自动生成类参考。"
 ### ResetFaceToDefault
 `public void ResetFaceToDefault()`
 
-**用途 / Purpose:** 将 「face to default」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 face to default 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGeneratorView 实例
@@ -43,7 +43,7 @@ bodyGeneratorView.ResetFaceToDefault();
 ### FaceGenShowDebug
 `public static string FaceGenShowDebug(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「face gen show debug」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FaceGenShowDebug 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ BodyGeneratorView.FaceGenShowDebug(strings);
 ### FaceGenUpdateDeformKeys
 `public static string FaceGenUpdateDeformKeys(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「face gen update deform keys」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FaceGenUpdateDeformKeys 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ BodyGeneratorView.FaceGenUpdateDeformKeys(strings);
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**用途 / Purpose:** 读取「y to render」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取y to render的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGeneratorView 实例
@@ -74,7 +74,7 @@ var result = bodyGeneratorView.ReadyToRender();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGeneratorView 实例
@@ -85,7 +85,7 @@ bodyGeneratorView.OnTick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGeneratorView 实例
@@ -96,7 +96,7 @@ bodyGeneratorView.OnFinalize();
 ### InitCamera
 `public static MatrixFrame InitCamera(Camera camera, Vec3 cameraPosition)`
 
-**用途 / Purpose:** 为 「camera」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 camera 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例

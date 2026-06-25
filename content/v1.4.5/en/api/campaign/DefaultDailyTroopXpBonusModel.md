@@ -23,7 +23,7 @@ Treat `DefaultDailyTroopXpBonusModel` as a Model-style extension point: first id
 ### CalculateDailyTroopXpBonus
 `public override int CalculateDailyTroopXpBonus(Town town)`
 
-**Purpose:** Calculates the current value or result of `daily troop xp bonus`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily troop xp bonus.
 
 ```csharp
 // Obtain an instance of DefaultDailyTroopXpBonusModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultDailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
 ### CalculateGarrisonXpBonusMultiplier
 `public override float CalculateGarrisonXpBonusMultiplier(Town town)`
 
-**Purpose:** Calculates the current value or result of `garrison xp bonus multiplier`.
+**Purpose:** **Purpose:** Calculates the current value or result of garrison xp bonus multiplier.
 
 ```csharp
 // Obtain an instance of DefaultDailyTroopXpBonusModel from the subsystem API first

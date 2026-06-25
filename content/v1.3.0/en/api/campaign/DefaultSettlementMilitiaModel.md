@@ -23,7 +23,7 @@ Treat `DefaultSettlementMilitiaModel` as a Model-style extension point: first id
 ### MilitiaToSpawnAfterSiege
 `public override int MilitiaToSpawnAfterSiege(Town town)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MilitiaToSpawnAfterSiege logic.
 
 ```csharp
 // Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultSettlementMilitiaModel.MilitiaToSpawnAfterSiege(town);
 ### CalculateMilitiaChange
 `public override ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `militia change`.
+**Purpose:** **Purpose:** Calculates the current value or result of militia change.
 
 ```csharp
 // Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultSettlementMilitiaModel.CalculateMilitiaChange(settlement, fa
 ### CalculateVeteranMilitiaSpawnChance
 `public override ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)`
 
-**Purpose:** Calculates the current value or result of `veteran militia spawn chance`.
+**Purpose:** **Purpose:** Calculates the current value or result of veteran militia spawn chance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultSettlementMilitiaModel.CalculateVeteranMilitiaSpawnChance(se
 ### CalculateMilitiaSpawnRate
 `public override void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)`
 
-**Purpose:** Calculates the current value or result of `militia spawn rate`.
+**Purpose:** **Purpose:** Calculates the current value or result of militia spawn rate.
 
 ```csharp
 // Obtain an instance of DefaultSettlementMilitiaModel from the subsystem API first

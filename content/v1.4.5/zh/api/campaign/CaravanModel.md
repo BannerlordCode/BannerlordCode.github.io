@@ -29,7 +29,7 @@ description: "CaravanModel 的自动生成类参考。"
 ### GetMaxGoldToSpendOnOneItemCategory
 `public abstract int GetMaxGoldToSpendOnOneItemCategory(MobileParty caravan, ItemCategory itemCategory)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max gold to spend on one item category」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max gold to spend on one item category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanModel 实例
@@ -40,7 +40,7 @@ var result = caravanModel.GetMaxGoldToSpendOnOneItemCategory(caravan, itemCatego
 ### GetInitialTradeGold
 `public abstract int GetInitialTradeGold(Hero owner, bool isNavalCaravan, bool eliteCaravan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「initial trade gold」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial trade gold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanModel 实例
@@ -51,7 +51,7 @@ var result = caravanModel.GetInitialTradeGold(owner, false, false);
 ### GetCaravanFormingCost
 `public abstract int GetCaravanFormingCost(bool eliteCaravan, bool navalCaravan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「caravan forming cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 caravan forming cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanModel 实例
@@ -62,7 +62,7 @@ var result = caravanModel.GetCaravanFormingCost(false, false);
 ### GetPowerChangeAfterCaravanCreation
 `public abstract int GetPowerChangeAfterCaravanCreation(Hero hero, MobileParty caravanParty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「power change after caravan creation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 power change after caravan creation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanModel 实例
@@ -73,7 +73,7 @@ var result = caravanModel.GetPowerChangeAfterCaravanCreation(hero, caravanParty)
 ### CanHeroCreateCaravan
 `public abstract bool CanHeroCreateCaravan(Hero hero)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「hero create caravan」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 hero create caravan 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanModel 实例
@@ -84,7 +84,7 @@ var result = caravanModel.CanHeroCreateCaravan(hero);
 ### GetEliteCaravanSpawnChance
 `public abstract float GetEliteCaravanSpawnChance(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「elite caravan spawn chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 elite caravan spawn chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanModel 实例

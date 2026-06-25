@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SkinVoiceType from the subsystem API first

@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfBattleVM from the subsystem API first
@@ -48,7 +48,7 @@ multiplayerEndOfBattleVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfBattleVM from the subsystem API first
@@ -59,7 +59,7 @@ multiplayerEndOfBattleVM.OnTick(0);
 ### OnBattleEnded
 `public void OnBattleEnded()`
 
-**Purpose:** Invoked when the `battle ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the battle ended event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfBattleVM from the subsystem API first

@@ -19,7 +19,7 @@ ChangeKingdomAction 是一组静态方法，用于在战役中以特定原因触
 public static void ApplyByJoinToKingdom(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
 ```
 
-**用途 / Purpose:** join to kingdom。
+**用途 / Purpose:** **用途 / Purpose:** 将 by join to kingdom 的效果应用到当前对象。
 
 ### ApplyByJoinToKingdomByDefection
 
@@ -27,7 +27,7 @@ public static void ApplyByJoinToKingdom(Clan clan, Kingdom newKingdom, CampaignT
 public static void ApplyByJoinToKingdomByDefection(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
 ```
 
-**用途 / Purpose:** join to kingdom by defection。
+**用途 / Purpose:** **用途 / Purpose:** 将 by join to kingdom by defection 的效果应用到当前对象。
 
 ### ApplyByCreateKingdom
 
@@ -35,7 +35,7 @@ public static void ApplyByJoinToKingdomByDefection(Clan clan, Kingdom oldKingdom
 public static void ApplyByCreateKingdom(Clan clan, Kingdom newKingdom, bool showNotification = true)
 ```
 
-**用途 / Purpose:** create kingdom。
+**用途 / Purpose:** **用途 / Purpose:** 将 by create kingdom 的效果应用到当前对象。
 
 ### ApplyByLeaveByKingdomDestruction
 
@@ -43,7 +43,7 @@ public static void ApplyByCreateKingdom(Clan clan, Kingdom newKingdom, bool show
 public static void ApplyByLeaveByKingdomDestruction(Clan clan, bool showNotification = true)
 ```
 
-**用途 / Purpose:** leave by kingdom destruction。
+**用途 / Purpose:** **用途 / Purpose:** 将 by leave by kingdom destruction 的效果应用到当前对象。
 
 ### ApplyByLeaveKingdom
 
@@ -51,7 +51,7 @@ public static void ApplyByLeaveByKingdomDestruction(Clan clan, bool showNotifica
 public static void ApplyByLeaveKingdom(Clan clan, bool showNotification = true)
 ```
 
-**用途 / Purpose:** leave kingdom。
+**用途 / Purpose:** **用途 / Purpose:** 将 by leave kingdom 的效果应用到当前对象。
 
 ### ApplyByLeaveWithRebellionAgainstKingdom
 
@@ -59,7 +59,7 @@ public static void ApplyByLeaveKingdom(Clan clan, bool showNotification = true)
 public static void ApplyByLeaveWithRebellionAgainstKingdom(Clan clan, bool showNotification = true)
 ```
 
-**用途 / Purpose:** leave with rebellion against kingdom。
+**用途 / Purpose:** **用途 / Purpose:** 将 by leave with rebellion against kingdom 的效果应用到当前对象。
 
 ### ApplyByJoinFactionAsMercenary
 
@@ -67,7 +67,7 @@ public static void ApplyByLeaveWithRebellionAgainstKingdom(Clan clan, bool showN
 public static void ApplyByJoinFactionAsMercenary(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), int awardMultiplier = 50, bool showNotification = true)
 ```
 
-**用途 / Purpose:** join faction as mercenary。
+**用途 / Purpose:** **用途 / Purpose:** 将 by join faction as mercenary 的效果应用到当前对象。
 
 ### ApplyByLeaveKingdomAsMercenary
 
@@ -75,7 +75,7 @@ public static void ApplyByJoinFactionAsMercenary(Clan clan, Kingdom newKingdom, 
 public static void ApplyByLeaveKingdomAsMercenary(Clan mercenaryClan, bool showNotification = true)
 ```
 
-**用途 / Purpose:** leave kingdom as mercenary。
+**用途 / Purpose:** **用途 / Purpose:** 将 by leave kingdom as mercenary 的效果应用到当前对象。
 
 ### ApplyByLeaveKingdomByClanDestruction
 
@@ -83,7 +83,7 @@ public static void ApplyByLeaveKingdomAsMercenary(Clan mercenaryClan, bool showN
 public static void ApplyByLeaveKingdomByClanDestruction(Clan clan, bool showNotification = true)
 ```
 
-**用途 / Purpose:** leave kingdom by clan destruction。
+**用途 / Purpose:** **用途 / Purpose:** 将 by leave kingdom by clan destruction 的效果应用到当前对象。
 
 ## 使用示例
 

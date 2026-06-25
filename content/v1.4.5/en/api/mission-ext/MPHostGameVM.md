@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPHostGameVM from the subsystem API first
@@ -41,7 +41,7 @@ mPHostGameVM.RefreshValues();
 ### ExecuteStart
 `public void ExecuteStart()`
 
-**Purpose:** Runs the operation or workflow associated with `start`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with start.
 
 ```csharp
 // Obtain an instance of MPHostGameVM from the subsystem API first

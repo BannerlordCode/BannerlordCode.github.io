@@ -29,7 +29,7 @@ description: "BrushLayerAnimation 的自动生成类参考。"
 ### AddAnimationProperty
 `public void AddAnimationProperty(BrushAnimationProperty property)`
 
-**用途 / Purpose:** 将 「animation property」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 animation property 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerAnimation 实例
@@ -40,7 +40,7 @@ brushLayerAnimation.AddAnimationProperty(property);
 ### Clone
 `public BrushLayerAnimation Clone()`
 
-**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerAnimation 实例

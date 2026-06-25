@@ -23,7 +23,7 @@ description: "DefaultBuildingScoreCalculationModel 的自动生成类参考。"
 ### GetNextDailyBuilding
 `public override Building GetNextDailyBuilding(Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「next daily building」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next daily building 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingScoreCalculationModel 实例
@@ -34,7 +34,7 @@ var result = defaultBuildingScoreCalculationModel.GetNextDailyBuilding(town);
 ### GetNextBuilding
 `public override Building GetNextBuilding(Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「next building」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next building 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingScoreCalculationModel 实例

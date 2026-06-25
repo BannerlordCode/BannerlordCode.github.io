@@ -36,7 +36,7 @@ description: "DropdownWidget 的自动生成类参考。"
 ### OnButtonClick
 `public void OnButtonClick(Widget widget)`
 
-**用途 / Purpose:** 在 「button click」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 button click 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DropdownWidget 实例
@@ -47,7 +47,7 @@ dropdownWidget.OnButtonClick(widget);
 ### UpdateButtonText
 `public void UpdateButtonText(string text)`
 
-**用途 / Purpose:** 重新计算并更新 「button text」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 button text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DropdownWidget 实例
@@ -58,7 +58,7 @@ dropdownWidget.UpdateButtonText("example");
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget newChild)`
 
-**用途 / Purpose:** 在 「list item added」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 list item added 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DropdownWidget 实例
@@ -69,7 +69,7 @@ dropdownWidget.OnListItemAdded(parentWidget, newChild);
 ### OnListItemRemoved
 `public void OnListItemRemoved(Widget removedItem, Widget removedChild)`
 
-**用途 / Purpose:** 在 「list item removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 list item removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DropdownWidget 实例
@@ -80,7 +80,7 @@ dropdownWidget.OnListItemRemoved(removedItem, removedChild);
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**用途 / Purpose:** 在 「selection changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 selection changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DropdownWidget 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddModel
 `public void AddModel(GameModel gameModel)`
 
-**Purpose:** Adds `model` to the current collection or state.
+**Purpose:** **Purpose:** Adds model to the current collection or state.
 
 ```csharp
 // Obtain an instance of BasicGameStarter from the subsystem API first

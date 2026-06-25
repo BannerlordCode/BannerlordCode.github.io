@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hi
 ### Equals
 `public override bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MissionStealthAreaUsePointNameMarkerTargetVM from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionStealthAreaUsePointNameMarkerTargetVM.Equals(other);
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionStealthAreaUsePointNameMarkerTargetVM from the subsystem API first

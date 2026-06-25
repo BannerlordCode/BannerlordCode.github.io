@@ -23,7 +23,7 @@ description: "PlatformDirectoryPath 的自动生成类参考。"
 ### PlatformDirectoryPath
 `public struct PlatformDirectoryPath(PlatformFileType type, string path)`
 
-**用途 / Purpose:** 处理与 「platform directory path」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlatformDirectoryPath 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformDirectoryPath 实例
@@ -34,7 +34,7 @@ var result = platformDirectoryPath.PlatformDirectoryPath(type, "example");
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformDirectoryPath 实例

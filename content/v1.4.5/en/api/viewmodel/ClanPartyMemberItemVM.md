@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanPartyMemberItemVM from the subsystem API first
@@ -45,7 +45,7 @@ clanPartyMemberItemVM.RefreshValues();
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Recalculates and stores the latest representation of `properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of ClanPartyMemberItemVM from the subsystem API first
@@ -56,7 +56,7 @@ clanPartyMemberItemVM.UpdateProperties();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of ClanPartyMemberItemVM from the subsystem API first
@@ -67,7 +67,7 @@ clanPartyMemberItemVM.ExecuteLink();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of ClanPartyMemberItemVM from the subsystem API first
@@ -78,7 +78,7 @@ clanPartyMemberItemVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of ClanPartyMemberItemVM from the subsystem API first
@@ -89,7 +89,7 @@ clanPartyMemberItemVM.ExecuteEndHint();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanPartyMemberItemVM from the subsystem API first

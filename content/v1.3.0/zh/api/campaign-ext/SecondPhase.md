@@ -31,7 +31,7 @@ description: "SecondPhase 的自动生成类参考。"
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**用途 / Purpose:** 在 「session launched」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 session launched 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例
@@ -42,7 +42,7 @@ secondPhase.OnSessionLaunched();
 ### TriggerConspiracy
 `public void TriggerConspiracy()`
 
-**用途 / Purpose:** 触发「conspiracy」对应的逻辑或事件。
+**用途 / Purpose:** **用途 / Purpose:** 触发conspiracy对应的逻辑或事件。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例
@@ -53,7 +53,7 @@ secondPhase.TriggerConspiracy();
 ### IncreaseConspiracyStrength
 `public void IncreaseConspiracyStrength()`
 
-**用途 / Purpose:** 处理与 「increase conspiracy strength」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IncreaseConspiracyStrength 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例
@@ -64,7 +64,7 @@ secondPhase.IncreaseConspiracyStrength();
 ### DecreaseConspiracyStrength
 `public void DecreaseConspiracyStrength(float amount)`
 
-**用途 / Purpose:** 处理与 「decrease conspiracy strength」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecreaseConspiracyStrength 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例
@@ -75,7 +75,7 @@ secondPhase.DecreaseConspiracyStrength(0);
 ### ActivateConspiracy
 `public void ActivateConspiracy()`
 
-**用途 / Purpose:** 激活「conspiracy」对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 激活conspiracy对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例
@@ -86,7 +86,7 @@ secondPhase.ActivateConspiracy();
 ### CreateNextConspiracyQuest
 `public void CreateNextConspiracyQuest()`
 
-**用途 / Purpose:** 构建一个新的 「next conspiracy quest」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 next conspiracy quest 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例

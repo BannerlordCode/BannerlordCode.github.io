@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### BlendFunction
 `public struct BlendFunction(AlphaFormatFlags op, byte flags, byte alpha, AlphaFormatFlags format)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BlendFunction logic.
 
 ```csharp
 // Obtain an instance of BlendFunction from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of OrderOfBattleTutorialStep2Tutorial from the subsystem API first
@@ -34,7 +34,7 @@ var result = orderOfBattleTutorialStep2Tutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of OrderOfBattleTutorialStep2Tutorial from the subsystem API first
@@ -45,7 +45,7 @@ var result = orderOfBattleTutorialStep2Tutorial.IsConditionsMetForActivation();
 ### OnOrderOfBattleFormationClassChanged
 `public override void OnOrderOfBattleFormationClassChanged(OrderOfBattleFormationClassChangedEvent obj)`
 
-**Purpose:** Invoked when the `order of battle formation class changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the order of battle formation class changed event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleTutorialStep2Tutorial from the subsystem API first
@@ -56,7 +56,7 @@ orderOfBattleTutorialStep2Tutorial.OnOrderOfBattleFormationClassChanged(obj);
 ### OnOrderOfBattleFormationWeightChanged
 `public override void OnOrderOfBattleFormationWeightChanged(OrderOfBattleFormationWeightChangedEvent obj)`
 
-**Purpose:** Invoked when the `order of battle formation weight changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the order of battle formation weight changed event is raised.
 
 ```csharp
 // Obtain an instance of OrderOfBattleTutorialStep2Tutorial from the subsystem API first
@@ -67,7 +67,7 @@ orderOfBattleTutorialStep2Tutorial.OnOrderOfBattleFormationWeightChanged(obj);
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of OrderOfBattleTutorialStep2Tutorial from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnBeforeSave
 `public override void OnBeforeSave()`
 
-**Purpose:** Invoked when the `before save` event is raised.
+**Purpose:** **Purpose:** Invoked when the before save event is raised.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -42,7 +42,7 @@ chatBox.OnBeforeSave();
 ### OnAfterSave
 `public override void OnAfterSave()`
 
-**Purpose:** Invoked when the `after save` event is raised.
+**Purpose:** **Purpose:** Invoked when the after save event is raised.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -53,7 +53,7 @@ chatBox.OnAfterSave();
 ### SendMessageToAll
 `public void SendMessageToAll(string message)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendMessageToAll logic.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -64,7 +64,7 @@ chatBox.SendMessageToAll("example");
 ### SendMessageToAll
 `public void SendMessageToAll(string message, List<VirtualPlayer> receiverList)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendMessageToAll logic.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -75,7 +75,7 @@ chatBox.SendMessageToAll("example", receiverList);
 ### SendMessageToTeam
 `public void SendMessageToTeam(string message)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendMessageToTeam logic.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -86,7 +86,7 @@ chatBox.SendMessageToTeam("example");
 ### SendMessageToTeam
 `public void SendMessageToTeam(string message, List<VirtualPlayer> receiverList)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendMessageToTeam logic.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -97,7 +97,7 @@ chatBox.SendMessageToTeam("example", receiverList);
 ### SendMessageToWhisperTarget
 `public void SendMessageToWhisperTarget(string message, string platformName, string whisperTarget)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendMessageToWhisperTarget logic.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -108,7 +108,7 @@ chatBox.SendMessageToWhisperTarget("example", "example", "example");
 ### ServerSendServerMessageToEveryone
 `public static void ServerSendServerMessageToEveryone(string message)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ServerSendServerMessageToEveryone logic.
 
 ```csharp
 // Static call; no instance required
@@ -118,7 +118,7 @@ ChatBox.ServerSendServerMessageToEveryone("example");
 ### ResetMuteList
 `public void ResetMuteList()`
 
-**Purpose:** Returns `mute list` to its default or initial condition.
+**Purpose:** **Purpose:** Returns mute list to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -129,7 +129,7 @@ chatBox.ResetMuteList();
 ### AddWhisperMessage
 `public static void AddWhisperMessage(string fromUserName, string messageBody)`
 
-**Purpose:** Adds `whisper message` to the current collection or state.
+**Purpose:** **Purpose:** Adds whisper message to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -139,7 +139,7 @@ ChatBox.AddWhisperMessage("example", "example");
 ### AddErrorWhisperMessage
 `public static void AddErrorWhisperMessage(string toUserName)`
 
-**Purpose:** Adds `error whisper message` to the current collection or state.
+**Purpose:** **Purpose:** Adds error whisper message to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ ChatBox.AddErrorWhisperMessage("example");
 ### SetPlayerMuted
 `public void SetPlayerMuted(PlayerId playerID, bool isMuted)`
 
-**Purpose:** Assigns a new value to `player muted` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to player muted and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -160,7 +160,7 @@ chatBox.SetPlayerMuted(playerID, false);
 ### SetPlayerMutedFromPlatform
 `public void SetPlayerMutedFromPlatform(PlayerId playerID, bool isMuted)`
 
-**Purpose:** Assigns a new value to `player muted from platform` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to player muted from platform and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -171,7 +171,7 @@ chatBox.SetPlayerMutedFromPlatform(playerID, false);
 ### IsPlayerMuted
 `public bool IsPlayerMuted(PlayerId player)`
 
-**Purpose:** Determines whether the current object is in the `player muted` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player muted state or condition.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -182,7 +182,7 @@ var result = chatBox.IsPlayerMuted(player);
 ### IsPlayerMutedFromPlatform
 `public bool IsPlayerMutedFromPlatform(PlayerId player)`
 
-**Purpose:** Determines whether the current object is in the `player muted from platform` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player muted from platform state or condition.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -193,7 +193,7 @@ var result = chatBox.IsPlayerMutedFromPlatform(player);
 ### IsPlayerMutedFromGame
 `public bool IsPlayerMutedFromGame(PlayerId player)`
 
-**Purpose:** Determines whether the current object is in the `player muted from game` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player muted from game state or condition.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -204,7 +204,7 @@ var result = chatBox.IsPlayerMutedFromGame(player);
 ### SetChatFilterLists
 `public void SetChatFilterLists(string profanityList, string allowList)`
 
-**Purpose:** Assigns a new value to `chat filter lists` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to chat filter lists and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -215,7 +215,7 @@ chatBox.SetChatFilterLists("example", "example");
 ### InitializeForMultiplayer
 `public void InitializeForMultiplayer()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `for multiplayer`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by for multiplayer.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -226,7 +226,7 @@ chatBox.InitializeForMultiplayer();
 ### InitializeForSinglePlayer
 `public void InitializeForSinglePlayer()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `for single player`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by for single player.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first
@@ -237,7 +237,7 @@ chatBox.InitializeForSinglePlayer();
 ### OnLogin
 `public void OnLogin()`
 
-**Purpose:** Invoked when the `login` event is raised.
+**Purpose:** **Purpose:** Invoked when the login event is raised.
 
 ```csharp
 // Obtain an instance of ChatBox from the subsystem API first

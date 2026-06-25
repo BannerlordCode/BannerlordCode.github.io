@@ -33,7 +33,7 @@ description: "MapSiegeVM 的自动生成类参考。"
 ### Compare
 `public int Compare(MapSiegePOIVM x, MapSiegePOIVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeVM 实例
@@ -44,7 +44,7 @@ var result = mapSiegeVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeVM 实例
@@ -55,7 +55,7 @@ mapSiegeVM.RefreshValues();
 ### OnSelectionFromScene
 `public void OnSelectionFromScene(MatrixFrame frameOfEngine)`
 
-**用途 / Purpose:** 在 「selection from scene」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 selection from scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeVM 实例
@@ -66,7 +66,7 @@ mapSiegeVM.OnSelectionFromScene(frameOfEngine);
 ### Update
 `public void Update(float mapCameraDistanceValue)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeVM 实例

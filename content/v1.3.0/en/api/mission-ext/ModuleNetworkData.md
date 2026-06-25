@@ -23,7 +23,7 @@ Treat `ModuleNetworkData` as a Data-style extension point: first identify who cr
 ### ReadItemReferenceFromPacket
 `public static EquipmentElement ReadItemReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**Purpose:** Reads the data or state of `item reference from packet`.
+**Purpose:** **Purpose:** Reads the data or state of item reference from packet.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ModuleNetworkData.ReadItemReferenceFromPacket(objectManager, bufferReadValid);
 ### WriteItemReferenceToPacket
 `public static void WriteItemReferenceToPacket(EquipmentElement equipElement)`
 
-**Purpose:** Writes `item reference to packet` to the target location.
+**Purpose:** **Purpose:** Writes item reference to packet to the target location.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ModuleNetworkData.WriteItemReferenceToPacket(equipElement);
 ### ReadWeaponReferenceFromPacket
 `public static MissionWeapon ReadWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**Purpose:** Reads the data or state of `weapon reference from packet`.
+**Purpose:** **Purpose:** Reads the data or state of weapon reference from packet.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ModuleNetworkData.ReadWeaponReferenceFromPacket(objectManager, bufferReadValid);
 ### WriteWeaponReferenceToPacket
 `public static void WriteWeaponReferenceToPacket(MissionWeapon weapon)`
 
-**Purpose:** Writes `weapon reference to packet` to the target location.
+**Purpose:** **Purpose:** Writes weapon reference to packet to the target location.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ ModuleNetworkData.WriteWeaponReferenceToPacket(weapon);
 ### ReadMissileWeaponReferenceFromPacket
 `public static MissionWeapon ReadMissileWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**Purpose:** Reads the data or state of `missile weapon reference from packet`.
+**Purpose:** **Purpose:** Reads the data or state of missile weapon reference from packet.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ ModuleNetworkData.ReadMissileWeaponReferenceFromPacket(objectManager, bufferRead
 ### WriteMissileWeaponReferenceToPacket
 `public static void WriteMissileWeaponReferenceToPacket(MissionWeapon weapon)`
 
-**Purpose:** Writes `missile weapon reference to packet` to the target location.
+**Purpose:** **Purpose:** Writes missile weapon reference to packet to the target location.
 
 ```csharp
 // Static call; no instance required

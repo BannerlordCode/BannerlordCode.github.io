@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects` to place it in the stack
 ### ResetPointAsServer
 `public void ResetPointAsServer(uint defaultColor, uint defaultColor2)`
 
-**Purpose:** Returns `point as server` to its default or initial condition.
+**Purpose:** **Purpose:** Returns point as server to its default or initial condition.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -34,7 +34,7 @@ flagCapturePoint.ResetPointAsServer(0, 0);
 ### RemovePointAsServer
 `public void RemovePointAsServer()`
 
-**Purpose:** Removes `point as server` from the current collection or state.
+**Purpose:** **Purpose:** Removes point as server from the current collection or state.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -45,7 +45,7 @@ flagCapturePoint.RemovePointAsServer();
 ### OnAfterTick
 `public void OnAfterTick(bool canOwnershipChange, out bool ownerTeamChanged)`
 
-**Purpose:** Invoked when the `after tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the after tick event is raised.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -56,7 +56,7 @@ flagCapturePoint.OnAfterTick(false, ownerTeamChanged);
 ### SetMoveFlag
 `public void SetMoveFlag(CaptureTheFlagFlagDirection directionTo, float speedMultiplier = 1f)`
 
-**Purpose:** Assigns a new value to `move flag` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to move flag and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -67,7 +67,7 @@ flagCapturePoint.SetMoveFlag(directionTo, 0);
 ### ChangeMovementSpeed
 `public void ChangeMovementSpeed(float speedMultiplier)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeMovementSpeed logic.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -78,7 +78,7 @@ flagCapturePoint.ChangeMovementSpeed(0);
 ### SetMoveNone
 `public void SetMoveNone()`
 
-**Purpose:** Assigns a new value to `move none` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to move none and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -89,7 +89,7 @@ flagCapturePoint.SetMoveNone();
 ### SetVisibleWithAllSynched
 `public void SetVisibleWithAllSynched(bool value, bool forceChildrenVisible = false)`
 
-**Purpose:** Assigns a new value to `visible with all synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to visible with all synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -100,7 +100,7 @@ flagCapturePoint.SetVisibleWithAllSynched(false, false);
 ### SetTeamColorsWithAllSynched
 `public void SetTeamColorsWithAllSynched(uint color, uint color2)`
 
-**Purpose:** Assigns a new value to `team colors with all synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to team colors with all synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -111,7 +111,7 @@ flagCapturePoint.SetTeamColorsWithAllSynched(0, 0);
 ### GetFlagColor
 `public uint GetFlagColor()`
 
-**Purpose:** Reads and returns the `flag color` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the flag color value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -122,7 +122,7 @@ var result = flagCapturePoint.GetFlagColor();
 ### GetFlagColor2
 `public uint GetFlagColor2()`
 
-**Purpose:** Reads and returns the `flag color2` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the flag color2 value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first
@@ -133,7 +133,7 @@ var result = flagCapturePoint.GetFlagColor2();
 ### GetFlagProgress
 `public float GetFlagProgress()`
 
-**Purpose:** Reads and returns the `flag progress` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the flag progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of FlagCapturePoint from the subsystem API first

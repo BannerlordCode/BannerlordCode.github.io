@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.SceneNotification` to 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ GauntletSceneNotification.Initialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GauntletSceneNotification from the subsystem API first
@@ -51,7 +51,7 @@ gauntletSceneNotification.OnFinalize();
 ### RegisterContextProvider
 `public void RegisterContextProvider(ISceneNotificationContextProvider provider)`
 
-**Purpose:** Registers `context provider` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers context provider with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GauntletSceneNotification from the subsystem API first
@@ -62,7 +62,7 @@ gauntletSceneNotification.RegisterContextProvider(provider);
 ### RemoveContextProvider
 `public bool RemoveContextProvider(ISceneNotificationContextProvider provider)`
 
-**Purpose:** Removes `context provider` from the current collection or state.
+**Purpose:** **Purpose:** Removes context provider from the current collection or state.
 
 ```csharp
 // Obtain an instance of GauntletSceneNotification from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `SandBox.ViewModelCollection.SaveLoad` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSaveVM from the subsystem API first
@@ -41,7 +41,7 @@ mapSaveVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapSaveVM from the subsystem API first

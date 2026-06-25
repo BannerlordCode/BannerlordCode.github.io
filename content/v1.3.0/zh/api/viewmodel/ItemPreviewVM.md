@@ -31,7 +31,7 @@ description: "ItemPreviewVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemPreviewVM 实例
@@ -42,7 +42,7 @@ itemPreviewVM.OnFinalize();
 ### Open
 `public void Open(EquipmentElement item)`
 
-**用途 / Purpose:** 打开当前对象代表的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开当前对象代表的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemPreviewVM 实例
@@ -53,7 +53,7 @@ itemPreviewVM.Open(item);
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemPreviewVM 实例
@@ -64,7 +64,7 @@ itemPreviewVM.ExecuteClose();
 ### Close
 `public void Close()`
 
-**用途 / Purpose:** 关闭当前对象代表的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭当前对象代表的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemPreviewVM 实例

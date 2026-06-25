@@ -23,7 +23,7 @@ description: "BarterHelper 的自动生成类参考。"
 ### GetAutoBalanceBarterablesAdd
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesAdd(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero, float fulfillRatio = 1f)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「auto balance barterables add」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 auto balance barterables add 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ BarterHelper.GetAutoBalanceBarterablesAdd(barterData, factionToBalanceFor, offer
 ### GetAutoBalanceBarterablesToRemove
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesToRemove(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「auto balance barterables to remove」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 auto balance barterables to remove 的结果。
 
 ```csharp
 // 静态调用，不需要实例

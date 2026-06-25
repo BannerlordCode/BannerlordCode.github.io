@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ControllerEquippedItemVM from the subsystem API first

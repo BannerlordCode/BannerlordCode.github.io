@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsRanged
 `public static bool IsRanged(this FormationClass troopClass)`
 
-**Purpose:** Determines whether the current object is in the `ranged` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ranged state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TroopClassExtensions.IsRanged(troopClass);
 ### IsMounted
 `public static bool IsMounted(this FormationClass troopClass)`
 
-**Purpose:** Determines whether the current object is in the `mounted` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the mounted state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ TroopClassExtensions.IsMounted(troopClass);
 ### IsMeleeInfantry
 `public static bool IsMeleeInfantry(this FormationClass troopClass)`
 
-**Purpose:** Determines whether the current object is in the `melee infantry` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the melee infantry state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ TroopClassExtensions.IsMeleeInfantry(troopClass);
 ### IsMeleeCavalry
 `public static bool IsMeleeCavalry(this FormationClass troopClass)`
 
-**Purpose:** Determines whether the current object is in the `melee cavalry` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the melee cavalry state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ TroopClassExtensions.IsMeleeCavalry(troopClass);
 ### DefaultClass
 `public static FormationClass DefaultClass(this FormationClass troopClass)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DefaultClass logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ TroopClassExtensions.DefaultClass(troopClass);
 ### AlternativeClass
 `public static FormationClass AlternativeClass(this FormationClass troopClass)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeClass logic.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ TroopClassExtensions.AlternativeClass(troopClass);
 ### DismountedClass
 `public static FormationClass DismountedClass(this FormationClass troopClass)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DismountedClass logic.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ TroopClassExtensions.DismountedClass(troopClass);
 ### IsDefaultTroopClass
 `public static bool IsDefaultTroopClass(this FormationClass troopClass)`
 
-**Purpose:** Determines whether the current object is in the `default troop class` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the default troop class state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ TroopClassExtensions.IsDefaultTroopClass(troopClass);
 ### IsRegularTroopClass
 `public static bool IsRegularTroopClass(this FormationClass troopClass)`
 
-**Purpose:** Determines whether the current object is in the `regular troop class` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the regular troop class state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ TroopClassExtensions.IsRegularTroopClass(troopClass);
 ### GetNextSpawnPrioritizedClass
 `public static FormationClass GetNextSpawnPrioritizedClass(this FormationClass troopClass)`
 
-**Purpose:** Reads and returns the `next spawn prioritized class` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next spawn prioritized class value held by the this instance.
 
 ```csharp
 // Static call; no instance required

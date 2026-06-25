@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CampaignOptionItemVM from the subsystem API first
@@ -52,7 +52,7 @@ campaignOptionItemVM.RefreshValues();
 ### RefreshDisabledStatus
 `public void RefreshDisabledStatus()`
 
-**Purpose:** Keeps the display or cache of `disabled status` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of disabled status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CampaignOptionItemVM from the subsystem API first
@@ -63,7 +63,7 @@ campaignOptionItemVM.RefreshDisabledStatus();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of CampaignOptionItemVM from the subsystem API first
@@ -74,7 +74,7 @@ campaignOptionItemVM.ExecuteAction();
 ### OnSelectionOptionValueChanged
 `public void OnSelectionOptionValueChanged(SelectorVM<SelectorItemVM> selector)`
 
-**Purpose:** Invoked when the `selection option value changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the selection option value changed event is raised.
 
 ```csharp
 // Obtain an instance of CampaignOptionItemVM from the subsystem API first
@@ -85,7 +85,7 @@ campaignOptionItemVM.OnSelectionOptionValueChanged(selector);
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CampaignOptionItemVM from the subsystem API first
@@ -96,7 +96,7 @@ campaignOptionItemVM.SetValue(0);
 ### SetOnValueChangedCallback
 `public void SetOnValueChangedCallback(Action<CampaignOptionItemVM> onValueChanged)`
 
-**Purpose:** Assigns a new value to `on value changed callback` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to on value changed callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CampaignOptionItemVM from the subsystem API first

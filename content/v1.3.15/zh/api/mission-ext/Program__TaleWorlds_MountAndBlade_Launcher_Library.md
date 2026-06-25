@@ -23,7 +23,7 @@ description: "Program 的自动生成类参考。"
 ### NativeMain
 `public static void NativeMain(string commandLine)`
 
-**用途 / Purpose:** 处理与 「native main」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NativeMain 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Program.NativeMain("example");
 ### Main
 `public static void Main(string args)`
 
-**用途 / Purpose:** 处理与 「main」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Main 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Program.Main("example");
 ### StartGame
 `public static void StartGame()`
 
-**用途 / Purpose:** 启动「game」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动game流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Program.StartGame();
 ### StartDigitalCompanion
 `public static void StartDigitalCompanion()`
 
-**用途 / Purpose:** 启动「digital companion」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动digital companion流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Program.StartDigitalCompanion();
 ### IsDigitalCompanionAvailable
 `public static bool IsDigitalCompanionAvailable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「digital companion available」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 digital companion available 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

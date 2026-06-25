@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of HeroInformationVM from the subsystem API first
@@ -58,7 +58,7 @@ heroInformationVM.RefreshValues();
 ### RefreshWith
 `public void RefreshWith(MPHeroClass heroClass, List<IReadOnlyPerkObject> perks)`
 
-**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of HeroInformationVM from the subsystem API first
@@ -69,7 +69,7 @@ heroInformationVM.RefreshWith(heroClass, perks);
 ### UpdateHighlightedItem
 `public void UpdateHighlightedItem(ShallowItemVM item)`
 
-**Purpose:** Recalculates and stores the latest representation of `highlighted item`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of highlighted item.
 
 ```csharp
 // Obtain an instance of HeroInformationVM from the subsystem API first

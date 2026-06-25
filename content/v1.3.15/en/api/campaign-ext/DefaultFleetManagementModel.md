@@ -29,7 +29,7 @@ Treat `DefaultFleetManagementModel` as a Model-style extension point: first iden
 ### CanSendShipToPlayerClan
 `public override bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `send ship to player clan`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for send ship to player clan.
 
 ```csharp
 // Obtain an instance of DefaultFleetManagementModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultFleetManagementModel.CanSendShipToPlayerClan(ship, 0, 0, hin
 ### CanTroopsReturn
 `public override bool CanTroopsReturn()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `troops return`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for troops return.
 
 ```csharp
 // Obtain an instance of DefaultFleetManagementModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultFleetManagementModel.CanTroopsReturn();
 ### GetReturnTimeForTroops
 `public override CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**Purpose:** Reads and returns the `return time for troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the return time for troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultFleetManagementModel from the subsystem API first

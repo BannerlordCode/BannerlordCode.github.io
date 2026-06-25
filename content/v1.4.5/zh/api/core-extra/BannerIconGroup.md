@@ -31,7 +31,7 @@ description: "BannerIconGroup 的自动生成类参考。"
 ### Deserialize
 `public void Deserialize(XmlNode xmlNode, MBList<BannerIconGroup> previouslyAddedGroups)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerIconGroup 实例
@@ -42,7 +42,7 @@ bannerIconGroup.Deserialize(xmlNode, previouslyAddedGroups);
 ### Merge
 `public void Merge(BannerIconGroup otherGroup)`
 
-**用途 / Purpose:** 处理与 「merge」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Merge 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerIconGroup 实例

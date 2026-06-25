@@ -33,7 +33,7 @@ Treat `DefaultTargetScoreCalculatingModel` as a Model-style extension point: fir
 ### GetPatrollingFactor
 `public override float GetPatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Reads and returns the `patrolling factor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the patrolling factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
@@ -44,7 +44,7 @@ var result = defaultTargetScoreCalculatingModel.GetPatrollingFactor(false);
 ### CalculatePatrollingScoreForSettlement
 `public override float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)`
 
-**Purpose:** Calculates the current value or result of `patrolling score for settlement`.
+**Purpose:** **Purpose:** Calculates the current value or result of patrolling score for settlement.
 
 ```csharp
 // Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
@@ -55,7 +55,7 @@ var result = defaultTargetScoreCalculatingModel.CalculatePatrollingScoreForSettl
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CurrentObjectiveValue logic.
 
 ```csharp
 // Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first
@@ -66,7 +66,7 @@ var result = defaultTargetScoreCalculatingModel.CurrentObjectiveValue(mobilePart
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** Reads and returns the `target score for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target score for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTargetScoreCalculatingModel from the subsystem API first

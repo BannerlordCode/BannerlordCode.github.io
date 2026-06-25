@@ -46,7 +46,7 @@ description: "MusicParameters 的自动生成类参考。"
 ### LoadFromXml
 `public static void LoadFromXml()`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「from xml」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from xml。
 
 ```csharp
 // 静态调用，不需要实例

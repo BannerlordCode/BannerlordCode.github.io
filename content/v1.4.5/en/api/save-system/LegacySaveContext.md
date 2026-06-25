@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### SaveStatistics
 `public struct SaveStatistics(Dictionary<string, (int, int, int, long)> typeStatistics, Dictionary<string, (int, int, int, int, long)> containerStatistics)`
 
-**Purpose:** Writes `statistics` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes statistics to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -42,7 +42,7 @@ var result = legacySaveContext.SaveStatistics(dictionary<string, (int, 0, 0, 0, 
 ### GetContainerSize
 `public long GetContainerSize(string key)`
 
-**Purpose:** Reads and returns the `container size` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the container size value held by the this instance.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -53,7 +53,7 @@ var result = legacySaveContext.GetContainerSize("example");
 ### GetTypeKeys
 `public List<string> GetTypeKeys()`
 
-**Purpose:** Reads and returns the `type keys` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the type keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -64,7 +64,7 @@ var result = legacySaveContext.GetTypeKeys();
 ### GetContainerKeys
 `public List<string> GetContainerKeys()`
 
-**Purpose:** Reads and returns the `container keys` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the container keys value held by the this instance.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -75,7 +75,7 @@ var result = legacySaveContext.GetContainerKeys();
 ### GetStatistics
 `public static SaveStatistics GetStatistics()`
 
-**Purpose:** Reads and returns the `statistics` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the statistics value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ LegacySaveContext.GetStatistics();
 ### AddStrings
 `public void AddStrings(List<string> texts)`
 
-**Purpose:** Adds `strings` to the current collection or state.
+**Purpose:** **Purpose:** Adds strings to the current collection or state.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -96,7 +96,7 @@ legacySaveContext.AddStrings(texts);
 ### AddOrGetStringId
 `public int AddOrGetStringId(string text)`
 
-**Purpose:** Adds `or get string id` to the current collection or state.
+**Purpose:** **Purpose:** Adds or get string id to the current collection or state.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -107,7 +107,7 @@ var result = legacySaveContext.AddOrGetStringId("example");
 ### GetObjectId
 `public int GetObjectId(object target)`
 
-**Purpose:** Reads and returns the `object id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the object id value held by the this instance.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -118,7 +118,7 @@ var result = legacySaveContext.GetObjectId(target);
 ### GetContainerId
 `public int GetContainerId(object target)`
 
-**Purpose:** Reads and returns the `container id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the container id value held by the this instance.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -129,7 +129,7 @@ var result = legacySaveContext.GetContainerId(target);
 ### GetStringId
 `public int GetStringId(string target)`
 
-**Purpose:** Reads and returns the `string id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the string id value held by the this instance.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first
@@ -140,7 +140,7 @@ var result = legacySaveContext.GetStringId("example");
 ### Save
 `public bool Save(object target, MetaData metaData, out string errorMessage)`
 
-**Purpose:** Writes the current object's data to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of LegacySaveContext from the subsystem API first

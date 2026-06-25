@@ -23,7 +23,7 @@ description: "TestLoginAccessProvider 的自动生成类参考。"
 ### GetInt64HashCode
 `public static ulong GetInt64HashCode(string strText)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「int64 hash code」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 int64 hash code 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TestLoginAccessProvider.GetInt64HashCode("example");
 ### GetPlayerIdFromUserName
 `public static PlayerId GetPlayerIdFromUserName(string userName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player id from user name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player id from user name 的结果。
 
 ```csharp
 // 静态调用，不需要实例

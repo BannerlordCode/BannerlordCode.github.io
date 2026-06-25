@@ -32,7 +32,7 @@ description: "AllianceModel 的自动生成类参考。"
 ### GetCallToWarCost
 `public abstract int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「call to war cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 call to war cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AllianceModel 实例
@@ -43,7 +43,7 @@ var result = allianceModel.GetCallToWarCost(callingKingdom, calledKingdom, kingd
 ### GetScoreOfStartingAlliance
 `public abstract ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, bool includeDescription = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of starting alliance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of starting alliance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AllianceModel 实例
@@ -54,7 +54,7 @@ var result = allianceModel.GetScoreOfStartingAlliance(kingdomDeclaresAlliance, k
 ### GetScoreOfCallingToWar
 `public abstract float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of calling to war」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of calling to war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AllianceModel 实例
@@ -65,7 +65,7 @@ var result = allianceModel.GetScoreOfCallingToWar(callingKingdom, calledKingdom,
 ### GetScoreOfJoiningWar
 `public abstract float GetScoreOfJoiningWar(Kingdom offeringKingdom, Kingdom kingdomToOfferToJoinWarWith, Kingdom kingdomToOfferToJoinWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of joining war」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of joining war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AllianceModel 实例
@@ -76,7 +76,7 @@ var result = allianceModel.GetScoreOfJoiningWar(offeringKingdom, kingdomToOfferT
 ### GetInfluenceCostOfProposingStartingAlliance
 `public abstract int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence cost of proposing starting alliance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing starting alliance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AllianceModel 实例
@@ -87,7 +87,7 @@ var result = allianceModel.GetInfluenceCostOfProposingStartingAlliance(proposing
 ### GetInfluenceCostOfCallingToWar
 `public abstract int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence cost of calling to war」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of calling to war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AllianceModel 实例

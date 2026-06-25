@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+**Purpose:** **Purpose:** Invoked when the unit added to formation for the first time event is raised.
 
 ```csharp
 // Obtain an instance of TeamAISallyOutDefender from the subsystem API first
@@ -40,7 +40,7 @@ teamAISallyOutDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ### CalculateSallyOutReferencePosition
 `public Vec3 CalculateSallyOutReferencePosition(FormationAI.BehaviorSide side)`
 
-**Purpose:** Calculates the current value or result of `sally out reference position`.
+**Purpose:** **Purpose:** Calculates the current value or result of sally out reference position.
 
 ```csharp
 // Obtain an instance of TeamAISallyOutDefender from the subsystem API first
@@ -51,7 +51,7 @@ var result = teamAISallyOutDefender.CalculateSallyOutReferencePosition(side);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of TeamAISallyOutDefender from the subsystem API first

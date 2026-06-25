@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -43,7 +43,7 @@ var result = movementOrder.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -54,7 +54,7 @@ var result = movementOrder.GetHashCode();
 ### MovementOrderChargeToTarget
 `public static MovementOrder MovementOrderChargeToTarget(Formation targetFormation)`
 
-**Purpose:** Moves `ment order charge to target` to a new position or state.
+**Purpose:** **Purpose:** Moves ment order charge to target to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ MovementOrder.MovementOrderChargeToTarget(targetFormation);
 ### MovementOrderFollow
 `public static MovementOrder MovementOrderFollow(Agent targetAgent)`
 
-**Purpose:** Moves `ment order follow` to a new position or state.
+**Purpose:** **Purpose:** Moves ment order follow to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ MovementOrder.MovementOrderFollow(targetAgent);
 ### MovementOrderFollowEntity
 `public static MovementOrder MovementOrderFollowEntity(GameEntity targetEntity)`
 
-**Purpose:** Moves `ment order follow entity` to a new position or state.
+**Purpose:** **Purpose:** Moves ment order follow entity to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ MovementOrder.MovementOrderFollowEntity(targetEntity);
 ### MovementOrderMove
 `public static MovementOrder MovementOrderMove(WorldPosition position)`
 
-**Purpose:** Moves `ment order move` to a new position or state.
+**Purpose:** **Purpose:** Moves ment order move to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ MovementOrder.MovementOrderMove(position);
 ### MovementOrderAttackEntity
 `public static MovementOrder MovementOrderAttackEntity(GameEntity targetEntity, bool surroundEntity)`
 
-**Purpose:** Moves `ment order attack entity` to a new position or state.
+**Purpose:** **Purpose:** Moves ment order attack entity to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -104,7 +104,7 @@ MovementOrder.MovementOrderAttackEntity(targetEntity, false);
 ### GetMovementOrderDefensiveness
 `public static int GetMovementOrderDefensiveness(MovementOrder.MovementOrderEnum orderEnum)`
 
-**Purpose:** Reads and returns the `movement order defensiveness` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the movement order defensiveness value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -114,7 +114,7 @@ MovementOrder.GetMovementOrderDefensiveness(orderEnum);
 ### GetMovementOrderDefensivenessChange
 `public static int GetMovementOrderDefensivenessChange(MovementOrder.MovementOrderEnum previousOrderEnum, MovementOrder.MovementOrderEnum nextOrderEnum)`
 
-**Purpose:** Reads and returns the `movement order defensiveness change` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the movement order defensiveness change value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -124,7 +124,7 @@ MovementOrder.GetMovementOrderDefensivenessChange(previousOrderEnum, nextOrderEn
 ### GetPosition
 `public Vec2 GetPosition(Formation f)`
 
-**Purpose:** Reads and returns the `position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -135,7 +135,7 @@ var result = movementOrder.GetPosition(f);
 ### GetTargetVelocity
 `public Vec2 GetTargetVelocity()`
 
-**Purpose:** Reads and returns the `target velocity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -146,7 +146,7 @@ var result = movementOrder.GetTargetVelocity();
 ### CreateNewOrderWorldPositionMT
 `public WorldPosition CreateNewOrderWorldPositionMT(Formation f, WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
 
-**Purpose:** Constructs a new `new order world position m t` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new order world position m t entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -157,7 +157,7 @@ var result = movementOrder.CreateNewOrderWorldPositionMT(f, worldPositionEnforce
 ### ResetPositionCache
 `public void ResetPositionCache()`
 
-**Purpose:** Returns `position cache` to its default or initial condition.
+**Purpose:** **Purpose:** Returns position cache to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -168,7 +168,7 @@ movementOrder.ResetPositionCache();
 ### AreOrdersPracticallySame
 `public bool AreOrdersPracticallySame(MovementOrder m1, MovementOrder m2, bool isAIControlled)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AreOrdersPracticallySame logic.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -179,7 +179,7 @@ var result = movementOrder.AreOrdersPracticallySame(m1, m2, false);
 ### OnApply
 `public void OnApply(Formation formation)`
 
-**Purpose:** Invoked when the `apply` event is raised.
+**Purpose:** **Purpose:** Invoked when the apply event is raised.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -190,7 +190,7 @@ movementOrder.OnApply(formation);
 ### OnCancel
 `public void OnCancel(Formation formation)`
 
-**Purpose:** Invoked when the `cancel` event is raised.
+**Purpose:** **Purpose:** Invoked when the cancel event is raised.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -201,7 +201,7 @@ movementOrder.OnCancel(formation);
 ### OnUnitJoinOrLeave
 `public void OnUnitJoinOrLeave(Formation formation, Agent unit, bool isJoining)`
 
-**Purpose:** Invoked when the `unit join or leave` event is raised.
+**Purpose:** **Purpose:** Invoked when the unit join or leave event is raised.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -212,7 +212,7 @@ movementOrder.OnUnitJoinOrLeave(formation, unit, false);
 ### IsApplicable
 `public bool IsApplicable(Formation formation)`
 
-**Purpose:** Determines whether the current object is in the `applicable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the applicable state or condition.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -223,7 +223,7 @@ var result = movementOrder.IsApplicable(formation);
 ### Tick
 `public bool Tick(Formation formation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -234,7 +234,7 @@ var result = movementOrder.Tick(formation);
 ### OnArrangementChanged
 `public void OnArrangementChanged(Formation formation)`
 
-**Purpose:** Invoked when the `arrangement changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the arrangement changed event is raised.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -245,7 +245,7 @@ movementOrder.OnArrangementChanged(formation);
 ### Advance
 `public void Advance(Formation formation, float distance)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Advance logic.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -256,7 +256,7 @@ movementOrder.Advance(formation, 0);
 ### FallBack
 `public void FallBack(Formation formation, float distance)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FallBack logic.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first
@@ -267,7 +267,7 @@ movementOrder.FallBack(formation, 0);
 ### GetSubstituteOrder
 `public MovementOrder GetSubstituteOrder(Formation formation)`
 
-**Purpose:** Reads and returns the `substitute order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the substitute order value held by the this instance.
 
 ```csharp
 // Obtain an instance of MovementOrder from the subsystem API first

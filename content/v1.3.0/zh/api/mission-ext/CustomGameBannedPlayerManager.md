@@ -30,7 +30,7 @@ description: "CustomGameBannedPlayerManager 的自动生成类参考。"
 ### AddBannedPlayer
 `public static void AddBannedPlayer(PlayerId playerId, int banDueTime)`
 
-**用途 / Purpose:** 将 「banned player」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 banned player 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ CustomGameBannedPlayerManager.AddBannedPlayer(playerId, 0);
 ### IsUserBanned
 `public static bool IsUserBanned(PlayerId playerId)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「user banned」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 user banned 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

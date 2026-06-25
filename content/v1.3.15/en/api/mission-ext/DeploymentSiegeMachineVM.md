@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -49,7 +49,7 @@ deploymentSiegeMachineVM.RefreshValues();
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -60,7 +60,7 @@ deploymentSiegeMachineVM.Update();
 ### CalculatePosition
 `public void CalculatePosition()`
 
-**Purpose:** Calculates the current value or result of `position`.
+**Purpose:** **Purpose:** Calculates the current value or result of position.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -71,7 +71,7 @@ deploymentSiegeMachineVM.CalculatePosition();
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of position in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -82,7 +82,7 @@ deploymentSiegeMachineVM.RefreshPosition();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -93,7 +93,7 @@ deploymentSiegeMachineVM.ExecuteAction();
 ### ExecuteFocusBegin
 `public void ExecuteFocusBegin()`
 
-**Purpose:** Runs the operation or workflow associated with `focus begin`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with focus begin.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -104,7 +104,7 @@ deploymentSiegeMachineVM.ExecuteFocusBegin();
 ### ExecuteFocusEnd
 `public void ExecuteFocusEnd()`
 
-**Purpose:** Runs the operation or workflow associated with `focus end`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with focus end.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first
@@ -115,7 +115,7 @@ deploymentSiegeMachineVM.ExecuteFocusEnd();
 ### RefreshWithDeployedWeapon
 `public void RefreshWithDeployedWeapon()`
 
-**Purpose:** Keeps the display or cache of `with deployed weapon` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of with deployed weapon in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of DeploymentSiegeMachineVM from the subsystem API first

@@ -32,7 +32,7 @@ description: "MissionAgentDamageFeedItemWidget 的自动生成类参考。"
 ### ShowFeed
 `public void ShowFeed()`
 
-**用途 / Purpose:** 显示「feed」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示feed对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentDamageFeedItemWidget 实例
@@ -43,7 +43,7 @@ missionAgentDamageFeedItemWidget.ShowFeed();
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**用途 / Purpose:** 为 「speed modifier」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 speed modifier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentDamageFeedItemWidget 实例

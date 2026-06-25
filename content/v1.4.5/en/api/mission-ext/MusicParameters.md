@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### LoadFromXml
 `public static void LoadFromXml()`
 
-**Purpose:** Reads `from xml` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from xml from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

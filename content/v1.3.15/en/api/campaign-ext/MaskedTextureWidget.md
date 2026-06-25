@@ -32,7 +32,7 @@ Treat `MaskedTextureWidget` as a Widget-style extension point: first identify wh
 ### OnClearTextureProvider
 `public override void OnClearTextureProvider()`
 
-**Purpose:** Invoked when the `clear texture provider` event is raised.
+**Purpose:** **Purpose:** Invoked when the clear texture provider event is raised.
 
 ```csharp
 // Obtain an instance of MaskedTextureWidget from the subsystem API first

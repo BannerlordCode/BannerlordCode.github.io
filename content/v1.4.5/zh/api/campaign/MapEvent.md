@@ -48,7 +48,7 @@ description: "MapEvent 的自动生成类参考。"
 ### GetMapEventSide
 `public MapEventSide GetMapEventSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「map event side」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 map event side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -59,7 +59,7 @@ var result = mapEvent.GetMapEventSide(side);
 ### PartiesOnSide
 `public MBReadOnlyList<MapEventParty> PartiesOnSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理与 「parties on side」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PartiesOnSide 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -70,7 +70,7 @@ var result = mapEvent.PartiesOnSide(side);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -81,7 +81,7 @@ var result = mapEvent.ToString();
 ### BeginWait
 `public void BeginWait()`
 
-**用途 / Purpose:** 处理与 「begin wait」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginWait 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -92,7 +92,7 @@ mapEvent.BeginWait();
 ### FinishBattleAndKeepSiegeEvent
 `public void FinishBattleAndKeepSiegeEvent()`
 
-**用途 / Purpose:** 结束「battle and keep siege event」流程并执行必要的收尾工作。
+**用途 / Purpose:** **用途 / Purpose:** 结束battle and keep siege event流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -103,7 +103,7 @@ mapEvent.FinishBattleAndKeepSiegeEvent();
 ### SetOverrideWinner
 `public void SetOverrideWinner(BattleSideEnum winner)`
 
-**用途 / Purpose:** 为 「override winner」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 override winner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -114,7 +114,7 @@ mapEvent.SetOverrideWinner(winner);
 ### SetDefenderPulledBack
 `public void SetDefenderPulledBack()`
 
-**用途 / Purpose:** 为 「defender pulled back」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 defender pulled back 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -125,7 +125,7 @@ mapEvent.SetDefenderPulledBack();
 ### SimulateBattleSetup
 `public void SimulateBattleSetup(FlattenedTroopRoster priorTroops)`
 
-**用途 / Purpose:** 处理与 「simulate battle setup」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateBattleSetup 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -136,7 +136,7 @@ mapEvent.SimulateBattleSetup(priorTroops);
 ### SimulateBattleRound
 `public void SimulateBattleRound(int simulationTicksDefender, int simulationTicksAttacker)`
 
-**用途 / Purpose:** 处理与 「simulate battle round」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SimulateBattleRound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -147,7 +147,7 @@ mapEvent.SimulateBattleRound(0, 0);
 ### ResetBattleState
 `public void ResetBattleState()`
 
-**用途 / Purpose:** 将 「battle state」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 battle state 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -158,7 +158,7 @@ mapEvent.ResetBattleState();
 ### IsPlayerSergeant
 `public bool IsPlayerSergeant()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「player sergeant」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player sergeant 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -169,7 +169,7 @@ var result = mapEvent.IsPlayerSergeant();
 ### EndByRunAway
 `public void EndByRunAway()`
 
-**用途 / Purpose:** 处理与 「end by run away」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndByRunAway 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -180,7 +180,7 @@ mapEvent.EndByRunAway();
 ### RecalculateStrengthOfSides
 `public void RecalculateStrengthOfSides()`
 
-**用途 / Purpose:** 重新计算「strength of sides」以反映最新状态。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算strength of sides以反映最新状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -191,7 +191,7 @@ mapEvent.RecalculateStrengthOfSides();
 ### GetNumberOfInvolvedMen
 `public int GetNumberOfInvolvedMen()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of involved men」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of involved men 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -202,7 +202,7 @@ var result = mapEvent.GetNumberOfInvolvedMen();
 ### GetNumberOfInvolvedMen
 `public int GetNumberOfInvolvedMen(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of involved men」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of involved men 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -213,7 +213,7 @@ var result = mapEvent.GetNumberOfInvolvedMen(side);
 ### GetOtherSide
 `public BattleSideEnum GetOtherSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「other side」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 other side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -224,7 +224,7 @@ var result = mapEvent.GetOtherSide(side);
 ### HasTroopsOnBothSides
 `public bool HasTroopsOnBothSides()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「troops on both sides」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 troops on both sides。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -235,7 +235,7 @@ var result = mapEvent.HasTroopsOnBothSides();
 ### GetLeaderParty
 `public PartyBase GetLeaderParty(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「leader party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 leader party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -246,7 +246,7 @@ var result = mapEvent.GetLeaderParty(side);
 ### CanPartyJoinBattle
 `public bool CanPartyJoinBattle(PartyBase party, BattleSideEnum side)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「party join battle」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 party join battle 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -257,7 +257,7 @@ var result = mapEvent.CanPartyJoinBattle(party, side);
 ### GetStrengthsRelativeToParty
 `public void GetStrengthsRelativeToParty(BattleSideEnum partySide, out float partySideStrength, out float opposingSideStrength)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「strengths relative to party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 strengths relative to party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -268,7 +268,7 @@ mapEvent.GetStrengthsRelativeToParty(partySide, partySideStrength, opposingSideS
 ### GetPlayerBattleContributionRate
 `public float GetPlayerBattleContributionRate()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player battle contribution rate」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player battle contribution rate 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -279,7 +279,7 @@ var result = mapEvent.GetPlayerBattleContributionRate();
 ### FinalizeEvent
 `public void FinalizeEvent()`
 
-**用途 / Purpose:** 处理与 「finalize event」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -290,7 +290,7 @@ mapEvent.FinalizeEvent();
 ### RecalculateRenownAndInfluenceValuesOnPartyInvolved
 `public void RecalculateRenownAndInfluenceValuesOnPartyInvolved(PartyBase party)`
 
-**用途 / Purpose:** 重新计算「renown and influence values on party involved」以反映最新状态。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算renown and influence values on party involved以反映最新状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -301,7 +301,7 @@ mapEvent.RecalculateRenownAndInfluenceValuesOnPartyInvolved(party);
 ### DoSurrender
 `public void DoSurrender(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理与 「do surrender」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoSurrender 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -312,7 +312,7 @@ mapEvent.DoSurrender(side);
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**用途 / Purpose:** 为 「position after map change」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -323,7 +323,7 @@ mapEvent.SetPositionAfterMapChange(newPosition);
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**用途 / Purpose:** 检查「positions for map change and update if needed」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -334,7 +334,7 @@ mapEvent.CheckPositionsForMapChangeAndUpdateIfNeeded();
 ### OverrideMapEventSettlementForRaidToFieldBattleSwitch
 `public void OverrideMapEventSettlementForRaidToFieldBattleSwitch(Settlement settlement)`
 
-**用途 / Purpose:** 处理与 「override map event settlement for raid to field battle switch」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OverrideMapEventSettlementForRaidToFieldBattleSwitch 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例

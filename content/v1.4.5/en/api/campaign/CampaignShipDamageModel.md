@@ -23,7 +23,7 @@ Treat `CampaignShipDamageModel` as a Model-style extension point: first identify
 ### GetHourlyShipDamage
 `public abstract int GetHourlyShipDamage(MobileParty owner, Ship ship)`
 
-**Purpose:** Reads and returns the `hourly ship damage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hourly ship damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignShipDamageModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = campaignShipDamageModel.GetHourlyShipDamage(owner, ship);
 ### GetEstimatedSafeSailDuration
 `public abstract float GetEstimatedSafeSailDuration(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `estimated safe sail duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the estimated safe sail duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignShipDamageModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = campaignShipDamageModel.GetEstimatedSafeSailDuration(mobileParty);
 ### GetShipDamage
 `public abstract float GetShipDamage(Ship ship, Ship rammingShip, float rawDamage)`
 
-**Purpose:** Reads and returns the `ship damage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of CampaignShipDamageModel from the subsystem API first

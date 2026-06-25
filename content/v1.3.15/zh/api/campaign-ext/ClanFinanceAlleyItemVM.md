@@ -32,7 +32,7 @@ description: "ClanFinanceAlleyItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
@@ -43,7 +43,7 @@ clanFinanceAlleyItemVM.RefreshValues();
 ### ExecuteManageAlley
 `public void ExecuteManageAlley()`
 
-**用途 / Purpose:** 执行 「manage alley」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 manage alley 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
@@ -54,7 +54,7 @@ clanFinanceAlleyItemVM.ExecuteManageAlley();
 ### ExecuteBeginHeroHint
 `public void ExecuteBeginHeroHint()`
 
-**用途 / Purpose:** 执行 「begin hero hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin hero hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例
@@ -65,7 +65,7 @@ clanFinanceAlleyItemVM.ExecuteBeginHeroHint();
 ### ExecuteEndHeroHint
 `public void ExecuteEndHeroHint()`
 
-**用途 / Purpose:** 执行 「end hero hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hero hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceAlleyItemVM 实例

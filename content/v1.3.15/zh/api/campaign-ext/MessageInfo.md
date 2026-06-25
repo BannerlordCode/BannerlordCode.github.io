@@ -35,7 +35,7 @@ description: "MessageInfo 的自动生成类参考。"
 ### WriteTo
 `public void WriteTo(Stream stream, bool fromServer)`
 
-**用途 / Purpose:** 将「to」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将to写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageInfo 实例
@@ -46,7 +46,7 @@ messageInfo.WriteTo(stream, false);
 ### ReadFrom
 `public static MessageInfo ReadFrom(Stream stream, bool fromServer)`
 
-**用途 / Purpose:** 读取「from」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取from的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例

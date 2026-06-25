@@ -23,7 +23,7 @@ description: "RichTextTagParser 的自动生成类参考。"
 ### Parse
 `public static RichTextTag Parse(string text2, int tagBeginIndex, int tagEndIndex)`
 
-**用途 / Purpose:** 将外部输入解析为当前系统可识别的「parse」。
+**用途 / Purpose:** **用途 / Purpose:** 将外部输入解析为当前系统可识别的parse。
 
 ```csharp
 // 静态调用，不需要实例

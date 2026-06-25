@@ -38,7 +38,7 @@ description: "BattlePeer 的自动生成类参考。"
 ### Rejoin
 `public void Rejoin(int teamNo)`
 
-**用途 / Purpose:** 处理与 「rejoin」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Rejoin 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattlePeer 实例
@@ -49,7 +49,7 @@ battlePeer.Rejoin(0);
 ### InitializeSession
 `public void InitializeSession(int index, int sessionKey)`
 
-**用途 / Purpose:** 为 「session」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 session 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BattlePeer 实例

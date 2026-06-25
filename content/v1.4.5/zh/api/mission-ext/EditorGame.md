@@ -23,7 +23,7 @@ description: "EditorGame 的自动生成类参考。"
 ### OnDestroy
 `public override void OnDestroy()`
 
-**用途 / Purpose:** 在 「destroy」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 destroy 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EditorGame 实例
@@ -34,7 +34,7 @@ editorGame.OnDestroy();
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**用途 / Purpose:** 在 「state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EditorGame 实例

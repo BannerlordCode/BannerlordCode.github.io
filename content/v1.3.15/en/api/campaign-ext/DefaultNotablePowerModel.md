@@ -30,7 +30,7 @@ Treat `DefaultNotablePowerModel` as a Model-style extension point: first identif
 ### CalculateDailyPowerChangeForHero
 `public override ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `daily power change for hero`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily power change for hero.
 
 ```csharp
 // Obtain an instance of DefaultNotablePowerModel from the subsystem API first
@@ -41,7 +41,7 @@ var result = defaultNotablePowerModel.CalculateDailyPowerChangeForHero(hero, fal
 ### GetPowerRankName
 `public override TextObject GetPowerRankName(Hero hero)`
 
-**Purpose:** Reads and returns the `power rank name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the power rank name value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultNotablePowerModel from the subsystem API first
@@ -52,7 +52,7 @@ var result = defaultNotablePowerModel.GetPowerRankName(hero);
 ### GetInfluenceBonusToClan
 `public override float GetInfluenceBonusToClan(Hero hero)`
 
-**Purpose:** Reads and returns the `influence bonus to clan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the influence bonus to clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultNotablePowerModel from the subsystem API first
@@ -63,7 +63,7 @@ var result = defaultNotablePowerModel.GetInfluenceBonusToClan(hero);
 ### GetInitialPower
 `public override int GetInitialPower(Hero hero)`
 
-**Purpose:** Reads and returns the `initial power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the initial power value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultNotablePowerModel from the subsystem API first
@@ -74,7 +74,7 @@ var result = defaultNotablePowerModel.GetInitialPower(hero);
 ### GetInitialNotableSupporterCost
 `public override int GetInitialNotableSupporterCost(Hero hero)`
 
-**Purpose:** Reads and returns the `initial notable supporter cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the initial notable supporter cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultNotablePowerModel from the subsystem API first

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -43,7 +43,7 @@ var result = gangLeaderNeedsWeaponsIssueQuestBehavior.AlternativeSolutionConditi
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -54,7 +54,7 @@ var result = gangLeaderNeedsWeaponsIssueQuestBehavior.DoTroopsSatisfyAlternative
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -65,7 +65,7 @@ var result = gangLeaderNeedsWeaponsIssueQuestBehavior.IsTroopTypeNeededByAlterna
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionStartConsequence logic.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -76,7 +76,7 @@ gangLeaderNeedsWeaponsIssueQuestBehavior.AlternativeSolutionStartConsequence();
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -87,7 +87,7 @@ var result = gangLeaderNeedsWeaponsIssueQuestBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -98,7 +98,7 @@ var result = gangLeaderNeedsWeaponsIssueQuestBehavior.IssueStayAliveConditions()
 ### OnCanceled
 `public override void OnCanceled()`
 
-**Purpose:** Invoked when the `canceled` event is raised.
+**Purpose:** **Purpose:** Invoked when the canceled event is raised.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -109,7 +109,7 @@ gangLeaderNeedsWeaponsIssueQuestBehavior.OnCanceled();
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Invoked when the `failed` event is raised.
+**Purpose:** **Purpose:** Invoked when the failed event is raised.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -120,7 +120,7 @@ gangLeaderNeedsWeaponsIssueQuestBehavior.OnFailed();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -131,7 +131,7 @@ gangLeaderNeedsWeaponsIssueQuestBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first
@@ -142,7 +142,7 @@ gangLeaderNeedsWeaponsIssueQuestBehavior.SyncData(dataStore);
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Invoked when the `check for issue` event is raised.
+**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsWeaponsIssueQuestBehavior from the subsystem API first

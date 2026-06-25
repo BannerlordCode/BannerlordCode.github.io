@@ -23,7 +23,7 @@ Treat `PropertyLoadData` as a Data-style extension point: first identify who cre
 ### FillObject
 `public void FillObject()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillObject logic.
 
 ```csharp
 // Obtain an instance of PropertyLoadData from the subsystem API first

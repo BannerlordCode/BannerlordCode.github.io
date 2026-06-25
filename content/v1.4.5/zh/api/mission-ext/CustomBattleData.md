@@ -37,7 +37,7 @@ description: "CustomBattleData 的自动生成类参考。"
 ### GetAllAttackerMeleeMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerMeleeMachines()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all attacker melee machines」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all attacker melee machines 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -47,7 +47,7 @@ CustomBattleData.GetAllAttackerMeleeMachines();
 ### GetAllDefenderRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllDefenderRangedMachines()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all defender ranged machines」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all defender ranged machines 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -57,7 +57,7 @@ CustomBattleData.GetAllDefenderRangedMachines();
 ### GetAllAttackerRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerRangedMachines()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all attacker ranged machines」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all attacker ranged machines 的结果。
 
 ```csharp
 // 静态调用，不需要实例

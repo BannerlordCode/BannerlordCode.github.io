@@ -35,7 +35,7 @@ Treat `ContainerHeaderLoadData` as a Data-style extension point: first identify 
 ### GetObjectTypeDefinition
 `public bool GetObjectTypeDefinition()`
 
-**Purpose:** Reads and returns the `object type definition` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the object type definition value held by the this instance.
 
 ```csharp
 // Obtain an instance of ContainerHeaderLoadData from the subsystem API first
@@ -46,7 +46,7 @@ var result = containerHeaderLoadData.GetObjectTypeDefinition();
 ### CreateObject
 `public void CreateObject()`
 
-**Purpose:** Constructs a new `object` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ContainerHeaderLoadData from the subsystem API first
@@ -57,7 +57,7 @@ containerHeaderLoadData.CreateObject();
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `ialie readers`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by ialie readers.
 
 ```csharp
 // Obtain an instance of ContainerHeaderLoadData from the subsystem API first

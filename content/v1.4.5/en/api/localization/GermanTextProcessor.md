@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor.LanguageProcessors` 
 ### ClearTemporaryData
 `public override void ClearTemporaryData()`
 
-**Purpose:** Removes all `temporary data` from the current object.
+**Purpose:** **Purpose:** Removes all temporary data from the this instance.
 
 ```csharp
 // Obtain an instance of GermanTextProcessor from the subsystem API first
@@ -34,7 +34,7 @@ germanTextProcessor.ClearTemporaryData();
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessToken logic.
 
 ```csharp
 // Obtain an instance of GermanTextProcessor from the subsystem API first

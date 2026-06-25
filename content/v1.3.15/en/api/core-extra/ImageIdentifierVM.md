@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.ImageIdentifiers` to p
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ImageIdentifierVM from the subsystem API first

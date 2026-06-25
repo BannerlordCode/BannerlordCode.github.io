@@ -23,7 +23,7 @@ Treat `VillageProductionCalculatorModel` as a Model-style extension point: first
 ### CalculateProductionSpeedOfItemCategory
 `public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**Purpose:** Calculates the current value or result of `production speed of item category`.
+**Purpose:** **Purpose:** Calculates the current value or result of production speed of item category.
 
 ```csharp
 // Obtain an instance of VillageProductionCalculatorModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = villageProductionCalculatorModel.CalculateProductionSpeedOfItemCate
 ### CalculateDailyProductionAmount
 `public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**Purpose:** Calculates the current value or result of `daily production amount`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily production amount.
 
 ```csharp
 // Obtain an instance of VillageProductionCalculatorModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = villageProductionCalculatorModel.CalculateDailyProductionAmount(vil
 ### CalculateDailyFoodProductionAmount
 `public abstract float CalculateDailyFoodProductionAmount(Village village)`
 
-**Purpose:** Calculates the current value or result of `daily food production amount`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily food production amount.
 
 ```csharp
 // Obtain an instance of VillageProductionCalculatorModel from the subsystem API first

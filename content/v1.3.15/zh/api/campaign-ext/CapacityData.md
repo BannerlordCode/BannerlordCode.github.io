@@ -23,7 +23,7 @@ description: "CapacityData 的自动生成类参考。"
 ### GetCapacity
 `public int GetCapacity()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「capacity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 capacity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CapacityData 实例
@@ -34,7 +34,7 @@ var result = capacityData.GetCapacity();
 ### CanForceTransaction
 `public bool CanForceTransaction()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「force transaction」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 force transaction 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CapacityData 实例
@@ -45,7 +45,7 @@ var result = capacityData.CanForceTransaction();
 ### GetCapacityExceededWarningText
 `public TextObject GetCapacityExceededWarningText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「capacity exceeded warning text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 capacity exceeded warning text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CapacityData 实例
@@ -56,7 +56,7 @@ var result = capacityData.GetCapacityExceededWarningText();
 ### GetCapacityExceededHintText
 `public TextObject GetCapacityExceededHintText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「capacity exceeded hint text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 capacity exceeded hint text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CapacityData 实例

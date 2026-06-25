@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### ExecuteResetUpdated
 `public void ExecuteResetUpdated()`
 
-**Purpose:** Runs the operation or workflow associated with `reset updated`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset updated.
 
 ```csharp
 // Obtain an instance of QuestStageVM from the subsystem API first
@@ -46,7 +46,7 @@ questStageVM.ExecuteResetUpdated();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of QuestStageVM from the subsystem API first
@@ -57,7 +57,7 @@ questStageVM.ExecuteLink("example");
 ### UpdateIsNew
 `public void UpdateIsNew()`
 
-**Purpose:** Recalculates and stores the latest representation of `is new`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of is new.
 
 ```csharp
 // Obtain an instance of QuestStageVM from the subsystem API first

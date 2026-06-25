@@ -23,7 +23,7 @@ description: "MachineId 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MachineId.Initialize();
 ### AsInteger
 `public static int AsInteger()`
 
-**用途 / Purpose:** 处理与 「as integer」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AsInteger 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

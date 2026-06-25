@@ -38,7 +38,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### OnSessionLaunched
 `public void OnSessionLaunched()`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -49,7 +49,7 @@ mainStoryLine.OnSessionLaunched();
 ### SetTutorialScores
 `public void SetTutorialScores(Dictionary<string, float> scores)`
 
-**Purpose:** Assigns a new value to `tutorial scores` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to tutorial scores and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -60,7 +60,7 @@ mainStoryLine.SetTutorialScores(dictionary<string, 0);
 ### GetTutorialScores
 `public Dictionary<string, float> GetTutorialScores()`
 
-**Purpose:** Reads and returns the `tutorial scores` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tutorial scores value held by the this instance.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -71,7 +71,7 @@ var result = mainStoryLine.GetTutorialScores();
 ### SetStoryLineSide
 `public void SetStoryLineSide(MainStoryLineSide side)`
 
-**Purpose:** Assigns a new value to `story line side` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to story line side and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -82,7 +82,7 @@ mainStoryLine.SetStoryLineSide(side);
 ### SetMentorSettlements
 `public void SetMentorSettlements(Settlement imperialMentorSettlement, Settlement antiImperialMentorSettlement)`
 
-**Purpose:** Assigns a new value to `mentor settlements` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mentor settlements and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -93,7 +93,7 @@ mainStoryLine.SetMentorSettlements(imperialMentorSettlement, antiImperialMentorS
 ### CompleteTutorialPhase
 `public void CompleteTutorialPhase(bool isSkipped)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CompleteTutorialPhase logic.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -104,7 +104,7 @@ mainStoryLine.CompleteTutorialPhase(false);
 ### CompleteFirstPhase
 `public void CompleteFirstPhase()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CompleteFirstPhase logic.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -115,7 +115,7 @@ mainStoryLine.CompleteFirstPhase();
 ### CompleteSecondPhase
 `public void CompleteSecondPhase()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CompleteSecondPhase logic.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first
@@ -126,7 +126,7 @@ mainStoryLine.CompleteSecondPhase();
 ### CancelSecondAndThirdPhase
 `public void CancelSecondAndThirdPhase()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `cel second and third phase`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel second and third phase.
 
 ```csharp
 // Obtain an instance of MainStoryLine from the subsystem API first

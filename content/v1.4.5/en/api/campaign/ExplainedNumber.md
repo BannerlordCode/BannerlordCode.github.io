@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### ExplanationLine
 `public readonly struct ExplanationLine(string name, float number, OperationType operationType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExplanationLine logic.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -47,7 +47,7 @@ var result = explainedNumber.ExplanationLine("example", 0, operationType);
 ### AddLine
 `public void AddLine(string name, float number, OperationType opType)`
 
-**Purpose:** Adds `line` to the current collection or state.
+**Purpose:** **Purpose:** Adds line to the current collection or state.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -58,7 +58,7 @@ explainedNumber.AddLine("example", 0, opType);
 ### GetExplanations
 `public string GetExplanations()`
 
-**Purpose:** Reads and returns the `explanations` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the explanations value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -69,7 +69,7 @@ var result = explainedNumber.GetExplanations();
 ### AddFromExplainedNumber
 `public void AddFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-**Purpose:** Adds `from explained number` to the current collection or state.
+**Purpose:** **Purpose:** Adds from explained number to the current collection or state.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -80,7 +80,7 @@ explainedNumber.AddFromExplainedNumber(explainedNumber, baseText);
 ### SubtractFromExplainedNumber
 `public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SubtractFromExplainedNumber logic.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -91,7 +91,7 @@ explainedNumber.SubtractFromExplainedNumber(explainedNumber, baseText);
 ### Add
 `public void Add(float value, TextObject description = null, TextObject variable = null)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -102,7 +102,7 @@ explainedNumber.Add(0, null, null);
 ### AddFactor
 `public void AddFactor(float value, TextObject description = null)`
 
-**Purpose:** Adds `factor` to the current collection or state.
+**Purpose:** **Purpose:** Adds factor to the current collection or state.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -113,7 +113,7 @@ explainedNumber.AddFactor(0, null);
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LimitMin logic.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -124,7 +124,7 @@ explainedNumber.LimitMin(0);
 ### LimitMax
 `public void LimitMax(float maxValue, TextObject description = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LimitMax logic.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first
@@ -135,7 +135,7 @@ explainedNumber.LimitMax(0, null);
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Clamp logic.
 
 ```csharp
 // Obtain an instance of ExplainedNumber from the subsystem API first

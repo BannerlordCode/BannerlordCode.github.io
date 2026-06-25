@@ -23,7 +23,7 @@ description: "ScissorTestInfo 的自动生成类参考。"
 ### ReduceToIntersection
 `public void ReduceToIntersection(ScissorTestInfo other)`
 
-**用途 / Purpose:** 处理与 「reduce to intersection」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReduceToIntersection 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScissorTestInfo 实例
@@ -34,7 +34,7 @@ scissorTestInfo.ReduceToIntersection(other);
 ### GetSimpleRectangle
 `public SimpleRectangle GetSimpleRectangle()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「simple rectangle」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 simple rectangle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScissorTestInfo 实例
@@ -45,7 +45,7 @@ var result = scissorTestInfo.GetSimpleRectangle();
 ### IsCollide
 `public bool IsCollide(in Rectangle2D other)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「collide」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 collide 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ScissorTestInfo 实例

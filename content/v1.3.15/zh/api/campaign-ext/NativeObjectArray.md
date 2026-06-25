@@ -29,7 +29,7 @@ description: "NativeObjectArray 的自动生成类参考。"
 ### Create
 `public static NativeObjectArray Create()`
 
-**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ NativeObjectArray.Create();
 ### GetElementAt
 `public NativeObject GetElementAt(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「element at」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element at 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeObjectArray 实例
@@ -50,7 +50,7 @@ var result = nativeObjectArray.GetElementAt(0);
 ### AddElement
 `public void AddElement(NativeObject nativeObject)`
 
-**用途 / Purpose:** 将 「element」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 element 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeObjectArray 实例
@@ -61,7 +61,7 @@ nativeObjectArray.AddElement(nativeObject);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeObjectArray 实例

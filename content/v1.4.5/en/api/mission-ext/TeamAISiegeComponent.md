@@ -35,7 +35,7 @@ Treat `TeamAISiegeComponent` as a Component-style extension point: first identif
 ### OnMissionFinalize
 `public static void OnMissionFinalize()`
 
-**Purpose:** Invoked when the `mission finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission finalize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -45,7 +45,7 @@ TeamAISiegeComponent.OnMissionFinalize();
 ### CalculateIsChargePastWallsApplicable
 `public bool CalculateIsChargePastWallsApplicable(FormationAI.BehaviorSide side)`
 
-**Purpose:** Calculates the current value or result of `is charge past walls applicable`.
+**Purpose:** **Purpose:** Calculates the current value or result of is charge past walls applicable.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first
@@ -56,7 +56,7 @@ var result = teamAISiegeComponent.CalculateIsChargePastWallsApplicable(side);
 ### SetAreLaddersReady
 `public void SetAreLaddersReady(bool areLaddersReady)`
 
-**Purpose:** Assigns a new value to `are ladders ready` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to are ladders ready and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first
@@ -67,7 +67,7 @@ teamAISiegeComponent.SetAreLaddersReady(false);
 ### CalculateIsAnyLaneOpenToGetInside
 `public bool CalculateIsAnyLaneOpenToGetInside()`
 
-**Purpose:** Calculates the current value or result of `is any lane open to get inside`.
+**Purpose:** **Purpose:** Calculates the current value or result of is any lane open to get inside.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first
@@ -78,7 +78,7 @@ var result = teamAISiegeComponent.CalculateIsAnyLaneOpenToGetInside();
 ### CalculateIsAnyLaneOpenToGoOutside
 `public bool CalculateIsAnyLaneOpenToGoOutside()`
 
-**Purpose:** Calculates the current value or result of `is any lane open to go outside`.
+**Purpose:** **Purpose:** Calculates the current value or result of is any lane open to go outside.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first
@@ -89,7 +89,7 @@ var result = teamAISiegeComponent.CalculateIsAnyLaneOpenToGoOutside();
 ### IsPrimarySiegeWeaponNavmeshFaceId
 `public bool IsPrimarySiegeWeaponNavmeshFaceId(int id)`
 
-**Purpose:** Determines whether the current object is in the `primary siege weapon navmesh face id` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the primary siege weapon navmesh face id state or condition.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first
@@ -100,7 +100,7 @@ var result = teamAISiegeComponent.IsPrimarySiegeWeaponNavmeshFaceId(0);
 ### IsFormationGroupInsideCastle
 `public static bool IsFormationGroupInsideCastle(MBList<Formation> formationGroup, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
 
-**Purpose:** Determines whether the current object is in the `formation group inside castle` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the formation group inside castle state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -110,7 +110,7 @@ TeamAISiegeComponent.IsFormationGroupInsideCastle(formationGroup, false, 0);
 ### IsFormationInsideCastle
 `public static bool IsFormationInsideCastle(Formation formation, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
 
-**Purpose:** Determines whether the current object is in the `formation inside castle` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the formation inside castle state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -120,7 +120,7 @@ TeamAISiegeComponent.IsFormationInsideCastle(formation, false, 0);
 ### IsCastleBreached
 `public bool IsCastleBreached()`
 
-**Purpose:** Determines whether the current object is in the `castle breached` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the castle breached state or condition.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first
@@ -131,7 +131,7 @@ var result = teamAISiegeComponent.IsCastleBreached();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of TeamAISiegeComponent from the subsystem API first

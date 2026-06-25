@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### LoadFrom
 `public static WidgetPrefab LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, string path)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example")
 ### Save
 `public XmlDocument Save(PrefabExtensionContext prefabExtensionContext)`
 
-**Purpose:** Writes the current object's data to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of WidgetPrefab from the subsystem API first
@@ -54,7 +54,7 @@ var result = widgetPrefab.Save(prefabExtensionContext);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Instantiate logic.
 
 ```csharp
 // Obtain an instance of WidgetPrefab from the subsystem API first
@@ -65,7 +65,7 @@ var result = widgetPrefab.Instantiate(widgetCreationData);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Instantiate logic.
 
 ```csharp
 // Obtain an instance of WidgetPrefab from the subsystem API first
@@ -76,7 +76,7 @@ var result = widgetPrefab.Instantiate(widgetCreationData, dictionary<string, par
 ### OnRelease
 `public void OnRelease()`
 
-**Purpose:** Invoked when the `release` event is raised.
+**Purpose:** **Purpose:** Invoked when the release event is raised.
 
 ```csharp
 // Obtain an instance of WidgetPrefab from the subsystem API first
@@ -87,7 +87,7 @@ widgetPrefab.OnRelease();
 ### GetConstantValue
 `public ConstantDefinition GetConstantValue(string name)`
 
-**Purpose:** Reads and returns the `constant value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the constant value value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetPrefab from the subsystem API first
@@ -98,7 +98,7 @@ var result = widgetPrefab.GetConstantValue("example");
 ### GetParameterDefaultValue
 `public string GetParameterDefaultValue(string name)`
 
-**Purpose:** Reads and returns the `parameter default value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the parameter default value value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetPrefab from the subsystem API first

@@ -50,7 +50,7 @@ description: "SimpleMaterial 的自动生成类参考。"
 ### Reset
 `public void Reset(Texture texture = null)`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMaterial 实例
@@ -61,7 +61,7 @@ simpleMaterial.Reset(null);
 ### GetCircularMaskingCenter
 `public Vec2 GetCircularMaskingCenter()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「circular masking center」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 circular masking center 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMaterial 实例
@@ -72,7 +72,7 @@ var result = simpleMaterial.GetCircularMaskingCenter();
 ### GetOverlayStartCoordinate
 `public Vec2 GetOverlayStartCoordinate()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「overlay start coordinate」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 overlay start coordinate 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMaterial 实例
@@ -83,7 +83,7 @@ var result = simpleMaterial.GetOverlayStartCoordinate();
 ### GetOverlaySize
 `public Vec2 GetOverlaySize()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「overlay size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 overlay size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SimpleMaterial 实例

@@ -31,7 +31,7 @@ Treat `RundownColumnDividerCollectionWidget` as a Widget-style extension point: 
 ### Refresh
 `public void Refresh(IReadOnlyList<float> columnWidths)`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of RundownColumnDividerCollectionWidget from the subsystem API first

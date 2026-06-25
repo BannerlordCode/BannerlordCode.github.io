@@ -36,7 +36,7 @@ description: "NumericUpDownWidget 的自动生成类参考。"
 ### NumericUpDownWidget
 `public class NumericUpDownWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「numeric up down widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NumericUpDownWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NumericUpDownWidget 实例

@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Tou
 ### SetSortMode
 `public void SetSortMode(bool isAcending)`
 
-**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -47,7 +47,7 @@ tournamentLeaderboardSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -58,7 +58,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -69,7 +69,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -80,7 +80,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -91,7 +91,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(TournamentLeaderboardEntryItemVM x, TournamentLeaderboardEntryItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -102,7 +102,7 @@ var result = tournamentLeaderboardSortControllerVM.Compare(x, y);
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by name`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by name.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -113,7 +113,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByPrize
 `public void ExecuteSortByPrize()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by prize`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by prize.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -124,7 +124,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByPrize();
 ### ExecuteSortByPlacement
 `public void ExecuteSortByPlacement()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by placement`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by placement.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first
@@ -135,7 +135,7 @@ tournamentLeaderboardSortControllerVM.ExecuteSortByPlacement();
 ### ExecuteSortByVictories
 `public void ExecuteSortByVictories()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by victories`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by victories.
 
 ```csharp
 // Obtain an instance of TournamentLeaderboardSortControllerVM from the subsystem API first

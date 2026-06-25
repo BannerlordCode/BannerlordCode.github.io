@@ -23,7 +23,7 @@ Treat `MissionDifficultyModel` as a Model-style extension point: first identify 
 ### GetDamageMultiplierOfCombatDifficulty
 `public abstract float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**Purpose:** Reads and returns the `damage multiplier of combat difficulty` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the damage multiplier of combat difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionDifficultyModel from the subsystem API first

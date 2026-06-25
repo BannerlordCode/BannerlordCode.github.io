@@ -35,7 +35,7 @@ description: "SceneNotificationVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例
@@ -46,7 +46,7 @@ sceneNotificationVM.RefreshValues();
 ### CreateNotification
 `public void CreateNotification(SceneNotificationData data)`
 
-**用途 / Purpose:** 构建一个新的 「notification」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 notification 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例
@@ -57,7 +57,7 @@ sceneNotificationVM.CreateNotification(data);
 ### ClearData
 `public void ClearData()`
 
-**用途 / Purpose:** 清空当前对象中的「data」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的data。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例
@@ -68,7 +68,7 @@ sceneNotificationVM.ClearData();
 ### ExecuteAffirmativeProcess
 `public void ExecuteAffirmativeProcess()`
 
-**用途 / Purpose:** 执行 「affirmative process」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 affirmative process 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例
@@ -79,7 +79,7 @@ sceneNotificationVM.ExecuteAffirmativeProcess();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例
@@ -90,7 +90,7 @@ sceneNotificationVM.ExecuteClose();
 ### ExecuteNegativeProcess
 `public void ExecuteNegativeProcess()`
 
-**用途 / Purpose:** 执行 「negative process」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 negative process 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例
@@ -101,7 +101,7 @@ sceneNotificationVM.ExecuteNegativeProcess();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationVM 实例

@@ -32,7 +32,7 @@ Treat `CampaignMissionComponent` as a Component-style extension point: first ide
 ### IsChannelModified
 `public bool IsChannelModified(int channelNo)`
 
-**Purpose:** Determines whether the current object is in the `channel modified` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the channel modified state or condition.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -43,7 +43,7 @@ var result = campaignMissionComponent.IsChannelModified(0);
 ### SetChannelModified
 `public void SetChannelModified(int channelNo)`
 
-**Purpose:** Assigns a new value to `channel modified` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to channel modified and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -54,7 +54,7 @@ campaignMissionComponent.SetChannelModified(0);
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Invoked when the `agent created` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent created event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -65,7 +65,7 @@ campaignMissionComponent.OnAgentCreated(agent);
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre display mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre display mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -76,7 +76,7 @@ campaignMissionComponent.OnPreDisplayMissionTick(0);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -87,7 +87,7 @@ campaignMissionComponent.OnMissionTick(0);
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -98,7 +98,7 @@ campaignMissionComponent.EarlyStart();
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Invoked when the `created` event is raised.
+**Purpose:** **Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -109,7 +109,7 @@ campaignMissionComponent.OnCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -120,7 +120,7 @@ campaignMissionComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -131,7 +131,7 @@ campaignMissionComponent.AfterStart();
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**Purpose:** Invoked when the `mission result ready` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission result ready event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -142,7 +142,7 @@ campaignMissionComponent.OnMissionResultReady(missionResult);
 ### PlayConversationSoundEvent
 `public void PlayConversationSoundEvent(string soundPath)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayConversationSoundEvent logic.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -153,7 +153,7 @@ campaignMissionComponent.PlayConversationSoundEvent("example");
 ### FadeOutCharacter
 `public void FadeOutCharacter(CharacterObject characterObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FadeOutCharacter logic.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first
@@ -164,7 +164,7 @@ campaignMissionComponent.FadeOutCharacter(characterObject);
 ### OnGameStateChanged
 `public void OnGameStateChanged()`
 
-**Purpose:** Invoked when the `game state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the game state changed event is raised.
 
 ```csharp
 // Obtain an instance of CampaignMissionComponent from the subsystem API first

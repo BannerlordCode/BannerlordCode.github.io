@@ -23,7 +23,7 @@ Treat `NavigationData` as a Data-style extension point: first identify who creat
 ### TickDebug
 `public void TickDebug()`
 
-**Purpose:** Advances the `debug` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the debug state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of NavigationData from the subsystem API first

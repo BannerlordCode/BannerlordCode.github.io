@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### OnKickPollOpened
 `public void OnKickPollOpened(MissionPeer initiatorPeer, MissionPeer targetPeer, bool isBanRequested)`
 
-**Purpose:** Invoked when the `kick poll opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the kick poll opened event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
@@ -47,7 +47,7 @@ multiplayerPollProgressVM.OnKickPollOpened(initiatorPeer, targetPeer, false);
 ### OnPollUpdated
 `public void OnPollUpdated(int votesAccepted, int votesRejected)`
 
-**Purpose:** Invoked when the `poll updated` event is raised.
+**Purpose:** **Purpose:** Invoked when the poll updated event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
@@ -58,7 +58,7 @@ multiplayerPollProgressVM.OnPollUpdated(0, 0);
 ### OnPollClosed
 `public void OnPollClosed()`
 
-**Purpose:** Invoked when the `poll closed` event is raised.
+**Purpose:** **Purpose:** Invoked when the poll closed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
@@ -69,7 +69,7 @@ multiplayerPollProgressVM.OnPollClosed();
 ### OnPollOptionPicked
 `public void OnPollOptionPicked()`
 
-**Purpose:** Invoked when the `poll option picked` event is raised.
+**Purpose:** **Purpose:** Invoked when the poll option picked event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerPollProgressVM from the subsystem API first
@@ -80,7 +80,7 @@ multiplayerPollProgressVM.OnPollOptionPicked();
 ### AddKey
 `public void AddKey(GameKey key)`
 
-**Purpose:** Adds `key` to the current collection or state.
+**Purpose:** **Purpose:** Adds key to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerPollProgressVM from the subsystem API first

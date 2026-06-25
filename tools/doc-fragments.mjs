@@ -50,27 +50,27 @@ function methodNameOverride(methodName, lang) {
     case 'Equals':
       return L
         ? '**用途 / Purpose:** 比较当前对象与传入实例是否相等。'
-        : '**Purpose:** Compares the current object with the supplied instance for equality.';
+        : '**Purpose:** Compares the this instance with the supplied instance for equality.';
     case 'GetHashCode':
       return L
         ? '**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。'
-        : '**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.';
+        : '**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.';
     case 'ToString':
       return L
         ? '**用途 / Purpose:** 返回当前对象的人类可读字符串表示。'
-        : '**Purpose:** Returns a human-readable string representation of the current object.';
+        : '**Purpose:** Returns a human-readable string representation of the this instance.';
     case 'CompareTo':
       return L
         ? '**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。'
-        : '**Purpose:** Compares the current object with the supplied instance for ordering.';
+        : '**Purpose:** Compares the this instance with the supplied instance for ordering.';
     case 'Clone':
       return L
         ? '**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。'
-        : '**Purpose:** Duplicates the current object\'s state and returns a new instance.';
+        : '**Purpose:** Duplicates the this instance\'s state and returns a new instance.';
     case 'GetType':
       return L
         ? '**用途 / Purpose:** 返回当前对象的运行时类型信息。'
-        : '**Purpose:** Returns the runtime type information of the current object.';
+        : '**Purpose:** Returns the runtime type information of the this instance.';
     case 'Finalize':
       return L
         ? '**用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。'
@@ -78,7 +78,7 @@ function methodNameOverride(methodName, lang) {
     case 'MemberwiseClone':
       return L
         ? '**用途 / Purpose:** 创建当前对象的浅表副本。'
-        : '**Purpose:** Creates a shallow copy of the current object.';
+        : '**Purpose:** Creates a shallow copy of the this instance.';
     default:
       return null;
   }
@@ -162,69 +162,69 @@ export function methodPurpose(methodName, lang) {
       Sort: '对当前对象中的内容进行排序。',
     };
     const bareEn = {
-      Get: 'Reads the current object\'s value or state and returns it.',
-      Set: 'Assigns a new value to the current object\'s property or state.',
+      Get: 'Reads the this instance\'s value or state and returns it.',
+      Set: 'Assigns a new value to the this instance\'s property or state.',
       Add: 'Adds an item to the current collection or state.',
       Remove: 'Removes an item from the current collection or state.',
-      Clear: 'Removes all content from the current object.',
-      Update: 'Recalculates and stores the latest representation of the current object.',
-      Refresh: 'Refreshes the current object\'s display or cache to match the underlying state.',
-      Reset: 'Returns the current object to its default or initial condition.',
-      Initialize: 'Prepares the resources, state, or bindings the current object needs before use.',
-      Init: 'Prepares the resources, state, or bindings the current object needs before use.',
-      Execute: 'Runs the operation or workflow represented by the current object.',
-      Apply: 'Applies the current object\'s effect to its target.',
-      Handle: 'Handles the event or logic associated with the current object.',
-      Tick: 'Advances the current object\'s state by one frame or update cycle.',
-      Prepare: 'Finishes prerequisite setup for the current object\'s operation.',
-      Start: 'Starts the current object\'s flow or state machine.',
-      Stop: 'Stops the current object\'s flow or state machine.',
-      Open: 'Opens the resource or UI represented by the current object.',
-      Close: 'Closes the resource or UI represented by the current object.',
-      Load: 'Reads the current object\'s data from persistent storage or a stream.',
-      Save: 'Writes the current object\'s data to persistent storage or a stream.',
-      Serialize: 'Serializes the current object into a storable or transmittable format.',
-      Deserialize: 'Restores the current object from serialized data.',
-      Compare: 'Compares the current object with another instance for ordering.',
+      Clear: 'Removes all content from the this instance.',
+      Update: 'Recalculates and stores the latest representation of the this instance.',
+      Refresh: 'Refreshes the this instance\'s display or cache to match the underlying state.',
+      Reset: 'Returns the this instance to its default or initial condition.',
+      Initialize: 'Prepares the resources, state, or bindings the this instance needs before use.',
+      Init: 'Prepares the resources, state, or bindings the this instance needs before use.',
+      Execute: 'Runs the operation or workflow represented by the this instance.',
+      Apply: 'Applies the this instance\'s effect to its target.',
+      Handle: 'Handles the event or logic associated with the this instance.',
+      Tick: 'Advances the this instance\'s state by one frame or update cycle.',
+      Prepare: 'Finishes prerequisite setup for the this instance\'s operation.',
+      Start: 'Starts the this instance\'s flow or state machine.',
+      Stop: 'Stops the this instance\'s flow or state machine.',
+      Open: 'Opens the resource or UI represented by the this instance.',
+      Close: 'Closes the resource or UI represented by the this instance.',
+      Load: 'Reads the this instance\'s data from persistent storage or a stream.',
+      Save: 'Writes the this instance\'s data to persistent storage or a stream.',
+      Serialize: 'Serializes the this instance into a storable or transmittable format.',
+      Deserialize: 'Restores the this instance from serialized data.',
+      Compare: 'Compares the this instance with another instance for ordering.',
       Find: 'Finds the matching entry in the current collection or scope.',
       Search: 'Searches for entries that meet the given criteria.',
-      Calculate: 'Calculates the result or value for the current object.',
-      Compute: 'Computes the result for the current object.',
-      Determine: 'Determines the result for the current object based on its state.',
-      Generate: 'Generates an instance, data, or representation for the current object.',
-      Build: 'Builds an instance or representation of the current object.',
-      Create: 'Creates a new instance or related entity for the current object.',
-      Validate: 'Checks whether the current object satisfies the required constraints.',
-      Normalize: 'Normalizes the current object into a standard form or range.',
-      Convert: 'Converts the current object into another representation or type.',
-      Clone: 'Duplicates the current object\'s state and returns a new instance.',
-      Dispose: 'Releases unmanaged resources held by the current object.',
-      Register: 'Registers the current object with the current system.',
-      Unregister: 'Unregisters the current object from the current system.',
-      Raise: 'Raises or triggers the event/exception related to the current object.',
-      Trigger: 'Triggers the logic or event associated with the current object.',
+      Calculate: 'Calculates the result or value for the this instance.',
+      Compute: 'Computes the result for the this instance.',
+      Determine: 'Determines the result for the this instance based on its state.',
+      Generate: 'Generates an instance, data, or representation for the this instance.',
+      Build: 'Builds an instance or representation of the this instance.',
+      Create: 'Creates a new instance or related entity for the this instance.',
+      Validate: 'Checks whether the this instance satisfies the required constraints.',
+      Normalize: 'Normalizes the this instance into a standard form or range.',
+      Convert: 'Converts the this instance into another representation or type.',
+      Clone: 'Duplicates the this instance\'s state and returns a new instance.',
+      Dispose: 'Releases unmanaged resources held by the this instance.',
+      Register: 'Registers the this instance with the current system.',
+      Unregister: 'Unregisters the this instance from the current system.',
+      Raise: 'Raises or triggers the event/exception related to the this instance.',
+      Trigger: 'Triggers the logic or event associated with the this instance.',
       Notify: 'Notifies interested objects that the related event has occurred.',
-      Activate: 'Activates the resource, state, or feature represented by the current object.',
-      Deactivate: 'Deactivates the resource, state, or feature represented by the current object.',
-      Allow: 'Permits the action or state represented by the current object.',
-      Disallow: 'Prevents the action or state represented by the current object.',
-      Check: 'Verifies whether the current object meets the specified condition.',
-      Sync: 'Synchronizes the current object\'s state with the relevant context.',
-      Does: 'Returns a boolean answer for whether the current object meets the specified condition.',
-      Contains: 'Indicates whether the current object contains the specified item.',
-      StartsWith: 'Determines whether the current object starts with the specified content.',
-      EndsWith: 'Determines whether the current object ends with the specified content.',
-      IndexOf: 'Finds the position index of the specified content in the current object.',
-      Issue: 'Creates or raises the entity/event represented by the current object.',
-      Boost: 'Increases the value or strength represented by the current object.',
-      Gather: 'Collects or aggregates the content related to the current object.',
-      Finish: 'Concludes the current object\'s flow and performs any cleanup.',
-      Read: 'Reads the data or state of the current object.',
-      Write: 'Writes the current object\'s data to the target location.',
-      Show: 'Displays the UI or element associated with the current object.',
-      Hide: 'Hides the UI or element associated with the current object.',
-      Move: 'Moves the current object to a new position or state.',
-      Sort: 'Sorts the content inside the current object.',
+      Activate: 'Activates the resource, state, or feature represented by the this instance.',
+      Deactivate: 'Deactivates the resource, state, or feature represented by the this instance.',
+      Allow: 'Permits the action or state represented by the this instance.',
+      Disallow: 'Prevents the action or state represented by the this instance.',
+      Check: 'Verifies whether the this instance meets the specified condition.',
+      Sync: 'Synchronizes the this instance\'s state with the relevant context.',
+      Does: 'Returns a boolean answer for whether the this instance meets the specified condition.',
+      Contains: 'Indicates whether the this instance contains the specified item.',
+      StartsWith: 'Determines whether the this instance starts with the specified content.',
+      EndsWith: 'Determines whether the this instance ends with the specified content.',
+      IndexOf: 'Finds the position index of the specified content in the this instance.',
+      Issue: 'Creates or raises the entity/event represented by the this instance.',
+      Boost: 'Increases the value or strength represented by the this instance.',
+      Gather: 'Collects or aggregates the content related to the this instance.',
+      Finish: 'Concludes the this instance\'s flow and performs any cleanup.',
+      Read: 'Reads the data or state of the this instance.',
+      Write: 'Writes the this instance\'s data to the target location.',
+      Show: 'Displays the UI or element associated with the this instance.',
+      Hide: 'Hides the UI or element associated with the this instance.',
+      Move: 'Moves the this instance to a new position or state.',
+      Sort: 'Sorts the content inside the this instance.',
     };
     const bare = lang === 'zh' ? bareZh : bareEn;
     if (bare[verb]) {
@@ -319,12 +319,12 @@ export function methodPurpose(methodName, lang) {
   };
 
   const enTemplates = {
-    Get: `Reads and returns the \`${subject}\` value held by the current object.`,
+    Get: `Reads and returns the \`${subject}\` value held by the this instance.`,
     Set: `Assigns a new value to \`${subject}\` and updates the object's internal state.`,
     Try: `Attempts to retrieve \`${subject}\`, usually returning success through an out parameter.`,
-    Can: `Checks whether the current object meets the preconditions for \`${subject}\`.`,
-    Has: `Determines whether the current object already holds \`${subject}\`.`,
-    Is: `Determines whether the current object is in the \`${subject}\` state or condition.`,
+    Can: `Checks whether the this instance meets the preconditions for \`${subject}\`.`,
+    Has: `Determines whether the this instance already holds \`${subject}\`.`,
+    Is: `Determines whether the this instance is in the \`${subject}\` state or condition.`,
     Create: `Constructs a new \`${subject}\` entity and returns it to the caller.`,
     Add: `Adds \`${subject}\` to the current collection or state.`,
     Remove: `Removes \`${subject}\` from the current collection or state.`,
@@ -334,19 +334,19 @@ export function methodPurpose(methodName, lang) {
     Load: `Reads \`${subject}\` from persistent storage or a stream.`,
     Save: `Writes \`${subject}\` to persistent storage or a stream.`,
     Execute: `Runs the operation or workflow associated with \`${subject}\`.`,
-    Apply: `Applies the effect of \`${subject}\` to the current object.`,
+    Apply: `Applies the effect of \`${subject}\` to the this instance.`,
     Init: `Prepares the resources, state, or bindings required by \`${subject}\`.`,
     Initialize: `Prepares the resources, state, or bindings required by \`${subject}\`.`,
     On: `Invoked when the \`${subject}\` event is raised.`,
     Handle: `Executes the response logic associated with \`${subject}\`.`,
     Compare: `Compares two \`${subject}\` objects and returns an ordering result.`,
-    Equals: `Checks whether the current object is equal to the given \`${subject}\`.`,
-    ToString: `Returns a human-readable string representation of the current object.`,
-    Clone: `Duplicates the current object's state and returns a new \`${subject}\` instance.`,
-    Copy: `Copies the \`${subject}\` state of the current object to a target.`,
+    Equals: `Checks whether the this instance is equal to the given \`${subject}\`.`,
+    ToString: `Returns a human-readable string representation of the this instance.`,
+    Clone: `Duplicates the this instance's state and returns a new \`${subject}\` instance.`,
+    Copy: `Copies the \`${subject}\` state of the this instance to a target.`,
     Register: `Registers \`${subject}\` with the current system so it can later be observed or dispatched.`,
     Unregister: `Unregisters \`${subject}\` from the current system.`,
-    Clear: `Removes all \`${subject}\` from the current object.`,
+    Clear: `Removes all \`${subject}\` from the this instance.`,
     Find: `Looks up the matching \`${subject}\` in the current collection or scope.`,
     Search: `Searches for \`${subject}\` entries that meet the given criteria.`,
     Parse: `Parses external input into a \`${subject}\` the current system understands.`,
@@ -379,21 +379,21 @@ export function methodPurpose(methodName, lang) {
     Notify: `Notifies interested objects that \`${subject}\` has occurred.`,
     Activate: `Activates the resource, state, or feature associated with \`${subject}\`.`,
     Deactivate: `Deactivates the resource, state, or feature associated with \`${subject}\`.`,
-    Allow: `Permits \`${subject}\` to be enabled or performed on the current object.`,
-    Disallow: `Prevents \`${subject}\` from being enabled or performed on the current object.`,
-    Check: `Verifies whether \`${subject}\` holds true for the current object.`,
+    Allow: `Permits \`${subject}\` to be enabled or performed on the this instance.`,
+    Disallow: `Prevents \`${subject}\` from being enabled or performed on the this instance.`,
+    Check: `Verifies whether \`${subject}\` holds true for the this instance.`,
     Sync: `Synchronizes \`${subject}\` across the relevant contexts or systems.`,
-    Does: `Returns a boolean answer to whether \`${subject}\` is true for the current object.`,
-    Contains: `Indicates whether the current object contains \`${subject}\`.`,
-    StartsWith: `Determines whether the current object starts with \`${subject}\`.`,
-    EndsWith: `Determines whether the current object ends with \`${subject}\`.`,
-    IndexOf: `Finds the position index of \`${subject}\` in the current object.`,
+    Does: `Returns a boolean answer to whether \`${subject}\` is true for the this instance.`,
+    Contains: `Indicates whether the this instance contains \`${subject}\`.`,
+    StartsWith: `Determines whether the this instance starts with \`${subject}\`.`,
+    EndsWith: `Determines whether the this instance ends with \`${subject}\`.`,
+    IndexOf: `Finds the position index of \`${subject}\` in the this instance.`,
     Recalculate: `Recalculates \`${subject}\` to reflect the latest state.`,
     Recompute: `Recomputes \`${subject}\` and returns the result.`,
-    Reapply: `Reapplies the effect of \`${subject}\` to the current object.`,
+    Reapply: `Reapplies the effect of \`${subject}\` to the this instance.`,
     Issue: `Creates or raises \`${subject}\`.`,
     Boost: `Increases the value or strength of \`${subject}\`.`,
-    Gather: `Collects or aggregates \`${subject}\` into the current object.`,
+    Gather: `Collects or aggregates \`${subject}\` into the this instance.`,
     Finish: `Concludes the \`${subject}\` flow and performs any cleanup.`,
     Read: `Reads the data or state of \`${subject}\`.`,
     Write: `Writes \`${subject}\` to the target location.`,

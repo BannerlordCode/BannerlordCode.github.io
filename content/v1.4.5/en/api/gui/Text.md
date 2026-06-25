@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### GetPreferredSize
 `public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-**Purpose:** Reads and returns the `preferred size` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the preferred size value held by the this instance.
 
 ```csharp
 // Obtain an instance of Text from the subsystem API first
@@ -52,7 +52,7 @@ var result = text.GetPreferredSize(false, 0, false, 0, spriteData, 0);
 ### UpdateSize
 `public void UpdateSize(int width, int height)`
 
-**Purpose:** Recalculates and stores the latest representation of `size`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of size.
 
 ```csharp
 // Obtain an instance of Text from the subsystem API first
@@ -63,7 +63,7 @@ text.UpdateSize(0, 0);
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**Purpose:** Assigns a new value to `all dirty` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to all dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Text from the subsystem API first
@@ -74,7 +74,7 @@ text.SetAllDirty();
 ### GetParts
 `public List<TextPart> GetParts()`
 
-**Purpose:** Reads and returns the `parts` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the parts value held by the this instance.
 
 ```csharp
 // Obtain an instance of Text from the subsystem API first

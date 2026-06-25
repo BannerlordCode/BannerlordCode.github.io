@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -57,7 +57,7 @@ villageNeedsCraftingMaterialsIssue.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -68,7 +68,7 @@ villageNeedsCraftingMaterialsIssue.SyncData(dataStore);
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the alternative solution skill value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -79,7 +79,7 @@ var result = villageNeedsCraftingMaterialsIssue.GetAlternativeSolutionSkill(hero
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -90,7 +90,7 @@ var result = villageNeedsCraftingMaterialsIssue.AlternativeSolutionCondition(exp
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -101,7 +101,7 @@ var result = villageNeedsCraftingMaterialsIssue.DoTroopsSatisfyAlternativeSoluti
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -112,7 +112,7 @@ var result = villageNeedsCraftingMaterialsIssue.GetFrequency();
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionStartConsequence logic.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first
@@ -123,7 +123,7 @@ villageNeedsCraftingMaterialsIssue.AlternativeSolutionStartConsequence();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of VillageNeedsCraftingMaterialsIssue from the subsystem API first

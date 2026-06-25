@@ -32,7 +32,7 @@ description: "MBObjectBase 的自动生成类参考。"
 ### AfterInitialized
 `public void AfterInitialized()`
 
-**用途 / Purpose:** 在 「initialized」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterInitialized 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -43,7 +43,7 @@ mBObjectBase.AfterInitialized();
 ### AfterRegister
 `public virtual void AfterRegister()`
 
-**用途 / Purpose:** 在 「register」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterRegister 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -54,7 +54,7 @@ mBObjectBase.AfterRegister();
 ### Initialize
 `public virtual void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -65,7 +65,7 @@ mBObjectBase.Initialize();
 ### Deserialize
 `public virtual void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -76,7 +76,7 @@ mBObjectBase.Deserialize(objectManager, node);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -87,7 +87,7 @@ var result = mBObjectBase.GetHashCode();
 ### GetName
 `public virtual TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -98,7 +98,7 @@ var result = mBObjectBase.GetName();
 ### PreAfterLoadInternal
 `public void PreAfterLoadInternal()`
 
-**用途 / Purpose:** 处理与 「pre after load internal」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PreAfterLoadInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -109,7 +109,7 @@ mBObjectBase.PreAfterLoadInternal();
 ### AfterLoadInternal
 `public void AfterLoadInternal()`
 
-**用途 / Purpose:** 在 「load internal」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterLoadInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -120,7 +120,7 @@ mBObjectBase.AfterLoadInternal();
 ### OnRegistered
 `public void OnRegistered()`
 
-**用途 / Purpose:** 在 「registered」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 registered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例
@@ -131,7 +131,7 @@ mBObjectBase.OnRegistered();
 ### OnUnregistered
 `public void OnUnregistered()`
 
-**用途 / Purpose:** 在 「unregistered」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 unregistered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectBase 实例

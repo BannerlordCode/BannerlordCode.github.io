@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Releases unmanaged resources held by the current object.
+**Purpose:** **Purpose:** Releases unmanaged resources held by the this instance.
 
 ```csharp
 // Obtain an instance of MainThreadPerformanceQuery from the subsystem API first

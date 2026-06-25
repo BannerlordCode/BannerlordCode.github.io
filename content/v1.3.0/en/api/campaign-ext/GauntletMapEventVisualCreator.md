@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then ins
 ### CreateMapEventVisual
 `public IMapEventVisual CreateMapEventVisual(MapEvent mapEvent)`
 
-**Purpose:** Constructs a new `map event visual` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new map event visual entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of GauntletMapEventVisualCreator from the subsystem API first
@@ -34,7 +34,7 @@ var result = gauntletMapEventVisualCreator.CreateMapEventVisual(mapEvent);
 ### GetCurrentEvents
 `public IEnumerable<GauntletMapEventVisual> GetCurrentEvents()`
 
-**Purpose:** Reads and returns the `current events` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current events value held by the this instance.
 
 ```csharp
 // Obtain an instance of GauntletMapEventVisualCreator from the subsystem API first

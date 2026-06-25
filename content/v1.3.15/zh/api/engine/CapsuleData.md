@@ -31,7 +31,7 @@ description: "CapsuleData 的自动生成类参考。"
 ### GetBoxMinMax
 `public ValueTuple<Vec3, Vec3> GetBoxMinMax()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「box min max」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 box min max 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CapsuleData 实例

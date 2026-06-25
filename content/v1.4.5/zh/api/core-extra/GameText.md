@@ -30,7 +30,7 @@ description: "GameText 的自动生成类参考。"
 ### AddVariationWithId
 `public void AddVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**用途 / Purpose:** 将 「variation with id」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 variation with id 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GameText 实例
@@ -41,7 +41,7 @@ gameText.AddVariationWithId("example", text, choiceTags);
 ### SetVariationWithId
 `public void SetVariationWithId(string variationId, TextObject text, List<GameTextManager.ChoiceTag> choiceTags)`
 
-**用途 / Purpose:** 为 「variation with id」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 variation with id 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameText 实例
@@ -52,7 +52,7 @@ gameText.SetVariationWithId("example", text, choiceTags);
 ### AddVariation
 `public void AddVariation(string text, params object propertiesAndWeights)`
 
-**用途 / Purpose:** 将 「variation」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 variation 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GameText 实例

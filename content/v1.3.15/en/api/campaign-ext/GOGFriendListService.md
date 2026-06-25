@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### RequestFriendList
 `public void RequestFriendList()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestFriendList logic.
 
 ```csharp
 // Obtain an instance of GOGFriendListService from the subsystem API first

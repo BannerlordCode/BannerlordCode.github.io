@@ -29,7 +29,7 @@ description: "RaidModel 的自动生成类参考。"
 ### CalculateHitDamage
 `public abstract ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**用途 / Purpose:** 计算「hit damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算hit damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RaidModel 实例
@@ -40,7 +40,7 @@ var result = raidModel.CalculateHitDamage(attackerSide, 0);
 ### GetRaidLootMultiplier
 `public abstract ExplainedNumber GetRaidLootMultiplier(PartyBase receivingParty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「raid loot multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 raid loot multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RaidModel 实例

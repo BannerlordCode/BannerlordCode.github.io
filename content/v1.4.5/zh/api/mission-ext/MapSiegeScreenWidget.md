@@ -29,7 +29,7 @@ description: "MapSiegeScreenWidget 的自动生成类参考。"
 ### SetCurrentButton
 `public void SetCurrentButton(MapSiegeMachineButtonWidget button)`
 
-**用途 / Purpose:** 为 「current button」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 current button 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeScreenWidget 实例

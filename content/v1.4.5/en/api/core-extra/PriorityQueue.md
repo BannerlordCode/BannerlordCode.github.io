@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MergeQueues logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority,
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2, IComparer<TPriority> comparer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MergeQueues logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority,
 ### Enqueue
 `public void Enqueue(TPriority priority, TValue value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Enqueue logic.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -54,7 +54,7 @@ priorityQueue.Enqueue(priority, value);
 ### Dequeue
 `public KeyValuePair<TPriority, TValue> Dequeue()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Dequeue logic.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -65,7 +65,7 @@ var result = priorityQueue.Dequeue();
 ### DequeueValue
 `public TValue DequeueValue()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DequeueValue logic.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -76,7 +76,7 @@ var result = priorityQueue.DequeueValue();
 ### Peek
 `public KeyValuePair<TPriority, TValue> Peek()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Peek logic.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -87,7 +87,7 @@ var result = priorityQueue.Peek();
 ### PeekValue
 `public TValue PeekValue()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PeekValue logic.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -98,7 +98,7 @@ var result = priorityQueue.PeekValue();
 ### Add
 `public void Add(KeyValuePair<TPriority, TValue> item)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -109,7 +109,7 @@ priorityQueue.Add(keyValuePair<TPriority, item);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -120,7 +120,7 @@ priorityQueue.Clear();
 ### Contains
 `public bool Contains(KeyValuePair<TPriority, TValue> item)`
 
-**Purpose:** Indicates whether the current object contains the specified item.
+**Purpose:** **Purpose:** Indicates whether the this instance contains the specified item.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -131,7 +131,7 @@ var result = priorityQueue.Contains(keyValuePair<TPriority, item);
 ### CopyTo
 `public void CopyTo(KeyValuePair<TPriority, TValue> array, int arrayIndex)`
 
-**Purpose:** Copies the `to` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the to state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -142,7 +142,7 @@ priorityQueue.CopyTo(keyValuePair<TPriority, array, 0);
 ### Remove
 `public bool Remove(KeyValuePair<TPriority, TValue> item)`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first
@@ -153,7 +153,7 @@ var result = priorityQueue.Remove(keyValuePair<TPriority, item);
 ### GetEnumerator
 `public IEnumerator<KeyValuePair<TPriority, TValue>> GetEnumerator()`
 
-**Purpose:** Reads and returns the `enumerator` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the enumerator value held by the this instance.
 
 ```csharp
 // Obtain an instance of PriorityQueue from the subsystem API first

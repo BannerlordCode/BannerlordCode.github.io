@@ -23,7 +23,7 @@ description: "PathFinder 的自动生成类参考。"
 ### Destroy
 `public virtual void Destroy()`
 
-**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PathFinder 实例
@@ -34,7 +34,7 @@ pathFinder.Destroy();
 ### Initialize
 `public abstract void Initialize(Vec3 bbSize)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PathFinder 实例
@@ -45,7 +45,7 @@ pathFinder.Initialize(bbSize);
 ### FindPath
 `public abstract bool FindPath(Vec3 wSource, Vec3 wDestination, List<Vec3> path, float craftWidth = 5f)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「path」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的path。
 
 ```csharp
 // 先通过子系统 API 拿到 PathFinder 实例

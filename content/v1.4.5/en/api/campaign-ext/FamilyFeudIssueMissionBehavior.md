@@ -23,7 +23,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Invoked when the `agent hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueMissionBehavior from the subsystem API first

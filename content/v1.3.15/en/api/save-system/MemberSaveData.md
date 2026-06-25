@@ -29,7 +29,7 @@ Treat `MemberSaveData` as a Data-style extension point: first identify who creat
 ### Initialize
 `public abstract void Initialize(TypeDefinitionBase typeDefinition)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MemberSaveData from the subsystem API first
@@ -40,7 +40,7 @@ memberSaveData.Initialize(typeDefinition);
 ### InitializeAsCustomStruct
 `public abstract void InitializeAsCustomStruct(int structId)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `as custom struct`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by as custom struct.
 
 ```csharp
 // Obtain an instance of MemberSaveData from the subsystem API first

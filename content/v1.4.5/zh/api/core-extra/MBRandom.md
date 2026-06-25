@@ -29,7 +29,7 @@ description: "MBRandom 的自动生成类参考。"
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float maxVal)`
 
-**用途 / Purpose:** 处理与 「random float ranged」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomFloatRanged 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MBRandom.RandomFloatRanged(0);
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float minVal, float maxVal)`
 
-**用途 / Purpose:** 处理与 「random float ranged」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomFloatRanged 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ MBRandom.RandomFloatRanged(0, 0);
 ### RandomInt
 `public static int RandomInt()`
 
-**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomInt 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ MBRandom.RandomInt();
 ### RandomInt
 `public static int RandomInt(int maxValue)`
 
-**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomInt 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -69,7 +69,7 @@ MBRandom.RandomInt(0);
 ### RandomInt
 `public static int RandomInt(int minValue, int maxValue)`
 
-**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomInt 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -79,7 +79,7 @@ MBRandom.RandomInt(0, 0);
 ### RoundRandomized
 `public static int RoundRandomized(float f)`
 
-**用途 / Purpose:** 处理与 「round randomized」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RoundRandomized 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -89,7 +89,7 @@ MBRandom.RoundRandomized(0);
 ### RandomFloatGaussian
 `public static float RandomFloatGaussian(float center, float spread, float min, float max)`
 
-**用途 / Purpose:** 处理与 「random float gaussian」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomFloatGaussian 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -99,7 +99,7 @@ MBRandom.RandomFloatGaussian(0, 0, 0, 0);
 ### SetSeed
 `public static void SetSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 为 「seed」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 seed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -109,7 +109,7 @@ MBRandom.SetSeed(0, 0);
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 处理与 「random int with seed」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomIntWithSeed 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -119,7 +119,7 @@ MBRandom.RandomIntWithSeed(0, 0);
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 处理与 「random float with seed」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomFloatWithSeed 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `MapVisibilityModel` as a Model-style extension point: first identify who 
 ### GetPartySpottingRangeBase
 `public abstract float GetPartySpottingRangeBase(MobileParty party)`
 
-**Purpose:** Reads and returns the `party spotting range base` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party spotting range base value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = mapVisibilityModel.GetPartySpottingRangeBase(party);
 ### GetPartySpottingRange
 `public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the `party spotting range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party spotting range value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapVisibilityModel.GetPartySpottingRange(party, false);
 ### GetPartyRelativeInspectionRange
 `public abstract float GetPartyRelativeInspectionRange(IMapPoint party)`
 
-**Purpose:** Reads and returns the `party relative inspection range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party relative inspection range value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = mapVisibilityModel.GetPartyRelativeInspectionRange(party);
 ### GetPartySpottingDifficulty
 `public abstract float GetPartySpottingDifficulty(MobileParty spotterParty, MobileParty party)`
 
-**Purpose:** Reads and returns the `party spotting difficulty` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party spotting difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = mapVisibilityModel.GetPartySpottingDifficulty(spotterParty, party);
 ### GetHideoutSpottingDistance
 `public abstract float GetHideoutSpottingDistance()`
 
-**Purpose:** Reads and returns the `hideout spotting distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hideout spotting distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapVisibilityModel from the subsystem API first

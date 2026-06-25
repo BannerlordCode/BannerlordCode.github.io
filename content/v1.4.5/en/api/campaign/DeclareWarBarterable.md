@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies the current object's effect to its target.
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of DeclareWarBarterable from the subsystem API first
@@ -42,7 +42,7 @@ declareWarBarterable.Apply();
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of DeclareWarBarterable from the subsystem API first
@@ -53,7 +53,7 @@ var result = declareWarBarterable.GetUnitValueForFaction(faction);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DeclareWarBarterable from the subsystem API first

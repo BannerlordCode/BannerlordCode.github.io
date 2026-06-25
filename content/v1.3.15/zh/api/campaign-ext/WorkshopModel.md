@@ -35,7 +35,7 @@ description: "WorkshopModel 的自动生成类参考。"
 ### GetMaxWorkshopCountForClanTier
 `public abstract int GetMaxWorkshopCountForClanTier(int tier)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max workshop count for clan tier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max workshop count for clan tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -46,7 +46,7 @@ var result = workshopModel.GetMaxWorkshopCountForClanTier(0);
 ### GetCostForPlayer
 `public abstract int GetCostForPlayer(Workshop workshop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cost for player」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cost for player 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -57,7 +57,7 @@ var result = workshopModel.GetCostForPlayer(workshop);
 ### GetCostForNotable
 `public abstract int GetCostForNotable(Workshop workshop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cost for notable」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cost for notable 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -68,7 +68,7 @@ var result = workshopModel.GetCostForNotable(workshop);
 ### GetNotableOwnerForWorkshop
 `public abstract Hero GetNotableOwnerForWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「notable owner for workshop」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 notable owner for workshop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -79,7 +79,7 @@ var result = workshopModel.GetNotableOwnerForWorkshop(workshop);
 ### GetEffectiveConversionSpeedOfProduction
 `public abstract ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescriptions)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective conversion speed of production」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective conversion speed of production 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -90,7 +90,7 @@ var result = workshopModel.GetEffectiveConversionSpeedOfProduction(workshop, 0, 
 ### GetConvertProductionCost
 `public abstract int GetConvertProductionCost(WorkshopType workshopType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「convert production cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 convert production cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -101,7 +101,7 @@ var result = workshopModel.GetConvertProductionCost(workshopType);
 ### CanPlayerSellWorkshop
 `public abstract bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「player sell workshop」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 player sell workshop 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例
@@ -112,7 +112,7 @@ var result = workshopModel.CanPlayerSellWorkshop(workshop, explanation);
 ### GetTradeXpPerWarehouseProduction
 `public abstract float GetTradeXpPerWarehouseProduction(EquipmentElement production)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「trade xp per warehouse production」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade xp per warehouse production 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopModel 实例

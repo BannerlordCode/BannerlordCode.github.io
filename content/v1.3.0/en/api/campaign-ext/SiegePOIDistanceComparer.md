@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### Compare
 `public int Compare(MapSiegePOIVM x, MapSiegePOIVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SiegePOIDistanceComparer from the subsystem API first

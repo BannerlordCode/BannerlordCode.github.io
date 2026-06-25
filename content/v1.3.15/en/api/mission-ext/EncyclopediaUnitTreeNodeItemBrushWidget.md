@@ -33,7 +33,7 @@ Treat `EncyclopediaUnitTreeNodeItemBrushWidget` as a Widget-style extension poin
 ### OnListItemAdded
 `public void OnListItemAdded(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Invoked when the `list item added` event is raised.
+**Purpose:** **Purpose:** Invoked when the list item added event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaUnitTreeNodeItemBrushWidget from the subsystem API first

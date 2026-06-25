@@ -36,7 +36,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -47,7 +47,7 @@ prodigalSonIssueBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -58,7 +58,7 @@ var result = prodigalSonIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -69,7 +69,7 @@ var result = prodigalSonIssueBehavior.IssueStayAliveConditions();
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -80,7 +80,7 @@ var result = prodigalSonIssueBehavior.DoTroopsSatisfyAlternativeSolution(troopRo
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -91,7 +91,7 @@ var result = prodigalSonIssueBehavior.IsTroopTypeNeededByAlternativeSolution(cha
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -102,7 +102,7 @@ var result = prodigalSonIssueBehavior.AlternativeSolutionCondition(explanation);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -113,7 +113,7 @@ prodigalSonIssueBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result
 ### OnHeroCanMoveToSettlementInfoIsRequested
 `public override void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can move to settlement info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can move to settlement info is requested event is raised.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -124,7 +124,7 @@ prodigalSonIssueBehavior.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -135,7 +135,7 @@ prodigalSonIssueBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first
@@ -146,7 +146,7 @@ prodigalSonIssueBehavior.SyncData(dataStore);
 ### CheckForIssue
 `public void CheckForIssue(Hero hero)`
 
-**Purpose:** Verifies whether `for issue` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for issue holds true for the this instance.
 
 ```csharp
 // Obtain an instance of ProdigalSonIssueBehavior from the subsystem API first

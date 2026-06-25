@@ -23,7 +23,7 @@ description: "MapNavigationExtensions 的自动生成类参考。"
 ### GetPermission
 `public static NavigationPermissionItem GetPermission(this INavigationHandler handler, MapNavigationItemType elementType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「permission」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 permission 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MapNavigationExtensions.GetPermission(handler, elementType);
 ### IsActive
 `public static bool IsActive(this INavigationHandler handler, MapNavigationItemType elementType)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「active」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 active 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MapNavigationExtensions.IsActive(handler, elementType);
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「quests」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开quests对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MapNavigationExtensions.OpenQuests(handler);
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler, QuestBase quest)`
 
-**用途 / Purpose:** 打开「quests」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开quests对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MapNavigationExtensions.OpenQuests(handler, quest);
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler, IssueBase issue)`
 
-**用途 / Purpose:** 打开「quests」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开quests对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MapNavigationExtensions.OpenQuests(handler, issue);
 ### OpenQuests
 `public static void OpenQuests(this INavigationHandler handler, JournalLogEntry log)`
 
-**用途 / Purpose:** 打开「quests」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开quests对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MapNavigationExtensions.OpenQuests(handler, log);
 ### OpenInventory
 `public static void OpenInventory(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「inventory」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开inventory对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MapNavigationExtensions.OpenInventory(handler);
 ### OpenParty
 `public static void OpenParty(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「party」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开party对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ MapNavigationExtensions.OpenParty(handler);
 ### OpenCharacterDeveloper
 `public static void OpenCharacterDeveloper(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「character developer」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开character developer对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ MapNavigationExtensions.OpenCharacterDeveloper(handler);
 ### OpenCharacterDeveloper
 `public static void OpenCharacterDeveloper(this INavigationHandler handler, Hero hero)`
 
-**用途 / Purpose:** 打开「character developer」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开character developer对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ MapNavigationExtensions.OpenCharacterDeveloper(handler, hero);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ MapNavigationExtensions.OpenKingdom(handler);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, Army army)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ MapNavigationExtensions.OpenKingdom(handler, army);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, Settlement settlement)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ MapNavigationExtensions.OpenKingdom(handler, settlement);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, Clan clan)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ MapNavigationExtensions.OpenKingdom(handler, clan);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, PolicyObject policy)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ MapNavigationExtensions.OpenKingdom(handler, policy);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, IFaction faction)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ MapNavigationExtensions.OpenKingdom(handler, faction);
 ### OpenKingdom
 `public static void OpenKingdom(this INavigationHandler handler, KingdomDecision decision)`
 
-**用途 / Purpose:** 打开「kingdom」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开kingdom对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ MapNavigationExtensions.OpenKingdom(handler, decision);
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「clan」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开clan对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ MapNavigationExtensions.OpenClan(handler);
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, Hero hero)`
 
-**用途 / Purpose:** 打开「clan」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开clan对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ MapNavigationExtensions.OpenClan(handler, hero);
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, PartyBase party)`
 
-**用途 / Purpose:** 打开「clan」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开clan对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ MapNavigationExtensions.OpenClan(handler, party);
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, Settlement settlement)`
 
-**用途 / Purpose:** 打开「clan」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开clan对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -233,7 +233,7 @@ MapNavigationExtensions.OpenClan(handler, settlement);
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, Workshop workshop)`
 
-**用途 / Purpose:** 打开「clan」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开clan对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -243,7 +243,7 @@ MapNavigationExtensions.OpenClan(handler, workshop);
 ### OpenClan
 `public static void OpenClan(this INavigationHandler handler, Alley alley)`
 
-**用途 / Purpose:** 打开「clan」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开clan对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ MapNavigationExtensions.OpenClan(handler, alley);
 ### OpenEscapeMenu
 `public static void OpenEscapeMenu(this INavigationHandler handler)`
 
-**用途 / Purpose:** 打开「escape menu」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开escape menu对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

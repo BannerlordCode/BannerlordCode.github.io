@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FontMapHasKey
 `public bool FontMapHasKey(string keyFontName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FontMapHasKey logic.
 
 ```csharp
 // Obtain an instance of Language from the subsystem API first
@@ -46,7 +46,7 @@ var result = language.FontMapHasKey("example");
 ### GetMappedFont
 `public Font GetMappedFont(string keyFontName)`
 
-**Purpose:** Reads and returns the `mapped font` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mapped font value held by the this instance.
 
 ```csharp
 // Obtain an instance of Language from the subsystem API first
@@ -57,7 +57,7 @@ var result = language.GetMappedFont("example");
 ### CreateFrom
 `public static Language CreateFrom(XmlNode languageNode, FontFactory fontFactory)`
 
-**Purpose:** Constructs a new `from` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

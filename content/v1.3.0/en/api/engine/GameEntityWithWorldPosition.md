@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### InvalidateWorldPosition
 `public void InvalidateWorldPosition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InvalidateWorldPosition logic.
 
 ```csharp
 // Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
@@ -43,7 +43,7 @@ gameEntityWithWorldPosition.InvalidateWorldPosition();
 ### SetCustomLocalFrame
 `public void SetCustomLocalFrame(in MatrixFrame customLocalFrame)`
 
-**Purpose:** Assigns a new value to `custom local frame` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to custom local frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
@@ -54,7 +54,7 @@ gameEntityWithWorldPosition.SetCustomLocalFrame(customLocalFrame);
 ### GetNavMesh
 `public UIntPtr GetNavMesh()`
 
-**Purpose:** Reads and returns the `nav mesh` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the nav mesh value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameEntityWithWorldPosition from the subsystem API first
@@ -65,7 +65,7 @@ var result = gameEntityWithWorldPosition.GetNavMesh();
 ### GetNavMeshVec3
 `public Vec3 GetNavMeshVec3()`
 
-**Purpose:** Reads and returns the `nav mesh vec3` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the nav mesh vec3 value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameEntityWithWorldPosition from the subsystem API first

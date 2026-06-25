@@ -29,7 +29,7 @@ description: "KeybindingPopup 的自动生成类参考。"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 KeybindingPopup 实例
@@ -40,7 +40,7 @@ keybindingPopup.Tick();
 ### OnToggle
 `public void OnToggle(bool isActive)`
 
-**用途 / Purpose:** 在 「toggle」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 toggle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 KeybindingPopup 实例

@@ -23,7 +23,7 @@ Treat `DefaultKingdomDecisionPermissionModel` as a Model-style extension point: 
 ### IsPolicyDecisionAllowed
 `public override bool IsPolicyDecisionAllowed(PolicyObject policy)`
 
-**Purpose:** Determines whether the current object is in the `policy decision allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the policy decision allowed state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultKingdomDecisionPermissionModel.IsPolicyDecisionAllowed(polic
 ### IsWarDecisionAllowedBetweenKingdoms
 `public override bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Determines whether the current object is in the `war decision allowed between kingdoms` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the war decision allowed between kingdoms state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultKingdomDecisionPermissionModel.IsWarDecisionAllowedBetweenKi
 ### IsPeaceDecisionAllowedBetweenKingdoms
 `public override bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Determines whether the current object is in the `peace decision allowed between kingdoms` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the peace decision allowed between kingdoms state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultKingdomDecisionPermissionModel.IsPeaceDecisionAllowedBetween
 ### IsAnnexationDecisionAllowed
 `public override bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
 
-**Purpose:** Determines whether the current object is in the `annexation decision allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the annexation decision allowed state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultKingdomDecisionPermissionModel.IsAnnexationDecisionAllowed(a
 ### IsExpulsionDecisionAllowed
 `public override bool IsExpulsionDecisionAllowed(Clan expelledClan)`
 
-**Purpose:** Determines whether the current object is in the `expulsion decision allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the expulsion decision allowed state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultKingdomDecisionPermissionModel.IsExpulsionDecisionAllowed(ex
 ### IsKingSelectionDecisionAllowed
 `public override bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
 
-**Purpose:** Determines whether the current object is in the `king selection decision allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the king selection decision allowed state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultKingdomDecisionPermissionModel.IsKingSelectionDecisionAllowe
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
 `public override bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**Purpose:** Determines whether the current object is in the `start alliance decision allowed between kingdoms` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the start alliance decision allowed between kingdoms state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomDecisionPermissionModel from the subsystem API first

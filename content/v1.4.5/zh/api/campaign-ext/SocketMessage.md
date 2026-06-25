@@ -29,7 +29,7 @@ description: "SocketMessage 的自动生成类参考。"
 ### SerializeToNetworkMessage
 `public override void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**用途 / Purpose:** 将「to network message」序列化为可存储或传输的格式。
+**用途 / Purpose:** **用途 / Purpose:** 将to network message序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 SocketMessage 实例
@@ -40,7 +40,7 @@ socketMessage.SerializeToNetworkMessage(networkMessage);
 ### DeserializeFromNetworkMessage
 `public override void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**用途 / Purpose:** 从序列化数据还原出「from network message」。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原出from network message。
 
 ```csharp
 // 先通过子系统 API 拿到 SocketMessage 实例

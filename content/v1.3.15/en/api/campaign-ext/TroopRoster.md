@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Roster` to place it in the stack
 ### CreateDummyTroopRoster
 `public static TroopRoster CreateDummyTroopRoster()`
 
-**Purpose:** Constructs a new `dummy troop roster` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new dummy troop roster entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ TroopRoster.CreateDummyTroopRoster();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -58,7 +58,7 @@ var result = troopRoster.GetHashCode();
 ### CalculateCachedStatsOnLoad
 `public static void CalculateCachedStatsOnLoad()`
 
-**Purpose:** Calculates the current value or result of `cached stats on load`.
+**Purpose:** **Purpose:** Calculates the current value or result of cached stats on load.
 
 ```csharp
 // Static call; no instance required
@@ -68,7 +68,7 @@ TroopRoster.CalculateCachedStatsOnLoad();
 ### ToFlattenedRoster
 `public FlattenedTroopRoster ToFlattenedRoster()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToFlattenedRoster logic.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -79,7 +79,7 @@ var result = troopRoster.ToFlattenedRoster();
 ### Add
 `public void Add(TroopRoster troopRoster)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -90,7 +90,7 @@ troopRoster.Add(troopRoster);
 ### Add
 `public void Add(TroopRosterElement troopRosterElement)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -101,7 +101,7 @@ troopRoster.Add(troopRosterElement);
 ### RemoveIf
 `public ICollection<TroopRosterElement> RemoveIf(Predicate<TroopRosterElement> match)`
 
-**Purpose:** Removes `if` from the current collection or state.
+**Purpose:** **Purpose:** Removes if from the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -112,7 +112,7 @@ var result = troopRoster.RemoveIf(match);
 ### FindIndexOfTroop
 `public int FindIndexOfTroop(CharacterObject character)`
 
-**Purpose:** Looks up the matching `index of troop` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching index of troop in the current collection or scope.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -123,7 +123,7 @@ var result = troopRoster.FindIndexOfTroop(character);
 ### RemoveNumberOfNonHeroTroopsRandomly
 `public TroopRoster RemoveNumberOfNonHeroTroopsRandomly(int numberOfMen)`
 
-**Purpose:** Removes `number of non hero troops randomly` from the current collection or state.
+**Purpose:** **Purpose:** Removes number of non hero troops randomly from the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -134,7 +134,7 @@ var result = troopRoster.RemoveNumberOfNonHeroTroopsRandomly(0);
 ### WoundNumberOfNonHeroTroopsRandomly
 `public void WoundNumberOfNonHeroTroopsRandomly(int numberOfMen)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WoundNumberOfNonHeroTroopsRandomly logic.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -145,7 +145,7 @@ troopRoster.WoundNumberOfNonHeroTroopsRandomly(0);
 ### SwapTroopsAtIndices
 `public void SwapTroopsAtIndices(int firstIndex, int secondIndex)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwapTroopsAtIndices logic.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -156,7 +156,7 @@ troopRoster.SwapTroopsAtIndices(0, 0);
 ### ShiftTroopToIndex
 `public void ShiftTroopToIndex(int troopIndex, int targetIndex)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShiftTroopToIndex logic.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -167,7 +167,7 @@ troopRoster.ShiftTroopToIndex(0, 0);
 ### AddToCountsAtIndex
 `public int AddToCountsAtIndex(int index, int countChange, int woundedCountChange = 0, int xpChange = 0, bool removeDepleted = true)`
 
-**Purpose:** Adds `to counts at index` to the current collection or state.
+**Purpose:** **Purpose:** Adds to counts at index to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -178,7 +178,7 @@ var result = troopRoster.AddToCountsAtIndex(0, 0, 0, 0, false);
 ### CheckValidity
 `public void CheckValidity()`
 
-**Purpose:** Verifies whether `validity` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether validity holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -189,7 +189,7 @@ troopRoster.CheckValidity();
 ### AddToCounts
 `public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)`
 
-**Purpose:** Adds `to counts` to the current collection or state.
+**Purpose:** **Purpose:** Adds to counts to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -200,7 +200,7 @@ var result = troopRoster.AddToCounts(character, 0, false, 0, 0, false, 0);
 ### GetTroopCount
 `public int GetTroopCount(CharacterObject troop)`
 
-**Purpose:** Reads and returns the `troop count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop count value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -211,7 +211,7 @@ var result = troopRoster.GetTroopCount(troop);
 ### RemoveZeroCounts
 `public void RemoveZeroCounts()`
 
-**Purpose:** Removes `zero counts` from the current collection or state.
+**Purpose:** **Purpose:** Removes zero counts from the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -222,7 +222,7 @@ troopRoster.RemoveZeroCounts();
 ### GetElementCopyAtIndex
 `public TroopRosterElement GetElementCopyAtIndex(int index)`
 
-**Purpose:** Reads and returns the `element copy at index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element copy at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -233,7 +233,7 @@ var result = troopRoster.GetElementCopyAtIndex(0);
 ### SetElementNumber
 `public void SetElementNumber(int index, int number)`
 
-**Purpose:** Assigns a new value to `element number` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to element number and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -244,7 +244,7 @@ troopRoster.SetElementNumber(0, 0);
 ### GetElementNumber
 `public int GetElementNumber(int index)`
 
-**Purpose:** Reads and returns the `element number` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element number value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -255,7 +255,7 @@ var result = troopRoster.GetElementNumber(0);
 ### GetElementNumber
 `public int GetElementNumber(CharacterObject character)`
 
-**Purpose:** Reads and returns the `element number` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element number value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -266,7 +266,7 @@ var result = troopRoster.GetElementNumber(character);
 ### SetElementWoundedNumber
 `public void SetElementWoundedNumber(int index, int number)`
 
-**Purpose:** Assigns a new value to `element wounded number` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to element wounded number and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -277,7 +277,7 @@ troopRoster.SetElementWoundedNumber(0, 0);
 ### GetElementWoundedNumber
 `public int GetElementWoundedNumber(int index)`
 
-**Purpose:** Reads and returns the `element wounded number` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element wounded number value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -288,7 +288,7 @@ var result = troopRoster.GetElementWoundedNumber(0);
 ### SetElementXp
 `public void SetElementXp(int index, int number)`
 
-**Purpose:** Assigns a new value to `element xp` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to element xp and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -299,7 +299,7 @@ troopRoster.SetElementXp(0, 0);
 ### GetElementXp
 `public int GetElementXp(int index)`
 
-**Purpose:** Reads and returns the `element xp` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element xp value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -310,7 +310,7 @@ var result = troopRoster.GetElementXp(0);
 ### GetElementXp
 `public int GetElementXp(CharacterObject character)`
 
-**Purpose:** Reads and returns the `element xp` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element xp value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -321,7 +321,7 @@ var result = troopRoster.GetElementXp(character);
 ### GetCharacterAtIndex
 `public CharacterObject GetCharacterAtIndex(int index)`
 
-**Purpose:** Reads and returns the `character at index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -332,7 +332,7 @@ var result = troopRoster.GetCharacterAtIndex(0);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -343,7 +343,7 @@ var result = troopRoster.Equals(obj);
 ### RostersAreIdentical
 `public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RostersAreIdentical logic.
 
 ```csharp
 // Static call; no instance required
@@ -353,7 +353,7 @@ TroopRoster.RostersAreIdentical(a, b);
 ### Contains
 `public bool Contains(CharacterObject character)`
 
-**Purpose:** Indicates whether the current object contains the specified item.
+**Purpose:** **Purpose:** Indicates whether the this instance contains the specified item.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -364,7 +364,7 @@ var result = troopRoster.Contains(character);
 ### ValidateTroopListCache
 `public void ValidateTroopListCache()`
 
-**Purpose:** Checks whether `troop list cache` satisfies the required constraints, usually returning a boolean.
+**Purpose:** **Purpose:** Checks whether troop list cache satisfies the required constraints, usually returning a boolean.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -375,7 +375,7 @@ troopRoster.ValidateTroopListCache();
 ### GetTroopRoster
 `public MBList<TroopRosterElement> GetTroopRoster()`
 
-**Purpose:** Reads and returns the `troop roster` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop roster value held by the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -386,7 +386,7 @@ var result = troopRoster.GetTroopRoster();
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -397,7 +397,7 @@ troopRoster.Clear();
 ### RemoveTroop
 `public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor), int xp = 0)`
 
-**Purpose:** Removes `troop` from the current collection or state.
+**Purpose:** **Purpose:** Removes troop from the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -408,7 +408,7 @@ troopRoster.RemoveTroop(troop, 0, default(UniqueTroopDescriptor), 0);
 ### WoundTroop
 `public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor))`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WoundTroop logic.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -419,7 +419,7 @@ troopRoster.WoundTroop(troop, 0, default(UniqueTroopDescriptor));
 ### Sum
 `public int Sum(Func<TroopRosterElement, int> selector)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Sum logic.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -430,7 +430,7 @@ var result = troopRoster.Sum(func<TroopRosterElement, 0);
 ### OnHeroHealthStatusChanged
 `public void OnHeroHealthStatusChanged(Hero hero)`
 
-**Purpose:** Invoked when the `hero health status changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero health status changed event is raised.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -441,7 +441,7 @@ troopRoster.OnHeroHealthStatusChanged(hero);
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**Purpose:** Recalculates and stores the latest representation of `version`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of version.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -452,7 +452,7 @@ troopRoster.UpdateVersion();
 ### CloneRosterData
 `public TroopRoster CloneRosterData()`
 
-**Purpose:** Duplicates the current object's state and returns a new `roster data` instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new roster data instance.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -463,7 +463,7 @@ var result = troopRoster.CloneRosterData();
 ### AddXpToTroop
 `public void AddXpToTroop(CharacterObject troop, int xpAmount)`
 
-**Purpose:** Adds `xp to troop` to the current collection or state.
+**Purpose:** **Purpose:** Adds xp to troop to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first
@@ -474,7 +474,7 @@ troopRoster.AddXpToTroop(troop, 0);
 ### AddXpToTroopAtIndex
 `public void AddXpToTroopAtIndex(int index, int xpAmount)`
 
-**Purpose:** Adds `xp to troop at index` to the current collection or state.
+**Purpose:** **Purpose:** Adds xp to troop at index to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRoster from the subsystem API first

@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### AddVisualState
 `public void AddVisualState(VisualState visualState)`
 
-**Purpose:** Adds `visual state` to the current collection or state.
+**Purpose:** **Purpose:** Adds visual state to the current collection or state.
 
 ```csharp
 // Obtain an instance of VisualDefinition from the subsystem API first
@@ -45,7 +45,7 @@ visualDefinition.AddVisualState(visualState);
 ### GetVisualState
 `public VisualState GetVisualState(string state)`
 
-**Purpose:** Reads and returns the `visual state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual state value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualDefinition from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### Create
 `public static NativeArray Create()`
 
-**Purpose:** Creates a new instance or related entity for the current object.
+**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ NativeArray.Create();
 ### AddElement
 `public void AddElement(int value)`
 
-**Purpose:** Adds `element` to the current collection or state.
+**Purpose:** **Purpose:** Adds element to the current collection or state.
 
 ```csharp
 // Obtain an instance of NativeArray from the subsystem API first
@@ -44,7 +44,7 @@ nativeArray.AddElement(0);
 ### AddElement
 `public void AddElement(float value)`
 
-**Purpose:** Adds `element` to the current collection or state.
+**Purpose:** **Purpose:** Adds element to the current collection or state.
 
 ```csharp
 // Obtain an instance of NativeArray from the subsystem API first
@@ -55,7 +55,7 @@ nativeArray.AddElement(0);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of NativeArray from the subsystem API first

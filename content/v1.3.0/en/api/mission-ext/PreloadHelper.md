@@ -23,7 +23,7 @@ Treat `PreloadHelper` as a Helper-style extension point: first identify who crea
 ### PreloadCharacters
 `public void PreloadCharacters(List<BasicCharacterObject> characters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreloadCharacters logic.
 
 ```csharp
 // Obtain an instance of PreloadHelper from the subsystem API first
@@ -34,7 +34,7 @@ preloadHelper.PreloadCharacters(characters);
 ### WaitForMeshesToBeLoaded
 `public void WaitForMeshesToBeLoaded()`
 
-**Purpose:** Pauses the current flow until the `for meshes to be loaded` condition is met.
+**Purpose:** **Purpose:** Pauses the current flow until the for meshes to be loaded condition is met.
 
 ```csharp
 // Obtain an instance of PreloadHelper from the subsystem API first
@@ -45,7 +45,7 @@ preloadHelper.WaitForMeshesToBeLoaded();
 ### PreloadEquipments
 `public void PreloadEquipments(List<Equipment> equipments)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreloadEquipments logic.
 
 ```csharp
 // Obtain an instance of PreloadHelper from the subsystem API first
@@ -56,7 +56,7 @@ preloadHelper.PreloadEquipments(equipments);
 ### PreloadItems
 `public void PreloadItems(List<ItemObject> items)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreloadItems logic.
 
 ```csharp
 // Obtain an instance of PreloadHelper from the subsystem API first
@@ -67,7 +67,7 @@ preloadHelper.PreloadItems(items);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of PreloadHelper from the subsystem API first

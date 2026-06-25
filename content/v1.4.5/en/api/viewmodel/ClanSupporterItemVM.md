@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open tooltip.
 
 ```csharp
 // Obtain an instance of ClanSupporterItemVM from the subsystem API first
@@ -40,7 +40,7 @@ clanSupporterItemVM.ExecuteOpenTooltip();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close tooltip.
 
 ```csharp
 // Obtain an instance of ClanSupporterItemVM from the subsystem API first

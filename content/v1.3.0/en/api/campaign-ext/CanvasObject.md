@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### Update
 `public virtual void Update(float scale)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of CanvasObject from the subsystem API first
@@ -47,7 +47,7 @@ canvasObject.Update(0);
 ### BeginMeasure
 `public void BeginMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginMeasure logic.
 
 ```csharp
 // Obtain an instance of CanvasObject from the subsystem API first
@@ -58,7 +58,7 @@ canvasObject.BeginMeasure(false, false, 0, 0);
 ### DoMeasure
 `public void DoMeasure()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoMeasure logic.
 
 ```csharp
 // Obtain an instance of CanvasObject from the subsystem API first
@@ -69,7 +69,7 @@ canvasObject.DoMeasure();
 ### DoLayout
 `public void DoLayout()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoLayout logic.
 
 ```csharp
 // Obtain an instance of CanvasObject from the subsystem API first
@@ -80,7 +80,7 @@ canvasObject.DoLayout();
 ### GetMarginSize
 `public virtual Vector2 GetMarginSize()`
 
-**Purpose:** Reads and returns the `margin size` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the margin size value held by the this instance.
 
 ```csharp
 // Obtain an instance of CanvasObject from the subsystem API first
@@ -91,7 +91,7 @@ var result = canvasObject.GetMarginSize();
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoRender logic.
 
 ```csharp
 // Obtain an instance of CanvasObject from the subsystem API first

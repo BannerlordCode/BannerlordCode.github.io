@@ -30,7 +30,7 @@ description: "OrderTroopItemFormationClassVM 的自动生成类参考。"
 ### UpdateTroopCount
 `public void UpdateTroopCount()`
 
-**用途 / Purpose:** 重新计算并更新 「troop count」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 troop count 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderTroopItemFormationClassVM 实例

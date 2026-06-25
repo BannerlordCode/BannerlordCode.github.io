@@ -33,7 +33,7 @@ Treat `VariableSaveData` as a Data-style extension point: first identify who cre
 ### SaveTo
 `public void SaveTo(IWriter writer)`
 
-**Purpose:** Writes `to` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes to to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of VariableSaveData from the subsystem API first
@@ -44,7 +44,7 @@ variableSaveData.SaveTo(writer);
 ### GetDataSize
 `public int GetDataSize()`
 
-**Purpose:** Reads and returns the `data size` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the data size value held by the this instance.
 
 ```csharp
 // Obtain an instance of VariableSaveData from the subsystem API first

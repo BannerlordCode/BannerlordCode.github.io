@@ -23,7 +23,7 @@ description: "DefaultMarriageModel 的自动生成类参考。"
 ### IsCoupleSuitableForMarriage
 `public override bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「couple suitable for marriage」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 couple suitable for marriage 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -34,7 +34,7 @@ var result = defaultMarriageModel.IsCoupleSuitableForMarriage(firstHero, secondH
 ### IsClanSuitableForMarriage
 `public override bool IsClanSuitableForMarriage(Clan clan)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「clan suitable for marriage」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 clan suitable for marriage 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -45,7 +45,7 @@ var result = defaultMarriageModel.IsClanSuitableForMarriage(clan);
 ### NpcCoupleMarriageChance
 `public override float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 处理与 「npc couple marriage chance」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NpcCoupleMarriageChance 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -56,7 +56,7 @@ var result = defaultMarriageModel.NpcCoupleMarriageChance(firstHero, secondHero)
 ### ShouldNpcMarriageBetweenClansBeAllowed
 `public override bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
 
-**用途 / Purpose:** 处理与 「should npc marriage between clans be allowed」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldNpcMarriageBetweenClansBeAllowed 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -67,7 +67,7 @@ var result = defaultMarriageModel.ShouldNpcMarriageBetweenClansBeAllowed(conside
 ### GetAdultChildrenSuitableForMarriage
 `public override List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「adult children suitable for marriage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 adult children suitable for marriage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -78,7 +78,7 @@ var result = defaultMarriageModel.GetAdultChildrenSuitableForMarriage(hero);
 ### GetEffectiveRelationIncrease
 `public override int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective relation increase」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective relation increase 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -89,7 +89,7 @@ var result = defaultMarriageModel.GetEffectiveRelationIncrease(firstHero, second
 ### IsSuitableForMarriage
 `public override bool IsSuitableForMarriage(Hero maidenOrSuitor)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「suitable for marriage」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 suitable for marriage 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例
@@ -100,7 +100,7 @@ var result = defaultMarriageModel.IsSuitableForMarriage(maidenOrSuitor);
 ### GetClanAfterMarriage
 `public override Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「clan after marriage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clan after marriage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMarriageModel 实例

@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.GauntletUI.BaseTypes` to place it in the stack,
 ### SetControlledScrollbar
 `public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-**Purpose:** Assigns a new value to `controlled scrollbar` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to controlled scrollbar and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -51,7 +51,7 @@ scrollablePanel.SetControlledScrollbar(scrollbar);
 ### StartInterpolation
 `public void StartInterpolation(float targetValue, float duration)`
 
-**Purpose:** Starts the `interpolation` flow or state machine.
+**Purpose:** **Purpose:** Starts the interpolation flow or state machine.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -62,7 +62,7 @@ scrollablePanel.StartInterpolation(0, 0);
 ### StopInterpolation
 `public void StopInterpolation()`
 
-**Purpose:** Stops the `interpolation` flow or state machine.
+**Purpose:** **Purpose:** Stops the interpolation flow or state machine.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -73,7 +73,7 @@ scrollablePanel.StopInterpolation();
 ### GetValue
 `public float GetValue()`
 
-**Purpose:** Reads and returns the `value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -84,7 +84,7 @@ var result = scrollablePanel.GetValue();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -95,7 +95,7 @@ scrollablePanel.Tick(0);
 ### ResetTweenSpeed
 `public void ResetTweenSpeed()`
 
-**Purpose:** Returns `tween speed` to its default or initial condition.
+**Purpose:** **Purpose:** Returns tween speed to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -106,7 +106,7 @@ scrollablePanel.ResetTweenSpeed();
 ### ScrollToChild
 `public void ScrollToChild(Widget targetWidget, AutoScrollParameters scrollParameters = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ScrollToChild logic.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -117,7 +117,7 @@ scrollablePanel.ScrollToChild(targetWidget, null);
 ### SetVerticalScrollTarget
 `public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)`
 
-**Purpose:** Assigns a new value to `vertical scroll target` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to vertical scroll target and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first
@@ -128,7 +128,7 @@ scrollablePanel.SetVerticalScrollTarget(0, 0);
 ### SetHorizontalScrollTarget
 `public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)`
 
-**Purpose:** Assigns a new value to `horizontal scroll target` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to horizontal scroll target and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScrollablePanel from the subsystem API first

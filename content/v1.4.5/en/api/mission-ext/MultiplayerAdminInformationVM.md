@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### OnNewMessageReceived
 `public void OnNewMessageReceived(string message)`
 
-**Purpose:** Invoked when the `new message received` event is raised.
+**Purpose:** **Purpose:** Invoked when the new message received event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminInformationVM from the subsystem API first

@@ -23,7 +23,7 @@ Treat `ShipHelper` as a Helper-style extension point: first identify who creates
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**Purpose:** Reads and returns the `ship banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship banner value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ShipHelper.GetShipBanner(shipOrigin, null);
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**Purpose:** Reads and returns the `sail colors` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sail colors value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ShipHelper.GetSailColors(shipOrigin, null);
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**Purpose:** Reads and returns the `ship banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship banner value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ShipHelper.GetShipBanner(null);
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(PartyBase party = null)`
 
-**Purpose:** Reads and returns the `sail colors` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sail colors value held by the this instance.
 
 ```csharp
 // Static call; no instance required

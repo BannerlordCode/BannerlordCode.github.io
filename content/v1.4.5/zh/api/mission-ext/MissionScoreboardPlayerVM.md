@@ -38,7 +38,7 @@ description: "MissionScoreboardPlayerVM 的自动生成类参考。"
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
@@ -49,7 +49,7 @@ missionScoreboardPlayerVM.Tick(0);
 ### UpdateAttributes
 `public void UpdateAttributes(string attributes, int score)`
 
-**用途 / Purpose:** 重新计算并更新 「attributes」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 attributes 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
@@ -60,7 +60,7 @@ missionScoreboardPlayerVM.UpdateAttributes("example", 0);
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**用途 / Purpose:** 执行 「selection」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
@@ -71,7 +71,7 @@ missionScoreboardPlayerVM.ExecuteSelection();
 ### UpdateIsMuted
 `public void UpdateIsMuted()`
 
-**用途 / Purpose:** 重新计算并更新 「is muted」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 is muted 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例
@@ -82,7 +82,7 @@ missionScoreboardPlayerVM.UpdateIsMuted();
 ### SetMVPBadgeCount
 `public void SetMVPBadgeCount(int badgeCount)`
 
-**用途 / Purpose:** 为 「m v p badge count」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 m v p badge count 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardPlayerVM 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### IsLoaded
 `public bool IsLoaded()`
 
-**Purpose:** Determines whether the current object is in the `loaded` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the loaded state or condition.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first

@@ -29,7 +29,7 @@ description: "RestData 的自动生成类参考。"
 ### SerializeAsJson
 `public string SerializeAsJson()`
 
-**用途 / Purpose:** 将「as json」序列化为可存储或传输的格式。
+**用途 / Purpose:** **用途 / Purpose:** 将as json序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 RestData 实例

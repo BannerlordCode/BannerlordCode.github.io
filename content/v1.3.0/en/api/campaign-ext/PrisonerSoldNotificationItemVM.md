@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### AddNewPrisoners
 `public void AddNewPrisoners(TroopRoster newPrisoners)`
 
-**Purpose:** Adds `new prisoners` to the current collection or state.
+**Purpose:** **Purpose:** Adds new prisoners to the current collection or state.
 
 ```csharp
 // Obtain an instance of PrisonerSoldNotificationItemVM from the subsystem API first

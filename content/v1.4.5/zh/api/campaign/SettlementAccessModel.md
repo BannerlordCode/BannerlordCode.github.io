@@ -23,7 +23,7 @@ description: "SettlementAccessModel 的自动生成类参考。"
 ### CanMainHeroEnterSettlement
 `public abstract void CanMainHeroEnterSettlement(Settlement settlement, out AccessDetails accessDetails)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「main hero enter settlement」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main hero enter settlement 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementAccessModel 实例
@@ -34,7 +34,7 @@ settlementAccessModel.CanMainHeroEnterSettlement(settlement, accessDetails);
 ### CanMainHeroEnterLordsHall
 `public abstract void CanMainHeroEnterLordsHall(Settlement settlement, out AccessDetails accessDetails)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「main hero enter lords hall」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main hero enter lords hall 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementAccessModel 实例
@@ -45,7 +45,7 @@ settlementAccessModel.CanMainHeroEnterLordsHall(settlement, accessDetails);
 ### CanMainHeroEnterDungeon
 `public abstract void CanMainHeroEnterDungeon(Settlement settlement, out AccessDetails accessDetails)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「main hero enter dungeon」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main hero enter dungeon 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementAccessModel 实例
@@ -56,7 +56,7 @@ settlementAccessModel.CanMainHeroEnterDungeon(settlement, accessDetails);
 ### CanMainHeroAccessLocation
 `public abstract bool CanMainHeroAccessLocation(Settlement settlement, string locationId, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「main hero access location」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main hero access location 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementAccessModel 实例
@@ -67,7 +67,7 @@ var result = settlementAccessModel.CanMainHeroAccessLocation(settlement, "exampl
 ### CanMainHeroDoSettlementAction
 `public abstract bool CanMainHeroDoSettlementAction(Settlement settlement, SettlementAction settlementAction, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「main hero do settlement action」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 main hero do settlement action 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementAccessModel 实例
@@ -78,7 +78,7 @@ var result = settlementAccessModel.CanMainHeroDoSettlementAction(settlement, set
 ### IsRequestMeetingOptionAvailable
 `public abstract bool IsRequestMeetingOptionAvailable(Settlement settlement, out bool disableOption, out TextObject disabledText)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「request meeting option available」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 request meeting option available 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementAccessModel 实例

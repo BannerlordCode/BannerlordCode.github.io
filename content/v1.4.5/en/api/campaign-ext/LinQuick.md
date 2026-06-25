@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.LinQuick` to place it in the stack, then inspec
 ### AverageQ
 `public static float AverageQ(this float source)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AverageQ logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ LinQuick.AverageQ(source);
 ### AverageQ
 `public static float AverageQ(this IEnumerable<float> source)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AverageQ logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ LinQuick.AverageQ(source);
 ### MaxQ
 `public static int MaxQ(this int source)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MaxQ logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ LinQuick.MaxQ(source);
 ### MaxQ
 `public static int MaxQ(this List<int> source)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MaxQ logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ LinQuick.MaxQ(source);
 ### MaxQ
 `public static int MaxQ(this IReadOnlyList<int> source)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MaxQ logic.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### GetMBObject
 `public MBObjectBase GetMBObject(MBGUID objId)`
 
-**Purpose:** Reads and returns the `m b object` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the m b object value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectTypeRecord from the subsystem API first

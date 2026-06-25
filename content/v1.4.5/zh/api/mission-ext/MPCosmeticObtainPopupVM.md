@@ -50,7 +50,7 @@ description: "MPCosmeticObtainPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -61,7 +61,7 @@ mPCosmeticObtainPopupVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -72,7 +72,7 @@ mPCosmeticObtainPopupVM.OnFinalize();
 ### OpenWith
 `public void OpenWith(MPArmoryCosmeticClothingItemVM item)`
 
-**用途 / Purpose:** 打开「with」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -83,7 +83,7 @@ mPCosmeticObtainPopupVM.OpenWith(item);
 ### OpenWith
 `public void OpenWith(MPArmoryCosmeticTauntItemVM item, CharacterViewModel sourceCharacter)`
 
-**用途 / Purpose:** 打开「with」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -94,7 +94,7 @@ mPCosmeticObtainPopupVM.OpenWith(item, sourceCharacter);
 ### ExecuteSelectNextAnimation
 `public void ExecuteSelectNextAnimation(int increment)`
 
-**用途 / Purpose:** 执行 「select next animation」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select next animation 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -105,7 +105,7 @@ mPCosmeticObtainPopupVM.ExecuteSelectNextAnimation(0);
 ### OpenWith
 `public void OpenWith(MPLobbyCosmeticSigilItemVM sigilItem)`
 
-**用途 / Purpose:** 打开「with」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -116,7 +116,7 @@ mPCosmeticObtainPopupVM.OpenWith(sigilItem);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例
@@ -127,7 +127,7 @@ mPCosmeticObtainPopupVM.ExecuteClosePopup();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPCosmeticObtainPopupVM 实例

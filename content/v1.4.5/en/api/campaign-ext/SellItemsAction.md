@@ -19,7 +19,7 @@ SellItemsAction is a set of static methods that trigger "SellItems" in the campa
 public static void Apply(PartyBase receiverParty, PartyBase payerParty, ItemRosterElement subject, int number, Settlement currentSettlement = null)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

@@ -29,7 +29,7 @@ Treat `InventoryData` as a Data-style extension point: first identify who create
 ### GetItemWithIndex
 `public ItemData GetItemWithIndex(int itemIndex)`
 
-**Purpose:** Reads and returns the `item with index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item with index value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryData from the subsystem API first
@@ -40,7 +40,7 @@ var result = inventoryData.GetItemWithIndex(0);
 ### DebugPrint
 `public void DebugPrint()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugPrint logic.
 
 ```csharp
 // Obtain an instance of InventoryData from the subsystem API first

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KeybindingPopupVM from the subsystem API first
@@ -41,7 +41,7 @@ keybindingPopupVM.RefreshValues();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of KeybindingPopupVM from the subsystem API first

@@ -23,7 +23,7 @@ Treat `DefaultCompanionHiringPriceCalculationModel` as a Model-style extension p
 ### GetCompanionHiringPrice
 `public override int GetCompanionHiringPrice(Hero companion)`
 
-**Purpose:** Reads and returns the `companion hiring price` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the companion hiring price value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultCompanionHiringPriceCalculationModel from the subsystem API first

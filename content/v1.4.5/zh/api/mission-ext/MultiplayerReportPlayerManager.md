@@ -23,7 +23,7 @@ description: "MultiplayerReportPlayerManager 的自动生成类参考。"
 ### RequestReportPlayer
 `public static void RequestReportPlayer(string gameId, PlayerId playerId, string playerName, bool isRequestedFromMission)`
 
-**用途 / Purpose:** 处理与 「request report player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestReportPlayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerReportPlayerManager.RequestReportPlayer("example", playerId, "example
 ### OnPlayerReported
 `public static void OnPlayerReported(PlayerId playerId)`
 
-**用途 / Purpose:** 在 「player reported」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player reported 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MultiplayerReportPlayerManager.OnPlayerReported(playerId);
 ### IsPlayerReportedOverLimit
 `public static bool IsPlayerReportedOverLimit(PlayerId player)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「player reported over limit」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player reported over limit 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

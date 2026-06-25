@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ alleyCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ alleyCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ alleyCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### GetIsPlayerAlleyUnderAttack
 `public bool GetIsPlayerAlleyUnderAttack(Alley alley)`
 
-**Purpose:** Reads and returns the `is player alley under attack` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is player alley under attack value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ var result = alleyCampaignBehavior.GetIsPlayerAlleyUnderAttack(alley);
 ### GetPlayerOwnedAlleyTroopCount
 `public int GetPlayerOwnedAlleyTroopCount(Alley alley)`
 
-**Purpose:** Reads and returns the `player owned alley troop count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player owned alley troop count value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = alleyCampaignBehavior.GetPlayerOwnedAlleyTroopCount(alley);
 ### GetResponseTimeLeftForAttackInDays
 `public int GetResponseTimeLeftForAttackInDays(Alley alley)`
 
-**Purpose:** Reads and returns the `response time left for attack in days` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the response time left for attack in days value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ var result = alleyCampaignBehavior.GetResponseTimeLeftForAttackInDays(alley);
 ### AbandonAlleyFromClanMenu
 `public void AbandonAlleyFromClanMenu(Alley alley)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AbandonAlleyFromClanMenu logic.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ alleyCampaignBehavior.AbandonAlleyFromClanMenu(alley);
 ### IsHeroAlleyLeaderOfAnyPlayerAlley
 `public bool IsHeroAlleyLeaderOfAnyPlayerAlley(Hero hero)`
 
-**Purpose:** Determines whether the current object is in the `hero alley leader of any player alley` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero alley leader of any player alley state or condition.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ var result = alleyCampaignBehavior.IsHeroAlleyLeaderOfAnyPlayerAlley(hero);
 ### GetAllAssignedClanMembersForOwnedAlleys
 `public List<Hero> GetAllAssignedClanMembersForOwnedAlleys()`
 
-**Purpose:** Reads and returns the `all assigned clan members for owned alleys` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all assigned clan members for owned alleys value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -122,7 +122,7 @@ var result = alleyCampaignBehavior.GetAllAssignedClanMembersForOwnedAlleys();
 ### ChangeAlleyMember
 `public void ChangeAlleyMember(Alley alley, Hero newAlleyLead)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeAlleyMember logic.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -133,7 +133,7 @@ alleyCampaignBehavior.ChangeAlleyMember(alley, newAlleyLead);
 ### OnPlayerRetreatedFromMission
 `public void OnPlayerRetreatedFromMission()`
 
-**Purpose:** Invoked when the `player retreated from mission` event is raised.
+**Purpose:** **Purpose:** Invoked when the player retreated from mission event is raised.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -144,7 +144,7 @@ alleyCampaignBehavior.OnPlayerRetreatedFromMission();
 ### OnPlayerDiedInMission
 `public void OnPlayerDiedInMission()`
 
-**Purpose:** Invoked when the `player died in mission` event is raised.
+**Purpose:** **Purpose:** Invoked when the player died in mission event is raised.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -155,7 +155,7 @@ alleyCampaignBehavior.OnPlayerDiedInMission();
 ### GetAssignedClanMemberOfAlley
 `public Hero GetAssignedClanMemberOfAlley(Alley alley)`
 
-**Purpose:** Reads and returns the `assigned clan member of alley` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the assigned clan member of alley value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlleyCampaignBehavior from the subsystem API first
@@ -166,7 +166,7 @@ var result = alleyCampaignBehavior.GetAssignedClanMemberOfAlley(alley);
 ### alley_related_menu_on_init
 `public static void alley_related_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the alley_related_menu_on_init logic.
 
 ```csharp
 // Static call; no instance required

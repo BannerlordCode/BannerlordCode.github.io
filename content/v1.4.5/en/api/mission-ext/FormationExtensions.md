@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnOrderChange
 `public static void OnOrderChange(Formation formation, IFormationArrangement arrangement)`
 
-**Purpose:** Invoked when the `order change` event is raised.
+**Purpose:** **Purpose:** Invoked when the order change event is raised.
 
 ```csharp
 // Static call; no instance required

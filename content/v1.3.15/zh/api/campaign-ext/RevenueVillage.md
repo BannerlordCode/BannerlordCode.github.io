@@ -29,7 +29,7 @@ description: "RevenueVillage 的自动生成类参考。"
 ### SetDone
 `public void SetDone()`
 
-**用途 / Purpose:** 为 「done」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueVillage 实例
@@ -40,7 +40,7 @@ revenueVillage.SetDone();
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**用途 / Purpose:** 为 「additional progress」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 additional progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueVillage 实例
@@ -51,7 +51,7 @@ revenueVillage.SetAdditionalProgress(0);
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is completed」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is completed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueVillage 实例

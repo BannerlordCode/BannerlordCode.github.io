@@ -30,7 +30,7 @@ description: "PartyUpgradeTroopVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -41,7 +41,7 @@ partyUpgradeTroopVM.RefreshValues();
 ### OnRanOutTroop
 `public void OnRanOutTroop(PartyCharacterVM troop)`
 
-**用途 / Purpose:** 在 「ran out troop」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 ran out troop 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -52,7 +52,7 @@ partyUpgradeTroopVM.OnRanOutTroop(troop);
 ### OnTroopUpgraded
 `public void OnTroopUpgraded()`
 
-**用途 / Purpose:** 在 「troop upgraded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop upgraded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -63,7 +63,7 @@ partyUpgradeTroopVM.OnTroopUpgraded();
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**用途 / Purpose:** 打开「pop up」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开pop up对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -74,7 +74,7 @@ partyUpgradeTroopVM.OpenPopUp();
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -85,7 +85,7 @@ partyUpgradeTroopVM.ExecuteDone();
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -96,7 +96,7 @@ partyUpgradeTroopVM.ExecuteCancel();
 ### ExecuteItemPrimaryAction
 `public override void ExecuteItemPrimaryAction()`
 
-**用途 / Purpose:** 执行 「item primary action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 item primary action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -107,7 +107,7 @@ partyUpgradeTroopVM.ExecuteItemPrimaryAction();
 ### ExecuteItemSecondaryAction
 `public override void ExecuteItemSecondaryAction()`
 
-**用途 / Purpose:** 执行 「item secondary action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 item secondary action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例
@@ -118,7 +118,7 @@ partyUpgradeTroopVM.ExecuteItemSecondaryAction();
 ### ExecuteItemTertiaryAction
 `public override void ExecuteItemTertiaryAction()`
 
-**用途 / Purpose:** 执行 「item tertiary action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 item tertiary action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradeTroopVM 实例

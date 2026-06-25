@@ -23,7 +23,7 @@ description: "AlleyHelper 的自动生成类参考。"
 ### OpenScreenForManagingAlley
 `public static void OpenScreenForManagingAlley(TroopRoster leftMemberRoster, PartyPresentationDoneButtonDelegate onDoneButtonClicked, TextObject leftText, PartyPresentationCancelButtonDelegate onCancelButtonClicked = null)`
 
-**用途 / Purpose:** 打开「screen for managing alley」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开screen for managing alley对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ AlleyHelper.OpenScreenForManagingAlley(leftMemberRoster, onDoneButtonClicked, le
 ### CreateMultiSelectionInquiryForSelectingClanMemberToAlley
 `public static void CreateMultiSelectionInquiryForSelectingClanMemberToAlley(Alley alley, Action<List<InquiryElement>> affirmativeAction, Action<List<InquiryElement>> negativeAction)`
 
-**用途 / Purpose:** 构建一个新的 「multi selection inquiry for selecting clan member to alley」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 multi selection inquiry for selecting clan member to alley 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

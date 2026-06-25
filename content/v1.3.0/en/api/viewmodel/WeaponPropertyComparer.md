@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### Compare
 `public int Compare(CraftingListPropertyItem x, CraftingListPropertyItem y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of WeaponPropertyComparer from the subsystem API first

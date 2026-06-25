@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia.Pages` to place it 
 ### CompareClans
 `public int CompareClans(EncyclopediaListItem x, EncyclopediaListItem y, Func<Clan, Clan, int> comparison)`
 
-**Purpose:** Compares two `clans` objects and returns an ordering result.
+**Purpose:** **Purpose:** Compares two clans objects and returns an ordering result.
 
 ```csharp
 // Obtain an instance of EncyclopediaListClanComparer from the subsystem API first

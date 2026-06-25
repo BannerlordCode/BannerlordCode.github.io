@@ -23,7 +23,7 @@ Treat `AiHelper` as a Helper-style extension point: first identify who creates i
 ### GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty
 `public static void GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(MobileParty mobileParty, Settlement settlement, bool isTargetingPort, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance, out bool isFromPort)`
 
-**Purpose:** Reads and returns the `best navigation type and adjusted distance of settlement for mobile party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the best navigation type and adjusted distance of settlement for mobile party value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ AiHelper.GetBestNavigationTypeAndAdjustedDistanceOfSettlementForMobileParty(mobi
 ### GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty
 `public static void GetBestNavigationTypeAndDistanceOfMobilePartyForMobileParty(MobileParty mobileParty, MobileParty toMobileParty, out MobileParty.NavigationType bestNavigationType, out float bestNavigationDistance)`
 
-**Purpose:** Reads and returns the `best navigation type and distance of mobile party for mobile party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the best navigation type and distance of mobile party for mobile party value held by the this instance.
 
 ```csharp
 // Static call; no instance required

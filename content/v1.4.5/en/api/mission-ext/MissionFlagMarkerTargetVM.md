@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `screen position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of screen position.
 
 ```csharp
 // Obtain an instance of MissionFlagMarkerTargetVM from the subsystem API first
@@ -45,7 +45,7 @@ missionFlagMarkerTargetVM.UpdateScreenPosition(missionCamera);
 ### OnOwnerChanged
 `public void OnOwnerChanged(Team team)`
 
-**Purpose:** Invoked when the `owner changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the owner changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionFlagMarkerTargetVM from the subsystem API first
@@ -56,7 +56,7 @@ missionFlagMarkerTargetVM.OnOwnerChanged(team);
 ### OnRemainingMoraleChanged
 `public void OnRemainingMoraleChanged(int remainingMorale)`
 
-**Purpose:** Invoked when the `remaining morale changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the remaining morale changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionFlagMarkerTargetVM from the subsystem API first

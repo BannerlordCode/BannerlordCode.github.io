@@ -33,7 +33,7 @@ Start from namespace `SandBox.ViewModelCollection.Input` to place it in the stac
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of InputKeyItemVM from the subsystem API first
@@ -44,7 +44,7 @@ inputKeyItemVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InputKeyItemVM from the subsystem API first
@@ -55,7 +55,7 @@ inputKeyItemVM.RefreshValues();
 ### SetForcedVisibility
 `public void SetForcedVisibility(bool? isVisible)`
 
-**Purpose:** Assigns a new value to `forced visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to forced visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InputKeyItemVM from the subsystem API first
@@ -66,7 +66,7 @@ inputKeyItemVM.SetForcedVisibility(false);
 ### CreateFromGameKey
 `public static InputKeyItemVM CreateFromGameKey(GameKey gameKey, bool isConsoleOnly)`
 
-**Purpose:** Constructs a new `from game key` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from game key entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ InputKeyItemVM.CreateFromGameKey(gameKey, false);
 ### CreateFromHotKey
 `public static InputKeyItemVM CreateFromHotKey(HotKey hotKey, bool isConsoleOnly)`
 
-**Purpose:** Constructs a new `from hot key` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from hot key entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -86,7 +86,7 @@ InputKeyItemVM.CreateFromHotKey(hotKey, false);
 ### CreateFromHotKeyWithForcedName
 `public static InputKeyItemVM CreateFromHotKeyWithForcedName(HotKey hotKey, TextObject forcedName, bool isConsoleOnly)`
 
-**Purpose:** Constructs a new `from hot key with forced name` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from hot key with forced name entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -96,7 +96,7 @@ InputKeyItemVM.CreateFromHotKeyWithForcedName(hotKey, forcedName, false);
 ### CreateFromGameKeyWithForcedName
 `public static InputKeyItemVM CreateFromGameKeyWithForcedName(GameKey gameKey, TextObject forcedName, bool isConsoleOnly)`
 
-**Purpose:** Constructs a new `from game key with forced name` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from game key with forced name entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -106,7 +106,7 @@ InputKeyItemVM.CreateFromGameKeyWithForcedName(gameKey, forcedName, false);
 ### CreateFromForcedID
 `public static InputKeyItemVM CreateFromForcedID(string forcedID, TextObject forcedName, bool isConsoleOnly)`
 
-**Purpose:** Constructs a new `from forced i d` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from forced i d entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `CivilianPortShipSpawnMissionLogic` as a Logic-style extension point: firs
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of CivilianPortShipSpawnMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ civilianPortShipSpawnMissionLogic.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of CivilianPortShipSpawnMissionLogic from the subsystem API first
@@ -45,7 +45,7 @@ civilianPortShipSpawnMissionLogic.EarlyStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CivilianPortShipSpawnMissionLogic from the subsystem API first

@@ -31,7 +31,7 @@ description: "ItemModifierGroup 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifierGroup 实例
@@ -42,7 +42,7 @@ itemModifierGroup.Deserialize(objectManager, node);
 ### AddItemModifier
 `public void AddItemModifier(ItemModifier itemModifier)`
 
-**用途 / Purpose:** 将 「item modifier」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 item modifier 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifierGroup 实例
@@ -53,7 +53,7 @@ itemModifierGroup.AddItemModifier(itemModifier);
 ### GetRandomItemModifierLootScoreBased
 `public ItemModifier GetRandomItemModifierLootScoreBased()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random item modifier loot score based」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random item modifier loot score based 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifierGroup 实例
@@ -64,7 +64,7 @@ var result = itemModifierGroup.GetRandomItemModifierLootScoreBased();
 ### GetRandomItemModifierProductionScoreBased
 `public ItemModifier GetRandomItemModifierProductionScoreBased()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random item modifier production score based」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random item modifier production score based 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifierGroup 实例
@@ -75,7 +75,7 @@ var result = itemModifierGroup.GetRandomItemModifierProductionScoreBased();
 ### GetModifiersBasedOnQuality
 `public List<ItemModifier> GetModifiersBasedOnQuality(ItemQuality quality)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modifiers based on quality」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modifiers based on quality 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifierGroup 实例

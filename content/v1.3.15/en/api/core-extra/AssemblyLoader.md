@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ AssemblyLoader.Initialize();
 ### LoadFrom
 `public static Assembly LoadFrom(string assemblyFile, bool show_error = true)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

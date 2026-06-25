@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.SaveSystem.Save` to place it in the stack, then
 ### PrintStatus
 `public void PrintStatus()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PrintStatus logic.
 
 ```csharp
 // Obtain an instance of SaveOutput from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames.Objects` to place it in the stack, then
 ### SetVisibility
 `public void SetVisibility(bool visible)`
 
-**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Tile from the subsystem API first

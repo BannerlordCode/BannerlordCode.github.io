@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Steam` to place it in th
 ### Initialize
 `public void Initialize(List<string> args)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SteamLauncherModuleExtension from the subsystem API first
@@ -34,7 +34,7 @@ steamLauncherModuleExtension.Initialize(args);
 ### GetModulePaths
 `public string GetModulePaths()`
 
-**Purpose:** Reads and returns the `module paths` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the module paths value held by the this instance.
 
 ```csharp
 // Obtain an instance of SteamLauncherModuleExtension from the subsystem API first
@@ -45,7 +45,7 @@ var result = steamLauncherModuleExtension.GetModulePaths();
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of SteamLauncherModuleExtension from the subsystem API first
@@ -56,7 +56,7 @@ steamLauncherModuleExtension.Destroy();
 ### SetLauncherMode
 `public void SetLauncherMode(bool isLauncherModeActive)`
 
-**Purpose:** Assigns a new value to `launcher mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to launcher mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SteamLauncherModuleExtension from the subsystem API first
@@ -67,7 +67,7 @@ steamLauncherModuleExtension.SetLauncherMode(false);
 ### CheckEntitlement
 `public bool CheckEntitlement(string title)`
 
-**Purpose:** Verifies whether `entitlement` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether entitlement holds true for the this instance.
 
 ```csharp
 // Obtain an instance of SteamLauncherModuleExtension from the subsystem API first

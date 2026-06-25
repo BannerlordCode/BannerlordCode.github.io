@@ -29,7 +29,7 @@ description: "VillageNeedsToolsIssueQuest 的自动生成类参考。"
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 failed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsToolsIssueQuest 实例
@@ -40,7 +40,7 @@ villageNeedsToolsIssueQuest.OnFailed();
 ### GiveTradeOrExchangeRewardToMainParty
 `public static void GiveTradeOrExchangeRewardToMainParty(Hero questGiver, int gold, ItemObject exchangeItem, int exchangeItemCount)`
 
-**用途 / Purpose:** 处理与 「give trade or exchange reward to main party」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GiveTradeOrExchangeRewardToMainParty 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

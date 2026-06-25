@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### PauseGameEngine
 `public static void PauseGameEngine()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PauseGameEngine logic.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ MBCommon.PauseGameEngine();
 ### UnPauseGameEngine
 `public static void UnPauseGameEngine()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnPauseGameEngine logic.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ MBCommon.UnPauseGameEngine();
 ### GetApplicationTime
 `public static float GetApplicationTime()`
 
-**Purpose:** Reads and returns the `application time` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the application time value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ MBCommon.GetApplicationTime();
 ### GetTotalMissionTime
 `public static float GetTotalMissionTime()`
 
-**Purpose:** Reads and returns the `total mission time` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total mission time value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -70,7 +70,7 @@ MBCommon.GetTotalMissionTime();
 ### FixSkeletons
 `public static void FixSkeletons()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FixSkeletons logic.
 
 ```csharp
 // Static call; no instance required
@@ -80,7 +80,7 @@ MBCommon.FixSkeletons();
 ### CheckResourceModifications
 `public static void CheckResourceModifications()`
 
-**Purpose:** Verifies whether `resource modifications` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether resource modifications holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -90,7 +90,7 @@ MBCommon.CheckResourceModifications();
 ### Hash
 `public static int Hash(int i, object o)`
 
-**Purpose:** Determines whether the current object already holds `h`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds h.
 
 ```csharp
 // Static call; no instance required

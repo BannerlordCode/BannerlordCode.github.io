@@ -45,7 +45,7 @@ description: "ClanFiefsVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFiefsVM 实例
@@ -56,7 +56,7 @@ clanFiefsVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFiefsVM 实例
@@ -67,7 +67,7 @@ clanFiefsVM.OnFinalize();
 ### RefreshAllLists
 `public void RefreshAllLists()`
 
-**用途 / Purpose:** 使 「all lists」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 all lists 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFiefsVM 实例
@@ -78,7 +78,7 @@ clanFiefsVM.RefreshAllLists();
 ### SelectFief
 `public void SelectFief(Settlement settlement)`
 
-**用途 / Purpose:** 处理与 「select fief」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectFief 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFiefsVM 实例
@@ -89,7 +89,7 @@ clanFiefsVM.SelectFief(settlement);
 ### ExecuteAssignGovernor
 `public void ExecuteAssignGovernor()`
 
-**用途 / Purpose:** 执行 「assign governor」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 assign governor 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFiefsVM 实例

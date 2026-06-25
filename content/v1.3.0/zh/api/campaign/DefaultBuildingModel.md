@@ -23,7 +23,7 @@ description: "DefaultBuildingModel 的自动生成类参考。"
 ### CanAddBuildingTypeToTown
 `public override bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「add building type to town」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 add building type to town 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBuildingModel 实例

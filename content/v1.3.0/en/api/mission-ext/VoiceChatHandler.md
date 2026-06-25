@@ -29,7 +29,7 @@ Treat `VoiceChatHandler` as a Handler-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -40,7 +40,7 @@ voiceChatHandler.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -51,7 +51,7 @@ voiceChatHandler.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -62,7 +62,7 @@ voiceChatHandler.OnRemoveBehavior();
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre display mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre display mission tick event is raised.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -73,7 +73,7 @@ voiceChatHandler.OnPreDisplayMissionTick(0);
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Invoked when the `player disconnected from server` event is raised.
+**Purpose:** **Purpose:** Invoked when the player disconnected from server event is raised.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -84,7 +84,7 @@ voiceChatHandler.OnPlayerDisconnectedFromServer(networkPeer);
 ### WriteVoiceData
 `public void WriteVoiceData(byte dataBuffer, int bufferSize)`
 
-**Purpose:** Writes `voice data` to the target location.
+**Purpose:** **Purpose:** Writes voice data to the target location.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -95,7 +95,7 @@ voiceChatHandler.WriteVoiceData(0, 0);
 ### SetReadyOnPlatform
 `public void SetReadyOnPlatform()`
 
-**Purpose:** Assigns a new value to `ready on platform` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to ready on platform and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -106,7 +106,7 @@ voiceChatHandler.SetReadyOnPlatform();
 ### ProcessVoiceData
 `public bool ProcessVoiceData()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessVoiceData logic.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -117,7 +117,7 @@ var result = voiceChatHandler.ProcessVoiceData();
 ### GetVoiceToPlayForTick
 `public Queue<short> GetVoiceToPlayForTick()`
 
-**Purpose:** Reads and returns the `voice to play for tick` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the voice to play for tick value held by the this instance.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first
@@ -128,7 +128,7 @@ var result = voiceChatHandler.GetVoiceToPlayForTick();
 ### HasAnyVoiceData
 `public bool HasAnyVoiceData()`
 
-**Purpose:** Determines whether the current object already holds `any voice data`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds any voice data.
 
 ```csharp
 // Obtain an instance of VoiceChatHandler from the subsystem API first

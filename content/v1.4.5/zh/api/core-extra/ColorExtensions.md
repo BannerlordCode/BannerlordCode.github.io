@@ -23,7 +23,7 @@ description: "ColorExtensions 的自动生成类参考。"
 ### AddFactorInHSB
 `public static Color AddFactorInHSB(this Color rgbColor, float hueDifference, float saturationDifference, float brighnessDifference)`
 
-**用途 / Purpose:** 将 「factor in h s b」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 factor in h s b 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

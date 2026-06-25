@@ -23,7 +23,7 @@ description: "GameOverStatsProvider 的自动生成类参考。"
 ### GetGameOverStats
 `public IEnumerable<StatCategory> GetGameOverStats()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「game over stats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game over stats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameOverStatsProvider 实例

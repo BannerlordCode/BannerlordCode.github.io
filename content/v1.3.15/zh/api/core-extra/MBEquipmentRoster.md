@@ -31,7 +31,7 @@ description: "MBEquipmentRoster 的自动生成类参考。"
 ### HasEquipmentFlags
 `public bool HasEquipmentFlags(EquipmentFlags flags)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「equipment flags」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 equipment flags。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -42,7 +42,7 @@ var result = mBEquipmentRoster.HasEquipmentFlags(flags);
 ### IsEquipmentTemplate
 `public bool IsEquipmentTemplate()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「equipment template」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 equipment template 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -53,7 +53,7 @@ var result = mBEquipmentRoster.IsEquipmentTemplate();
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -64,7 +64,7 @@ mBEquipmentRoster.Init(objectManager, node);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -75,7 +75,7 @@ mBEquipmentRoster.Deserialize(objectManager, node);
 ### AddEquipmentRoster
 `public void AddEquipmentRoster(MBEquipmentRoster equipmentRoster, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 将 「equipment roster」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 equipment roster 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -86,7 +86,7 @@ mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
 ### AddOverridenEquipments
 `public void AddOverridenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
-**用途 / Purpose:** 将 「overriden equipments」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 overriden equipments 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -97,7 +97,7 @@ mBEquipmentRoster.AddOverridenEquipments(objectManager, overridenEquipmentSlots)
 ### OrderEquipments
 `public void OrderEquipments()`
 
-**用途 / Purpose:** 处理与 「order equipments」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OrderEquipments 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -108,7 +108,7 @@ mBEquipmentRoster.OrderEquipments();
 ### InitializeDefaultEquipment
 `public void InitializeDefaultEquipment(string equipmentName)`
 
-**用途 / Purpose:** 为 「default equipment」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 default equipment 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例

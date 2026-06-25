@@ -23,7 +23,7 @@ description: "ActionCampaignOptionData 的自动生成类参考。"
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「data type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionCampaignOptionData 实例
@@ -34,7 +34,7 @@ var result = actionCampaignOptionData.GetDataType();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionCampaignOptionData 实例

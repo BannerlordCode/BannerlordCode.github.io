@@ -23,7 +23,7 @@ Treat `AgentHumanAILogic` as a Logic-style extension point: first identify who c
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Invoked when the `agent created` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent created event is raised.
 
 ```csharp
 // Obtain an instance of AgentHumanAILogic from the subsystem API first
@@ -34,7 +34,7 @@ agentHumanAILogic.OnAgentCreated(agent);
 ### OnAgentMount
 `public override void OnAgentMount(Agent agent)`
 
-**Purpose:** Invoked when the `agent mount` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent mount event is raised.
 
 ```csharp
 // Obtain an instance of AgentHumanAILogic from the subsystem API first

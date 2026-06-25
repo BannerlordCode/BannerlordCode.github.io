@@ -23,7 +23,7 @@ description: "QuestSettlement 的自动生成类参考。"
 ### IsScoutingCompleted
 `public bool IsScoutingCompleted()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「scouting completed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 scouting completed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestSettlement 实例
@@ -34,7 +34,7 @@ var result = questSettlement.IsScoutingCompleted();
 ### SetScoutingCompleted
 `public void SetScoutingCompleted()`
 
-**用途 / Purpose:** 为 「scouting completed」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 scouting completed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestSettlement 实例
@@ -45,7 +45,7 @@ questSettlement.SetScoutingCompleted();
 ### ResetCurrentProgress
 `public void ResetCurrentProgress()`
 
-**用途 / Purpose:** 将 「current progress」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 current progress 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestSettlement 实例

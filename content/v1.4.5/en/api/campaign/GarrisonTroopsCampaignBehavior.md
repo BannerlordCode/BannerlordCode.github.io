@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### GetNumberOfTroopsToLeaveForParty
 `public int GetNumberOfTroopsToLeaveForParty()`
 
-**Purpose:** Reads and returns the `number of troops to leave for party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of troops to leave for party value held by the this instance.
 
 ```csharp
 // Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToLeaveForParty();
 ### GetNumberOfTroopsToTakeForParty
 `public int GetNumberOfTroopsToTakeForParty()`
 
-**Purpose:** Reads and returns the `number of troops to take for party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of troops to take for party value held by the this instance.
 
 ```csharp
 // Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToTakeForParty();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ garrisonTroopsCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of GarrisonTroopsCampaignBehavior from the subsystem API first

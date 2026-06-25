@@ -33,7 +33,7 @@ description: "CharacterCreationManager 的自动生成类参考。"
 ### RegisterCharacterCreationContentHandler
 `public void RegisterCharacterCreationContentHandler(ICharacterCreationContentHandler characterCreationContentHandler, int priority)`
 
-**用途 / Purpose:** 将「character creation content handler」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将character creation content handler注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -44,7 +44,7 @@ characterCreationManager.RegisterCharacterCreationContentHandler(characterCreati
 ### AddStage
 `public void AddStage(CharacterCreationStageBase stage)`
 
-**用途 / Purpose:** 将 「stage」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 stage 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -55,7 +55,7 @@ characterCreationManager.AddStage(stage);
 ### NextStage
 `public void NextStage()`
 
-**用途 / Purpose:** 处理与 「next stage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NextStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -66,7 +66,7 @@ characterCreationManager.NextStage();
 ### PreviousStage
 `public void PreviousStage()`
 
-**用途 / Purpose:** 处理与 「previous stage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PreviousStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -77,7 +77,7 @@ characterCreationManager.PreviousStage();
 ### GoToStage
 `public void GoToStage(int stageIndex)`
 
-**用途 / Purpose:** 处理与 「go to stage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -88,7 +88,7 @@ characterCreationManager.GoToStage(0);
 ### GetIndexOfCurrentStage
 `public int GetIndexOfCurrentStage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「index of current stage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index of current stage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -99,7 +99,7 @@ var result = characterCreationManager.GetIndexOfCurrentStage();
 ### GetTotalStagesCount
 `public int GetTotalStagesCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「total stages count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total stages count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -110,7 +110,7 @@ var result = characterCreationManager.GetTotalStagesCount();
 ### GetFurthestIndex
 `public int GetFurthestIndex()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「furthest index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 furthest index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -121,7 +121,7 @@ var result = characterCreationManager.GetFurthestIndex();
 ### AddNewMenu
 `public void AddNewMenu(NarrativeMenu menu)`
 
-**用途 / Purpose:** 将 「new menu」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 new menu 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -132,7 +132,7 @@ characterCreationManager.AddNewMenu(menu);
 ### GetCurrentMenu
 `public NarrativeMenu GetCurrentMenu(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「current menu」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current menu 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -143,7 +143,7 @@ var result = characterCreationManager.GetCurrentMenu(0);
 ### GetCurrentMenuOptions
 `public IEnumerable<NarrativeMenuOption> GetCurrentMenuOptions(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「current menu options」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current menu options 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -154,7 +154,7 @@ var result = characterCreationManager.GetCurrentMenuOptions(0);
 ### GetNarrativeMenuWithId
 `public NarrativeMenu GetNarrativeMenuWithId(string stringId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「narrative menu with id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 narrative menu with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -165,7 +165,7 @@ var result = characterCreationManager.GetNarrativeMenuWithId("example");
 ### DeleteNarrativeMenuWithId
 `public void DeleteNarrativeMenuWithId(string stringId)`
 
-**用途 / Purpose:** 处理与 「delete narrative menu with id」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteNarrativeMenuWithId 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -176,7 +176,7 @@ characterCreationManager.DeleteNarrativeMenuWithId("example");
 ### ResetNarrativeMenus
 `public void ResetNarrativeMenus()`
 
-**用途 / Purpose:** 将 「narrative menus」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 narrative menus 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -187,7 +187,7 @@ characterCreationManager.ResetNarrativeMenus();
 ### ResetMenuOptions
 `public void ResetMenuOptions()`
 
-**用途 / Purpose:** 将 「menu options」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 menu options 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -198,7 +198,7 @@ characterCreationManager.ResetMenuOptions();
 ### StartNarrativeStage
 `public void StartNarrativeStage()`
 
-**用途 / Purpose:** 启动「narrative stage」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动narrative stage流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -209,7 +209,7 @@ characterCreationManager.StartNarrativeStage();
 ### TrySwitchToNextMenu
 `public bool TrySwitchToNextMenu()`
 
-**用途 / Purpose:** 尝试获取 「switch to next menu」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 switch to next menu 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -220,7 +220,7 @@ var result = characterCreationManager.TrySwitchToNextMenu();
 ### TrySwitchToPreviousMenu
 `public bool TrySwitchToPreviousMenu()`
 
-**用途 / Purpose:** 尝试获取 「switch to previous menu」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 switch to previous menu 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -231,7 +231,7 @@ var result = characterCreationManager.TrySwitchToPreviousMenu();
 ### OnNarrativeMenuOptionSelected
 `public void OnNarrativeMenuOptionSelected(NarrativeMenuOption option)`
 
-**用途 / Purpose:** 在 「narrative menu option selected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 narrative menu option selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -242,7 +242,7 @@ characterCreationManager.OnNarrativeMenuOptionSelected(option);
 ### GetSuitableNarrativeMenuOptions
 `public IEnumerable<NarrativeMenuOption> GetSuitableNarrativeMenuOptions()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「suitable narrative menu options」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 suitable narrative menu options 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -253,7 +253,7 @@ var result = characterCreationManager.GetSuitableNarrativeMenuOptions();
 ### ApplyFinalEffects
 `public void ApplyFinalEffects()`
 
-**用途 / Purpose:** 将 「final effects」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 final effects 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例

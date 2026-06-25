@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CreateNewBattleResult
 `public void CreateNewBattleResult(string gameType)`
 
-**Purpose:** Constructs a new `new battle result` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new battle result entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MultipleBattleResult from the subsystem API first
@@ -40,7 +40,7 @@ multipleBattleResult.CreateNewBattleResult("example");
 ### GetCurrentBattleResult
 `public BattleResult GetCurrentBattleResult()`
 
-**Purpose:** Reads and returns the `current battle result` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current battle result value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultipleBattleResult from the subsystem API first

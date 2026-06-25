@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ReadSerializableObject
 `public ISerializableObject ReadSerializableObject()`
 
-**Purpose:** Reads the data or state of `serializable object`.
+**Purpose:** **Purpose:** Reads the data or state of serializable object.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -40,7 +40,7 @@ var result = binaryReader.ReadSerializableObject();
 ### Read3ByteInt
 `public int Read3ByteInt()`
 
-**Purpose:** Reads the data or state of `3 byte int`.
+**Purpose:** **Purpose:** Reads the data or state of 3 byte int.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -51,7 +51,7 @@ var result = binaryReader.Read3ByteInt();
 ### ReadInt
 `public int ReadInt()`
 
-**Purpose:** Reads the data or state of `int`.
+**Purpose:** **Purpose:** Reads the data or state of int.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -62,7 +62,7 @@ var result = binaryReader.ReadInt();
 ### ReadShort
 `public short ReadShort()`
 
-**Purpose:** Reads the data or state of `short`.
+**Purpose:** **Purpose:** Reads the data or state of short.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -73,7 +73,7 @@ var result = binaryReader.ReadShort();
 ### ReadFloats
 `public void ReadFloats(float output, int count)`
 
-**Purpose:** Reads the data or state of `floats`.
+**Purpose:** **Purpose:** Reads the data or state of floats.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -84,7 +84,7 @@ binaryReader.ReadFloats(0, 0);
 ### ReadShorts
 `public void ReadShorts(short output, int count)`
 
-**Purpose:** Reads the data or state of `shorts`.
+**Purpose:** **Purpose:** Reads the data or state of shorts.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -95,7 +95,7 @@ binaryReader.ReadShorts(0, 0);
 ### ReadString
 `public string ReadString()`
 
-**Purpose:** Reads the data or state of `string`.
+**Purpose:** **Purpose:** Reads the data or state of string.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -106,7 +106,7 @@ var result = binaryReader.ReadString();
 ### ReadColor
 `public Color ReadColor()`
 
-**Purpose:** Reads the data or state of `color`.
+**Purpose:** **Purpose:** Reads the data or state of color.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -117,7 +117,7 @@ var result = binaryReader.ReadColor();
 ### ReadBool
 `public bool ReadBool()`
 
-**Purpose:** Reads the data or state of `bool`.
+**Purpose:** **Purpose:** Reads the data or state of bool.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -128,7 +128,7 @@ var result = binaryReader.ReadBool();
 ### ReadFloat
 `public float ReadFloat()`
 
-**Purpose:** Reads the data or state of `float`.
+**Purpose:** **Purpose:** Reads the data or state of float.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -139,7 +139,7 @@ var result = binaryReader.ReadFloat();
 ### ReadUInt
 `public uint ReadUInt()`
 
-**Purpose:** Reads the data or state of `u int`.
+**Purpose:** **Purpose:** Reads the data or state of u int.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -150,7 +150,7 @@ var result = binaryReader.ReadUInt();
 ### ReadULong
 `public ulong ReadULong()`
 
-**Purpose:** Reads the data or state of `u long`.
+**Purpose:** **Purpose:** Reads the data or state of u long.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -161,7 +161,7 @@ var result = binaryReader.ReadULong();
 ### ReadLong
 `public long ReadLong()`
 
-**Purpose:** Reads the data or state of `long`.
+**Purpose:** **Purpose:** Reads the data or state of long.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -172,7 +172,7 @@ var result = binaryReader.ReadLong();
 ### ReadByte
 `public byte ReadByte()`
 
-**Purpose:** Reads the data or state of `byte`.
+**Purpose:** **Purpose:** Reads the data or state of byte.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -183,7 +183,7 @@ var result = binaryReader.ReadByte();
 ### ReadBytes
 `public byte ReadBytes(int length)`
 
-**Purpose:** Reads the data or state of `bytes`.
+**Purpose:** **Purpose:** Reads the data or state of bytes.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -194,7 +194,7 @@ var result = binaryReader.ReadBytes(0);
 ### ReadVec2
 `public Vec2 ReadVec2()`
 
-**Purpose:** Reads the data or state of `vec2`.
+**Purpose:** **Purpose:** Reads the data or state of vec2.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -205,7 +205,7 @@ var result = binaryReader.ReadVec2();
 ### ReadVec3
 `public Vec3 ReadVec3()`
 
-**Purpose:** Reads the data or state of `vec3`.
+**Purpose:** **Purpose:** Reads the data or state of vec3.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -216,7 +216,7 @@ var result = binaryReader.ReadVec3();
 ### ReadVec3Int
 `public Vec3i ReadVec3Int()`
 
-**Purpose:** Reads the data or state of `vec3 int`.
+**Purpose:** **Purpose:** Reads the data or state of vec3 int.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -227,7 +227,7 @@ var result = binaryReader.ReadVec3Int();
 ### ReadSByte
 `public sbyte ReadSByte()`
 
-**Purpose:** Reads the data or state of `s byte`.
+**Purpose:** **Purpose:** Reads the data or state of s byte.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -238,7 +238,7 @@ var result = binaryReader.ReadSByte();
 ### ReadUShort
 `public ushort ReadUShort()`
 
-**Purpose:** Reads the data or state of `u short`.
+**Purpose:** **Purpose:** Reads the data or state of u short.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first
@@ -249,7 +249,7 @@ var result = binaryReader.ReadUShort();
 ### ReadDouble
 `public double ReadDouble()`
 
-**Purpose:** Reads the data or state of `double`.
+**Purpose:** **Purpose:** Reads the data or state of double.
 
 ```csharp
 // Obtain an instance of BinaryReader from the subsystem API first

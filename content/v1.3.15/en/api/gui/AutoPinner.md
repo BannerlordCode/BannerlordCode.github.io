@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native` to place it in 
 ### IntPtr
 `public static implicit operator IntPtr(AutoPinner autoPinner)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IntPtr logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ AutoPinner.IntPtr(autoPinner);
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Releases unmanaged resources held by the current object.
+**Purpose:** **Purpose:** Releases unmanaged resources held by the this instance.
 
 ```csharp
 // Obtain an instance of AutoPinner from the subsystem API first

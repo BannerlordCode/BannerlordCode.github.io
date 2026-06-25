@@ -23,7 +23,7 @@ description: "PartyGroupTroopSupplier 的自动生成类参考。"
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**用途 / Purpose:** 处理与 「supply troops」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SupplyTroops 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -34,7 +34,7 @@ var result = partyGroupTroopSupplier.SupplyTroops(0);
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**用途 / Purpose:** 处理与 「supply one troop」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SupplyOneTroop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -45,7 +45,7 @@ var result = partyGroupTroopSupplier.SupplyOneTroop();
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all troops」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -56,7 +56,7 @@ var result = partyGroupTroopSupplier.GetAllTroops();
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「general character」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 general character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -67,7 +67,7 @@ var result = partyGroupTroopSupplier.GetGeneralCharacter();
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of player controllable troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -78,7 +78,7 @@ var result = partyGroupTroopSupplier.GetNumberOfPlayerControllableTroops();
 ### OnTroopWounded
 `public void OnTroopWounded(UniqueTroopDescriptor troopDescriptor)`
 
-**用途 / Purpose:** 在 「troop wounded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop wounded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -89,7 +89,7 @@ partyGroupTroopSupplier.OnTroopWounded(troopDescriptor);
 ### OnTroopKilled
 `public void OnTroopKilled(UniqueTroopDescriptor troopDescriptor)`
 
-**用途 / Purpose:** 在 「troop killed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop killed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -100,7 +100,7 @@ partyGroupTroopSupplier.OnTroopKilled(troopDescriptor);
 ### OnTroopRouted
 `public void OnTroopRouted(UniqueTroopDescriptor troopDescriptor, bool isOrderRetreat)`
 
-**用途 / Purpose:** 在 「troop routed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop routed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -111,7 +111,7 @@ partyGroupTroopSupplier.OnTroopRouted(troopDescriptor, false);
 ### GetParty
 `public PartyBase GetParty(UniqueTroopDescriptor troopDescriptor)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例
@@ -122,7 +122,7 @@ var result = partyGroupTroopSupplier.GetParty(troopDescriptor);
 ### OnTroopScoreHit
 `public void OnTroopScoreHit(UniqueTroopDescriptor descriptor, BasicCharacterObject attackedCharacter, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon)`
 
-**用途 / Purpose:** 在 「troop score hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyGroupTroopSupplier 实例

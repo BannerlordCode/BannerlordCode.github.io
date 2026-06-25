@@ -29,7 +29,7 @@ description: "DefaultFleetManagementModel 的自动生成类参考。"
 ### CanSendShipToPlayerClan
 `public override bool CanSendShipToPlayerClan(Ship ship, int playerShipsCount, int troopsCountToSend, out TextObject hint)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「send ship to player clan」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 send ship to player clan 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
@@ -40,7 +40,7 @@ var result = defaultFleetManagementModel.CanSendShipToPlayerClan(ship, 0, 0, hin
 ### CanTroopsReturn
 `public override bool CanTroopsReturn()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「troops return」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 troops return 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFleetManagementModel 实例
@@ -51,7 +51,7 @@ var result = defaultFleetManagementModel.CanTroopsReturn();
 ### GetReturnTimeForTroops
 `public override CampaignTime GetReturnTimeForTroops(Ship ship)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「return time for troops」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 return time for troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFleetManagementModel 实例

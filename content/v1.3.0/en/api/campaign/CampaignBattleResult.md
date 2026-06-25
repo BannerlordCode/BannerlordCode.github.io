@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the s
 ### GetResult
 `public static CampaignBattleResult GetResult(BattleState winnerSide, bool enemyRetreated = false)`
 
-**Purpose:** Reads and returns the `result` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the result value held by the this instance.
 
 ```csharp
 // Static call; no instance required

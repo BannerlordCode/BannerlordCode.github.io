@@ -35,7 +35,7 @@ description: "TournamentParticipant 的自动生成类参考。"
 ### SetTeam
 `public void SetTeam(TournamentTeam team)`
 
-**用途 / Purpose:** 为 「team」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 team 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentParticipant 实例
@@ -46,7 +46,7 @@ tournamentParticipant.SetTeam(team);
 ### AddScore
 `public int AddScore(int score)`
 
-**用途 / Purpose:** 将 「score」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 score 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentParticipant 实例
@@ -57,7 +57,7 @@ var result = tournamentParticipant.AddScore(0);
 ### ResetScore
 `public void ResetScore()`
 
-**用途 / Purpose:** 将 「score」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 score 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentParticipant 实例

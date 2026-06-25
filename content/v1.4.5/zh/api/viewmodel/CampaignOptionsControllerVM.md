@@ -29,7 +29,7 @@ description: "CampaignOptionsControllerVM 的自动生成类参考。"
 ### Compare
 `public int Compare(CampaignOptionItemVM x, CampaignOptionItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignOptionsControllerVM 实例
@@ -40,7 +40,7 @@ var result = campaignOptionsControllerVM.Compare(x, y);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignOptionsControllerVM 实例

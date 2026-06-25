@@ -23,7 +23,7 @@ description: "DefaultHeroAgentLocationModel 的自动生成类参考。"
 ### WillBeListedInOverlay
 `public override bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 处理与 「will be listed in overlay」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 WillBeListedInOverlay 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultHeroAgentLocationModel 实例
@@ -34,7 +34,7 @@ var result = defaultHeroAgentLocationModel.WillBeListedInOverlay(locationCharact
 ### GetLocationForHero
 `public override Location GetLocationForHero(Hero hero, Settlement settlement, out HeroLocationDetail heroLocationDetail)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「location for hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 location for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultHeroAgentLocationModel 实例

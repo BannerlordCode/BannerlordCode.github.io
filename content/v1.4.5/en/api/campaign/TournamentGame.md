@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### GetMenuText
 `public abstract TextObject GetMenuText()`
 
-**Purpose:** Reads and returns the `menu text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the menu text value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentGame from the subsystem API first
@@ -45,7 +45,7 @@ var result = tournamentGame.GetMenuText();
 ### OpenMission
 `public abstract void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**Purpose:** Opens the resource or UI associated with `mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with mission.
 
 ```csharp
 // Obtain an instance of TournamentGame from the subsystem API first
@@ -56,7 +56,7 @@ tournamentGame.OpenMission(settlement, false);
 ### GetParticipantCharacters
 `public abstract MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**Purpose:** Reads and returns the `participant characters` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the participant characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of TournamentGame from the subsystem API first
@@ -67,7 +67,7 @@ var result = tournamentGame.GetParticipantCharacters(settlement, false);
 ### CanBeAParticipant
 `public virtual bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `be a participant`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for be a participant.
 
 ```csharp
 // Obtain an instance of TournamentGame from the subsystem API first
@@ -78,7 +78,7 @@ var result = tournamentGame.CanBeAParticipant(character, false);
 ### PrepareForTournamentGame
 `public void PrepareForTournamentGame(bool isPlayerParticipating)`
 
-**Purpose:** Finishes prerequisite setup for the upcoming `for tournament game` operation.
+**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming for tournament game operation.
 
 ```csharp
 // Obtain an instance of TournamentGame from the subsystem API first
@@ -89,7 +89,7 @@ tournamentGame.PrepareForTournamentGame(false);
 ### UpdateTournamentPrize
 `public void UpdateTournamentPrize(bool includePlayer, bool removeCurrentPrize = false)`
 
-**Purpose:** Recalculates and stores the latest representation of `tournament prize`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of tournament prize.
 
 ```csharp
 // Obtain an instance of TournamentGame from the subsystem API first

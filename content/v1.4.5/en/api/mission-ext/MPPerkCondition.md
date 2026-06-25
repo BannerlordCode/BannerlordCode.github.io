@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public abstract bool Check(MissionPeer peer)`
 
-**Purpose:** Verifies whether the current object meets the specified condition.
+**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of MPPerkCondition from the subsystem API first
@@ -34,7 +34,7 @@ var result = mPPerkCondition.Check(peer);
 ### Check
 `public abstract bool Check(Agent agent)`
 
-**Purpose:** Verifies whether the current object meets the specified condition.
+**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of MPPerkCondition from the subsystem API first
@@ -45,7 +45,7 @@ var result = mPPerkCondition.Check(agent);
 ### CreateFrom
 `public static MPPerkCondition CreateFrom(List<string> gameModes, XmlNode node)`
 
-**Purpose:** Constructs a new `from` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

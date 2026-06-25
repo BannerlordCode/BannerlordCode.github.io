@@ -23,7 +23,7 @@ description: "TournamentJoustingMissionController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -34,7 +34,7 @@ tournamentJoustingMissionController.AfterStart();
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**用途 / Purpose:** 启动「match」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动match流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -45,7 +45,7 @@ tournamentJoustingMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** 处理与 「skip match」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SkipMatch 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -56,7 +56,7 @@ tournamentJoustingMissionController.SkipMatch(match);
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「match ended」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 match ended 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -67,7 +67,7 @@ var result = tournamentJoustingMissionController.IsMatchEnded();
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** 在 「match ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 match ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -78,7 +78,7 @@ tournamentJoustingMissionController.OnMatchEnded();
 ### IsAgentInTheTrack
 `public bool IsAgentInTheTrack(Agent agent, bool inCurrentTrack = true)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent in the track」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent in the track 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -89,7 +89,7 @@ var result = tournamentJoustingMissionController.IsAgentInTheTrack(agent, false)
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -100,7 +100,7 @@ tournamentJoustingMissionController.OnMissionTick(0);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -111,7 +111,7 @@ tournamentJoustingMissionController.OnAgentHit(affectedAgent, affectorAgent, att
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -122,7 +122,7 @@ tournamentJoustingMissionController.OnAgentRemoved(affectedAgent, affectorAgent,
 ### OnJoustingAgentStateChanged
 `public void OnJoustingAgentStateChanged(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**用途 / Purpose:** 在 「jousting agent state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 jousting agent state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -133,7 +133,7 @@ tournamentJoustingMissionController.OnJoustingAgentStateChanged(agent, state);
 ### JoustingEventDelegate
 `public delegate void JoustingEventDelegate(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 处理与 「jousting event delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 JoustingEventDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -144,7 +144,7 @@ tournamentJoustingMissionController.JoustingEventDelegate(affectedAgent, affecto
 ### JoustingAgentStateChangedEventDelegate
 `public delegate void JoustingAgentStateChangedEventDelegate(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**用途 / Purpose:** 处理与 「jousting agent state changed event delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 JoustingAgentStateChangedEventDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例

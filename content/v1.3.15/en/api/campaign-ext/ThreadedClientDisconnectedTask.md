@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### DoJob
 `public override void DoJob()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoJob logic.
 
 ```csharp
 // Obtain an instance of ThreadedClientDisconnectedTask from the subsystem API first

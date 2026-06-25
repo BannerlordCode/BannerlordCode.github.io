@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of FireTrebuchet from the subsystem API first
@@ -34,7 +34,7 @@ var result = fireTrebuchet.GetSiegeEngineType();
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessTargetValue logic.
 
 ```csharp
 // Obtain an instance of FireTrebuchet from the subsystem API first

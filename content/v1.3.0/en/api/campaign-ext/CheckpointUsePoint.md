@@ -29,7 +29,7 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of CheckpointUsePoint from the subsystem API first
@@ -40,7 +40,7 @@ checkpointUsePoint.AfterMissionStart();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of CheckpointUsePoint from the subsystem API first
@@ -51,7 +51,7 @@ var result = checkpointUsePoint.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CheckpointUsePoint from the subsystem API first

@@ -23,7 +23,7 @@ description: "PlatformLayerStandalone 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformLayerStandalone 实例
@@ -34,7 +34,7 @@ platformLayerStandalone.Initialize();
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理与 「release」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformLayerStandalone 实例
@@ -45,7 +45,7 @@ platformLayerStandalone.Release();
 ### ConvertFilePathForPlatform
 `public string ConvertFilePathForPlatform(string filepath)`
 
-**用途 / Purpose:** 把「file path for platform」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把file path for platform转换为另一种表示或类型。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformLayerStandalone 实例
@@ -56,7 +56,7 @@ var result = platformLayerStandalone.ConvertFilePathForPlatform("example");
 ### GetStreamOnPsaiSoundtrackFile
 `public Stream GetStreamOnPsaiSoundtrackFile(string filepath)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「stream on psai soundtrack file」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stream on psai soundtrack file 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformLayerStandalone 实例

@@ -32,7 +32,7 @@ description: "MarkerRect 的自动生成类参考。"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MarkerRect 实例
@@ -43,7 +43,7 @@ markerRect.Reset();
 ### UpdatePoints
 `public void UpdatePoints(float left, float right, float top, float bottom)`
 
-**用途 / Purpose:** 重新计算并更新 「points」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 points 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MarkerRect 实例
@@ -54,7 +54,7 @@ markerRect.UpdatePoints(0, 0, 0, 0);
 ### IsOverlapping
 `public bool IsOverlapping(MarkerRect other)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「overlapping」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 overlapping 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MarkerRect 实例

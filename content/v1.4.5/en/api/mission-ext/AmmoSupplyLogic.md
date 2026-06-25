@@ -23,7 +23,7 @@ Treat `AmmoSupplyLogic` as a Logic-style extension point: first identify who cre
 ### IsAgentEligibleForAmmoSupply
 `public bool IsAgentEligibleForAmmoSupply(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `agent eligible for ammo supply` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the agent eligible for ammo supply state or condition.
 
 ```csharp
 // Obtain an instance of AmmoSupplyLogic from the subsystem API first
@@ -34,7 +34,7 @@ var result = ammoSupplyLogic.IsAgentEligibleForAmmoSupply(agent);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of AmmoSupplyLogic from the subsystem API first

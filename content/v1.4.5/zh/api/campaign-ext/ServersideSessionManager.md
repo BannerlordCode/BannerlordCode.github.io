@@ -29,7 +29,7 @@ description: "ServersideSessionManager 的自动生成类参考。"
 ### Activate
 `public void Activate(ushort port, ThreadType threadType = ThreadType.Single, int readWriteThreadCount = 1)`
 
-**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 ServersideSessionManager 实例
@@ -40,7 +40,7 @@ serversideSessionManager.Activate(0, threadType.Single, 0);
 ### GetPeer
 `public ServersideSession GetPeer(int peerIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「peer」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 peer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ServersideSessionManager 实例
@@ -51,7 +51,7 @@ var result = serversideSessionManager.GetPeer(0);
 ### Tick
 `public virtual void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ServersideSessionManager 实例

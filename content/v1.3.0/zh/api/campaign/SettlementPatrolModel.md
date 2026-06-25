@@ -23,7 +23,7 @@ description: "SettlementPatrolModel 的自动生成类参考。"
 ### GetPatrolPartySpawnDuration
 `public abstract CampaignTime GetPatrolPartySpawnDuration(Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「patrol party spawn duration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 patrol party spawn duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementPatrolModel 实例
@@ -34,7 +34,7 @@ var result = settlementPatrolModel.GetPatrolPartySpawnDuration(settlement);
 ### CanSettlementHavePatrolParties
 `public abstract bool CanSettlementHavePatrolParties(Settlement settlement)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「settlement have patrol parties」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 settlement have patrol parties 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementPatrolModel 实例
@@ -45,7 +45,7 @@ var result = settlementPatrolModel.CanSettlementHavePatrolParties(settlement);
 ### GetPartyTemplateForPatrolParty
 `public abstract PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party template for patrol party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party template for patrol party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementPatrolModel 实例

@@ -36,7 +36,7 @@ description: "Mesh 的自动生成类参考。"
 ### CreateMeshWithMaterial
 `public static Mesh CreateMeshWithMaterial(Material material)`
 
-**用途 / Purpose:** 构建一个新的 「mesh with material」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 mesh with material 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ Mesh.CreateMeshWithMaterial(material);
 ### CreateMesh
 `public static Mesh CreateMesh(bool editable = true)`
 
-**用途 / Purpose:** 构建一个新的 「mesh」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 mesh 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -56,7 +56,7 @@ Mesh.CreateMesh(false);
 ### GetBaseMesh
 `public Mesh GetBaseMesh()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「base mesh」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 base mesh 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -67,7 +67,7 @@ var result = mesh.GetBaseMesh();
 ### GetFromResource
 `public static Mesh GetFromResource(string meshName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「from resource」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 from resource 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ Mesh.GetFromResource("example");
 ### GetRandomMeshWithVdecl
 `public static Mesh GetRandomMeshWithVdecl(int inputLayout)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random mesh with vdecl」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random mesh with vdecl 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ Mesh.GetRandomMeshWithVdecl(0);
 ### SetColorAndStroke
 `public void SetColorAndStroke(uint color, uint strokeColor, bool drawStroke)`
 
-**用途 / Purpose:** 为 「color and stroke」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 color and stroke 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -98,7 +98,7 @@ mesh.SetColorAndStroke(0, 0, false);
 ### SetMeshRenderOrder
 `public void SetMeshRenderOrder(int renderOrder)`
 
-**用途 / Purpose:** 为 「mesh render order」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 mesh render order 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -109,7 +109,7 @@ mesh.SetMeshRenderOrder(0);
 ### HasTag
 `public bool HasTag(string str)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「tag」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 tag。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -120,7 +120,7 @@ var result = mesh.HasTag("example");
 ### CreateCopy
 `public Mesh CreateCopy()`
 
-**用途 / Purpose:** 构建一个新的 「copy」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 copy 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -131,7 +131,7 @@ var result = mesh.CreateCopy();
 ### SetMaterial
 `public void SetMaterial(string newMaterialName)`
 
-**用途 / Purpose:** 为 「material」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 material 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -142,7 +142,7 @@ mesh.SetMaterial("example");
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** 为 「vector argument」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 vector argument 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -153,7 +153,7 @@ mesh.SetVectorArgument(0, 0, 0, 0);
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** 为 「vector argument2」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 vector argument2 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -164,7 +164,7 @@ mesh.SetVectorArgument2(0, 0, 0, 0);
 ### GetVectorArgument
 `public Vec3 GetVectorArgument()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「vector argument」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vector argument 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -175,7 +175,7 @@ var result = mesh.GetVectorArgument();
 ### GetVectorArgument2
 `public Vec3 GetVectorArgument2()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「vector argument2」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vector argument2 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -186,7 +186,7 @@ var result = mesh.GetVectorArgument2();
 ### SetupAdditionalBoneBuffer
 `public void SetupAdditionalBoneBuffer(int numBones)`
 
-**用途 / Purpose:** 为 「up additional bone buffer」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 up additional bone buffer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -197,7 +197,7 @@ mesh.SetupAdditionalBoneBuffer(0);
 ### SetAdditionalBoneFrame
 `public void SetAdditionalBoneFrame(int boneIndex, in MatrixFrame frame)`
 
-**用途 / Purpose:** 为 「additional bone frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 additional bone frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -208,7 +208,7 @@ mesh.SetAdditionalBoneFrame(0, frame);
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**用途 / Purpose:** 为 「material」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 material 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -219,7 +219,7 @@ mesh.SetMaterial(material);
 ### GetMaterial
 `public Material GetMaterial()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「material」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 material 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -230,7 +230,7 @@ var result = mesh.GetMaterial();
 ### GetSecondMaterial
 `public Material GetSecondMaterial()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「second material」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 second material 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -241,7 +241,7 @@ var result = mesh.GetSecondMaterial();
 ### AddFaceCorner
 `public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color, UIntPtr lockHandle)`
 
-**用途 / Purpose:** 将 「face corner」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 face corner 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -252,7 +252,7 @@ var result = mesh.AddFaceCorner(position, normal, uvCoord, 0, lockHandle);
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2, UIntPtr lockHandle)`
 
-**用途 / Purpose:** 将 「face」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 face 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -263,7 +263,7 @@ var result = mesh.AddFace(0, 0, 0, lockHandle);
 ### ClearMesh
 `public void ClearMesh()`
 
-**用途 / Purpose:** 清空当前对象中的「mesh」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的mesh。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -274,7 +274,7 @@ mesh.ClearMesh();
 ### SetColorAlpha
 `public void SetColorAlpha(uint newAlpha)`
 
-**用途 / Purpose:** 为 「color alpha」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 color alpha 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -285,7 +285,7 @@ mesh.SetColorAlpha(0);
 ### GetFaceCount
 `public uint GetFaceCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「face count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 face count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -296,7 +296,7 @@ var result = mesh.GetFaceCount();
 ### GetFaceCornerCount
 `public uint GetFaceCornerCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「face corner count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 face corner count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -307,7 +307,7 @@ var result = mesh.GetFaceCornerCount();
 ### ComputeNormals
 `public void ComputeNormals()`
 
-**用途 / Purpose:** 处理与 「compute normals」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeNormals 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -318,7 +318,7 @@ mesh.ComputeNormals();
 ### ComputeTangents
 `public void ComputeTangents()`
 
-**用途 / Purpose:** 处理与 「compute tangents」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeTangents 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -329,7 +329,7 @@ mesh.ComputeTangents();
 ### AddMesh
 `public void AddMesh(string meshResourceName, MatrixFrame meshFrame)`
 
-**用途 / Purpose:** 将 「mesh」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -340,7 +340,7 @@ mesh.AddMesh("example", meshFrame);
 ### AddMesh
 `public void AddMesh(Mesh mesh, MatrixFrame meshFrame)`
 
-**用途 / Purpose:** 将 「mesh」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 mesh 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -351,7 +351,7 @@ mesh.AddMesh(mesh, meshFrame);
 ### GetLocalFrame
 `public MatrixFrame GetLocalFrame()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「local frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -362,7 +362,7 @@ var result = mesh.GetLocalFrame();
 ### SetLocalFrame
 `public void SetLocalFrame(MatrixFrame meshFrame)`
 
-**用途 / Purpose:** 为 「local frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 local frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -373,7 +373,7 @@ mesh.SetLocalFrame(meshFrame);
 ### SetVisibilityMask
 `public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)`
 
-**用途 / Purpose:** 为 「visibility mask」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 visibility mask 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -384,7 +384,7 @@ mesh.SetVisibilityMask(visibilityMask);
 ### UpdateBoundingBox
 `public void UpdateBoundingBox()`
 
-**用途 / Purpose:** 重新计算并更新 「bounding box」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 bounding box 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -395,7 +395,7 @@ mesh.UpdateBoundingBox();
 ### SetAsNotEffectedBySeason
 `public void SetAsNotEffectedBySeason()`
 
-**用途 / Purpose:** 为 「as not effected by season」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 as not effected by season 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -406,7 +406,7 @@ mesh.SetAsNotEffectedBySeason();
 ### GetBoundingBoxWidth
 `public float GetBoundingBoxWidth()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「bounding box width」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bounding box width 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -417,7 +417,7 @@ var result = mesh.GetBoundingBoxWidth();
 ### GetBoundingBoxHeight
 `public float GetBoundingBoxHeight()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「bounding box height」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bounding box height 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -428,7 +428,7 @@ var result = mesh.GetBoundingBoxHeight();
 ### GetBoundingBoxMin
 `public Vec3 GetBoundingBoxMin()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「bounding box min」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bounding box min 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -439,7 +439,7 @@ var result = mesh.GetBoundingBoxMin();
 ### GetBoundingBoxMax
 `public Vec3 GetBoundingBoxMax()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「bounding box max」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bounding box max 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -450,7 +450,7 @@ var result = mesh.GetBoundingBoxMax();
 ### AddTriangle
 `public void AddTriangle(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, uint color, UIntPtr lockHandle)`
 
-**用途 / Purpose:** 将 「triangle」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 triangle 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -461,7 +461,7 @@ mesh.AddTriangle(p1, p2, p3, uv1, uv2, uv3, 0, lockHandle);
 ### AddTriangleWithVertexColors
 `public void AddTriangleWithVertexColors(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, uint c1, uint c2, uint c3, UIntPtr lockHandle)`
 
-**用途 / Purpose:** 将 「triangle with vertex colors」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 triangle with vertex colors 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -472,7 +472,7 @@ mesh.AddTriangleWithVertexColors(p1, p2, p3, uv1, uv2, uv3, 0, 0, 0, lockHandle)
 ### HintIndicesDynamic
 `public void HintIndicesDynamic()`
 
-**用途 / Purpose:** 处理与 「hint indices dynamic」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HintIndicesDynamic 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -483,7 +483,7 @@ mesh.HintIndicesDynamic();
 ### HintVerticesDynamic
 `public void HintVerticesDynamic()`
 
-**用途 / Purpose:** 处理与 「hint vertices dynamic」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HintVerticesDynamic 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -494,7 +494,7 @@ mesh.HintVerticesDynamic();
 ### RecomputeBoundingBox
 `public void RecomputeBoundingBox()`
 
-**用途 / Purpose:** 重新执行「bounding box」相关的计算并返回结果。
+**用途 / Purpose:** **用途 / Purpose:** 重新执行bounding box相关的计算并返回结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -505,7 +505,7 @@ mesh.RecomputeBoundingBox();
 ### SetEditDataFaceCornerVertexColor
 `public void SetEditDataFaceCornerVertexColor(int index, uint color)`
 
-**用途 / Purpose:** 为 「edit data face corner vertex color」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 edit data face corner vertex color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -516,7 +516,7 @@ mesh.SetEditDataFaceCornerVertexColor(0, 0);
 ### GetEditDataFaceCornerVertexColor
 `public uint GetEditDataFaceCornerVertexColor(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「edit data face corner vertex color」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 edit data face corner vertex color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -527,7 +527,7 @@ var result = mesh.GetEditDataFaceCornerVertexColor(0);
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** 处理与 「preload for rendering」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PreloadForRendering 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -538,7 +538,7 @@ mesh.PreloadForRendering();
 ### SetContourColor
 `public void SetContourColor(Vec3 color, bool alwaysVisible, bool maskMesh)`
 
-**用途 / Purpose:** 为 「contour color」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 contour color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -549,7 +549,7 @@ mesh.SetContourColor(color, false, false);
 ### DisableContour
 `public void DisableContour()`
 
-**用途 / Purpose:** 处理与 「disable contour」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableContour 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -560,7 +560,7 @@ mesh.DisableContour();
 ### SetExternalBoundingBox
 `public void SetExternalBoundingBox(BoundingBox bbox)`
 
-**用途 / Purpose:** 为 「external bounding box」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 external bounding box 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -571,7 +571,7 @@ mesh.SetExternalBoundingBox(bbox);
 ### AddEditDataUser
 `public void AddEditDataUser()`
 
-**用途 / Purpose:** 将 「edit data user」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 edit data user 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -582,7 +582,7 @@ mesh.AddEditDataUser();
 ### ReleaseEditDataUser
 `public void ReleaseEditDataUser()`
 
-**用途 / Purpose:** 处理与 「release edit data user」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseEditDataUser 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -593,7 +593,7 @@ mesh.ReleaseEditDataUser();
 ### SetEditDataPolicy
 `public void SetEditDataPolicy(EditDataPolicy policy)`
 
-**用途 / Purpose:** 为 「edit data policy」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 edit data policy 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -604,7 +604,7 @@ mesh.SetEditDataPolicy(policy);
 ### LockEditDataWrite
 `public UIntPtr LockEditDataWrite()`
 
-**用途 / Purpose:** 处理与 「lock edit data write」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 LockEditDataWrite 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -615,7 +615,7 @@ var result = mesh.LockEditDataWrite();
 ### UnlockEditDataWrite
 `public void UnlockEditDataWrite(UIntPtr handle)`
 
-**用途 / Purpose:** 处理与 「unlock edit data write」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UnlockEditDataWrite 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -626,7 +626,7 @@ mesh.UnlockEditDataWrite(handle);
 ### SetCustomClipPlane
 `public void SetCustomClipPlane(Vec3 clipPlanePosition, Vec3 clipPlaneNormal, int planeIndex)`
 
-**用途 / Purpose:** 为 「custom clip plane」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 custom clip plane 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -637,7 +637,7 @@ mesh.SetCustomClipPlane(clipPlanePosition, clipPlaneNormal, 0);
 ### GetClothLinearVelocityMultiplier
 `public float GetClothLinearVelocityMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cloth linear velocity multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cloth linear velocity multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -648,7 +648,7 @@ var result = mesh.GetClothLinearVelocityMultiplier();
 ### HasCloth
 `public bool HasCloth()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「cloth」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 cloth。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例

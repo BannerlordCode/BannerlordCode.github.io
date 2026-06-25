@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### CreateSuccess
 `public static AccessObjectResult CreateSuccess(AccessObject accessObject)`
 
-**Purpose:** Constructs a new `success` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new success entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ AccessObjectResult.CreateSuccess(accessObject);
 ### CreateFailed
 `public static AccessObjectResult CreateFailed(TextObject failReason)`
 
-**Purpose:** Constructs a new `failed` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new failed entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

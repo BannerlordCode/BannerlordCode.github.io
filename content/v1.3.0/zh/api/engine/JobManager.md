@@ -23,7 +23,7 @@ description: "JobManager 的自动生成类参考。"
 ### AddJob
 `public void AddJob(Job job)`
 
-**用途 / Purpose:** 将 「job」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 job 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 JobManager 实例

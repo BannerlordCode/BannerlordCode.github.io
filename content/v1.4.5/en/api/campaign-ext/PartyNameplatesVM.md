@@ -30,7 +30,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Compare
 `public int Compare(PartyNameplateVM x, PartyNameplateVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first
@@ -41,7 +41,7 @@ var result = partyNameplatesVM.Compare(x, y);
 ### Get
 `public PartyNameplateVM Get()`
 
-**Purpose:** Reads the current object's value or state and returns it.
+**Purpose:** **Purpose:** Reads the this instance's value or state and returns it.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first
@@ -52,7 +52,7 @@ var result = partyNameplatesVM.Get();
 ### Release
 `public void Release(PartyNameplateVM nameplate)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first
@@ -63,7 +63,7 @@ partyNameplatesVM.Release(nameplate);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first
@@ -74,7 +74,7 @@ partyNameplatesVM.RefreshValues();
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first
@@ -85,7 +85,7 @@ partyNameplatesVM.Initialize();
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first
@@ -96,7 +96,7 @@ partyNameplatesVM.Update();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of PartyNameplatesVM from the subsystem API first

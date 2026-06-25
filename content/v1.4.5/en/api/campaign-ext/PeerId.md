@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### ToByteArray
 `public byte ToByteArray()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToByteArray logic.
 
 ```csharp
 // Obtain an instance of PeerId from the subsystem API first
@@ -40,7 +40,7 @@ var result = peerId.ToByteArray();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PeerId from the subsystem API first
@@ -51,7 +51,7 @@ var result = peerId.ToString();
 ### FromString
 `public static PeerId FromString(string peerIdAsString)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FromString logic.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ PeerId.FromString("example");
 ### Equals
 `public override bool Equals(object o)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of PeerId from the subsystem API first
@@ -72,7 +72,7 @@ var result = peerId.Equals(o);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of PeerId from the subsystem API first

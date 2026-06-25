@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ElementWiseProduct
 `public LinearFrictionTerm ElementWiseProduct(LinearFrictionTerm o)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ElementWiseProduct logic.
 
 ```csharp
 // Obtain an instance of LinearFrictionTerm from the subsystem API first

@@ -56,7 +56,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MPHeroClass from the subsystem API first
@@ -67,7 +67,7 @@ var result = mPHeroClass.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MPHeroClass from the subsystem API first
@@ -78,7 +78,7 @@ var result = mPHeroClass.GetHashCode();
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**Purpose:** Reads and returns the `all available perks for list index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all available perks for list index value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPHeroClass from the subsystem API first
@@ -89,7 +89,7 @@ var result = mPHeroClass.GetAllAvailablePerksForListIndex(0, "example");
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of MPHeroClass from the subsystem API first
@@ -100,7 +100,7 @@ mPHeroClass.Deserialize(objectManager, node);
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop character` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop character state or condition.
 
 ```csharp
 // Obtain an instance of MPHeroClass from the subsystem API first

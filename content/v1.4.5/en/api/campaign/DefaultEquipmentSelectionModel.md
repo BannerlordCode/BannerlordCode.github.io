@@ -23,7 +23,7 @@ Treat `DefaultEquipmentSelectionModel` as a Model-style extension point: first i
 ### GetEquipmentForHeroComeOfAge
 `public override Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** Reads and returns the `equipment for hero come of age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment for hero come of age value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, e
 ### GetEquipmentForHeroReachesTeenAge
 `public override Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment for hero reaches teen age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment for hero reaches teen age value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(he
 ### GetEquipmentForDeliveredOffspring
 `public override Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment for delivered offspring` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment for delivered offspring value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForDeliveredOffspring(he
 ### GetEquipmentForCompanionWhenTurningToLord
 `public override Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**Purpose:** Reads and returns the `equipment for companion when turning to lord` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment for companion when turning to lord value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForCompanionWhenTurningT
 ### GetEquipmentForInitialChildrenGeneration
 `public override Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment for initial children generation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment for initial children generation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first

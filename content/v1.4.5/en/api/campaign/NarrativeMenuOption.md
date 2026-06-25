@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### OnCondition
 `public bool OnCondition(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Invoked when the `condition` event is raised.
+**Purpose:** **Purpose:** Invoked when the condition event is raised.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first
@@ -34,7 +34,7 @@ var result = narrativeMenuOption.OnCondition(characterCreationManager);
 ### OnSelect
 `public void OnSelect(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Invoked when the `select` event is raised.
+**Purpose:** **Purpose:** Invoked when the select event is raised.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first
@@ -45,7 +45,7 @@ narrativeMenuOption.OnSelect(characterCreationManager);
 ### OnConsequence
 `public void OnConsequence(CharacterCreationManager characterCreationManager)`
 
-**Purpose:** Invoked when the `consequence` event is raised.
+**Purpose:** **Purpose:** Invoked when the consequence event is raised.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first
@@ -56,7 +56,7 @@ narrativeMenuOption.OnConsequence(characterCreationManager);
 ### SetOnCondition
 `public void SetOnCondition(NarrativeMenuOptionOnConditionDelegate onCondition)`
 
-**Purpose:** Assigns a new value to `on condition` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to on condition and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first
@@ -67,7 +67,7 @@ narrativeMenuOption.SetOnCondition(onCondition);
 ### SetOnSelect
 `public void SetOnSelect(NarrativeMenuOptionOnSelectDelegate onSelect)`
 
-**Purpose:** Assigns a new value to `on select` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to on select and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first
@@ -78,7 +78,7 @@ narrativeMenuOption.SetOnSelect(onSelect);
 ### SetOnConsequence
 `public void SetOnConsequence(NarrativeMenuOptionOnConsequenceDelegate onConsequence)`
 
-**Purpose:** Assigns a new value to `on consequence` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to on consequence and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first
@@ -89,7 +89,7 @@ narrativeMenuOption.SetOnConsequence(onConsequence);
 ### ApplyFinalEffects
 `public void ApplyFinalEffects(CharacterCreationContent characterCreationContent)`
 
-**Purpose:** Applies the effect of `final effects` to the current object.
+**Purpose:** **Purpose:** Applies the effect of final effects to the this instance.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOption from the subsystem API first

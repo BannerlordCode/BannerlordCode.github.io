@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ workshopsCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ workshopsCampaignBehavior.SyncData(dataStore);
 ### GetWarehouseItemRosterWeight
 `public float GetWarehouseItemRosterWeight(Settlement settlement)`
 
-**Purpose:** Reads and returns the `warehouse item roster weight` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the warehouse item roster weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = workshopsCampaignBehavior.GetWarehouseItemRosterWeight(settlement);
 ### TransferWarehouseToPlayerParty
 `public void TransferWarehouseToPlayerParty(Settlement settlement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransferWarehouseToPlayerParty logic.
 
 ```csharp
 // Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ workshopsCampaignBehavior.TransferWarehouseToPlayerParty(settlement);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopsCampaignBehavior from the subsystem API first

@@ -23,7 +23,7 @@ description: "CheerReactionTimeSettings 的自动生成类参考。"
 ### CheerReactionTimeSettings
 `public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
 
-**用途 / Purpose:** 处理与 「cheer reaction time settings」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CheerReactionTimeSettings 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CheerReactionTimeSettings 实例

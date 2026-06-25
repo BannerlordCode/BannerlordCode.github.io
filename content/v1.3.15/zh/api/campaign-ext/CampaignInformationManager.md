@@ -23,7 +23,7 @@ description: "CampaignInformationManager 的自动生成类参考。"
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignInformationManager 实例
@@ -34,7 +34,7 @@ campaignInformationManager.OnGameLoaded();
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**用途 / Purpose:** 处理与 「new map notice added」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NewMapNoticeAdded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignInformationManager 实例
@@ -45,7 +45,7 @@ campaignInformationManager.NewMapNoticeAdded(informationData);
 ### AddDialogLine
 `public static MBInformationManager.DialogNotificationHandle AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = MBInformationManager.NotificationPriority.Medium)`
 
-**用途 / Purpose:** 将 「dialog line」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 dialog line 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -55,7 +55,7 @@ CampaignInformationManager.AddDialogLine(text, speakerCharacter, null, 0, mBInfo
 ### GetStatusOfDialogNotification
 `public static MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「status of dialog notification」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 status of dialog notification 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ CampaignInformationManager.GetStatusOfDialogNotification(handle);
 ### ClearDialogNotification
 `public static void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut = true)`
 
-**用途 / Purpose:** 清空当前对象中的「dialog notification」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的dialog notification。
 
 ```csharp
 // 静态调用，不需要实例
@@ -75,7 +75,7 @@ CampaignInformationManager.ClearDialogNotification(handle, false);
 ### GetIsAnyDialogNotificationActiveOrQueued
 `public static bool GetIsAnyDialogNotificationActiveOrQueued()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is any dialog notification active or queued」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is any dialog notification active or queued 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -85,7 +85,7 @@ CampaignInformationManager.GetIsAnyDialogNotificationActiveOrQueued();
 ### ClearAllDialogNotifications
 `public static void ClearAllDialogNotifications(bool fadeOut)`
 
-**用途 / Purpose:** 清空当前对象中的「all dialog notifications」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all dialog notifications。
 
 ```csharp
 // 静态调用，不需要实例

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Library.Http` to place it in the stack, then in
 ### Start
 `public void Start()`
 
-**Purpose:** Starts the current object's flow or state machine.
+**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of HttpPostRequest from the subsystem API first

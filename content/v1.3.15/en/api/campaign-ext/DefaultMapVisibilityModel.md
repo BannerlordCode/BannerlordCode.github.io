@@ -23,7 +23,7 @@ Treat `DefaultMapVisibilityModel` as a Model-style extension point: first identi
 ### MaximumSeeingRange
 `public override float MaximumSeeingRange()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MaximumSeeingRange logic.
 
 ```csharp
 // Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultMapVisibilityModel.MaximumSeeingRange();
 ### GetPartySpottingRangeBase
 `public override float GetPartySpottingRangeBase(MobileParty party)`
 
-**Purpose:** Reads and returns the `party spotting range base` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party spotting range base value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultMapVisibilityModel.GetPartySpottingRangeBase(party);
 ### GetPartySpottingRange
 `public override ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the `party spotting range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party spotting range value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultMapVisibilityModel.GetPartySpottingRange(party, false);
 ### GetPartyRelativeInspectionRange
 `public override float GetPartyRelativeInspectionRange(IMapPoint party)`
 
-**Purpose:** Reads and returns the `party relative inspection range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party relative inspection range value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultMapVisibilityModel.GetPartyRelativeInspectionRange(party);
 ### GetPartySpottingDifficulty
 `public override float GetPartySpottingDifficulty(MobileParty spottingParty, MobileParty party)`
 
-**Purpose:** Reads and returns the `party spotting difficulty` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party spotting difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapVisibilityModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultMapVisibilityModel.GetPartySpottingDifficulty(spottingParty,
 ### GetHideoutSpottingDistance
 `public override float GetHideoutSpottingDistance()`
 
-**Purpose:** Reads and returns the `hideout spotting distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hideout spotting distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapVisibilityModel from the subsystem API first

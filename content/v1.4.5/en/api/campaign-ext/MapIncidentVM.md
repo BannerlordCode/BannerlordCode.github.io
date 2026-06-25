@@ -41,7 +41,7 @@ Start from namespace `SandBox.ViewModelCollection.Map.Incidents` to place it in 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapIncidentVM from the subsystem API first
@@ -52,7 +52,7 @@ mapIncidentVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapIncidentVM from the subsystem API first
@@ -63,7 +63,7 @@ mapIncidentVM.OnFinalize();
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Runs the operation or workflow associated with `confirm`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with confirm.
 
 ```csharp
 // Obtain an instance of MapIncidentVM from the subsystem API first
@@ -74,7 +74,7 @@ mapIncidentVM.ExecuteConfirm();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapIncidentVM from the subsystem API first

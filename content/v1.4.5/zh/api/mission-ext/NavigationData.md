@@ -23,7 +23,7 @@ description: "NavigationData 的自动生成类参考。"
 ### TickDebug
 `public void TickDebug()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进debug的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationData 实例

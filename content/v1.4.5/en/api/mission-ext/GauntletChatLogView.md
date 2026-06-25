@@ -29,7 +29,7 @@ Treat `GauntletChatLogView` as a View-style extension point: first identify who 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ GauntletChatLogView.Initialize();
 ### SetCanFocusWhileInMission
 `public void SetCanFocusWhileInMission(bool canFocusInMission)`
 
-**Purpose:** Assigns a new value to `can focus while in mission` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can focus while in mission and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletChatLogView from the subsystem API first
@@ -50,7 +50,7 @@ gauntletChatLogView.SetCanFocusWhileInMission(false);
 ### OnSupportedFeaturesReceived
 `public void OnSupportedFeaturesReceived(SupportedFeatures supportedFeatures)`
 
-**Purpose:** Invoked when the `supported features received` event is raised.
+**Purpose:** **Purpose:** Invoked when the supported features received event is raised.
 
 ```csharp
 // Obtain an instance of GauntletChatLogView from the subsystem API first
@@ -61,7 +61,7 @@ gauntletChatLogView.OnSupportedFeaturesReceived(supportedFeatures);
 ### SetEnabled
 `public void SetEnabled(bool isEnabled)`
 
-**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletChatLogView from the subsystem API first
@@ -72,7 +72,7 @@ gauntletChatLogView.SetEnabled(false);
 ### LoadMovie
 `public void LoadMovie(bool forMultiplayer)`
 
-**Purpose:** Reads `movie` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads movie from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GauntletChatLogView from the subsystem API first

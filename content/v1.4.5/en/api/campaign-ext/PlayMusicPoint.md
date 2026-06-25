@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.AnimationPoints` to place it in the stack,
 ### StartLoop
 `public void StartLoop(SoundEvent trackEvent)`
 
-**Purpose:** Starts the `loop` flow or state machine.
+**Purpose:** **Purpose:** Starts the loop flow or state machine.
 
 ```csharp
 // Obtain an instance of PlayMusicPoint from the subsystem API first
@@ -34,7 +34,7 @@ playMusicPoint.StartLoop(trackEvent);
 ### EndLoop
 `public void EndLoop()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndLoop logic.
 
 ```csharp
 // Obtain an instance of PlayMusicPoint from the subsystem API first
@@ -45,7 +45,7 @@ playMusicPoint.EndLoop();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlayMusicPoint from the subsystem API first
@@ -56,7 +56,7 @@ var result = playMusicPoint.GetTickRequirement();
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Invoked when the `use stopped` event is raised.
+**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of PlayMusicPoint from the subsystem API first
@@ -67,7 +67,7 @@ playMusicPoint.OnUseStopped(userAgent, false, 0);
 ### ChangeInstrument
 `public void ChangeInstrument(Tuple<InstrumentData, float> instrument)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeInstrument logic.
 
 ```csharp
 // Obtain an instance of PlayMusicPoint from the subsystem API first

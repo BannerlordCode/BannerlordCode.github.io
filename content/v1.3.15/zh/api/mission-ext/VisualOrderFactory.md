@@ -23,7 +23,7 @@ description: "VisualOrderFactory 的自动生成类参考。"
 ### RegisterProvider
 `public static void RegisterProvider(VisualOrderProvider provider)`
 
-**用途 / Purpose:** 将「provider」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将provider注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ VisualOrderFactory.RegisterProvider(provider);
 ### UnregisterProvider
 `public static void UnregisterProvider(VisualOrderProvider provider)`
 
-**用途 / Purpose:** 从当前系统中注销「provider」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销provider。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ VisualOrderFactory.UnregisterProvider(provider);
 ### GetOrders
 `public static MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「orders」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 orders 的结果。
 
 ```csharp
 // 静态调用，不需要实例

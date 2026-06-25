@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletDuelUI.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletDuelUI.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletDuelUI.OnMissionScreenTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletDuelUI.OnAgentRemoved(affectedAgent, affectorAgent, agentState, b
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletDuelUI.OnAgentBuild(agent, banner);
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**Purpose:** Invoked when the `focus gained` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus gained event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -89,7 +89,7 @@ missionGauntletDuelUI.OnFocusGained(agent, focusableObject, false);
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**Purpose:** Invoked when the `focus lost` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus lost event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first
@@ -100,7 +100,7 @@ missionGauntletDuelUI.OnFocusLost(agent, focusableObject);
 ### OnPeerEquipmentIndexRefreshed
 `public void OnPeerEquipmentIndexRefreshed(MissionPeer peer, int equipmentSetIndex)`
 
-**Purpose:** Invoked when the `peer equipment index refreshed` event is raised.
+**Purpose:** **Purpose:** Invoked when the peer equipment index refreshed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletDuelUI from the subsystem API first

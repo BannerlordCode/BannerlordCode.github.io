@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**Purpose:** Reads and returns the `side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the side value held by the this instance.
 
 ```csharp
 // Obtain an instance of FleePosition from the subsystem API first
@@ -34,7 +34,7 @@ var result = fleePosition.GetSide();
 ### GetClosestPointToEscape
 `public Vec3 GetClosestPointToEscape(Vec2 position)`
 
-**Purpose:** Reads and returns the `closest point to escape` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the closest point to escape value held by the this instance.
 
 ```csharp
 // Obtain an instance of FleePosition from the subsystem API first

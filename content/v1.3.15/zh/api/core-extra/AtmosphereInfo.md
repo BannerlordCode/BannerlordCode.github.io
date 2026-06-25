@@ -29,7 +29,7 @@ description: "AtmosphereInfo 的自动生成类参考。"
 ### GetInvalidAtmosphereInfo
 `public static AtmosphereInfo GetInvalidAtmosphereInfo()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「invalid atmosphere info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 invalid atmosphere info 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ AtmosphereInfo.GetInvalidAtmosphereInfo();
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**用途 / Purpose:** 从序列化数据还原出「from」。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原出from。
 
 ```csharp
 // 先通过子系统 API 拿到 AtmosphereInfo 实例
@@ -50,7 +50,7 @@ atmosphereInfo.DeserializeFrom(reader);
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**用途 / Purpose:** 将「to」序列化为可存储或传输的格式。
+**用途 / Purpose:** **用途 / Purpose:** 将to序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 AtmosphereInfo 实例

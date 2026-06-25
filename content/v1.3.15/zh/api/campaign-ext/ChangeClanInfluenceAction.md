@@ -19,7 +19,7 @@ ChangeClanInfluenceAction 是一组静态方法，用于在战役中以特定原
 public static void Apply(Clan clan, float amount)
 ```
 
-**用途 / Purpose:** 。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ## 使用示例
 

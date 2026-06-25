@@ -23,7 +23,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can be selected in inventory info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first
@@ -34,7 +34,7 @@ familyFeudIssueQuest.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result)
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have party role or be governor info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first
@@ -45,7 +45,7 @@ familyFeudIssueQuest.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, res
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can lead party info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first
@@ -56,7 +56,7 @@ familyFeudIssueQuest.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first
@@ -67,7 +67,7 @@ familyFeudIssueQuest.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ### OnMissionStarted
 `public void OnMissionStarted(IMission iMission)`
 
-**Purpose:** Invoked when the `mission started` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission started event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first
@@ -78,7 +78,7 @@ familyFeudIssueQuest.OnMissionStarted(iMission);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty party, Settlement settlement)`
 
-**Purpose:** Invoked when the `settlement left` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement left event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first
@@ -89,7 +89,7 @@ familyFeudIssueQuest.OnSettlementLeft(party, settlement);
 ### OnBeforeMissionOpened
 `public void OnBeforeMissionOpened()`
 
-**Purpose:** Invoked when the `before mission opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the before mission opened event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueQuest from the subsystem API first

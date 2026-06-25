@@ -23,7 +23,7 @@ description: "SandboxStrikeMagnitudeModel 的自动生成类参考。"
 ### CalculateHorseArcheryFactor
 `public override float CalculateHorseArcheryFactor(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 计算「horse archery factor」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算horse archery factor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -34,7 +34,7 @@ var result = sandboxStrikeMagnitudeModel.CalculateHorseArcheryFactor(characterOb
 ### CalculateStrikeMagnitudeForMissile
 `public override float CalculateStrikeMagnitudeForMissile(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float missileSpeed)`
 
-**用途 / Purpose:** 计算「strike magnitude for missile」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for missile的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -45,7 +45,7 @@ var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForMissile(atta
 ### CalculateStrikeMagnitudeForSwing
 `public override float CalculateStrikeMagnitudeForSwing(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float swingSpeed, float impactPointAsPercent, float extraLinearSpeed)`
 
-**用途 / Purpose:** 计算「strike magnitude for swing」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for swing的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -56,7 +56,7 @@ var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForSwing(attack
 ### CalculateStrikeMagnitudeForUnarmedAttack
 `public override float CalculateStrikeMagnitudeForUnarmedAttack(in AttackInformation attackInformation, in AttackCollisionData collisionData, float progressEffect, float momentumRemaining)`
 
-**用途 / Purpose:** 计算「strike magnitude for unarmed attack」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for unarmed attack的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -67,7 +67,7 @@ var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForUnarmedAttac
 ### CalculateStrikeMagnitudeForThrust
 `public override float CalculateStrikeMagnitudeForThrust(in AttackInformation attackInformation, in AttackCollisionData collisionData, in MissionWeapon weapon, float thrustWeaponSpeed, float extraLinearSpeed, bool isThrown = false)`
 
-**用途 / Purpose:** 计算「strike magnitude for thrust」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for thrust的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -78,7 +78,7 @@ var result = sandboxStrikeMagnitudeModel.CalculateStrikeMagnitudeForThrust(attac
 ### ComputeRawDamage
 `public override float ComputeRawDamage(DamageTypes damageType, float magnitude, float armorEffectiveness, float absorbedDamageRatio)`
 
-**用途 / Purpose:** 处理与 「compute raw damage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ComputeRawDamage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -89,7 +89,7 @@ var result = sandboxStrikeMagnitudeModel.ComputeRawDamage(damageType, 0, 0, 0);
 ### GetBluntDamageFactorByDamageType
 `public override float GetBluntDamageFactorByDamageType(DamageTypes damageType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「blunt damage factor by damage type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 blunt damage factor by damage type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例
@@ -100,7 +100,7 @@ var result = sandboxStrikeMagnitudeModel.GetBluntDamageFactorByDamageType(damage
 ### CalculateAdjustedArmorForBlow
 `public override float CalculateAdjustedArmorForBlow(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseArmor, BasicCharacterObject attackerCharacter, BasicCharacterObject attackerCaptainCharacter, BasicCharacterObject victimCharacter, BasicCharacterObject victimCaptainCharacter, WeaponComponentData weaponComponent)`
 
-**用途 / Purpose:** 计算「adjusted armor for blow」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算adjusted armor for blow的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxStrikeMagnitudeModel 实例

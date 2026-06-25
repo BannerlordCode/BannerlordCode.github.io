@@ -32,7 +32,7 @@ Treat `PartyScreenData` as a Data-style extension point: first identify who crea
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -43,7 +43,7 @@ var result = partyScreenData.GetHashCode();
 ### InitializeCopyFrom
 `public void InitializeCopyFrom(PartyBase rightParty, PartyBase leftParty)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `copy from`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by copy from.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -54,7 +54,7 @@ partyScreenData.InitializeCopyFrom(rightParty, leftParty);
 ### CopyFromPartyAndRoster
 `public void CopyFromPartyAndRoster(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty)`
 
-**Purpose:** Copies the `from party and roster` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the from party and roster state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -65,7 +65,7 @@ partyScreenData.CopyFromPartyAndRoster(rightPartyMemberRoster, rightPartyPrisone
 ### CopyFromScreenData
 `public void CopyFromScreenData(PartyScreenData data)`
 
-**Purpose:** Copies the `from screen data` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the from screen data state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -76,7 +76,7 @@ partyScreenData.CopyFromScreenData(data);
 ### BindRostersFrom
 `public void BindRostersFrom(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty, PartyBase leftParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BindRostersFrom logic.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -87,7 +87,7 @@ partyScreenData.BindRostersFrom(rightPartyMemberRoster, rightPartyPrisonerRoster
 ### ResetUsing
 `public void ResetUsing(PartyScreenData partyScreenData)`
 
-**Purpose:** Returns `using` to its default or initial condition.
+**Purpose:** **Purpose:** Returns using to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -98,7 +98,7 @@ partyScreenData.ResetUsing(partyScreenData);
 ### IsThereAnyTroopTradeDifferenceBetween
 `public bool IsThereAnyTroopTradeDifferenceBetween(PartyScreenData other)`
 
-**Purpose:** Determines whether the current object is in the `there any troop trade difference between` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there any troop trade difference between state or condition.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -109,7 +109,7 @@ var result = partyScreenData.IsThereAnyTroopTradeDifferenceBetween(other);
 ### GetTroopTradeDifferencesFromTo
 `public List<TroopTradeDifference> GetTroopTradeDifferencesFromTo(PartyScreenData toPartyScreenData, PartyScreenLogic.PartyRosterSide side = PartyScreenLogic.PartyRosterSide.None)`
 
-**Purpose:** Reads and returns the `troop trade differences from to` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop trade differences from to value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -120,7 +120,7 @@ var result = partyScreenData.GetTroopTradeDifferencesFromTo(toPartyScreenData, p
 ### GetEnumerator
 `public IEnumerator<ValueTuple<TroopRosterElement, bool>> GetEnumerator()`
 
-**Purpose:** Reads and returns the `enumerator` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the enumerator value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first
@@ -131,7 +131,7 @@ var result = partyScreenData.GetEnumerator();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of PartyScreenData from the subsystem API first

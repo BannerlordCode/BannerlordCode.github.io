@@ -48,7 +48,7 @@ Treat `ArmorComponent` as a Component-style extension point: first identify who 
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Reads and returns the `copy` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the copy value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArmorComponent from the subsystem API first
@@ -59,7 +59,7 @@ var result = armorComponent.GetCopy();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ArmorComponent from the subsystem API first

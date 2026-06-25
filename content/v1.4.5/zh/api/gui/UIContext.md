@@ -47,7 +47,7 @@ description: "UIContext 的自动生成类参考。"
 ### DebugDraw
 `public void DebugDraw()`
 
-**用途 / Purpose:** 处理与 「debug draw」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DebugDraw 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -58,7 +58,7 @@ uIContext.DebugDraw();
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -69,7 +69,7 @@ uIContext.Initialize();
 ### GetBrush
 `public Brush GetBrush(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「brush」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 brush 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -80,7 +80,7 @@ var result = uIContext.GetBrush("example");
 ### RefreshResources
 `public void RefreshResources(SpriteData spriteData, FontFactory fontFactory, BrushFactory brushFactory)`
 
-**用途 / Purpose:** 使 「resources」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 resources 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -91,7 +91,7 @@ uIContext.RefreshResources(spriteData, fontFactory, brushFactory);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -102,7 +102,7 @@ uIContext.OnFinalize();
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -113,7 +113,7 @@ uIContext.Deactivate();
 ### Activate
 `public void Activate()`
 
-**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -124,7 +124,7 @@ uIContext.Activate();
 ### Update
 `public void Update(float dt)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -135,7 +135,7 @@ uIContext.Update(0);
 ### LateUpdate
 `public void LateUpdate(float dt)`
 
-**用途 / Purpose:** 处理与 「late update」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 LateUpdate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -146,7 +146,7 @@ uIContext.LateUpdate(0);
 ### RenderTick
 `public void RenderTick(float dt)`
 
-**用途 / Purpose:** 推进 「render」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RenderTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -157,7 +157,7 @@ uIContext.RenderTick(0);
 ### OnOnScreenkeyboardTextInputDone
 `public void OnOnScreenkeyboardTextInputDone(string inputText)`
 
-**用途 / Purpose:** 在 「on screenkeyboard text input done」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 on screenkeyboard text input done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -168,7 +168,7 @@ uIContext.OnOnScreenkeyboardTextInputDone("example");
 ### InitializeGamepadNavigation
 `public void InitializeGamepadNavigation(IGamepadNavigationContext context)`
 
-**用途 / Purpose:** 为 「gamepad navigation」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 gamepad navigation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -179,7 +179,7 @@ uIContext.InitializeGamepadNavigation(context);
 ### OnOnScreenKeyboardCanceled
 `public void OnOnScreenKeyboardCanceled()`
 
-**用途 / Purpose:** 在 「on screen keyboard canceled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 on screen keyboard canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -190,7 +190,7 @@ uIContext.OnOnScreenKeyboardCanceled();
 ### HitTest
 `public bool HitTest(Widget root, Vector2 position)`
 
-**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -201,7 +201,7 @@ var result = uIContext.HitTest(root, position);
 ### HitTest
 `public bool HitTest(Widget root)`
 
-**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -212,7 +212,7 @@ var result = uIContext.HitTest(root);
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**用途 / Purpose:** 处理与 「focus test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FocusTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -223,7 +223,7 @@ var result = uIContext.FocusTest(root);
 ### SetIsMouseEnabled
 `public void SetIsMouseEnabled(bool isMouseEnabled)`
 
-**用途 / Purpose:** 为 「is mouse enabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is mouse enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -234,7 +234,7 @@ uIContext.SetIsMouseEnabled(false);
 ### UpdateInput
 `public void UpdateInput(InputType handleInputs)`
 
-**用途 / Purpose:** 重新计算并更新 「input」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 input 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -245,7 +245,7 @@ uIContext.UpdateInput(handleInputs);
 ### OnMovieLoaded
 `public void OnMovieLoaded(string movieName)`
 
-**用途 / Purpose:** 在 「movie loaded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 movie loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -256,7 +256,7 @@ uIContext.OnMovieLoaded("example");
 ### OnMovieReleased
 `public void OnMovieReleased(string movieName)`
 
-**用途 / Purpose:** 在 「movie released」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 movie released 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -267,7 +267,7 @@ uIContext.OnMovieReleased("example");
 ### CancelMouseClick
 `public void CancelMouseClick()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「cel mouse click」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel mouse click 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -278,7 +278,7 @@ uIContext.CancelMouseClick();
 ### DrawWidgetDebugInfo
 `public void DrawWidgetDebugInfo()`
 
-**用途 / Purpose:** 获取或维护 「draw widget debug info」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DrawWidgetDebugInfo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例

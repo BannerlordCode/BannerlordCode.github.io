@@ -23,7 +23,7 @@ description: "SrtParser 的自动生成类参考。"
 ### ParseStream
 `public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**用途 / Purpose:** 将外部输入解析为当前系统可识别的「stream」。
+**用途 / Purpose:** **用途 / Purpose:** 将外部输入解析为当前系统可识别的stream。
 
 ```csharp
 // 静态调用，不需要实例

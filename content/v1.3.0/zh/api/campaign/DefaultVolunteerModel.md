@@ -29,7 +29,7 @@ description: "DefaultVolunteerModel 的自动生成类参考。"
 ### MaximumIndexHeroCanRecruitFromHero
 `public override int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**用途 / Purpose:** 处理与 「maximum index hero can recruit from hero」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MaximumIndexHeroCanRecruitFromHero 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVolunteerModel 实例
@@ -40,7 +40,7 @@ var result = defaultVolunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero,
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public override int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**用途 / Purpose:** 处理与 「maximum index garrison can recruit from hero」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MaximumIndexGarrisonCanRecruitFromHero 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVolunteerModel 实例
@@ -51,7 +51,7 @@ var result = defaultVolunteerModel.MaximumIndexGarrisonCanRecruitFromHero(settle
 ### GetDailyVolunteerProductionProbability
 `public override float GetDailyVolunteerProductionProbability(Hero hero, int index, Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily volunteer production probability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily volunteer production probability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVolunteerModel 实例
@@ -62,7 +62,7 @@ var result = defaultVolunteerModel.GetDailyVolunteerProductionProbability(hero, 
 ### GetBasicVolunteer
 `public override CharacterObject GetBasicVolunteer(Hero sellerHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「basic volunteer」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 basic volunteer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVolunteerModel 实例
@@ -73,7 +73,7 @@ var result = defaultVolunteerModel.GetBasicVolunteer(sellerHero);
 ### CanHaveRecruits
 `public override bool CanHaveRecruits(Hero hero)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「have recruits」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 have recruits 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVolunteerModel 实例

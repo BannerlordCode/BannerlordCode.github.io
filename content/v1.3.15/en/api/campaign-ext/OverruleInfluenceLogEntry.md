@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetHistoricComment
 `public override TextObject GetHistoricComment(Hero talkTroop)`
 
-**Purpose:** Reads and returns the `historic comment` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the historic comment value held by the this instance.
 
 ```csharp
 // Obtain an instance of OverruleInfluenceLogEntry from the subsystem API first
@@ -40,7 +40,7 @@ var result = overruleInfluenceLogEntry.GetHistoricComment(talkTroop);
 ### GetValueAsPoliticsAbuseOfPower
 `public override int GetValueAsPoliticsAbuseOfPower(Hero referenceTroop, Hero liege)`
 
-**Purpose:** Reads and returns the `value as politics abuse of power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as politics abuse of power value held by the this instance.
 
 ```csharp
 // Obtain an instance of OverruleInfluenceLogEntry from the subsystem API first
@@ -51,7 +51,7 @@ var result = overruleInfluenceLogEntry.GetValueAsPoliticsAbuseOfPower(referenceT
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of OverruleInfluenceLogEntry from the subsystem API first

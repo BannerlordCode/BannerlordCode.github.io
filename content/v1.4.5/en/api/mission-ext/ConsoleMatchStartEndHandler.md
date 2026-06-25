@@ -23,7 +23,7 @@ Treat `ConsoleMatchStartEndHandler` as a Handler-style extension point: first id
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
@@ -34,7 +34,7 @@ consoleMatchStartEndHandler.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
@@ -45,7 +45,7 @@ consoleMatchStartEndHandler.OnRemoveBehavior();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first
@@ -56,7 +56,7 @@ consoleMatchStartEndHandler.OnAgentBuild(agent, banner);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ConsoleMatchStartEndHandler from the subsystem API first

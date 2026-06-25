@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetQueueCountObjectOf
 `public MatchmakingQueueGameTypeStats GetQueueCountObjectOf(string gameTypes)`
 
-**Purpose:** Reads and returns the `queue count object of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the queue count object of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
@@ -45,7 +45,7 @@ var result = matchmakingQueueRegionStats.GetQueueCountObjectOf("example");
 ### AddStats
 `public void AddStats(MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats)`
 
-**Purpose:** Adds `stats` to the current collection or state.
+**Purpose:** **Purpose:** Adds stats to the current collection or state.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
@@ -56,7 +56,7 @@ matchmakingQueueRegionStats.AddStats(matchmakingQueueGameTypeStats);
 ### GetQueueCountOf
 `public int GetQueueCountOf(string gameTypes)`
 
-**Purpose:** Reads and returns the `queue count of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the queue count of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first
@@ -67,7 +67,7 @@ var result = matchmakingQueueRegionStats.GetQueueCountOf("example");
 ### SetWaitTimeStats
 `public void SetWaitTimeStats(int averageWaitTime, int maxWaitTime, int minWaitTime, int medianWaitTime)`
 
-**Purpose:** Assigns a new value to `wait time stats` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wait time stats and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MatchmakingQueueRegionStats from the subsystem API first

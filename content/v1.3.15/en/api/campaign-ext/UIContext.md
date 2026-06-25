@@ -52,7 +52,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -63,7 +63,7 @@ uIContext.Initialize();
 ### GetBrush
 `public Brush GetBrush(string name)`
 
-**Purpose:** Reads and returns the `brush` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the brush value held by the this instance.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -74,7 +74,7 @@ var result = uIContext.GetBrush("example");
 ### RefreshResources
 `public void RefreshResources(SpriteData spriteData, FontFactory fontFactory, BrushFactory brushFactory)`
 
-**Purpose:** Keeps the display or cache of `resources` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of resources in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -85,7 +85,7 @@ uIContext.RefreshResources(spriteData, fontFactory, brushFactory);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -96,7 +96,7 @@ uIContext.OnFinalize();
 ### Activate
 `public void Activate()`
 
-**Purpose:** Activates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -107,7 +107,7 @@ uIContext.Activate();
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -118,7 +118,7 @@ uIContext.Deactivate();
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -129,7 +129,7 @@ uIContext.Update(0);
 ### LateUpdate
 `public void LateUpdate(float dt)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LateUpdate logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -140,7 +140,7 @@ uIContext.LateUpdate(0);
 ### RenderTick
 `public void RenderTick(float dt)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RenderTick logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -151,7 +151,7 @@ uIContext.RenderTick(0);
 ### InitializeGamepadNavigation
 `public void InitializeGamepadNavigation(IGamepadNavigationContext context)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `gamepad navigation`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by gamepad navigation.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -162,7 +162,7 @@ uIContext.InitializeGamepadNavigation(context);
 ### OnOnScreenkeyboardTextInputDone
 `public void OnOnScreenkeyboardTextInputDone(string inputText)`
 
-**Purpose:** Invoked when the `on screenkeyboard text input done` event is raised.
+**Purpose:** **Purpose:** Invoked when the on screenkeyboard text input done event is raised.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -173,7 +173,7 @@ uIContext.OnOnScreenkeyboardTextInputDone("example");
 ### OnOnScreenKeyboardCanceled
 `public void OnOnScreenKeyboardCanceled()`
 
-**Purpose:** Invoked when the `on screen keyboard canceled` event is raised.
+**Purpose:** **Purpose:** Invoked when the on screen keyboard canceled event is raised.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -184,7 +184,7 @@ uIContext.OnOnScreenKeyboardCanceled();
 ### HitTest
 `public bool HitTest(Widget root, Vector2 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -195,7 +195,7 @@ var result = uIContext.HitTest(root, position);
 ### HitTest
 `public bool HitTest(Widget root)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -206,7 +206,7 @@ var result = uIContext.HitTest(root);
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusTest logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -217,7 +217,7 @@ var result = uIContext.FocusTest(root);
 ### SetIsMouseEnabled
 `public void SetIsMouseEnabled(bool isMouseEnabled)`
 
-**Purpose:** Assigns a new value to `is mouse enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is mouse enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -228,7 +228,7 @@ uIContext.SetIsMouseEnabled(false);
 ### UpdateInput
 `public void UpdateInput(InputType handleInputs)`
 
-**Purpose:** Recalculates and stores the latest representation of `input`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of input.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -239,7 +239,7 @@ uIContext.UpdateInput(handleInputs);
 ### OnMovieLoaded
 `public void OnMovieLoaded(string movieName)`
 
-**Purpose:** Invoked when the `movie loaded` event is raised.
+**Purpose:** **Purpose:** Invoked when the movie loaded event is raised.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -250,7 +250,7 @@ uIContext.OnMovieLoaded("example");
 ### OnMovieReleased
 `public void OnMovieReleased(string movieName)`
 
-**Purpose:** Invoked when the `movie released` event is raised.
+**Purpose:** **Purpose:** Invoked when the movie released event is raised.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -261,7 +261,7 @@ uIContext.OnMovieReleased("example");
 ### DrawWidgetDebugInfo
 `public void DrawWidgetDebugInfo()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawWidgetDebugInfo logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first
@@ -272,7 +272,7 @@ uIContext.DrawWidgetDebugInfo();
 ### DebugDraw
 `public void DebugDraw()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugDraw logic.
 
 ```csharp
 // Obtain an instance of UIContext from the subsystem API first

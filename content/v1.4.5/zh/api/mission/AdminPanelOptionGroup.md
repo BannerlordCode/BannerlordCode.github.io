@@ -23,7 +23,7 @@ description: "AdminPanelOptionGroup 的自动生成类参考。"
 ### AddOption
 `public void AddOption(IAdminPanelOption option)`
 
-**用途 / Purpose:** 将 「option」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOptionGroup 实例
@@ -34,7 +34,7 @@ adminPanelOptionGroup.AddOption(option);
 ### AddAction
 `public void AddAction(IAdminPanelAction action)`
 
-**用途 / Purpose:** 将 「action」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 action 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelOptionGroup 实例

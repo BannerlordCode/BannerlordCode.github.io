@@ -29,7 +29,7 @@ description: "SpriteFromTexture 的自动生成类参考。"
 ### GetMinUvs
 `public override Vec2 GetMinUvs()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「min uvs」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 min uvs 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteFromTexture 实例
@@ -40,7 +40,7 @@ var result = spriteFromTexture.GetMinUvs();
 ### GetMaxUvs
 `public override Vec2 GetMaxUvs()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max uvs」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max uvs 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteFromTexture 实例

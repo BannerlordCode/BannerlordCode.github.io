@@ -23,7 +23,7 @@ description: "MissionBoundaryPlacer 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoundaryPlacer 实例
@@ -34,7 +34,7 @@ missionBoundaryPlacer.EarlyStart();
 ### AddMissionBoundaries
 `public void AddMissionBoundaries()`
 
-**用途 / Purpose:** 将 「mission boundaries」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 mission boundaries 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoundaryPlacer 实例

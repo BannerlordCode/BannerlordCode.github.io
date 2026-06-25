@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetRelevantGameOptions
 `public void SetRelevantGameOptions(bool sendMeBloodEvents, bool sendMeSoundEvents)`
 
-**Purpose:** Assigns a new value to `relevant game options` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to relevant game options and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first
@@ -58,7 +58,7 @@ networkCommunicator.SetRelevantGameOptions(false, false);
 ### GetHost
 `public uint GetHost()`
 
-**Purpose:** Reads and returns the `host` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the host value held by the this instance.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first
@@ -69,7 +69,7 @@ var result = networkCommunicator.GetHost();
 ### GetReversedHost
 `public uint GetReversedHost()`
 
-**Purpose:** Reads and returns the `reversed host` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the reversed host value held by the this instance.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first
@@ -80,7 +80,7 @@ var result = networkCommunicator.GetReversedHost();
 ### GetPort
 `public ushort GetPort()`
 
-**Purpose:** Reads and returns the `port` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the port value held by the this instance.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first
@@ -91,7 +91,7 @@ var result = networkCommunicator.GetPort();
 ### UpdateConnectionInfoForReconnect
 `public void UpdateConnectionInfoForReconnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)`
 
-**Purpose:** Recalculates and stores the latest representation of `connection info for reconnect`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of connection info for reconnect.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first
@@ -102,7 +102,7 @@ networkCommunicator.UpdateConnectionInfoForReconnect(playerConnectionInfo, false
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int newIndex)`
 
-**Purpose:** Recalculates and stores the latest representation of `index for reconnecting player`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of index for reconnecting player.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first
@@ -113,7 +113,7 @@ networkCommunicator.UpdateIndexForReconnectingPlayer(0);
 ### UpdateForJoiningCustomGame
 `public void UpdateForJoiningCustomGame(bool isAdmin)`
 
-**Purpose:** Recalculates and stores the latest representation of `for joining custom game`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of for joining custom game.
 
 ```csharp
 // Obtain an instance of NetworkCommunicator from the subsystem API first

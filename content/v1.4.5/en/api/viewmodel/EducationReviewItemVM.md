@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### UpdateWith
 `public void UpdateWith(string gainText)`
 
-**Purpose:** Recalculates and stores the latest representation of `with`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of with.
 
 ```csharp
 // Obtain an instance of EducationReviewItemVM from the subsystem API first

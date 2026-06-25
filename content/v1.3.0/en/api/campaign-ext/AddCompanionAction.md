@@ -19,7 +19,7 @@ AddCompanionAction is a set of static methods that trigger "AddCompanion" in the
 public static void Apply(Clan clan, Hero companion)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

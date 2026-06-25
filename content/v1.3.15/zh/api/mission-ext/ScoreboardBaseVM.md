@@ -61,7 +61,7 @@ description: "ScoreboardBaseVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -72,7 +72,7 @@ scoreboardBaseVM.RefreshValues();
 ### OnMainHeroDeath
 `public void OnMainHeroDeath()`
 
-**用途 / Purpose:** 在 「main hero death」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 main hero death 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -83,7 +83,7 @@ scoreboardBaseVM.OnMainHeroDeath();
 ### OnTakenControlOfAnotherAgent
 `public void OnTakenControlOfAnotherAgent()`
 
-**用途 / Purpose:** 在 「taken control of another agent」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 taken control of another agent 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -94,7 +94,7 @@ scoreboardBaseVM.OnTakenControlOfAnotherAgent();
 ### Initialize
 `public virtual void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -105,7 +105,7 @@ scoreboardBaseVM.Initialize(missionScreen, mission, releaseSimulationSources, on
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -116,7 +116,7 @@ scoreboardBaseVM.OnDeploymentFinished();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -127,7 +127,7 @@ scoreboardBaseVM.Tick(0);
 ### SetMouseState
 `public void SetMouseState(bool visible)`
 
-**用途 / Purpose:** 为 「mouse state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 mouse state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -138,7 +138,7 @@ scoreboardBaseVM.SetMouseState(false);
 ### GetFormattedTimeTextFromSeconds
 `public static string GetFormattedTimeTextFromSeconds(int seconds)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formatted time text from seconds」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formatted time text from seconds 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -148,7 +148,7 @@ ScoreboardBaseVM.GetFormattedTimeTextFromSeconds(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -159,7 +159,7 @@ scoreboardBaseVM.OnFinalize();
 ### ExecuteShowScoreboardAction
 `public virtual void ExecuteShowScoreboardAction()`
 
-**用途 / Purpose:** 执行 「show scoreboard action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 show scoreboard action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -170,7 +170,7 @@ scoreboardBaseVM.ExecuteShowScoreboardAction();
 ### ExecutePlayAction
 `public virtual void ExecutePlayAction()`
 
-**用途 / Purpose:** 执行 「play action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 play action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -181,7 +181,7 @@ scoreboardBaseVM.ExecutePlayAction();
 ### ExecuteFastForwardAction
 `public virtual void ExecuteFastForwardAction()`
 
-**用途 / Purpose:** 执行 「fast forward action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 fast forward action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -192,7 +192,7 @@ scoreboardBaseVM.ExecuteFastForwardAction();
 ### ExecutePauseSimulationAction
 `public virtual void ExecutePauseSimulationAction()`
 
-**用途 / Purpose:** 执行 「pause simulation action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 pause simulation action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -203,7 +203,7 @@ scoreboardBaseVM.ExecutePauseSimulationAction();
 ### ExecuteEndSimulationAction
 `public virtual void ExecuteEndSimulationAction()`
 
-**用途 / Purpose:** 执行 「end simulation action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end simulation action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -214,7 +214,7 @@ scoreboardBaseVM.ExecuteEndSimulationAction();
 ### ExecuteQuitAction
 `public virtual void ExecuteQuitAction()`
 
-**用途 / Purpose:** 执行 「quit action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 quit action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例
@@ -225,7 +225,7 @@ scoreboardBaseVM.ExecuteQuitAction();
 ### SetShortcuts
 `public virtual void SetShortcuts(ScoreboardHotkeys shortcuts)`
 
-**用途 / Purpose:** 为 「shortcuts」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 shortcuts 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBaseVM 实例

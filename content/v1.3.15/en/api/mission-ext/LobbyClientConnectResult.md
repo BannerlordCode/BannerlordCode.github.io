@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FromServerConnectResult
 `public static LobbyClientConnectResult FromServerConnectResult(string errorCode, Dictionary<string, string> parameters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FromServerConnectResult logic.
 
 ```csharp
 // Static call; no instance required

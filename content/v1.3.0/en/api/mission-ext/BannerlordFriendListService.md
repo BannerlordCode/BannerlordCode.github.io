@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnFriendListReceived
 `public void OnFriendListReceived(FriendInfo friends)`
 
-**Purpose:** Invoked when the `friend list received` event is raised.
+**Purpose:** **Purpose:** Invoked when the friend list received event is raised.
 
 ```csharp
 // Obtain an instance of BannerlordFriendListService from the subsystem API first

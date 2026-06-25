@@ -23,7 +23,7 @@ description: "FaceGenHistory 的自动生成类参考。"
 ### ClearHistory
 `public void ClearHistory()`
 
-**用途 / Purpose:** 清空当前对象中的「history」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的history。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenHistory 实例

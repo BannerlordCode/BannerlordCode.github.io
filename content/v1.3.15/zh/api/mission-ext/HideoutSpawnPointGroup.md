@@ -23,7 +23,7 @@ description: "HideoutSpawnPointGroup 的自动生成类参考。"
 ### GetSpawnPointFrames
 `public MatrixFrame GetSpawnPointFrames()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn point frames」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn point frames 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutSpawnPointGroup 实例
@@ -34,7 +34,7 @@ var result = hideoutSpawnPointGroup.GetSpawnPointFrames();
 ### RemoveWithAllChildren
 `public void RemoveWithAllChildren()`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「with all children」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 with all children。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutSpawnPointGroup 实例

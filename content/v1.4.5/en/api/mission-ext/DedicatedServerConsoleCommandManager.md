@@ -23,7 +23,7 @@ Treat `DedicatedServerConsoleCommandManager` as a Manager-style extension point:
 ### AddType
 `public static void AddType(Type type)`
 
-**Purpose:** Adds `type` to the current collection or state.
+**Purpose:** **Purpose:** Adds type to the current collection or state.
 
 ```csharp
 // Static call; no instance required

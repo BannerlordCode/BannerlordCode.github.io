@@ -37,7 +37,7 @@ description: "DefaultMobilePartyAIModel 的自动生成类参考。"
 ### ShouldConsiderAttacking
 `public override bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 处理与 「should consider attacking」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldConsiderAttacking 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
@@ -48,7 +48,7 @@ var result = defaultMobilePartyAIModel.ShouldConsiderAttacking(party, targetPart
 ### ShouldConsiderAvoiding
 `public override bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 处理与 「should consider avoiding」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldConsiderAvoiding 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
@@ -59,7 +59,7 @@ var result = defaultMobilePartyAIModel.ShouldConsiderAvoiding(party, targetParty
 ### GetPatrolRadius
 `public override float GetPatrolRadius(MobileParty mobileParty, CampaignVec2 patrolPoint)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「patrol radius」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 patrol radius 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
@@ -70,7 +70,7 @@ var result = defaultMobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint)
 ### ShouldPartyCheckInitiativeBehavior
 `public override bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理与 「should party check initiative behavior」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldPartyCheckInitiativeBehavior 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
@@ -81,7 +81,7 @@ var result = defaultMobilePartyAIModel.ShouldPartyCheckInitiativeBehavior(mobile
 ### GetBestInitiativeBehavior
 `public override void GetBestInitiativeBehavior(MobileParty mobileParty, out AiBehavior bestInitiativeBehavior, out MobileParty bestInitiativeTargetParty, out float bestInitiativeBehaviorScore, out Vec2 averageEnemyVec)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「best initiative behavior」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best initiative behavior 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例

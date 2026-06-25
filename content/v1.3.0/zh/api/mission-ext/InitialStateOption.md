@@ -34,7 +34,7 @@ description: "InitialStateOption 的自动生成类参考。"
 ### DoAction
 `public void DoAction()`
 
-**用途 / Purpose:** 处理与 「do action」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoAction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialStateOption 实例

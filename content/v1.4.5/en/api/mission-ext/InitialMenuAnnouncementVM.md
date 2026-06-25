@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### Tick
 `public void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of InitialMenuAnnouncementVM from the subsystem API first
@@ -45,7 +45,7 @@ initialMenuAnnouncementVM.Tick();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of InitialMenuAnnouncementVM from the subsystem API first
@@ -56,7 +56,7 @@ initialMenuAnnouncementVM.Refresh();
 ### ExecuteNavigateToLink
 `public void ExecuteNavigateToLink()`
 
-**Purpose:** Runs the operation or workflow associated with `navigate to link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with navigate to link.
 
 ```csharp
 // Obtain an instance of InitialMenuAnnouncementVM from the subsystem API first

@@ -29,7 +29,7 @@ description: "MessageContract 的自动生成类参考。"
 ### CreateMessageContract
 `public static MessageContract CreateMessageContract(Type messageContractType)`
 
-**用途 / Purpose:** 构建一个新的 「message contract」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 message contract 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MessageContract.CreateMessageContract(messageContractType);
 ### SerializeToNetworkMessage
 `public abstract void SerializeToNetworkMessage(INetworkMessageWriter networkMessage)`
 
-**用途 / Purpose:** 将「to network message」序列化为可存储或传输的格式。
+**用途 / Purpose:** **用途 / Purpose:** 将to network message序列化为可存储或传输的格式。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageContract 实例
@@ -50,7 +50,7 @@ messageContract.SerializeToNetworkMessage(networkMessage);
 ### DeserializeFromNetworkMessage
 `public abstract void DeserializeFromNetworkMessage(INetworkMessageReader networkMessage)`
 
-**用途 / Purpose:** 从序列化数据还原出「from network message」。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原出from network message。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageContract 实例

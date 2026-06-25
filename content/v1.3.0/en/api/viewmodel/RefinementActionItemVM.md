@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RefinementActionItemVM from the subsystem API first
@@ -44,7 +44,7 @@ refinementActionItemVM.RefreshValues();
 ### RefreshDynamicProperties
 `public void RefreshDynamicProperties()`
 
-**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RefinementActionItemVM from the subsystem API first
@@ -55,7 +55,7 @@ refinementActionItemVM.RefreshDynamicProperties();
 ### ExecuteSelectAction
 `public void ExecuteSelectAction()`
 
-**Purpose:** Runs the operation or workflow associated with `select action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select action.
 
 ```csharp
 // Obtain an instance of RefinementActionItemVM from the subsystem API first

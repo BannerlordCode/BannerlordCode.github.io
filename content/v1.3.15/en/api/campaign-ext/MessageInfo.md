@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### WriteTo
 `public void WriteTo(Stream stream, bool fromServer)`
 
-**Purpose:** Writes `to` to the target location.
+**Purpose:** **Purpose:** Writes to to the target location.
 
 ```csharp
 // Obtain an instance of MessageInfo from the subsystem API first
@@ -46,7 +46,7 @@ messageInfo.WriteTo(stream, false);
 ### ReadFrom
 `public static MessageInfo ReadFrom(Stream stream, bool fromServer)`
 
-**Purpose:** Reads the data or state of `from`.
+**Purpose:** **Purpose:** Reads the data or state of from.
 
 ```csharp
 // Static call; no instance required

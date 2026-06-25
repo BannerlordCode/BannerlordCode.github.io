@@ -33,7 +33,7 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### IsEnemyOf
 `public override bool IsEnemyOf(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -44,7 +44,7 @@ var result = mobilePartyVisual.IsEnemyOf(faction);
 ### IsInSameFaction
 `public override bool IsInSameFaction(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `in same faction` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the in same faction state or condition.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -55,7 +55,7 @@ var result = mobilePartyVisual.IsInSameFaction(faction);
 ### IsAllyOf
 `public override bool IsAllyOf(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `ally of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ally of state or condition.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -66,7 +66,7 @@ var result = mobilePartyVisual.IsAllyOf(faction);
 ### OnTrackAction
 `public override void OnTrackAction()`
 
-**Purpose:** Invoked when the `track action` event is raised.
+**Purpose:** **Purpose:** Invoked when the track action event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -77,7 +77,7 @@ mobilePartyVisual.OnTrackAction();
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Invoked when the `map click` event is raised.
+**Purpose:** **Purpose:** Invoked when the map click event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -88,7 +88,7 @@ var result = mobilePartyVisual.OnMapClick(false);
 ### OnHover
 `public override void OnHover()`
 
-**Purpose:** Invoked when the `hover` event is raised.
+**Purpose:** **Purpose:** Invoked when the hover event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -99,7 +99,7 @@ mobilePartyVisual.OnHover();
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**Purpose:** Reads and returns the `visual position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -110,7 +110,7 @@ var result = mobilePartyVisual.GetVisualPosition();
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseResources logic.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -121,7 +121,7 @@ mobilePartyVisual.ReleaseResources();
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the visible or fading out state or condition.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -132,7 +132,7 @@ var result = mobilePartyVisual.IsVisibleOrFadingOut();
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**Purpose:** Invoked when the `open encyclopedia` event is raised.
+**Purpose:** **Purpose:** Invoked when the open encyclopedia event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first
@@ -143,7 +143,7 @@ mobilePartyVisual.OnOpenEncyclopedia();
 ### GetBannerOfCharacter
 `public static MetaMesh GetBannerOfCharacter(Banner banner, string bannerMeshName)`
 
-**Purpose:** Reads and returns the `banner of character` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner of character value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ MobilePartyVisual.GetBannerOfCharacter(banner, "example");
 ### AddTentEntityForParty
 `public void AddTentEntityForParty(GameEntity strategicEntity, PartyBase party, ref bool clearBannerComponentCache)`
 
-**Purpose:** Adds `tent entity for party` to the current collection or state.
+**Purpose:** **Purpose:** Adds tent entity for party to the current collection or state.
 
 ```csharp
 // Obtain an instance of MobilePartyVisual from the subsystem API first

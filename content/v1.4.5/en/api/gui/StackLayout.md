@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.GauntletUI.Layout` to place it in the stack, th
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(Widget owner, Widget child, int childIndex)`
 
-**Purpose:** Reads and returns the `item description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item description value held by the this instance.
 
 ```csharp
 // Obtain an instance of StackLayout from the subsystem API first
@@ -41,7 +41,7 @@ var result = stackLayout.GetItemDescription(owner, child, 0);
 ### MeasureChildren
 `public Vector2 MeasureChildren(Widget widget, Vector2 measureSpec, SpriteData spriteData, float renderScale)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MeasureChildren logic.
 
 ```csharp
 // Obtain an instance of StackLayout from the subsystem API first
@@ -52,7 +52,7 @@ var result = stackLayout.MeasureChildren(widget, measureSpec, spriteData, 0);
 ### OnLayout
 `public void OnLayout(Widget widget, float left, float bottom, float right, float top)`
 
-**Purpose:** Invoked when the `layout` event is raised.
+**Purpose:** **Purpose:** Invoked when the layout event is raised.
 
 ```csharp
 // Obtain an instance of StackLayout from the subsystem API first
@@ -63,7 +63,7 @@ stackLayout.OnLayout(widget, 0, 0, 0, 0);
 ### GetIndexForDrop
 `public int GetIndexForDrop(Container widget, Vector2 draggedWidgetPosition)`
 
-**Purpose:** Reads and returns the `index for drop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index for drop value held by the this instance.
 
 ```csharp
 // Obtain an instance of StackLayout from the subsystem API first
@@ -74,7 +74,7 @@ var result = stackLayout.GetIndexForDrop(widget, draggedWidgetPosition);
 ### GetDropGizmoPosition
 `public Vector2 GetDropGizmoPosition(Container widget, Vector2 draggedWidgetPosition)`
 
-**Purpose:** Reads and returns the `drop gizmo position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the drop gizmo position value held by the this instance.
 
 ```csharp
 // Obtain an instance of StackLayout from the subsystem API first

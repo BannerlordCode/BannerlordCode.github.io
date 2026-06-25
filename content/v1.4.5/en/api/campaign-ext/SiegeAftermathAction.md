@@ -19,7 +19,7 @@ SiegeAftermathAction is a set of static methods that trigger "SiegeAftermath" in
 public static void ApplyAftermath(MobileParty attackerParty, Settlement settlement, SiegeAftermath aftermathType, Clan previousSettlementOwner, Dictionary<MobileParty, float> partyContributions)
 ```
 
-**Purpose:** aftermath.
+**Purpose:** **Purpose:** Applies the effect of aftermath to the this instance.
 
 ## Usage Example
 

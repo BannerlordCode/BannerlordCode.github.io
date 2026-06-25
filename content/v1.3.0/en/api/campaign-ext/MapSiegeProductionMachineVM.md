@@ -34,7 +34,7 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
@@ -45,7 +45,7 @@ mapSiegeProductionMachineVM.RefreshValues();
 ### OnSelection
 `public void OnSelection()`
 
-**Purpose:** Invoked when the `selection` event is raised.
+**Purpose:** **Purpose:** Invoked when the selection event is raised.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
@@ -56,7 +56,7 @@ mapSiegeProductionMachineVM.OnSelection();
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `show tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with show tooltip.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first
@@ -67,7 +67,7 @@ mapSiegeProductionMachineVM.ExecuteShowTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with hide tooltip.
 
 ```csharp
 // Obtain an instance of MapSiegeProductionMachineVM from the subsystem API first

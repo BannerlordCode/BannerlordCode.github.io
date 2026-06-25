@@ -41,7 +41,7 @@ description: "MPLobbyGameSearchVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -52,7 +52,7 @@ mPLobbyGameSearchVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -63,7 +63,7 @@ mPLobbyGameSearchVM.OnTick(0);
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -74,7 +74,7 @@ mPLobbyGameSearchVM.SetEnabled(false);
 ### UpdateData
 `public void UpdateData(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)`
 
-**用途 / Purpose:** 重新计算并更新 「data」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -85,7 +85,7 @@ mPLobbyGameSearchVM.UpdateData(matchmakingWaitTimeStats, "example");
 ### UpdatePremadeGameData
 `public void UpdatePremadeGameData()`
 
-**用途 / Purpose:** 重新计算并更新 「premade game data」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 premade game data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -96,7 +96,7 @@ mPLobbyGameSearchVM.UpdatePremadeGameData();
 ### OnJoinPremadeGameRequestSuccessful
 `public void OnJoinPremadeGameRequestSuccessful()`
 
-**用途 / Purpose:** 在 「join premade game request successful」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 join premade game request successful 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -107,7 +107,7 @@ mPLobbyGameSearchVM.OnJoinPremadeGameRequestSuccessful();
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**用途 / Purpose:** 在 「requested to cancel search battle」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 requested to cancel search battle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例
@@ -118,7 +118,7 @@ mPLobbyGameSearchVM.OnRequestedToCancelSearchBattle();
 ### UpdateCanCancel
 `public void UpdateCanCancel()`
 
-**用途 / Purpose:** 重新计算并更新 「can cancel」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 can cancel 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyGameSearchVM 实例

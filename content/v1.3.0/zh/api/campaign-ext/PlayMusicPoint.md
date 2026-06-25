@@ -23,7 +23,7 @@ description: "PlayMusicPoint 的自动生成类参考。"
 ### StartLoop
 `public void StartLoop(SoundEvent trackEvent)`
 
-**用途 / Purpose:** 启动「loop」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动loop流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例
@@ -34,7 +34,7 @@ playMusicPoint.StartLoop(trackEvent);
 ### EndLoop
 `public void EndLoop()`
 
-**用途 / Purpose:** 处理与 「end loop」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndLoop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例
@@ -45,7 +45,7 @@ playMusicPoint.EndLoop();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例
@@ -56,7 +56,7 @@ var result = playMusicPoint.GetTickRequirement();
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 use stopped 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例
@@ -67,7 +67,7 @@ playMusicPoint.OnUseStopped(userAgent, false, 0);
 ### ChangeInstrument
 `public void ChangeInstrument(Tuple<InstrumentData, float> instrument)`
 
-**用途 / Purpose:** 处理与 「change instrument」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeInstrument 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例

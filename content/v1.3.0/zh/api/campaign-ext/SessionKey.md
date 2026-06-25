@@ -30,7 +30,7 @@ description: "SessionKey 的自动生成类参考。"
 ### NewGuid
 `public static SessionKey NewGuid()`
 
-**用途 / Purpose:** 处理与 「new guid」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NewGuid 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ SessionKey.NewGuid();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SessionKey 实例
@@ -51,7 +51,7 @@ var result = sessionKey.ToString();
 ### ToByteArray
 `public byte ToByteArray()`
 
-**用途 / Purpose:** 处理与 「to byte array」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ToByteArray 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SessionKey 实例
@@ -62,7 +62,7 @@ var result = sessionKey.ToByteArray();
 ### Equals
 `public override bool Equals(object o)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 SessionKey 实例
@@ -73,7 +73,7 @@ var result = sessionKey.Equals(o);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 SessionKey 实例

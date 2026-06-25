@@ -23,7 +23,7 @@ Start from namespace `SandBox.View.CharacterCreation` to place it in the stack, 
 ### SetGenericScene
 `public virtual void SetGenericScene(Scene scene)`
 
-**Purpose:** Assigns a new value to `generic scene` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to generic scene and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -34,7 +34,7 @@ characterCreationStageViewBase.SetGenericScene(scene);
 ### GetLayers
 `public abstract IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Reads and returns the `layers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layers value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -45,7 +45,7 @@ var result = characterCreationStageViewBase.GetLayers();
 ### NextStage
 `public abstract void NextStage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -56,7 +56,7 @@ characterCreationStageViewBase.NextStage();
 ### PreviousStage
 `public abstract void PreviousStage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreviousStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -67,7 +67,7 @@ characterCreationStageViewBase.PreviousStage();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -78,7 +78,7 @@ characterCreationStageViewBase.Tick(0);
 ### GetVirtualStageCount
 `public abstract int GetVirtualStageCount()`
 
-**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the virtual stage count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -89,7 +89,7 @@ var result = characterCreationStageViewBase.GetVirtualStageCount();
 ### GoToIndex
 `public virtual void GoToIndex(int index)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the GoToIndex logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -100,7 +100,7 @@ characterCreationStageViewBase.GoToIndex(0);
 ### LoadEscapeMenuMovie
 `public abstract void LoadEscapeMenuMovie()`
 
-**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads escape menu movie from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -111,7 +111,7 @@ characterCreationStageViewBase.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public abstract void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseEscapeMenuMovie logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -122,7 +122,7 @@ characterCreationStageViewBase.ReleaseEscapeMenuMovie();
 ### HandleEscapeMenu
 `public void HandleEscapeMenu(CharacterCreationStageViewBase view, ScreenLayer screenLayer)`
 
-**Purpose:** Executes the response logic associated with `escape menu`.
+**Purpose:** **Purpose:** Executes the response logic associated with escape menu.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first
@@ -133,7 +133,7 @@ characterCreationStageViewBase.HandleEscapeMenu(view, screenLayer);
 ### GetEscapeMenuItems
 `public List<EscapeMenuItemVM> GetEscapeMenuItems(CharacterCreationStageViewBase view)`
 
-**Purpose:** Reads and returns the `escape menu items` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the escape menu items value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageViewBase from the subsystem API first

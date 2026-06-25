@@ -23,7 +23,7 @@ Treat `StealthTutorialView` as a View-style extension point: first identify who 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of StealthTutorialView from the subsystem API first

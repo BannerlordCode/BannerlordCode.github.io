@@ -23,7 +23,7 @@ Treat `MissionRadialButtonWidget` as a Widget-style extension point: first ident
 ### ExecuteFocused
 `public void ExecuteFocused()`
 
-**Purpose:** Runs the operation or workflow associated with `focused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with focused.
 
 ```csharp
 // Obtain an instance of MissionRadialButtonWidget from the subsystem API first
@@ -34,7 +34,7 @@ missionRadialButtonWidget.ExecuteFocused();
 ### ExecuteUnfocused
 `public void ExecuteUnfocused()`
 
-**Purpose:** Runs the operation or workflow associated with `unfocused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with unfocused.
 
 ```csharp
 // Obtain an instance of MissionRadialButtonWidget from the subsystem API first

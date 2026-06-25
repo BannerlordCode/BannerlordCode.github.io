@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.GauntletUI.ExtraWidgets` to place it in the sta
 ### Start
 `public void Start()`
 
-**Purpose:** Starts the current object's flow or state machine.
+**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Obtain an instance of DelayedStateChanger from the subsystem API first

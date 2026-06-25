@@ -29,7 +29,7 @@ description: "HeadmanNeedsToDeliverAHerdIssueQuest 的自动生成类参考。"
 ### OnCanceled
 `public override void OnCanceled()`
 
-**用途 / Purpose:** 在 「canceled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HeadmanNeedsToDeliverAHerdIssueQuest 实例
@@ -40,7 +40,7 @@ headmanNeedsToDeliverAHerdIssueQuest.OnCanceled();
 ### OnFailed
 `public override void OnFailed()`
 
-**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 failed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HeadmanNeedsToDeliverAHerdIssueQuest 实例
@@ -51,7 +51,7 @@ headmanNeedsToDeliverAHerdIssueQuest.OnFailed();
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HeadmanNeedsToDeliverAHerdIssueQuest 实例

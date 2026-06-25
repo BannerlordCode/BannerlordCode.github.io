@@ -23,7 +23,7 @@ Treat `IndoorMissionController` as a Controller-style extension point: first ide
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Invoked when the `created` event is raised.
+**Purpose:** **Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of IndoorMissionController from the subsystem API first
@@ -34,7 +34,7 @@ indoorMissionController.OnCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of IndoorMissionController from the subsystem API first
@@ -45,7 +45,7 @@ indoorMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of IndoorMissionController from the subsystem API first

@@ -23,7 +23,7 @@ Treat `SandboxBattleInitializationModel` as a Model-style extension point: first
 ### GetAllAvailableTroopTypes
 `public override List<FormationClass> GetAllAvailableTroopTypes()`
 
-**Purpose:** Reads and returns the `all available troop types` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all available troop types value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleInitializationModel from the subsystem API first

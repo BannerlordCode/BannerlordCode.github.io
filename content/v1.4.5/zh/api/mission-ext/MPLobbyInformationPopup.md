@@ -33,7 +33,7 @@ description: "MPLobbyInformationPopup 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
@@ -44,7 +44,7 @@ mPLobbyInformationPopup.RefreshValues();
 ### ShowInformation
 `public void ShowInformation(TextObject title, TextObject message)`
 
-**用途 / Purpose:** 显示「information」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示information对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
@@ -55,7 +55,7 @@ mPLobbyInformationPopup.ShowInformation(title, message);
 ### ShowInformation
 `public void ShowInformation(string title, string message)`
 
-**用途 / Purpose:** 显示「information」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示information对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
@@ -66,7 +66,7 @@ mPLobbyInformationPopup.ShowInformation("example", "example");
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyInformationPopup 实例
@@ -77,7 +77,7 @@ mPLobbyInformationPopup.ExecuteClose();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyInformationPopup 实例

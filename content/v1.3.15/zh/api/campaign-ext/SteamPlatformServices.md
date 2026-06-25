@@ -23,7 +23,7 @@ description: "SteamPlatformServices 的自动生成类参考。"
 ### ClearAvatarCache
 `public void ClearAvatarCache()`
 
-**用途 / Purpose:** 清空当前对象中的「avatar cache」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的avatar cache。
 
 ```csharp
 // 先通过子系统 API 拿到 SteamPlatformServices 实例

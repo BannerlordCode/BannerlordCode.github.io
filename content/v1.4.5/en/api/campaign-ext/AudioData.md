@@ -23,7 +23,7 @@ Treat `AudioData` as a Data-style extension point: first identify who creates it
 ### GetFullLengthInMilliseconds
 `public int GetFullLengthInMilliseconds()`
 
-**Purpose:** Reads and returns the `full length in milliseconds` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the full length in milliseconds value held by the this instance.
 
 ```csharp
 // Obtain an instance of AudioData from the subsystem API first
@@ -34,7 +34,7 @@ var result = audioData.GetFullLengthInMilliseconds();
 ### GetPreBeatZoneInMilliseconds
 `public int GetPreBeatZoneInMilliseconds()`
 
-**Purpose:** Reads and returns the `pre beat zone in milliseconds` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the pre beat zone in milliseconds value held by the this instance.
 
 ```csharp
 // Obtain an instance of AudioData from the subsystem API first
@@ -45,7 +45,7 @@ var result = audioData.GetPreBeatZoneInMilliseconds();
 ### GetPostBeatZoneInMilliseconds
 `public int GetPostBeatZoneInMilliseconds()`
 
-**Purpose:** Reads and returns the `post beat zone in milliseconds` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the post beat zone in milliseconds value held by the this instance.
 
 ```csharp
 // Obtain an instance of AudioData from the subsystem API first
@@ -56,7 +56,7 @@ var result = audioData.GetPostBeatZoneInMilliseconds();
 ### GetSampleCountByMilliseconds
 `public int GetSampleCountByMilliseconds(int milliSeconds)`
 
-**Purpose:** Reads and returns the `sample count by milliseconds` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sample count by milliseconds value held by the this instance.
 
 ```csharp
 // Obtain an instance of AudioData from the subsystem API first

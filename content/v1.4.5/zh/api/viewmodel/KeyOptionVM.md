@@ -36,7 +36,7 @@ description: "KeyOptionVM 的自动生成类参考。"
 ### Set
 `public abstract void Set(InputKey newKey)`
 
-**用途 / Purpose:** 为当前对象的属性或状态赋新值。
+**用途 / Purpose:** **用途 / Purpose:** 为当前对象的属性或状态赋新值。
 
 ```csharp
 // 先通过子系统 API 拿到 KeyOptionVM 实例
@@ -47,7 +47,7 @@ keyOptionVM.Set(newKey);
 ### Update
 `public abstract void Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 KeyOptionVM 实例
@@ -58,7 +58,7 @@ keyOptionVM.Update();
 ### OnDone
 `public abstract void OnDone()`
 
-**用途 / Purpose:** 在 「done」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 KeyOptionVM 实例
@@ -69,7 +69,7 @@ keyOptionVM.OnDone();
 ### ExecuteRevert
 `public abstract void ExecuteRevert()`
 
-**用途 / Purpose:** 执行 「revert」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 revert 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 KeyOptionVM 实例

@@ -31,7 +31,7 @@ description: "SaveEntryFolder 的自动生成类参考。"
 ### GetAllEntries
 `public List<SaveEntry> GetAllEntries()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all entries」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all entries 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveEntryFolder 实例
@@ -42,7 +42,7 @@ var result = saveEntryFolder.GetAllEntries();
 ### CreateRootFolder
 `public static SaveEntryFolder CreateRootFolder()`
 
-**用途 / Purpose:** 构建一个新的 「root folder」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 root folder 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ SaveEntryFolder.CreateRootFolder();
 ### AddEntry
 `public void AddEntry(SaveEntry saveEntry)`
 
-**用途 / Purpose:** 将 「entry」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 entry 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveEntryFolder 实例
@@ -63,7 +63,7 @@ saveEntryFolder.AddEntry(saveEntry);
 ### GetEntry
 `public SaveEntry GetEntry(EntryId entryId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「entry」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entry 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveEntryFolder 实例
@@ -74,7 +74,7 @@ var result = saveEntryFolder.GetEntry(entryId);
 ### AddChildFolderEntry
 `public void AddChildFolderEntry(SaveEntryFolder saveEntryFolder)`
 
-**用途 / Purpose:** 将 「child folder entry」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 child folder entry 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveEntryFolder 实例
@@ -85,7 +85,7 @@ saveEntryFolder.AddChildFolderEntry(saveEntryFolder);
 ### CreateEntry
 `public SaveEntry CreateEntry(EntryId entryId)`
 
-**用途 / Purpose:** 构建一个新的 「entry」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 entry 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveEntryFolder 实例

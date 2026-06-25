@@ -29,7 +29,7 @@ Treat `BaseNetworkComponentData` as a Data-style extension point: first identify
 ### UpdateCurrentBattleIndex
 `public void UpdateCurrentBattleIndex(int currentBattleIndex)`
 
-**Purpose:** Recalculates and stores the latest representation of `current battle index`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of current battle index.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponentData from the subsystem API first

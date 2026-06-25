@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetBanners
 `public override Banner GetBanners()`
 
-**Purpose:** Reads and returns the `banners` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banners value held by the this instance.
 
 ```csharp
 // Obtain an instance of SupportedFactionDefeatedSceneNotificationItem from the subsystem API first

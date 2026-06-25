@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Noti
 ### NameplateNotificationListPanel
 `public class NameplateNotificationListPanel(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NameplateNotificationListPanel logic.
 
 ```csharp
 // Obtain an instance of NameplateNotificationListPanel from the subsystem API first

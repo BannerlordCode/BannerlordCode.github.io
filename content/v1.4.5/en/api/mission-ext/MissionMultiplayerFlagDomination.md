@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UseGold
 `public bool UseGold()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UseGold logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -42,7 +42,7 @@ var result = missionMultiplayerFlagDomination.UseGold();
 ### AllowCustomPlayerBanners
 `public override bool AllowCustomPlayerBanners()`
 
-**Purpose:** Permits `custom player banners` to be enabled or performed on the current object.
+**Purpose:** **Purpose:** Permits custom player banners to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -53,7 +53,7 @@ var result = missionMultiplayerFlagDomination.AllowCustomPlayerBanners();
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UseRoundController logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -64,7 +64,7 @@ var result = missionMultiplayerFlagDomination.UseRoundController();
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**Purpose:** Reads and returns the `mission type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -75,7 +75,7 @@ var result = missionMultiplayerFlagDomination.GetMissionType();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -86,7 +86,7 @@ missionMultiplayerFlagDomination.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -97,7 +97,7 @@ missionMultiplayerFlagDomination.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -108,7 +108,7 @@ missionMultiplayerFlagDomination.OnRemoveBehavior();
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Invoked when the `peer changed team` event is raised.
+**Purpose:** **Purpose:** Invoked when the peer changed team event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -119,7 +119,7 @@ missionMultiplayerFlagDomination.OnPeerChangedTeam(peer, oldTeam, newTeam);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -130,7 +130,7 @@ missionMultiplayerFlagDomination.OnMissionTick(0);
 ### GetTimeUntilBattleSideVictory
 `public float GetTimeUntilBattleSideVictory(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `time until battle side victory` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the time until battle side victory value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -141,7 +141,7 @@ var result = missionMultiplayerFlagDomination.GetTimeUntilBattleSideVictory(side
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Invoked when the `clear scene` event is raised.
+**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -152,7 +152,7 @@ missionMultiplayerFlagDomination.OnClearScene();
 ### CheckIfOvertime
 `public override bool CheckIfOvertime()`
 
-**Purpose:** Verifies whether `if overtime` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if overtime holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -163,7 +163,7 @@ var result = missionMultiplayerFlagDomination.CheckIfOvertime();
 ### CheckForWarmupEnd
 `public override bool CheckForWarmupEnd()`
 
-**Purpose:** Verifies whether `for warmup end` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for warmup end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -174,7 +174,7 @@ var result = missionMultiplayerFlagDomination.CheckForWarmupEnd();
 ### CheckForRoundEnd
 `public override bool CheckForRoundEnd()`
 
-**Purpose:** Verifies whether `for round end` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for round end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -185,7 +185,7 @@ var result = missionMultiplayerFlagDomination.CheckForRoundEnd();
 ### UseCultureSelection
 `public override bool UseCultureSelection()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UseCultureSelection logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -196,7 +196,7 @@ var result = missionMultiplayerFlagDomination.UseCultureSelection();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -207,7 +207,7 @@ missionMultiplayerFlagDomination.OnAgentBuild(agent, banner);
 ### ForfeitSpawning
 `public void ForfeitSpawning(NetworkCommunicator peer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForfeitSpawning logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -218,7 +218,7 @@ missionMultiplayerFlagDomination.ForfeitSpawning(peer);
 ### SetWinnerTeam
 `public static void SetWinnerTeam(int winnerTeamNo)`
 
-**Purpose:** Assigns a new value to `winner team` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to winner team and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -228,7 +228,7 @@ MissionMultiplayerFlagDomination.SetWinnerTeam(0);
 ### GetNumberOfAttackersAroundFlag
 `public int GetNumberOfAttackersAroundFlag(FlagCapturePoint capturePoint)`
 
-**Purpose:** Reads and returns the `number of attackers around flag` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of attackers around flag value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -239,7 +239,7 @@ var result = missionMultiplayerFlagDomination.GetNumberOfAttackersAroundFlag(cap
 ### GetFlagOwnerTeam
 `public Team GetFlagOwnerTeam(FlagCapturePoint flag)`
 
-**Purpose:** Reads and returns the `flag owner team` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the flag owner team value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -250,7 +250,7 @@ var result = missionMultiplayerFlagDomination.GetFlagOwnerTeam(flag);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first
@@ -261,7 +261,7 @@ missionMultiplayerFlagDomination.OnAgentRemoved(affectedAgent, affectorAgent, ag
 ### GetTroopNumberMultiplierForMissingPlayer
 `public override float GetTroopNumberMultiplierForMissingPlayer(MissionPeer spawningPeer)`
 
-**Purpose:** Reads and returns the `troop number multiplier for missing player` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop number multiplier for missing player value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerFlagDomination from the subsystem API first

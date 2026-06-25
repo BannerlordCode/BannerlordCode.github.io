@@ -30,7 +30,7 @@ Treat `RetirementSettlementComponent` as a Component-style extension point: firs
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of RetirementSettlementComponent from the subsystem API first

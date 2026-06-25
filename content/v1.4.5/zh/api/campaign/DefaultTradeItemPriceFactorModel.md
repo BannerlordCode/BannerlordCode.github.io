@@ -23,7 +23,7 @@ description: "DefaultTradeItemPriceFactorModel 的自动生成类参考。"
 ### GetTradePenalty
 `public override float GetTradePenalty(ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「trade penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
@@ -34,7 +34,7 @@ var result = defaultTradeItemPriceFactorModel.GetTradePenalty(item, clientParty,
 ### GetBasePriceFactor
 `public override float GetBasePriceFactor(ItemCategory itemCategory, float inStoreValue, float supply, float demand, bool isSelling, int transferValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「base price factor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 base price factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
@@ -45,7 +45,7 @@ var result = defaultTradeItemPriceFactorModel.GetBasePriceFactor(itemCategory, 0
 ### GetPrice
 `public override int GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「price」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 price 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例
@@ -56,7 +56,7 @@ var result = defaultTradeItemPriceFactorModel.GetPrice(itemRosterElement, client
 ### GetTheoreticalMaxItemMarketValue
 `public override int GetTheoreticalMaxItemMarketValue(ItemObject item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「theoretical max item market value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 theoretical max item market value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeItemPriceFactorModel 实例

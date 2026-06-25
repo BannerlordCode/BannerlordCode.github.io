@@ -33,7 +33,7 @@ description: "ObjectiveMarkersParentWidget 的自动生成类参考。"
 ### Compare
 `public int Compare(ObjectiveMarkerWidget x, ObjectiveMarkerWidget y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectiveMarkersParentWidget 实例
@@ -44,7 +44,7 @@ var result = objectiveMarkersParentWidget.Compare(x, y);
 ### Compare
 `public int Compare(Widget x, Widget y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectiveMarkersParentWidget 实例

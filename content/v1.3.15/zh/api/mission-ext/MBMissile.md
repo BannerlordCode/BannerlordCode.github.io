@@ -29,7 +29,7 @@ description: "MBMissile 的自动生成类参考。"
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMissile 实例
@@ -40,7 +40,7 @@ var result = mBMissile.GetPosition();
 ### GetOldPosition
 `public Vec3 GetOldPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「old position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 old position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMissile 实例
@@ -51,7 +51,7 @@ var result = mBMissile.GetOldPosition();
 ### GetVelocity
 `public Vec3 GetVelocity()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「velocity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 velocity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMissile 实例
@@ -62,7 +62,7 @@ var result = mBMissile.GetVelocity();
 ### SetVelocity
 `public void SetVelocity(in Vec3 velocity)`
 
-**用途 / Purpose:** 为 「velocity」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 velocity 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMissile 实例
@@ -73,7 +73,7 @@ mBMissile.SetVelocity(velocity);
 ### GetHasRigidBody
 `public bool GetHasRigidBody()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「has rigid body」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 has rigid body 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMissile 实例

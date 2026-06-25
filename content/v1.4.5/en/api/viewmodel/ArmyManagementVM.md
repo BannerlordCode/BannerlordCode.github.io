@@ -76,7 +76,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### Compare
 `public int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -87,7 +87,7 @@ var result = armyManagementVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -98,7 +98,7 @@ armyManagementVM.RefreshValues();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -109,7 +109,7 @@ armyManagementVM.ExecuteDone();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -120,7 +120,7 @@ armyManagementVM.ExecuteCancel();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Runs the operation or workflow associated with `reset`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -131,7 +131,7 @@ armyManagementVM.ExecuteReset();
 ### ExecuteDisbandArmy
 `public void ExecuteDisbandArmy()`
 
-**Purpose:** Runs the operation or workflow associated with `disband army`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with disband army.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -142,7 +142,7 @@ armyManagementVM.ExecuteDisbandArmy();
 ### ExecuteBoostCohesionManual
 `public void ExecuteBoostCohesionManual()`
 
-**Purpose:** Runs the operation or workflow associated with `boost cohesion manual`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with boost cohesion manual.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -153,7 +153,7 @@ armyManagementVM.ExecuteBoostCohesionManual();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -164,7 +164,7 @@ armyManagementVM.OnFinalize();
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -175,7 +175,7 @@ armyManagementVM.SetResetInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -186,7 +186,7 @@ armyManagementVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first
@@ -197,7 +197,7 @@ armyManagementVM.SetDoneInputKey(hotKey);
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `remove input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to remove input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyManagementVM from the subsystem API first

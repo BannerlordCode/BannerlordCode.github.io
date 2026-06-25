@@ -23,7 +23,7 @@ Treat `DiplomacyHelper` as a Helper-style extension point: first identify who cr
 ### IsWarCausedByPlayer
 `public static bool IsWarCausedByPlayer(IFaction faction1, IFaction faction2, DeclareWarAction.DeclareWarDetail declareWarDetail)`
 
-**Purpose:** Determines whether the current object is in the `war caused by player` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the war caused by player state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ DiplomacyHelper.IsWarCausedByPlayer(faction1, faction2, declareWarDetail);
 ### IsSameFactionAndNotEliminated
 `public static bool IsSameFactionAndNotEliminated(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Determines whether the current object is in the `same faction and not eliminated` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the same faction and not eliminated state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ DiplomacyHelper.IsSameFactionAndNotEliminated(faction1, faction2);
 ### GetPrisonersOfWarTakenByFaction
 `public static List<Hero> GetPrisonersOfWarTakenByFaction(IFaction capturerFaction, IFaction prisonerFaction)`
 
-**Purpose:** Reads and returns the `prisoners of war taken by faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prisoners of war taken by faction value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ DiplomacyHelper.GetPrisonersOfWarTakenByFaction(capturerFaction, prisonerFaction
 ### DidMainHeroSwornNotToAttackFaction
 `public static bool DidMainHeroSwornNotToAttackFaction(IFaction faction, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DidMainHeroSwornNotToAttackFaction logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ DiplomacyHelper.DidMainHeroSwornNotToAttackFaction(faction, explanation);
 ### HasAllianceWithFaction
 `public static bool HasAllianceWithFaction(IFaction faction1, IFaction faction2)`
 
-**Purpose:** Determines whether the current object already holds `alliance with faction`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds alliance with faction.
 
 ```csharp
 // Static call; no instance required

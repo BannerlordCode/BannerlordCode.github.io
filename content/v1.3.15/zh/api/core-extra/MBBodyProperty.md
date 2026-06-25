@@ -33,7 +33,7 @@ description: "MBBodyProperty 的自动生成类参考。"
 ### CreateFrom
 `public static MBBodyProperty CreateFrom(MBBodyProperty bodyProperty)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBBodyProperty.CreateFrom(bodyProperty);
 ### Init
 `public void Init(BodyProperties bodyPropertyMin, BodyProperties bodyPropertyMax)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBBodyProperty 实例
@@ -54,7 +54,7 @@ mBBodyProperty.Init(bodyPropertyMin, bodyPropertyMax);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBBodyProperty 实例

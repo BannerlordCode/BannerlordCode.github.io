@@ -23,7 +23,7 @@ description: "StandingGuardSpawnData 的自动生成类参考。"
 ### GetPointOfInterestType
 `public override PointOfInterests GetPointOfInterestType()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「point of interest type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 point of interest type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingGuardSpawnData 实例
@@ -34,7 +34,7 @@ var result = standingGuardSpawnData.GetPointOfInterestType();
 ### IsInRadius
 `public override bool IsInRadius(PointOfInterestBaseData otherPointOfInterest)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「in radius」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 in radius 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingGuardSpawnData 实例
@@ -45,7 +45,7 @@ var result = standingGuardSpawnData.IsInRadius(otherPointOfInterest);
 ### GetLocationRatio
 `public override float GetLocationRatio()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「location ratio」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 location ratio 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingGuardSpawnData 实例

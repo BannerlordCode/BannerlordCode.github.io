@@ -33,7 +33,7 @@ description: "ClientApplicationConfiguration 的自动生成类参考。"
 ### GetDefaultConfigurationFromFile
 `public static string GetDefaultConfigurationFromFile()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default configuration from file」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default configuration from file 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ClientApplicationConfiguration.GetDefaultConfigurationFromFile();
 ### SetDefaultConfigurationCategory
 `public static void SetDefaultConfigurationCategory(string category)`
 
-**用途 / Purpose:** 为 「default configuration category」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 default configuration category 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ClientApplicationConfiguration.SetDefaultConfigurationCategory("example");
 ### FillFrom
 `public void FillFrom(string configurationName)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientApplicationConfiguration 实例
@@ -64,7 +64,7 @@ clientApplicationConfiguration.FillFrom("example");
 ### FillFrom
 `public void FillFrom(string configurationCategory, string configurationName)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientApplicationConfiguration 实例

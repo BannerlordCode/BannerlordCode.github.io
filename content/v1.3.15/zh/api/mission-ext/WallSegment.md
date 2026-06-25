@@ -38,7 +38,7 @@ description: "WallSegment 的自动生成类参考。"
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WallSegment 实例
@@ -49,7 +49,7 @@ var result = wallSegment.GetPosition();
 ### OnChooseUsedWallSegment
 `public void OnChooseUsedWallSegment(bool isBroken)`
 
-**用途 / Purpose:** 在 「choose used wall segment」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 choose used wall segment 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WallSegment 实例

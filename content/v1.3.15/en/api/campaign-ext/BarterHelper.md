@@ -23,7 +23,7 @@ Treat `BarterHelper` as a Helper-style extension point: first identify who creat
 ### GetAutoBalanceBarterablesAdd
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesAdd(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero, float fulfillRatio = 1f)`
 
-**Purpose:** Reads and returns the `auto balance barterables add` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the auto balance barterables add value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ BarterHelper.GetAutoBalanceBarterablesAdd(barterData, factionToBalanceFor, offer
 ### GetAutoBalanceBarterablesToRemove
 `public static IEnumerable<ValueTuple<Barterable, int>> GetAutoBalanceBarterablesToRemove(BarterData barterData, IFaction factionToBalanceFor, IFaction offerer, Hero offererHero)`
 
-**Purpose:** Reads and returns the `auto balance barterables to remove` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the auto balance barterables to remove value held by the this instance.
 
 ```csharp
 // Static call; no instance required

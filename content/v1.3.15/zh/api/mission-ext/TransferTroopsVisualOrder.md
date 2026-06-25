@@ -23,7 +23,7 @@ description: "TransferTroopsVisualOrder 的自动生成类参考。"
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行 「order」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 order 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TransferTroopsVisualOrder 实例
@@ -34,7 +34,7 @@ transferTroopsVisualOrder.ExecuteOrder(orderController, executionParameters);
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TransferTroopsVisualOrder 实例
@@ -45,7 +45,7 @@ var result = transferTroopsVisualOrder.GetName(orderController);
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「targeted」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 targeted 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TransferTroopsVisualOrder 实例

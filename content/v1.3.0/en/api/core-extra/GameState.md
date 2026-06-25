@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### RegisterListener
 `public bool RegisterListener(IGameStateListener listener)`
 
-**Purpose:** Registers `listener` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers listener with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GameState from the subsystem API first
@@ -46,7 +46,7 @@ var result = gameState.RegisterListener(listener);
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateListener listener)`
 
-**Purpose:** Unregisters `listener` from the current system.
+**Purpose:** **Purpose:** Unregisters listener from the current system.
 
 ```csharp
 // Obtain an instance of GameState from the subsystem API first

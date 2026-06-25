@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
@@ -34,7 +34,7 @@ missionAgentMarkerTargetVM.UpdatePosition(missionCamera);
 ### UpdateQuestStatus
 `public void UpdateQuestStatus()`
 
-**Purpose:** Recalculates and stores the latest representation of `quest status`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of quest status.
 
 ```csharp
 // Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first
@@ -45,7 +45,7 @@ missionAgentMarkerTargetVM.UpdateQuestStatus();
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionAgentMarkerTargetVM from the subsystem API first

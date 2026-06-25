@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SetDumpDirectory
 `public static void SetDumpDirectory(string Path)`
 
-**Purpose:** Assigns a new value to `dump directory` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to dump directory and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Watchdog.SetDumpDirectory("example");
 ### DetachAndClose
 `public static void DetachAndClose()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DetachAndClose logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Watchdog.DetachAndClose();
 ### LogProperty
 `public static void LogProperty(string FileName, string GroupName, string Key, string Value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LogProperty logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Watchdog.LogProperty("example", "example", "example", "example");
 ### Attached
 `public static bool Attached()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Attached logic.
 
 ```csharp
 // Static call; no instance required

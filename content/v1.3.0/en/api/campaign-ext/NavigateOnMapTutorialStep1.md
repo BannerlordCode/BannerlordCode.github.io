@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of NavigateOnMapTutorialStep1 from the subsystem API first
@@ -34,7 +34,7 @@ var result = navigateOnMapTutorialStep1.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of NavigateOnMapTutorialStep1 from the subsystem API first
@@ -45,7 +45,7 @@ var result = navigateOnMapTutorialStep1.IsConditionsMetForActivation();
 ### OnMainMapCameraMove
 `public override void OnMainMapCameraMove(MapScreen.MainMapCameraMoveEvent obj)`
 
-**Purpose:** Invoked when the `main map camera move` event is raised.
+**Purpose:** **Purpose:** Invoked when the main map camera move event is raised.
 
 ```csharp
 // Obtain an instance of NavigateOnMapTutorialStep1 from the subsystem API first
@@ -56,7 +56,7 @@ navigateOnMapTutorialStep1.OnMainMapCameraMove(obj);
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of NavigateOnMapTutorialStep1 from the subsystem API first

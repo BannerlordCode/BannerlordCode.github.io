@@ -32,7 +32,7 @@ description: "DefaultAllianceModel 的自动生成类参考。"
 ### GetCallToWarCost
 `public override int GetCallToWarCost(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「call to war cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 call to war cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultAllianceModel 实例
@@ -43,7 +43,7 @@ var result = defaultAllianceModel.GetCallToWarCost(callingKingdom, calledKingdom
 ### GetScoreOfStartingAlliance
 `public override ExplainedNumber GetScoreOfStartingAlliance(Kingdom kingdomDeclaresAlliance, Kingdom kingdomDeclaredAlliance, IFaction evaluatingFaction, bool includeDescription = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of starting alliance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of starting alliance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultAllianceModel 实例
@@ -54,7 +54,7 @@ var result = defaultAllianceModel.GetScoreOfStartingAlliance(kingdomDeclaresAlli
 ### GetInfluenceCostOfProposingStartingAlliance
 `public override int GetInfluenceCostOfProposingStartingAlliance(Clan proposingClan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence cost of proposing starting alliance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing starting alliance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultAllianceModel 实例
@@ -65,7 +65,7 @@ var result = defaultAllianceModel.GetInfluenceCostOfProposingStartingAlliance(pr
 ### GetScoreOfCallingToWar
 `public override float GetScoreOfCallingToWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of calling to war」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of calling to war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultAllianceModel 实例
@@ -76,7 +76,7 @@ var result = defaultAllianceModel.GetScoreOfCallingToWar(callingKingdom, calledK
 ### GetScoreOfJoiningWar
 `public override float GetScoreOfJoiningWar(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, IFaction evaluatingFaction, out TextObject reason)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of joining war」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of joining war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultAllianceModel 实例
@@ -87,7 +87,7 @@ var result = defaultAllianceModel.GetScoreOfJoiningWar(callingKingdom, calledKin
 ### GetInfluenceCostOfCallingToWar
 `public override int GetInfluenceCostOfCallingToWar(Clan proposingClan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence cost of calling to war」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of calling to war 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultAllianceModel 实例

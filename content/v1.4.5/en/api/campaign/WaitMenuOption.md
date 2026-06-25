@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus` to place it in the st
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate(MenuCallbackArgs args)`
 
-**Purpose:** Invoked when the `condition delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the condition delegate event is raised.
 
 ```csharp
 // Obtain an instance of WaitMenuOption from the subsystem API first
@@ -40,7 +40,7 @@ var result = waitMenuOption.OnConditionDelegate(args);
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate(MenuCallbackArgs args)`
 
-**Purpose:** Invoked when the `consequence delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the consequence delegate event is raised.
 
 ```csharp
 // Obtain an instance of WaitMenuOption from the subsystem API first
@@ -51,7 +51,7 @@ waitMenuOption.OnConsequenceDelegate(args);
 ### GetConditionsHold
 `public bool GetConditionsHold(Game game, MapState mapState)`
 
-**Purpose:** Reads and returns the `conditions hold` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the conditions hold value held by the this instance.
 
 ```csharp
 // Obtain an instance of WaitMenuOption from the subsystem API first
@@ -62,7 +62,7 @@ var result = waitMenuOption.GetConditionsHold(game, mapState);
 ### RunConsequence
 `public void RunConsequence(Game game, MapState mapState)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RunConsequence logic.
 
 ```csharp
 // Obtain an instance of WaitMenuOption from the subsystem API first
@@ -73,7 +73,7 @@ waitMenuOption.RunConsequence(game, mapState);
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfWaitMenusCallbacks)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of WaitMenuOption from the subsystem API first

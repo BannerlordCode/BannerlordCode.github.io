@@ -23,7 +23,7 @@ Treat `DefaultEquipmentSelectionModel` as a Model-style extension point: first i
 ### GetEquipmentRostersForHeroComeOfAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**Purpose:** Reads and returns the `equipment rosters for hero come of age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for hero come of age value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment rosters for hero reaches teen age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for hero reaches teen age value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForHeroReachesTee
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment rosters for initial children generation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for initial children generation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForInitialChildre
 ### GetEquipmentRostersForDeliveredOffspring
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment rosters for delivered offspring` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for delivered offspring value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentRostersForDeliveredOffsp
 ### GetEquipmentRostersForCompanion
 `public override MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero hero, bool isCivilian)`
 
-**Purpose:** Reads and returns the `equipment rosters for companion` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for companion value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEquipmentSelectionModel from the subsystem API first

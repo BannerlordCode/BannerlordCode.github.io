@@ -30,7 +30,7 @@ description: "PartySpeedModel 的自动生成类参考。"
 ### CalculateBaseSpeed
 `public abstract ExplainedNumber CalculateBaseSpeed(MobileParty party, bool includeDescriptions = false, int additionalTroopOnFootCount = 0, int additionalTroopOnHorseCount = 0)`
 
-**用途 / Purpose:** 计算「base speed」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算base speed的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartySpeedModel 实例
@@ -41,7 +41,7 @@ var result = partySpeedModel.CalculateBaseSpeed(party, false, 0, 0);
 ### CalculateFinalSpeed
 `public abstract ExplainedNumber CalculateFinalSpeed(MobileParty mobileParty, ExplainedNumber finalSpeed)`
 
-**用途 / Purpose:** 计算「final speed」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算final speed的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartySpeedModel 实例

@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.GameOver` to place it in the s
 ### GetGameOverStats
 `public IEnumerable<StatCategory> GetGameOverStats()`
 
-**Purpose:** Reads and returns the `game over stats` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game over stats value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameOverStatsProvider from the subsystem API first

@@ -23,7 +23,7 @@ Treat `ArenaDuelMissionController` as a Controller-style extension point: first 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of ArenaDuelMissionController from the subsystem API first
@@ -34,7 +34,7 @@ arenaDuelMissionController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ArenaDuelMissionController from the subsystem API first
@@ -45,7 +45,7 @@ arenaDuelMissionController.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of ArenaDuelMissionController from the subsystem API first
@@ -56,7 +56,7 @@ arenaDuelMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentSta
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of ArenaDuelMissionController from the subsystem API first

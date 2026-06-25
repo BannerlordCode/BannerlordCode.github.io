@@ -23,7 +23,7 @@ Treat `MissionSiegeWeaponsController` as a Controller-style extension point: fir
 ### GetMaxDeployableWeaponCount
 `public int GetMaxDeployableWeaponCount(Type t)`
 
-**Purpose:** Reads and returns the `max deployable weapon count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max deployable weapon count value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionSiegeWeaponsController.GetMaxDeployableWeaponCount(t);
 ### GetSiegeWeapons
 `public IEnumerable<IMissionSiegeWeapon> GetSiegeWeapons()`
 
-**Purpose:** Reads and returns the `siege weapons` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege weapons value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionSiegeWeaponsController.GetSiegeWeapons();
 ### OnWeaponDeployed
 `public void OnWeaponDeployed(SiegeWeapon missionWeapon)`
 
-**Purpose:** Invoked when the `weapon deployed` event is raised.
+**Purpose:** **Purpose:** Invoked when the weapon deployed event is raised.
 
 ```csharp
 // Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
@@ -56,7 +56,7 @@ missionSiegeWeaponsController.OnWeaponDeployed(missionWeapon);
 ### OnWeaponUndeployed
 `public void OnWeaponUndeployed(SiegeWeapon missionWeapon)`
 
-**Purpose:** Invoked when the `weapon undeployed` event is raised.
+**Purpose:** **Purpose:** Invoked when the weapon undeployed event is raised.
 
 ```csharp
 // Obtain an instance of MissionSiegeWeaponsController from the subsystem API first
@@ -67,7 +67,7 @@ missionSiegeWeaponsController.OnWeaponUndeployed(missionWeapon);
 ### GetWeaponType
 `public static Type GetWeaponType(ScriptComponentBehavior weapon)`
 
-**Purpose:** Reads and returns the `weapon type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the weapon type value held by the this instance.
 
 ```csharp
 // Static call; no instance required

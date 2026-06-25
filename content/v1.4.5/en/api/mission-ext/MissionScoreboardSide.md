@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddPlayer
 `public void AddPlayer(MissionPeer peer)`
 
-**Purpose:** Adds `player` to the current collection or state.
+**Purpose:** **Purpose:** Adds player to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -34,7 +34,7 @@ missionScoreboardSide.AddPlayer(peer);
 ### RemovePlayer
 `public void RemovePlayer(MissionPeer peer)`
 
-**Purpose:** Removes `player` from the current collection or state.
+**Purpose:** **Purpose:** Removes player from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -45,7 +45,7 @@ missionScoreboardSide.RemovePlayer(peer);
 ### GetValuesOf
 `public string GetValuesOf(MissionPeer peer)`
 
-**Purpose:** Reads and returns the `values of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the values of value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionScoreboardSide.GetValuesOf(peer);
 ### GetHeaderNames
 `public string GetHeaderNames()`
 
-**Purpose:** Reads and returns the `header names` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the header names value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -67,7 +67,7 @@ var result = missionScoreboardSide.GetHeaderNames();
 ### GetHeaderIds
 `public string GetHeaderIds()`
 
-**Purpose:** Reads and returns the `header ids` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the header ids value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -78,7 +78,7 @@ var result = missionScoreboardSide.GetHeaderIds();
 ### GetScore
 `public int GetScore(MissionPeer peer)`
 
-**Purpose:** Reads and returns the `score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -89,7 +89,7 @@ var result = missionScoreboardSide.GetScore(peer);
 ### UpdateHeader
 `public void UpdateHeader(ScoreboardHeader headers)`
 
-**Purpose:** Recalculates and stores the latest representation of `header`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of header.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -100,7 +100,7 @@ missionScoreboardSide.UpdateHeader(headers);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first
@@ -111,7 +111,7 @@ missionScoreboardSide.Clear();
 ### CalculateAndGetMVPScoreWithPeer
 `public KeyValuePair<MissionPeer, int> CalculateAndGetMVPScoreWithPeer()`
 
-**Purpose:** Calculates the current value or result of `and get m v p score with peer`.
+**Purpose:** **Purpose:** Calculates the current value or result of and get m v p score with peer.
 
 ```csharp
 // Obtain an instance of MissionScoreboardSide from the subsystem API first

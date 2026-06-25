@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### Compare
 `public override int Compare(MissionScoreboardPlayerVM x, MissionScoreboardPlayerVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ItemScoreComparer from the subsystem API first

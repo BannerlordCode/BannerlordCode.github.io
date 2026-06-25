@@ -44,7 +44,7 @@ description: "KingdomGiftFiefPopupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例
@@ -55,7 +55,7 @@ kingdomGiftFiefPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(Settlement settlement)`
 
-**用途 / Purpose:** 打开「with」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例
@@ -66,7 +66,7 @@ kingdomGiftFiefPopupVM.OpenWith(settlement);
 ### ExecuteGiftSettlement
 `public void ExecuteGiftSettlement()`
 
-**用途 / Purpose:** 执行 「gift settlement」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 gift settlement 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例
@@ -77,7 +77,7 @@ kingdomGiftFiefPopupVM.ExecuteGiftSettlement();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例
@@ -88,7 +88,7 @@ kingdomGiftFiefPopupVM.ExecuteClose();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例
@@ -99,7 +99,7 @@ kingdomGiftFiefPopupVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例
@@ -110,7 +110,7 @@ kingdomGiftFiefPopupVM.SetDoneInputKey(hotKey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomGiftFiefPopupVM 实例

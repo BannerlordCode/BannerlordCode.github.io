@@ -23,7 +23,7 @@ description: "Controller 的自动生成类参考。"
 ### OverrideManagedDllFolder
 `public static void OverrideManagedDllFolder(IntPtr overridenFolderAsPointer)`
 
-**用途 / Purpose:** 处理与 「override managed dll folder」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OverrideManagedDllFolder 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Controller.OverrideManagedDllFolder(overridenFolderAsPointer);
 ### LoadOnCurrentApplicationDomain
 `public static void LoadOnCurrentApplicationDomain(IntPtr gameDllNameAsPointer, IntPtr gameTypeNameAsPointer, int currentEngineAsInteger, int currentPlatformAsInteger)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「on current application domain」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 on current application domain。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Controller.LoadOnCurrentApplicationDomain(gameDllNameAsPointer, gameTypeNameAsPo
 ### SetEngineMethodsAsMono
 `public static void SetEngineMethodsAsMono(IntPtr passControllerMethods, IntPtr passManagedInitializeMethod, IntPtr passManagedCallbackMethod)`
 
-**用途 / Purpose:** 为 「engine methods as mono」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 engine methods as mono 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Controller.SetEngineMethodsAsMono(passControllerMethods, passManagedInitializeMe
 ### SetEngineMethodsAsHostedDotNetCore
 `public static void SetEngineMethodsAsHostedDotNetCore(IntPtr passControllerMethods, IntPtr passManagedInitializeMethod, IntPtr passManagedCallbackMethod)`
 
-**用途 / Purpose:** 为 「engine methods as hosted dot net core」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 engine methods as hosted dot net core 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Controller.SetEngineMethodsAsHostedDotNetCore(passControllerMethods, passManaged
 ### SetEngineMethodsAsDotNet
 `public static void SetEngineMethodsAsDotNet(Delegate passControllerMethods, Delegate passManagedInitializeMethod, Delegate passManagedCallbackMethod)`
 
-**用途 / Purpose:** 为 「engine methods as dot net」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 engine methods as dot net 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

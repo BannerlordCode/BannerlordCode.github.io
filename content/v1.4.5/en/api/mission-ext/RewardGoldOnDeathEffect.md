@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetIsTeamRewardedOnDeath
 `public override bool GetIsTeamRewardedOnDeath()`
 
-**Purpose:** Reads and returns the `is team rewarded on death` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is team rewarded on death value held by the this instance.
 
 ```csharp
 // Obtain an instance of RewardGoldOnDeathEffect from the subsystem API first
@@ -34,7 +34,7 @@ var result = rewardGoldOnDeathEffect.GetIsTeamRewardedOnDeath();
 ### CalculateRewardedGoldOnDeath
 `public override void CalculateRewardedGoldOnDeath(Agent agent, List<(MissionPeer, int)> teamMembers)`
 
-**Purpose:** Calculates the current value or result of `rewarded gold on death`.
+**Purpose:** **Purpose:** Calculates the current value or result of rewarded gold on death.
 
 ```csharp
 // Obtain an instance of RewardGoldOnDeathEffect from the subsystem API first

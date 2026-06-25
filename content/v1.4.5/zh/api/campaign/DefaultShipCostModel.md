@@ -23,7 +23,7 @@ description: "DefaultShipCostModel 的自动生成类参考。"
 ### GetShipTradeValue
 `public override float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ship trade value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship trade value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultShipCostModel 实例
@@ -34,7 +34,7 @@ var result = defaultShipCostModel.GetShipTradeValue(ship, seller, buyer);
 ### GetShipRepairCost
 `public override float GetShipRepairCost(Ship ship, PartyBase owner)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ship repair cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship repair cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultShipCostModel 实例
@@ -45,7 +45,7 @@ var result = defaultShipCostModel.GetShipRepairCost(ship, owner);
 ### GetShipUpgradePieceCost
 `public override int GetShipUpgradePieceCost(Ship ship, ShipUpgradePiece piece, PartyBase owner)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ship upgrade piece cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship upgrade piece cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultShipCostModel 实例
@@ -56,7 +56,7 @@ var result = defaultShipCostModel.GetShipUpgradePieceCost(ship, piece, owner);
 ### GetShipSellingPenalty
 `public override float GetShipSellingPenalty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ship selling penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship selling penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultShipCostModel 实例

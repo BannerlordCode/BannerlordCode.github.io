@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SetScriptComponentToTick
 `public void SetScriptComponentToTick(TickRequirement tickReq)`
 
-**Purpose:** Assigns a new value to `script component to tick` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to script component to tick and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScriptComponentBehavior from the subsystem API first
@@ -41,7 +41,7 @@ scriptComponentBehavior.SetScriptComponentToTick(tickReq);
 ### SetScriptComponentToTickMT
 `public void SetScriptComponentToTickMT(TickRequirement value)`
 
-**Purpose:** Assigns a new value to `script component to tick m t` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to script component to tick m t and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScriptComponentBehavior from the subsystem API first
@@ -52,7 +52,7 @@ scriptComponentBehavior.SetScriptComponentToTickMT(value);
 ### GetTickRequirement
 `public virtual TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScriptComponentBehavior from the subsystem API first

@@ -30,7 +30,7 @@ description: "PropertyChangedWithIntValueEventArgs 的自动生成类参考。"
 ### PropertyChangedWithIntValueEventArgs
 `public struct PropertyChangedWithIntValueEventArgs(string propertyName, int value)`
 
-**用途 / Purpose:** 处理与 「property changed with int value event args」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PropertyChangedWithIntValueEventArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyChangedWithIntValueEventArgs 实例

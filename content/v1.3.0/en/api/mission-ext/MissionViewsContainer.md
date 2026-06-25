@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews` to place it in
 ### Add
 `public void Add(MissionView missionView)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionViewsContainer from the subsystem API first
@@ -34,7 +34,7 @@ missionViewsContainer.Add(missionView);
 ### Remove
 `public void Remove(MissionView missionView)`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionViewsContainer from the subsystem API first
@@ -45,7 +45,7 @@ missionViewsContainer.Remove(missionView);
 ### Contains
 `public bool Contains(MissionView missionView)`
 
-**Purpose:** Indicates whether the current object contains the specified item.
+**Purpose:** **Purpose:** Indicates whether the this instance contains the specified item.
 
 ```csharp
 // Obtain an instance of MissionViewsContainer from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionViewsContainer.Contains(missionView);
 ### ForEach
 `public void ForEach(Action<MissionView> action)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForEach logic.
 
 ```csharp
 // Obtain an instance of MissionViewsContainer from the subsystem API first

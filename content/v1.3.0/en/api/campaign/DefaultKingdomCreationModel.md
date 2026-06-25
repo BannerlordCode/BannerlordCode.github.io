@@ -32,7 +32,7 @@ Treat `DefaultKingdomCreationModel` as a Model-style extension point: first iden
 ### IsPlayerKingdomCreationPossible
 `public override bool IsPlayerKingdomCreationPossible(out List<TextObject> explanations)`
 
-**Purpose:** Determines whether the current object is in the `player kingdom creation possible` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player kingdom creation possible state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomCreationModel from the subsystem API first
@@ -43,7 +43,7 @@ var result = defaultKingdomCreationModel.IsPlayerKingdomCreationPossible(explana
 ### IsPlayerKingdomAbdicationPossible
 `public override bool IsPlayerKingdomAbdicationPossible(out List<TextObject> explanations)`
 
-**Purpose:** Determines whether the current object is in the `player kingdom abdication possible` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the player kingdom abdication possible state or condition.
 
 ```csharp
 // Obtain an instance of DefaultKingdomCreationModel from the subsystem API first
@@ -54,7 +54,7 @@ var result = defaultKingdomCreationModel.IsPlayerKingdomAbdicationPossible(expla
 ### GetAvailablePlayerKingdomCultures
 `public override IEnumerable<CultureObject> GetAvailablePlayerKingdomCultures()`
 
-**Purpose:** Reads and returns the `available player kingdom cultures` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available player kingdom cultures value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultKingdomCreationModel from the subsystem API first

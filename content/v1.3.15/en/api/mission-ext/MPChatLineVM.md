@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer` 
 ### HandleFading
 `public void HandleFading(float dt)`
 
-**Purpose:** Executes the response logic associated with `fading`.
+**Purpose:** **Purpose:** Executes the response logic associated with fading.
 
 ```csharp
 // Obtain an instance of MPChatLineVM from the subsystem API first
@@ -43,7 +43,7 @@ mPChatLineVM.HandleFading(0);
 ### ForceInvisible
 `public void ForceInvisible()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceInvisible logic.
 
 ```csharp
 // Obtain an instance of MPChatLineVM from the subsystem API first
@@ -54,7 +54,7 @@ mPChatLineVM.ForceInvisible();
 ### ToggleForceVisible
 `public void ToggleForceVisible(bool visible)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToggleForceVisible logic.
 
 ```csharp
 // Obtain an instance of MPChatLineVM from the subsystem API first

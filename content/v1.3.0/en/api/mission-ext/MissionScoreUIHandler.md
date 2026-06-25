@@ -23,7 +23,7 @@ Treat `MissionScoreUIHandler` as a Handler-style extension point: first identify
 ### SetName
 `public void SetName(string name, int index)`
 
-**Purpose:** Assigns a new value to `name` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionScoreUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionScoreUIHandler.SetName("example", 0);
 ### SaveScore
 `public void SaveScore(int score, int index)`
 
-**Purpose:** Writes `score` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes score to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of MissionScoreUIHandler from the subsystem API first

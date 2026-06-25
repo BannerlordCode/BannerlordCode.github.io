@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**Purpose:** Invoked when the `game loaded` event is raised.
+**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerSubModule from the subsystem API first
@@ -34,7 +34,7 @@ multiplayerSubModule.OnGameLoaded(game, initializerObject);
 ### OnInitialState
 `public override void OnInitialState()`
 
-**Purpose:** Invoked when the `initial state` event is raised.
+**Purpose:** **Purpose:** Invoked when the initial state event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerSubModule from the subsystem API first

@@ -61,7 +61,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -72,7 +72,7 @@ mPMatchmakingVM.RefreshValues();
 ### TrySetMatchmakingSubPage
 `public void TrySetMatchmakingSubPage(MatchmakingSubPages newPage)`
 
-**Purpose:** Attempts to retrieve `set matchmaking sub page`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve set matchmaking sub page, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -83,7 +83,7 @@ mPMatchmakingVM.TrySetMatchmakingSubPage(newPage);
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**Purpose:** Keeps the display or cache of `player data` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of player data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -94,7 +94,7 @@ mPMatchmakingVM.RefreshPlayerData(playerData);
 ### OnFindingGame
 `public void OnFindingGame()`
 
-**Purpose:** Invoked when the `finding game` event is raised.
+**Purpose:** **Purpose:** Invoked when the finding game event is raised.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -105,7 +105,7 @@ mPMatchmakingVM.OnFindingGame();
 ### OnCancelFindingGame
 `public void OnCancelFindingGame()`
 
-**Purpose:** Invoked when the `cancel finding game` event is raised.
+**Purpose:** **Purpose:** Invoked when the cancel finding game event is raised.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -116,7 +116,7 @@ mPMatchmakingVM.OnCancelFindingGame();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -127,7 +127,7 @@ mPMatchmakingVM.OnFinalize();
 ### GetSelectedGameTypesInfo
 `public bool GetSelectedGameTypesInfo(out string gameTypes)`
 
-**Purpose:** Reads and returns the `selected game types info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the selected game types info value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -138,7 +138,7 @@ var result = mPMatchmakingVM.GetSelectedGameTypesInfo(gameTypes);
 ### RefreshWaitingTime
 `public void RefreshWaitingTime()`
 
-**Purpose:** Keeps the display or cache of `waiting time` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of waiting time in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -149,7 +149,7 @@ mPMatchmakingVM.RefreshWaitingTime();
 ### ExecuteAutoFindGame
 `public void ExecuteAutoFindGame()`
 
-**Purpose:** Runs the operation or workflow associated with `auto find game`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with auto find game.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -160,7 +160,7 @@ mPMatchmakingVM.ExecuteAutoFindGame();
 ### RefreshSubPageStates
 `public void RefreshSubPageStates()`
 
-**Purpose:** Keeps the display or cache of `sub page states` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of sub page states in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -171,7 +171,7 @@ mPMatchmakingVM.RefreshSubPageStates();
 ### OnPremadeGameEligibilityStatusReceived
 `public void OnPremadeGameEligibilityStatusReceived(bool isEligible)`
 
-**Purpose:** Invoked when the `premade game eligibility status received` event is raised.
+**Purpose:** **Purpose:** Invoked when the premade game eligibility status received event is raised.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first
@@ -182,7 +182,7 @@ mPMatchmakingVM.OnPremadeGameEligibilityStatusReceived(false);
 ### OnSupportedFeaturesRefreshed
 `public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)`
 
-**Purpose:** Invoked when the `supported features refreshed` event is raised.
+**Purpose:** **Purpose:** Invoked when the supported features refreshed event is raised.
 
 ```csharp
 // Obtain an instance of MPMatchmakingVM from the subsystem API first

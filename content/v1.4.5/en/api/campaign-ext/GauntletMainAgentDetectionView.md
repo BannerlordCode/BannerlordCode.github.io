@@ -23,7 +23,7 @@ Treat `GauntletMainAgentDetectionView` as a View-style extension point: first id
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
@@ -34,7 +34,7 @@ gauntletMainAgentDetectionView.OnMissionScreenInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
@@ -45,7 +45,7 @@ gauntletMainAgentDetectionView.AfterStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first
@@ -56,7 +56,7 @@ gauntletMainAgentDetectionView.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMainAgentDetectionView from the subsystem API first

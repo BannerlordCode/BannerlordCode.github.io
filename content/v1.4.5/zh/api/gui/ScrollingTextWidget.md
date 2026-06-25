@@ -34,7 +34,7 @@ description: "ScrollingTextWidget 的自动生成类参考。"
 ### OnBrushChanged
 `public override void OnBrushChanged()`
 
-**用途 / Purpose:** 在 「brush changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 brush changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollingTextWidget 实例

@@ -29,7 +29,7 @@ description: "HeroViewModel 的自动生成类参考。"
 ### SetEquipment
 `public override void SetEquipment(Equipment equipment)`
 
-**用途 / Purpose:** 为 「equipment」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 equipment 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroViewModel 实例
@@ -40,7 +40,7 @@ heroViewModel.SetEquipment(equipment);
 ### FillFrom
 `public void FillFrom(Hero hero, int seed = -1, bool useCivilian = false, bool useCharacteristicIdleAction = false)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroViewModel 实例
@@ -51,7 +51,7 @@ heroViewModel.FillFrom(hero, 0, false, false);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroViewModel 实例

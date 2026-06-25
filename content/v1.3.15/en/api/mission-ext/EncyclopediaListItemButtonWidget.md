@@ -34,7 +34,7 @@ Treat `EncyclopediaListItemButtonWidget` as a Widget-style extension point: firs
 ### OnThisLateUpdate
 `public void OnThisLateUpdate(float dt)`
 
-**Purpose:** Invoked when the `this late update` event is raised.
+**Purpose:** **Purpose:** Invoked when the this late update event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemButtonWidget from the subsystem API first

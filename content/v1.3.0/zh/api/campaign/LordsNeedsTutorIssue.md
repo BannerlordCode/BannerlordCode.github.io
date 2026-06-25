@@ -38,7 +38,7 @@ description: "LordsNeedsTutorIssue 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -49,7 +49,7 @@ lordsNeedsTutorIssue.RegisterEvents();
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 check for issue 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -60,7 +60,7 @@ lordsNeedsTutorIssue.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -71,7 +71,7 @@ lordsNeedsTutorIssue.SyncData(dataStore);
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -82,7 +82,7 @@ var result = lordsNeedsTutorIssue.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 创建或发起「stay alive conditions」。
+**用途 / Purpose:** **用途 / Purpose:** 创建或发起stay alive conditions。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -93,7 +93,7 @@ var result = lordsNeedsTutorIssue.IssueStayAliveConditions();
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can be selected in inventory info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can be selected in inventory info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -104,7 +104,7 @@ lordsNeedsTutorIssue.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result)
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can have party role or be governor info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can have party role or be governor info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -115,7 +115,7 @@ lordsNeedsTutorIssue.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, res
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can lead party info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can lead party info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -126,7 +126,7 @@ lordsNeedsTutorIssue.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can have campaign issues info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -137,7 +137,7 @@ lordsNeedsTutorIssue.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
 ### OnHeroCanMarryInfoIsRequested
 `public override void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**用途 / Purpose:** 在 「hero can marry info is requested」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero can marry info is requested 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例
@@ -148,7 +148,7 @@ lordsNeedsTutorIssue.OnHeroCanMarryInfoIsRequested(hero, result);
 ### OnHeroGainedSkill
 `public void OnHeroGainedSkill(Hero hero, SkillObject skill, int change = 1, bool shouldNotify = true)`
 
-**用途 / Purpose:** 在 「hero gained skill」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero gained skill 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsNeedsTutorIssue 实例

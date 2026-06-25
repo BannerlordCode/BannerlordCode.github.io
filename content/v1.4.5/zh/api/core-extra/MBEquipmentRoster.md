@@ -32,7 +32,7 @@ description: "MBEquipmentRoster 的自动生成类参考。"
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -43,7 +43,7 @@ mBEquipmentRoster.Init(objectManager, node);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -54,7 +54,7 @@ mBEquipmentRoster.Deserialize(objectManager, node);
 ### AddEquipmentRoster
 `public void AddEquipmentRoster(MBEquipmentRoster equipmentRoster, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 将 「equipment roster」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 equipment roster 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -65,7 +65,7 @@ mBEquipmentRoster.AddEquipmentRoster(equipmentRoster, equipmentType);
 ### AddOverriddenEquipments
 `public void AddOverriddenEquipments(MBObjectManager objectManager, List<XmlNode> overridenEquipmentSlots)`
 
-**用途 / Purpose:** 将 「overridden equipments」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 overridden equipments 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -76,7 +76,7 @@ mBEquipmentRoster.AddOverriddenEquipments(objectManager, overridenEquipmentSlots
 ### OrderEquipments
 `public void OrderEquipments()`
 
-**用途 / Purpose:** 处理与 「order equipments」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OrderEquipments 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例
@@ -87,7 +87,7 @@ mBEquipmentRoster.OrderEquipments();
 ### InitializeDefaultEquipment
 `public void InitializeDefaultEquipment(string equipmentName)`
 
-**用途 / Purpose:** 为 「default equipment」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 default equipment 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBEquipmentRoster 实例

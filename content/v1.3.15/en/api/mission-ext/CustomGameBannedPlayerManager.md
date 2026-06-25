@@ -30,7 +30,7 @@ Treat `CustomGameBannedPlayerManager` as a Manager-style extension point: first 
 ### AddBannedPlayer
 `public static void AddBannedPlayer(PlayerId playerId, int banDueTime)`
 
-**Purpose:** Adds `banned player` to the current collection or state.
+**Purpose:** **Purpose:** Adds banned player to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ CustomGameBannedPlayerManager.AddBannedPlayer(playerId, 0);
 ### IsUserBanned
 `public static bool IsUserBanned(PlayerId playerId)`
 
-**Purpose:** Determines whether the current object is in the `user banned` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the user banned state or condition.
 
 ```csharp
 // Static call; no instance required

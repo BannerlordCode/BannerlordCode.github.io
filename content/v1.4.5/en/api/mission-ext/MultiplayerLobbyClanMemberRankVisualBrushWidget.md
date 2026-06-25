@@ -29,7 +29,7 @@ Treat `MultiplayerLobbyClanMemberRankVisualBrushWidget` as a Widget-style extens
 ### MultiplayerLobbyClanMemberRankVisualBrushWidget
 `public class MultiplayerLobbyClanMemberRankVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerLobbyClanMemberRankVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyClanMemberRankVisualBrushWidget from the subsystem API first

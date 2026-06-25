@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListVM from the subsystem API first
@@ -46,7 +46,7 @@ encyclopediaListVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaListVM from the subsystem API first
@@ -57,7 +57,7 @@ encyclopediaListVM.OnFinalize();
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaListVM from the subsystem API first
@@ -68,7 +68,7 @@ var result = encyclopediaListVM.GetName();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaListVM from the subsystem API first
@@ -79,7 +79,7 @@ var result = encyclopediaListVM.GetNavigationBarURL();
 ### CopyFiltersFrom
 `public void CopyFiltersFrom(Dictionary<EncyclopediaFilterItem, bool> filters)`
 
-**Purpose:** Copies the `filters from` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the filters from state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of EncyclopediaListVM from the subsystem API first
@@ -90,7 +90,7 @@ encyclopediaListVM.CopyFiltersFrom(dictionary<EncyclopediaFilterItem, false);
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListVM from the subsystem API first

@@ -23,7 +23,7 @@ Treat `MissionQuestConversationHandler` as a Handler-style extension point: firs
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionQuestConversationHandler from the subsystem API first

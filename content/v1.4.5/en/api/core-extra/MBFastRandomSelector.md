@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IndexEntry
 `public struct IndexEntry(ushort index, ushort version)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IndexEntry logic.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -40,7 +40,7 @@ var result = mBFastRandomSelector.IndexEntry(0, 0);
 ### Initialize
 `public void Initialize(MBReadOnlyList<T> list)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -51,7 +51,7 @@ mBFastRandomSelector.Initialize(list);
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -62,7 +62,7 @@ mBFastRandomSelector.Reset();
 ### Pack
 `public void Pack()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Pack logic.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first
@@ -73,7 +73,7 @@ mBFastRandomSelector.Pack();
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectRandom logic.
 
 ```csharp
 // Obtain an instance of MBFastRandomSelector from the subsystem API first

@@ -23,7 +23,7 @@ Treat `SallyOutMissionNotificationsHandler` as a Handler-style extension point: 
 ### OnBesiegedSideFallsbackToKeep
 `public void OnBesiegedSideFallsbackToKeep()`
 
-**Purpose:** Invoked when the `besieged side fallsback to keep` event is raised.
+**Purpose:** **Purpose:** Invoked when the besieged side fallsback to keep event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
@@ -34,7 +34,7 @@ sallyOutMissionNotificationsHandler.OnBesiegedSideFallsbackToKeep();
 ### OnAfterStart
 `public void OnAfterStart()`
 
-**Purpose:** Invoked when the `after start` event is raised.
+**Purpose:** **Purpose:** Invoked when the after start event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
@@ -45,7 +45,7 @@ sallyOutMissionNotificationsHandler.OnAfterStart();
 ### OnMissionEnd
 `public void OnMissionEnd()`
 
-**Purpose:** Invoked when the `mission end` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
@@ -56,7 +56,7 @@ sallyOutMissionNotificationsHandler.OnMissionEnd();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first
@@ -67,7 +67,7 @@ sallyOutMissionNotificationsHandler.OnDeploymentFinished();
 ### OnMissionTick
 `public void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of SallyOutMissionNotificationsHandler from the subsystem API first

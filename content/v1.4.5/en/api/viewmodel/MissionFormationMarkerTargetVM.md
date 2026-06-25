@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of MissionFormationMarkerTargetVM from the subsystem API first
@@ -52,7 +52,7 @@ missionFormationMarkerTargetVM.Refresh();
 ### SetTargetedState
 `public void SetTargetedState(bool isFocused, bool isTargetingAFormation)`
 
-**Purpose:** Assigns a new value to `targeted state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to targeted state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionFormationMarkerTargetVM from the subsystem API first
@@ -63,7 +63,7 @@ missionFormationMarkerTargetVM.SetTargetedState(false, false);
 ### GetFormationType
 `public static string GetFormationType(FormationClass formationType)`
 
-**Purpose:** Reads and returns the `formation type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation type value held by the this instance.
 
 ```csharp
 // Static call; no instance required

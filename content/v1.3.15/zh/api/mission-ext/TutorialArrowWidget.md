@@ -32,7 +32,7 @@ description: "TutorialArrowWidget 的自动生成类参考。"
 ### SetArrowProperties
 `public void SetArrowProperties(float width, float height, bool isDirectionDown, bool isDirectionRight)`
 
-**用途 / Purpose:** 为 「arrow properties」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 arrow properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArrowWidget 实例
@@ -43,7 +43,7 @@ tutorialArrowWidget.SetArrowProperties(0, 0, false, false);
 ### ResetFade
 `public void ResetFade()`
 
-**用途 / Purpose:** 将 「fade」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 fade 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArrowWidget 实例
@@ -54,7 +54,7 @@ tutorialArrowWidget.ResetFade();
 ### DisableFade
 `public void DisableFade()`
 
-**用途 / Purpose:** 处理与 「disable fade」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableFade 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArrowWidget 实例

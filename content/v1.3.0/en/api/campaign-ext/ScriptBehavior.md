@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### AddUsableMachineTarget
 `public static void AddUsableMachineTarget(Agent ownerAgent, UsableMachine targetUsableMachine)`
 
-**Purpose:** Adds `usable machine target` to the current collection or state.
+**Purpose:** **Purpose:** Adds usable machine target to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ScriptBehavior.AddUsableMachineTarget(ownerAgent, targetUsableMachine);
 ### AddAgentTarget
 `public static void AddAgentTarget(Agent ownerAgent, Agent targetAgent)`
 
-**Purpose:** Adds `agent target` to the current collection or state.
+**Purpose:** **Purpose:** Adds agent target to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ScriptBehavior.AddAgentTarget(ownerAgent, targetAgent);
 ### AddWorldFrameTarget
 `public static void AddWorldFrameTarget(Agent ownerAgent, WorldFrame targetWorldFrame)`
 
-**Purpose:** Adds `world frame target` to the current collection or state.
+**Purpose:** **Purpose:** Adds world frame target to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ScriptBehavior.AddWorldFrameTarget(ownerAgent, targetWorldFrame);
 ### AddTargetWithDelegate
 `public static void AddTargetWithDelegate(Agent ownerAgent, ScriptBehavior.SelectTargetDelegate selectTargetDelegate, ScriptBehavior.OnTargetReachedWaitDelegate onTargetReachWaitDelegate, ScriptBehavior.OnTargetReachedDelegate onTargetReachedDelegate, float initialWaitInSeconds = 0f)`
 
-**Purpose:** Adds `target with delegate` to the current collection or state.
+**Purpose:** **Purpose:** Adds target with delegate to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ ScriptBehavior.AddTargetWithDelegate(ownerAgent, selectTargetDelegate, onTargetR
 ### IsNearTarget
 `public bool IsNearTarget(Agent targetAgent)`
 
-**Purpose:** Determines whether the current object is in the `near target` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the near target state or condition.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first
@@ -74,7 +74,7 @@ var result = scriptBehavior.IsNearTarget(targetAgent);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first
@@ -85,7 +85,7 @@ scriptBehavior.Tick(0, false);
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Reads and returns the `availability` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first
@@ -96,7 +96,7 @@ var result = scriptBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Reads and returns the `debug info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first
@@ -107,7 +107,7 @@ var result = scriptBehavior.GetDebugInfo();
 ### SelectTargetDelegate
 `public delegate bool SelectTargetDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame, ref float customTargetReachedRangeThreshold, ref float customTargetReachedRotationThreshold)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectTargetDelegate logic.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first
@@ -118,7 +118,7 @@ var result = scriptBehavior.SelectTargetDelegate(agent, targetAgent, targetUsabl
 ### OnTargetReachedDelegate
 `public delegate bool OnTargetReachedDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame)`
 
-**Purpose:** Invoked when the `target reached delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the target reached delegate event is raised.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first
@@ -129,7 +129,7 @@ var result = scriptBehavior.OnTargetReachedDelegate(agent, targetAgent, targetUs
 ### OnTargetReachedWaitDelegate
 `public delegate void OnTargetReachedWaitDelegate(Agent agent, ref float waitTimeInSeconds)`
 
-**Purpose:** Invoked when the `target reached wait delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the target reached wait delegate event is raised.
 
 ```csharp
 // Obtain an instance of ScriptBehavior from the subsystem API first

@@ -23,7 +23,7 @@ description: "BannerThumbnailCache 的自动生成类参考。"
 ### CreateDefaultBannerCamera
 `public static Camera CreateDefaultBannerCamera()`
 
-**用途 / Purpose:** 构建一个新的 「default banner camera」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 default banner camera 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ BannerThumbnailCache.CreateDefaultBannerCamera();
 ### CreateNineGridBannerCamera
 `public static Camera CreateNineGridBannerCamera()`
 
-**用途 / Purpose:** 构建一个新的 「nine grid banner camera」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 nine grid banner camera 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

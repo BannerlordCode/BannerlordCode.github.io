@@ -23,7 +23,7 @@ description: "AdminPanelMultiSelectionItem 的自动生成类参考。"
 ### SetIsFallbackValue
 `public void SetIsFallbackValue(bool value)`
 
-**用途 / Purpose:** 为 「is fallback value」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is fallback value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelMultiSelectionItem 实例
@@ -34,7 +34,7 @@ adminPanelMultiSelectionItem.SetIsFallbackValue(false);
 ### SetIsDisabled
 `public void SetIsDisabled(bool value)`
 
-**用途 / Purpose:** 为 「is disabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is disabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelMultiSelectionItem 实例
@@ -45,7 +45,7 @@ adminPanelMultiSelectionItem.SetIsDisabled(false);
 ### SetCanBeApplied
 `public void SetCanBeApplied(bool value)`
 
-**用途 / Purpose:** 为 「can be applied」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 can be applied 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AdminPanelMultiSelectionItem 实例

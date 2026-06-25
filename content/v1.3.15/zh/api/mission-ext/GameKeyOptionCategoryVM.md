@@ -33,7 +33,7 @@ description: "GameKeyOptionCategoryVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
@@ -44,7 +44,7 @@ gameKeyOptionCategoryVM.RefreshValues();
 ### IsChanged
 `public bool IsChanged()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「changed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 changed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
@@ -55,7 +55,7 @@ var result = gameKeyOptionCategoryVM.IsChanged();
 ### ExecuteResetToDefault
 `public void ExecuteResetToDefault()`
 
-**用途 / Purpose:** 执行 「reset to default」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset to default 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
@@ -66,7 +66,7 @@ gameKeyOptionCategoryVM.ExecuteResetToDefault();
 ### OnDone
 `public void OnDone()`
 
-**用途 / Purpose:** 在 「done」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
@@ -77,7 +77,7 @@ gameKeyOptionCategoryVM.OnDone();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
@@ -88,7 +88,7 @@ gameKeyOptionCategoryVM.OnFinalize();
 ### Cancel
 `public void Cancel()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「cel」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例
@@ -99,7 +99,7 @@ gameKeyOptionCategoryVM.Cancel();
 ### ApplyValues
 `public void ApplyValues()`
 
-**用途 / Purpose:** 将 「values」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 values 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyOptionCategoryVM 实例

@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Add
 `public new void Add(Team t)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of TeamCollection from the subsystem API first
@@ -46,7 +46,7 @@ teamCollection.Add(t);
 ### Add
 `public Team Add(BattleSideEnum side, uint color = uint.MaxValue, uint color2 = uint.MaxValue, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of TeamCollection from the subsystem API first
@@ -57,7 +57,7 @@ var result = teamCollection.Add(side, 0, 0, null, false, false, false);
 ### Find
 `public Team Find(MBTeam mbTeam)`
 
-**Purpose:** Finds the matching entry in the current collection or scope.
+**Purpose:** **Purpose:** Finds the matching entry in the current collection or scope.
 
 ```csharp
 // Obtain an instance of TeamCollection from the subsystem API first
@@ -68,7 +68,7 @@ var result = teamCollection.Find(mbTeam);
 ### ClearResources
 `public void ClearResources()`
 
-**Purpose:** Removes all `resources` from the current object.
+**Purpose:** **Purpose:** Removes all resources from the this instance.
 
 ```csharp
 // Obtain an instance of TeamCollection from the subsystem API first
@@ -79,7 +79,7 @@ teamCollection.ClearResources();
 ### Clear
 `public new void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of TeamCollection from the subsystem API first

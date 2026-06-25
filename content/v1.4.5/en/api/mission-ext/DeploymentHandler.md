@@ -23,7 +23,7 @@ Treat `DeploymentHandler` as a Handler-style extension point: first identify who
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -34,7 +34,7 @@ deploymentHandler.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -45,7 +45,7 @@ deploymentHandler.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -56,7 +56,7 @@ deploymentHandler.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -67,7 +67,7 @@ deploymentHandler.OnRemoveBehavior();
 ### OnBattleSideDeployed
 `public override void OnBattleSideDeployed(BattleSideEnum side)`
 
-**Purpose:** Invoked when the `battle side deployed` event is raised.
+**Purpose:** **Purpose:** Invoked when the battle side deployed event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -78,7 +78,7 @@ deploymentHandler.OnBattleSideDeployed(side);
 ### AutoDeployTeamUsingDeploymentPlan
 `public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoDeployTeamUsingDeploymentPlan logic.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -89,7 +89,7 @@ deploymentHandler.AutoDeployTeamUsingDeploymentPlan(playerTeam);
 ### ForceUpdateAllUnits
 `public abstract void ForceUpdateAllUnits()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceUpdateAllUnits logic.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -100,7 +100,7 @@ deploymentHandler.ForceUpdateAllUnits();
 ### FinishDeployment
 `public virtual void FinishDeployment()`
 
-**Purpose:** Concludes the `deployment` flow and performs any cleanup.
+**Purpose:** **Purpose:** Concludes the deployment flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -111,7 +111,7 @@ deploymentHandler.FinishDeployment();
 ### InitializeDeploymentPoints
 `public void InitializeDeploymentPoints()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `deployment points`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by deployment points.
 
 ```csharp
 // Obtain an instance of DeploymentHandler from the subsystem API first
@@ -122,7 +122,7 @@ deploymentHandler.InitializeDeploymentPoints();
 ### OrderController_OnOrderIssued_Aux
 `public static void OrderController_OnOrderIssued_Aux(OrderType orderType, MBReadOnlyList<Formation> appliedFormations, OrderController orderController = null, params object delegateParams)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the OrderController_OnOrderIssued_Aux logic.
 
 ```csharp
 // Static call; no instance required

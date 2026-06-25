@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place i
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Determines whether the current object is in the `valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of AllianceOfferMapNotification from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SoundEventParameter
 `public struct SoundEventParameter(string paramName, float value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SoundEventParameter logic.
 
 ```csharp
 // Obtain an instance of SoundEventParameter from the subsystem API first
@@ -34,7 +34,7 @@ var result = soundEventParameter.SoundEventParameter("example", 0);
 ### Update
 `public void Update(string paramName, float value)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of SoundEventParameter from the subsystem API first

@@ -29,7 +29,7 @@ description: "ThreadedClientSessionFunctionTask 的自动生成类参考。"
 ### BeginJob
 `public override void BeginJob()`
 
-**用途 / Purpose:** 处理与 「begin job」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginJob 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClientSessionFunctionTask 实例
@@ -40,7 +40,7 @@ threadedClientSessionFunctionTask.BeginJob();
 ### DoMainThreadJob
 `public override void DoMainThreadJob()`
 
-**用途 / Purpose:** 处理与 「do main thread job」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoMainThreadJob 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClientSessionFunctionTask 实例
@@ -51,7 +51,7 @@ threadedClientSessionFunctionTask.DoMainThreadJob();
 ### Wait
 `public async Task Wait()`
 
-**用途 / Purpose:** 暂停当前流程，直到「wait」条件满足。
+**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到wait条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreadedClientSessionFunctionTask 实例

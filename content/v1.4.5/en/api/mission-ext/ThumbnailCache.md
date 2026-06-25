@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### CreateTexture
 `public TextureCreationInfo CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Constructs a new `texture` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new texture entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ThumbnailCache from the subsystem API first
@@ -40,7 +40,7 @@ var result = thumbnailCache.CreateTexture(thumbnailCreationData);
 ### ReleaseTexture
 `public bool ReleaseTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseTexture logic.
 
 ```csharp
 // Obtain an instance of ThumbnailCache from the subsystem API first

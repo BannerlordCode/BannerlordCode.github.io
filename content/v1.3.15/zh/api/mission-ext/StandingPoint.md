@@ -35,7 +35,7 @@ description: "StandingPoint 的自动生成类参考。"
 ### OnParentMachinePhysicsStateChanged
 `public void OnParentMachinePhysicsStateChanged()`
 
-**用途 / Purpose:** 在 「parent machine physics state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 parent machine physics state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -46,7 +46,7 @@ standingPoint.OnParentMachinePhysicsStateChanged();
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -57,7 +57,7 @@ var result = standingPoint.IsDisabledForAgent(agent);
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -68,7 +68,7 @@ var result = standingPoint.GetTickRequirement();
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 在 「use」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 use 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -79,7 +79,7 @@ standingPoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**用途 / Purpose:** 在 「use stopped」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 use stopped 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -90,7 +90,7 @@ standingPoint.OnUseStopped(userAgent, false, 0);
 ### GetUserFrameForAgent
 `public override WorldFrame GetUserFrameForAgent(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「user frame for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 user frame for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -101,7 +101,7 @@ var result = standingPoint.GetUserFrameForAgent(agent);
 ### HasAlternative
 `public virtual bool HasAlternative()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「alternative」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 alternative。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -112,7 +112,7 @@ var result = standingPoint.HasAlternative();
 ### GetUsageScoreForAgent
 `public virtual float GetUsageScoreForAgent(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usage score for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usage score for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -123,7 +123,7 @@ var result = standingPoint.GetUsageScoreForAgent(agent);
 ### GetUsageScoreForAgent
 `public virtual float GetUsageScoreForAgent(ValueTuple<Agent, float> agentPair)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usage score for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usage score for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -134,7 +134,7 @@ var result = standingPoint.GetUsageScoreForAgent(valueTuple<Agent, 0);
 ### SetupOnUsingStoppedBehavior
 `public void SetupOnUsingStoppedBehavior(bool autoAttach, Action<Agent, bool> action)`
 
-**用途 / Purpose:** 为 「up on using stopped behavior」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 up on using stopped behavior 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -145,7 +145,7 @@ standingPoint.SetupOnUsingStoppedBehavior(false, action<Agent, false);
 ### OnEndMission
 `public override void OnEndMission()`
 
-**用途 / Purpose:** 在 「end mission」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -156,7 +156,7 @@ standingPoint.OnEndMission();
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -167,7 +167,7 @@ var result = standingPoint.GetDescriptionText(gameEntity);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「usable by agent」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 usable by agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -178,7 +178,7 @@ var result = standingPoint.IsUsableByAgent(userAgent);
 ### SetUsableByAIOnly
 `public void SetUsableByAIOnly()`
 
-**用途 / Purpose:** 为 「usable by a i only」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 usable by a i only 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -189,7 +189,7 @@ standingPoint.SetUsableByAIOnly();
 ### SetUsableByPlayerOnly
 `public void SetUsableByPlayerOnly()`
 
-**用途 / Purpose:** 为 「usable by player only」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 usable by player only 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例
@@ -200,7 +200,7 @@ standingPoint.SetUsableByPlayerOnly();
 ### SetUsableByPlayerOrAI
 `public void SetUsableByPlayerOrAI()`
 
-**用途 / Purpose:** 为 「usable by player or a i」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 usable by player or a i 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPoint 实例

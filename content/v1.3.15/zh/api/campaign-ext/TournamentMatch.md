@@ -33,7 +33,7 @@ description: "TournamentMatch 的自动生成类参考。"
 ### End
 `public void End()`
 
-**用途 / Purpose:** 处理与 「end」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 End 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例
@@ -44,7 +44,7 @@ tournamentMatch.End();
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例
@@ -55,7 +55,7 @@ tournamentMatch.Start();
 ### GetParticipant
 `public TournamentParticipant GetParticipant(int uniqueSeed)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「participant」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 participant 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例
@@ -66,7 +66,7 @@ var result = tournamentMatch.GetParticipant(0);
 ### IsParticipantRequired
 `public bool IsParticipantRequired()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「participant required」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 participant required 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例
@@ -77,7 +77,7 @@ var result = tournamentMatch.IsParticipantRequired();
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime)`
 
-**用途 / Purpose:** 将 「participant」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 participant 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例
@@ -88,7 +88,7 @@ tournamentMatch.AddParticipant(participant, false);
 ### IsPlayerParticipating
 `public bool IsPlayerParticipating()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「player participating」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player participating 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例
@@ -99,7 +99,7 @@ var result = tournamentMatch.IsPlayerParticipating();
 ### IsPlayerWinner
 `public bool IsPlayerWinner()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「player winner」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 player winner 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentMatch 实例

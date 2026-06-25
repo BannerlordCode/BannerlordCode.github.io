@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### JoinCustomGame
 `public abstract void JoinCustomGame(JoinGameData joinGameData)`
 
-**Purpose:** Joins several `custom game` items into a single whole.
+**Purpose:** **Purpose:** Joins several custom game items into a single whole.
 
 ```csharp
 // Obtain an instance of MultiplayerGameMode from the subsystem API first
@@ -40,7 +40,7 @@ multiplayerGameMode.JoinCustomGame(joinGameData);
 ### StartMultiplayerGame
 `public abstract void StartMultiplayerGame(string scene)`
 
-**Purpose:** Starts the `multiplayer game` flow or state machine.
+**Purpose:** **Purpose:** Starts the multiplayer game flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerGameMode from the subsystem API first

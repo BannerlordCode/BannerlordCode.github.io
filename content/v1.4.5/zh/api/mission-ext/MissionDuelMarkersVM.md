@@ -31,7 +31,7 @@ description: "MissionDuelMarkersVM 的自动生成类参考。"
 ### Compare
 `public int Compare(MissionDuelPeerMarkerVM x, MissionDuelPeerMarkerVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -42,7 +42,7 @@ var result = missionDuelMarkersVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -53,7 +53,7 @@ missionDuelMarkersVM.RefreshValues();
 ### UpdateScreenCenter
 `public void UpdateScreenCenter()`
 
-**用途 / Purpose:** 重新计算并更新 「screen center」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 screen center 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -64,7 +64,7 @@ missionDuelMarkersVM.UpdateScreenCenter();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -75,7 +75,7 @@ missionDuelMarkersVM.Tick(0);
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -86,7 +86,7 @@ missionDuelMarkersVM.RegisterEvents();
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**用途 / Purpose:** 从当前系统中注销「events」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销events。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -97,7 +97,7 @@ missionDuelMarkersVM.UnregisterEvents();
 ### RefreshPeerEquipments
 `public void RefreshPeerEquipments()`
 
-**用途 / Purpose:** 使 「peer equipments」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 peer equipments 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -108,7 +108,7 @@ missionDuelMarkersVM.RefreshPeerEquipments();
 ### OnAgentSpawnedWithoutDuel
 `public void OnAgentSpawnedWithoutDuel()`
 
-**用途 / Purpose:** 在 「agent spawned without duel」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent spawned without duel 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -119,7 +119,7 @@ missionDuelMarkersVM.OnAgentSpawnedWithoutDuel();
 ### OnAgentBuiltForTheFirstTime
 `public void OnAgentBuiltForTheFirstTime()`
 
-**用途 / Purpose:** 在 「agent built for the first time」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent built for the first time 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -130,7 +130,7 @@ missionDuelMarkersVM.OnAgentBuiltForTheFirstTime();
 ### OnDuelStarted
 `public void OnDuelStarted(MissionPeer firstPeer, MissionPeer secondPeer)`
 
-**用途 / Purpose:** 在 「duel started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 duel started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -141,7 +141,7 @@ missionDuelMarkersVM.OnDuelStarted(firstPeer, secondPeer);
 ### SetMarkerOfPeerEnabled
 `public void SetMarkerOfPeerEnabled(MissionPeer peer, bool isEnabled)`
 
-**用途 / Purpose:** 为 「marker of peer enabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 marker of peer enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -152,7 +152,7 @@ missionDuelMarkersVM.SetMarkerOfPeerEnabled(peer, false);
 ### OnPlayerPreferredZoneChanged
 `public void OnPlayerPreferredZoneChanged(int playerPrefferedArenaType)`
 
-**用途 / Purpose:** 在 「player preferred zone changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player preferred zone changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -163,7 +163,7 @@ missionDuelMarkersVM.OnPlayerPreferredZoneChanged(0);
 ### OnFocusGained
 `public void OnFocusGained()`
 
-**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -174,7 +174,7 @@ missionDuelMarkersVM.OnFocusGained();
 ### OnFocusLost
 `public void OnFocusLost()`
 
-**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例
@@ -185,7 +185,7 @@ missionDuelMarkersVM.OnFocusLost();
 ### OnPeerEquipmentRefreshed
 `public void OnPeerEquipmentRefreshed(MissionPeer peer)`
 
-**用途 / Purpose:** 在 「peer equipment refreshed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 peer equipment refreshed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelMarkersVM 实例

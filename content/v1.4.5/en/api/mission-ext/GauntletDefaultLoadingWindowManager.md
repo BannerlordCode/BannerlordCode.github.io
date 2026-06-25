@@ -23,7 +23,7 @@ Treat `GauntletDefaultLoadingWindowManager` as a Manager-style extension point: 
 ### SetCurrentModeIsMultiplayer
 `public void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**Purpose:** Assigns a new value to `current mode is multiplayer` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current mode is multiplayer and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GauntletDefaultLoadingWindowManager from the subsystem API first

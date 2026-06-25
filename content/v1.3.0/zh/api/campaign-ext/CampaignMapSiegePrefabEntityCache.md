@@ -23,7 +23,7 @@ description: "CampaignMapSiegePrefabEntityCache 的自动生成类参考。"
 ### GetLaunchEntitialFrameForSiegeEngine
 `public MatrixFrame GetLaunchEntitialFrameForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「launch entitial frame for siege engine」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 launch entitial frame for siege engine 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMapSiegePrefabEntityCache 实例
@@ -34,7 +34,7 @@ var result = campaignMapSiegePrefabEntityCache.GetLaunchEntitialFrameForSiegeEng
 ### GetScaleForSiegeEngine
 `public Vec3 GetScaleForSiegeEngine(SiegeEngineType type, BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「scale for siege engine」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scale for siege engine 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMapSiegePrefabEntityCache 实例

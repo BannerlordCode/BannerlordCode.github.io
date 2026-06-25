@@ -23,7 +23,7 @@ Treat `UiStringHelper` as a Helper-style extension point: first identify who cre
 ### IsStringNoneOrEmptyForUi
 `public static bool IsStringNoneOrEmptyForUi(string str)`
 
-**Purpose:** Determines whether the current object is in the `string none or empty for ui` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the string none or empty for ui state or condition.
 
 ```csharp
 // Static call; no instance required

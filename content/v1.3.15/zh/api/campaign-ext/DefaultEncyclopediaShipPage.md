@@ -23,7 +23,7 @@ description: "DefaultEncyclopediaShipPage 的自动生成类参考。"
 ### IsRelevant
 `public override bool IsRelevant()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「relevant」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 relevant 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -34,7 +34,7 @@ var result = defaultEncyclopediaShipPage.IsRelevant();
 ### GetViewFullyQualifiedName
 `public override string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 view fully qualified name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -45,7 +45,7 @@ var result = defaultEncyclopediaShipPage.GetViewFullyQualifiedName();
 ### GetStringID
 `public override string GetStringID()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 string i d 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -56,7 +56,7 @@ var result = defaultEncyclopediaShipPage.GetStringID();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -67,7 +67,7 @@ var result = defaultEncyclopediaShipPage.GetName();
 ### GetObject
 `public override MBObjectBase GetObject(string typeName, string stringID)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -78,7 +78,7 @@ var result = defaultEncyclopediaShipPage.GetObject("example", "example");
 ### IsValidEncyclopediaItem
 `public override bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid encyclopedia item 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -89,7 +89,7 @@ var result = defaultEncyclopediaShipPage.IsValidEncyclopediaItem(o);
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -100,7 +100,7 @@ var result = defaultEncyclopediaShipPage.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compared value text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -111,7 +111,7 @@ var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -122,7 +122,7 @@ var result = defaultEncyclopediaShipPage.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compared value text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -133,7 +133,7 @@ var result = defaultEncyclopediaShipPage.GetComparedValueText(item);
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例
@@ -144,7 +144,7 @@ var result = defaultEncyclopediaShipPage.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「compared value text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 compared value text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEncyclopediaShipPage 实例

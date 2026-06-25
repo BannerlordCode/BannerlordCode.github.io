@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetAbilityOfFaces
 `public virtual void SetAbilityOfFaces(bool enabled)`
 
-**Purpose:** Assigns a new value to `ability of faces` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to ability of faces and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -42,7 +42,7 @@ missionObject.SetAbilityOfFaces(false);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -53,7 +53,7 @@ var result = missionObject.GetHashCode();
 ### AfterMissionStart
 `public virtual void AfterMissionStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -64,7 +64,7 @@ missionObject.AfterMissionStart();
 ### OnMissionEnded
 `public virtual void OnMissionEnded()`
 
-**Purpose:** Invoked when the `mission ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission ended event is raised.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -75,7 +75,7 @@ missionObject.OnMissionEnded();
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -86,7 +86,7 @@ missionObject.OnDeploymentFinished();
 ### SetEnabled
 `public void SetEnabled(bool isParentObject = false)`
 
-**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -97,7 +97,7 @@ missionObject.SetEnabled(false);
 ### SetEnabledAndMakeVisible
 `public void SetEnabledAndMakeVisible(bool isParentObject = false, bool enableFaces = false)`
 
-**Purpose:** Assigns a new value to `enabled and make visible` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enabled and make visible and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -108,7 +108,7 @@ missionObject.SetEnabledAndMakeVisible(false, false);
 ### SetDisabled
 `public void SetDisabled(bool isParentObject = false)`
 
-**Purpose:** Assigns a new value to `disabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to disabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -119,7 +119,7 @@ missionObject.SetDisabled(false);
 ### SetDisabledAndMakeInvisible
 `public void SetDisabledAndMakeInvisible(bool isParentObject = false, bool disableFaces = false)`
 
-**Purpose:** Assigns a new value to `disabled and make invisible` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to disabled and make invisible and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -130,7 +130,7 @@ missionObject.SetDisabledAndMakeInvisible(false, false);
 ### OnEndMission
 `public virtual void OnEndMission()`
 
-**Purpose:** Invoked when the `end mission` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission event is raised.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first
@@ -141,7 +141,7 @@ missionObject.OnEndMission();
 ### AddStuckMissile
 `public virtual void AddStuckMissile(GameEntity missileEntity)`
 
-**Purpose:** Adds `stuck missile` to the current collection or state.
+**Purpose:** **Purpose:** Adds stuck missile to the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionObject from the subsystem API first

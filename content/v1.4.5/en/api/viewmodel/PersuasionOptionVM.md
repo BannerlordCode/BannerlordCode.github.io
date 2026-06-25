@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PersuasionOptionVM from the subsystem API first
@@ -57,7 +57,7 @@ persuasionOptionVM.RefreshValues();
 ### GetPersuasionAdditionalText
 `public string GetPersuasionAdditionalText()`
 
-**Purpose:** Reads and returns the `persuasion additional text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the persuasion additional text value held by the this instance.
 
 ```csharp
 // Obtain an instance of PersuasionOptionVM from the subsystem API first
@@ -68,7 +68,7 @@ var result = persuasionOptionVM.GetPersuasionAdditionalText();
 ### ExecuteReadyToContinue
 `public void ExecuteReadyToContinue()`
 
-**Purpose:** Runs the operation or workflow associated with `ready to continue`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with ready to continue.
 
 ```csharp
 // Obtain an instance of PersuasionOptionVM from the subsystem API first

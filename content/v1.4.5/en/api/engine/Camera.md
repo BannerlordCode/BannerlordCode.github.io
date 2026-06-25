@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateCamera
 `public static Camera CreateCamera()`
 
-**Purpose:** Constructs a new `camera` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new camera entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ Camera.CreateCamera();
 ### ReleaseCamera
 `public void ReleaseCamera()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseCamera logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -52,7 +52,7 @@ camera.ReleaseCamera();
 ### ReleaseCameraEntity
 `public void ReleaseCameraEntity()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseCameraEntity logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -63,7 +63,7 @@ camera.ReleaseCameraEntity();
 ### LookAt
 `public void LookAt(Vec3 position, Vec3 target, Vec3 upVector)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LookAt logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -74,7 +74,7 @@ camera.LookAt(position, target, upVector);
 ### ScreenSpaceRayProjection
 `public void ScreenSpaceRayProjection(Vec2 screenPosition, ref Vec3 rayBegin, ref Vec3 rayEnd)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ScreenSpaceRayProjection logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -85,7 +85,7 @@ camera.ScreenSpaceRayProjection(screenPosition, rayBegin, rayEnd);
 ### CheckEntityVisibility
 `public bool CheckEntityVisibility(GameEntity entity)`
 
-**Purpose:** Verifies whether `entity visibility` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether entity visibility holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -96,7 +96,7 @@ var result = camera.CheckEntityVisibility(entity);
 ### SetViewVolume
 `public void SetViewVolume(bool perspective, float dLeft, float dRight, float dBottom, float dTop, float dNear, float dFar)`
 
-**Purpose:** Assigns a new value to `view volume` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to view volume and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -107,7 +107,7 @@ camera.SetViewVolume(false, 0, 0, 0, 0, 0, 0);
 ### GetNearPlanePointsStatic
 `public static void GetNearPlanePointsStatic(ref MatrixFrame cameraFrame, float verticalFov, float aspectRatioXY, float newDNear, float newDFar, Vec3 nearPlanePoints)`
 
-**Purpose:** Reads and returns the `near plane points static` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the near plane points static value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -117,7 +117,7 @@ Camera.GetNearPlanePointsStatic(cameraFrame, 0, 0, 0, 0, nearPlanePoints);
 ### GetNearPlanePoints
 `public void GetNearPlanePoints(Vec3 nearPlanePoints)`
 
-**Purpose:** Reads and returns the `near plane points` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the near plane points value held by the this instance.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -128,7 +128,7 @@ camera.GetNearPlanePoints(nearPlanePoints);
 ### SetFovVertical
 `public void SetFovVertical(float verticalFov, float aspectRatioXY, float newDNear, float newDFar)`
 
-**Purpose:** Assigns a new value to `fov vertical` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to fov vertical and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -139,7 +139,7 @@ camera.SetFovVertical(0, 0, 0, 0);
 ### SetFovHorizontal
 `public void SetFovHorizontal(float horizontalFov, float aspectRatioXY, float newDNear, float newDFar)`
 
-**Purpose:** Assigns a new value to `fov horizontal` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to fov horizontal and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -150,7 +150,7 @@ camera.SetFovHorizontal(0, 0, 0, 0);
 ### GetViewProjMatrix
 `public void GetViewProjMatrix(ref MatrixFrame viewProj)`
 
-**Purpose:** Reads and returns the `view proj matrix` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the view proj matrix value held by the this instance.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -161,7 +161,7 @@ camera.GetViewProjMatrix(viewProj);
 ### GetFovVertical
 `public float GetFovVertical()`
 
-**Purpose:** Reads and returns the `fov vertical` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the fov vertical value held by the this instance.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -172,7 +172,7 @@ var result = camera.GetFovVertical();
 ### GetFovHorizontal
 `public float GetFovHorizontal()`
 
-**Purpose:** Reads and returns the `fov horizontal` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the fov horizontal value held by the this instance.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -183,7 +183,7 @@ var result = camera.GetFovHorizontal();
 ### GetAspectRatio
 `public float GetAspectRatio()`
 
-**Purpose:** Reads and returns the `aspect ratio` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the aspect ratio value held by the this instance.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -194,7 +194,7 @@ var result = camera.GetAspectRatio();
 ### FillParametersFrom
 `public void FillParametersFrom(Camera otherCamera)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillParametersFrom logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -205,7 +205,7 @@ camera.FillParametersFrom(otherCamera);
 ### RenderFrustrum
 `public void RenderFrustrum()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RenderFrustrum logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -216,7 +216,7 @@ camera.RenderFrustrum();
 ### ViewportPointToWorldRay
 `public void ViewportPointToWorldRay(ref Vec3 rayBegin, ref Vec3 rayEnd, Vec2 viewportPoint)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ViewportPointToWorldRay logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -227,7 +227,7 @@ camera.ViewportPointToWorldRay(rayBegin, rayEnd, viewportPoint);
 ### WorldPointToViewPortPoint
 `public Vec3 WorldPointToViewPortPoint(ref Vec3 worldPoint)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WorldPointToViewPortPoint logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -238,7 +238,7 @@ var result = camera.WorldPointToViewPortPoint(worldPoint);
 ### EnclosesPoint
 `public bool EnclosesPoint(Vec3 pointInWorldSpace)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnclosesPoint logic.
 
 ```csharp
 // Obtain an instance of Camera from the subsystem API first
@@ -249,7 +249,7 @@ var result = camera.EnclosesPoint(pointInWorldSpace);
 ### ConstructCameraFromPositionElevationBearing
 `public static MatrixFrame ConstructCameraFromPositionElevationBearing(Vec3 position, float elevation, float bearing)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ConstructCameraFromPositionElevationBearing logic.
 
 ```csharp
 // Static call; no instance required

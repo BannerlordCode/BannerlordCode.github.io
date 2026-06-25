@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### SortByOption
 `public void SortByOption(QuestItemSortControllerVM.QuestItemSortOption sortOption)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SortByOption logic.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -41,7 +41,7 @@ questItemSortControllerVM.SortByOption(sortOption);
 ### Compare
 `public abstract int Compare(QuestItemVM x, QuestItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -52,7 +52,7 @@ var result = questItemSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -63,7 +63,7 @@ var result = questItemSortControllerVM.Compare(first, second);
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first
@@ -74,7 +74,7 @@ var result = questItemSortControllerVM.Compare(first, second);
 ### Compare
 `public override int Compare(QuestItemVM first, QuestItemVM second)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of QuestItemSortControllerVM from the subsystem API first

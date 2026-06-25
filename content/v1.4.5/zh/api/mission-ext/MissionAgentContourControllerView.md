@@ -23,7 +23,7 @@ description: "MissionAgentContourControllerView 的自动生成类参考。"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentContourControllerView 实例
@@ -34,7 +34,7 @@ missionAgentContourControllerView.OnMissionScreenTick(0);
 ### OnFocusGained
 `public override void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 在 「focus gained」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus gained 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentContourControllerView 实例
@@ -45,7 +45,7 @@ missionAgentContourControllerView.OnFocusGained(agent, focusableObject, false);
 ### OnFocusLost
 `public override void OnFocusLost(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 在 「focus lost」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus lost 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentContourControllerView 实例

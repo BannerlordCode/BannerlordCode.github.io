@@ -30,7 +30,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### IsLocationTrackedByQuest
 `public override GameMenuOption.IssueQuestFlags IsLocationTrackedByQuest(Location location)`
 
-**Purpose:** Determines whether the current object is in the `location tracked by quest` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the location tracked by quest state or condition.
 
 ```csharp
 // Obtain an instance of RuralNotableInnAndOutIssueQuest from the subsystem API first

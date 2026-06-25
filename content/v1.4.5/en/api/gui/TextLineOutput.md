@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### AddToken
 `public void AddToken(TextToken textToken, float tokenWidth, float tokenHeight, string style, float scaleValue)`
 
-**Purpose:** Adds `token` to the current collection or state.
+**Purpose:** **Purpose:** Adds token to the current collection or state.
 
 ```csharp
 // Obtain an instance of TextLineOutput from the subsystem API first
@@ -45,7 +45,7 @@ textLineOutput.AddToken(textToken, 0, 0, "example", 0);
 ### GetToken
 `public TextToken GetToken(int i)`
 
-**Purpose:** Reads and returns the `token` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the token value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextLineOutput from the subsystem API first
@@ -56,7 +56,7 @@ var result = textLineOutput.GetToken(0);
 ### GetTokenOutput
 `public TextTokenOutput GetTokenOutput(int i)`
 
-**Purpose:** Reads and returns the `token output` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the token output value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextLineOutput from the subsystem API first
@@ -67,7 +67,7 @@ var result = textLineOutput.GetTokenOutput(0);
 ### RemoveTokenFromEnd
 `public TextTokenOutput RemoveTokenFromEnd()`
 
-**Purpose:** Removes `token from end` from the current collection or state.
+**Purpose:** **Purpose:** Removes token from end from the current collection or state.
 
 ```csharp
 // Obtain an instance of TextLineOutput from the subsystem API first

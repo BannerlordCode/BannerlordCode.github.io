@@ -29,7 +29,7 @@ description: "LanguageSpecificTextProcessor 的自动生成类参考。"
 ### ProcessToken
 `public abstract void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** 处理与 「process token」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessToken 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LanguageSpecificTextProcessor 实例
@@ -40,7 +40,7 @@ languageSpecificTextProcessor.ProcessToken("example", cursorPos, "example", "exa
 ### ClearTemporaryData
 `public abstract void ClearTemporaryData()`
 
-**用途 / Purpose:** 清空当前对象中的「temporary data」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的temporary data。
 
 ```csharp
 // 先通过子系统 API 拿到 LanguageSpecificTextProcessor 实例
@@ -51,7 +51,7 @@ languageSpecificTextProcessor.ClearTemporaryData();
 ### Process
 `public string Process(string text)`
 
-**用途 / Purpose:** 处理与 「process」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Process 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LanguageSpecificTextProcessor 实例

@@ -92,7 +92,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the 
 ### SetWallSectionHitPointsRatioAtIndex
 `public void SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)`
 
-**Purpose:** Assigns a new value to `wall section hit points ratio at index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wall section hit points ratio at index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -103,7 +103,7 @@ settlement.SetWallSectionHitPointsRatioAtIndex(0, 0);
 ### GetPositionAsVec3
 `public Vec3 GetPositionAsVec3()`
 
-**Purpose:** Reads and returns the `position as vec3` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the position as vec3 value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -114,7 +114,7 @@ var result = settlement.GetPositionAsVec3();
 ### SetGarrisonWagePaymentLimit
 `public void SetGarrisonWagePaymentLimit(int limit)`
 
-**Purpose:** Assigns a new value to `garrison wage payment limit` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to garrison wage payment limit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -125,7 +125,7 @@ settlement.SetGarrisonWagePaymentLimit(0);
 ### GetInvolvedPartiesForEventType
 `public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**Purpose:** Reads and returns the `involved parties for event type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the involved parties for event type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -136,7 +136,7 @@ var result = settlement.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Sieg
 ### GetNextInvolvedPartyForEventType
 `public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**Purpose:** Reads and returns the `next involved party for event type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next involved party for event type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -147,7 +147,7 @@ var result = settlement.GetNextInvolvedPartyForEventType(partyIndex, mapEvent.Ba
 ### HasInvolvedPartyForEventType
 `public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**Purpose:** Determines whether the current object already holds `involved party for event type`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds involved party for event type.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -158,7 +158,7 @@ var result = settlement.HasInvolvedPartyForEventType(party, mapEvent.BattleTypes
 ### IsUnderRebellionAttack
 `public bool IsUnderRebellionAttack()`
 
-**Purpose:** Determines whether the current object is in the `under rebellion attack` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the under rebellion attack state or condition.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -169,7 +169,7 @@ var result = settlement.IsUnderRebellionAttack();
 ### GetSettlementValueForEnemyHero
 `public float GetSettlementValueForEnemyHero(Hero hero)`
 
-**Purpose:** Reads and returns the `settlement value for enemy hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the settlement value for enemy hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -180,7 +180,7 @@ var result = settlement.GetSettlementValueForEnemyHero(hero);
 ### IsSettlementBusy
 `public bool IsSettlementBusy(object asker)`
 
-**Purpose:** Determines whether the current object is in the `settlement busy` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the settlement busy state or condition.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -191,7 +191,7 @@ var result = settlement.IsSettlementBusy(asker);
 ### IsSettlementBusy
 `public bool IsSettlementBusy(object asker, int limitingPriority)`
 
-**Purpose:** Determines whether the current object is in the `settlement busy` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the settlement busy state or condition.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -202,7 +202,7 @@ var result = settlement.IsSettlementBusy(asker, 0);
 ### GetSettlementBusynessPriority
 `public int GetSettlementBusynessPriority(object asker)`
 
-**Purpose:** Reads and returns the `settlement busyness priority` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the settlement busyness priority value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -213,7 +213,7 @@ var result = settlement.GetSettlementBusynessPriority(asker);
 ### GetValue
 `public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)`
 
-**Purpose:** Reads and returns the `value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -224,7 +224,7 @@ var result = settlement.GetValue(null, false);
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -235,7 +235,7 @@ var result = settlement.GetName();
 ### GetSettlementValueForFaction
 `public float GetSettlementValueForFaction(IFaction faction)`
 
-**Purpose:** Reads and returns the `settlement value for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the settlement value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -246,7 +246,7 @@ var result = settlement.GetSettlementValueForFaction(faction);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -257,7 +257,7 @@ var result = settlement.ToString();
 ### OnPartyInteraction
 `public void OnPartyInteraction(MobileParty engagingParty)`
 
-**Purpose:** Invoked when the `party interaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the party interaction event is raised.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -268,7 +268,7 @@ settlement.OnPartyInteraction(engagingParty);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -279,7 +279,7 @@ settlement.Deserialize(objectManager, node);
 ### OnFinishLoadState
 `public void OnFinishLoadState()`
 
-**Purpose:** Invoked when the `finish load state` event is raised.
+**Purpose:** **Purpose:** Invoked when the finish load state event is raised.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -290,7 +290,7 @@ settlement.OnFinishLoadState();
 ### OnGameCreated
 `public void OnGameCreated()`
 
-**Purpose:** Invoked when the `game created` event is raised.
+**Purpose:** **Purpose:** Invoked when the game created event is raised.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -301,7 +301,7 @@ settlement.OnGameCreated();
 ### OnSessionStart
 `public void OnSessionStart()`
 
-**Purpose:** Invoked when the `session start` event is raised.
+**Purpose:** **Purpose:** Invoked when the session start event is raised.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -312,7 +312,7 @@ settlement.OnSessionStart();
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**Purpose:** Verifies whether `positions for map change and update if needed` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether positions for map change and update if needed holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -323,7 +323,7 @@ settlement.CheckPositionsForMapChangeAndUpdateIfNeeded();
 ### Find
 `public static Settlement Find(string idString)`
 
-**Purpose:** Finds the matching entry in the current collection or scope.
+**Purpose:** **Purpose:** Finds the matching entry in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -333,7 +333,7 @@ Settlement.Find("example");
 ### FindFirst
 `public static Settlement FindFirst(Func<Settlement, bool> predicate)`
 
-**Purpose:** Looks up the matching `first` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching first in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -343,7 +343,7 @@ Settlement.FindFirst(func<Settlement, false);
 ### FindAll
 `public static IEnumerable<Settlement> FindAll(Func<Settlement, bool> predicate)`
 
-**Purpose:** Looks up the matching `all` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching all in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -353,7 +353,7 @@ Settlement.FindAll(func<Settlement, false);
 ### StartFindingLocatablesAroundPosition
 `public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
 
-**Purpose:** Starts the `finding locatables around position` flow or state machine.
+**Purpose:** **Purpose:** Starts the finding locatables around position flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -363,7 +363,7 @@ Settlement.StartFindingLocatablesAroundPosition(position, 0);
 ### FindNextLocatable
 `public static Settlement FindNextLocatable(ref LocatableSearchData<Settlement> data)`
 
-**Purpose:** Looks up the matching `next locatable` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching next locatable in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -373,7 +373,7 @@ Settlement.FindNextLocatable(data);
 ### OnPlayerEncounterFinish
 `public void OnPlayerEncounterFinish()`
 
-**Purpose:** Invoked when the `player encounter finish` event is raised.
+**Purpose:** **Purpose:** Invoked when the player encounter finish event is raised.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -384,7 +384,7 @@ settlement.OnPlayerEncounterFinish();
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Reads and returns the `position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -395,7 +395,7 @@ var result = settlement.GetPosition();
 ### SetNextSiegeState
 `public void SetNextSiegeState()`
 
-**Purpose:** Assigns a new value to `next siege state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next siege state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -406,7 +406,7 @@ settlement.SetNextSiegeState();
 ### ResetSiegeState
 `public void ResetSiegeState()`
 
-**Purpose:** Returns `siege state` to its default or initial condition.
+**Purpose:** **Purpose:** Returns siege state to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -417,7 +417,7 @@ settlement.ResetSiegeState();
 ### AddGarrisonParty
 `public void AddGarrisonParty()`
 
-**Purpose:** Adds `garrison party` to the current collection or state.
+**Purpose:** **Purpose:** Adds garrison party to the current collection or state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -428,7 +428,7 @@ settlement.AddGarrisonParty();
 ### SetSiegeStrategy
 `public void SetSiegeStrategy(SiegeStrategy strategy)`
 
-**Purpose:** Assigns a new value to `siege strategy` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to siege strategy and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -439,7 +439,7 @@ settlement.SetSiegeStrategy(strategy);
 ### InitializeSiegeEventSide
 `public void InitializeSiegeEventSide()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `siege event side`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by siege event side.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -450,7 +450,7 @@ settlement.InitializeSiegeEventSide();
 ### OnTroopsKilledOnSide
 `public void OnTroopsKilledOnSide(int killCount)`
 
-**Purpose:** Invoked when the `troops killed on side` event is raised.
+**Purpose:** **Purpose:** Invoked when the troops killed on side event is raised.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -461,7 +461,7 @@ settlement.OnTroopsKilledOnSide(0);
 ### AddSiegeEngineMissile
 `public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
 
-**Purpose:** Adds `siege engine missile` to the current collection or state.
+**Purpose:** **Purpose:** Adds siege engine missile to the current collection or state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -472,7 +472,7 @@ settlement.AddSiegeEngineMissile(missile);
 ### RemoveDeprecatedMissiles
 `public void RemoveDeprecatedMissiles()`
 
-**Purpose:** Removes `deprecated missiles` from the current collection or state.
+**Purpose:** **Purpose:** Removes deprecated missiles from the current collection or state.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -483,7 +483,7 @@ settlement.RemoveDeprecatedMissiles();
 ### GetAttackTarget
 `public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
 
-**Purpose:** Reads and returns the `attack target` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attack target value held by the this instance.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first
@@ -494,7 +494,7 @@ settlement.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetInd
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeSiegeEvent logic.
 
 ```csharp
 // Obtain an instance of Settlement from the subsystem API first

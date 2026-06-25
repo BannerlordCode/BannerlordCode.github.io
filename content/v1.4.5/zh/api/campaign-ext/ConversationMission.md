@@ -31,7 +31,7 @@ description: "ConversationMission 的自动生成类参考。"
 ### StartConversationWithAgent
 `public static void StartConversationWithAgent(Agent agent)`
 
-**用途 / Purpose:** 启动「conversation with agent」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动conversation with agent流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例

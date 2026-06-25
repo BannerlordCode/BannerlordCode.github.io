@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### AddNewAction
 `public void AddNewAction(int addedAmount)`
 
-**Purpose:** Adds `new action` to the current collection or state.
+**Purpose:** **Purpose:** Adds new action to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopRecruitmentNotificationItemVM from the subsystem API first

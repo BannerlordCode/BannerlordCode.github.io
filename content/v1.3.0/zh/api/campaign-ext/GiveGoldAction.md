@@ -19,7 +19,7 @@ GiveGoldAction 是一组静态方法，用于在战役中以特定原因触发"G
 public static void ApplyBetweenCharacters(Hero giverHero, Hero recipientHero, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** between characters。
+**用途 / Purpose:** **用途 / Purpose:** 将 between characters 的效果应用到当前对象。
 
 ### ApplyForCharacterToSettlement
 
@@ -27,7 +27,7 @@ public static void ApplyBetweenCharacters(Hero giverHero, Hero recipientHero, in
 public static void ApplyForCharacterToSettlement(Hero giverHero, Settlement settlement, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for character to settlement。
+**用途 / Purpose:** **用途 / Purpose:** 将 for character to settlement 的效果应用到当前对象。
 
 ### ApplyForSettlementToCharacter
 
@@ -35,7 +35,7 @@ public static void ApplyForCharacterToSettlement(Hero giverHero, Settlement sett
 public static void ApplyForSettlementToCharacter(Settlement giverSettlement, Hero recipientHero, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for settlement to character。
+**用途 / Purpose:** **用途 / Purpose:** 将 for settlement to character 的效果应用到当前对象。
 
 ### ApplyForSettlementToParty
 
@@ -43,7 +43,7 @@ public static void ApplyForSettlementToCharacter(Settlement giverSettlement, Her
 public static void ApplyForSettlementToParty(Settlement giverSettlement, PartyBase recipientParty, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for settlement to party。
+**用途 / Purpose:** **用途 / Purpose:** 将 for settlement to party 的效果应用到当前对象。
 
 ### ApplyForPartyToSettlement
 
@@ -51,7 +51,7 @@ public static void ApplyForSettlementToParty(Settlement giverSettlement, PartyBa
 public static void ApplyForPartyToSettlement(PartyBase giverParty, Settlement settlement, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for party to settlement。
+**用途 / Purpose:** **用途 / Purpose:** 将 for party to settlement 的效果应用到当前对象。
 
 ### ApplyForPartyToCharacter
 
@@ -59,7 +59,7 @@ public static void ApplyForPartyToSettlement(PartyBase giverParty, Settlement se
 public static void ApplyForPartyToCharacter(PartyBase giverParty, Hero recipientHero, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for party to character。
+**用途 / Purpose:** **用途 / Purpose:** 将 for party to character 的效果应用到当前对象。
 
 ### ApplyForCharacterToParty
 
@@ -67,7 +67,7 @@ public static void ApplyForPartyToCharacter(PartyBase giverParty, Hero recipient
 public static void ApplyForCharacterToParty(Hero giverHero, PartyBase receipentParty, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for character to party。
+**用途 / Purpose:** **用途 / Purpose:** 将 for character to party 的效果应用到当前对象。
 
 ### ApplyForPartyToParty
 
@@ -75,7 +75,7 @@ public static void ApplyForCharacterToParty(Hero giverHero, PartyBase receipentP
 public static void ApplyForPartyToParty(PartyBase giverParty, PartyBase receipentParty, int amount, bool disableNotification = false)
 ```
 
-**用途 / Purpose:** for party to party。
+**用途 / Purpose:** **用途 / Purpose:** 将 for party to party 的效果应用到当前对象。
 
 ## 使用示例
 

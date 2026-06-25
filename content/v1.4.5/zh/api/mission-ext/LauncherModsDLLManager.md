@@ -29,7 +29,7 @@ description: "LauncherModsDLLManager 的自动生成类参考。"
 ### GetSubModuleVerifyData
 `public LauncherDLLData GetSubModuleVerifyData(SubModuleInfo subModuleInfo)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sub module verify data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sub module verify data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherModsDLLManager 实例

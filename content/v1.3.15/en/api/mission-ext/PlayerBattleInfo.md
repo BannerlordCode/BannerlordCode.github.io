@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Flee
 `public void Flee()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Flee logic.
 
 ```csharp
 // Obtain an instance of PlayerBattleInfo from the subsystem API first
@@ -47,7 +47,7 @@ playerBattleInfo.Flee();
 ### Disconnect
 `public void Disconnect()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Disconnect logic.
 
 ```csharp
 // Obtain an instance of PlayerBattleInfo from the subsystem API first
@@ -58,7 +58,7 @@ playerBattleInfo.Disconnect();
 ### Initialize
 `public void Initialize(int peerIndex)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PlayerBattleInfo from the subsystem API first
@@ -69,7 +69,7 @@ playerBattleInfo.Initialize(0);
 ### RejoinBattle
 `public void RejoinBattle(int teamNo)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RejoinBattle logic.
 
 ```csharp
 // Obtain an instance of PlayerBattleInfo from the subsystem API first
@@ -80,7 +80,7 @@ playerBattleInfo.RejoinBattle(0);
 ### Clone
 `public PlayerBattleInfo Clone()`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of PlayerBattleInfo from the subsystem API first

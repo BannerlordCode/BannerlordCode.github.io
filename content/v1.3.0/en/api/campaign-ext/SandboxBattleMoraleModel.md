@@ -23,7 +23,7 @@ Treat `SandboxBattleMoraleModel` as a Model-style extension point: first identif
 ### CalculateMaxMoraleChangeDueToAgentIncapacitated
 `public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentIncapacitated(Agent affectedAgent, AgentState affectedAgentState, Agent affectorAgent, in KillingBlow killingBlow)`
 
-**Purpose:** Calculates the current value or result of `max morale change due to agent incapacitated`.
+**Purpose:** **Purpose:** Calculates the current value or result of max morale change due to agent incapacitated.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = sandboxBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentIncapaci
 ### CalculateMaxMoraleChangeDueToAgentPanicked
 `public override ValueTuple<float, float> CalculateMaxMoraleChangeDueToAgentPanicked(Agent agent)`
 
-**Purpose:** Calculates the current value or result of `max morale change due to agent panicked`.
+**Purpose:** **Purpose:** Calculates the current value or result of max morale change due to agent panicked.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = sandboxBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentPanicked
 ### CalculateMoraleChangeToCharacter
 `public override float CalculateMoraleChangeToCharacter(Agent agent, float maxMoraleChange)`
 
-**Purpose:** Calculates the current value or result of `morale change to character`.
+**Purpose:** **Purpose:** Calculates the current value or result of morale change to character.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = sandboxBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0)
 ### GetEffectiveInitialMorale
 `public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**Purpose:** Reads and returns the `effective initial morale` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective initial morale value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = sandboxBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
 ### CanPanicDueToMorale
 `public override bool CanPanicDueToMorale(Agent agent)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `panic due to morale`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for panic due to morale.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = sandboxBattleMoraleModel.CanPanicDueToMorale(agent);
 ### CalculateCasualtiesFactor
 `public override float CalculateCasualtiesFactor(BattleSideEnum battleSide)`
 
-**Purpose:** Calculates the current value or result of `casualties factor`.
+**Purpose:** **Purpose:** Calculates the current value or result of casualties factor.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = sandboxBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
 ### GetAverageMorale
 `public override float GetAverageMorale(Formation formation)`
 
-**Purpose:** Reads and returns the `average morale` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the average morale value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = sandboxBattleMoraleModel.GetAverageMorale(formation);
 ### CalculateMoraleChangeOnShipSunk
 `public override float CalculateMoraleChangeOnShipSunk(IShipOrigin shipOrigin)`
 
-**Purpose:** Calculates the current value or result of `morale change on ship sunk`.
+**Purpose:** **Purpose:** Calculates the current value or result of morale change on ship sunk.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = sandboxBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin
 ### CalculateMoraleOnRamming
 `public override float CalculateMoraleOnRamming(Agent agent)`
 
-**Purpose:** Calculates the current value or result of `morale on ramming`.
+**Purpose:** **Purpose:** Calculates the current value or result of morale on ramming.
 
 ```csharp
 // Obtain an instance of SandboxBattleMoraleModel from the subsystem API first

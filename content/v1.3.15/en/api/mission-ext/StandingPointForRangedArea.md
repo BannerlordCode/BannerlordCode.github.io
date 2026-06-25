@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of StandingPointForRangedArea from the subsystem API first
@@ -40,7 +40,7 @@ var result = standingPointForRangedArea.IsDisabledForAgent(agent);
 ### GetUsageScoreForAgent
 `public override float GetUsageScoreForAgent(Agent agent)`
 
-**Purpose:** Reads and returns the `usage score for agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the usage score for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of StandingPointForRangedArea from the subsystem API first
@@ -51,7 +51,7 @@ var result = standingPointForRangedArea.GetUsageScoreForAgent(agent);
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**Purpose:** Determines whether the current object already holds `alternative`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds alternative.
 
 ```csharp
 // Obtain an instance of StandingPointForRangedArea from the subsystem API first
@@ -62,7 +62,7 @@ var result = standingPointForRangedArea.HasAlternative();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of StandingPointForRangedArea from the subsystem API first

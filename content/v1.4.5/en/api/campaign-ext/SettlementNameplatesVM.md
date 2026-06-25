@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -42,7 +42,7 @@ settlementNameplatesVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -53,7 +53,7 @@ settlementNameplatesVM.RefreshValues();
 ### Initialize
 `public void Initialize(IEnumerable<Tuple<Settlement, GameEntity>> settlements)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -64,7 +64,7 @@ settlementNameplatesVM.Initialize(iEnumerable<Tuple<Settlement, settlements);
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -75,7 +75,7 @@ settlementNameplatesVM.Update();
 ### GetNameplateOfSettlement
 `public SettlementNameplateVM GetNameplateOfSettlement(Settlement settlement)`
 
-**Purpose:** Reads and returns the `nameplate of settlement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the nameplate of settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -86,7 +86,7 @@ var result = settlementNameplatesVM.GetNameplateOfSettlement(settlement);
 ### OnRebelliousClanDisbandedAtSettlement
 `public void OnRebelliousClanDisbandedAtSettlement(Settlement settlement, Clan clan)`
 
-**Purpose:** Invoked when the `rebellious clan disbanded at settlement` event is raised.
+**Purpose:** **Purpose:** Invoked when the rebellious clan disbanded at settlement event is raised.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -97,7 +97,7 @@ settlementNameplatesVM.OnRebelliousClanDisbandedAtSettlement(settlement, clan);
 ### RefreshRelationsOfNameplates
 `public void RefreshRelationsOfNameplates()`
 
-**Purpose:** Keeps the display or cache of `relations of nameplates` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of relations of nameplates in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first
@@ -108,7 +108,7 @@ settlementNameplatesVM.RefreshRelationsOfNameplates();
 ### RefreshDynamicPropertiesOfNameplates
 `public void RefreshDynamicPropertiesOfNameplates(bool forceUpdate)`
 
-**Purpose:** Keeps the display or cache of `dynamic properties of nameplates` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of dynamic properties of nameplates in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SettlementNameplatesVM from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshData
 `public override void RefreshData()`
 
-**Purpose:** Keeps the display or cache of `data` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of NumericHostGameOptionDataVM from the subsystem API first

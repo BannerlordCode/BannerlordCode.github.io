@@ -29,7 +29,7 @@ Treat `MissionObjectiveLogic` as a Logic-style extension point: first identify w
 ### EnqueueObjective
 `public void EnqueueObjective(MissionObjective objective)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnqueueObjective logic.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first
@@ -40,7 +40,7 @@ missionObjectiveLogic.EnqueueObjective(objective);
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(string objectiveId)`
 
-**Purpose:** Removes `objective from queue` from the current collection or state.
+**Purpose:** **Purpose:** Removes objective from queue from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first
@@ -51,7 +51,7 @@ missionObjectiveLogic.RemoveObjectiveFromQueue("example");
 ### RemoveObjectiveFromQueue
 `public void RemoveObjectiveFromQueue(MissionObjective objective)`
 
-**Purpose:** Removes `objective from queue` from the current collection or state.
+**Purpose:** **Purpose:** Removes objective from queue from the current collection or state.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first
@@ -62,7 +62,7 @@ missionObjectiveLogic.RemoveObjectiveFromQueue(objective);
 ### GetCurrentObjective
 `public MissionObjective GetCurrentObjective()`
 
-**Purpose:** Reads and returns the `current objective` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current objective value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first
@@ -73,7 +73,7 @@ var result = missionObjectiveLogic.GetCurrentObjective();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionObjectiveLogic from the subsystem API first

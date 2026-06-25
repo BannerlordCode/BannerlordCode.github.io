@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ExposureOptionVM from the subsystem API first
@@ -48,7 +48,7 @@ exposureOptionVM.RefreshValues();
 ### ExecuteConfirm
 `public void ExecuteConfirm()`
 
-**Purpose:** Runs the operation or workflow associated with `confirm`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with confirm.
 
 ```csharp
 // Obtain an instance of ExposureOptionVM from the subsystem API first
@@ -59,7 +59,7 @@ exposureOptionVM.ExecuteConfirm();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of ExposureOptionVM from the subsystem API first
@@ -70,7 +70,7 @@ exposureOptionVM.ExecuteCancel();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ExposureOptionVM from the subsystem API first
@@ -81,7 +81,7 @@ exposureOptionVM.SetCancelInputKey(hotkey);
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `confirm input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to confirm input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ExposureOptionVM from the subsystem API first

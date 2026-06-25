@@ -29,7 +29,7 @@ Treat `ItemCatalogController` as a Controller-style extension point: first ident
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of ItemCatalogController from the subsystem API first
@@ -40,7 +40,7 @@ itemCatalogController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ItemCatalogController from the subsystem API first
@@ -51,7 +51,7 @@ itemCatalogController.OnMissionTick(0);
 ### BeforeCatalogTickDelegate
 `public delegate void BeforeCatalogTickDelegate(int currentItemIndex)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeforeCatalogTickDelegate logic.
 
 ```csharp
 // Obtain an instance of ItemCatalogController from the subsystem API first

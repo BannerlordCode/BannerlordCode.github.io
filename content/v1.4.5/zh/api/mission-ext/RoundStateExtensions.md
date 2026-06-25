@@ -23,7 +23,7 @@ description: "RoundStateExtensions 的自动生成类参考。"
 ### StateHasVisualTimer
 `public static bool StateHasVisualTimer(this MultiplayerRoundState roundState)`
 
-**用途 / Purpose:** 处理与 「state has visual timer」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 StateHasVisualTimer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

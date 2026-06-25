@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Check
 `public bool Check()`
 
-**Purpose:** Verifies whether the current object meets the specified condition.
+**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of IncrementalTimer from the subsystem API first
@@ -40,7 +40,7 @@ var result = incrementalTimer.Check();
 ### HasEnded
 `public bool HasEnded()`
 
-**Purpose:** Determines whether the current object already holds `ended`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds ended.
 
 ```csharp
 // Obtain an instance of IncrementalTimer from the subsystem API first

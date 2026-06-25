@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of WedgeFormation from the subsystem API first

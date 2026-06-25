@@ -23,7 +23,7 @@ description: "MultiThreadedTestFunctions 的自动生成类参考。"
 ### MeshMerger
 `public static void MeshMerger(InputLayout layout)`
 
-**用途 / Purpose:** 处理与 「mesh merger」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MeshMerger 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiThreadedTestFunctions.MeshMerger(layout);
 ### SceneHandler
 `public static void SceneHandler(SceneView view)`
 
-**用途 / Purpose:** 处理与 「scene handler」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SceneHandler 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

@@ -19,7 +19,7 @@ BreakInOutBesiegedSettlementAction is a set of static methods that trigger "Brea
 public static void ApplyBreakIn(out TroopRoster casualties, out int armyCasualtiesCount, bool isFromPort)
 ```
 
-**Purpose:** break in.
+**Purpose:** **Purpose:** Applies the effect of break in to the this instance.
 
 ### ApplyBreakOut
 
@@ -27,7 +27,7 @@ public static void ApplyBreakIn(out TroopRoster casualties, out int armyCasualti
 public static void ApplyBreakOut(out TroopRoster casualties, out int armyCasualtiesCount, bool isFromPort)
 ```
 
-**Purpose:** break out.
+**Purpose:** **Purpose:** Applies the effect of break out to the this instance.
 
 ## Usage Example
 

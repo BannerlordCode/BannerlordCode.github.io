@@ -34,7 +34,7 @@ Treat `EditableTextWidget` as a Widget-style extension point: first identify who
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Executes the response logic associated with `input`.
+**Purpose:** **Purpose:** Executes the response logic associated with input.
 
 ```csharp
 // Obtain an instance of EditableTextWidget from the subsystem API first
@@ -45,7 +45,7 @@ editableTextWidget.HandleInput(lastKeysPressed);
 ### SetAllText
 `public virtual void SetAllText(string text)`
 
-**Purpose:** Assigns a new value to `all text` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to all text and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EditableTextWidget from the subsystem API first

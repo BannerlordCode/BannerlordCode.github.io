@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### OnIncomeSelection
 `public void OnIncomeSelection()`
 
-**Purpose:** Invoked when the `income selection` event is raised.
+**Purpose:** **Purpose:** Invoked when the income selection event is raised.
 
 ```csharp
 // Obtain an instance of ClanFinanceIncomeItemBaseVM from the subsystem API first

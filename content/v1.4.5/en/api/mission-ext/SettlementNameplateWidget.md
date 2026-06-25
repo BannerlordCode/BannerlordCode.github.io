@@ -43,7 +43,7 @@ Treat `SettlementNameplateWidget` as a Widget-style extension point: first ident
 ### SettlementNameplateWidget
 `public class SettlementNameplateWidget(UIContext context)`
 
-**Purpose:** Assigns a new value to `tlement nameplate widget` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to tlement nameplate widget and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SettlementNameplateWidget from the subsystem API first
@@ -54,7 +54,7 @@ var result = settlementNameplateWidget.SettlementNameplateWidget(context);
 ### CompareTo
 `public int CompareTo(SettlementNameplateWidget other)`
 
-**Purpose:** Compares the current object with the supplied instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of SettlementNameplateWidget from the subsystem API first

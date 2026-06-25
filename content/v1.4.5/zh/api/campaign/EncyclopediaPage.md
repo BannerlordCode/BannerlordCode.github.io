@@ -30,7 +30,7 @@ description: "EncyclopediaPage 的自动生成类参考。"
 ### IsRelevant
 `public virtual bool IsRelevant()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「relevant」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 relevant 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -41,7 +41,7 @@ var result = encyclopediaPage.IsRelevant();
 ### HasIdentifierType
 `public bool HasIdentifierType(Type identifierType)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「identifier type」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 identifier type。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -52,7 +52,7 @@ var result = encyclopediaPage.HasIdentifierType(identifierType);
 ### GetIdentifier
 `public string GetIdentifier(Type identifierType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「identifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -63,7 +63,7 @@ var result = encyclopediaPage.GetIdentifier(identifierType);
 ### GetIdentifierNames
 `public string GetIdentifierNames()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「identifier names」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 identifier names 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -74,7 +74,7 @@ var result = encyclopediaPage.GetIdentifierNames();
 ### IsFiltered
 `public bool IsFiltered(object o)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「filtered」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 filtered 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -85,7 +85,7 @@ var result = encyclopediaPage.IsFiltered(o);
 ### GetViewFullyQualifiedName
 `public virtual string GetViewFullyQualifiedName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「view fully qualified name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 view fully qualified name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -96,7 +96,7 @@ var result = encyclopediaPage.GetViewFullyQualifiedName();
 ### GetStringID
 `public virtual string GetStringID()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「string i d」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 string i d 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -107,7 +107,7 @@ var result = encyclopediaPage.GetStringID();
 ### GetName
 `public virtual TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -118,7 +118,7 @@ var result = encyclopediaPage.GetName();
 ### GetObject
 `public virtual MBObjectBase GetObject(string typeName, string stringID)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「object」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -129,7 +129,7 @@ var result = encyclopediaPage.GetObject("example", "example");
 ### IsValidEncyclopediaItem
 `public virtual bool IsValidEncyclopediaItem(object o)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「valid encyclopedia item」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid encyclopedia item 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -140,7 +140,7 @@ var result = encyclopediaPage.IsValidEncyclopediaItem(o);
 ### GetDescriptionText
 `public virtual TextObject GetDescriptionText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -151,7 +151,7 @@ var result = encyclopediaPage.GetDescriptionText();
 ### GetListItems
 `public IEnumerable<EncyclopediaListItem> GetListItems()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「list items」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 list items 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -162,7 +162,7 @@ var result = encyclopediaPage.GetListItems();
 ### GetFilterItems
 `public IEnumerable<EncyclopediaFilterGroup> GetFilterItems()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「filter items」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 filter items 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例
@@ -173,7 +173,7 @@ var result = encyclopediaPage.GetFilterItems();
 ### GetSortControllers
 `public IEnumerable<EncyclopediaSortController> GetSortControllers()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sort controllers」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sort controllers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaPage 实例

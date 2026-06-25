@@ -30,7 +30,7 @@ description: "HasTableauCache 的自动生成类参考。"
 ### CollectTableauCacheTypes
 `public static void CollectTableauCacheTypes()`
 
-**用途 / Purpose:** 处理与 「collect tableau cache types」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CollectTableauCacheTypes 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

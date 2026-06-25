@@ -23,7 +23,7 @@ description: "MissionMatchHistoryComponent 的自动生成类参考。"
 ### CreateIfConditionsAreMet
 `public static MissionMatchHistoryComponent CreateIfConditionsAreMet()`
 
-**用途 / Purpose:** 构建一个新的 「if conditions are met」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 if conditions are met 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MissionMatchHistoryComponent.CreateIfConditionsAreMet();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMatchHistoryComponent 实例
@@ -44,7 +44,7 @@ missionMatchHistoryComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMatchHistoryComponent 实例
@@ -55,7 +55,7 @@ missionMatchHistoryComponent.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMatchHistoryComponent 实例

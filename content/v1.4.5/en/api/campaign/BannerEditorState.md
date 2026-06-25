@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameState` to place it in the st
 ### GetClan
 `public Clan GetClan()`
 
-**Purpose:** Reads and returns the `clan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerEditorState from the subsystem API first
@@ -40,7 +40,7 @@ var result = bannerEditorState.GetClan();
 ### GetCharacter
 `public CharacterObject GetCharacter()`
 
-**Purpose:** Reads and returns the `character` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerEditorState from the subsystem API first

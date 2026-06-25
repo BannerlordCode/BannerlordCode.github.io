@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetBase
 `public void SetBase()`
 
-**Purpose:** Assigns a new value to `base` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to base and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBHaltonColorGenerator from the subsystem API first
@@ -34,7 +34,7 @@ mBHaltonColorGenerator.SetBase();
 ### SetBase
 `public void SetBase(int baseValue)`
 
-**Purpose:** Assigns a new value to `base` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to base and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBHaltonColorGenerator from the subsystem API first
@@ -45,7 +45,7 @@ mBHaltonColorGenerator.SetBase(0);
 ### SetOffset
 `public void SetOffset(float offset)`
 
-**Purpose:** Assigns a new value to `offset` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to offset and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBHaltonColorGenerator from the subsystem API first
@@ -56,7 +56,7 @@ mBHaltonColorGenerator.SetOffset(0);
 ### SetRandomOffset
 `public void SetRandomOffset()`
 
-**Purpose:** Assigns a new value to `random offset` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to random offset and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBHaltonColorGenerator from the subsystem API first
@@ -67,7 +67,7 @@ mBHaltonColorGenerator.SetRandomOffset();
 ### GetColor
 `public Color GetColor(int index, int maxIndex)`
 
-**Purpose:** Reads and returns the `color` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the color value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBHaltonColorGenerator from the subsystem API first

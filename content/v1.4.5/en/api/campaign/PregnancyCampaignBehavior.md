@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PregnancyCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ pregnancyCampaignBehavior.RegisterEvents();
 ### OnHeroKilled
 `public void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)`
 
-**Purpose:** Invoked when the `hero killed` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero killed event is raised.
 
 ```csharp
 // Obtain an instance of PregnancyCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ pregnancyCampaignBehavior.OnHeroKilled(victim, killer, detail, true);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PregnancyCampaignBehavior from the subsystem API first

@@ -54,7 +54,7 @@ description: "MPHeroClass 的自动生成类参考。"
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHeroClass 实例
@@ -65,7 +65,7 @@ var result = mPHeroClass.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHeroClass 实例
@@ -76,7 +76,7 @@ var result = mPHeroClass.GetHashCode();
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all available perks for list index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all available perks for list index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHeroClass 实例
@@ -87,7 +87,7 @@ var result = mPHeroClass.GetAllAvailablePerksForListIndex(0, "example");
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHeroClass 实例
@@ -98,7 +98,7 @@ mPHeroClass.Deserialize(objectManager, node);
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「troop character」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 troop character 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHeroClass 实例

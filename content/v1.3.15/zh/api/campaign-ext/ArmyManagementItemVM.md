@@ -50,7 +50,7 @@ description: "ArmyManagementItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -61,7 +61,7 @@ armyManagementItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -72,7 +72,7 @@ armyManagementItemVM.ExecuteAction();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** 执行 「set focused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -83,7 +83,7 @@ armyManagementItemVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** 执行 「set unfocused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -94,7 +94,7 @@ armyManagementItemVM.ExecuteSetUnfocused();
 ### UpdateEligibility
 `public void UpdateEligibility()`
 
-**用途 / Purpose:** 重新计算并更新 「eligibility」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 eligibility 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -105,7 +105,7 @@ armyManagementItemVM.UpdateEligibility();
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -116,7 +116,7 @@ armyManagementItemVM.ExecuteBeginHint();
 ### ExecuteBeginClanHint
 `public void ExecuteBeginClanHint()`
 
-**用途 / Purpose:** 执行 「begin clan hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin clan hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -127,7 +127,7 @@ armyManagementItemVM.ExecuteBeginClanHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -138,7 +138,7 @@ armyManagementItemVM.ExecuteEndHint();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例
@@ -149,7 +149,7 @@ armyManagementItemVM.ExecuteOpenEncyclopedia();
 ### ExecuteOpenClanEncyclopedia
 `public void ExecuteOpenClanEncyclopedia()`
 
-**用途 / Purpose:** 执行 「open clan encyclopedia」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open clan encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementItemVM 实例

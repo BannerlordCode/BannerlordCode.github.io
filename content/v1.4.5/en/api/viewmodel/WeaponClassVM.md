@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of WeaponClassVM from the subsystem API first
@@ -48,7 +48,7 @@ weaponClassVM.RefreshValues();
 ### RegisterSelectedPiece
 `public void RegisterSelectedPiece(CraftingPiece.PieceTypes type, string pieceID)`
 
-**Purpose:** Registers `selected piece` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers selected piece with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of WeaponClassVM from the subsystem API first
@@ -59,7 +59,7 @@ weaponClassVM.RegisterSelectedPiece(type, "example");
 ### GetSelectedPieceData
 `public string GetSelectedPieceData(CraftingPiece.PieceTypes type)`
 
-**Purpose:** Reads and returns the `selected piece data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the selected piece data value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponClassVM from the subsystem API first
@@ -70,7 +70,7 @@ var result = weaponClassVM.GetSelectedPieceData(type);
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Runs the operation or workflow associated with `select`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of WeaponClassVM from the subsystem API first

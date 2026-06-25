@@ -19,7 +19,7 @@ DestroyKingdomAction is a set of static methods that trigger "DestroyKingdom" in
 public static void Apply(Kingdom destroyedKingdom)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyByKingdomLeaderDeath
 
@@ -27,7 +27,7 @@ public static void Apply(Kingdom destroyedKingdom)
 public static void ApplyByKingdomLeaderDeath(Kingdom destroyedKingdom)
 ```
 
-**Purpose:** kingdom leader death.
+**Purpose:** **Purpose:** Applies the effect of by kingdom leader death to the this instance.
 
 ## Usage Example
 

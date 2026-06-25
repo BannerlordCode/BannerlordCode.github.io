@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnExecutedInitialStateOption
 `public void OnExecutedInitialStateOption(InitialStateOption target)`
 
-**Purpose:** Invoked when the `executed initial state option` event is raised.
+**Purpose:** **Purpose:** Invoked when the executed initial state option event is raised.
 
 ```csharp
 // Obtain an instance of InitialState from the subsystem API first
@@ -34,7 +34,7 @@ initialState.OnExecutedInitialStateOption(target);
 ### RefreshContentState
 `public void RefreshContentState()`
 
-**Purpose:** Keeps the display or cache of `content state` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of content state in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InitialState from the subsystem API first

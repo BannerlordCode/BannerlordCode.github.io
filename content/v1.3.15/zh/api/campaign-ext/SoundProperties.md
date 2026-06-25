@@ -30,7 +30,7 @@ description: "SoundProperties 的自动生成类参考。"
 ### AddStateSound
 `public void AddStateSound(string state, AudioProperty audioProperty)`
 
-**用途 / Purpose:** 将 「state sound」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 state sound 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundProperties 实例
@@ -41,7 +41,7 @@ soundProperties.AddStateSound("example", audioProperty);
 ### AddEventSound
 `public void AddEventSound(string state, AudioProperty audioProperty)`
 
-**用途 / Purpose:** 将 「event sound」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 event sound 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundProperties 实例
@@ -52,7 +52,7 @@ soundProperties.AddEventSound("example", audioProperty);
 ### FillFrom
 `public void FillFrom(SoundProperties soundProperties)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundProperties 实例
@@ -63,7 +63,7 @@ soundProperties.FillFrom(soundProperties);
 ### GetEventAudioProperty
 `public AudioProperty GetEventAudioProperty(string eventName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「event audio property」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 event audio property 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundProperties 实例
@@ -74,7 +74,7 @@ var result = soundProperties.GetEventAudioProperty("example");
 ### GetStateAudioProperty
 `public AudioProperty GetStateAudioProperty(string stateName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「state audio property」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 state audio property 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundProperties 实例

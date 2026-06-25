@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### IsAllowed
 `public override bool IsAllowed()`
 
-**Purpose:** Determines whether the current object is in the `allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the allowed state or condition.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -34,7 +34,7 @@ var result = expelClanFromKingdomDecision.IsAllowed();
 ### GetProposalInfluenceCost
 `public override int GetProposalInfluenceCost()`
 
-**Purpose:** Reads and returns the `proposal influence cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the proposal influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -45,7 +45,7 @@ var result = expelClanFromKingdomDecision.GetProposalInfluenceCost();
 ### GetGeneralTitle
 `public override TextObject GetGeneralTitle()`
 
-**Purpose:** Reads and returns the `general title` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the general title value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -56,7 +56,7 @@ var result = expelClanFromKingdomDecision.GetGeneralTitle();
 ### GetSupportTitle
 `public override TextObject GetSupportTitle()`
 
-**Purpose:** Reads and returns the `support title` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the support title value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -67,7 +67,7 @@ var result = expelClanFromKingdomDecision.GetSupportTitle();
 ### GetChooseTitle
 `public override TextObject GetChooseTitle()`
 
-**Purpose:** Reads and returns the `choose title` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the choose title value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -78,7 +78,7 @@ var result = expelClanFromKingdomDecision.GetChooseTitle();
 ### GetSupportDescription
 `public override TextObject GetSupportDescription()`
 
-**Purpose:** Reads and returns the `support description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the support description value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -89,7 +89,7 @@ var result = expelClanFromKingdomDecision.GetSupportDescription();
 ### GetChooseDescription
 `public override TextObject GetChooseDescription()`
 
-**Purpose:** Reads and returns the `choose description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the choose description value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -100,7 +100,7 @@ var result = expelClanFromKingdomDecision.GetChooseDescription();
 ### DetermineInitialCandidates
 `public override IEnumerable<DecisionOutcome> DetermineInitialCandidates()`
 
-**Purpose:** Determines the result of `initial candidates` based on the current state.
+**Purpose:** **Purpose:** Determines the result of initial candidates based on the current state.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -111,7 +111,7 @@ var result = expelClanFromKingdomDecision.DetermineInitialCandidates();
 ### DetermineChooser
 `public override Clan DetermineChooser()`
 
-**Purpose:** Determines the result of `chooser` based on the current state.
+**Purpose:** **Purpose:** Determines the result of chooser based on the current state.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -122,7 +122,7 @@ var result = expelClanFromKingdomDecision.DetermineChooser();
 ### DetermineSupport
 `public override float DetermineSupport(Clan clan, DecisionOutcome possibleOutcome)`
 
-**Purpose:** Determines the result of `support` based on the current state.
+**Purpose:** **Purpose:** Determines the result of support based on the current state.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -133,7 +133,7 @@ var result = expelClanFromKingdomDecision.DetermineSupport(clan, possibleOutcome
 ### DetermineSponsors
 `public override void DetermineSponsors(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Determines the result of `sponsors` based on the current state.
+**Purpose:** **Purpose:** Determines the result of sponsors based on the current state.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -144,7 +144,7 @@ expelClanFromKingdomDecision.DetermineSponsors(possibleOutcomes);
 ### ApplyChosenOutcome
 `public override void ApplyChosenOutcome(DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies the effect of `chosen outcome` to the current object.
+**Purpose:** **Purpose:** Applies the effect of chosen outcome to the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -155,7 +155,7 @@ expelClanFromKingdomDecision.ApplyChosenOutcome(chosenOutcome);
 ### GetSecondaryEffects
 `public override TextObject GetSecondaryEffects()`
 
-**Purpose:** Reads and returns the `secondary effects` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the secondary effects value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -166,7 +166,7 @@ var result = expelClanFromKingdomDecision.GetSecondaryEffects();
 ### ApplySecondaryEffects
 `public override void ApplySecondaryEffects(MBReadOnlyList<DecisionOutcome> possibleOutcomes, DecisionOutcome chosenOutcome)`
 
-**Purpose:** Applies the effect of `secondary effects` to the current object.
+**Purpose:** **Purpose:** Applies the effect of secondary effects to the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -177,7 +177,7 @@ expelClanFromKingdomDecision.ApplySecondaryEffects(possibleOutcomes, chosenOutco
 ### GetChosenOutcomeText
 `public override TextObject GetChosenOutcomeText(DecisionOutcome chosenOutcome, KingdomDecision.SupportStatus supportStatus, bool isShortVersion = false)`
 
-**Purpose:** Reads and returns the `chosen outcome text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the chosen outcome text value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -188,7 +188,7 @@ var result = expelClanFromKingdomDecision.GetChosenOutcomeText(chosenOutcome, su
 ### GetQueriedDecisionOutcome
 `public override DecisionOutcome GetQueriedDecisionOutcome(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**Purpose:** Reads and returns the `queried decision outcome` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the queried decision outcome value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -199,7 +199,7 @@ var result = expelClanFromKingdomDecision.GetQueriedDecisionOutcome(possibleOutc
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Reads and returns the `decision title` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision title value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -210,7 +210,7 @@ var result = expelClanFromKingdomDecision.GetDecisionTitle();
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Reads and returns the `decision description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision description value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -221,7 +221,7 @@ var result = expelClanFromKingdomDecision.GetDecisionDescription();
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Reads and returns the `decision link` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision link value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first
@@ -232,7 +232,7 @@ var result = expelClanFromKingdomDecision.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision image identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExpelClanFromKingdomDecision from the subsystem API first

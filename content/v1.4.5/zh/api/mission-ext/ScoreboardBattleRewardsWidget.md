@@ -31,7 +31,7 @@ description: "ScoreboardBattleRewardsWidget 的自动生成类参考。"
 ### ScoreboardBattleRewardsWidget
 `public class ScoreboardBattleRewardsWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「scoreboard battle rewards widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ScoreboardBattleRewardsWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例
@@ -42,7 +42,7 @@ var result = scoreboardBattleRewardsWidget.ScoreboardBattleRewardsWidget(context
 ### StartAnimation
 `public void StartAnimation()`
 
-**用途 / Purpose:** 启动「animation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例
@@ -53,7 +53,7 @@ scoreboardBattleRewardsWidget.StartAnimation();
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardBattleRewardsWidget 实例

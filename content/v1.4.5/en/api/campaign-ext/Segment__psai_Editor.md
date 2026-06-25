@@ -50,7 +50,7 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**Purpose:** Reads and returns the `children` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the children value held by the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -61,7 +61,7 @@ var result = segment.GetChildren();
 ### GetClassString
 `public override string GetClassString()`
 
-**Purpose:** Reads and returns the `class string` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the class string value held by the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -72,7 +72,7 @@ var result = segment.GetClassString();
 ### Clone
 `public override object Clone()`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -83,7 +83,7 @@ var result = segment.Clone();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -94,7 +94,7 @@ var result = segment.ToString();
 ### AddCompatibleSnippet
 `public bool AddCompatibleSnippet(Segment snippet, float compatibility)`
 
-**Purpose:** Adds `compatible snippet` to the current collection or state.
+**Purpose:** **Purpose:** Adds compatible snippet to the current collection or state.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -105,7 +105,7 @@ var result = segment.AddCompatibleSnippet(snippet, 0);
 ### PropertyDifferencesAffectCompatibilities
 `public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PropertyDifferencesAffectCompatibilities logic.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -116,7 +116,7 @@ var result = segment.PropertyDifferencesAffectCompatibilities(otherEntity);
 ### BuildCompatibleSegmentsSet
 `public void BuildCompatibleSegmentsSet(PsaiProject project)`
 
-**Purpose:** Assembles and returns the built result for `compatible segments set`.
+**Purpose:** **Purpose:** Assembles and returns the built result for compatible segments set.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -127,7 +127,7 @@ segment.BuildCompatibleSegmentsSet(project);
 ### SetStartMiddleEndPropertiesFromBitfield
 `public void SetStartMiddleEndPropertiesFromBitfield(int bitfield)`
 
-**Purpose:** Assigns a new value to `start middle end properties from bitfield` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to start middle end properties from bitfield and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -138,7 +138,7 @@ segment.SetStartMiddleEndPropertiesFromBitfield(0);
 ### CreateSegmentSuitabilityBitfield
 `public int CreateSegmentSuitabilityBitfield(PsaiProject parentProject)`
 
-**Purpose:** Constructs a new `segment suitability bitfield` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new segment suitability bitfield entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -149,7 +149,7 @@ var result = segment.CreateSegmentSuitabilityBitfield(parentProject);
 ### CreatePsaiDotNetVersion
 `public psai.net.Segment CreatePsaiDotNetVersion(PsaiProject parentProject)`
 
-**Purpose:** Constructs a new `psai dot net version` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new psai dot net version entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -160,7 +160,7 @@ var result = segment.CreatePsaiDotNetVersion(parentProject);
 ### HasOnlyStartSuitability
 `public bool HasOnlyStartSuitability()`
 
-**Purpose:** Determines whether the current object already holds `only start suitability`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds only start suitability.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -171,7 +171,7 @@ var result = segment.HasOnlyStartSuitability();
 ### HasOnlyMiddleSuitability
 `public bool HasOnlyMiddleSuitability()`
 
-**Purpose:** Determines whether the current object already holds `only middle suitability`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds only middle suitability.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -182,7 +182,7 @@ var result = segment.HasOnlyMiddleSuitability();
 ### HasOnlyEndSuitability
 `public bool HasOnlyEndSuitability()`
 
-**Purpose:** Determines whether the current object already holds `only end suitability`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds only end suitability.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -193,7 +193,7 @@ var result = segment.HasOnlyEndSuitability();
 ### ReadOutSegmentSuitabilityFlag
 `public static bool ReadOutSegmentSuitabilityFlag(int bitfield, SegmentSuitability suitability)`
 
-**Purpose:** Reads the data or state of `out segment suitability flag`.
+**Purpose:** **Purpose:** Reads the data or state of out segment suitability flag.
 
 ```csharp
 // Static call; no instance required
@@ -203,7 +203,7 @@ Segment.ReadOutSegmentSuitabilityFlag(0, suitability);
 ### SetSegmentSuitabilityFlag
 `public static void SetSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)`
 
-**Purpose:** Assigns a new value to `segment suitability flag` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to segment suitability flag and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -213,7 +213,7 @@ Segment.SetSegmentSuitabilityFlag(bitfield, snippetType);
 ### ClearSegmentSuitabilityFlag
 `public static void ClearSegmentSuitabilityFlag(ref int bitfield, SegmentSuitability snippetType)`
 
-**Purpose:** Removes all `segment suitability flag` from the current object.
+**Purpose:** **Purpose:** Removes all segment suitability flag from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -223,7 +223,7 @@ Segment.ClearSegmentSuitabilityFlag(bitfield, snippetType);
 ### IsBridgeSnippetToAnyGroup
 `public bool IsBridgeSnippetToAnyGroup(PsaiProject project)`
 
-**Purpose:** Determines whether the current object is in the `bridge snippet to any group` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the bridge snippet to any group state or condition.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -234,7 +234,7 @@ var result = segment.IsBridgeSnippetToAnyGroup(project);
 ### IsManualBridgeSnippetForAnyGroup
 `public bool IsManualBridgeSnippetForAnyGroup(PsaiProject project)`
 
-**Purpose:** Determines whether the current object is in the `manual bridge snippet for any group` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the manual bridge snippet for any group state or condition.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -245,7 +245,7 @@ var result = segment.IsManualBridgeSnippetForAnyGroup(project);
 ### IsManualBridgeSegmentForSourceGroup
 `public bool IsManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-**Purpose:** Determines whether the current object is in the `manual bridge segment for source group` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the manual bridge segment for source group state or condition.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -256,7 +256,7 @@ var result = segment.IsManualBridgeSegmentForSourceGroup(sourceGroup);
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**Purpose:** Reads and returns the `compatibility setting` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compatibility setting value held by the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -267,7 +267,7 @@ var result = segment.GetCompatibilitySetting(targetEntity);
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**Purpose:** Reads and returns the `compatibility type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compatibility type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -278,7 +278,7 @@ var result = segment.GetCompatibilityType(targetEntity, reason);
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**Purpose:** Reads and returns the `parent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the parent value held by the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -289,7 +289,7 @@ var result = segment.GetParent();
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**Purpose:** Reads and returns the `index position within parent entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index position within parent entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Segment from the subsystem API first
@@ -300,7 +300,7 @@ var result = segment.GetIndexPositionWithinParentEntity(parentProject);
 ### GetExampleSnippet1
 `public static Segment GetExampleSnippet1()`
 
-**Purpose:** Reads and returns the `example snippet1` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the example snippet1 value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -310,7 +310,7 @@ Segment.GetExampleSnippet1();
 ### GetExampleSnippet2
 `public static Segment GetExampleSnippet2()`
 
-**Purpose:** Reads and returns the `example snippet2` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the example snippet2 value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -320,7 +320,7 @@ Segment.GetExampleSnippet2();
 ### GetExampleSnippet3
 `public static Segment GetExampleSnippet3()`
 
-**Purpose:** Reads and returns the `example snippet3` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the example snippet3 value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -330,7 +330,7 @@ Segment.GetExampleSnippet3();
 ### GetExampleSnippet4
 `public static Segment GetExampleSnippet4()`
 
-**Purpose:** Reads and returns the `example snippet4` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the example snippet4 value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "PathFaceRecord 的自动生成类参考。"
 ### PathFaceRecord
 `public struct PathFaceRecord(int index, int groupIndex, int islandIndex)`
 
-**用途 / Purpose:** 处理与 「path face record」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PathFaceRecord 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PathFaceRecord 实例
@@ -34,7 +34,7 @@ var result = pathFaceRecord.PathFaceRecord(0, 0, 0);
 ### IsValid
 `public bool IsValid()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PathFaceRecord 实例

@@ -23,7 +23,7 @@ Treat `DefaultDisguiseDetectionModel` as a Model-style extension point: first id
 ### CalculateDisguiseDetectionProbability
 `public override float CalculateDisguiseDetectionProbability(Settlement settlement)`
 
-**Purpose:** Calculates the current value or result of `disguise detection probability`.
+**Purpose:** **Purpose:** Calculates the current value or result of disguise detection probability.
 
 ```csharp
 // Obtain an instance of DefaultDisguiseDetectionModel from the subsystem API first

@@ -33,7 +33,7 @@ description: "DummyCommunicator 的自动生成类参考。"
 ### OnSynchronizeComponentTo
 `public void OnSynchronizeComponentTo(VirtualPlayer peer, PeerComponent component)`
 
-**用途 / Purpose:** 在 「synchronize component to」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 synchronize component to 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DummyCommunicator 实例
@@ -44,7 +44,7 @@ dummyCommunicator.OnSynchronizeComponentTo(peer, component);
 ### OnAddComponent
 `public void OnAddComponent(PeerComponent component)`
 
-**用途 / Purpose:** 在 「add component」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 add component 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DummyCommunicator 实例
@@ -55,7 +55,7 @@ dummyCommunicator.OnAddComponent(component);
 ### OnRemoveComponent
 `public void OnRemoveComponent(PeerComponent component)`
 
-**用途 / Purpose:** 在 「remove component」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove component 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DummyCommunicator 实例
@@ -66,7 +66,7 @@ dummyCommunicator.OnRemoveComponent(component);
 ### CreateAsServer
 `public static DummyCommunicator CreateAsServer(int index, string name)`
 
-**用途 / Purpose:** 构建一个新的 「as server」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 as server 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ DummyCommunicator.CreateAsServer(0, "example");
 ### CreateAsClient
 `public static DummyCommunicator CreateAsClient(string name, int index)`
 
-**用途 / Purpose:** 构建一个新的 「as client」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 as client 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

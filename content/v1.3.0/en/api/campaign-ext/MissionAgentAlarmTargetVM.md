@@ -38,7 +38,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions` to place it in the s
 ### UpdateValues
 `public void UpdateValues()`
 
-**Purpose:** Recalculates and stores the latest representation of `values`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of values.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmTargetVM from the subsystem API first
@@ -49,7 +49,7 @@ missionAgentAlarmTargetVM.UpdateValues();
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `screen position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of screen position.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmTargetVM from the subsystem API first
@@ -60,7 +60,7 @@ missionAgentAlarmTargetVM.UpdateScreenPosition(missionCamera);
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Runs the operation or workflow associated with `remove`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of MissionAgentAlarmTargetVM from the subsystem API first

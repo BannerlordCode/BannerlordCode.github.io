@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
@@ -50,7 +50,7 @@ encyclopediaUnitPageVM.RefreshValues();
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
@@ -61,7 +61,7 @@ var result = encyclopediaUnitPageVM.GetName();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first
@@ -72,7 +72,7 @@ var result = encyclopediaUnitPageVM.GetNavigationBarURL();
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with switch bookmarked state.
 
 ```csharp
 // Obtain an instance of EncyclopediaUnitPageVM from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### SetIsActive
 `public void SetIsActive(bool isActive)`
 
-**Purpose:** Assigns a new value to `is active` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicAreaIndicator from the subsystem API first
@@ -40,7 +40,7 @@ basicAreaIndicator.SetIsActive(false);
 ### SetOverriddenName
 `public void SetOverriddenName(TextObject name)`
 
-**Purpose:** Assigns a new value to `overridden name` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to overridden name and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BasicAreaIndicator from the subsystem API first
@@ -51,7 +51,7 @@ basicAreaIndicator.SetOverriddenName(name);
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicAreaIndicator from the subsystem API first

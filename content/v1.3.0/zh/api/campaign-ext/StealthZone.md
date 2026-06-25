@@ -33,7 +33,7 @@ description: "StealthZone 的自动生成类参考。"
 ### SetStealthAgents
 `public void SetStealthAgents(List<Agent> agents)`
 
-**用途 / Purpose:** 为 「stealth agents」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 stealth agents 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -44,7 +44,7 @@ stealthZone.SetStealthAgents(agents);
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -55,7 +55,7 @@ stealthZone.Tick();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -66,7 +66,7 @@ stealthZone.OnAgentRemoved(affectedAgent, affectorAgent);
 ### IsAgentInside
 `public bool IsAgentInside(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent inside」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent inside 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -77,7 +77,7 @@ var result = stealthZone.IsAgentInside(agent);
 ### OnPlayerFlees
 `public void OnPlayerFlees()`
 
-**用途 / Purpose:** 在 「player flees」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player flees 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -88,7 +88,7 @@ stealthZone.OnPlayerFlees();
 ### ResetEvents
 `public void ResetEvents()`
 
-**用途 / Purpose:** 将 「events」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 events 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -99,7 +99,7 @@ stealthZone.ResetEvents();
 ### DisableAll
 `public void DisableAll()`
 
-**用途 / Purpose:** 处理与 「disable all」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableAll 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -110,7 +110,7 @@ stealthZone.DisableAll();
 ### StealthZoneEvent
 `public delegate void StealthZoneEvent()`
 
-**用途 / Purpose:** 处理与 「stealth zone event」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 StealthZoneEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例

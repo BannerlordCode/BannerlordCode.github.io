@@ -30,7 +30,7 @@ Treat `DefaultMinorFactionsModel` as a Model-style extension point: first identi
 ### GetMercenaryAwardFactorToJoinKingdom
 `public override int GetMercenaryAwardFactorToJoinKingdom(Clan mercenaryClan, Kingdom kingdom, bool neededAmountForClanToJoinCalculation = false)`
 
-**Purpose:** Reads and returns the `mercenary award factor to join kingdom` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mercenary award factor to join kingdom value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMinorFactionsModel from the subsystem API first

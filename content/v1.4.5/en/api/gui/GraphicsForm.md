@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### CompareRecrangles
 `public bool CompareRecrangles(DXGI.RECT Rect1, DXGI.RECT Rect2)`
 
-**Purpose:** Compares two `recrangles` objects and returns an ordering result.
+**Purpose:** **Purpose:** Compares two recrangles objects and returns an ordering result.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -40,7 +40,7 @@ var result = graphicsForm.CompareRecrangles(rect1, rect2);
 ### DecideWindowPosition
 `public DXGI.RECT DecideWindowPosition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideWindowPosition logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -51,7 +51,7 @@ var result = graphicsForm.DecideWindowPosition();
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -62,7 +62,7 @@ graphicsForm.Destroy();
 ### MinimizeWindow
 `public void MinimizeWindow()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MinimizeWindow logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -73,7 +73,7 @@ graphicsForm.MinimizeWindow();
 ### InitializeGraphicsContext
 `public void InitializeGraphicsContext(ResourceDepot resourceDepot)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `graphics context`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by graphics context.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -84,7 +84,7 @@ graphicsForm.InitializeGraphicsContext(resourceDepot);
 ### BeginFrame
 `public void BeginFrame()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFrame logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -95,7 +95,7 @@ graphicsForm.BeginFrame();
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -106,7 +106,7 @@ graphicsForm.Update();
 ### MessageLoop
 `public void MessageLoop()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MessageLoop logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -117,7 +117,7 @@ graphicsForm.MessageLoop();
 ### UpdateInput
 `public void UpdateInput(bool mouseOverDragArea = false)`
 
-**Purpose:** Recalculates and stores the latest representation of `input`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of input.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -128,7 +128,7 @@ graphicsForm.UpdateInput(false);
 ### PostRender
 `public void PostRender()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PostRender logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -139,7 +139,7 @@ graphicsForm.PostRender();
 ### GetKeyDown
 `public bool GetKeyDown(InputKey keyCode)`
 
-**Purpose:** Reads and returns the `key down` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the key down value held by the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -150,7 +150,7 @@ var result = graphicsForm.GetKeyDown(keyCode);
 ### GetKey
 `public bool GetKey(InputKey keyCode)`
 
-**Purpose:** Reads and returns the `key` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the key value held by the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -161,7 +161,7 @@ var result = graphicsForm.GetKey(keyCode);
 ### GetKeyUp
 `public bool GetKeyUp(InputKey keyCode)`
 
-**Purpose:** Reads and returns the `key up` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the key up value held by the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -172,7 +172,7 @@ var result = graphicsForm.GetKeyUp(keyCode);
 ### GetMouseDeltaZ
 `public float GetMouseDeltaZ()`
 
-**Purpose:** Reads and returns the `mouse delta z` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mouse delta z value held by the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -183,7 +183,7 @@ var result = graphicsForm.GetMouseDeltaZ();
 ### LeftMouse
 `public bool LeftMouse()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LeftMouse logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -194,7 +194,7 @@ var result = graphicsForm.LeftMouse();
 ### LeftMouseDown
 `public bool LeftMouseDown()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LeftMouseDown logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -205,7 +205,7 @@ var result = graphicsForm.LeftMouseDown();
 ### LeftMouseUp
 `public bool LeftMouseUp()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LeftMouseUp logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -216,7 +216,7 @@ var result = graphicsForm.LeftMouseUp();
 ### RightMouse
 `public bool RightMouse()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RightMouse logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -227,7 +227,7 @@ var result = graphicsForm.RightMouse();
 ### RightMouseDown
 `public bool RightMouseDown()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RightMouseDown logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -238,7 +238,7 @@ var result = graphicsForm.RightMouseDown();
 ### RightMouseUp
 `public bool RightMouseUp()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RightMouseUp logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -249,7 +249,7 @@ var result = graphicsForm.RightMouseUp();
 ### MousePosition
 `public Vector2 MousePosition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MousePosition logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -260,7 +260,7 @@ var result = graphicsForm.MousePosition();
 ### MouseMove
 `public bool MouseMove()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MouseMove logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first
@@ -271,7 +271,7 @@ var result = graphicsForm.MouseMove();
 ### FillInputDataFromCurrent
 `public void FillInputDataFromCurrent(InputData inputData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillInputDataFromCurrent logic.
 
 ```csharp
 // Obtain an instance of GraphicsForm from the subsystem API first

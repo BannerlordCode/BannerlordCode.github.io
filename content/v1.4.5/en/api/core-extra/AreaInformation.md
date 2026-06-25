@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### DeserializeFrom
 `public void DeserializeFrom(IReader reader)`
 
-**Purpose:** Restores `from` from serialized data.
+**Purpose:** **Purpose:** Restores from from serialized data.
 
 ```csharp
 // Obtain an instance of AreaInformation from the subsystem API first
@@ -34,7 +34,7 @@ areaInformation.DeserializeFrom(reader);
 ### SerializeTo
 `public void SerializeTo(IWriter writer)`
 
-**Purpose:** Serializes `to` into a storable or transmittable format.
+**Purpose:** **Purpose:** Serializes to into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of AreaInformation from the subsystem API first

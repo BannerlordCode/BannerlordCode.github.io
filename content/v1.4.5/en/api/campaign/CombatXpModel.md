@@ -29,7 +29,7 @@ Treat `CombatXpModel` as a Model-style extension point: first identify who creat
 ### GetSkillForWeapon
 `public abstract SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**Purpose:** Reads and returns the `skill for weapon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill for weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatXpModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = combatXpModel.GetSkillForWeapon(weapon, false);
 ### GetXpFromHit
 `public abstract ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, MissionTypeEnum missionType)`
 
-**Purpose:** Reads and returns the `xp from hit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp from hit value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatXpModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = combatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, a
 ### GetXpMultiplierFromShotDifficulty
 `public abstract float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**Purpose:** Reads and returns the `xp multiplier from shot difficulty` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp multiplier from shot difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of CombatXpModel from the subsystem API first

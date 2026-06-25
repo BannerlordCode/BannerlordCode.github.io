@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### EnterReadLock
 `public void EnterReadLock()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnterReadLock logic.
 
 ```csharp
 // Obtain an instance of TWSharedMutex from the subsystem API first
@@ -34,7 +34,7 @@ tWSharedMutex.EnterReadLock();
 ### EnterWriteLock
 `public void EnterWriteLock()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnterWriteLock logic.
 
 ```csharp
 // Obtain an instance of TWSharedMutex from the subsystem API first
@@ -45,7 +45,7 @@ tWSharedMutex.EnterWriteLock();
 ### ExitReadLock
 `public void ExitReadLock()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExitReadLock logic.
 
 ```csharp
 // Obtain an instance of TWSharedMutex from the subsystem API first
@@ -56,7 +56,7 @@ tWSharedMutex.ExitReadLock();
 ### ExitWriteLock
 `public void ExitWriteLock()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExitWriteLock logic.
 
 ```csharp
 // Obtain an instance of TWSharedMutex from the subsystem API first

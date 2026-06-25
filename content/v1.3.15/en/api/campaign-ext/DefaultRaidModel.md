@@ -29,7 +29,7 @@ Treat `DefaultRaidModel` as a Model-style extension point: first identify who cr
 ### CalculateHitDamage
 `public override ExplainedNumber CalculateHitDamage(MapEventSide attackerSide, float settlementHitPoints)`
 
-**Purpose:** Calculates the current value or result of `hit damage`.
+**Purpose:** **Purpose:** Calculates the current value or result of hit damage.
 
 ```csharp
 // Obtain an instance of DefaultRaidModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultRaidModel.CalculateHitDamage(attackerSide, 0);
 ### GetCommonLootItemScores
 `public override MBReadOnlyList<ValueTuple<ItemObject, float>> GetCommonLootItemScores()`
 
-**Purpose:** Reads and returns the `common loot item scores` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the common loot item scores value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultRaidModel from the subsystem API first

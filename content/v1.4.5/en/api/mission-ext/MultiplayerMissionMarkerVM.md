@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.F
 ### Compare
 `public int Compare(MissionMarkerTargetVM x, MissionMarkerTargetVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
@@ -44,7 +44,7 @@ var result = multiplayerMissionMarkerVM.Compare(x, y);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
@@ -55,7 +55,7 @@ multiplayerMissionMarkerVM.OnFinalize();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first
@@ -66,7 +66,7 @@ multiplayerMissionMarkerVM.Tick(0);
 ### OnRemoveAlwaysVisibleMarker
 `public void OnRemoveAlwaysVisibleMarker(MissionAlwaysVisibleMarkerTargetVM marker)`
 
-**Purpose:** Invoked when the `remove always visible marker` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove always visible marker event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionMarkerVM from the subsystem API first

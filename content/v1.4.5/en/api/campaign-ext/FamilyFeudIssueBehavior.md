@@ -41,7 +41,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Invoked when the `agent hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -52,7 +52,7 @@ familyFeudIssueBehavior.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon,
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can be selected in inventory info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -63,7 +63,7 @@ familyFeudIssueBehavior.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, resu
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have party role or be governor info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -74,7 +74,7 @@ familyFeudIssueBehavior.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can lead party info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -85,7 +85,7 @@ familyFeudIssueBehavior.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -96,7 +96,7 @@ familyFeudIssueBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result)
 ### LordSolutionCondition
 `public override bool LordSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LordSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -107,7 +107,7 @@ var result = familyFeudIssueBehavior.LordSolutionCondition(explanation);
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -118,7 +118,7 @@ var result = familyFeudIssueBehavior.AlternativeSolutionCondition(explanation);
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -129,7 +129,7 @@ var result = familyFeudIssueBehavior.DoTroopsSatisfyAlternativeSolution(troopRos
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -140,7 +140,7 @@ var result = familyFeudIssueBehavior.IsTroopTypeNeededByAlternativeSolution(char
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -151,7 +151,7 @@ var result = familyFeudIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -162,7 +162,7 @@ var result = familyFeudIssueBehavior.IssueStayAliveConditions();
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can be selected in inventory info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -173,7 +173,7 @@ familyFeudIssueBehavior.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, resu
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have party role or be governor info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -184,7 +184,7 @@ familyFeudIssueBehavior.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, 
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can lead party info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -195,7 +195,7 @@ familyFeudIssueBehavior.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -206,7 +206,7 @@ familyFeudIssueBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result)
 ### OnMissionStarted
 `public void OnMissionStarted(IMission iMission)`
 
-**Purpose:** Invoked when the `mission started` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission started event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -217,7 +217,7 @@ familyFeudIssueBehavior.OnMissionStarted(iMission);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty party, Settlement settlement)`
 
-**Purpose:** Invoked when the `settlement left` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement left event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -228,7 +228,7 @@ familyFeudIssueBehavior.OnSettlementLeft(party, settlement);
 ### OnBeforeMissionOpened
 `public void OnBeforeMissionOpened()`
 
-**Purpose:** Invoked when the `before mission opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the before mission opened event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -239,7 +239,7 @@ familyFeudIssueBehavior.OnBeforeMissionOpened();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -250,7 +250,7 @@ familyFeudIssueBehavior.RegisterEvents();
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Invoked when the `check for issue` event is raised.
+**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first
@@ -261,7 +261,7 @@ familyFeudIssueBehavior.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of FamilyFeudIssueBehavior from the subsystem API first

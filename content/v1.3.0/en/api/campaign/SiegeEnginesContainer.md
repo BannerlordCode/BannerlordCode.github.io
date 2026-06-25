@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### AllSiegeEngines
 `public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AllSiegeEngines logic.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first
@@ -44,7 +44,7 @@ var result = siegeEnginesContainer.AllSiegeEngines();
 ### AddPrebuiltEngineToReserve
 `public void AddPrebuiltEngineToReserve(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-**Purpose:** Adds `prebuilt engine to reserve` to the current collection or state.
+**Purpose:** **Purpose:** Adds prebuilt engine to reserve to the current collection or state.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first
@@ -55,7 +55,7 @@ siegeEnginesContainer.AddPrebuiltEngineToReserve(siegeEngine);
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeploySiegeEngineAtIndex logic.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first
@@ -66,7 +66,7 @@ siegeEnginesContainer.DeploySiegeEngineAtIndex(siegeEngine, 0);
 ### RemoveDeployedSiegeEngine
 `public void RemoveDeployedSiegeEngine(int index, bool isRanged, bool moveToReserve)`
 
-**Purpose:** Removes `deployed siege engine` from the current collection or state.
+**Purpose:** **Purpose:** Removes deployed siege engine from the current collection or state.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first
@@ -77,7 +77,7 @@ siegeEnginesContainer.RemoveDeployedSiegeEngine(0, false, false);
 ### RemovedSiegeEngineFromReservedSiegeEngines
 `public bool RemovedSiegeEngineFromReservedSiegeEngines(SiegeEvent.SiegeEngineConstructionProgress siegeEngine)`
 
-**Purpose:** Removes `d siege engine from reserved siege engines` from the current collection or state.
+**Purpose:** **Purpose:** Removes d siege engine from reserved siege engines from the current collection or state.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first
@@ -88,7 +88,7 @@ var result = siegeEnginesContainer.RemovedSiegeEngineFromReservedSiegeEngines(si
 ### FindDeploymentIndexOfDeployedEngine
 `public int FindDeploymentIndexOfDeployedEngine(SiegeEvent.SiegeEngineConstructionProgress deployedEngine)`
 
-**Purpose:** Looks up the matching `deployment index of deployed engine` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching deployment index of deployed engine in the current collection or scope.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first
@@ -99,7 +99,7 @@ var result = siegeEnginesContainer.FindDeploymentIndexOfDeployedEngine(deployedE
 ### ClearRemovedEnginesIfNecessary
 `public bool ClearRemovedEnginesIfNecessary()`
 
-**Purpose:** Removes all `removed engines if necessary` from the current object.
+**Purpose:** **Purpose:** Removes all removed engines if necessary from the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEnginesContainer from the subsystem API first

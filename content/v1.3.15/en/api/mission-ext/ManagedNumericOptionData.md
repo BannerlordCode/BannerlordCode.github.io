@@ -23,7 +23,7 @@ Treat `ManagedNumericOptionData` as a Data-style extension point: first identify
 ### GetMinValue
 `public float GetMinValue()`
 
-**Purpose:** Reads and returns the `min value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the min value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedNumericOptionData from the subsystem API first
@@ -34,7 +34,7 @@ var result = managedNumericOptionData.GetMinValue();
 ### GetMaxValue
 `public float GetMaxValue()`
 
-**Purpose:** Reads and returns the `max value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedNumericOptionData from the subsystem API first
@@ -45,7 +45,7 @@ var result = managedNumericOptionData.GetMaxValue();
 ### GetIsDiscrete
 `public bool GetIsDiscrete()`
 
-**Purpose:** Reads and returns the `is discrete` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is discrete value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedNumericOptionData from the subsystem API first
@@ -56,7 +56,7 @@ var result = managedNumericOptionData.GetIsDiscrete();
 ### GetDiscreteIncrementInterval
 `public int GetDiscreteIncrementInterval()`
 
-**Purpose:** Reads and returns the `discrete increment interval` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the discrete increment interval value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedNumericOptionData from the subsystem API first
@@ -67,7 +67,7 @@ var result = managedNumericOptionData.GetDiscreteIncrementInterval();
 ### GetShouldUpdateContinuously
 `public bool GetShouldUpdateContinuously()`
 
-**Purpose:** Reads and returns the `should update continuously` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the should update continuously value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedNumericOptionData from the subsystem API first

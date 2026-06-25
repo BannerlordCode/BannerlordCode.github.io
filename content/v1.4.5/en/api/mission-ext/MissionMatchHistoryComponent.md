@@ -23,7 +23,7 @@ Treat `MissionMatchHistoryComponent` as a Component-style extension point: first
 ### CreateIfConditionsAreMet
 `public static MissionMatchHistoryComponent CreateIfConditionsAreMet()`
 
-**Purpose:** Constructs a new `if conditions are met` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new if conditions are met entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MissionMatchHistoryComponent.CreateIfConditionsAreMet();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMatchHistoryComponent from the subsystem API first
@@ -44,7 +44,7 @@ missionMatchHistoryComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionMatchHistoryComponent from the subsystem API first
@@ -55,7 +55,7 @@ missionMatchHistoryComponent.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionMatchHistoryComponent from the subsystem API first

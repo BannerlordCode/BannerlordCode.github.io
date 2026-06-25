@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of GenericToggleVisualOrder from the subsystem API first
@@ -41,7 +41,7 @@ var result = genericToggleVisualOrder.GetName(orderController);
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the targeted state or condition.
 
 ```csharp
 // Obtain an instance of GenericToggleVisualOrder from the subsystem API first
@@ -52,7 +52,7 @@ var result = genericToggleVisualOrder.IsTargeted();
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Runs the operation or workflow associated with `order`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with order.
 
 ```csharp
 // Obtain an instance of GenericToggleVisualOrder from the subsystem API first

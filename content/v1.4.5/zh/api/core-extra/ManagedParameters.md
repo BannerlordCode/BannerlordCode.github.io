@@ -29,7 +29,7 @@ description: "ManagedParameters 的自动生成类参考。"
 ### GetParameter
 `public static float GetParameter(ManagedParametersEnum managedParameterType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「parameter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parameter 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ ManagedParameters.GetParameter(managedParameterType);
 ### SetParameter
 `public static void SetParameter(ManagedParametersEnum managedParameterType, float newValue)`
 
-**用途 / Purpose:** 为 「parameter」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 parameter 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ ManagedParameters.SetParameter(managedParameterType, 0);
 ### Initialize
 `public void Initialize(string relativeXmlPath)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedParameters 实例
@@ -60,7 +60,7 @@ managedParameters.Initialize("example");
 ### GetManagedParameter
 `public float GetManagedParameter(ManagedParametersEnum managedParameterEnum)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「managed parameter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 managed parameter 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedParameters 实例

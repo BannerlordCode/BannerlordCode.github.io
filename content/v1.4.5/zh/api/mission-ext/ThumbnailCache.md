@@ -29,7 +29,7 @@ description: "ThumbnailCache 的自动生成类参考。"
 ### CreateTexture
 `public TextureCreationInfo CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 构建一个新的 「texture」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 texture 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCache 实例
@@ -40,7 +40,7 @@ var result = thumbnailCache.CreateTexture(thumbnailCreationData);
 ### ReleaseTexture
 `public bool ReleaseTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 处理与 「release texture」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseTexture 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCache 实例

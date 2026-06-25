@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### LoadFrom
 `public void LoadFrom(XmlNode subModuleNode, string path, bool isOfficial)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SubModuleInfo from the subsystem API first

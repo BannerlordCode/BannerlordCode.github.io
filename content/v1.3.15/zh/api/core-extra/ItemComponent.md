@@ -30,7 +30,7 @@ description: "ItemComponent 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemComponent 实例
@@ -41,7 +41,7 @@ itemComponent.Deserialize(objectManager, node);
 ### GetCopy
 `public abstract ItemComponent GetCopy()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemComponent 实例

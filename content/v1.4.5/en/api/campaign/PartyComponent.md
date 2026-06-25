@@ -32,7 +32,7 @@ Treat `PartyComponent` as a Component-style extension point: first identify who 
 ### OnPartyComponentCreatedDelegate
 `public delegate void OnPartyComponentCreatedDelegate(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `party component created delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the party component created delegate event is raised.
 
 ```csharp
 // Obtain an instance of PartyComponent from the subsystem API first
@@ -43,7 +43,7 @@ partyComponent.OnPartyComponentCreatedDelegate(mobileParty);
 ### SetWagePaymentLimit
 `public virtual void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** Assigns a new value to `wage payment limit` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyComponent from the subsystem API first
@@ -54,7 +54,7 @@ partyComponent.SetWagePaymentLimit(0);
 ### GetDefaultComponentBanner
 `public abstract Banner GetDefaultComponentBanner()`
 
-**Purpose:** Reads and returns the `default component banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyComponent from the subsystem API first
@@ -65,7 +65,7 @@ var result = partyComponent.GetDefaultComponentBanner();
 ### ClearCachedName
 `public virtual void ClearCachedName()`
 
-**Purpose:** Removes all `cached name` from the current object.
+**Purpose:** **Purpose:** Removes all cached name from the this instance.
 
 ```csharp
 // Obtain an instance of PartyComponent from the subsystem API first
@@ -76,7 +76,7 @@ partyComponent.ClearCachedName();
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangePartyLeader logic.
 
 ```csharp
 // Obtain an instance of PartyComponent from the subsystem API first
@@ -87,7 +87,7 @@ partyComponent.ChangePartyLeader(newLeader);
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public virtual void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**Purpose:** Reads and returns the `mount and harness visual ids for party icon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount and harness visual ids for party icon value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyComponent from the subsystem API first

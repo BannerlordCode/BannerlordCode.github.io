@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### DoExitButtonAction
 `public static void DoExitButtonAction()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoExitButtonAction logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MBInitialScreenBase.DoExitButtonAction();
 ### StartedRendering
 `public bool StartedRendering()`
 
-**Purpose:** Starts the `ed rendering` flow or state machine.
+**Purpose:** **Purpose:** Starts the ed rendering flow or state machine.
 
 ```csharp
 // Obtain an instance of MBInitialScreenBase from the subsystem API first
@@ -44,7 +44,7 @@ var result = mBInitialScreenBase.StartedRendering();
 ### OnEditModeEnterPress
 `public static void OnEditModeEnterPress()`
 
-**Purpose:** Invoked when the `edit mode enter press` event is raised.
+**Purpose:** **Purpose:** Invoked when the edit mode enter press event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ MBInitialScreenBase.OnEditModeEnterPress();
 ### OnEditModeEnterRelease
 `public static void OnEditModeEnterRelease()`
 
-**Purpose:** Invoked when the `edit mode enter release` event is raised.
+**Purpose:** **Purpose:** Invoked when the edit mode enter release event is raised.
 
 ```csharp
 // Static call; no instance required

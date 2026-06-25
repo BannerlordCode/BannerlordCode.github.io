@@ -23,7 +23,7 @@ description: "MissionHint 的自动生成类参考。"
 ### CreateWithKeyAndAction
 `public static MissionHint CreateWithKeyAndAction(TextObject actionText, string hotKeyId)`
 
-**用途 / Purpose:** 构建一个新的 「with key and action」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 with key and action 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ banditSpawnCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ banditSpawnCampaignBehavior.SyncData(dataStore);
 ### InitializeInitialHideouts
 `public void InitializeInitialHideouts()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `initial hideouts`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by initial hideouts.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ banditSpawnCampaignBehavior.InitializeInitialHideouts();
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**Purpose:** Invoked when the `settlement entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ banditSpawnCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ banditSpawnCampaignBehavior.DailyTick();
 ### AddBanditToHideout
 `public MobileParty AddBanditToHideout(Hideout hideoutComponent, PartyTemplateObject overridenPartyTemplate = null, bool isBanditBossParty = false)`
 
-**Purpose:** Adds `bandit to hideout` to the current collection or state.
+**Purpose:** **Purpose:** Adds bandit to hideout to the current collection or state.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ var result = banditSpawnCampaignBehavior.AddBanditToHideout(hideoutComponent, nu
 ### SpawnBanditsAroundHideoutAtNewGame
 `public void SpawnBanditsAroundHideoutAtNewGame()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnBanditsAroundHideoutAtNewGame logic.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ banditSpawnCampaignBehavior.SpawnBanditsAroundHideoutAtNewGame();
 ### SpawnLootersAtNewGame
 `public void SpawnLootersAtNewGame()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnLootersAtNewGame logic.
 
 ```csharp
 // Obtain an instance of BanditSpawnCampaignBehavior from the subsystem API first

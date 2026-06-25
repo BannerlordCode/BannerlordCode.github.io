@@ -31,7 +31,7 @@ description: "VillageType 的自动生成类参考。"
 ### Initialize
 `public VillageType Initialize(TextObject shortName, string meshName, string meshNameUnderConstruction, string meshNameBurned, ValueTuple<ItemObject, float> productions)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageType 实例
@@ -42,7 +42,7 @@ var result = villageType.Initialize(shortName, "example", "example", "example", 
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageType 实例
@@ -53,7 +53,7 @@ var result = villageType.ToString();
 ### AddProductions
 `public void AddProductions(IEnumerable<ValueTuple<ItemObject, float>> productions)`
 
-**用途 / Purpose:** 将 「productions」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 productions 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageType 实例
@@ -64,7 +64,7 @@ villageType.AddProductions(iEnumerable<ValueTuple<ItemObject, 0);
 ### GetProductionPerDay
 `public float GetProductionPerDay(ItemObject item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「production per day」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 production per day 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageType 实例
@@ -75,7 +75,7 @@ var result = villageType.GetProductionPerDay(item);
 ### GetProductionPerDay
 `public float GetProductionPerDay(ItemCategory itemCategory)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「production per day」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 production per day 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageType 实例

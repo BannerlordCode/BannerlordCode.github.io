@@ -23,7 +23,7 @@ description: "FunctionResultJsonConverter 的自动生成类参考。"
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「convert」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 convert 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FunctionResultJsonConverter 实例
@@ -34,7 +34,7 @@ var result = functionResultJsonConverter.CanConvert(objectType);
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**用途 / Purpose:** 读取「json」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取json的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FunctionResultJsonConverter 实例
@@ -45,7 +45,7 @@ var result = functionResultJsonConverter.ReadJson(reader, objectType, existingVa
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**用途 / Purpose:** 将「json」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将json写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 FunctionResultJsonConverter 实例

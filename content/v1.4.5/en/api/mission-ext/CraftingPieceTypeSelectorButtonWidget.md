@@ -29,7 +29,7 @@ Treat `CraftingPieceTypeSelectorButtonWidget` as a Widget-style extension point:
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingPieceTypeSelectorButtonWidget from the subsystem API first

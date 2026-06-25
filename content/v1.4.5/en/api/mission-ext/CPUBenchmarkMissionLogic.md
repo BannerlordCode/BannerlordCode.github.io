@@ -23,7 +23,7 @@ Treat `CPUBenchmarkMissionLogic` as a Logic-style extension point: first identif
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ cPUBenchmarkMissionLogic.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
@@ -45,7 +45,7 @@ cPUBenchmarkMissionLogic.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
@@ -56,7 +56,7 @@ cPUBenchmarkMissionLogic.OnMissionTick(0);
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
@@ -67,7 +67,7 @@ cPUBenchmarkMissionLogic.OnPreMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CPUBenchmarkMissionLogic from the subsystem API first
@@ -78,7 +78,7 @@ cPUBenchmarkMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState
 ### CPUBenchmarkMission
 `public static string CPUBenchmarkMission(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CPUBenchmarkMission logic.
 
 ```csharp
 // Static call; no instance required
@@ -88,7 +88,7 @@ CPUBenchmarkMissionLogic.CPUBenchmarkMission(strings);
 ### CPUBenchmark
 `public static string CPUBenchmark(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CPUBenchmark logic.
 
 ```csharp
 // Static call; no instance required
@@ -98,7 +98,7 @@ CPUBenchmarkMissionLogic.CPUBenchmark(strings);
 ### BenchmarkStateStart
 `public static string BenchmarkStateStart(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BenchmarkStateStart logic.
 
 ```csharp
 // Static call; no instance required
@@ -108,7 +108,7 @@ CPUBenchmarkMissionLogic.BenchmarkStateStart(strings);
 ### BenchmarkStateEnd
 `public static string BenchmarkStateEnd(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BenchmarkStateEnd logic.
 
 ```csharp
 // Static call; no instance required
@@ -118,7 +118,7 @@ CPUBenchmarkMissionLogic.BenchmarkStateEnd(strings);
 ### OpenCPUBenchmarkMission
 `public static Mission OpenCPUBenchmarkMission(string scene)`
 
-**Purpose:** Opens the resource or UI associated with `c p u benchmark mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with c p u benchmark mission.
 
 ```csharp
 // Static call; no instance required

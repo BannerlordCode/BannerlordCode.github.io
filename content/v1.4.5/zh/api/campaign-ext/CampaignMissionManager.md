@@ -23,7 +23,7 @@ description: "CampaignMissionManager 的自动生成类参考。"
 ### OpenArenaDuelMission
 `public IMission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action<CharacterObject> onDuelEndAction, float customAgentHealth)`
 
-**用途 / Purpose:** 打开「arena duel mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开arena duel mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionManager 实例
@@ -34,7 +34,7 @@ var result = campaignMissionManager.OpenArenaDuelMission("example", location, du
 ### OpenDisguiseMission
 `public IMission OpenDisguiseMission(string scene, bool willSetUpContact, string sceneLevels, Location fromLocation)`
 
-**用途 / Purpose:** 打开「disguise mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开disguise mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionManager 实例
@@ -45,7 +45,7 @@ var result = campaignMissionManager.OpenDisguiseMission("example", false, "examp
 ### OpenNavalRaidMission
 `public IMission OpenNavalRaidMission(TroopRoster navalRaidTroops, BattleSideEnum navalSide, List<Ship> allShips)`
 
-**用途 / Purpose:** 打开「naval raid mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开naval raid mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionManager 实例
@@ -56,7 +56,7 @@ var result = campaignMissionManager.OpenNavalRaidMission(navalRaidTroops, navalS
 ### OpenNavalBattleMission
 `public IMission OpenNavalBattleMission(MissionInitializerRecord rec)`
 
-**用途 / Purpose:** 打开「naval battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开naval battle mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionManager 实例
@@ -67,7 +67,7 @@ var result = campaignMissionManager.OpenNavalBattleMission(rec);
 ### OpenNavalSetPieceBattleMission
 `public IMission OpenNavalSetPieceBattleMission(MissionInitializerRecord rec, MBList<IShipOrigin> playerShips, MBList<IShipOrigin> playerAllyShips, MBList<IShipOrigin> enemyShips)`
 
-**用途 / Purpose:** 打开「naval set piece battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开naval set piece battle mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionManager 实例

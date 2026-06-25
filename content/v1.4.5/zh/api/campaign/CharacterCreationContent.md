@@ -35,7 +35,7 @@ description: "CharacterCreationContent 的自动生成类参考。"
 ### TryGetEquipmentIdDelegate
 `public delegate bool TryGetEquipmentIdDelegate(string occupationId, out string equipmentId)`
 
-**用途 / Purpose:** 尝试获取 「get equipment id delegate」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get equipment id delegate 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -46,7 +46,7 @@ var result = characterCreationContent.TryGetEquipmentIdDelegate("example", equip
 ### AddCharacterCreationCulture
 `public void AddCharacterCreationCulture(CultureObject culture, int focusToAddByCulture, int skillLevelToAddByCulture)`
 
-**用途 / Purpose:** 将 「character creation culture」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 character creation culture 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -57,7 +57,7 @@ characterCreationContent.AddCharacterCreationCulture(culture, 0, 0);
 ### GetFocusToAddByCulture
 `public int GetFocusToAddByCulture(CultureObject culture)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「focus to add by culture」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 focus to add by culture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -68,7 +68,7 @@ var result = characterCreationContent.GetFocusToAddByCulture(culture);
 ### GetSkillLevelToAddByCulture
 `public int GetSkillLevelToAddByCulture(CultureObject culture)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「skill level to add by culture」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill level to add by culture 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -79,7 +79,7 @@ var result = characterCreationContent.GetSkillLevelToAddByCulture(culture);
 ### ChangeReviewPageDescription
 `public void ChangeReviewPageDescription(TextObject reviewPageDescription)`
 
-**用途 / Purpose:** 处理与 「change review page description」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeReviewPageDescription 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -90,7 +90,7 @@ characterCreationContent.ChangeReviewPageDescription(reviewPageDescription);
 ### SetMainCharacterName
 `public void SetMainCharacterName(string name)`
 
-**用途 / Purpose:** 为 「main character name」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 main character name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -101,7 +101,7 @@ characterCreationContent.SetMainCharacterName("example");
 ### SetParentOccupation
 `public void SetParentOccupation(string occupationType)`
 
-**用途 / Purpose:** 为 「parent occupation」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 parent occupation 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -112,7 +112,7 @@ characterCreationContent.SetParentOccupation("example");
 ### ApplySkillAndAttributeEffects
 `public void ApplySkillAndAttributeEffects(List<SkillObject> skills, int focusToAdd, int skillLevelToAdd, CharacterAttribute attribute, int attributeLevelToAdd, List<TraitObject> traits = null, int traitLevelToAdd = 0, int renownToAdd = 0, int goldToAdd = 0, int unspentFocusPoints = 0, int unspentAttributePoints = 0)`
 
-**用途 / Purpose:** 将 「skill and attribute effects」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 skill and attribute effects 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -123,7 +123,7 @@ characterCreationContent.ApplySkillAndAttributeEffects(skills, 0, 0, attribute, 
 ### SetMainClanBanner
 `public void SetMainClanBanner(Banner banner)`
 
-**用途 / Purpose:** 为 「main clan banner」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 main clan banner 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -134,7 +134,7 @@ characterCreationContent.SetMainClanBanner(banner);
 ### SetSelectedCulture
 `public void SetSelectedCulture(CultureObject culture, CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 为 「selected culture」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 selected culture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -145,7 +145,7 @@ characterCreationContent.SetSelectedCulture(culture, characterCreationManager);
 ### ApplyCulture
 `public void ApplyCulture(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 将 「culture」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 culture 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -156,7 +156,7 @@ characterCreationContent.ApplyCulture(characterCreationManager);
 ### GetCultures
 `public IEnumerable<CultureObject> GetCultures()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cultures」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cultures 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -167,7 +167,7 @@ var result = characterCreationContent.GetCultures();
 ### AddEquipmentToUseGetter
 `public void AddEquipmentToUseGetter(TryGetEquipmentIdDelegate tryGetEquipmentIdDelegate)`
 
-**用途 / Purpose:** 将 「equipment to use getter」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 equipment to use getter 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例
@@ -178,7 +178,7 @@ characterCreationContent.AddEquipmentToUseGetter(tryGetEquipmentIdDelegate);
 ### TryGetEquipmentToUse
 `public bool TryGetEquipmentToUse(string occupationId, out string equipmentId)`
 
-**用途 / Purpose:** 尝试获取 「get equipment to use」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get equipment to use 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationContent 实例

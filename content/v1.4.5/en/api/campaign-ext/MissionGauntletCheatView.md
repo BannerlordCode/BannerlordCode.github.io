@@ -23,7 +23,7 @@ Treat `MissionGauntletCheatView` as a View-style extension point: first identify
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCheatView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletCheatView.OnMissionScreenFinalize();
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**Purpose:** Reads and returns the `is cheats available` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is cheats available value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionGauntletCheatView from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionGauntletCheatView.GetIsCheatsAvailable();
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `screen`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by screen.
 
 ```csharp
 // Obtain an instance of MissionGauntletCheatView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletCheatView.InitializeScreen();
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeScreen logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletCheatView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletCheatView.FinalizeScreen();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletCheatView from the subsystem API first

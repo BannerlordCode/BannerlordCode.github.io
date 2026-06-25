@@ -29,7 +29,7 @@ description: "AnimatedBasicAreaIndicator 的自动生成类参考。"
 ### SetIsActive
 `public void SetIsActive(bool isActive)`
 
-**用途 / Purpose:** 为 「is active」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is active 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimatedBasicAreaIndicator 实例
@@ -40,7 +40,7 @@ animatedBasicAreaIndicator.SetIsActive(false);
 ### SetOverriddenName
 `public void SetOverriddenName(TextObject name)`
 
-**用途 / Purpose:** 为 「overridden name」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 overridden name 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimatedBasicAreaIndicator 实例
@@ -51,7 +51,7 @@ animatedBasicAreaIndicator.SetOverriddenName(name);
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimatedBasicAreaIndicator 实例

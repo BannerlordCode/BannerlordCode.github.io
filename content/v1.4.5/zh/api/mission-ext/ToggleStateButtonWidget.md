@@ -31,7 +31,7 @@ description: "ToggleStateButtonWidget 的自动生成类参考。"
 ### ToggleStateButtonWidget
 `public class ToggleStateButtonWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「toggle state button widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleStateButtonWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ToggleStateButtonWidget 实例

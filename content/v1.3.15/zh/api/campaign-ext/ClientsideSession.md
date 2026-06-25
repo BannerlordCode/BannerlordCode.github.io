@@ -29,7 +29,7 @@ description: "ClientsideSession 的自动生成类参考。"
 ### Connect
 `public virtual void Connect(string ip, int port, bool useSessionThread = true)`
 
-**用途 / Purpose:** 处理与 「connect」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Connect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientsideSession 实例
@@ -40,7 +40,7 @@ clientsideSession.Connect("example", 0, false);
 ### Process
 `public void Process()`
 
-**用途 / Purpose:** 处理与 「process」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Process 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientsideSession 实例
@@ -51,7 +51,7 @@ clientsideSession.Process();
 ### Tick
 `public override void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientsideSession 实例

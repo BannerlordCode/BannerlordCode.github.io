@@ -29,7 +29,7 @@ description: "MapNavigationHandler 的自动生成类参考。"
 ### GetElements
 `public INavigationElement GetElements()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「elements」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 elements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationHandler 实例
@@ -40,7 +40,7 @@ var result = mapNavigationHandler.GetElements();
 ### IsAnyElementActive
 `public bool IsAnyElementActive()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「any element active」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any element active 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationHandler 实例
@@ -51,7 +51,7 @@ var result = mapNavigationHandler.IsAnyElementActive();
 ### GetElement
 `public INavigationElement GetElement(string id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「element」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNavigationHandler 实例

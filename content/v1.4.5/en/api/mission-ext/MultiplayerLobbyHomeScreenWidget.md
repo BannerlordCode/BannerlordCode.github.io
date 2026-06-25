@@ -31,7 +31,7 @@ Treat `MultiplayerLobbyHomeScreenWidget` as a Widget-style extension point: firs
 ### LobbyStateChanged
 `public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LobbyStateChanged logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyHomeScreenWidget from the subsystem API first

@@ -23,7 +23,7 @@ Treat `AgentDecideKilledOrUnconsciousModel` as a Model-style extension point: fi
 ### GetAgentStateProbability
 `public abstract float GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, WeaponFlags weaponFlags, out float useSurgeryProbability)`
 
-**Purpose:** Reads and returns the `agent state probability` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent state probability value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentDecideKilledOrUnconsciousModel from the subsystem API first

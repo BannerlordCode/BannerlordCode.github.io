@@ -23,7 +23,7 @@ Start from namespace `SandBox.Issues` to place it in the stack, then inspect its
 ### GetMountAndHarnessVisualIdsForQuestCaravan
 `public void GetMountAndHarnessVisualIdsForQuestCaravan(CultureObject culture, out string mountStringId, out string harnessStringId)`
 
-**Purpose:** Reads and returns the `mount and harness visual ids for quest caravan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount and harness visual ids for quest caravan value held by the this instance.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first
@@ -34,7 +34,7 @@ snareTheWealthyIssueQuest.GetMountAndHarnessVisualIdsForQuestCaravan(culture, mo
 ### OnWarDeclared
 `public void OnWarDeclared(IFaction faction1, IFaction faction2, DeclareWarDetail reason)`
 
-**Purpose:** Invoked when the `war declared` event is raised.
+**Purpose:** **Purpose:** Invoked when the war declared event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first
@@ -45,7 +45,7 @@ snareTheWealthyIssueQuest.OnWarDeclared(faction1, faction2, reason);
 ### OnVillageStateChanged
 `public void OnVillageStateChanged(Village village, VillageStates oldState, VillageStates newState, MobileParty raiderParty)`
 
-**Purpose:** Invoked when the `village state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the village state changed event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first
@@ -56,7 +56,7 @@ snareTheWealthyIssueQuest.OnVillageStateChanged(village, oldState, newState, rai
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**Purpose:** Invoked when the `map event ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the map event ended event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first
@@ -67,7 +67,7 @@ snareTheWealthyIssueQuest.OnMapEventEnded(mapEvent);
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)`
 
-**Purpose:** Invoked when the `settlement entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement entered event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first
@@ -78,7 +78,7 @@ snareTheWealthyIssueQuest.OnSettlementEntered(party, settlement, hero);
 ### OnSettlementLeft
 `public void OnSettlementLeft(MobileParty party, Settlement settlement)`
 
-**Purpose:** Invoked when the `settlement left` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement left event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first
@@ -89,7 +89,7 @@ snareTheWealthyIssueQuest.OnSettlementLeft(party, settlement);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of SnareTheWealthyIssueQuest from the subsystem API first

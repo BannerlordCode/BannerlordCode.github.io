@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ### BuildAvailableOptions
 `public override AdminPanelMultiSelectionOption BuildAvailableOptions(MBReadOnlyList<IAdminPanelMultiSelectionItem> options)`
 
-**Purpose:** Assembles and returns the built result for `available options`.
+**Purpose:** **Purpose:** Assembles and returns the built result for available options.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultAdminPanelOptionProvider.BuildAvailableOptions(options);
 ### BuildAvailableOptions
 `public override AdminPanelMultiSelectionOption BuildAvailableOptions(OptionType optionType, bool buildDefaultValue = true)`
 
-**Purpose:** Assembles and returns the built result for `available options`.
+**Purpose:** **Purpose:** Assembles and returns the built result for available options.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultAdminPanelOptionProvider.BuildAvailableOptions(optionType, f
 ### BuildOtherCultureOption
 `public AdminPanelCultureOption BuildOtherCultureOption(AdminPanelCultureOption otherOption)`
 
-**Purpose:** Assembles and returns the built result for `other culture option`.
+**Purpose:** **Purpose:** Assembles and returns the built result for other culture option.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -62,7 +62,7 @@ var result = defaultAdminPanelOptionProvider.BuildOtherCultureOption(otherOption
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -73,7 +73,7 @@ defaultAdminPanelOptionProvider.OnFinalize();
 ### BuildGameTypeOption
 `public AdminPanelUsableMapsOption BuildGameTypeOption(AdminPanelVotableMultiSelectionOption gameTypeOption)`
 
-**Purpose:** Assembles and returns the built result for `game type option`.
+**Purpose:** **Purpose:** Assembles and returns the built result for game type option.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -84,7 +84,7 @@ var result = defaultAdminPanelOptionProvider.BuildGameTypeOption(gameTypeOption)
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -95,7 +95,7 @@ defaultAdminPanelOptionProvider.OnFinalize();
 ### GetIsDisabled
 `public override bool GetIsDisabled(out string reason)`
 
-**Purpose:** Reads and returns the `is disabled` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is disabled value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -106,7 +106,7 @@ var result = defaultAdminPanelOptionProvider.GetIsDisabled(reason);
 ### BuildOptionGroups
 `public AdminPanelStartMissionAction BuildOptionGroups(MBReadOnlyList<IAdminPanelOptionGroup> optionGroups)`
 
-**Purpose:** Assembles and returns the built result for `option groups`.
+**Purpose:** **Purpose:** Assembles and returns the built result for option groups.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -117,7 +117,7 @@ var result = defaultAdminPanelOptionProvider.BuildOptionGroups(optionGroups);
 ### GetIsDisabled
 `public override bool GetIsDisabled(out string reason)`
 
-**Purpose:** Reads and returns the `is disabled` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is disabled value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -128,7 +128,7 @@ var result = defaultAdminPanelOptionProvider.GetIsDisabled(reason);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -139,7 +139,7 @@ defaultAdminPanelOptionProvider.OnFinalize();
 ### GetIsAvailable
 `public override bool GetIsAvailable()`
 
-**Purpose:** Reads and returns the `is available` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is available value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -150,7 +150,7 @@ var result = defaultAdminPanelOptionProvider.GetIsAvailable();
 ### BuildGameTypeOption
 `public AdminPanelGameTypeDependentNumericOption BuildGameTypeOption(AdminPanelVotableMultiSelectionOption gameTypeOption)`
 
-**Purpose:** Assembles and returns the built result for `game type option`.
+**Purpose:** **Purpose:** Assembles and returns the built result for game type option.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -161,7 +161,7 @@ var result = defaultAdminPanelOptionProvider.BuildGameTypeOption(gameTypeOption)
 ### BuildInvalidGameTypes
 `public AdminPanelGameTypeDependentNumericOption BuildInvalidGameTypes(string gameTypes)`
 
-**Purpose:** Assembles and returns the built result for `invalid game types`.
+**Purpose:** **Purpose:** Assembles and returns the built result for invalid game types.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -172,7 +172,7 @@ var result = defaultAdminPanelOptionProvider.BuildInvalidGameTypes("example");
 ### BuildRequiredGameTypes
 `public AdminPanelGameTypeDependentNumericOption BuildRequiredGameTypes(string gameTypes)`
 
-**Purpose:** Assembles and returns the built result for `required game types`.
+**Purpose:** **Purpose:** Assembles and returns the built result for required game types.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -183,7 +183,7 @@ var result = defaultAdminPanelOptionProvider.BuildRequiredGameTypes("example");
 ### GetIsAvailable
 `public override bool GetIsAvailable()`
 
-**Purpose:** Reads and returns the `is available` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is available value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -194,7 +194,7 @@ var result = defaultAdminPanelOptionProvider.GetIsAvailable();
 ### BuildGameTypeOption
 `public AdminPanelGameTypeDependentAction BuildGameTypeOption(AdminPanelVotableMultiSelectionOption gameTypeOption)`
 
-**Purpose:** Assembles and returns the built result for `game type option`.
+**Purpose:** **Purpose:** Assembles and returns the built result for game type option.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -205,7 +205,7 @@ var result = defaultAdminPanelOptionProvider.BuildGameTypeOption(gameTypeOption)
 ### BuildInvalidGameTypes
 `public AdminPanelGameTypeDependentAction BuildInvalidGameTypes(string gameTypes)`
 
-**Purpose:** Assembles and returns the built result for `invalid game types`.
+**Purpose:** **Purpose:** Assembles and returns the built result for invalid game types.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -216,7 +216,7 @@ var result = defaultAdminPanelOptionProvider.BuildInvalidGameTypes("example");
 ### BuildRequiredGameTypes
 `public AdminPanelGameTypeDependentAction BuildRequiredGameTypes(string gameTypes)`
 
-**Purpose:** Assembles and returns the built result for `required game types`.
+**Purpose:** **Purpose:** Assembles and returns the built result for required game types.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -227,7 +227,7 @@ var result = defaultAdminPanelOptionProvider.BuildRequiredGameTypes("example");
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -238,7 +238,7 @@ defaultAdminPanelOptionProvider.OnTick(0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -249,7 +249,7 @@ defaultAdminPanelOptionProvider.OnFinalize();
 ### GetOptionWithId
 `public IAdminPanelOption GetOptionWithId(string id)`
 
-**Purpose:** Reads and returns the `option with id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -260,7 +260,7 @@ var result = defaultAdminPanelOptionProvider.GetOptionWithId("example");
 ### GetActionWithId
 `public IAdminPanelAction GetActionWithId(string id)`
 
-**Purpose:** Reads and returns the `action with id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -271,7 +271,7 @@ var result = defaultAdminPanelOptionProvider.GetActionWithId("example");
 ### ApplyOptions
 `public void ApplyOptions()`
 
-**Purpose:** Applies the effect of `options` to the current object.
+**Purpose:** **Purpose:** Applies the effect of options to the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first
@@ -282,7 +282,7 @@ defaultAdminPanelOptionProvider.ApplyOptions();
 ### GetOptionGroups
 `public MBReadOnlyList<IAdminPanelOptionGroup> GetOptionGroups()`
 
-**Purpose:** Reads and returns the `option groups` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option groups value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultAdminPanelOptionProvider from the subsystem API first

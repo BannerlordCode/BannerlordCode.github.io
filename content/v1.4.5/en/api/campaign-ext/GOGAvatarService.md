@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlayerServices.Avatar` to place it in the stack
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of GOGAvatarService from the subsystem API first
@@ -34,7 +34,7 @@ gOGAvatarService.Initialize();
 ### ClearCache
 `public void ClearCache()`
 
-**Purpose:** Removes all `cache` from the current object.
+**Purpose:** **Purpose:** Removes all cache from the this instance.
 
 ```csharp
 // Obtain an instance of GOGAvatarService from the subsystem API first
@@ -45,7 +45,7 @@ gOGAvatarService.ClearCache();
 ### GetPlayerAvatar
 `public AvatarData GetPlayerAvatar(PlayerId playerId)`
 
-**Purpose:** Reads and returns the `player avatar` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player avatar value held by the this instance.
 
 ```csharp
 // Obtain an instance of GOGAvatarService from the subsystem API first
@@ -56,7 +56,7 @@ var result = gOGAvatarService.GetPlayerAvatar(playerId);
 ### IsInitialized
 `public bool IsInitialized()`
 
-**Purpose:** Determines whether the current object is in the `initialized` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the initialized state or condition.
 
 ```csharp
 // Obtain an instance of GOGAvatarService from the subsystem API first
@@ -67,7 +67,7 @@ var result = gOGAvatarService.IsInitialized();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of GOGAvatarService from the subsystem API first

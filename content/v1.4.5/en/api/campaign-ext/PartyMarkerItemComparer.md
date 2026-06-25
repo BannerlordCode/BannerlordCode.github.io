@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### Compare
 `public int Compare(SettlementNameplatePartyMarkerItemVM x, SettlementNameplatePartyMarkerItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of PartyMarkerItemComparer from the subsystem API first

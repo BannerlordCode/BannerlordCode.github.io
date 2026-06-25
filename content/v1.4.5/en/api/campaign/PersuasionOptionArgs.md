@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### BlockTheOption
 `public void BlockTheOption(bool isBlocked)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BlockTheOption logic.
 
 ```csharp
 // Obtain an instance of PersuasionOptionArgs from the subsystem API first

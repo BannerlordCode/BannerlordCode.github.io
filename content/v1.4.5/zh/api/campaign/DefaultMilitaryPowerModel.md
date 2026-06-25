@@ -23,7 +23,7 @@ description: "DefaultMilitaryPowerModel 的自动生成类参考。"
 ### GetTroopPower
 `public override float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troop power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
@@ -34,7 +34,7 @@ var result = defaultMilitaryPowerModel.GetTroopPower(troop, side, context, 0);
 ### GetPowerOfParty
 `public override float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「power of party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 power of party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
@@ -45,7 +45,7 @@ var result = defaultMilitaryPowerModel.GetPowerOfParty(party, side, context);
 ### GetPowerModifierOfHero
 `public override float GetPowerModifierOfHero(Hero leaderHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「power modifier of hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 power modifier of hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
@@ -56,7 +56,7 @@ var result = defaultMilitaryPowerModel.GetPowerModifierOfHero(leaderHero);
 ### GetContextModifier
 `public override float GetContextModifier(CharacterObject troop, BattleSideEnum battleSide, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「context modifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 context modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
@@ -67,7 +67,7 @@ var result = defaultMilitaryPowerModel.GetContextModifier(troop, battleSide, con
 ### GetContextForPosition
 `public override MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「context for position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 context for position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
@@ -78,7 +78,7 @@ var result = defaultMilitaryPowerModel.GetContextForPosition(position);
 ### GetDefaultTroopPower
 `public override float GetDefaultTroopPower(CharacterObject troop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default troop power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default troop power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例
@@ -89,7 +89,7 @@ var result = defaultMilitaryPowerModel.GetDefaultTroopPower(troop);
 ### GetContextModifier
 `public override float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「context modifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 context modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMilitaryPowerModel 实例

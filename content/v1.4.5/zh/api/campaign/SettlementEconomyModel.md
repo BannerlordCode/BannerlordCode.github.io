@@ -23,7 +23,7 @@ description: "SettlementEconomyModel 的自动生成类参考。"
 ### GetEstimatedDemandForCategory
 `public abstract float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「estimated demand for category」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 estimated demand for category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementEconomyModel 实例
@@ -34,7 +34,7 @@ var result = settlementEconomyModel.GetEstimatedDemandForCategory(town, itemData
 ### GetDailyDemandForCategory
 `public abstract float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity = 0)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily demand for category」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily demand for category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementEconomyModel 实例
@@ -45,7 +45,7 @@ var result = settlementEconomyModel.GetDailyDemandForCategory(town, category, 0)
 ### GetDemandChangeFromValue
 `public abstract float GetDemandChangeFromValue(float purchaseValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「demand change from value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 demand change from value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementEconomyModel 实例
@@ -56,7 +56,7 @@ var result = settlementEconomyModel.GetDemandChangeFromValue(0);
 ### GetTownGoldChange
 `public abstract int GetTownGoldChange(Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「town gold change」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 town gold change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementEconomyModel 实例
@@ -67,7 +67,7 @@ var result = settlementEconomyModel.GetTownGoldChange(town);
 ### CalculateDailySettlementBudgetForItemCategory
 `public abstract float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
 
-**用途 / Purpose:** 计算「daily settlement budget for item category」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算daily settlement budget for item category的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementEconomyModel 实例

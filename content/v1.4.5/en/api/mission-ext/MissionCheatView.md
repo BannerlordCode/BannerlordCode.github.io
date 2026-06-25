@@ -23,7 +23,7 @@ Treat `MissionCheatView` as a View-style extension point: first identify who cre
 ### GetIsCheatsAvailable
 `public abstract bool GetIsCheatsAvailable()`
 
-**Purpose:** Reads and returns the `is cheats available` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is cheats available value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionCheatView from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionCheatView.GetIsCheatsAvailable();
 ### InitializeScreen
 `public abstract void InitializeScreen()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `screen`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by screen.
 
 ```csharp
 // Obtain an instance of MissionCheatView from the subsystem API first
@@ -45,7 +45,7 @@ missionCheatView.InitializeScreen();
 ### FinalizeScreen
 `public abstract void FinalizeScreen()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeScreen logic.
 
 ```csharp
 // Obtain an instance of MissionCheatView from the subsystem API first

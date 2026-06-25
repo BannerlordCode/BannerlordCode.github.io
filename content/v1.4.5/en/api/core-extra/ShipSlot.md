@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### AfterRegister
 `public override void AfterRegister()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterRegister logic.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first
@@ -41,7 +41,7 @@ shipSlot.AfterRegister();
 ### AddMatchingPiece
 `public void AddMatchingPiece(ShipUpgradePiece upgradePiece)`
 
-**Purpose:** Adds `matching piece` to the current collection or state.
+**Purpose:** **Purpose:** Adds matching piece to the current collection or state.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first
@@ -52,7 +52,7 @@ shipSlot.AddMatchingPiece(upgradePiece);
 ### GetSlotTypeName
 `public TextObject GetSlotTypeName()`
 
-**Purpose:** Reads and returns the `slot type name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the slot type name value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first
@@ -63,7 +63,7 @@ var result = shipSlot.GetSlotTypeName();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ShipSlot from the subsystem API first

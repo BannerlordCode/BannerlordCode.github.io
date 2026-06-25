@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshStats
 `public void RefreshStats()`
 
-**Purpose:** Keeps the display or cache of `stats` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of stats in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingOrderItemVM from the subsystem API first
@@ -55,7 +55,7 @@ craftingOrderItemVM.RefreshStats();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingOrderItemVM from the subsystem API first
@@ -66,7 +66,7 @@ craftingOrderItemVM.RefreshValues();
 ### ExecuteSelectOrder
 `public void ExecuteSelectOrder()`
 
-**Purpose:** Runs the operation or workflow associated with `select order`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select order.
 
 ```csharp
 // Obtain an instance of CraftingOrderItemVM from the subsystem API first

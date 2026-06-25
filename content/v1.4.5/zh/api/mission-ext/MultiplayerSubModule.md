@@ -23,7 +23,7 @@ description: "MultiplayerSubModule 的自动生成类参考。"
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object initializerObject)`
 
-**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerSubModule 实例
@@ -34,7 +34,7 @@ multiplayerSubModule.OnGameLoaded(game, initializerObject);
 ### OnInitialState
 `public override void OnInitialState()`
 
-**用途 / Purpose:** 在 「initial state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 initial state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerSubModule 实例

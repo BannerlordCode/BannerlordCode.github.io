@@ -23,7 +23,7 @@ description: "DefeatPartyQuestTask 的自动生成类参考。"
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**用途 / Purpose:** 在 「map event ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 map event ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
@@ -34,7 +34,7 @@ defeatPartyQuestTask.OnMapEventEnded(mapEvent);
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
@@ -45,7 +45,7 @@ defeatPartyQuestTask.SetReferences();
 ### PartyConditionDelegateType
 `public delegate bool PartyConditionDelegateType(PartyBase defeatedParty)`
 
-**用途 / Purpose:** 处理与 「party condition delegate type」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PartyConditionDelegateType 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatPartyQuestTask 实例
@@ -56,7 +56,7 @@ var result = defeatPartyQuestTask.PartyConditionDelegateType(defeatedParty);
 ### OnPartyDefeatedDelegateType
 `public delegate void OnPartyDefeatedDelegateType(PartyBase party)`
 
-**用途 / Purpose:** 在 「party defeated delegate type」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 party defeated delegate type 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefeatPartyQuestTask 实例

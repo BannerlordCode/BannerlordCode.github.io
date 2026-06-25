@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### Set
 `public abstract void Set(InputKey newKey)`
 
-**Purpose:** Assigns a new value to the current object's property or state.
+**Purpose:** **Purpose:** Assigns a new value to the this instance's property or state.
 
 ```csharp
 // Obtain an instance of KeyOptionVM from the subsystem API first
@@ -44,7 +44,7 @@ keyOptionVM.Set(newKey);
 ### Update
 `public abstract void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of KeyOptionVM from the subsystem API first
@@ -55,7 +55,7 @@ keyOptionVM.Update();
 ### OnDone
 `public abstract void OnDone()`
 
-**Purpose:** Invoked when the `done` event is raised.
+**Purpose:** **Purpose:** Invoked when the done event is raised.
 
 ```csharp
 // Obtain an instance of KeyOptionVM from the subsystem API first

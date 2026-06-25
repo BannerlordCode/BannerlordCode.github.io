@@ -23,7 +23,7 @@ description: "BattleBannerBearersModel 的自动生成类参考。"
 ### InitializeModel
 `public void InitializeModel(BannerBearerLogic bannerBearerLogic)`
 
-**用途 / Purpose:** 为 「model」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 model 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -34,7 +34,7 @@ battleBannerBearersModel.InitializeModel(bannerBearerLogic);
 ### FinalizeModel
 `public void FinalizeModel()`
 
-**用途 / Purpose:** 处理与 「finalize model」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeModel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -45,7 +45,7 @@ battleBannerBearersModel.FinalizeModel();
 ### IsFormationBanner
 `public bool IsFormationBanner(Formation formation, SpawnedItemEntity item)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「formation banner」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 formation banner 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -56,7 +56,7 @@ var result = battleBannerBearersModel.IsFormationBanner(formation, item);
 ### IsBannerSearchingAgent
 `public bool IsBannerSearchingAgent(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「banner searching agent」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 banner searching agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -67,7 +67,7 @@ var result = battleBannerBearersModel.IsBannerSearchingAgent(agent);
 ### IsInteractableFormationBanner
 `public bool IsInteractableFormationBanner(SpawnedItemEntity item, Agent interactingAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「interactable formation banner」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 interactable formation banner 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -78,7 +78,7 @@ var result = battleBannerBearersModel.IsInteractableFormationBanner(item, intera
 ### HasFormationBanner
 `public bool HasFormationBanner(Formation formation)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「formation banner」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 formation banner。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -89,7 +89,7 @@ var result = battleBannerBearersModel.HasFormationBanner(formation);
 ### HasBannerOnGround
 `public bool HasBannerOnGround(Formation formation)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「banner on ground」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 banner on ground。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -100,7 +100,7 @@ var result = battleBannerBearersModel.HasBannerOnGround(formation);
 ### GetFormationBanner
 `public ItemObject GetFormationBanner(Formation formation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation banner」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -111,7 +111,7 @@ var result = battleBannerBearersModel.GetFormationBanner(formation);
 ### GetFormationBannerBearers
 `public List<Agent> GetFormationBannerBearers(Formation formation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation banner bearers」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation banner bearers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -122,7 +122,7 @@ var result = battleBannerBearersModel.GetFormationBannerBearers(formation);
 ### GetActiveBanner
 `public BannerComponent GetActiveBanner(Formation formation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「active banner」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 active banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -133,7 +133,7 @@ var result = battleBannerBearersModel.GetActiveBanner(formation);
 ### GetMinimumFormationTroopCountToBearBanners
 `public abstract int GetMinimumFormationTroopCountToBearBanners()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「minimum formation troop count to bear banners」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 minimum formation troop count to bear banners 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -144,7 +144,7 @@ var result = battleBannerBearersModel.GetMinimumFormationTroopCountToBearBanners
 ### GetBannerInteractionDistance
 `public abstract float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「banner interaction distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner interaction distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -155,7 +155,7 @@ var result = battleBannerBearersModel.GetBannerInteractionDistance(interactingAg
 ### CanBannerBearerProvideEffectToFormation
 `public abstract bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「banner bearer provide effect to formation」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 banner bearer provide effect to formation 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -166,7 +166,7 @@ var result = battleBannerBearersModel.CanBannerBearerProvideEffectToFormation(ag
 ### CanAgentPickUpAnyBanner
 `public abstract bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「agent pick up any banner」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent pick up any banner 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -177,7 +177,7 @@ var result = battleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
 ### CanAgentBecomeBannerBearer
 `public abstract bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「agent become banner bearer」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent become banner bearer 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -188,7 +188,7 @@ var result = battleBannerBearersModel.CanAgentBecomeBannerBearer(agent);
 ### GetAgentBannerBearingPriority
 `public abstract int GetAgentBannerBearingPriority(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「agent banner bearing priority」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent banner bearing priority 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -199,7 +199,7 @@ var result = battleBannerBearersModel.GetAgentBannerBearingPriority(agent);
 ### CanFormationDeployBannerBearers
 `public abstract bool CanFormationDeployBannerBearers(Formation formation)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「formation deploy banner bearers」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 formation deploy banner bearers 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -210,7 +210,7 @@ var result = battleBannerBearersModel.CanFormationDeployBannerBearers(formation)
 ### GetDesiredNumberOfBannerBearersForFormation
 `public abstract int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「desired number of banner bearers for formation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 desired number of banner bearers for formation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例
@@ -221,7 +221,7 @@ var result = battleBannerBearersModel.GetDesiredNumberOfBannerBearersForFormatio
 ### GetBannerBearerReplacementWeapon
 `public abstract ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「banner bearer replacement weapon」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner bearer replacement weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleBannerBearersModel 实例

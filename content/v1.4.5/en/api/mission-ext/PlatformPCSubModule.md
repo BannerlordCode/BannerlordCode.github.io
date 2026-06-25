@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Platform.PC` to place it in the s
 ### OnMissionBehaviorInitialize
 `public override void OnMissionBehaviorInitialize(Mission mission)`
 
-**Purpose:** Invoked when the `mission behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of PlatformPCSubModule from the subsystem API first

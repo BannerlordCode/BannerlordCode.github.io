@@ -23,7 +23,7 @@ Treat `DefaultShipCostModel` as a Model-style extension point: first identify wh
 ### GetShipTradeValue
 `public override float GetShipTradeValue(Ship ship, PartyBase seller, PartyBase buyer)`
 
-**Purpose:** Reads and returns the `ship trade value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship trade value value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultShipCostModel.GetShipTradeValue(ship, seller, buyer);
 ### GetShipRepairCost
 `public override float GetShipRepairCost(Ship ship)`
 
-**Purpose:** Reads and returns the `ship repair cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship repair cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultShipCostModel.GetShipRepairCost(ship);
 ### GetShipUpgradeCost
 `public override int GetShipUpgradeCost(Hero owner, Ship ship, ShipUpgradePiece piece)`
 
-**Purpose:** Reads and returns the `ship upgrade cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship upgrade cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultShipCostModel from the subsystem API first

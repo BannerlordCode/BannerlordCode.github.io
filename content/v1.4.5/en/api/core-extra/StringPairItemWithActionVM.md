@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection.Generic` to place it i
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of StringPairItemWithActionVM from the subsystem API first

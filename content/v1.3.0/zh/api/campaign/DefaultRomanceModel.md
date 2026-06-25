@@ -23,7 +23,7 @@ description: "DefaultRomanceModel 的自动生成类参考。"
 ### GetAttractionValuePercentage
 `public override int GetAttractionValuePercentage(Hero potentiallyInterestedCharacter, Hero heroOfInterest)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attraction value percentage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attraction value percentage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultRomanceModel 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### LoadVertexData
 `public void LoadVertexData(float vertices)`
 
-**Purpose:** Reads `vertex data` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads vertex data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of VertexArrayObject from the subsystem API first
@@ -34,7 +34,7 @@ vertexArrayObject.LoadVertexData(0);
 ### LoadUVData
 `public void LoadUVData(float uvs)`
 
-**Purpose:** Reads `u v data` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads u v data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of VertexArrayObject from the subsystem API first
@@ -45,7 +45,7 @@ vertexArrayObject.LoadUVData(0);
 ### LoadIndexData
 `public void LoadIndexData(uint indices)`
 
-**Purpose:** Reads `index data` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads index data from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of VertexArrayObject from the subsystem API first
@@ -56,7 +56,7 @@ vertexArrayObject.LoadIndexData(0);
 ### Bind
 `public void Bind()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Bind logic.
 
 ```csharp
 // Obtain an instance of VertexArrayObject from the subsystem API first
@@ -67,7 +67,7 @@ vertexArrayObject.Bind();
 ### UnBind
 `public static void UnBind()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnBind logic.
 
 ```csharp
 // Static call; no instance required
@@ -77,7 +77,7 @@ VertexArrayObject.UnBind();
 ### Create
 `public static VertexArrayObject Create()`
 
-**Purpose:** Creates a new instance or related entity for the current object.
+**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -87,7 +87,7 @@ VertexArrayObject.Create();
 ### CreateWithUVBuffer
 `public static VertexArrayObject CreateWithUVBuffer()`
 
-**Purpose:** Constructs a new `with u v buffer` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new with u v buffer entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

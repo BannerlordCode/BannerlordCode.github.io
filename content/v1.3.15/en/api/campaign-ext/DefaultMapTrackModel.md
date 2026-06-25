@@ -29,7 +29,7 @@ Treat `DefaultMapTrackModel` as a Model-style extension point: first identify wh
 ### GetMaxTrackSpottingDistanceForMainParty
 `public override float GetMaxTrackSpottingDistanceForMainParty()`
 
-**Purpose:** Reads and returns the `max track spotting distance for main party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max track spotting distance for main party value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = defaultMapTrackModel.GetMaxTrackSpottingDistanceForMainParty();
 ### CanPartyLeaveTrack
 `public override bool CanPartyLeaveTrack(MobileParty mobileParty)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `party leave track`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party leave track.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = defaultMapTrackModel.CanPartyLeaveTrack(mobileParty);
 ### GetTrackLife
 `public override int GetTrackLife(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `track life` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the track life value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = defaultMapTrackModel.GetTrackLife(mobileParty);
 ### GetTrackDetectionDifficultyForMainParty
 `public override float GetTrackDetectionDifficultyForMainParty(Track track, float trackSpottingDistance)`
 
-**Purpose:** Reads and returns the `track detection difficulty for main party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the track detection difficulty for main party value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = defaultMapTrackModel.GetTrackDetectionDifficultyForMainParty(track,
 ### GetSkillFromTrackDetected
 `public override float GetSkillFromTrackDetected(Track track)`
 
-**Purpose:** Reads and returns the `skill from track detected` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill from track detected value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = defaultMapTrackModel.GetSkillFromTrackDetected(track);
 ### GetSkipTrackChance
 `public override float GetSkipTrackChance(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `skip track chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skip track chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -95,7 +95,7 @@ var result = defaultMapTrackModel.GetSkipTrackChance(mobileParty);
 ### TrackTitle
 `public override TextObject TrackTitle(Track track)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TrackTitle logic.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -106,7 +106,7 @@ var result = defaultMapTrackModel.TrackTitle(track);
 ### GetTrackDescription
 `public override IEnumerable<ValueTuple<TextObject, string>> GetTrackDescription(Track track)`
 
-**Purpose:** Reads and returns the `track description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the track description value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -117,7 +117,7 @@ var result = defaultMapTrackModel.GetTrackDescription(track);
 ### GetTrackColor
 `public override uint GetTrackColor(Track track)`
 
-**Purpose:** Reads and returns the `track color` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the track color value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first
@@ -128,7 +128,7 @@ var result = defaultMapTrackModel.GetTrackColor(track);
 ### GetTrackScale
 `public override float GetTrackScale(Track track)`
 
-**Purpose:** Reads and returns the `track scale` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the track scale value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultMapTrackModel from the subsystem API first

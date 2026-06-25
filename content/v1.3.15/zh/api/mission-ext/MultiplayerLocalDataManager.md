@@ -32,7 +32,7 @@ description: "MultiplayerLocalDataManager 的自动生成类参考。"
 ### InitializeManager
 `public static void InitializeManager()`
 
-**用途 / Purpose:** 为 「manager」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 manager 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ MultiplayerLocalDataManager.InitializeManager();
 ### FinalizeManager
 `public static void FinalizeManager()`
 
-**用途 / Purpose:** 处理与 「finalize manager」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeManager 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ MultiplayerLocalDataManager.FinalizeManager();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLocalDataManager 实例

@@ -23,7 +23,7 @@ description: "InitialState 的自动生成类参考。"
 ### OnExecutedInitialStateOption
 `public void OnExecutedInitialStateOption(InitialStateOption target)`
 
-**用途 / Purpose:** 在 「executed initial state option」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 executed initial state option 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialState 实例
@@ -34,7 +34,7 @@ initialState.OnExecutedInitialStateOption(target);
 ### RefreshContentState
 `public void RefreshContentState()`
 
-**用途 / Purpose:** 使 「content state」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 content state 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 InitialState 实例

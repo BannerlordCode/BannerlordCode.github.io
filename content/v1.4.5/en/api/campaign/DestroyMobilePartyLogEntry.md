@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### GetAsRumor
 `public override int GetAsRumor(Settlement settlement, out TextObject comment)`
 
-**Purpose:** Reads and returns the `as rumor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the as rumor value held by the this instance.
 
 ```csharp
 // Obtain an instance of DestroyMobilePartyLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = destroyMobilePartyLogEntry.GetAsRumor(settlement, comment);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of DestroyMobilePartyLogEntry from the subsystem API first

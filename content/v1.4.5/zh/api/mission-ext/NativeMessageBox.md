@@ -23,7 +23,7 @@ description: "NativeMessageBox 的自动生成类参考。"
 ### Show
 `public static Result Show(string text, string caption = "Message", Buttons buttons = Buttons.OK, Icon icon = Icon.None)`
 
-**用途 / Purpose:** 显示当前对象对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示当前对象对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletMultiplayerScoreboard.OnMissionScreenInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletMultiplayerScoreboard.OnRemoveBehavior();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletMultiplayerScoreboard.OnMissionScreenFinalize();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerScoreboard from the subsystem API first

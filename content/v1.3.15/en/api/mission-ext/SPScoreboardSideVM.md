@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -49,7 +49,7 @@ sPScoreboardSideVM.RefreshValues();
 ### UpdateScores
 `public void UpdateScores(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**Purpose:** Recalculates and stores the latest representation of `scores`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of scores.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -60,7 +60,7 @@ sPScoreboardSideVM.UpdateScores(battleCombatant, false, character, 0, 0, 0, 0, 0
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(IBattleCombatant battleCombatant, bool isPlayerParty, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** Recalculates and stores the latest representation of `hero skills`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of hero skills.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -71,7 +71,7 @@ sPScoreboardSideVM.UpdateHeroSkills(battleCombatant, false, heroCharacter, upgra
 ### GetPartyAddIfNotExists
 `public SPScoreboardPartyVM GetPartyAddIfNotExists(IBattleCombatant battleCombatant, bool isPlayerParty)`
 
-**Purpose:** Reads and returns the `party add if not exists` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party add if not exists value held by the this instance.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -82,7 +82,7 @@ var result = sPScoreboardSideVM.GetPartyAddIfNotExists(battleCombatant, false);
 ### GetParty
 `public SPScoreboardPartyVM GetParty(IBattleCombatant battleCombatant)`
 
-**Purpose:** Reads and returns the `party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party value held by the this instance.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -93,7 +93,7 @@ var result = sPScoreboardSideVM.GetParty(battleCombatant);
 ### RemoveTroop
 `public SPScoreboardStatsVM RemoveTroop(IBattleCombatant battleCombatant, BasicCharacterObject troop)`
 
-**Purpose:** Removes `troop` from the current collection or state.
+**Purpose:** **Purpose:** Removes troop from the current collection or state.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -104,7 +104,7 @@ var result = sPScoreboardSideVM.RemoveTroop(battleCombatant, troop);
 ### AddTroop
 `public void AddTroop(IBattleCombatant battleCombatant, BasicCharacterObject currentTroop, SPScoreboardStatsVM scoreToBringOver)`
 
-**Purpose:** Adds `troop` to the current collection or state.
+**Purpose:** **Purpose:** Adds troop to the current collection or state.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first
@@ -115,7 +115,7 @@ sPScoreboardSideVM.AddTroop(battleCombatant, currentTroop, scoreToBringOver);
 ### GetShipAddIfNotExists
 `public SPScoreboardShipVM GetShipAddIfNotExists(IShipOrigin ship, string shipType, IBattleCombatant owner, TeamSideEnum teamSideEnum)`
 
-**Purpose:** Reads and returns the `ship add if not exists` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ship add if not exists value held by the this instance.
 
 ```csharp
 // Obtain an instance of SPScoreboardSideVM from the subsystem API first

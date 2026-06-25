@@ -23,7 +23,7 @@ Treat `DefaultInventoryCapacityModel` as a Model-style extension point: first id
 ### GetItemAverageWeight
 `public override int GetItemAverageWeight()`
 
-**Purpose:** Reads and returns the `item average weight` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item average weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultInventoryCapacityModel.GetItemAverageWeight();
 ### GetItemEffectiveWeight
 `public override float GetItemEffectiveWeight(EquipmentElement equipmentElement, MobileParty mobileParty, bool isCurrentlyAtSea, out TextObject description)`
 
-**Purpose:** Reads and returns the `item effective weight` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item effective weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultInventoryCapacityModel.GetItemEffectiveWeight(equipmentEleme
 ### CalculateInventoryCapacity
 `public override ExplainedNumber CalculateInventoryCapacity(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false, int additionalTroops = 0, int additionalSpareMounts = 0, int additionalPackAnimals = 0, bool includeFollowers = false)`
 
-**Purpose:** Calculates the current value or result of `inventory capacity`.
+**Purpose:** **Purpose:** Calculates the current value or result of inventory capacity.
 
 ```csharp
 // Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultInventoryCapacityModel.CalculateInventoryCapacity(mobilePart
 ### CalculateTotalWeightCarried
 `public override ExplainedNumber CalculateTotalWeightCarried(MobileParty mobileParty, bool isCurrentlyAtSea, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `total weight carried`.
+**Purpose:** **Purpose:** Calculates the current value or result of total weight carried.
 
 ```csharp
 // Obtain an instance of DefaultInventoryCapacityModel from the subsystem API first

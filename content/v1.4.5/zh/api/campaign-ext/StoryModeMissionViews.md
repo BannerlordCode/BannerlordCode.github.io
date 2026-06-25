@@ -23,7 +23,7 @@ description: "StoryModeMissionViews 的自动生成类参考。"
 ### OpenVillageMission
 `public static MissionView OpenVillageMission(Mission mission)`
 
-**用途 / Purpose:** 打开「village mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开village mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ StoryModeMissionViews.OpenVillageMission(mission);
 ### OpenSneakIntoTheVillaMission
 `public static MissionView OpenSneakIntoTheVillaMission(Mission mission)`
 
-**用途 / Purpose:** 打开「sneak into the villa mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开sneak into the villa mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

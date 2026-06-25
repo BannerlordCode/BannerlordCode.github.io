@@ -30,7 +30,7 @@ description: "UIConfig 的自动生成类参考。"
 ### GetIsUsingGeneratedPrefabs
 `public static bool GetIsUsingGeneratedPrefabs()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is using generated prefabs」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is using generated prefabs 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ UIConfig.GetIsUsingGeneratedPrefabs();
 ### GetIsHotReloadEnabled
 `public static bool GetIsHotReloadEnabled()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is hot reload enabled」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is hot reload enabled 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ UIConfig.GetIsHotReloadEnabled();
 ### SetDebugMode
 `public static string SetDebugMode(List<string> args)`
 
-**用途 / Purpose:** 为 「debug mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 debug mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ UIConfig.SetDebugMode(args);
 ### SetUsingGeneratedPrefabs
 `public static string SetUsingGeneratedPrefabs(List<string> args)`
 
-**用途 / Purpose:** 为 「using generated prefabs」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 using generated prefabs 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

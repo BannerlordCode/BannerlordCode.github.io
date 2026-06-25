@@ -23,7 +23,7 @@ Treat `CampaignEntityComponent` as a Component-style extension point: first iden
 ### OnTick
 `public virtual void OnTick(float realDt, float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of CampaignEntityComponent from the subsystem API first

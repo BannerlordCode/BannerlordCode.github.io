@@ -31,7 +31,7 @@ Treat `DevelopmentQueueVisualIconWidget` as a Widget-style extension point: firs
 ### DevelopmentQueueVisualIconWidget
 `public class DevelopmentQueueVisualIconWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DevelopmentQueueVisualIconWidget logic.
 
 ```csharp
 // Obtain an instance of DevelopmentQueueVisualIconWidget from the subsystem API first

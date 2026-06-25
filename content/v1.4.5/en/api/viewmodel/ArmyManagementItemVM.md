@@ -50,7 +50,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ArmyManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -61,7 +61,7 @@ armyManagementItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -72,7 +72,7 @@ armyManagementItemVM.ExecuteAction();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Runs the operation or workflow associated with `set focused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set focused.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -83,7 +83,7 @@ armyManagementItemVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set unfocused.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -94,7 +94,7 @@ armyManagementItemVM.ExecuteSetUnfocused();
 ### UpdateEligibility
 `public void UpdateEligibility()`
 
-**Purpose:** Recalculates and stores the latest representation of `eligibility`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of eligibility.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -105,7 +105,7 @@ armyManagementItemVM.UpdateEligibility();
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -116,7 +116,7 @@ armyManagementItemVM.ExecuteBeginHint();
 ### ExecuteBeginClanHint
 `public void ExecuteBeginClanHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin clan hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin clan hint.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -127,7 +127,7 @@ armyManagementItemVM.ExecuteBeginClanHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -138,7 +138,7 @@ armyManagementItemVM.ExecuteEndHint();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open encyclopedia.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first
@@ -149,7 +149,7 @@ armyManagementItemVM.ExecuteOpenEncyclopedia();
 ### ExecuteOpenClanEncyclopedia
 `public void ExecuteOpenClanEncyclopedia()`
 
-**Purpose:** Runs the operation or workflow associated with `open clan encyclopedia`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open clan encyclopedia.
 
 ```csharp
 // Obtain an instance of ArmyManagementItemVM from the subsystem API first

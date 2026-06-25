@@ -31,7 +31,7 @@ description: "MissionObject 的自动生成类参考。"
 ### SetAbilityOfFaces
 `public virtual void SetAbilityOfFaces(bool enabled)`
 
-**用途 / Purpose:** 为 「ability of faces」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 ability of faces 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -42,7 +42,7 @@ missionObject.SetAbilityOfFaces(false);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -53,7 +53,7 @@ var result = missionObject.GetHashCode();
 ### AfterMissionStart
 `public virtual void AfterMissionStart()`
 
-**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -64,7 +64,7 @@ missionObject.AfterMissionStart();
 ### OnMissionEnded
 `public virtual void OnMissionEnded()`
 
-**用途 / Purpose:** 在 「mission ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -75,7 +75,7 @@ missionObject.OnMissionEnded();
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -86,7 +86,7 @@ missionObject.OnDeploymentFinished();
 ### SetEnabled
 `public void SetEnabled(bool isParentObject = false)`
 
-**用途 / Purpose:** 为 「enabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -97,7 +97,7 @@ missionObject.SetEnabled(false);
 ### SetEnabledAndMakeVisible
 `public void SetEnabledAndMakeVisible(bool isParentObject = false, bool enableFaces = false)`
 
-**用途 / Purpose:** 为 「enabled and make visible」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 enabled and make visible 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -108,7 +108,7 @@ missionObject.SetEnabledAndMakeVisible(false, false);
 ### SetDisabled
 `public void SetDisabled(bool isParentObject = false)`
 
-**用途 / Purpose:** 为 「disabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 disabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -119,7 +119,7 @@ missionObject.SetDisabled(false);
 ### SetDisabledAndMakeInvisible
 `public void SetDisabledAndMakeInvisible(bool isParentObject = false, bool disableFaces = false)`
 
-**用途 / Purpose:** 为 「disabled and make invisible」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 disabled and make invisible 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -130,7 +130,7 @@ missionObject.SetDisabledAndMakeInvisible(false, false);
 ### OnEndMission
 `public virtual void OnEndMission()`
 
-**用途 / Purpose:** 在 「end mission」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例
@@ -141,7 +141,7 @@ missionObject.OnEndMission();
 ### AddStuckMissile
 `public virtual void AddStuckMissile(GameEntity missileEntity)`
 
-**用途 / Purpose:** 将 「stuck missile」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 stuck missile 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObject 实例

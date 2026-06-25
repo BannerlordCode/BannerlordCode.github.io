@@ -29,7 +29,7 @@ description: "QueryData 的自动生成类参考。"
 ### Evaluate
 `public void Evaluate(float currentTime)`
 
-**用途 / Purpose:** 处理与 「evaluate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Evaluate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例
@@ -40,7 +40,7 @@ queryData.Evaluate(0);
 ### SetValue
 `public void SetValue(T value, float currentTime)`
 
-**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例
@@ -51,7 +51,7 @@ queryData.SetValue(value, 0);
 ### GetCachedValue
 `public T GetCachedValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cached value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cached value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例
@@ -62,7 +62,7 @@ var result = queryData.GetCachedValue();
 ### GetCachedValueUnlessTooOld
 `public T GetCachedValueUnlessTooOld()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cached value unless too old」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cached value unless too old 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例
@@ -73,7 +73,7 @@ var result = queryData.GetCachedValueUnlessTooOld();
 ### GetCachedValueWithMaxAge
 `public T GetCachedValueWithMaxAge(float age)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「cached value with max age」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 cached value with max age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例
@@ -84,7 +84,7 @@ var result = queryData.GetCachedValueWithMaxAge(0);
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 处理与 「expire」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Expire 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例
@@ -95,7 +95,7 @@ queryData.Expire();
 ### SetupSyncGroup
 `public static void SetupSyncGroup(params IQueryData groupItems)`
 
-**用途 / Purpose:** 为 「up sync group」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 up sync group 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -105,7 +105,7 @@ QueryData.SetupSyncGroup(groupItems);
 ### SetSyncGroup
 `public void SetSyncGroup(IQueryData syncGroup)`
 
-**用途 / Purpose:** 为 「sync group」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sync group 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 QueryData 实例

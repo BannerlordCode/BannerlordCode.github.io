@@ -34,7 +34,7 @@ description: "ItemData 的自动生成类参考。"
 ### CopyItemData
 `public void CopyItemData(ItemData itemdata)`
 
-**用途 / Purpose:** 把当前对象的「item data」状态复制到目标对象。
+**用途 / Purpose:** **用途 / Purpose:** 把当前对象的item data状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemData 实例
@@ -45,7 +45,7 @@ itemData.CopyItemData(itemdata);
 ### CanItemToEquipmentDragPossible
 `public bool CanItemToEquipmentDragPossible(int equipmentIndex)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「item to equipment drag possible」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 item to equipment drag possible 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemData 实例
@@ -56,7 +56,7 @@ var result = itemData.CanItemToEquipmentDragPossible(0);
 ### CanItemToEquipmentDragPossible
 `public static bool CanItemToEquipmentDragPossible(string itemTypeId, int equipmentIndex)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「item to equipment drag possible」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 item to equipment drag possible 的前置条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ ItemData.CanItemToEquipmentDragPossible("example", 0);
 ### GetPriceOf
 `public static int GetPriceOf(string itemId, string modifierId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「price of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 price of 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ ItemData.GetPriceOf("example", "example");
 ### IsItemValid
 `public static bool IsItemValid(string itemId, string modifierId)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「item valid」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 item valid 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `ItemDiscardModel` as a Model-style extension point: first identify who cr
 ### GetXpBonusForDiscardingItems
 `public abstract int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
 
-**Purpose:** Reads and returns the `xp bonus for discarding items` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp bonus for discarding items value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemDiscardModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = itemDiscardModel.GetXpBonusForDiscardingItems(itemRoster);
 ### GetXpBonusForDiscardingItem
 `public abstract int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
 
-**Purpose:** Reads and returns the `xp bonus for discarding item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp bonus for discarding item value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemDiscardModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = itemDiscardModel.GetXpBonusForDiscardingItem(item, 0);
 ### PlayerCanDonateItem
 `public abstract bool PlayerCanDonateItem(ItemObject item)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayerCanDonateItem logic.
 
 ```csharp
 // Obtain an instance of ItemDiscardModel from the subsystem API first

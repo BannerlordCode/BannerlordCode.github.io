@@ -23,7 +23,7 @@ description: "InitializationArgs 的自动生成类参考。"
 ### InitializeBanditOnCreation
 `public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**用途 / Purpose:** 为 「bandit on creation」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 bandit on creation 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 InitializationArgs 实例

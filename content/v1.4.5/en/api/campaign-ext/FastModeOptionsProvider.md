@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.FastMode` to place it in the sta
 ### GetGameplayCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetGameplayCampaignOptions()`
 
-**Purpose:** Reads and returns the `gameplay campaign options` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gameplay campaign options value held by the this instance.
 
 ```csharp
 // Obtain an instance of FastModeOptionsProvider from the subsystem API first
@@ -34,7 +34,7 @@ var result = fastModeOptionsProvider.GetGameplayCampaignOptions();
 ### GetCharacterCreationCampaignOptions
 `public IEnumerable<ICampaignOptionData> GetCharacterCreationCampaignOptions()`
 
-**Purpose:** Reads and returns the `character creation campaign options` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character creation campaign options value held by the this instance.
 
 ```csharp
 // Obtain an instance of FastModeOptionsProvider from the subsystem API first

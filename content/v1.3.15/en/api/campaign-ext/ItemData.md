@@ -34,7 +34,7 @@ Treat `ItemData` as a Data-style extension point: first identify who creates it,
 ### CopyItemData
 `public void CopyItemData(ItemData itemdata)`
 
-**Purpose:** Copies the `item data` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the item data state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of ItemData from the subsystem API first
@@ -45,7 +45,7 @@ itemData.CopyItemData(itemdata);
 ### CanItemToEquipmentDragPossible
 `public bool CanItemToEquipmentDragPossible(int equipmentIndex)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `item to equipment drag possible`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for item to equipment drag possible.
 
 ```csharp
 // Obtain an instance of ItemData from the subsystem API first
@@ -56,7 +56,7 @@ var result = itemData.CanItemToEquipmentDragPossible(0);
 ### CanItemToEquipmentDragPossible
 `public static bool CanItemToEquipmentDragPossible(string itemTypeId, int equipmentIndex)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `item to equipment drag possible`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for item to equipment drag possible.
 
 ```csharp
 // Static call; no instance required
@@ -66,7 +66,7 @@ ItemData.CanItemToEquipmentDragPossible("example", 0);
 ### GetPriceOf
 `public static int GetPriceOf(string itemId, string modifierId)`
 
-**Purpose:** Reads and returns the `price of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the price of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ ItemData.GetPriceOf("example", "example");
 ### IsItemValid
 `public static bool IsItemValid(string itemId, string modifierId)`
 
-**Purpose:** Determines whether the current object is in the `item valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the item valid state or condition.
 
 ```csharp
 // Static call; no instance required

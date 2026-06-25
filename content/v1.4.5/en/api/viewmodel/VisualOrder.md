@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### GetName
 `public abstract TextObject GetName(OrderController orderController)`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first
@@ -40,7 +40,7 @@ var result = visualOrder.GetName(orderController);
 ### IsTargeted
 `public abstract bool IsTargeted()`
 
-**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the targeted state or condition.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first
@@ -51,7 +51,7 @@ var result = visualOrder.IsTargeted();
 ### ExecuteOrder
 `public abstract void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Runs the operation or workflow associated with `order`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with order.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first
@@ -62,7 +62,7 @@ visualOrder.ExecuteOrder(orderController, executionParameters);
 ### BeforeExecuteOrder
 `public virtual void BeforeExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeforeExecuteOrder logic.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first
@@ -73,7 +73,7 @@ visualOrder.BeforeExecuteOrder(orderController, executionParameters);
 ### AfterExecuteOrder
 `public virtual void AfterExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterExecuteOrder logic.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first
@@ -84,7 +84,7 @@ visualOrder.AfterExecuteOrder(orderController, executionParameters);
 ### GetFormationHasOrder
 `public bool GetFormationHasOrder(Formation formation)`
 
-**Purpose:** Reads and returns the `formation has order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation has order value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first
@@ -95,7 +95,7 @@ var result = visualOrder.GetFormationHasOrder(formation);
 ### GetActiveState
 `public OrderState GetActiveState(OrderController orderController)`
 
-**Purpose:** Reads and returns the `active state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active state value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualOrder from the subsystem API first

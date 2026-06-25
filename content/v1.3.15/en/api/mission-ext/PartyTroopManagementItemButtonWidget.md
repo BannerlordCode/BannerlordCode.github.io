@@ -29,7 +29,7 @@ Treat `PartyTroopManagementItemButtonWidget` as a Widget-style extension point: 
 ### GetActionButtonAtIndex
 `public Widget GetActionButtonAtIndex(int index)`
 
-**Purpose:** Reads and returns the `action button at index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action button at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopManagementItemButtonWidget from the subsystem API first

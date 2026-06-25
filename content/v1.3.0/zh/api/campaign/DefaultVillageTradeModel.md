@@ -23,7 +23,7 @@ description: "DefaultVillageTradeModel 的自动生成类参考。"
 ### TradeBoundDistanceLimitAsDays
 `public override float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 处理与 「trade bound distance limit as days」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TradeBoundDistanceLimitAsDays 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVillageTradeModel 实例
@@ -34,7 +34,7 @@ var result = defaultVillageTradeModel.TradeBoundDistanceLimitAsDays(navigationTy
 ### GetTradeBoundToAssignForVillage
 `public override Settlement GetTradeBoundToAssignForVillage(Village village)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「trade bound to assign for village」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade bound to assign for village 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVillageTradeModel 实例

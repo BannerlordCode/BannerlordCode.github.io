@@ -35,7 +35,7 @@ description: "DefaultSiegeLordsHallFightModel 的自动生成类参考。"
 ### GetPriorityListForLordsHallFightMission
 `public override FlattenedTroopRoster GetPriorityListForLordsHallFightMission(MapEvent playerMapEvent, BattleSideEnum side, int troopCount)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「priority list for lords hall fight mission」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 priority list for lords hall fight mission 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSiegeLordsHallFightModel 实例

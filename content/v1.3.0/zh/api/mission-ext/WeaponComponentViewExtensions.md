@@ -23,7 +23,7 @@ description: "WeaponComponentViewExtensions 的自动生成类参考。"
 ### GetFlyingMeshCopy
 `public static MetaMesh GetFlyingMeshCopy(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「flying mesh copy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flying mesh copy 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ WeaponComponentViewExtensions.GetFlyingMeshCopy(weaponComponentData, item);
 ### GetFlyingMeshIfExists
 `public static MetaMesh GetFlyingMeshIfExists(this WeaponComponentData weaponComponentData, ItemObject item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「flying mesh if exists」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flying mesh if exists 的结果。
 
 ```csharp
 // 静态调用，不需要实例

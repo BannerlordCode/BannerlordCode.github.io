@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection` to place it 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -47,7 +47,7 @@ photoModeVM.RefreshValues();
 ### AddTakePictureKey
 `public void AddTakePictureKey(GameKey key)`
 
-**Purpose:** Adds `take picture key` to the current collection or state.
+**Purpose:** **Purpose:** Adds take picture key to the current collection or state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -58,7 +58,7 @@ photoModeVM.AddTakePictureKey(key);
 ### AddFasterCameraKey
 `public void AddFasterCameraKey(HotKey hotkey)`
 
-**Purpose:** Adds `faster camera key` to the current collection or state.
+**Purpose:** **Purpose:** Adds faster camera key to the current collection or state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -69,7 +69,7 @@ photoModeVM.AddFasterCameraKey(hotkey);
 ### AddKey
 `public void AddKey(GameKey key)`
 
-**Purpose:** Adds `key` to the current collection or state.
+**Purpose:** **Purpose:** Adds key to the current collection or state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -80,7 +80,7 @@ photoModeVM.AddKey(key);
 ### AddHotkey
 `public void AddHotkey(HotKey hotkey)`
 
-**Purpose:** Adds `hotkey` to the current collection or state.
+**Purpose:** **Purpose:** Adds hotkey to the current collection or state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -91,7 +91,7 @@ photoModeVM.AddHotkey(hotkey);
 ### AddHotkeyWithForcedName
 `public void AddHotkeyWithForcedName(HotKey hotkey, TextObject forcedName)`
 
-**Purpose:** Adds `hotkey with forced name` to the current collection or state.
+**Purpose:** **Purpose:** Adds hotkey with forced name to the current collection or state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -102,7 +102,7 @@ photoModeVM.AddHotkeyWithForcedName(hotkey, forcedName);
 ### AddCustomKey
 `public void AddCustomKey(string keyID, TextObject forcedName)`
 
-**Purpose:** Adds `custom key` to the current collection or state.
+**Purpose:** **Purpose:** Adds custom key to the current collection or state.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -113,7 +113,7 @@ photoModeVM.AddCustomKey("example", forcedName);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -124,7 +124,7 @@ photoModeVM.OnFinalize();
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -135,7 +135,7 @@ photoModeVM.Reset();
 ### UpdateTakePictureKeyVisibility
 `public void UpdateTakePictureKeyVisibility(bool canTakePicture)`
 
-**Purpose:** Recalculates and stores the latest representation of `take picture key visibility`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of take picture key visibility.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first
@@ -146,7 +146,7 @@ photoModeVM.UpdateTakePictureKeyVisibility(false);
 ### UpdateFasterCameraKeyVisibility
 `public void UpdateFasterCameraKeyVisibility(bool canMoveCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `faster camera key visibility`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of faster camera key visibility.
 
 ```csharp
 // Obtain an instance of PhotoModeVM from the subsystem API first

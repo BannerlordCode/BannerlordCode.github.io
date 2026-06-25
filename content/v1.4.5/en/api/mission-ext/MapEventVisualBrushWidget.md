@@ -29,7 +29,7 @@ Treat `MapEventVisualBrushWidget` as a Widget-style extension point: first ident
 ### MapEventVisualBrushWidget
 `public class MapEventVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MapEventVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of MapEventVisualBrushWidget from the subsystem API first

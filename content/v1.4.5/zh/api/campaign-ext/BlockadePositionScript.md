@@ -23,7 +23,7 @@ description: "BlockadePositionScript 的自动生成类参考。"
 ### GetBlockadeArc
 `public List<List<Vec3>> GetBlockadeArc(int totalNumberOfShips, out Vec3 center)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「blockade arc」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 blockade arc 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BlockadePositionScript 实例

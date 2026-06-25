@@ -29,7 +29,7 @@ description: "IntermissionVoteItem 的自动生成类参考。"
 ### SetVoteCount
 `public void SetVoteCount(int voteCount)`
 
-**用途 / Purpose:** 为 「vote count」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 vote count 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 IntermissionVoteItem 实例
@@ -40,7 +40,7 @@ intermissionVoteItem.SetVoteCount(0);
 ### IncreaseVoteCount
 `public void IncreaseVoteCount(int incrementAmount)`
 
-**用途 / Purpose:** 处理与 「increase vote count」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IncreaseVoteCount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 IntermissionVoteItem 实例

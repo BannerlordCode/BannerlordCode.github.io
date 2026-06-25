@@ -30,7 +30,7 @@ Treat `CraftingMaterialVisualBrushWidget` as a Widget-style extension point: fir
 ### CraftingMaterialVisualBrushWidget
 `public class CraftingMaterialVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CraftingMaterialVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of CraftingMaterialVisualBrushWidget from the subsystem API first

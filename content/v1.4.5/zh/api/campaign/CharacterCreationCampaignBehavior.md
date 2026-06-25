@@ -23,7 +23,7 @@ description: "CharacterCreationCampaignBehavior 的自动生成类参考。"
 ### IsUrbanOccupation
 `public static bool IsUrbanOccupation(string occupation)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「urban occupation」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 urban occupation 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CharacterCreationCampaignBehavior.IsUrbanOccupation("example");
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -44,7 +44,7 @@ characterCreationCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -55,7 +55,7 @@ characterCreationCampaignBehavior.SyncData(dataStore);
 ### InitializeCharacterCreationStages
 `public void InitializeCharacterCreationStages(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 为 「character creation stages」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 character creation stages 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -66,7 +66,7 @@ characterCreationCampaignBehavior.InitializeCharacterCreationStages(characterCre
 ### InitializeCharacterCreationCultures
 `public void InitializeCharacterCreationCultures(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 为 「character creation cultures」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 character creation cultures 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -77,7 +77,7 @@ characterCreationCampaignBehavior.InitializeCharacterCreationCultures(characterC
 ### InitializeData
 `public void InitializeData(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 为 「data」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 data 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -88,7 +88,7 @@ characterCreationCampaignBehavior.InitializeData(characterCreationManager);
 ### FaceGenUpdated
 `public void FaceGenUpdated()`
 
-**用途 / Purpose:** 响应 「face gen updated」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FaceGenUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -99,7 +99,7 @@ characterCreationCampaignBehavior.FaceGenUpdated();
 ### UpdateParentEquipment
 `public void UpdateParentEquipment(CharacterCreationManager characterCreationManager, MBEquipmentRoster motherEquipment, MBEquipmentRoster fatherEquipment, string motherAnimation, string fatherAnimation)`
 
-**用途 / Purpose:** 重新计算并更新 「parent equipment」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 parent equipment 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -110,7 +110,7 @@ characterCreationCampaignBehavior.UpdateParentEquipment(characterCreationManager
 ### AddEducationMenu
 `public void AddEducationMenu(CharacterCreationManager characterCreationManager)`
 
-**用途 / Purpose:** 将 「education menu」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 education menu 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例
@@ -121,7 +121,7 @@ characterCreationCampaignBehavior.AddEducationMenu(characterCreationManager);
 ### SetHeroAge
 `public void SetHeroAge(float age)`
 
-**用途 / Purpose:** 为 「hero age」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 hero age 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例

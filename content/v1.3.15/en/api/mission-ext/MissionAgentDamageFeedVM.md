@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFee
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentDamageFeedVM from the subsystem API first

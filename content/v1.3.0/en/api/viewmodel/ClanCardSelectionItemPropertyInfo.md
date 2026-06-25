@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### CreateLabeledValueText
 `public static TextObject CreateLabeledValueText(TextObject label, TextObject value)`
 
-**Purpose:** Constructs a new `labeled value text` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new labeled value text entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ClanCardSelectionItemPropertyInfo.CreateLabeledValueText(label, value);
 ### CreateActionGoldChangeText
 `public static TextObject CreateActionGoldChangeText(int goldChange)`
 
-**Purpose:** Constructs a new `action gold change text` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new action gold change text entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

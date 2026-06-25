@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### GetClassLevel
 `public static byte GetClassLevel(Type type)`
 
-**Purpose:** Reads and returns the `class level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the class level value held by the this instance.
 
 ```csharp
 // Static call; no instance required

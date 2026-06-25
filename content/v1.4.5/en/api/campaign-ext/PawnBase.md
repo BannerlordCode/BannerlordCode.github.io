@@ -40,7 +40,7 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public virtual void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -51,7 +51,7 @@ pawnBase.Reset();
 ### AddGoalPosition
 `public virtual void AddGoalPosition(Vec3 goal)`
 
-**Purpose:** Adds `goal position` to the current collection or state.
+**Purpose:** **Purpose:** Adds goal position to the current collection or state.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -62,7 +62,7 @@ pawnBase.AddGoalPosition(goal);
 ### SetPawnAtPosition
 `public virtual void SetPawnAtPosition(Vec3 position)`
 
-**Purpose:** Assigns a new value to `pawn at position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to pawn at position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -73,7 +73,7 @@ pawnBase.SetPawnAtPosition(position);
 ### MovePawnToGoalPositions
 `public virtual void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**Purpose:** Moves `pawn to goal positions` to a new position or state.
+**Purpose:** **Purpose:** Moves pawn to goal positions to a new position or state.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -84,7 +84,7 @@ pawnBase.MovePawnToGoalPositions(false, 0, false);
 ### EnableCollisionBody
 `public virtual void EnableCollisionBody()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnableCollisionBody logic.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -95,7 +95,7 @@ pawnBase.EnableCollisionBody();
 ### DisableCollisionBody
 `public virtual void DisableCollisionBody()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableCollisionBody logic.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -106,7 +106,7 @@ pawnBase.DisableCollisionBody();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -117,7 +117,7 @@ pawnBase.Tick(0);
 ### MovePawnToGoalPositionsDelayed
 `public void MovePawnToGoalPositionsDelayed(bool instantMove, float speed, bool dragged, float delay)`
 
-**Purpose:** Moves `pawn to goal positions delayed` to a new position or state.
+**Purpose:** **Purpose:** Moves pawn to goal positions delayed to a new position or state.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -128,7 +128,7 @@ pawnBase.MovePawnToGoalPositionsDelayed(false, 0, false, 0);
 ### SetPlayerOne
 `public void SetPlayerOne(bool playerOne)`
 
-**Purpose:** Assigns a new value to `player one` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to player one and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -139,7 +139,7 @@ pawnBase.SetPlayerOne(false);
 ### ClearGoalPositions
 `public void ClearGoalPositions()`
 
-**Purpose:** Removes all `goal positions` from the current object.
+**Purpose:** **Purpose:** Removes all goal positions from the this instance.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -150,7 +150,7 @@ pawnBase.ClearGoalPositions();
 ### UpdatePawnPosition
 `public void UpdatePawnPosition()`
 
-**Purpose:** Recalculates and stores the latest representation of `pawn position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of pawn position.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first
@@ -161,7 +161,7 @@ pawnBase.UpdatePawnPosition();
 ### PlayPawnSelectSound
 `public void PlayPawnSelectSound()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayPawnSelectSound logic.
 
 ```csharp
 // Obtain an instance of PawnBase from the subsystem API first

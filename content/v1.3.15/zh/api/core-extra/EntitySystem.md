@@ -29,7 +29,7 @@ description: "EntitySystem 的自动生成类参考。"
 ### AddComponent
 `public T AddComponent(Type componentType)`
 
-**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 component 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 EntitySystem 实例
@@ -40,7 +40,7 @@ var result = entitySystem.AddComponent(componentType);
 ### GetComponent
 `public T GetComponent(Type componentType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「component」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 component 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EntitySystem 实例
@@ -51,7 +51,7 @@ var result = entitySystem.GetComponent(componentType);
 ### GetComponents
 `public MBList<T> GetComponents()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「components」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 components 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EntitySystem 实例
@@ -62,7 +62,7 @@ var result = entitySystem.GetComponents();
 ### Finalize
 `public void Finalize(T component)`
 
-**用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
+**用途 / Purpose:** **用途 / Purpose:** 在垃圾回收时执行清理工作（通常用于释放非托管资源）。
 
 ```csharp
 // 先通过子系统 API 拿到 EntitySystem 实例
@@ -73,7 +73,7 @@ entitySystem.Finalize(component);
 ### RemoveComponent
 `public void RemoveComponent(T component)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「component」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 component。
 
 ```csharp
 // 先通过子系统 API 拿到 EntitySystem 实例

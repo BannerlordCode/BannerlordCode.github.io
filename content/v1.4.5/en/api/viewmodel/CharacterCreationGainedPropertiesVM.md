@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### UpdateValues
 `public void UpdateValues()`
 
-**Purpose:** Recalculates and stores the latest representation of `values`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of values.
 
 ```csharp
 // Obtain an instance of CharacterCreationGainedPropertiesVM from the subsystem API first

@@ -33,7 +33,7 @@ description: "InstrumentData 的自动生成类参考。"
 ### InitializeInstrumentData
 `public void InitializeInstrumentData(string sittingAction, string standingAction, bool isDataWithoutInstrument)`
 
-**用途 / Purpose:** 为 「instrument data」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 instrument data 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 InstrumentData 实例
@@ -44,7 +44,7 @@ instrumentData.InitializeInstrumentData("example", "example", false);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 InstrumentData 实例

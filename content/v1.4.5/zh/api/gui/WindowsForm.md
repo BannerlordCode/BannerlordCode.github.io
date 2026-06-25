@@ -32,7 +32,7 @@ description: "WindowsForm 的自动生成类参考。"
 ### SetParent
 `public void SetParent(IntPtr parentHandle)`
 
-**用途 / Purpose:** 为 「parent」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 parent 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsForm 实例
@@ -43,7 +43,7 @@ windowsForm.SetParent(parentHandle);
 ### Show
 `public void Show()`
 
-**用途 / Purpose:** 显示当前对象对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示当前对象对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsForm 实例
@@ -54,7 +54,7 @@ windowsForm.Show();
 ### Hide
 `public void Hide()`
 
-**用途 / Purpose:** 隐藏当前对象对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 隐藏当前对象对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsForm 实例
@@ -65,7 +65,7 @@ windowsForm.Hide();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsForm 实例
@@ -76,7 +76,7 @@ windowsForm.Destroy();
 ### AddMessageHandler
 `public void AddMessageHandler(WindowsFormMessageHandler messageHandler)`
 
-**用途 / Purpose:** 将 「message handler」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 message handler 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsForm 实例

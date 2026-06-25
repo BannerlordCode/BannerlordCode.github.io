@@ -23,7 +23,7 @@ description: "GenericMissionObjectiveTarget 的自动生成类参考。"
 ### IsActive
 `public override bool IsActive()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「active」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 active 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTarget 实例
@@ -34,7 +34,7 @@ var result = genericMissionObjectiveTarget.IsActive();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTarget 实例
@@ -45,7 +45,7 @@ var result = genericMissionObjectiveTarget.GetName();
 ### GetGlobalPosition
 `public override Vec3 GetGlobalPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「global position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericMissionObjectiveTarget 实例

@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPDeathCardVM from the subsystem API first
@@ -51,7 +51,7 @@ mPDeathCardVM.RefreshValues();
 ### OnMainAgentRemoved
 `public void OnMainAgentRemoved(Agent affectorAgent, KillingBlow blow)`
 
-**Purpose:** Invoked when the `main agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the main agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MPDeathCardVM from the subsystem API first
@@ -62,7 +62,7 @@ mPDeathCardVM.OnMainAgentRemoved(affectorAgent, blow);
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPDeathCardVM from the subsystem API first

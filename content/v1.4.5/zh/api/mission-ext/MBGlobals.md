@@ -23,7 +23,7 @@ description: "MBGlobals 的自动生成类参考。"
 ### InitializeReferences
 `public static void InitializeReferences()`
 
-**用途 / Purpose:** 为 「references」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 references 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBGlobals.InitializeReferences();
 ### GetActionSetWithSuffix
 `public static MBActionSet GetActionSetWithSuffix(Monster monster, bool isFemale, string suffix)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action set with suffix」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action set with suffix 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBGlobals.GetActionSetWithSuffix(monster, false, "example");
 ### GetActionSet
 `public static MBActionSet GetActionSet(string actionSetCode)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action set」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action set 的结果。
 
 ```csharp
 // 静态调用，不需要实例

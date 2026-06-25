@@ -23,7 +23,7 @@ Treat `CampaignMissionManager` as a Manager-style extension point: first identif
 ### OpenArenaDuelMission
 `public IMission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action<CharacterObject> onDuelEndAction, float customAgentHealth)`
 
-**Purpose:** Opens the resource or UI associated with `arena duel mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with arena duel mission.
 
 ```csharp
 // Obtain an instance of CampaignMissionManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = campaignMissionManager.OpenArenaDuelMission("example", location, du
 ### OpenDisguiseMission
 `public IMission OpenDisguiseMission(string scene, bool willSetUpContact, string sceneLevels, Location fromLocation)`
 
-**Purpose:** Opens the resource or UI associated with `disguise mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with disguise mission.
 
 ```csharp
 // Obtain an instance of CampaignMissionManager from the subsystem API first
@@ -45,7 +45,7 @@ var result = campaignMissionManager.OpenDisguiseMission("example", false, "examp
 ### OpenNavalBattleMission
 `public IMission OpenNavalBattleMission(MissionInitializerRecord rec)`
 
-**Purpose:** Opens the resource or UI associated with `naval battle mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with naval battle mission.
 
 ```csharp
 // Obtain an instance of CampaignMissionManager from the subsystem API first
@@ -56,7 +56,7 @@ var result = campaignMissionManager.OpenNavalBattleMission(rec);
 ### OpenNavalSetPieceBattleMission
 `public IMission OpenNavalSetPieceBattleMission(MissionInitializerRecord rec, MBList<IShipOrigin> playerShips, MBList<IShipOrigin> playerAllyShips, MBList<IShipOrigin> enemyShips)`
 
-**Purpose:** Opens the resource or UI associated with `naval set piece battle mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with naval set piece battle mission.
 
 ```csharp
 // Obtain an instance of CampaignMissionManager from the subsystem API first

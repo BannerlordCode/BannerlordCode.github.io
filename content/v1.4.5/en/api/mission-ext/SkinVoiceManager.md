@@ -30,7 +30,7 @@ Treat `SkinVoiceManager` as a Manager-style extension point: first identify who 
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SkinVoiceManager from the subsystem API first
@@ -41,7 +41,7 @@ var result = skinVoiceManager.GetName();
 ### GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName
 `public static int GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassName(string className)`
 
-**Purpose:** Reads and returns the `voice definition count with monster sound and collision info class name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the voice definition count with monster sound and collision info class name value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ SkinVoiceManager.GetVoiceDefinitionCountWithMonsterSoundAndCollisionInfoClassNam
 ### GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName
 `public static void GetVoiceDefinitionListWithMonsterSoundAndCollisionInfoClassName(string className, int definitionIndices)`
 
-**Purpose:** Reads and returns the `voice definition list with monster sound and collision info class name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the voice definition list with monster sound and collision info class name value held by the this instance.
 
 ```csharp
 // Static call; no instance required

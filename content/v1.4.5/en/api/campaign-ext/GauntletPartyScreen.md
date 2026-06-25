@@ -29,7 +29,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### RequestUserInput
 `public void RequestUserInput(string text, Action accept, Action cancel)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestUserInput logic.
 
 ```csharp
 // Obtain an instance of GauntletPartyScreen from the subsystem API first

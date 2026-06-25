@@ -29,7 +29,7 @@ description: "Float 的自动生成类参考。"
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num bits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Float 实例
@@ -40,7 +40,7 @@ var result = float.GetNumBits();
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Float 实例
@@ -51,7 +51,7 @@ var result = float.GetMaximumValue();
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「minimum value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 minimum value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Float 实例
@@ -62,7 +62,7 @@ var result = float.GetMinimumValue();
 ### GetPrecision
 `public float GetPrecision()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「precision」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 precision 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Float 实例
@@ -73,7 +73,7 @@ var result = float.GetPrecision();
 ### ClampValueAccordingToLimits
 `public void ClampValueAccordingToLimits(ref float x)`
 
-**用途 / Purpose:** 处理与 「clamp value according to limits」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ClampValueAccordingToLimits 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Float 实例

@@ -23,7 +23,7 @@ description: "FormationSearchThreatTask 的自动生成类参考。"
 ### Prepare
 `public void Prepare(Formation formation, RangedSiegeWeapon weapon)`
 
-**用途 / Purpose:** 完成当前对象操作所需的前置准备。
+**用途 / Purpose:** **用途 / Purpose:** 完成当前对象操作所需的前置准备。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationSearchThreatTask 实例
@@ -34,7 +34,7 @@ formationSearchThreatTask.Prepare(formation, weapon);
 ### GetResult
 `public bool GetResult(out Agent targetAgent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「result」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 result 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationSearchThreatTask 实例

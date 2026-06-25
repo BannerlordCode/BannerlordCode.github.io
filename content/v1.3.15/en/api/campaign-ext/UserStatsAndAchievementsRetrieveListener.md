@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnUserStatsAndAchievementsRetrieveSuccess
 `public override void OnUserStatsAndAchievementsRetrieveSuccess(GalaxyID userID)`
 
-**Purpose:** Invoked when the `user stats and achievements retrieve success` event is raised.
+**Purpose:** **Purpose:** Invoked when the user stats and achievements retrieve success event is raised.
 
 ```csharp
 // Obtain an instance of UserStatsAndAchievementsRetrieveListener from the subsystem API first
@@ -34,7 +34,7 @@ userStatsAndAchievementsRetrieveListener.OnUserStatsAndAchievementsRetrieveSucce
 ### OnUserStatsAndAchievementsRetrieveFailure
 `public override void OnUserStatsAndAchievementsRetrieveFailure(GalaxyID userID, IUserStatsAndAchievementsRetrieveListener.FailureReason failureReason)`
 
-**Purpose:** Invoked when the `user stats and achievements retrieve failure` event is raised.
+**Purpose:** **Purpose:** Invoked when the user stats and achievements retrieve failure event is raised.
 
 ```csharp
 // Obtain an instance of UserStatsAndAchievementsRetrieveListener from the subsystem API first
@@ -45,7 +45,7 @@ userStatsAndAchievementsRetrieveListener.OnUserStatsAndAchievementsRetrieveFailu
 ### UserStatsAndAchievementsRetrieved
 `public delegate void UserStatsAndAchievementsRetrieved(GalaxyID userID, bool success, IUserStatsAndAchievementsRetrieveListener.FailureReason? failureReason)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UserStatsAndAchievementsRetrieved logic.
 
 ```csharp
 // Obtain an instance of UserStatsAndAchievementsRetrieveListener from the subsystem API first

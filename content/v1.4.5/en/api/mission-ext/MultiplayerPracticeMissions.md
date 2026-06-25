@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer` to place it in the s
 ### OpenMultiplayerPracticeMission
 `public static Mission OpenMultiplayerPracticeMission(string scene, BasicCharacterObject playerCharacter, CustomBattleCombatant playerParty, CustomBattleCombatant enemyParty, bool isPlayerGeneral, BasicCharacterObject playerSideGeneralCharacter, string sceneLevels = "", string seasonString = "", float timeOfDay = 6f)`
 
-**Purpose:** Opens the resource or UI associated with `multiplayer practice mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with multiplayer practice mission.
 
 ```csharp
 // Static call; no instance required

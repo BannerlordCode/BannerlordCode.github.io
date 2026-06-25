@@ -30,7 +30,7 @@ description: "BadgeManager 的自动生成类参考。"
 ### InitializeWithXML
 `public static void InitializeWithXML(string xmlPath)`
 
-**用途 / Purpose:** 为 「with x m l」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 with x m l 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ BadgeManager.InitializeWithXML("example");
 ### OnFinalize
 `public static void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ BadgeManager.OnFinalize();
 ### GetByIndex
 `public static Badge GetByIndex(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「by index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 by index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ BadgeManager.GetByIndex(0);
 ### GetById
 `public static Badge GetById(string id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「by id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 by id 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ BadgeManager.GetById("example");
 ### GetByType
 `public static List<Badge> GetByType(BadgeType type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「by type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 by type 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -80,7 +80,7 @@ BadgeManager.GetByType(type);
 ### GetBadgeConditionValue
 `public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「badge condition value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 badge condition value 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -90,7 +90,7 @@ BadgeManager.GetBadgeConditionValue(playerData, condition);
 ### GetBadgeConditionNumericValue
 `public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「badge condition numeric value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 badge condition numeric value 的结果。
 
 ```csharp
 // 静态调用，不需要实例

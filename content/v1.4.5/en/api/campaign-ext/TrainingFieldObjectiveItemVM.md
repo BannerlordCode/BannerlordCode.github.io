@@ -35,7 +35,7 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### UpdateObjective
 `public void UpdateObjective(TrainingFieldMissionController.MouseObjectives currentMouseObjective, TrainingFieldMissionController.ObjectivePerformingType currentObjectivePerformingType)`
 
-**Purpose:** Recalculates and stores the latest representation of `objective`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of objective.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectiveItemVM from the subsystem API first
@@ -46,7 +46,7 @@ trainingFieldObjectiveItemVM.UpdateObjective(currentMouseObjective, currentObjec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectiveItemVM from the subsystem API first
@@ -57,7 +57,7 @@ trainingFieldObjectiveItemVM.RefreshValues();
 ### CreateFromObjective
 `public static TrainingFieldObjectiveItemVM CreateFromObjective(TrainingFieldMissionController.TutorialObjective objective)`
 
-**Purpose:** Constructs a new `from objective` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from objective entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -67,7 +67,7 @@ TrainingFieldObjectiveItemVM.CreateFromObjective(objective);
 ### CreateDummy
 `public static TrainingFieldObjectiveItemVM CreateDummy()`
 
-**Purpose:** Constructs a new `dummy` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new dummy entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

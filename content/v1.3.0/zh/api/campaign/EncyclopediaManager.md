@@ -29,7 +29,7 @@ description: "EncyclopediaManager 的自动生成类参考。"
 ### CreateEncyclopediaPages
 `public void CreateEncyclopediaPages()`
 
-**用途 / Purpose:** 构建一个新的 「encyclopedia pages」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 encyclopedia pages 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例
@@ -40,7 +40,7 @@ encyclopediaManager.CreateEncyclopediaPages();
 ### GetEncyclopediaPages
 `public IEnumerable<EncyclopediaPage> GetEncyclopediaPages()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia pages」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encyclopedia pages 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例
@@ -51,7 +51,7 @@ var result = encyclopediaManager.GetEncyclopediaPages();
 ### GetPageOf
 `public EncyclopediaPage GetPageOf(Type type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「page of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 page of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例
@@ -62,7 +62,7 @@ var result = encyclopediaManager.GetPageOf(type);
 ### GetIdentifier
 `public string GetIdentifier(Type type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「identifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例
@@ -73,7 +73,7 @@ var result = encyclopediaManager.GetIdentifier(type);
 ### GoToLink
 `public void GoToLink(string pageType, string stringID)`
 
-**用途 / Purpose:** 处理与 「go to link」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToLink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例
@@ -84,7 +84,7 @@ encyclopediaManager.GoToLink("example", "example");
 ### GoToLink
 `public void GoToLink(string link)`
 
-**用途 / Purpose:** 处理与 「go to link」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToLink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例
@@ -95,7 +95,7 @@ encyclopediaManager.GoToLink("example");
 ### SetLinkCallback
 `public void SetLinkCallback(Action<string, object> ExecuteLink)`
 
-**用途 / Purpose:** 为 「link callback」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 link callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaManager 实例

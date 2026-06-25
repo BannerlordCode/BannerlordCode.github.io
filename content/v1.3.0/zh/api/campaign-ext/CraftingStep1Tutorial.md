@@ -23,7 +23,7 @@ description: "CraftingStep1Tutorial 的自动生成类参考。"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tutorials relevant context 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
@@ -34,7 +34,7 @@ var result = craftingStep1Tutorial.GetTutorialsRelevantContext();
 ### OnCraftingWeaponClassSelectionOpened
 `public override void OnCraftingWeaponClassSelectionOpened(CraftingWeaponClassSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 在 「crafting weapon class selection opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting weapon class selection opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
@@ -45,7 +45,7 @@ craftingStep1Tutorial.OnCraftingWeaponClassSelectionOpened(obj);
 ### OnCraftingOrderSelectionOpened
 `public override void OnCraftingOrderSelectionOpened(CraftingOrderSelectionOpenedEvent obj)`
 
-**用途 / Purpose:** 在 「crafting order selection opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting order selection opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
@@ -56,7 +56,7 @@ craftingStep1Tutorial.OnCraftingOrderSelectionOpened(obj);
 ### OnCraftingOnWeaponResultPopupOpened
 `public override void OnCraftingOnWeaponResultPopupOpened(CraftingWeaponResultPopupToggledEvent obj)`
 
-**用途 / Purpose:** 在 「crafting on weapon result popup opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting on weapon result popup opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
@@ -67,7 +67,7 @@ craftingStep1Tutorial.OnCraftingOnWeaponResultPopupOpened(obj);
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for activation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingStep1Tutorial 实例
@@ -78,7 +78,7 @@ var result = craftingStep1Tutorial.IsConditionsMetForActivation();
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for completion 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingStep1Tutorial 实例

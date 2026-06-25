@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
@@ -43,7 +43,7 @@ clanFinanceAlleyItemVM.RefreshValues();
 ### ExecuteManageAlley
 `public void ExecuteManageAlley()`
 
-**Purpose:** Runs the operation or workflow associated with `manage alley`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with manage alley.
 
 ```csharp
 // Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
@@ -54,7 +54,7 @@ clanFinanceAlleyItemVM.ExecuteManageAlley();
 ### ExecuteBeginHeroHint
 `public void ExecuteBeginHeroHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hero hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hero hint.
 
 ```csharp
 // Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first
@@ -65,7 +65,7 @@ clanFinanceAlleyItemVM.ExecuteBeginHeroHint();
 ### ExecuteEndHeroHint
 `public void ExecuteEndHeroHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hero hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hero hint.
 
 ```csharp
 // Obtain an instance of ClanFinanceAlleyItemVM from the subsystem API first

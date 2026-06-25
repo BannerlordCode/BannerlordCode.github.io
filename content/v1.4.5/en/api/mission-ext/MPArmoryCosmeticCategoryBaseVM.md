@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPArmoryCosmeticCategoryBaseVM
 `public unsafe MPArmoryCosmeticCategoryBaseVM(CosmeticType cosmeticType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MPArmoryCosmeticCategoryBaseVM logic.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
@@ -43,7 +43,7 @@ var result = mPArmoryCosmeticCategoryBaseVM.MPArmoryCosmeticCategoryBaseVM(cosme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
@@ -54,7 +54,7 @@ mPArmoryCosmeticCategoryBaseVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first
@@ -65,7 +65,7 @@ mPArmoryCosmeticCategoryBaseVM.OnFinalize();
 ### Sort
 `public void Sort(MPArmoryCosmeticsVM.CosmeticItemComparer comparer)`
 
-**Purpose:** Sorts the content inside the current object.
+**Purpose:** **Purpose:** Sorts the content inside the this instance.
 
 ```csharp
 // Obtain an instance of MPArmoryCosmeticCategoryBaseVM from the subsystem API first

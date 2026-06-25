@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Invoked when the `initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MultiplayerReportPlayerScreen.OnInitialize();
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Static call; no instance required

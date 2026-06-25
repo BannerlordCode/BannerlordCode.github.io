@@ -23,7 +23,7 @@ Treat `DetachmentData` as a Data-style extension point: first identify who creat
 ### IsPrecalculated
 `public bool IsPrecalculated()`
 
-**Purpose:** Determines whether the current object is in the `precalculated` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the precalculated state or condition.
 
 ```csharp
 // Obtain an instance of DetachmentData from the subsystem API first
@@ -34,7 +34,7 @@ var result = detachmentData.IsPrecalculated();
 ### RemoveScoreOfAgent
 `public void RemoveScoreOfAgent(Agent agent)`
 
-**Purpose:** Removes `score of agent` from the current collection or state.
+**Purpose:** **Purpose:** Removes score of agent from the current collection or state.
 
 ```csharp
 // Obtain an instance of DetachmentData from the subsystem API first

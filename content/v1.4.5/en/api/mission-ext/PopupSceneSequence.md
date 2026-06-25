@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals visuals)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `with agent visuals`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with agent visuals.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -34,7 +34,7 @@ popupSceneSequence.InitializeWithAgentVisuals(visuals);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -45,7 +45,7 @@ var result = popupSceneSequence.GetTickRequirement();
 ### OnInitialState
 `public virtual void OnInitialState()`
 
-**Purpose:** Invoked when the `initial state` event is raised.
+**Purpose:** **Purpose:** Invoked when the initial state event is raised.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -56,7 +56,7 @@ popupSceneSequence.OnInitialState();
 ### OnPositiveState
 `public virtual void OnPositiveState()`
 
-**Purpose:** Invoked when the `positive state` event is raised.
+**Purpose:** **Purpose:** Invoked when the positive state event is raised.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -67,7 +67,7 @@ popupSceneSequence.OnPositiveState();
 ### OnNegativeState
 `public virtual void OnNegativeState()`
 
-**Purpose:** Invoked when the `negative state` event is raised.
+**Purpose:** **Purpose:** Invoked when the negative state event is raised.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -78,7 +78,7 @@ popupSceneSequence.OnNegativeState();
 ### SetInitialState
 `public void SetInitialState()`
 
-**Purpose:** Assigns a new value to `initial state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to initial state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -89,7 +89,7 @@ popupSceneSequence.SetInitialState();
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**Purpose:** Assigns a new value to `positive state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to positive state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first
@@ -100,7 +100,7 @@ popupSceneSequence.SetPositiveState();
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**Purpose:** Assigns a new value to `negative state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to negative state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSequence from the subsystem API first

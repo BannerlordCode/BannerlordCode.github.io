@@ -36,7 +36,7 @@ description: "ClanInfo 的自动生成类参考。"
 ### CreateUnavailableClanInfo
 `public static ClanInfo CreateUnavailableClanInfo()`
 
-**用途 / Purpose:** 构建一个新的 「unavailable clan info」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 unavailable clan info 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

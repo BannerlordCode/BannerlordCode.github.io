@@ -29,7 +29,7 @@ description: "CardSelectionPopupButtonWidget 的自动生成类参考。"
 ### SetState
 `public override void SetState(string stateName)`
 
-**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CardSelectionPopupButtonWidget 实例

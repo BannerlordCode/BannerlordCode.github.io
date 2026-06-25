@@ -56,7 +56,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -67,7 +67,7 @@ kingdomManagementVM.RefreshValues();
 ### OnRefresh
 `public void OnRefresh()`
 
-**Purpose:** Invoked when the `refresh` event is raised.
+**Purpose:** **Purpose:** Invoked when the refresh event is raised.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -78,7 +78,7 @@ kingdomManagementVM.OnRefresh();
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**Purpose:** Invoked when the `frame tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -89,7 +89,7 @@ kingdomManagementVM.OnFrameTick();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Runs the operation or workflow associated with `close`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -100,7 +100,7 @@ kingdomManagementVM.ExecuteClose();
 ### SelectArmy
 `public void SelectArmy(Army army)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectArmy logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -111,7 +111,7 @@ kingdomManagementVM.SelectArmy(army);
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectSettlement logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -122,7 +122,7 @@ kingdomManagementVM.SelectSettlement(settlement);
 ### SelectClan
 `public void SelectClan(Clan clan)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectClan logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -133,7 +133,7 @@ kingdomManagementVM.SelectClan(clan);
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectPolicy logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -144,7 +144,7 @@ kingdomManagementVM.SelectPolicy(policy);
 ### SelectKingdom
 `public void SelectKingdom(Kingdom kingdom)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectKingdom logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -155,7 +155,7 @@ kingdomManagementVM.SelectKingdom(kingdom);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectPreviousCategory logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -166,7 +166,7 @@ kingdomManagementVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectNextCategory logic.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -177,7 +177,7 @@ kingdomManagementVM.SelectNextCategory();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -188,7 +188,7 @@ kingdomManagementVM.OnFinalize();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -199,7 +199,7 @@ kingdomManagementVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -210,7 +210,7 @@ kingdomManagementVM.SetCancelInputKey(hotkey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to previous tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first
@@ -221,7 +221,7 @@ kingdomManagementVM.SetPreviousTabInputKey(hotkey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of KingdomManagementVM from the subsystem API first

@@ -33,7 +33,7 @@ description: "InventoryTupleExtensionControlsWidget 的自动生成类参考。"
 ### BuildNavigationData
 `public void BuildNavigationData()`
 
-**用途 / Purpose:** 组装并返回「navigation data」的构建结果。
+**用途 / Purpose:** **用途 / Purpose:** 组装并返回navigation data的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryTupleExtensionControlsWidget 实例

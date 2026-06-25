@@ -29,7 +29,7 @@ description: "FiefStatTypeVisualBrushWidget 的自动生成类参考。"
 ### FiefStatTypeVisualBrushWidget
 `public class FiefStatTypeVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「fief stat type visual brush widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FiefStatTypeVisualBrushWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FiefStatTypeVisualBrushWidget 实例

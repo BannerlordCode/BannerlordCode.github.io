@@ -23,7 +23,7 @@ description: "WidgetAttributeValueTypeBindingPath 的自动生成类参考。"
 ### CheckValueType
 `public override bool CheckValueType(string value)`
 
-**用途 / Purpose:** 检查「value type」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查value type在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeValueTypeBindingPath 实例
@@ -34,7 +34,7 @@ var result = widgetAttributeValueTypeBindingPath.CheckValueType("example");
 ### GetAttributeValue
 `public override string GetAttributeValue(string value)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attribute value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attribute value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeValueTypeBindingPath 实例
@@ -45,7 +45,7 @@ var result = widgetAttributeValueTypeBindingPath.GetAttributeValue("example");
 ### GetSerializedValue
 `public override string GetSerializedValue(string value)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「serialized value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 serialized value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeValueTypeBindingPath 实例

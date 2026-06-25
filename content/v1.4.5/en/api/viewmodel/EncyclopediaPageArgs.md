@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### EncyclopediaPageArgs
 `public struct EncyclopediaPageArgs(object o)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EncyclopediaPageArgs logic.
 
 ```csharp
 // Obtain an instance of EncyclopediaPageArgs from the subsystem API first

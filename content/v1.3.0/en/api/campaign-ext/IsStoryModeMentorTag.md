@@ -29,7 +29,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### IsApplicableTo
 `public override bool IsApplicableTo(CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `applicable to` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the applicable to state or condition.
 
 ```csharp
 // Obtain an instance of IsStoryModeMentorTag from the subsystem API first

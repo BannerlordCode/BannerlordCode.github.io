@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetLastAssignedFormation
 `public Formation GetLastAssignedFormation(int teamIndex)`
 
-**Purpose:** Reads and returns the `last assigned formation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the last assigned formation value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArcherPosition from the subsystem API first
@@ -42,7 +42,7 @@ var result = archerPosition.GetLastAssignedFormation(0);
 ### IsArcherPositionRelatedToSide
 `public bool IsArcherPositionRelatedToSide(FormationAI.BehaviorSide side)`
 
-**Purpose:** Determines whether the current object is in the `archer position related to side` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the archer position related to side state or condition.
 
 ```csharp
 // Obtain an instance of ArcherPosition from the subsystem API first
@@ -53,7 +53,7 @@ var result = archerPosition.IsArcherPositionRelatedToSide(side);
 ### GetArcherPositionClosestSide
 `public FormationAI.BehaviorSide GetArcherPositionClosestSide()`
 
-**Purpose:** Reads and returns the `archer position closest side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the archer position closest side value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArcherPosition from the subsystem API first
@@ -64,7 +64,7 @@ var result = archerPosition.GetArcherPositionClosestSide();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished(SiegeQuerySystem siegeQuerySystem, BattleSideEnum battleSide)`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of ArcherPosition from the subsystem API first
@@ -75,7 +75,7 @@ archerPosition.OnDeploymentFinished(siegeQuerySystem, battleSide);
 ### SetLastAssignedFormation
 `public void SetLastAssignedFormation(int teamIndex, Formation formation)`
 
-**Purpose:** Assigns a new value to `last assigned formation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to last assigned formation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArcherPosition from the subsystem API first

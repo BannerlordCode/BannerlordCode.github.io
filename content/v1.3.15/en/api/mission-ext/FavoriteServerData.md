@@ -32,7 +32,7 @@ Treat `FavoriteServerData` as a Data-style extension point: first identify who c
 ### CreateFrom
 `public static FavoriteServerData CreateFrom(GameServerEntry serverEntry)`
 
-**Purpose:** Constructs a new `from` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ FavoriteServerData.CreateFrom(serverEntry);
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Determines whether the current object already holds `same content with`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of FavoriteServerData from the subsystem API first
@@ -53,7 +53,7 @@ var result = favoriteServerData.HasSameContentWith(other);
 ### HasSameContentWith
 `public bool HasSameContentWith(GameServerEntry serverEntry)`
 
-**Purpose:** Determines whether the current object already holds `same content with`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of FavoriteServerData from the subsystem API first

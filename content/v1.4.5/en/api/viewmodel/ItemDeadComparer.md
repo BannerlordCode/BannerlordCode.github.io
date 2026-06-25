@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### Compare
 `public override int Compare(SPScoreboardUnitVM x, SPScoreboardUnitVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ItemDeadComparer from the subsystem API first

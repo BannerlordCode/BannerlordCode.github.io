@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Compare
 `public int Compare(ReinforcementFormationPriority left, ReinforcementFormationPriority right)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ReinforcementFormationPreferenceComparer from the subsystem API first

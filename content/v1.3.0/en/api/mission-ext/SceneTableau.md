@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus` to place it in the
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SceneTableau from the subsystem API first
@@ -41,7 +41,7 @@ sceneTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SceneTableau from the subsystem API first
@@ -52,7 +52,7 @@ sceneTableau.OnFinalize();
 ### SetScene
 `public void SetScene(object scene)`
 
-**Purpose:** Assigns a new value to `scene` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scene and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SceneTableau from the subsystem API first
@@ -63,7 +63,7 @@ sceneTableau.SetScene(scene);
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**Purpose:** Assigns a new value to `banner code` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to banner code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SceneTableau from the subsystem API first
@@ -74,7 +74,7 @@ sceneTableau.SetBannerCode("example");
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RotateCharacter logic.
 
 ```csharp
 // Obtain an instance of SceneTableau from the subsystem API first
@@ -85,7 +85,7 @@ sceneTableau.RotateCharacter(false);
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of SceneTableau from the subsystem API first

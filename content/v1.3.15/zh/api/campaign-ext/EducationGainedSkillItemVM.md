@@ -35,7 +35,7 @@ description: "EducationGainedSkillItemVM 的自动生成类参考。"
 ### SetFocusValue
 `public void SetFocusValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**用途 / Purpose:** 为 「focus value」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 focus value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationGainedSkillItemVM 实例
@@ -46,7 +46,7 @@ educationGainedSkillItemVM.SetFocusValue(0, 0);
 ### SetSkillValue
 `public void SetSkillValue(int gaintedFromOtherStages, int gainedFromCurrentStage)`
 
-**用途 / Purpose:** 为 「skill value」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 skill value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationGainedSkillItemVM 实例

@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.ScreenSystem` to place it in the stack, then in
 ### DrawDebugInfo
 `public virtual void DrawDebugInfo()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawDebugInfo logic.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -52,7 +52,7 @@ screenLayer.DrawDebugInfo();
 ### EarlyProcessEvents
 `public virtual void EarlyProcessEvents(InputType handledInputs)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyProcessEvents logic.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -63,7 +63,7 @@ screenLayer.EarlyProcessEvents(handledInputs);
 ### ProcessEvents
 `public virtual void ProcessEvents()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessEvents logic.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -74,7 +74,7 @@ screenLayer.ProcessEvents();
 ### HitTest
 `public virtual bool HitTest(Vector2 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -85,7 +85,7 @@ var result = screenLayer.HitTest(position);
 ### HitTest
 `public virtual bool HitTest()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -96,7 +96,7 @@ var result = screenLayer.HitTest();
 ### FocusTest
 `public virtual bool FocusTest()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusTest logic.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -107,7 +107,7 @@ var result = screenLayer.FocusTest();
 ### IsFocusedOnInput
 `public virtual bool IsFocusedOnInput()`
 
-**Purpose:** Determines whether the current object is in the `focused on input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the focused on input state or condition.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -118,7 +118,7 @@ var result = screenLayer.IsFocusedOnInput();
 ### OnOnScreenKeyboardDone
 `public virtual void OnOnScreenKeyboardDone(string inputText)`
 
-**Purpose:** Invoked when the `on screen keyboard done` event is raised.
+**Purpose:** **Purpose:** Invoked when the on screen keyboard done event is raised.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -129,7 +129,7 @@ screenLayer.OnOnScreenKeyboardDone("example");
 ### OnOnScreenKeyboardCanceled
 `public virtual void OnOnScreenKeyboardCanceled()`
 
-**Purpose:** Invoked when the `on screen keyboard canceled` event is raised.
+**Purpose:** **Purpose:** Invoked when the on screen keyboard canceled event is raised.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -140,7 +140,7 @@ screenLayer.OnOnScreenKeyboardCanceled();
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first
@@ -151,7 +151,7 @@ var result = screenLayer.CompareTo(obj);
 ### UpdateLayout
 `public virtual void UpdateLayout()`
 
-**Purpose:** Recalculates and stores the latest representation of `layout`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of layout.
 
 ```csharp
 // Obtain an instance of ScreenLayer from the subsystem API first

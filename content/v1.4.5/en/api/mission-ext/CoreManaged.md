@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Start
 `public static void Start()`
 
-**Purpose:** Starts the current object's flow or state machine.
+**Purpose:** **Purpose:** Starts the this instance's flow or state machine.
 
 ```csharp
 // Static call; no instance required

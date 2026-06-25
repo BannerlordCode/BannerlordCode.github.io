@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### EducationOptionConditionDelegate
 `public delegate bool EducationOptionConditionDelegate(EducationOption option, List<EducationOption> previousOptions)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EducationOptionConditionDelegate logic.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ var result = educationCampaignBehavior.EducationOptionConditionDelegate(option, 
 ### EducationOptionConsequenceDelegate
 `public delegate bool EducationOptionConsequenceDelegate(EducationOption option)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EducationOptionConsequenceDelegate logic.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = educationCampaignBehavior.EducationOptionConsequenceDelegate(option
 ### OnConsequence
 `public void OnConsequence(Hero child)`
 
-**Purpose:** Invoked when the `consequence` event is raised.
+**Purpose:** **Purpose:** Invoked when the consequence event is raised.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ educationCampaignBehavior.OnConsequence(child);
 ### AddPage
 `public EducationPage AddPage(int pageIndex, TextObject title, TextObject description, TextObject instruction, EducationCharacterProperties childProperties = default(EducationCharacterProperties), EducationCharacterProperties specialCharacterProperties = default(EducationCharacterProperties), EducationPage.EducationPageConditionDelegate condition = null)`
 
-**Purpose:** Adds `page` to the current collection or state.
+**Purpose:** **Purpose:** Adds page to the current collection or state.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ var result = educationCampaignBehavior.AddPage(0, title, description, instructio
 ### GetOption
 `public EducationOption GetOption(string optionKey)`
 
-**Purpose:** Reads and returns the `option` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = educationCampaignBehavior.GetOption("example");
 ### GetPage
 `public EducationPage GetPage(List<string> previousOptionKeys)`
 
-**Purpose:** Reads and returns the `page` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the page value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ var result = educationCampaignBehavior.GetPage(previousOptionKeys);
 ### StringIdToEducationOption
 `public List<EducationOption> StringIdToEducationOption(List<string> previousOptionKeys)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the StringIdToEducationOption logic.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ var result = educationCampaignBehavior.StringIdToEducationOption(previousOptionK
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ var result = educationCampaignBehavior.ToString();
 ### EducationCharacterProperties
 `public struct EducationCharacterProperties(CharacterObject character, Equipment equipment, string actionId, string prefabId, bool useOffHand)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EducationCharacterProperties logic.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -122,7 +122,7 @@ var result = educationCampaignBehavior.EducationCharacterProperties(character, e
 ### Equals
 `public bool Equals(EducationCharacterProperties other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -133,7 +133,7 @@ var result = educationCampaignBehavior.Equals(other);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -144,7 +144,7 @@ var result = educationCampaignBehavior.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -155,7 +155,7 @@ var result = educationCampaignBehavior.GetHashCode();
 ### GetUsedHandBoneIndex
 `public sbyte GetUsedHandBoneIndex()`
 
-**Purpose:** Reads and returns the `used hand bone index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the used hand bone index value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -166,7 +166,7 @@ var result = educationCampaignBehavior.GetUsedHandBoneIndex();
 ### EducationPageConditionDelegate
 `public delegate bool EducationPageConditionDelegate(EducationPage page, List<EducationOption> previousOptions)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EducationPageConditionDelegate logic.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -177,7 +177,7 @@ var result = educationCampaignBehavior.EducationPageConditionDelegate(page, prev
 ### AddOption
 `public void AddOption(EducationOption option)`
 
-**Purpose:** Adds `option` to the current collection or state.
+**Purpose:** **Purpose:** Adds option to the current collection or state.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -188,7 +188,7 @@ educationCampaignBehavior.AddOption(option);
 ### GetOption
 `public EducationOption GetOption(string optionKey)`
 
-**Purpose:** Reads and returns the `option` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -199,7 +199,7 @@ var result = educationCampaignBehavior.GetOption("example");
 ### GetAvailableOptions
 `public string GetAvailableOptions(List<EducationOption> previousEducationOptions)`
 
-**Purpose:** Reads and returns the `available options` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available options value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -210,7 +210,7 @@ var result = educationCampaignBehavior.GetAvailableOptions(previousEducationOpti
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -221,7 +221,7 @@ educationCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -232,7 +232,7 @@ educationCampaignBehavior.RegisterEvents();
 ### GetOptionProperties
 `public void GetOptionProperties(Hero child, string optionKey, List<string> previousOptions, out TextObject optionTitle, out TextObject description, out TextObject effect, out (CharacterAttribute, int) attributes, out (SkillObject, int) skills, out (SkillObject, int) focusPoints, out EducationCharacterProperties educationCharacterProperties)`
 
-**Purpose:** Reads and returns the `option properties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -243,7 +243,7 @@ educationCampaignBehavior.GetOptionProperties(child, "example", previousOptions,
 ### GetPageProperties
 `public void GetPageProperties(Hero child, List<string> previousChoices, out TextObject title, out TextObject description, out TextObject instruction, out EducationCharacterProperties defaultCharacterProperties, out string availableOptions)`
 
-**Purpose:** Reads and returns the `page properties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the page properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -254,7 +254,7 @@ educationCampaignBehavior.GetPageProperties(child, previousChoices, title, descr
 ### IsValidEducationNotification
 `public bool IsValidEducationNotification(EducationMapNotification data)`
 
-**Purpose:** Determines whether the current object is in the `valid education notification` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid education notification state or condition.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -265,7 +265,7 @@ var result = educationCampaignBehavior.IsValidEducationNotification(data);
 ### GetStageProperties
 `public void GetStageProperties(Hero child, out int pageCount)`
 
-**Purpose:** Reads and returns the `stage properties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stage properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first
@@ -276,7 +276,7 @@ educationCampaignBehavior.GetStageProperties(child, pageCount);
 ### Finalize
 `public void Finalize(Hero child, List<string> chosenOptions)`
 
-**Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
+**Purpose:** **Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
 
 ```csharp
 // Obtain an instance of EducationCampaignBehavior from the subsystem API first

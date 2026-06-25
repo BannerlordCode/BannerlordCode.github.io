@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Initialize
 `public void Initialize(IBattleServerSessionHandler handler)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -56,7 +56,7 @@ battleServer.Initialize(handler);
 ### SetBadgeComponent
 `public void SetBadgeComponent(IBadgeComponent badgeComponent)`
 
-**Purpose:** Assigns a new value to `badge component` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to badge component and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -67,7 +67,7 @@ battleServer.SetBadgeComponent(badgeComponent);
 ### StartServer
 `public void StartServer()`
 
-**Purpose:** Starts the `server` flow or state machine.
+**Purpose:** **Purpose:** Starts the server flow or state machine.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -78,7 +78,7 @@ battleServer.StartServer();
 ### OnConnected
 `public override void OnConnected()`
 
-**Purpose:** Invoked when the `connected` event is raised.
+**Purpose:** **Purpose:** Invoked when the connected event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -89,7 +89,7 @@ battleServer.OnConnected();
 ### OnCantConnect
 `public override void OnCantConnect()`
 
-**Purpose:** Invoked when the `cant connect` event is raised.
+**Purpose:** **Purpose:** Invoked when the cant connect event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -100,7 +100,7 @@ battleServer.OnCantConnect();
 ### OnDisconnected
 `public override void OnDisconnected()`
 
-**Purpose:** Invoked when the `disconnected` event is raised.
+**Purpose:** **Purpose:** Invoked when the disconnected event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -111,7 +111,7 @@ battleServer.OnDisconnected();
 ### BeginEndMission
 `public void BeginEndMission()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginEndMission logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -122,7 +122,7 @@ battleServer.BeginEndMission();
 ### EndMission
 `public void EndMission(BattleResult battleResult, GameLog gameLogs, int gameTime, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndMission logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -133,7 +133,7 @@ battleServer.EndMission(battleResult, gameLogs, 0, dictionary<int, 0, dictionary
 ### BattleCancelledForPlayerLeaving
 `public void BattleCancelledForPlayerLeaving(PlayerId leaverID)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BattleCancelledForPlayerLeaving logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -144,7 +144,7 @@ battleServer.BattleCancelledForPlayerLeaving(leaverID);
 ### BattleStarted
 `public void BattleStarted(BattleResult battleResult)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BattleStarted logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -155,7 +155,7 @@ battleServer.BattleStarted(battleResult);
 ### UpdateBattleStats
 `public void UpdateBattleStats(BattleResult battleResult, Dictionary<int, int> teamScores)`
 
-**Purpose:** Recalculates and stores the latest representation of `battle stats`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of battle stats.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -166,7 +166,7 @@ battleServer.UpdateBattleStats(battleResult, dictionary<int, 0);
 ### DoNotAcceptNewPlayers
 `public void DoNotAcceptNewPlayers()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoNotAcceptNewPlayers logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -177,7 +177,7 @@ battleServer.DoNotAcceptNewPlayers();
 ### OnWarmupEnded
 `public void OnWarmupEnded()`
 
-**Purpose:** Invoked when the `warmup ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the warmup ended event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -188,7 +188,7 @@ battleServer.OnWarmupEnded();
 ### OnPlayerSpawned
 `public void OnPlayerSpawned(PlayerId playerId)`
 
-**Purpose:** Invoked when the `player spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the player spawned event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -199,7 +199,7 @@ battleServer.OnPlayerSpawned(playerId);
 ### GetPeer
 `public BattlePeer GetPeer(string name)`
 
-**Purpose:** Reads and returns the `peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -210,7 +210,7 @@ var result = battleServer.GetPeer("example");
 ### GetPeer
 `public BattlePeer GetPeer(PlayerId playerId)`
 
-**Purpose:** Reads and returns the `peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -221,7 +221,7 @@ var result = battleServer.GetPeer(playerId);
 ### GetPlayerParty
 `public Guid GetPlayerParty(PlayerId playerId)`
 
-**Purpose:** Reads and returns the `player party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player party value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -232,7 +232,7 @@ var result = battleServer.GetPlayerParty(playerId);
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId, DisconnectType disconnectType, BattleResult battleResult)`
 
-**Purpose:** Executes the response logic associated with `player disconnect`.
+**Purpose:** **Purpose:** Executes the response logic associated with player disconnect.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -243,7 +243,7 @@ battleServer.HandlePlayerDisconnect(playerId, disconnectType, battleResult);
 ### InformGameServerReady
 `public void InformGameServerReady()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InformGameServerReady logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -254,7 +254,7 @@ battleServer.InformGameServerReady();
 ### OnFriendlyHit
 `public void OnFriendlyHit(int round, PlayerId hitter, PlayerId victim, float damage)`
 
-**Purpose:** Invoked when the `friendly hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the friendly hit event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -265,7 +265,7 @@ battleServer.OnFriendlyHit(0, hitter, victim, 0);
 ### OnFriendlyKill
 `public void OnFriendlyKill(int round, PlayerId killer, PlayerId victim)`
 
-**Purpose:** Invoked when the `friendly kill` event is raised.
+**Purpose:** **Purpose:** Invoked when the friendly kill event is raised.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first
@@ -276,7 +276,7 @@ battleServer.OnFriendlyKill(0, killer, victim);
 ### AllPlayersConnected
 `public bool AllPlayersConnected()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AllPlayersConnected logic.
 
 ```csharp
 // Obtain an instance of BattleServer from the subsystem API first

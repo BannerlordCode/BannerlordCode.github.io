@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.ObjectSystem` to place it in the stack, then in
 ### AfterInitialized
 `public void AfterInitialized()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterInitialized logic.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -43,7 +43,7 @@ mBObjectBase.AfterInitialized();
 ### AfterRegister
 `public virtual void AfterRegister()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterRegister logic.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -54,7 +54,7 @@ mBObjectBase.AfterRegister();
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -65,7 +65,7 @@ mBObjectBase.Initialize();
 ### Deserialize
 `public virtual void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -76,7 +76,7 @@ mBObjectBase.Deserialize(objectManager, node);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -87,7 +87,7 @@ var result = mBObjectBase.GetHashCode();
 ### GetName
 `public virtual TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -98,7 +98,7 @@ var result = mBObjectBase.GetName();
 ### PreAfterLoadInternal
 `public void PreAfterLoadInternal()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreAfterLoadInternal logic.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -109,7 +109,7 @@ mBObjectBase.PreAfterLoadInternal();
 ### AfterLoadInternal
 `public void AfterLoadInternal()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterLoadInternal logic.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -120,7 +120,7 @@ mBObjectBase.AfterLoadInternal();
 ### OnRegistered
 `public void OnRegistered()`
 
-**Purpose:** Invoked when the `registered` event is raised.
+**Purpose:** **Purpose:** Invoked when the registered event is raised.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first
@@ -131,7 +131,7 @@ mBObjectBase.OnRegistered();
 ### OnUnregistered
 `public void OnUnregistered()`
 
-**Purpose:** Invoked when the `unregistered` event is raised.
+**Purpose:** **Purpose:** Invoked when the unregistered event is raised.
 
 ```csharp
 // Obtain an instance of MBObjectBase from the subsystem API first

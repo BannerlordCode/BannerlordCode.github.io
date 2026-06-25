@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Tick
 `public abstract void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -40,7 +40,7 @@ testCommonBase.Tick();
 ### StartTimeoutTimer
 `public void StartTimeoutTimer()`
 
-**Purpose:** Starts the `timeout timer` flow or state machine.
+**Purpose:** **Purpose:** Starts the timeout timer flow or state machine.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -51,7 +51,7 @@ testCommonBase.StartTimeoutTimer();
 ### ToggleTimeoutTimer
 `public void ToggleTimeoutTimer()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToggleTimeoutTimer logic.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -62,7 +62,7 @@ testCommonBase.ToggleTimeoutTimer();
 ### CheckTimeoutTimer
 `public bool CheckTimeoutTimer()`
 
-**Purpose:** Verifies whether `timeout timer` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether timeout timer holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -73,7 +73,7 @@ var result = testCommonBase.CheckTimeoutTimer();
 ### GetGameStatus
 `public virtual string GetGameStatus()`
 
-**Purpose:** Reads and returns the `game status` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game status value held by the this instance.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -84,7 +84,7 @@ var result = testCommonBase.GetGameStatus();
 ### WaitFor
 `public void WaitFor(double seconds)`
 
-**Purpose:** Pauses the current flow until the `for` condition is met.
+**Purpose:** **Purpose:** Pauses the current flow until the for condition is met.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -95,7 +95,7 @@ testCommonBase.WaitFor(0);
 ### WaitUntil
 `public virtual async Task WaitUntil(Func<bool> func)`
 
-**Purpose:** Pauses the current flow until the `until` condition is met.
+**Purpose:** **Purpose:** Pauses the current flow until the until condition is met.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -106,7 +106,7 @@ var result = testCommonBase.WaitUntil(func);
 ### WaitForAsync
 `public Task WaitForAsync(double seconds, Random random)`
 
-**Purpose:** Pauses the current flow until the `for async` condition is met.
+**Purpose:** **Purpose:** Pauses the current flow until the for async condition is met.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -117,7 +117,7 @@ var result = testCommonBase.WaitForAsync(0, random);
 ### WaitForAsync
 `public Task WaitForAsync(double seconds)`
 
-**Purpose:** Pauses the current flow until the `for async` condition is met.
+**Purpose:** **Purpose:** Pauses the current flow until the for async condition is met.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first
@@ -128,7 +128,7 @@ var result = testCommonBase.WaitForAsync(0);
 ### GetAttachmentsFolderPath
 `public static string GetAttachmentsFolderPath()`
 
-**Purpose:** Reads and returns the `attachments folder path` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attachments folder path value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -138,7 +138,7 @@ TestCommonBase.GetAttachmentsFolderPath();
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of TestCommonBase from the subsystem API first

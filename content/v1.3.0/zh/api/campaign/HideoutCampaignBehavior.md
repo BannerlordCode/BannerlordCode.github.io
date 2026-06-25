@@ -23,7 +23,7 @@ description: "HideoutCampaignBehavior 的自动生成类参考。"
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 在 「new game created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 new game created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -34,7 +34,7 @@ hideoutCampaignBehavior.OnNewGameCreated(campaignGameStarter);
 ### OnGameLoaded
 `public void OnGameLoaded(CampaignGameStarter campaignGameStarter)`
 
-**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -45,7 +45,7 @@ hideoutCampaignBehavior.OnGameLoaded(campaignGameStarter);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -56,7 +56,7 @@ hideoutCampaignBehavior.RegisterEvents();
 ### HourlyTickSettlement
 `public void HourlyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 处理与 「hourly tick settlement」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HourlyTickSettlement 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -67,7 +67,7 @@ hideoutCampaignBehavior.HourlyTickSettlement(settlement);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -78,7 +78,7 @@ hideoutCampaignBehavior.SyncData(dataStore);
 ### GetInitialHideoutPopulation
 `public int GetInitialHideoutPopulation()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「initial hideout population」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial hideout population 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -89,7 +89,7 @@ var result = hideoutCampaignBehavior.GetInitialHideoutPopulation();
 ### hideout_wait_menu_on_condition
 `public bool hideout_wait_menu_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 获取或更新 「hideout_wait_menu_on_condition」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 hideout_wait_menu_on_condition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -100,7 +100,7 @@ var result = hideoutCampaignBehavior.hideout_wait_menu_on_condition(args);
 ### hideout_wait_menu_on_tick
 `public void hideout_wait_menu_on_tick(MenuCallbackArgs args, CampaignTime campaignTime)`
 
-**用途 / Purpose:** 推进 「hideout_wait_menu_on_」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 hideout_wait_menu_on_tick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -111,7 +111,7 @@ hideoutCampaignBehavior.hideout_wait_menu_on_tick(args, campaignTime);
 ### hideout_wait_menu_on_consequence
 `public void hideout_wait_menu_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理与 「hideout_wait_menu_on_consequence」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 hideout_wait_menu_on_consequence 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例

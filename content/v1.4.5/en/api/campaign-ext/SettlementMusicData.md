@@ -32,7 +32,7 @@ Treat `SettlementMusicData` as a Data-style extension point: first identify who 
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of SettlementMusicData from the subsystem API first

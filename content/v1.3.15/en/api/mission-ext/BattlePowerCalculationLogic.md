@@ -29,7 +29,7 @@ Treat `BattlePowerCalculationLogic` as a Logic-style extension point: first iden
 ### GetTotalTeamPower
 `public float GetTotalTeamPower(Team team)`
 
-**Purpose:** Reads and returns the `total team power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total team power value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattlePowerCalculationLogic from the subsystem API first

@@ -31,7 +31,7 @@ description: "MBCommon 的自动生成类参考。"
 ### PauseGameEngine
 `public static void PauseGameEngine()`
 
-**用途 / Purpose:** 处理与 「pause game engine」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PauseGameEngine 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ MBCommon.PauseGameEngine();
 ### UnPauseGameEngine
 `public static void UnPauseGameEngine()`
 
-**用途 / Purpose:** 处理与 「un pause game engine」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UnPauseGameEngine 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ MBCommon.UnPauseGameEngine();
 ### GetApplicationTime
 `public static float GetApplicationTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「application time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 application time 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ MBCommon.GetApplicationTime();
 ### GetTotalMissionTime
 `public static float GetTotalMissionTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「total mission time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total mission time 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -71,7 +71,7 @@ MBCommon.GetTotalMissionTime();
 ### FixSkeletons
 `public static void FixSkeletons()`
 
-**用途 / Purpose:** 处理与 「fix skeletons」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FixSkeletons 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -81,7 +81,7 @@ MBCommon.FixSkeletons();
 ### CheckResourceModifications
 `public static void CheckResourceModifications()`
 
-**用途 / Purpose:** 检查「resource modifications」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查resource modifications在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -91,7 +91,7 @@ MBCommon.CheckResourceModifications();
 ### Hash
 `public static int Hash(int i, object o)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「h」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 h。
 
 ```csharp
 // 静态调用，不需要实例

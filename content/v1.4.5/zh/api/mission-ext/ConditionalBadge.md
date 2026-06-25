@@ -29,7 +29,7 @@ description: "ConditionalBadge 的自动生成类参考。"
 ### Deserialize
 `public override void Deserialize(XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ConditionalBadge 实例

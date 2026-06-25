@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### CreateMapEventVisual
 `public IMapEventVisual CreateMapEventVisual(MapEvent mapEvent)`
 
-**Purpose:** Constructs a new `map event visual` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new map event visual entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of VisualCreator from the subsystem API first

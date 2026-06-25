@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first
@@ -46,7 +46,7 @@ mPLobbyClanChangeSigilPopupVM.RefreshValues();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first
@@ -57,7 +57,7 @@ mPLobbyClanChangeSigilPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first
@@ -68,7 +68,7 @@ mPLobbyClanChangeSigilPopupVM.ExecuteClosePopup();
 ### ExecuteChangeSigil
 `public void ExecuteChangeSigil()`
 
-**Purpose:** Runs the operation or workflow associated with `change sigil`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with change sigil.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first
@@ -79,7 +79,7 @@ mPLobbyClanChangeSigilPopupVM.ExecuteChangeSigil();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first
@@ -90,7 +90,7 @@ mPLobbyClanChangeSigilPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first
@@ -101,7 +101,7 @@ mPLobbyClanChangeSigilPopupVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanChangeSigilPopupVM from the subsystem API first

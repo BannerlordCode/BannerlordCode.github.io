@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Inventory` to place it in the st
 ### GetGold
 `public abstract int GetGold()`
 
-**Purpose:** Reads and returns the `gold` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryListener from the subsystem API first
@@ -34,7 +34,7 @@ var result = inventoryListener.GetGold();
 ### GetTraderName
 `public abstract TextObject GetTraderName()`
 
-**Purpose:** Reads and returns the `trader name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the trader name value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryListener from the subsystem API first
@@ -45,7 +45,7 @@ var result = inventoryListener.GetTraderName();
 ### SetGold
 `public abstract void SetGold(int gold)`
 
-**Purpose:** Assigns a new value to `gold` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to gold and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InventoryListener from the subsystem API first
@@ -56,7 +56,7 @@ inventoryListener.SetGold(0);
 ### GetOppositeParty
 `public abstract PartyBase GetOppositeParty()`
 
-**Purpose:** Reads and returns the `opposite party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the opposite party value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryListener from the subsystem API first
@@ -67,7 +67,7 @@ var result = inventoryListener.GetOppositeParty();
 ### OnTransaction
 `public abstract void OnTransaction()`
 
-**Purpose:** Invoked when the `transaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the transaction event is raised.
 
 ```csharp
 // Obtain an instance of InventoryListener from the subsystem API first

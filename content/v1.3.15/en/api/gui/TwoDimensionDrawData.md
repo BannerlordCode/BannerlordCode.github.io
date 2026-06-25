@@ -23,7 +23,7 @@ Treat `TwoDimensionDrawData` as a Data-style extension point: first identify who
 ### DrawTo
 `public void DrawTo(TwoDimensionContext twoDimensionContext, int layer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawTo logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionDrawData from the subsystem API first
@@ -34,7 +34,7 @@ twoDimensionDrawData.DrawTo(twoDimensionContext, 0);
 ### UpdateVisualRect
 `public void UpdateVisualRect()`
 
-**Purpose:** Recalculates and stores the latest representation of `visual rect`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of visual rect.
 
 ```csharp
 // Obtain an instance of TwoDimensionDrawData from the subsystem API first

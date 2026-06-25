@@ -29,7 +29,7 @@ Treat `ClanMemberPartyRoleModel` as a Model-style extension point: first identif
 ### GetAssignablePartyRoles
 `public abstract IEnumerable<PartyRole> GetAssignablePartyRoles()`
 
-**Purpose:** Reads and returns the `assignable party roles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the assignable party roles value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = clanMemberPartyRoleModel.GetAssignablePartyRoles();
 ### GetRelevantSkillForPartyRole
 `public abstract SkillObject GetRelevantSkillForPartyRole(PartyRole role)`
 
-**Purpose:** Reads and returns the `relevant skill for party role` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relevant skill for party role value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = clanMemberPartyRoleModel.GetRelevantSkillForPartyRole(role);
 ### IsHeroAssignableForPartyRole
 `public abstract bool IsHeroAssignableForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for party role` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for party role state or condition.
 
 ```csharp
 // Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
@@ -62,7 +62,7 @@ var result = clanMemberPartyRoleModel.IsHeroAssignableForPartyRole(hero, role, p
 ### DoesHeroHaveEnoughSkillForPartyRole
 `public abstract bool DoesHeroHaveEnoughSkillForPartyRole(Hero hero, PartyRole role, MobileParty party)`
 
-**Purpose:** Returns a boolean answer to whether `hero have enough skill for party role` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether hero have enough skill for party role is true for the this instance.
 
 ```csharp
 // Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first
@@ -73,7 +73,7 @@ var result = clanMemberPartyRoleModel.DoesHeroHaveEnoughSkillForPartyRole(hero, 
 ### IsHeroAssignableForPartyRoleInParty
 `public abstract bool IsHeroAssignableForPartyRoleInParty(PartyRole role, Hero hero, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for party role in party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for party role in party state or condition.
 
 ```csharp
 // Obtain an instance of ClanMemberPartyRoleModel from the subsystem API first

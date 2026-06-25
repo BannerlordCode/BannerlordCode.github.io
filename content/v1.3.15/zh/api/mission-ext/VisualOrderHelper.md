@@ -23,7 +23,7 @@ description: "VisualOrderHelper 的自动生成类参考。"
 ### DoesFormationHaveOrderType
 `public unsafe static bool DoesFormationHaveOrderType(Formation formation, OrderType type)`
 
-**用途 / Purpose:** 返回「formation have order type」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回formation have order type对当前对象是否成立的布尔结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "AgentOriginUtilities 的自动生成类参考。"
 ### GetDefaultTraitsMask
 `public static TroopTraitsMask GetDefaultTraitsMask(IAgentOriginBase origin)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default traits mask」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default traits mask 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ AgentOriginUtilities.GetDefaultTraitsMask(origin);
 ### GetDefaultTroopTraits
 `public static void GetDefaultTroopTraits(BasicCharacterObject troop, out bool hasThrownWeapon, out bool hasSpear, out bool hasShield, out bool hasHeavyArmor)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default troop traits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default troop traits 的结果。
 
 ```csharp
 // 静态调用，不需要实例

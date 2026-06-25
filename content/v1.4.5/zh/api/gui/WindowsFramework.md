@@ -29,7 +29,7 @@ description: "WindowsFramework 的自动生成类参考。"
 ### Initialize
 `public void Initialize(FrameworkDomain frameworkDomains)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例
@@ -40,7 +40,7 @@ windowsFramework.Initialize(frameworkDomains);
 ### RegisterMessageCommunicator
 `public void RegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**用途 / Purpose:** 将「message communicator」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将message communicator注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例
@@ -51,7 +51,7 @@ windowsFramework.RegisterMessageCommunicator(communicator);
 ### UnRegisterMessageCommunicator
 `public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**用途 / Purpose:** 处理与 「un register message communicator」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UnRegisterMessageCommunicator 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例
@@ -62,7 +62,7 @@ windowsFramework.UnRegisterMessageCommunicator(communicator);
 ### Stop
 `public void Stop()`
 
-**用途 / Purpose:** 停止当前对象的流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例
@@ -73,7 +73,7 @@ windowsFramework.Stop();
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例
@@ -84,7 +84,7 @@ windowsFramework.OnFinalize();
 ### Start
 `public void Start()`
 
-**用途 / Purpose:** 启动当前对象的流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动当前对象的流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例

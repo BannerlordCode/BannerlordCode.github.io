@@ -33,7 +33,7 @@ Treat `MultiplayerScoreboardAnimatedFillBarWidget` as a Widget-style extension p
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Starts the `animation` flow or state machine.
+**Purpose:** **Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerScoreboardAnimatedFillBarWidget from the subsystem API first
@@ -44,7 +44,7 @@ multiplayerScoreboardAnimatedFillBarWidget.StartAnimation();
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MultiplayerScoreboardAnimatedFillBarWidget from the subsystem API first
@@ -55,7 +55,7 @@ multiplayerScoreboardAnimatedFillBarWidget.Reset();
 ### FullFillFinishedHandler
 `public delegate void FullFillFinishedHandler()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FullFillFinishedHandler logic.
 
 ```csharp
 // Obtain an instance of MultiplayerScoreboardAnimatedFillBarWidget from the subsystem API first

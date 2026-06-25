@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### AddExtensionData
 `public void AddExtensionData(string name, object data)`
 
-**Purpose:** Adds `extension data` to the current collection or state.
+**Purpose:** **Purpose:** Adds extension data to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -44,7 +44,7 @@ widgetTemplate.AddExtensionData("example", data);
 ### RemoveExtensionData
 `public void RemoveExtensionData(string name)`
 
-**Purpose:** Removes `extension data` from the current collection or state.
+**Purpose:** **Purpose:** Removes extension data from the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -55,7 +55,7 @@ widgetTemplate.RemoveExtensionData("example");
 ### AddExtensionData
 `public void AddExtensionData(object data)`
 
-**Purpose:** Adds `extension data` to the current collection or state.
+**Purpose:** **Purpose:** Adds extension data to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -66,7 +66,7 @@ widgetTemplate.AddExtensionData(data);
 ### SetAttribute
 `public void SetAttribute(WidgetAttributeTemplate attribute)`
 
-**Purpose:** Assigns a new value to `attribute` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to attribute and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -77,7 +77,7 @@ widgetTemplate.SetAttribute(attribute);
 ### GetChildAt
 `public WidgetTemplate GetChildAt(int i)`
 
-**Purpose:** Reads and returns the `child at` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the child at value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -88,7 +88,7 @@ var result = widgetTemplate.GetChildAt(0);
 ### AddChild
 `public void AddChild(WidgetTemplate child)`
 
-**Purpose:** Adds `child` to the current collection or state.
+**Purpose:** **Purpose:** Adds child to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -99,7 +99,7 @@ widgetTemplate.AddChild(child);
 ### RemoveChild
 `public void RemoveChild(WidgetTemplate child)`
 
-**Purpose:** Removes `child` from the current collection or state.
+**Purpose:** **Purpose:** Removes child from the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -110,7 +110,7 @@ widgetTemplate.RemoveChild(child);
 ### SwapChildren
 `public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwapChildren logic.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -121,7 +121,7 @@ widgetTemplate.SwapChildren(child1, child2);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Instantiate logic.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -132,7 +132,7 @@ var result = widgetTemplate.Instantiate(widgetCreationData, dictionary<string, p
 ### OnRelease
 `public void OnRelease()`
 
-**Purpose:** Invoked when the `release` event is raised.
+**Purpose:** **Purpose:** Invoked when the release event is raised.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -143,7 +143,7 @@ widgetTemplate.OnRelease();
 ### LoadFrom
 `public static WidgetTemplate LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, XmlNode node)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ WidgetTemplate.LoadFrom(prefabExtensionContext, widgetAttributeContext, node);
 ### SetRootTemplate
 `public void SetRootTemplate(WidgetPrefab prefab)`
 
-**Purpose:** Assigns a new value to `root template` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to root template and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -164,7 +164,7 @@ widgetTemplate.SetRootTemplate(prefab);
 ### AddAttributeTo
 `public void AddAttributeTo(WidgetAttributeContext widgetAttributeContext, string name, string value)`
 
-**Purpose:** Adds `attribute to` to the current collection or state.
+**Purpose:** **Purpose:** Adds attribute to to the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -175,7 +175,7 @@ widgetTemplate.AddAttributeTo(widgetAttributeContext, "example", "example");
 ### RemoveAttributeFrom
 `public void RemoveAttributeFrom(WidgetAttributeContext widgetAttributeContext, string fullName)`
 
-**Purpose:** Removes `attribute from` from the current collection or state.
+**Purpose:** **Purpose:** Removes attribute from from the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -186,7 +186,7 @@ widgetTemplate.RemoveAttributeFrom(widgetAttributeContext, "example");
 ### RemoveAttributeFrom
 `public void RemoveAttributeFrom(WidgetAttributeKeyType keyType, string name)`
 
-**Purpose:** Removes `attribute from` from the current collection or state.
+**Purpose:** **Purpose:** Removes attribute from from the current collection or state.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first
@@ -197,7 +197,7 @@ widgetTemplate.RemoveAttributeFrom(keyType, "example");
 ### Save
 `public void Save(PrefabExtensionContext prefabExtensionContext, XmlNode parentNode)`
 
-**Purpose:** Writes the current object's data to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes the this instance's data to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of WidgetTemplate from the subsystem API first

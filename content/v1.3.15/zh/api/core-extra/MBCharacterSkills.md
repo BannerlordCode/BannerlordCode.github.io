@@ -29,7 +29,7 @@ description: "MBCharacterSkills 的自动生成类参考。"
 ### Init
 `public void Init(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCharacterSkills 实例
@@ -40,7 +40,7 @@ mBCharacterSkills.Init(objectManager, node);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCharacterSkills 实例

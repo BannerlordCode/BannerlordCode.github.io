@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetItemCategory
 `public static ItemCategory GetItemCategory(this ItemObject item)`
 
-**Purpose:** Reads and returns the `item category` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item category value held by the this instance.
 
 ```csharp
 // Static call; no instance required

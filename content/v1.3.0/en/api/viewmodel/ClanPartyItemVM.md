@@ -83,7 +83,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.ClanManageme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ClanPartyItemVM from the subsystem API first
@@ -94,7 +94,7 @@ clanPartyItemVM.RefreshValues();
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Recalculates and stores the latest representation of `properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of ClanPartyItemVM from the subsystem API first
@@ -105,7 +105,7 @@ clanPartyItemVM.UpdateProperties();
 ### OnPartySelection
 `public void OnPartySelection()`
 
-**Purpose:** Invoked when the `party selection` event is raised.
+**Purpose:** **Purpose:** Invoked when the party selection event is raised.
 
 ```csharp
 // Obtain an instance of ClanPartyItemVM from the subsystem API first
@@ -116,7 +116,7 @@ clanPartyItemVM.OnPartySelection();
 ### ExecuteChangeLeader
 `public void ExecuteChangeLeader()`
 
-**Purpose:** Runs the operation or workflow associated with `change leader`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with change leader.
 
 ```csharp
 // Obtain an instance of ClanPartyItemVM from the subsystem API first
@@ -127,7 +127,7 @@ clanPartyItemVM.ExecuteChangeLeader();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ClanPartyItemVM from the subsystem API first

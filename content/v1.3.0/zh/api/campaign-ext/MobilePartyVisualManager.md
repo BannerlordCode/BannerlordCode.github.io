@@ -29,7 +29,7 @@ description: "MobilePartyVisualManager 的自动生成类参考。"
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyVisualManager 实例
@@ -40,7 +40,7 @@ mobilePartyVisualManager.OnTick(0, 0);
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** 在 「visual tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 visual tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyVisualManager 实例
@@ -51,7 +51,7 @@ mobilePartyVisualManager.OnVisualTick(screen, 0, 0);
 ### OnVisualIntersected
 `public override void OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, float closestDistanceSquared, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**用途 / Purpose:** 在 「visual intersected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 visual intersected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyVisualManager 实例
@@ -62,7 +62,7 @@ mobilePartyVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, int
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「visual of entity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual of entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyVisualManager 实例
@@ -73,7 +73,7 @@ var result = mobilePartyVisualManager.GetVisualOfEntity(partyBase);
 ### GetPartyVisual
 `public MobilePartyVisual GetPartyVisual(PartyBase partyBase)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party visual」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party visual 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyVisualManager 实例

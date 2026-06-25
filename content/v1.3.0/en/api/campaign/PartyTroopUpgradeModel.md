@@ -23,7 +23,7 @@ Treat `PartyTroopUpgradeModel` as a Model-style extension point: first identify 
 ### CanPartyUpgradeTroopToTarget
 `public abstract bool CanPartyUpgradeTroopToTarget(PartyBase party, CharacterObject character, CharacterObject target)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `party upgrade troop to target`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party upgrade troop to target.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyTroopUpgradeModel.CanPartyUpgradeTroopToTarget(party, characte
 ### IsTroopUpgradeable
 `public abstract bool IsTroopUpgradeable(PartyBase party, CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop upgradeable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop upgradeable state or condition.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyTroopUpgradeModel.IsTroopUpgradeable(party, character);
 ### DoesPartyHaveRequiredItemsForUpgrade
 `public abstract bool DoesPartyHaveRequiredItemsForUpgrade(PartyBase party, CharacterObject upgradeTarget)`
 
-**Purpose:** Returns a boolean answer to whether `party have required items for upgrade` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether party have required items for upgrade is true for the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = partyTroopUpgradeModel.DoesPartyHaveRequiredItemsForUpgrade(party, 
 ### DoesPartyHaveRequiredPerksForUpgrade
 `public abstract bool DoesPartyHaveRequiredPerksForUpgrade(PartyBase party, CharacterObject character, CharacterObject upgradeTarget, out PerkObject requiredPerk)`
 
-**Purpose:** Returns a boolean answer to whether `party have required perks for upgrade` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether party have required perks for upgrade is true for the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = partyTroopUpgradeModel.DoesPartyHaveRequiredPerksForUpgrade(party, 
 ### GetGoldCostForUpgrade
 `public abstract ExplainedNumber GetGoldCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**Purpose:** Reads and returns the `gold cost for upgrade` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold cost for upgrade value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = partyTroopUpgradeModel.GetGoldCostForUpgrade(party, characterObject
 ### GetXpCostForUpgrade
 `public abstract int GetXpCostForUpgrade(PartyBase party, CharacterObject characterObject, CharacterObject upgradeTarget)`
 
-**Purpose:** Reads and returns the `xp cost for upgrade` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp cost for upgrade value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = partyTroopUpgradeModel.GetXpCostForUpgrade(party, characterObject, 
 ### GetSkillXpFromUpgradingTroops
 `public abstract int GetSkillXpFromUpgradingTroops(PartyBase party, CharacterObject troop, int numberOfTroops)`
 
-**Purpose:** Reads and returns the `skill xp from upgrading troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill xp from upgrading troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = partyTroopUpgradeModel.GetSkillXpFromUpgradingTroops(party, troop, 
 ### GetUpgradeChanceForTroopUpgrade
 `public abstract float GetUpgradeChanceForTroopUpgrade(PartyBase party, CharacterObject troop, int upgradeTargetIndex)`
 
-**Purpose:** Reads and returns the `upgrade chance for troop upgrade` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the upgrade chance for troop upgrade value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyTroopUpgradeModel from the subsystem API first

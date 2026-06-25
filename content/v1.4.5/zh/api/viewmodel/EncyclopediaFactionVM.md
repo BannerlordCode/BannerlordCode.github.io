@@ -32,7 +32,7 @@ description: "EncyclopediaFactionVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionVM 实例
@@ -43,7 +43,7 @@ encyclopediaFactionVM.RefreshValues();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionVM 实例
@@ -54,7 +54,7 @@ encyclopediaFactionVM.ExecuteLink();
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionVM 实例
@@ -65,7 +65,7 @@ encyclopediaFactionVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaFactionVM 实例

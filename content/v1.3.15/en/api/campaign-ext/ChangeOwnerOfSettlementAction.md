@@ -19,7 +19,7 @@ ChangeOwnerOfSettlementAction is a set of static methods that trigger "ChangeOwn
 public static void ApplyByDefault(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** default.
+**Purpose:** **Purpose:** Applies the effect of by default to the this instance.
 
 ### ApplyByKingDecision
 
@@ -27,7 +27,7 @@ public static void ApplyByDefault(Hero hero, Settlement settlement)
 public static void ApplyByKingDecision(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** king decision.
+**Purpose:** **Purpose:** Applies the effect of by king decision to the this instance.
 
 ### ApplyBySiege
 
@@ -35,7 +35,7 @@ public static void ApplyByKingDecision(Hero hero, Settlement settlement)
 public static void ApplyBySiege(Hero newOwner, Hero capturerHero, Settlement settlement)
 ```
 
-**Purpose:** siege.
+**Purpose:** **Purpose:** Applies the effect of by siege to the this instance.
 
 ### ApplyByLeaveFaction
 
@@ -43,7 +43,7 @@ public static void ApplyBySiege(Hero newOwner, Hero capturerHero, Settlement set
 public static void ApplyByLeaveFaction(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** leave faction.
+**Purpose:** **Purpose:** Applies the effect of by leave faction to the this instance.
 
 ### ApplyByBarter
 
@@ -51,7 +51,7 @@ public static void ApplyByLeaveFaction(Hero hero, Settlement settlement)
 public static void ApplyByBarter(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** barter.
+**Purpose:** **Purpose:** Applies the effect of by barter to the this instance.
 
 ### ApplyByRebellion
 
@@ -59,7 +59,7 @@ public static void ApplyByBarter(Hero hero, Settlement settlement)
 public static void ApplyByRebellion(Hero hero, Settlement settlement)
 ```
 
-**Purpose:** rebellion.
+**Purpose:** **Purpose:** Applies the effect of by rebellion to the this instance.
 
 ### ApplyByDestroyClan
 
@@ -67,7 +67,7 @@ public static void ApplyByRebellion(Hero hero, Settlement settlement)
 public static void ApplyByDestroyClan(Settlement settlement, Hero newOwner)
 ```
 
-**Purpose:** destroy clan.
+**Purpose:** **Purpose:** Applies the effect of by destroy clan to the this instance.
 
 ### ApplyByGift
 
@@ -75,7 +75,7 @@ public static void ApplyByDestroyClan(Settlement settlement, Hero newOwner)
 public static void ApplyByGift(Settlement settlement, Hero newOwner)
 ```
 
-**Purpose:** gift.
+**Purpose:** **Purpose:** Applies the effect of by gift to the this instance.
 
 ## Usage Example
 

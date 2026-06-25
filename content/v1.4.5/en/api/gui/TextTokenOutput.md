@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### SetPosition
 `public void SetPosition(float x, float y)`
 
-**Purpose:** Assigns a new value to `position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TextTokenOutput from the subsystem API first

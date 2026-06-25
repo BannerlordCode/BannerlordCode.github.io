@@ -23,7 +23,7 @@ description: "DiamondDebugManager 的自动生成类参考。"
 ### GetLogLevel
 `public int GetLogLevel()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「log level」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 log level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DiamondDebugManager 实例

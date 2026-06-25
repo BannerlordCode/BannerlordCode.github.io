@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### InitRequiredWeaponClasses
 `public void InitRequiredWeaponClasses(WeaponClass requiredWeaponClasses)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `required weapon classes`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by required weapon classes.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
@@ -34,7 +34,7 @@ standingPointWithWeaponRequirement.InitRequiredWeaponClasses(requiredWeaponClass
 ### InitRequiredWeapon
 `public void InitRequiredWeapon(ItemObject weapon)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `required weapon`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by required weapon.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
@@ -45,7 +45,7 @@ standingPointWithWeaponRequirement.InitRequiredWeapon(weapon);
 ### InitGivenWeapon
 `public void InitGivenWeapon(ItemObject weapon)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `given weapon`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by given weapon.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
@@ -56,7 +56,7 @@ standingPointWithWeaponRequirement.InitGivenWeapon(weapon);
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
@@ -67,7 +67,7 @@ var result = standingPointWithWeaponRequirement.IsDisabledForAgent(agent);
 ### SetHasAlternative
 `public void SetHasAlternative(bool hasAlternative)`
 
-**Purpose:** Assigns a new value to `has alternative` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to has alternative and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
@@ -78,7 +78,7 @@ standingPointWithWeaponRequirement.SetHasAlternative(false);
 ### HasAlternative
 `public override bool HasAlternative()`
 
-**Purpose:** Determines whether the current object already holds `alternative`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds alternative.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
@@ -89,7 +89,7 @@ var result = standingPointWithWeaponRequirement.HasAlternative();
 ### SetUsingBattleSide
 `public void SetUsingBattleSide(BattleSideEnum side)`
 
-**Purpose:** Assigns a new value to `using battle side` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to using battle side and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first

@@ -29,7 +29,7 @@ Treat `SelectedStateBrushWidget` as a Widget-style extension point: first identi
 ### SelectedStateBrushWidget
 `public class SelectedStateBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectedStateBrushWidget logic.
 
 ```csharp
 // Obtain an instance of SelectedStateBrushWidget from the subsystem API first

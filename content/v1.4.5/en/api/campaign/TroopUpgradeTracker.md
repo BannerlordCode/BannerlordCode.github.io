@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### AddParty
 `public void AddParty(MapEventParty mapEventParty)`
 
-**Purpose:** Adds `party` to the current collection or state.
+**Purpose:** **Purpose:** Adds party to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopUpgradeTracker from the subsystem API first
@@ -34,7 +34,7 @@ troopUpgradeTracker.AddParty(mapEventParty);
 ### RemoveParty
 `public void RemoveParty(MapEventParty mapEventParty)`
 
-**Purpose:** Removes `party` from the current collection or state.
+**Purpose:** **Purpose:** Removes party from the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopUpgradeTracker from the subsystem API first
@@ -45,7 +45,7 @@ troopUpgradeTracker.RemoveParty(mapEventParty);
 ### AddTrackedTroop
 `public void AddTrackedTroop(PartyBase party, CharacterObject character)`
 
-**Purpose:** Adds `tracked troop` to the current collection or state.
+**Purpose:** **Purpose:** Adds tracked troop to the current collection or state.
 
 ```csharp
 // Obtain an instance of TroopUpgradeTracker from the subsystem API first
@@ -56,7 +56,7 @@ troopUpgradeTracker.AddTrackedTroop(party, character);
 ### CheckSkillUpgrades
 `public IEnumerable<SkillObject> CheckSkillUpgrades(Hero hero)`
 
-**Purpose:** Verifies whether `skill upgrades` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether skill upgrades holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TroopUpgradeTracker from the subsystem API first
@@ -67,7 +67,7 @@ var result = troopUpgradeTracker.CheckSkillUpgrades(hero);
 ### CheckUpgradedCount
 `public int CheckUpgradedCount(PartyBase party, CharacterObject character)`
 
-**Purpose:** Verifies whether `upgraded count` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether upgraded count holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TroopUpgradeTracker from the subsystem API first

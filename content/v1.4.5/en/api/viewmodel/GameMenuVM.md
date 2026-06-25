@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### Get
 `public TItem Get()`
 
-**Purpose:** Reads the current object's value or state and returns it.
+**Purpose:** **Purpose:** Reads the this instance's value or state and returns it.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -51,7 +51,7 @@ var result = gameMenuVM.Get();
 ### Release
 `public void Release(TItem item)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -62,7 +62,7 @@ gameMenuVM.Release(item);
 ### Compare
 `public int Compare(GameMenuItemVM x, GameMenuItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -73,7 +73,7 @@ var result = gameMenuVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -84,7 +84,7 @@ gameMenuVM.RefreshValues();
 ### SetIdleMode
 `public void SetIdleMode(bool isIdle)`
 
-**Purpose:** Assigns a new value to `idle mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to idle mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -95,7 +95,7 @@ gameMenuVM.SetIdleMode(false);
 ### Refresh
 `public void Refresh(bool forceUpdateItems)`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -106,7 +106,7 @@ gameMenuVM.Refresh(false);
 ### OnFrameTick
 `public void OnFrameTick()`
 
-**Purpose:** Invoked when the `frame tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the frame tick event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -117,7 +117,7 @@ gameMenuVM.OnFrameTick();
 ### UpdateMenuContext
 `public void UpdateMenuContext(MenuContext newMenuContext)`
 
-**Purpose:** Recalculates and stores the latest representation of `menu context`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of menu context.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -128,7 +128,7 @@ gameMenuVM.UpdateMenuContext(newMenuContext);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -139,7 +139,7 @@ gameMenuVM.OnFinalize();
 ### SetLeaveHotKey
 `public void SetLeaveHotKey(GameKey gameKey)`
 
-**Purpose:** Assigns a new value to `leave hot key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to leave hot key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first
@@ -150,7 +150,7 @@ gameMenuVM.SetLeaveHotKey(gameKey);
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of GameMenuVM from the subsystem API first

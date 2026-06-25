@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
@@ -34,7 +34,7 @@ spawnFrameBehaviorBase.Initialize();
 ### GetSpawnFrame
 `public abstract MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
@@ -45,7 +45,7 @@ var result = spawnFrameBehaviorBase.GetSpawnFrame(team, false, false);
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first
@@ -56,7 +56,7 @@ spawnFrameBehaviorBase.OnAgentRemoved(affectedAgent, affectorAgent, agentState, 
 ### CreateDecreasingCache
 `public static SpawnFrameBehaviorBase.WeightCache CreateDecreasingCache()`
 
-**Purpose:** Constructs a new `decreasing cache` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new decreasing cache entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -66,7 +66,7 @@ SpawnFrameBehaviorBase.CreateDecreasingCache();
 ### CheckAndInsertNewValueIfLower
 `public bool CheckAndInsertNewValueIfLower(float value, out float valueDifference)`
 
-**Purpose:** Verifies whether `and insert new value if lower` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether and insert new value if lower holds true for the this instance.
 
 ```csharp
 // Obtain an instance of SpawnFrameBehaviorBase from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### IsValid
 `public static bool IsValid(this TeamSideEnum teamSide)`
 
-**Purpose:** Determines whether the current object is in the `valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Static call; no instance required

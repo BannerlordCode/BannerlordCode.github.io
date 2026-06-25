@@ -35,7 +35,7 @@ description: "ClanSupporterGroupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
@@ -46,7 +46,7 @@ clanSupporterGroupVM.RefreshValues();
 ### AddSupporter
 `public void AddSupporter(Hero hero)`
 
-**用途 / Purpose:** 将 「supporter」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 supporter 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
@@ -57,7 +57,7 @@ clanSupporterGroupVM.AddSupporter(hero);
 ### Refresh
 `public void Refresh()`
 
-**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSupporterGroupVM 实例
@@ -68,7 +68,7 @@ clanSupporterGroupVM.Refresh();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanSupporterGroupVM 实例

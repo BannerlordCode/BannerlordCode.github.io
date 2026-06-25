@@ -23,7 +23,7 @@ description: "ItemDiscardModel 的自动生成类参考。"
 ### GetXpBonusForDiscardingItems
 `public abstract int GetXpBonusForDiscardingItems(ItemRoster itemRoster)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp bonus for discarding items」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp bonus for discarding items 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemDiscardModel 实例
@@ -34,7 +34,7 @@ var result = itemDiscardModel.GetXpBonusForDiscardingItems(itemRoster);
 ### GetXpBonusForDiscardingItem
 `public abstract int GetXpBonusForDiscardingItem(ItemObject item, int amount = 1)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp bonus for discarding item」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp bonus for discarding item 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemDiscardModel 实例
@@ -45,7 +45,7 @@ var result = itemDiscardModel.GetXpBonusForDiscardingItem(item, 0);
 ### PlayerCanDonateItem
 `public abstract bool PlayerCanDonateItem(ItemObject item)`
 
-**用途 / Purpose:** 处理与 「player can donate item」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlayerCanDonateItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemDiscardModel 实例

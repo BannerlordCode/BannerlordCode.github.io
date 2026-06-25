@@ -23,7 +23,7 @@ Treat `DefaultTroopSupplierProbabilityModel` as a Model-style extension point: f
 ### EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization
 `public override void EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization(MapEventParty battleParty, FlattenedTroopRoster priorityTroops, bool includePlayer, int sizeOfSide, bool forcePriorityTroops, List<ValueTuple<FlattenedTroopRosterElement, MapEventParty, float>> priorityList)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnqueueTroopSpawnProbabilitiesAccordingToUnitSpawnPrioritization logic.
 
 ```csharp
 // Obtain an instance of DefaultTroopSupplierProbabilityModel from the subsystem API first

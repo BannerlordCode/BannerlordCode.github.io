@@ -35,7 +35,7 @@ Treat `InputData` as a Data-style extension point: first identify who creates it
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of InputData from the subsystem API first
@@ -46,7 +46,7 @@ inputData.Reset();
 ### FillFrom
 `public void FillFrom(InputData inputData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of InputData from the subsystem API first

@@ -29,7 +29,7 @@ description: "GauntletFullScreenNoticeView 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ GauntletFullScreenNoticeView.Initialize();
 ### SkipNotice
 `public static void SkipNotice()`
 
-**用途 / Purpose:** 处理与 「skip notice」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SkipNotice 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

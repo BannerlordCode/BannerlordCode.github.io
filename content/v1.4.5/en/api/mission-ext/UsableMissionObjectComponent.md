@@ -23,7 +23,7 @@ Treat `UsableMissionObjectComponent` as a Component-style extension point: first
 ### IsOnTickRequired
 `public virtual bool IsOnTickRequired()`
 
-**Purpose:** Determines whether the current object is in the `on tick required` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the on tick required state or condition.
 
 ```csharp
 // Obtain an instance of UsableMissionObjectComponent from the subsystem API first

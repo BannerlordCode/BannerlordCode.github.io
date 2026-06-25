@@ -23,7 +23,7 @@ description: "AgentApplyDamageModel 的自动生成类参考。"
 ### CalculateDamage
 `public float CalculateDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** 计算「damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -34,7 +34,7 @@ var result = agentApplyDamageModel.CalculateDamage(attackInformation, collisionD
 ### IsDamageIgnored
 `public abstract bool IsDamageIgnored(in AttackInformation attackInformation, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「damage ignored」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 damage ignored 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -45,7 +45,7 @@ var result = agentApplyDamageModel.IsDamageIgnored(attackInformation, collisionD
 ### ApplyDamageAmplifications
 `public abstract float ApplyDamageAmplifications(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** 将 「damage amplifications」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 damage amplifications 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -56,7 +56,7 @@ var result = agentApplyDamageModel.ApplyDamageAmplifications(attackInformation, 
 ### ApplyDamageScaling
 `public abstract float ApplyDamageScaling(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** 将 「damage scaling」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 damage scaling 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -67,7 +67,7 @@ var result = agentApplyDamageModel.ApplyDamageScaling(attackInformation, collisi
 ### ApplyDamageReductions
 `public abstract float ApplyDamageReductions(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** 将 「damage reductions」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 damage reductions 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -78,7 +78,7 @@ var result = agentApplyDamageModel.ApplyDamageReductions(attackInformation, coll
 ### ApplyGeneralDamageModifiers
 `public abstract float ApplyGeneralDamageModifiers(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** 将 「general damage modifiers」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 general damage modifiers 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -89,7 +89,7 @@ var result = agentApplyDamageModel.ApplyGeneralDamageModifiers(attackInformation
 ### DecideMissileWeaponFlags
 `public abstract void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)`
 
-**用途 / Purpose:** 处理与 「decide missile weapon flags」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideMissileWeaponFlags 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -100,7 +100,7 @@ agentApplyDamageModel.DecideMissileWeaponFlags(attackerAgent, missileWeapon, mis
 ### CalculateDefendedBlowStunMultipliers
 `public abstract void CalculateDefendedBlowStunMultipliers(Agent attackerAgent, Agent defenderAgent, CombatCollisionResult collisionResult, WeaponComponentData attackerWeapon, WeaponComponentData defenderWeapon, ref float attackerStunPeriod, ref float defenderStunPeriod)`
 
-**用途 / Purpose:** 计算「defended blow stun multipliers」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算defended blow stun multipliers的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -111,7 +111,7 @@ agentApplyDamageModel.CalculateDefendedBlowStunMultipliers(attackerAgent, defend
 ### CalculateStaggerThresholdDamage
 `public abstract float CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow)`
 
-**用途 / Purpose:** 计算「stagger threshold damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算stagger threshold damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -122,7 +122,7 @@ var result = agentApplyDamageModel.CalculateStaggerThresholdDamage(defenderAgent
 ### CalculateAlternativeAttackDamage
 `public abstract float CalculateAlternativeAttackDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 计算「alternative attack damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算alternative attack damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -133,7 +133,7 @@ var result = agentApplyDamageModel.CalculateAlternativeAttackDamage(attackInform
 ### CalculatePassiveAttackDamage
 `public abstract float CalculatePassiveAttackDamage(BasicCharacterObject attackerCharacter, in AttackCollisionData collisionData, float baseDamage)`
 
-**用途 / Purpose:** 计算「passive attack damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算passive attack damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -144,7 +144,7 @@ var result = agentApplyDamageModel.CalculatePassiveAttackDamage(attackerCharacte
 ### DecidePassiveAttackCollisionReaction
 `public abstract MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)`
 
-**用途 / Purpose:** 处理与 「decide passive attack collision reaction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecidePassiveAttackCollisionReaction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -155,7 +155,7 @@ var result = agentApplyDamageModel.DecidePassiveAttackCollisionReaction(attacker
 ### DecideWeaponCollisionReaction
 `public abstract void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
 
-**用途 / Purpose:** 处理与 「decide weapon collision reaction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideWeaponCollisionReaction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -166,7 +166,7 @@ agentApplyDamageModel.DecideWeaponCollisionReaction(registeredBlow, collisionDat
 ### CalculateShieldDamage
 `public abstract float CalculateShieldDamage(in AttackInformation attackInformation, float baseDamage)`
 
-**用途 / Purpose:** 计算「shield damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算shield damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -177,7 +177,7 @@ var result = agentApplyDamageModel.CalculateShieldDamage(attackInformation, 0);
 ### CalculateSailFireDamage
 `public abstract float CalculateSailFireDamage(Agent attackerAgent, float baseDamage, bool damageFromShipMachine)`
 
-**用途 / Purpose:** 计算「sail fire damage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算sail fire damage的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -188,7 +188,7 @@ var result = agentApplyDamageModel.CalculateSailFireDamage(attackerAgent, 0, fal
 ### GetDamageMultiplierForBodyPart
 `public abstract float GetDamageMultiplierForBodyPart(BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「damage multiplier for body part」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage multiplier for body part 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -199,7 +199,7 @@ var result = agentApplyDamageModel.GetDamageMultiplierForBodyPart(bodyPart, type
 ### CanWeaponIgnoreFriendlyFireChecks
 `public abstract bool CanWeaponIgnoreFriendlyFireChecks(WeaponComponentData weapon)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「weapon ignore friendly fire checks」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon ignore friendly fire checks 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -210,7 +210,7 @@ var result = agentApplyDamageModel.CanWeaponIgnoreFriendlyFireChecks(weapon);
 ### CanWeaponDealSneakAttack
 `public abstract bool CanWeaponDealSneakAttack(in AttackInformation attackInformation, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「weapon deal sneak attack」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon deal sneak attack 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -221,7 +221,7 @@ var result = agentApplyDamageModel.CanWeaponDealSneakAttack(attackInformation, w
 ### CanWeaponDismount
 `public abstract bool CanWeaponDismount(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「weapon dismount」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon dismount 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -232,7 +232,7 @@ var result = agentApplyDamageModel.CanWeaponDismount(attackerAgent, attackerWeap
 ### CanWeaponKnockback
 `public abstract bool CanWeaponKnockback(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「weapon knockback」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon knockback 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -243,7 +243,7 @@ var result = agentApplyDamageModel.CanWeaponKnockback(attackerAgent, attackerWea
 ### CanWeaponKnockDown
 `public abstract bool CanWeaponKnockDown(Agent attackerAgent, Agent victimAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「weapon knock down」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 weapon knock down 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -254,7 +254,7 @@ var result = agentApplyDamageModel.CanWeaponKnockDown(attackerAgent, victimAgent
 ### DecideCrushedThrough
 `public abstract bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsageHit)`
 
-**用途 / Purpose:** 处理与 「decide crushed through」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideCrushedThrough 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -265,7 +265,7 @@ var result = agentApplyDamageModel.DecideCrushedThrough(attackerAgent, defenderA
 ### CalculateRemainingMomentum
 `public abstract float CalculateRemainingMomentum(float originalMomentum, in Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, bool isCrushThrough)`
 
-**用途 / Purpose:** 计算「remaining momentum」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算remaining momentum的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -276,7 +276,7 @@ var result = agentApplyDamageModel.CalculateRemainingMomentum(0, b, collisionDat
 ### DecideAgentShrugOffBlow
 `public abstract bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
 
-**用途 / Purpose:** 处理与 「decide agent shrug off blow」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentShrugOffBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -287,7 +287,7 @@ var result = agentApplyDamageModel.DecideAgentShrugOffBlow(victimAgent, collisio
 ### DecideAgentDismountedByBlow
 `public abstract bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 处理与 「decide agent dismounted by blow」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentDismountedByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -298,7 +298,7 @@ var result = agentApplyDamageModel.DecideAgentDismountedByBlow(attackerAgent, vi
 ### DecideAgentKnockedBackByBlow
 `public abstract bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 处理与 「decide agent knocked back by blow」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentKnockedBackByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -309,7 +309,7 @@ var result = agentApplyDamageModel.DecideAgentKnockedBackByBlow(attackerAgent, v
 ### DecideAgentKnockedDownByBlow
 `public abstract bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 处理与 「decide agent knocked down by blow」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideAgentKnockedDownByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -320,7 +320,7 @@ var result = agentApplyDamageModel.DecideAgentKnockedDownByBlow(attackerAgent, v
 ### DecideMountRearedByBlow
 `public abstract bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 处理与 「decide mount reared by blow」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DecideMountRearedByBlow 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -331,7 +331,7 @@ var result = agentApplyDamageModel.DecideMountRearedByBlow(attackerAgent, victim
 ### ShouldMissilePassThroughAfterShieldBreak
 `public abstract bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)`
 
-**用途 / Purpose:** 处理与 「should missile pass through after shield break」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldMissilePassThroughAfterShieldBreak 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -342,7 +342,7 @@ var result = agentApplyDamageModel.ShouldMissilePassThroughAfterShieldBreak(atta
 ### GetDismountPenetration
 `public abstract float GetDismountPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「dismount penetration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 dismount penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -353,7 +353,7 @@ var result = agentApplyDamageModel.GetDismountPenetration(attackerAgent, attacke
 ### GetKnockBackPenetration
 `public abstract float GetKnockBackPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「knock back penetration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock back penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -364,7 +364,7 @@ var result = agentApplyDamageModel.GetKnockBackPenetration(attackerAgent, attack
 ### GetKnockDownPenetration
 `public abstract float GetKnockDownPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「knock down penetration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock down penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -375,7 +375,7 @@ var result = agentApplyDamageModel.GetKnockDownPenetration(attackerAgent, attack
 ### GetHorseChargePenetration
 `public abstract float GetHorseChargePenetration()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「horse charge penetration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 horse charge penetration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例

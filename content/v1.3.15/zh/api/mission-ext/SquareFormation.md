@@ -32,7 +32,7 @@ description: "SquareFormation 的自动生成类参考。"
 ### Clone
 `public override IFormationArrangement Clone(IFormation formation)`
 
-**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -43,7 +43,7 @@ var result = squareFormation.Clone(formation);
 ### DeepCopyFrom
 `public override void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 处理与 「deep copy from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeepCopyFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -54,7 +54,7 @@ squareFormation.DeepCopyFrom(arrangement);
 ### FormFromBorderSideWidth
 `public void FormFromBorderSideWidth(float borderSideWidth)`
 
-**用途 / Purpose:** 处理与 「form from border side width」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FormFromBorderSideWidth 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -65,7 +65,7 @@ squareFormation.FormFromBorderSideWidth(0);
 ### FormFromBorderUnitCountPerSide
 `public void FormFromBorderUnitCountPerSide(int unitCountPerSide)`
 
-**用途 / Purpose:** 处理与 「form from border unit count per side」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FormFromBorderUnitCountPerSide 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -76,7 +76,7 @@ squareFormation.FormFromBorderUnitCountPerSide(0);
 ### GetUnitsPerSideFromRankCount
 `public int GetUnitsPerSideFromRankCount(int rankCount)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「units per side from rank count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 units per side from rank count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -87,7 +87,7 @@ var result = squareFormation.GetUnitsPerSideFromRankCount(0);
 ### FormFromRankCount
 `public void FormFromRankCount(int rankCount)`
 
-**用途 / Purpose:** 处理与 「form from rank count」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FormFromRankCount 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -98,7 +98,7 @@ squareFormation.FormFromRankCount(0);
 ### GetLocalDirectionOfUnitOrDefault
 `public override Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「local direction of unit or default」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local direction of unit or default 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -109,7 +109,7 @@ var result = squareFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### TurnBackwards
 `public override void TurnBackwards()`
 
-**用途 / Purpose:** 处理与 「turn backwards」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TurnBackwards 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例

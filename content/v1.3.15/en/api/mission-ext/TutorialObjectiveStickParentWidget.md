@@ -35,7 +35,7 @@ Treat `TutorialObjectiveStickParentWidget` as a Widget-style extension point: fi
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TutorialObjectiveStickParentWidget from the subsystem API first

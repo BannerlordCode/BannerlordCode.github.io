@@ -19,7 +19,7 @@ LeaveSettlementAction is a set of static methods that trigger "LeaveSettlement" 
 public static void ApplyForParty(MobileParty mobileParty)
 ```
 
-**Purpose:** for party.
+**Purpose:** **Purpose:** Applies the effect of for party to the this instance.
 
 ### ApplyForCharacterOnly
 
@@ -27,7 +27,7 @@ public static void ApplyForParty(MobileParty mobileParty)
 public static void ApplyForCharacterOnly(Hero hero)
 ```
 
-**Purpose:** for character only.
+**Purpose:** **Purpose:** Applies the effect of for character only to the this instance.
 
 ## Usage Example
 

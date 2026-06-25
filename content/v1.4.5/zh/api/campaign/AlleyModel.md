@@ -32,7 +32,7 @@ description: "AlleyModel 的自动生成类参考。"
 ### GetDailyXpGainForAssignedClanMember
 `public abstract float GetDailyXpGainForAssignedClanMember(Hero assignedHero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily xp gain for assigned clan member」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily xp gain for assigned clan member 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -43,7 +43,7 @@ var result = alleyModel.GetDailyXpGainForAssignedClanMember(assignedHero);
 ### GetDailyXpGainForMainHero
 `public abstract float GetDailyXpGainForMainHero()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily xp gain for main hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily xp gain for main hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -54,7 +54,7 @@ var result = alleyModel.GetDailyXpGainForMainHero();
 ### GetInitialXpGainForMainHero
 `public abstract float GetInitialXpGainForMainHero()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「initial xp gain for main hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial xp gain for main hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -65,7 +65,7 @@ var result = alleyModel.GetInitialXpGainForMainHero();
 ### GetXpGainAfterSuccessfulAlleyDefenseForMainHero
 `public abstract float GetXpGainAfterSuccessfulAlleyDefenseForMainHero()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp gain after successful alley defense for main hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp gain after successful alley defense for main hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -76,7 +76,7 @@ var result = alleyModel.GetXpGainAfterSuccessfulAlleyDefenseForMainHero();
 ### GetTroopsOfAIOwnedAlley
 `public abstract TroopRoster GetTroopsOfAIOwnedAlley(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troops of a i owned alley」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops of a i owned alley 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -87,7 +87,7 @@ var result = alleyModel.GetTroopsOfAIOwnedAlley(alley);
 ### GetTroopsOfAlleyForBattleMission
 `public abstract TroopRoster GetTroopsOfAlleyForBattleMission(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troops of alley for battle mission」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops of alley for battle mission 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -98,7 +98,7 @@ var result = alleyModel.GetTroopsOfAlleyForBattleMission(alley);
 ### GetDailyIncomeOfAlley
 `public abstract int GetDailyIncomeOfAlley(Alley alley)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily income of alley」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily income of alley 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -109,7 +109,7 @@ var result = alleyModel.GetDailyIncomeOfAlley(alley);
 ### GetTroopsToRecruitFromAlleyDependingOnAlleyRandom
 `public abstract TroopRoster GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(Alley alley, float random)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troops to recruit from alley depending on alley random」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops to recruit from alley depending on alley random 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -120,7 +120,7 @@ var result = alleyModel.GetTroopsToRecruitFromAlleyDependingOnAlleyRandom(alley,
 ### GetDisabledReasonTextForHero
 `public abstract TextObject GetDisabledReasonTextForHero(Hero hero, Alley alley, DefaultAlleyModel.AlleyMemberAvailabilityDetail detail)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「disabled reason text for hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 disabled reason text for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例
@@ -131,7 +131,7 @@ var result = alleyModel.GetDisabledReasonTextForHero(hero, alley, detail);
 ### GetAlleyAttackResponseTimeInDays
 `public abstract float GetAlleyAttackResponseTimeInDays(TroopRoster troopRoster)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「alley attack response time in days」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 alley attack response time in days 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyModel 实例

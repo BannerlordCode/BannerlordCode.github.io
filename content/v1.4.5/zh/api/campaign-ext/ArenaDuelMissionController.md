@@ -23,7 +23,7 @@ description: "ArenaDuelMissionController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelMissionController 实例
@@ -34,7 +34,7 @@ arenaDuelMissionController.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelMissionController 实例
@@ -45,7 +45,7 @@ arenaDuelMissionController.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelMissionController 实例
@@ -56,7 +56,7 @@ arenaDuelMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentSta
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelMissionController 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### DwmEnableBlurBehindWindow
 `public static extern IntPtr DwmEnableBlurBehindWindow(IntPtr hwnd, ref DwmBlurBehind ppfd)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DwmEnableBlurBehindWindow logic.
 
 ```csharp
 // Static call; no instance required

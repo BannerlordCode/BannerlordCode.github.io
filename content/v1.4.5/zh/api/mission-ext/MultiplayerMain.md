@@ -29,7 +29,7 @@ description: "MultiplayerMain 的自动生成类参考。"
 ### Initialize
 `public static void Initialize(IGameNetworkHandler gameNetworkHandler)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MultiplayerMain.Initialize(gameNetworkHandler);
 ### InitializeAsDedicatedServer
 `public static void InitializeAsDedicatedServer(IGameNetworkHandler gameNetworkHandler)`
 
-**用途 / Purpose:** 为 「as dedicated server」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 as dedicated server 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ MultiplayerMain.InitializeAsDedicatedServer(gameNetworkHandler);
 ### GetAvailableRankedGameModes
 `public static MultiplayerGameType GetAvailableRankedGameModes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「available ranked game modes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available ranked game modes 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ MultiplayerMain.GetAvailableRankedGameModes();
 ### GetAvailableCustomGameModes
 `public static MultiplayerGameType GetAvailableCustomGameModes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「available custom game modes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available custom game modes 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -69,7 +69,7 @@ MultiplayerMain.GetAvailableCustomGameModes();
 ### GetAvailableQuickPlayGameModes
 `public static MultiplayerGameType GetAvailableQuickPlayGameModes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「available quick play game modes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available quick play game modes 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -79,7 +79,7 @@ MultiplayerMain.GetAvailableQuickPlayGameModes();
 ### GetAvailableMatchmakerRegions
 `public static string GetAvailableMatchmakerRegions()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「available matchmaker regions」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 available matchmaker regions 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -89,7 +89,7 @@ MultiplayerMain.GetAvailableMatchmakerRegions();
 ### GetUserDefaultRegion
 `public static string GetUserDefaultRegion()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「user default region」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 user default region 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -99,7 +99,7 @@ MultiplayerMain.GetUserDefaultRegion();
 ### GetUserCurrentRegion
 `public static string GetUserCurrentRegion()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「user current region」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 user current region 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -109,7 +109,7 @@ MultiplayerMain.GetUserCurrentRegion();
 ### GetUserSelectedGameTypes
 `public static string GetUserSelectedGameTypes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「user selected game types」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 user selected game types 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -119,7 +119,7 @@ MultiplayerMain.GetUserSelectedGameTypes();
 ### GetDedicatedCustomServerAuthToken
 `public static string GetDedicatedCustomServerAuthToken(List<string> strings)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「dedicated custom server auth token」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 dedicated custom server auth token 的结果。
 
 ```csharp
 // 静态调用，不需要实例

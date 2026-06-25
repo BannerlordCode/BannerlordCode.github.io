@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.GameMenus.GameMenuInitialization
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_town_menu_on_init logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ PlayerTownVisit.game_menu_town_menu_on_init(args);
 ### game_menu_town_manage_town_on_consequence
 `public static void game_menu_town_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_town_manage_town_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ PlayerTownVisit.game_menu_town_manage_town_on_consequence(args);
 ### game_menu_town_castle_manage_town_on_consequence
 `public static void game_menu_town_castle_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_town_castle_manage_town_on_consequence logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ PlayerTownVisit.game_menu_town_castle_manage_town_on_consequence(args);
 ### game_menu_castle_manage_castle_on_consequence
 `public static void game_menu_castle_manage_castle_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_castle_manage_castle_on_consequence logic.
 
 ```csharp
 // Static call; no instance required

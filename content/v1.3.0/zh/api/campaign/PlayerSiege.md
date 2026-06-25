@@ -32,7 +32,7 @@ description: "PlayerSiege 的自动生成类参考。"
 ### StartSiegePreparation
 `public static void StartSiegePreparation()`
 
-**用途 / Purpose:** 启动「siege preparation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动siege preparation流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ PlayerSiege.StartSiegePreparation();
 ### OnSiegeEventFinalized
 `public static void OnSiegeEventFinalized(bool besiegerPartyDefeated)`
 
-**用途 / Purpose:** 在 「siege event finalized」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 siege event finalized 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ PlayerSiege.OnSiegeEventFinalized(false);
 ### StartPlayerSiege
 `public static void StartPlayerSiege(BattleSideEnum playerSide, bool isSimulation = false, Settlement settlement = null)`
 
-**用途 / Purpose:** 启动「player siege」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动player siege流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ PlayerSiege.StartPlayerSiege(playerSide, false, null);
 ### FinalizePlayerSiege
 `public static void FinalizePlayerSiege()`
 
-**用途 / Purpose:** 处理与 「finalize player siege」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizePlayerSiege 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -72,7 +72,7 @@ PlayerSiege.FinalizePlayerSiege();
 ### StartSiegeMission
 `public static void StartSiegeMission(Settlement settlement = null)`
 
-**用途 / Purpose:** 启动「siege mission」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动siege mission流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例

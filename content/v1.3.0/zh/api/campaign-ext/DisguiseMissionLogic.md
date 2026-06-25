@@ -33,7 +33,7 @@ description: "DisguiseMissionLogic 的自动生成类参考。"
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -44,7 +44,7 @@ disguiseMissionLogic.OnCreated();
 ### GetSpawnFrameOfPassage
 `public MatrixFrame GetSpawnFrameOfPassage(Location location)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn frame of passage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn frame of passage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -55,7 +55,7 @@ var result = disguiseMissionLogic.GetSpawnFrameOfPassage(location);
 ### IsContactAgentTracked
 `public bool IsContactAgentTracked(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「contact agent tracked」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 contact agent tracked 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -66,7 +66,7 @@ var result = disguiseMissionLogic.IsContactAgentTracked(agent);
 ### CanCommonAreaFightBeTriggered
 `public bool CanCommonAreaFightBeTriggered()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「common area fight be triggered」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 common area fight be triggered 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -77,7 +77,7 @@ var result = disguiseMissionLogic.CanCommonAreaFightBeTriggered();
 ### IsOnLeftSide
 `public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「on left side」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 on left side 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -88,7 +88,7 @@ var result = disguiseMissionLogic.IsOnLeftSide(lineA, lineB, point);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -99,7 +99,7 @@ disguiseMissionLogic.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -110,7 +110,7 @@ disguiseMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, bl
 ### SpawnDisguiseMissionAgentInternal
 `public Agent SpawnDisguiseMissionAgentInternal(CharacterObject agentCharacter, Vec3 initialPosition, Vec2 initialDirection, string actionSetId, bool isEnemy = true)`
 
-**用途 / Purpose:** 处理与 「spawn disguise mission agent internal」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SpawnDisguiseMissionAgentInternal 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -121,7 +121,7 @@ var result = disguiseMissionLogic.SpawnDisguiseMissionAgentInternal(agentCharact
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -132,7 +132,7 @@ disguiseMissionLogic.OnMissionTick(0);
 ### GetAgentOffenseInfo
 `public DisguiseMissionLogic.ShadowingAgentOffenseInfo GetAgentOffenseInfo(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「agent offense info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent offense info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -143,7 +143,7 @@ var result = disguiseMissionLogic.GetAgentOffenseInfo(agent);
 ### IsAgentInDetectionRadius
 `public bool IsAgentInDetectionRadius(Agent offenderAgent, Agent detectorAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「agent in detection radius」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 agent in detection radius 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -154,7 +154,7 @@ var result = disguiseMissionLogic.IsAgentInDetectionRadius(offenderAgent, detect
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -165,7 +165,7 @@ var result = disguiseMissionLogic.OnEndMissionRequest(canPlayerLeave);
 ### OnCollectPlayerEventControlFlags
 `public Agent.EventControlFlag OnCollectPlayerEventControlFlags()`
 
-**用途 / Purpose:** 在 「collect player event control flags」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 collect player event control flags 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -176,7 +176,7 @@ var result = disguiseMissionLogic.OnCollectPlayerEventControlFlags();
 ### SetCanPlayerCameraSeeTheAgent
 `public void SetCanPlayerCameraSeeTheAgent(bool value)`
 
-**用途 / Purpose:** 为 「can player camera see the agent」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 can player camera see the agent 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例

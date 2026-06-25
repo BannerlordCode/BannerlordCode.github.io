@@ -32,7 +32,7 @@ Treat `VariableLoadData` as a Data-style extension point: first identify who cre
 ### Read
 `public void Read()`
 
-**Purpose:** Reads the data or state of the current object.
+**Purpose:** **Purpose:** Reads the data or state of the this instance.
 
 ```csharp
 // Obtain an instance of VariableLoadData from the subsystem API first
@@ -43,7 +43,7 @@ variableLoadData.Read();
 ### SetCustomStructData
 `public void SetCustomStructData(object customStructObject)`
 
-**Purpose:** Assigns a new value to `custom struct data` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to custom struct data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VariableLoadData from the subsystem API first
@@ -54,7 +54,7 @@ variableLoadData.SetCustomStructData(customStructObject);
 ### GetDataToUse
 `public object GetDataToUse()`
 
-**Purpose:** Reads and returns the `data to use` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the data to use value held by the this instance.
 
 ```csharp
 // Obtain an instance of VariableLoadData from the subsystem API first

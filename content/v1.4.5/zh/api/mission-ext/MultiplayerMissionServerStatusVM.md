@@ -31,7 +31,7 @@ description: "MultiplayerMissionServerStatusVM 的自动生成类参考。"
 ### UpdatePacketLossRatio
 `public void UpdatePacketLossRatio(float v)`
 
-**用途 / Purpose:** 重新计算并更新 「packet loss ratio」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 packet loss ratio 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
@@ -42,7 +42,7 @@ multiplayerMissionServerStatusVM.UpdatePacketLossRatio(0);
 ### UpdatePeerPing
 `public void UpdatePeerPing(double averagePingInMilliseconds)`
 
-**用途 / Purpose:** 重新计算并更新 「peer ping」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 peer ping 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
@@ -53,7 +53,7 @@ multiplayerMissionServerStatusVM.UpdatePeerPing(0);
 ### UpdateServerPerformanceState
 `public void UpdateServerPerformanceState(ServerPerformanceState serverPerformanceState)`
 
-**用途 / Purpose:** 重新计算并更新 「server performance state」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 server performance state 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例
@@ -64,7 +64,7 @@ multiplayerMissionServerStatusVM.UpdateServerPerformanceState(serverPerformanceS
 ### ResetStates
 `public void ResetStates()`
 
-**用途 / Purpose:** 将 「states」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 states 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionServerStatusVM 实例

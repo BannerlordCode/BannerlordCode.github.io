@@ -23,7 +23,7 @@ Treat `MissionGauntletKillNotificationUIHandler` as a Handler-style extension po
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletKillNotificationUIHandler.OnMissionScreenInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletKillNotificationUIHandler.AfterStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletKillNotificationUIHandler.OnMissionScreenFinalize();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletKillNotificationUIHandler from the subsystem API first

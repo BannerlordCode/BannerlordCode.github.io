@@ -23,7 +23,7 @@ Treat `MountAgentLogic` as a Logic-style extension point: first identify who cre
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MountAgentLogic from the subsystem API first
@@ -34,7 +34,7 @@ mountAgentLogic.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MountAgentLogic from the subsystem API first

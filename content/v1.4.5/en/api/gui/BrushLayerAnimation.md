@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### AddAnimationProperty
 `public void AddAnimationProperty(BrushAnimationProperty property)`
 
-**Purpose:** Adds `animation property` to the current collection or state.
+**Purpose:** **Purpose:** Adds animation property to the current collection or state.
 
 ```csharp
 // Obtain an instance of BrushLayerAnimation from the subsystem API first
@@ -40,7 +40,7 @@ brushLayerAnimation.AddAnimationProperty(property);
 ### Clone
 `public BrushLayerAnimation Clone()`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of BrushLayerAnimation from the subsystem API first

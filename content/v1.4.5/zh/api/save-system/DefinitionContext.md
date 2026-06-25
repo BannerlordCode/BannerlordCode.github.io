@@ -23,7 +23,7 @@ description: "DefinitionContext 的自动生成类参考。"
 ### FillWithCurrentTypes
 `public void FillWithCurrentTypes()`
 
-**用途 / Purpose:** 处理与 「fill with current types」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillWithCurrentTypes 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefinitionContext 实例
@@ -34,7 +34,7 @@ definitionContext.FillWithCurrentTypes();
 ### TryGetTypeDefinition
 `public TypeDefinitionBase TryGetTypeDefinition(SaveId saveId)`
 
-**用途 / Purpose:** 尝试获取 「get type definition」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get type definition 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 DefinitionContext 实例
@@ -45,7 +45,7 @@ var result = definitionContext.TryGetTypeDefinition(saveId);
 ### GenerateCode
 `public void GenerateCode(SaveCodeGenerationContext context)`
 
-**用途 / Purpose:** 生成「code」的实例、数据或表示。
+**用途 / Purpose:** **用途 / Purpose:** 生成code的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DefinitionContext 实例

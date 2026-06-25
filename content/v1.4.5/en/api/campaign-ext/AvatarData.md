@@ -33,7 +33,7 @@ Treat `AvatarData` as a Data-style extension point: first identify who creates i
 ### SetImageData
 `public void SetImageData(byte image, uint width, uint height)`
 
-**Purpose:** Assigns a new value to `image data` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to image data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AvatarData from the subsystem API first
@@ -44,7 +44,7 @@ avatarData.SetImageData(0, 0, 0);
 ### SetImageData
 `public void SetImageData(byte image)`
 
-**Purpose:** Assigns a new value to `image data` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to image data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AvatarData from the subsystem API first
@@ -55,7 +55,7 @@ avatarData.SetImageData(0);
 ### SetFailed
 `public void SetFailed()`
 
-**Purpose:** Assigns a new value to `failed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to failed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AvatarData from the subsystem API first

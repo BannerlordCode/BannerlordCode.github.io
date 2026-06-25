@@ -23,7 +23,7 @@ Treat `NavigationPathData` as a Data-style extension point: first identify who c
 ### ReverseClone
 `public MissionPathGenerationLogic.NavigationPathData ReverseClone()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReverseClone logic.
 
 ```csharp
 // Obtain an instance of NavigationPathData from the subsystem API first
@@ -34,7 +34,7 @@ var result = navigationPathData.ReverseClone();
 ### InitializeUsablePoints
 `public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `usable points`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by usable points.
 
 ```csharp
 // Obtain an instance of NavigationPathData from the subsystem API first

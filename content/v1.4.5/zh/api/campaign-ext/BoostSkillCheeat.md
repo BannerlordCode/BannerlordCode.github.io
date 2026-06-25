@@ -23,7 +23,7 @@ description: "BoostSkillCheeat 的自动生成类参考。"
 ### ExecuteCheat
 `public override void ExecuteCheat()`
 
-**用途 / Purpose:** 执行 「cheat」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cheat 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BoostSkillCheeat 实例
@@ -34,7 +34,7 @@ boostSkillCheeat.ExecuteCheat();
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoostSkillCheeat 实例

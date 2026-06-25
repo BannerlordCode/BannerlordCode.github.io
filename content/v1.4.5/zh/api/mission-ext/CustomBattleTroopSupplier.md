@@ -23,7 +23,7 @@ description: "CustomBattleTroopSupplier 的自动生成类参考。"
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**用途 / Purpose:** 处理与 「supply troops」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SupplyTroops 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -34,7 +34,7 @@ var result = customBattleTroopSupplier.SupplyTroops(0);
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**用途 / Purpose:** 处理与 「supply one troop」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SupplyOneTroop 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -45,7 +45,7 @@ var result = customBattleTroopSupplier.SupplyOneTroop();
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all troops」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -56,7 +56,7 @@ var result = customBattleTroopSupplier.GetAllTroops();
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「general character」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 general character 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -67,7 +67,7 @@ var result = customBattleTroopSupplier.GetGeneralCharacter();
 ### OnTroopWounded
 `public void OnTroopWounded()`
 
-**用途 / Purpose:** 在 「troop wounded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop wounded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -78,7 +78,7 @@ customBattleTroopSupplier.OnTroopWounded();
 ### OnTroopKilled
 `public void OnTroopKilled()`
 
-**用途 / Purpose:** 在 「troop killed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop killed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -89,7 +89,7 @@ customBattleTroopSupplier.OnTroopKilled();
 ### OnTroopRouted
 `public void OnTroopRouted()`
 
-**用途 / Purpose:** 在 「troop routed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troop routed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -100,7 +100,7 @@ customBattleTroopSupplier.OnTroopRouted();
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of player controllable troops」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of player controllable troops 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例

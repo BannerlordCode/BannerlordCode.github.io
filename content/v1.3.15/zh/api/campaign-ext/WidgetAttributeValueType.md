@@ -23,7 +23,7 @@ description: "WidgetAttributeValueType 的自动生成类参考。"
 ### CheckValueType
 `public abstract bool CheckValueType(string value)`
 
-**用途 / Purpose:** 检查「value type」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查value type在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeValueType 实例
@@ -34,7 +34,7 @@ var result = widgetAttributeValueType.CheckValueType("example");
 ### GetAttributeValue
 `public abstract string GetAttributeValue(string value)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attribute value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attribute value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeValueType 实例
@@ -45,7 +45,7 @@ var result = widgetAttributeValueType.GetAttributeValue("example");
 ### GetSerializedValue
 `public abstract string GetSerializedValue(string value)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「serialized value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 serialized value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetAttributeValueType 实例

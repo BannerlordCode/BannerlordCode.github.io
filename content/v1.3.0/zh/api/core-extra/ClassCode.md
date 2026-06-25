@@ -40,7 +40,7 @@ description: "ClassCode 的自动生成类参考。"
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 生成「into」的实例、数据或表示。
+**用途 / Purpose:** **用途 / Purpose:** 生成into的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ClassCode 实例
@@ -51,7 +51,7 @@ classCode.GenerateInto(codeGenerationFile);
 ### AddVariable
 `public void AddVariable(VariableCode variableCode)`
 
-**用途 / Purpose:** 将 「variable」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 variable 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClassCode 实例
@@ -62,7 +62,7 @@ classCode.AddVariable(variableCode);
 ### AddNestedClass
 `public void AddNestedClass(ClassCode clasCode)`
 
-**用途 / Purpose:** 将 「nested class」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 nested class 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClassCode 实例
@@ -73,7 +73,7 @@ classCode.AddNestedClass(clasCode);
 ### AddMethod
 `public void AddMethod(MethodCode methodCode)`
 
-**用途 / Purpose:** 将 「method」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 method 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClassCode 实例
@@ -84,7 +84,7 @@ classCode.AddMethod(methodCode);
 ### AddConsturctor
 `public void AddConsturctor(ConstructorCode constructorCode)`
 
-**用途 / Purpose:** 将 「consturctor」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 consturctor 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClassCode 实例
@@ -95,7 +95,7 @@ classCode.AddConsturctor(constructorCode);
 ### AddInterface
 `public void AddInterface(string interfaceName)`
 
-**用途 / Purpose:** 将 「interface」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 interface 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ClassCode 实例

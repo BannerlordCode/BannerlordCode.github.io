@@ -19,7 +19,7 @@ GainKingdomInfluenceAction is a set of static methods that trigger "GainKingdomI
 public static void ApplyForBattle(Hero hero, float value)
 ```
 
-**Purpose:** for battle.
+**Purpose:** **Purpose:** Applies the effect of for battle to the this instance.
 
 ### ApplyForGivingFood
 
@@ -27,7 +27,7 @@ public static void ApplyForBattle(Hero hero, float value)
 public static void ApplyForGivingFood(Hero hero1, Hero hero2, float value)
 ```
 
-**Purpose:** for giving food.
+**Purpose:** **Purpose:** Applies the effect of for giving food to the this instance.
 
 ### ApplyForDefault
 
@@ -35,7 +35,7 @@ public static void ApplyForGivingFood(Hero hero1, Hero hero2, float value)
 public static void ApplyForDefault(Hero hero, float value)
 ```
 
-**Purpose:** for default.
+**Purpose:** **Purpose:** Applies the effect of for default to the this instance.
 
 ### ApplyForJoiningFaction
 
@@ -43,7 +43,7 @@ public static void ApplyForDefault(Hero hero, float value)
 public static void ApplyForJoiningFaction(Hero hero, float value)
 ```
 
-**Purpose:** for joining faction.
+**Purpose:** **Purpose:** Applies the effect of for joining faction to the this instance.
 
 ### ApplyForDonatePrisoners
 
@@ -51,7 +51,7 @@ public static void ApplyForJoiningFaction(Hero hero, float value)
 public static void ApplyForDonatePrisoners(MobileParty donatingParty, float value)
 ```
 
-**Purpose:** for donate prisoners.
+**Purpose:** **Purpose:** Applies the effect of for donate prisoners to the this instance.
 
 ### ApplyForRaidingEnemyVillage
 
@@ -59,7 +59,7 @@ public static void ApplyForDonatePrisoners(MobileParty donatingParty, float valu
 public static void ApplyForRaidingEnemyVillage(MobileParty side1Party, float value)
 ```
 
-**Purpose:** for raiding enemy village.
+**Purpose:** **Purpose:** Applies the effect of for raiding enemy village to the this instance.
 
 ### ApplyForBesiegingEnemySettlement
 
@@ -67,7 +67,7 @@ public static void ApplyForRaidingEnemyVillage(MobileParty side1Party, float val
 public static void ApplyForBesiegingEnemySettlement(MobileParty side1Party, float value)
 ```
 
-**Purpose:** for besieging enemy settlement.
+**Purpose:** **Purpose:** Applies the effect of for besieging enemy settlement to the this instance.
 
 ### ApplyForSiegeSafePassageBarter
 
@@ -75,7 +75,7 @@ public static void ApplyForBesiegingEnemySettlement(MobileParty side1Party, floa
 public static void ApplyForSiegeSafePassageBarter(MobileParty side1Party, float value)
 ```
 
-**Purpose:** for siege safe passage barter.
+**Purpose:** **Purpose:** Applies the effect of for siege safe passage barter to the this instance.
 
 ### ApplyForCapturingEnemySettlement
 
@@ -83,7 +83,7 @@ public static void ApplyForSiegeSafePassageBarter(MobileParty side1Party, float 
 public static void ApplyForCapturingEnemySettlement(MobileParty side1Party, float value)
 ```
 
-**Purpose:** for capturing enemy settlement.
+**Purpose:** **Purpose:** Applies the effect of for capturing enemy settlement to the this instance.
 
 ### ApplyForLeavingTroopToGarrison
 
@@ -91,7 +91,7 @@ public static void ApplyForCapturingEnemySettlement(MobileParty side1Party, floa
 public static void ApplyForLeavingTroopToGarrison(Hero hero, float value)
 ```
 
-**Purpose:** for leaving troop to garrison.
+**Purpose:** **Purpose:** Applies the effect of for leaving troop to garrison to the this instance.
 
 ### ApplyForBoardGameWon
 
@@ -99,7 +99,7 @@ public static void ApplyForLeavingTroopToGarrison(Hero hero, float value)
 public static void ApplyForBoardGameWon(Hero hero, float value)
 ```
 
-**Purpose:** for board game won.
+**Purpose:** **Purpose:** Applies the effect of for board game won to the this instance.
 
 ## Usage Example
 

@@ -23,7 +23,7 @@ description: "ManagedOptions 的自动生成类参考。"
 ### GetConfig
 `public static float GetConfig(ManagedOptions.ManagedOptionsType type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「config」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 config 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ManagedOptions.GetConfig(type);
 ### GetDefaultConfig
 `public static float GetDefaultConfig(ManagedOptions.ManagedOptionsType type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default config」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default config 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ManagedOptions.GetDefaultConfig(type);
 ### SetConfig
 `public static void SetConfig(ManagedOptions.ManagedOptionsType type, float value)`
 
-**用途 / Purpose:** 为 「config」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 config 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ManagedOptions.SetConfig(type, 0);
 ### SaveConfig
 `public static SaveResult SaveConfig()`
 
-**用途 / Purpose:** 将 「config」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 config 写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ManagedOptions.SaveConfig();
 ### OnManagedOptionChangedDelegate
 `public delegate void OnManagedOptionChangedDelegate(ManagedOptions.ManagedOptionsType changedManagedOptionsType)`
 
-**用途 / Purpose:** 在 「managed option changed delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 managed option changed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedOptions 实例

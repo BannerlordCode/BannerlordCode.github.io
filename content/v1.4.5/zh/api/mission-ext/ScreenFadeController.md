@@ -32,7 +32,7 @@ description: "ScreenFadeController 的自动生成类参考。"
 ### RegisterHandler
 `public static void RegisterHandler(IScreenFadeHandler handler)`
 
-**用途 / Purpose:** 将「handler」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将handler注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ ScreenFadeController.RegisterHandler(handler);
 ### BeginFadeOutAndIn
 `public static void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 处理与 「begin fade out and in」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFadeOutAndIn 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ ScreenFadeController.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public static void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**用途 / Purpose:** 处理与 「begin fade out」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFadeOut 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ ScreenFadeController.BeginFadeOut(0);
 ### BeginFadeIn
 `public static void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 处理与 「begin fade in」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFadeIn 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

@@ -38,7 +38,7 @@ description: "CustomBattleSideVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleSideVM 实例
@@ -49,7 +49,7 @@ customBattleSideVM.RefreshValues();
 ### OnPlayerTypeChange
 `public void OnPlayerTypeChange(CustomBattlePlayerType playerType)`
 
-**用途 / Purpose:** 在 「player type change」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player type change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleSideVM 实例
@@ -60,7 +60,7 @@ customBattleSideVM.OnPlayerTypeChange(playerType);
 ### UpdateCharacterVisual
 `public void UpdateCharacterVisual()`
 
-**用途 / Purpose:** 重新计算并更新 「character visual」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 character visual 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleSideVM 实例
@@ -71,7 +71,7 @@ customBattleSideVM.UpdateCharacterVisual();
 ### Randomize
 `public void Randomize(CustomBattleSideVM oppositeSide = null)`
 
-**用途 / Purpose:** 处理与 「randomize」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Randomize 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleSideVM 实例

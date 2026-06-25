@@ -30,7 +30,7 @@ Treat `FieldSaveData` as a Data-style extension point: first identify who create
 ### Initialize
 `public override void Initialize(TypeDefinitionBase typeDefinition)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of FieldSaveData from the subsystem API first
@@ -41,7 +41,7 @@ fieldSaveData.Initialize(typeDefinition);
 ### InitializeAsCustomStruct
 `public override void InitializeAsCustomStruct(int structId)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `as custom struct`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by as custom struct.
 
 ```csharp
 // Obtain an instance of FieldSaveData from the subsystem API first

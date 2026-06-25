@@ -36,7 +36,7 @@ description: "PhotoModeVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -47,7 +47,7 @@ photoModeVM.RefreshValues();
 ### AddTakePictureKey
 `public void AddTakePictureKey(GameKey key)`
 
-**用途 / Purpose:** 将 「take picture key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 take picture key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -58,7 +58,7 @@ photoModeVM.AddTakePictureKey(key);
 ### AddFasterCameraKey
 `public void AddFasterCameraKey(HotKey hotkey)`
 
-**用途 / Purpose:** 将 「faster camera key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 faster camera key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -69,7 +69,7 @@ photoModeVM.AddFasterCameraKey(hotkey);
 ### AddKey
 `public void AddKey(GameKey key)`
 
-**用途 / Purpose:** 将 「key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -80,7 +80,7 @@ photoModeVM.AddKey(key);
 ### AddHotkey
 `public void AddHotkey(HotKey hotkey)`
 
-**用途 / Purpose:** 将 「hotkey」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 hotkey 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -91,7 +91,7 @@ photoModeVM.AddHotkey(hotkey);
 ### AddHotkeyWithForcedName
 `public void AddHotkeyWithForcedName(HotKey hotkey, TextObject forcedName)`
 
-**用途 / Purpose:** 将 「hotkey with forced name」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 hotkey with forced name 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -102,7 +102,7 @@ photoModeVM.AddHotkeyWithForcedName(hotkey, forcedName);
 ### AddCustomKey
 `public void AddCustomKey(string keyID, TextObject forcedName)`
 
-**用途 / Purpose:** 将 「custom key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 custom key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -113,7 +113,7 @@ photoModeVM.AddCustomKey("example", forcedName);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -124,7 +124,7 @@ photoModeVM.OnFinalize();
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -135,7 +135,7 @@ photoModeVM.Reset();
 ### UpdateTakePictureKeyVisibility
 `public void UpdateTakePictureKeyVisibility(bool canTakePicture)`
 
-**用途 / Purpose:** 重新计算并更新 「take picture key visibility」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 take picture key visibility 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例
@@ -146,7 +146,7 @@ photoModeVM.UpdateTakePictureKeyVisibility(false);
 ### UpdateFasterCameraKeyVisibility
 `public void UpdateFasterCameraKeyVisibility(bool canMoveCamera)`
 
-**用途 / Purpose:** 重新计算并更新 「faster camera key visibility」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 faster camera key visibility 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PhotoModeVM 实例

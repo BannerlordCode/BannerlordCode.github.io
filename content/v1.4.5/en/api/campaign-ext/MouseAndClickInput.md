@@ -23,7 +23,7 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### MouseAndClickInput
 `public struct MouseAndClickInput(MovementTypes movementType, MouseClickTypes mouseClickType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MouseAndClickInput logic.
 
 ```csharp
 // Obtain an instance of MouseAndClickInput from the subsystem API first

@@ -54,7 +54,7 @@ description: "EncyclopediaSettlementPageVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -65,7 +65,7 @@ encyclopediaSettlementPageVM.RefreshValues();
 ### Refresh
 `public override void Refresh()`
 
-**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -76,7 +76,7 @@ encyclopediaSettlementPageVM.Refresh();
 ### GetName
 `public override string GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -87,7 +87,7 @@ var result = encyclopediaSettlementPageVM.GetName();
 ### ExecuteTrack
 `public void ExecuteTrack()`
 
-**用途 / Purpose:** 执行 「track」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 track 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -98,7 +98,7 @@ encyclopediaSettlementPageVM.ExecuteTrack();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「navigation bar u r l」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 navigation bar u r l 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -109,7 +109,7 @@ var result = encyclopediaSettlementPageVM.GetNavigationBarURL();
 ### ExecuteBoundSettlementLink
 `public void ExecuteBoundSettlementLink()`
 
-**用途 / Purpose:** 执行 「bound settlement link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 bound settlement link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -120,7 +120,7 @@ encyclopediaSettlementPageVM.ExecuteBoundSettlementLink();
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**用途 / Purpose:** 执行 「switch bookmarked state」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 switch bookmarked state 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例
@@ -131,7 +131,7 @@ encyclopediaSettlementPageVM.ExecuteSwitchBookmarkedState();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSettlementPageVM 实例

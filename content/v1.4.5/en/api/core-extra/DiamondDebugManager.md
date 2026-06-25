@@ -23,7 +23,7 @@ Treat `DiamondDebugManager` as a Manager-style extension point: first identify w
 ### GetLogLevel
 `public int GetLogLevel()`
 
-**Purpose:** Reads and returns the `log level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the log level value held by the this instance.
 
 ```csharp
 // Obtain an instance of DiamondDebugManager from the subsystem API first

@@ -29,7 +29,7 @@ description: "EncounterManager 的自动生成类参考。"
 ### Tick
 `public static void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ EncounterManager.Tick(0);
 ### HandleEncounterForMobileParty
 `public static void HandleEncounterForMobileParty(MobileParty mobileParty, float dt)`
 
-**用途 / Purpose:** 执行与 「encounter for mobile party」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 encounter for mobile party 相关的响应逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ EncounterManager.HandleEncounterForMobileParty(mobileParty, 0);
 ### StartPartyEncounter
 `public static void StartPartyEncounter(PartyBase attackerParty, PartyBase defenderParty)`
 
-**用途 / Purpose:** 启动「party encounter」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动party encounter流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ EncounterManager.StartPartyEncounter(attackerParty, defenderParty);
 ### StartSettlementEncounter
 `public static void StartSettlementEncounter(MobileParty attackerParty, Settlement settlement)`
 
-**用途 / Purpose:** 启动「settlement encounter」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动settlement encounter流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例

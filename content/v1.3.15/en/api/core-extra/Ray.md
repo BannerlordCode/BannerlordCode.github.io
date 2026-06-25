@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Reset
 `public void Reset(Vec3 origin, Vec3 direction, float maxDistance = 3.4028235E+38f)`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Ray from the subsystem API first

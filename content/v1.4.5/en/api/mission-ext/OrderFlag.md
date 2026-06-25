@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Order` to place
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of OrderFlag from the subsystem API first
@@ -43,7 +43,7 @@ orderFlag.Tick(0);
 ### SetArrowVisibility
 `public void SetArrowVisibility(bool isVisible, Vec2 arrowDirection)`
 
-**Purpose:** Assigns a new value to `arrow visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to arrow visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderFlag from the subsystem API first
@@ -54,7 +54,7 @@ orderFlag.SetArrowVisibility(false, arrowDirection);
 ### IsPositionOnValidGround
 `public virtual bool IsPositionOnValidGround(WorldPosition worldPosition)`
 
-**Purpose:** Determines whether the current object is in the `position on valid ground` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the position on valid ground state or condition.
 
 ```csharp
 // Obtain an instance of OrderFlag from the subsystem API first
@@ -65,7 +65,7 @@ var result = orderFlag.IsPositionOnValidGround(worldPosition);
 ### IsOrderPositionValid
 `public static bool IsOrderPositionValid(WorldPosition orderPosition)`
 
-**Purpose:** Determines whether the current object is in the `order position valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the order position valid state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ OrderFlag.IsOrderPositionValid(orderPosition);
 ### SetWidthVisibility
 `public void SetWidthVisibility(bool isVisible, float width)`
 
-**Purpose:** Assigns a new value to `width visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to width visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OrderFlag from the subsystem API first

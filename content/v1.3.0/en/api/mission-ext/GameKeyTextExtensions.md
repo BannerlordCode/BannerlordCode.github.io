@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, string hotKeyId)`
 
-**Purpose:** Reads and returns the `hot key game text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key game text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", "example");
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, int gameKeyId)`
 
-**Purpose:** Reads and returns the `hot key game text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key game text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", 0);
 ### GetHotKeyGameTextFromKeyID
 `public static TextObject GetHotKeyGameTextFromKeyID(this GameTextManager gameTextManager, string keyId)`
 
-**Purpose:** Reads and returns the `hot key game text from key i d` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key game text from key i d value held by the this instance.
 
 ```csharp
 // Static call; no instance required

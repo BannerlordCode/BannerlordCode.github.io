@@ -70,7 +70,7 @@ description: "Settlement 的自动生成类参考。"
 ### SetWallSectionHitPointsRatioAtIndex
 `public void SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)`
 
-**用途 / Purpose:** 为 「wall section hit points ratio at index」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 wall section hit points ratio at index 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -81,7 +81,7 @@ settlement.SetWallSectionHitPointsRatioAtIndex(0, 0);
 ### SetPortPosition
 `public void SetPortPosition(CampaignVec2 position)`
 
-**用途 / Purpose:** 为 「port position」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 port position 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -92,7 +92,7 @@ settlement.SetPortPosition(position);
 ### GetPositionAsVec3
 `public Vec3 GetPositionAsVec3()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position as vec3」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position as vec3 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -103,7 +103,7 @@ var result = settlement.GetPositionAsVec3();
 ### SetGarrisonWagePaymentLimit
 `public void SetGarrisonWagePaymentLimit(int limit)`
 
-**用途 / Purpose:** 为 「garrison wage payment limit」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 garrison wage payment limit 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -114,7 +114,7 @@ settlement.SetGarrisonWagePaymentLimit(0);
 ### GetInvolvedPartiesForEventType
 `public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「involved parties for event type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 involved parties for event type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -125,7 +125,7 @@ var result = settlement.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Sieg
 ### GetNextInvolvedPartyForEventType
 `public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「next involved party for event type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next involved party for event type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -136,7 +136,7 @@ var result = settlement.GetNextInvolvedPartyForEventType(partyIndex, mapEvent.Ba
 ### HasInvolvedPartyForEventType
 `public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「involved party for event type」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 involved party for event type。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -147,7 +147,7 @@ var result = settlement.HasInvolvedPartyForEventType(party, mapEvent.BattleTypes
 ### IsUnderRebellionAttack
 `public bool IsUnderRebellionAttack()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「under rebellion attack」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 under rebellion attack 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -158,7 +158,7 @@ var result = settlement.IsUnderRebellionAttack();
 ### GetSettlementValueForEnemyHero
 `public float GetSettlementValueForEnemyHero(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「settlement value for enemy hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement value for enemy hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -169,7 +169,7 @@ var result = settlement.GetSettlementValueForEnemyHero(hero);
 ### IsSettlementBusy
 `public bool IsSettlementBusy(object asker)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「settlement busy」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 settlement busy 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -180,7 +180,7 @@ var result = settlement.IsSettlementBusy(asker);
 ### IsSettlementBusy
 `public bool IsSettlementBusy(object asker, int limitingPriority)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「settlement busy」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 settlement busy 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -191,7 +191,7 @@ var result = settlement.IsSettlementBusy(asker, 0);
 ### GetSettlementBusynessPriority
 `public int GetSettlementBusynessPriority(object asker)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「settlement busyness priority」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement busyness priority 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -202,7 +202,7 @@ var result = settlement.GetSettlementBusynessPriority(asker);
 ### GetValue
 `public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -213,7 +213,7 @@ var result = settlement.GetValue(null, false);
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -224,7 +224,7 @@ var result = settlement.GetName();
 ### GetSettlementValueForFaction
 `public float GetSettlementValueForFaction(IFaction faction)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「settlement value for faction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement value for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -235,7 +235,7 @@ var result = settlement.GetSettlementValueForFaction(faction);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -246,7 +246,7 @@ var result = settlement.ToString();
 ### OnPartyInteraction
 `public void OnPartyInteraction(MobileParty engagingParty)`
 
-**用途 / Purpose:** 在 「party interaction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 party interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -257,7 +257,7 @@ settlement.OnPartyInteraction(engagingParty);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -268,7 +268,7 @@ settlement.Deserialize(objectManager, node);
 ### OnFinishLoadState
 `public void OnFinishLoadState()`
 
-**用途 / Purpose:** 在 「finish load state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finish load state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -279,7 +279,7 @@ settlement.OnFinishLoadState();
 ### OnGameCreated
 `public void OnGameCreated()`
 
-**用途 / Purpose:** 在 「game created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -290,7 +290,7 @@ settlement.OnGameCreated();
 ### OnSessionStart
 `public void OnSessionStart()`
 
-**用途 / Purpose:** 在 「session start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 session start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -301,7 +301,7 @@ settlement.OnSessionStart();
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**用途 / Purpose:** 检查「positions for map change and update if needed」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -312,7 +312,7 @@ settlement.CheckPositionsForMapChangeAndUpdateIfNeeded();
 ### Find
 `public static Settlement Find(string idString)`
 
-**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找匹配项。
 
 ```csharp
 // 静态调用，不需要实例
@@ -322,7 +322,7 @@ Settlement.Find("example");
 ### FindFirst
 `public static Settlement FindFirst(Func<Settlement, bool> predicate)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的first。
 
 ```csharp
 // 静态调用，不需要实例
@@ -332,7 +332,7 @@ Settlement.FindFirst(func<Settlement, false);
 ### FindAll
 `public static IEnumerable<Settlement> FindAll(Func<Settlement, bool> predicate)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -342,7 +342,7 @@ Settlement.FindAll(func<Settlement, false);
 ### StartFindingLocatablesAroundPosition
 `public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
 
-**用途 / Purpose:** 启动「finding locatables around position」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动finding locatables around position流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -352,7 +352,7 @@ Settlement.StartFindingLocatablesAroundPosition(position, 0);
 ### FindNextLocatable
 `public static Settlement FindNextLocatable(ref LocatableSearchData<Settlement> data)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「next locatable」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的next locatable。
 
 ```csharp
 // 静态调用，不需要实例
@@ -362,7 +362,7 @@ Settlement.FindNextLocatable(data);
 ### OnPlayerEncounterFinish
 `public void OnPlayerEncounterFinish()`
 
-**用途 / Purpose:** 在 「player encounter finish」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player encounter finish 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -373,7 +373,7 @@ settlement.OnPlayerEncounterFinish();
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -384,7 +384,7 @@ var result = settlement.GetPosition();
 ### SetNextSiegeState
 `public void SetNextSiegeState()`
 
-**用途 / Purpose:** 为 「next siege state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next siege state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -395,7 +395,7 @@ settlement.SetNextSiegeState();
 ### ResetSiegeState
 `public void ResetSiegeState()`
 
-**用途 / Purpose:** 将 「siege state」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 siege state 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -406,7 +406,7 @@ settlement.ResetSiegeState();
 ### AddGarrisonParty
 `public void AddGarrisonParty()`
 
-**用途 / Purpose:** 将 「garrison party」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 garrison party 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -417,7 +417,7 @@ settlement.AddGarrisonParty();
 ### SetSiegeStrategy
 `public void SetSiegeStrategy(SiegeStrategy strategy)`
 
-**用途 / Purpose:** 为 「siege strategy」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 siege strategy 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -428,7 +428,7 @@ settlement.SetSiegeStrategy(strategy);
 ### InitializeSiegeEventSide
 `public void InitializeSiegeEventSide()`
 
-**用途 / Purpose:** 为 「siege event side」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 siege event side 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -439,7 +439,7 @@ settlement.InitializeSiegeEventSide();
 ### OnTroopsKilledOnSide
 `public void OnTroopsKilledOnSide(int killCount)`
 
-**用途 / Purpose:** 在 「troops killed on side」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 troops killed on side 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -450,7 +450,7 @@ settlement.OnTroopsKilledOnSide(0);
 ### AddSiegeEngineMissile
 `public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
 
-**用途 / Purpose:** 将 「siege engine missile」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 siege engine missile 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -461,7 +461,7 @@ settlement.AddSiegeEngineMissile(missile);
 ### RemoveDeprecatedMissiles
 `public void RemoveDeprecatedMissiles()`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「deprecated missiles」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 deprecated missiles。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -472,7 +472,7 @@ settlement.RemoveDeprecatedMissiles();
 ### GetAttackTarget
 `public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attack target」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attack target 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例
@@ -483,7 +483,7 @@ settlement.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetInd
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**用途 / Purpose:** 处理与 「finalize siege event」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeSiegeEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Settlement 实例

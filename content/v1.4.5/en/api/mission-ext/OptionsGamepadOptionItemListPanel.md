@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepa
 ### OnActionTextChangeEvent
 `public delegate void OnActionTextChangeEvent()`
 
-**Purpose:** Invoked when the `action text change event` event is raised.
+**Purpose:** **Purpose:** Invoked when the action text change event event is raised.
 
 ```csharp
 // Obtain an instance of OptionsGamepadOptionItemListPanel from the subsystem API first
@@ -42,7 +42,7 @@ optionsGamepadOptionItemListPanel.OnActionTextChangeEvent();
 ### SetKeyProperties
 `public void SetKeyProperties(OptionsGamepadKeyLocationWidget currentTarget, Widget parentAreaWidget)`
 
-**Purpose:** Assigns a new value to `key properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to key properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsGamepadOptionItemListPanel from the subsystem API first

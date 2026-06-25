@@ -31,7 +31,7 @@ Start from namespace `SandBox.View.Map.Visuals` to place it in the stack, then i
 ### IsEnemyOf
 `public override bool IsEnemyOf(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -42,7 +42,7 @@ var result = settlementVisual.IsEnemyOf(faction);
 ### IsAllyOf
 `public override bool IsAllyOf(IFaction faction)`
 
-**Purpose:** Determines whether the current object is in the `ally of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ally of state or condition.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -53,7 +53,7 @@ var result = settlementVisual.IsAllyOf(faction);
 ### GetVisualPosition
 `public override Vec3 GetVisualPosition()`
 
-**Purpose:** Reads and returns the `visual position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual position value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -64,7 +64,7 @@ var result = settlementVisual.GetVisualPosition();
 ### IsVisibleOrFadingOut
 `public override bool IsVisibleOrFadingOut()`
 
-**Purpose:** Determines whether the current object is in the `visible or fading out` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the visible or fading out state or condition.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -75,7 +75,7 @@ var result = settlementVisual.IsVisibleOrFadingOut();
 ### OnHover
 `public override void OnHover()`
 
-**Purpose:** Invoked when the `hover` event is raised.
+**Purpose:** **Purpose:** Invoked when the hover event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -86,7 +86,7 @@ settlementVisual.OnHover();
 ### OnTrackAction
 `public override void OnTrackAction()`
 
-**Purpose:** Invoked when the `track action` event is raised.
+**Purpose:** **Purpose:** Invoked when the track action event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -97,7 +97,7 @@ settlementVisual.OnTrackAction();
 ### OnMapClick
 `public override bool OnMapClick(bool followModifierUsed)`
 
-**Purpose:** Invoked when the `map click` event is raised.
+**Purpose:** **Purpose:** Invoked when the map click event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -108,7 +108,7 @@ var result = settlementVisual.OnMapClick(false);
 ### OnOpenEncyclopedia
 `public override void OnOpenEncyclopedia()`
 
-**Purpose:** Invoked when the `open encyclopedia` event is raised.
+**Purpose:** **Purpose:** Invoked when the open encyclopedia event is raised.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -119,7 +119,7 @@ settlementVisual.OnOpenEncyclopedia();
 ### ReleaseResources
 `public override void ReleaseResources()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseResources logic.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -130,7 +130,7 @@ settlementVisual.ReleaseResources();
 ### GetBannerPositionForParty
 `public Vec3 GetBannerPositionForParty(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `banner position for party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner position for party value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -141,7 +141,7 @@ var result = settlementVisual.GetBannerPositionForParty(mobileParty);
 ### GetAttackerTowerSiegeEngineFrames
 `public MatrixFrame GetAttackerTowerSiegeEngineFrames()`
 
-**Purpose:** Reads and returns the `attacker tower siege engine frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attacker tower siege engine frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -152,7 +152,7 @@ var result = settlementVisual.GetAttackerTowerSiegeEngineFrames();
 ### GetAttackerBatteringRamSiegeEngineFrames
 `public MatrixFrame GetAttackerBatteringRamSiegeEngineFrames()`
 
-**Purpose:** Reads and returns the `attacker battering ram siege engine frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attacker battering ram siege engine frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -163,7 +163,7 @@ var result = settlementVisual.GetAttackerBatteringRamSiegeEngineFrames();
 ### GetAttackerRangedSiegeEngineFrames
 `public MatrixFrame GetAttackerRangedSiegeEngineFrames()`
 
-**Purpose:** Reads and returns the `attacker ranged siege engine frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attacker ranged siege engine frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -174,7 +174,7 @@ var result = settlementVisual.GetAttackerRangedSiegeEngineFrames();
 ### GetDefenderRangedSiegeEngineFrames
 `public MatrixFrame GetDefenderRangedSiegeEngineFrames()`
 
-**Purpose:** Reads and returns the `defender ranged siege engine frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the defender ranged siege engine frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first
@@ -185,7 +185,7 @@ var result = settlementVisual.GetDefenderRangedSiegeEngineFrames();
 ### GetBreachableWallFrames
 `public MatrixFrame GetBreachableWallFrames()`
 
-**Purpose:** Reads and returns the `breachable wall frames` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the breachable wall frames value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementVisual from the subsystem API first

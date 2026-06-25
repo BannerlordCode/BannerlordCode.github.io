@@ -29,7 +29,7 @@ description: "BannerlordNetwork 的自动生成类参考。"
 ### CreateServerPeer
 `public static void CreateServerPeer()`
 
-**用途 / Purpose:** 构建一个新的 「server peer」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 server peer 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ BannerlordNetwork.CreateServerPeer();
 ### StartMultiplayerLobbyMission
 `public static void StartMultiplayerLobbyMission(LobbyMissionType lobbyMissionType)`
 
-**用途 / Purpose:** 启动「multiplayer lobby mission」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动multiplayer lobby mission流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ BannerlordNetwork.StartMultiplayerLobbyMission(lobbyMissionType);
 ### EndMultiplayerLobbyMission
 `public static void EndMultiplayerLobbyMission()`
 
-**用途 / Purpose:** 处理与 「end multiplayer lobby mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndMultiplayerLobbyMission 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

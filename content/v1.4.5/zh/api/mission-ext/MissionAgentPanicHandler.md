@@ -23,7 +23,7 @@ description: "MissionAgentPanicHandler 的自动生成类参考。"
 ### OnAgentPanicked
 `public override void OnAgentPanicked(Agent agent)`
 
-**用途 / Purpose:** 在 「agent panicked」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent panicked 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentPanicHandler 实例
@@ -34,7 +34,7 @@ missionAgentPanicHandler.OnAgentPanicked(agent);
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentPanicHandler 实例
@@ -45,7 +45,7 @@ missionAgentPanicHandler.OnPreMissionTick(0);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentPanicHandler 实例

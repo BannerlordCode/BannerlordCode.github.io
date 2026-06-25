@@ -29,7 +29,7 @@ description: "CodeGenerationContext 的自动生成类参考。"
 ### FindOrCreateNamespace
 `public NamespaceCode FindOrCreateNamespace(string name)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「or create namespace」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的or create namespace。
 
 ```csharp
 // 先通过子系统 API 拿到 CodeGenerationContext 实例
@@ -40,7 +40,7 @@ var result = codeGenerationContext.FindOrCreateNamespace("example");
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 生成「into」的实例、数据或表示。
+**用途 / Purpose:** **用途 / Purpose:** 生成into的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CodeGenerationContext 实例

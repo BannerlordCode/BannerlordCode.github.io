@@ -29,7 +29,7 @@ description: "DetachmentManager 的自动生成类参考。"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -40,7 +40,7 @@ detachmentManager.Clear();
 ### ContainsDetachment
 `public bool ContainsDetachment(IDetachment detachment)`
 
-**用途 / Purpose:** 判断当前对象是否包含「detachment」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含detachment。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -51,7 +51,7 @@ var result = detachmentManager.ContainsDetachment(detachment);
 ### MakeDetachment
 `public void MakeDetachment(IDetachment detachment)`
 
-**用途 / Purpose:** 处理与 「make detachment」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MakeDetachment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -62,7 +62,7 @@ detachmentManager.MakeDetachment(detachment);
 ### DestroyDetachment
 `public void DestroyDetachment(IDetachment destroyedDetachment)`
 
-**用途 / Purpose:** 处理与 「destroy detachment」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DestroyDetachment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -73,7 +73,7 @@ detachmentManager.DestroyDetachment(destroyedDetachment);
 ### OnFormationJoinDetachment
 `public void OnFormationJoinDetachment(Formation formation, IDetachment joinedDetachment)`
 
-**用途 / Purpose:** 在 「formation join detachment」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 formation join detachment 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -84,7 +84,7 @@ detachmentManager.OnFormationJoinDetachment(formation, joinedDetachment);
 ### OnFormationLeaveDetachment
 `public void OnFormationLeaveDetachment(Formation formation, IDetachment leftDetachment)`
 
-**用途 / Purpose:** 在 「formation leave detachment」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 formation leave detachment 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -95,7 +95,7 @@ detachmentManager.OnFormationLeaveDetachment(formation, leftDetachment);
 ### TickDetachments
 `public void TickDetachments()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「detachments」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进detachments的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -106,7 +106,7 @@ detachmentManager.TickDetachments();
 ### TickAgent
 `public void TickAgent(Agent agent)`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「agent」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进agent的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -117,7 +117,7 @@ detachmentManager.TickAgent(agent);
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -128,7 +128,7 @@ detachmentManager.OnAgentRemoved(agent);
 ### RemoveScoresOfAgentFromDetachments
 `public void RemoveScoresOfAgentFromDetachments(Agent agent)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「scores of agent from detachments」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 scores of agent from detachments。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -139,7 +139,7 @@ detachmentManager.RemoveScoresOfAgentFromDetachments(agent);
 ### RemoveScoresOfAgentFromDetachment
 `public void RemoveScoresOfAgentFromDetachment(Agent agent, IDetachment detachmentToBeRemovedFrom)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「scores of agent from detachment」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 scores of agent from detachment。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -150,7 +150,7 @@ detachmentManager.RemoveScoresOfAgentFromDetachment(agent, detachmentToBeRemoved
 ### AddAgentAsMovingToDetachment
 `public void AddAgentAsMovingToDetachment(Agent agent, IDetachment detachment)`
 
-**用途 / Purpose:** 将 「agent as moving to detachment」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 agent as moving to detachment 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -161,7 +161,7 @@ detachmentManager.AddAgentAsMovingToDetachment(agent, detachment);
 ### RemoveAgentAsMovingToDetachment
 `public void RemoveAgentAsMovingToDetachment(Agent agent)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「agent as moving to detachment」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 agent as moving to detachment。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -172,7 +172,7 @@ detachmentManager.RemoveAgentAsMovingToDetachment(agent);
 ### AddAgentAsDefendingToDetachment
 `public void AddAgentAsDefendingToDetachment(Agent agent, IDetachment detachment)`
 
-**用途 / Purpose:** 将 「agent as defending to detachment」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 agent as defending to detachment 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -183,7 +183,7 @@ detachmentManager.AddAgentAsDefendingToDetachment(agent, detachment);
 ### RemoveAgentAsDefendingToDetachment
 `public void RemoveAgentAsDefendingToDetachment(Agent agent)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「agent as defending to detachment」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 agent as defending to detachment。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -194,7 +194,7 @@ detachmentManager.RemoveAgentAsDefendingToDetachment(agent);
 ### AssertDetachment
 `public void AssertDetachment(Team team, IDetachment detachment)`
 
-**用途 / Purpose:** 处理与 「assert detachment」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AssertDetachment 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例

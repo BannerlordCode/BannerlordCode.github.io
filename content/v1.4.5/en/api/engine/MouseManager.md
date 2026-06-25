@@ -23,7 +23,7 @@ Treat `MouseManager` as a Manager-style extension point: first identify who crea
 ### ActivateMouseCursor
 `public static void ActivateMouseCursor(CursorType mouseId)`
 
-**Purpose:** Activates the resource, state, or feature associated with `mouse cursor`.
+**Purpose:** **Purpose:** Activates the resource, state, or feature associated with mouse cursor.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MouseManager.ActivateMouseCursor(mouseId);
 ### SetMouseCursor
 `public static void SetMouseCursor(CursorType mouseId, string mousePath)`
 
-**Purpose:** Assigns a new value to `mouse cursor` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mouse cursor and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MouseManager.SetMouseCursor(mouseId, "example");
 ### ShowCursor
 `public static void ShowCursor(bool show)`
 
-**Purpose:** Displays the UI or element associated with `cursor`.
+**Purpose:** **Purpose:** Displays the UI or element associated with cursor.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MouseManager.ShowCursor(false);
 ### LockCursorAtCurrentPosition
 `public static void LockCursorAtCurrentPosition(bool lockCursor)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LockCursorAtCurrentPosition logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MouseManager.LockCursorAtCurrentPosition(false);
 ### LockCursorAtPosition
 `public static void LockCursorAtPosition(float x, float y)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LockCursorAtPosition logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MouseManager.LockCursorAtPosition(0, 0);
 ### UnlockCursor
 `public static void UnlockCursor()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnlockCursor logic.
 
 ```csharp
 // Static call; no instance required

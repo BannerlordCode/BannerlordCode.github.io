@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Reads and returns the `num bits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -40,7 +40,7 @@ var result = compressionInfo.GetNumBits();
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**Purpose:** Reads and returns the `maximum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum value value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -51,7 +51,7 @@ var result = compressionInfo.GetMaximumValue();
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Reads and returns the `num bits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -62,7 +62,7 @@ var result = compressionInfo.GetNumBits();
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Reads and returns the `num bits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -73,7 +73,7 @@ var result = compressionInfo.GetNumBits();
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Reads and returns the `num bits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -84,7 +84,7 @@ var result = compressionInfo.GetNumBits();
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Reads and returns the `num bits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -95,7 +95,7 @@ var result = compressionInfo.GetNumBits();
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**Purpose:** Reads and returns the `maximum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum value value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -106,7 +106,7 @@ var result = compressionInfo.GetMaximumValue();
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**Purpose:** Reads and returns the `minimum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the minimum value value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -117,7 +117,7 @@ var result = compressionInfo.GetMinimumValue();
 ### GetPrecision
 `public float GetPrecision()`
 
-**Purpose:** Reads and returns the `precision` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the precision value held by the this instance.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first
@@ -128,7 +128,7 @@ var result = compressionInfo.GetPrecision();
 ### ClampValueAccordingToLimits
 `public void ClampValueAccordingToLimits(ref float x)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ClampValueAccordingToLimits logic.
 
 ```csharp
 // Obtain an instance of CompressionInfo from the subsystem API first

@@ -23,7 +23,7 @@ Treat `MissionCombatMechanicsHelper` as a Helper-style extension point: first id
 ### DecideAgentShrugOffBlow
 `public static bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideAgentShrugOffBlow logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MissionCombatMechanicsHelper.DecideAgentShrugOffBlow(victimAgent, collisionData,
 ### DecideAgentDismountedByBlow
 `public static bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideAgentDismountedByBlow logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MissionCombatMechanicsHelper.DecideAgentDismountedByBlow(attackerAgent, victimAg
 ### DecideAgentKnockedBackByBlow
 `public static bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideAgentKnockedBackByBlow logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MissionCombatMechanicsHelper.DecideAgentKnockedBackByBlow(attackerAgent, victimA
 ### DecideAgentKnockedDownByBlow
 `public static bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideAgentKnockedDownByBlow logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MissionCombatMechanicsHelper.DecideAgentKnockedDownByBlow(attackerAgent, victimA
 ### DecideMountRearedByBlow
 `public static bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideMountRearedByBlow logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MissionCombatMechanicsHelper.DecideMountRearedByBlow(attackerAgent, victimAgent,
 ### DecideWeaponCollisionReaction
 `public static void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideWeaponCollisionReaction logic.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MissionCombatMechanicsHelper.DecideWeaponCollisionReaction(registeredBlow, colli
 ### IsCollisionBoneDifferentThanWeaponAttachBone
 `public static bool IsCollisionBoneDifferentThanWeaponAttachBone(in AttackCollisionData collisionData, int weaponAttachBoneIndex)`
 
-**Purpose:** Determines whether the current object is in the `collision bone different than weapon attach bone` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the collision bone different than weapon attach bone state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ MissionCombatMechanicsHelper.IsCollisionBoneDifferentThanWeaponAttachBone(collis
 ### DecideSweetSpotCollision
 `public static bool DecideSweetSpotCollision(in AttackCollisionData collisionData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecideSweetSpotCollision logic.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ MissionCombatMechanicsHelper.DecideSweetSpotCollision(collisionData);
 ### GetAttackCollisionResults
 `public static void GetAttackCollisionResults(in AttackInformation attackInformation, bool crushedThrough, float momentumRemaining, bool cancelDamage, ref AttackCollisionData attackCollisionData, out CombatLogData combatLog, out int speedBonus)`
 
-**Purpose:** Reads and returns the `attack collision results` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attack collision results value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ MissionCombatMechanicsHelper.GetAttackCollisionResults(attackInformation, false,
 ### UpdateMomentumRemaining
 `public static void UpdateMomentumRemaining(ref float momentumRemaining, in Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, bool isCrushThrough)`
 
-**Purpose:** Recalculates and stores the latest representation of `momentum remaining`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of momentum remaining.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ MissionCombatMechanicsHelper.UpdateMomentumRemaining(momentumRemaining, b, colli
 ### HitWithAnotherBone
 `public static bool HitWithAnotherBone(in AttackCollisionData collisionData, Agent attacker, in MissionWeapon attackerWeapon)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitWithAnotherBone logic.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ MissionCombatMechanicsHelper.HitWithAnotherBone(collisionData, attacker, attacke
 ### CalculateBaseMeleeBlowMagnitude
 `public static float CalculateBaseMeleeBlowMagnitude(in AttackInformation attackInformation, in AttackCollisionData collisionData, StrikeType strikeType, float progressEffect, float impactPointAsPercent, float exraLinearSpeed)`
 
-**Purpose:** Calculates the current value or result of `base melee blow magnitude`.
+**Purpose:** **Purpose:** Calculates the current value or result of base melee blow magnitude.
 
 ```csharp
 // Static call; no instance required

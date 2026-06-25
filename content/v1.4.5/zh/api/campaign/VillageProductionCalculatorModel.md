@@ -23,7 +23,7 @@ description: "VillageProductionCalculatorModel 的自动生成类参考。"
 ### CalculateProductionSpeedOfItemCategory
 `public abstract float CalculateProductionSpeedOfItemCategory(ItemCategory item)`
 
-**用途 / Purpose:** 计算「production speed of item category」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算production speed of item category的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageProductionCalculatorModel 实例
@@ -34,7 +34,7 @@ var result = villageProductionCalculatorModel.CalculateProductionSpeedOfItemCate
 ### CalculateDailyProductionAmount
 `public abstract ExplainedNumber CalculateDailyProductionAmount(Village village, ItemObject item)`
 
-**用途 / Purpose:** 计算「daily production amount」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算daily production amount的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageProductionCalculatorModel 实例
@@ -45,7 +45,7 @@ var result = villageProductionCalculatorModel.CalculateDailyProductionAmount(vil
 ### CalculateDailyFoodProductionAmount
 `public abstract float CalculateDailyFoodProductionAmount(Village village)`
 
-**用途 / Purpose:** 计算「daily food production amount」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算daily food production amount的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageProductionCalculatorModel 实例

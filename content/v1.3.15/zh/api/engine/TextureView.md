@@ -23,7 +23,7 @@ description: "TextureView 的自动生成类参考。"
 ### CreateTextureView
 `public static TextureView CreateTextureView()`
 
-**用途 / Purpose:** 构建一个新的 「texture view」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 texture view 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TextureView.CreateTextureView();
 ### SetTexture
 `public void SetTexture(Texture texture)`
 
-**用途 / Purpose:** 为 「texture」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 texture 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextureView 实例

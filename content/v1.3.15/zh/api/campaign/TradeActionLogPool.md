@@ -29,7 +29,7 @@ description: "TradeActionLogPool 的自动生成类参考。"
 ### CreateNewLog
 `public CaravansCampaignBehavior.TradeActionLog CreateNewLog(Settlement boughtSettlement, int buyPrice, ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 构建一个新的 「new log」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new log 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeActionLogPool 实例
@@ -40,7 +40,7 @@ var result = tradeActionLogPool.CreateNewLog(boughtSettlement, 0, itemRosterElem
 ### ReleaseLog
 `public void ReleaseLog(CaravansCampaignBehavior.TradeActionLog log)`
 
-**用途 / Purpose:** 处理与 「release log」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseLog 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeActionLogPool 实例
@@ -51,7 +51,7 @@ tradeActionLogPool.ReleaseLog(log);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeActionLogPool 实例

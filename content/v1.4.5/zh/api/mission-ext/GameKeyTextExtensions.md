@@ -23,7 +23,7 @@ description: "GameKeyTextExtensions 的自动生成类参考。"
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, string hotKeyId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hot key game text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hot key game text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", "example");
 ### GetHotKeyGameText
 `public static TextObject GetHotKeyGameText(this GameTextManager gameTextManager, string categoryName, int gameKeyId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hot key game text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hot key game text 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ GameKeyTextExtensions.GetHotKeyGameText(gameTextManager, "example", 0);
 ### GetHotKeyGameTextFromKeyID
 `public static TextObject GetHotKeyGameTextFromKeyID(this GameTextManager gameTextManager, string keyId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hot key game text from key i d」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hot key game text from key i d 的结果。
 
 ```csharp
 // 静态调用，不需要实例

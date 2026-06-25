@@ -35,7 +35,7 @@ description: "GroupedOptionCategoryVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
@@ -46,7 +46,7 @@ groupedOptionCategoryVM.RefreshValues();
 ### ResetData
 `public void ResetData()`
 
-**用途 / Purpose:** 将 「data」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 data 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
@@ -57,7 +57,7 @@ groupedOptionCategoryVM.ResetData();
 ### ExecuteResetToDefault
 `public void ExecuteResetToDefault()`
 
-**用途 / Purpose:** 执行 「reset to default」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset to default 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
@@ -68,7 +68,7 @@ groupedOptionCategoryVM.ExecuteResetToDefault();
 ### GetOption
 `public GenericOptionDataVM GetOption(ManagedOptions.ManagedOptionsType optionType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「option」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例
@@ -79,7 +79,7 @@ var result = groupedOptionCategoryVM.GetOption(optionType);
 ### GetOption
 `public GenericOptionDataVM GetOption(NativeOptions.NativeOptionsType optionType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「option」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GroupedOptionCategoryVM 实例

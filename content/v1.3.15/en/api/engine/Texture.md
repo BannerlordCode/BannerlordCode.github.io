@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreateTextureFromPath
 `public static Texture CreateTextureFromPath(PlatformFilePath filePath)`
 
-**Purpose:** Constructs a new `texture from path` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new texture from path entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ Texture.CreateTextureFromPath(filePath);
 ### GetPixelData
 `public void GetPixelData(byte bytes)`
 
-**Purpose:** Reads and returns the `pixel data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the pixel data value held by the this instance.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -58,7 +58,7 @@ texture.GetPixelData(0);
 ### TransformRenderTargetToResource
 `public void TransformRenderTargetToResource(string name)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransformRenderTargetToResource logic.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -69,7 +69,7 @@ texture.TransformRenderTargetToResource("example");
 ### GetFromResource
 `public static Texture GetFromResource(string resourceName)`
 
-**Purpose:** Reads and returns the `from resource` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the from resource value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ Texture.GetFromResource("example");
 ### IsLoaded
 `public bool IsLoaded()`
 
-**Purpose:** Determines whether the current object is in the `loaded` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the loaded state or condition.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -90,7 +90,7 @@ var result = texture.IsLoaded();
 ### GetSDFBoundingBoxData
 `public void GetSDFBoundingBoxData(ref Vec3 min, ref Vec3 max)`
 
-**Purpose:** Reads and returns the `s d f bounding box data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the s d f bounding box data value held by the this instance.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -101,7 +101,7 @@ texture.GetSDFBoundingBoxData(min, max);
 ### CheckAndGetFromResource
 `public static Texture CheckAndGetFromResource(string resourceName)`
 
-**Purpose:** Verifies whether `and get from resource` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether and get from resource holds true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -111,7 +111,7 @@ Texture.CheckAndGetFromResource("example");
 ### ScaleTextureWithRatio
 `public static void ScaleTextureWithRatio(ref int tableauSizeX, ref int tableauSizeY)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ScaleTextureWithRatio logic.
 
 ```csharp
 // Static call; no instance required
@@ -121,7 +121,7 @@ Texture.ScaleTextureWithRatio(tableauSizeX, tableauSizeY);
 ### PreloadTexture
 `public void PreloadTexture(bool blocking)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreloadTexture logic.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -132,7 +132,7 @@ texture.PreloadTexture(false);
 ### Release
 `public void Release()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -143,7 +143,7 @@ texture.Release();
 ### ReleaseImmediately
 `public void ReleaseImmediately()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseImmediately logic.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -154,7 +154,7 @@ texture.ReleaseImmediately();
 ### ReleaseAfterNumberOfFrames
 `public void ReleaseAfterNumberOfFrames(int frameCount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseAfterNumberOfFrames logic.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -165,7 +165,7 @@ texture.ReleaseAfterNumberOfFrames(0);
 ### LoadTextureFromPath
 `public static Texture LoadTextureFromPath(string fileName, string folder)`
 
-**Purpose:** Reads `texture from path` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads texture from path from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -175,7 +175,7 @@ Texture.LoadTextureFromPath("example", "example");
 ### CreateDepthTarget
 `public static Texture CreateDepthTarget(string name, int width, int height)`
 
-**Purpose:** Constructs a new `depth target` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new depth target entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -185,7 +185,7 @@ Texture.CreateDepthTarget("example", 0, 0);
 ### CreateFromByteArray
 `public static Texture CreateFromByteArray(byte data, int width, int height)`
 
-**Purpose:** Constructs a new `from byte array` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from byte array entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -195,7 +195,7 @@ Texture.CreateFromByteArray(0, 0, 0);
 ### SaveToFile
 `public void SaveToFile(string path, bool isRelativePath)`
 
-**Purpose:** Writes `to file` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes to file to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -206,7 +206,7 @@ texture.SaveToFile("example", false);
 ### SetTextureAsAlwaysValid
 `public void SetTextureAsAlwaysValid()`
 
-**Purpose:** Assigns a new value to `texture as always valid` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to texture as always valid and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Texture from the subsystem API first
@@ -217,7 +217,7 @@ texture.SetTextureAsAlwaysValid();
 ### CreateFromMemory
 `public static Texture CreateFromMemory(byte data)`
 
-**Purpose:** Constructs a new `from memory` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from memory entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -227,7 +227,7 @@ Texture.CreateFromMemory(0);
 ### ReleaseGpuMemories
 `public static void ReleaseGpuMemories()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseGpuMemories logic.
 
 ```csharp
 // Static call; no instance required
@@ -237,7 +237,7 @@ Texture.ReleaseGpuMemories();
 ### CreateTableauTexture
 `public static Texture CreateTableauTexture(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
 
-**Purpose:** Constructs a new `tableau texture` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new tableau texture entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -247,7 +247,7 @@ Texture.CreateTableauTexture("example", eventHandler, objectRef, 0, 0);
 ### CreateRenderTarget
 `public static Texture CreateRenderTarget(string name, int width, int height, bool autoMipmaps, bool isTableau, bool createUninitialized = false, bool always_valid = false)`
 
-**Purpose:** Constructs a new `render target` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new render target entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

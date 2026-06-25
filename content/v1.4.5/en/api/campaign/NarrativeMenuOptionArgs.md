@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CharacterCreationContent` to pla
 ### SetAffectedSkills
 `public void SetAffectedSkills(SkillObject affectedSkills)`
 
-**Purpose:** Assigns a new value to `affected skills` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to affected skills and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -50,7 +50,7 @@ narrativeMenuOptionArgs.SetAffectedSkills(affectedSkills);
 ### SetFocusToSkills
 `public void SetFocusToSkills(int focusToAdd)`
 
-**Purpose:** Assigns a new value to `focus to skills` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to focus to skills and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -61,7 +61,7 @@ narrativeMenuOptionArgs.SetFocusToSkills(0);
 ### SetLevelToSkills
 `public void SetLevelToSkills(int levelToAdd)`
 
-**Purpose:** Assigns a new value to `level to skills` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to level to skills and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -72,7 +72,7 @@ narrativeMenuOptionArgs.SetLevelToSkills(0);
 ### SetAffectedTraits
 `public void SetAffectedTraits(TraitObject affectedTraits)`
 
-**Purpose:** Assigns a new value to `affected traits` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to affected traits and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -83,7 +83,7 @@ narrativeMenuOptionArgs.SetAffectedTraits(affectedTraits);
 ### SetLevelToTraits
 `public void SetLevelToTraits(int levelToAdd)`
 
-**Purpose:** Assigns a new value to `level to traits` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to level to traits and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -94,7 +94,7 @@ narrativeMenuOptionArgs.SetLevelToTraits(0);
 ### SetLevelToAttribute
 `public void SetLevelToAttribute(CharacterAttribute characterAttribute, int levelToAdd)`
 
-**Purpose:** Assigns a new value to `level to attribute` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to level to attribute and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -105,7 +105,7 @@ narrativeMenuOptionArgs.SetLevelToAttribute(characterAttribute, 0);
 ### SetRenownToAdd
 `public void SetRenownToAdd(int value)`
 
-**Purpose:** Assigns a new value to `renown to add` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to renown to add and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -116,7 +116,7 @@ narrativeMenuOptionArgs.SetRenownToAdd(0);
 ### SetUnspentFocusToAdd
 `public void SetUnspentFocusToAdd(int value)`
 
-**Purpose:** Assigns a new value to `unspent focus to add` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to unspent focus to add and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first
@@ -127,7 +127,7 @@ narrativeMenuOptionArgs.SetUnspentFocusToAdd(0);
 ### SetUnspentAttributeToAdd
 `public void SetUnspentAttributeToAdd(int value)`
 
-**Purpose:** Assigns a new value to `unspent attribute to add` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to unspent attribute to add and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of NarrativeMenuOptionArgs from the subsystem API first

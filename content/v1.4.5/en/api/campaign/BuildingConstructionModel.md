@@ -32,7 +32,7 @@ Treat `BuildingConstructionModel` as a Model-style extension point: first identi
 ### CalculateDailyConstructionPower
 `public abstract ExplainedNumber CalculateDailyConstructionPower(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `daily construction power`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily construction power.
 
 ```csharp
 // Obtain an instance of BuildingConstructionModel from the subsystem API first
@@ -43,7 +43,7 @@ var result = buildingConstructionModel.CalculateDailyConstructionPower(town, fal
 ### CalculateDailyConstructionPowerWithoutBoost
 `public abstract int CalculateDailyConstructionPowerWithoutBoost(Town town)`
 
-**Purpose:** Calculates the current value or result of `daily construction power without boost`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily construction power without boost.
 
 ```csharp
 // Obtain an instance of BuildingConstructionModel from the subsystem API first
@@ -54,7 +54,7 @@ var result = buildingConstructionModel.CalculateDailyConstructionPowerWithoutBoo
 ### GetBoostCost
 `public abstract int GetBoostCost(Town town)`
 
-**Purpose:** Reads and returns the `boost cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boost cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingConstructionModel from the subsystem API first
@@ -65,7 +65,7 @@ var result = buildingConstructionModel.GetBoostCost(town);
 ### GetBoostAmount
 `public abstract int GetBoostAmount(Town town)`
 
-**Purpose:** Reads and returns the `boost amount` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boost amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of BuildingConstructionModel from the subsystem API first

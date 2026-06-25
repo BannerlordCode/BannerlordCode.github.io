@@ -23,7 +23,7 @@ Treat `NotableSpawnPointHandler` as a Handler-style extension point: first ident
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of NotableSpawnPointHandler from the subsystem API first

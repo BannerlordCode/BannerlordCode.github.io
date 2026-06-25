@@ -23,7 +23,7 @@ description: "SandBoxSaveManager 的自动生成类参考。"
 ### GetAutoSaveInterval
 `public int GetAutoSaveInterval()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「auto save interval」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 auto save interval 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxSaveManager 实例
@@ -34,7 +34,7 @@ var result = sandBoxSaveManager.GetAutoSaveInterval();
 ### OnSaveOver
 `public void OnSaveOver(bool isSuccessful, string newSaveGameName)`
 
-**用途 / Purpose:** 在 「save over」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 save over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxSaveManager 实例

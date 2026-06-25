@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public override void LoadFrom(XmlNode canvasImageNode)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CanvasImage from the subsystem API first

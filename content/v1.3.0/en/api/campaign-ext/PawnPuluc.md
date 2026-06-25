@@ -34,7 +34,7 @@ Start from namespace `SandBox.BoardGames.Pawns` to place it in the stack, then i
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first
@@ -45,7 +45,7 @@ pawnPuluc.Reset();
 ### AddGoalPosition
 `public override void AddGoalPosition(Vec3 goal)`
 
-**Purpose:** Adds `goal position` to the current collection or state.
+**Purpose:** **Purpose:** Adds goal position to the current collection or state.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first
@@ -56,7 +56,7 @@ pawnPuluc.AddGoalPosition(goal);
 ### MovePawnToGoalPositions
 `public override void MovePawnToGoalPositions(bool instantMove, float speed, bool dragged = false)`
 
-**Purpose:** Moves `pawn to goal positions` to a new position or state.
+**Purpose:** **Purpose:** Moves pawn to goal positions to a new position or state.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first
@@ -67,7 +67,7 @@ pawnPuluc.MovePawnToGoalPositions(false, 0, false);
 ### SetPawnAtPosition
 `public override void SetPawnAtPosition(Vec3 position)`
 
-**Purpose:** Assigns a new value to `pawn at position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to pawn at position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first
@@ -78,7 +78,7 @@ pawnPuluc.SetPawnAtPosition(position);
 ### EnableCollisionBody
 `public override void EnableCollisionBody()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnableCollisionBody logic.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first
@@ -89,7 +89,7 @@ pawnPuluc.EnableCollisionBody();
 ### DisableCollisionBody
 `public override void DisableCollisionBody()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableCollisionBody logic.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first
@@ -100,7 +100,7 @@ pawnPuluc.DisableCollisionBody();
 ### MovePawnBackToSpawn
 `public void MovePawnBackToSpawn(bool instantMove, float speed, bool fake = false)`
 
-**Purpose:** Moves `pawn back to spawn` to a new position or state.
+**Purpose:** **Purpose:** Moves pawn back to spawn to a new position or state.
 
 ```csharp
 // Obtain an instance of PawnPuluc from the subsystem API first

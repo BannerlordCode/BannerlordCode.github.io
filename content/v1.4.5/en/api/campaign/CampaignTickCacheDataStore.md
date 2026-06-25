@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Compare
 `public int Compare(MobileParty x, MobileParty y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of CampaignTickCacheDataStore from the subsystem API first

@@ -23,7 +23,7 @@ Treat `SmithingModel` as a Model-style extension point: first identify who creat
 ### GetCraftingPartDifficulty
 `public abstract int GetCraftingPartDifficulty(CraftingPiece craftingPiece)`
 
-**Purpose:** Reads and returns the `crafting part difficulty` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the crafting part difficulty value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = smithingModel.GetCraftingPartDifficulty(craftingPiece);
 ### CalculateWeaponDesignDifficulty
 `public abstract int CalculateWeaponDesignDifficulty(WeaponDesign weaponDesign)`
 
-**Purpose:** Calculates the current value or result of `weapon design difficulty`.
+**Purpose:** **Purpose:** Calculates the current value or result of weapon design difficulty.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = smithingModel.CalculateWeaponDesignDifficulty(weaponDesign);
 ### GetCraftedWeaponModifier
 `public abstract ItemModifier GetCraftedWeaponModifier(WeaponDesign weaponDesign, Hero weaponsmith)`
 
-**Purpose:** Reads and returns the `crafted weapon modifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the crafted weapon modifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = smithingModel.GetCraftedWeaponModifier(weaponDesign, weaponsmith);
 ### GetRefiningFormulas
 `public abstract IEnumerable<Crafting.RefiningFormula> GetRefiningFormulas(Hero weaponsmith)`
 
-**Purpose:** Reads and returns the `refining formulas` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the refining formulas value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = smithingModel.GetRefiningFormulas(weaponsmith);
 ### GetCraftingMaterialItem
 `public abstract ItemObject GetCraftingMaterialItem(CraftingMaterials craftingMaterial)`
 
-**Purpose:** Reads and returns the `crafting material item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the crafting material item value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = smithingModel.GetCraftingMaterialItem(craftingMaterial);
 ### GetSmeltingOutputForItem
 `public abstract int GetSmeltingOutputForItem(ItemObject item)`
 
-**Purpose:** Reads and returns the `smelting output for item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the smelting output for item value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = smithingModel.GetSmeltingOutputForItem(item);
 ### GetSkillXpForRefining
 `public abstract int GetSkillXpForRefining(ref Crafting.RefiningFormula refineFormula)`
 
-**Purpose:** Reads and returns the `skill xp for refining` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill xp for refining value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = smithingModel.GetSkillXpForRefining(refineFormula);
 ### GetSkillXpForSmelting
 `public abstract int GetSkillXpForSmelting(ItemObject item)`
 
-**Purpose:** Reads and returns the `skill xp for smelting` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill xp for smelting value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = smithingModel.GetSkillXpForSmelting(item);
 ### GetSkillXpForSmithingInFreeBuildMode
 `public abstract int GetSkillXpForSmithingInFreeBuildMode(ItemObject item)`
 
-**Purpose:** Reads and returns the `skill xp for smithing in free build mode` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill xp for smithing in free build mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = smithingModel.GetSkillXpForSmithingInFreeBuildMode(item);
 ### GetSkillXpForSmithingInCraftingOrderMode
 `public abstract int GetSkillXpForSmithingInCraftingOrderMode(ItemObject item)`
 
-**Purpose:** Reads and returns the `skill xp for smithing in crafting order mode` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill xp for smithing in crafting order mode value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = smithingModel.GetSkillXpForSmithingInCraftingOrderMode(item);
 ### GetSmithingCostsForWeaponDesign
 `public abstract int GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign)`
 
-**Purpose:** Reads and returns the `smithing costs for weapon design` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the smithing costs for weapon design value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -144,7 +144,7 @@ var result = smithingModel.GetSmithingCostsForWeaponDesign(weaponDesign);
 ### GetEnergyCostForRefining
 `public abstract int GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero)`
 
-**Purpose:** Reads and returns the `energy cost for refining` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the energy cost for refining value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -155,7 +155,7 @@ var result = smithingModel.GetEnergyCostForRefining(refineFormula, hero);
 ### GetEnergyCostForSmithing
 `public abstract int GetEnergyCostForSmithing(ItemObject item, Hero hero)`
 
-**Purpose:** Reads and returns the `energy cost for smithing` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the energy cost for smithing value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -166,7 +166,7 @@ var result = smithingModel.GetEnergyCostForSmithing(item, hero);
 ### GetEnergyCostForSmelting
 `public abstract int GetEnergyCostForSmelting(ItemObject item, Hero hero)`
 
-**Purpose:** Reads and returns the `energy cost for smelting` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the energy cost for smelting value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -177,7 +177,7 @@ var result = smithingModel.GetEnergyCostForSmelting(item, hero);
 ### ResearchPointsNeedForNewPart
 `public abstract float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResearchPointsNeedForNewPart logic.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -188,7 +188,7 @@ var result = smithingModel.ResearchPointsNeedForNewPart(0, 0);
 ### GetPartResearchGainForSmeltingItem
 `public abstract int GetPartResearchGainForSmeltingItem(ItemObject item, Hero hero)`
 
-**Purpose:** Reads and returns the `part research gain for smelting item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the part research gain for smelting item value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first
@@ -199,7 +199,7 @@ var result = smithingModel.GetPartResearchGainForSmeltingItem(item, hero);
 ### GetPartResearchGainForSmithingItem
 `public abstract int GetPartResearchGainForSmithingItem(ItemObject item, Hero hero, bool isFreeBuildMode)`
 
-**Purpose:** Reads and returns the `part research gain for smithing item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the part research gain for smithing item value held by the this instance.
 
 ```csharp
 // Obtain an instance of SmithingModel from the subsystem API first

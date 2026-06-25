@@ -39,7 +39,7 @@ Treat `SettlementNameplateItemWidget` as a Widget-style extension point: first i
 ### ParallelUpdate
 `public void ParallelUpdate(float dt)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ParallelUpdate logic.
 
 ```csharp
 // Obtain an instance of SettlementNameplateItemWidget from the subsystem API first

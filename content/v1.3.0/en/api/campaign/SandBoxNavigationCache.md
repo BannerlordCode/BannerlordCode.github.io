@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Map.DistanceCache` to place it i
 ### GetSceneXmlCrcValues
 `public override void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**Purpose:** Reads and returns the `scene xml crc values` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scene xml crc values value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandBoxNavigationCache from the subsystem API first
@@ -34,7 +34,7 @@ sandBoxNavigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc)
 ### FinalizeInitialization
 `public void FinalizeInitialization()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeInitialization logic.
 
 ```csharp
 // Obtain an instance of SandBoxNavigationCache from the subsystem API first

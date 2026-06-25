@@ -571,6 +571,4 @@ trajectory_visualizer::vftable
 
 ## Usage Example
 
-```csharp
-var example = new 物理引擎();
-```
+// （占位示例已移除，见正文说明）

@@ -29,7 +29,7 @@ description: "PartyTroopManagementItemButtonWidget 的自动生成类参考。"
 ### GetActionButtonAtIndex
 `public Widget GetActionButtonAtIndex(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action button at index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action button at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyTroopManagementItemButtonWidget 实例

@@ -30,7 +30,7 @@ description: "BarterModel 的自动生成类参考。"
 ### CalculateOverpayRelationIncreaseCosts
 `public abstract int CalculateOverpayRelationIncreaseCosts(Hero hero, float overpayAmount)`
 
-**用途 / Purpose:** 计算「overpay relation increase costs」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算overpay relation increase costs的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterModel 实例
@@ -41,7 +41,7 @@ var result = barterModel.CalculateOverpayRelationIncreaseCosts(hero, 0);
 ### GetBarterPenalty
 `public abstract ExplainedNumber GetBarterPenalty(IFaction faction, ItemBarterable itemBarterable, Hero otherHero, PartyBase otherParty)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「barter penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 barter penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterModel 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CanConvert
 `public override bool CanConvert(Type objectType)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `convert`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for convert.
 
 ```csharp
 // Obtain an instance of BodyPropertiesJsonConverter from the subsystem API first
@@ -40,7 +40,7 @@ var result = bodyPropertiesJsonConverter.CanConvert(objectType);
 ### ReadJson
 `public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)`
 
-**Purpose:** Reads the data or state of `json`.
+**Purpose:** **Purpose:** Reads the data or state of json.
 
 ```csharp
 // Obtain an instance of BodyPropertiesJsonConverter from the subsystem API first
@@ -51,7 +51,7 @@ var result = bodyPropertiesJsonConverter.ReadJson(reader, objectType, existingVa
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)`
 
-**Purpose:** Writes `json` to the target location.
+**Purpose:** **Purpose:** Writes json to the target location.
 
 ```csharp
 // Obtain an instance of BodyPropertiesJsonConverter from the subsystem API first

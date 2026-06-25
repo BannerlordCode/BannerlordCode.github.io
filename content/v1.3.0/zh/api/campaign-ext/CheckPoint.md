@@ -29,7 +29,7 @@ description: "CheckPoint 的自动生成类参考。"
 ### GetBestTargetPosition
 `public Vec3 GetBestTargetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「best target position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best target position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckPoint 实例
@@ -40,7 +40,7 @@ var result = checkPoint.GetBestTargetPosition();
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**用途 / Purpose:** 将 「to check list」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 to check list 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckPoint 实例
@@ -51,7 +51,7 @@ checkPoint.AddToCheckList(agent);
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「from check list」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 from check list。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckPoint 实例

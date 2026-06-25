@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### OpenCustomBattleMission
 `public static MissionView OpenCustomBattleMission(Mission mission)`
 
-**Purpose:** Opens the resource or UI associated with `custom battle mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with custom battle mission.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CustomBattleViews.OpenCustomBattleMission(mission);
 ### OpenCustomSiegeBattleMission
 `public static MissionView OpenCustomSiegeBattleMission(Mission mission)`
 
-**Purpose:** Opens the resource or UI associated with `custom siege battle mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with custom siege battle mission.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CustomBattleViews.OpenCustomSiegeBattleMission(mission);
 ### OpenCustomBattleLordsHallMission
 `public static MissionView OpenCustomBattleLordsHallMission(Mission mission)`
 
-**Purpose:** Opens the resource or UI associated with `custom battle lords hall mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with custom battle lords hall mission.
 
 ```csharp
 // Static call; no instance required

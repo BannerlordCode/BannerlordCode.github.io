@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### CustomBattleScoreboardVM
 `public class CustomBattleScoreboardVM(BattleScoreContext scoreboardContext)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CustomBattleScoreboardVM logic.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -34,7 +34,7 @@ var result = customBattleScoreboardVM.CustomBattleScoreboardVM(scoreboardContext
 ### Initialize
 `public override void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -45,7 +45,7 @@ customBattleScoreboardVM.Initialize(missionScreen, mission, releaseSimulationSou
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -56,7 +56,7 @@ customBattleScoreboardVM.RefreshValues();
 ### ExecuteFastForwardAction
 `public override void ExecuteFastForwardAction()`
 
-**Purpose:** Runs the operation or workflow associated with `fast forward action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with fast forward action.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -67,7 +67,7 @@ customBattleScoreboardVM.ExecuteFastForwardAction();
 ### ExecuteQuitAction
 `public override void ExecuteQuitAction()`
 
-**Purpose:** Runs the operation or workflow associated with `quit action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with quit action.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -78,7 +78,7 @@ customBattleScoreboardVM.ExecuteQuitAction();
 ### OnBattleOver
 `public void OnBattleOver()`
 
-**Purpose:** Invoked when the `battle over` event is raised.
+**Purpose:** **Purpose:** Invoked when the battle over event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -89,7 +89,7 @@ customBattleScoreboardVM.OnBattleOver();
 ### OnExitBattle
 `public void OnExitBattle()`
 
-**Purpose:** Invoked when the `exit battle` event is raised.
+**Purpose:** **Purpose:** Invoked when the exit battle event is raised.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -100,7 +100,7 @@ customBattleScoreboardVM.OnExitBattle();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TroopNumberChanged logic.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -111,7 +111,7 @@ customBattleScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0,
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HeroSkillIncreased logic.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -122,7 +122,7 @@ customBattleScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BattleResultsReady logic.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first
@@ -133,7 +133,7 @@ customBattleScoreboardVM.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TroopSideChanged logic.
 
 ```csharp
 // Obtain an instance of CustomBattleScoreboardVM from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.MissionLogics.Hideout.Objectives` to plac
 ### GetCurrentProgress
 `public override MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**Purpose:** Reads and returns the `current progress` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClearTheMainCampObjective from the subsystem API first

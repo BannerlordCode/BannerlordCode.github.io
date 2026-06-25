@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, bool isHeadshot, bool isSuicide, bool isDrowning)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SPGeneralKillNotificationVM from the subsystem API first

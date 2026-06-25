@@ -23,7 +23,7 @@ Treat `SiegeDeploymentMissionController` as a Controller-style extension point: 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentMissionController from the subsystem API first
@@ -34,7 +34,7 @@ siegeDeploymentMissionController.OnBehaviorInitialize();
 ### GetSiegeMissiles
 `public List<ItemObject> GetSiegeMissiles()`
 
-**Purpose:** Reads and returns the `siege missiles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege missiles value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentMissionController from the subsystem API first

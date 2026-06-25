@@ -23,7 +23,7 @@ Treat `GeneralsAndCaptainsAssignmentLogic` as a Logic-style extension point: fir
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of GeneralsAndCaptainsAssignmentLogic from the subsystem API first
@@ -34,7 +34,7 @@ generalsAndCaptainsAssignmentLogic.AfterStart();
 ### OnTeamDeployed
 `public override void OnTeamDeployed(Team team)`
 
-**Purpose:** Invoked when the `team deployed` event is raised.
+**Purpose:** **Purpose:** Invoked when the team deployed event is raised.
 
 ```csharp
 // Obtain an instance of GeneralsAndCaptainsAssignmentLogic from the subsystem API first
@@ -45,7 +45,7 @@ generalsAndCaptainsAssignmentLogic.OnTeamDeployed(team);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of GeneralsAndCaptainsAssignmentLogic from the subsystem API first

@@ -19,7 +19,7 @@ ChangeClanLeaderAction is a set of static methods that trigger "ChangeClanLeader
 public static void ApplyWithSelectedNewLeader(Clan clan, Hero newLeader)
 ```
 
-**Purpose:** with selected new leader.
+**Purpose:** **Purpose:** Applies the effect of with selected new leader to the this instance.
 
 ### ApplyWithoutSelectedNewLeader
 
@@ -27,7 +27,7 @@ public static void ApplyWithSelectedNewLeader(Clan clan, Hero newLeader)
 public static void ApplyWithoutSelectedNewLeader(Clan clan)
 ```
 
-**Purpose:** without selected new leader.
+**Purpose:** **Purpose:** Applies the effect of without selected new leader to the this instance.
 
 ## Usage Example
 

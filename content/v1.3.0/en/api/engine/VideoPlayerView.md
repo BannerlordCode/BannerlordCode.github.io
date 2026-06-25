@@ -23,7 +23,7 @@ Treat `VideoPlayerView` as a View-style extension point: first identify who crea
 ### CreateVideoPlayerView
 `public static VideoPlayerView CreateVideoPlayerView()`
 
-**Purpose:** Constructs a new `video player view` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new video player view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ VideoPlayerView.CreateVideoPlayerView();
 ### PlayVideo
 `public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayVideo logic.
 
 ```csharp
 // Obtain an instance of VideoPlayerView from the subsystem API first
@@ -44,7 +44,7 @@ videoPlayerView.PlayVideo("example", "example", 0, false);
 ### StopVideo
 `public void StopVideo()`
 
-**Purpose:** Stops the `video` flow or state machine.
+**Purpose:** **Purpose:** Stops the video flow or state machine.
 
 ```csharp
 // Obtain an instance of VideoPlayerView from the subsystem API first
@@ -55,7 +55,7 @@ videoPlayerView.StopVideo();
 ### IsVideoFinished
 `public bool IsVideoFinished()`
 
-**Purpose:** Determines whether the current object is in the `video finished` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the video finished state or condition.
 
 ```csharp
 // Obtain an instance of VideoPlayerView from the subsystem API first
@@ -66,7 +66,7 @@ var result = videoPlayerView.IsVideoFinished();
 ### FinalizePlayer
 `public void FinalizePlayer()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizePlayer logic.
 
 ```csharp
 // Obtain an instance of VideoPlayerView from the subsystem API first

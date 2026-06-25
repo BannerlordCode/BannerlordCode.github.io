@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Initialize
 `public void Initialize(int capacity = 16, string callerMemberName = "")`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -40,7 +40,7 @@ mBStringBuilder.Initialize(0, "example");
 ### ToStringAndRelease
 `public string ToStringAndRelease()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -51,7 +51,7 @@ var result = mBStringBuilder.ToStringAndRelease();
 ### Release
 `public void Release()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -62,7 +62,7 @@ mBStringBuilder.Release();
 ### Append
 `public MBStringBuilder Append(char value)`
 
-**Purpose:** Appends `append` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends append to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -73,7 +73,7 @@ var result = mBStringBuilder.Append(value);
 ### Append
 `public MBStringBuilder Append(int value)`
 
-**Purpose:** Appends `append` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends append to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -84,7 +84,7 @@ var result = mBStringBuilder.Append(0);
 ### Append
 `public MBStringBuilder Append(uint value)`
 
-**Purpose:** Appends `append` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends append to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -95,7 +95,7 @@ var result = mBStringBuilder.Append(0);
 ### Append
 `public MBStringBuilder Append(float value)`
 
-**Purpose:** Appends `append` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends append to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -106,7 +106,7 @@ var result = mBStringBuilder.Append(0);
 ### Append
 `public MBStringBuilder Append(double value)`
 
-**Purpose:** Appends `append` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends append to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -117,7 +117,7 @@ var result = mBStringBuilder.Append(0);
 ### AppendLine
 `public MBStringBuilder AppendLine()`
 
-**Purpose:** Appends `line` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends line to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -128,7 +128,7 @@ var result = mBStringBuilder.AppendLine();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MBStringBuilder from the subsystem API first
@@ -139,7 +139,7 @@ var result = mBStringBuilder.ToString();
 ### Acquire
 `public static StringBuilder Acquire(int capacity = 16)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Acquire logic.
 
 ```csharp
 // Static call; no instance required
@@ -149,7 +149,7 @@ MBStringBuilder.Acquire(0);
 ### Release
 `public static void Release(StringBuilder sb)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Static call; no instance required
@@ -159,7 +159,7 @@ MBStringBuilder.Release("example");
 ### GetStringAndReleaseBuilder
 `public static string GetStringAndReleaseBuilder(StringBuilder sb)`
 
-**Purpose:** Reads and returns the `string and release builder` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the string and release builder value held by the this instance.
 
 ```csharp
 // Static call; no instance required

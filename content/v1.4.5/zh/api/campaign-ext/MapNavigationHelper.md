@@ -23,7 +23,7 @@ description: "MapNavigationHelper 的自动生成类参考。"
 ### GetUnsavedChangedInquiry
 `public static InquiryData GetUnsavedChangedInquiry(Action openNewScreenAction)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「unsaved changed inquiry」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unsaved changed inquiry 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MapNavigationHelper.GetUnsavedChangedInquiry(openNewScreenAction);
 ### GetUnapplicableChangedInquiry
 `public static InquiryData GetUnapplicableChangedInquiry()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「unapplicable changed inquiry」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 unapplicable changed inquiry 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MapNavigationHelper.GetUnapplicableChangedInquiry();
 ### IsMapTopScreen
 `public static bool IsMapTopScreen()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「map top screen」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 map top screen 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MapNavigationHelper.IsMapTopScreen();
 ### IsNavigationBarEnabled
 `public static bool IsNavigationBarEnabled(MapNavigationHandler handler)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「navigation bar enabled」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 navigation bar enabled 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MapNavigationHelper.IsNavigationBarEnabled(handler);
 ### SwitchToANewScreen
 `public static void SwitchToANewScreen(Action openNewScreenAction)`
 
-**用途 / Purpose:** 处理与 「switch to a new screen」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchToANewScreen 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

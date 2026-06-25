@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### Equals
 `public bool Equals(ValueTuple<ItemCategory, int> x, ValueTuple<ItemCategory, int> y)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first
@@ -34,7 +34,7 @@ var result = productInputOutputEqualityComparer.Equals(valueTuple<ItemCategory, 
 ### GetHashCode
 `public int GetHashCode(ValueTuple<ItemCategory, int> obj)`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ProductInputOutputEqualityComparer from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `SandBox.GauntletUI.Tutorial` to place it in the stack, the
 ### OnInitialize
 `public static void OnInitialize()`
 
-**Purpose:** Invoked when the `initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ GauntletTutorialSystem.OnInitialize();
 ### OnUnload
 `public static void OnUnload()`
 
-**Purpose:** Invoked when the `unload` event is raised.
+**Purpose:** **Purpose:** Invoked when the unload event is raised.
 
 ```csharp
 // Static call; no instance required

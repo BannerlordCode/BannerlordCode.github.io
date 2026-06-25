@@ -33,7 +33,7 @@ description: "CampaignMissionComponent 的自动生成类参考。"
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**用途 / Purpose:** 在 「agent created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -44,7 +44,7 @@ campaignMissionComponent.OnAgentCreated(agent);
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 pre display mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -55,7 +55,7 @@ campaignMissionComponent.OnPreDisplayMissionTick(0);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -66,7 +66,7 @@ campaignMissionComponent.OnMissionTick(0);
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -77,7 +77,7 @@ campaignMissionComponent.EarlyStart();
 ### OnCreated
 `public override void OnCreated()`
 
-**用途 / Purpose:** 在 「created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -88,7 +88,7 @@ campaignMissionComponent.OnCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -99,7 +99,7 @@ campaignMissionComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -110,7 +110,7 @@ campaignMissionComponent.AfterStart();
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**用途 / Purpose:** 在 「mission result ready」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission result ready 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -121,7 +121,7 @@ campaignMissionComponent.OnMissionResultReady(missionResult);
 ### PlayConversationSoundEvent
 `public void PlayConversationSoundEvent(string soundPath)`
 
-**用途 / Purpose:** 处理与 「play conversation sound event」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlayConversationSoundEvent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -132,7 +132,7 @@ campaignMissionComponent.PlayConversationSoundEvent("example");
 ### FadeOutCharacter
 `public void FadeOutCharacter(CharacterObject characterObject)`
 
-**用途 / Purpose:** 处理与 「fade out character」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FadeOutCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -143,7 +143,7 @@ campaignMissionComponent.FadeOutCharacter(characterObject);
 ### IsChannelModified
 `public bool IsChannelModified(int channelNo)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「channel modified」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 channel modified 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例
@@ -154,7 +154,7 @@ var result = campaignMissionComponent.IsChannelModified(0);
 ### SetChannelModified
 `public void SetChannelModified(int channelNo)`
 
-**用途 / Purpose:** 为 「channel modified」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 channel modified 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignMissionComponent 实例

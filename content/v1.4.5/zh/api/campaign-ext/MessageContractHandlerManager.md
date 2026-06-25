@@ -23,7 +23,7 @@ description: "MessageContractHandlerManager 的自动生成类参考。"
 ### HandleMessage
 `public void HandleMessage(MessageContract messageContract)`
 
-**用途 / Purpose:** 执行与 「message」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 message 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageContractHandlerManager 实例
@@ -34,7 +34,7 @@ messageContractHandlerManager.HandleMessage(messageContract);
 ### HandleNetworkMessage
 `public void HandleNetworkMessage(NetworkMessage networkMessage)`
 
-**用途 / Purpose:** 执行与 「network message」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 network message 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageContractHandlerManager 实例
@@ -45,7 +45,7 @@ messageContractHandlerManager.HandleNetworkMessage(networkMessage);
 ### ContainsMessageHandler
 `public bool ContainsMessageHandler(byte id)`
 
-**用途 / Purpose:** 判断当前对象是否包含「message handler」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含message handler。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageContractHandlerManager 实例

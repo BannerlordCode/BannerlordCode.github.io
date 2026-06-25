@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### StateHasVisualTimer
 `public static bool StateHasVisualTimer(this MultiplayerRoundState roundState)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the StateHasVisualTimer logic.
 
 ```csharp
 // Static call; no instance required

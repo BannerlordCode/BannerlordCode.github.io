@@ -23,7 +23,7 @@ description: "FlagDominationSpawningBehavior 的自动生成类参考。"
 ### Initialize
 `public override void Initialize(SpawnComponent spawnComponent)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
@@ -34,7 +34,7 @@ flagDominationSpawningBehavior.Initialize(spawnComponent);
 ### Clear
 `public override void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
@@ -45,7 +45,7 @@ flagDominationSpawningBehavior.Clear();
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
@@ -56,7 +56,7 @@ flagDominationSpawningBehavior.OnTick(0);
 ### RequestStartSpawnSession
 `public override void RequestStartSpawnSession()`
 
-**用途 / Purpose:** 处理与 「request start spawn session」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestStartSpawnSession 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
@@ -67,7 +67,7 @@ flagDominationSpawningBehavior.RequestStartSpawnSession();
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**用途 / Purpose:** 允许当前对象启用或执行「early agent visuals despawning」。
+**用途 / Purpose:** **用途 / Purpose:** 允许当前对象启用或执行early agent visuals despawning。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例
@@ -78,7 +78,7 @@ var result = flagDominationSpawningBehavior.AllowEarlyAgentVisualsDespawning(lob
 ### OnClearScene
 `public override void OnClearScene()`
 
-**用途 / Purpose:** 在 「clear scene」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clear scene 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例

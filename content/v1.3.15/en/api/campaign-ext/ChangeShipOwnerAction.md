@@ -19,7 +19,7 @@ ChangeShipOwnerAction is a set of static methods that trigger "ChangeShipOwner" 
 public static void ApplyByTransferring(PartyBase newOwner, Ship ship)
 ```
 
-**Purpose:** transferring.
+**Purpose:** **Purpose:** Applies the effect of by transferring to the this instance.
 
 ### ApplyByTrade
 
@@ -27,7 +27,7 @@ public static void ApplyByTransferring(PartyBase newOwner, Ship ship)
 public static void ApplyByTrade(PartyBase newOwner, Ship ship)
 ```
 
-**Purpose:** trade.
+**Purpose:** **Purpose:** Applies the effect of by trade to the this instance.
 
 ### ApplyByLooting
 
@@ -35,7 +35,7 @@ public static void ApplyByTrade(PartyBase newOwner, Ship ship)
 public static void ApplyByLooting(PartyBase newOwner, Ship ship)
 ```
 
-**Purpose:** looting.
+**Purpose:** **Purpose:** Applies the effect of by looting to the this instance.
 
 ### ApplyByProduction
 
@@ -43,7 +43,7 @@ public static void ApplyByLooting(PartyBase newOwner, Ship ship)
 public static void ApplyByProduction(PartyBase newOwner, Ship ship)
 ```
 
-**Purpose:** production.
+**Purpose:** **Purpose:** Applies the effect of by production to the this instance.
 
 ### ApplyByMobilePartyCreation
 
@@ -51,7 +51,7 @@ public static void ApplyByProduction(PartyBase newOwner, Ship ship)
 public static void ApplyByMobilePartyCreation(PartyBase newOwner, Ship ship)
 ```
 
-**Purpose:** mobile party creation.
+**Purpose:** **Purpose:** Applies the effect of by mobile party creation to the this instance.
 
 ## Usage Example
 

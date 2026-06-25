@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### AddLocation
 `public void AddLocation(string basePath, string location)`
 
-**Purpose:** Adds `location` to the current collection or state.
+**Purpose:** **Purpose:** Adds location to the current collection or state.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -34,7 +34,7 @@ resourceDepot.AddLocation("example", "example");
 ### CollectResources
 `public void CollectResources()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectResources logic.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -45,7 +45,7 @@ resourceDepot.CollectResources();
 ### GetFiles
 `public string GetFiles(string subDirectory, string extension, bool excludeSubContents = false)`
 
-**Purpose:** Reads and returns the `files` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the files value held by the this instance.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -56,7 +56,7 @@ var result = resourceDepot.GetFiles("example", "example", false);
 ### GetFilePath
 `public string GetFilePath(string file)`
 
-**Purpose:** Reads and returns the `file path` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file path value held by the this instance.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -67,7 +67,7 @@ var result = resourceDepot.GetFilePath("example");
 ### GetFilesEndingWith
 `public IEnumerable<string> GetFilesEndingWith(string fileEndName)`
 
-**Purpose:** Reads and returns the `files ending with` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the files ending with value held by the this instance.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -78,7 +78,7 @@ var result = resourceDepot.GetFilesEndingWith("example");
 ### StartWatchingChangesInDepot
 `public void StartWatchingChangesInDepot()`
 
-**Purpose:** Starts the `watching changes in depot` flow or state machine.
+**Purpose:** **Purpose:** Starts the watching changes in depot flow or state machine.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -89,7 +89,7 @@ resourceDepot.StartWatchingChangesInDepot();
 ### StopWatchingChangesInDepot
 `public void StopWatchingChangesInDepot()`
 
-**Purpose:** Stops the `watching changes in depot` flow or state machine.
+**Purpose:** **Purpose:** Stops the watching changes in depot flow or state machine.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first
@@ -100,7 +100,7 @@ resourceDepot.StopWatchingChangesInDepot();
 ### CheckForChanges
 `public void CheckForChanges()`
 
-**Purpose:** Verifies whether `for changes` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for changes holds true for the this instance.
 
 ```csharp
 // Obtain an instance of ResourceDepot from the subsystem API first

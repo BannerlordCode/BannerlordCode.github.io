@@ -23,7 +23,7 @@ description: "ConversationHelper 的自动生成类参考。"
 ### HeroRefersToHero
 `public static string HeroRefersToHero(Hero talkTroop, Hero referringTo, bool uppercaseFirst)`
 
-**用途 / Purpose:** 处理与 「hero refers to hero」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HeroRefersToHero 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ConversationHelper.HeroRefersToHero(talkTroop, referringTo, false);
 ### GetHeroRelationToHeroTextShort
 `public static string GetHeroRelationToHeroTextShort(Hero queriedHero, Hero baseHero, bool uppercaseFirst)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hero relation to hero text short」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hero relation to hero text short 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ConversationHelper.GetHeroRelationToHeroTextShort(queriedHero, baseHero, false);
 ### GetConversationCharacterPartyLeader
 `public static CharacterObject GetConversationCharacterPartyLeader(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「conversation character party leader」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conversation character party leader 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -44,7 +44,7 @@ characterCreationOptionsStageVM.RefreshValues();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `advance to next stage`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -55,7 +55,7 @@ var result = characterCreationOptionsStageVM.CanAdvanceToNextStage();
 ### OnNextStage
 `public override void OnNextStage()`
 
-**Purpose:** Invoked when the `next stage` event is raised.
+**Purpose:** **Purpose:** Invoked when the next stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -66,7 +66,7 @@ characterCreationOptionsStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**Purpose:** Invoked when the `previous stage` event is raised.
+**Purpose:** **Purpose:** Invoked when the previous stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -77,7 +77,7 @@ characterCreationOptionsStageVM.OnPreviousStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -88,7 +88,7 @@ characterCreationOptionsStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -99,7 +99,7 @@ characterCreationOptionsStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -110,7 +110,7 @@ characterCreationOptionsStageVM.SetDoneInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**Purpose:** Adds `camera control input key` to the current collection or state.
+**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -121,7 +121,7 @@ characterCreationOptionsStageVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**Purpose:** Adds `camera control input key` to the current collection or state.
+**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first
@@ -132,7 +132,7 @@ characterCreationOptionsStageVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey, TextObject keyName)`
 
-**Purpose:** Adds `camera control input key` to the current collection or state.
+**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsStageVM from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPScoreboardSkillItemVM from the subsystem API first
@@ -42,7 +42,7 @@ sPScoreboardSkillItemVM.RefreshValues();
 ### UpdateSkill
 `public void UpdateSkill(int newValue)`
 
-**Purpose:** Recalculates and stores the latest representation of `skill`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of skill.
 
 ```csharp
 // Obtain an instance of SPScoreboardSkillItemVM from the subsystem API first
@@ -53,7 +53,7 @@ sPScoreboardSkillItemVM.UpdateSkill(0);
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Determines whether the current object is in the `valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of SPScoreboardSkillItemVM from the subsystem API first

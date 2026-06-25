@@ -19,7 +19,7 @@ DisbandPartyAction is a set of static methods that trigger "DisbandParty" in the
 public static void StartDisband(MobileParty disbandParty)
 ```
 
-**Purpose:** start disband.
+**Purpose:** **Purpose:** Starts the disband flow or state machine.
 
 ### CancelDisband
 
@@ -27,7 +27,7 @@ public static void StartDisband(MobileParty disbandParty)
 public static void CancelDisband(MobileParty disbandParty)
 ```
 
-**Purpose:** cancel disband.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel disband.
 
 ## Usage Example
 

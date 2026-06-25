@@ -32,7 +32,7 @@ description: "AgentBehavior 的自动生成类参考。"
 ### GetAvailability
 `public virtual float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -43,7 +43,7 @@ var result = agentBehavior.GetAvailability(false);
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -54,7 +54,7 @@ agentBehavior.Tick(0, false);
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**用途 / Purpose:** 推进 「conversation」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ConversationTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -65,7 +65,7 @@ agentBehavior.ConversationTick();
 ### CheckStartWithBehavior
 `public virtual bool CheckStartWithBehavior()`
 
-**用途 / Purpose:** 检查「start with behavior」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查start with behavior在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -76,7 +76,7 @@ var result = agentBehavior.CheckStartWithBehavior();
 ### OnSpecialTargetChanged
 `public virtual void OnSpecialTargetChanged()`
 
-**用途 / Purpose:** 在 「special target changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 special target changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -87,7 +87,7 @@ agentBehavior.OnSpecialTargetChanged();
 ### SetCustomWanderTarget
 `public virtual void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**用途 / Purpose:** 为 「custom wander target」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 custom wander target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -98,7 +98,7 @@ agentBehavior.SetCustomWanderTarget(customUsableMachine);
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例
@@ -109,7 +109,7 @@ agentBehavior.OnAgentRemoved(agent);
 ### GetDebugInfo
 `public abstract string GetDebugInfo()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehavior 实例

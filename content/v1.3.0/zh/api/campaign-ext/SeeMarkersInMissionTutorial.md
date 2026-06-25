@@ -23,7 +23,7 @@ description: "SeeMarkersInMissionTutorial 的自动生成类参考。"
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for completion 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SeeMarkersInMissionTutorial 实例
@@ -34,7 +34,7 @@ var result = seeMarkersInMissionTutorial.IsConditionsMetForCompletion();
 ### OnMissionNameMarkerToggled
 `public override void OnMissionNameMarkerToggled(MissionNameMarkerToggleEvent obj)`
 
-**用途 / Purpose:** 在 「mission name marker toggled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission name marker toggled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SeeMarkersInMissionTutorial 实例
@@ -45,7 +45,7 @@ seeMarkersInMissionTutorial.OnMissionNameMarkerToggled(obj);
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tutorials relevant context 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SeeMarkersInMissionTutorial 实例
@@ -56,7 +56,7 @@ var result = seeMarkersInMissionTutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for activation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SeeMarkersInMissionTutorial 实例

@@ -32,7 +32,7 @@ Treat `IntegerInputTextWidget` as a Widget-style extension point: first identify
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**Purpose:** Executes the response logic associated with `input`.
+**Purpose:** **Purpose:** Executes the response logic associated with input.
 
 ```csharp
 // Obtain an instance of IntegerInputTextWidget from the subsystem API first
@@ -43,7 +43,7 @@ integerInputTextWidget.HandleInput(lastKeysPressed);
 ### SetAllText
 `public override void SetAllText(string text)`
 
-**Purpose:** Assigns a new value to `all text` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to all text and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of IntegerInputTextWidget from the subsystem API first

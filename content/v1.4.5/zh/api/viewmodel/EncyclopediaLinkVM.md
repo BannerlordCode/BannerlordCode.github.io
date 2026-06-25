@@ -29,7 +29,7 @@ description: "EncyclopediaLinkVM 的自动生成类参考。"
 ### ExecuteActiveLink
 `public void ExecuteActiveLink()`
 
-**用途 / Purpose:** 执行 「active link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 active link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaLinkVM 实例

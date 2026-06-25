@@ -33,7 +33,7 @@ description: "Building 的自动生成类参考。"
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -44,7 +44,7 @@ var result = building.GetHashCode();
 ### GetConstructionCost
 `public int GetConstructionCost()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「construction cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 construction cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -55,7 +55,7 @@ var result = building.GetConstructionCost();
 ### LevelUp
 `public void LevelUp()`
 
-**用途 / Purpose:** 处理与 「level up」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 LevelUp 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -66,7 +66,7 @@ building.LevelUp();
 ### LevelDown
 `public void LevelDown()`
 
-**用途 / Purpose:** 处理与 「level down」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 LevelDown 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -77,7 +77,7 @@ building.LevelDown();
 ### HitPointChanged
 `public void HitPointChanged(float change)`
 
-**用途 / Purpose:** 响应 「hit point changed」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HitPointChanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -88,7 +88,7 @@ building.HitPointChanged(0);
 ### AddEffectOfBuilding
 `public void AddEffectOfBuilding(BuildingEffectEnum buildingEffect, ref ExplainedNumber result)`
 
-**用途 / Purpose:** 将 「effect of building」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 effect of building 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -99,7 +99,7 @@ building.AddEffectOfBuilding(buildingEffect, result);
 ### GetBonusExplanation
 `public TextObject GetBonusExplanation()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「bonus explanation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 bonus explanation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例

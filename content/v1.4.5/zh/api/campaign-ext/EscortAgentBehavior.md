@@ -23,7 +23,7 @@ description: "EscortAgentBehavior 的自动生成类参考。"
 ### OnTargetReachedDelegate
 `public delegate bool OnTargetReachedDelegate(Agent agent, ref Agent escortedAgent, ref Agent targetAgent, ref UsableMachine targetMachine, ref Vec3? targetPosition)`
 
-**用途 / Purpose:** 在 「target reached delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 target reached delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -34,7 +34,7 @@ var result = escortAgentBehavior.OnTargetReachedDelegate(agent, escortedAgent, t
 ### Initialize
 `public void Initialize(Agent escortedAgent, Agent targetAgent, OnTargetReachedDelegate onTargetReached = null)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -45,7 +45,7 @@ escortAgentBehavior.Initialize(escortedAgent, targetAgent, null);
 ### Initialize
 `public void Initialize(Agent escortedAgent, UsableMachine targetMachine, OnTargetReachedDelegate onTargetReached = null)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -56,7 +56,7 @@ escortAgentBehavior.Initialize(escortedAgent, targetMachine, null);
 ### Initialize
 `public void Initialize(Agent escortedAgent, Vec3? targetPosition, OnTargetReachedDelegate onTargetReached = null)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -67,7 +67,7 @@ escortAgentBehavior.Initialize(escortedAgent, targetPosition, null);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -78,7 +78,7 @@ escortAgentBehavior.Tick(0, false);
 ### IsEscortFinished
 `public bool IsEscortFinished()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「escort finished」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 escort finished 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -89,7 +89,7 @@ var result = escortAgentBehavior.IsEscortFinished();
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -100,7 +100,7 @@ var result = escortAgentBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EscortAgentBehavior 实例
@@ -111,7 +111,7 @@ var result = escortAgentBehavior.GetDebugInfo();
 ### AddEscortAgentBehavior
 `public static void AddEscortAgentBehavior(Agent ownerAgent, Agent targetAgent, OnTargetReachedDelegate onTargetReached)`
 
-**用途 / Purpose:** 将 「escort agent behavior」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 escort agent behavior 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -121,7 +121,7 @@ EscortAgentBehavior.AddEscortAgentBehavior(ownerAgent, targetAgent, onTargetReac
 ### RemoveEscortBehaviorOfAgent
 `public static void RemoveEscortBehaviorOfAgent(Agent ownerAgent)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「escort behavior of agent」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 escort behavior of agent。
 
 ```csharp
 // 静态调用，不需要实例
@@ -131,7 +131,7 @@ EscortAgentBehavior.RemoveEscortBehaviorOfAgent(ownerAgent);
 ### CheckIfAgentIsEscortedBy
 `public static bool CheckIfAgentIsEscortedBy(Agent ownerAgent, Agent escortedAgent)`
 
-**用途 / Purpose:** 检查「if agent is escorted by」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查if agent is escorted by在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例

@@ -31,7 +31,7 @@ Treat `DisabledAlphaChangerWidget` as a Widget-style extension point: first iden
 ### DisabledAlphaChangerWidget
 `public class DisabledAlphaChangerWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisabledAlphaChangerWidget logic.
 
 ```csharp
 // Obtain an instance of DisabledAlphaChangerWidget from the subsystem API first

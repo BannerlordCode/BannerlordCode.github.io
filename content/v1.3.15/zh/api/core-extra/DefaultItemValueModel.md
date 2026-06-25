@@ -23,7 +23,7 @@ description: "DefaultItemValueModel 的自动生成类参考。"
 ### CalculateValue
 `public override int CalculateValue(ItemObject item)`
 
-**用途 / Purpose:** 计算「value」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算value的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemValueModel 实例
@@ -34,7 +34,7 @@ var result = defaultItemValueModel.CalculateValue(item);
 ### GetIsTransferable
 `public override bool GetIsTransferable(ItemObject item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is transferable」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is transferable 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemValueModel 实例
@@ -45,7 +45,7 @@ var result = defaultItemValueModel.GetIsTransferable(item);
 ### GetEquipmentValueFromTier
 `public override float GetEquipmentValueFromTier(float itemTierf)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment value from tier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment value from tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemValueModel 实例
@@ -56,7 +56,7 @@ var result = defaultItemValueModel.GetEquipmentValueFromTier(0);
 ### CalculateTier
 `public override float CalculateTier(ItemObject item)`
 
-**用途 / Purpose:** 计算「tier」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算tier的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultItemValueModel 实例

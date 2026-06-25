@@ -23,7 +23,7 @@ description: "StealthCrouchTutorial 的自动生成类参考。"
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tutorials relevant context」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tutorials relevant context 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthCrouchTutorial 实例
@@ -34,7 +34,7 @@ var result = stealthCrouchTutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for activation」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for activation 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthCrouchTutorial 实例
@@ -45,7 +45,7 @@ var result = stealthCrouchTutorial.IsConditionsMetForActivation();
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for completion」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for completion 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthCrouchTutorial 实例
@@ -56,7 +56,7 @@ var result = stealthCrouchTutorial.IsConditionsMetForCompletion();
 ### IsConditionsMetForVisibility
 `public override bool IsConditionsMetForVisibility()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「conditions met for visibility」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 conditions met for visibility 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthCrouchTutorial 实例

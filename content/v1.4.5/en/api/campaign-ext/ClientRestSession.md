@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### Connect
 `public void Connect()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Connect logic.
 
 ```csharp
 // Obtain an instance of ClientRestSession from the subsystem API first
@@ -41,7 +41,7 @@ clientRestSession.Connect();
 ### Disconnect
 `public void Disconnect()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Disconnect logic.
 
 ```csharp
 // Obtain an instance of ClientRestSession from the subsystem API first

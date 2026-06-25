@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### OnCultureSelection
 `public void OnCultureSelection(CharacterCreationCultureVM selectedCulture)`
 
-**Purpose:** Invoked when the `culture selection` event is raised.
+**Purpose:** **Purpose:** Invoked when the culture selection event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first
@@ -44,7 +44,7 @@ characterCreationCultureStageVM.OnCultureSelection(selectedCulture);
 ### OnNextStage
 `public override void OnNextStage()`
 
-**Purpose:** Invoked when the `next stage` event is raised.
+**Purpose:** **Purpose:** Invoked when the next stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first
@@ -55,7 +55,7 @@ characterCreationCultureStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**Purpose:** Invoked when the `previous stage` event is raised.
+**Purpose:** **Purpose:** Invoked when the previous stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first
@@ -66,7 +66,7 @@ characterCreationCultureStageVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `advance to next stage`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first
@@ -77,7 +77,7 @@ var result = characterCreationCultureStageVM.CanAdvanceToNextStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first
@@ -88,7 +88,7 @@ characterCreationCultureStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first
@@ -99,7 +99,7 @@ characterCreationCultureStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageVM from the subsystem API first

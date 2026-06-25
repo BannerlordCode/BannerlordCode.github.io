@@ -23,7 +23,7 @@ Treat `ThumbnailCreatorView` as a View-style extension point: first identify who
 ### CreateThumbnailCreatorView
 `public static ThumbnailCreatorView CreateThumbnailCreatorView()`
 
-**Purpose:** Constructs a new `thumbnail creator view` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new thumbnail creator view entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ThumbnailCreatorView.CreateThumbnailCreatorView();
 ### RegisterScene
 `public void RegisterScene(Scene scene, bool usePostFx = true)`
 
-**Purpose:** Registers `scene` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers scene with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -44,7 +44,7 @@ thumbnailCreatorView.RegisterScene(scene, false);
 ### RegisterCachedEntity
 `public void RegisterCachedEntity(Scene scene, GameEntity entity, string cacheId)`
 
-**Purpose:** Registers `cached entity` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers cached entity with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -55,7 +55,7 @@ thumbnailCreatorView.RegisterCachedEntity(scene, entity, "example");
 ### UnregisterCachedEntity
 `public void UnregisterCachedEntity(string cacheId)`
 
-**Purpose:** Unregisters `cached entity` from the current system.
+**Purpose:** **Purpose:** Unregisters cached entity from the current system.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -66,7 +66,7 @@ thumbnailCreatorView.UnregisterCachedEntity("example");
 ### RegisterRenderRequest
 `public void RegisterRenderRequest(ref ThumbnailRenderRequest request)`
 
-**Purpose:** Registers `render request` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers render request with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -77,7 +77,7 @@ thumbnailCreatorView.RegisterRenderRequest(request);
 ### ClearRequests
 `public void ClearRequests()`
 
-**Purpose:** Removes all `requests` from the current object.
+**Purpose:** **Purpose:** Removes all requests from the this instance.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -88,7 +88,7 @@ thumbnailCreatorView.ClearRequests();
 ### CancelRequest
 `public void CancelRequest(string renderID)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `cel request`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel request.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -99,7 +99,7 @@ thumbnailCreatorView.CancelRequest("example");
 ### GetNumberOfPendingRequests
 `public int GetNumberOfPendingRequests()`
 
-**Purpose:** Reads and returns the `number of pending requests` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of pending requests value held by the this instance.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -110,7 +110,7 @@ var result = thumbnailCreatorView.GetNumberOfPendingRequests();
 ### IsMemoryCleared
 `public bool IsMemoryCleared()`
 
-**Purpose:** Determines whether the current object is in the `memory cleared` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the memory cleared state or condition.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first
@@ -121,7 +121,7 @@ var result = thumbnailCreatorView.IsMemoryCleared();
 ### OnThumbnailRenderCompleteDelegate
 `public delegate void OnThumbnailRenderCompleteDelegate(string renderId, Texture renderTarget)`
 
-**Purpose:** Invoked when the `thumbnail render complete delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the thumbnail render complete delegate event is raised.
 
 ```csharp
 // Obtain an instance of ThumbnailCreatorView from the subsystem API first

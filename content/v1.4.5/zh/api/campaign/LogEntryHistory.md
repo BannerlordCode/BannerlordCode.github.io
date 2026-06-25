@@ -23,7 +23,7 @@ description: "LogEntryHistory 的自动生成类参考。"
 ### DeleteOutdatedLogs
 `public void DeleteOutdatedLogs()`
 
-**用途 / Purpose:** 处理与 「delete outdated logs」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteOutdatedLogs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LogEntryHistory 实例
@@ -34,7 +34,7 @@ logEntryHistory.DeleteOutdatedLogs();
 ### GetStartIndexForComments
 `public int GetStartIndexForComments()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「start index for comments」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 start index for comments 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LogEntryHistory 实例
@@ -45,7 +45,7 @@ var result = logEntryHistory.GetStartIndexForComments();
 ### GetRelevantComment
 `public LogEntry GetRelevantComment(Hero conversationHero, out int bestScore, out string bestRelatedLogEntryTag)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relevant comment」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relevant comment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LogEntryHistory 实例

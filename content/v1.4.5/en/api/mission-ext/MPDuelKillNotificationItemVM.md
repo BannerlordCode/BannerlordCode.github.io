@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### InitProperties
 `public void InitProperties(MissionPeer firstPlayerPeer, MissionPeer secondPlayerPeer)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `properties`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by properties.
 
 ```csharp
 // Obtain an instance of MPDuelKillNotificationItemVM from the subsystem API first
@@ -47,7 +47,7 @@ mPDuelKillNotificationItemVM.InitProperties(firstPlayerPeer, secondPlayerPeer);
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Runs the operation or workflow associated with `remove`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of MPDuelKillNotificationItemVM from the subsystem API first

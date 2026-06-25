@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### TryLoadFontFromPath
 `public bool TryLoadFontFromPath(string path, SpriteData spriteData)`
 
-**Purpose:** Attempts to retrieve `load font from path`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve load font from path, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of Font from the subsystem API first
@@ -49,7 +49,7 @@ var result = font.TryLoadFontFromPath("example", spriteData);
 ### GetWordWidth
 `public float GetWordWidth(string word, float extraPadding)`
 
-**Purpose:** Reads and returns the `word width` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the word width value held by the this instance.
 
 ```csharp
 // Obtain an instance of Font from the subsystem API first
@@ -60,7 +60,7 @@ var result = font.GetWordWidth("example", 0);
 ### GetCharacterWidth
 `public float GetCharacterWidth(char character, float extraPadding)`
 
-**Purpose:** Reads and returns the `character width` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character width value held by the this instance.
 
 ```csharp
 // Obtain an instance of Font from the subsystem API first
@@ -71,7 +71,7 @@ var result = font.GetCharacterWidth(character, 0);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Font from the subsystem API first

@@ -120,7 +120,7 @@ description: "AgentDrivenProperties 的自动生成类参考。"
 ### GetStat
 `public float GetStat(DrivenProperty propertyEnum)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「stat」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stat 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentDrivenProperties 实例
@@ -131,7 +131,7 @@ var result = agentDrivenProperties.GetStat(propertyEnum);
 ### SetStat
 `public void SetStat(DrivenProperty propertyEnum, float value)`
 
-**用途 / Purpose:** 为 「stat」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 stat 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentDrivenProperties 实例

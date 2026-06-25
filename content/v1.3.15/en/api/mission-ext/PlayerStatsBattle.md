@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int roundsWon, int roundsLost)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillWith logic.
 
 ```csharp
 // Obtain an instance of PlayerStatsBattle from the subsystem API first
@@ -41,7 +41,7 @@ playerStatsBattle.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0);
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillWithNewPlayer logic.
 
 ```csharp
 // Obtain an instance of PlayerStatsBattle from the subsystem API first
@@ -52,7 +52,7 @@ playerStatsBattle.FillWithNewPlayer(playerId);
 ### Update
 `public void Update(BattlePlayerStatsBattle stats, bool won)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of PlayerStatsBattle from the subsystem API first

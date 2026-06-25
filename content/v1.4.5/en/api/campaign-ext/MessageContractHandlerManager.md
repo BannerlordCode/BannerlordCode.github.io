@@ -23,7 +23,7 @@ Treat `MessageContractHandlerManager` as a Manager-style extension point: first 
 ### HandleMessage
 `public void HandleMessage(MessageContract messageContract)`
 
-**Purpose:** Executes the response logic associated with `message`.
+**Purpose:** **Purpose:** Executes the response logic associated with message.
 
 ```csharp
 // Obtain an instance of MessageContractHandlerManager from the subsystem API first
@@ -34,7 +34,7 @@ messageContractHandlerManager.HandleMessage(messageContract);
 ### HandleNetworkMessage
 `public void HandleNetworkMessage(NetworkMessage networkMessage)`
 
-**Purpose:** Executes the response logic associated with `network message`.
+**Purpose:** **Purpose:** Executes the response logic associated with network message.
 
 ```csharp
 // Obtain an instance of MessageContractHandlerManager from the subsystem API first
@@ -45,7 +45,7 @@ messageContractHandlerManager.HandleNetworkMessage(networkMessage);
 ### ContainsMessageHandler
 `public bool ContainsMessageHandler(byte id)`
 
-**Purpose:** Indicates whether the current object contains `message handler`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains message handler.
 
 ```csharp
 // Obtain an instance of MessageContractHandlerManager from the subsystem API first

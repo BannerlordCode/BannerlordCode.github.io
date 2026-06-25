@@ -23,7 +23,7 @@ description: "SpeedBonusEffect 的自动生成类参考。"
 ### GetSpeedBonusEffectiveness
 `public override float GetSpeedBonusEffectiveness(Agent attacker, WeaponComponentData attackerWeapon, DamageTypes damageType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「speed bonus effectiveness」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 speed bonus effectiveness 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpeedBonusEffect 实例

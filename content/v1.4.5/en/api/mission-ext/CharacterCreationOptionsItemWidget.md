@@ -33,7 +33,7 @@ Treat `CharacterCreationOptionsItemWidget` as a Widget-style extension point: fi
 ### CharacterCreationOptionsItemWidget
 `public class CharacterCreationOptionsItemWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CharacterCreationOptionsItemWidget logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationOptionsItemWidget from the subsystem API first

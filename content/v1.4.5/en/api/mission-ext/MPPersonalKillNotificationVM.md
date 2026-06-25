@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### OnGoldChange
 `public void OnGoldChange(int changeAmount, GoldGainFlags goldGainType)`
 
-**Purpose:** Invoked when the `gold change` event is raised.
+**Purpose:** **Purpose:** Invoked when the gold change event is raised.
 
 ```csharp
 // Obtain an instance of MPPersonalKillNotificationVM from the subsystem API first
@@ -40,7 +40,7 @@ mPPersonalKillNotificationVM.OnGoldChange(0, goldGainType);
 ### OnPersonalHit
 `public void OnPersonalHit(int damageAmount, bool isFatal, bool isMountDamage, bool isFriendlyFire, bool isHeadshot, string killedAgentName)`
 
-**Purpose:** Invoked when the `personal hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the personal hit event is raised.
 
 ```csharp
 // Obtain an instance of MPPersonalKillNotificationVM from the subsystem API first
@@ -51,7 +51,7 @@ mPPersonalKillNotificationVM.OnPersonalHit(0, false, false, false, false, "examp
 ### OnPersonalAssist
 `public void OnPersonalAssist(string killedAgentName)`
 
-**Purpose:** Invoked when the `personal assist` event is raised.
+**Purpose:** **Purpose:** Invoked when the personal assist event is raised.
 
 ```csharp
 // Obtain an instance of MPPersonalKillNotificationVM from the subsystem API first

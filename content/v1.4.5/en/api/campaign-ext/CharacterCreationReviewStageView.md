@@ -29,7 +29,7 @@ Treat `CharacterCreationReviewStageView` as a View-style extension point: first 
 ### SetGenericScene
 `public override void SetGenericScene(Scene scene)`
 
-**Purpose:** Assigns a new value to `generic scene` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to generic scene and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -40,7 +40,7 @@ characterCreationReviewStageView.SetGenericScene(scene);
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -51,7 +51,7 @@ characterCreationReviewStageView.Tick(0);
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -62,7 +62,7 @@ characterCreationReviewStageView.NextStage();
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the virtual stage count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -73,7 +73,7 @@ var result = characterCreationReviewStageView.GetVirtualStageCount();
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreviousStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -84,7 +84,7 @@ characterCreationReviewStageView.PreviousStage();
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Reads and returns the `layers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layers value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -95,7 +95,7 @@ var result = characterCreationReviewStageView.GetLayers();
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads escape menu movie from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first
@@ -106,7 +106,7 @@ characterCreationReviewStageView.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseEscapeMenuMovie logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationReviewStageView from the subsystem API first

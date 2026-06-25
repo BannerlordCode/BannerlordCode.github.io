@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### OnDestroy
 `public override void OnDestroy()`
 
-**Purpose:** Invoked when the `destroy` event is raised.
+**Purpose:** **Purpose:** Invoked when the destroy event is raised.
 
 ```csharp
 // Obtain an instance of CustomGame from the subsystem API first
@@ -40,7 +40,7 @@ customGame.OnDestroy();
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**Purpose:** Invoked when the `state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the state changed event is raised.
 
 ```csharp
 // Obtain an instance of CustomGame from the subsystem API first

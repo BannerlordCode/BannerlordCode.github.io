@@ -29,7 +29,7 @@ description: "PolicyDecisionOutcome 的自动生成类参考。"
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PolicyDecisionOutcome 实例
@@ -40,7 +40,7 @@ var result = policyDecisionOutcome.GetDecisionTitle();
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PolicyDecisionOutcome 实例
@@ -51,7 +51,7 @@ var result = policyDecisionOutcome.GetDecisionDescription();
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision link 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PolicyDecisionOutcome 实例
@@ -62,7 +62,7 @@ var result = policyDecisionOutcome.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision image identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PolicyDecisionOutcome 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### Compare
 `public int Compare(OrderTroopItemVM x, OrderTroopItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TroopItemFormationIndexComparer from the subsystem API first

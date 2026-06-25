@@ -106,9 +106,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## Usage Example
 
-```csharp
-var example = new Campaign Actions Reference();
-```
+// （占位示例已移除，见正文说明）
 
 ## See Also
 

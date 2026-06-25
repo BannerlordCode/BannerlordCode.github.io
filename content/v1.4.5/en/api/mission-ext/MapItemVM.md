@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle.Selecti
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**Purpose:** Recalculates and stores the latest representation of `searched text`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of searched text.
 
 ```csharp
 // Obtain an instance of MapItemVM from the subsystem API first

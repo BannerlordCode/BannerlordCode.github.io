@@ -19,7 +19,7 @@ ChangeClanLeaderAction 是一组静态方法，用于在战役中以特定原因
 public static void ApplyWithSelectedNewLeader(Clan clan, Hero newLeader)
 ```
 
-**用途 / Purpose:** with selected new leader。
+**用途 / Purpose:** **用途 / Purpose:** 将 with selected new leader 的效果应用到当前对象。
 
 ### ApplyWithoutSelectedNewLeader
 
@@ -27,7 +27,7 @@ public static void ApplyWithSelectedNewLeader(Clan clan, Hero newLeader)
 public static void ApplyWithoutSelectedNewLeader(Clan clan)
 ```
 
-**用途 / Purpose:** without selected new leader。
+**用途 / Purpose:** **用途 / Purpose:** 将 without selected new leader 的效果应用到当前对象。
 
 ## 使用示例
 

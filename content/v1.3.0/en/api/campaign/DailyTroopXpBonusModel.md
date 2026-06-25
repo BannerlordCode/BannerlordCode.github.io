@@ -23,7 +23,7 @@ Treat `DailyTroopXpBonusModel` as a Model-style extension point: first identify 
 ### CalculateDailyTroopXpBonus
 `public abstract int CalculateDailyTroopXpBonus(Town town)`
 
-**Purpose:** Calculates the current value or result of `daily troop xp bonus`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily troop xp bonus.
 
 ```csharp
 // Obtain an instance of DailyTroopXpBonusModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = dailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
 ### CalculateGarrisonXpBonusMultiplier
 `public abstract float CalculateGarrisonXpBonusMultiplier(Town town)`
 
-**Purpose:** Calculates the current value or result of `garrison xp bonus multiplier`.
+**Purpose:** **Purpose:** Calculates the current value or result of garrison xp bonus multiplier.
 
 ```csharp
 // Obtain an instance of DailyTroopXpBonusModel from the subsystem API first

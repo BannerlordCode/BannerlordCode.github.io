@@ -23,7 +23,7 @@ Treat `MissionTournamentJoustingView` as a View-style extension point: first ide
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionTournamentJoustingView from the subsystem API first
@@ -34,7 +34,7 @@ missionTournamentJoustingView.AfterStart();
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Invoked when the `agent hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of MissionTournamentJoustingView from the subsystem API first
@@ -45,7 +45,7 @@ missionTournamentJoustingView.OnAgentHit(affectedAgent, affectorAgent, attackerW
 ### ShowMessage
 `public void ShowMessage(string str, float duration, bool hasPriority = true)`
 
-**Purpose:** Displays the UI or element associated with `message`.
+**Purpose:** **Purpose:** Displays the UI or element associated with message.
 
 ```csharp
 // Obtain an instance of MissionTournamentJoustingView from the subsystem API first
@@ -56,7 +56,7 @@ missionTournamentJoustingView.ShowMessage("example", 0, false);
 ### ShowMessage
 `public void ShowMessage(Agent agent, string str, float duration, bool hasPriority = true)`
 
-**Purpose:** Displays the UI or element associated with `message`.
+**Purpose:** **Purpose:** Displays the UI or element associated with message.
 
 ```csharp
 // Obtain an instance of MissionTournamentJoustingView from the subsystem API first
@@ -67,7 +67,7 @@ missionTournamentJoustingView.ShowMessage(agent, "example", 0, false);
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteMessage logic.
 
 ```csharp
 // Obtain an instance of MissionTournamentJoustingView from the subsystem API first
@@ -78,7 +78,7 @@ missionTournamentJoustingView.DeleteMessage("example");
 ### DeleteMessage
 `public void DeleteMessage(Agent agent, string str)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteMessage logic.
 
 ```csharp
 // Obtain an instance of MissionTournamentJoustingView from the subsystem API first

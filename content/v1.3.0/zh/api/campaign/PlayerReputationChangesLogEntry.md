@@ -23,7 +23,7 @@ description: "PlayerReputationChangesLogEntry 的自动生成类参考。"
 ### GetConversationScoreAndComment
 `public override void GetConversationScoreAndComment(Hero talkTroop, bool findString, out string comment, out ImportanceEnum score)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「conversation score and comment」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 conversation score and comment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerReputationChangesLogEntry 实例
@@ -34,7 +34,7 @@ playerReputationChangesLogEntry.GetConversationScoreAndComment(talkTroop, false,
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerReputationChangesLogEntry 实例

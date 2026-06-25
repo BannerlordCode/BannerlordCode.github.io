@@ -23,7 +23,7 @@ description: "InquiryData 的自动生成类参考。"
 ### SetText
 `public void SetText(string text)`
 
-**用途 / Purpose:** 为 「text」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 text 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InquiryData 实例
@@ -34,7 +34,7 @@ inquiryData.SetText("example");
 ### SetTitleText
 `public void SetTitleText(string titleText)`
 
-**用途 / Purpose:** 为 「title text」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 title text 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InquiryData 实例
@@ -45,7 +45,7 @@ inquiryData.SetTitleText("example");
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「same content with」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 same content with。
 
 ```csharp
 // 先通过子系统 API 拿到 InquiryData 实例

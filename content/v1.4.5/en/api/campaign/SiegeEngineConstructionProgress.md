@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Siege` to place it in the stack,
 ### SetRedeploymentProgress
 `public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**Purpose:** Assigns a new value to `redeployment progress` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to redeployment progress and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
@@ -45,7 +45,7 @@ siegeEngineConstructionProgress.SetRedeploymentProgress(0);
 ### SetHitpoints
 `public void SetHitpoints(float hitPoints)`
 
-**Purpose:** Assigns a new value to `hitpoints` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to hitpoints and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
@@ -56,7 +56,7 @@ siegeEngineConstructionProgress.SetHitpoints(0);
 ### SetProgress
 `public void SetProgress(float progress)`
 
-**Purpose:** Assigns a new value to `progress` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to progress and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first
@@ -67,7 +67,7 @@ siegeEngineConstructionProgress.SetProgress(0);
 ### SetRangedSiegeEngine
 `public void SetRangedSiegeEngine(RangedSiegeEngine rangedSiegeEngine)`
 
-**Purpose:** Assigns a new value to `ranged siege engine` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to ranged siege engine and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeEngineConstructionProgress from the subsystem API first

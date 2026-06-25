@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### CreateInstance
 `public static TextureProvider CreateInstance(string textureProviderName)`
 
-**Purpose:** Constructs a new `instance` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new instance entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TextureProviderFactory.CreateInstance("example");
 ### RefreshProviderTypes
 `public static void RefreshProviderTypes()`
 
-**Purpose:** Keeps the display or cache of `provider types` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of provider types in sync with the underlying state.
 
 ```csharp
 // Static call; no instance required

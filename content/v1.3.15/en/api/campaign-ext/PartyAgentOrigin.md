@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.AgentOrigins` to place it in the
 ### SetWounded
 `public void SetWounded()`
 
-**Purpose:** Assigns a new value to `wounded` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wounded and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyAgentOrigin from the subsystem API first
@@ -49,7 +49,7 @@ partyAgentOrigin.SetWounded();
 ### SetKilled
 `public void SetKilled()`
 
-**Purpose:** Assigns a new value to `killed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to killed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyAgentOrigin from the subsystem API first
@@ -60,7 +60,7 @@ partyAgentOrigin.SetKilled();
 ### SetRouted
 `public void SetRouted(bool isOrderRetreat)`
 
-**Purpose:** Assigns a new value to `routed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to routed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyAgentOrigin from the subsystem API first
@@ -71,7 +71,7 @@ partyAgentOrigin.SetRouted(false);
 ### OnAgentRemoved
 `public void OnAgentRemoved(float agentHealth)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of PartyAgentOrigin from the subsystem API first
@@ -82,7 +82,7 @@ partyAgentOrigin.OnAgentRemoved(0);
 ### SetBanner
 `public void SetBanner(Banner banner)`
 
-**Purpose:** Assigns a new value to `banner` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to banner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PartyAgentOrigin from the subsystem API first

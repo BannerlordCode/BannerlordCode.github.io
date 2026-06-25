@@ -19,7 +19,7 @@ StartBattleAction is a set of static methods that trigger "StartBattle" in the c
 public static void Apply(PartyBase attackerParty, PartyBase defenderParty)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyStartBattle
 
@@ -27,7 +27,7 @@ public static void Apply(PartyBase attackerParty, PartyBase defenderParty)
 public static void ApplyStartBattle(MobileParty attackerParty, MobileParty defenderParty)
 ```
 
-**Purpose:** start battle.
+**Purpose:** **Purpose:** Applies the effect of start battle to the this instance.
 
 ### ApplyStartRaid
 
@@ -35,7 +35,7 @@ public static void ApplyStartBattle(MobileParty attackerParty, MobileParty defen
 public static void ApplyStartRaid(MobileParty attackerParty, Settlement settlement)
 ```
 
-**Purpose:** start raid.
+**Purpose:** **Purpose:** Applies the effect of start raid to the this instance.
 
 ### ApplyStartSallyOut
 
@@ -43,7 +43,7 @@ public static void ApplyStartRaid(MobileParty attackerParty, Settlement settleme
 public static void ApplyStartSallyOut(Settlement settlement, MobileParty defenderParty)
 ```
 
-**Purpose:** start sally out.
+**Purpose:** **Purpose:** Applies the effect of start sally out to the this instance.
 
 ### ApplyStartAssaultAgainstWalls
 
@@ -51,7 +51,7 @@ public static void ApplyStartSallyOut(Settlement settlement, MobileParty defende
 public static void ApplyStartAssaultAgainstWalls(MobileParty attackerParty, Settlement settlement)
 ```
 
-**Purpose:** start assault against walls.
+**Purpose:** **Purpose:** Applies the effect of start assault against walls to the this instance.
 
 ## Usage Example
 

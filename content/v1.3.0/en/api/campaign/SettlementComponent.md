@@ -41,7 +41,7 @@ Treat `SettlementComponent` as a Component-style extension point: first identify
 ### GetProsperityLevel
 `public virtual SettlementComponent.ProsperityLevel GetProsperityLevel()`
 
-**Purpose:** Reads and returns the `prosperity level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prosperity level value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -52,7 +52,7 @@ var result = settlementComponent.GetProsperityLevel();
 ### GetDefaultComponentBanner
 `public virtual Banner GetDefaultComponentBanner()`
 
-**Purpose:** Reads and returns the `default component banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -63,7 +63,7 @@ var result = settlementComponent.GetDefaultComponentBanner();
 ### OnPartyEntered
 `public virtual void OnPartyEntered(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `party entered` event is raised.
+**Purpose:** **Purpose:** Invoked when the party entered event is raised.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -74,7 +74,7 @@ settlementComponent.OnPartyEntered(mobileParty);
 ### OnPartyLeft
 `public virtual void OnPartyLeft(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `party left` event is raised.
+**Purpose:** **Purpose:** Invoked when the party left event is raised.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -85,7 +85,7 @@ settlementComponent.OnPartyLeft(mobileParty);
 ### OnInit
 `public virtual void OnInit()`
 
-**Purpose:** Invoked when the `init` event is raised.
+**Purpose:** **Purpose:** Invoked when the init event is raised.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -96,7 +96,7 @@ settlementComponent.OnInit();
 ### OnSessionStart
 `public virtual void OnSessionStart()`
 
-**Purpose:** Invoked when the `session start` event is raised.
+**Purpose:** **Purpose:** Invoked when the session start event is raised.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -107,7 +107,7 @@ settlementComponent.OnSessionStart();
 ### ChangeGold
 `public void ChangeGold(int changeAmount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeGold logic.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -118,7 +118,7 @@ settlementComponent.ChangeGold(0);
 ### GetNumberOfTroops
 `public int GetNumberOfTroops()`
 
-**Purpose:** Reads and returns the `number of troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -129,7 +129,7 @@ var result = settlementComponent.GetNumberOfTroops();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -140,7 +140,7 @@ settlementComponent.Deserialize(objectManager, node);
 ### GetItemPrice
 `public virtual int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** Reads and returns the `item price` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item price value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -151,7 +151,7 @@ var result = settlementComponent.GetItemPrice(item, null, false);
 ### GetItemPrice
 `public virtual int GetItemPrice(EquipmentElement itemRosterElement, MobileParty tradingParty = null, bool isSelling = false)`
 
-**Purpose:** Reads and returns the `item price` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item price value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -162,7 +162,7 @@ var result = settlementComponent.GetItemPrice(itemRosterElement, null, false);
 ### OnRelatedPartyRemoved
 `public virtual void OnRelatedPartyRemoved(MobileParty mobileParty)`
 
-**Purpose:** Invoked when the `related party removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the related party removed event is raised.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first
@@ -173,7 +173,7 @@ settlementComponent.OnRelatedPartyRemoved(mobileParty);
 ### GetPrisonerHeroes
 `public List<CharacterObject> GetPrisonerHeroes()`
 
-**Purpose:** Reads and returns the `prisoner heroes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prisoner heroes value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementComponent from the subsystem API first

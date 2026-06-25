@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### GetMessage
 `public abstract Message GetMessage()`
 
-**Purpose:** Reads and returns the `message` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the message value held by the this instance.
 
 ```csharp
 // Obtain an instance of RestResponseMessage from the subsystem API first

@@ -29,7 +29,7 @@ description: "Decal 的自动生成类参考。"
 ### CreateDecal
 `public static Decal CreateDecal(string name = null)`
 
-**用途 / Purpose:** 构建一个新的 「decal」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 decal 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ Decal.CreateDecal("example");
 ### CreateCopy
 `public Decal CreateCopy()`
 
-**用途 / Purpose:** 构建一个新的 「copy」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 copy 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -50,7 +50,7 @@ var result = decal.CreateCopy();
 ### CheckAndRegisterToDecalSet
 `public void CheckAndRegisterToDecalSet()`
 
-**用途 / Purpose:** 检查「and register to decal set」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查and register to decal set在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -61,7 +61,7 @@ decal.CheckAndRegisterToDecalSet();
 ### SetIsVisible
 `public void SetIsVisible(bool value)`
 
-**用途 / Purpose:** 为 「is visible」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 is visible 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -72,7 +72,7 @@ decal.SetIsVisible(false);
 ### GetFactor1
 `public uint GetFactor1()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「factor1」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 factor1 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -83,7 +83,7 @@ var result = decal.GetFactor1();
 ### OverrideRoadBoundaryP0
 `public void OverrideRoadBoundaryP0(Vec2 data)`
 
-**用途 / Purpose:** 处理与 「override road boundary p0」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OverrideRoadBoundaryP0 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -94,7 +94,7 @@ decal.OverrideRoadBoundaryP0(data);
 ### OverrideRoadBoundaryP1
 `public void OverrideRoadBoundaryP1(Vec2 data)`
 
-**用途 / Purpose:** 处理与 「override road boundary p1」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 OverrideRoadBoundaryP1 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -105,7 +105,7 @@ decal.OverrideRoadBoundaryP1(data);
 ### SetFactor1Linear
 `public void SetFactor1Linear(uint linearFactorColor1)`
 
-**用途 / Purpose:** 为 「factor1 linear」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 factor1 linear 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -116,7 +116,7 @@ decal.SetFactor1Linear(0);
 ### SetFactor1
 `public void SetFactor1(uint factorColor1)`
 
-**用途 / Purpose:** 为 「factor1」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 factor1 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -127,7 +127,7 @@ decal.SetFactor1(0);
 ### SetAlpha
 `public void SetAlpha(float alpha)`
 
-**用途 / Purpose:** 为 「alpha」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 alpha 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -138,7 +138,7 @@ decal.SetAlpha(0);
 ### SetVectorArgument
 `public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** 为 「vector argument」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 vector argument 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -149,7 +149,7 @@ decal.SetVectorArgument(0, 0, 0, 0);
 ### SetVectorArgument2
 `public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)`
 
-**用途 / Purpose:** 为 「vector argument2」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 vector argument2 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -160,7 +160,7 @@ decal.SetVectorArgument2(0, 0, 0, 0);
 ### GetMaterial
 `public Material GetMaterial()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「material」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 material 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -171,7 +171,7 @@ var result = decal.GetMaterial();
 ### SetMaterial
 `public void SetMaterial(Material material)`
 
-**用途 / Purpose:** 为 「material」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 material 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -182,7 +182,7 @@ decal.SetMaterial(material);
 ### SetFrame
 `public void SetFrame(MatrixFrame Frame)`
 
-**用途 / Purpose:** 为 「frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例

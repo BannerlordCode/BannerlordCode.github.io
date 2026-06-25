@@ -30,7 +30,7 @@ Treat `BannerComponent` as a Component-style extension point: first identify who
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**Purpose:** Reads and returns the `copy` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the copy value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerComponent from the subsystem API first
@@ -41,7 +41,7 @@ var result = bannerComponent.GetCopy();
 ### GetBannerEffectBonus
 `public float GetBannerEffectBonus()`
 
-**Purpose:** Reads and returns the `banner effect bonus` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner effect bonus value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerComponent from the subsystem API first
@@ -52,7 +52,7 @@ var result = bannerComponent.GetBannerEffectBonus();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of BannerComponent from the subsystem API first

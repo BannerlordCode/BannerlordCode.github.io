@@ -23,7 +23,7 @@ Treat `MissionOptionsComponent` as a Component-style extension point: first iden
 ### OnAddOptionsUIHandler
 `public void OnAddOptionsUIHandler()`
 
-**Purpose:** Invoked when the `add options u i handler` event is raised.
+**Purpose:** **Purpose:** Invoked when the add options u i handler event is raised.
 
 ```csharp
 // Obtain an instance of MissionOptionsComponent from the subsystem API first

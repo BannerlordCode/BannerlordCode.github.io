@@ -23,7 +23,7 @@ Treat `MapTracksVisualManager` as a Manager-style extension point: first identif
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Invoked when the `visual tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the visual tick event is raised.
 
 ```csharp
 // Obtain an instance of MapTracksVisualManager from the subsystem API first
@@ -34,7 +34,7 @@ mapTracksVisualManager.OnVisualTick(screen, 0, 0);
 ### OnVisualIntersected
 `public override bool OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** Invoked when the `visual intersected` event is raised.
+**Purpose:** **Purpose:** Invoked when the visual intersected event is raised.
 
 ```csharp
 // Obtain an instance of MapTracksVisualManager from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapTracksVisualManager.OnVisualIntersected(mouseRay, intersectedEnt
 ### OnGameLoadFinished
 `public override void OnGameLoadFinished()`
 
-**Purpose:** Invoked when the `game load finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the game load finished event is raised.
 
 ```csharp
 // Obtain an instance of MapTracksVisualManager from the subsystem API first
@@ -56,7 +56,7 @@ mapTracksVisualManager.OnGameLoadFinished();
 ### GetVisualOfEntity
 `public override MapEntityVisual<Track> GetVisualOfEntity(Track entity)`
 
-**Purpose:** Reads and returns the `visual of entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual of entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapTracksVisualManager from the subsystem API first

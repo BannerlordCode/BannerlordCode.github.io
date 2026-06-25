@@ -49,7 +49,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -60,7 +60,7 @@ mPLobbyClanCreationPopupVM.RefreshValues();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -71,7 +71,7 @@ mPLobbyClanCreationPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -82,7 +82,7 @@ mPLobbyClanCreationPopupVM.ExecuteClosePopup();
 ### UpdateFactionErrorText
 `public void UpdateFactionErrorText()`
 
-**Purpose:** Recalculates and stores the latest representation of `faction error text`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of faction error text.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -93,7 +93,7 @@ mPLobbyClanCreationPopupVM.UpdateFactionErrorText();
 ### UpdateSigilIconErrorText
 `public void UpdateSigilIconErrorText()`
 
-**Purpose:** Recalculates and stores the latest representation of `sigil icon error text`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of sigil icon error text.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -104,7 +104,7 @@ mPLobbyClanCreationPopupVM.UpdateSigilIconErrorText();
 ### UpdateConfirmation
 `public void UpdateConfirmation(PlayerId playerId, ClanCreationAnswer answer)`
 
-**Purpose:** Recalculates and stores the latest representation of `confirmation`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of confirmation.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -115,7 +115,7 @@ mPLobbyClanCreationPopupVM.UpdateConfirmation(playerId, answer);
 ### ExecuteSwitchToWaiting
 `public void ExecuteSwitchToWaiting()`
 
-**Purpose:** Runs the operation or workflow associated with `switch to waiting`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with switch to waiting.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -126,7 +126,7 @@ mPLobbyClanCreationPopupVM.ExecuteSwitchToWaiting();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first
@@ -137,7 +137,7 @@ mPLobbyClanCreationPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanCreationPopupVM from the subsystem API first

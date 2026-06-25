@@ -35,7 +35,7 @@ description: "DecisionOutcome 的自动生成类参考。"
 ### GetDecisionTitle
 `public abstract TextObject GetDecisionTitle()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision title」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例
@@ -46,7 +46,7 @@ var result = decisionOutcome.GetDecisionTitle();
 ### GetDecisionDescription
 `public abstract TextObject GetDecisionDescription()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision description」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例
@@ -57,7 +57,7 @@ var result = decisionOutcome.GetDecisionDescription();
 ### GetDecisionLink
 `public abstract string GetDecisionLink()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision link」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision link 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例
@@ -68,7 +68,7 @@ var result = decisionOutcome.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public abstract ImageIdentifier GetDecisionImageIdentifier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「decision image identifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 decision image identifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例
@@ -79,7 +79,7 @@ var result = decisionOutcome.GetDecisionImageIdentifier();
 ### AddSupport
 `public void AddSupport(Supporter supporter)`
 
-**用途 / Purpose:** 将 「support」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 support 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例
@@ -90,7 +90,7 @@ decisionOutcome.AddSupport(supporter);
 ### ResetSupport
 `public void ResetSupport(Supporter supporter)`
 
-**用途 / Purpose:** 将 「support」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 support 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例
@@ -101,7 +101,7 @@ decisionOutcome.ResetSupport(supporter);
 ### SetSponsor
 `public void SetSponsor(Clan sponsorClan)`
 
-**用途 / Purpose:** 为 「sponsor」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sponsor 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DecisionOutcome 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### TryUpdateChatLogLayerParameters
 `public void TryUpdateChatLogLayerParameters(ref bool isTeamChatAvailable, ref bool inputEnabled, ref bool isToggleChatHintAvailable, ref bool isMouseVisible, ref InputContext inputContext)`
 
-**Purpose:** Attempts to retrieve `update chat log layer parameters`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve update chat log layer parameters, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of GauntletInitialScreen from the subsystem API first

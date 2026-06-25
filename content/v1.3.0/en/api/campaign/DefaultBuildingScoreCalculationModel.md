@@ -23,7 +23,7 @@ Treat `DefaultBuildingScoreCalculationModel` as a Model-style extension point: f
 ### GetNextDailyBuilding
 `public override Building GetNextDailyBuilding(Town town)`
 
-**Purpose:** Reads and returns the `next daily building` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next daily building value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBuildingScoreCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultBuildingScoreCalculationModel.GetNextDailyBuilding(town);
 ### GetNextBuilding
 `public override Building GetNextBuilding(Town town)`
 
-**Purpose:** Reads and returns the `next building` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next building value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultBuildingScoreCalculationModel from the subsystem API first

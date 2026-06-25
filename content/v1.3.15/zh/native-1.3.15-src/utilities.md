@@ -345,6 +345,4 @@ rglUser_config::vftable
 
 ## 使用示例
 
-```csharp
-var example = new 工具函数();
-```
+// （占位示例已移除，见正文说明）

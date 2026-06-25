@@ -32,7 +32,7 @@ description: "BannerColorVM 的自动生成类参考。"
 ### ExecuteSelectIcon
 `public void ExecuteSelectIcon()`
 
-**用途 / Purpose:** 执行 「select icon」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select icon 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerColorVM 实例
@@ -43,7 +43,7 @@ bannerColorVM.ExecuteSelectIcon();
 ### SetOnSelectionAction
 `public void SetOnSelectionAction(Action<BannerColorVM> onSelection)`
 
-**用途 / Purpose:** 为 「on selection action」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 on selection action 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerColorVM 实例

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### TickDebug
 `public void TickDebug(Vec2 position)`
 
-**Purpose:** Advances the `debug` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the debug state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of MovementPath from the subsystem API first

@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Rec
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerVM from the subsystem API first
@@ -49,7 +49,7 @@ recruitVolunteerVM.RefreshValues();
 ### ExecuteRecruit
 `public void ExecuteRecruit(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Runs the operation or workflow associated with `recruit`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with recruit.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerVM from the subsystem API first
@@ -60,7 +60,7 @@ recruitVolunteerVM.ExecuteRecruit(troop);
 ### ExecuteRemoveFromCart
 `public void ExecuteRemoveFromCart(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Runs the operation or workflow associated with `remove from cart`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove from cart.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerVM from the subsystem API first
@@ -71,7 +71,7 @@ recruitVolunteerVM.ExecuteRemoveFromCart(troop);
 ### OnRecruitMoveToCart
 `public void OnRecruitMoveToCart(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Invoked when the `recruit move to cart` event is raised.
+**Purpose:** **Purpose:** Invoked when the recruit move to cart event is raised.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerVM from the subsystem API first
@@ -82,7 +82,7 @@ recruitVolunteerVM.OnRecruitMoveToCart(troop);
 ### OnRecruitRemovedFromCart
 `public void OnRecruitRemovedFromCart(RecruitVolunteerTroopVM troop)`
 
-**Purpose:** Invoked when the `recruit removed from cart` event is raised.
+**Purpose:** **Purpose:** Invoked when the recruit removed from cart event is raised.
 
 ```csharp
 // Obtain an instance of RecruitVolunteerVM from the subsystem API first

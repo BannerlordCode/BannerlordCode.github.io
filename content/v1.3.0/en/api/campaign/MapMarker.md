@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Map` to place it in the stack, t
 ### GetBanner
 `public Banner GetBanner()`
 
-**Purpose:** Reads and returns the `banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapMarker from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapMarker.GetBanner();
 ### GetName
 `public TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapMarker from the subsystem API first
@@ -56,7 +56,7 @@ var result = mapMarker.GetName();
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**Purpose:** Reads and returns the `position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapMarker from the subsystem API first

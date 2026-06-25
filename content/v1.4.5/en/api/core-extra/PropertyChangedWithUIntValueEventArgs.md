@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithUIntValueEventArgs
 `public struct PropertyChangedWithUIntValueEventArgs(string propertyName, uint value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PropertyChangedWithUIntValueEventArgs logic.
 
 ```csharp
 // Obtain an instance of PropertyChangedWithUIntValueEventArgs from the subsystem API first

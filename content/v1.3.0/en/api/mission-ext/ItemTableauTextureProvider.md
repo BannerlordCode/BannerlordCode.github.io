@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders` to p
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of ItemTableauTextureProvider from the subsystem API first
@@ -50,7 +50,7 @@ itemTableauTextureProvider.Clear(false);
 ### SetTargetSize
 `public override void SetTargetSize(int width, int height)`
 
-**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemTableauTextureProvider from the subsystem API first
@@ -61,7 +61,7 @@ itemTableauTextureProvider.SetTargetSize(0, 0);
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ItemTableauTextureProvider from the subsystem API first

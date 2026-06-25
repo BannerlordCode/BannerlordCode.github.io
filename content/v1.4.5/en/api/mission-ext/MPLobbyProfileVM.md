@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first
@@ -50,7 +50,7 @@ mPLobbyProfileVM.RefreshValues();
 ### RefreshRecentGames
 `public void RefreshRecentGames(MBReadOnlyList<MatchHistoryData> recentGames)`
 
-**Purpose:** Keeps the display or cache of `recent games` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of recent games in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first
@@ -61,7 +61,7 @@ mPLobbyProfileVM.RefreshRecentGames(recentGames);
 ### OnMatchSelectionChanged
 `public void OnMatchSelectionChanged(string selectionInfo, bool isMatchFindPossible)`
 
-**Purpose:** Invoked when the `match selection changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the match selection changed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first
@@ -72,7 +72,7 @@ mPLobbyProfileVM.OnMatchSelectionChanged("example", false);
 ### UpdatePlayerData
 `public void UpdatePlayerData(PlayerData playerData, bool updateStatistics = true, bool updateRating = true)`
 
-**Purpose:** Recalculates and stores the latest representation of `player data`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of player data.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first
@@ -83,7 +83,7 @@ mPLobbyProfileVM.UpdatePlayerData(playerData, false, false);
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Invoked when the `player name updated` event is raised.
+**Purpose:** **Purpose:** Invoked when the player name updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first
@@ -94,7 +94,7 @@ mPLobbyProfileVM.OnPlayerNameUpdated("example");
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**Purpose:** Invoked when the `notification received` event is raised.
+**Purpose:** **Purpose:** Invoked when the notification received event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first
@@ -105,7 +105,7 @@ mPLobbyProfileVM.OnNotificationReceived(notification);
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**Purpose:** Invoked when the `clan info changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the clan info changed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyProfileVM from the subsystem API first

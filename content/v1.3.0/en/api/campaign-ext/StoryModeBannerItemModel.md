@@ -23,7 +23,7 @@ Treat `StoryModeBannerItemModel` as a Model-style extension point: first identif
 ### GetPossibleRewardBannerItems
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItems()`
 
-**Purpose:** Reads and returns the `possible reward banner items` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the possible reward banner items value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeBannerItemModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = storyModeBannerItemModel.GetPossibleRewardBannerItems();
 ### CanBannerBeUpdated
 `public override bool CanBannerBeUpdated(ItemObject item)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `banner be updated`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for banner be updated.
 
 ```csharp
 // Obtain an instance of StoryModeBannerItemModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = storyModeBannerItemModel.CanBannerBeUpdated(item);
 ### GetPossibleRewardBannerItemsForHero
 `public override IEnumerable<ItemObject> GetPossibleRewardBannerItemsForHero(Hero hero)`
 
-**Purpose:** Reads and returns the `possible reward banner items for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the possible reward banner items for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeBannerItemModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = storyModeBannerItemModel.GetPossibleRewardBannerItemsForHero(hero);
 ### GetBannerItemLevelForHero
 `public override int GetBannerItemLevelForHero(Hero hero)`
 
-**Purpose:** Reads and returns the `banner item level for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner item level for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeBannerItemModel from the subsystem API first

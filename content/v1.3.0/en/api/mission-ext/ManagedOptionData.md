@@ -23,7 +23,7 @@ Treat `ManagedOptionData` as a Data-style extension point: first identify who cr
 ### GetDefaultValue
 `public virtual float GetDefaultValue()`
 
-**Purpose:** Reads and returns the `default value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -34,7 +34,7 @@ var result = managedOptionData.GetDefaultValue();
 ### Commit
 `public void Commit()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Commit logic.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -45,7 +45,7 @@ managedOptionData.Commit();
 ### GetValue
 `public float GetValue(bool forceRefresh)`
 
-**Purpose:** Reads and returns the `value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -56,7 +56,7 @@ var result = managedOptionData.GetValue(false);
 ### SetValue
 `public void SetValue(float value)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -67,7 +67,7 @@ managedOptionData.SetValue(0);
 ### GetOptionType
 `public object GetOptionType()`
 
-**Purpose:** Reads and returns the `option type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option type value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -78,7 +78,7 @@ var result = managedOptionData.GetOptionType();
 ### IsNative
 `public bool IsNative()`
 
-**Purpose:** Determines whether the current object is in the `native` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the native state or condition.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -89,7 +89,7 @@ var result = managedOptionData.IsNative();
 ### IsAction
 `public bool IsAction()`
 
-**Purpose:** Determines whether the current object is in the `action` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the action state or condition.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first
@@ -100,7 +100,7 @@ var result = managedOptionData.IsAction();
 ### GetIsDisabledAndReasonID
 `public ValueTuple<string, bool> GetIsDisabledAndReasonID()`
 
-**Purpose:** Reads and returns the `is disabled and reason i d` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is disabled and reason i d value held by the this instance.
 
 ```csharp
 // Obtain an instance of ManagedOptionData from the subsystem API first

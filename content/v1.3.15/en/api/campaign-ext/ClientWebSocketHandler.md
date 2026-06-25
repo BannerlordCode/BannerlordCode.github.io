@@ -29,7 +29,7 @@ Treat `ClientWebSocketHandler` as a Handler-style extension point: first identif
 ### Connect
 `public Task Connect(string uri, string token, List<KeyValuePair<string, string>> headers = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Connect logic.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first
@@ -40,7 +40,7 @@ var result = clientWebSocketHandler.Connect("example", "example", list<KeyValueP
 ### Disconnect
 `public Task Disconnect(string reason, bool onDisconnectCommand)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Disconnect logic.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first
@@ -51,7 +51,7 @@ var result = clientWebSocketHandler.Disconnect("example", false);
 ### SendTextMessage
 `public void SendTextMessage(string postBoxId, string text)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendTextMessage logic.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first
@@ -62,7 +62,7 @@ clientWebSocketHandler.SendTextMessage("example", "example");
 ### MessageReceivedDelegate
 `public delegate void MessageReceivedDelegate(WebSocketMessage message, ClientWebSocketHandler socket)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MessageReceivedDelegate logic.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first
@@ -73,7 +73,7 @@ clientWebSocketHandler.MessageReceivedDelegate(message, socket);
 ### OnErrorDelegate
 `public delegate void OnErrorDelegate(ClientWebSocketHandler sender, Exception ex)`
 
-**Purpose:** Invoked when the `error delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the error delegate event is raised.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first
@@ -84,7 +84,7 @@ clientWebSocketHandler.OnErrorDelegate(sender, ex);
 ### DisconnectedDelegate
 `public delegate Task DisconnectedDelegate(ClientWebSocketHandler sender, bool onDisconnectCommand)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisconnectedDelegate logic.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first
@@ -95,7 +95,7 @@ var result = clientWebSocketHandler.DisconnectedDelegate(sender, false);
 ### ConnectedDelegate
 `public delegate Task ConnectedDelegate(ClientWebSocketHandler sender)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ConnectedDelegate logic.
 
 ```csharp
 // Obtain an instance of ClientWebSocketHandler from the subsystem API first

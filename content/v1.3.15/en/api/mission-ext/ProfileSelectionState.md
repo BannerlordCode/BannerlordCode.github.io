@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnProfileSelected
 `public void OnProfileSelected()`
 
-**Purpose:** Invoked when the `profile selected` event is raised.
+**Purpose:** **Purpose:** Invoked when the profile selected event is raised.
 
 ```csharp
 // Obtain an instance of ProfileSelectionState from the subsystem API first
@@ -40,7 +40,7 @@ profileSelectionState.OnProfileSelected();
 ### StartGame
 `public void StartGame()`
 
-**Purpose:** Starts the `game` flow or state machine.
+**Purpose:** **Purpose:** Starts the game flow or state machine.
 
 ```csharp
 // Obtain an instance of ProfileSelectionState from the subsystem API first
@@ -51,7 +51,7 @@ profileSelectionState.StartGame();
 ### OnProfileSelectionEvent
 `public delegate void OnProfileSelectionEvent()`
 
-**Purpose:** Invoked when the `profile selection event` event is raised.
+**Purpose:** **Purpose:** Invoked when the profile selection event event is raised.
 
 ```csharp
 // Obtain an instance of ProfileSelectionState from the subsystem API first

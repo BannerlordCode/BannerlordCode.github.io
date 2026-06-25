@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManag
 ### Compare
 `public override int Compare(KingdomClanItemVM x, KingdomClanItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of ItemMembersComparer from the subsystem API first

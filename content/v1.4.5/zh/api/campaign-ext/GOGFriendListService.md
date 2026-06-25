@@ -23,7 +23,7 @@ description: "GOGFriendListService 的自动生成类参考。"
 ### RequestFriendList
 `public void RequestFriendList()`
 
-**用途 / Purpose:** 处理与 「request friend list」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestFriendList 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 GOGFriendListService 实例

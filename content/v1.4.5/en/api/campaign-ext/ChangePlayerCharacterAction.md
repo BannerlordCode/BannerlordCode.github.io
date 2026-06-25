@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stac
 ### Apply
 `public static void Apply(Hero hero)`
 
-**Purpose:** Applies the current object's effect to its target.
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Static call; no instance required

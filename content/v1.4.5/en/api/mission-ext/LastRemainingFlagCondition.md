@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions
 ### Check
 `public override bool Check(MissionPeer peer)`
 
-**Purpose:** Verifies whether the current object meets the specified condition.
+**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of LastRemainingFlagCondition from the subsystem API first
@@ -34,7 +34,7 @@ var result = lastRemainingFlagCondition.Check(peer);
 ### Check
 `public override bool Check(Agent agent)`
 
-**Purpose:** Verifies whether the current object meets the specified condition.
+**Purpose:** **Purpose:** Verifies whether the this instance meets the specified condition.
 
 ```csharp
 // Obtain an instance of LastRemainingFlagCondition from the subsystem API first

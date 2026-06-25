@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Generates an instance, data, or representation of `into`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of into.
 
 ```csharp
 // Obtain an instance of ConstructorCode from the subsystem API first
@@ -44,7 +44,7 @@ constructorCode.GenerateInto(codeGenerationFile);
 ### AddLine
 `public void AddLine(string line)`
 
-**Purpose:** Adds `line` to the current collection or state.
+**Purpose:** **Purpose:** Adds line to the current collection or state.
 
 ```csharp
 // Obtain an instance of ConstructorCode from the subsystem API first

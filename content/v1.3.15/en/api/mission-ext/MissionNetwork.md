@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnAfterMissionCreated
 `public override void OnAfterMissionCreated()`
 
-**Purpose:** Invoked when the `after mission created` event is raised.
+**Purpose:** **Purpose:** Invoked when the after mission created event is raised.
 
 ```csharp
 // Obtain an instance of MissionNetwork from the subsystem API first
@@ -34,7 +34,7 @@ missionNetwork.OnAfterMissionCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionNetwork from the subsystem API first
@@ -45,7 +45,7 @@ missionNetwork.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionNetwork from the subsystem API first
@@ -56,7 +56,7 @@ missionNetwork.OnRemoveBehavior();
 ### OnPlayerConnectedToServer
 `public virtual void OnPlayerConnectedToServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Invoked when the `player connected to server` event is raised.
+**Purpose:** **Purpose:** Invoked when the player connected to server event is raised.
 
 ```csharp
 // Obtain an instance of MissionNetwork from the subsystem API first
@@ -67,7 +67,7 @@ missionNetwork.OnPlayerConnectedToServer(networkPeer);
 ### OnPlayerDisconnectedFromServer
 `public virtual void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**Purpose:** Invoked when the `player disconnected from server` event is raised.
+**Purpose:** **Purpose:** Invoked when the player disconnected from server event is raised.
 
 ```csharp
 // Obtain an instance of MissionNetwork from the subsystem API first

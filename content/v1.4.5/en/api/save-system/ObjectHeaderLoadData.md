@@ -36,7 +36,7 @@ Treat `ObjectHeaderLoadData` as a Data-style extension point: first identify who
 ### InitialieReaders
 `public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `ialie readers`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by ialie readers.
 
 ```csharp
 // Obtain an instance of ObjectHeaderLoadData from the subsystem API first
@@ -47,7 +47,7 @@ objectHeaderLoadData.InitialieReaders(saveEntryFolder);
 ### CreateObject
 `public void CreateObject()`
 
-**Purpose:** Constructs a new `object` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ObjectHeaderLoadData from the subsystem API first
@@ -58,7 +58,7 @@ objectHeaderLoadData.CreateObject();
 ### AdvancedResolveObject
 `public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AdvancedResolveObject logic.
 
 ```csharp
 // Obtain an instance of ObjectHeaderLoadData from the subsystem API first
@@ -69,7 +69,7 @@ objectHeaderLoadData.AdvancedResolveObject(metaData, objectLoadData);
 ### ResolveObject
 `public void ResolveObject()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResolveObject logic.
 
 ```csharp
 // Obtain an instance of ObjectHeaderLoadData from the subsystem API first

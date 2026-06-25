@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetMountVisuals
 `public void SetMountVisuals(IAgentVisual mountAgentVisuals)`
 
-**Purpose:** Assigns a new value to `mount visuals` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mount visuals and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PeerVisualsHolder from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI` to place it in the stack, then inspect
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SandBoxGauntletGameNotification.Initialize();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxGauntletGameNotification from the subsystem API first
@@ -44,7 +44,7 @@ sandBoxGauntletGameNotification.OnFinalize();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of SandBoxGauntletGameNotification from the subsystem API first
@@ -55,7 +55,7 @@ sandBoxGauntletGameNotification.RegisterEvents();
 ### UnregisterEvents
 `public override void UnregisterEvents()`
 
-**Purpose:** Unregisters `events` from the current system.
+**Purpose:** **Purpose:** Unregisters events from the current system.
 
 ```csharp
 // Obtain an instance of SandBoxGauntletGameNotification from the subsystem API first

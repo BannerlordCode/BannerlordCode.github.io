@@ -23,7 +23,7 @@ description: "SandBoxNavigationCache 的自动生成类参考。"
 ### GetSceneXmlCrcValues
 `public override void GetSceneXmlCrcValues(out uint sceneXmlCrc, out uint sceneNavigationMeshCrc)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「scene xml crc values」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene xml crc values 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxNavigationCache 实例
@@ -34,7 +34,7 @@ sandBoxNavigationCache.GetSceneXmlCrcValues(sceneXmlCrc, sceneNavigationMeshCrc)
 ### FinalizeInitialization
 `public void FinalizeInitialization()`
 
-**用途 / Purpose:** 处理与 「finalize initialization」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeInitialization 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxNavigationCache 实例

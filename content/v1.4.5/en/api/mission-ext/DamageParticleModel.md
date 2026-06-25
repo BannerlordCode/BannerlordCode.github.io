@@ -23,7 +23,7 @@ Treat `DamageParticleModel` as a Model-style extension point: first identify who
 ### GetMeleeAttackBloodParticles
 `public abstract void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Reads and returns the `melee attack blood particles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the melee attack blood particles value held by the this instance.
 
 ```csharp
 // Obtain an instance of DamageParticleModel from the subsystem API first
@@ -34,7 +34,7 @@ damageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, collisi
 ### GetMeleeAttackSweatParticles
 `public abstract void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Reads and returns the `melee attack sweat particles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the melee attack sweat particles value held by the this instance.
 
 ```csharp
 // Obtain an instance of DamageParticleModel from the subsystem API first
@@ -45,7 +45,7 @@ damageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, collisi
 ### GetMissileAttackParticle
 `public abstract int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Reads and returns the `missile attack particle` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the missile attack particle value held by the this instance.
 
 ```csharp
 // Obtain an instance of DamageParticleModel from the subsystem API first

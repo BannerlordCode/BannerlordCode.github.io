@@ -23,7 +23,7 @@ description: "StatsAndAchievementsStoreListener 的自动生成类参考。"
 ### OnUserStatsAndAchievementsStoreFailure
 `public override void OnUserStatsAndAchievementsStoreFailure(IStatsAndAchievementsStoreListener.FailureReason failureReason)`
 
-**用途 / Purpose:** 在 「user stats and achievements store failure」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 user stats and achievements store failure 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例
@@ -34,7 +34,7 @@ statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreFailure(failure
 ### OnUserStatsAndAchievementsStoreSuccess
 `public override void OnUserStatsAndAchievementsStoreSuccess()`
 
-**用途 / Purpose:** 在 「user stats and achievements store success」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 user stats and achievements store success 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例
@@ -45,7 +45,7 @@ statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreSuccess();
 ### UserStatsAndAchievementsStored
 `public delegate void UserStatsAndAchievementsStored(bool success, IStatsAndAchievementsStoreListener.FailureReason? failureReason)`
 
-**用途 / Purpose:** 处理与 「user stats and achievements stored」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UserStatsAndAchievementsStored 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例

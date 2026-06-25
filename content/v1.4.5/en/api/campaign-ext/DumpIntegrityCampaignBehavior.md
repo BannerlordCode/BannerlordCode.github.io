@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of DumpIntegrityCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ dumpIntegrityCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of DumpIntegrityCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ dumpIntegrityCampaignBehavior.RegisterEvents();
 ### IsGameIntegrityAchieved
 `public static bool IsGameIntegrityAchieved(out TextObject reason)`
 
-**Purpose:** Determines whether the current object is in the `game integrity achieved` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the game integrity achieved state or condition.
 
 ```csharp
 // Static call; no instance required

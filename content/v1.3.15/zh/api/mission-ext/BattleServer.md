@@ -45,7 +45,7 @@ description: "BattleServer 的自动生成类参考。"
 ### Initialize
 `public void Initialize(IBattleServerSessionHandler handler)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -56,7 +56,7 @@ battleServer.Initialize(handler);
 ### SetBadgeComponent
 `public void SetBadgeComponent(IBadgeComponent badgeComponent)`
 
-**用途 / Purpose:** 为 「badge component」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 badge component 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -67,7 +67,7 @@ battleServer.SetBadgeComponent(badgeComponent);
 ### StartServer
 `public void StartServer()`
 
-**用途 / Purpose:** 启动「server」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动server流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -78,7 +78,7 @@ battleServer.StartServer();
 ### OnConnected
 `public override void OnConnected()`
 
-**用途 / Purpose:** 在 「connected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 connected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -89,7 +89,7 @@ battleServer.OnConnected();
 ### OnCantConnect
 `public override void OnCantConnect()`
 
-**用途 / Purpose:** 在 「cant connect」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 cant connect 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -100,7 +100,7 @@ battleServer.OnCantConnect();
 ### OnDisconnected
 `public override void OnDisconnected()`
 
-**用途 / Purpose:** 在 「disconnected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 disconnected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -111,7 +111,7 @@ battleServer.OnDisconnected();
 ### BeginEndMission
 `public void BeginEndMission()`
 
-**用途 / Purpose:** 处理与 「begin end mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginEndMission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -122,7 +122,7 @@ battleServer.BeginEndMission();
 ### EndMission
 `public void EndMission(BattleResult battleResult, GameLog gameLogs, int gameTime, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**用途 / Purpose:** 处理与 「end mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndMission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -133,7 +133,7 @@ battleServer.EndMission(battleResult, gameLogs, 0, dictionary<int, 0, dictionary
 ### BattleCancelledForPlayerLeaving
 `public void BattleCancelledForPlayerLeaving(PlayerId leaverID)`
 
-**用途 / Purpose:** 处理与 「battle cancelled for player leaving」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BattleCancelledForPlayerLeaving 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -144,7 +144,7 @@ battleServer.BattleCancelledForPlayerLeaving(leaverID);
 ### BattleStarted
 `public void BattleStarted(BattleResult battleResult)`
 
-**用途 / Purpose:** 响应 「battle started」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BattleStarted 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -155,7 +155,7 @@ battleServer.BattleStarted(battleResult);
 ### UpdateBattleStats
 `public void UpdateBattleStats(BattleResult battleResult, Dictionary<int, int> teamScores)`
 
-**用途 / Purpose:** 重新计算并更新 「battle stats」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 battle stats 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -166,7 +166,7 @@ battleServer.UpdateBattleStats(battleResult, dictionary<int, 0);
 ### DoNotAcceptNewPlayers
 `public void DoNotAcceptNewPlayers()`
 
-**用途 / Purpose:** 处理与 「do not accept new players」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoNotAcceptNewPlayers 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -177,7 +177,7 @@ battleServer.DoNotAcceptNewPlayers();
 ### OnWarmupEnded
 `public void OnWarmupEnded()`
 
-**用途 / Purpose:** 在 「warmup ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 warmup ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -188,7 +188,7 @@ battleServer.OnWarmupEnded();
 ### OnPlayerSpawned
 `public void OnPlayerSpawned(PlayerId playerId)`
 
-**用途 / Purpose:** 在 「player spawned」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player spawned 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -199,7 +199,7 @@ battleServer.OnPlayerSpawned(playerId);
 ### GetPeer
 `public BattlePeer GetPeer(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「peer」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 peer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -210,7 +210,7 @@ var result = battleServer.GetPeer("example");
 ### GetPeer
 `public BattlePeer GetPeer(PlayerId playerId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「peer」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 peer 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -221,7 +221,7 @@ var result = battleServer.GetPeer(playerId);
 ### GetPlayerParty
 `public Guid GetPlayerParty(PlayerId playerId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -232,7 +232,7 @@ var result = battleServer.GetPlayerParty(playerId);
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId, DisconnectType disconnectType, BattleResult battleResult)`
 
-**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 player disconnect 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -243,7 +243,7 @@ battleServer.HandlePlayerDisconnect(playerId, disconnectType, battleResult);
 ### InformGameServerReady
 `public void InformGameServerReady()`
 
-**用途 / Purpose:** 处理与 「inform game server ready」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 InformGameServerReady 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -254,7 +254,7 @@ battleServer.InformGameServerReady();
 ### OnFriendlyHit
 `public void OnFriendlyHit(int round, PlayerId hitter, PlayerId victim, float damage)`
 
-**用途 / Purpose:** 在 「friendly hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 friendly hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -265,7 +265,7 @@ battleServer.OnFriendlyHit(0, hitter, victim, 0);
 ### OnFriendlyKill
 `public void OnFriendlyKill(int round, PlayerId killer, PlayerId victim)`
 
-**用途 / Purpose:** 在 「friendly kill」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 friendly kill 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -276,7 +276,7 @@ battleServer.OnFriendlyKill(0, killer, victim);
 ### AllPlayersConnected
 `public bool AllPlayersConnected()`
 
-**用途 / Purpose:** 处理与 「all players connected」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AllPlayersConnected 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例

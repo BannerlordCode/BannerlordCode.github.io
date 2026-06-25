@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetFileCountFromWidth
 `public int GetFileCountFromWidth(float width)`
 
-**Purpose:** Reads and returns the `file count from width` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file count from width value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -45,7 +45,7 @@ var result = lineFormation.GetFileCountFromWidth(0);
 ### Clone
 `public virtual IFormationArrangement Clone(IFormation formation)`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -56,7 +56,7 @@ var result = lineFormation.Clone(formation);
 ### DeepCopyFrom
 `public virtual void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeepCopyFrom logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -67,7 +67,7 @@ lineFormation.DeepCopyFrom(arrangement);
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -78,7 +78,7 @@ lineFormation.Reset();
 ### IsUnitPositionAvailable
 `public bool IsUnitPositionAvailable(int fileIndex, int rankIndex)`
 
-**Purpose:** Determines whether the current object is in the `unit position available` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the unit position available state or condition.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -89,7 +89,7 @@ var result = lineFormation.IsUnitPositionAvailable(0, 0);
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(int unitIndex)`
 
-**Purpose:** Reads and returns the `local position of unit or default` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local position of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -100,7 +100,7 @@ var result = lineFormation.GetLocalPositionOfUnitOrDefault(0);
 ### GetLocalDirectionOfUnitOrDefault
 `public Vec2? GetLocalDirectionOfUnitOrDefault(int unitIndex)`
 
-**Purpose:** Reads and returns the `local direction of unit or default` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local direction of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -111,7 +111,7 @@ var result = lineFormation.GetLocalDirectionOfUnitOrDefault(0);
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(int unitIndex)`
 
-**Purpose:** Reads and returns the `world position of unit or default` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the world position of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -122,7 +122,7 @@ var result = lineFormation.GetWorldPositionOfUnitOrDefault(0);
 ### GetUnavailableUnitPositions
 `public IEnumerable<Vec2> GetUnavailableUnitPositions()`
 
-**Purpose:** Reads and returns the `unavailable unit positions` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unavailable unit positions value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -133,7 +133,7 @@ var result = lineFormation.GetUnavailableUnitPositions();
 ### AddUnit
 `public bool AddUnit(IFormationUnit unit)`
 
-**Purpose:** Adds `unit` to the current collection or state.
+**Purpose:** **Purpose:** Adds unit to the current collection or state.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -144,7 +144,7 @@ var result = lineFormation.AddUnit(unit);
 ### RemoveUnit
 `public void RemoveUnit(IFormationUnit unit)`
 
-**Purpose:** Removes `unit` from the current collection or state.
+**Purpose:** **Purpose:** Removes unit from the current collection or state.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -155,7 +155,7 @@ lineFormation.RemoveUnit(unit);
 ### GetUnit
 `public IFormationUnit GetUnit(int fileIndex, int rankIndex)`
 
-**Purpose:** Reads and returns the `unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -166,7 +166,7 @@ var result = lineFormation.GetUnit(0, 0);
 ### OnBatchRemoveStart
 `public void OnBatchRemoveStart()`
 
-**Purpose:** Invoked when the `batch remove start` event is raised.
+**Purpose:** **Purpose:** Invoked when the batch remove start event is raised.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -177,7 +177,7 @@ lineFormation.OnBatchRemoveStart();
 ### OnBatchRemoveEnd
 `public void OnBatchRemoveEnd()`
 
-**Purpose:** Invoked when the `batch remove end` event is raised.
+**Purpose:** **Purpose:** Invoked when the batch remove end event is raised.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -188,7 +188,7 @@ lineFormation.OnBatchRemoveEnd();
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count)`
 
-**Purpose:** Reads and returns the `units to pop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units to pop value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -199,7 +199,7 @@ var result = lineFormation.GetUnitsToPop(0);
 ### GetUnitsToPopWithCondition
 `public IEnumerable<IFormationUnit> GetUnitsToPopWithCondition(int count, Func<IFormationUnit, bool> currentCondition)`
 
-**Purpose:** Reads and returns the `units to pop with condition` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units to pop with condition value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -210,7 +210,7 @@ var result = lineFormation.GetUnitsToPopWithCondition(0, func<IFormationUnit, fa
 ### GetUnitsToPop
 `public List<IFormationUnit> GetUnitsToPop(int count, Vec3 targetPosition)`
 
-**Purpose:** Reads and returns the `units to pop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units to pop value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -221,7 +221,7 @@ var result = lineFormation.GetUnitsToPop(0, targetPosition);
 ### GetLocalPositionOfUnitOrDefault
 `public Vec2? GetLocalPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `local position of unit or default` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local position of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -232,7 +232,7 @@ var result = lineFormation.GetLocalPositionOfUnitOrDefault(unit);
 ### GetLocalPositionOfUnitOrDefaultWithAdjustment
 `public Vec2? GetLocalPositionOfUnitOrDefaultWithAdjustment(IFormationUnit unit, float distanceBetweenAgentsAdjustment)`
 
-**Purpose:** Reads and returns the `local position of unit or default with adjustment` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local position of unit or default with adjustment value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -243,7 +243,7 @@ var result = lineFormation.GetLocalPositionOfUnitOrDefaultWithAdjustment(unit, 0
 ### GetLocalDirectionOfUnitOrDefault
 `public virtual Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `local direction of unit or default` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local direction of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -254,7 +254,7 @@ var result = lineFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### GetWorldPositionOfUnitOrDefault
 `public WorldPosition? GetWorldPositionOfUnitOrDefault(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `world position of unit or default` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the world position of unit or default value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -265,7 +265,7 @@ var result = lineFormation.GetWorldPositionOfUnitOrDefault(unit);
 ### GetPlayerUnit
 `public IFormationUnit GetPlayerUnit()`
 
-**Purpose:** Reads and returns the `player unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -276,7 +276,7 @@ var result = lineFormation.GetPlayerUnit();
 ### GetAllUnits
 `public MBReadOnlyList<IFormationUnit> GetAllUnits()`
 
-**Purpose:** Reads and returns the `all units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all units value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -287,7 +287,7 @@ var result = lineFormation.GetAllUnits();
 ### GetAllUnits
 `public void GetAllUnits(in MBList<IFormationUnit> allUnitsListToBeFilledIn)`
 
-**Purpose:** Reads and returns the `all units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all units value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -298,7 +298,7 @@ lineFormation.GetAllUnits(allUnitsListToBeFilledIn);
 ### GetUnpositionedUnits
 `public MBList<IFormationUnit> GetUnpositionedUnits()`
 
-**Purpose:** Reads and returns the `unpositioned units` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unpositioned units value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -309,7 +309,7 @@ var result = lineFormation.GetUnpositionedUnits();
 ### GetLocalDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `local direction of relative formation location` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local direction of relative formation location value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -320,7 +320,7 @@ var result = lineFormation.GetLocalDirectionOfRelativeFormationLocation(unit);
 ### GetLocalWallDirectionOfRelativeFormationLocation
 `public Vec2? GetLocalWallDirectionOfRelativeFormationLocation(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `local wall direction of relative formation location` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local wall direction of relative formation location value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -331,7 +331,7 @@ var result = lineFormation.GetLocalWallDirectionOfRelativeFormationLocation(unit
 ### GetFormationInfo
 `public void GetFormationInfo(out int fileCount, out int rankCount)`
 
-**Purpose:** Reads and returns the `formation info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation info value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -342,7 +342,7 @@ lineFormation.GetFormationInfo(fileCount, rankCount);
 ### GetUnitsDistanceToFrontLine
 `public float GetUnitsDistanceToFrontLine(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `units distance to front line` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the units distance to front line value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -353,7 +353,7 @@ var result = lineFormation.GetUnitsDistanceToFrontLine(unit);
 ### GetNeighborUnitOfLeftSide
 `public IFormationUnit GetNeighborUnitOfLeftSide(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `neighbor unit of left side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the neighbor unit of left side value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -364,7 +364,7 @@ var result = lineFormation.GetNeighborUnitOfLeftSide(unit);
 ### GetNeighborUnitOfRightSide
 `public IFormationUnit GetNeighborUnitOfRightSide(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `neighbor unit of right side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the neighbor unit of right side value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -375,7 +375,7 @@ var result = lineFormation.GetNeighborUnitOfRightSide(unit);
 ### SwitchUnitLocationsWithUnpositionedUnit
 `public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwitchUnitLocationsWithUnpositionedUnit logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -386,7 +386,7 @@ lineFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwitchUnitLocations logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -397,7 +397,7 @@ lineFormation.SwitchUnitLocations(firstUnit, secondUnit);
 ### SwitchUnitLocationsWithBackMostUnit
 `public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwitchUnitLocationsWithBackMostUnit logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -408,7 +408,7 @@ lineFormation.SwitchUnitLocationsWithBackMostUnit(unit);
 ### BeforeFormationFrameChange
 `public void BeforeFormationFrameChange()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeforeFormationFrameChange logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -419,7 +419,7 @@ lineFormation.BeforeFormationFrameChange();
 ### BatchUnitPositionAvailabilities
 `public void BatchUnitPositionAvailabilities(bool isUpdatingCachedOrderedLocalPositions = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BatchUnitPositionAvailabilities logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -430,7 +430,7 @@ lineFormation.BatchUnitPositionAvailabilities(false);
 ### OnFormationFrameChanged
 `public void OnFormationFrameChanged(bool updateCachedOrderedLocalPositions = false)`
 
-**Purpose:** Invoked when the `formation frame changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the formation frame changed event is raised.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -441,7 +441,7 @@ lineFormation.OnFormationFrameChanged(false);
 ### UpdateLocalPositionErrors
 `public void UpdateLocalPositionErrors(bool recalculateErrors)`
 
-**Purpose:** Recalculates and stores the latest representation of `local position errors`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of local position errors.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -452,7 +452,7 @@ lineFormation.UpdateLocalPositionErrors(false);
 ### OnFormationDispersed
 `public void OnFormationDispersed()`
 
-**Purpose:** Invoked when the `formation dispersed` event is raised.
+**Purpose:** **Purpose:** Invoked when the formation dispersed event is raised.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -463,7 +463,7 @@ lineFormation.OnFormationDispersed();
 ### OnUnitLostMount
 `public void OnUnitLostMount(IFormationUnit unit)`
 
-**Purpose:** Invoked when the `unit lost mount` event is raised.
+**Purpose:** **Purpose:** Invoked when the unit lost mount event is raised.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -474,7 +474,7 @@ lineFormation.OnUnitLostMount(unit);
 ### IsTurnBackwardsNecessary
 `public bool IsTurnBackwardsNecessary(Vec2 previousPosition, WorldPosition? newPosition, Vec2 previousDirection, bool hasNewDirection, Vec2? newDirection)`
 
-**Purpose:** Determines whether the current object is in the `turn backwards necessary` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the turn backwards necessary state or condition.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -485,7 +485,7 @@ var result = lineFormation.IsTurnBackwardsNecessary(previousPosition, newPositio
 ### TurnBackwards
 `public virtual void TurnBackwards()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TurnBackwards logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -496,7 +496,7 @@ lineFormation.TurnBackwards();
 ### GetOccupationWidth
 `public float GetOccupationWidth(int unitCount)`
 
-**Purpose:** Reads and returns the `occupation width` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the occupation width value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -507,7 +507,7 @@ var result = lineFormation.GetOccupationWidth(0);
 ### InvalidateCacheOfUnitAux
 `public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InvalidateCacheOfUnitAux logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -518,7 +518,7 @@ lineFormation.InvalidateCacheOfUnitAux(roundedLocalPosition);
 ### CreateNewPosition
 `public Vec2? CreateNewPosition(int unitIndex)`
 
-**Purpose:** Constructs a new `new position` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new position entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -529,7 +529,7 @@ var result = lineFormation.CreateNewPosition(0);
 ### RearrangeFrom
 `public virtual void RearrangeFrom(IFormationArrangement arrangement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RearrangeFrom logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -540,7 +540,7 @@ lineFormation.RearrangeFrom(arrangement);
 ### RearrangeTo
 `public virtual void RearrangeTo(IFormationArrangement arrangement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RearrangeTo logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -551,7 +551,7 @@ lineFormation.RearrangeTo(arrangement);
 ### RearrangeTransferUnits
 `public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RearrangeTransferUnits logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -562,7 +562,7 @@ lineFormation.RearrangeTransferUnits(arrangement);
 ### CalculateWidth
 `public static float CalculateWidth(float interval, float unitDiameter, int unitCountOnLine)`
 
-**Purpose:** Calculates the current value or result of `width`.
+**Purpose:** **Purpose:** Calculates the current value or result of width.
 
 ```csharp
 // Static call; no instance required
@@ -572,7 +572,7 @@ LineFormation.CalculateWidth(0, 0, 0);
 ### FormFromFlankWidth
 `public void FormFromFlankWidth(int unitCountOnLine, bool skipSingleFileChangesForPerformance = false)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FormFromFlankWidth logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -583,7 +583,7 @@ lineFormation.FormFromFlankWidth(0, false);
 ### ReserveMiddleFrontUnitPosition
 `public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReserveMiddleFrontUnitPosition logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -594,7 +594,7 @@ lineFormation.ReserveMiddleFrontUnitPosition(vanguard);
 ### ReleaseMiddleFrontUnitPosition
 `public void ReleaseMiddleFrontUnitPosition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseMiddleFrontUnitPosition logic.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -605,7 +605,7 @@ lineFormation.ReleaseMiddleFrontUnitPosition();
 ### GetLocalPositionOfReservedUnitPosition
 `public Vec2 GetLocalPositionOfReservedUnitPosition()`
 
-**Purpose:** Reads and returns the `local position of reserved unit position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the local position of reserved unit position value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -616,7 +616,7 @@ var result = lineFormation.GetLocalPositionOfReservedUnitPosition();
 ### OnTickOccasionally
 `public void OnTickOccasionally()`
 
-**Purpose:** Invoked when the `tick occasionally` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick occasionally event is raised.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -627,7 +627,7 @@ lineFormation.OnTickOccasionally();
 ### GetDirectionChangeTendencyOfUnit
 `public virtual float GetDirectionChangeTendencyOfUnit(IFormationUnit unit)`
 
-**Purpose:** Reads and returns the `direction change tendency of unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the direction change tendency of unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -638,7 +638,7 @@ var result = lineFormation.GetDirectionChangeTendencyOfUnit(unit);
 ### GetCachedOrderedAndAvailableUnitPositionIndicesCount
 `public int GetCachedOrderedAndAvailableUnitPositionIndicesCount()`
 
-**Purpose:** Reads and returns the `cached ordered and available unit position indices count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cached ordered and available unit position indices count value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -649,7 +649,7 @@ var result = lineFormation.GetCachedOrderedAndAvailableUnitPositionIndicesCount(
 ### GetCachedOrderedAndAvailableUnitPositionIndexAt
 `public Vec2i GetCachedOrderedAndAvailableUnitPositionIndexAt(int i)`
 
-**Purpose:** Reads and returns the `cached ordered and available unit position index at` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cached ordered and available unit position index at value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first
@@ -660,7 +660,7 @@ var result = lineFormation.GetCachedOrderedAndAvailableUnitPositionIndexAt(0);
 ### GetGlobalPositionAtIndex
 `public WorldPosition GetGlobalPositionAtIndex(int indexX, int indexY)`
 
-**Purpose:** Reads and returns the `global position at index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the global position at index value held by the this instance.
 
 ```csharp
 // Obtain an instance of LineFormation from the subsystem API first

@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first
@@ -49,7 +49,7 @@ initialMenuVM.RefreshValues();
 ### RefreshMenuOptions
 `public void RefreshMenuOptions()`
 
-**Purpose:** Keeps the display or cache of `menu options` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of menu options in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first
@@ -60,7 +60,7 @@ initialMenuVM.RefreshMenuOptions();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first
@@ -71,7 +71,7 @@ initialMenuVM.OnFinalize();
 ### ExecuteNavigateToDLCStorePage
 `public void ExecuteNavigateToDLCStorePage()`
 
-**Purpose:** Runs the operation or workflow associated with `navigate to d l c store page`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with navigate to d l c store page.
 
 ```csharp
 // Obtain an instance of InitialMenuVM from the subsystem API first

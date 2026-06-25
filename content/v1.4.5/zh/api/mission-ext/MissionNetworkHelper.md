@@ -23,7 +23,7 @@ description: "MissionNetworkHelper 的自动生成类参考。"
 ### GetAgentFromIndex
 `public static Agent GetAgentFromIndex(int agentIndex, bool canBeNull = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「agent from index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent from index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MissionNetworkHelper.GetAgentFromIndex(0, false);
 ### GetMBTeamFromTeamIndex
 `public static MBTeam GetMBTeamFromTeamIndex(int teamIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「m b team from team index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 m b team from team index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MissionNetworkHelper.GetMBTeamFromTeamIndex(0);
 ### GetTeamFromTeamIndex
 `public static Team GetTeamFromTeamIndex(int teamIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「team from team index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 team from team index 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MissionNetworkHelper.GetTeamFromTeamIndex(0);
 ### GetMissionObjectFromMissionObjectId
 `public static MissionObject GetMissionObjectFromMissionObjectId(MissionObjectId missionObjectId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「mission object from mission object id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mission object from mission object id 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MissionNetworkHelper.GetMissionObjectFromMissionObjectId(missionObjectId);
 ### GetCombatLogDataForCombatLogNetworkMessage
 `public static CombatLogData GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage message)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「combat log data for combat log network message」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 combat log data for combat log network message 的结果。
 
 ```csharp
 // 静态调用，不需要实例

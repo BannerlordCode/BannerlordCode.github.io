@@ -23,7 +23,7 @@ Treat `ApplyWeatherEffectsModel` as a Model-style extension point: first identif
 ### ApplyWeatherEffects
 `public abstract void ApplyWeatherEffects()`
 
-**Purpose:** Applies the effect of `weather effects` to the current object.
+**Purpose:** **Purpose:** Applies the effect of weather effects to the this instance.
 
 ```csharp
 // Obtain an instance of ApplyWeatherEffectsModel from the subsystem API first

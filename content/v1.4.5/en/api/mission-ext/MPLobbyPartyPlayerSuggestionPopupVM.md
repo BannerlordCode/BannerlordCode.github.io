@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyPlayerSuggestionPopupVM from the subsystem API first
@@ -48,7 +48,7 @@ mPLobbyPartyPlayerSuggestionPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(PlayerPartySuggestionData data)`
 
-**Purpose:** Opens the resource or UI associated with `with`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyPlayerSuggestionPopupVM from the subsystem API first
@@ -59,7 +59,7 @@ mPLobbyPartyPlayerSuggestionPopupVM.OpenWith(data);
 ### Close
 `public void Close()`
 
-**Purpose:** Closes the resource or UI represented by the current object.
+**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyPlayerSuggestionPopupVM from the subsystem API first

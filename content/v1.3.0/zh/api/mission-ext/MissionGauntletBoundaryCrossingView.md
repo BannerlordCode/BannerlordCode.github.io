@@ -23,7 +23,7 @@ description: "MissionGauntletBoundaryCrossingView 的自动生成类参考。"
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBoundaryCrossingView 实例
@@ -34,7 +34,7 @@ missionGauntletBoundaryCrossingView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletBoundaryCrossingView 实例

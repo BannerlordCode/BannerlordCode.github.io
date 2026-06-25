@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### ShipVisualSlotInfo
 `public struct ShipVisualSlotInfo(string visualSlotId, string visualPieceId)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShipVisualSlotInfo logic.
 
 ```csharp
 // Obtain an instance of ShipVisualSlotInfo from the subsystem API first

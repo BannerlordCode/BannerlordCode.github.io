@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first
@@ -34,7 +34,7 @@ var result = stealthAreaUsePoint.GetDescriptionText(gameEntity);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `use` event is raised.
+**Purpose:** **Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first
@@ -45,7 +45,7 @@ stealthAreaUsePoint.OnUse(userAgent, 0);
 ### OnUseStopped
 `public override void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Invoked when the `use stopped` event is raised.
+**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first
@@ -56,7 +56,7 @@ stealthAreaUsePoint.OnUseStopped(userAgent, false, 0);
 ### DisableAgentAIs
 `public void DisableAgentAIs()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableAgentAIs logic.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first
@@ -67,7 +67,7 @@ stealthAreaUsePoint.DisableAgentAIs();
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first
@@ -78,7 +78,7 @@ var result = stealthAreaUsePoint.IsDisabledForAgent(agent);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the usable by agent state or condition.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first
@@ -89,7 +89,7 @@ var result = stealthAreaUsePoint.IsUsableByAgent(userAgent);
 ### EnableStealthAreaUsePoint
 `public void EnableStealthAreaUsePoint()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnableStealthAreaUsePoint logic.
 
 ```csharp
 // Obtain an instance of StealthAreaUsePoint from the subsystem API first

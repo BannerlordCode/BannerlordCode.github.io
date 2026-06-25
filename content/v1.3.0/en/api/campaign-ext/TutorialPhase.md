@@ -37,7 +37,7 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### PlayerTalkedWithBrotherForTheFirstTime
 `public void PlayerTalkedWithBrotherForTheFirstTime()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayerTalkedWithBrotherForTheFirstTime logic.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -48,7 +48,7 @@ tutorialPhase.PlayerTalkedWithBrotherForTheFirstTime();
 ### SetLockTutorialVillageEnter
 `public void SetLockTutorialVillageEnter(bool value)`
 
-**Purpose:** Assigns a new value to `lock tutorial village enter` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to lock tutorial village enter and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -59,7 +59,7 @@ tutorialPhase.SetLockTutorialVillageEnter(false);
 ### CompleteTutorial
 `public void CompleteTutorial(bool isSkipped)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CompleteTutorial logic.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -70,7 +70,7 @@ tutorialPhase.CompleteTutorial(false);
 ### SetTutorialFocusSettlement
 `public void SetTutorialFocusSettlement(Settlement settlement)`
 
-**Purpose:** Assigns a new value to `tutorial focus settlement` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to tutorial focus settlement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -81,7 +81,7 @@ tutorialPhase.SetTutorialFocusSettlement(settlement);
 ### RemoveTutorialFocusSettlement
 `public void RemoveTutorialFocusSettlement()`
 
-**Purpose:** Removes `tutorial focus settlement` from the current collection or state.
+**Purpose:** **Purpose:** Removes tutorial focus settlement from the current collection or state.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -92,7 +92,7 @@ tutorialPhase.RemoveTutorialFocusSettlement();
 ### RemoveTutorialFocusMobileParty
 `public void RemoveTutorialFocusMobileParty()`
 
-**Purpose:** Removes `tutorial focus mobile party` from the current collection or state.
+**Purpose:** **Purpose:** Removes tutorial focus mobile party from the current collection or state.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -103,7 +103,7 @@ tutorialPhase.RemoveTutorialFocusMobileParty();
 ### PrepareRecruitOptionForTutorial
 `public void PrepareRecruitOptionForTutorial()`
 
-**Purpose:** Finishes prerequisite setup for the upcoming `recruit option for tutorial` operation.
+**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming recruit option for tutorial operation.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -114,7 +114,7 @@ tutorialPhase.PrepareRecruitOptionForTutorial();
 ### GetAndPrepareBuyProductsOptionForTutorial
 `public ItemRoster GetAndPrepareBuyProductsOptionForTutorial(Village village)`
 
-**Purpose:** Reads and returns the `and prepare buy products option for tutorial` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the and prepare buy products option for tutorial value held by the this instance.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -125,7 +125,7 @@ var result = tutorialPhase.GetAndPrepareBuyProductsOptionForTutorial(village);
 ### SetTutorialQuestPhase
 `public void SetTutorialQuestPhase(TutorialQuestPhase tutorialQuestPhase)`
 
-**Purpose:** Assigns a new value to `tutorial quest phase` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to tutorial quest phase and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first
@@ -136,7 +136,7 @@ tutorialPhase.SetTutorialQuestPhase(tutorialQuestPhase);
 ### InitializeTutorialVillageItemRoster
 `public void InitializeTutorialVillageItemRoster()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `tutorial village item roster`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tutorial village item roster.
 
 ```csharp
 // Obtain an instance of TutorialPhase from the subsystem API first

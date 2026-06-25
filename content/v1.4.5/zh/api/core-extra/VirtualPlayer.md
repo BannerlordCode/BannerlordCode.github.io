@@ -36,7 +36,7 @@ description: "VirtualPlayer 的自动生成类参考。"
 ### Reset
 `public static void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ VirtualPlayer.Reset();
 ### AddComponent
 `public PeerComponent AddComponent(Type peerComponentType)`
 
-**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 component 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -57,7 +57,7 @@ var result = virtualPlayer.AddComponent(peerComponentType);
 ### AddComponent
 `public PeerComponent AddComponent(uint componentId)`
 
-**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 component 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -68,7 +68,7 @@ var result = virtualPlayer.AddComponent(0);
 ### GetComponent
 `public PeerComponent GetComponent(uint componentId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「component」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 component 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -79,7 +79,7 @@ var result = virtualPlayer.GetComponent(0);
 ### GetComponent
 `public PeerComponent GetComponent(Type peerComponentType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「component」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 component 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -90,7 +90,7 @@ var result = virtualPlayer.GetComponent(peerComponentType);
 ### RemoveComponent
 `public void RemoveComponent(PeerComponent component)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「component」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 component。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -101,7 +101,7 @@ virtualPlayer.RemoveComponent(component);
 ### OnDisconnect
 `public void OnDisconnect()`
 
-**用途 / Purpose:** 在 「disconnect」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 disconnect 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -112,7 +112,7 @@ virtualPlayer.OnDisconnect();
 ### SynchronizeComponentsTo
 `public void SynchronizeComponentsTo(VirtualPlayer peer)`
 
-**用途 / Purpose:** 将「hronize components to」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将hronize components to同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例
@@ -123,7 +123,7 @@ virtualPlayer.SynchronizeComponentsTo(peer);
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int playerIndex)`
 
-**用途 / Purpose:** 重新计算并更新 「index for reconnecting player」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 index for reconnecting player 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 VirtualPlayer 实例

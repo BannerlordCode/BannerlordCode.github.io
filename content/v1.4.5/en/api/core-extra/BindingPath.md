@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CreateFromProperty
 `public static BindingPath CreateFromProperty(string propertyName)`
 
-**Purpose:** Constructs a new `from property` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from property entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ BindingPath.CreateFromProperty("example");
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first
@@ -53,7 +53,7 @@ var result = bindingPath.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first
@@ -64,7 +64,7 @@ var result = bindingPath.Equals(obj);
 ### IsRelatedWithPathAsString
 `public static bool IsRelatedWithPathAsString(string path, string referencePath)`
 
-**Purpose:** Determines whether the current object is in the `related with path as string` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the related with path as string state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ BindingPath.IsRelatedWithPathAsString("example", "example");
 ### IsRelatedWithPath
 `public static bool IsRelatedWithPath(string path, BindingPath referencePath)`
 
-**Purpose:** Determines whether the current object is in the `related with path` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the related with path state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ BindingPath.IsRelatedWithPath("example", referencePath);
 ### IsRelatedWith
 `public bool IsRelatedWith(BindingPath referencePath)`
 
-**Purpose:** Determines whether the current object is in the `related with` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the related with state or condition.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first
@@ -95,7 +95,7 @@ var result = bindingPath.IsRelatedWith(referencePath);
 ### DecrementIfRelatedWith
 `public void DecrementIfRelatedWith(BindingPath path, int startIndex)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecrementIfRelatedWith logic.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first
@@ -106,7 +106,7 @@ bindingPath.DecrementIfRelatedWith(path, 0);
 ### Simplify
 `public BindingPath Simplify()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Simplify logic.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first
@@ -117,7 +117,7 @@ var result = bindingPath.Simplify();
 ### Append
 `public BindingPath Append(BindingPath bindingPath)`
 
-**Purpose:** Appends `append` to the end of the current collection or sequence.
+**Purpose:** **Purpose:** Appends append to the end of the current collection or sequence.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first
@@ -128,7 +128,7 @@ var result = bindingPath.Append(bindingPath);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BindingPath from the subsystem API first

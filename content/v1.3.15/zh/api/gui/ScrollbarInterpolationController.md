@@ -29,7 +29,7 @@ description: "ScrollbarInterpolationController 的自动生成类参考。"
 ### SetControlledScrollbar
 `public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-**用途 / Purpose:** 为 「controlled scrollbar」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 controlled scrollbar 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollbarInterpolationController 实例
@@ -40,7 +40,7 @@ scrollbarInterpolationController.SetControlledScrollbar(scrollbar);
 ### StartInterpolation
 `public void StartInterpolation(float targetValue, float duration)`
 
-**用途 / Purpose:** 启动「interpolation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动interpolation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollbarInterpolationController 实例
@@ -51,7 +51,7 @@ scrollbarInterpolationController.StartInterpolation(0, 0);
 ### StopInterpolation
 `public void StopInterpolation()`
 
-**用途 / Purpose:** 停止「interpolation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止interpolation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollbarInterpolationController 实例
@@ -62,7 +62,7 @@ scrollbarInterpolationController.StopInterpolation();
 ### GetValue
 `public float GetValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollbarInterpolationController 实例
@@ -73,7 +73,7 @@ var result = scrollbarInterpolationController.GetValue();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollbarInterpolationController 实例

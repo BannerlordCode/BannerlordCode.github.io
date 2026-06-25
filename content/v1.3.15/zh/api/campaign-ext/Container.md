@@ -34,7 +34,7 @@ description: "Container 的自动生成类参考。"
 ### GetDropGizmoPosition
 `public abstract Vector2 GetDropGizmoPosition(Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「drop gizmo position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 drop gizmo position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Container 实例
@@ -45,7 +45,7 @@ var result = container.GetDropGizmoPosition(draggedWidgetPosition);
 ### GetIndexForDrop
 `public abstract int GetIndexForDrop(Vector2 draggedWidgetPosition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「index for drop」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index for drop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Container 实例
@@ -56,7 +56,7 @@ var result = container.GetIndexForDrop(draggedWidgetPosition);
 ### OnChildSelected
 `public abstract void OnChildSelected(Widget widget)`
 
-**用途 / Purpose:** 在 「child selected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 child selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Container 实例
@@ -67,7 +67,7 @@ container.OnChildSelected(widget);
 ### GetItemDescription
 `public ContainerItemDescription GetItemDescription(string id, int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item description」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Container 实例
@@ -78,7 +78,7 @@ var result = container.GetItemDescription("example", 0);
 ### AddItemDescription
 `public void AddItemDescription(ContainerItemDescription itemDescription)`
 
-**用途 / Purpose:** 将 「item description」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 item description 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Container 实例
@@ -89,7 +89,7 @@ container.AddItemDescription(itemDescription);
 ### FindParentPanel
 `public ScrollablePanel FindParentPanel()`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「parent panel」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的parent panel。
 
 ```csharp
 // 先通过子系统 API 拿到 Container 实例

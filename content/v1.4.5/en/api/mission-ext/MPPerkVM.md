@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.C
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPPerkVM from the subsystem API first
@@ -45,7 +45,7 @@ mPPerkVM.RefreshValues();
 ### ExecuteSelectPerk
 `public void ExecuteSelectPerk()`
 
-**Purpose:** Runs the operation or workflow associated with `select perk`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select perk.
 
 ```csharp
 // Obtain an instance of MPPerkVM from the subsystem API first

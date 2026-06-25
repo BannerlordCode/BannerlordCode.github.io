@@ -29,7 +29,7 @@ description: "StandingPointWithTeamLimit 的自动生成类参考。"
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「disabled for agent」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 disabled for agent 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 StandingPointWithTeamLimit 实例

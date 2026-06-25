@@ -42,7 +42,7 @@ description: "HorseComponent 的自动生成类参考。"
 ### MaterialProperty
 `public struct MaterialProperty(string name)`
 
-**用途 / Purpose:** 处理与 「material property」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MaterialProperty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 HorseComponent 实例
@@ -53,7 +53,7 @@ var result = horseComponent.MaterialProperty("example");
 ### GetCopy
 `public override ItemComponent GetCopy()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「copy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 copy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 HorseComponent 实例
@@ -64,7 +64,7 @@ var result = horseComponent.GetCopy();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 HorseComponent 实例

@@ -23,7 +23,7 @@ Treat `MissionSiegeEnginesLogic` as a Logic-style extension point: first identif
 ### GetSiegeWeaponsController
 `public IMissionSiegeWeaponsController GetSiegeWeaponsController(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `siege weapons controller` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege weapons controller value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionSiegeEnginesLogic from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionSiegeEnginesLogic.GetSiegeWeaponsController(side);
 ### GetMissionSiegeWeapons
 `public void GetMissionSiegeWeapons(out IEnumerable<IMissionSiegeWeapon> defenderSiegeWeapons, out IEnumerable<IMissionSiegeWeapon> attackerSiegeWeapons)`
 
-**Purpose:** Reads and returns the `mission siege weapons` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission siege weapons value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionSiegeEnginesLogic from the subsystem API first

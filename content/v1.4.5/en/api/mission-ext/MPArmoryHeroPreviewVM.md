@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
@@ -41,7 +41,7 @@ mPArmoryHeroPreviewVM.RefreshValues();
 ### SetCharacter
 `public unsafe void SetCharacter(BasicCharacterObject character, DynamicBodyProperties dynamicBodyProperties, int race, bool isFemale)`
 
-**Purpose:** Assigns a new value to `character` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to character and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
@@ -52,7 +52,7 @@ mPArmoryHeroPreviewVM.SetCharacter(character, dynamicBodyProperties, 0, false);
 ### SetCharacterClass
 `public void SetCharacterClass(BasicCharacterObject classCharacter)`
 
-**Purpose:** Assigns a new value to `character class` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to character class and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first
@@ -63,7 +63,7 @@ mPArmoryHeroPreviewVM.SetCharacterClass(classCharacter);
 ### SetCharacterPerks
 `public void SetCharacterPerks(List<IReadOnlyPerkObject> selectedPerks)`
 
-**Purpose:** Assigns a new value to `character perks` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to character perks and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPArmoryHeroPreviewVM from the subsystem API first

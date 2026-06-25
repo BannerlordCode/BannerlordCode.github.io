@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.BattleScore` to place it in the stack, th
 ### GetAttackerBanner
 `public override Banner GetAttackerBanner()`
 
-**Purpose:** Reads and returns the `attacker banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attacker banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxSimulationBattleScoreContext from the subsystem API first
@@ -34,7 +34,7 @@ var result = sandboxSimulationBattleScoreContext.GetAttackerBanner();
 ### GetDefenderBanner
 `public override Banner GetDefenderBanner()`
 
-**Purpose:** Reads and returns the `defender banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the defender banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of SandboxSimulationBattleScoreContext from the subsystem API first

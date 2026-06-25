@@ -29,7 +29,7 @@ description: "HintVM 的自动生成类参考。"
 ### RefreshGenericHintTooltip
 `public static void RefreshGenericHintTooltip(HintVM hint, object args)`
 
-**用途 / Purpose:** 使 「generic hint tooltip」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 generic hint tooltip 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例

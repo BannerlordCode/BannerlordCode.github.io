@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### SetScriptComponentHolder
 `public void SetScriptComponentHolder(ScriptComponentBehavior sc)`
 
-**Purpose:** Assigns a new value to `script component holder` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to script component holder and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ManagedScriptHolder from the subsystem API first
@@ -40,7 +40,7 @@ managedScriptHolder.SetScriptComponentHolder(sc);
 ### UpdateTickRequirement
 `public void UpdateTickRequirement(ScriptComponentBehavior sc, ScriptComponentBehavior.TickRequirement oldTickRequirement, ScriptComponentBehavior.TickRequirement newTickRequirement)`
 
-**Purpose:** Recalculates and stores the latest representation of `tick requirement`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of tick requirement.
 
 ```csharp
 // Obtain an instance of ManagedScriptHolder from the subsystem API first
@@ -51,7 +51,7 @@ managedScriptHolder.UpdateTickRequirement(sc, oldTickRequirement, newTickRequire
 ### RemoveScriptComponentFromAllTickLists
 `public void RemoveScriptComponentFromAllTickLists(ScriptComponentBehavior sc)`
 
-**Purpose:** Removes `script component from all tick lists` from the current collection or state.
+**Purpose:** **Purpose:** Removes script component from all tick lists from the current collection or state.
 
 ```csharp
 // Obtain an instance of ManagedScriptHolder from the subsystem API first

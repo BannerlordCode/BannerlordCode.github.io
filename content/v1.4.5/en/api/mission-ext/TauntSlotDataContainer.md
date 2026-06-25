@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### GetTauntIndicesForPlayer
 `public MBReadOnlyList<TauntIndexData> GetTauntIndicesForPlayer(string playerId)`
 
-**Purpose:** Reads and returns the `taunt indices for player` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the taunt indices for player value held by the this instance.
 
 ```csharp
 // Obtain an instance of TauntSlotDataContainer from the subsystem API first
@@ -34,7 +34,7 @@ var result = tauntSlotDataContainer.GetTauntIndicesForPlayer("example");
 ### SetTauntIndicesForPlayer
 `public void SetTauntIndicesForPlayer(string playerId, List<TauntIndexData> tauntIndices)`
 
-**Purpose:** Assigns a new value to `taunt indices for player` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to taunt indices for player and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TauntSlotDataContainer from the subsystem API first

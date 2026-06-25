@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode lineNode)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CanvasLine from the subsystem API first
@@ -40,7 +40,7 @@ canvasLine.LoadFrom(lineNode);
 ### GetHorizontalPositionOf
 `public float GetHorizontalPositionOf(int index)`
 
-**Purpose:** Reads and returns the `horizontal position of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the horizontal position of value held by the this instance.
 
 ```csharp
 // Obtain an instance of CanvasLine from the subsystem API first

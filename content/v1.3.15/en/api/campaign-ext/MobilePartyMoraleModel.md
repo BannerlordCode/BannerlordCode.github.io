@@ -23,7 +23,7 @@ Treat `MobilePartyMoraleModel` as a Model-style extension point: first identify 
 ### CalculateMoraleChange
 `public abstract float CalculateMoraleChange(MobileParty party)`
 
-**Purpose:** Calculates the current value or result of `morale change`.
+**Purpose:** **Purpose:** Calculates the current value or result of morale change.
 
 ```csharp
 // Obtain an instance of MobilePartyMoraleModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = mobilePartyMoraleModel.CalculateMoraleChange(party);
 ### GetMoraleTooltipText
 `public abstract TextObject GetMoraleTooltipText(MobileParty party)`
 
-**Purpose:** Reads and returns the `morale tooltip text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the morale tooltip text value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyMoraleModel from the subsystem API first

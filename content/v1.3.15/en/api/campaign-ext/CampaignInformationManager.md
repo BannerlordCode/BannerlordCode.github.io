@@ -23,7 +23,7 @@ Treat `CampaignInformationManager` as a Manager-style extension point: first ide
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**Purpose:** Invoked when the `game loaded` event is raised.
+**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of CampaignInformationManager from the subsystem API first
@@ -34,7 +34,7 @@ campaignInformationManager.OnGameLoaded();
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NewMapNoticeAdded logic.
 
 ```csharp
 // Obtain an instance of CampaignInformationManager from the subsystem API first
@@ -45,7 +45,7 @@ campaignInformationManager.NewMapNoticeAdded(informationData);
 ### AddDialogLine
 `public static MBInformationManager.DialogNotificationHandle AddDialogLine(TextObject text, CharacterObject speakerCharacter, Equipment equipment = null, int extraTimeInMs = 0, MBInformationManager.NotificationPriority priority = MBInformationManager.NotificationPriority.Medium)`
 
-**Purpose:** Adds `dialog line` to the current collection or state.
+**Purpose:** **Purpose:** Adds dialog line to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ CampaignInformationManager.AddDialogLine(text, speakerCharacter, null, 0, mBInfo
 ### GetStatusOfDialogNotification
 `public static MBInformationManager.NotificationStatus GetStatusOfDialogNotification(MBInformationManager.DialogNotificationHandle handle)`
 
-**Purpose:** Reads and returns the `status of dialog notification` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the status of dialog notification value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ CampaignInformationManager.GetStatusOfDialogNotification(handle);
 ### ClearDialogNotification
 `public static void ClearDialogNotification(MBInformationManager.DialogNotificationHandle handle, bool fadeOut = true)`
 
-**Purpose:** Removes all `dialog notification` from the current object.
+**Purpose:** **Purpose:** Removes all dialog notification from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ CampaignInformationManager.ClearDialogNotification(handle, false);
 ### GetIsAnyDialogNotificationActiveOrQueued
 `public static bool GetIsAnyDialogNotificationActiveOrQueued()`
 
-**Purpose:** Reads and returns the `is any dialog notification active or queued` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is any dialog notification active or queued value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ CampaignInformationManager.GetIsAnyDialogNotificationActiveOrQueued();
 ### ClearAllDialogNotifications
 `public static void ClearAllDialogNotifications(bool fadeOut)`
 
-**Purpose:** Removes all `all dialog notifications` from the current object.
+**Purpose:** **Purpose:** Removes all all dialog notifications from the this instance.
 
 ```csharp
 // Static call; no instance required

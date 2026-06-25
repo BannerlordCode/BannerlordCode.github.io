@@ -23,7 +23,7 @@ Treat `DefaultItemValueModel` as a Model-style extension point: first identify w
 ### CalculateValue
 `public override int CalculateValue(ItemObject item)`
 
-**Purpose:** Calculates the current value or result of `value`.
+**Purpose:** **Purpose:** Calculates the current value or result of value.
 
 ```csharp
 // Obtain an instance of DefaultItemValueModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultItemValueModel.CalculateValue(item);
 ### GetIsTransferable
 `public override bool GetIsTransferable(ItemObject item)`
 
-**Purpose:** Reads and returns the `is transferable` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is transferable value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultItemValueModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultItemValueModel.GetIsTransferable(item);
 ### GetEquipmentValueFromTier
 `public override float GetEquipmentValueFromTier(float itemTierf)`
 
-**Purpose:** Reads and returns the `equipment value from tier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment value from tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultItemValueModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultItemValueModel.GetEquipmentValueFromTier(0);
 ### CalculateTier
 `public override float CalculateTier(ItemObject item)`
 
-**Purpose:** Calculates the current value or result of `tier`.
+**Purpose:** **Purpose:** Calculates the current value or result of tier.
 
 ```csharp
 // Obtain an instance of DefaultItemValueModel from the subsystem API first

@@ -32,7 +32,7 @@ Treat `FillBarVerticalClipTierColorsWidget` as a Widget-style extension point: f
 ### FillBarVerticalClipTierColorsWidget
 `public class FillBarVerticalClipTierColorsWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillBarVerticalClipTierColorsWidget logic.
 
 ```csharp
 // Obtain an instance of FillBarVerticalClipTierColorsWidget from the subsystem API first

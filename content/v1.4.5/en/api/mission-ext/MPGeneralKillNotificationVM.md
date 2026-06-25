@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, Agent assistedAgent)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MPGeneralKillNotificationVM from the subsystem API first

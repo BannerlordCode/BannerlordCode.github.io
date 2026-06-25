@@ -23,7 +23,7 @@ description: "LocationItemSpawnHandler 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationItemSpawnHandler 实例
@@ -34,7 +34,7 @@ locationItemSpawnHandler.AfterStart();
 ### OnEntityRemoved
 `public override void OnEntityRemoved(GameEntity entity)`
 
-**用途 / Purpose:** 在 「entity removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 entity removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationItemSpawnHandler 实例

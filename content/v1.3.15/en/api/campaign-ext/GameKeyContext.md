@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### GetHotKey
 `public HotKey GetHotKey(string hotKeyId)`
 
-**Purpose:** Reads and returns the `hot key` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameKeyContext from the subsystem API first
@@ -44,7 +44,7 @@ var result = gameKeyContext.GetHotKey("example");
 ### GetGameKey
 `public GameKey GetGameKey(int gameKeyId)`
 
-**Purpose:** Reads and returns the `game key` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game key value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameKeyContext from the subsystem API first
@@ -55,7 +55,7 @@ var result = gameKeyContext.GetGameKey(0);
 ### GetHotKeyId
 `public string GetHotKeyId(string hotKeyId)`
 
-**Purpose:** Reads and returns the `hot key id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key id value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameKeyContext from the subsystem API first
@@ -66,7 +66,7 @@ var result = gameKeyContext.GetHotKeyId("example");
 ### GetHotKeyId
 `public string GetHotKeyId(int gameKeyId)`
 
-**Purpose:** Reads and returns the `hot key id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key id value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameKeyContext from the subsystem API first

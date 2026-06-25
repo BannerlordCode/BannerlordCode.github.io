@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -41,7 +41,7 @@ var result = synchedMissionObject.GetTickRequirement();
 ### SetLocalPositionSmoothStep
 `public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)`
 
-**Purpose:** Assigns a new value to `local position smooth step` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to local position smooth step and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -52,7 +52,7 @@ synchedMissionObject.SetLocalPositionSmoothStep(targetPosition);
 ### SetVisibleSynched
 `public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
 
-**Purpose:** Assigns a new value to `visible synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to visible synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -63,7 +63,7 @@ synchedMissionObject.SetVisibleSynched(false, false);
 ### SetPhysicsStateSynched
 `public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)`
 
-**Purpose:** Assigns a new value to `physics state synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to physics state synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -74,7 +74,7 @@ synchedMissionObject.SetPhysicsStateSynched(false, false);
 ### SetDisabledSynched
 `public virtual void SetDisabledSynched()`
 
-**Purpose:** Assigns a new value to `disabled synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to disabled synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -85,7 +85,7 @@ synchedMissionObject.SetDisabledSynched();
 ### SetFrameSynched
 `public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-**Purpose:** Assigns a new value to `frame synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to frame synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -96,7 +96,7 @@ synchedMissionObject.SetFrameSynched(frame, false);
 ### SetGlobalFrameSynched
 `public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-**Purpose:** Assigns a new value to `global frame synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to global frame synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -107,7 +107,7 @@ synchedMissionObject.SetGlobalFrameSynched(frame, false);
 ### SetFrameSynchedOverTime
 `public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-**Purpose:** Assigns a new value to `frame synched over time` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to frame synched over time and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -118,7 +118,7 @@ synchedMissionObject.SetFrameSynchedOverTime(frame, 0, false);
 ### SetGlobalFrameSynchedOverTime
 `public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-**Purpose:** Assigns a new value to `global frame synched over time` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to global frame synched over time and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -129,7 +129,7 @@ synchedMissionObject.SetGlobalFrameSynchedOverTime(frame, 0, false);
 ### SetAnimationAtChannelSynched
 `public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)`
 
-**Purpose:** Assigns a new value to `animation at channel synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to animation at channel synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -140,7 +140,7 @@ synchedMissionObject.SetAnimationAtChannelSynched("example", 0, 0);
 ### SetAnimationAtChannelSynched
 `public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)`
 
-**Purpose:** Assigns a new value to `animation at channel synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to animation at channel synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -151,7 +151,7 @@ synchedMissionObject.SetAnimationAtChannelSynched(0, 0, 0);
 ### SetAnimationChannelParameterSynched
 `public void SetAnimationChannelParameterSynched(int channelNo, float parameter)`
 
-**Purpose:** Assigns a new value to `animation channel parameter synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to animation channel parameter synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -162,7 +162,7 @@ synchedMissionObject.SetAnimationChannelParameterSynched(0, 0);
 ### PauseSkeletonAnimationSynched
 `public void PauseSkeletonAnimationSynched()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PauseSkeletonAnimationSynched logic.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -173,7 +173,7 @@ synchedMissionObject.PauseSkeletonAnimationSynched();
 ### ResumeSkeletonAnimationSynched
 `public void ResumeSkeletonAnimationSynched()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResumeSkeletonAnimationSynched logic.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -184,7 +184,7 @@ synchedMissionObject.ResumeSkeletonAnimationSynched();
 ### BurstParticlesSynched
 `public void BurstParticlesSynched(bool doChildren = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BurstParticlesSynched logic.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -195,7 +195,7 @@ synchedMissionObject.BurstParticlesSynched(false);
 ### ApplyImpulseSynched
 `public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)`
 
-**Purpose:** Applies the effect of `impulse synched` to the current object.
+**Purpose:** **Purpose:** Applies the effect of impulse synched to the this instance.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -206,7 +206,7 @@ synchedMissionObject.ApplyImpulseSynched(localPosition, impulse);
 ### AddBodyFlagsSynched
 `public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
-**Purpose:** Adds `body flags synched` to the current collection or state.
+**Purpose:** **Purpose:** Adds body flags synched to the current collection or state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -217,7 +217,7 @@ synchedMissionObject.AddBodyFlagsSynched(flags, false);
 ### RemoveBodyFlagsSynched
 `public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
-**Purpose:** Removes `body flags synched` from the current collection or state.
+**Purpose:** **Purpose:** Removes body flags synched from the current collection or state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -228,7 +228,7 @@ synchedMissionObject.RemoveBodyFlagsSynched(flags, false);
 ### SetTeamColors
 `public void SetTeamColors(uint color, uint color2)`
 
-**Purpose:** Assigns a new value to `team colors` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to team colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -239,7 +239,7 @@ synchedMissionObject.SetTeamColors(0, 0);
 ### SetTeamColorsSynched
 `public virtual void SetTeamColorsSynched(uint color, uint color2)`
 
-**Purpose:** Assigns a new value to `team colors synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to team colors synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -250,7 +250,7 @@ synchedMissionObject.SetTeamColorsSynched(0, 0);
 ### WriteToNetwork
 `public virtual void WriteToNetwork()`
 
-**Purpose:** Writes `to network` to the target location.
+**Purpose:** **Purpose:** Writes to network to the target location.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first
@@ -261,7 +261,7 @@ synchedMissionObject.WriteToNetwork();
 ### OnAfterReadFromNetwork
 `public virtual void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**Purpose:** Invoked when the `after read from network` event is raised.
+**Purpose:** **Purpose:** Invoked when the after read from network event is raised.
 
 ```csharp
 // Obtain an instance of SynchedMissionObject from the subsystem API first

@@ -23,7 +23,7 @@ description: "CampaignBehaviorManager 的自动生成类参考。"
 ### InitializeCampaignBehaviors
 `public void InitializeCampaignBehaviors(IEnumerable<CampaignBehaviorBase> inputComponents)`
 
-**用途 / Purpose:** 为 「campaign behaviors」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 campaign behaviors 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignBehaviorManager 实例
@@ -34,7 +34,7 @@ campaignBehaviorManager.InitializeCampaignBehaviors(inputComponents);
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignBehaviorManager 实例
@@ -45,7 +45,7 @@ campaignBehaviorManager.RegisterEvents();
 ### LoadBehaviorData
 `public void LoadBehaviorData()`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「behavior data」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 behavior data。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignBehaviorManager 实例
@@ -56,7 +56,7 @@ campaignBehaviorManager.LoadBehaviorData();
 ### AddBehavior
 `public void AddBehavior(CampaignBehaviorBase campaignBehavior)`
 
-**用途 / Purpose:** 将 「behavior」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 behavior 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignBehaviorManager 实例
@@ -67,7 +67,7 @@ campaignBehaviorManager.AddBehavior(campaignBehavior);
 ### ClearBehaviors
 `public void ClearBehaviors()`
 
-**用途 / Purpose:** 清空当前对象中的「behaviors」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的behaviors。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignBehaviorManager 实例

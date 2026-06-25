@@ -23,7 +23,7 @@ description: "VoiceObject 的自动生成类参考。"
 ### AddVoicePaths
 `public void AddVoicePaths(XmlNode node, string modulePath)`
 
-**用途 / Purpose:** 将 「voice paths」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 voice paths 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 VoiceObject 实例
@@ -34,7 +34,7 @@ voiceObject.AddVoicePaths(node, "example");
 ### Deserialize
 `public static VoiceObject Deserialize(XmlNode node, string modulePath)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 静态调用，不需要实例

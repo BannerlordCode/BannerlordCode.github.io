@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnTick
 `public override void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of WarmupSpawningBehavior from the subsystem API first
@@ -34,7 +34,7 @@ warmupSpawningBehavior.OnTick(0);
 ### AllowEarlyAgentVisualsDespawning
 `public override bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+**Purpose:** **Purpose:** Permits early agent visuals despawning to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of WarmupSpawningBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = warmupSpawningBehavior.AllowEarlyAgentVisualsDespawning(lobbyPeer);
 ### GetMaximumReSpawnPeriodForPeer
 `public override int GetMaximumReSpawnPeriodForPeer(MissionPeer peer)`
 
-**Purpose:** Reads and returns the `maximum re spawn period for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum re spawn period for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of WarmupSpawningBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = warmupSpawningBehavior.GetMaximumReSpawnPeriodForPeer(peer);
 ### Clear
 `public override void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of WarmupSpawningBehavior from the subsystem API first

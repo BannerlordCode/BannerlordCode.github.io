@@ -23,7 +23,7 @@ Treat `HotKeyManager` as a Manager-style extension point: first identify who cre
 ### OnKeybindsChangedEvent
 `public delegate void OnKeybindsChangedEvent()`
 
-**Purpose:** Invoked when the `keybinds changed event` event is raised.
+**Purpose:** **Purpose:** Invoked when the keybinds changed event event is raised.
 
 ```csharp
 // Obtain an instance of HotKeyManager from the subsystem API first
@@ -34,7 +34,7 @@ hotKeyManager.OnKeybindsChangedEvent();
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, string hotKeyId)`
 
-**Purpose:** Reads and returns the `hot key id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ HotKeyManager.GetHotKeyId("example", "example");
 ### GetHotKeyId
 `public static string GetHotKeyId(string categoryName, int hotKeyId)`
 
-**Purpose:** Reads and returns the `hot key id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hot key id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ HotKeyManager.GetHotKeyId("example", 0);
 ### GetCategory
 `public static GameKeyContext GetCategory(string categoryName)`
 
-**Purpose:** Reads and returns the `category` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the category value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ HotKeyManager.GetCategory("example");
 ### GetAllCategories
 `public static Dictionary<string, GameKeyContext>.ValueCollection GetAllCategories()`
 
-**Purpose:** Reads and returns the `all categories` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all categories value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ HotKeyManager.GetAllCategories();
 ### Tick
 `public static void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ HotKeyManager.Tick(0);
 ### Initialize
 `public static void Initialize(PlatformFilePath savePath, bool isRDownSwappedWithRRight)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ HotKeyManager.Initialize(savePath, false);
 ### RegisterInitialContexts
 `public static void RegisterInitialContexts(IEnumerable<GameKeyContext> contexts)`
 
-**Purpose:** Registers `initial contexts` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers initial contexts with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -104,7 +104,7 @@ HotKeyManager.RegisterInitialContexts(contexts);
 ### RegisterContext
 `public static void RegisterContext(GameKeyContext context, bool ignoreSerialize = false)`
 
-**Purpose:** Registers `context` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers context with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -114,7 +114,7 @@ HotKeyManager.RegisterContext(context, false);
 ### ShouldNotifyDocumentVersionDifferent
 `public static bool ShouldNotifyDocumentVersionDifferent()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShouldNotifyDocumentVersionDifferent logic.
 
 ```csharp
 // Static call; no instance required
@@ -124,7 +124,7 @@ HotKeyManager.ShouldNotifyDocumentVersionDifferent();
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Static call; no instance required
@@ -134,7 +134,7 @@ HotKeyManager.Reset();
 ### MarkForSave
 `public static void MarkForSave()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MarkForSave logic.
 
 ```csharp
 // Static call; no instance required

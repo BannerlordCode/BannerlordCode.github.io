@@ -40,7 +40,7 @@ description: "ArmyManagementSortControllerVM 的自动生成类参考。"
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -51,7 +51,7 @@ armyManagementSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -62,7 +62,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -73,7 +73,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -84,7 +84,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -95,7 +95,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -106,7 +106,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -117,7 +117,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(ArmyManagementItemVM x, ArmyManagementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -128,7 +128,7 @@ var result = armyManagementSortControllerVM.Compare(x, y);
 ### ExecuteSortByDistance
 `public void ExecuteSortByDistance()`
 
-**用途 / Purpose:** 执行 「sort by distance」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by distance 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -139,7 +139,7 @@ armyManagementSortControllerVM.ExecuteSortByDistance();
 ### ExecuteSortByCost
 `public void ExecuteSortByCost()`
 
-**用途 / Purpose:** 执行 「sort by cost」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by cost 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -150,7 +150,7 @@ armyManagementSortControllerVM.ExecuteSortByCost();
 ### ExecuteSortByStrength
 `public void ExecuteSortByStrength()`
 
-**用途 / Purpose:** 执行 「sort by strength」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by strength 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -161,7 +161,7 @@ armyManagementSortControllerVM.ExecuteSortByStrength();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**用途 / Purpose:** 执行 「sort by name」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by name 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -172,7 +172,7 @@ armyManagementSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByClan
 `public void ExecuteSortByClan()`
 
-**用途 / Purpose:** 执行 「sort by clan」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by clan 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例
@@ -183,7 +183,7 @@ armyManagementSortControllerVM.ExecuteSortByClan();
 ### ExecuteSortByShipCount
 `public void ExecuteSortByShipCount()`
 
-**用途 / Purpose:** 执行 「sort by ship count」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by ship count 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ArmyManagementSortControllerVM 实例

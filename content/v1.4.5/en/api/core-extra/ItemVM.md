@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -57,7 +57,7 @@ itemVM.RefreshValues();
 ### ExecutePreviewItem
 `public void ExecutePreviewItem()`
 
-**Purpose:** Runs the operation or workflow associated with `preview item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with preview item.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -68,7 +68,7 @@ itemVM.ExecutePreviewItem();
 ### ExecuteUnequipItem
 `public void ExecuteUnequipItem()`
 
-**Purpose:** Runs the operation or workflow associated with `unequip item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with unequip item.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -79,7 +79,7 @@ itemVM.ExecuteUnequipItem();
 ### ExecuteEquipItem
 `public void ExecuteEquipItem()`
 
-**Purpose:** Runs the operation or workflow associated with `equip item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with equip item.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -90,7 +90,7 @@ itemVM.ExecuteEquipItem();
 ### ReleaseStaticContent
 `public static void ReleaseStaticContent()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseStaticContent logic.
 
 ```csharp
 // Static call; no instance required
@@ -100,7 +100,7 @@ ItemVM.ReleaseStaticContent();
 ### ExecuteRefreshTooltip
 `public void ExecuteRefreshTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `refresh tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with refresh tooltip.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -111,7 +111,7 @@ itemVM.ExecuteRefreshTooltip();
 ### ExecuteCancelTooltip
 `public void ExecuteCancelTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel tooltip.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -122,7 +122,7 @@ itemVM.ExecuteCancelTooltip();
 ### ExecuteBuyItem
 `public void ExecuteBuyItem()`
 
-**Purpose:** Runs the operation or workflow associated with `buy item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with buy item.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -133,7 +133,7 @@ itemVM.ExecuteBuyItem();
 ### ExecuteSelectItem
 `public void ExecuteSelectItem()`
 
-**Purpose:** Runs the operation or workflow associated with `select item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select item.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first
@@ -144,7 +144,7 @@ itemVM.ExecuteSelectItem();
 ### GetItemTypeWithItemObject
 `public EquipmentIndex GetItemTypeWithItemObject()`
 
-**Purpose:** Reads and returns the `item type with item object` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item type with item object value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemVM from the subsystem API first

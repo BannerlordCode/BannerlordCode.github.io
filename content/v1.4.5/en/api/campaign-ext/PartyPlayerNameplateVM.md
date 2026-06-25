@@ -31,7 +31,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### InitializePlayerNameplate
 `public void InitializePlayerNameplate(Action resetCamera)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `player nameplate`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by player nameplate.
 
 ```csharp
 // Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
@@ -42,7 +42,7 @@ partyPlayerNameplateVM.InitializePlayerNameplate(resetCamera);
 ### Clear
 `public override void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
@@ -53,7 +53,7 @@ partyPlayerNameplateVM.Clear();
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
@@ -64,7 +64,7 @@ partyPlayerNameplateVM.RefreshDynamicProperties(false);
 ### RefreshBinding
 `public override void RefreshBinding()`
 
-**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of binding in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
@@ -75,7 +75,7 @@ partyPlayerNameplateVM.RefreshBinding();
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of position in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyPlayerNameplateVM from the subsystem API first
@@ -86,7 +86,7 @@ partyPlayerNameplateVM.RefreshPosition();
 ### ExecuteSetCameraPosition
 `public void ExecuteSetCameraPosition()`
 
-**Purpose:** Runs the operation or workflow associated with `set camera position`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set camera position.
 
 ```csharp
 // Obtain an instance of PartyPlayerNameplateVM from the subsystem API first

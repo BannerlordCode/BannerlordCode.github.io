@@ -30,7 +30,7 @@ description: "QuestTaskBase 的自动生成类参考。"
 ### Finish
 `public void Finish(FinishStates finishState)`
 
-**用途 / Purpose:** 结束当前对象的流程并执行必要的收尾工作。
+**用途 / Purpose:** **用途 / Purpose:** 结束当前对象的流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestTaskBase 实例
@@ -41,7 +41,7 @@ questTaskBase.Finish(finishState);
 ### AddTaskDialogs
 `public void AddTaskDialogs()`
 
-**用途 / Purpose:** 将 「task dialogs」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 task dialogs 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestTaskBase 实例
@@ -52,7 +52,7 @@ questTaskBase.AddTaskDialogs();
 ### SetReferences
 `public virtual void SetReferences()`
 
-**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestTaskBase 实例
@@ -63,7 +63,7 @@ questTaskBase.SetReferences();
 ### AddTaskDialogOnGameLoaded
 `public void AddTaskDialogOnGameLoaded(DialogFlow dialogFlow)`
 
-**用途 / Purpose:** 将 「task dialog on game loaded」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 task dialog on game loaded 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestTaskBase 实例
@@ -74,7 +74,7 @@ questTaskBase.AddTaskDialogOnGameLoaded(dialogFlow);
 ### AddTaskBehaviorsOnGameLoad
 `public void AddTaskBehaviorsOnGameLoad(Action onSucceededAction = null, Action onFailedAction = null, Action onCanceledAction = null)`
 
-**用途 / Purpose:** 将 「task behaviors on game load」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 task behaviors on game load 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestTaskBase 实例

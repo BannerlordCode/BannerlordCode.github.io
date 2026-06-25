@@ -35,7 +35,7 @@ description: "TeamCollection 的自动生成类参考。"
 ### Add
 `public new void Add(Team t)`
 
-**用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamCollection 实例
@@ -46,7 +46,7 @@ teamCollection.Add(t);
 ### Add
 `public Team Add(BattleSideEnum side, uint color = uint.MaxValue, uint color2 = uint.MaxValue, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)`
 
-**用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamCollection 实例
@@ -57,7 +57,7 @@ var result = teamCollection.Add(side, 0, 0, null, false, false, false);
 ### Find
 `public Team Find(MBTeam mbTeam)`
 
-**用途 / Purpose:** 在当前集合/范围内查找匹配项。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找匹配项。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamCollection 实例
@@ -68,7 +68,7 @@ var result = teamCollection.Find(mbTeam);
 ### ClearResources
 `public void ClearResources()`
 
-**用途 / Purpose:** 清空当前对象中的「resources」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的resources。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamCollection 实例
@@ -79,7 +79,7 @@ teamCollection.ClearResources();
 ### Clear
 `public new void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamCollection 实例

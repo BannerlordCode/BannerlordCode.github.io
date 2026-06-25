@@ -48,7 +48,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### CheckAndReplaceProxyAddress
 `public void CheckAndReplaceProxyAddress(IReadOnlyDictionary<string, string> proxyAddressMap)`
 
-**Purpose:** Verifies whether `and replace proxy address` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether and replace proxy address holds true for the this instance.
 
 ```csharp
 // Obtain an instance of GameServerProperties from the subsystem API first

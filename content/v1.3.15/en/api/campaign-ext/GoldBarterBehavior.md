@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehavior
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GoldBarterBehavior from the subsystem API first
@@ -34,7 +34,7 @@ goldBarterBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of GoldBarterBehavior from the subsystem API first
@@ -45,7 +45,7 @@ goldBarterBehavior.SyncData(dataStore);
 ### CheckForBarters
 `public void CheckForBarters(BarterData args)`
 
-**Purpose:** Verifies whether `for barters` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for barters holds true for the this instance.
 
 ```csharp
 // Obtain an instance of GoldBarterBehavior from the subsystem API first

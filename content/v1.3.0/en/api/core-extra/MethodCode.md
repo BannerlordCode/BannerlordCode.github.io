@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Generates an instance, data, or representation of `into`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of into.
 
 ```csharp
 // Obtain an instance of MethodCode from the subsystem API first
@@ -46,7 +46,7 @@ methodCode.GenerateInto(codeGenerationFile);
 ### AddLine
 `public void AddLine(string line)`
 
-**Purpose:** Adds `line` to the current collection or state.
+**Purpose:** **Purpose:** Adds line to the current collection or state.
 
 ```csharp
 // Obtain an instance of MethodCode from the subsystem API first
@@ -57,7 +57,7 @@ methodCode.AddLine("example");
 ### AddLines
 `public void AddLines(IEnumerable<string> lines)`
 
-**Purpose:** Adds `lines` to the current collection or state.
+**Purpose:** **Purpose:** Adds lines to the current collection or state.
 
 ```csharp
 // Obtain an instance of MethodCode from the subsystem API first
@@ -68,7 +68,7 @@ methodCode.AddLines(lines);
 ### AddCodeBlock
 `public void AddCodeBlock(CodeBlock codeBlock)`
 
-**Purpose:** Adds `code block` to the current collection or state.
+**Purpose:** **Purpose:** Adds code block to the current collection or state.
 
 ```csharp
 // Obtain an instance of MethodCode from the subsystem API first

@@ -29,7 +29,7 @@ description: "PartyMoraleModel 的自动生成类参考。"
 ### GetDailyStarvationMoralePenalty
 `public abstract int GetDailyStarvationMoralePenalty(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily starvation morale penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily starvation morale penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyMoraleModel 实例
@@ -40,7 +40,7 @@ var result = partyMoraleModel.GetDailyStarvationMoralePenalty(party);
 ### GetDailyNoWageMoralePenalty
 `public abstract int GetDailyNoWageMoralePenalty(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily no wage morale penalty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily no wage morale penalty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyMoraleModel 实例
@@ -51,7 +51,7 @@ var result = partyMoraleModel.GetDailyNoWageMoralePenalty(party);
 ### GetStandardBaseMorale
 `public abstract float GetStandardBaseMorale(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「standard base morale」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 standard base morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyMoraleModel 实例
@@ -62,7 +62,7 @@ var result = partyMoraleModel.GetStandardBaseMorale(party);
 ### GetVictoryMoraleChange
 `public abstract float GetVictoryMoraleChange(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「victory morale change」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 victory morale change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyMoraleModel 实例
@@ -73,7 +73,7 @@ var result = partyMoraleModel.GetVictoryMoraleChange(party);
 ### GetDefeatMoraleChange
 `public abstract float GetDefeatMoraleChange(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「defeat morale change」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defeat morale change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyMoraleModel 实例
@@ -84,7 +84,7 @@ var result = partyMoraleModel.GetDefeatMoraleChange(party);
 ### GetEffectivePartyMorale
 `public abstract ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective party morale」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective party morale 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyMoraleModel 实例

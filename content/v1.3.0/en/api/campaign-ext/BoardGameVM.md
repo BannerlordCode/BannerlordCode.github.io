@@ -39,7 +39,7 @@ Start from namespace `SandBox.ViewModelCollection.BoardGame` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -50,7 +50,7 @@ boardGameVM.RefreshValues();
 ### Activate
 `public void Activate()`
 
-**Purpose:** Activates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -61,7 +61,7 @@ boardGameVM.Activate();
 ### DiceRoll
 `public void DiceRoll(int roll)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DiceRoll logic.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -72,7 +72,7 @@ boardGameVM.DiceRoll(0);
 ### SwitchTurns
 `public void SwitchTurns()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwitchTurns logic.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -83,7 +83,7 @@ boardGameVM.SwitchTurns();
 ### ExecuteRoll
 `public void ExecuteRoll()`
 
-**Purpose:** Runs the operation or workflow associated with `roll`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with roll.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -94,7 +94,7 @@ boardGameVM.ExecuteRoll();
 ### ExecuteForfeit
 `public void ExecuteForfeit()`
 
-**Purpose:** Runs the operation or workflow associated with `forfeit`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with forfeit.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -105,7 +105,7 @@ boardGameVM.ExecuteForfeit();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first
@@ -116,7 +116,7 @@ boardGameVM.OnFinalize();
 ### SetRollDiceKey
 `public void SetRollDiceKey(HotKey key)`
 
-**Purpose:** Assigns a new value to `roll dice key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to roll dice key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BoardGameVM from the subsystem API first

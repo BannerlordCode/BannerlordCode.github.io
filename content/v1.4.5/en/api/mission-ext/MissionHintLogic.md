@@ -29,7 +29,7 @@ Treat `MissionHintLogic` as a Logic-style extension point: first identify who cr
 ### MissionHintChangedDelegate
 `public delegate void MissionHintChangedDelegate(MissionHint previousHint, MissionHint newHint)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MissionHintChangedDelegate logic.
 
 ```csharp
 // Obtain an instance of MissionHintLogic from the subsystem API first
@@ -40,7 +40,7 @@ missionHintLogic.MissionHintChangedDelegate(previousHint, newHint);
 ### SetActiveHint
 `public void SetActiveHint(MissionHint hint)`
 
-**Purpose:** Assigns a new value to `active hint` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to active hint and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionHintLogic from the subsystem API first
@@ -51,7 +51,7 @@ missionHintLogic.SetActiveHint(hint);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MissionHintLogic from the subsystem API first

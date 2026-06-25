@@ -23,7 +23,7 @@ description: "Indicator 的自动生成类参考。"
 ### DetermineIndicatorState
 `public void DetermineIndicatorState(float dt, Vec3 position)`
 
-**用途 / Purpose:** 根据当前状态判定「indicator state」的结果。
+**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定indicator state的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Indicator 实例

@@ -23,7 +23,7 @@ Treat `CraftedDataViewManager` as a Manager-style extension point: first identif
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CraftedDataViewManager.Initialize();
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CraftedDataViewManager.Clear();
 ### GetCraftedDataView
 `public static CraftedDataView GetCraftedDataView(WeaponDesign craftedData)`
 
-**Purpose:** Reads and returns the `crafted data view` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the crafted data view value held by the this instance.
 
 ```csharp
 // Static call; no instance required

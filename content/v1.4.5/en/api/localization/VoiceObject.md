@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Localization` to place it in the stack, then in
 ### AddVoicePaths
 `public void AddVoicePaths(XmlNode node, string modulePath)`
 
-**Purpose:** Adds `voice paths` to the current collection or state.
+**Purpose:** **Purpose:** Adds voice paths to the current collection or state.
 
 ```csharp
 // Obtain an instance of VoiceObject from the subsystem API first
@@ -34,7 +34,7 @@ voiceObject.AddVoicePaths(node, "example");
 ### Deserialize
 `public static VoiceObject Deserialize(XmlNode node, string modulePath)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Static call; no instance required

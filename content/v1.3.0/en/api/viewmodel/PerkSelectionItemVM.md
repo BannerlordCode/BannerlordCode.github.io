@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDev
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PerkSelectionItemVM from the subsystem API first
@@ -43,7 +43,7 @@ perkSelectionItemVM.RefreshValues();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of PerkSelectionItemVM from the subsystem API first

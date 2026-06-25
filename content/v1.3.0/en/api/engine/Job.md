@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### DoJob
 `public virtual void DoJob(float dt)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoJob logic.
 
 ```csharp
 // Obtain an instance of Job from the subsystem API first

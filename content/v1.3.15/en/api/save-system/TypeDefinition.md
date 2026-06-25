@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### CheckIfRequiresAdvancedResolving
 `public bool CheckIfRequiresAdvancedResolving(object originalObject)`
 
-**Purpose:** Verifies whether `if requires advanced resolving` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if requires advanced resolving holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -48,7 +48,7 @@ var result = typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
 ### ResolveObject
 `public object ResolveObject(object originalObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResolveObject logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -59,7 +59,7 @@ var result = typeDefinition.ResolveObject(originalObject);
 ### AdvancedResolveObject
 `public object AdvancedResolveObject(object originalObject, MetaData metaData, ObjectLoadData objectLoadData)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AdvancedResolveObject logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -70,7 +70,7 @@ var result = typeDefinition.AdvancedResolveObject(originalObject, metaData, obje
 ### CollectInitializationCallbacks
 `public void CollectInitializationCallbacks()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectInitializationCallbacks logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -81,7 +81,7 @@ typeDefinition.CollectInitializationCallbacks();
 ### CollectProperties
 `public void CollectProperties()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectProperties logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -92,7 +92,7 @@ typeDefinition.CollectProperties();
 ### CollectFields
 `public void CollectFields()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectFields logic.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -103,7 +103,7 @@ typeDefinition.CollectFields();
 ### AddCustomField
 `public void AddCustomField(string fieldName, short saveId)`
 
-**Purpose:** Adds `custom field` to the current collection or state.
+**Purpose:** **Purpose:** Adds custom field to the current collection or state.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -114,7 +114,7 @@ typeDefinition.AddCustomField("example", 0);
 ### GetPropertyDefinitionWithId
 `public PropertyDefinition GetPropertyDefinitionWithId(MemberTypeId id)`
 
-**Purpose:** Reads and returns the `property definition with id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the property definition with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -125,7 +125,7 @@ var result = typeDefinition.GetPropertyDefinitionWithId(id);
 ### GetFieldDefinitionWithId
 `public FieldDefinition GetFieldDefinitionWithId(MemberTypeId id)`
 
-**Purpose:** Reads and returns the `field definition with id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the field definition with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first
@@ -136,7 +136,7 @@ var result = typeDefinition.GetFieldDefinitionWithId(id);
 ### InitializeForAutoGeneration
 `public void InitializeForAutoGeneration(CollectObjectsDelegate collectObjectsDelegate)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `for auto generation`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by for auto generation.
 
 ```csharp
 // Obtain an instance of TypeDefinition from the subsystem API first

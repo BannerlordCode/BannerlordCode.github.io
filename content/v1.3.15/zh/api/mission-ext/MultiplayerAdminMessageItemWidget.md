@@ -23,7 +23,7 @@ description: "MultiplayerAdminMessageItemWidget 的自动生成类参考。"
 ### Remove
 `public void Remove()`
 
-**用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAdminMessageItemWidget 实例

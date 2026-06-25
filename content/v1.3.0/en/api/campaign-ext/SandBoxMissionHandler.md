@@ -23,7 +23,7 @@ Treat `SandBoxMissionHandler` as a Handler-style extension point: first identify
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxMissionHandler from the subsystem API first

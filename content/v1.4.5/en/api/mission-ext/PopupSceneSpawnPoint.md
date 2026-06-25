@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals humanVisuals, AgentVisuals mountVisuals = null)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `with agent visuals`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with agent visuals.
 
 ```csharp
 // Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
@@ -40,7 +40,7 @@ popupSceneSpawnPoint.InitializeWithAgentVisuals(humanVisuals, null);
 ### SetInitialState
 `public void SetInitialState()`
 
-**Purpose:** Assigns a new value to `initial state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to initial state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
@@ -51,7 +51,7 @@ popupSceneSpawnPoint.SetInitialState();
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**Purpose:** Assigns a new value to `positive state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to positive state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
@@ -62,7 +62,7 @@ popupSceneSpawnPoint.SetPositiveState();
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**Purpose:** Assigns a new value to `negative state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to negative state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
@@ -73,7 +73,7 @@ popupSceneSpawnPoint.SetNegativeState();
 ### Destroy
 `public void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of PopupSceneSpawnPoint from the subsystem API first
@@ -84,7 +84,7 @@ popupSceneSpawnPoint.Destroy();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of PopupSceneSpawnPoint from the subsystem API first

@@ -31,7 +31,7 @@ Treat `UserModData` as a Data-style extension point: first identify who creates 
 ### IsUpdatedToBeDefault
 `public bool IsUpdatedToBeDefault(ModuleInfo module)`
 
-**Purpose:** Determines whether the current object is in the `updated to be default` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the updated to be default state or condition.
 
 ```csharp
 // Obtain an instance of UserModData from the subsystem API first

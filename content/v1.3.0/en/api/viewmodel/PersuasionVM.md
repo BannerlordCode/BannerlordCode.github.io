@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### OnPersuasionProgress
 `public void OnPersuasionProgress(Tuple<PersuasionOptionArgs, PersuasionOptionResult> selectedOption)`
 
-**Purpose:** Invoked when the `persuasion progress` event is raised.
+**Purpose:** **Purpose:** Invoked when the persuasion progress event is raised.
 
 ```csharp
 // Obtain an instance of PersuasionVM from the subsystem API first
@@ -48,7 +48,7 @@ persuasionVM.OnPersuasionProgress(tuple<PersuasionOptionArgs, selectedOption);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PersuasionVM from the subsystem API first
@@ -59,7 +59,7 @@ persuasionVM.RefreshValues();
 ### SetCurrentOption
 `public void SetCurrentOption(PersuasionOptionVM option)`
 
-**Purpose:** Assigns a new value to `current option` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current option and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PersuasionVM from the subsystem API first
@@ -70,7 +70,7 @@ persuasionVM.SetCurrentOption(option);
 ### RefreshPersusasion
 `public void RefreshPersusasion()`
 
-**Purpose:** Keeps the display or cache of `persusasion` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of persusasion in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PersuasionVM from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### SetCanMoveWhenCautious
 `public void SetCanMoveWhenCautious(bool value)`
 
-**Purpose:** Assigns a new value to `can move when cautious` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can move when cautious and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -40,7 +40,7 @@ alarmedBehaviorGroup.SetCanMoveWhenCautious(false);
 ### GetVisualFactor
 `public float GetVisualFactor(Vec3 usedGlobalLookDirection, Agent currentAgent, MBReadOnlyList<GameEntity> stealthIndoorLightingAreas, ref bool hasVisualOnCorpse, ref bool hasVisualOnEnemy)`
 
-**Purpose:** Reads and returns the `visual factor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -51,7 +51,7 @@ var result = alarmedBehaviorGroup.GetVisualFactor(usedGlobalLookDirection, curre
 ### ResetAlarmFactor
 `public void ResetAlarmFactor()`
 
-**Purpose:** Returns `alarm factor` to its default or initial condition.
+**Purpose:** **Purpose:** Returns alarm factor to its default or initial condition.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -62,7 +62,7 @@ alarmedBehaviorGroup.ResetAlarmFactor();
 ### AddAlarmFactor
 `public void AddAlarmFactor(float addedAlarmFactor, in WorldPosition suspiciousPosition)`
 
-**Purpose:** Adds `alarm factor` to the current collection or state.
+**Purpose:** **Purpose:** Adds alarm factor to the current collection or state.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -73,7 +73,7 @@ alarmedBehaviorGroup.AddAlarmFactor(0, suspiciousPosition);
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -84,7 +84,7 @@ alarmedBehaviorGroup.Tick(0, false);
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**Purpose:** Reads and returns the `score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -95,7 +95,7 @@ var result = alarmedBehaviorGroup.GetScore(false);
 ### GetClosestAlarmSource
 `public Agent GetClosestAlarmSource(out float distanceSquared)`
 
-**Purpose:** Reads and returns the `closest alarm source` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the closest alarm source value held by the this instance.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -106,7 +106,7 @@ var result = alarmedBehaviorGroup.GetClosestAlarmSource(distanceSquared);
 ### AlarmAgent
 `public static void AlarmAgent(Agent agent)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlarmAgent logic.
 
 ```csharp
 // Static call; no instance required
@@ -116,7 +116,7 @@ AlarmedBehaviorGroup.AlarmAgent(agent);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -127,7 +127,7 @@ alarmedBehaviorGroup.OnAgentRemoved(agent);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceThink logic.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first
@@ -138,7 +138,7 @@ alarmedBehaviorGroup.ForceThink(0);
 ### ConversationTick
 `public override void ConversationTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ConversationTick logic.
 
 ```csharp
 // Obtain an instance of AlarmedBehaviorGroup from the subsystem API first

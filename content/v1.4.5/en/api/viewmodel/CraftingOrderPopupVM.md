@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### Compare
 `public int Compare(CraftingOrder x, CraftingOrder y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of CraftingOrderPopupVM from the subsystem API first
@@ -44,7 +44,7 @@ var result = craftingOrderPopupVM.Compare(x, y);
 ### RefreshOrders
 `public void RefreshOrders()`
 
-**Purpose:** Keeps the display or cache of `orders` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of orders in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingOrderPopupVM from the subsystem API first
@@ -55,7 +55,7 @@ craftingOrderPopupVM.RefreshOrders();
 ### SelectOrder
 `public void SelectOrder(CraftingOrderItemVM order)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectOrder logic.
 
 ```csharp
 // Obtain an instance of CraftingOrderPopupVM from the subsystem API first
@@ -66,7 +66,7 @@ craftingOrderPopupVM.SelectOrder(order);
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of CraftingOrderPopupVM from the subsystem API first
@@ -77,7 +77,7 @@ craftingOrderPopupVM.ExecuteOpenPopup();
 ### ExecuteCloseWithoutSelection
 `public void ExecuteCloseWithoutSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `close without selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close without selection.
 
 ```csharp
 // Obtain an instance of CraftingOrderPopupVM from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### GetApplicationVersion
 `public static ApplicationVersion GetApplicationVersion(this MetaData metaData)`
 
-**Purpose:** Reads and returns the `application version` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the application version value held by the this instance.
 
 ```csharp
 // Static call; no instance required

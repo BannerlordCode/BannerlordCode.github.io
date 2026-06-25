@@ -119,6 +119,4 @@ WindowsWatchdog::vftable
 
 ## Usage Example
 
-```csharp
-var example = new 网络系统();
-```
+// （占位示例已移除，见正文说明）

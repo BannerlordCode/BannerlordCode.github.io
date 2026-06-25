@@ -23,7 +23,7 @@ description: "LocationModel 的自动生成类参考。"
 ### GetSettlementUpgradeLevel
 `public abstract int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「settlement upgrade level」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement upgrade level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationModel 实例
@@ -34,7 +34,7 @@ var result = locationModel.GetSettlementUpgradeLevel(locationEncounter);
 ### GetCivilianSceneLevel
 `public abstract string GetCivilianSceneLevel(Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「civilian scene level」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 civilian scene level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationModel 实例
@@ -45,7 +45,7 @@ var result = locationModel.GetCivilianSceneLevel(settlement);
 ### GetCivilianUpgradeLevelTag
 `public abstract string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「civilian upgrade level tag」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 civilian upgrade level tag 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationModel 实例
@@ -56,7 +56,7 @@ var result = locationModel.GetCivilianUpgradeLevelTag(0);
 ### GetUpgradeLevelTag
 `public abstract string GetUpgradeLevelTag(int upgradeLevel)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「upgrade level tag」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 upgrade level tag 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationModel 实例

@@ -23,7 +23,7 @@ Treat `MilitaryPowerModel` as a Model-style extension point: first identify who 
 ### GetTroopPower
 `public abstract float GetTroopPower(CharacterObject troop, BattleSideEnum side, MapEvent.PowerCalculationContext context, float leaderModifier)`
 
-**Purpose:** Reads and returns the `troop power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop power value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = militaryPowerModel.GetTroopPower(troop, side, context, 0);
 ### GetPowerOfParty
 `public abstract float GetPowerOfParty(PartyBase party, BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Reads and returns the `power of party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the power of party value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = militaryPowerModel.GetPowerOfParty(party, side, context);
 ### GetContextModifier
 `public abstract float GetContextModifier(CharacterObject troop, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Reads and returns the `context modifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the context modifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = militaryPowerModel.GetContextModifier(troop, battleSideEnum, contex
 ### GetContextModifier
 `public abstract float GetContextModifier(Ship ship, BattleSideEnum battleSideEnum, MapEvent.PowerCalculationContext context)`
 
-**Purpose:** Reads and returns the `context modifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the context modifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = militaryPowerModel.GetContextModifier(ship, battleSideEnum, context
 ### GetContextForPosition
 `public abstract MapEvent.PowerCalculationContext GetContextForPosition(CampaignVec2 position)`
 
-**Purpose:** Reads and returns the `context for position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the context for position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = militaryPowerModel.GetContextForPosition(position);
 ### GetDefaultTroopPower
 `public abstract float GetDefaultTroopPower(CharacterObject troop)`
 
-**Purpose:** Reads and returns the `default troop power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default troop power value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = militaryPowerModel.GetDefaultTroopPower(troop);
 ### GetPowerModifierOfHero
 `public abstract float GetPowerModifierOfHero(Hero leaderHero)`
 
-**Purpose:** Reads and returns the `power modifier of hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the power modifier of hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of MilitaryPowerModel from the subsystem API first

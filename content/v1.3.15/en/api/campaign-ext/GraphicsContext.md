@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### CreateContext
 `public void CreateContext(ResourceDepot resourceDepot)`
 
-**Purpose:** Constructs a new `context` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new context entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -44,7 +44,7 @@ graphicsContext.CreateContext(resourceDepot);
 ### SetActive
 `public void SetActive()`
 
-**Purpose:** Assigns a new value to `active` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to active and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -55,7 +55,7 @@ graphicsContext.SetActive();
 ### BeginFrame
 `public void BeginFrame(int width, int height)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFrame logic.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -66,7 +66,7 @@ graphicsContext.BeginFrame(0, 0);
 ### SwapBuffers
 `public void SwapBuffers()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SwapBuffers logic.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -77,7 +77,7 @@ graphicsContext.SwapBuffers();
 ### DestroyContext
 `public void DestroyContext()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DestroyContext logic.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -88,7 +88,7 @@ graphicsContext.DestroyContext();
 ### SetScissor
 `public void SetScissor(ScissorTestInfo scissorTestInfo)`
 
-**Purpose:** Assigns a new value to `scissor` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scissor and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -99,7 +99,7 @@ graphicsContext.SetScissor(scissorTestInfo);
 ### ResetScissor
 `public void ResetScissor()`
 
-**Purpose:** Returns `scissor` to its default or initial condition.
+**Purpose:** **Purpose:** Returns scissor to its default or initial condition.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -110,7 +110,7 @@ graphicsContext.ResetScissor();
 ### GetOrLoadShader
 `public Shader GetOrLoadShader(string shaderName)`
 
-**Purpose:** Reads and returns the `or load shader` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the or load shader value held by the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -121,7 +121,7 @@ var result = graphicsContext.GetOrLoadShader("example");
 ### DrawImage
 `public void DrawImage(SimpleMaterial material, in ImageDrawObject drawObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawImage logic.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -132,7 +132,7 @@ graphicsContext.DrawImage(material, drawObject);
 ### DrawText
 `public void DrawText(TextMaterial material, in TextDrawObject drawObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawText logic.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -143,7 +143,7 @@ graphicsContext.DrawText(material, drawObject);
 ### DrawPolygon
 `public void DrawPolygon(PrimitivePolygonMaterial material, in ImageDrawObject drawObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawPolygon logic.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -154,7 +154,7 @@ graphicsContext.DrawPolygon(material, drawObject);
 ### LoadTextureUsing
 `public void LoadTextureUsing(OpenGLTexture texture, ResourceDepot resourceDepot, string name)`
 
-**Purpose:** Reads `texture using` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads texture using from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -165,7 +165,7 @@ graphicsContext.LoadTextureUsing(texture, resourceDepot, "example");
 ### LoadTexture
 `public OpenGLTexture LoadTexture(ResourceDepot resourceDepot, string name)`
 
-**Purpose:** Reads `texture` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads texture from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -176,7 +176,7 @@ var result = graphicsContext.LoadTexture(resourceDepot, "example");
 ### GetTexture
 `public OpenGLTexture GetTexture(string textureName)`
 
-**Purpose:** Reads and returns the `texture` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the texture value held by the this instance.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -187,7 +187,7 @@ var result = graphicsContext.GetTexture("example");
 ### SetBlending
 `public void SetBlending(bool enable)`
 
-**Purpose:** Assigns a new value to `blending` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to blending and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -198,7 +198,7 @@ graphicsContext.SetBlending(false);
 ### SetVertexArrayClientState
 `public void SetVertexArrayClientState(bool enable)`
 
-**Purpose:** Assigns a new value to `vertex array client state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to vertex array client state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first
@@ -209,7 +209,7 @@ graphicsContext.SetVertexArrayClientState(false);
 ### SetTextureCoordArrayClientState
 `public void SetTextureCoordArrayClientState(bool enable)`
 
-**Purpose:** Assigns a new value to `texture coord array client state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to texture coord array client state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GraphicsContext from the subsystem API first

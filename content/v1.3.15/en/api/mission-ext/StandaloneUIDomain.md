@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Update
 `public override void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of StandaloneUIDomain from the subsystem API first
@@ -42,7 +42,7 @@ standaloneUIDomain.Update();
 ### Destroy
 `public override void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of StandaloneUIDomain from the subsystem API first

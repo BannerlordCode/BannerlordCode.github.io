@@ -155,6 +155,4 @@ LocalizedTextManager.SetLanguage(newLanguageCode);
 
 ## 使用示例
 
-```csharp
-var example = new 本地化();
-```
+// （占位示例已移除，见正文说明）

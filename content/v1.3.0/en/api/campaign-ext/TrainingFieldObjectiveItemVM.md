@@ -32,7 +32,7 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectiveItemVM from the subsystem API first
@@ -43,7 +43,7 @@ trainingFieldObjectiveItemVM.RefreshValues();
 ### CreateFromObjective
 `public static TrainingFieldObjectiveItemVM CreateFromObjective(TrainingFieldMissionController.TutorialObjective objective)`
 
-**Purpose:** Constructs a new `from objective` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from objective entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

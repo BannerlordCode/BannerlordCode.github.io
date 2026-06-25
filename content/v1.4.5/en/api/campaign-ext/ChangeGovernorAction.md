@@ -19,7 +19,7 @@ ChangeGovernorAction is a set of static methods that trigger "ChangeGovernor" in
 public static void Apply(Town fortification, Hero governor)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### RemoveGovernorOf
 
@@ -27,7 +27,7 @@ public static void Apply(Town fortification, Hero governor)
 public static void RemoveGovernorOf(Hero governor)
 ```
 
-**Purpose:** remove governor of.
+**Purpose:** **Purpose:** Removes governor of from the current collection or state.
 
 ### RemoveGovernorOfIfExists
 
@@ -35,7 +35,7 @@ public static void RemoveGovernorOf(Hero governor)
 public static void RemoveGovernorOfIfExists(Town town)
 ```
 
-**Purpose:** remove governor of if exists.
+**Purpose:** **Purpose:** Removes governor of if exists from the current collection or state.
 
 ## Usage Example
 

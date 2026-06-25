@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### ToItemTypeEnum
 `public static ItemTypeEnum ToItemTypeEnum(this MPArmoryCosmeticsVM.ClothingCategory cosmeticCategory)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToItemTypeEnum logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ LobbyCosmeticExtensions.ToItemTypeEnum(cosmeticCategory);
 ### GetCosmeticEquipmentIndex
 `public static EquipmentIndex GetCosmeticEquipmentIndex(this ItemObject itemObject)`
 
-**Purpose:** Reads and returns the `cosmetic equipment index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cosmetic equipment index value held by the this instance.
 
 ```csharp
 // Static call; no instance required

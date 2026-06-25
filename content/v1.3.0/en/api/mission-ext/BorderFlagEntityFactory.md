@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### MakeEntity
 `public GameEntity MakeEntity(params object paramObjects)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MakeEntity logic.
 
 ```csharp
 // Obtain an instance of BorderFlagEntityFactory from the subsystem API first

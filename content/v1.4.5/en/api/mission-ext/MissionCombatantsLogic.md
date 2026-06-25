@@ -29,7 +29,7 @@ Treat `MissionCombatantsLogic` as a Logic-style extension point: first identify 
 ### GetBannerForSide
 `public Banner GetBannerForSide(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `banner for side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner for side value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionCombatantsLogic from the subsystem API first
@@ -40,7 +40,7 @@ var result = missionCombatantsLogic.GetBannerForSide(side);
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionCombatantsLogic from the subsystem API first
@@ -51,7 +51,7 @@ missionCombatantsLogic.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionCombatantsLogic from the subsystem API first
@@ -62,7 +62,7 @@ missionCombatantsLogic.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionCombatantsLogic from the subsystem API first
@@ -73,7 +73,7 @@ missionCombatantsLogic.AfterStart();
 ### GetAllCombatants
 `public IEnumerable<IBattleCombatant> GetAllCombatants()`
 
-**Purpose:** Reads and returns the `all combatants` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all combatants value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionCombatantsLogic from the subsystem API first
@@ -84,7 +84,7 @@ var result = missionCombatantsLogic.GetAllCombatants();
 ### SupportsAllyTeamOnPlayerSide
 `public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, bool isNavalLandHybridMission, out IBattleCombatant allyCombatant)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SupportsAllyTeamOnPlayerSide logic.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "IdleAgentBehavior 的自动生成类参考。"
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「availability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 availability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IdleAgentBehavior 实例
@@ -34,7 +34,7 @@ var result = idleAgentBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「debug info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 debug info 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IdleAgentBehavior 实例

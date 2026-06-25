@@ -29,7 +29,7 @@ description: "MultiplayerGlobalMutedPlayersManager 的自动生成类参考。"
 ### MutePlayer
 `public static void MutePlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 处理与 「mute player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MutePlayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MultiplayerGlobalMutedPlayersManager.MutePlayer(playerId);
 ### UnmutePlayer
 `public static void UnmutePlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 处理与 「unmute player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UnmutePlayer 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ MultiplayerGlobalMutedPlayersManager.UnmutePlayer(playerId);
 ### IsUserMuted
 `public static bool IsUserMuted(PlayerId playerId)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「user muted」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 user muted 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ MultiplayerGlobalMutedPlayersManager.IsUserMuted(playerId);
 ### ClearMutedPlayers
 `public static void ClearMutedPlayers()`
 
-**用途 / Purpose:** 清空当前对象中的「muted players」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的muted players。
 
 ```csharp
 // 静态调用，不需要实例

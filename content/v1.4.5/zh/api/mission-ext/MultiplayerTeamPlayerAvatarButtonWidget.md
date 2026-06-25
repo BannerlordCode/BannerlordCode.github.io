@@ -31,7 +31,7 @@ description: "MultiplayerTeamPlayerAvatarButtonWidget 的自动生成类参考�
 ### MultiplayerTeamPlayerAvatarButtonWidget
 `public class MultiplayerTeamPlayerAvatarButtonWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「multiplayer team player avatar button widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerTeamPlayerAvatarButtonWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamPlayerAvatarButtonWidget 实例

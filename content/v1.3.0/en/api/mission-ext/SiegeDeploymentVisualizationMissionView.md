@@ -23,7 +23,7 @@ Treat `SiegeDeploymentVisualizationMissionView` as a View-style extension point:
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
@@ -34,7 +34,7 @@ siegeDeploymentVisualizationMissionView.AfterStart();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
@@ -45,7 +45,7 @@ siegeDeploymentVisualizationMissionView.OnDeploymentFinished();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first
@@ -56,7 +56,7 @@ siegeDeploymentVisualizationMissionView.OnRemoveBehavior();
 ### SetDeploymentVisualizationSelector
 `public static string SetDeploymentVisualizationSelector(List<string> strings)`
 
-**Purpose:** Assigns a new value to `deployment visualization selector` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to deployment visualization selector and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -66,7 +66,7 @@ SiegeDeploymentVisualizationMissionView.SetDeploymentVisualizationSelector(strin
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentVisualizationMissionView from the subsystem API first

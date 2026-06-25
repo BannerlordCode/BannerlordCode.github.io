@@ -23,7 +23,7 @@ description: "VisualOrderProvider 的自动生成类参考。"
 ### IsAvailable
 `public abstract bool IsAvailable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「available」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 available 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrderProvider 实例
@@ -34,7 +34,7 @@ var result = visualOrderProvider.IsAvailable();
 ### GetOrders
 `public abstract MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「orders」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 orders 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrderProvider 实例

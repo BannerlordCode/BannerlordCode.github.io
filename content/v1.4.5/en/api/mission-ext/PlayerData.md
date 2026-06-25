@@ -52,7 +52,7 @@ Treat `PlayerData` as a Data-style extension point: first identify who creates i
 ### FillWith
 `public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillWith logic.
 
 ```csharp
 // Obtain an instance of PlayerData from the subsystem API first
@@ -63,7 +63,7 @@ playerData.FillWith(playerId, ownerPlayerId, bodyProperties, false, "example", 0
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillWithNewPlayer logic.
 
 ```csharp
 // Obtain an instance of PlayerData from the subsystem API first
@@ -74,7 +74,7 @@ playerData.FillWithNewPlayer(playerId, ownerPlayerId, "example");
 ### HasGameStats
 `public bool HasGameStats(string gameType)`
 
-**Purpose:** Determines whether the current object already holds `game stats`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds game stats.
 
 ```csharp
 // Obtain an instance of PlayerData from the subsystem API first
@@ -85,7 +85,7 @@ var result = playerData.HasGameStats("example");
 ### GetGameStats
 `public PlayerStatsBase GetGameStats(string gameType)`
 
-**Purpose:** Reads and returns the `game stats` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game stats value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlayerData from the subsystem API first
@@ -96,7 +96,7 @@ var result = playerData.GetGameStats("example");
 ### UpdateGameStats
 `public void UpdateGameStats(PlayerStatsBase playerGameTypeStats)`
 
-**Purpose:** Recalculates and stores the latest representation of `game stats`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of game stats.
 
 ```csharp
 // Obtain an instance of PlayerData from the subsystem API first

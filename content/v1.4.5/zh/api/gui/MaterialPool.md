@@ -23,7 +23,7 @@ description: "MaterialPool 的自动生成类参考。"
 ### New
 `public T New()`
 
-**用途 / Purpose:** 处理与 「new」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 New 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MaterialPool 实例
@@ -34,7 +34,7 @@ var result = materialPool.New();
 ### ResetAll
 `public void ResetAll()`
 
-**用途 / Purpose:** 将 「all」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 all 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MaterialPool 实例

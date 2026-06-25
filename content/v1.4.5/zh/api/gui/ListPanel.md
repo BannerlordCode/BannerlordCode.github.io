@@ -31,7 +31,7 @@ description: "ListPanel 的自动生成类参考。"
 ### GetIndexForDrop
 `public override int GetIndexForDrop(Vector2 mousePosition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「index for drop」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 index for drop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ListPanel 实例
@@ -42,7 +42,7 @@ var result = listPanel.GetIndexForDrop(mousePosition);
 ### GetDropGizmoPosition
 `public override Vector2 GetDropGizmoPosition(Vector2 mousePosition)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「drop gizmo position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 drop gizmo position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ListPanel 实例
@@ -53,7 +53,7 @@ var result = listPanel.GetDropGizmoPosition(mousePosition);
 ### OnChildSelected
 `public override void OnChildSelected(Widget widget)`
 
-**用途 / Purpose:** 在 「child selected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 child selected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ListPanel 实例

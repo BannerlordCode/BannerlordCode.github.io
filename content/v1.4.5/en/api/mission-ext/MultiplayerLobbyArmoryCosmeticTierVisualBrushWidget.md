@@ -29,7 +29,7 @@ Treat `MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget` as a Widget-style ex
 ### MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget
 `public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget from the subsystem API first

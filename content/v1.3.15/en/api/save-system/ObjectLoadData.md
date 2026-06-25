@@ -32,7 +32,7 @@ Treat `ObjectLoadData` as a Data-style extension point: first identify who creat
 ### GetDataBySaveId
 `public object GetDataBySaveId(int localSaveId)`
 
-**Purpose:** Reads and returns the `data by save id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the data by save id value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -43,7 +43,7 @@ var result = objectLoadData.GetDataBySaveId(0);
 ### GetMemberValueBySaveId
 `public object GetMemberValueBySaveId(int localSaveId)`
 
-**Purpose:** Reads and returns the `member value by save id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the member value by save id value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -54,7 +54,7 @@ var result = objectLoadData.GetMemberValueBySaveId(0);
 ### GetFieldValueBySaveId
 `public object GetFieldValueBySaveId(int localSaveId)`
 
-**Purpose:** Reads and returns the `field value by save id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the field value by save id value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -65,7 +65,7 @@ var result = objectLoadData.GetFieldValueBySaveId(0);
 ### GetPropertyValueBySaveId
 `public object GetPropertyValueBySaveId(int localSaveId)`
 
-**Purpose:** Reads and returns the `property value by save id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the property value by save id value held by the this instance.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -76,7 +76,7 @@ var result = objectLoadData.GetPropertyValueBySaveId(0);
 ### HasMember
 `public bool HasMember(int localSaveId)`
 
-**Purpose:** Determines whether the current object already holds `member`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds member.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -87,7 +87,7 @@ var result = objectLoadData.HasMember(0);
 ### InitializeReaders
 `public void InitializeReaders(SaveEntryFolder saveEntryFolder)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `readers`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by readers.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -98,7 +98,7 @@ objectLoadData.InitializeReaders(saveEntryFolder);
 ### CreateStruct
 `public void CreateStruct()`
 
-**Purpose:** Constructs a new `struct` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new struct entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -109,7 +109,7 @@ objectLoadData.CreateStruct();
 ### FillCreatedObject
 `public void FillCreatedObject()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillCreatedObject logic.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -120,7 +120,7 @@ objectLoadData.FillCreatedObject();
 ### Read
 `public void Read()`
 
-**Purpose:** Reads the data or state of the current object.
+**Purpose:** **Purpose:** Reads the data or state of the this instance.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first
@@ -131,7 +131,7 @@ objectLoadData.Read();
 ### FillObject
 `public void FillObject()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillObject logic.
 
 ```csharp
 // Obtain an instance of ObjectLoadData from the subsystem API first

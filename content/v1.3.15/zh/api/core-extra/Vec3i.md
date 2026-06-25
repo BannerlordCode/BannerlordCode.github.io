@@ -29,7 +29,7 @@ description: "Vec3i 的自动生成类参考。"
 ### ToVec3
 `public Vec3 ToVec3()`
 
-**用途 / Purpose:** 处理与 「to vec3」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ToVec3 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3i 实例
@@ -40,7 +40,7 @@ var result = vec3i.ToVec3();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3i 实例
@@ -51,7 +51,7 @@ var result = vec3i.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3i 实例
@@ -62,7 +62,7 @@ var result = vec3i.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Vec3i 实例

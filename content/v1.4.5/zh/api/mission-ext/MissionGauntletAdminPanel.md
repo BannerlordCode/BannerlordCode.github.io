@@ -23,7 +23,7 @@ description: "MissionGauntletAdminPanel 的自动生成类参考。"
 ### CreateOptionProviderDelegeate
 `public delegate IAdminPanelOptionProvider CreateOptionProviderDelegeate()`
 
-**用途 / Purpose:** 构建一个新的 「option provider delegeate」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 option provider delegeate 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -34,7 +34,7 @@ var result = missionGauntletAdminPanel.CreateOptionProviderDelegeate();
 ### CreateOptionViewModelDelegate
 `public delegate MultiplayerAdminPanelOptionBaseVM CreateOptionViewModelDelegate(IAdminPanelOption option)`
 
-**用途 / Purpose:** 构建一个新的 「option view model delegate」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 option view model delegate 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -45,7 +45,7 @@ var result = missionGauntletAdminPanel.CreateOptionViewModelDelegate(option);
 ### CreateActionViewModelDelegate
 `public delegate MultiplayerAdminPanelOptionBaseVM CreateActionViewModelDelegate(IAdminPanelAction action)`
 
-**用途 / Purpose:** 构建一个新的 「action view model delegate」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 action view model delegate 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -56,7 +56,7 @@ var result = missionGauntletAdminPanel.CreateActionViewModelDelegate(action);
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -67,7 +67,7 @@ missionGauntletAdminPanel.OnMissionScreenInitialize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -78,7 +78,7 @@ missionGauntletAdminPanel.OnMissionScreenTick(0);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -89,7 +89,7 @@ missionGauntletAdminPanel.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -100,7 +100,7 @@ var result = missionGauntletAdminPanel.OnEscape();
 ### AddOptionProviderCreator
 `public void AddOptionProviderCreator(CreateOptionProviderDelegeate creator)`
 
-**用途 / Purpose:** 将 「option provider creator」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 option provider creator 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -111,7 +111,7 @@ missionGauntletAdminPanel.AddOptionProviderCreator(creator);
 ### AddOptionViewModelCreator
 `public void AddOptionViewModelCreator(CreateOptionViewModelDelegate creator)`
 
-**用途 / Purpose:** 将 「option view model creator」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 option view model creator 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例
@@ -122,7 +122,7 @@ missionGauntletAdminPanel.AddOptionViewModelCreator(creator);
 ### AddActionViewModelCreator
 `public void AddActionViewModelCreator(CreateActionViewModelDelegate creator)`
 
-**用途 / Purpose:** 将 「action view model creator」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 action view model creator 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletAdminPanel 实例

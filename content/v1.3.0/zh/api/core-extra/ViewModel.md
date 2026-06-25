@@ -39,7 +39,7 @@ description: "ViewModel 的自动生成类参考。"
 ### OnPropertyChanged
 `public void OnPropertyChanged( string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -50,7 +50,7 @@ viewModel.OnPropertyChanged("example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(bool value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -61,7 +61,7 @@ viewModel.OnPropertyChangedWithValue(false, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(int value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -72,7 +72,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(float value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -83,7 +83,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(uint value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -94,7 +94,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(Color value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -105,7 +105,7 @@ viewModel.OnPropertyChangedWithValue(value, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(double value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -116,7 +116,7 @@ viewModel.OnPropertyChangedWithValue(0, "example");
 ### OnPropertyChangedWithValue
 `public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)`
 
-**用途 / Purpose:** 在 「property changed with value」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 property changed with value 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -127,7 +127,7 @@ viewModel.OnPropertyChangedWithValue(value, "example");
 ### GetViewModelAtPath
 `public object GetViewModelAtPath(BindingPath path, bool isList)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「view model at path」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 view model at path 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -138,7 +138,7 @@ var result = viewModel.GetViewModelAtPath(path, false);
 ### GetViewModelAtPath
 `public object GetViewModelAtPath(BindingPath path)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「view model at path」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 view model at path 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -149,7 +149,7 @@ var result = viewModel.GetViewModelAtPath(path);
 ### GetPropertyValue
 `public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「property value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -160,7 +160,7 @@ var result = viewModel.GetPropertyValue("example", propertyTypeFeeder);
 ### GetPropertyValue
 `public object GetPropertyValue(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「property value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -171,7 +171,7 @@ var result = viewModel.GetPropertyValue("example");
 ### GetPropertyType
 `public Type GetPropertyType(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「property type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 property type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -182,7 +182,7 @@ var result = viewModel.GetPropertyType("example");
 ### SetPropertyValue
 `public void SetPropertyValue(string name, object value)`
 
-**用途 / Purpose:** 为 「property value」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 property value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -193,7 +193,7 @@ viewModel.SetPropertyValue("example", value);
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -204,7 +204,7 @@ viewModel.OnFinalize();
 ### ExecuteCommand
 `public void ExecuteCommand(string commandName, object parameters)`
 
-**用途 / Purpose:** 执行 「command」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 command 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -215,7 +215,7 @@ viewModel.ExecuteCommand("example", parameters);
 ### RefreshValues
 `public virtual void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewModel 实例
@@ -226,7 +226,7 @@ viewModel.RefreshValues();
 ### RefreshPropertyAndMethodInfos
 `public static void RefreshPropertyAndMethodInfos()`
 
-**用途 / Purpose:** 使 「property and method infos」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 property and method infos 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例

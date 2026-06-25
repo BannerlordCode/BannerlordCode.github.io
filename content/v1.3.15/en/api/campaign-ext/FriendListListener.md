@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnFriendListRetrieveSuccess
 `public override void OnFriendListRetrieveSuccess()`
 
-**Purpose:** Invoked when the `friend list retrieve success` event is raised.
+**Purpose:** **Purpose:** Invoked when the friend list retrieve success event is raised.
 
 ```csharp
 // Obtain an instance of FriendListListener from the subsystem API first
@@ -40,7 +40,7 @@ friendListListener.OnFriendListRetrieveSuccess();
 ### OnFriendListRetrieveFailure
 `public override void OnFriendListRetrieveFailure(IFriendListListener.FailureReason failureReason)`
 
-**Purpose:** Invoked when the `friend list retrieve failure` event is raised.
+**Purpose:** **Purpose:** Invoked when the friend list retrieve failure event is raised.
 
 ```csharp
 // Obtain an instance of FriendListListener from the subsystem API first

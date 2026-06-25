@@ -29,7 +29,7 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of CheckpointArea from the subsystem API first
@@ -40,7 +40,7 @@ checkpointArea.AfterMissionStart();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of CheckpointArea from the subsystem API first

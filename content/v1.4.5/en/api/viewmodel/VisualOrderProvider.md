@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### IsAvailable
 `public abstract bool IsAvailable()`
 
-**Purpose:** Determines whether the current object is in the `available` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the available state or condition.
 
 ```csharp
 // Obtain an instance of VisualOrderProvider from the subsystem API first
@@ -34,7 +34,7 @@ var result = visualOrderProvider.IsAvailable();
 ### GetOrders
 `public abstract MBReadOnlyList<VisualOrderSet> GetOrders()`
 
-**Purpose:** Reads and returns the `orders` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the orders value held by the this instance.
 
 ```csharp
 // Obtain an instance of VisualOrderProvider from the subsystem API first

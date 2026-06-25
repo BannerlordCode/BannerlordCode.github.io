@@ -36,7 +36,7 @@ description: "MPArmoryCosmeticTauntSlotVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -47,7 +47,7 @@ mPArmoryCosmeticTauntSlotVM.OnFinalize();
 ### AssignTauntItem
 `public void AssignTauntItem(MPArmoryCosmeticTauntItemVM tauntItem, bool isSwapping = false)`
 
-**用途 / Purpose:** 处理与 「assign taunt item」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AssignTauntItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -58,7 +58,7 @@ mPArmoryCosmeticTauntSlotVM.AssignTauntItem(tauntItem, false);
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**用途 / Purpose:** 执行 「select」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 select 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -69,7 +69,7 @@ mPArmoryCosmeticTauntSlotVM.ExecuteSelect();
 ### ExecutePreview
 `public void ExecutePreview()`
 
-**用途 / Purpose:** 执行 「preview」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 preview 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -80,7 +80,7 @@ mPArmoryCosmeticTauntSlotVM.ExecutePreview();
 ### ExecuteFocus
 `public void ExecuteFocus()`
 
-**用途 / Purpose:** 执行 「focus」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 focus 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -91,7 +91,7 @@ mPArmoryCosmeticTauntSlotVM.ExecuteFocus();
 ### ExecuteUnfocus
 `public void ExecuteUnfocus()`
 
-**用途 / Purpose:** 执行 「unfocus」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 unfocus 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -102,7 +102,7 @@ mPArmoryCosmeticTauntSlotVM.ExecuteUnfocus();
 ### SetSelectKeyVisual
 `public void SetSelectKeyVisual(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「select key visual」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 select key visual 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例
@@ -113,7 +113,7 @@ mPArmoryCosmeticTauntSlotVM.SetSelectKeyVisual(hotKey);
 ### SetEmptySlotKeyVisual
 `public void SetEmptySlotKeyVisual(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「empty slot key visual」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 empty slot key visual 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例

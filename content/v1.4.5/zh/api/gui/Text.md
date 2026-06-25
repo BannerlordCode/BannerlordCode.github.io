@@ -41,7 +41,7 @@ description: "Text 的自动生成类参考。"
 ### GetPreferredSize
 `public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「preferred size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 preferred size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Text 实例
@@ -52,7 +52,7 @@ var result = text.GetPreferredSize(false, 0, false, 0, spriteData, 0);
 ### UpdateSize
 `public void UpdateSize(int width, int height)`
 
-**用途 / Purpose:** 重新计算并更新 「size」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 size 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Text 实例
@@ -63,7 +63,7 @@ text.UpdateSize(0, 0);
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**用途 / Purpose:** 为 「all dirty」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 all dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Text 实例
@@ -74,7 +74,7 @@ text.SetAllDirty();
 ### GetParts
 `public List<TextPart> GetParts()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「parts」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parts 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Text 实例

@@ -19,7 +19,7 @@ MakePregnantAction is a set of static methods that trigger "MakePregnant" in the
 public static void Apply(Hero mother)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

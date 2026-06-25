@@ -23,7 +23,7 @@ description: "RestResponseMessage 的自动生成类参考。"
 ### GetMessage
 `public abstract Message GetMessage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「message」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 message 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RestResponseMessage 实例

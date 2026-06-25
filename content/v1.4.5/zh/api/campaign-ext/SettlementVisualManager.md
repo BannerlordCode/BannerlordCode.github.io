@@ -23,7 +23,7 @@ description: "SettlementVisualManager 的自动生成类参考。"
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementVisualManager 实例
@@ -34,7 +34,7 @@ settlementVisualManager.OnTick(0, 0);
 ### OnVisualIntersected
 `public override bool OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**用途 / Purpose:** 在 「visual intersected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 visual intersected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementVisualManager 实例
@@ -45,7 +45,7 @@ var result = settlementVisualManager.OnVisualIntersected(mouseRay, intersectedEn
 ### OnFrameTick
 `public override void OnFrameTick(float dt)`
 
-**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementVisualManager 实例
@@ -56,7 +56,7 @@ settlementVisualManager.OnFrameTick(0);
 ### OnMouseClick
 `public override bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**用途 / Purpose:** 在 「mouse click」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mouse click 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementVisualManager 实例
@@ -67,7 +67,7 @@ var result = settlementVisualManager.OnMouseClick(visualOfSelectedEntity, inters
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「visual of entity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visual of entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementVisualManager 实例
@@ -78,7 +78,7 @@ var result = settlementVisualManager.GetVisualOfEntity(partyBase);
 ### GetSettlementVisual
 `public SettlementVisual GetSettlementVisual(Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「settlement visual」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 settlement visual 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementVisualManager 实例

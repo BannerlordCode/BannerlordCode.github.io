@@ -29,7 +29,7 @@ Start from namespace `SandBox.Objects` to place it in the stack, then inspect it
 ### IsAIMovingTo
 `public override bool IsAIMovingTo(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `a i moving to` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the a i moving to state or condition.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first
@@ -40,7 +40,7 @@ var result = teleportUsePoint.IsAIMovingTo(agent);
 ### IsUsableByAgent
 `public override bool IsUsableByAgent(Agent userAgent)`
 
-**Purpose:** Determines whether the current object is in the `usable by agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the usable by agent state or condition.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first
@@ -51,7 +51,7 @@ var result = teleportUsePoint.IsUsableByAgent(userAgent);
 ### IsDisabledForAgent
 `public override bool IsDisabledForAgent(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `disabled for agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first
@@ -62,7 +62,7 @@ var result = teleportUsePoint.IsDisabledForAgent(agent);
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `use` event is raised.
+**Purpose:** **Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first
@@ -73,7 +73,7 @@ teleportUsePoint.OnUse(userAgent, 0);
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first
@@ -84,7 +84,7 @@ teleportUsePoint.Deactivate();
 ### Activate
 `public void Activate()`
 
-**Purpose:** Activates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first
@@ -95,7 +95,7 @@ teleportUsePoint.Activate();
 ### OnFocusGain
 `public override void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Invoked when the `focus gain` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of TeleportUsePoint from the subsystem API first

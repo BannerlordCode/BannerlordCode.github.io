@@ -29,7 +29,7 @@ description: "CompressionInfo 的自动生成类参考。"
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num bits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -40,7 +40,7 @@ var result = compressionInfo.GetNumBits();
 ### GetMaximumValue
 `public int GetMaximumValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -51,7 +51,7 @@ var result = compressionInfo.GetMaximumValue();
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num bits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -62,7 +62,7 @@ var result = compressionInfo.GetNumBits();
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num bits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -73,7 +73,7 @@ var result = compressionInfo.GetNumBits();
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num bits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -84,7 +84,7 @@ var result = compressionInfo.GetNumBits();
 ### GetNumBits
 `public int GetNumBits()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「num bits」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 num bits 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -95,7 +95,7 @@ var result = compressionInfo.GetNumBits();
 ### GetMaximumValue
 `public float GetMaximumValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「maximum value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -106,7 +106,7 @@ var result = compressionInfo.GetMaximumValue();
 ### GetMinimumValue
 `public float GetMinimumValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「minimum value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 minimum value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例
@@ -117,7 +117,7 @@ var result = compressionInfo.GetMinimumValue();
 ### GetPrecision
 `public float GetPrecision()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「precision」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 precision 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例

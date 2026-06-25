@@ -23,7 +23,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### Release
 `public void Release()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
@@ -34,7 +34,7 @@ audioPlaybackLayerChannelStandalone.Release();
 ### LoadSegment
 `public PsaiResult LoadSegment(Segment segment)`
 
-**Purpose:** Reads `segment` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads segment from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
@@ -45,7 +45,7 @@ var result = audioPlaybackLayerChannelStandalone.LoadSegment(segment);
 ### ReleaseSegment
 `public PsaiResult ReleaseSegment()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseSegment logic.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
@@ -56,7 +56,7 @@ var result = audioPlaybackLayerChannelStandalone.ReleaseSegment();
 ### ScheduleSegmentPlayback
 `public PsaiResult ScheduleSegmentPlayback(Segment snippet, int delayMilliseconds)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ScheduleSegmentPlayback logic.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
@@ -67,7 +67,7 @@ var result = audioPlaybackLayerChannelStandalone.ScheduleSegmentPlayback(snippet
 ### StopChannel
 `public PsaiResult StopChannel()`
 
-**Purpose:** Stops the `channel` flow or state machine.
+**Purpose:** **Purpose:** Stops the channel flow or state machine.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
@@ -78,7 +78,7 @@ var result = audioPlaybackLayerChannelStandalone.StopChannel();
 ### SetVolume
 `public PsaiResult SetVolume(float volume)`
 
-**Purpose:** Assigns a new value to `volume` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to volume and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first
@@ -89,7 +89,7 @@ var result = audioPlaybackLayerChannelStandalone.SetVolume(0);
 ### SetPaused
 `public PsaiResult SetPaused(bool paused)`
 
-**Purpose:** Assigns a new value to `paused` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to paused and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AudioPlaybackLayerChannelStandalone from the subsystem API first

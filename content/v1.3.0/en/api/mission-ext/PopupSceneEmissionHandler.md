@@ -23,7 +23,7 @@ Treat `PopupSceneEmissionHandler` as a Handler-style extension point: first iden
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of PopupSceneEmissionHandler from the subsystem API first

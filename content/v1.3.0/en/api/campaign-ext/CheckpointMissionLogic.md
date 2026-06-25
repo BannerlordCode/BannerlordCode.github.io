@@ -23,7 +23,7 @@ Treat `CheckpointMissionLogic` as a Logic-style extension point: first identify 
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of CheckpointMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ checkpointMissionLogic.EarlyStart();
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**Purpose:** Invoked when the `rendering started` event is raised.
+**Purpose:** **Purpose:** Invoked when the rendering started event is raised.
 
 ```csharp
 // Obtain an instance of CheckpointMissionLogic from the subsystem API first
@@ -45,7 +45,7 @@ checkpointMissionLogic.OnRenderingStarted();
 ### OnEarlyAgentRemoved
 `public override void OnEarlyAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `early agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the early agent removed event is raised.
 
 ```csharp
 // Obtain an instance of CheckpointMissionLogic from the subsystem API first
@@ -56,7 +56,7 @@ checkpointMissionLogic.OnEarlyAgentRemoved(affectedAgent, affectorAgent, agentSt
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CheckpointMissionLogic from the subsystem API first
@@ -67,7 +67,7 @@ checkpointMissionLogic.OnMissionTick(0);
 ### OnCheckpointUsed
 `public void OnCheckpointUsed(int checkpointUniqueId)`
 
-**Purpose:** Invoked when the `checkpoint used` event is raised.
+**Purpose:** **Purpose:** Invoked when the checkpoint used event is raised.
 
 ```csharp
 // Obtain an instance of CheckpointMissionLogic from the subsystem API first
@@ -78,7 +78,7 @@ checkpointMissionLogic.OnCheckpointUsed(0);
 ### RegisterAgent
 `public void RegisterAgent(Agent agent)`
 
-**Purpose:** Registers `agent` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers agent with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of CheckpointMissionLogic from the subsystem API first

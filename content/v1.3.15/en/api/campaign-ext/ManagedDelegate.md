@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### InvokeAux
 `public void InvokeAux()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InvokeAux logic.
 
 ```csharp
 // Obtain an instance of ManagedDelegate from the subsystem API first
@@ -40,7 +40,7 @@ managedDelegate.InvokeAux();
 ### DelegateDefinition
 `public delegate void DelegateDefinition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DelegateDefinition logic.
 
 ```csharp
 // Obtain an instance of ManagedDelegate from the subsystem API first

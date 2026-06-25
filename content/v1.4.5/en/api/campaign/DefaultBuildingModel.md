@@ -23,7 +23,7 @@ Treat `DefaultBuildingModel` as a Model-style extension point: first identify wh
 ### CanAddBuildingTypeToTown
 `public override bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `add building type to town`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for add building type to town.
 
 ```csharp
 // Obtain an instance of DefaultBuildingModel from the subsystem API first

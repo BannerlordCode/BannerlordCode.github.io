@@ -33,7 +33,7 @@ description: "CharacterCreationCultureStageVM 的自动生成类参考。"
 ### OnCultureSelection
 `public void OnCultureSelection(CharacterCreationCultureVM selectedCulture)`
 
-**用途 / Purpose:** 在 「culture selection」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 culture selection 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
@@ -44,7 +44,7 @@ characterCreationCultureStageVM.OnCultureSelection(selectedCulture);
 ### OnNextStage
 `public override void OnNextStage()`
 
-**用途 / Purpose:** 在 「next stage」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 next stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
@@ -55,7 +55,7 @@ characterCreationCultureStageVM.OnNextStage();
 ### OnPreviousStage
 `public override void OnPreviousStage()`
 
-**用途 / Purpose:** 在 「previous stage」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 previous stage 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
@@ -66,7 +66,7 @@ characterCreationCultureStageVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public override bool CanAdvanceToNextStage()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「advance to next stage」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 advance to next stage 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
@@ -77,7 +77,7 @@ var result = characterCreationCultureStageVM.CanAdvanceToNextStage();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
@@ -88,7 +88,7 @@ characterCreationCultureStageVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例
@@ -99,7 +99,7 @@ characterCreationCultureStageVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageVM 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack,
 ### SetIsAscending
 `public void SetIsAscending(bool isAscending)`
 
-**Purpose:** Assigns a new value to `is ascending` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is ascending and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopComparer from the subsystem API first
@@ -34,7 +34,7 @@ troopComparer.SetIsAscending(false);
 ### Compare
 `public int Compare(TroopRosterElement x, TroopRosterElement y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of TroopComparer from the subsystem API first

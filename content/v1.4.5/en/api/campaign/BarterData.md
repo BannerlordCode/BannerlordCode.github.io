@@ -29,7 +29,7 @@ Treat `BarterData` as a Data-style extension point: first identify who creates i
 ### AddBarterGroup
 `public void AddBarterGroup(BarterGroup barterGroup)`
 
-**Purpose:** Adds `barter group` to the current collection or state.
+**Purpose:** **Purpose:** Adds barter group to the current collection or state.
 
 ```csharp
 // Obtain an instance of BarterData from the subsystem API first
@@ -40,7 +40,7 @@ barterData.AddBarterGroup(barterGroup);
 ### GetBarterGroups
 `public List<BarterGroup> GetBarterGroups()`
 
-**Purpose:** Reads and returns the `barter groups` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the barter groups value held by the this instance.
 
 ```csharp
 // Obtain an instance of BarterData from the subsystem API first
@@ -51,7 +51,7 @@ var result = barterData.GetBarterGroups();
 ### GetBarterables
 `public List<Barterable> GetBarterables()`
 
-**Purpose:** Reads and returns the `barterables` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the barterables value held by the this instance.
 
 ```csharp
 // Obtain an instance of BarterData from the subsystem API first
@@ -62,7 +62,7 @@ var result = barterData.GetBarterables();
 ### GetOfferedBarterables
 `public List<Barterable> GetOfferedBarterables()`
 
-**Purpose:** Reads and returns the `offered barterables` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the offered barterables value held by the this instance.
 
 ```csharp
 // Obtain an instance of BarterData from the subsystem API first

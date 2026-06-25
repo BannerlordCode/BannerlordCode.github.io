@@ -32,7 +32,7 @@ Treat `CraftingDifficultyBarParentWidget` as a Widget-style extension point: fir
 ### CraftingDifficultyBarParentWidget
 `public class CraftingDifficultyBarParentWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CraftingDifficultyBarParentWidget logic.
 
 ```csharp
 // Obtain an instance of CraftingDifficultyBarParentWidget from the subsystem API first

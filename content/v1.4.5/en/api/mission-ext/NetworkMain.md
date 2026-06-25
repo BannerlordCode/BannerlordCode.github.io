@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetPeers
 `public static void SetPeers(LobbyClient gameClient, CommunityClient communityClient, CustomBattleServer customBattleServer)`
 
-**Purpose:** Assigns a new value to `peers` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to peers and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

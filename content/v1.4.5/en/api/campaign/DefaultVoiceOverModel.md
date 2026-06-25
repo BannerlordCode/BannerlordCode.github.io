@@ -23,7 +23,7 @@ Treat `DefaultVoiceOverModel` as a Model-style extension point: first identify w
 ### GetSoundPathForCharacter
 `public override string GetSoundPathForCharacter(CharacterObject character, VoiceObject voiceObject)`
 
-**Purpose:** Reads and returns the `sound path for character` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sound path for character value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultVoiceOverModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultVoiceOverModel.GetSoundPathForCharacter(character, voiceObje
 ### GetAccentClass
 `public override string GetAccentClass(CultureObject culture, bool isHighClass)`
 
-**Purpose:** Reads and returns the `accent class` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the accent class value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultVoiceOverModel from the subsystem API first

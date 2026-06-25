@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place 
 ### CanEnterLocation
 `public bool CanEnterLocation(Location location)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `enter location`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for enter location.
 
 ```csharp
 // Obtain an instance of AccompanyingCharacter from the subsystem API first
@@ -40,7 +40,7 @@ var result = accompanyingCharacter.CanEnterLocation(location);
 ### AllowEntranceToLocations
 `public void AllowEntranceToLocations(Func<Location, bool> predicate)`
 
-**Purpose:** Permits `entrance to locations` to be enabled or performed on the current object.
+**Purpose:** **Purpose:** Permits entrance to locations to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of AccompanyingCharacter from the subsystem API first
@@ -51,7 +51,7 @@ accompanyingCharacter.AllowEntranceToLocations(func<Location, false);
 ### DisallowEntranceToLocations
 `public void DisallowEntranceToLocations(Func<Location, bool> predicate)`
 
-**Purpose:** Prevents `entrance to locations` from being enabled or performed on the current object.
+**Purpose:** **Purpose:** Prevents entrance to locations from being enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of AccompanyingCharacter from the subsystem API first
@@ -62,7 +62,7 @@ accompanyingCharacter.DisallowEntranceToLocations(func<Location, false);
 ### AllowEntranceToAllLocations
 `public void AllowEntranceToAllLocations()`
 
-**Purpose:** Permits `entrance to all locations` to be enabled or performed on the current object.
+**Purpose:** **Purpose:** Permits entrance to all locations to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of AccompanyingCharacter from the subsystem API first
@@ -73,7 +73,7 @@ accompanyingCharacter.AllowEntranceToAllLocations();
 ### DisallowEntranceToAllLocations
 `public void DisallowEntranceToAllLocations()`
 
-**Purpose:** Prevents `entrance to all locations` from being enabled or performed on the current object.
+**Purpose:** **Purpose:** Prevents entrance to all locations from being enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of AccompanyingCharacter from the subsystem API first

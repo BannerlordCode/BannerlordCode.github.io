@@ -19,7 +19,7 @@ BribeGuardsAction is a set of static methods that trigger "BribeGuards" in the c
 public static void Apply(Settlement settlement, int gold)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

@@ -23,7 +23,7 @@ description: "StoryModeHelpers 的自动生成类参考。"
 ### SetPlayerSiblingsSkillsIfNeeded
 `public static void SetPlayerSiblingsSkillsIfNeeded(Hero hero)`
 
-**用途 / Purpose:** 为 「player siblings skills if needed」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 player siblings skills if needed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

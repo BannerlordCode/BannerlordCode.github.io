@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Refresh
 `public static void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ WidgetInfo.Refresh();
 ### GetWidgetInfo
 `public static WidgetInfo GetWidgetInfo(Type type)`
 
-**Purpose:** Reads and returns the `widget info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the widget info value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ WidgetInfo.GetWidgetInfo(type);
 ### GetWidgetInfos
 `public static WidgetInfo GetWidgetInfos()`
 
-**Purpose:** Reads and returns the `widget infos` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the widget infos value held by the this instance.
 
 ```csharp
 // Static call; no instance required

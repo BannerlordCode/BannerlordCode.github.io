@@ -48,7 +48,7 @@ description: "GameServerProperties 的自动生成类参考。"
 ### CheckAndReplaceProxyAddress
 `public void CheckAndReplaceProxyAddress(IReadOnlyDictionary<string, string> proxyAddressMap)`
 
-**用途 / Purpose:** 检查「and replace proxy address」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查and replace proxy address在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 GameServerProperties 实例

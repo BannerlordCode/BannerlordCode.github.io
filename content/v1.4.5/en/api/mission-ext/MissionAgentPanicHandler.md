@@ -23,7 +23,7 @@ Treat `MissionAgentPanicHandler` as a Handler-style extension point: first ident
 ### OnAgentPanicked
 `public override void OnAgentPanicked(Agent agent)`
 
-**Purpose:** Invoked when the `agent panicked` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent panicked event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentPanicHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionAgentPanicHandler.OnAgentPanicked(agent);
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentPanicHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionAgentPanicHandler.OnPreMissionTick(0);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionAgentPanicHandler from the subsystem API first

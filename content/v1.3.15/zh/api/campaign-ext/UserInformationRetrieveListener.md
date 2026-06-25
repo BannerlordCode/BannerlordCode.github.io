@@ -29,7 +29,7 @@ description: "UserInformationRetrieveListener 的自动生成类参考。"
 ### OnUserInformationRetrieveFailure
 `public override void OnUserInformationRetrieveFailure(GalaxyID userID, IUserInformationRetrieveListener.FailureReason failureReason)`
 
-**用途 / Purpose:** 在 「user information retrieve failure」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 user information retrieve failure 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UserInformationRetrieveListener 实例
@@ -40,7 +40,7 @@ userInformationRetrieveListener.OnUserInformationRetrieveFailure(userID, failure
 ### OnUserInformationRetrieveSuccess
 `public override void OnUserInformationRetrieveSuccess(GalaxyID userID)`
 
-**用途 / Purpose:** 在 「user information retrieve success」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 user information retrieve success 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 UserInformationRetrieveListener 实例

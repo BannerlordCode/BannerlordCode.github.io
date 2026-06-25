@@ -23,7 +23,7 @@ description: "SiegeWeaponAutoDeployer 的自动生成类参考。"
 ### DeployAll
 `public void DeployAll(BattleSideEnum side)`
 
-**用途 / Purpose:** 处理与 「deploy all」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeployAll 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponAutoDeployer 实例

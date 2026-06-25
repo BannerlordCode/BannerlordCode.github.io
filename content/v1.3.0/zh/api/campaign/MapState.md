@@ -34,7 +34,7 @@ description: "MapState 的自动生成类参考。"
 ### OnJoinArmy
 `public void OnJoinArmy()`
 
-**用途 / Purpose:** 在 「join army」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 join army 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -45,7 +45,7 @@ mapState.OnJoinArmy();
 ### OnLeaveArmy
 `public void OnLeaveArmy()`
 
-**用途 / Purpose:** 在 「leave army」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 leave army 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -56,7 +56,7 @@ mapState.OnLeaveArmy();
 ### OnFadeInAndOut
 `public void OnFadeInAndOut(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**用途 / Purpose:** 在 「fade in and out」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 fade in and out 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -67,7 +67,7 @@ mapState.OnFadeInAndOut(0, 0, 0);
 ### OnDispersePlayerLeadedArmy
 `public void OnDispersePlayerLeadedArmy()`
 
-**用途 / Purpose:** 在 「disperse player leaded army」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 disperse player leaded army 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -78,7 +78,7 @@ mapState.OnDispersePlayerLeadedArmy();
 ### OnArmyCreated
 `public void OnArmyCreated(MobileParty mobileParty)`
 
-**用途 / Purpose:** 在 「army created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 army created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -89,7 +89,7 @@ mapState.OnArmyCreated(mobileParty);
 ### OnIncidentStarted
 `public void OnIncidentStarted(Incident incident)`
 
-**用途 / Purpose:** 在 「incident started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 incident started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -100,7 +100,7 @@ mapState.OnIncidentStarted(incident);
 ### OnMainPartyEncounter
 `public void OnMainPartyEncounter()`
 
-**用途 / Purpose:** 在 「main party encounter」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 main party encounter 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -111,7 +111,7 @@ mapState.OnMainPartyEncounter();
 ### ProcessTravel
 `public void ProcessTravel(CampaignVec2 moveTargetPoint)`
 
-**用途 / Purpose:** 处理与 「process travel」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessTravel 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -122,7 +122,7 @@ mapState.ProcessTravel(moveTargetPoint);
 ### OnLoadingFinished
 `public void OnLoadingFinished()`
 
-**用途 / Purpose:** 在 「loading finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 loading finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -133,7 +133,7 @@ mapState.OnLoadingFinished();
 ### OnMapConversationStarts
 `public void OnMapConversationStarts(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**用途 / Purpose:** 在 「map conversation starts」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 map conversation starts 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -144,7 +144,7 @@ mapState.OnMapConversationStarts(playerCharacterData, conversationPartnerData);
 ### OnMapConversationOver
 `public void OnMapConversationOver()`
 
-**用途 / Purpose:** 在 「map conversation over」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 map conversation over 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -155,7 +155,7 @@ mapState.OnMapConversationOver();
 ### EnterMenuMode
 `public void EnterMenuMode()`
 
-**用途 / Purpose:** 获取或更新 「enter menu mode」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EnterMenuMode 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -166,7 +166,7 @@ mapState.EnterMenuMode();
 ### ExitMenuMode
 `public void ExitMenuMode()`
 
-**用途 / Purpose:** 获取或更新 「exit menu mode」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ExitMenuMode 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -177,7 +177,7 @@ mapState.ExitMenuMode();
 ### StartBattleSimulation
 `public void StartBattleSimulation()`
 
-**用途 / Purpose:** 启动「battle simulation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动battle simulation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -188,7 +188,7 @@ mapState.StartBattleSimulation();
 ### EndBattleSimulation
 `public void EndBattleSimulation()`
 
-**用途 / Purpose:** 处理与 「end battle simulation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndBattleSimulation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -199,7 +199,7 @@ mapState.EndBattleSimulation();
 ### OnPlayerSiegeActivated
 `public void OnPlayerSiegeActivated()`
 
-**用途 / Purpose:** 在 「player siege activated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player siege activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -210,7 +210,7 @@ mapState.OnPlayerSiegeActivated();
 ### OnPlayerSiegeDeactivated
 `public void OnPlayerSiegeDeactivated()`
 
-**用途 / Purpose:** 在 「player siege deactivated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player siege deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -221,7 +221,7 @@ mapState.OnPlayerSiegeDeactivated();
 ### OnSiegeEngineClick
 `public void OnSiegeEngineClick(MatrixFrame siegeEngineFrame)`
 
-**用途 / Purpose:** 在 「siege engine click」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 siege engine click 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例

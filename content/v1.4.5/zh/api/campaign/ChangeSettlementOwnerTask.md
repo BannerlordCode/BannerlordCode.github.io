@@ -23,7 +23,7 @@ description: "ChangeSettlementOwnerTask 的自动生成类参考。"
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**用途 / Purpose:** 在 「settlement owner changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 settlement owner changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ChangeSettlementOwnerTask 实例
@@ -34,7 +34,7 @@ changeSettlementOwnerTask.OnSettlementOwnerChanged(settlement, false, newOwner, 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ChangeSettlementOwnerTask 实例

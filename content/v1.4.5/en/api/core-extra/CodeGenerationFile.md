@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### AddLine
 `public void AddLine(string line)`
 
-**Purpose:** Adds `line` to the current collection or state.
+**Purpose:** **Purpose:** Adds line to the current collection or state.
 
 ```csharp
 // Obtain an instance of CodeGenerationFile from the subsystem API first
@@ -34,7 +34,7 @@ codeGenerationFile.AddLine("example");
 ### GenerateText
 `public string GenerateText()`
 
-**Purpose:** Generates an instance, data, or representation of `text`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of text.
 
 ```csharp
 // Obtain an instance of CodeGenerationFile from the subsystem API first

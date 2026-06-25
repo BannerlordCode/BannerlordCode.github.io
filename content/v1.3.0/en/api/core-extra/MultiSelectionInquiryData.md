@@ -23,7 +23,7 @@ Treat `MultiSelectionInquiryData` as a Data-style extension point: first identif
 ### HasSameContentWith
 `public bool HasSameContentWith(object other)`
 
-**Purpose:** Determines whether the current object already holds `same content with`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of MultiSelectionInquiryData from the subsystem API first

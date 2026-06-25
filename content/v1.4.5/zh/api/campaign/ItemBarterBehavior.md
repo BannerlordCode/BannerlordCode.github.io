@@ -23,7 +23,7 @@ description: "ItemBarterBehavior 的自动生成类参考。"
 ### CompareTo
 `public int CompareTo(SettlementDistancePair other)`
 
-**用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与传入实例比较大小或顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemBarterBehavior 实例
@@ -34,7 +34,7 @@ var result = itemBarterBehavior.CompareTo(other);
 ### GetClosestSettlements
 `public List<Settlement> GetClosestSettlements(Vec2 position)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「closest settlements」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest settlements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemBarterBehavior 实例
@@ -45,7 +45,7 @@ var result = itemBarterBehavior.GetClosestSettlements(position);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemBarterBehavior 实例
@@ -56,7 +56,7 @@ itemBarterBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemBarterBehavior 实例
@@ -67,7 +67,7 @@ itemBarterBehavior.SyncData(dataStore);
 ### CheckForBarters
 `public void CheckForBarters(BarterData args)`
 
-**用途 / Purpose:** 检查「for barters」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查for barters在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemBarterBehavior 实例

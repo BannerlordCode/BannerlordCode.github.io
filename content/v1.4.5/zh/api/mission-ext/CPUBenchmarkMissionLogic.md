@@ -23,7 +23,7 @@ description: "CPUBenchmarkMissionLogic 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
@@ -34,7 +34,7 @@ cPUBenchmarkMissionLogic.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
@@ -45,7 +45,7 @@ cPUBenchmarkMissionLogic.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
@@ -56,7 +56,7 @@ cPUBenchmarkMissionLogic.OnMissionTick(0);
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「pre mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 pre mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
@@ -67,7 +67,7 @@ cPUBenchmarkMissionLogic.OnPreMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
@@ -78,7 +78,7 @@ cPUBenchmarkMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState
 ### CPUBenchmarkMission
 `public static string CPUBenchmarkMission(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「cpu benchmark mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CPUBenchmarkMission 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -88,7 +88,7 @@ CPUBenchmarkMissionLogic.CPUBenchmarkMission(strings);
 ### CPUBenchmark
 `public static string CPUBenchmark(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「cpu benchmark」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CPUBenchmark 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -98,7 +98,7 @@ CPUBenchmarkMissionLogic.CPUBenchmark(strings);
 ### BenchmarkStateStart
 `public static string BenchmarkStateStart(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「benchmark state start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BenchmarkStateStart 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -108,7 +108,7 @@ CPUBenchmarkMissionLogic.BenchmarkStateStart(strings);
 ### BenchmarkStateEnd
 `public static string BenchmarkStateEnd(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「benchmark state end」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BenchmarkStateEnd 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -118,7 +118,7 @@ CPUBenchmarkMissionLogic.BenchmarkStateEnd(strings);
 ### OpenCPUBenchmarkMission
 `public static Mission OpenCPUBenchmarkMission(string scene)`
 
-**用途 / Purpose:** 打开「c p u benchmark mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开c p u benchmark mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetUserWithName
 `public async Task<PlayerId> GetUserWithName(string name)`
 
-**Purpose:** Reads and returns the `user with name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the user with name value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanFriendListService from the subsystem API first
@@ -34,7 +34,7 @@ var result = clanFriendListService.GetUserWithName("example");
 ### GetPendingRequests
 `public IEnumerable<PlayerId> GetPendingRequests()`
 
-**Purpose:** Reads and returns the `pending requests` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the pending requests value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanFriendListService from the subsystem API first
@@ -45,7 +45,7 @@ var result = clanFriendListService.GetPendingRequests();
 ### GetReceivedRequests
 `public IEnumerable<PlayerId> GetReceivedRequests()`
 
-**Purpose:** Reads and returns the `received requests` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the received requests value held by the this instance.
 
 ```csharp
 // Obtain an instance of ClanFriendListService from the subsystem API first
@@ -56,7 +56,7 @@ var result = clanFriendListService.GetReceivedRequests();
 ### OnClanInfoChanged
 `public void OnClanInfoChanged(List<ClanPlayerInfo> playerInfosInClan)`
 
-**Purpose:** Invoked when the `clan info changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the clan info changed event is raised.
 
 ```csharp
 // Obtain an instance of ClanFriendListService from the subsystem API first

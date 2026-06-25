@@ -23,7 +23,7 @@ Treat `AgentComponent` as a Component-style extension point: first identify who 
 ### Initialize
 `public virtual void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -34,7 +34,7 @@ agentComponent.Initialize();
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -45,7 +45,7 @@ agentComponent.OnTick(0);
 ### OnTickParallel
 `public virtual void OnTickParallel(float dt)`
 
-**Purpose:** Invoked when the `tick parallel` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick parallel event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -56,7 +56,7 @@ agentComponent.OnTickParallel(0);
 ### GetMoraleAddition
 `public virtual float GetMoraleAddition()`
 
-**Purpose:** Reads and returns the `morale addition` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the morale addition value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -67,7 +67,7 @@ var result = agentComponent.GetMoraleAddition();
 ### GetMoraleDecreaseConstant
 `public virtual float GetMoraleDecreaseConstant()`
 
-**Purpose:** Reads and returns the `morale decrease constant` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the morale decrease constant value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -78,7 +78,7 @@ var result = agentComponent.GetMoraleDecreaseConstant();
 ### OnItemPickup
 `public virtual void OnItemPickup(SpawnedItemEntity item)`
 
-**Purpose:** Invoked when the `item pickup` event is raised.
+**Purpose:** **Purpose:** Invoked when the item pickup event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -89,7 +89,7 @@ agentComponent.OnItemPickup(item);
 ### OnWeaponDrop
 `public virtual void OnWeaponDrop(MissionWeapon droppedWeapon)`
 
-**Purpose:** Invoked when the `weapon drop` event is raised.
+**Purpose:** **Purpose:** Invoked when the weapon drop event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -100,7 +100,7 @@ agentComponent.OnWeaponDrop(droppedWeapon);
 ### OnStopUsingGameObject
 `public virtual void OnStopUsingGameObject()`
 
-**Purpose:** Invoked when the `stop using game object` event is raised.
+**Purpose:** **Purpose:** Invoked when the stop using game object event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -111,7 +111,7 @@ agentComponent.OnStopUsingGameObject();
 ### OnWeaponHPChanged
 `public virtual void OnWeaponHPChanged(ItemObject item, int hitPoints)`
 
-**Purpose:** Invoked when the `weapon h p changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the weapon h p changed event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -122,7 +122,7 @@ agentComponent.OnWeaponHPChanged(item, 0);
 ### OnRetreating
 `public virtual void OnRetreating()`
 
-**Purpose:** Invoked when the `retreating` event is raised.
+**Purpose:** **Purpose:** Invoked when the retreating event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -133,7 +133,7 @@ agentComponent.OnRetreating();
 ### OnMount
 `public virtual void OnMount(Agent mount)`
 
-**Purpose:** Invoked when the `mount` event is raised.
+**Purpose:** **Purpose:** Invoked when the mount event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -144,7 +144,7 @@ agentComponent.OnMount(mount);
 ### OnDismount
 `public virtual void OnDismount(Agent mount)`
 
-**Purpose:** Invoked when the `dismount` event is raised.
+**Purpose:** **Purpose:** Invoked when the dismount event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -155,7 +155,7 @@ agentComponent.OnDismount(mount);
 ### OnHit
 `public virtual void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)`
 
-**Purpose:** Invoked when the `hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the hit event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -166,7 +166,7 @@ agentComponent.OnHit(affectorAgent, 0, affectorWeapon, b, collisionData);
 ### OnDisciplineChanged
 `public virtual void OnDisciplineChanged()`
 
-**Purpose:** Invoked when the `discipline changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the discipline changed event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -177,7 +177,7 @@ agentComponent.OnDisciplineChanged();
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved()`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -188,7 +188,7 @@ agentComponent.OnAgentRemoved();
 ### OnAgentTeleported
 `public virtual void OnAgentTeleported()`
 
-**Purpose:** Invoked when the `agent teleported` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent teleported event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -199,7 +199,7 @@ agentComponent.OnAgentTeleported();
 ### OnAIInputSet
 `public virtual void OnAIInputSet(ref Agent.EventControlFlag eventFlag, ref Agent.MovementControlFlag movementFlag, ref Vec2 inputVector)`
 
-**Purpose:** Invoked when the `a i input set` event is raised.
+**Purpose:** **Purpose:** Invoked when the a i input set event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -210,7 +210,7 @@ agentComponent.OnAIInputSet(eventFlag, movementFlag, inputVector);
 ### OnComponentRemoved
 `public virtual void OnComponentRemoved()`
 
-**Purpose:** Invoked when the `component removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the component removed event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first
@@ -221,7 +221,7 @@ agentComponent.OnComponentRemoved();
 ### OnFormationSet
 `public virtual void OnFormationSet()`
 
-**Purpose:** Invoked when the `formation set` event is raised.
+**Purpose:** **Purpose:** Invoked when the formation set event is raised.
 
 ```csharp
 // Obtain an instance of AgentComponent from the subsystem API first

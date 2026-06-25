@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.K
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Runs the operation or workflow associated with `remove`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of MPPersonalKillNotificationItemVM from the subsystem API first

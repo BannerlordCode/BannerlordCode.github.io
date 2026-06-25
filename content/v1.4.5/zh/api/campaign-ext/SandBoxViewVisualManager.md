@@ -23,7 +23,7 @@ description: "SandBoxViewVisualManager 的自动生成类参考。"
 ### VisualTick
 `public static void VisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** 推进 「visual」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 VisualTick 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SandBoxViewVisualManager.VisualTick(screen, 0, 0);
 ### OnTick
 `public static void OnTick(float realDt, float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ SandBoxViewVisualManager.OnTick(0, 0);
 ### ClearVisualMemory
 `public static void ClearVisualMemory()`
 
-**用途 / Purpose:** 清空当前对象中的「visual memory」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的visual memory。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ SandBoxViewVisualManager.ClearVisualMemory();
 ### OnFrameTick
 `public static void OnFrameTick(float dt)`
 
-**用途 / Purpose:** 在 「frame tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 frame tick 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ SandBoxViewVisualManager.OnFrameTick(0);
 ### OnMouseClick
 `public static bool OnMouseClick(MapEntityVisual visualOfSelectedEntity, Vec3 intersectionPoint, PathFaceRecord mouseOverFaceIndex, bool isDoubleClick)`
 
-**用途 / Purpose:** 在 「mouse click」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mouse click 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ SandBoxViewVisualManager.OnMouseClick(visualOfSelectedEntity, intersectionPoint,
 ### OnGameLoadFinished
 `public static void OnGameLoadFinished()`
 
-**用途 / Purpose:** 在 「game load finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game load finished 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ SandBoxViewVisualManager.OnGameLoadFinished();
 ### GetComponents
 `public MBList<CampaignEntityVisualComponent> GetComponents()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「components」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 components 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxViewVisualManager 实例

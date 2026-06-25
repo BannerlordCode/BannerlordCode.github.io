@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaFactionPageVM from the subsystem API first
@@ -62,7 +62,7 @@ encyclopediaFactionPageVM.RefreshValues();
 ### Refresh
 `public override void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaFactionPageVM from the subsystem API first
@@ -73,7 +73,7 @@ encyclopediaFactionPageVM.Refresh();
 ### GetName
 `public override string GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaFactionPageVM from the subsystem API first
@@ -84,7 +84,7 @@ var result = encyclopediaFactionPageVM.GetName();
 ### GetNavigationBarURL
 `public override string GetNavigationBarURL()`
 
-**Purpose:** Reads and returns the `navigation bar u r l` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the navigation bar u r l value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaFactionPageVM from the subsystem API first
@@ -95,7 +95,7 @@ var result = encyclopediaFactionPageVM.GetNavigationBarURL();
 ### ExecuteSwitchBookmarkedState
 `public override void ExecuteSwitchBookmarkedState()`
 
-**Purpose:** Runs the operation or workflow associated with `switch bookmarked state`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with switch bookmarked state.
 
 ```csharp
 // Obtain an instance of EncyclopediaFactionPageVM from the subsystem API first

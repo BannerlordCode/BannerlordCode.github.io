@@ -23,7 +23,7 @@ description: "MPPerkCondition 的自动生成类参考。"
 ### Check
 `public abstract bool Check(MissionPeer peer)`
 
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkCondition 实例
@@ -34,7 +34,7 @@ var result = mPPerkCondition.Check(peer);
 ### Check
 `public abstract bool Check(Agent agent)`
 
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MPPerkCondition 实例
@@ -45,7 +45,7 @@ var result = mPPerkCondition.Check(agent);
 ### CreateFrom
 `public static MPPerkCondition CreateFrom(List<string> gameModes, XmlNode node)`
 
-**用途 / Purpose:** 构建一个新的 「from」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 from 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

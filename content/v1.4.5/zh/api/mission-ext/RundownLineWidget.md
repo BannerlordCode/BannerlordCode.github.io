@@ -31,7 +31,7 @@ description: "RundownLineWidget 的自动生成类参考。"
 ### RefreshValueOffset
 `public void RefreshValueOffset(float columnWidth)`
 
-**用途 / Purpose:** 使 「value offset」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 value offset 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RundownLineWidget 实例

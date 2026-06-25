@@ -23,7 +23,7 @@ description: "RewardGoldOnDeathEffect 的自动生成类参考。"
 ### GetIsTeamRewardedOnDeath
 `public override bool GetIsTeamRewardedOnDeath()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is team rewarded on death」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is team rewarded on death 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RewardGoldOnDeathEffect 实例
@@ -34,7 +34,7 @@ var result = rewardGoldOnDeathEffect.GetIsTeamRewardedOnDeath();
 ### CalculateRewardedGoldOnDeath
 `public override void CalculateRewardedGoldOnDeath(Agent agent, List<(MissionPeer, int)> teamMembers)`
 
-**用途 / Purpose:** 计算「rewarded gold on death」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算rewarded gold on death的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RewardGoldOnDeathEffect 实例

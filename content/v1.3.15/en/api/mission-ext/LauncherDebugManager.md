@@ -23,7 +23,7 @@ Treat `LauncherDebugManager` as a Manager-style extension point: first identify 
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of LauncherDebugManager from the subsystem API first

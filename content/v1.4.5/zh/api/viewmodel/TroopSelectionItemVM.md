@@ -41,7 +41,7 @@ description: "TroopSelectionItemVM 的自动生成类参考。"
 ### ExecuteAdd
 `public void ExecuteAdd()`
 
-**用途 / Purpose:** 执行 「add」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 add 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSelectionItemVM 实例
@@ -52,7 +52,7 @@ troopSelectionItemVM.ExecuteAdd();
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 remove 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSelectionItemVM 实例
@@ -63,7 +63,7 @@ troopSelectionItemVM.ExecuteRemove();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopSelectionItemVM 实例

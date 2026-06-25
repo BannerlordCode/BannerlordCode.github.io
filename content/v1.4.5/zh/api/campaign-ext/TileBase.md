@@ -30,7 +30,7 @@ description: "TileBase 的自动生成类参考。"
 ### Reset
 `public virtual void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TileBase 实例
@@ -41,7 +41,7 @@ tileBase.Reset();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TileBase 实例
@@ -52,7 +52,7 @@ tileBase.Tick(0);
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**用途 / Purpose:** 为 「visibility」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TileBase 实例

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSiegeEngineType
 `public override SiegeEngineType GetSiegeEngineType()`
 
-**Purpose:** Reads and returns the `siege engine type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -41,7 +41,7 @@ var result = ballista.GetSiegeEngineType();
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -52,7 +52,7 @@ var result = ballista.CreateAIBehaviorObject();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -63,7 +63,7 @@ var result = ballista.GetTickRequirement();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -74,7 +74,7 @@ var result = ballista.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -85,7 +85,7 @@ var result = ballista.GetDescriptionText(gameEntity);
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessTargetValue logic.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -96,7 +96,7 @@ var result = ballista.ProcessTargetValue(0, flags);
 ### GetTargetFlags
 `public override TargetFlags GetTargetFlags()`
 
-**Purpose:** Reads and returns the `target flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -107,7 +107,7 @@ var result = ballista.GetTargetFlags();
 ### GetTargetValue
 `public override float GetTargetValue(List<Vec3> weaponPos)`
 
-**Purpose:** Reads and returns the `target value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target value value held by the this instance.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first
@@ -118,7 +118,7 @@ var result = ballista.GetTargetValue(weaponPos);
 ### SetSpawnedFromSpawner
 `public void SetSpawnedFromSpawner()`
 
-**Purpose:** Assigns a new value to `spawned from spawner` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to spawned from spawner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Ballista from the subsystem API first

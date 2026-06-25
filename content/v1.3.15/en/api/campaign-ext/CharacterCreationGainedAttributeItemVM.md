@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### SetValue
 `public void SetValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterCreationGainedAttributeItemVM from the subsystem API first

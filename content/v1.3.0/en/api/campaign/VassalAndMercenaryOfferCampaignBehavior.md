@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of VassalAndMercenaryOfferCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ vassalAndMercenaryOfferCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of VassalAndMercenaryOfferCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ vassalAndMercenaryOfferCampaignBehavior.SyncData(dataStore);
 ### CancelVassalOrMercenaryServiceOffer
 `public void CancelVassalOrMercenaryServiceOffer(Kingdom kingdom)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `cel vassal or mercenary service offer`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for cel vassal or mercenary service offer.
 
 ```csharp
 // Obtain an instance of VassalAndMercenaryOfferCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ vassalAndMercenaryOfferCampaignBehavior.CancelVassalOrMercenaryServiceOffer(king
 ### CreateMercenaryOffer
 `public void CreateMercenaryOffer(Kingdom kingdom)`
 
-**Purpose:** Constructs a new `mercenary offer` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new mercenary offer entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of VassalAndMercenaryOfferCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ vassalAndMercenaryOfferCampaignBehavior.CreateMercenaryOffer(kingdom);
 ### CreateVassalOffer
 `public void CreateVassalOffer(Kingdom kingdom)`
 
-**Purpose:** Constructs a new `vassal offer` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new vassal offer entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of VassalAndMercenaryOfferCampaignBehavior from the subsystem API first

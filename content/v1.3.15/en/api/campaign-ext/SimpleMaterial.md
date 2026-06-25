@@ -50,7 +50,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### Reset
 `public void Reset(Texture texture = null)`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of SimpleMaterial from the subsystem API first
@@ -61,7 +61,7 @@ simpleMaterial.Reset(null);
 ### GetCircularMaskingCenter
 `public Vec2 GetCircularMaskingCenter()`
 
-**Purpose:** Reads and returns the `circular masking center` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the circular masking center value held by the this instance.
 
 ```csharp
 // Obtain an instance of SimpleMaterial from the subsystem API first
@@ -72,7 +72,7 @@ var result = simpleMaterial.GetCircularMaskingCenter();
 ### GetOverlayStartCoordinate
 `public Vec2 GetOverlayStartCoordinate()`
 
-**Purpose:** Reads and returns the `overlay start coordinate` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the overlay start coordinate value held by the this instance.
 
 ```csharp
 // Obtain an instance of SimpleMaterial from the subsystem API first
@@ -83,7 +83,7 @@ var result = simpleMaterial.GetOverlayStartCoordinate();
 ### GetOverlaySize
 `public Vec2 GetOverlaySize()`
 
-**Purpose:** Reads and returns the `overlay size` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the overlay size value held by the this instance.
 
 ```csharp
 // Obtain an instance of SimpleMaterial from the subsystem API first

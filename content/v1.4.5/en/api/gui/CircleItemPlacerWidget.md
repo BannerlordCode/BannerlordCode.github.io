@@ -32,7 +32,7 @@ Treat `CircleItemPlacerWidget` as a Widget-style extension point: first identify
 ### AnimateDistanceFromCenterTo
 `public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AnimateDistanceFromCenterTo logic.
 
 ```csharp
 // Obtain an instance of CircleItemPlacerWidget from the subsystem API first

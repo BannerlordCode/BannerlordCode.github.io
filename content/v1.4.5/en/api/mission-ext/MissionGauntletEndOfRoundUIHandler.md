@@ -23,7 +23,7 @@ Treat `MissionGauntletEndOfRoundUIHandler` as a Handler-style extension point: f
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletEndOfRoundUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletEndOfRoundUIHandler.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletEndOfRoundUIHandler from the subsystem API first

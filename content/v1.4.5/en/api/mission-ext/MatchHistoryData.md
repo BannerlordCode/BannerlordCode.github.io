@@ -39,7 +39,7 @@ Treat `MatchHistoryData` as a Data-style extension point: first identify who cre
 ### HasSameContentWith
 `public override bool HasSameContentWith(MultiplayerLocalData other)`
 
-**Purpose:** Determines whether the current object already holds `same content with`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of MatchHistoryData from the subsystem API first
@@ -50,7 +50,7 @@ var result = matchHistoryData.HasSameContentWith(other);
 ### AddOrUpdatePlayer
 `public void AddOrUpdatePlayer(string id, string username, int forcedIndex, int teamNo)`
 
-**Purpose:** Adds `or update player` to the current collection or state.
+**Purpose:** **Purpose:** Adds or update player to the current collection or state.
 
 ```csharp
 // Obtain an instance of MatchHistoryData from the subsystem API first
@@ -61,7 +61,7 @@ matchHistoryData.AddOrUpdatePlayer("example", "example", 0, 0);
 ### TryUpdatePlayerStats
 `public bool TryUpdatePlayerStats(string id, int kill, int death, int assist)`
 
-**Purpose:** Attempts to retrieve `update player stats`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve update player stats, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MatchHistoryData from the subsystem API first

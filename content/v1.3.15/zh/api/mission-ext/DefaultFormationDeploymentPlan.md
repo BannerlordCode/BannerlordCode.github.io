@@ -37,7 +37,7 @@ description: "DefaultFormationDeploymentPlan 的自动生成类参考。"
 ### HasFrame
 `public bool HasFrame()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「frame」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 frame。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -48,7 +48,7 @@ var result = defaultFormationDeploymentPlan.HasFrame();
 ### GetDefaultFlank
 `public FormationDeploymentFlank GetDefaultFlank(int formationTroopCount, int infantryCount, bool spawnWithHorses = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default flank」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default flank 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -59,7 +59,7 @@ var result = defaultFormationDeploymentPlan.GetDefaultFlank(0, 0, false);
 ### GetFlankDeploymentOrder
 `public FormationDeploymentOrder GetFlankDeploymentOrder(int offset = 0)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「flank deployment order」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flank deployment order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -70,7 +70,7 @@ var result = defaultFormationDeploymentPlan.GetFlankDeploymentOrder(0);
 ### GetFrame
 `public MatrixFrame GetFrame()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -81,7 +81,7 @@ var result = defaultFormationDeploymentPlan.GetFrame();
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -92,7 +92,7 @@ var result = defaultFormationDeploymentPlan.GetPosition();
 ### GetDirection
 `public Vec2 GetDirection()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「direction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 direction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -103,7 +103,7 @@ var result = defaultFormationDeploymentPlan.GetDirection();
 ### CreateNewDeploymentWorldPosition
 `public WorldPosition CreateNewDeploymentWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
 
-**用途 / Purpose:** 构建一个新的 「new deployment world position」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 new deployment world position 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -114,7 +114,7 @@ var result = defaultFormationDeploymentPlan.CreateNewDeploymentWorldPosition(wor
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -125,7 +125,7 @@ defaultFormationDeploymentPlan.Clear();
 ### SetPlannedTroopCount
 `public void SetPlannedTroopCount(int footTroopCount, int mountedTroopCount)`
 
-**用途 / Purpose:** 为 「planned troop count」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 planned troop count 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -136,7 +136,7 @@ defaultFormationDeploymentPlan.SetPlannedTroopCount(0, 0);
 ### SetPlannedDimensions
 `public void SetPlannedDimensions(float width, float depth)`
 
-**用途 / Purpose:** 为 「planned dimensions」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 planned dimensions 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -147,7 +147,7 @@ defaultFormationDeploymentPlan.SetPlannedDimensions(0, 0);
 ### SetFrame
 `public void SetFrame(in WorldFrame frame)`
 
-**用途 / Purpose:** 为 「frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例
@@ -158,7 +158,7 @@ defaultFormationDeploymentPlan.SetFrame(frame);
 ### SetSpawnClass
 `public void SetSpawnClass(FormationClass spawnClass)`
 
-**用途 / Purpose:** 为 「spawn class」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 spawn class 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultFormationDeploymentPlan 实例

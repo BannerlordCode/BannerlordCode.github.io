@@ -23,7 +23,7 @@ description: "StoryModeMissions 的自动生成类参考。"
 ### OpenTrainingFieldMission
 `public static Mission OpenTrainingFieldMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**用途 / Purpose:** 打开「training field mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开training field mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ StoryModeMissions.OpenTrainingFieldMission("example", location, null, "example")
 ### OpenSneakIntoTheVillaMission
 `public static Mission OpenSneakIntoTheVillaMission(string scene, CampaignTime overridenCt, string sceneLevels = null)`
 
-**用途 / Purpose:** 打开「sneak into the villa mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开sneak into the villa mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

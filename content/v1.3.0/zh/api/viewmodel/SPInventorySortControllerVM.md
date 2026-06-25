@@ -38,7 +38,7 @@ description: "SPInventorySortControllerVM 的自动生成类参考。"
 ### SortByOption
 `public void SortByOption(SPInventorySortControllerVM.InventoryItemSortOption sortOption, SPInventorySortControllerVM.InventoryItemSortState sortState)`
 
-**用途 / Purpose:** 处理与 「sort by option」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SortByOption 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -49,7 +49,7 @@ sPInventorySortControllerVM.SortByOption(sortOption, sortState);
 ### SortByDefaultState
 `public void SortByDefaultState()`
 
-**用途 / Purpose:** 获取或更新 「sort by default state」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SortByDefaultState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -60,7 +60,7 @@ sPInventorySortControllerVM.SortByDefaultState();
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**用途 / Purpose:** 获取或更新 「sort by current state」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SortByCurrentState 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -71,7 +71,7 @@ sPInventorySortControllerVM.SortByCurrentState();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**用途 / Purpose:** 执行 「sort by name」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by name 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -82,7 +82,7 @@ sPInventorySortControllerVM.ExecuteSortByName();
 ### ExecuteSortByType
 `public void ExecuteSortByType()`
 
-**用途 / Purpose:** 执行 「sort by type」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by type 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -93,7 +93,7 @@ sPInventorySortControllerVM.ExecuteSortByType();
 ### ExecuteSortByQuantity
 `public void ExecuteSortByQuantity()`
 
-**用途 / Purpose:** 执行 「sort by quantity」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by quantity 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -104,7 +104,7 @@ sPInventorySortControllerVM.ExecuteSortByQuantity();
 ### ExecuteSortByCost
 `public void ExecuteSortByCost()`
 
-**用途 / Purpose:** 执行 「sort by cost」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sort by cost 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -115,7 +115,7 @@ sPInventorySortControllerVM.ExecuteSortByCost();
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -126,7 +126,7 @@ sPInventorySortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -137,7 +137,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -148,7 +148,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -159,7 +159,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -170,7 +170,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SPItemVM x, SPItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例

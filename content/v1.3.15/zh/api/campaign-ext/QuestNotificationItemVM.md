@@ -23,7 +23,7 @@ description: "QuestNotificationItemVM 的自动生成类参考。"
 ### ManualRefreshRelevantStatus
 `public override void ManualRefreshRelevantStatus()`
 
-**用途 / Purpose:** 获取或更新 「manual refresh relevant status」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ManualRefreshRelevantStatus 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestNotificationItemVM 实例

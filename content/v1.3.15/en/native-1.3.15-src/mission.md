@@ -134,6 +134,4 @@ worldmap_budget_checker::vftable
 
 ## Usage Example
 
-```csharp
-var example = new 任务系统();
-```
+// （占位示例已移除，见正文说明）

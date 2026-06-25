@@ -19,7 +19,7 @@ ChangeVillageStateAction is a set of static methods that trigger "ChangeVillageS
 public static void ApplyBySettingToNormal(Settlement settlement)
 ```
 
-**Purpose:** setting to normal.
+**Purpose:** **Purpose:** Applies the effect of by setting to normal to the this instance.
 
 ### ApplyBySettingToBeingRaided
 
@@ -27,7 +27,7 @@ public static void ApplyBySettingToNormal(Settlement settlement)
 public static void ApplyBySettingToBeingRaided(Settlement settlement, MobileParty raider)
 ```
 
-**Purpose:** setting to being raided.
+**Purpose:** **Purpose:** Applies the effect of by setting to being raided to the this instance.
 
 ### ApplyBySettingToBeingForcedForSupplies
 
@@ -35,7 +35,7 @@ public static void ApplyBySettingToBeingRaided(Settlement settlement, MobilePart
 public static void ApplyBySettingToBeingForcedForSupplies(Settlement settlement, MobileParty raider)
 ```
 
-**Purpose:** setting to being forced for supplies.
+**Purpose:** **Purpose:** Applies the effect of by setting to being forced for supplies to the this instance.
 
 ### ApplyBySettingToBeingForcedForVolunteers
 
@@ -43,7 +43,7 @@ public static void ApplyBySettingToBeingForcedForSupplies(Settlement settlement,
 public static void ApplyBySettingToBeingForcedForVolunteers(Settlement settlement, MobileParty raider)
 ```
 
-**Purpose:** setting to being forced for volunteers.
+**Purpose:** **Purpose:** Applies the effect of by setting to being forced for volunteers to the this instance.
 
 ### ApplyBySettingToLooted
 
@@ -51,7 +51,7 @@ public static void ApplyBySettingToBeingForcedForVolunteers(Settlement settlemen
 public static void ApplyBySettingToLooted(Settlement settlement, MobileParty raider)
 ```
 
-**Purpose:** setting to looted.
+**Purpose:** **Purpose:** Applies the effect of by setting to looted to the this instance.
 
 ## Usage Example
 

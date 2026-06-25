@@ -23,7 +23,7 @@ Start from namespace `SandBox` to place it in the stack, then inspect its public
 ### OnCampaignStart
 `public override void OnCampaignStart(Game game, object starterObject)`
 
-**Purpose:** Invoked when the `campaign start` event is raised.
+**Purpose:** **Purpose:** Invoked when the campaign start event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxSubModule from the subsystem API first
@@ -34,7 +34,7 @@ sandBoxSubModule.OnCampaignStart(game, starterObject);
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**Purpose:** Invoked when the `game initialization finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the game initialization finished event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxSubModule from the subsystem API first
@@ -45,7 +45,7 @@ sandBoxSubModule.OnGameInitializationFinished(game);
 ### RegisterSubModuleObjects
 `public override void RegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** Registers `sub module objects` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of SandBoxSubModule from the subsystem API first
@@ -56,7 +56,7 @@ sandBoxSubModule.RegisterSubModuleObjects(false);
 ### AfterRegisterSubModuleObjects
 `public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterRegisterSubModuleObjects logic.
 
 ```csharp
 // Obtain an instance of SandBoxSubModule from the subsystem API first
@@ -67,7 +67,7 @@ sandBoxSubModule.AfterRegisterSubModuleObjects(false);
 ### OnGameLoaded
 `public override void OnGameLoaded(Game game, object starterObject)`
 
-**Purpose:** Invoked when the `game loaded` event is raised.
+**Purpose:** **Purpose:** Invoked when the game loaded event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxSubModule from the subsystem API first
@@ -78,7 +78,7 @@ sandBoxSubModule.OnGameLoaded(game, starterObject);
 ### OnConfigChanged
 `public override void OnConfigChanged()`
 
-**Purpose:** Invoked when the `config changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the config changed event is raised.
 
 ```csharp
 // Obtain an instance of SandBoxSubModule from the subsystem API first

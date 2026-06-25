@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetMissionType
 `public override MultiplayerGameType GetMissionType()`
 
-**Purpose:** Reads and returns the `mission type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission type value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
@@ -41,7 +41,7 @@ var result = missionMultiplayerTeamDeathmatch.GetMissionType();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
@@ -52,7 +52,7 @@ missionMultiplayerTeamDeathmatch.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
@@ -63,7 +63,7 @@ missionMultiplayerTeamDeathmatch.AfterStart();
 ### OnPeerChangedTeam
 `public override void OnPeerChangedTeam(NetworkCommunicator peer, Team oldTeam, Team newTeam)`
 
-**Purpose:** Invoked when the `peer changed team` event is raised.
+**Purpose:** **Purpose:** Invoked when the peer changed team event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
@@ -74,7 +74,7 @@ missionMultiplayerTeamDeathmatch.OnPeerChangedTeam(peer, oldTeam, newTeam);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
@@ -85,7 +85,7 @@ missionMultiplayerTeamDeathmatch.OnAgentRemoved(affectedAgent, affectorAgent, ag
 ### CheckForMatchEnd
 `public override bool CheckForMatchEnd()`
 
-**Purpose:** Verifies whether `for match end` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for match end holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first
@@ -96,7 +96,7 @@ var result = missionMultiplayerTeamDeathmatch.CheckForMatchEnd();
 ### GetWinnerTeam
 `public override Team GetWinnerTeam()`
 
-**Purpose:** Reads and returns the `winner team` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the winner team value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerTeamDeathmatch from the subsystem API first

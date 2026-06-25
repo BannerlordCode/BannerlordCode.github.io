@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTroopCountMultiplier
 `public virtual float GetTroopCountMultiplier()`
 
-**Purpose:** Reads and returns the `troop count multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop count multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
@@ -34,7 +34,7 @@ var result = mPOnSpawnPerkEffectBase.GetTroopCountMultiplier();
 ### GetExtraTroopCount
 `public virtual int GetExtraTroopCount()`
 
-**Purpose:** Reads and returns the `extra troop count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the extra troop count value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
@@ -45,7 +45,7 @@ var result = mPOnSpawnPerkEffectBase.GetExtraTroopCount();
 ### GetDrivenPropertyBonusOnSpawn
 `public virtual float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**Purpose:** Reads and returns the `driven property bonus on spawn` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the driven property bonus on spawn value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first
@@ -56,7 +56,7 @@ var result = mPOnSpawnPerkEffectBase.GetDrivenPropertyBonusOnSpawn(false, driven
 ### GetHitpoints
 `public virtual float GetHitpoints(bool isPlayer)`
 
-**Purpose:** Reads and returns the `hitpoints` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hitpoints value held by the this instance.
 
 ```csharp
 // Obtain an instance of MPOnSpawnPerkEffectBase from the subsystem API first

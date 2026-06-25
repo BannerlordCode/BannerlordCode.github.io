@@ -23,7 +23,7 @@ description: "DefaultHideoutModel 的自动生成类参考。"
 ### GetRogueryXpGainAsGhost
 `public override float GetRogueryXpGainAsGhost()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain as ghost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 roguery xp gain as ghost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultHideoutModel 实例
@@ -34,7 +34,7 @@ var result = defaultHideoutModel.GetRogueryXpGainAsGhost();
 ### GetRogueryXpGainOnHideoutMissionEnd
 `public override float GetRogueryXpGainOnHideoutMissionEnd(bool isSucceeded)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「roguery xp gain on hideout mission end」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 roguery xp gain on hideout mission end 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultHideoutModel 实例
@@ -45,7 +45,7 @@ var result = defaultHideoutModel.GetRogueryXpGainOnHideoutMissionEnd(false);
 ### GetSendTroopsSuccessChance
 `public override float GetSendTroopsSuccessChance(Hideout hideout)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「send troops success chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 send troops success chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultHideoutModel 实例

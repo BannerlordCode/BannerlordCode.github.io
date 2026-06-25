@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of WidgetContainer from the subsystem API first

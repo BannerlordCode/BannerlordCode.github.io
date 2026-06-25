@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.S
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -56,7 +56,7 @@ missionScoreboardVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -67,7 +67,7 @@ missionScoreboardVM.RefreshValues();
 ### SetMouseState
 `public void SetMouseState(bool isMouseVisible)`
 
-**Purpose:** Assigns a new value to `mouse state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mouse state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -78,7 +78,7 @@ missionScoreboardVM.SetMouseState(false);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -89,7 +89,7 @@ missionScoreboardVM.Tick(0);
 ### OnPlayerSideChanged
 `public void OnPlayerSideChanged(Team curTeam, Team nextTeam, MissionPeer client)`
 
-**Purpose:** Invoked when the `player side changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the player side changed event is raised.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -100,7 +100,7 @@ missionScoreboardVM.OnPlayerSideChanged(curTeam, nextTeam, client);
 ### DecreaseSpectatorCount
 `public void DecreaseSpectatorCount(MissionPeer spectatedPeer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DecreaseSpectatorCount logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -111,7 +111,7 @@ missionScoreboardVM.DecreaseSpectatorCount(spectatedPeer);
 ### IncreaseSpectatorCount
 `public void IncreaseSpectatorCount(MissionPeer spectatedPeer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IncreaseSpectatorCount logic.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first
@@ -122,7 +122,7 @@ missionScoreboardVM.IncreaseSpectatorCount(spectatedPeer);
 ### ExecuteToggleMute
 `public void ExecuteToggleMute()`
 
-**Purpose:** Runs the operation or workflow associated with `toggle mute`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle mute.
 
 ```csharp
 // Obtain an instance of MissionScoreboardVM from the subsystem API first

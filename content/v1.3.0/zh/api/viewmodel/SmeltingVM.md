@@ -35,7 +35,7 @@ description: "SmeltingVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SmeltingVM 实例
@@ -46,7 +46,7 @@ smeltingVM.RefreshValues();
 ### RefreshList
 `public void RefreshList()`
 
-**用途 / Purpose:** 使 「list」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SmeltingVM 实例
@@ -57,7 +57,7 @@ smeltingVM.RefreshList();
 ### TrySmeltingSelectedItems
 `public void TrySmeltingSelectedItems(Hero currentCraftingHero)`
 
-**用途 / Purpose:** 尝试获取 「smelting selected items」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 smelting selected items 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 SmeltingVM 实例
@@ -68,7 +68,7 @@ smeltingVM.TrySmeltingSelectedItems(currentCraftingHero);
 ### SaveItemLockStates
 `public void SaveItemLockStates()`
 
-**用途 / Purpose:** 将 「item lock states」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 item lock states 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 SmeltingVM 实例

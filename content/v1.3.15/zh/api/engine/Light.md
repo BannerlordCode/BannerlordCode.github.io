@@ -34,7 +34,7 @@ description: "Light 的自动生成类参考。"
 ### CreatePointLight
 `public static Light CreatePointLight(float lightRadius)`
 
-**用途 / Purpose:** 构建一个新的 「point light」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 point light 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ Light.CreatePointLight(0);
 ### SetShadowType
 `public void SetShadowType(Light.ShadowType type)`
 
-**用途 / Purpose:** 为 「shadow type」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 shadow type 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Light 实例
@@ -55,7 +55,7 @@ light.SetShadowType(type);
 ### SetLightFlicker
 `public void SetLightFlicker(float magnitude, float interval)`
 
-**用途 / Purpose:** 为 「light flicker」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 light flicker 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Light 实例
@@ -66,7 +66,7 @@ light.SetLightFlicker(0, 0);
 ### SetVolumetricProperties
 `public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)`
 
-**用途 / Purpose:** 为 「volumetric properties」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 volumetric properties 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Light 实例
@@ -77,7 +77,7 @@ light.SetVolumetricProperties(false, 0);
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 释放当前对象占用的非托管资源。
+**用途 / Purpose:** **用途 / Purpose:** 释放当前对象占用的非托管资源。
 
 ```csharp
 // 先通过子系统 API 拿到 Light 实例
@@ -88,7 +88,7 @@ light.Dispose();
 ### SetVisibility
 `public void SetVisibility(bool value)`
 
-**用途 / Purpose:** 为 「visibility」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Light 实例

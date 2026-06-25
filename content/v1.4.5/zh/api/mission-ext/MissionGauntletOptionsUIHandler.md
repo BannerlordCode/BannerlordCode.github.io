@@ -29,7 +29,7 @@ description: "MissionGauntletOptionsUIHandler 的自动生成类参考。"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
@@ -40,7 +40,7 @@ missionGauntletOptionsUIHandler.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
@@ -51,7 +51,7 @@ missionGauntletOptionsUIHandler.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
@@ -62,7 +62,7 @@ missionGauntletOptionsUIHandler.OnMissionScreenTick(0);
 ### OnEscape
 `public override bool OnEscape()`
 
-**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例
@@ -73,7 +73,7 @@ var result = missionGauntletOptionsUIHandler.OnEscape();
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「opening escape menu on focus change allowed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 opening escape menu on focus change allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletOptionsUIHandler 实例

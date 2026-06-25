@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### AddOrUpdatePlayerEntry
 `public void AddOrUpdatePlayerEntry(PlayerId playerId, int teamNo, string gameMode, Guid party, int overriddenInitialPlayTime = -1)`
 
-**Purpose:** Adds `or update player entry` to the current collection or state.
+**Purpose:** **Purpose:** Adds or update player entry to the current collection or state.
 
 ```csharp
 // Obtain an instance of BattleResult from the subsystem API first
@@ -44,7 +44,7 @@ battleResult.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
 ### TryGetPlayerEntry
 `public bool TryGetPlayerEntry(PlayerId playerId, out BattlePlayerEntry battlePlayerEntry)`
 
-**Purpose:** Attempts to retrieve `get player entry`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve get player entry, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of BattleResult from the subsystem API first
@@ -55,7 +55,7 @@ var result = battleResult.TryGetPlayerEntry(playerId, battlePlayerEntry);
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId)`
 
-**Purpose:** Executes the response logic associated with `player disconnect`.
+**Purpose:** **Purpose:** Executes the response logic associated with player disconnect.
 
 ```csharp
 // Obtain an instance of BattleResult from the subsystem API first
@@ -66,7 +66,7 @@ battleResult.HandlePlayerDisconnect(playerId);
 ### DebugPrint
 `public void DebugPrint()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugPrint logic.
 
 ```csharp
 // Obtain an instance of BattleResult from the subsystem API first
@@ -77,7 +77,7 @@ battleResult.DebugPrint();
 ### SetBattleFinished
 `public void SetBattleFinished(int winnerTeamNo, bool isPremadeGame, PremadeGameType premadeGameType)`
 
-**Purpose:** Assigns a new value to `battle finished` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to battle finished and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BattleResult from the subsystem API first
@@ -88,7 +88,7 @@ battleResult.SetBattleFinished(0, false, premadeGameType);
 ### SetBattleCancelled
 `public void SetBattleCancelled()`
 
-**Purpose:** Assigns a new value to `battle cancelled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to battle cancelled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BattleResult from the subsystem API first

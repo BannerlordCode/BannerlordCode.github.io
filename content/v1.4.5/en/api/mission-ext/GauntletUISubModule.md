@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI` to place it in the st
 ### OnMultiplayerGameStart
 `public override void OnMultiplayerGameStart(Game game, object starterObject)`
 
-**Purpose:** Invoked when the `multiplayer game start` event is raised.
+**Purpose:** **Purpose:** Invoked when the multiplayer game start event is raised.
 
 ```csharp
 // Obtain an instance of GauntletUISubModule from the subsystem API first
@@ -40,7 +40,7 @@ gauntletUISubModule.OnMultiplayerGameStart(game, starterObject);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**Purpose:** Invoked when the `game end` event is raised.
+**Purpose:** **Purpose:** Invoked when the game end event is raised.
 
 ```csharp
 // Obtain an instance of GauntletUISubModule from the subsystem API first
@@ -51,7 +51,7 @@ gauntletUISubModule.OnGameEnd(game);
 ### ClearChatLog
 `public static string ClearChatLog(List<string> strings)`
 
-**Purpose:** Removes all `chat log` from the current object.
+**Purpose:** **Purpose:** Removes all chat log from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ GauntletUISubModule.ClearChatLog(strings);
 ### SetCanFocusWhileInMission
 `public static string SetCanFocusWhileInMission(List<string> strings)`
 
-**Purpose:** Assigns a new value to `can focus while in mission` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can focus while in mission and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

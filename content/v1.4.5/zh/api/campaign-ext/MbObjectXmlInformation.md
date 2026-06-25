@@ -23,7 +23,7 @@ description: "MbObjectXmlInformation 的自动生成类参考。"
 ### MbObjectXmlInformation
 `public struct MbObjectXmlInformation(string id, string name, string moduleName, List<string> gameTypesIncluded)`
 
-**用途 / Purpose:** 处理与 「mb object xml information」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MbObjectXmlInformation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MbObjectXmlInformation 实例

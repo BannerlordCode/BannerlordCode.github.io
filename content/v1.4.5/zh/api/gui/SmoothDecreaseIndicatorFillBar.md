@@ -31,7 +31,7 @@ description: "SmoothDecreaseIndicatorFillBar 的自动生成类参考。"
 ### SmoothDecreaseIndicatorFillBar
 `public class SmoothDecreaseIndicatorFillBar(UIContext context)`
 
-**用途 / Purpose:** 处理与 「smooth decrease indicator fill bar」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SmoothDecreaseIndicatorFillBar 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SmoothDecreaseIndicatorFillBar 实例

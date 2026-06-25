@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile usableMachine, StandingPoint standingPoint, List<Agent> agents, List<Agent> usedAgents)`
 
-**Purpose:** Reads and returns the `suitable agent for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the suitable agent for standing point value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ StonePileAI.GetSuitableAgentForStandingPoint(usableMachine, standingPoint, agent
 ### GetSuitableAgentForStandingPoint
 `public static Agent GetSuitableAgentForStandingPoint(StonePile stonePile, StandingPoint standingPoint, List<ValueTuple<Agent, float>> agents, List<Agent> usedAgents, float weight)`
 
-**Purpose:** Reads and returns the `suitable agent for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the suitable agent for standing point value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ StonePileAI.GetSuitableAgentForStandingPoint(stonePile, standingPoint, list<Valu
 ### IsAgentAssignable
 `public static bool IsAgentAssignable(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `agent assignable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the agent assignable state or condition.
 
 ```csharp
 // Static call; no instance required

@@ -29,7 +29,7 @@ description: "DefaultHeirSelectionCalculationModel 的自动生成类参考。"
 ### CalculateHeirSelectionPoint
 `public override int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**用途 / Purpose:** 计算「heir selection point」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算heir selection point的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultHeirSelectionCalculationModel 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### GetFileStream
 `public FileStream GetFileStream()`
 
-**Purpose:** Reads and returns the `file stream` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file stream value held by the this instance.
 
 ```csharp
 // Obtain an instance of Logger from the subsystem API first
@@ -40,7 +40,7 @@ var result = logger.GetFileStream();
 ### GetErrorFileStream
 `public FileStream GetErrorFileStream()`
 
-**Purpose:** Reads and returns the `error file stream` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the error file stream value held by the this instance.
 
 ```csharp
 // Obtain an instance of Logger from the subsystem API first
@@ -51,7 +51,7 @@ var result = logger.GetErrorFileStream();
 ### CheckForFileSize
 `public void CheckForFileSize()`
 
-**Purpose:** Verifies whether `for file size` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for file size holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Logger from the subsystem API first
@@ -62,7 +62,7 @@ logger.CheckForFileSize();
 ### ShutDown
 `public void ShutDown()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShutDown logic.
 
 ```csharp
 // Obtain an instance of Logger from the subsystem API first
@@ -73,7 +73,7 @@ logger.ShutDown();
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo = HTMLDebugCategory.General)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Print logic.
 
 ```csharp
 // Obtain an instance of Logger from the subsystem API first
@@ -84,7 +84,7 @@ logger.Print("example", hTMLDebugCategory.General);
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo, bool printOnGlobal)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Print logic.
 
 ```csharp
 // Obtain an instance of Logger from the subsystem API first
@@ -95,7 +95,7 @@ logger.Print("example", debugInfo, false);
 ### FinishAndCloseAll
 `public static void FinishAndCloseAll()`
 
-**Purpose:** Concludes the `and close all` flow and performs any cleanup.
+**Purpose:** **Purpose:** Concludes the and close all flow and performs any cleanup.
 
 ```csharp
 // Static call; no instance required

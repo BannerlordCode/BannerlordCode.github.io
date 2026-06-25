@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets` t
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionCommonAreaMarkerTargetVM from the subsystem API first
@@ -34,7 +34,7 @@ missionCommonAreaMarkerTargetVM.OnFinalize();
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionCommonAreaMarkerTargetVM from the subsystem API first

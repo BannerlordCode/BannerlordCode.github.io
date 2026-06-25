@@ -23,7 +23,7 @@ description: "MusicArenaPracticeMissionView 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -34,7 +34,7 @@ musicArenaPracticeMissionView.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -45,7 +45,7 @@ musicArenaPracticeMissionView.EarlyStart();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -56,7 +56,7 @@ musicArenaPracticeMissionView.OnMissionScreenFinalize();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -67,7 +67,7 @@ musicArenaPracticeMissionView.OnAgentRemoved(affectedAgent, affectorAgent, agent
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -78,7 +78,7 @@ musicArenaPracticeMissionView.OnMissionTick(0);
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**用途 / Purpose:** 在 「score hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 score hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -89,7 +89,7 @@ musicArenaPracticeMissionView.OnScoreHit(affectedAgent, affectorAgent, attackerW
 ### OnMissileHit
 `public override void OnMissileHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 在 「missile hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 missile hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -100,7 +100,7 @@ musicArenaPracticeMissionView.OnMissileHit(attacker, victim, false, collisionDat
 ### OnMeleeHit
 `public override void OnMeleeHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 在 「melee hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 melee hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例
@@ -111,7 +111,7 @@ musicArenaPracticeMissionView.OnMeleeHit(attacker, victim, false, collisionData)
 ### OnUpdated
 `public void OnUpdated(float dt)`
 
-**用途 / Purpose:** 在 「updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MusicArenaPracticeMissionView 实例

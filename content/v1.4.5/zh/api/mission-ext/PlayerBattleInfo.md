@@ -33,7 +33,7 @@ description: "PlayerBattleInfo 的自动生成类参考。"
 ### Flee
 `public void Flee()`
 
-**用途 / Purpose:** 处理与 「flee」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Flee 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerBattleInfo 实例
@@ -44,7 +44,7 @@ playerBattleInfo.Flee();
 ### Disconnect
 `public void Disconnect()`
 
-**用途 / Purpose:** 处理与 「disconnect」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Disconnect 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerBattleInfo 实例
@@ -55,7 +55,7 @@ playerBattleInfo.Disconnect();
 ### Initialize
 `public void Initialize(int peerIndex)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerBattleInfo 实例
@@ -66,7 +66,7 @@ playerBattleInfo.Initialize(0);
 ### RejoinBattle
 `public void RejoinBattle(int teamNo)`
 
-**用途 / Purpose:** 处理与 「rejoin battle」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RejoinBattle 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerBattleInfo 实例
@@ -77,7 +77,7 @@ playerBattleInfo.RejoinBattle(0);
 ### Clone
 `public PlayerBattleInfo Clone()`
 
-**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerBattleInfo 实例

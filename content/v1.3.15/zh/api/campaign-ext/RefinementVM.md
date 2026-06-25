@@ -32,7 +32,7 @@ description: "RefinementVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RefinementVM 实例
@@ -43,7 +43,7 @@ refinementVM.RefreshValues();
 ### ExecuteSelectedRefinement
 `public void ExecuteSelectedRefinement(Hero currentCraftingHero)`
 
-**用途 / Purpose:** 执行 「selected refinement」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 selected refinement 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RefinementVM 实例
@@ -54,7 +54,7 @@ refinementVM.ExecuteSelectedRefinement(currentCraftingHero);
 ### RefreshRefinementActionsList
 `public void RefreshRefinementActionsList(Hero craftingHero)`
 
-**用途 / Purpose:** 使 「refinement actions list」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 refinement actions list 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RefinementVM 实例

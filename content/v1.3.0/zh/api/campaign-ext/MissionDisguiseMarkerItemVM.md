@@ -38,7 +38,7 @@ description: "MissionDisguiseMarkerItemVM 的自动生成类参考。"
 ### RefreshVisuals
 `public void RefreshVisuals()`
 
-**用途 / Purpose:** 使 「visuals」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 visuals 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDisguiseMarkerItemVM 实例
@@ -49,7 +49,7 @@ missionDisguiseMarkerItemVM.RefreshVisuals();
 ### UpdatePosition
 `public void UpdatePosition()`
 
-**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDisguiseMarkerItemVM 实例

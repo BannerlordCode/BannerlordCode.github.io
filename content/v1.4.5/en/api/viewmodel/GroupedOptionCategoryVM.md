@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
@@ -45,7 +45,7 @@ groupedOptionCategoryVM.RefreshValues();
 ### ResetData
 `public void ResetData()`
 
-**Purpose:** Returns `data` to its default or initial condition.
+**Purpose:** **Purpose:** Returns data to its default or initial condition.
 
 ```csharp
 // Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
@@ -56,7 +56,7 @@ groupedOptionCategoryVM.ResetData();
 ### ExecuteResetToDefault
 `public void ExecuteResetToDefault()`
 
-**Purpose:** Runs the operation or workflow associated with `reset to default`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset to default.
 
 ```csharp
 // Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
@@ -67,7 +67,7 @@ groupedOptionCategoryVM.ExecuteResetToDefault();
 ### GetOption
 `public GenericOptionDataVM GetOption(ManagedOptions.ManagedOptionsType optionType)`
 
-**Purpose:** Reads and returns the `option` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option value held by the this instance.
 
 ```csharp
 // Obtain an instance of GroupedOptionCategoryVM from the subsystem API first
@@ -78,7 +78,7 @@ var result = groupedOptionCategoryVM.GetOption(optionType);
 ### GetOption
 `public GenericOptionDataVM GetOption(NativeOptions.NativeOptionsType optionType)`
 
-**Purpose:** Reads and returns the `option` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option value held by the this instance.
 
 ```csharp
 // Obtain an instance of GroupedOptionCategoryVM from the subsystem API first

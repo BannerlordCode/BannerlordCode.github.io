@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.A
 ### UpdateValues
 `public override void UpdateValues()`
 
-**Purpose:** Recalculates and stores the latest representation of `values`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of values.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminPanelStringOptionVM from the subsystem API first

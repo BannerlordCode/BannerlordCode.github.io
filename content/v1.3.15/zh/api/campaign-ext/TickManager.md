@@ -23,7 +23,7 @@ description: "TickManager 的自动生成类参考。"
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TickManager 实例
@@ -34,7 +34,7 @@ tickManager.Tick();
 ### TickDelegate
 `public delegate void TickDelegate()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「delegate」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进delegate的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TickManager 实例

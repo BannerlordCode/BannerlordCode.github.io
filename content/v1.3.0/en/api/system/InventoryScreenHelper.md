@@ -23,7 +23,7 @@ Treat `InventoryScreenHelper` as a Helper-style extension point: first identify 
 ### GetActiveInventoryState
 `public static InventoryState GetActiveInventoryState()`
 
-**Purpose:** Reads and returns the `active inventory state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active inventory state value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ InventoryScreenHelper.GetActiveInventoryState();
 ### PlayerAcceptTradeOffer
 `public static void PlayerAcceptTradeOffer()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayerAcceptTradeOffer logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ InventoryScreenHelper.PlayerAcceptTradeOffer();
 ### CloseScreen
 `public static void CloseScreen(bool fromCancel)`
 
-**Purpose:** Closes the resource or UI associated with `screen`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with screen.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ InventoryScreenHelper.CloseScreen(false);
 ### OpenScreenAsInventoryOfSubParty
 `public static void OpenScreenAsInventoryOfSubParty(MobileParty rightParty, MobileParty leftParty, Action doneLogicExtrasDelegate)`
 
-**Purpose:** Opens the resource or UI associated with `screen as inventory of sub party`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as inventory of sub party.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ InventoryScreenHelper.OpenScreenAsInventoryOfSubParty(rightParty, leftParty, don
 ### OpenScreenAsInventoryForCraftedItemDecomposition
 `public static void OpenScreenAsInventoryForCraftedItemDecomposition(MobileParty party, CharacterObject character, Action doneLogicExtrasDelegate)`
 
-**Purpose:** Opens the resource or UI associated with `screen as inventory for crafted item decomposition`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as inventory for crafted item decomposition.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ InventoryScreenHelper.OpenScreenAsInventoryForCraftedItemDecomposition(party, ch
 ### OpenScreenAsInventoryOf
 `public static void OpenScreenAsInventoryOf(MobileParty party, CharacterObject character)`
 
-**Purpose:** Opens the resource or UI associated with `screen as inventory of`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as inventory of.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ InventoryScreenHelper.OpenScreenAsInventoryOf(party, character);
 ### OpenScreenAsInventoryOf
 `public static void OpenScreenAsInventoryOf(PartyBase rightParty, PartyBase leftParty)`
 
-**Purpose:** Opens the resource or UI associated with `screen as inventory of`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as inventory of.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ InventoryScreenHelper.OpenScreenAsInventoryOf(rightParty, leftParty);
 ### OpenScreenAsInventoryOf
 `public static void OpenScreenAsInventoryOf(PartyBase rightParty, PartyBase leftParty, CharacterObject character, TextObject leftRosterName = null, InventoryLogic.CapacityData capacityData = null, Action doneLogicExtrasDelegate = null)`
 
-**Purpose:** Opens the resource or UI associated with `screen as inventory of`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as inventory of.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ InventoryScreenHelper.OpenScreenAsInventoryOf(rightParty, leftParty, character, 
 ### OpenScreenAsInventory
 `public static void OpenScreenAsInventory(Action doneLogicExtrasDelegate = null)`
 
-**Purpose:** Opens the resource or UI associated with `screen as inventory`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as inventory.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ InventoryScreenHelper.OpenScreenAsInventory(null);
 ### OpenCampaignBattleLootScreen
 `public static void OpenCampaignBattleLootScreen()`
 
-**Purpose:** Opens the resource or UI associated with `campaign battle loot screen`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with campaign battle loot screen.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ InventoryScreenHelper.OpenCampaignBattleLootScreen();
 ### OpenScreenAsLoot
 `public static void OpenScreenAsLoot(Dictionary<PartyBase, ItemRoster> itemRostersToLoot)`
 
-**Purpose:** Opens the resource or UI associated with `screen as loot`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as loot.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ InventoryScreenHelper.OpenScreenAsLoot(dictionary<PartyBase, itemRostersToLoot);
 ### OpenScreenAsStash
 `public static void OpenScreenAsStash(ItemRoster stash)`
 
-**Purpose:** Opens the resource or UI associated with `screen as stash`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as stash.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ InventoryScreenHelper.OpenScreenAsStash(stash);
 ### OpenScreenAsWarehouse
 `public static void OpenScreenAsWarehouse(ItemRoster stash, InventoryLogic.CapacityData otherSideCapacity)`
 
-**Purpose:** Opens the resource or UI associated with `screen as warehouse`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as warehouse.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ InventoryScreenHelper.OpenScreenAsWarehouse(stash, otherSideCapacity);
 ### OpenScreenAsReceiveItems
 `public static void OpenScreenAsReceiveItems(ItemRoster items, TextObject leftRosterName, Action doneLogicDelegate = null)`
 
-**Purpose:** Opens the resource or UI associated with `screen as receive items`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as receive items.
 
 ```csharp
 // Static call; no instance required
@@ -163,7 +163,7 @@ InventoryScreenHelper.OpenScreenAsReceiveItems(items, leftRosterName, null);
 ### OpenTradeWithCaravanOrAlleyParty
 `public static void OpenTradeWithCaravanOrAlleyParty(MobileParty caravan, InventoryScreenHelper.InventoryCategoryType merchantItemType = InventoryScreenHelper.InventoryCategoryType.None)`
 
-**Purpose:** Opens the resource or UI associated with `trade with caravan or alley party`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with trade with caravan or alley party.
 
 ```csharp
 // Static call; no instance required
@@ -173,7 +173,7 @@ InventoryScreenHelper.OpenTradeWithCaravanOrAlleyParty(caravan, inventoryScreenH
 ### ActivateTradeWithCurrentSettlement
 `public static void ActivateTradeWithCurrentSettlement()`
 
-**Purpose:** Activates the resource, state, or feature associated with `trade with current settlement`.
+**Purpose:** **Purpose:** Activates the resource, state, or feature associated with trade with current settlement.
 
 ```csharp
 // Static call; no instance required
@@ -183,7 +183,7 @@ InventoryScreenHelper.ActivateTradeWithCurrentSettlement();
 ### OpenScreenAsTrade
 `public static void OpenScreenAsTrade(ItemRoster leftRoster, SettlementComponent settlementComponent, InventoryScreenHelper.InventoryCategoryType merchantItemType = InventoryScreenHelper.InventoryCategoryType.None, Action doneLogicExtrasDelegate = null)`
 
-**Purpose:** Opens the resource or UI associated with `screen as trade`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen as trade.
 
 ```csharp
 // Static call; no instance required
@@ -193,7 +193,7 @@ InventoryScreenHelper.OpenScreenAsTrade(leftRoster, settlementComponent, invento
 ### GetInventoryItemTypeOfItem
 `public static InventoryScreenHelper.InventoryItemType GetInventoryItemTypeOfItem(ItemObject item)`
 
-**Purpose:** Reads and returns the `inventory item type of item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the inventory item type of item value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -203,7 +203,7 @@ InventoryScreenHelper.GetInventoryItemTypeOfItem(item);
 ### InventoryFinishDelegate
 `public delegate void InventoryFinishDelegate()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InventoryFinishDelegate logic.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -214,7 +214,7 @@ inventoryScreenHelper.InventoryFinishDelegate();
 ### GetGold
 `public override int GetGold()`
 
-**Purpose:** Reads and returns the `gold` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -225,7 +225,7 @@ var result = inventoryScreenHelper.GetGold();
 ### GetTraderName
 `public override TextObject GetTraderName()`
 
-**Purpose:** Reads and returns the `trader name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the trader name value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -236,7 +236,7 @@ var result = inventoryScreenHelper.GetTraderName();
 ### SetGold
 `public override void SetGold(int gold)`
 
-**Purpose:** Assigns a new value to `gold` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to gold and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -247,7 +247,7 @@ inventoryScreenHelper.SetGold(0);
 ### GetOppositeParty
 `public override PartyBase GetOppositeParty()`
 
-**Purpose:** Reads and returns the `opposite party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the opposite party value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -258,7 +258,7 @@ var result = inventoryScreenHelper.GetOppositeParty();
 ### OnTransaction
 `public override void OnTransaction()`
 
-**Purpose:** Invoked when the `transaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the transaction event is raised.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -269,7 +269,7 @@ inventoryScreenHelper.OnTransaction();
 ### GetTraderName
 `public override TextObject GetTraderName()`
 
-**Purpose:** Reads and returns the `trader name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the trader name value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -280,7 +280,7 @@ var result = inventoryScreenHelper.GetTraderName();
 ### GetOppositeParty
 `public override PartyBase GetOppositeParty()`
 
-**Purpose:** Reads and returns the `opposite party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the opposite party value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -291,7 +291,7 @@ var result = inventoryScreenHelper.GetOppositeParty();
 ### GetGold
 `public override int GetGold()`
 
-**Purpose:** Reads and returns the `gold` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold value held by the this instance.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -302,7 +302,7 @@ var result = inventoryScreenHelper.GetGold();
 ### SetGold
 `public override void SetGold(int gold)`
 
-**Purpose:** Assigns a new value to `gold` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to gold and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first
@@ -313,7 +313,7 @@ inventoryScreenHelper.SetGold(0);
 ### OnTransaction
 `public override void OnTransaction()`
 
-**Purpose:** Invoked when the `transaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the transaction event is raised.
 
 ```csharp
 // Obtain an instance of InventoryScreenHelper from the subsystem API first

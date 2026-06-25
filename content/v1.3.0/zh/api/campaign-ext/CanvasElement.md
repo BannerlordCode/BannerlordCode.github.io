@@ -34,7 +34,7 @@ description: "CanvasElement 的自动生成类参考。"
 ### LoadFrom
 `public virtual void LoadFrom(XmlNode canvasImageNode)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasElement 实例
@@ -45,7 +45,7 @@ canvasElement.LoadFrom(canvasImageNode);
 ### GetMarginSize
 `public override Vector2 GetMarginSize()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「margin size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 margin size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasElement 实例

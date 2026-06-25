@@ -30,7 +30,7 @@ Treat `SiegeDeploymentHandler` as a Handler-style extension point: first identif
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -41,7 +41,7 @@ siegeDeploymentHandler.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -52,7 +52,7 @@ siegeDeploymentHandler.OnRemoveBehavior();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -63,7 +63,7 @@ siegeDeploymentHandler.AfterStart();
 ### FinishDeployment
 `public override void FinishDeployment()`
 
-**Purpose:** Concludes the `deployment` flow and performs any cleanup.
+**Purpose:** **Purpose:** Concludes the deployment flow and performs any cleanup.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -74,7 +74,7 @@ siegeDeploymentHandler.FinishDeployment();
 ### DeployAllSiegeWeaponsOfPlayer
 `public void DeployAllSiegeWeaponsOfPlayer()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeployAllSiegeWeaponsOfPlayer logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -85,7 +85,7 @@ siegeDeploymentHandler.DeployAllSiegeWeaponsOfPlayer();
 ### GetMaxDeployableWeaponCountOfPlayer
 `public int GetMaxDeployableWeaponCountOfPlayer(Type weapon)`
 
-**Purpose:** Reads and returns the `max deployable weapon count of player` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max deployable weapon count of player value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -96,7 +96,7 @@ var result = siegeDeploymentHandler.GetMaxDeployableWeaponCountOfPlayer(weapon);
 ### DeployAllSiegeWeaponsOfAi
 `public void DeployAllSiegeWeaponsOfAi()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeployAllSiegeWeaponsOfAi logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -107,7 +107,7 @@ siegeDeploymentHandler.DeployAllSiegeWeaponsOfAi();
 ### RemoveDeploymentPoints
 `public void RemoveDeploymentPoints(BattleSideEnum side)`
 
-**Purpose:** Removes `deployment points` from the current collection or state.
+**Purpose:** **Purpose:** Removes deployment points from the current collection or state.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -118,7 +118,7 @@ siegeDeploymentHandler.RemoveDeploymentPoints(side);
 ### RemoveUnavailableDeploymentPoints
 `public void RemoveUnavailableDeploymentPoints(BattleSideEnum side)`
 
-**Purpose:** Removes `unavailable deployment points` from the current collection or state.
+**Purpose:** **Purpose:** Removes unavailable deployment points from the current collection or state.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -129,7 +129,7 @@ siegeDeploymentHandler.RemoveUnavailableDeploymentPoints(side);
 ### UnHideDeploymentPoints
 `public void UnHideDeploymentPoints(BattleSideEnum side)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnHideDeploymentPoints logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -140,7 +140,7 @@ siegeDeploymentHandler.UnHideDeploymentPoints(side);
 ### GetDeployableWeaponCountOfPlayer
 `public int GetDeployableWeaponCountOfPlayer(Type weapon)`
 
-**Purpose:** Reads and returns the `deployable weapon count of player` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the deployable weapon count of player value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -151,7 +151,7 @@ var result = siegeDeploymentHandler.GetDeployableWeaponCountOfPlayer(weapon);
 ### AutoDeployTeamUsingTeamAI
 `public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoDeployTeamUsingTeamAI logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -162,7 +162,7 @@ siegeDeploymentHandler.AutoDeployTeamUsingTeamAI(team, false);
 ### AutoAssignDetachmentsForDeployment
 `public void AutoAssignDetachmentsForDeployment(Team team)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoAssignDetachmentsForDeployment logic.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first
@@ -173,7 +173,7 @@ siegeDeploymentHandler.AutoAssignDetachmentsForDeployment(team);
 ### GetEstimatedAverageDefenderPosition
 `public Vec2 GetEstimatedAverageDefenderPosition()`
 
-**Purpose:** Reads and returns the `estimated average defender position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the estimated average defender position value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeDeploymentHandler from the subsystem API first

@@ -23,7 +23,7 @@ Treat `VillageTradeModel` as a Model-style extension point: first identify who c
 ### TradeBoundDistanceLimitAsDays
 `public abstract float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TradeBoundDistanceLimitAsDays logic.
 
 ```csharp
 // Obtain an instance of VillageTradeModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = villageTradeModel.TradeBoundDistanceLimitAsDays(navigationType);
 ### GetTradeBoundToAssignForVillage
 `public abstract Settlement GetTradeBoundToAssignForVillage(Village village)`
 
-**Purpose:** Reads and returns the `trade bound to assign for village` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the trade bound to assign for village value held by the this instance.
 
 ```csharp
 // Obtain an instance of VillageTradeModel from the subsystem API first

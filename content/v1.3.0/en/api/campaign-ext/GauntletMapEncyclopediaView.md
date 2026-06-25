@@ -23,7 +23,7 @@ Treat `GauntletMapEncyclopediaView` as a View-style extension point: first ident
 ### CloseEncyclopedia
 `public override void CloseEncyclopedia()`
 
-**Purpose:** Closes the resource or UI associated with `encyclopedia`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with encyclopedia.
 
 ```csharp
 // Obtain an instance of GauntletMapEncyclopediaView from the subsystem API first

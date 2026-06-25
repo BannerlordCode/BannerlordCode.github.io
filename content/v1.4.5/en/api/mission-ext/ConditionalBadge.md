@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### Deserialize
 `public override void Deserialize(XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ConditionalBadge from the subsystem API first

@@ -31,7 +31,7 @@ description: "LoadContext 的自动生成类参考。"
 ### Load
 `public bool Load(LoadData loadData, bool loadAsLateInitialize)`
 
-**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadContext 实例
@@ -42,7 +42,7 @@ var result = loadContext.Load(loadData, false);
 ### TryConvertType
 `public static bool TryConvertType(Type sourceType, Type targetType, ref object data)`
 
-**用途 / Purpose:** 尝试获取 「convert type」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 convert type 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ LoadContext.TryConvertType(sourceType, targetType, data);
 ### GetObjectWithId
 `public ObjectHeaderLoadData GetObjectWithId(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「object with id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 object with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadContext 实例
@@ -63,7 +63,7 @@ var result = loadContext.GetObjectWithId(0);
 ### GetContainerWithId
 `public ContainerHeaderLoadData GetContainerWithId(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「container with id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 container with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadContext 实例
@@ -74,7 +74,7 @@ var result = loadContext.GetContainerWithId(0);
 ### GetStringWithId
 `public string GetStringWithId(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「string with id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 string with id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadContext 实例

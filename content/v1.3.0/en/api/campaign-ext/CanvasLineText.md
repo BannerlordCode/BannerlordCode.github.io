@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode textNode)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CanvasLineText from the subsystem API first
@@ -42,7 +42,7 @@ canvasLineText.LoadFrom(textNode);
 ### Update
 `public override void Update(float scale)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of CanvasLineText from the subsystem API first

@@ -38,7 +38,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.MainAgentDetection` t
 ### RefreshVisuals
 `public void RefreshVisuals()`
 
-**Purpose:** Keeps the display or cache of `visuals` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of visuals in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionDisguiseMarkerItemVM from the subsystem API first
@@ -49,7 +49,7 @@ missionDisguiseMarkerItemVM.RefreshVisuals();
 ### UpdatePosition
 `public void UpdatePosition()`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionDisguiseMarkerItemVM from the subsystem API first

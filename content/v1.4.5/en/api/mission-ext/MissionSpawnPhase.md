@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnInitialTroopsSpawned
 `public void OnInitialTroopsSpawned()`
 
-**Purpose:** Invoked when the `initial troops spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the initial troops spawned event is raised.
 
 ```csharp
 // Obtain an instance of MissionSpawnPhase from the subsystem API first

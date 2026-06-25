@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetSeed
 `public void SetSeed(uint seed, uint seed2)`
 
-**Purpose:** Assigns a new value to `seed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to seed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -34,7 +34,7 @@ mBFastRandom.SetSeed(0, 0);
 ### Next
 `public int Next()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Next logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -45,7 +45,7 @@ var result = mBFastRandom.Next();
 ### Next
 `public int Next(int maxValue)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Next logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -56,7 +56,7 @@ var result = mBFastRandom.Next(0);
 ### Next
 `public int Next(int minValue, int maxValue)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Next logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -67,7 +67,7 @@ var result = mBFastRandom.Next(0, 0);
 ### NextDouble
 `public double NextDouble()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextDouble logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -78,7 +78,7 @@ var result = mBFastRandom.NextDouble();
 ### NextFloat
 `public float NextFloat()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextFloat logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -89,7 +89,7 @@ var result = mBFastRandom.NextFloat();
 ### NextFloatRanged
 `public float NextFloatRanged(float minVal, float maxVal)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextFloatRanged logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first
@@ -100,7 +100,7 @@ var result = mBFastRandom.NextFloatRanged(0, 0);
 ### NextBytes
 `public void NextBytes(byte buffer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextBytes logic.
 
 ```csharp
 // Obtain an instance of MBFastRandom from the subsystem API first

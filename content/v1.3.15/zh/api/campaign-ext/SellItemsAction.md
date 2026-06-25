@@ -19,7 +19,7 @@ SellItemsAction 是一组静态方法，用于在战役中以特定原因触发"
 public static void Apply(PartyBase receiverParty, PartyBase payerParty, ItemRosterElement subject, int number, Settlement currentSettlement = null)
 ```
 
-**用途 / Purpose:** 。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ## 使用示例
 

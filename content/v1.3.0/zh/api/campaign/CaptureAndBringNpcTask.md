@@ -23,7 +23,7 @@ description: "CaptureAndBringNpcTask 的自动生成类参考。"
 ### OnPlayerBattleEnd
 `public void OnPlayerBattleEnd(MapEvent mapEvent)`
 
-**用途 / Purpose:** 在 「player battle end」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player battle end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CaptureAndBringNpcTask 实例
@@ -34,7 +34,7 @@ captureAndBringNpcTask.OnPlayerBattleEnd(mapEvent);
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CaptureAndBringNpcTask 实例

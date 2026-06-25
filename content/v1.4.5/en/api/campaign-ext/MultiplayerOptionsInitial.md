@@ -23,7 +23,7 @@ Start from namespace `NetworkMessages.FromServer` to place it in the stack, then
 ### GetOption
 `public MultiplayerOptions.MultiplayerOption GetOption(MultiplayerOptions.OptionType optionType)`
 
-**Purpose:** Reads and returns the `option` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerOptionsInitial from the subsystem API first

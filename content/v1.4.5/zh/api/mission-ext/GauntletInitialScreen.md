@@ -23,7 +23,7 @@ description: "GauntletInitialScreen 的自动生成类参考。"
 ### TryUpdateChatLogLayerParameters
 `public void TryUpdateChatLogLayerParameters(ref bool isTeamChatAvailable, ref bool inputEnabled, ref bool isToggleChatHintAvailable, ref bool isMouseVisible, ref InputContext inputContext)`
 
-**用途 / Purpose:** 尝试获取 「update chat log layer parameters」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 update chat log layer parameters 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletInitialScreen 实例

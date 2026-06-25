@@ -38,7 +38,7 @@ Treat `ExecutionRelationModel` as a Model-style extension point: first identify 
 ### GetRelationChangeForExecutingHero
 `public abstract int GetRelationChangeForExecutingHero(Hero victim, Hero hero, out bool showQuickNotification)`
 
-**Purpose:** Reads and returns the `relation change for executing hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relation change for executing hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of ExecutionRelationModel from the subsystem API first

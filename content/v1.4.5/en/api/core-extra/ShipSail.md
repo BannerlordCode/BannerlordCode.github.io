@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### NearlyEquals
 `public bool NearlyEquals(ShipSail otherShipSail)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NearlyEquals logic.
 
 ```csharp
 // Obtain an instance of ShipSail from the subsystem API first

@@ -31,7 +31,7 @@ description: "MPHostGameOptionsVM 的自动生成类参考。"
 ### Compare
 `public int Compare(GenericHostGameOptionDataVM x, GenericHostGameOptionDataVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHostGameOptionsVM 实例
@@ -42,7 +42,7 @@ var result = mPHostGameOptionsVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPHostGameOptionsVM 实例

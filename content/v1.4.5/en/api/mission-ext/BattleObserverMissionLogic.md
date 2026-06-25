@@ -29,7 +29,7 @@ Treat `BattleObserverMissionLogic` as a Logic-style extension point: first ident
 ### SetObserver
 `public void SetObserver(IBattleObserver observer)`
 
-**Purpose:** Assigns a new value to `observer` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to observer and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first
@@ -40,7 +40,7 @@ battleObserverMissionLogic.SetObserver(observer);
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first
@@ -51,7 +51,7 @@ battleObserverMissionLogic.EarlyStart();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first
@@ -62,7 +62,7 @@ battleObserverMissionLogic.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first
@@ -73,7 +73,7 @@ battleObserverMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentSta
 ### OnAgentTeamChanged
 `public override void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
 
-**Purpose:** Invoked when the `agent team changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent team changed event is raised.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first
@@ -84,7 +84,7 @@ battleObserverMissionLogic.OnAgentTeamChanged(prevTeam, newTeam, agent);
 ### OnMissionResultReady
 `public override void OnMissionResultReady(MissionResult missionResult)`
 
-**Purpose:** Invoked when the `mission result ready` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission result ready event is raised.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first
@@ -95,7 +95,7 @@ battleObserverMissionLogic.OnMissionResultReady(missionResult);
 ### GetDeathToBuiltAgentRatioForSide
 `public float GetDeathToBuiltAgentRatioForSide(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `death to built agent ratio for side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the death to built agent ratio for side value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleObserverMissionLogic from the subsystem API first

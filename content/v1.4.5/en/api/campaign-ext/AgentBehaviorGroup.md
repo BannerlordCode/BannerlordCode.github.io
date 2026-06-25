@@ -31,7 +31,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### DisableScriptedBehavior
 `public void DisableScriptedBehavior()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableScriptedBehavior logic.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -42,7 +42,7 @@ agentBehaviorGroup.DisableScriptedBehavior();
 ### DisableAllBehaviors
 `public void DisableAllBehaviors()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableAllBehaviors logic.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -53,7 +53,7 @@ agentBehaviorGroup.DisableAllBehaviors();
 ### GetActiveBehavior
 `public AgentBehavior GetActiveBehavior()`
 
-**Purpose:** Reads and returns the `active behavior` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active behavior value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -64,7 +64,7 @@ var result = agentBehaviorGroup.GetActiveBehavior();
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -75,7 +75,7 @@ agentBehaviorGroup.Tick(0, false);
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ConversationTick logic.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -86,7 +86,7 @@ agentBehaviorGroup.ConversationTick();
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -97,7 +97,7 @@ agentBehaviorGroup.OnAgentRemoved(agent);
 ### GetScore
 `public virtual float GetScore(bool isSimulation)`
 
-**Purpose:** Reads and returns the `score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first
@@ -108,7 +108,7 @@ var result = agentBehaviorGroup.GetScore(false);
 ### ForceThink
 `public virtual void ForceThink(float inSeconds)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceThink logic.
 
 ```csharp
 // Obtain an instance of AgentBehaviorGroup from the subsystem API first

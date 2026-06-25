@@ -53,7 +53,7 @@ description: "GameMenuPartyItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -64,7 +64,7 @@ gameMenuPartyItemVM.RefreshValues();
 ### ExecuteSetAsContextMenuItem
 `public void ExecuteSetAsContextMenuItem()`
 
-**用途 / Purpose:** 执行 「set as context menu item」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set as context menu item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -75,7 +75,7 @@ gameMenuPartyItemVM.ExecuteSetAsContextMenuItem();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**用途 / Purpose:** 执行 「open encyclopedia」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -86,7 +86,7 @@ gameMenuPartyItemVM.ExecuteOpenEncyclopedia();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**用途 / Purpose:** 执行 「close tooltip」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -97,7 +97,7 @@ gameMenuPartyItemVM.ExecuteCloseTooltip();
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**用途 / Purpose:** 执行 「open tooltip」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open tooltip 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -108,7 +108,7 @@ gameMenuPartyItemVM.ExecuteOpenTooltip();
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**用途 / Purpose:** 使 「properties」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 properties 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -119,7 +119,7 @@ gameMenuPartyItemVM.RefreshProperties();
 ### RefreshQuestStatus
 `public void RefreshQuestStatus()`
 
-**用途 / Purpose:** 使 「quest status」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 quest status 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -130,7 +130,7 @@ gameMenuPartyItemVM.RefreshQuestStatus();
 ### RefreshVisual
 `public void RefreshVisual()`
 
-**用途 / Purpose:** 使 「visual」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 visual 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -141,7 +141,7 @@ gameMenuPartyItemVM.RefreshVisual();
 ### RefreshCounts
 `public void RefreshCounts()`
 
-**用途 / Purpose:** 使 「counts」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 counts 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -152,7 +152,7 @@ gameMenuPartyItemVM.RefreshCounts();
 ### GetPartyDescriptionTextFromValues
 `public string GetPartyDescriptionTextFromValues()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party description text from values」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party description text from values 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -163,7 +163,7 @@ var result = gameMenuPartyItemVM.GetPartyDescriptionTextFromValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例
@@ -174,7 +174,7 @@ gameMenuPartyItemVM.OnFinalize();
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuPartyItemVM 实例

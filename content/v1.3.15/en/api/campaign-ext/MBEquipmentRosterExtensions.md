@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### GetCivilianEquipments
 `public static IEnumerable<Equipment> GetCivilianEquipments(this MBEquipmentRoster instance)`
 
-**Purpose:** Reads and returns the `civilian equipments` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the civilian equipments value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ MBEquipmentRosterExtensions.GetCivilianEquipments(instance);
 ### GetStealthEquipments
 `public static IEnumerable<Equipment> GetStealthEquipments(this MBEquipmentRoster instance)`
 
-**Purpose:** Reads and returns the `stealth equipments` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stealth equipments value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ MBEquipmentRosterExtensions.GetStealthEquipments(instance);
 ### GetBattleEquipments
 `public static IEnumerable<Equipment> GetBattleEquipments(this MBEquipmentRoster instance)`
 
-**Purpose:** Reads and returns the `battle equipments` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the battle equipments value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ MBEquipmentRosterExtensions.GetBattleEquipments(instance);
 ### GetRandomCivilianEquipment
 `public static Equipment GetRandomCivilianEquipment(this MBEquipmentRoster instance)`
 
-**Purpose:** Reads and returns the `random civilian equipment` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the random civilian equipment value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ MBEquipmentRosterExtensions.GetRandomCivilianEquipment(instance);
 ### GetRandomStealthEquipment
 `public static Equipment GetRandomStealthEquipment(this MBEquipmentRoster instance)`
 
-**Purpose:** Reads and returns the `random stealth equipment` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the random stealth equipment value held by the this instance.
 
 ```csharp
 // Static call; no instance required

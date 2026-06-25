@@ -125,7 +125,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetStat
 `public float GetStat(DrivenProperty propertyEnum)`
 
-**Purpose:** Reads and returns the `stat` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stat value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentDrivenProperties from the subsystem API first
@@ -136,7 +136,7 @@ var result = agentDrivenProperties.GetStat(propertyEnum);
 ### SetStat
 `public void SetStat(DrivenProperty propertyEnum, float value)`
 
-**Purpose:** Assigns a new value to `stat` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to stat and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentDrivenProperties from the subsystem API first

@@ -23,7 +23,7 @@ Treat `PrisonBreakMissionController` as a Controller-style extension point: firs
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Invoked when the `created` event is raised.
+**Purpose:** **Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -34,7 +34,7 @@ prisonBreakMissionController.OnCreated();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -45,7 +45,7 @@ prisonBreakMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -56,7 +56,7 @@ prisonBreakMissionController.AfterStart();
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `agent interaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent interaction event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -67,7 +67,7 @@ prisonBreakMissionController.OnAgentInteraction(userAgent, agent, 0);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there agent action state or condition.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -78,7 +78,7 @@ var result = prisonBreakMissionController.IsThereAgentAction(userAgent, otherAge
 ### OnAgentAlarmedStateChanged
 `public override void OnAgentAlarmedStateChanged(Agent agent, AIStateFlag flag)`
 
-**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent alarmed state changed event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -89,7 +89,7 @@ prisonBreakMissionController.OnAgentAlarmedStateChanged(agent, flag);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -100,7 +100,7 @@ prisonBreakMissionController.OnAgentRemoved(affectedAgent, affectorAgent, agentS
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -111,7 +111,7 @@ var result = prisonBreakMissionController.OnEndMissionRequest(canLeave);
 ### OnStealthMissionCounterFailed
 `public void OnStealthMissionCounterFailed(OnStealthMissionCounterFailedEvent obj)`
 
-**Purpose:** Invoked when the `stealth mission counter failed` event is raised.
+**Purpose:** **Purpose:** Invoked when the stealth mission counter failed event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first
@@ -122,7 +122,7 @@ prisonBreakMissionController.OnStealthMissionCounterFailed(obj);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of PrisonBreakMissionController from the subsystem API first

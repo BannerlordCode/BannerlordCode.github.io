@@ -33,7 +33,7 @@ description: "ConstructorCode 的自动生成类参考。"
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**用途 / Purpose:** 生成「into」的实例、数据或表示。
+**用途 / Purpose:** **用途 / Purpose:** 生成into的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ConstructorCode 实例
@@ -44,7 +44,7 @@ constructorCode.GenerateInto(codeGenerationFile);
 ### AddLine
 `public void AddLine(string line)`
 
-**用途 / Purpose:** 将 「line」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 line 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ConstructorCode 实例

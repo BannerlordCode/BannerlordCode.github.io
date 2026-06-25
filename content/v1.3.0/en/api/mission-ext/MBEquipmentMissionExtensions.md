@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetSkinMeshesMask
 `public static SkinMask GetSkinMeshesMask(this Equipment equipment)`
 
-**Purpose:** Reads and returns the `skin meshes mask` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skin meshes mask value held by the this instance.
 
 ```csharp
 // Static call; no instance required

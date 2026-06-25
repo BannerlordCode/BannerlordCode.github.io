@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddComponent
 `public void AddComponent(UsableMissionObjectComponent component)`
 
-**Purpose:** Adds `component` to the current collection or state.
+**Purpose:** **Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -62,7 +62,7 @@ usableMachine.AddComponent(component);
 ### RemoveComponent
 `public void RemoveComponent(UsableMissionObjectComponent component)`
 
-**Purpose:** Removes `component` from the current collection or state.
+**Purpose:** **Purpose:** Removes component from the current collection or state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -73,7 +73,7 @@ usableMachine.RemoveComponent(component);
 ### GetOrder
 `public virtual OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the order value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -84,7 +84,7 @@ var result = usableMachine.GetOrder(side);
 ### CreateAIBehaviorObject
 `public virtual UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -95,7 +95,7 @@ var result = usableMachine.CreateAIBehaviorObject();
 ### GetValidStandingPointForAgent
 `public WeakGameEntity GetValidStandingPointForAgent(Agent agent)`
 
-**Purpose:** Reads and returns the `valid standing point for agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the valid standing point for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -106,7 +106,7 @@ var result = usableMachine.GetValidStandingPointForAgent(agent);
 ### SetAI
 `public void SetAI(UsableMachineAIBase ai)`
 
-**Purpose:** Assigns a new value to `a i` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to a i and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -117,7 +117,7 @@ usableMachine.SetAI(ai);
 ### GetValidStandingPointForAgentWithoutDistanceCheck
 `public WeakGameEntity GetValidStandingPointForAgentWithoutDistanceCheck(Agent agent)`
 
-**Purpose:** Reads and returns the `valid standing point for agent without distance check` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the valid standing point for agent without distance check value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -128,7 +128,7 @@ var result = usableMachine.GetValidStandingPointForAgentWithoutDistanceCheck(age
 ### GetVacantStandingPointForAI
 `public StandingPoint GetVacantStandingPointForAI(Agent agent)`
 
-**Purpose:** Reads and returns the `vacant standing point for a i` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the vacant standing point for a i value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -139,7 +139,7 @@ var result = usableMachine.GetVacantStandingPointForAI(agent);
 ### GetTargetStandingPointOfAIAgent
 `public StandingPoint GetTargetStandingPointOfAIAgent(Agent agent)`
 
-**Purpose:** Reads and returns the `target standing point of a i agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target standing point of a i agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -150,7 +150,7 @@ var result = usableMachine.GetTargetStandingPointOfAIAgent(agent);
 ### OnMissionEnded
 `public override void OnMissionEnded()`
 
-**Purpose:** Invoked when the `mission ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission ended event is raised.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -161,7 +161,7 @@ usableMachine.OnMissionEnded();
 ### SetVisibleSynched
 `public override void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
 
-**Purpose:** Assigns a new value to `visible synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to visible synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -172,7 +172,7 @@ usableMachine.SetVisibleSynched(false, false);
 ### SetPhysicsStateSynched
 `public override void SetPhysicsStateSynched(bool value, bool setChildren = true)`
 
-**Purpose:** Assigns a new value to `physics state synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to physics state synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -183,7 +183,7 @@ usableMachine.SetPhysicsStateSynched(false, false);
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -194,7 +194,7 @@ var result = usableMachine.GetTickRequirement();
 ### OnFocusGain
 `public virtual void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Invoked when the `focus gain` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -205,7 +205,7 @@ usableMachine.OnFocusGain(userAgent);
 ### OnFocusLose
 `public virtual void OnFocusLose(Agent userAgent)`
 
-**Purpose:** Invoked when the `focus lose` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus lose event is raised.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -216,7 +216,7 @@ usableMachine.OnFocusLose(userAgent);
 ### OnPilotAssignedDuringSpawn
 `public virtual void OnPilotAssignedDuringSpawn()`
 
-**Purpose:** Invoked when the `pilot assigned during spawn` event is raised.
+**Purpose:** **Purpose:** Invoked when the pilot assigned during spawn event is raised.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -227,7 +227,7 @@ usableMachine.OnPilotAssignedDuringSpawn();
 ### GetInfoTextForBeingNotInteractable
 `public virtual TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** Reads and returns the `info text for being not interactable` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -238,7 +238,7 @@ var result = usableMachine.GetInfoTextForBeingNotInteractable(userAgent);
 ### Deactivate
 `public void Deactivate()`
 
-**Purpose:** Deactivates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -249,7 +249,7 @@ usableMachine.Deactivate();
 ### Activate
 `public void Activate()`
 
-**Purpose:** Activates the resource, state, or feature represented by the current object.
+**Purpose:** **Purpose:** Activates the resource, state, or feature represented by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -260,7 +260,7 @@ usableMachine.Activate();
 ### IsDisabledForBattleSide
 `public virtual bool IsDisabledForBattleSide(BattleSideEnum sideEnum)`
 
-**Purpose:** Determines whether the current object is in the `disabled for battle side` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for battle side state or condition.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -271,7 +271,7 @@ var result = usableMachine.IsDisabledForBattleSide(sideEnum);
 ### IsDisabledForBattleSideAI
 `public virtual bool IsDisabledForBattleSideAI(BattleSideEnum sideEnum)`
 
-**Purpose:** Determines whether the current object is in the `disabled for battle side a i` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the disabled for battle side a i state or condition.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -282,7 +282,7 @@ var result = usableMachine.IsDisabledForBattleSideAI(sideEnum);
 ### ShouldAutoLeaveDetachmentWhenDisabled
 `public virtual bool ShouldAutoLeaveDetachmentWhenDisabled(BattleSideEnum sideEnum)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShouldAutoLeaveDetachmentWhenDisabled logic.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -293,7 +293,7 @@ var result = usableMachine.ShouldAutoLeaveDetachmentWhenDisabled(sideEnum);
 ### AutoAttachUserToFormation
 `public virtual bool AutoAttachUserToFormation(BattleSideEnum sideEnum)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoAttachUserToFormation logic.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -304,7 +304,7 @@ var result = usableMachine.AutoAttachUserToFormation(sideEnum);
 ### HasToBeDefendedByUser
 `public virtual bool HasToBeDefendedByUser(BattleSideEnum sideEnum)`
 
-**Purpose:** Determines whether the current object already holds `to be defended by user`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds to be defended by user.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -315,7 +315,7 @@ var result = usableMachine.HasToBeDefendedByUser(sideEnum);
 ### Disable
 `public virtual void Disable()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Disable logic.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -326,7 +326,7 @@ usableMachine.Disable();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -337,7 +337,7 @@ var result = usableMachine.ToString();
 ### GetActionTextForStandingPoint
 `public abstract TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -348,7 +348,7 @@ var result = usableMachine.GetActionTextForStandingPoint(usableGameObject);
 ### GetBestPointAlternativeTo
 `public virtual StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**Purpose:** Reads and returns the `best point alternative to` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the best point alternative to value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -359,7 +359,7 @@ var result = usableMachine.GetBestPointAlternativeTo(standingPoint, agent);
 ### IsInRangeToCheckAlternativePoints
 `public virtual bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `in range to check alternative points` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the in range to check alternative points state or condition.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -370,7 +370,7 @@ var result = usableMachine.IsInRangeToCheckAlternativePoints(agent);
 ### AddAgentAtSlotIndex
 `public void AddAgentAtSlotIndex(Agent agent, int slotIndex)`
 
-**Purpose:** Adds `agent at slot index` to the current collection or state.
+**Purpose:** **Purpose:** Adds agent at slot index to the current collection or state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -381,7 +381,7 @@ usableMachine.AddAgentAtSlotIndex(agent, 0);
 ### SetIsDisabledForAI
 `public void SetIsDisabledForAI(bool isDisabledForAI)`
 
-**Purpose:** Assigns a new value to `is disabled for a i` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is disabled for a i and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -392,7 +392,7 @@ usableMachine.SetIsDisabledForAI(false);
 ### GetNumberOfUsableSlots
 `public int GetNumberOfUsableSlots()`
 
-**Purpose:** Reads and returns the `number of usable slots` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of usable slots value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -403,7 +403,7 @@ var result = usableMachine.GetNumberOfUsableSlots();
 ### IsStandingPointAvailableForAgent
 `public bool IsStandingPointAvailableForAgent(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `standing point available for agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the standing point available for agent state or condition.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -414,7 +414,7 @@ var result = usableMachine.IsStandingPointAvailableForAgent(agent);
 ### IsUsedByFormation
 `public bool IsUsedByFormation(Formation formation)`
 
-**Purpose:** Determines whether the current object is in the `used by formation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the used by formation state or condition.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -425,7 +425,7 @@ var result = usableMachine.IsUsedByFormation(formation);
 ### GetDescriptionText
 `public abstract TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first
@@ -436,7 +436,7 @@ var result = usableMachine.GetDescriptionText(gameEntity);
 ### SetEnemyRangeToStopUsing
 `public void SetEnemyRangeToStopUsing(float value)`
 
-**Purpose:** Assigns a new value to `enemy range to stop using` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enemy range to stop using and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of UsableMachine from the subsystem API first

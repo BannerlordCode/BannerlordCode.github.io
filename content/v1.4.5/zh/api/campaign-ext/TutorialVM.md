@@ -39,7 +39,7 @@ description: "TutorialVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialVM 实例
@@ -50,7 +50,7 @@ tutorialVM.RefreshValues();
 ### SetCurrentTutorial
 `public void SetCurrentTutorial(TutorialItemVM.ItemPlacements placement, string tutorialTypeId, bool requiresMouse)`
 
-**用途 / Purpose:** 为 「current tutorial」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 current tutorial 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialVM 实例
@@ -61,7 +61,7 @@ tutorialVM.SetCurrentTutorial(placement, "example", false);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialVM 实例
@@ -72,7 +72,7 @@ tutorialVM.Tick(0);
 ### CloseTutorialStep
 `public void CloseTutorialStep(bool finalizeAllSteps = false)`
 
-**用途 / Purpose:** 关闭「tutorial step」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭tutorial step对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialVM 实例
@@ -83,7 +83,7 @@ tutorialVM.CloseTutorialStep(false);
 ### FinalizeTutorial
 `public void FinalizeTutorial()`
 
-**用途 / Purpose:** 处理与 「finalize tutorial」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeTutorial 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialVM 实例

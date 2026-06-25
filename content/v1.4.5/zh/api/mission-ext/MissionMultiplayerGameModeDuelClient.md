@@ -29,7 +29,7 @@ description: "MissionMultiplayerGameModeDuelClient 的自动生成类参考。"
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
@@ -40,7 +40,7 @@ var result = missionMultiplayerGameModeDuelClient.GetGoldAmount();
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 gold amount changed for representative 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
@@ -51,7 +51,7 @@ missionMultiplayerGameModeDuelClient.OnGoldAmountChangedForRepresentative(repres
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
@@ -62,7 +62,7 @@ missionMultiplayerGameModeDuelClient.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
@@ -73,7 +73,7 @@ missionMultiplayerGameModeDuelClient.OnRemoveBehavior();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
@@ -84,7 +84,7 @@ missionMultiplayerGameModeDuelClient.OnAgentRemoved(affectedAgent, affectorAgent
 ### CanRequestCultureChange
 `public override bool CanRequestCultureChange()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「request culture change」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 request culture change 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例
@@ -95,7 +95,7 @@ var result = missionMultiplayerGameModeDuelClient.CanRequestCultureChange();
 ### CanRequestTroopChange
 `public override bool CanRequestTroopChange()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「request troop change」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 request troop change 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeDuelClient 实例

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### AddAtrribute
 `public void AddAtrribute(string key, string value)`
 
-**Purpose:** Adds `atrribute` to the current collection or state.
+**Purpose:** **Purpose:** Adds atrribute to the current collection or state.
 
 ```csharp
 // Obtain an instance of RichTextTag from the subsystem API first
@@ -41,7 +41,7 @@ richTextTag.AddAtrribute("example", "example");
 ### GetAttribute
 `public string GetAttribute(string key)`
 
-**Purpose:** Reads and returns the `attribute` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attribute value held by the this instance.
 
 ```csharp
 // Obtain an instance of RichTextTag from the subsystem API first

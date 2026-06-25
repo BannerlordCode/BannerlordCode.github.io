@@ -42,7 +42,7 @@ description: "MapNotificationItemWidget 的自动生成类参考。"
 ### MapNotificationItemWidget
 `public class MapNotificationItemWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「map notification item widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MapNotificationItemWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapNotificationItemWidget 实例

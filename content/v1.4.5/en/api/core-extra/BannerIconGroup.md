@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public void Deserialize(XmlNode xmlNode, MBList<BannerIconGroup> previouslyAddedGroups)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of BannerIconGroup from the subsystem API first
@@ -42,7 +42,7 @@ bannerIconGroup.Deserialize(xmlNode, previouslyAddedGroups);
 ### Merge
 `public void Merge(BannerIconGroup otherGroup)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Merge logic.
 
 ```csharp
 // Obtain an instance of BannerIconGroup from the subsystem API first

@@ -29,7 +29,7 @@ description: "TeamAISallyOutDefender 的自动生成类参考。"
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**用途 / Purpose:** 在 「unit added to formation for the first time」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 unit added to formation for the first time 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISallyOutDefender 实例
@@ -40,7 +40,7 @@ teamAISallyOutDefender.OnUnitAddedToFormationForTheFirstTime(formation);
 ### CalculateSallyOutReferencePosition
 `public Vec3 CalculateSallyOutReferencePosition(FormationAI.BehaviorSide side)`
 
-**用途 / Purpose:** 计算「sally out reference position」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算sally out reference position的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISallyOutDefender 实例
@@ -51,7 +51,7 @@ var result = teamAISallyOutDefender.CalculateSallyOutReferencePosition(side);
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISallyOutDefender 实例

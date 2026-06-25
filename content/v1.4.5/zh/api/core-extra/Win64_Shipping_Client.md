@@ -23,7 +23,7 @@ description: "Win64_Shipping_Client 的自动生成类参考。"
 ### GetFileContent
 `public static string GetFileContent(string filePath, Type type = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「file content」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 file content 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `WeaponData` as a Data-style extension point: first identify who creates i
 ### IsValid
 `public bool IsValid()`
 
-**Purpose:** Determines whether the current object is in the `valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of WeaponData from the subsystem API first
@@ -34,7 +34,7 @@ var result = weaponData.IsValid();
 ### GetItemObject
 `public ItemObject GetItemObject()`
 
-**Purpose:** Reads and returns the `item object` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item object value held by the this instance.
 
 ```csharp
 // Obtain an instance of WeaponData from the subsystem API first
@@ -45,7 +45,7 @@ var result = weaponData.GetItemObject();
 ### DeinitializeManagedPointers
 `public void DeinitializeManagedPointers()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeinitializeManagedPointers logic.
 
 ```csharp
 // Obtain an instance of WeaponData from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Encyclopedia` to place it in the
 ### Compare
 `public override int Compare(EncyclopediaListItem x, EncyclopediaListItem y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemNameComparer from the subsystem API first
@@ -34,7 +34,7 @@ var result = encyclopediaListItemNameComparer.Compare(x, y);
 ### GetComparedValueText
 `public override string GetComparedValueText(EncyclopediaListItem item)`
 
-**Purpose:** Reads and returns the `compared value text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compared value text value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemNameComparer from the subsystem API first

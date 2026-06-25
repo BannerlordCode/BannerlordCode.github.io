@@ -23,7 +23,7 @@ description: "BehaviorDefendSiegeWeapon 的自动生成类参考。"
 ### SetDefensePositionFromTactic
 `public void SetDefensePositionFromTactic(WorldPosition defensePosition)`
 
-**用途 / Purpose:** 为 「defense position from tactic」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 defense position from tactic 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefendSiegeWeapon 实例
@@ -34,7 +34,7 @@ behaviorDefendSiegeWeapon.SetDefensePositionFromTactic(defensePosition);
 ### SetDefendedSiegeWeaponFromTactic
 `public void SetDefendedSiegeWeaponFromTactic(SiegeWeapon siegeWeapon)`
 
-**用途 / Purpose:** 为 「defended siege weapon from tactic」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 defended siege weapon from tactic 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefendSiegeWeapon 实例
@@ -45,7 +45,7 @@ behaviorDefendSiegeWeapon.SetDefendedSiegeWeaponFromTactic(siegeWeapon);
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「behavior string」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 behavior string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefendSiegeWeapon 实例
@@ -56,7 +56,7 @@ var result = behaviorDefendSiegeWeapon.GetBehaviorString();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefendSiegeWeapon 实例
@@ -67,7 +67,7 @@ behaviorDefendSiegeWeapon.TickOccasionally();
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**用途 / Purpose:** 将 「behavior」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 behavior 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorDefendSiegeWeapon 实例

@@ -23,7 +23,7 @@ description: "FavoriteServerDataContainer 的自动生成类参考。"
 ### TryGetServerData
 `public bool TryGetServerData(GameServerEntry serverEntry, out FavoriteServerData favoriteServerData)`
 
-**用途 / Purpose:** 尝试获取 「get server data」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get server data 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 FavoriteServerDataContainer 实例

@@ -23,7 +23,7 @@ description: "Dwmapi 的自动生成类参考。"
 ### DwmEnableBlurBehindWindow
 `public static extern IntPtr DwmEnableBlurBehindWindow(IntPtr hwnd, ref DwmBlurBehind ppfd)`
 
-**用途 / Purpose:** 处理与 「dwm enable blur behind window」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DwmEnableBlurBehindWindow 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

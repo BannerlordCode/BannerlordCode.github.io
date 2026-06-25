@@ -52,7 +52,7 @@ description: "EpicPlatformServices 的自动生成类参考。"
 ### Initialize
 `public bool Initialize(IFriendListService additionalFriendListServices)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例
@@ -63,7 +63,7 @@ var result = epicPlatformServices.Initialize(additionalFriendListServices);
 ### Terminate
 `public void Terminate()`
 
-**用途 / Purpose:** 处理与 「terminate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Terminate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例
@@ -74,7 +74,7 @@ epicPlatformServices.Terminate();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例
@@ -85,7 +85,7 @@ epicPlatformServices.Tick(0);
 ### QueryDefinitions
 `public void QueryDefinitions()`
 
-**用途 / Purpose:** 处理与 「query definitions」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 QueryDefinitions 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例
@@ -96,7 +96,7 @@ epicPlatformServices.QueryDefinitions();
 ### ShowGamepadTextInput
 `public bool ShowGamepadTextInput(string descriptionText, string existingText, uint maxChars, bool isObfuscated)`
 
-**用途 / Purpose:** 显示「gamepad text input」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示gamepad text input对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例

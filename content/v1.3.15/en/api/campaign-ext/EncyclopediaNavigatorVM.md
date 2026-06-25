@@ -45,7 +45,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -56,7 +56,7 @@ encyclopediaNavigatorVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -67,7 +67,7 @@ encyclopediaNavigatorVM.RefreshValues();
 ### ExecuteHome
 `public void ExecuteHome()`
 
-**Purpose:** Runs the operation or workflow associated with `home`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with home.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -78,7 +78,7 @@ encyclopediaNavigatorVM.ExecuteHome();
 ### ExecuteBarLink
 `public void ExecuteBarLink(string targetID)`
 
-**Purpose:** Runs the operation or workflow associated with `bar link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with bar link.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -89,7 +89,7 @@ encyclopediaNavigatorVM.ExecuteBarLink("example");
 ### ExecuteCloseEncyclopedia
 `public void ExecuteCloseEncyclopedia()`
 
-**Purpose:** Runs the operation or workflow associated with `close encyclopedia`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close encyclopedia.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -100,7 +100,7 @@ encyclopediaNavigatorVM.ExecuteCloseEncyclopedia();
 ### ResetHistory
 `public void ResetHistory()`
 
-**Purpose:** Returns `history` to its default or initial condition.
+**Purpose:** **Purpose:** Returns history to its default or initial condition.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -111,7 +111,7 @@ encyclopediaNavigatorVM.ResetHistory();
 ### ExecuteBack
 `public void ExecuteBack()`
 
-**Purpose:** Runs the operation or workflow associated with `back`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with back.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -122,7 +122,7 @@ encyclopediaNavigatorVM.ExecuteBack();
 ### ExecuteForward
 `public void ExecuteForward()`
 
-**Purpose:** Runs the operation or workflow associated with `forward`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with forward.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -133,7 +133,7 @@ encyclopediaNavigatorVM.ExecuteForward();
 ### GetLastPage
 `public Tuple<string, object> GetLastPage()`
 
-**Purpose:** Reads and returns the `last page` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the last page value held by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -144,7 +144,7 @@ var result = encyclopediaNavigatorVM.GetLastPage();
 ### AddHistory
 `public void AddHistory(string pageId, object obj)`
 
-**Purpose:** Adds `history` to the current collection or state.
+**Purpose:** **Purpose:** Adds history to the current collection or state.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -155,7 +155,7 @@ encyclopediaNavigatorVM.AddHistory("example", obj);
 ### UpdatePageName
 `public void UpdatePageName(string value)`
 
-**Purpose:** Recalculates and stores the latest representation of `page name`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of page name.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -166,7 +166,7 @@ encyclopediaNavigatorVM.UpdatePageName("example");
 ### ResetSearch
 `public void ResetSearch()`
 
-**Purpose:** Returns `search` to its default or initial condition.
+**Purpose:** **Purpose:** Returns search to its default or initial condition.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -177,7 +177,7 @@ encyclopediaNavigatorVM.ResetSearch();
 ### ExecuteOnSearchActivated
 `public void ExecuteOnSearchActivated()`
 
-**Purpose:** Runs the operation or workflow associated with `on search activated`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with on search activated.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -188,7 +188,7 @@ encyclopediaNavigatorVM.ExecuteOnSearchActivated();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -199,7 +199,7 @@ encyclopediaNavigatorVM.SetCancelInputKey(hotkey);
 ### SetPreviousPageInputKey
 `public void SetPreviousPageInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `previous page input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to previous page input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -210,7 +210,7 @@ encyclopediaNavigatorVM.SetPreviousPageInputKey(hotkey);
 ### SetNextPageInputKey
 `public void SetNextPageInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `next page input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next page input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first
@@ -221,7 +221,7 @@ encyclopediaNavigatorVM.SetNextPageInputKey(hotkey);
 ### Compare
 `public int Compare(EncyclopediaSearchResultVM x, EncyclopediaSearchResultVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of EncyclopediaNavigatorVM from the subsystem API first

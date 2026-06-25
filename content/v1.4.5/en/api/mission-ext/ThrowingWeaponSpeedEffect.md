@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetThrowingWeaponSpeed
 `public override float GetThrowingWeaponSpeed(WeaponComponentData attackerWeapon)`
 
-**Purpose:** Reads and returns the `throwing weapon speed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the throwing weapon speed value held by the this instance.
 
 ```csharp
 // Obtain an instance of ThrowingWeaponSpeedEffect from the subsystem API first

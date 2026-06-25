@@ -23,7 +23,7 @@ description: "MissionCommunityClientComponent 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCommunityClientComponent 实例
@@ -34,7 +34,7 @@ missionCommunityClientComponent.OnBehaviorInitialize();
 ### SetServerEndingBeforeClientLoaded
 `public void SetServerEndingBeforeClientLoaded(bool isServerEndingBeforeClientLoaded)`
 
-**用途 / Purpose:** 为 「server ending before client loaded」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 server ending before client loaded 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCommunityClientComponent 实例
@@ -45,7 +45,7 @@ missionCommunityClientComponent.SetServerEndingBeforeClientLoaded(false);
 ### QuitMission
 `public override void QuitMission()`
 
-**用途 / Purpose:** 处理与 「quit mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 QuitMission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCommunityClientComponent 实例

@@ -32,7 +32,7 @@ description: "SpriteData 的自动生成类参考。"
 ### GetSprite
 `public Sprite GetSprite(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sprite」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sprite 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteData 实例
@@ -43,7 +43,7 @@ var result = spriteData.GetSprite("example");
 ### SpriteExists
 `public bool SpriteExists(string spriteName)`
 
-**用途 / Purpose:** 处理与 「sprite exists」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SpriteExists 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteData 实例
@@ -54,7 +54,7 @@ var result = spriteData.SpriteExists("example");
 ### Load
 `public void Load(ResourceDepot resourceDepot)`
 
-**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteData 实例
@@ -65,7 +65,7 @@ spriteData.Load(resourceDepot);
 ### Reload
 `public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)`
 
-**用途 / Purpose:** 处理与 「reload」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Reload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteData 实例

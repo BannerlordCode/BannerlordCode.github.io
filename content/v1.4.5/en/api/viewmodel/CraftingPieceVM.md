@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshFlagIcons
 `public void RefreshFlagIcons()`
 
-**Purpose:** Keeps the display or cache of `flag icons` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of flag icons in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CraftingPieceVM from the subsystem API first
@@ -49,7 +49,7 @@ craftingPieceVM.RefreshFlagIcons();
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open tooltip.
 
 ```csharp
 // Obtain an instance of CraftingPieceVM from the subsystem API first
@@ -60,7 +60,7 @@ craftingPieceVM.ExecuteOpenTooltip();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close tooltip.
 
 ```csharp
 // Obtain an instance of CraftingPieceVM from the subsystem API first
@@ -71,7 +71,7 @@ craftingPieceVM.ExecuteCloseTooltip();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Runs the operation or workflow associated with `select`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of CraftingPieceVM from the subsystem API first

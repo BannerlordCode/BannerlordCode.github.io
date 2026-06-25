@@ -1210,6 +1210,4 @@ rglInterpolator_base_definition::vftable
 
 ## 使用示例
 
-```csharp
-var example = new 渲染系统();
-```
+// （占位示例已移除，见正文说明）

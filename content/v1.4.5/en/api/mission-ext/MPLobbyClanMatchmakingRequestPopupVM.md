@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
@@ -49,7 +49,7 @@ mPLobbyClanMatchmakingRequestPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(string clanName, string clanSigilCode, Guid partyId, PlayerId challengerPlayerIDs, PlayerId challengerPartyLeaderID, PremadeGameType premadeGameType)`
 
-**Purpose:** Opens the resource or UI associated with `with`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
@@ -60,7 +60,7 @@ mPLobbyClanMatchmakingRequestPopupVM.OpenWith("example", "example", partyId, cha
 ### Close
 `public void Close()`
 
-**Purpose:** Closes the resource or UI represented by the current object.
+**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
@@ -71,7 +71,7 @@ mPLobbyClanMatchmakingRequestPopupVM.Close();
 ### ExecuteAcceptMatchmaking
 `public void ExecuteAcceptMatchmaking()`
 
-**Purpose:** Runs the operation or workflow associated with `accept matchmaking`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with accept matchmaking.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first
@@ -82,7 +82,7 @@ mPLobbyClanMatchmakingRequestPopupVM.ExecuteAcceptMatchmaking();
 ### ExecuteDeclineMatchmaking
 `public void ExecuteDeclineMatchmaking()`
 
-**Purpose:** Runs the operation or workflow associated with `decline matchmaking`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with decline matchmaking.
 
 ```csharp
 // Obtain an instance of MPLobbyClanMatchmakingRequestPopupVM from the subsystem API first

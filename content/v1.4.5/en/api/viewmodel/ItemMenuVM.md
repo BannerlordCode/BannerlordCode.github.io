@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### SetItem
 `public void SetItem(SPItemVM item, InventoryLogic.InventorySide currentEquipmentMode, ItemVM comparedItem = null, BasicCharacterObject character = null, int alternativeUsageIndex = 0)`
 
-**Purpose:** Assigns a new value to `item` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to item and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemMenuVM from the subsystem API first
@@ -54,7 +54,7 @@ itemMenuVM.SetItem(item, currentEquipmentMode, null, null, 0);
 ### SetTransactionCost
 `public void SetTransactionCost(int getItemTotalPrice, int maxIndividualPrice)`
 
-**Purpose:** Assigns a new value to `transaction cost` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to transaction cost and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ItemMenuVM from the subsystem API first

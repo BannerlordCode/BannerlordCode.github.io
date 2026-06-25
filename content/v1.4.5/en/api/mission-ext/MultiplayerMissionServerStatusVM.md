@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### UpdatePacketLossRatio
 `public void UpdatePacketLossRatio(float v)`
 
-**Purpose:** Recalculates and stores the latest representation of `packet loss ratio`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of packet loss ratio.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
@@ -42,7 +42,7 @@ multiplayerMissionServerStatusVM.UpdatePacketLossRatio(0);
 ### UpdatePeerPing
 `public void UpdatePeerPing(double averagePingInMilliseconds)`
 
-**Purpose:** Recalculates and stores the latest representation of `peer ping`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of peer ping.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
@@ -53,7 +53,7 @@ multiplayerMissionServerStatusVM.UpdatePeerPing(0);
 ### UpdateServerPerformanceState
 `public void UpdateServerPerformanceState(ServerPerformanceState serverPerformanceState)`
 
-**Purpose:** Recalculates and stores the latest representation of `server performance state`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of server performance state.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first
@@ -64,7 +64,7 @@ multiplayerMissionServerStatusVM.UpdateServerPerformanceState(serverPerformanceS
 ### ResetStates
 `public void ResetStates()`
 
-**Purpose:** Returns `states` to its default or initial condition.
+**Purpose:** **Purpose:** Returns states to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MultiplayerMissionServerStatusVM from the subsystem API first

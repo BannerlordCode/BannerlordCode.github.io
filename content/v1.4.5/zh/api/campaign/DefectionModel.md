@@ -23,7 +23,7 @@ description: "DefectionModel 的自动生成类参考。"
 ### CanHeroDefectToFaction
 `public abstract bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「hero defect to faction」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 hero defect to faction 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefectionModel 实例

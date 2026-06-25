@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Scripts` to place it in the 
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnCharacter logic.
 
 ```csharp
 // Obtain an instance of HandMorphTest from the subsystem API first
@@ -41,7 +41,7 @@ handMorphTest.SpawnCharacter();
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of HandMorphTest from the subsystem API first
@@ -52,7 +52,7 @@ handMorphTest.Reset();
 ### InitWithCharacter
 `public void InitWithCharacter(CharacterCode characterCode)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `with character`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with character.
 
 ```csharp
 // Obtain an instance of HandMorphTest from the subsystem API first

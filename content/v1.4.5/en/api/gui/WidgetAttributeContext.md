@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### RegisterKeyType
 `public void RegisterKeyType(WidgetAttributeKeyType keyType)`
 
-**Purpose:** Registers `key type` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers key type with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of WidgetAttributeContext from the subsystem API first
@@ -34,7 +34,7 @@ widgetAttributeContext.RegisterKeyType(keyType);
 ### RegisterValueType
 `public void RegisterValueType(WidgetAttributeValueType valueType)`
 
-**Purpose:** Registers `value type` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers value type with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of WidgetAttributeContext from the subsystem API first
@@ -45,7 +45,7 @@ widgetAttributeContext.RegisterValueType(valueType);
 ### GetKeyType
 `public WidgetAttributeKeyType GetKeyType(string key)`
 
-**Purpose:** Reads and returns the `key type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the key type value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeContext from the subsystem API first
@@ -56,7 +56,7 @@ var result = widgetAttributeContext.GetKeyType("example");
 ### GetValueType
 `public WidgetAttributeValueType GetValueType(string value)`
 
-**Purpose:** Reads and returns the `value type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value type value held by the this instance.
 
 ```csharp
 // Obtain an instance of WidgetAttributeContext from the subsystem API first

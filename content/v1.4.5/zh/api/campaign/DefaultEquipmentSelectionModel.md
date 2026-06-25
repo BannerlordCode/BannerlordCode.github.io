@@ -23,7 +23,7 @@ description: "DefaultEquipmentSelectionModel 的自动生成类参考。"
 ### GetEquipmentForHeroComeOfAge
 `public override Equipment GetEquipmentForHeroComeOfAge(Hero hero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment for hero come of age」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for hero come of age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -34,7 +34,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForHeroComeOfAge(hero, e
 ### GetEquipmentForHeroReachesTeenAge
 `public override Equipment GetEquipmentForHeroReachesTeenAge(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment for hero reaches teen age」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for hero reaches teen age 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -45,7 +45,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForHeroReachesTeenAge(he
 ### GetEquipmentForDeliveredOffspring
 `public override Equipment GetEquipmentForDeliveredOffspring(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment for delivered offspring」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for delivered offspring 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -56,7 +56,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForDeliveredOffspring(he
 ### GetEquipmentForCompanionWhenTurningToLord
 `public override Equipment GetEquipmentForCompanionWhenTurningToLord(Hero companionHero, Equipment.EquipmentType equipmentType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment for companion when turning to lord」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for companion when turning to lord 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例
@@ -67,7 +67,7 @@ var result = defaultEquipmentSelectionModel.GetEquipmentForCompanionWhenTurningT
 ### GetEquipmentForInitialChildrenGeneration
 `public override Equipment GetEquipmentForInitialChildrenGeneration(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment for initial children generation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment for initial children generation 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultEquipmentSelectionModel 实例

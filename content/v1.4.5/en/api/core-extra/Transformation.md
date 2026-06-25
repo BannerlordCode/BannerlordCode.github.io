@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CreateFromMatrixFrame
 `public static Transformation CreateFromMatrixFrame(MatrixFrame matrixFrame)`
 
-**Purpose:** Constructs a new `from matrix frame` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from matrix frame entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ Transformation.CreateFromMatrixFrame(matrixFrame);
 ### CreateFromRotation
 `public static Transformation CreateFromRotation(Mat3 rotation)`
 
-**Purpose:** Constructs a new `from rotation` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from rotation entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ Transformation.CreateFromRotation(rotation);
 ### TransformToParent
 `public Vec3 TransformToParent(Vec3 v)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransformToParent logic.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -60,7 +60,7 @@ var result = transformation.TransformToParent(v);
 ### TransformToParent
 `public Transformation TransformToParent(Transformation t)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransformToParent logic.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -71,7 +71,7 @@ var result = transformation.TransformToParent(t);
 ### TransformToLocal
 `public Vec3 TransformToLocal(Vec3 v)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransformToLocal logic.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -82,7 +82,7 @@ var result = transformation.TransformToLocal(v);
 ### TransformToLocal
 `public Transformation TransformToLocal(Transformation t)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransformToLocal logic.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -93,7 +93,7 @@ var result = transformation.TransformToLocal(t);
 ### Rotate
 `public void Rotate(float radian, Vec3 axis)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Rotate logic.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -104,7 +104,7 @@ transformation.Rotate(0, axis);
 ### ApplyScale
 `public void ApplyScale(Vec3 vec3)`
 
-**Purpose:** Applies the effect of `scale` to the current object.
+**Purpose:** **Purpose:** Applies the effect of scale to the this instance.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -115,7 +115,7 @@ transformation.ApplyScale(vec3);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -126,7 +126,7 @@ var result = transformation.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first
@@ -137,7 +137,7 @@ var result = transformation.GetHashCode();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Transformation from the subsystem API first

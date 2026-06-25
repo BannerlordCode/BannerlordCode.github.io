@@ -29,7 +29,7 @@ Treat `ScrollbarInterpolationController` as a Controller-style extension point: 
 ### SetControlledScrollbar
 `public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-**Purpose:** Assigns a new value to `controlled scrollbar` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to controlled scrollbar and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScrollbarInterpolationController from the subsystem API first
@@ -40,7 +40,7 @@ scrollbarInterpolationController.SetControlledScrollbar(scrollbar);
 ### StartInterpolation
 `public void StartInterpolation(float targetValue, float duration)`
 
-**Purpose:** Starts the `interpolation` flow or state machine.
+**Purpose:** **Purpose:** Starts the interpolation flow or state machine.
 
 ```csharp
 // Obtain an instance of ScrollbarInterpolationController from the subsystem API first
@@ -51,7 +51,7 @@ scrollbarInterpolationController.StartInterpolation(0, 0);
 ### StopInterpolation
 `public void StopInterpolation()`
 
-**Purpose:** Stops the `interpolation` flow or state machine.
+**Purpose:** **Purpose:** Stops the interpolation flow or state machine.
 
 ```csharp
 // Obtain an instance of ScrollbarInterpolationController from the subsystem API first
@@ -62,7 +62,7 @@ scrollbarInterpolationController.StopInterpolation();
 ### GetValue
 `public float GetValue()`
 
-**Purpose:** Reads and returns the `value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ScrollbarInterpolationController from the subsystem API first
@@ -73,7 +73,7 @@ var result = scrollbarInterpolationController.GetValue();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ScrollbarInterpolationController from the subsystem API first

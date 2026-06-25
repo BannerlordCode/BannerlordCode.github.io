@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the st
 ### CreateBlockadeBattleMapEvent
 `public static BlockadeBattleMapEvent CreateBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase besiegerParty, bool isSallyOut)`
 
-**Purpose:** Constructs a new `blockade battle map event` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new blockade battle map event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

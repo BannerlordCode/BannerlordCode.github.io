@@ -23,7 +23,7 @@ Treat `MobilePartyHelper` as a Helper-style extension point: first identify who 
 ### SpawnLordParty
 `public static MobileParty SpawnLordParty(Hero hero, Settlement spawnSettlement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnLordParty logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MobilePartyHelper.SpawnLordParty(hero, spawnSettlement);
 ### SpawnLordParty
 `public static MobileParty SpawnLordParty(Hero hero, CampaignVec2 position, float spawnRadius)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnLordParty logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MobilePartyHelper.SpawnLordParty(hero, position, 0);
 ### CreateNewClanMobileParty
 `public static MobileParty CreateNewClanMobileParty(Hero hero, Clan clan)`
 
-**Purpose:** Constructs a new `new clan mobile party` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new clan mobile party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MobilePartyHelper.CreateNewClanMobileParty(hero, clan);
 ### IsHeroAssignableForScoutInParty
 `public static bool IsHeroAssignableForScoutInParty(Hero hero, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for scout in party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for scout in party state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MobilePartyHelper.IsHeroAssignableForScoutInParty(hero, party);
 ### IsHeroAssignableForEngineerInParty
 `public static bool IsHeroAssignableForEngineerInParty(Hero hero, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for engineer in party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for engineer in party state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MobilePartyHelper.IsHeroAssignableForEngineerInParty(hero, party);
 ### IsHeroAssignableForSurgeonInParty
 `public static bool IsHeroAssignableForSurgeonInParty(Hero hero, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for surgeon in party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for surgeon in party state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MobilePartyHelper.IsHeroAssignableForSurgeonInParty(hero, party);
 ### IsHeroAssignableForQuartermasterInParty
 `public static bool IsHeroAssignableForQuartermasterInParty(Hero hero, MobileParty party)`
 
-**Purpose:** Determines whether the current object is in the `hero assignable for quartermaster in party` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the hero assignable for quartermaster in party state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ MobilePartyHelper.IsHeroAssignableForQuartermasterInParty(hero, party);
 ### GetHeroWithHighestSkill
 `public static Hero GetHeroWithHighestSkill(MobileParty party, SkillObject skill)`
 
-**Purpose:** Reads and returns the `hero with highest skill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hero with highest skill value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ MobilePartyHelper.GetHeroWithHighestSkill(party, skill);
 ### GetStrongestAndPriorTroops
 `public static TroopRoster GetStrongestAndPriorTroops(MobileParty mobileParty, int maxTroopCount, bool includePlayer)`
 
-**Purpose:** Reads and returns the `strongest and prior troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the strongest and prior troops value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ MobilePartyHelper.GetStrongestAndPriorTroops(mobileParty, 0, false);
 ### GetStrongestAndPriorTroops
 `public static TroopRoster GetStrongestAndPriorTroops(FlattenedTroopRoster roster, int maxTroopCount, bool includePlayer)`
 
-**Purpose:** Reads and returns the `strongest and prior troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the strongest and prior troops value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ MobilePartyHelper.GetStrongestAndPriorTroops(roster, 0, false);
 ### GetMaximumXpAmountPartyCanGet
 `public static int GetMaximumXpAmountPartyCanGet(MobileParty party)`
 
-**Purpose:** Reads and returns the `maximum xp amount party can get` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum xp amount party can get value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ MobilePartyHelper.GetMaximumXpAmountPartyCanGet(party);
 ### PartyAddSharedXp
 `public static void PartyAddSharedXp(MobileParty party, float xpToDistribute)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PartyAddSharedXp logic.
 
 ```csharp
 // Static call; no instance required
@@ -143,7 +143,7 @@ MobilePartyHelper.PartyAddSharedXp(party, 0);
 ### WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath
 `public static void WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath(TroopRoster roster, int numberOfMen, float chanceOfDeathPerUnit, out int deathAmount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath logic.
 
 ```csharp
 // Static call; no instance required
@@ -153,7 +153,7 @@ MobilePartyHelper.WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath(roster, 0,
 ### CanTroopGainXp
 `public static bool CanTroopGainXp(PartyBase owner, CharacterObject character, out int gainableMaxXp)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `troop gain xp`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for troop gain xp.
 
 ```csharp
 // Static call; no instance required
@@ -163,7 +163,7 @@ MobilePartyHelper.CanTroopGainXp(owner, character, gainableMaxXp);
 ### TryMatchPartySpeedWithItemWeight
 `public static void TryMatchPartySpeedWithItemWeight(MobileParty party, float targetPartySpeed, ItemObject itemToUse = null)`
 
-**Purpose:** Attempts to retrieve `match party speed with item weight`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve match party speed with item weight, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required
@@ -173,7 +173,7 @@ MobilePartyHelper.TryMatchPartySpeedWithItemWeight(party, 0, null);
 ### GetMainPartySkillCounsellor
 `public static Hero GetMainPartySkillCounsellor(SkillObject skill)`
 
-**Purpose:** Reads and returns the `main party skill counsellor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the main party skill counsellor value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -183,7 +183,7 @@ MobilePartyHelper.GetMainPartySkillCounsellor(skill);
 ### GetCurrentSettlementOfMobilePartyForAICalculation
 `public static Settlement GetCurrentSettlementOfMobilePartyForAICalculation(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `current settlement of mobile party for a i calculation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current settlement of mobile party for a i calculation value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -193,7 +193,7 @@ MobilePartyHelper.GetCurrentSettlementOfMobilePartyForAICalculation(mobileParty)
 ### GetPlayerPrisonersPlayerCanSell
 `public static TroopRoster GetPlayerPrisonersPlayerCanSell()`
 
-**Purpose:** Reads and returns the `player prisoners player can sell` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player prisoners player can sell value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -203,7 +203,7 @@ MobilePartyHelper.GetPlayerPrisonersPlayerCanSell();
 ### FillPartyManuallyAfterCreation
 `public static void FillPartyManuallyAfterCreation(MobileParty mobileParty, PartyTemplateObject partyTemplate, int desiredMenCount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillPartyManuallyAfterCreation logic.
 
 ```csharp
 // Static call; no instance required
@@ -213,7 +213,7 @@ MobilePartyHelper.FillPartyManuallyAfterCreation(mobileParty, partyTemplate, 0);
 ### CanPartyAttackWithCurrentMorale
 `public static bool CanPartyAttackWithCurrentMorale(MobileParty mobileParty)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `party attack with current morale`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for party attack with current morale.
 
 ```csharp
 // Static call; no instance required
@@ -223,7 +223,7 @@ MobilePartyHelper.CanPartyAttackWithCurrentMorale(mobileParty);
 ### ResumePartyEscortBehaviorDelegate
 `public delegate void ResumePartyEscortBehaviorDelegate()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResumePartyEscortBehaviorDelegate logic.
 
 ```csharp
 // Obtain an instance of MobilePartyHelper from the subsystem API first

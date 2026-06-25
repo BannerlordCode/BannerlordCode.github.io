@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EscapeMenuVM from the subsystem API first
@@ -42,7 +42,7 @@ escapeMenuVM.RefreshValues();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of EscapeMenuVM from the subsystem API first
@@ -53,7 +53,7 @@ escapeMenuVM.Tick(0);
 ### RefreshItems
 `public void RefreshItems(IEnumerable<EscapeMenuItemVM> items)`
 
-**Purpose:** Keeps the display or cache of `items` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of items in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EscapeMenuVM from the subsystem API first

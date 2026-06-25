@@ -33,7 +33,7 @@ description: "SaveOutput 的自动生成类参考。"
 ### PrintStatus
 `public void PrintStatus()`
 
-**用途 / Purpose:** 获取或更新 「print status」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PrintStatus 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveOutput 实例

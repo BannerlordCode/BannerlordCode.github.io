@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### IsCompatibleWith
 `public static bool IsCompatibleWith(this IEnumerable<ModuleInfoModel> a, IEnumerable<ModuleInfoModel> b, bool allowOptionalModules)`
 
-**Purpose:** Determines whether the current object is in the `compatible with` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the compatible with state or condition.
 
 ```csharp
 // Static call; no instance required

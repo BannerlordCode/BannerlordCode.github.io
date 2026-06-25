@@ -31,7 +31,7 @@ Start from namespace `SandBox.GauntletUI.Tutorial` to place it in the stack, the
 ### IsConditionsMetForCompletion
 `public abstract bool IsConditionsMetForCompletion()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -42,7 +42,7 @@ var result = tutorialItemBase.IsConditionsMetForCompletion();
 ### IsConditionsMetForActivation
 `public abstract bool IsConditionsMetForActivation()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -53,7 +53,7 @@ var result = tutorialItemBase.IsConditionsMetForActivation();
 ### GetTutorialsRelevantContext
 `public abstract TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -64,7 +64,7 @@ var result = tutorialItemBase.GetTutorialsRelevantContext();
 ### OnDeactivate
 `public virtual void OnDeactivate()`
 
-**Purpose:** Invoked when the `deactivate` event is raised.
+**Purpose:** **Purpose:** Invoked when the deactivate event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -75,7 +75,7 @@ tutorialItemBase.OnDeactivate();
 ### IsConditionsMetForVisibility
 `public virtual bool IsConditionsMetForVisibility()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for visibility` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for visibility state or condition.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -86,7 +86,7 @@ var result = tutorialItemBase.IsConditionsMetForVisibility();
 ### OnInventoryTransferItem
 `public virtual void OnInventoryTransferItem(InventoryTransferItemEvent obj)`
 
-**Purpose:** Invoked when the `inventory transfer item` event is raised.
+**Purpose:** **Purpose:** Invoked when the inventory transfer item event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -97,7 +97,7 @@ tutorialItemBase.OnInventoryTransferItem(obj);
 ### OnTutorialContextChanged
 `public virtual void OnTutorialContextChanged(TutorialContextChangedEvent obj)`
 
-**Purpose:** Invoked when the `tutorial context changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the tutorial context changed event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -108,7 +108,7 @@ tutorialItemBase.OnTutorialContextChanged(obj);
 ### OnInventoryFilterChanged
 `public virtual void OnInventoryFilterChanged(InventoryFilterChangedEvent obj)`
 
-**Purpose:** Invoked when the `inventory filter changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the inventory filter changed event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -119,7 +119,7 @@ tutorialItemBase.OnInventoryFilterChanged(obj);
 ### OnPerkSelectedByPlayer
 `public virtual void OnPerkSelectedByPlayer(PerkSelectedByPlayerEvent obj)`
 
-**Purpose:** Invoked when the `perk selected by player` event is raised.
+**Purpose:** **Purpose:** Invoked when the perk selected by player event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -130,7 +130,7 @@ tutorialItemBase.OnPerkSelectedByPlayer(obj);
 ### OnFocusAddedByPlayer
 `public virtual void OnFocusAddedByPlayer(FocusAddedByPlayerEvent obj)`
 
-**Purpose:** Invoked when the `focus added by player` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus added by player event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -141,7 +141,7 @@ tutorialItemBase.OnFocusAddedByPlayer(obj);
 ### OnGameMenuOpened
 `public virtual void OnGameMenuOpened(MenuCallbackArgs obj)`
 
-**Purpose:** Invoked when the `game menu opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the game menu opened event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -152,7 +152,7 @@ tutorialItemBase.OnGameMenuOpened(obj);
 ### OnMainMapCameraMove
 `public virtual void OnMainMapCameraMove(MapScreen.MainMapCameraMoveEvent obj)`
 
-**Purpose:** Invoked when the `main map camera move` event is raised.
+**Purpose:** **Purpose:** Invoked when the main map camera move event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -163,7 +163,7 @@ tutorialItemBase.OnMainMapCameraMove(obj);
 ### OnCharacterPortraitPopUpOpened
 `public virtual void OnCharacterPortraitPopUpOpened(CharacterObject obj)`
 
-**Purpose:** Invoked when the `character portrait pop up opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the character portrait pop up opened event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -174,7 +174,7 @@ tutorialItemBase.OnCharacterPortraitPopUpOpened(obj);
 ### OnPlayerStartTalkFromMenuOverlay
 `public virtual void OnPlayerStartTalkFromMenuOverlay(Hero obj)`
 
-**Purpose:** Invoked when the `player start talk from menu overlay` event is raised.
+**Purpose:** **Purpose:** Invoked when the player start talk from menu overlay event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -185,7 +185,7 @@ tutorialItemBase.OnPlayerStartTalkFromMenuOverlay(obj);
 ### OnGameMenuOptionSelected
 `public virtual void OnGameMenuOptionSelected(GameMenuOption obj)`
 
-**Purpose:** Invoked when the `game menu option selected` event is raised.
+**Purpose:** **Purpose:** Invoked when the game menu option selected event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -196,7 +196,7 @@ tutorialItemBase.OnGameMenuOptionSelected(obj);
 ### OnPlayerStartRecruitment
 `public virtual void OnPlayerStartRecruitment(CharacterObject obj)`
 
-**Purpose:** Invoked when the `player start recruitment` event is raised.
+**Purpose:** **Purpose:** Invoked when the player start recruitment event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -207,7 +207,7 @@ tutorialItemBase.OnPlayerStartRecruitment(obj);
 ### OnNewCompanionAdded
 `public virtual void OnNewCompanionAdded(Hero obj)`
 
-**Purpose:** Invoked when the `new companion added` event is raised.
+**Purpose:** **Purpose:** Invoked when the new companion added event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -218,7 +218,7 @@ tutorialItemBase.OnNewCompanionAdded(obj);
 ### OnPlayerRecruitedUnit
 `public virtual void OnPlayerRecruitedUnit(CharacterObject obj, int count)`
 
-**Purpose:** Invoked when the `player recruited unit` event is raised.
+**Purpose:** **Purpose:** Invoked when the player recruited unit event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -229,7 +229,7 @@ tutorialItemBase.OnPlayerRecruitedUnit(obj, 0);
 ### OnPlayerInventoryExchange
 `public virtual void OnPlayerInventoryExchange(List<ValueTuple<ItemRosterElement, int>> purchasedItems, List<ValueTuple<ItemRosterElement, int>> soldItems, bool isTrading)`
 
-**Purpose:** Invoked when the `player inventory exchange` event is raised.
+**Purpose:** **Purpose:** Invoked when the player inventory exchange event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -240,7 +240,7 @@ tutorialItemBase.OnPlayerInventoryExchange(list<ValueTuple<ItemRosterElement, 0,
 ### OnMissionNameMarkerToggled
 `public virtual void OnMissionNameMarkerToggled(MissionNameMarkerToggleEvent obj)`
 
-**Purpose:** Invoked when the `mission name marker toggled` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission name marker toggled event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -251,7 +251,7 @@ tutorialItemBase.OnMissionNameMarkerToggled(obj);
 ### OnPlayerToggleTrackSettlementFromEncyclopedia
 `public virtual void OnPlayerToggleTrackSettlementFromEncyclopedia(PlayerToggleTrackSettlementFromEncyclopediaEvent obj)`
 
-**Purpose:** Invoked when the `player toggle track settlement from encyclopedia` event is raised.
+**Purpose:** **Purpose:** Invoked when the player toggle track settlement from encyclopedia event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -262,7 +262,7 @@ tutorialItemBase.OnPlayerToggleTrackSettlementFromEncyclopedia(obj);
 ### OnInventoryEquipmentTypeChange
 `public virtual void OnInventoryEquipmentTypeChange(InventoryEquipmentTypeChangedEvent obj)`
 
-**Purpose:** Invoked when the `inventory equipment type change` event is raised.
+**Purpose:** **Purpose:** Invoked when the inventory equipment type change event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -273,7 +273,7 @@ tutorialItemBase.OnInventoryEquipmentTypeChange(obj);
 ### OnArmyCohesionByPlayerBoosted
 `public virtual void OnArmyCohesionByPlayerBoosted(ArmyCohesionBoostedByPlayerEvent obj)`
 
-**Purpose:** Invoked when the `army cohesion by player boosted` event is raised.
+**Purpose:** **Purpose:** Invoked when the army cohesion by player boosted event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -284,7 +284,7 @@ tutorialItemBase.OnArmyCohesionByPlayerBoosted(obj);
 ### OnPartyAddedToArmyByPlayer
 `public virtual void OnPartyAddedToArmyByPlayer(PartyAddedToArmyByPlayerEvent obj)`
 
-**Purpose:** Invoked when the `party added to army by player` event is raised.
+**Purpose:** **Purpose:** Invoked when the party added to army by player event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -295,7 +295,7 @@ tutorialItemBase.OnPartyAddedToArmyByPlayer(obj);
 ### OnPlayerStartEngineConstruction
 `public virtual void OnPlayerStartEngineConstruction(PlayerStartEngineConstructionEvent obj)`
 
-**Purpose:** Invoked when the `player start engine construction` event is raised.
+**Purpose:** **Purpose:** Invoked when the player start engine construction event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -306,7 +306,7 @@ tutorialItemBase.OnPlayerStartEngineConstruction(obj);
 ### OnPlayerUpgradeTroop
 `public virtual void OnPlayerUpgradeTroop(CharacterObject arg1, CharacterObject arg2, int arg3)`
 
-**Purpose:** Invoked when the `player upgrade troop` event is raised.
+**Purpose:** **Purpose:** Invoked when the player upgrade troop event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -317,7 +317,7 @@ tutorialItemBase.OnPlayerUpgradeTroop(arg1, arg2, 0);
 ### OnPlayerMoveTroop
 `public virtual void OnPlayerMoveTroop(PlayerMoveTroopEvent obj)`
 
-**Purpose:** Invoked when the `player move troop` event is raised.
+**Purpose:** **Purpose:** Invoked when the player move troop event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -328,7 +328,7 @@ tutorialItemBase.OnPlayerMoveTroop(obj);
 ### OnPerkSelectionToggle
 `public virtual void OnPerkSelectionToggle(PerkSelectionToggleEvent obj)`
 
-**Purpose:** Invoked when the `perk selection toggle` event is raised.
+**Purpose:** **Purpose:** Invoked when the perk selection toggle event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -339,7 +339,7 @@ tutorialItemBase.OnPerkSelectionToggle(obj);
 ### OnPlayerInspectedPartySpeed
 `public virtual void OnPlayerInspectedPartySpeed(PlayerInspectedPartySpeedEvent obj)`
 
-**Purpose:** Invoked when the `player inspected party speed` event is raised.
+**Purpose:** **Purpose:** Invoked when the player inspected party speed event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -350,7 +350,7 @@ tutorialItemBase.OnPlayerInspectedPartySpeed(obj);
 ### OnPlayerMovementFlagChanged
 `public virtual void OnPlayerMovementFlagChanged(MissionPlayerMovementFlagsChangeEvent obj)`
 
-**Purpose:** Invoked when the `player movement flag changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the player movement flag changed event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -361,7 +361,7 @@ tutorialItemBase.OnPlayerMovementFlagChanged(obj);
 ### OnPlayerToggledUpgradePopup
 `public virtual void OnPlayerToggledUpgradePopup(PlayerToggledUpgradePopupEvent obj)`
 
-**Purpose:** Invoked when the `player toggled upgrade popup` event is raised.
+**Purpose:** **Purpose:** Invoked when the player toggled upgrade popup event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -372,7 +372,7 @@ tutorialItemBase.OnPlayerToggledUpgradePopup(obj);
 ### OnOrderOfBattleHeroAssignedToFormation
 `public virtual void OnOrderOfBattleHeroAssignedToFormation(OrderOfBattleHeroAssignedToFormationEvent obj)`
 
-**Purpose:** Invoked when the `order of battle hero assigned to formation` event is raised.
+**Purpose:** **Purpose:** Invoked when the order of battle hero assigned to formation event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -383,7 +383,7 @@ tutorialItemBase.OnOrderOfBattleHeroAssignedToFormation(obj);
 ### OnOrderOfBattleFormationClassChanged
 `public virtual void OnOrderOfBattleFormationClassChanged(OrderOfBattleFormationClassChangedEvent obj)`
 
-**Purpose:** Invoked when the `order of battle formation class changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the order of battle formation class changed event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -394,7 +394,7 @@ tutorialItemBase.OnOrderOfBattleFormationClassChanged(obj);
 ### OnOrderOfBattleFormationWeightChanged
 `public virtual void OnOrderOfBattleFormationWeightChanged(OrderOfBattleFormationWeightChangedEvent obj)`
 
-**Purpose:** Invoked when the `order of battle formation weight changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the order of battle formation weight changed event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -405,7 +405,7 @@ tutorialItemBase.OnOrderOfBattleFormationWeightChanged(obj);
 ### OnCraftingWeaponClassSelectionOpened
 `public virtual void OnCraftingWeaponClassSelectionOpened(CraftingWeaponClassSelectionOpenedEvent obj)`
 
-**Purpose:** Invoked when the `crafting weapon class selection opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the crafting weapon class selection opened event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -416,7 +416,7 @@ tutorialItemBase.OnCraftingWeaponClassSelectionOpened(obj);
 ### OnCraftingOnWeaponResultPopupOpened
 `public virtual void OnCraftingOnWeaponResultPopupOpened(CraftingWeaponResultPopupToggledEvent obj)`
 
-**Purpose:** Invoked when the `crafting on weapon result popup opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the crafting on weapon result popup opened event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -427,7 +427,7 @@ tutorialItemBase.OnCraftingOnWeaponResultPopupOpened(obj);
 ### OnCraftingOrderTabOpened
 `public virtual void OnCraftingOrderTabOpened(CraftingOrderTabOpenedEvent obj)`
 
-**Purpose:** Invoked when the `crafting order tab opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the crafting order tab opened event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -438,7 +438,7 @@ tutorialItemBase.OnCraftingOrderTabOpened(obj);
 ### OnCraftingOrderSelectionOpened
 `public virtual void OnCraftingOrderSelectionOpened(CraftingOrderSelectionOpenedEvent obj)`
 
-**Purpose:** Invoked when the `crafting order selection opened` event is raised.
+**Purpose:** **Purpose:** Invoked when the crafting order selection opened event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -449,7 +449,7 @@ tutorialItemBase.OnCraftingOrderSelectionOpened(obj);
 ### OnInventoryItemInspected
 `public virtual void OnInventoryItemInspected(InventoryItemInspectedEvent obj)`
 
-**Purpose:** Invoked when the `inventory item inspected` event is raised.
+**Purpose:** **Purpose:** Invoked when the inventory item inspected event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -460,7 +460,7 @@ tutorialItemBase.OnInventoryItemInspected(obj);
 ### OnCrimeValueInspectedInSettlementOverlay
 `public virtual void OnCrimeValueInspectedInSettlementOverlay(CrimeValueInspectedInSettlementOverlayEvent obj)`
 
-**Purpose:** Invoked when the `crime value inspected in settlement overlay` event is raised.
+**Purpose:** **Purpose:** Invoked when the crime value inspected in settlement overlay event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -471,7 +471,7 @@ tutorialItemBase.OnCrimeValueInspectedInSettlementOverlay(obj);
 ### OnClanRoleAssignedThroughClanScreen
 `public virtual void OnClanRoleAssignedThroughClanScreen(ClanRoleAssignedThroughClanScreenEvent obj)`
 
-**Purpose:** Invoked when the `clan role assigned through clan screen` event is raised.
+**Purpose:** **Purpose:** Invoked when the clan role assigned through clan screen event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first
@@ -482,7 +482,7 @@ tutorialItemBase.OnClanRoleAssignedThroughClanScreen(obj);
 ### OnPlayerSelectedAKingdomDecisionOption
 `public virtual void OnPlayerSelectedAKingdomDecisionOption(PlayerSelectedAKingdomDecisionOptionEvent obj)`
 
-**Purpose:** Invoked when the `player selected a kingdom decision option` event is raised.
+**Purpose:** **Purpose:** Invoked when the player selected a kingdom decision option event is raised.
 
 ```csharp
 // Obtain an instance of TutorialItemBase from the subsystem API first

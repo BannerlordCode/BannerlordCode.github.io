@@ -61,7 +61,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of ShipUpgradePiece from the subsystem API first
@@ -72,7 +72,7 @@ shipUpgradePiece.Deserialize(objectManager, node);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ShipUpgradePiece from the subsystem API first
@@ -83,7 +83,7 @@ var result = shipUpgradePiece.ToString();
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of ShipUpgradePiece from the subsystem API first
@@ -94,7 +94,7 @@ var result = shipUpgradePiece.GetName();
 ### DoesPieceMatchSlot
 `public bool DoesPieceMatchSlot(ShipSlot slot)`
 
-**Purpose:** Returns a boolean answer to whether `piece match slot` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether piece match slot is true for the this instance.
 
 ```csharp
 // Obtain an instance of ShipUpgradePiece from the subsystem API first

@@ -23,7 +23,7 @@ description: "MultiplayerData 的自动生成类参考。"
 ### IsMultiplayerTeamAvailable
 `public bool IsMultiplayerTeamAvailable(int peerNo, int teamNo)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「multiplayer team available」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 multiplayer team available 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerData 实例

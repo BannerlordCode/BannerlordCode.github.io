@@ -23,7 +23,7 @@ description: "SettlementMilitiaModel 的自动生成类参考。"
 ### MilitiaToSpawnAfterSiege
 `public abstract int MilitiaToSpawnAfterSiege(Town town)`
 
-**用途 / Purpose:** 处理与 「militia to spawn after siege」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MilitiaToSpawnAfterSiege 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementMilitiaModel 实例
@@ -34,7 +34,7 @@ var result = settlementMilitiaModel.MilitiaToSpawnAfterSiege(town);
 ### CalculateMilitiaChange
 `public abstract ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 计算「militia change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算militia change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementMilitiaModel 实例
@@ -45,7 +45,7 @@ var result = settlementMilitiaModel.CalculateMilitiaChange(settlement, false);
 ### CalculateVeteranMilitiaSpawnChance
 `public abstract ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)`
 
-**用途 / Purpose:** 计算「veteran militia spawn chance」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算veteran militia spawn chance的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementMilitiaModel 实例
@@ -56,7 +56,7 @@ var result = settlementMilitiaModel.CalculateVeteranMilitiaSpawnChance(settlemen
 ### CalculateMilitiaSpawnRate
 `public abstract void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)`
 
-**用途 / Purpose:** 计算「militia spawn rate」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算militia spawn rate的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementMilitiaModel 实例

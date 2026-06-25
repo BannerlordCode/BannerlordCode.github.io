@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### ParseStream
 `public static List<SRTHelper.SubtitleItem> ParseStream(Stream subtitleStream, Encoding encoding)`
 
-**Purpose:** Parses external input into a `stream` the current system understands.
+**Purpose:** **Purpose:** Parses external input into a stream the current system understands.
 
 ```csharp
 // Static call; no instance required

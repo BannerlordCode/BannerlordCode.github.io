@@ -31,7 +31,7 @@ Treat `GameTextManager` as a Manager-style extension point: first identify who c
 ### GetGameText
 `public GameText GetGameText(string id)`
 
-**Purpose:** Reads and returns the `game text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the game text value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first
@@ -42,7 +42,7 @@ var result = gameTextManager.GetGameText("example");
 ### AddGameText
 `public GameText AddGameText(string id)`
 
-**Purpose:** Adds `game text` to the current collection or state.
+**Purpose:** **Purpose:** Adds game text to the current collection or state.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first
@@ -53,7 +53,7 @@ var result = gameTextManager.AddGameText("example");
 ### TryGetText
 `public bool TryGetText(string id, string variation, out TextObject text)`
 
-**Purpose:** Attempts to retrieve `get text`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve get text, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first
@@ -64,7 +64,7 @@ var result = gameTextManager.TryGetText("example", "example", text);
 ### FindText
 `public TextObject FindText(string id, string variation = null)`
 
-**Purpose:** Looks up the matching `text` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching text in the current collection or scope.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first
@@ -75,7 +75,7 @@ var result = gameTextManager.FindText("example", "example");
 ### FindAllTextVariations
 `public IEnumerable<TextObject> FindAllTextVariations(string id)`
 
-**Purpose:** Looks up the matching `all text variations` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching all text variations in the current collection or scope.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first
@@ -86,7 +86,7 @@ var result = gameTextManager.FindAllTextVariations("example");
 ### LoadGameTexts
 `public void LoadGameTexts()`
 
-**Purpose:** Reads `game texts` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads game texts from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first
@@ -97,7 +97,7 @@ gameTextManager.LoadGameTexts();
 ### LoadDefaultTexts
 `public void LoadDefaultTexts()`
 
-**Purpose:** Reads `default texts` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads default texts from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of GameTextManager from the subsystem API first

@@ -19,7 +19,7 @@ MakeHeroFugitiveAction is a set of static methods that trigger "MakeHeroFugitive
 public static void Apply(Hero fugitive, bool showNotification = false)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

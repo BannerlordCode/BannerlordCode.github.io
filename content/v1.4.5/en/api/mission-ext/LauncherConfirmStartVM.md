@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### EnableWith
 `public void EnableWith(List<SubModuleInfo> unverifiedSubModules, List<DependentVersionMissmatchItem> missmatchedDependentModules)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnableWith logic.
 
 ```csharp
 // Obtain an instance of LauncherConfirmStartVM from the subsystem API first

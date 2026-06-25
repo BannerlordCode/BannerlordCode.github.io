@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -52,7 +52,7 @@ revenueFarmingIssueBehavior.RegisterEvents();
 ### OnVillageEventWithIdSpawned
 `public void OnVillageEventWithIdSpawned(string Id)`
 
-**Purpose:** Invoked when the `village event with id spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the village event with id spawned event is raised.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -63,7 +63,7 @@ revenueFarmingIssueBehavior.OnVillageEventWithIdSpawned("example");
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -74,7 +74,7 @@ revenueFarmingIssueBehavior.SyncData(dataStore);
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Invoked when the `check for issue` event is raised.
+**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -85,7 +85,7 @@ revenueFarmingIssueBehavior.OnCheckForIssue(hero);
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -96,7 +96,7 @@ var result = revenueFarmingIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -107,7 +107,7 @@ var result = revenueFarmingIssueBehavior.IssueStayAliveConditions();
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RevenuesAreDeliveredToSteward logic.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -118,7 +118,7 @@ revenueFarmingIssueBehavior.RevenuesAreDeliveredToSteward();
 ### FindCurrentRevenueVillage
 `public RevenueFarmingIssueBehavior.RevenueVillage FindCurrentRevenueVillage()`
 
-**Purpose:** Looks up the matching `current revenue village` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching current revenue village in the current collection or scope.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -129,7 +129,7 @@ var result = revenueFarmingIssueBehavior.FindCurrentRevenueVillage();
 ### SetVillageAsCompleted
 `public void SetVillageAsCompleted(RevenueFarmingIssueBehavior.RevenueVillage village, bool addLog = true)`
 
-**Purpose:** Assigns a new value to `village as completed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to village as completed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -140,7 +140,7 @@ revenueFarmingIssueBehavior.SetVillageAsCompleted(village, false);
 ### SetDone
 `public void SetDone()`
 
-**Purpose:** Assigns a new value to `done` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -151,7 +151,7 @@ revenueFarmingIssueBehavior.SetDone();
 ### SetAdditionalProgress
 `public void SetAdditionalProgress(float progress)`
 
-**Purpose:** Assigns a new value to `additional progress` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to additional progress and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first
@@ -162,7 +162,7 @@ revenueFarmingIssueBehavior.SetAdditionalProgress(0);
 ### GetIsCompleted
 `public bool GetIsCompleted()`
 
-**Purpose:** Reads and returns the `is completed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is completed value held by the this instance.
 
 ```csharp
 // Obtain an instance of RevenueFarmingIssueBehavior from the subsystem API first

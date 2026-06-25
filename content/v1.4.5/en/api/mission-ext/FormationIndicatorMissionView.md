@@ -23,7 +23,7 @@ Treat `FormationIndicatorMissionView` as a View-style extension point: first ide
 ### DetermineIndicatorState
 `public void DetermineIndicatorState(float dt, Vec3 position)`
 
-**Purpose:** Determines the result of `indicator state` based on the current state.
+**Purpose:** **Purpose:** Determines the result of indicator state based on the current state.
 
 ```csharp
 // Obtain an instance of FormationIndicatorMissionView from the subsystem API first
@@ -34,7 +34,7 @@ formationIndicatorMissionView.DetermineIndicatorState(0, position);
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of FormationIndicatorMissionView from the subsystem API first
@@ -45,7 +45,7 @@ formationIndicatorMissionView.AfterStart();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of FormationIndicatorMissionView from the subsystem API first

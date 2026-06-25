@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### GetTypeId
 `public static string GetTypeId(Type messageType)`
 
-**Purpose:** Reads and returns the `type id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the type id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ JsonSocketMessage.GetTypeId(messageType);
 ### GetMessageDictionary
 `public static Dictionary<string, Type> GetMessageDictionary()`
 
-**Purpose:** Reads and returns the `message dictionary` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the message dictionary value held by the this instance.
 
 ```csharp
 // Static call; no instance required

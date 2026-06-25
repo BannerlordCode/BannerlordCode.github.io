@@ -23,7 +23,7 @@ description: "MissionOrderCallbacks 的自动生成类参考。"
 ### OnRefreshVisualsDelegate
 `public delegate void OnRefreshVisualsDelegate()`
 
-**用途 / Purpose:** 在 「refresh visuals delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 refresh visuals delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例
@@ -34,7 +34,7 @@ missionOrderCallbacks.OnRefreshVisualsDelegate();
 ### OnToggleActivateOrderStateDelegate
 `public delegate void OnToggleActivateOrderStateDelegate()`
 
-**用途 / Purpose:** 在 「toggle activate order state delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 toggle activate order state delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例
@@ -45,7 +45,7 @@ missionOrderCallbacks.OnToggleActivateOrderStateDelegate();
 ### OnTransferTroopsFinishedDelegate
 `public delegate void OnTransferTroopsFinishedDelegate()`
 
-**用途 / Purpose:** 在 「transfer troops finished delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 transfer troops finished delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例
@@ -56,7 +56,7 @@ missionOrderCallbacks.OnTransferTroopsFinishedDelegate();
 ### OnBeforeOrderDelegate
 `public delegate void OnBeforeOrderDelegate()`
 
-**用途 / Purpose:** 在 「before order delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 before order delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例
@@ -67,7 +67,7 @@ missionOrderCallbacks.OnBeforeOrderDelegate();
 ### ToggleOrderPositionVisibilityDelegate
 `public delegate void ToggleOrderPositionVisibilityDelegate(bool value)`
 
-**用途 / Purpose:** 处理与 「toggle order position visibility delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleOrderPositionVisibilityDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例
@@ -78,7 +78,7 @@ missionOrderCallbacks.ToggleOrderPositionVisibilityDelegate(false);
 ### GetOrderExecutionParametersDelegate
 `public delegate VisualOrderExecutionParameters GetOrderExecutionParametersDelegate()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「order execution parameters delegate」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order execution parameters delegate 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例

@@ -23,7 +23,7 @@ Treat `EngineScreenManager` as a Manager-style extension point: first identify w
 ### Tick
 `public static void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Static call; no instance required

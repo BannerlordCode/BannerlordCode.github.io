@@ -23,7 +23,7 @@ description: "ArenaAgentStateDeciderLogic 的自动生成类参考。"
 ### GetAgentState
 `public AgentState GetAgentState(Agent effectedAgent, float deathProbability, out bool usedSurgery)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「agent state」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 agent state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaAgentStateDeciderLogic 实例

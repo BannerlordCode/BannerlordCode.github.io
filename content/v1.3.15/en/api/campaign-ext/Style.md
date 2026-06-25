@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(Style style)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -62,7 +62,7 @@ style.FillFrom(style);
 ### AddLayer
 `public void AddLayer(StyleLayer layer)`
 
-**Purpose:** Adds `layer` to the current collection or state.
+**Purpose:** **Purpose:** Adds layer to the current collection or state.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -73,7 +73,7 @@ style.AddLayer(layer);
 ### RemoveLayer
 `public void RemoveLayer(string layerName)`
 
-**Purpose:** Removes `layer` from the current collection or state.
+**Purpose:** **Purpose:** Removes layer from the current collection or state.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -84,7 +84,7 @@ style.RemoveLayer("example");
 ### GetLayer
 `public StyleLayer GetLayer(int index)`
 
-**Purpose:** Reads and returns the `layer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layer value held by the this instance.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -95,7 +95,7 @@ var result = style.GetLayer(0);
 ### GetLayer
 `public StyleLayer GetLayer(string name)`
 
-**Purpose:** Reads and returns the `layer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layer value held by the this instance.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -106,7 +106,7 @@ var result = style.GetLayer("example");
 ### GetLayers
 `public StyleLayer GetLayers()`
 
-**Purpose:** Reads and returns the `layers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layers value held by the this instance.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -117,7 +117,7 @@ var result = style.GetLayers();
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Constructs a new `text material` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new text material entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -128,7 +128,7 @@ var result = style.CreateTextMaterial(drawContext);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as float` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as float value held by the this instance.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -139,7 +139,7 @@ var result = style.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as color` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as color value held by the this instance.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -150,7 +150,7 @@ var result = style.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as sprite value held by the this instance.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first
@@ -161,7 +161,7 @@ var result = style.GetValueAsSprite(propertyType);
 ### SetAsDefaultStyle
 `public void SetAsDefaultStyle()`
 
-**Purpose:** Assigns a new value to `as default style` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to as default style and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Style from the subsystem API first

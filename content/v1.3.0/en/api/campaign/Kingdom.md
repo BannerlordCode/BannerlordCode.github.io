@@ -84,7 +84,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -95,7 +95,7 @@ var result = kingdom.GetName();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -106,7 +106,7 @@ var result = kingdom.ToString();
 ### UpdateFactionsAtWarWith
 `public void UpdateFactionsAtWarWith()`
 
-**Purpose:** Recalculates and stores the latest representation of `factions at war with`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of factions at war with.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -117,7 +117,7 @@ kingdom.UpdateFactionsAtWarWith();
 ### UpdateAlliedKingdoms
 `public void UpdateAlliedKingdoms()`
 
-**Purpose:** Recalculates and stores the latest representation of `allied kingdoms`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of allied kingdoms.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -128,7 +128,7 @@ kingdom.UpdateAlliedKingdoms();
 ### CreateKingdom
 `public static Kingdom CreateKingdom(string stringID)`
 
-**Purpose:** Constructs a new `kingdom` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new kingdom entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -138,7 +138,7 @@ Kingdom.CreateKingdom("example");
 ### InitializeKingdom
 `public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `kingdom`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by kingdom.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -149,7 +149,7 @@ kingdom.InitializeKingdom(name, informalName, culture, banner, 0, 0, initialHome
 ### ChangeKingdomName
 `public void ChangeKingdomName(TextObject name, TextObject informalName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeKingdomName logic.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -160,7 +160,7 @@ kingdom.ChangeKingdomName(name, informalName);
 ### OnHeroChangedState
 `public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
 
-**Purpose:** Invoked when the `hero changed state` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero changed state event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -171,7 +171,7 @@ kingdom.OnHeroChangedState(hero, oldState);
 ### IsAllyWith
 `public bool IsAllyWith(Kingdom other)`
 
-**Purpose:** Determines whether the current object is in the `ally with` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ally with state or condition.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -182,7 +182,7 @@ var result = kingdom.IsAllyWith(other);
 ### HasCalledToWar
 `public bool HasCalledToWar(Kingdom other)`
 
-**Purpose:** Determines whether the current object already holds `called to war`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds called to war.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -193,7 +193,7 @@ var result = kingdom.HasCalledToWar(other);
 ### IsAtWarWith
 `public bool IsAtWarWith(IFaction other)`
 
-**Purpose:** Determines whether the current object is in the `at war with` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the at war with state or condition.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -204,7 +204,7 @@ var result = kingdom.IsAtWarWith(other);
 ### IsAtConstantWarWith
 `public bool IsAtConstantWarWith(IFaction other)`
 
-**Purpose:** Determines whether the current object is in the `at constant war with` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the at constant war with state or condition.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -215,7 +215,7 @@ var result = kingdom.IsAtConstantWarWith(other);
 ### GetStanceWith
 `public StanceLink GetStanceWith(IFaction other)`
 
-**Purpose:** Reads and returns the `stance with` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stance with value held by the this instance.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -226,7 +226,7 @@ var result = kingdom.GetStanceWith(other);
 ### CreateArmy
 `public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
 
-**Purpose:** Constructs a new `army` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new army entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -237,7 +237,7 @@ kingdom.CreateArmy(armyLeader, targetSettlement, selectedArmyType, null);
 ### AddDecision
 `public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
 
-**Purpose:** Adds `decision` to the current collection or state.
+**Purpose:** **Purpose:** Adds decision to the current collection or state.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -248,7 +248,7 @@ kingdom.AddDecision(kingdomDecision, false);
 ### RemoveDecision
 `public void RemoveDecision(KingdomDecision kingdomDecision)`
 
-**Purpose:** Removes `decision` from the current collection or state.
+**Purpose:** **Purpose:** Removes decision from the current collection or state.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -259,7 +259,7 @@ kingdom.RemoveDecision(kingdomDecision);
 ### OnKingdomDecisionConcluded
 `public void OnKingdomDecisionConcluded()`
 
-**Purpose:** Invoked when the `kingdom decision concluded` event is raised.
+**Purpose:** **Purpose:** Invoked when the kingdom decision concluded event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -270,7 +270,7 @@ kingdom.OnKingdomDecisionConcluded();
 ### AddPolicy
 `public void AddPolicy(PolicyObject policy)`
 
-**Purpose:** Adds `policy` to the current collection or state.
+**Purpose:** **Purpose:** Adds policy to the current collection or state.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -281,7 +281,7 @@ kingdom.AddPolicy(policy);
 ### RemovePolicy
 `public void RemovePolicy(PolicyObject policy)`
 
-**Purpose:** Removes `policy` from the current collection or state.
+**Purpose:** **Purpose:** Removes policy from the current collection or state.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -292,7 +292,7 @@ kingdom.RemovePolicy(policy);
 ### HasPolicy
 `public bool HasPolicy(PolicyObject policy)`
 
-**Purpose:** Determines whether the current object already holds `policy`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds policy.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -303,7 +303,7 @@ var result = kingdom.HasPolicy(policy);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -314,7 +314,7 @@ kingdom.Deserialize(objectManager, node);
 ### OnFortificationAdded
 `public void OnFortificationAdded(Town fortification)`
 
-**Purpose:** Invoked when the `fortification added` event is raised.
+**Purpose:** **Purpose:** Invoked when the fortification added event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -325,7 +325,7 @@ kingdom.OnFortificationAdded(fortification);
 ### OnFortificationRemoved
 `public void OnFortificationRemoved(Town fortification)`
 
-**Purpose:** Invoked when the `fortification removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the fortification removed event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -336,7 +336,7 @@ kingdom.OnFortificationRemoved(fortification);
 ### OnHeroAdded
 `public void OnHeroAdded(Hero hero)`
 
-**Purpose:** Invoked when the `hero added` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero added event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -347,7 +347,7 @@ kingdom.OnHeroAdded(hero);
 ### OnHeroRemoved
 `public void OnHeroRemoved(Hero hero)`
 
-**Purpose:** Invoked when the `hero removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero removed event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -358,7 +358,7 @@ kingdom.OnHeroRemoved(hero);
 ### OnWarPartyAdded
 `public void OnWarPartyAdded(WarPartyComponent warPartyComponent)`
 
-**Purpose:** Invoked when the `war party added` event is raised.
+**Purpose:** **Purpose:** Invoked when the war party added event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -369,7 +369,7 @@ kingdom.OnWarPartyAdded(warPartyComponent);
 ### OnWarPartyRemoved
 `public void OnWarPartyRemoved(WarPartyComponent warPartyComponent)`
 
-**Purpose:** Invoked when the `war party removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the war party removed event is raised.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -380,7 +380,7 @@ kingdom.OnWarPartyRemoved(warPartyComponent);
 ### CalculateMidSettlement
 `public void CalculateMidSettlement()`
 
-**Purpose:** Calculates the current value or result of `mid settlement`.
+**Purpose:** **Purpose:** Calculates the current value or result of mid settlement.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first
@@ -391,7 +391,7 @@ kingdom.CalculateMidSettlement();
 ### ReactivateKingdom
 `public void ReactivateKingdom()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReactivateKingdom logic.
 
 ```csharp
 // Obtain an instance of Kingdom from the subsystem API first

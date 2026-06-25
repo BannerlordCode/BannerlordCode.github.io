@@ -44,7 +44,7 @@ description: "SceneNotificationData 的自动生成类参考。"
 ### SceneNotificationCharacter
 `public readonly struct SceneNotificationCharacter(BasicCharacterObject character, Equipment overriddenEquipment = null, BodyProperties overriddenBodyProperties = default(BodyProperties), bool useCivilianEquipment = false, uint customColor1 = uint.MaxValue, uint customColor2 = uint.MaxValue, bool useHorse = false)`
 
-**用途 / Purpose:** 处理与 「scene notification character」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SceneNotificationCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -55,7 +55,7 @@ var result = sceneNotificationData.SceneNotificationCharacter(character, null, d
 ### SceneNotificationShip
 `public readonly struct SceneNotificationShip(string shipPrefabId, List<ShipVisualSlotInfo> shipUpgrades, float shipHitPointRatio, uint sailColor1, uint sailColor2, int shipSeed)`
 
-**用途 / Purpose:** 处理与 「scene notification ship」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SceneNotificationShip 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -66,7 +66,7 @@ var result = sceneNotificationData.SceneNotificationShip("example", shipUpgrades
 ### OnAffirmativeAction
 `public virtual void OnAffirmativeAction()`
 
-**用途 / Purpose:** 在 「affirmative action」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 affirmative action 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -77,7 +77,7 @@ sceneNotificationData.OnAffirmativeAction();
 ### OnNegativeAction
 `public virtual void OnNegativeAction()`
 
-**用途 / Purpose:** 在 「negative action」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 negative action 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -88,7 +88,7 @@ sceneNotificationData.OnNegativeAction();
 ### OnCloseAction
 `public virtual void OnCloseAction()`
 
-**用途 / Purpose:** 在 「close action」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 close action 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -99,7 +99,7 @@ sceneNotificationData.OnCloseAction();
 ### GetBanners
 `public virtual Banner GetBanners()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「banners」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banners 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -110,7 +110,7 @@ var result = sceneNotificationData.GetBanners();
 ### GetSceneNotificationCharacters
 `public virtual SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「scene notification characters」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 scene notification characters 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -121,7 +121,7 @@ var result = sceneNotificationData.GetSceneNotificationCharacters();
 ### GetShips
 `public virtual SceneNotificationShip GetShips()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ships」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ships 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例

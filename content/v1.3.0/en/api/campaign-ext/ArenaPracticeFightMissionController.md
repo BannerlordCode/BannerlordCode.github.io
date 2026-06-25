@@ -34,7 +34,7 @@ Treat `ArenaPracticeFightMissionController` as a Controller-style extension poin
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -45,7 +45,7 @@ arenaPracticeFightMissionController.AfterStart();
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Invoked when the `score hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the score hit event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -56,7 +56,7 @@ arenaPracticeFightMissionController.OnScoreHit(affectedAgent, affectorAgent, att
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -67,7 +67,7 @@ arenaPracticeFightMissionController.OnMissionTick(0);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -78,7 +78,7 @@ arenaPracticeFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent,
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -89,7 +89,7 @@ var result = arenaPracticeFightMissionController.MissionEnded(missionResult);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -100,7 +100,7 @@ var result = arenaPracticeFightMissionController.OnEndMissionRequest(canPlayerLe
 ### StartPlayerPractice
 `public void StartPlayerPractice()`
 
-**Purpose:** Starts the `player practice` flow or state machine.
+**Purpose:** **Purpose:** Starts the player practice flow or state machine.
 
 ```csharp
 // Obtain an instance of ArenaPracticeFightMissionController from the subsystem API first
@@ -111,7 +111,7 @@ arenaPracticeFightMissionController.StartPlayerPractice();
 ### GetParticipantCharacters
 `public static List<CharacterObject> GetParticipantCharacters(Settlement settlement)`
 
-**Purpose:** Reads and returns the `participant characters` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the participant characters value held by the this instance.
 
 ```csharp
 // Static call; no instance required

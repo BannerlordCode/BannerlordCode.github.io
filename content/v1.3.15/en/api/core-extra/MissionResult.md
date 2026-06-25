@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateSuccessful
 `public static MissionResult CreateSuccessful(IMission mission, bool enemyRetreated = false)`
 
-**Purpose:** Constructs a new `successful` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new successful entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MissionResult.CreateSuccessful(mission, false);
 ### CreateDefeated
 `public static MissionResult CreateDefeated(IMission mission)`
 
-**Purpose:** Constructs a new `defeated` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new defeated entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MissionResult.CreateDefeated(mission);
 ### CreateDefenderPushedBack
 `public static MissionResult CreateDefenderPushedBack()`
 
-**Purpose:** Constructs a new `defender pushed back` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new defender pushed back entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

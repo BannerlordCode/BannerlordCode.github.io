@@ -30,7 +30,7 @@ description: "EncyclopediaListFilterVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListFilterVM 实例
@@ -41,7 +41,7 @@ encyclopediaListFilterVM.RefreshValues();
 ### CopyFilterFrom
 `public void CopyFilterFrom(Dictionary<EncyclopediaFilterItem, bool> filters)`
 
-**用途 / Purpose:** 把当前对象的「filter from」状态复制到目标对象。
+**用途 / Purpose:** **用途 / Purpose:** 把当前对象的filter from状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListFilterVM 实例
@@ -52,7 +52,7 @@ encyclopediaListFilterVM.CopyFilterFrom(dictionary<EncyclopediaFilterItem, false
 ### ExecuteOnFilterActivated
 `public void ExecuteOnFilterActivated()`
 
-**用途 / Purpose:** 执行 「on filter activated」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 on filter activated 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListFilterVM 实例

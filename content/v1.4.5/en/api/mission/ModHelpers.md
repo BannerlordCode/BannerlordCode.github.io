@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### GetSceneObjRootPath
 `public static string GetSceneObjRootPath()`
 
-**Purpose:** Reads and returns the `scene obj root path` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scene obj root path value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ModHelpers.GetSceneObjRootPath();
 ### DoesSceneFolderAlreadyExist
 `public static bool DoesSceneFolderAlreadyExist(string sceneName)`
 
-**Purpose:** Returns a boolean answer to whether `scene folder already exist` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether scene folder already exist is true for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ModHelpers.DoesSceneFolderAlreadyExist("example");
 ### GetTempFilePath
 `public static string GetTempFilePath(string anyIdentifier)`
 
-**Purpose:** Reads and returns the `temp file path` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the temp file path value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ModHelpers.GetTempFilePath("example");
 ### ReadSceneNameOfDirectory
 `public static string ReadSceneNameOfDirectory(string sceneDirectoryPath)`
 
-**Purpose:** Reads the data or state of `scene name of directory`.
+**Purpose:** **Purpose:** Reads the data or state of scene name of directory.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ ModHelpers.ReadSceneNameOfDirectory("example");
 ### WriteBufferToTempFile
 `public static string WriteBufferToTempFile(byte buffer)`
 
-**Purpose:** Writes `buffer to temp file` to the target location.
+**Purpose:** **Purpose:** Writes buffer to temp file to the target location.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ ModHelpers.WriteBufferToTempFile(0);
 ### GetTempFileStream
 `public static FileStream GetTempFileStream()`
 
-**Purpose:** Reads and returns the `temp file stream` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the temp file stream value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ ModHelpers.GetTempFileStream();
 ### ExtractZipToTempDirectory
 `public static string ExtractZipToTempDirectory(string sourceZipFilePath)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExtractZipToTempDirectory logic.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ ModHelpers.ExtractZipToTempDirectory("example");
 ### DownloadToTempFile
 `public static async Task<string> DownloadToTempFile(HttpClient httpClient, string url, IProgress<ProgressUpdate> progress = null, CancellationToken cancellationToken = default(CancellationToken))`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DownloadToTempFile logic.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `MapNotificationView` as a View-style extension point: first identify who 
 ### ResetNotifications
 `public virtual void ResetNotifications()`
 
-**Purpose:** Returns `notifications` to its default or initial condition.
+**Purpose:** **Purpose:** Returns notifications to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MapNotificationView from the subsystem API first
@@ -34,7 +34,7 @@ mapNotificationView.ResetNotifications();
 ### RegisterMapNotificationType
 `public virtual void RegisterMapNotificationType(Type data, Type item)`
 
-**Purpose:** Registers `map notification type` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers map notification type with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MapNotificationView from the subsystem API first

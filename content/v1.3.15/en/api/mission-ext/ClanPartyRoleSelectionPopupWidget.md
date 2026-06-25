@@ -29,7 +29,7 @@ Treat `ClanPartyRoleSelectionPopupWidget` as a Widget-style extension point: fir
 ### AddToggleWidget
 `public void AddToggleWidget(Widget widget)`
 
-**Purpose:** Adds `toggle widget` to the current collection or state.
+**Purpose:** **Purpose:** Adds toggle widget to the current collection or state.
 
 ```csharp
 // Obtain an instance of ClanPartyRoleSelectionPopupWidget from the subsystem API first

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### StartWatchingChanges
 `public void StartWatchingChanges(FileSystemEventHandler onChangeEvent, RenamedEventHandler onRenameEvent)`
 
-**Purpose:** Starts the `watching changes` flow or state machine.
+**Purpose:** **Purpose:** Starts the watching changes flow or state machine.
 
 ```csharp
 // Obtain an instance of ResourceDepotLocation from the subsystem API first
@@ -43,7 +43,7 @@ resourceDepotLocation.StartWatchingChanges(onChangeEvent, onRenameEvent);
 ### StopWatchingChanges
 `public void StopWatchingChanges()`
 
-**Purpose:** Stops the `watching changes` flow or state machine.
+**Purpose:** **Purpose:** Stops the watching changes flow or state machine.
 
 ```csharp
 // Obtain an instance of ResourceDepotLocation from the subsystem API first

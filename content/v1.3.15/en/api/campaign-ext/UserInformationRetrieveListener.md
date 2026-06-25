@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.PlatformService.GOG` to place it in the stack, 
 ### OnUserInformationRetrieveFailure
 `public override void OnUserInformationRetrieveFailure(GalaxyID userID, IUserInformationRetrieveListener.FailureReason failureReason)`
 
-**Purpose:** Invoked when the `user information retrieve failure` event is raised.
+**Purpose:** **Purpose:** Invoked when the user information retrieve failure event is raised.
 
 ```csharp
 // Obtain an instance of UserInformationRetrieveListener from the subsystem API first
@@ -40,7 +40,7 @@ userInformationRetrieveListener.OnUserInformationRetrieveFailure(userID, failure
 ### OnUserInformationRetrieveSuccess
 `public override void OnUserInformationRetrieveSuccess(GalaxyID userID)`
 
-**Purpose:** Invoked when the `user information retrieve success` event is raised.
+**Purpose:** **Purpose:** Invoked when the user information retrieve success event is raised.
 
 ```csharp
 // Obtain an instance of UserInformationRetrieveListener from the subsystem API first

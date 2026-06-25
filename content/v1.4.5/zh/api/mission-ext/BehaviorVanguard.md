@@ -23,7 +23,7 @@ description: "BehaviorVanguard 的自动生成类参考。"
 ### OnValidBehaviorSideChanged
 `public override void OnValidBehaviorSideChanged()`
 
-**用途 / Purpose:** 在 「valid behavior side changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 valid behavior side changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorVanguard 实例
@@ -34,7 +34,7 @@ behaviorVanguard.OnValidBehaviorSideChanged();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorVanguard 实例
@@ -45,7 +45,7 @@ behaviorVanguard.TickOccasionally();
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「behavior string」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 behavior string 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorVanguard 实例

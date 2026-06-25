@@ -23,7 +23,7 @@ description: "Logik 的自动生成类参考。"
 ### LoadSoundtrackByPsaiProject
 `public PsaiResult LoadSoundtrackByPsaiProject(PsaiProject psaiProject)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「soundtrack by psai project」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 soundtrack by psai project。
 
 ```csharp
 // 先通过子系统 API 拿到 Logik 实例
@@ -34,7 +34,7 @@ var result = logik.LoadSoundtrackByPsaiProject(psaiProject);
 ### SetLastBasicMood
 `public void SetLastBasicMood(int themeId)`
 
-**用途 / Purpose:** 为 「last basic mood」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 last basic mood 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Logik 实例
@@ -45,7 +45,7 @@ logik.SetLastBasicMood(0);
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, int fadeOutMilliSeconds)`
 
-**用途 / Purpose:** 处理与 「go to rest」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToRest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Logik 实例
@@ -56,7 +56,7 @@ var result = logik.GoToRest(false, 0);
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, int fadeOutMilliSeconds, int restSecondsOverrideMin, int restSecondsOverrideMax)`
 
-**用途 / Purpose:** 处理与 「go to rest」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GoToRest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Logik 实例

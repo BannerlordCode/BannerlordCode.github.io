@@ -23,7 +23,7 @@ Treat `MissionCustomBattlePreloadView` as a View-style extension point: first id
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionCustomBattlePreloadView from the subsystem API first
@@ -34,7 +34,7 @@ missionCustomBattlePreloadView.OnPreMissionTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Invoked when the `scene rendering started` event is raised.
+**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of MissionCustomBattlePreloadView from the subsystem API first
@@ -45,7 +45,7 @@ missionCustomBattlePreloadView.OnSceneRenderingStarted();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** Invoked when the `mission state deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission state deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionCustomBattlePreloadView from the subsystem API first

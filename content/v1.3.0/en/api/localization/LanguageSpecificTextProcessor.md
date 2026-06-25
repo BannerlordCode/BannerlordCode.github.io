@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Localization.TextProcessor` to place it in the 
 ### ProcessToken
 `public abstract void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ProcessToken logic.
 
 ```csharp
 // Obtain an instance of LanguageSpecificTextProcessor from the subsystem API first
@@ -40,7 +40,7 @@ languageSpecificTextProcessor.ProcessToken("example", cursorPos, "example", "exa
 ### ClearTemporaryData
 `public abstract void ClearTemporaryData()`
 
-**Purpose:** Removes all `temporary data` from the current object.
+**Purpose:** **Purpose:** Removes all temporary data from the this instance.
 
 ```csharp
 // Obtain an instance of LanguageSpecificTextProcessor from the subsystem API first
@@ -51,7 +51,7 @@ languageSpecificTextProcessor.ClearTemporaryData();
 ### Process
 `public string Process(string text)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Process logic.
 
 ```csharp
 // Obtain an instance of LanguageSpecificTextProcessor from the subsystem API first

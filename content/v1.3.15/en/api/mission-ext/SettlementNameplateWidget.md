@@ -43,7 +43,7 @@ Treat `SettlementNameplateWidget` as a Widget-style extension point: first ident
 ### CompareTo
 `public int CompareTo(SettlementNameplateWidget other)`
 
-**Purpose:** Compares the current object with the supplied instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of SettlementNameplateWidget from the subsystem API first

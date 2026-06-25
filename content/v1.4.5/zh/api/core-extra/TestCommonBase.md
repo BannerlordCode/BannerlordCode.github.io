@@ -23,7 +23,7 @@ description: "TestCommonBase 的自动生成类参考。"
 ### Tick
 `public abstract void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -34,7 +34,7 @@ testCommonBase.Tick();
 ### StartTimeoutTimer
 `public void StartTimeoutTimer()`
 
-**用途 / Purpose:** 启动「timeout timer」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动timeout timer流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -45,7 +45,7 @@ testCommonBase.StartTimeoutTimer();
 ### ToggleTimeoutTimer
 `public void ToggleTimeoutTimer()`
 
-**用途 / Purpose:** 处理与 「toggle timeout timer」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ToggleTimeoutTimer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -56,7 +56,7 @@ testCommonBase.ToggleTimeoutTimer();
 ### CheckTimeoutTimer
 `public bool CheckTimeoutTimer()`
 
-**用途 / Purpose:** 检查「timeout timer」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查timeout timer在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -67,7 +67,7 @@ var result = testCommonBase.CheckTimeoutTimer();
 ### GetGameStatus
 `public virtual string GetGameStatus()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「game status」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game status 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -78,7 +78,7 @@ var result = testCommonBase.GetGameStatus();
 ### WaitFor
 `public void WaitFor(double seconds)`
 
-**用途 / Purpose:** 暂停当前流程，直到「for」条件满足。
+**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到for条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -89,7 +89,7 @@ testCommonBase.WaitFor(0);
 ### WaitUntil
 `public virtual async Task WaitUntil(Func<bool> func)`
 
-**用途 / Purpose:** 暂停当前流程，直到「until」条件满足。
+**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到until条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -100,7 +100,7 @@ var result = testCommonBase.WaitUntil(func);
 ### WaitForAsync
 `public Task WaitForAsync(double seconds, Random random)`
 
-**用途 / Purpose:** 暂停当前流程，直到「for async」条件满足。
+**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到for async条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -111,7 +111,7 @@ var result = testCommonBase.WaitForAsync(0, random);
 ### WaitForAsync
 `public Task WaitForAsync(double seconds)`
 
-**用途 / Purpose:** 暂停当前流程，直到「for async」条件满足。
+**用途 / Purpose:** **用途 / Purpose:** 暂停当前流程，直到for async条件满足。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例
@@ -122,7 +122,7 @@ var result = testCommonBase.WaitForAsync(0);
 ### GetAttachmentsFolderPath
 `public static string GetAttachmentsFolderPath()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attachments folder path」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attachments folder path 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -132,7 +132,7 @@ TestCommonBase.GetAttachmentsFolderPath();
 ### OnFinalize
 `public virtual void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TestCommonBase 实例

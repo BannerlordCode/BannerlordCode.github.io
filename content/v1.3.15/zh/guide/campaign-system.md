@@ -397,6 +397,4 @@ public class MySaveableData
 
 ## 使用示例
 
-```csharp
-var example = new 战役系统();
-```
+// （占位示例已移除，见正文说明）

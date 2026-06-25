@@ -31,7 +31,7 @@ Treat `RecentPlayersManager` as a Manager-style extension point: first identify 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -41,7 +41,7 @@ RecentPlayersManager.Initialize();
 ### GetRecentPlayerInfos
 `public static Task<MBReadOnlyList<RecentPlayerInfo>> GetRecentPlayerInfos()`
 
-**Purpose:** Reads and returns the `recent player infos` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the recent player infos value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -51,7 +51,7 @@ RecentPlayersManager.GetRecentPlayerInfos();
 ### GetRecentPlayerIds
 `public static PlayerId GetRecentPlayerIds()`
 
-**Purpose:** Reads and returns the `recent player ids` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the recent player ids value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -61,7 +61,7 @@ RecentPlayersManager.GetRecentPlayerIds();
 ### AddOrUpdatePlayerEntry
 `public static void AddOrUpdatePlayerEntry(PlayerId playerId, string playerName, InteractionType interactionType, int forcedIndex)`
 
-**Purpose:** Adds `or update player entry` to the current collection or state.
+**Purpose:** **Purpose:** Adds or update player entry to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -71,7 +71,7 @@ RecentPlayersManager.AddOrUpdatePlayerEntry(playerId, "example", interactionType
 ### TrimPlayers
 `public static void TrimPlayers()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TrimPlayers logic.
 
 ```csharp
 // Static call; no instance required
@@ -81,7 +81,7 @@ RecentPlayersManager.TrimPlayers();
 ### Serialize
 `public static void Serialize()`
 
-**Purpose:** Serializes the current object into a storable or transmittable format.
+**Purpose:** **Purpose:** Serializes the this instance into a storable or transmittable format.
 
 ```csharp
 // Static call; no instance required
@@ -91,7 +91,7 @@ RecentPlayersManager.Serialize();
 ### GetPlayersOrdered
 `public static IEnumerable<PlayerId> GetPlayersOrdered()`
 
-**Purpose:** Reads and returns the `players ordered` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the players ordered value held by the this instance.
 
 ```csharp
 // Static call; no instance required

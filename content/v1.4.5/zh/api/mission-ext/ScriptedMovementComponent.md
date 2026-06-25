@@ -23,7 +23,7 @@ description: "ScriptedMovementComponent 的自动生成类参考。"
 ### SetTargetAgent
 `public void SetTargetAgent(Agent targetAgent)`
 
-**用途 / Purpose:** 为 「target agent」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 target agent 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptedMovementComponent 实例
@@ -34,7 +34,7 @@ scriptedMovementComponent.SetTargetAgent(targetAgent);
 ### OnTick
 `public override void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptedMovementComponent 实例
@@ -45,7 +45,7 @@ scriptedMovementComponent.OnTick(0);
 ### ShouldConversationStartWithAgent
 `public bool ShouldConversationStartWithAgent()`
 
-**用途 / Purpose:** 处理与 「should conversation start with agent」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ShouldConversationStartWithAgent 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptedMovementComponent 实例
@@ -56,7 +56,7 @@ var result = scriptedMovementComponent.ShouldConversationStartWithAgent();
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptedMovementComponent 实例

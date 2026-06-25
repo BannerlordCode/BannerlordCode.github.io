@@ -23,7 +23,7 @@ Treat `MissionGauntletNameMarkerView` as a View-style extension point: first ide
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletNameMarkerView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletNameMarkerView.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletNameMarkerView.OnMissionScreenTick(0);
 ### SetMarkersDirty
 `public override void SetMarkersDirty()`
 
-**Purpose:** Assigns a new value to `markers dirty` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to markers dirty and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -67,7 +67,7 @@ missionGauntletNameMarkerView.SetMarkersDirty();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent affectedAgent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -78,7 +78,7 @@ missionGauntletNameMarkerView.OnAgentBuild(affectedAgent, banner);
 ### OnAgentDeleted
 `public override void OnAgentDeleted(Agent affectedAgent)`
 
-**Purpose:** Invoked when the `agent deleted` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent deleted event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -89,7 +89,7 @@ missionGauntletNameMarkerView.OnAgentDeleted(affectedAgent);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -100,7 +100,7 @@ missionGauntletNameMarkerView.OnAgentRemoved(affectedAgent, affectorAgent, agent
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Invoked when the `photo mode activated` event is raised.
+**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first
@@ -111,7 +111,7 @@ missionGauntletNameMarkerView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletNameMarkerView from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `StoryMode.ViewModelCollection.Missions` to place it in the
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
@@ -46,7 +46,7 @@ trainingFieldObjectivesVM.RefreshValues();
 ### UpdateObjectivesWith
 `public void UpdateObjectivesWith(List<TrainingFieldMissionController.TutorialObjective> objectives)`
 
-**Purpose:** Recalculates and stores the latest representation of `objectives with`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of objectives with.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
@@ -57,7 +57,7 @@ trainingFieldObjectivesVM.UpdateObjectivesWith(objectives);
 ### UpdateCurrentObjectiveText
 `public void UpdateCurrentObjectiveText(TextObject currentObjectiveText)`
 
-**Purpose:** Recalculates and stores the latest representation of `current objective text`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of current objective text.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
@@ -68,7 +68,7 @@ trainingFieldObjectivesVM.UpdateCurrentObjectiveText(currentObjectiveText);
 ### UpdateCurrentMouseObjective
 `public void UpdateCurrentMouseObjective(TrainingFieldMissionController.MouseObjectives currentMouseObjective)`
 
-**Purpose:** Recalculates and stores the latest representation of `current mouse objective`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of current mouse objective.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
@@ -79,7 +79,7 @@ trainingFieldObjectivesVM.UpdateCurrentMouseObjective(currentMouseObjective);
 ### UpdateTimerText
 `public void UpdateTimerText(string timerText)`
 
-**Purpose:** Recalculates and stores the latest representation of `timer text`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of timer text.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first
@@ -90,7 +90,7 @@ trainingFieldObjectivesVM.UpdateTimerText("example");
 ### UpdateIsGamepadActive
 `public void UpdateIsGamepadActive()`
 
-**Purpose:** Recalculates and stores the latest representation of `is gamepad active`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of is gamepad active.
 
 ```csharp
 // Obtain an instance of TrainingFieldObjectivesVM from the subsystem API first

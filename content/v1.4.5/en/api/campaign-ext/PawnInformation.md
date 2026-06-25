@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### PawnInformation
 `public struct PawnInformation(int x, int y, int prevX, int prevY, bool captured, Vec3 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PawnInformation logic.
 
 ```csharp
 // Obtain an instance of PawnInformation from the subsystem API first

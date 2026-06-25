@@ -23,7 +23,7 @@ Treat `DefaultSettlementLoyaltyModel` as a Model-style extension point: first id
 ### CalculateLoyaltyChange
 `public override ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `loyalty change`.
+**Purpose:** **Purpose:** Calculates the current value or result of loyalty change.
 
 ```csharp
 // Obtain an instance of DefaultSettlementLoyaltyModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultSettlementLoyaltyModel.CalculateLoyaltyChange(town, false);
 ### CalculateGoldGainDueToHighLoyalty
 `public override void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Calculates the current value or result of `gold gain due to high loyalty`.
+**Purpose:** **Purpose:** Calculates the current value or result of gold gain due to high loyalty.
 
 ```csharp
 // Obtain an instance of DefaultSettlementLoyaltyModel from the subsystem API first
@@ -45,7 +45,7 @@ defaultSettlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedN
 ### CalculateGoldCutDueToLowLoyalty
 `public override void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Calculates the current value or result of `gold cut due to low loyalty`.
+**Purpose:** **Purpose:** Calculates the current value or result of gold cut due to low loyalty.
 
 ```csharp
 // Obtain an instance of DefaultSettlementLoyaltyModel from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hi
 ### UpdatePosition
 `public override void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionStealthSentryNameMarkerTargetVM from the subsystem API first

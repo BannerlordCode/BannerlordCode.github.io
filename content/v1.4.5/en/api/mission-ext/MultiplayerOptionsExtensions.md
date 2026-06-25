@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetValueText
 `public static string GetValueText(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Reads and returns the `value text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value text value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerOptionsExtensions.GetValueText(optionType, multiplayerOptions.Multipl
 ### GetBoolValue
 `public static bool GetBoolValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Reads and returns the `bool value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bool value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerOptionsExtensions.GetBoolValue(optionType, multiplayerOptions.Multipl
 ### GetIntValue
 `public static int GetIntValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Reads and returns the `int value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the int value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MultiplayerOptionsExtensions.GetIntValue(optionType, multiplayerOptions.Multipla
 ### GetStrValue
 `public static string GetStrValue(this MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Reads and returns the `str value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the str value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MultiplayerOptionsExtensions.GetStrValue(optionType, multiplayerOptions.Multipla
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, bool value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ MultiplayerOptionsExtensions.SetValue(optionType, false, multiplayerOptions.Mult
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, int value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ MultiplayerOptionsExtensions.SetValue(optionType, 0, multiplayerOptions.Multipla
 ### SetValue
 `public static void SetValue(this MultiplayerOptions.OptionType optionType, string value, MultiplayerOptions.MultiplayerOptionsAccessMode mode = MultiplayerOptions.MultiplayerOptionsAccessMode.CurrentMapOptions)`
 
-**Purpose:** Assigns a new value to `value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ MultiplayerOptionsExtensions.SetValue(optionType, "example", multiplayerOptions.
 ### GetMinimumValue
 `public static int GetMinimumValue(this MultiplayerOptions.OptionType optionType)`
 
-**Purpose:** Reads and returns the `minimum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the minimum value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ MultiplayerOptionsExtensions.GetMinimumValue(optionType);
 ### GetMaximumValue
 `public static int GetMaximumValue(this MultiplayerOptions.OptionType optionType)`
 
-**Purpose:** Reads and returns the `maximum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ MultiplayerOptionsExtensions.GetMaximumValue(optionType);
 ### GetOptionProperty
 `public static MultiplayerOptionsProperty GetOptionProperty(this MultiplayerOptions.OptionType optionType)`
 
-**Purpose:** Reads and returns the `option property` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the option property value held by the this instance.
 
 ```csharp
 // Static call; no instance required

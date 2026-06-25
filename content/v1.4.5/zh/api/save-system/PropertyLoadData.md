@@ -23,7 +23,7 @@ description: "PropertyLoadData 的自动生成类参考。"
 ### FillObject
 `public void FillObject()`
 
-**用途 / Purpose:** 处理与 「fill object」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillObject 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyLoadData 实例

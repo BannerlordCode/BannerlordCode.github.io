@@ -23,7 +23,7 @@ description: "DefaultTradeAgreementModel 的自动生成类参考。"
 ### GetInfluenceCostOfProposingTradeAgreement
 `public override int GetInfluenceCostOfProposingTradeAgreement(Clan proposerClan)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence cost of proposing trade agreement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of proposing trade agreement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
@@ -34,7 +34,7 @@ var result = defaultTradeAgreementModel.GetInfluenceCostOfProposingTradeAgreemen
 ### GetMaximumTradeAgreementCount
 `public override int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「maximum trade agreement count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum trade agreement count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
@@ -45,7 +45,7 @@ var result = defaultTradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
 ### CanMakeTradeAgreement
 `public override bool CanMakeTradeAgreement(Kingdom kingdom, Kingdom other, bool checkOtherSideTradeSupport, out TextObject reason, bool includeReason = false)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「make trade agreement」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 make trade agreement 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
@@ -56,7 +56,7 @@ var result = defaultTradeAgreementModel.CanMakeTradeAgreement(kingdom, other, fa
 ### GetScoreOfStartingTradeAgreement
 `public override float GetScoreOfStartingTradeAgreement(Kingdom kingdom, Kingdom targetKingdom, Clan clan, out TextObject explanation, bool includeExplanation = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score of starting trade agreement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score of starting trade agreement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例
@@ -67,7 +67,7 @@ var result = defaultTradeAgreementModel.GetScoreOfStartingTradeAgreement(kingdom
 ### GetTradeAgreementDurationInYears
 `public override CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「trade agreement duration in years」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trade agreement duration in years 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTradeAgreementModel 实例

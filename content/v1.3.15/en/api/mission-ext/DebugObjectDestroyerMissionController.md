@@ -23,7 +23,7 @@ Treat `DebugObjectDestroyerMissionController` as a Controller-style extension po
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of DebugObjectDestroyerMissionController from the subsystem API first

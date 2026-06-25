@@ -23,7 +23,7 @@ Start from namespace `SandBox.CampaignBehaviors` to place it in the stack, then 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ clanMemberRolesCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ clanMemberRolesCampaignBehavior.SyncData(dataStore);
 ### IsFollowingPlayer
 `public bool IsFollowingPlayer(Hero hero)`
 
-**Purpose:** Determines whether the current object is in the `following player` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the following player state or condition.
 
 ```csharp
 // Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = clanMemberRolesCampaignBehavior.IsFollowingPlayer(hero);
 ### RemoveFollowingHero
 `public void RemoveFollowingHero(Hero hero)`
 
-**Purpose:** Removes `following hero` from the current collection or state.
+**Purpose:** **Purpose:** Removes following hero from the current collection or state.
 
 ```csharp
 // Obtain an instance of ClanMemberRolesCampaignBehavior from the subsystem API first

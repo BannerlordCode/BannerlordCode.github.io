@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.G
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameKeyOptionVM from the subsystem API first
@@ -40,7 +40,7 @@ gameKeyOptionVM.RefreshValues();
 ### Set
 `public override void Set(InputKey newKey)`
 
-**Purpose:** Assigns a new value to the current object's property or state.
+**Purpose:** **Purpose:** Assigns a new value to the this instance's property or state.
 
 ```csharp
 // Obtain an instance of GameKeyOptionVM from the subsystem API first
@@ -51,7 +51,7 @@ gameKeyOptionVM.Set(newKey);
 ### Update
 `public override void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of GameKeyOptionVM from the subsystem API first
@@ -62,7 +62,7 @@ gameKeyOptionVM.Update();
 ### OnDone
 `public override void OnDone()`
 
-**Purpose:** Invoked when the `done` event is raised.
+**Purpose:** **Purpose:** Invoked when the done event is raised.
 
 ```csharp
 // Obtain an instance of GameKeyOptionVM from the subsystem API first
@@ -73,7 +73,7 @@ gameKeyOptionVM.OnDone();
 ### ExecuteRevert
 `public override void ExecuteRevert()`
 
-**Purpose:** Runs the operation or workflow associated with `revert`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with revert.
 
 ```csharp
 // Obtain an instance of GameKeyOptionVM from the subsystem API first
@@ -84,7 +84,7 @@ gameKeyOptionVM.ExecuteRevert();
 ### Apply
 `public void Apply()`
 
-**Purpose:** Applies the current object's effect to its target.
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of GameKeyOptionVM from the subsystem API first

@@ -49,7 +49,7 @@ description: "RangedSiegeWeapon 的自动生成类参考。"
 ### SetAmmo
 `public virtual void SetAmmo(int ammoLeft)`
 
-**用途 / Purpose:** 为 「ammo」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 ammo 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -60,7 +60,7 @@ rangedSiegeWeapon.SetAmmo(0);
 ### SetStartAmmo
 `public virtual void SetStartAmmo(int ammoLeft)`
 
-**用途 / Purpose:** 为 「start ammo」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 start ammo 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -71,7 +71,7 @@ rangedSiegeWeapon.SetStartAmmo(0);
 ### ChangeProjectileEntityClient
 `public void ChangeProjectileEntityClient(int index)`
 
-**用途 / Purpose:** 处理与 「change projectile entity client」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeProjectileEntityClient 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -82,7 +82,7 @@ rangedSiegeWeapon.ChangeProjectileEntityClient(0);
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** 将「to network」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将to network写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -93,7 +93,7 @@ rangedSiegeWeapon.WriteToNetwork();
 ### IsInRangeToCheckAlternativePoints
 `public override bool IsInRangeToCheckAlternativePoints(Agent agent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「in range to check alternative points」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 in range to check alternative points 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -104,7 +104,7 @@ var result = rangedSiegeWeapon.IsInRangeToCheckAlternativePoints(agent);
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「best point alternative to」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 best point alternative to 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -115,7 +115,7 @@ var result = rangedSiegeWeapon.GetBestPointAlternativeTo(standingPoint, agent);
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -126,7 +126,7 @@ var result = rangedSiegeWeapon.GetTickRequirement();
 ### GiveInput
 `public void GiveInput(float inputX, float inputY)`
 
-**用途 / Purpose:** 处理与 「give input」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GiveInput 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -137,7 +137,7 @@ rangedSiegeWeapon.GiveInput(0, 0);
 ### GiveExactInput
 `public void GiveExactInput(float targetX, float targetY)`
 
-**用途 / Purpose:** 处理与 「give exact input」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GiveExactInput 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -148,7 +148,7 @@ rangedSiegeWeapon.GiveExactInput(0, 0);
 ### GetTargetReleaseAngle
 `public virtual float GetTargetReleaseAngle(Vec3 target)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target release angle」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target release angle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -159,7 +159,7 @@ var result = rangedSiegeWeapon.GetTargetReleaseAngle(target);
 ### AimAtThreat
 `public virtual bool AimAtThreat(Threat threat)`
 
-**用途 / Purpose:** 处理与 「aim at threat」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AimAtThreat 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -170,7 +170,7 @@ var result = rangedSiegeWeapon.AimAtThreat(threat);
 ### AimAtTarget
 `public bool AimAtTarget(Vec3 target)`
 
-**用途 / Purpose:** 处理与 「aim at target」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AimAtTarget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -181,7 +181,7 @@ var result = rangedSiegeWeapon.AimAtTarget(target);
 ### CheckIsTargetReached
 `public virtual bool CheckIsTargetReached(Vec3 target)`
 
-**用途 / Purpose:** 检查「is target reached」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查is target reached在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -192,7 +192,7 @@ var result = rangedSiegeWeapon.CheckIsTargetReached(target);
 ### GetEstimatedTargetGlobalPoint
 `public Vec3 GetEstimatedTargetGlobalPoint(Threat threat)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「estimated target global point」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 estimated target global point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -203,7 +203,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetGlobalPoint(threat);
 ### GetEstimatedTargetGlobalPointForAgent
 `public Vec3 GetEstimatedTargetGlobalPointForAgent(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「estimated target global point for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 estimated target global point for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -214,7 +214,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetGlobalPointForAgent(agent);
 ### AimAtRotation
 `public virtual void AimAtRotation(float horizontalRotation, float verticalRotation)`
 
-**用途 / Purpose:** 处理与 「aim at rotation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AimAtRotation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -225,7 +225,7 @@ rangedSiegeWeapon.AimAtRotation(0, 0);
 ### Shoot
 `public bool Shoot()`
 
-**用途 / Purpose:** 处理与 「shoot」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Shoot 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -236,7 +236,7 @@ var result = rangedSiegeWeapon.Shoot();
 ### ManualReload
 `public void ManualReload()`
 
-**用途 / Purpose:** 处理与 「manual reload」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ManualReload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -247,7 +247,7 @@ rangedSiegeWeapon.ManualReload();
 ### AiRequestsShoot
 `public void AiRequestsShoot()`
 
-**用途 / Purpose:** 处理与 「ai requests shoot」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AiRequestsShoot 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -258,7 +258,7 @@ rangedSiegeWeapon.AiRequestsShoot();
 ### AiRequestsManualReload
 `public void AiRequestsManualReload()`
 
-**用途 / Purpose:** 处理与 「ai requests manual reload」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AiRequestsManualReload 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -269,7 +269,7 @@ rangedSiegeWeapon.AiRequestsManualReload();
 ### GetSiegeEngineType
 `public abstract override SiegeEngineType GetSiegeEngineType()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「siege engine type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege engine type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -280,7 +280,7 @@ var result = rangedSiegeWeapon.GetSiegeEngineType();
 ### CanShootAtBox
 `public bool CanShootAtBox(Vec3 boxMin, Vec3 boxMax, uint attempts = 5U)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「shoot at box」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 shoot at box 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -291,7 +291,7 @@ var result = rangedSiegeWeapon.CanShootAtBox(boxMin, boxMax, 0);
 ### CanShootAtThreat
 `public bool CanShootAtThreat(Threat threat)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「shoot at threat」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 shoot at threat 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -302,7 +302,7 @@ var result = rangedSiegeWeapon.CanShootAtThreat(threat);
 ### GetEstimatedTargetMovementVector
 `public virtual Vec3 GetEstimatedTargetMovementVector(Vec3 targetCurrentPosition, Vec3 targetVelocity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「estimated target movement vector」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 estimated target movement vector 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -313,7 +313,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetMovementVector(targetCurrentPos
 ### CanShootAtAgent
 `public bool CanShootAtAgent(Agent agent)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「shoot at agent」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 shoot at agent 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -324,7 +324,7 @@ var result = rangedSiegeWeapon.CanShootAtAgent(agent);
 ### CanShootAtPoint
 `public bool CanShootAtPoint(Vec3 target)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「shoot at point」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 shoot at point 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -335,7 +335,7 @@ var result = rangedSiegeWeapon.CanShootAtPoint(target);
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「order」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -346,7 +346,7 @@ var result = rangedSiegeWeapon.GetOrder(side);
 ### ProcessTargetValue
 `public abstract float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** 处理与 「process target value」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessTargetValue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -357,7 +357,7 @@ var result = rangedSiegeWeapon.ProcessTargetValue(0, flags);
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**用途 / Purpose:** 在 「after read from network」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -368,7 +368,7 @@ rangedSiegeWeapon.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObjectRead
 ### GetGlobalVelocity
 `public virtual Vec3 GetGlobalVelocity()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「global velocity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 global velocity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -379,7 +379,7 @@ var result = rangedSiegeWeapon.GetGlobalVelocity();
 ### SetPlayerForceUse
 `public void SetPlayerForceUse(bool value)`
 
-**用途 / Purpose:** 为 「player force use」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 player force use 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -390,7 +390,7 @@ rangedSiegeWeapon.SetPlayerForceUse(false);
 ### OnShipCaptured
 `public override void OnShipCaptured(BattleSideEnum newDefaultSide)`
 
-**用途 / Purpose:** 在 「ship captured」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 ship captured 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -401,7 +401,7 @@ rangedSiegeWeapon.OnShipCaptured(newDefaultSide);
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 读取「from network」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取from network的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -412,7 +412,7 @@ var result = rangedSiegeWeapon.ReadFromNetwork(bufferReadValid);
 ### OnSiegeWeaponReloadDone
 `public delegate void OnSiegeWeaponReloadDone()`
 
-**用途 / Purpose:** 在 「siege weapon reload done」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 siege weapon reload done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例

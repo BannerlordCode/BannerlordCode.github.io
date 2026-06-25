@@ -23,7 +23,7 @@ description: "FormationIntegrityDataGroup 的自动生成类参考。"
 ### FormationIntegrityDataGroup
 `public struct FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)`
 
-**用途 / Purpose:** 将「ion integrity data group」格式化为适合显示或存储的字符串。
+**用途 / Purpose:** **用途 / Purpose:** 将ion integrity data group格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationIntegrityDataGroup 实例

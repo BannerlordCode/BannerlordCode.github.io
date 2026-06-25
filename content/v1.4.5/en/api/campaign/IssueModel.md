@@ -29,7 +29,7 @@ Treat `IssueModel` as a Model-style extension point: first identify who creates 
 ### GetIssueDifficultyMultiplier
 `public abstract float GetIssueDifficultyMultiplier()`
 
-**Purpose:** Reads and returns the `issue difficulty multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the issue difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = issueModel.GetIssueDifficultyMultiplier();
 ### GetIssueEffectsOfSettlement
 `public abstract void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Reads and returns the `issue effects of settlement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the issue effects of settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -51,7 +51,7 @@ issueModel.GetIssueEffectsOfSettlement(issueEffect, settlement, explainedNumber)
 ### GetIssueEffectOfHero
 `public abstract void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Reads and returns the `issue effect of hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the issue effect of hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -62,7 +62,7 @@ issueModel.GetIssueEffectOfHero(issueEffect, hero, explainedNumber);
 ### GetIssueEffectOfClan
 `public abstract void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Reads and returns the `issue effect of clan` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the issue effect of clan value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -73,7 +73,7 @@ issueModel.GetIssueEffectOfClan(issueEffect, clan, explainedNumber);
 ### GetFailureRiskForHero
 `public abstract float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**Purpose:** Reads and returns the `failure risk for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the failure risk for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -84,7 +84,7 @@ var result = issueModel.GetFailureRiskForHero(alternativeSolutionHero, issue);
 ### GetDurationOfResolutionForHero
 `public abstract CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**Purpose:** Reads and returns the `duration of resolution for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the duration of resolution for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -95,7 +95,7 @@ var result = issueModel.GetDurationOfResolutionForHero(alternativeSolutionHero, 
 ### GetTroopsRequiredForHero
 `public abstract int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**Purpose:** Reads and returns the `troops required for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troops required for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first
@@ -106,7 +106,7 @@ var result = issueModel.GetTroopsRequiredForHero(alternativeSolutionHero, issue)
 ### CanTroopsReturnFromAlternativeSolution
 `public abstract bool CanTroopsReturnFromAlternativeSolution()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `troops return from alternative solution`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for troops return from alternative solution.
 
 ```csharp
 // Obtain an instance of IssueModel from the subsystem API first

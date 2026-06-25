@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -57,7 +57,7 @@ optionsVM.RefreshValues();
 ### ExecuteCloseOptions
 `public void ExecuteCloseOptions()`
 
-**Purpose:** Runs the operation or workflow associated with `close options`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close options.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -68,7 +68,7 @@ optionsVM.ExecuteCloseOptions();
 ### GetActiveCategory
 `public ViewModel GetActiveCategory()`
 
-**Purpose:** Reads and returns the `active category` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active category value held by the this instance.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -79,7 +79,7 @@ var result = optionsVM.GetActiveCategory();
 ### GetIndexOfCategory
 `public int GetIndexOfCategory(ViewModel categoryVM)`
 
-**Purpose:** Reads and returns the `index of category` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index of category value held by the this instance.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -90,7 +90,7 @@ var result = optionsVM.GetIndexOfCategory(categoryVM);
 ### GetConfig
 `public float GetConfig(IOptionData data)`
 
-**Purpose:** Reads and returns the `config` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the config value held by the this instance.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -101,7 +101,7 @@ var result = optionsVM.GetConfig(data);
 ### SetConfig
 `public void SetConfig(IOptionData data, float val)`
 
-**Purpose:** Assigns a new value to `config` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to config and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -112,7 +112,7 @@ optionsVM.SetConfig(data, 0);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectPreviousCategory logic.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -123,7 +123,7 @@ optionsVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectNextCategory logic.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -134,7 +134,7 @@ optionsVM.SelectNextCategory();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -145,7 +145,7 @@ optionsVM.OnFinalize();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -156,7 +156,7 @@ optionsVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -167,7 +167,7 @@ optionsVM.ExecuteDone();
 ### IsOptionsChanged
 `public bool IsOptionsChanged()`
 
-**Purpose:** Determines whether the current object is in the `options changed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the options changed state or condition.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -178,7 +178,7 @@ var result = optionsVM.IsOptionsChanged();
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -189,7 +189,7 @@ optionsVM.SetDoneInputKey(hotkey);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -200,7 +200,7 @@ optionsVM.SetCancelInputKey(hotkey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to previous tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -211,7 +211,7 @@ optionsVM.SetPreviousTabInputKey(hotkey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first
@@ -222,7 +222,7 @@ optionsVM.SetNextTabInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsVM from the subsystem API first

@@ -23,7 +23,7 @@ description: "NetworkMessage 的自动生成类参考。"
 ### Write
 `public void Write(string data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -34,7 +34,7 @@ networkMessage.Write("example");
 ### Write
 `public void Write(int data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -45,7 +45,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(short data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -56,7 +56,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(bool data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -67,7 +67,7 @@ networkMessage.Write(false);
 ### Write
 `public void Write(byte data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -78,7 +78,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(float data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -89,7 +89,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(long data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -100,7 +100,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(ulong data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -111,7 +111,7 @@ networkMessage.Write(0);
 ### Write
 `public void Write(Guid data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -122,7 +122,7 @@ networkMessage.Write(data);
 ### Write
 `public void Write(byte data)`
 
-**用途 / Purpose:** 将当前对象的数据写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -133,7 +133,7 @@ networkMessage.Write(0);
 ### ReadInt32
 `public int ReadInt32()`
 
-**用途 / Purpose:** 读取「int32」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取int32的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -144,7 +144,7 @@ var result = networkMessage.ReadInt32();
 ### ReadInt16
 `public short ReadInt16()`
 
-**用途 / Purpose:** 读取「int16」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取int16的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -155,7 +155,7 @@ var result = networkMessage.ReadInt16();
 ### ReadBoolean
 `public bool ReadBoolean()`
 
-**用途 / Purpose:** 读取「boolean」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取boolean的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -166,7 +166,7 @@ var result = networkMessage.ReadBoolean();
 ### ReadByte
 `public byte ReadByte()`
 
-**用途 / Purpose:** 读取「byte」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取byte的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -177,7 +177,7 @@ var result = networkMessage.ReadByte();
 ### ReadString
 `public string ReadString()`
 
-**用途 / Purpose:** 读取「string」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取string的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -188,7 +188,7 @@ var result = networkMessage.ReadString();
 ### ReadFloat
 `public float ReadFloat()`
 
-**用途 / Purpose:** 读取「float」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取float的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -199,7 +199,7 @@ var result = networkMessage.ReadFloat();
 ### ReadInt64
 `public long ReadInt64()`
 
-**用途 / Purpose:** 读取「int64」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取int64的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -210,7 +210,7 @@ var result = networkMessage.ReadInt64();
 ### ReadUInt64
 `public ulong ReadUInt64()`
 
-**用途 / Purpose:** 读取「u int64」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取u int64的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -221,7 +221,7 @@ var result = networkMessage.ReadUInt64();
 ### ReadGuid
 `public Guid ReadGuid()`
 
-**用途 / Purpose:** 读取「guid」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取guid的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例
@@ -232,7 +232,7 @@ var result = networkMessage.ReadGuid();
 ### ReadByteArray
 `public byte ReadByteArray()`
 
-**用途 / Purpose:** 读取「byte array」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取byte array的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkMessage 实例

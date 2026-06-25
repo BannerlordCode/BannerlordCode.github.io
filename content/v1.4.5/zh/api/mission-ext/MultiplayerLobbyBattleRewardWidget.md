@@ -31,7 +31,7 @@ description: "MultiplayerLobbyBattleRewardWidget 的自动生成类参考。"
 ### StartAnimation
 `public void StartAnimation()`
 
-**用途 / Purpose:** 启动「animation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyBattleRewardWidget 实例
@@ -42,7 +42,7 @@ multiplayerLobbyBattleRewardWidget.StartAnimation();
 ### StartPreAnimation
 `public void StartPreAnimation()`
 
-**用途 / Purpose:** 启动「pre animation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动pre animation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyBattleRewardWidget 实例
@@ -53,7 +53,7 @@ multiplayerLobbyBattleRewardWidget.StartPreAnimation();
 ### EndAnimation
 `public void EndAnimation()`
 
-**用途 / Purpose:** 处理与 「end animation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndAnimation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyBattleRewardWidget 实例

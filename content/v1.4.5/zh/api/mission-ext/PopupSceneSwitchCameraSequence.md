@@ -23,7 +23,7 @@ description: "PopupSceneSwitchCameraSequence 的自动生成类参考。"
 ### OnInitialState
 `public override void OnInitialState()`
 
-**用途 / Purpose:** 在 「initial state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 initial state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSwitchCameraSequence 实例
@@ -34,7 +34,7 @@ popupSceneSwitchCameraSequence.OnInitialState();
 ### OnPositiveState
 `public override void OnPositiveState()`
 
-**用途 / Purpose:** 在 「positive state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 positive state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSwitchCameraSequence 实例
@@ -45,7 +45,7 @@ popupSceneSwitchCameraSequence.OnPositiveState();
 ### OnNegativeState
 `public override void OnNegativeState()`
 
-**用途 / Purpose:** 在 「negative state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 negative state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSwitchCameraSequence 实例

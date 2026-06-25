@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CharacterBecameFugitiveLogEntry from the subsystem API first
@@ -34,7 +34,7 @@ var result = characterBecameFugitiveLogEntry.ToString();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterBecameFugitiveLogEntry from the subsystem API first
@@ -45,7 +45,7 @@ var result = characterBecameFugitiveLogEntry.GetEncyclopediaText();
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Determines whether the current object is in the `valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of CharacterBecameFugitiveLogEntry from the subsystem API first

@@ -159,7 +159,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetHasOnAiInputSetCallback
 `public bool GetHasOnAiInputSetCallback()`
 
-**Purpose:** Reads and returns the `has on ai input set callback` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the has on ai input set callback value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -170,7 +170,7 @@ var result = agent.GetHasOnAiInputSetCallback();
 ### SetHasOnAiInputSetCallback
 `public void SetHasOnAiInputSetCallback(bool value)`
 
-**Purpose:** Assigns a new value to `has on ai input set callback` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to has on ai input set callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -181,7 +181,7 @@ agent.SetHasOnAiInputSetCallback(false);
 ### GetMissileRangeWithHeightDifferenceAux
 `public float GetMissileRangeWithHeightDifferenceAux(float targetZ)`
 
-**Purpose:** Reads and returns the `missile range with height difference aux` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the missile range with height difference aux value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -192,7 +192,7 @@ var result = agent.GetMissileRangeWithHeightDifferenceAux(0);
 ### GetSoundAndCollisionInfoClassName
 `public string GetSoundAndCollisionInfoClassName()`
 
-**Purpose:** Reads and returns the `sound and collision info class name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sound and collision info class name value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -203,7 +203,7 @@ var result = agent.GetSoundAndCollisionInfoClassName();
 ### UpdateAgentStats
 `public void UpdateAgentStats()`
 
-**Purpose:** Recalculates and stores the latest representation of `agent stats`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of agent stats.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -214,7 +214,7 @@ agent.UpdateAgentStats();
 ### GetWeaponInaccuracy
 `public float GetWeaponInaccuracy(EquipmentIndex weaponSlotIndex, int weaponUsageIndex)`
 
-**Purpose:** Reads and returns the `weapon inaccuracy` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the weapon inaccuracy value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -225,7 +225,7 @@ var result = agent.GetWeaponInaccuracy(weaponSlotIndex, 0);
 ### DebugGetHealth
 `public float DebugGetHealth()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugGetHealth logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -236,7 +236,7 @@ var result = agent.DebugGetHealth();
 ### SetTargetPosition
 `public void SetTargetPosition(Vec2 value)`
 
-**Purpose:** Assigns a new value to `target position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -247,7 +247,7 @@ agent.SetTargetPosition(value);
 ### SetTargetZ
 `public void SetTargetZ(float targetZ)`
 
-**Purpose:** Assigns a new value to `target z` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target z and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -258,7 +258,7 @@ agent.SetTargetZ(0);
 ### SetTargetUp
 `public void SetTargetUp(in Vec3 targetUp)`
 
-**Purpose:** Assigns a new value to `target up` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target up and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -269,7 +269,7 @@ agent.SetTargetUp(targetUp);
 ### SetCanLeadFormationsRemotely
 `public void SetCanLeadFormationsRemotely(bool value)`
 
-**Purpose:** Assigns a new value to `can lead formations remotely` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can lead formations remotely and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -280,7 +280,7 @@ agent.SetCanLeadFormationsRemotely(false);
 ### SetAveragePingInMilliseconds
 `public void SetAveragePingInMilliseconds(double averagePingInMilliseconds)`
 
-**Purpose:** Assigns a new value to `average ping in milliseconds` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to average ping in milliseconds and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -291,7 +291,7 @@ agent.SetAveragePingInMilliseconds(0);
 ### SetTargetPositionAndDirection
 `public void SetTargetPositionAndDirection(in Vec2 targetPosition, in Vec3 targetDirection)`
 
-**Purpose:** Assigns a new value to `target position and direction` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target position and direction and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -302,7 +302,7 @@ agent.SetTargetPositionAndDirection(targetPosition, targetDirection);
 ### AddAcceleration
 `public void AddAcceleration(in Vec3 acceleration)`
 
-**Purpose:** Adds `acceleration` to the current collection or state.
+**Purpose:** **Purpose:** Adds acceleration to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -313,7 +313,7 @@ agent.AddAcceleration(acceleration);
 ### SetWeaponGuard
 `public void SetWeaponGuard(Agent.UsageDirection direction)`
 
-**Purpose:** Assigns a new value to `weapon guard` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to weapon guard and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -324,7 +324,7 @@ agent.SetWeaponGuard(direction);
 ### SetWatchState
 `public void SetWatchState(Agent.WatchState watchState)`
 
-**Purpose:** Assigns a new value to `watch state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to watch state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -335,7 +335,7 @@ agent.SetWatchState(watchState);
 ### IsAlarmStateNormal
 `public bool IsAlarmStateNormal()`
 
-**Purpose:** Determines whether the current object is in the `alarm state normal` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the alarm state normal state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -346,7 +346,7 @@ var result = agent.IsAlarmStateNormal();
 ### IsCautious
 `public bool IsCautious()`
 
-**Purpose:** Determines whether the current object is in the `cautious` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the cautious state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -357,7 +357,7 @@ var result = agent.IsCautious();
 ### IsPatrollingCautious
 `public bool IsPatrollingCautious()`
 
-**Purpose:** Determines whether the current object is in the `patrolling cautious` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the patrolling cautious state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -368,7 +368,7 @@ var result = agent.IsPatrollingCautious();
 ### IsAlarmed
 `public bool IsAlarmed()`
 
-**Purpose:** Determines whether the current object is in the `alarmed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the alarmed state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -379,7 +379,7 @@ var result = agent.IsAlarmed();
 ### SetAlarmState
 `public bool SetAlarmState(Agent.AIStateFlag alarmStateFlag)`
 
-**Purpose:** Assigns a new value to `alarm state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to alarm state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -390,7 +390,7 @@ var result = agent.SetAlarmState(alarmStateFlag);
 ### SetTargetFormationIndex
 `public void SetTargetFormationIndex(int targetFormationIndex)`
 
-**Purpose:** Assigns a new value to `target formation index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target formation index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -401,7 +401,7 @@ agent.SetTargetFormationIndex(0);
 ### StartRagdollAsCorpse
 `public void StartRagdollAsCorpse()`
 
-**Purpose:** Starts the `ragdoll as corpse` flow or state machine.
+**Purpose:** **Purpose:** Starts the ragdoll as corpse flow or state machine.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -412,7 +412,7 @@ agent.StartRagdollAsCorpse();
 ### EndRagdollAsCorpse
 `public void EndRagdollAsCorpse()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndRagdollAsCorpse logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -423,7 +423,7 @@ agent.EndRagdollAsCorpse();
 ### IsAddedAsCorpse
 `public bool IsAddedAsCorpse()`
 
-**Purpose:** Determines whether the current object is in the `added as corpse` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the added as corpse state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -434,7 +434,7 @@ var result = agent.IsAddedAsCorpse();
 ### AddAsCorpse
 `public void AddAsCorpse()`
 
-**Purpose:** Adds `as corpse` to the current collection or state.
+**Purpose:** **Purpose:** Adds as corpse to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -445,7 +445,7 @@ agent.AddAsCorpse();
 ### SetOverridenStrikeAndDeathAction
 `public void SetOverridenStrikeAndDeathAction(in ActionIndexCache strikeAction, in ActionIndexCache deathAction)`
 
-**Purpose:** Assigns a new value to `overriden strike and death action` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to overriden strike and death action and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -456,7 +456,7 @@ agent.SetOverridenStrikeAndDeathAction(strikeAction, deathAction);
 ### ApplyForceOnRagdoll
 `public void ApplyForceOnRagdoll(sbyte boneIndex, in Vec3 force)`
 
-**Purpose:** Applies the effect of `force on ragdoll` to the current object.
+**Purpose:** **Purpose:** Applies the effect of force on ragdoll to the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -467,7 +467,7 @@ agent.ApplyForceOnRagdoll(0, force);
 ### SetVelocityLimitsOnRagdoll
 `public void SetVelocityLimitsOnRagdoll(float linearVelocityLimit, float angularVelocityLimit)`
 
-**Purpose:** Assigns a new value to `velocity limits on ragdoll` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to velocity limits on ragdoll and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -478,7 +478,7 @@ agent.SetVelocityLimitsOnRagdoll(0, 0);
 ### GetAILastSuspiciousPosition
 `public WorldPosition GetAILastSuspiciousPosition()`
 
-**Purpose:** Reads and returns the `a i last suspicious position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the a i last suspicious position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -489,7 +489,7 @@ var result = agent.GetAILastSuspiciousPosition();
 ### SetAILastSuspiciousPosition
 `public void SetAILastSuspiciousPosition(WorldPosition lastSuspiciousPosition, bool checkNavMeshForCorrection)`
 
-**Purpose:** Assigns a new value to `a i last suspicious position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to a i last suspicious position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -500,7 +500,7 @@ agent.SetAILastSuspiciousPosition(lastSuspiciousPosition, false);
 ### GetAIMoveDestination
 `public WorldPosition GetAIMoveDestination()`
 
-**Purpose:** Reads and returns the `a i move destination` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the a i move destination value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -511,7 +511,7 @@ var result = agent.GetAIMoveDestination();
 ### FindLongestDirectMoveToPosition
 `public Vec2 FindLongestDirectMoveToPosition(Vec2 targetPosition, bool checkBoundaries, bool checkFriendlyAgents, out bool isCollidedWithAgent)`
 
-**Purpose:** Looks up the matching `longest direct move to position` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching longest direct move to position in the current collection or scope.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -522,7 +522,7 @@ var result = agent.FindLongestDirectMoveToPosition(targetPosition, false, false,
 ### GetAIMoveStartTolerance
 `public float GetAIMoveStartTolerance()`
 
-**Purpose:** Reads and returns the `a i move start tolerance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the a i move start tolerance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -533,7 +533,7 @@ var result = agent.GetAIMoveStartTolerance();
 ### GetAIMoveStopTolerance
 `public float GetAIMoveStopTolerance()`
 
-**Purpose:** Reads and returns the `a i move stop tolerance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the a i move stop tolerance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -544,7 +544,7 @@ var result = agent.GetAIMoveStopTolerance();
 ### IsAIAtMoveDestination
 `public bool IsAIAtMoveDestination()`
 
-**Purpose:** Determines whether the current object is in the `a i at move destination` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the a i at move destination state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -555,7 +555,7 @@ var result = agent.IsAIAtMoveDestination();
 ### SetFormationBanner
 `public void SetFormationBanner(ItemObject banner)`
 
-**Purpose:** Assigns a new value to `formation banner` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to formation banner and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -566,7 +566,7 @@ agent.SetFormationBanner(banner);
 ### SetIsAIPaused
 `public void SetIsAIPaused(bool isPaused)`
 
-**Purpose:** Assigns a new value to `is a i paused` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is a i paused and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -577,7 +577,7 @@ agent.SetIsAIPaused(false);
 ### ResetEnemyCaches
 `public void ResetEnemyCaches()`
 
-**Purpose:** Returns `enemy caches` to its default or initial condition.
+**Purpose:** **Purpose:** Returns enemy caches to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -588,7 +588,7 @@ agent.ResetEnemyCaches();
 ### SetTargetPositionSynched
 `public void SetTargetPositionSynched(ref Vec2 targetPosition)`
 
-**Purpose:** Assigns a new value to `target position synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target position synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -599,7 +599,7 @@ agent.SetTargetPositionSynched(targetPosition);
 ### SetTargetPositionAndDirectionSynched
 `public void SetTargetPositionAndDirectionSynched(ref Vec2 targetPosition, ref Vec3 targetDirection)`
 
-**Purpose:** Assigns a new value to `target position and direction synched` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target position and direction synched and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -610,7 +610,7 @@ agent.SetTargetPositionAndDirectionSynched(targetPosition, targetDirection);
 ### SetBodyArmorMaterialType
 `public void SetBodyArmorMaterialType(ArmorComponent.ArmorMaterialTypes bodyArmorMaterialType)`
 
-**Purpose:** Assigns a new value to `body armor material type` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to body armor material type and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -621,7 +621,7 @@ agent.SetBodyArmorMaterialType(bodyArmorMaterialType);
 ### SetUsedGameObjectForClient
 `public void SetUsedGameObjectForClient(UsableMissionObject usedObject)`
 
-**Purpose:** Assigns a new value to `used game object for client` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to used game object for client and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -632,7 +632,7 @@ agent.SetUsedGameObjectForClient(usedObject);
 ### SetTeam
 `public void SetTeam(Team team, bool sync)`
 
-**Purpose:** Assigns a new value to `team` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to team and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -643,7 +643,7 @@ agent.SetTeam(team, false);
 ### SetClothingColor1
 `public void SetClothingColor1(uint color)`
 
-**Purpose:** Assigns a new value to `clothing color1` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to clothing color1 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -654,7 +654,7 @@ agent.SetClothingColor1(0);
 ### SetClothingColor2
 `public void SetClothingColor2(uint color)`
 
-**Purpose:** Assigns a new value to `clothing color2` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to clothing color2 and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -665,7 +665,7 @@ agent.SetClothingColor2(0);
 ### SetWieldedItemIndexAsClient
 `public void SetWieldedItemIndexAsClient(Agent.HandIndex handIndex, EquipmentIndex equipmentIndex, bool isWieldedInstantly, bool isWieldedOnSpawn, int mainHandCurrentUsageIndex)`
 
-**Purpose:** Assigns a new value to `wielded item index as client` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wielded item index as client and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -676,7 +676,7 @@ agent.SetWieldedItemIndexAsClient(handIndex, equipmentIndex, false, false, 0);
 ### SetPreciseRangedAimingEnabled
 `public void SetPreciseRangedAimingEnabled(bool set)`
 
-**Purpose:** Assigns a new value to `precise ranged aiming enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to precise ranged aiming enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -687,7 +687,7 @@ agent.SetPreciseRangedAimingEnabled(false);
 ### SetAsConversationAgent
 `public void SetAsConversationAgent(bool set)`
 
-**Purpose:** Assigns a new value to `as conversation agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to as conversation agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -698,7 +698,7 @@ agent.SetAsConversationAgent(false);
 ### SetCrouchMode
 `public void SetCrouchMode(bool set)`
 
-**Purpose:** Assigns a new value to `crouch mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to crouch mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -709,7 +709,7 @@ agent.SetCrouchMode(false);
 ### SetWeaponAmountInSlot
 `public void SetWeaponAmountInSlot(EquipmentIndex equipmentSlot, short amount, bool enforcePrimaryItem)`
 
-**Purpose:** Assigns a new value to `weapon amount in slot` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to weapon amount in slot and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -720,7 +720,7 @@ agent.SetWeaponAmountInSlot(equipmentSlot, 0, false);
 ### SetDraggingMode
 `public void SetDraggingMode(bool set)`
 
-**Purpose:** Assigns a new value to `dragging mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to dragging mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -731,7 +731,7 @@ agent.SetDraggingMode(false);
 ### SetWeaponAmmoAsClient
 `public void SetWeaponAmmoAsClient(EquipmentIndex equipmentIndex, EquipmentIndex ammoEquipmentIndex, short ammo)`
 
-**Purpose:** Assigns a new value to `weapon ammo as client` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to weapon ammo as client and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -742,7 +742,7 @@ agent.SetWeaponAmmoAsClient(equipmentIndex, ammoEquipmentIndex, 0);
 ### SetWeaponReloadPhaseAsClient
 `public void SetWeaponReloadPhaseAsClient(EquipmentIndex equipmentIndex, short reloadState)`
 
-**Purpose:** Assigns a new value to `weapon reload phase as client` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to weapon reload phase as client and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -753,7 +753,7 @@ agent.SetWeaponReloadPhaseAsClient(equipmentIndex, 0);
 ### SetReloadAmmoInSlot
 `public void SetReloadAmmoInSlot(EquipmentIndex equipmentIndex, EquipmentIndex ammoSlotIndex, short reloadedAmmo)`
 
-**Purpose:** Assigns a new value to `reload ammo in slot` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reload ammo in slot and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -764,7 +764,7 @@ agent.SetReloadAmmoInSlot(equipmentIndex, ammoSlotIndex, 0);
 ### SetUsageIndexOfWeaponInSlotAsClient
 `public void SetUsageIndexOfWeaponInSlotAsClient(EquipmentIndex slotIndex, int usageIndex)`
 
-**Purpose:** Assigns a new value to `usage index of weapon in slot as client` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to usage index of weapon in slot as client and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -775,7 +775,7 @@ agent.SetUsageIndexOfWeaponInSlotAsClient(slotIndex, 0);
 ### SetRandomizeColors
 `public void SetRandomizeColors(bool shouldRandomize)`
 
-**Purpose:** Assigns a new value to `randomize colors` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to randomize colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -786,7 +786,7 @@ agent.SetRandomizeColors(false);
 ### SetFormationFrameDisabled
 `public void SetFormationFrameDisabled()`
 
-**Purpose:** Assigns a new value to `formation frame disabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to formation frame disabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -797,7 +797,7 @@ agent.SetFormationFrameDisabled();
 ### SetFormationFrameEnabled
 `public void SetFormationFrameEnabled(WorldPosition position, Vec2 direction, Vec2 positionVelocity, float formationDirectionEnforcingFactor)`
 
-**Purpose:** Assigns a new value to `formation frame enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to formation frame enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -808,7 +808,7 @@ agent.SetFormationFrameEnabled(position, direction, positionVelocity, 0);
 ### SetShouldCatchUpWithFormation
 `public void SetShouldCatchUpWithFormation(bool value)`
 
-**Purpose:** Assigns a new value to `should catch up with formation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to should catch up with formation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -819,7 +819,7 @@ agent.SetShouldCatchUpWithFormation(false);
 ### SetFormationIntegrityData
 `public void SetFormationIntegrityData(Vec2 position, Vec2 currentFormationDirection, Vec2 averageVelocityOfCloseAgents, float averageMaxUnlimitedSpeedOfCloseAgents, float deviationOfPositions, bool shouldKeepWithFormationInsteadOfMovingToAgent)`
 
-**Purpose:** Assigns a new value to `formation integrity data` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to formation integrity data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -830,7 +830,7 @@ agent.SetFormationIntegrityData(position, currentFormationDirection, averageVelo
 ### IsCrouchingAllowed
 `public bool IsCrouchingAllowed()`
 
-**Purpose:** Determines whether the current object is in the `crouching allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the crouching allowed state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -841,7 +841,7 @@ var result = agent.IsCrouchingAllowed();
 ### SetCurrentActionProgress
 `public void SetCurrentActionProgress(int channelNo, float progress)`
 
-**Purpose:** Assigns a new value to `current action progress` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current action progress and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -852,7 +852,7 @@ agent.SetCurrentActionProgress(0, 0);
 ### SetCurrentActionSpeed
 `public void SetCurrentActionSpeed(int channelNo, float speed)`
 
-**Purpose:** Assigns a new value to `current action speed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current action speed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -863,7 +863,7 @@ agent.SetCurrentActionSpeed(0, 0);
 ### SetActionChannel
 `public bool SetActionChannel(int channelNo, in ActionIndexCache actionIndexCache, bool ignorePriority = false, AnimFlags additionalFlags = (AnimFlags)0UL, float blendWithNextActionFactor = 0f, float actionSpeed = 1f, float blendInPeriod = -0.2f, float blendOutPeriodToNoAnim = 0.4f, float startProgress = 0f, bool useLinearSmoothing = false, float blendOutPeriod = -0.2f, int actionShift = 0, bool forceFaceMorphRestart = true)`
 
-**Purpose:** Assigns a new value to `action channel` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to action channel and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -874,7 +874,7 @@ var result = agent.SetActionChannel(0, actionIndexCache, false, (AnimFlags)0UL, 
 ### SetAttackState
 `public void SetAttackState(int attackState)`
 
-**Purpose:** Assigns a new value to `attack state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to attack state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -885,7 +885,7 @@ agent.SetAttackState(0);
 ### SetAIBehaviorParams
 `public void SetAIBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
 
-**Purpose:** Assigns a new value to `a i behavior params` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to a i behavior params and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -896,7 +896,7 @@ agent.SetAIBehaviorParams(behavior, 0, 0, 0, 0, 0);
 ### SetAllBehaviorParams
 `public void SetAllBehaviorParams(HumanAIComponent.BehaviorValues behaviorParams)`
 
-**Purpose:** Assigns a new value to `all behavior params` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to all behavior params and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -907,7 +907,7 @@ agent.SetAllBehaviorParams(behaviorParams);
 ### SetMovementDirection
 `public void SetMovementDirection(in Vec2 direction)`
 
-**Purpose:** Assigns a new value to `movement direction` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to movement direction and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -918,7 +918,7 @@ agent.SetMovementDirection(direction);
 ### SetScriptedFlags
 `public void SetScriptedFlags(Agent.AIScriptedFrameFlags flags)`
 
-**Purpose:** Assigns a new value to `scripted flags` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scripted flags and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -929,7 +929,7 @@ agent.SetScriptedFlags(flags);
 ### SetScriptedCombatFlags
 `public void SetScriptedCombatFlags(Agent.AISpecialCombatModeFlags flags)`
 
-**Purpose:** Assigns a new value to `scripted combat flags` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scripted combat flags and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -940,7 +940,7 @@ agent.SetScriptedCombatFlags(flags);
 ### SetScriptedPositionAndDirection
 `public void SetScriptedPositionAndDirection(ref WorldPosition scriptedPosition, float scriptedDirection, bool addHumanLikeDelay, Agent.AIScriptedFrameFlags additionalFlags = Agent.AIScriptedFrameFlags.None)`
 
-**Purpose:** Assigns a new value to `scripted position and direction` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scripted position and direction and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -951,7 +951,7 @@ agent.SetScriptedPositionAndDirection(scriptedPosition, 0, false, agent.AIScript
 ### SetScriptedPosition
 `public void SetScriptedPosition(ref WorldPosition position, bool addHumanLikeDelay, Agent.AIScriptedFrameFlags additionalFlags = Agent.AIScriptedFrameFlags.None)`
 
-**Purpose:** Assigns a new value to `scripted position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scripted position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -962,7 +962,7 @@ agent.SetScriptedPosition(position, false, agent.AIScriptedFrameFlags.None);
 ### SetScriptedTargetEntityAndPosition
 `public void SetScriptedTargetEntityAndPosition(WeakGameEntity target, WorldPosition position, Agent.AISpecialCombatModeFlags additionalFlags = Agent.AISpecialCombatModeFlags.None, bool ignoreIfAlreadyAttacking = false)`
 
-**Purpose:** Assigns a new value to `scripted target entity and position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scripted target entity and position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -973,7 +973,7 @@ agent.SetScriptedTargetEntityAndPosition(target, position, agent.AISpecialCombat
 ### SetAgentExcludeStateForFaceGroupId
 `public void SetAgentExcludeStateForFaceGroupId(int faceGroupId, bool isExcluded)`
 
-**Purpose:** Assigns a new value to `agent exclude state for face group id` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to agent exclude state for face group id and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -984,7 +984,7 @@ agent.SetAgentExcludeStateForFaceGroupId(0, false);
 ### SetLookAgent
 `public void SetLookAgent(Agent agent)`
 
-**Purpose:** Assigns a new value to `look agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to look agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -995,7 +995,7 @@ agent.SetLookAgent(agent);
 ### SetInteractionAgent
 `public void SetInteractionAgent(Agent agent)`
 
-**Purpose:** Assigns a new value to `interaction agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to interaction agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1006,7 +1006,7 @@ agent.SetInteractionAgent(agent);
 ### SetLookToPointOfInterest
 `public void SetLookToPointOfInterest(Vec3 point)`
 
-**Purpose:** Assigns a new value to `look to point of interest` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to look to point of interest and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1017,7 +1017,7 @@ agent.SetLookToPointOfInterest(point);
 ### SetAgentFlags
 `public void SetAgentFlags(AgentFlag agentFlags)`
 
-**Purpose:** Assigns a new value to `agent flags` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to agent flags and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1028,7 +1028,7 @@ agent.SetAgentFlags(agentFlags);
 ### SetSelectedMountIndex
 `public void SetSelectedMountIndex(int mountIndex)`
 
-**Purpose:** Assigns a new value to `selected mount index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to selected mount index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1039,7 +1039,7 @@ agent.SetSelectedMountIndex(0);
 ### GetFiringOrder
 `public int GetFiringOrder()`
 
-**Purpose:** Reads and returns the `firing order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the firing order value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1050,7 +1050,7 @@ var result = agent.GetFiringOrder();
 ### GetRidingOrder
 `public int GetRidingOrder()`
 
-**Purpose:** Reads and returns the `riding order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the riding order value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1061,7 +1061,7 @@ var result = agent.GetRidingOrder();
 ### GetSelectedMountIndex
 `public int GetSelectedMountIndex()`
 
-**Purpose:** Reads and returns the `selected mount index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the selected mount index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1072,7 +1072,7 @@ var result = agent.GetSelectedMountIndex();
 ### GetTargetFormationIndex
 `public int GetTargetFormationIndex()`
 
-**Purpose:** Reads and returns the `target formation index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target formation index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1083,7 +1083,7 @@ var result = agent.GetTargetFormationIndex();
 ### SetFiringOrder
 `public void SetFiringOrder(FiringOrder.RangedWeaponUsageOrderEnum order)`
 
-**Purpose:** Assigns a new value to `firing order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to firing order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1094,7 +1094,7 @@ agent.SetFiringOrder(order);
 ### SetRidingOrder
 `public void SetRidingOrder(RidingOrder.RidingOrderEnum order)`
 
-**Purpose:** Assigns a new value to `riding order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to riding order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1105,7 +1105,7 @@ agent.SetRidingOrder(order);
 ### SetAgentFacialAnimation
 `public void SetAgentFacialAnimation(Agent.FacialAnimChannel channel, string animationName, bool loop)`
 
-**Purpose:** Assigns a new value to `agent facial animation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to agent facial animation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1116,7 +1116,7 @@ agent.SetAgentFacialAnimation(channel, "example", false);
 ### SetHandInverseKinematicsFrame
 `public bool SetHandInverseKinematicsFrame(in MatrixFrame leftGlobalFrame, in MatrixFrame rightGlobalFrame)`
 
-**Purpose:** Assigns a new value to `hand inverse kinematics frame` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to hand inverse kinematics frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1127,7 +1127,7 @@ var result = agent.SetHandInverseKinematicsFrame(leftGlobalFrame, rightGlobalFra
 ### SetNativeFormationNo
 `public void SetNativeFormationNo(int formationNo)`
 
-**Purpose:** Assigns a new value to `native formation no` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to native formation no and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1138,7 +1138,7 @@ agent.SetNativeFormationNo(0);
 ### SetDirectionChangeTendency
 `public void SetDirectionChangeTendency(float tendency)`
 
-**Purpose:** Assigns a new value to `direction change tendency` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to direction change tendency and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1149,7 +1149,7 @@ agent.SetDirectionChangeTendency(0);
 ### GetBattleImportance
 `public float GetBattleImportance()`
 
-**Purpose:** Reads and returns the `battle importance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the battle importance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1160,7 +1160,7 @@ var result = agent.GetBattleImportance();
 ### GetTraitsMask
 `public TroopTraitsMask GetTraitsMask()`
 
-**Purpose:** Reads and returns the `traits mask` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the traits mask value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1171,7 +1171,7 @@ var result = agent.GetTraitsMask();
 ### SetSynchedPrefabComponentVisibility
 `public void SetSynchedPrefabComponentVisibility(int componentIndex, bool visibility)`
 
-**Purpose:** Assigns a new value to `synched prefab component visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to synched prefab component visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1182,7 +1182,7 @@ agent.SetSynchedPrefabComponentVisibility(0, false);
 ### SetActionSet
 `public void SetActionSet(ref AnimationSystemData animationSystemData)`
 
-**Purpose:** Assigns a new value to `action set` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to action set and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1193,7 +1193,7 @@ agent.SetActionSet(animationSystemData);
 ### SetColumnwiseFollowAgent
 `public void SetColumnwiseFollowAgent(Agent followAgent, ref Vec2 followPosition)`
 
-**Purpose:** Assigns a new value to `columnwise follow agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to columnwise follow agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1204,7 +1204,7 @@ agent.SetColumnwiseFollowAgent(followAgent, followPosition);
 ### SetHandInverseKinematicsFrameForMissionObjectUsage
 `public void SetHandInverseKinematicsFrameForMissionObjectUsage(in MatrixFrame localIKFrame, in MatrixFrame boundEntityGlobalFrame, float animationHeightDifference = 0f)`
 
-**Purpose:** Assigns a new value to `hand inverse kinematics frame for mission object usage` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to hand inverse kinematics frame for mission object usage and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1215,7 +1215,7 @@ agent.SetHandInverseKinematicsFrameForMissionObjectUsage(localIKFrame, boundEnti
 ### SetWantsToYell
 `public void SetWantsToYell()`
 
-**Purpose:** Assigns a new value to `wants to yell` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wants to yell and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1226,7 +1226,7 @@ agent.SetWantsToYell();
 ### SetCapeClothSimulator
 `public void SetCapeClothSimulator(GameEntityComponent clothSimulatorComponent)`
 
-**Purpose:** Assigns a new value to `cape cloth simulator` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cape cloth simulator and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1237,7 +1237,7 @@ agent.SetCapeClothSimulator(clothSimulatorComponent);
 ### GetTargetPosition
 `public Vec2 GetTargetPosition()`
 
-**Purpose:** Reads and returns the `target position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1248,7 +1248,7 @@ var result = agent.GetTargetPosition();
 ### GetTargetDirection
 `public Vec3 GetTargetDirection()`
 
-**Purpose:** Reads and returns the `target direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1259,7 +1259,7 @@ var result = agent.GetTargetDirection();
 ### GetAimingTimer
 `public float GetAimingTimer()`
 
-**Purpose:** Reads and returns the `aiming timer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the aiming timer value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1270,7 +1270,7 @@ var result = agent.GetAimingTimer();
 ### GetInteractionDistanceToUsable
 `public float GetInteractionDistanceToUsable(IUsable usable)`
 
-**Purpose:** Reads and returns the `interaction distance to usable` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the interaction distance to usable value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1281,7 +1281,7 @@ var result = agent.GetInteractionDistanceToUsable(usable);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**Purpose:** Reads and returns the `info text for being not interactable` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1292,7 +1292,7 @@ var result = agent.GetInfoTextForBeingNotInteractable(userAgent);
 ### GetPrimaryWieldedItemIndex
 `public EquipmentIndex GetPrimaryWieldedItemIndex()`
 
-**Purpose:** Reads and returns the `primary wielded item index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the primary wielded item index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1303,7 +1303,7 @@ var result = agent.GetPrimaryWieldedItemIndex();
 ### GetOffhandWieldedItemIndex
 `public EquipmentIndex GetOffhandWieldedItemIndex()`
 
-**Purpose:** Reads and returns the `offhand wielded item index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the offhand wielded item index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1314,7 +1314,7 @@ var result = agent.GetOffhandWieldedItemIndex();
 ### GetMaximumForwardUnlimitedSpeed
 `public float GetMaximumForwardUnlimitedSpeed()`
 
-**Purpose:** Reads and returns the `maximum forward unlimited speed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum forward unlimited speed value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1325,7 +1325,7 @@ var result = agent.GetMaximumForwardUnlimitedSpeed();
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1336,7 +1336,7 @@ var result = agent.GetDescriptionText(gameEntity);
 ### GetWeaponEntityFromEquipmentSlot
 `public WeakGameEntity GetWeaponEntityFromEquipmentSlot(EquipmentIndex slotIndex)`
 
-**Purpose:** Reads and returns the `weapon entity from equipment slot` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the weapon entity from equipment slot value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1347,7 +1347,7 @@ var result = agent.GetWeaponEntityFromEquipmentSlot(slotIndex);
 ### GetRetreatPos
 `public WorldPosition GetRetreatPos()`
 
-**Purpose:** Reads and returns the `retreat pos` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the retreat pos value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1358,7 +1358,7 @@ var result = agent.GetRetreatPos();
 ### GetScriptedFlags
 `public Agent.AIScriptedFrameFlags GetScriptedFlags()`
 
-**Purpose:** Reads and returns the `scripted flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scripted flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1369,7 +1369,7 @@ var result = agent.GetScriptedFlags();
 ### GetScriptedCombatFlags
 `public Agent.AISpecialCombatModeFlags GetScriptedCombatFlags()`
 
-**Purpose:** Reads and returns the `scripted combat flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scripted combat flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1380,7 +1380,7 @@ var result = agent.GetScriptedCombatFlags();
 ### GetSteppedEntity
 `public WeakGameEntity GetSteppedEntity()`
 
-**Purpose:** Reads and returns the `stepped entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stepped entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1391,7 +1391,7 @@ var result = agent.GetSteppedEntity();
 ### GetSteppedRootEntity
 `public WeakGameEntity GetSteppedRootEntity()`
 
-**Purpose:** Reads and returns the `stepped root entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stepped root entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1402,7 +1402,7 @@ var result = agent.GetSteppedRootEntity();
 ### GetSteppedBodyFlags
 `public BodyFlags GetSteppedBodyFlags()`
 
-**Purpose:** Reads and returns the `stepped body flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stepped body flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1413,7 +1413,7 @@ var result = agent.GetSteppedBodyFlags();
 ### GetCurrentAnimationFlag
 `public AnimFlags GetCurrentAnimationFlag(int channelNo)`
 
-**Purpose:** Reads and returns the `current animation flag` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current animation flag value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1424,7 +1424,7 @@ var result = agent.GetCurrentAnimationFlag(0);
 ### GetCurrentAction
 `public ActionIndexCache GetCurrentAction(int channelNo)`
 
-**Purpose:** Reads and returns the `current action` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current action value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1435,7 +1435,7 @@ var result = agent.GetCurrentAction(0);
 ### GetCurrentActionType
 `public Agent.ActionCodeType GetCurrentActionType(int channelNo)`
 
-**Purpose:** Reads and returns the `current action type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current action type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1446,7 +1446,7 @@ var result = agent.GetCurrentActionType(0);
 ### GetCurrentActionStage
 `public Agent.ActionStage GetCurrentActionStage(int channelNo)`
 
-**Purpose:** Reads and returns the `current action stage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current action stage value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1457,7 +1457,7 @@ var result = agent.GetCurrentActionStage(0);
 ### GetCurrentActionDirection
 `public Agent.UsageDirection GetCurrentActionDirection(int channelNo)`
 
-**Purpose:** Reads and returns the `current action direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current action direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1468,7 +1468,7 @@ var result = agent.GetCurrentActionDirection(0);
 ### GetCurrentActionPriority
 `public int GetCurrentActionPriority(int channelNo)`
 
-**Purpose:** Reads and returns the `current action priority` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current action priority value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1479,7 +1479,7 @@ var result = agent.GetCurrentActionPriority(0);
 ### GetCurrentActionProgress
 `public float GetCurrentActionProgress(int channelNo)`
 
-**Purpose:** Reads and returns the `current action progress` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current action progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1490,7 +1490,7 @@ var result = agent.GetCurrentActionProgress(0);
 ### GetActionChannelWeight
 `public float GetActionChannelWeight(int channelNo)`
 
-**Purpose:** Reads and returns the `action channel weight` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action channel weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1501,7 +1501,7 @@ var result = agent.GetActionChannelWeight(0);
 ### GetActionChannelCurrentActionWeight
 `public float GetActionChannelCurrentActionWeight(int channelNo)`
 
-**Purpose:** Reads and returns the `action channel current action weight` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action channel current action weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1512,7 +1512,7 @@ var result = agent.GetActionChannelCurrentActionWeight(0);
 ### GetWorldFrame
 `public WorldFrame GetWorldFrame()`
 
-**Purpose:** Reads and returns the `world frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the world frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1523,7 +1523,7 @@ var result = agent.GetWorldFrame();
 ### GetLookDownLimit
 `public float GetLookDownLimit()`
 
-**Purpose:** Reads and returns the `look down limit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the look down limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1534,7 +1534,7 @@ var result = agent.GetLookDownLimit();
 ### GetEyeGlobalHeight
 `public float GetEyeGlobalHeight()`
 
-**Purpose:** Reads and returns the `eye global height` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the eye global height value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1545,7 +1545,7 @@ var result = agent.GetEyeGlobalHeight();
 ### GetMaximumSpeedLimit
 `public float GetMaximumSpeedLimit()`
 
-**Purpose:** Reads and returns the `maximum speed limit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum speed limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1556,7 +1556,7 @@ var result = agent.GetMaximumSpeedLimit();
 ### GetCurrentVelocity
 `public Vec2 GetCurrentVelocity()`
 
-**Purpose:** Reads and returns the `current velocity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1567,7 +1567,7 @@ var result = agent.GetCurrentVelocity();
 ### GetTurnSpeed
 `public float GetTurnSpeed()`
 
-**Purpose:** Reads and returns the `turn speed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the turn speed value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1578,7 +1578,7 @@ var result = agent.GetTurnSpeed();
 ### GetCurrentSpeedLimit
 `public float GetCurrentSpeedLimit()`
 
-**Purpose:** Reads and returns the `current speed limit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current speed limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1589,7 +1589,7 @@ var result = agent.GetCurrentSpeedLimit();
 ### GetRealGlobalVelocity
 `public Vec3 GetRealGlobalVelocity()`
 
-**Purpose:** Reads and returns the `real global velocity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the real global velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1600,7 +1600,7 @@ var result = agent.GetRealGlobalVelocity();
 ### GetAverageRealGlobalVelocity
 `public Vec3 GetAverageRealGlobalVelocity()`
 
-**Purpose:** Reads and returns the `average real global velocity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the average real global velocity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1611,7 +1611,7 @@ var result = agent.GetAverageRealGlobalVelocity();
 ### GetMovementDirection
 `public Vec2 GetMovementDirection()`
 
-**Purpose:** Reads and returns the `movement direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the movement direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1622,7 +1622,7 @@ var result = agent.GetMovementDirection();
 ### GetCurWeaponOffset
 `public Vec3 GetCurWeaponOffset()`
 
-**Purpose:** Reads and returns the `cur weapon offset` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cur weapon offset value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1633,7 +1633,7 @@ var result = agent.GetCurWeaponOffset();
 ### GetIsLeftStance
 `public bool GetIsLeftStance()`
 
-**Purpose:** Reads and returns the `is left stance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is left stance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1644,7 +1644,7 @@ var result = agent.GetIsLeftStance();
 ### GetPathDistanceToPoint
 `public float GetPathDistanceToPoint(ref Vec3 point)`
 
-**Purpose:** Reads and returns the `path distance to point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the path distance to point value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1655,7 +1655,7 @@ var result = agent.GetPathDistanceToPoint(point);
 ### GetCurrentNavigationFaceId
 `public int GetCurrentNavigationFaceId()`
 
-**Purpose:** Reads and returns the `current navigation face id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current navigation face id value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1666,7 +1666,7 @@ var result = agent.GetCurrentNavigationFaceId();
 ### GetWorldPosition
 `public WorldPosition GetWorldPosition()`
 
-**Purpose:** Reads and returns the `world position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the world position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1677,7 +1677,7 @@ var result = agent.GetWorldPosition();
 ### GetLookAgent
 `public Agent GetLookAgent()`
 
-**Purpose:** Reads and returns the `look agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the look agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1688,7 +1688,7 @@ var result = agent.GetLookAgent();
 ### GetTargetAgent
 `public Agent GetTargetAgent()`
 
-**Purpose:** Reads and returns the `target agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1699,7 +1699,7 @@ var result = agent.GetTargetAgent();
 ### SetTargetAgent
 `public void SetTargetAgent(Agent agent)`
 
-**Purpose:** Assigns a new value to `target agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1710,7 +1710,7 @@ agent.SetTargetAgent(agent);
 ### SetAutomaticTargetSelection
 `public void SetAutomaticTargetSelection(bool enable)`
 
-**Purpose:** Assigns a new value to `automatic target selection` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to automatic target selection and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1721,7 +1721,7 @@ agent.SetAutomaticTargetSelection(false);
 ### GetAgentFlags
 `public AgentFlag GetAgentFlags()`
 
-**Purpose:** Reads and returns the `agent flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1732,7 +1732,7 @@ var result = agent.GetAgentFlags();
 ### GetAgentFacialAnimation
 `public string GetAgentFacialAnimation()`
 
-**Purpose:** Reads and returns the `agent facial animation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent facial animation value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1743,7 +1743,7 @@ var result = agent.GetAgentFacialAnimation();
 ### GetAgentVoiceDefinition
 `public string GetAgentVoiceDefinition()`
 
-**Purpose:** Reads and returns the `agent voice definition` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent voice definition value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1754,7 +1754,7 @@ var result = agent.GetAgentVoiceDefinition();
 ### GetEyeGlobalPosition
 `public Vec3 GetEyeGlobalPosition()`
 
-**Purpose:** Reads and returns the `eye global position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the eye global position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1765,7 +1765,7 @@ var result = agent.GetEyeGlobalPosition();
 ### GetChestGlobalPosition
 `public Vec3 GetChestGlobalPosition()`
 
-**Purpose:** Reads and returns the `chest global position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the chest global position value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1776,7 +1776,7 @@ var result = agent.GetChestGlobalPosition();
 ### GetDefendMovementFlag
 `public Agent.MovementControlFlag GetDefendMovementFlag()`
 
-**Purpose:** Reads and returns the `defend movement flag` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the defend movement flag value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1787,7 +1787,7 @@ var result = agent.GetDefendMovementFlag();
 ### GetAttackDirection
 `public Agent.UsageDirection GetAttackDirection()`
 
-**Purpose:** Reads and returns the `attack direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attack direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1798,7 +1798,7 @@ var result = agent.GetAttackDirection();
 ### GetWieldedWeaponInfo
 `public WeaponInfo GetWieldedWeaponInfo(Agent.HandIndex handIndex)`
 
-**Purpose:** Reads and returns the `wielded weapon info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the wielded weapon info value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1809,7 +1809,7 @@ var result = agent.GetWieldedWeaponInfo(handIndex);
 ### GetBodyRotationConstraint
 `public Vec2 GetBodyRotationConstraint(int channelIndex = 1)`
 
-**Purpose:** Reads and returns the `body rotation constraint` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the body rotation constraint value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1820,7 +1820,7 @@ var result = agent.GetBodyRotationConstraint(0);
 ### GetTotalEncumbrance
 `public float GetTotalEncumbrance()`
 
-**Purpose:** Reads and returns the `total encumbrance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total encumbrance value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1831,7 +1831,7 @@ var result = agent.GetTotalEncumbrance();
 ### GetAgentDrivenPropertyValue
 `public float GetAgentDrivenPropertyValue(DrivenProperty type)`
 
-**Purpose:** Reads and returns the `agent driven property value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent driven property value value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1842,7 +1842,7 @@ var result = agent.GetAgentDrivenPropertyValue(type);
 ### GetSteppedMachine
 `public UsableMachine GetSteppedMachine()`
 
-**Purpose:** Reads and returns the `stepped machine` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stepped machine value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1853,7 +1853,7 @@ var result = agent.GetSteppedMachine();
 ### GetAttachedWeaponsCount
 `public int GetAttachedWeaponsCount()`
 
-**Purpose:** Reads and returns the `attached weapons count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attached weapons count value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1864,7 +1864,7 @@ var result = agent.GetAttachedWeaponsCount();
 ### GetAttachedWeapon
 `public MissionWeapon GetAttachedWeapon(int index)`
 
-**Purpose:** Reads and returns the `attached weapon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attached weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1875,7 +1875,7 @@ var result = agent.GetAttachedWeapon(0);
 ### GetAttachedWeaponFrame
 `public MatrixFrame GetAttachedWeaponFrame(int index)`
 
-**Purpose:** Reads and returns the `attached weapon frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attached weapon frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1886,7 +1886,7 @@ var result = agent.GetAttachedWeaponFrame(0);
 ### GetAttachedWeaponBoneIndex
 `public sbyte GetAttachedWeaponBoneIndex(int index)`
 
-**Purpose:** Reads and returns the `attached weapon bone index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the attached weapon bone index value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1897,7 +1897,7 @@ var result = agent.GetAttachedWeaponBoneIndex(0);
 ### DeleteAttachedWeapon
 `public void DeleteAttachedWeapon(int index)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteAttachedWeapon logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1908,7 +1908,7 @@ agent.DeleteAttachedWeapon(0);
 ### HasRangedWeapon
 `public bool HasRangedWeapon(bool checkHasAmmo = false)`
 
-**Purpose:** Determines whether the current object already holds `ranged weapon`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds ranged weapon.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1919,7 +1919,7 @@ var result = agent.HasRangedWeapon(false);
 ### GetFormationFileAndRankInfo
 `public void GetFormationFileAndRankInfo(out int fileIndex, out int rankIndex)`
 
-**Purpose:** Reads and returns the `formation file and rank info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation file and rank info value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1930,7 +1930,7 @@ agent.GetFormationFileAndRankInfo(fileIndex, rankIndex);
 ### GetFormationFileAndRankInfo
 `public void GetFormationFileAndRankInfo(out int fileIndex, out int rankIndex, out int fileCount, out int rankCount)`
 
-**Purpose:** Reads and returns the `formation file and rank info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation file and rank info value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1941,7 +1941,7 @@ agent.GetFormationFileAndRankInfo(fileIndex, rankIndex, fileCount, rankCount);
 ### SetMortalityState
 `public void SetMortalityState(Agent.MortalityState newState)`
 
-**Purpose:** Assigns a new value to `mortality state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mortality state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1952,7 +1952,7 @@ agent.SetMortalityState(newState);
 ### ToggleInvulnerable
 `public void ToggleInvulnerable()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToggleInvulnerable logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1963,7 +1963,7 @@ agent.ToggleInvulnerable();
 ### GetArmLength
 `public float GetArmLength()`
 
-**Purpose:** Reads and returns the `arm length` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the arm length value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1974,7 +1974,7 @@ var result = agent.GetArmLength();
 ### GetArmWeight
 `public float GetArmWeight()`
 
-**Purpose:** Reads and returns the `arm weight` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the arm weight value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1985,7 +1985,7 @@ var result = agent.GetArmWeight();
 ### GetRunningSimulationDataUntilMaximumSpeedReached
 `public void GetRunningSimulationDataUntilMaximumSpeedReached(ref float combatAccelerationTime, ref float maxSpeed, float speedValues)`
 
-**Purpose:** Reads and returns the `running simulation data until maximum speed reached` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the running simulation data until maximum speed reached value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -1996,7 +1996,7 @@ agent.GetRunningSimulationDataUntilMaximumSpeedReached(combatAccelerationTime, m
 ### SetMaximumSpeedLimit
 `public void SetMaximumSpeedLimit(float maximumSpeedLimit, bool isMultiplier)`
 
-**Purpose:** Assigns a new value to `maximum speed limit` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to maximum speed limit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2007,7 +2007,7 @@ agent.SetMaximumSpeedLimit(0, false);
 ### GetBaseArmorEffectivenessForBodyPart
 `public float GetBaseArmorEffectivenessForBodyPart(BoneBodyPartType bodyPart)`
 
-**Purpose:** Reads and returns the `base armor effectiveness for body part` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the base armor effectiveness for body part value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2018,7 +2018,7 @@ var result = agent.GetBaseArmorEffectivenessForBodyPart(bodyPart);
 ### GetLastTargetVisibilityState
 `public AITargetVisibilityState GetLastTargetVisibilityState()`
 
-**Purpose:** Reads and returns the `last target visibility state` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the last target visibility state value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2029,7 +2029,7 @@ var result = agent.GetLastTargetVisibilityState();
 ### GetMissileRange
 `public float GetMissileRange()`
 
-**Purpose:** Reads and returns the `missile range` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the missile range value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2040,7 +2040,7 @@ var result = agent.GetMissileRange();
 ### SetAgentIdleAnimationStatus
 `public void SetAgentIdleAnimationStatus(bool idleEnabled)`
 
-**Purpose:** Assigns a new value to `agent idle animation status` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to agent idle animation status and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2051,7 +2051,7 @@ agent.SetAgentIdleAnimationStatus(false);
 ### GetWeaponToReplaceOnQuickAction
 `public ItemObject GetWeaponToReplaceOnQuickAction(SpawnedItemEntity spawnedItem, out EquipmentIndex possibleSlotIndex)`
 
-**Purpose:** Reads and returns the `weapon to replace on quick action` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the weapon to replace on quick action value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2062,7 +2062,7 @@ var result = agent.GetWeaponToReplaceOnQuickAction(spawnedItem, possibleSlotInde
 ### GetAssistingHitter
 `public Agent.Hitter GetAssistingHitter(MissionPeer killerPeer)`
 
-**Purpose:** Reads and returns the `assisting hitter` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the assisting hitter value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2073,7 +2073,7 @@ var result = agent.GetAssistingHitter(killerPeer);
 ### CanReachAgent
 `public bool CanReachAgent(Agent otherAgent)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `reach agent`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for reach agent.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2084,7 +2084,7 @@ var result = agent.CanReachAgent(otherAgent);
 ### CanInteractWithAgent
 `public bool CanInteractWithAgent(Agent otherAgent, float userAgentCameraElevation)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `interact with agent`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for interact with agent.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2095,7 +2095,7 @@ var result = agent.CanInteractWithAgent(otherAgent, 0);
 ### CanBeAssignedForScriptedMovement
 `public bool CanBeAssignedForScriptedMovement()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `be assigned for scripted movement`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for be assigned for scripted movement.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2106,7 +2106,7 @@ var result = agent.CanBeAssignedForScriptedMovement();
 ### CanReachAndUseObject
 `public bool CanReachAndUseObject(UsableMissionObject gameObject, float distanceSq)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `reach and use object`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for reach and use object.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2117,7 +2117,7 @@ var result = agent.CanReachAndUseObject(gameObject, 0);
 ### CanReachObject
 `public bool CanReachObject(UsableMissionObject gameObject, float distanceSq)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `reach object`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for reach object.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2128,7 +2128,7 @@ var result = agent.CanReachObject(gameObject, 0);
 ### CanReachObjectFromPosition
 `public bool CanReachObjectFromPosition(UsableMissionObject gameObject, float distanceSq, Vec3 position)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `reach object from position`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for reach object from position.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2139,7 +2139,7 @@ var result = agent.CanReachObjectFromPosition(gameObject, 0, position);
 ### CanUseObject
 `public bool CanUseObject(UsableMissionObject gameObject)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `use object`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for use object.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2150,7 +2150,7 @@ var result = agent.CanUseObject(gameObject);
 ### CanMoveDirectlyToPosition
 `public bool CanMoveDirectlyToPosition(in Vec2 position)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `move directly to position`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for move directly to position.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2161,7 +2161,7 @@ var result = agent.CanMoveDirectlyToPosition(position);
 ### CanInteractableWeaponBePickedUp
 `public bool CanInteractableWeaponBePickedUp(SpawnedItemEntity spawnedItem)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `interactable weapon be picked up`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for interactable weapon be picked up.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2172,7 +2172,7 @@ var result = agent.CanInteractableWeaponBePickedUp(spawnedItem);
 ### CanQuickPickUp
 `public bool CanQuickPickUp(SpawnedItemEntity spawnedItem)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `quick pick up`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for quick pick up.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2183,7 +2183,7 @@ var result = agent.CanQuickPickUp(spawnedItem);
 ### CanTeleport
 `public unsafe bool CanTeleport()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `teleport`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for teleport.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2194,7 +2194,7 @@ var result = agent.CanTeleport();
 ### IsActive
 `public bool IsActive()`
 
-**Purpose:** Determines whether the current object is in the `active` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the active state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2205,7 +2205,7 @@ var result = agent.IsActive();
 ### IsRetreating
 `public bool IsRetreating()`
 
-**Purpose:** Determines whether the current object is in the `retreating` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the retreating state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2216,7 +2216,7 @@ var result = agent.IsRetreating();
 ### IsFadingOut
 `public bool IsFadingOut()`
 
-**Purpose:** Determines whether the current object is in the `fading out` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the fading out state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2227,7 +2227,7 @@ var result = agent.IsFadingOut();
 ### SetAgentDrivenPropertyValueFromConsole
 `public void SetAgentDrivenPropertyValueFromConsole(DrivenProperty type, float val)`
 
-**Purpose:** Assigns a new value to `agent driven property value from console` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to agent driven property value from console and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2238,7 +2238,7 @@ agent.SetAgentDrivenPropertyValueFromConsole(type, 0);
 ### IsOnLand
 `public bool IsOnLand()`
 
-**Purpose:** Determines whether the current object is in the `on land` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the on land state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2249,7 +2249,7 @@ var result = agent.IsOnLand();
 ### IsInWater
 `public bool IsInWater()`
 
-**Purpose:** Determines whether the current object is in the `in water` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the in water state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2260,7 +2260,7 @@ var result = agent.IsInWater();
 ### IsAbleToUseMachine
 `public bool IsAbleToUseMachine()`
 
-**Purpose:** Determines whether the current object is in the `able to use machine` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the able to use machine state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2271,7 +2271,7 @@ var result = agent.IsAbleToUseMachine();
 ### IsAgentParentEntitySameAs
 `public bool IsAgentParentEntitySameAs(GameEntity toBeChecked)`
 
-**Purpose:** Determines whether the current object is in the `agent parent entity same as` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the agent parent entity same as state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2282,7 +2282,7 @@ var result = agent.IsAgentParentEntitySameAs(toBeChecked);
 ### SetExcludedFromGravity
 `public void SetExcludedFromGravity(bool exclude, bool applyAverageGlobalVelocity)`
 
-**Purpose:** Assigns a new value to `excluded from gravity` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to excluded from gravity and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2293,7 +2293,7 @@ agent.SetExcludedFromGravity(false, false);
 ### SetForceAttachedEntity
 `public void SetForceAttachedEntity(WeakGameEntity willBeAttached)`
 
-**Purpose:** Assigns a new value to `force attached entity` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to force attached entity and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2304,7 +2304,7 @@ agent.SetForceAttachedEntity(willBeAttached);
 ### IsSliding
 `public bool IsSliding()`
 
-**Purpose:** Determines whether the current object is in the `sliding` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the sliding state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2315,7 +2315,7 @@ var result = agent.IsSliding();
 ### IsSitting
 `public bool IsSitting()`
 
-**Purpose:** Determines whether the current object is in the `sitting` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the sitting state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2326,7 +2326,7 @@ var result = agent.IsSitting();
 ### IsReleasingChainAttackInMultiplayer
 `public bool IsReleasingChainAttackInMultiplayer()`
 
-**Purpose:** Determines whether the current object is in the `releasing chain attack in multiplayer` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the releasing chain attack in multiplayer state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2337,7 +2337,7 @@ var result = agent.IsReleasingChainAttackInMultiplayer();
 ### IsCameraAttachable
 `public bool IsCameraAttachable()`
 
-**Purpose:** Determines whether the current object is in the `camera attachable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the camera attachable state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2348,7 +2348,7 @@ var result = agent.IsCameraAttachable();
 ### IsSynchedPrefabComponentVisible
 `public bool IsSynchedPrefabComponentVisible(int componentIndex)`
 
-**Purpose:** Determines whether the current object is in the `synched prefab component visible` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the synched prefab component visible state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2359,7 +2359,7 @@ var result = agent.IsSynchedPrefabComponentVisible(0);
 ### IsEnemyOf
 `public bool IsEnemyOf(Agent otherAgent)`
 
-**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2370,7 +2370,7 @@ var result = agent.IsEnemyOf(otherAgent);
 ### IsFriendOf
 `public bool IsFriendOf(Agent otherAgent)`
 
-**Purpose:** Determines whether the current object is in the `friend of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the friend of state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2381,7 +2381,7 @@ var result = agent.IsFriendOf(otherAgent);
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**Purpose:** Invoked when the `focus gain` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus gain event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2392,7 +2392,7 @@ agent.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**Purpose:** Invoked when the `focus lose` event is raised.
+**Purpose:** **Purpose:** Invoked when the focus lose event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2403,7 +2403,7 @@ agent.OnFocusLose(userAgent);
 ### OnItemRemovedFromScene
 `public void OnItemRemovedFromScene()`
 
-**Purpose:** Invoked when the `item removed from scene` event is raised.
+**Purpose:** **Purpose:** Invoked when the item removed from scene event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2414,7 +2414,7 @@ agent.OnItemRemovedFromScene();
 ### OnUse
 `public void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `use` event is raised.
+**Purpose:** **Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2425,7 +2425,7 @@ agent.OnUse(userAgent, 0);
 ### OnUseStopped
 `public void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
 
-**Purpose:** Invoked when the `use stopped` event is raised.
+**Purpose:** **Purpose:** Invoked when the use stopped event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2436,7 +2436,7 @@ agent.OnUseStopped(userAgent, false, 0);
 ### OnWeaponDrop
 `public void OnWeaponDrop(EquipmentIndex equipmentSlot)`
 
-**Purpose:** Invoked when the `weapon drop` event is raised.
+**Purpose:** **Purpose:** Invoked when the weapon drop event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2447,7 +2447,7 @@ agent.OnWeaponDrop(equipmentSlot);
 ### OnItemPickup
 `public void OnItemPickup(SpawnedItemEntity spawnedItemEntity, EquipmentIndex weaponPickUpSlotIndex, out bool removeWeapon)`
 
-**Purpose:** Invoked when the `item pickup` event is raised.
+**Purpose:** **Purpose:** Invoked when the item pickup event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2458,7 +2458,7 @@ agent.OnItemPickup(spawnedItemEntity, weaponPickUpSlotIndex, removeWeapon);
 ### GetDistanceTo
 `public float GetDistanceTo(Agent other)`
 
-**Purpose:** Reads and returns the `distance to` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the distance to value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2469,7 +2469,7 @@ var result = agent.GetDistanceTo(other);
 ### CheckPathToAITargetAgentPassesThroughNavigationFaceIdFromDirection
 `public bool CheckPathToAITargetAgentPassesThroughNavigationFaceIdFromDirection(int navigationFaceId, in Vec3 direction, float overridenCostForFaceId)`
 
-**Purpose:** Verifies whether `path to a i target agent passes through navigation face id from direction` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether path to a i target agent passes through navigation face id from direction holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2480,7 +2480,7 @@ var result = agent.CheckPathToAITargetAgentPassesThroughNavigationFaceIdFromDire
 ### IsTargetNavigationFaceIdBetween
 `public bool IsTargetNavigationFaceIdBetween(int navigationFaceIdStart, int navigationFaceIdEnd)`
 
-**Purpose:** Determines whether the current object is in the `target navigation face id between` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the target navigation face id between state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2491,7 +2491,7 @@ var result = agent.IsTargetNavigationFaceIdBetween(0, 0);
 ### CheckEquipmentForCapeClothSimulationStateChange
 `public void CheckEquipmentForCapeClothSimulationStateChange()`
 
-**Purpose:** Verifies whether `equipment for cape cloth simulation state change` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether equipment for cape cloth simulation state change holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2502,7 +2502,7 @@ agent.CheckEquipmentForCapeClothSimulationStateChange();
 ### CheckToDropFlaggedItem
 `public void CheckToDropFlaggedItem()`
 
-**Purpose:** Verifies whether `to drop flagged item` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether to drop flagged item holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2513,7 +2513,7 @@ agent.CheckToDropFlaggedItem();
 ### CheckSkillForMounting
 `public bool CheckSkillForMounting(Agent mountAgent)`
 
-**Purpose:** Verifies whether `skill for mounting` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether skill for mounting holds true for the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2524,7 +2524,7 @@ var result = agent.CheckSkillForMounting(mountAgent);
 ### InitializeSpawnEquipment
 `public void InitializeSpawnEquipment(Equipment spawnEquipment)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `spawn equipment`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by spawn equipment.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2535,7 +2535,7 @@ agent.InitializeSpawnEquipment(spawnEquipment);
 ### InitializeMissionEquipment
 `public void InitializeMissionEquipment(MissionEquipment missionEquipment, Banner banner)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `mission equipment`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mission equipment.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2546,7 +2546,7 @@ agent.InitializeMissionEquipment(missionEquipment, banner);
 ### InitializeAgentProperties
 `public void InitializeAgentProperties(Equipment spawnEquipment, AgentBuildData agentBuildData)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `agent properties`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by agent properties.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2557,7 +2557,7 @@ agent.InitializeAgentProperties(spawnEquipment, agentBuildData);
 ### UpdateFormationOrders
 `public void UpdateFormationOrders()`
 
-**Purpose:** Recalculates and stores the latest representation of `formation orders`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of formation orders.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2568,7 +2568,7 @@ agent.UpdateFormationOrders();
 ### UpdateWeapons
 `public void UpdateWeapons()`
 
-**Purpose:** Recalculates and stores the latest representation of `weapons`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of weapons.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2579,7 +2579,7 @@ agent.UpdateWeapons();
 ### UpdateAgentProperties
 `public void UpdateAgentProperties()`
 
-**Purpose:** Recalculates and stores the latest representation of `agent properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of agent properties.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2590,7 +2590,7 @@ agent.UpdateAgentProperties();
 ### UpdateCustomDrivenProperties
 `public void UpdateCustomDrivenProperties()`
 
-**Purpose:** Recalculates and stores the latest representation of `custom driven properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of custom driven properties.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2601,7 +2601,7 @@ agent.UpdateCustomDrivenProperties();
 ### UpdateBodyProperties
 `public void UpdateBodyProperties(BodyProperties bodyProperties)`
 
-**Purpose:** Recalculates and stores the latest representation of `body properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of body properties.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2612,7 +2612,7 @@ agent.UpdateBodyProperties(bodyProperties);
 ### UpdateSyncHealthToAllClients
 `public void UpdateSyncHealthToAllClients(bool value)`
 
-**Purpose:** Recalculates and stores the latest representation of `sync health to all clients`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of sync health to all clients.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2623,7 +2623,7 @@ agent.UpdateSyncHealthToAllClients(false);
 ### UpdateSpawnEquipmentAndRefreshVisuals
 `public void UpdateSpawnEquipmentAndRefreshVisuals(Equipment newSpawnEquipment)`
 
-**Purpose:** Recalculates and stores the latest representation of `spawn equipment and refresh visuals`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of spawn equipment and refresh visuals.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2634,7 +2634,7 @@ agent.UpdateSpawnEquipmentAndRefreshVisuals(newSpawnEquipment);
 ### ForceUpdateCachedAndFormationValues
 `public void ForceUpdateCachedAndFormationValues(bool updateOnlyMovement, bool arrangementChangeAllowed)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceUpdateCachedAndFormationValues logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2645,7 +2645,7 @@ agent.ForceUpdateCachedAndFormationValues(false, false);
 ### UpdateLastRangedAttackTimeDueToAnAttack
 `public void UpdateLastRangedAttackTimeDueToAnAttack(float newTime)`
 
-**Purpose:** Recalculates and stores the latest representation of `last ranged attack time due to an attack`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of last ranged attack time due to an attack.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2656,7 +2656,7 @@ agent.UpdateLastRangedAttackTimeDueToAnAttack(0);
 ### InvalidateTargetAgent
 `public void InvalidateTargetAgent()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InvalidateTargetAgent logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2667,7 +2667,7 @@ agent.InvalidateTargetAgent();
 ### InvalidateAIWeaponSelections
 `public void InvalidateAIWeaponSelections()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InvalidateAIWeaponSelections logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2678,7 +2678,7 @@ agent.InvalidateAIWeaponSelections();
 ### ResetLookAgent
 `public void ResetLookAgent()`
 
-**Purpose:** Returns `look agent` to its default or initial condition.
+**Purpose:** **Purpose:** Returns look agent to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2689,7 +2689,7 @@ agent.ResetLookAgent();
 ### ResetGuard
 `public void ResetGuard()`
 
-**Purpose:** Returns `guard` to its default or initial condition.
+**Purpose:** **Purpose:** Returns guard to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2700,7 +2700,7 @@ agent.ResetGuard();
 ### ResetAgentProperties
 `public void ResetAgentProperties()`
 
-**Purpose:** Returns `agent properties` to its default or initial condition.
+**Purpose:** **Purpose:** Returns agent properties to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2711,7 +2711,7 @@ agent.ResetAgentProperties();
 ### ResetAiWaitBeforeShootFactor
 `public void ResetAiWaitBeforeShootFactor()`
 
-**Purpose:** Returns `ai wait before shoot factor` to its default or initial condition.
+**Purpose:** **Purpose:** Returns ai wait before shoot factor to its default or initial condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2722,7 +2722,7 @@ agent.ResetAiWaitBeforeShootFactor();
 ### ClearTargetFrame
 `public void ClearTargetFrame()`
 
-**Purpose:** Removes all `target frame` from the current object.
+**Purpose:** **Purpose:** Removes all target frame from the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2733,7 +2733,7 @@ agent.ClearTargetFrame();
 ### ClearEquipment
 `public void ClearEquipment()`
 
-**Purpose:** Removes all `equipment` from the current object.
+**Purpose:** **Purpose:** Removes all equipment from the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2744,7 +2744,7 @@ agent.ClearEquipment();
 ### ClearHandInverseKinematics
 `public void ClearHandInverseKinematics()`
 
-**Purpose:** Removes all `hand inverse kinematics` from the current object.
+**Purpose:** **Purpose:** Removes all hand inverse kinematics from the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2755,7 +2755,7 @@ agent.ClearHandInverseKinematics();
 ### ClearAttachedWeapons
 `public void ClearAttachedWeapons()`
 
-**Purpose:** Removes all `attached weapons` from the current object.
+**Purpose:** **Purpose:** Removes all attached weapons from the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2766,7 +2766,7 @@ agent.ClearAttachedWeapons();
 ### SetDetachableFromFormation
 `public void SetDetachableFromFormation(bool value)`
 
-**Purpose:** Assigns a new value to `detachable from formation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to detachable from formation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2777,7 +2777,7 @@ agent.SetDetachableFromFormation(false);
 ### UndetachAndAttachToFormation
 `public void UndetachAndAttachToFormation(bool removeDetachmentScores = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UndetachAndAttachToFormation logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2788,7 +2788,7 @@ agent.UndetachAndAttachToFormation(false);
 ### UndetachAndStopUsingObjects
 `public void UndetachAndStopUsingObjects(bool removeDetachmentScores = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UndetachAndStopUsingObjects logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2799,7 +2799,7 @@ agent.UndetachAndStopUsingObjects(false);
 ### EnforceShieldUsage
 `public void EnforceShieldUsage(Agent.UsageDirection shieldDirection)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnforceShieldUsage logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2810,7 +2810,7 @@ agent.EnforceShieldUsage(shieldDirection);
 ### ObjectHasVacantPosition
 `public bool ObjectHasVacantPosition(UsableMissionObject gameObject)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ObjectHasVacantPosition logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2821,7 +2821,7 @@ var result = agent.ObjectHasVacantPosition(gameObject);
 ### InteractingWithAnyGameObject
 `public bool InteractingWithAnyGameObject()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InteractingWithAnyGameObject logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2832,7 +2832,7 @@ var result = agent.InteractingWithAnyGameObject();
 ### StopUsingGameObjectMT
 `public void StopUsingGameObjectMT(bool isSuccessful = true, Agent.StopUsingGameObjectFlags flags = Agent.StopUsingGameObjectFlags.AutoAttachAfterStoppingUsingGameObject)`
 
-**Purpose:** Stops the `using game object m t` flow or state machine.
+**Purpose:** **Purpose:** Stops the using game object m t flow or state machine.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2843,7 +2843,7 @@ agent.StopUsingGameObjectMT(false, agent.StopUsingGameObjectFlags.AutoAttachAfte
 ### StopUsingGameObject
 `public void StopUsingGameObject(bool isSuccessful = true, Agent.StopUsingGameObjectFlags flags = Agent.StopUsingGameObjectFlags.AutoAttachAfterStoppingUsingGameObject)`
 
-**Purpose:** Stops the `using game object` flow or state machine.
+**Purpose:** **Purpose:** Stops the using game object flow or state machine.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2854,7 +2854,7 @@ agent.StopUsingGameObject(false, agent.StopUsingGameObjectFlags.AutoAttachAfterS
 ### HandleStopUsingAction
 `public void HandleStopUsingAction()`
 
-**Purpose:** Executes the response logic associated with `stop using action`.
+**Purpose:** **Purpose:** Executes the response logic associated with stop using action.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2865,7 +2865,7 @@ agent.HandleStopUsingAction();
 ### HandleStartUsingAction
 `public void HandleStartUsingAction(UsableMissionObject targetObject, int preferenceIndex)`
 
-**Purpose:** Executes the response logic associated with `start using action`.
+**Purpose:** **Purpose:** Executes the response logic associated with start using action.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2876,7 +2876,7 @@ agent.HandleStartUsingAction(targetObject, 0);
 ### AddController
 `public AgentController AddController(Type type)`
 
-**Purpose:** Adds `controller` to the current collection or state.
+**Purpose:** **Purpose:** Adds controller to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2887,7 +2887,7 @@ var result = agent.AddController(type);
 ### RemoveController
 `public AgentController RemoveController(Type type)`
 
-**Purpose:** Removes `controller` from the current collection or state.
+**Purpose:** **Purpose:** Removes controller from the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2898,7 +2898,7 @@ var result = agent.RemoveController(type);
 ### CanThrustAttackStickToBone
 `public bool CanThrustAttackStickToBone(BoneBodyPartType bodyPart)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `thrust attack stick to bone`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for thrust attack stick to bone.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2909,7 +2909,7 @@ var result = agent.CanThrustAttackStickToBone(bodyPart);
 ### GetOldWieldedItemInfo
 `public void GetOldWieldedItemInfo(out int rightHandSlotIndex, out int rightHandUsageIndex, out int leftHandSlotIndex, out int leftHandUsageIndex)`
 
-**Purpose:** Reads and returns the `old wielded item info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the old wielded item info value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2920,7 +2920,7 @@ agent.GetOldWieldedItemInfo(rightHandSlotIndex, rightHandUsageIndex, leftHandSlo
 ### StartSwitchingWeaponUsageIndexAsClient
 `public void StartSwitchingWeaponUsageIndexAsClient(EquipmentIndex equipmentIndex, int usageIndex, Agent.UsageDirection currentMovementFlagUsageDirection)`
 
-**Purpose:** Starts the `switching weapon usage index as client` flow or state machine.
+**Purpose:** **Purpose:** Starts the switching weapon usage index as client flow or state machine.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2931,7 +2931,7 @@ agent.StartSwitchingWeaponUsageIndexAsClient(equipmentIndex, 0, currentMovementF
 ### TryToWieldWeaponInSlot
 `public void TryToWieldWeaponInSlot(EquipmentIndex slotIndex, Agent.WeaponWieldActionType type, bool isWieldedOnSpawn)`
 
-**Purpose:** Attempts to retrieve `to wield weapon in slot`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve to wield weapon in slot, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2942,7 +2942,7 @@ agent.TryToWieldWeaponInSlot(slotIndex, type, false);
 ### PrepareWeaponForDropInEquipmentSlot
 `public void PrepareWeaponForDropInEquipmentSlot(EquipmentIndex slotIndex, bool dropWithHolster)`
 
-**Purpose:** Finishes prerequisite setup for the upcoming `weapon for drop in equipment slot` operation.
+**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming weapon for drop in equipment slot operation.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2953,7 +2953,7 @@ agent.PrepareWeaponForDropInEquipmentSlot(slotIndex, false);
 ### AddHitter
 `public void AddHitter(MissionPeer peer, float damage, bool isFriendlyHit)`
 
-**Purpose:** Adds `hitter` to the current collection or state.
+**Purpose:** **Purpose:** Adds hitter to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2964,7 +2964,7 @@ agent.AddHitter(peer, 0, false);
 ### TryToSheathWeaponInHand
 `public void TryToSheathWeaponInHand(Agent.HandIndex handIndex, Agent.WeaponWieldActionType type)`
 
-**Purpose:** Attempts to retrieve `to sheath weapon in hand`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve to sheath weapon in hand, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2975,7 +2975,7 @@ agent.TryToSheathWeaponInHand(handIndex, type);
 ### RemoveHitter
 `public void RemoveHitter(MissionPeer peer, bool isFriendlyHit)`
 
-**Purpose:** Removes `hitter` from the current collection or state.
+**Purpose:** **Purpose:** Removes hitter from the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2986,7 +2986,7 @@ agent.RemoveHitter(peer, false);
 ### Retreat
 `public void Retreat(WorldPosition retreatPos)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Retreat logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -2997,7 +2997,7 @@ agent.Retreat(retreatPos);
 ### StopRetreating
 `public void StopRetreating()`
 
-**Purpose:** Stops the `retreating` flow or state machine.
+**Purpose:** **Purpose:** Stops the retreating flow or state machine.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3008,7 +3008,7 @@ agent.StopRetreating();
 ### UseGameObject
 `public void UseGameObject(UsableMissionObject usedObject, int preferenceIndex = -1)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UseGameObject logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3019,7 +3019,7 @@ agent.UseGameObject(usedObject, 0);
 ### SaveEquipmentsOnHand
 `public void SaveEquipmentsOnHand()`
 
-**Purpose:** Writes `equipments on hand` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes equipments on hand to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3030,7 +3030,7 @@ agent.SaveEquipmentsOnHand();
 ### StartFadingOut
 `public void StartFadingOut()`
 
-**Purpose:** Starts the `fading out` flow or state machine.
+**Purpose:** **Purpose:** Starts the fading out flow or state machine.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3041,7 +3041,7 @@ agent.StartFadingOut();
 ### IsWandering
 `public bool IsWandering()`
 
-**Purpose:** Determines whether the current object is in the `wandering` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the wandering state or condition.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3052,7 +3052,7 @@ var result = agent.IsWandering();
 ### SetRenderCheckEnabled
 `public void SetRenderCheckEnabled(bool value)`
 
-**Purpose:** Assigns a new value to `render check enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to render check enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3063,7 +3063,7 @@ agent.SetRenderCheckEnabled(false);
 ### GetRenderCheckEnabled
 `public bool GetRenderCheckEnabled()`
 
-**Purpose:** Reads and returns the `render check enabled` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the render check enabled value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3074,7 +3074,7 @@ var result = agent.GetRenderCheckEnabled();
 ### ComputeAnimationDisplacement
 `public Vec3 ComputeAnimationDisplacement(float dt)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ComputeAnimationDisplacement logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3085,7 +3085,7 @@ var result = agent.ComputeAnimationDisplacement(0);
 ### TickActionChannels
 `public void TickActionChannels(float dt)`
 
-**Purpose:** Advances the `action channels` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the action channels state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3096,7 +3096,7 @@ agent.TickActionChannels(0);
 ### LockAgentReplicationTableDataWithCurrentReliableSequenceNo
 `public void LockAgentReplicationTableDataWithCurrentReliableSequenceNo(NetworkCommunicator peer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LockAgentReplicationTableDataWithCurrentReliableSequenceNo logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3107,7 +3107,7 @@ agent.LockAgentReplicationTableDataWithCurrentReliableSequenceNo(peer);
 ### TeleportToPosition
 `public void TeleportToPosition(Vec3 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TeleportToPosition logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3118,7 +3118,7 @@ agent.TeleportToPosition(position);
 ### FadeOut
 `public void FadeOut(bool hideInstantly, bool hideMount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FadeOut logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3129,7 +3129,7 @@ agent.FadeOut(false, false);
 ### FadeIn
 `public void FadeIn()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FadeIn logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3140,7 +3140,7 @@ agent.FadeIn();
 ### DisableScriptedMovement
 `public void DisableScriptedMovement()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableScriptedMovement logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3151,7 +3151,7 @@ agent.DisableScriptedMovement();
 ### DisableScriptedCombatMovement
 `public void DisableScriptedCombatMovement()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableScriptedCombatMovement logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3162,7 +3162,7 @@ agent.DisableScriptedCombatMovement();
 ### ForceAiBehaviorSelection
 `public void ForceAiBehaviorSelection()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceAiBehaviorSelection logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3173,7 +3173,7 @@ agent.ForceAiBehaviorSelection();
 ### HasPathThroughNavigationFaceIdFromDirectionMT
 `public bool HasPathThroughNavigationFaceIdFromDirectionMT(int navigationFaceId, Vec2 direction)`
 
-**Purpose:** Determines whether the current object already holds `path through navigation face id from direction m t`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds path through navigation face id from direction m t.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3184,7 +3184,7 @@ var result = agent.HasPathThroughNavigationFaceIdFromDirectionMT(0, direction);
 ### HasPathThroughNavigationFaceIdFromDirection
 `public bool HasPathThroughNavigationFaceIdFromDirection(int navigationFaceId, Vec2 direction)`
 
-**Purpose:** Determines whether the current object already holds `path through navigation face id from direction`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds path through navigation face id from direction.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3195,7 +3195,7 @@ var result = agent.HasPathThroughNavigationFaceIdFromDirection(0, direction);
 ### DisableLookToPointOfInterest
 `public void DisableLookToPointOfInterest()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableLookToPointOfInterest logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3206,7 +3206,7 @@ agent.DisableLookToPointOfInterest();
 ### AddPrefabComponentToBone
 `public CompositeComponent AddPrefabComponentToBone(string prefabName, sbyte boneIndex)`
 
-**Purpose:** Adds `prefab component to bone` to the current collection or state.
+**Purpose:** **Purpose:** Adds prefab component to bone to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3217,7 +3217,7 @@ var result = agent.AddPrefabComponentToBone("example", 0);
 ### MakeVoice
 `public void MakeVoice(SkinVoiceManager.SkinVoiceType voiceType, SkinVoiceManager.CombatVoiceNetworkPredictionType predictionType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MakeVoice logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3228,7 +3228,7 @@ agent.MakeVoice(voiceType, predictionType);
 ### YellAfterDelay
 `public void YellAfterDelay(float delayTimeInSecond)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the YellAfterDelay logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3239,7 +3239,7 @@ agent.YellAfterDelay(0);
 ### WieldNextWeapon
 `public void WieldNextWeapon(Agent.HandIndex weaponIndex, Agent.WeaponWieldActionType wieldActionType = Agent.WeaponWieldActionType.WithAnimation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WieldNextWeapon logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3250,7 +3250,7 @@ agent.WieldNextWeapon(weaponIndex, agent.WeaponWieldActionType.WithAnimation);
 ### AttackDirectionToMovementFlag
 `public Agent.MovementControlFlag AttackDirectionToMovementFlag(Agent.UsageDirection direction)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AttackDirectionToMovementFlag logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3261,7 +3261,7 @@ var result = agent.AttackDirectionToMovementFlag(direction);
 ### DefendDirectionToMovementFlag
 `public Agent.MovementControlFlag DefendDirectionToMovementFlag(Agent.UsageDirection direction)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DefendDirectionToMovementFlag logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3272,7 +3272,7 @@ var result = agent.DefendDirectionToMovementFlag(direction);
 ### KickClear
 `public bool KickClear()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the KickClear logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3283,7 +3283,7 @@ var result = agent.KickClear();
 ### PlayerAttackDirection
 `public Agent.UsageDirection PlayerAttackDirection()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlayerAttackDirection logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3294,7 +3294,7 @@ var result = agent.PlayerAttackDirection();
 ### GetRandomPairOfRealBloodBurstBoneIndices
 `public ValueTuple<sbyte, sbyte> GetRandomPairOfRealBloodBurstBoneIndices()`
 
-**Purpose:** Reads and returns the `random pair of real blood burst bone indices` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the random pair of real blood burst bone indices value held by the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3305,7 +3305,7 @@ var result = agent.GetRandomPairOfRealBloodBurstBoneIndices();
 ### CreateBloodBurstAtLimb
 `public void CreateBloodBurstAtLimb(sbyte realBoneIndex, float scale)`
 
-**Purpose:** Constructs a new `blood burst at limb` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new blood burst at limb entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3316,7 +3316,7 @@ agent.CreateBloodBurstAtLimb(0, 0);
 ### AddComponent
 `public void AddComponent(AgentComponent agentComponent)`
 
-**Purpose:** Adds `component` to the current collection or state.
+**Purpose:** **Purpose:** Adds component to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3327,7 +3327,7 @@ agent.AddComponent(agentComponent);
 ### RemoveComponent
 `public bool RemoveComponent(AgentComponent agentComponent)`
 
-**Purpose:** Removes `component` from the current collection or state.
+**Purpose:** **Purpose:** Removes component from the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3338,7 +3338,7 @@ var result = agent.RemoveComponent(agentComponent);
 ### HandleTaunt
 `public void HandleTaunt(int tauntIndex, bool isDefaultTaunt)`
 
-**Purpose:** Executes the response logic associated with `taunt`.
+**Purpose:** **Purpose:** Executes the response logic associated with taunt.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3349,7 +3349,7 @@ agent.HandleTaunt(0, false);
 ### HandleBark
 `public void HandleBark(int indexOfBark)`
 
-**Purpose:** Executes the response logic associated with `bark`.
+**Purpose:** **Purpose:** Executes the response logic associated with bark.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3360,7 +3360,7 @@ agent.HandleBark(0);
 ### HandleDropWeapon
 `public void HandleDropWeapon(bool isDefendPressed, EquipmentIndex forcedSlotIndexToDropWeaponFrom)`
 
-**Purpose:** Executes the response logic associated with `drop weapon`.
+**Purpose:** **Purpose:** Executes the response logic associated with drop weapon.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3371,7 +3371,7 @@ agent.HandleDropWeapon(false, forcedSlotIndexToDropWeaponFrom);
 ### DropItem
 `public void DropItem(EquipmentIndex itemIndex, WeaponClass pickedUpItemType = WeaponClass.Undefined)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DropItem logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3382,7 +3382,7 @@ agent.DropItem(itemIndex, weaponClass.Undefined);
 ### EquipItemsFromSpawnEquipment
 `public void EquipItemsFromSpawnEquipment(bool neededBatchedItems)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EquipItemsFromSpawnEquipment logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3393,7 +3393,7 @@ agent.EquipItemsFromSpawnEquipment(false);
 ### WieldInitialWeapons
 `public void WieldInitialWeapons(Agent.WeaponWieldActionType wieldActionType = Agent.WeaponWieldActionType.InstantAfterPickUp, Equipment.InitialWeaponEquipPreference initialWeaponEquipPreference = TaleWorlds.Core.Equipment.InitialWeaponEquipPreference.Any)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WieldInitialWeapons logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3404,7 +3404,7 @@ agent.WieldInitialWeapons(agent.WeaponWieldActionType.InstantAfterPickUp, taleWo
 ### ChangeWeaponHitPoints
 `public void ChangeWeaponHitPoints(EquipmentIndex slotIndex, short hitPoints)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeWeaponHitPoints logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3415,7 +3415,7 @@ agent.ChangeWeaponHitPoints(slotIndex, 0);
 ### HasWeapon
 `public bool HasWeapon()`
 
-**Purpose:** Determines whether the current object already holds `weapon`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds weapon.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3426,7 +3426,7 @@ var result = agent.HasWeapon();
 ### AttachWeaponToWeapon
 `public void AttachWeaponToWeapon(EquipmentIndex slotIndex, MissionWeapon weapon, GameEntity weaponEntity, ref MatrixFrame attachLocalFrame)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AttachWeaponToWeapon logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3437,7 +3437,7 @@ agent.AttachWeaponToWeapon(slotIndex, weapon, weaponEntity, attachLocalFrame);
 ### AttachWeaponToBone
 `public void AttachWeaponToBone(MissionWeapon weapon, GameEntity weaponEntity, sbyte boneIndex, ref MatrixFrame attachLocalFrame)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AttachWeaponToBone logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3448,7 +3448,7 @@ agent.AttachWeaponToBone(weapon, weaponEntity, 0, attachLocalFrame);
 ### RestoreShieldHitPoints
 `public void RestoreShieldHitPoints()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RestoreShieldHitPoints logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3459,7 +3459,7 @@ agent.RestoreShieldHitPoints();
 ### Die
 `public void Die(Blow b, Agent.KillInfo overrideKillInfo = Agent.KillInfo.Invalid)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Die logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3470,7 +3470,7 @@ agent.Die(b, agent.KillInfo.Invalid);
 ### MakeDead
 `public void MakeDead(bool isKilled, ActionIndexCache actionIndex, int corpsesToFadeIndex = -1)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MakeDead logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3481,7 +3481,7 @@ agent.MakeDead(false, actionIndex, 0);
 ### RegisterBlow
 `public void RegisterBlow(Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Registers `blow` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers blow with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3492,7 +3492,7 @@ agent.RegisterBlow(blow, collisionData);
 ### CreateBlowFromBlowAsReflection
 `public void CreateBlowFromBlowAsReflection(in Blow blow, in AttackCollisionData collisionData, out Blow outBlow, out AttackCollisionData outCollisionData)`
 
-**Purpose:** Constructs a new `blow from blow as reflection` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new blow from blow as reflection entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3503,7 +3503,7 @@ agent.CreateBlowFromBlowAsReflection(blow, collisionData, outBlow, outCollisionD
 ### TickParallel
 `public void TickParallel(float dt)`
 
-**Purpose:** Advances the `parallel` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the parallel state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3514,7 +3514,7 @@ agent.TickParallel(0);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3525,7 +3525,7 @@ agent.Tick(0);
 ### DebugMore
 `public void DebugMore()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugMore logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3536,7 +3536,7 @@ agent.DebugMore();
 ### Mount
 `public void Mount(Agent mountAgent)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Mount logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3547,7 +3547,7 @@ agent.Mount(mountAgent);
 ### EquipWeaponToExtraSlotAndWield
 `public void EquipWeaponToExtraSlotAndWield(ref MissionWeapon weapon)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EquipWeaponToExtraSlotAndWield logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3558,7 +3558,7 @@ agent.EquipWeaponToExtraSlotAndWield(weapon);
 ### RemoveEquippedWeapon
 `public void RemoveEquippedWeapon(EquipmentIndex slotIndex)`
 
-**Purpose:** Removes `equipped weapon` from the current collection or state.
+**Purpose:** **Purpose:** Removes equipped weapon from the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3569,7 +3569,7 @@ agent.RemoveEquippedWeapon(slotIndex);
 ### EquipWeaponWithNewEntity
 `public void EquipWeaponWithNewEntity(EquipmentIndex slotIndex, ref MissionWeapon weapon)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EquipWeaponWithNewEntity logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3580,7 +3580,7 @@ agent.EquipWeaponWithNewEntity(slotIndex, weapon);
 ### EquipWeaponFromSpawnedItemEntity
 `public void EquipWeaponFromSpawnedItemEntity(EquipmentIndex slotIndex, SpawnedItemEntity spawnedItemEntity, bool removeWeapon)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EquipWeaponFromSpawnedItemEntity logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3591,7 +3591,7 @@ agent.EquipWeaponFromSpawnedItemEntity(slotIndex, spawnedItemEntity, false);
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreloadForRendering logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3602,7 +3602,7 @@ agent.PreloadForRendering();
 ### AddSynchedPrefabComponentToBone
 `public int AddSynchedPrefabComponentToBone(string prefabName, sbyte boneIndex)`
 
-**Purpose:** Adds `synched prefab component to bone` to the current collection or state.
+**Purpose:** **Purpose:** Adds synched prefab component to bone to the current collection or state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3613,7 +3613,7 @@ var result = agent.AddSynchedPrefabComponentToBone("example", 0);
 ### WillDropWieldedShield
 `public bool WillDropWieldedShield(SpawnedItemEntity spawnedItem)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WillDropWieldedShield logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3624,7 +3624,7 @@ var result = agent.WillDropWieldedShield(spawnedItem);
 ### HadSameTypeOfConsumableOrShieldOnSpawn
 `public bool HadSameTypeOfConsumableOrShieldOnSpawn(WeaponClass weaponClass)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HadSameTypeOfConsumableOrShieldOnSpawn logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3635,7 +3635,7 @@ var result = agent.HadSameTypeOfConsumableOrShieldOnSpawn(weaponClass);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3646,7 +3646,7 @@ var result = agent.GetHashCode();
 ### TryGetImmediateEnemyAgentMovementData
 `public bool TryGetImmediateEnemyAgentMovementData(out float maximumForwardUnlimitedSpeed, out Vec3 position)`
 
-**Purpose:** Attempts to retrieve `get immediate enemy agent movement data`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve get immediate enemy agent movement data, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3657,7 +3657,7 @@ var result = agent.TryGetImmediateEnemyAgentMovementData(maximumForwardUnlimited
 ### HasLostShield
 `public bool HasLostShield()`
 
-**Purpose:** Determines whether the current object already holds `lost shield`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds lost shield.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3668,7 +3668,7 @@ var result = agent.HasLostShield();
 ### SetLastDetachmentTickAgentTime
 `public void SetLastDetachmentTickAgentTime(float lastDetachmentTickAgentTime)`
 
-**Purpose:** Assigns a new value to `last detachment tick agent time` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to last detachment tick agent time and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3679,7 +3679,7 @@ agent.SetLastDetachmentTickAgentTime(0);
 ### SetDetachmentWeight
 `public void SetDetachmentWeight(float newDetachmentWeight)`
 
-**Purpose:** Assigns a new value to `detachment weight` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to detachment weight and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3690,7 +3690,7 @@ agent.SetDetachmentWeight(0);
 ### SetDetachmentIndex
 `public void SetDetachmentIndex(int newDetachmentIndex)`
 
-**Purpose:** Assigns a new value to `detachment index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to detachment index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3701,7 +3701,7 @@ agent.SetDetachmentIndex(0);
 ### SetOwningAgentMissionPeer
 `public void SetOwningAgentMissionPeer(MissionPeer owningAgentMissionPeer)`
 
-**Purpose:** Assigns a new value to `owning agent mission peer` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to owning agent mission peer and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3712,7 +3712,7 @@ agent.SetOwningAgentMissionPeer(owningAgentMissionPeer);
 ### SetMissionRepresentative
 `public void SetMissionRepresentative(MissionRepresentativeBase missionRepresentative)`
 
-**Purpose:** Assigns a new value to `mission representative` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mission representative and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3723,7 +3723,7 @@ agent.SetMissionRepresentative(missionRepresentative);
 ### SetIsLadderQueueUsing
 `public void SetIsLadderQueueUsing(bool isLadderQueueUsing)`
 
-**Purpose:** Assigns a new value to `is ladder queue using` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is ladder queue using and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3734,7 +3734,7 @@ agent.SetIsLadderQueueUsing(false);
 ### SetIsInLadderQueue
 `public void SetIsInLadderQueue(bool isInLadderQueue)`
 
-**Purpose:** Assigns a new value to `is in ladder queue` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is in ladder queue and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3745,7 +3745,7 @@ agent.SetIsInLadderQueue(false);
 ### UpdateLocalPositionError
 `public void UpdateLocalPositionError()`
 
-**Purpose:** Recalculates and stores the latest representation of `local position error`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of local position error.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3756,7 +3756,7 @@ agent.UpdateLocalPositionError();
 ### YellingBehaviour
 `public void YellingBehaviour()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the YellingBehaviour logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3767,7 +3767,7 @@ agent.YellingBehaviour();
 ### HasPathThroughNavigationFacesIDFromDirection
 `public bool HasPathThroughNavigationFacesIDFromDirection(int navigationFaceID_1, int navigationFaceID_2, int navigationFaceID_3, Vec2 direction)`
 
-**Purpose:** Determines whether the current object already holds `path through navigation faces i d from direction`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds path through navigation faces i d from direction.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3778,7 +3778,7 @@ var result = agent.HasPathThroughNavigationFacesIDFromDirection(0, 0, 0, directi
 ### HasPathThroughNavigationFacesIDFromDirectionMT
 `public bool HasPathThroughNavigationFacesIDFromDirectionMT(int navigationFaceID_1, int navigationFaceID_2, int navigationFaceID_3, Vec2 direction)`
 
-**Purpose:** Determines whether the current object already holds `path through navigation faces i d from direction m t`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds path through navigation faces i d from direction m t.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3789,7 +3789,7 @@ var result = agent.HasPathThroughNavigationFacesIDFromDirectionMT(0, 0, 0, direc
 ### SetInitialFrame
 `public void SetInitialFrame(in Vec3 initialPosition, in Vec2 initialDirection, bool canSpawnOutsideOfMissionBoundary = false)`
 
-**Purpose:** Assigns a new value to `initial frame` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to initial frame and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3800,7 +3800,7 @@ agent.SetInitialFrame(initialPosition, initialDirection, false);
 ### ClearTargetZ
 `public void ClearTargetZ()`
 
-**Purpose:** Removes all `target z` from the current object.
+**Purpose:** **Purpose:** Removes all target z from the this instance.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3811,7 +3811,7 @@ agent.ClearTargetZ();
 ### MovementFlagToDirection
 `public static Agent.UsageDirection MovementFlagToDirection(Agent.MovementControlFlag flag)`
 
-**Purpose:** Moves `ment flag to direction` to a new position or state.
+**Purpose:** **Purpose:** Moves ment flag to direction to a new position or state.
 
 ```csharp
 // Static call; no instance required
@@ -3821,7 +3821,7 @@ Agent.MovementFlagToDirection(flag);
 ### GetActionDirection
 `public static Agent.UsageDirection GetActionDirection(int actionIndex)`
 
-**Purpose:** Reads and returns the `action direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action direction value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -3831,7 +3831,7 @@ Agent.GetActionDirection(0);
 ### GetMonsterUsageIndex
 `public static int GetMonsterUsageIndex(string monsterUsage)`
 
-**Purpose:** Reads and returns the `monster usage index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the monster usage index value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -3841,7 +3841,7 @@ Agent.GetMonsterUsageIndex("example");
 ### IncreaseDamage
 `public void IncreaseDamage(float amount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IncreaseDamage logic.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3852,7 +3852,7 @@ agent.IncreaseDamage(0);
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3863,7 +3863,7 @@ agent.Initialize();
 ### RegisterLastBlow
 `public void RegisterLastBlow(int ownerId, AgentAttackType attackType)`
 
-**Purpose:** Registers `last blow` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers last blow with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3874,7 +3874,7 @@ agent.RegisterLastBlow(0, attackType);
 ### OnAgentHealthChangedDelegate
 `public delegate void OnAgentHealthChangedDelegate(Agent agent, float oldHealth, float newHealth)`
 
-**Purpose:** Invoked when the `agent health changed delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent health changed delegate event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3885,7 +3885,7 @@ agent.OnAgentHealthChangedDelegate(agent, 0, 0);
 ### OnMountHealthChangedDelegate
 `public delegate void OnMountHealthChangedDelegate(Agent agent, Agent mount, float oldHealth, float newHealth)`
 
-**Purpose:** Invoked when the `mount health changed delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the mount health changed delegate event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first
@@ -3896,7 +3896,7 @@ agent.OnMountHealthChangedDelegate(agent, mount, 0, 0);
 ### OnMainAgentWieldedItemChangeDelegate
 `public delegate void OnMainAgentWieldedItemChangeDelegate()`
 
-**Purpose:** Invoked when the `main agent wielded item change delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the main agent wielded item change delegate event is raised.
 
 ```csharp
 // Obtain an instance of Agent from the subsystem API first

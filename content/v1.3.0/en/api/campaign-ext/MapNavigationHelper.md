@@ -23,7 +23,7 @@ Treat `MapNavigationHelper` as a Helper-style extension point: first identify wh
 ### GetUnsavedChangedInquiry
 `public static InquiryData GetUnsavedChangedInquiry()`
 
-**Purpose:** Reads and returns the `unsaved changed inquiry` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unsaved changed inquiry value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MapNavigationHelper.GetUnsavedChangedInquiry();
 ### GetUnapplicableChangedInquiry
 `public static InquiryData GetUnapplicableChangedInquiry()`
 
-**Purpose:** Reads and returns the `unapplicable changed inquiry` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unapplicable changed inquiry value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MapNavigationHelper.GetUnapplicableChangedInquiry();
 ### IsMapTopScreen
 `public static bool IsMapTopScreen()`
 
-**Purpose:** Determines whether the current object is in the `map top screen` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the map top screen state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MapNavigationHelper.IsMapTopScreen();
 ### IsNavigationBarEnabled
 `public static bool IsNavigationBarEnabled(MapNavigationHandler handler)`
 
-**Purpose:** Determines whether the current object is in the `navigation bar enabled` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the navigation bar enabled state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ MapNavigationHelper.IsNavigationBarEnabled(handler);
 ### ApplyCurrentChanges
 `public static void ApplyCurrentChanges()`
 
-**Purpose:** Applies the effect of `current changes` to the current object.
+**Purpose:** **Purpose:** Applies the effect of current changes to the this instance.
 
 ```csharp
 // Static call; no instance required

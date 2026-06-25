@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Inte
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -50,7 +50,7 @@ agentInteractionInterfaceVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -61,7 +61,7 @@ agentInteractionInterfaceVM.OnFinalize();
 ### OnFocusedHealthChanged
 `public void OnFocusedHealthChanged(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**Purpose:** Invoked when the `focused health changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the focused health changed event is raised.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -72,7 +72,7 @@ agentInteractionInterfaceVM.OnFocusedHealthChanged(focusable, 0, false);
 ### OnActiveMissionHintChanged
 `public void OnActiveMissionHintChanged(MissionHint previousHint, MissionHint newHint)`
 
-**Purpose:** Invoked when the `active mission hint changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the active mission hint changed event is raised.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -83,7 +83,7 @@ agentInteractionInterfaceVM.OnActiveMissionHintChanged(previousHint, newHint);
 ### AddSecondaryMessage
 `public void AddSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Adds `secondary message` to the current collection or state.
+**Purpose:** **Purpose:** Adds secondary message to the current collection or state.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -94,7 +94,7 @@ agentInteractionInterfaceVM.AddSecondaryMessage(message);
 ### RemoveSecondaryMessage
 `public bool RemoveSecondaryMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Removes `secondary message` from the current collection or state.
+**Purpose:** **Purpose:** Removes secondary message from the current collection or state.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -105,7 +105,7 @@ var result = agentInteractionInterfaceVM.RemoveSecondaryMessage(message);
 ### HasSecondaryInteractionMessage
 `public bool HasSecondaryInteractionMessage(MissionInteractionItemBaseVM message)`
 
-**Purpose:** Determines whether the current object already holds `secondary interaction message`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds secondary interaction message.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -116,7 +116,7 @@ var result = agentInteractionInterfaceVM.HasSecondaryInteractionMessage(message)
 ### ResetFocus
 `public void ResetFocus()`
 
-**Purpose:** Returns `focus` to its default or initial condition.
+**Purpose:** **Purpose:** Returns focus to its default or initial condition.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -127,7 +127,7 @@ agentInteractionInterfaceVM.ResetFocus();
 ### SetForcedInteractionTexts
 `public void SetForcedInteractionTexts(TextObject text1, bool isDisabled1, TextObject text2, bool isDisabled2)`
 
-**Purpose:** Assigns a new value to `forced interaction texts` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to forced interaction texts and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first
@@ -138,7 +138,7 @@ agentInteractionInterfaceVM.SetForcedInteractionTexts(text1, false, text2, false
 ### ClearForcedInteractionTexts
 `public void ClearForcedInteractionTexts()`
 
-**Purpose:** Removes all `forced interaction texts` from the current object.
+**Purpose:** **Purpose:** Removes all forced interaction texts from the this instance.
 
 ```csharp
 // Obtain an instance of AgentInteractionInterfaceVM from the subsystem API first

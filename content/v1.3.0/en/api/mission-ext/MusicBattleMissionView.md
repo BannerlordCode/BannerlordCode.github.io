@@ -23,7 +23,7 @@ Treat `MusicBattleMissionView` as a View-style extension point: first identify w
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MusicBattleMissionView from the subsystem API first
@@ -34,7 +34,7 @@ musicBattleMissionView.OnBehaviorInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MusicBattleMissionView from the subsystem API first
@@ -45,7 +45,7 @@ musicBattleMissionView.OnMissionScreenFinalize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of MusicBattleMissionView from the subsystem API first
@@ -56,7 +56,7 @@ musicBattleMissionView.AfterStart();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MusicBattleMissionView from the subsystem API first

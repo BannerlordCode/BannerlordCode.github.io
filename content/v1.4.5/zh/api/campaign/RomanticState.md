@@ -23,7 +23,7 @@ description: "RomanticState 的自动生成类参考。"
 ### Partner
 `public Hero Partner(Hero hero)`
 
-**用途 / Purpose:** 处理与 「partner」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Partner 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 RomanticState 实例

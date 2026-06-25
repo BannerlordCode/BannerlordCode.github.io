@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ResetInitialGateState
 `public void ResetInitialGateState(CastleGate.GateState newInitialState)`
 
-**Purpose:** Returns `initial gate state` to its default or initial condition.
+**Purpose:** **Purpose:** Returns initial gate state to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CastleGateAI from the subsystem API first

@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**Purpose:** Reads and returns the `gold amount` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
@@ -47,7 +47,7 @@ var result = missionMultiplayerGameModeDuelClient.GetGoldAmount();
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**Purpose:** Invoked when the `gold amount changed for representative` event is raised.
+**Purpose:** **Purpose:** Invoked when the gold amount changed for representative event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
@@ -58,7 +58,7 @@ missionMultiplayerGameModeDuelClient.OnGoldAmountChangedForRepresentative(repres
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
@@ -69,7 +69,7 @@ missionMultiplayerGameModeDuelClient.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
@@ -80,7 +80,7 @@ missionMultiplayerGameModeDuelClient.OnRemoveBehavior();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
@@ -91,7 +91,7 @@ missionMultiplayerGameModeDuelClient.OnAgentRemoved(affectedAgent, affectorAgent
 ### CanRequestCultureChange
 `public override bool CanRequestCultureChange()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `request culture change`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for request culture change.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first
@@ -102,7 +102,7 @@ var result = missionMultiplayerGameModeDuelClient.CanRequestCultureChange();
 ### CanRequestTroopChange
 `public override bool CanRequestTroopChange()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `request troop change`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for request troop change.
 
 ```csharp
 // Obtain an instance of MissionMultiplayerGameModeDuelClient from the subsystem API first

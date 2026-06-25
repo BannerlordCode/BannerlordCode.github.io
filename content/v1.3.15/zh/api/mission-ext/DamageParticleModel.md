@@ -23,7 +23,7 @@ description: "DamageParticleModel 的自动生成类参考。"
 ### GetMeleeAttackBloodParticles
 `public abstract void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「melee attack blood particles」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 melee attack blood particles 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DamageParticleModel 实例
@@ -34,7 +34,7 @@ damageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, collisi
 ### GetMeleeAttackSweatParticles
 `public abstract void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「melee attack sweat particles」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 melee attack sweat particles 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DamageParticleModel 实例
@@ -45,7 +45,7 @@ damageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, collisi
 ### GetMissileAttackParticle
 `public abstract int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「missile attack particle」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 missile attack particle 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DamageParticleModel 实例

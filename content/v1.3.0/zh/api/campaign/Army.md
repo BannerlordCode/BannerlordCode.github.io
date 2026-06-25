@@ -49,7 +49,7 @@ description: "Army 的自动生成类参考。"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -60,7 +60,7 @@ var result = army.ToString();
 ### CalculateCurrentStrength
 `public float CalculateCurrentStrength()`
 
-**用途 / Purpose:** 计算「current strength」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算current strength的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -71,7 +71,7 @@ var result = army.CalculateCurrentStrength();
 ### GetCustomStrength
 `public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「custom strength」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 custom strength 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -82,7 +82,7 @@ var result = army.GetCustomStrength(side, context);
 ### UpdateName
 `public void UpdateName()`
 
-**用途 / Purpose:** 重新计算并更新 「name」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 name 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -93,7 +93,7 @@ army.UpdateName();
 ### DoesLeaderPartyAndAttachedPartiesContain
 `public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
 
-**用途 / Purpose:** 返回「leader party and attached parties contain」对当前对象是否成立的布尔结果。
+**用途 / Purpose:** **用途 / Purpose:** 返回leader party and attached parties contain对当前对象是否成立的布尔结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -104,7 +104,7 @@ var result = army.DoesLeaderPartyAndAttachedPartiesContain(party);
 ### BoostCohesionWithInfluence
 `public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
 
-**用途 / Purpose:** 提升「cohesion with influence」的数值或强度。
+**用途 / Purpose:** **用途 / Purpose:** 提升cohesion with influence的数值或强度。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -115,7 +115,7 @@ army.BoostCohesionWithInfluence(0, 0);
 ### RecalculateArmyMorale
 `public void RecalculateArmyMorale()`
 
-**用途 / Purpose:** 重新计算「army morale」以反映最新状态。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算army morale以反映最新状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -126,7 +126,7 @@ army.RecalculateArmyMorale();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 notification text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -137,7 +137,7 @@ var result = army.GetNotificationText();
 ### GetLongTermBehaviorText
 `public TextObject GetLongTermBehaviorText(bool setWithLink = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「long term behavior text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 long term behavior text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -148,7 +148,7 @@ var result = army.GetLongTermBehaviorText(false);
 ### Gather
 `public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
 
-**用途 / Purpose:** 收集或汇总当前对象相关的内容。
+**用途 / Purpose:** **用途 / Purpose:** 收集或汇总当前对象相关的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -159,7 +159,7 @@ army.Gather(initialHostileSettlement, null);
 ### IsWaitingForArmyMembers
 `public bool IsWaitingForArmyMembers()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「waiting for army members」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 waiting for army members 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -170,7 +170,7 @@ var result = army.IsWaitingForArmyMembers();
 ### FinishArmyObjective
 `public void FinishArmyObjective()`
 
-**用途 / Purpose:** 结束「army objective」流程并执行必要的收尾工作。
+**用途 / Purpose:** **用途 / Purpose:** 结束army objective流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -181,7 +181,7 @@ army.FinishArmyObjective();
 ### GetRelativePositionForParty
 `public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relative position for party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relative position for party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -192,7 +192,7 @@ var result = army.GetRelativePositionForParty(mobileParty, armyFacing);
 ### AddPartyToMergedParties
 `public void AddPartyToMergedParties(MobileParty mobileParty)`
 
-**用途 / Purpose:** 将 「party to merged parties」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 party to merged parties 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -203,7 +203,7 @@ army.AddPartyToMergedParties(mobileParty);
 ### SetPositionAfterMapChange
 `public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
 
-**用途 / Purpose:** 为 「position after map change」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 position after map change 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例
@@ -214,7 +214,7 @@ army.SetPositionAfterMapChange(newPosition);
 ### CheckPositionsForMapChangeAndUpdateIfNeeded
 `public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
 
-**用途 / Purpose:** 检查「positions for map change and update if needed」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查positions for map change and update if needed在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Army 实例

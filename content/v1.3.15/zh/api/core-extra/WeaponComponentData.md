@@ -75,7 +75,7 @@ description: "WeaponComponentData 的自动生成类参考。"
 ### Init
 `public void Init(string weaponUsageName, string physicsMaterial, string itemUsage, DamageTypes thrustDamageType, DamageTypes swingDamageType, int bodyArmor, int weaponLength, float weaponBalance, float inertia, float centerOfMass, int handling, float swingDamageFactor, float thrustDamageFactor, short maxDataValue, string passBySoundCode, int accuracy, int missileSpeed, MatrixFrame stickingFrame, WeaponClass ammoClass, float sweetSpot, int swingSpeed, int swingDamage, int thrustSpeed, int thrustDamage, Vec3 rotationSpeed, WeaponComponentData.WeaponTiers tier, short reloadPhaseCount)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponentData 实例
@@ -86,7 +86,7 @@ weaponComponentData.Init("example", "example", "example", thrustDamageType, swin
 ### SetFrame
 `public void SetFrame(MatrixFrame frame)`
 
-**用途 / Purpose:** 为 「frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponentData 实例
@@ -97,7 +97,7 @@ weaponComponentData.SetFrame(frame);
 ### SetAmmoOffset
 `public void SetAmmoOffset(Vec3 ammoOffset)`
 
-**用途 / Purpose:** 为 「ammo offset」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 ammo offset 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponentData 实例
@@ -108,7 +108,7 @@ weaponComponentData.SetAmmoOffset(ammoOffset);
 ### GetRelevantSkillFromWeaponClass
 `public static SkillObject GetRelevantSkillFromWeaponClass(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relevant skill from weapon class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relevant skill from weapon class 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -118,7 +118,7 @@ WeaponComponentData.GetRelevantSkillFromWeaponClass(weaponClass);
 ### GetItemTypeFromWeaponClass
 `public static ItemObject.ItemTypeEnum GetItemTypeFromWeaponClass(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item type from weapon class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item type from weapon class 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -128,7 +128,7 @@ WeaponComponentData.GetItemTypeFromWeaponClass(weaponClass);
 ### Deserialize
 `public void Deserialize(ItemObject item, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponentData 实例
@@ -139,7 +139,7 @@ weaponComponentData.Deserialize(item, node);
 ### GetRealWeaponLength
 `public float GetRealWeaponLength()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「real weapon length」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 real weapon length 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponentData 实例
@@ -150,7 +150,7 @@ var result = weaponComponentData.GetRealWeaponLength();
 ### GetMissileStartingFrame
 `public MatrixFrame GetMissileStartingFrame()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「missile starting frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 missile starting frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponComponentData 实例

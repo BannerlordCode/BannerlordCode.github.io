@@ -23,7 +23,7 @@ description: "DefaultDifficultyModel 的自动生成类参考。"
 ### GetPlayerTroopsReceivedDamageMultiplier
 `public override float GetPlayerTroopsReceivedDamageMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player troops received damage multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player troops received damage multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -34,7 +34,7 @@ var result = defaultDifficultyModel.GetPlayerTroopsReceivedDamageMultiplier();
 ### GetPlayerRecruitSlotBonus
 `public override int GetPlayerRecruitSlotBonus()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player recruit slot bonus」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player recruit slot bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -45,7 +45,7 @@ var result = defaultDifficultyModel.GetPlayerRecruitSlotBonus();
 ### GetPlayerMapMovementSpeedBonusMultiplier
 `public override float GetPlayerMapMovementSpeedBonusMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player map movement speed bonus multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player map movement speed bonus multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -56,7 +56,7 @@ var result = defaultDifficultyModel.GetPlayerMapMovementSpeedBonusMultiplier();
 ### GetStealthDifficultyMultiplier
 `public override float GetStealthDifficultyMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「stealth difficulty multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stealth difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -67,7 +67,7 @@ var result = defaultDifficultyModel.GetStealthDifficultyMultiplier();
 ### GetDisguiseDifficultyMultiplier
 `public override float GetDisguiseDifficultyMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「disguise difficulty multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 disguise difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -78,7 +78,7 @@ var result = defaultDifficultyModel.GetDisguiseDifficultyMultiplier();
 ### GetCombatAIDifficultyMultiplier
 `public override float GetCombatAIDifficultyMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「combat a i difficulty multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 combat a i difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -89,7 +89,7 @@ var result = defaultDifficultyModel.GetCombatAIDifficultyMultiplier();
 ### GetPersuasionBonusChance
 `public override float GetPersuasionBonusChance()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「persuasion bonus chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 persuasion bonus chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例
@@ -100,7 +100,7 @@ var result = defaultDifficultyModel.GetPersuasionBonusChance();
 ### GetClanMemberDeathChanceMultiplier
 `public override float GetClanMemberDeathChanceMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「clan member death chance multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 clan member death chance multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultDifficultyModel 实例

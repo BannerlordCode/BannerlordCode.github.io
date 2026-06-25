@@ -29,7 +29,7 @@ description: "AreaMarker 的自动生成类参考。"
 ### IsPositionInRange
 `public bool IsPositionInRange(Vec3 position)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「position in range」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 position in range 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AreaMarker 实例
@@ -40,7 +40,7 @@ var result = areaMarker.IsPositionInRange(position);
 ### GetUsableMachinesInRange
 `public virtual List<UsableMachine> GetUsableMachinesInRange(string excludeTag = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usable machines in range」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usable machines in range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AreaMarker 实例
@@ -51,7 +51,7 @@ var result = areaMarker.GetUsableMachinesInRange("example");
 ### GetUsableMachinesWithTagInRange
 `public virtual List<UsableMachine> GetUsableMachinesWithTagInRange(string tag)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「usable machines with tag in range」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 usable machines with tag in range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AreaMarker 实例
@@ -62,7 +62,7 @@ var result = areaMarker.GetUsableMachinesWithTagInRange("example");
 ### GetGameEntitiesWithTagInRange
 `public virtual List<GameEntity> GetGameEntitiesWithTagInRange(string tag)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「game entities with tag in range」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game entities with tag in range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AreaMarker 实例
@@ -73,7 +73,7 @@ var result = areaMarker.GetGameEntitiesWithTagInRange("example");
 ### GetName
 `public virtual TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AreaMarker 实例
@@ -84,7 +84,7 @@ var result = areaMarker.GetName();
 ### GetPosition
 `public virtual Vec3 GetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AreaMarker 实例

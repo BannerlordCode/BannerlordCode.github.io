@@ -36,7 +36,7 @@ description: "TeamAISiegeComponent 的自动生成类参考。"
 ### OnMissionFinalize
 `public static void OnMissionFinalize()`
 
-**用途 / Purpose:** 在 「mission finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission finalize 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -46,7 +46,7 @@ TeamAISiegeComponent.OnMissionFinalize();
 ### CalculateIsChargePastWallsApplicable
 `public bool CalculateIsChargePastWallsApplicable(FormationAI.BehaviorSide side)`
 
-**用途 / Purpose:** 计算「is charge past walls applicable」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算is charge past walls applicable的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例
@@ -57,7 +57,7 @@ var result = teamAISiegeComponent.CalculateIsChargePastWallsApplicable(side);
 ### SetAreLaddersReady
 `public void SetAreLaddersReady(bool areLaddersReady)`
 
-**用途 / Purpose:** 为 「are ladders ready」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 are ladders ready 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例
@@ -68,7 +68,7 @@ teamAISiegeComponent.SetAreLaddersReady(false);
 ### CalculateIsAnyLaneOpenToGetInside
 `public bool CalculateIsAnyLaneOpenToGetInside()`
 
-**用途 / Purpose:** 计算「is any lane open to get inside」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算is any lane open to get inside的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例
@@ -79,7 +79,7 @@ var result = teamAISiegeComponent.CalculateIsAnyLaneOpenToGetInside();
 ### CalculateIsAnyLaneOpenToGoOutside
 `public bool CalculateIsAnyLaneOpenToGoOutside()`
 
-**用途 / Purpose:** 计算「is any lane open to go outside」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算is any lane open to go outside的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例
@@ -90,7 +90,7 @@ var result = teamAISiegeComponent.CalculateIsAnyLaneOpenToGoOutside();
 ### IsPrimarySiegeWeaponNavmeshFaceId
 `public bool IsPrimarySiegeWeaponNavmeshFaceId(int id)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「primary siege weapon navmesh face id」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 primary siege weapon navmesh face id 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例
@@ -101,7 +101,7 @@ var result = teamAISiegeComponent.IsPrimarySiegeWeaponNavmeshFaceId(0);
 ### IsFormationGroupInsideCastle
 `public static bool IsFormationGroupInsideCastle(MBList<Formation> formationGroup, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「formation group inside castle」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 formation group inside castle 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -111,7 +111,7 @@ TeamAISiegeComponent.IsFormationGroupInsideCastle(formationGroup, false, 0);
 ### IsFormationInsideCastle
 `public static bool IsFormationInsideCastle(Formation formation, bool includeOnlyPositionedUnits, float thresholdPercentage = 0.4f)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「formation inside castle」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 formation inside castle 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -121,7 +121,7 @@ TeamAISiegeComponent.IsFormationInsideCastle(formation, false, 0);
 ### IsCastleBreached
 `public bool IsCastleBreached()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「castle breached」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 castle breached 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例
@@ -132,7 +132,7 @@ var result = teamAISiegeComponent.IsCastleBreached();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAISiegeComponent 实例

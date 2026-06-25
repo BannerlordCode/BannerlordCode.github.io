@@ -29,7 +29,7 @@ description: "ManagedDelegate 的自动生成类参考。"
 ### InvokeAux
 `public void InvokeAux()`
 
-**用途 / Purpose:** 处理与 「invoke aux」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 InvokeAux 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedDelegate 实例
@@ -40,7 +40,7 @@ managedDelegate.InvokeAux();
 ### DelegateDefinition
 `public delegate void DelegateDefinition()`
 
-**用途 / Purpose:** 处理与 「delegate definition」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DelegateDefinition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedDelegate 实例

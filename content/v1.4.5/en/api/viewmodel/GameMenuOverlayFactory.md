@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RegisterProvider
 `public static void RegisterProvider(IGameMenuOverlayProvider provider)`
 
-**Purpose:** Registers `provider` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers provider with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ GameMenuOverlayFactory.RegisterProvider(provider);
 ### UnregisterProvider
 `public static void UnregisterProvider(IGameMenuOverlayProvider provider)`
 
-**Purpose:** Unregisters `provider` from the current system.
+**Purpose:** **Purpose:** Unregisters provider from the current system.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ GameMenuOverlayFactory.UnregisterProvider(provider);
 ### GetOverlay
 `public static GameMenuOverlay GetOverlay(TaleWorlds.CampaignSystem.GameMenus.GameMenu.MenuOverlayType menuOverlayType)`
 
-**Purpose:** Reads and returns the `overlay` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the overlay value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### OpenWith
 `public void OpenWith(MPLobbyAchievementBadgeGroupVM badgeGroup)`
 
-**Purpose:** Opens the resource or UI associated with `with`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
@@ -49,7 +49,7 @@ mPLobbyBadgeProgressInformationVM.OpenWith(badgeGroup);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
@@ -60,7 +60,7 @@ mPLobbyBadgeProgressInformationVM.ExecuteClosePopup();
 ### ExecuteIncreaseActiveBadgeIndices
 `public void ExecuteIncreaseActiveBadgeIndices()`
 
-**Purpose:** Runs the operation or workflow associated with `increase active badge indices`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with increase active badge indices.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
@@ -71,7 +71,7 @@ mPLobbyBadgeProgressInformationVM.ExecuteIncreaseActiveBadgeIndices();
 ### ExecuteDecreaseActiveBadgeIndices
 `public void ExecuteDecreaseActiveBadgeIndices()`
 
-**Purpose:** Runs the operation or workflow associated with `decrease active badge indices`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with decrease active badge indices.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
@@ -82,7 +82,7 @@ mPLobbyBadgeProgressInformationVM.ExecuteDecreaseActiveBadgeIndices();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
@@ -93,7 +93,7 @@ mPLobbyBadgeProgressInformationVM.OnFinalize();
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to previous tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first
@@ -104,7 +104,7 @@ mPLobbyBadgeProgressInformationVM.SetPreviousTabInputKey(hotKey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyBadgeProgressInformationVM from the subsystem API first

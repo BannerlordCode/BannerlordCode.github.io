@@ -23,7 +23,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BoardInformation logic.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -34,7 +34,7 @@ var result = boardGameSeega.BoardInformation(pawns, tiles);
 ### PawnInformation
 `public struct PawnInformation(int x, int y, int prevX, int prevY, bool movedThisTurn, bool captured, Vec3 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PawnInformation logic.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -45,7 +45,7 @@ var result = boardGameSeega.PawnInformation(0, 0, 0, 0, false, false, position);
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `units`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by units.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -56,7 +56,7 @@ boardGameSeega.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tiles.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -67,7 +67,7 @@ boardGameSeega.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sound.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -78,7 +78,7 @@ boardGameSeega.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -89,7 +89,7 @@ boardGameSeega.Reset();
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Calculates the current value or result of `valid moves`.
+**Purpose:** **Purpose:** Calculates the current value or result of valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -100,7 +100,7 @@ var result = boardGameSeega.CalculateValidMoves(pawn);
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool aiSimulation = false)`
 
-**Purpose:** Assigns a new value to `pawn captured` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to pawn captured and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -111,7 +111,7 @@ boardGameSeega.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AIMakeMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -122,7 +122,7 @@ boardGameSeega.AIMakeMove(move);
 ### GetBlockingPawns
 `public Dictionary<PawnBase, int> GetBlockingPawns(bool playerOneBlocked)`
 
-**Purpose:** Reads and returns the `blocking pawns` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the blocking pawns value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -133,7 +133,7 @@ var result = boardGameSeega.GetBlockingPawns(false);
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TakeBoardSnapshot logic.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -144,7 +144,7 @@ var result = boardGameSeega.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UndoMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first
@@ -155,7 +155,7 @@ boardGameSeega.UndoMove(board);
 ### GetTile
 `public TileBase GetTile(int x, int y)`
 
-**Purpose:** Reads and returns the `tile` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tile value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoardGameSeega from the subsystem API first

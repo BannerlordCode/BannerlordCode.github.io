@@ -36,7 +36,7 @@ Treat `CustomPartyComponent` as a Component-style extension point: first identif
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Reads and returns the `default component banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomPartyComponent from the subsystem API first
@@ -47,7 +47,7 @@ var result = customPartyComponent.GetDefaultComponentBanner();
 ### CreateCustomPartyWithPartyTemplate
 `public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**Purpose:** Constructs a new `custom party with party template` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new custom party with party template entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -57,7 +57,7 @@ CustomPartyComponent.CreateCustomPartyWithPartyTemplate(position, 0, homeSettlem
 ### CreateCustomPartyWithPartyTemplate
 `public static MobileParty CreateCustomPartyWithPartyTemplate(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, PartyTemplateObject partyTemplate, Hero owner, Hero leader, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**Purpose:** Constructs a new `custom party with party template` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new custom party with party template entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -67,7 +67,7 @@ CustomPartyComponent.CreateCustomPartyWithPartyTemplate(position, 0, homeSettlem
 ### CreateCustomPartyWithTroopRoster
 `public static MobileParty CreateCustomPartyWithTroopRoster(CampaignVec2 position, float spawnRadius, Settlement homeSettlement, TextObject name, Clan clan, TroopRoster troopRoster, TroopRoster prisonerRoster, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**Purpose:** Constructs a new `custom party with troop roster` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new custom party with troop roster entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -77,7 +77,7 @@ CustomPartyComponent.CreateCustomPartyWithTroopRoster(position, 0, homeSettlemen
 ### ConvertPartyToCustomParty
 `public static void ConvertPartyToCustomParty(MobileParty mobileParty, Settlement homeSettlement, TextObject name, Hero owner, string partyMountStringId = "", string partyHarnessStringId = "", float customPartyBaseSpeed = 0f, bool avoidHostileActions = false)`
 
-**Purpose:** Converts `party to custom party` into another representation or type.
+**Purpose:** **Purpose:** Converts party to custom party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -87,7 +87,7 @@ CustomPartyComponent.ConvertPartyToCustomParty(mobileParty, homeSettlement, name
 ### SetBaseSpeed
 `public void SetBaseSpeed(float speed)`
 
-**Purpose:** Assigns a new value to `base speed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to base speed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CustomPartyComponent from the subsystem API first
@@ -98,7 +98,7 @@ customPartyComponent.SetBaseSpeed(0);
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**Purpose:** Reads and returns the `mount and harness visual ids for party icon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount and harness visual ids for party icon value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomPartyComponent from the subsystem API first
@@ -109,7 +109,7 @@ customPartyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountStringI
 ### InitializeCustomPartyPropertiesWithPartyTemplate
 `public void InitializeCustomPartyPropertiesWithPartyTemplate(MobileParty mobileParty)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `custom party properties with party template`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by custom party properties with party template.
 
 ```csharp
 // Obtain an instance of CustomPartyComponent from the subsystem API first
@@ -120,7 +120,7 @@ customPartyComponent.InitializeCustomPartyPropertiesWithPartyTemplate(mobilePart
 ### InitializeCustomPartyPropertiesWithTroopRoster
 `public void InitializeCustomPartyPropertiesWithTroopRoster(MobileParty mobileParty)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `custom party properties with troop roster`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by custom party properties with troop roster.
 
 ```csharp
 // Obtain an instance of CustomPartyComponent from the subsystem API first

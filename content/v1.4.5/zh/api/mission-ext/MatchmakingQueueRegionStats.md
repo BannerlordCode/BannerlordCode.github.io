@@ -34,7 +34,7 @@ description: "MatchmakingQueueRegionStats 的自动生成类参考。"
 ### GetQueueCountObjectOf
 `public MatchmakingQueueGameTypeStats GetQueueCountObjectOf(string gameTypes)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「queue count object of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 queue count object of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
@@ -45,7 +45,7 @@ var result = matchmakingQueueRegionStats.GetQueueCountObjectOf("example");
 ### AddStats
 `public void AddStats(MatchmakingQueueGameTypeStats matchmakingQueueGameTypeStats)`
 
-**用途 / Purpose:** 将 「stats」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 stats 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
@@ -56,7 +56,7 @@ matchmakingQueueRegionStats.AddStats(matchmakingQueueGameTypeStats);
 ### GetQueueCountOf
 `public int GetQueueCountOf(string gameTypes)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「queue count of」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 queue count of 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例
@@ -67,7 +67,7 @@ var result = matchmakingQueueRegionStats.GetQueueCountOf("example");
 ### SetWaitTimeStats
 `public void SetWaitTimeStats(int averageWaitTime, int maxWaitTime, int minWaitTime, int medianWaitTime)`
 
-**用途 / Purpose:** 为 「wait time stats」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 wait time stats 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchmakingQueueRegionStats 实例

@@ -23,7 +23,7 @@ description: "SallyOutReinforcementSpawnTimer 的自动生成类参考。"
 ### Check
 `public bool Check(BattleSideEnum side)`
 
-**用途 / Purpose:** 检查当前对象是否满足指定条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足指定条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutReinforcementSpawnTimer 实例
@@ -34,7 +34,7 @@ var result = sallyOutReinforcementSpawnTimer.Check(side);
 ### ResetTimer
 `public void ResetTimer(BattleSideEnum side)`
 
-**用途 / Purpose:** 将 「timer」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 timer 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SallyOutReinforcementSpawnTimer 实例

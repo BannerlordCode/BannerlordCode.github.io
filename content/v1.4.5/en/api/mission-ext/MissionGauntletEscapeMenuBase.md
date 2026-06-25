@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission` to place it i
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletEscapeMenuBase.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Invoked when the `escape` event is raised.
+**Purpose:** **Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionGauntletEscapeMenuBase.OnEscape();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first
@@ -56,7 +56,7 @@ missionGauntletEscapeMenuBase.OnMissionScreenTick(0);
 ### OnSceneRenderingStarted
 `public override void OnSceneRenderingStarted()`
 
-**Purpose:** Invoked when the `scene rendering started` event is raised.
+**Purpose:** **Purpose:** Invoked when the scene rendering started event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletEscapeMenuBase from the subsystem API first

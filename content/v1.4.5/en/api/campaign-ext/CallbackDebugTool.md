@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.DotNet` to place it in the stack, then inspect 
 ### AddLog
 `public static void AddLog( string memberName = "")`
 
-**Purpose:** Adds `log` to the current collection or state.
+**Purpose:** **Purpose:** Adds log to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CallbackDebugTool.AddLog("example");
 ### FrameEnd
 `public static void FrameEnd()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FrameEnd logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CallbackDebugTool.FrameEnd();
 ### Reset
 `public static void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CallbackDebugTool.Reset();
 ### ShowResults
 `public static string ShowResults()`
 
-**Purpose:** Displays the UI or element associated with `results`.
+**Purpose:** **Purpose:** Displays the UI or element associated with results.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "GarrisonTroopsCampaignBehavior 的自动生成类参考。"
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -34,7 +34,7 @@ garrisonTroopsCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -45,7 +45,7 @@ garrisonTroopsCampaignBehavior.SyncData(dataStore);
 ### GetTroopsToLeaveDataForArmy
 `public List<ValueTuple<MobileParty, int>> GetTroopsToLeaveDataForArmy()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troops to leave data for army」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops to leave data for army 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -56,7 +56,7 @@ var result = garrisonTroopsCampaignBehavior.GetTroopsToLeaveDataForArmy();
 ### GetTroopsToTakeDataForArmy
 `public List<ValueTuple<MobileParty, int>> GetTroopsToTakeDataForArmy()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troops to take data for army」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops to take data for army 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -67,7 +67,7 @@ var result = garrisonTroopsCampaignBehavior.GetTroopsToTakeDataForArmy();
 ### GetNumberOfTroopsToLeaveForParty
 `public int GetNumberOfTroopsToLeaveForParty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of troops to leave for party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of troops to leave for party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例
@@ -78,7 +78,7 @@ var result = garrisonTroopsCampaignBehavior.GetNumberOfTroopsToLeaveForParty();
 ### GetNumberOfTroopsToTakeForParty
 `public int GetNumberOfTroopsToTakeForParty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「number of troops to take for party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 number of troops to take for party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonTroopsCampaignBehavior 实例

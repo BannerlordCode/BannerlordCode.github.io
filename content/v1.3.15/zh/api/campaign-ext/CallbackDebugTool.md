@@ -23,7 +23,7 @@ description: "CallbackDebugTool 的自动生成类参考。"
 ### AddLog
 `public static void AddLog( string memberName = "")`
 
-**用途 / Purpose:** 将 「log」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 log 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CallbackDebugTool.AddLog("example");
 ### FrameEnd
 `public static void FrameEnd()`
 
-**用途 / Purpose:** 处理与 「frame end」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FrameEnd 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ CallbackDebugTool.FrameEnd();
 ### Reset
 `public static void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ CallbackDebugTool.Reset();
 ### ShowResults
 `public static string ShowResults()`
 
-**用途 / Purpose:** 显示「results」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示results对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例

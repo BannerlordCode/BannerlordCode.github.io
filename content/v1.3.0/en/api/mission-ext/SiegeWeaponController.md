@@ -29,7 +29,7 @@ Treat `SiegeWeaponController` as a Controller-style extension point: first ident
 ### Select
 `public void Select(SiegeWeapon weapon)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Select logic.
 
 ```csharp
 // Obtain an instance of SiegeWeaponController from the subsystem API first
@@ -40,7 +40,7 @@ siegeWeaponController.Select(weapon);
 ### ClearSelectedWeapons
 `public void ClearSelectedWeapons()`
 
-**Purpose:** Removes all `selected weapons` from the current object.
+**Purpose:** **Purpose:** Removes all selected weapons from the this instance.
 
 ```csharp
 // Obtain an instance of SiegeWeaponController from the subsystem API first
@@ -51,7 +51,7 @@ siegeWeaponController.ClearSelectedWeapons();
 ### Deselect
 `public void Deselect(SiegeWeapon weapon)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Deselect logic.
 
 ```csharp
 // Obtain an instance of SiegeWeaponController from the subsystem API first
@@ -62,7 +62,7 @@ siegeWeaponController.Deselect(weapon);
 ### SelectAll
 `public void SelectAll()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectAll logic.
 
 ```csharp
 // Obtain an instance of SiegeWeaponController from the subsystem API first
@@ -73,7 +73,7 @@ siegeWeaponController.SelectAll();
 ### IsWeaponSelectable
 `public static bool IsWeaponSelectable(SiegeWeapon weapon)`
 
-**Purpose:** Determines whether the current object is in the `weapon selectable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the weapon selectable state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ SiegeWeaponController.IsWeaponSelectable(weapon);
 ### GetActiveOrderOf
 `public static SiegeWeaponOrderType GetActiveOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Reads and returns the `active order of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active order of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ SiegeWeaponController.GetActiveOrderOf(weapon);
 ### GetActiveMovementOrderOf
 `public static SiegeWeaponOrderType GetActiveMovementOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Reads and returns the `active movement order of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active movement order of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -103,7 +103,7 @@ SiegeWeaponController.GetActiveMovementOrderOf(weapon);
 ### GetActiveFacingOrderOf
 `public static SiegeWeaponOrderType GetActiveFacingOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Reads and returns the `active facing order of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active facing order of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -113,7 +113,7 @@ SiegeWeaponController.GetActiveFacingOrderOf(weapon);
 ### GetActiveFiringOrderOf
 `public static SiegeWeaponOrderType GetActiveFiringOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Reads and returns the `active firing order of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active firing order of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -123,7 +123,7 @@ SiegeWeaponController.GetActiveFiringOrderOf(weapon);
 ### GetActiveAIControlOrderOf
 `public static SiegeWeaponOrderType GetActiveAIControlOrderOf(SiegeWeapon weapon)`
 
-**Purpose:** Reads and returns the `active a i control order of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active a i control order of value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -133,7 +133,7 @@ SiegeWeaponController.GetActiveAIControlOrderOf(weapon);
 ### SetOrder
 `public void SetOrder(SiegeWeaponOrderType order)`
 
-**Purpose:** Assigns a new value to `order` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to order and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponController from the subsystem API first
@@ -144,7 +144,7 @@ siegeWeaponController.SetOrder(order);
 ### GetShortcutIndexOf
 `public int GetShortcutIndexOf(SiegeWeapon weapon)`
 
-**Purpose:** Reads and returns the `shortcut index of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the shortcut index of value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeWeaponController from the subsystem API first

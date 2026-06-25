@@ -23,7 +23,7 @@ Treat `DefaultDamageParticleModel` as a Model-style extension point: first ident
 ### GetMeleeAttackBloodParticles
 `public override void GetMeleeAttackBloodParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Reads and returns the `melee attack blood particles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the melee attack blood particles value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDamageParticleModel from the subsystem API first
@@ -34,7 +34,7 @@ defaultDamageParticleModel.GetMeleeAttackBloodParticles(attacker, victim, blow, 
 ### GetMeleeAttackSweatParticles
 `public override void GetMeleeAttackSweatParticles(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData, out HitParticleResultData particleResultData)`
 
-**Purpose:** Reads and returns the `melee attack sweat particles` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the melee attack sweat particles value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDamageParticleModel from the subsystem API first
@@ -45,7 +45,7 @@ defaultDamageParticleModel.GetMeleeAttackSweatParticles(attacker, victim, blow, 
 ### GetMissileAttackParticle
 `public override int GetMissileAttackParticle(Agent attacker, Agent victim, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Reads and returns the `missile attack particle` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the missile attack particle value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultDamageParticleModel from the subsystem API first

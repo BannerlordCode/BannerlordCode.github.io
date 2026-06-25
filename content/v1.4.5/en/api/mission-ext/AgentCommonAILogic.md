@@ -23,7 +23,7 @@ Treat `AgentCommonAILogic` as a Logic-style extension point: first identify who 
 ### OnAgentCreated
 `public override void OnAgentCreated(Agent agent)`
 
-**Purpose:** Invoked when the `agent created` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent created event is raised.
 
 ```csharp
 // Obtain an instance of AgentCommonAILogic from the subsystem API first

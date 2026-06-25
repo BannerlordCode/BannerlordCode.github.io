@@ -46,7 +46,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -57,7 +57,7 @@ var result = basicCharacterObject.GetName();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -68,7 +68,7 @@ var result = basicCharacterObject.ToString();
 ### InitializeEquipmentsOnLoad
 `public void InitializeEquipmentsOnLoad(BasicCharacterObject character)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `equipments on load`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by equipments on load.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -79,7 +79,7 @@ basicCharacterObject.InitializeEquipmentsOnLoad(character);
 ### GetFirstEquipment
 `public Equipment GetFirstEquipment(Func<Equipment, bool> predicate)`
 
-**Purpose:** Reads and returns the `first equipment` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the first equipment value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -90,7 +90,7 @@ var result = basicCharacterObject.GetFirstEquipment(func<Equipment, false);
 ### GetBodyPropertiesMin
 `public virtual BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)`
 
-**Purpose:** Reads and returns the `body properties min` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the body properties min value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -101,7 +101,7 @@ var result = basicCharacterObject.GetBodyPropertiesMin(false);
 ### GetBodyPropertiesMax
 `public virtual BodyProperties GetBodyPropertiesMax(bool returnBaseValue = false)`
 
-**Purpose:** Reads and returns the `body properties max` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the body properties max value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -112,7 +112,7 @@ var result = basicCharacterObject.GetBodyPropertiesMax(false);
 ### GetBodyProperties
 `public virtual BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)`
 
-**Purpose:** Reads and returns the `body properties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the body properties value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -123,7 +123,7 @@ var result = basicCharacterObject.GetBodyProperties(equipment, 0);
 ### UpdatePlayerCharacterBodyProperties
 `public virtual void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)`
 
-**Purpose:** Recalculates and stores the latest representation of `player character body properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of player character body properties.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -134,7 +134,7 @@ basicCharacterObject.UpdatePlayerCharacterBodyProperties(properties, 0, false);
 ### GetDefaultFaceSeed
 `public int GetDefaultFaceSeed(int rank)`
 
-**Purpose:** Reads and returns the `default face seed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default face seed value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -145,7 +145,7 @@ var result = basicCharacterObject.GetDefaultFaceSeed(0);
 ### GetStepSize
 `public float GetStepSize()`
 
-**Purpose:** Reads and returns the `step size` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the step size value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -156,7 +156,7 @@ var result = basicCharacterObject.GetStepSize();
 ### HasMount
 `public bool HasMount()`
 
-**Purpose:** Determines whether the current object already holds `mount`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds mount.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -167,7 +167,7 @@ var result = basicCharacterObject.HasMount();
 ### MaxHitPoints
 `public virtual int MaxHitPoints()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MaxHitPoints logic.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -178,7 +178,7 @@ var result = basicCharacterObject.MaxHitPoints();
 ### GetPower
 `public virtual float GetPower()`
 
-**Purpose:** Reads and returns the `power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the power value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -189,7 +189,7 @@ var result = basicCharacterObject.GetPower();
 ### GetBattlePower
 `public virtual float GetBattlePower()`
 
-**Purpose:** Reads and returns the `battle power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the battle power value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -200,7 +200,7 @@ var result = basicCharacterObject.GetBattlePower();
 ### GetMoraleResistance
 `public virtual float GetMoraleResistance()`
 
-**Purpose:** Reads and returns the `morale resistance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the morale resistance value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -211,7 +211,7 @@ var result = basicCharacterObject.GetMoraleResistance();
 ### GetMountKeySeed
 `public virtual int GetMountKeySeed()`
 
-**Purpose:** Reads and returns the `mount key seed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount key seed value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -222,7 +222,7 @@ var result = basicCharacterObject.GetMountKeySeed();
 ### GetBattleTier
 `public virtual int GetBattleTier()`
 
-**Purpose:** Reads and returns the `battle tier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the battle tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -233,7 +233,7 @@ var result = basicCharacterObject.GetBattleTier();
 ### GetDefaultCharacterSkills
 `public MBCharacterSkills GetDefaultCharacterSkills()`
 
-**Purpose:** Reads and returns the `default character skills` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default character skills value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -244,7 +244,7 @@ var result = basicCharacterObject.GetDefaultCharacterSkills();
 ### GetSkillValue
 `public virtual int GetSkillValue(SkillObject skill)`
 
-**Purpose:** Reads and returns the `skill value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill value value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -255,7 +255,7 @@ var result = basicCharacterObject.GetSkillValue(skill);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first
@@ -266,7 +266,7 @@ basicCharacterObject.Deserialize(objectManager, node);
 ### GetFormationClass
 `public virtual FormationClass GetFormationClass()`
 
-**Purpose:** Reads and returns the `formation class` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation class value held by the this instance.
 
 ```csharp
 // Obtain an instance of BasicCharacterObject from the subsystem API first

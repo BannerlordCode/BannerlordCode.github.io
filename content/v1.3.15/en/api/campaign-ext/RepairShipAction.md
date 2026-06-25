@@ -19,7 +19,7 @@ RepairShipAction is a set of static methods that trigger "RepairShip" in the cam
 public static void Apply(Ship ship, Settlement repairPort)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyForFree
 
@@ -27,7 +27,7 @@ public static void Apply(Ship ship, Settlement repairPort)
 public static void ApplyForFree(Ship ship)
 ```
 
-**Purpose:** for free.
+**Purpose:** **Purpose:** Applies the effect of for free to the this instance.
 
 ### ApplyForBanditShip
 
@@ -35,7 +35,7 @@ public static void ApplyForFree(Ship ship)
 public static void ApplyForBanditShip(Ship ship)
 ```
 
-**Purpose:** for bandit ship.
+**Purpose:** **Purpose:** Applies the effect of for bandit ship to the this instance.
 
 ## Usage Example
 

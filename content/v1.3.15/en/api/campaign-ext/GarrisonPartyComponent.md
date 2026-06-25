@@ -34,7 +34,7 @@ Treat `GarrisonPartyComponent` as a Component-style extension point: first ident
 ### CreateGarrisonParty
 `public static MobileParty CreateGarrisonParty(string stringId, Settlement settlement)`
 
-**Purpose:** Constructs a new `garrison party` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new garrison party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ GarrisonPartyComponent.CreateGarrisonParty("example", settlement);
 ### ConvertPartyToGarrisonParty
 `public static void ConvertPartyToGarrisonParty(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Converts `party to garrison party` into another representation or type.
+**Purpose:** **Purpose:** Converts party to garrison party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ GarrisonPartyComponent.ConvertPartyToGarrisonParty(mobileParty, settlement);
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Reads and returns the `default component banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of GarrisonPartyComponent from the subsystem API first
@@ -65,7 +65,7 @@ var result = garrisonPartyComponent.GetDefaultComponentBanner();
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**Purpose:** Assigns a new value to `wage payment limit` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to wage payment limit and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GarrisonPartyComponent from the subsystem API first
@@ -76,7 +76,7 @@ garrisonPartyComponent.SetWagePaymentLimit(0);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Removes all `cached name` from the current object.
+**Purpose:** **Purpose:** Removes all cached name from the this instance.
 
 ```csharp
 // Obtain an instance of GarrisonPartyComponent from the subsystem API first
@@ -87,7 +87,7 @@ garrisonPartyComponent.ClearCachedName();
 ### InitializeGarrisonPartyProperties
 `public void InitializeGarrisonPartyProperties(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `garrison party properties`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by garrison party properties.
 
 ```csharp
 // Obtain an instance of GarrisonPartyComponent from the subsystem API first

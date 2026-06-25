@@ -36,7 +36,7 @@ Treat `ArmyManagementCalculationModel` as a Model-style extension point: first i
 ### CanPlayerCreateArmy
 `public abstract bool CanPlayerCreateArmy(out TextObject disabledReason)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `player create army`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player create army.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -47,7 +47,7 @@ var result = armyManagementCalculationModel.CanPlayerCreateArmy(disabledReason);
 ### CalculatePartyInfluenceCost
 `public abstract int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
 
-**Purpose:** Calculates the current value or result of `party influence cost`.
+**Purpose:** **Purpose:** Calculates the current value or result of party influence cost.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -58,7 +58,7 @@ var result = armyManagementCalculationModel.CalculatePartyInfluenceCost(armyLead
 ### DailyBeingAtArmyInfluenceAward
 `public abstract float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyBeingAtArmyInfluenceAward logic.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -69,7 +69,7 @@ var result = armyManagementCalculationModel.DailyBeingAtArmyInfluenceAward(armyM
 ### CanLordCreateArmy
 `public abstract bool CanLordCreateArmy(MobileParty leaderParty, out MBList<MobileParty> possibleArmyMembers)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `lord create army`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for lord create army.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -80,7 +80,7 @@ var result = armyManagementCalculationModel.CanLordCreateArmy(leaderParty, possi
 ### CalculateTotalInfluenceCost
 `public abstract int CalculateTotalInfluenceCost(Army army, float percentage)`
 
-**Purpose:** Calculates the current value or result of `total influence cost`.
+**Purpose:** **Purpose:** Calculates the current value or result of total influence cost.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -91,7 +91,7 @@ var result = armyManagementCalculationModel.CalculateTotalInfluenceCost(army, 0)
 ### GetPartySizeScore
 `public abstract float GetPartySizeScore(MobileParty party)`
 
-**Purpose:** Reads and returns the `party size score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party size score value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -102,7 +102,7 @@ var result = armyManagementCalculationModel.GetPartySizeScore(party);
 ### CheckPartyEligibility
 `public abstract bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
 
-**Purpose:** Verifies whether `party eligibility` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether party eligibility holds true for the this instance.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -113,7 +113,7 @@ var result = armyManagementCalculationModel.CheckPartyEligibility(party, explana
 ### GetPartyRelation
 `public abstract int GetPartyRelation(Hero hero)`
 
-**Purpose:** Reads and returns the `party relation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -124,7 +124,7 @@ var result = armyManagementCalculationModel.GetPartyRelation(hero);
 ### CalculateDailyCohesionChange
 `public abstract ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `daily cohesion change`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily cohesion change.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -135,7 +135,7 @@ var result = armyManagementCalculationModel.CalculateDailyCohesionChange(army, f
 ### CalculateNewCohesion
 `public abstract int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
 
-**Purpose:** Calculates the current value or result of `new cohesion`.
+**Purpose:** **Purpose:** Calculates the current value or result of new cohesion.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first
@@ -146,7 +146,7 @@ var result = armyManagementCalculationModel.CalculateNewCohesion(army, newParty,
 ### GetCohesionBoostInfluenceCost
 `public abstract int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
 
-**Purpose:** Reads and returns the `cohesion boost influence cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cohesion boost influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArmyManagementCalculationModel from the subsystem API first

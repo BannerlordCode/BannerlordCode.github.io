@@ -23,7 +23,7 @@ Treat `EquipmentSelectionModel` as a Model-style extension point: first identify
 ### GetEquipmentRostersForHeroComeOfAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroComeOfAge(Hero hero, bool isCivilian)`
 
-**Purpose:** Reads and returns the `equipment rosters for hero come of age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for hero come of age value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForHeroComeOfAge(hero, f
 ### GetEquipmentRostersForHeroReachesTeenAge
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForHeroReachesTeenAge(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment rosters for hero reaches teen age` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for hero reaches teen age value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForHeroReachesTeenAge(he
 ### GetEquipmentRostersForInitialChildrenGeneration
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForInitialChildrenGeneration(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment rosters for initial children generation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for initial children generation value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForInitialChildrenGenera
 ### GetEquipmentRostersForDeliveredOffspring
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForDeliveredOffspring(Hero hero)`
 
-**Purpose:** Reads and returns the `equipment rosters for delivered offspring` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for delivered offspring value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = equipmentSelectionModel.GetEquipmentRostersForDeliveredOffspring(he
 ### GetEquipmentRostersForCompanion
 `public abstract MBList<MBEquipmentRoster> GetEquipmentRostersForCompanion(Hero companionHero, bool isCivilian)`
 
-**Purpose:** Reads and returns the `equipment rosters for companion` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment rosters for companion value held by the this instance.
 
 ```csharp
 // Obtain an instance of EquipmentSelectionModel from the subsystem API first

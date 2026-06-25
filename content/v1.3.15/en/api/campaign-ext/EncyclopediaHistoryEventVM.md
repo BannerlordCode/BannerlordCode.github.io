@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaHistoryEventVM from the subsystem API first
@@ -41,7 +41,7 @@ encyclopediaHistoryEventVM.RefreshValues();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of EncyclopediaHistoryEventVM from the subsystem API first

@@ -23,7 +23,7 @@ Treat `BattleMissionStarterLogic` as a Logic-style extension point: first identi
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of BattleMissionStarterLogic from the subsystem API first

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Play
 `public void Play()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Play logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -44,7 +44,7 @@ battleSimulation.Play();
 ### FastForward
 `public void FastForward()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FastForward logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -55,7 +55,7 @@ battleSimulation.FastForward();
 ### Skip
 `public void Skip()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Skip logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -66,7 +66,7 @@ battleSimulation.Skip();
 ### Pause
 `public void Pause()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Pause logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -77,7 +77,7 @@ battleSimulation.Pause();
 ### OnFinished
 `public void OnFinished()`
 
-**Purpose:** Invoked when the `finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the finished event is raised.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -88,7 +88,7 @@ battleSimulation.OnFinished();
 ### OnPlayerRetreat
 `public void OnPlayerRetreat()`
 
-**Purpose:** Invoked when the `player retreat` event is raised.
+**Purpose:** **Purpose:** Invoked when the player retreat event is raised.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -99,7 +99,7 @@ battleSimulation.OnPlayerRetreat();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -110,7 +110,7 @@ battleSimulation.Tick(0);
 ### ResetSimulation
 `public void ResetSimulation()`
 
-**Purpose:** Returns `simulation` to its default or initial condition.
+**Purpose:** **Purpose:** Returns simulation to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -121,7 +121,7 @@ battleSimulation.ResetSimulation();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberKilled = 0, int numberWounded = 0, int numberRouted = 0, int killCount = 0, int numberReadyToUpgrade = 0)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TroopNumberChanged logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -132,7 +132,7 @@ battleSimulation.TroopNumberChanged(side, battleCombatant, character, 0, 0, 0, 0
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject skill)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HeroSkillIncreased logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -143,7 +143,7 @@ battleSimulation.HeroSkillIncreased(side, battleCombatant, heroCharacter, skill)
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BattleResultsReady logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first
@@ -154,7 +154,7 @@ battleSimulation.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TroopSideChanged logic.
 
 ```csharp
 // Obtain an instance of BattleSimulation from the subsystem API first

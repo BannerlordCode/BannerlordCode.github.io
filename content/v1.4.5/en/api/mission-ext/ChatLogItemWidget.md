@@ -32,7 +32,7 @@ Treat `ChatLogItemWidget` as a Widget-style extension point: first identify who 
 ### ChatMultiLineElement
 `public struct ChatMultiLineElement(string line, int identModifier)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChatMultiLineElement logic.
 
 ```csharp
 // Obtain an instance of ChatLogItemWidget from the subsystem API first

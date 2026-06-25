@@ -29,7 +29,7 @@ Treat `DescriptionItemVisualBrushWidget` as a Widget-style extension point: firs
 ### DescriptionItemVisualBrushWidget
 `public class DescriptionItemVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DescriptionItemVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of DescriptionItemVisualBrushWidget from the subsystem API first

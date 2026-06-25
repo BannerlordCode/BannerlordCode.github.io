@@ -23,7 +23,7 @@ Treat `TournamentFightMissionController` as a Controller-style extension point: 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -34,7 +34,7 @@ tournamentFightMissionController.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -45,7 +45,7 @@ tournamentFightMissionController.AfterStart();
 ### PrepareForMatch
 `public void PrepareForMatch()`
 
-**Purpose:** Finishes prerequisite setup for the upcoming `for match` operation.
+**Purpose:** **Purpose:** Finishes prerequisite setup for the upcoming for match operation.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -56,7 +56,7 @@ tournamentFightMissionController.PrepareForMatch();
 ### StartMatch
 `public void StartMatch(TournamentMatch match, bool isLastRound)`
 
-**Purpose:** Starts the `match` flow or state machine.
+**Purpose:** **Purpose:** Starts the match flow or state machine.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -67,7 +67,7 @@ tournamentFightMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SkipMatch logic.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -78,7 +78,7 @@ tournamentFightMissionController.SkipMatch(match);
 ### IsMatchEnded
 `public bool IsMatchEnded()`
 
-**Purpose:** Determines whether the current object is in the `match ended` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the match ended state or condition.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -89,7 +89,7 @@ var result = tournamentFightMissionController.IsMatchEnded();
 ### OnMatchResultsReady
 `public void OnMatchResultsReady()`
 
-**Purpose:** Invoked when the `match results ready` event is raised.
+**Purpose:** **Purpose:** Invoked when the match results ready event is raised.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -100,7 +100,7 @@ tournamentFightMissionController.OnMatchResultsReady();
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**Purpose:** Invoked when the `match ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the match ended event is raised.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -111,7 +111,7 @@ tournamentFightMissionController.OnMatchEnded();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -122,7 +122,7 @@ tournamentFightMissionController.OnAgentRemoved(affectedAgent, affectorAgent, ag
 ### CanAgentRout
 `public bool CanAgentRout(Agent agent)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `agent rout`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for agent rout.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -133,7 +133,7 @@ var result = tournamentFightMissionController.CanAgentRout(agent);
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Invoked when the `score hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the score hit event is raised.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -144,7 +144,7 @@ tournamentFightMissionController.OnScoreHit(affectedAgent, affectorAgent, attack
 ### CheckIfIsThereAnyEnemies
 `public bool CheckIfIsThereAnyEnemies()`
 
-**Purpose:** Verifies whether `if is there any enemies` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if is there any enemies holds true for the this instance.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first
@@ -155,7 +155,7 @@ var result = tournamentFightMissionController.CheckIfIsThereAnyEnemies();
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of TournamentFightMissionController from the subsystem API first

@@ -23,7 +23,7 @@ description: "DefaultPartyHealingModel 的自动生成类参考。"
 ### GetSurgeryChance
 `public override float GetSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「surgery chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 surgery chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyHealingModel.GetSurgeryChance(party);
 ### GetSiegeBombardmentHitSurgeryChance
 `public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「siege bombardment hit surgery chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege bombardment hit surgery chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyHealingModel.GetSiegeBombardmentHitSurgeryChance(party)
 ### GetSurvivalChance
 `public override float GetSurvivalChance(PartyBase party, CharacterObject character, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「survival chance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 survival chance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartyHealingModel.GetSurvivalChance(party, character, damage
 ### GetSkillXpFromHealingTroop
 `public override int GetSkillXpFromHealingTroop(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「skill xp from healing troop」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill xp from healing troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -67,7 +67,7 @@ var result = defaultPartyHealingModel.GetSkillXpFromHealingTroop(party);
 ### GetDailyHealingForRegulars
 `public override ExplainedNumber GetDailyHealingForRegulars(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily healing for regulars」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily healing for regulars 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -78,7 +78,7 @@ var result = defaultPartyHealingModel.GetDailyHealingForRegulars(party, false, f
 ### GetDailyHealingHpForHeroes
 `public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase party, bool isPrisoners, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily healing hp for heroes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily healing hp for heroes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -89,7 +89,7 @@ var result = defaultPartyHealingModel.GetDailyHealingHpForHeroes(party, false, f
 ### GetHeroesEffectedHealingAmount
 `public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「heroes effected healing amount」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 heroes effected healing amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例
@@ -100,7 +100,7 @@ var result = defaultPartyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
 ### GetBattleEndHealingAmount
 `public override ExplainedNumber GetBattleEndHealingAmount(PartyBase party, Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「battle end healing amount」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle end healing amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyHealingModel 实例

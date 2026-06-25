@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of GangLeaderNeedsToOffloadStolenGoodsIssueQuest from the subsystem API first

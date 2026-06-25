@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### ExecuteInspect
 `public void ExecuteInspect()`
 
-**Purpose:** Runs the operation or workflow associated with `inspect`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with inspect.
 
 ```csharp
 // Obtain an instance of MPAnnouncementItemVM from the subsystem API first

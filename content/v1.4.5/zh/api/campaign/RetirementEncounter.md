@@ -23,7 +23,7 @@ description: "RetirementEncounter 的自动生成类参考。"
 ### CreateAndOpenMissionController
 `public override IMission CreateAndOpenMissionController(Location nextLocation, Location previousLocation = null, CharacterObject talkToChar = null, string playerSpecialSpawnTag = null)`
 
-**用途 / Purpose:** 构建一个新的 「and open mission controller」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 and open mission controller 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 RetirementEncounter 实例

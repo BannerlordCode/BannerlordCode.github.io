@@ -23,7 +23,7 @@ description: "FormationConfiguration 的自动生成类参考。"
 ### FormationConfiguration
 `public struct FormationConfiguration(int formationIndex, List<FormationFilterType> filters)`
 
-**用途 / Purpose:** 将「ion configuration」格式化为适合显示或存储的字符串。
+**用途 / Purpose:** **用途 / Purpose:** 将ion configuration格式化为适合显示或存储的字符串。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationConfiguration 实例

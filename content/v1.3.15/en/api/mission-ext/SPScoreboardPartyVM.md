@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPScoreboardPartyVM from the subsystem API first
@@ -44,7 +44,7 @@ sPScoreboardPartyVM.RefreshValues();
 ### UpdateScores
 `public void UpdateScores(BasicCharacterObject character, int numberRemaining, int numberDead, int numberWounded, int numberRouted, int numberKilled, int numberReadyToUpgrade)`
 
-**Purpose:** Recalculates and stores the latest representation of `scores`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of scores.
 
 ```csharp
 // Obtain an instance of SPScoreboardPartyVM from the subsystem API first
@@ -55,7 +55,7 @@ sPScoreboardPartyVM.UpdateScores(character, 0, 0, 0, 0, 0, 0);
 ### UpdateHeroSkills
 `public void UpdateHeroSkills(BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**Purpose:** Recalculates and stores the latest representation of `hero skills`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of hero skills.
 
 ```csharp
 // Obtain an instance of SPScoreboardPartyVM from the subsystem API first
@@ -66,7 +66,7 @@ sPScoreboardPartyVM.UpdateHeroSkills(heroCharacter, upgradedSkill);
 ### GetUnitAddIfNotExists
 `public SPScoreboardUnitVM GetUnitAddIfNotExists(BasicCharacterObject character)`
 
-**Purpose:** Reads and returns the `unit add if not exists` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit add if not exists value held by the this instance.
 
 ```csharp
 // Obtain an instance of SPScoreboardPartyVM from the subsystem API first
@@ -77,7 +77,7 @@ var result = sPScoreboardPartyVM.GetUnitAddIfNotExists(character);
 ### GetUnit
 `public SPScoreboardUnitVM GetUnit(BasicCharacterObject character)`
 
-**Purpose:** Reads and returns the `unit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit value held by the this instance.
 
 ```csharp
 // Obtain an instance of SPScoreboardPartyVM from the subsystem API first

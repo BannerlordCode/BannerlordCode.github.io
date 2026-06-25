@@ -23,7 +23,7 @@ Treat `CraftingHelper` as a Helper-style extension point: first identify who cre
 ### GetAvailableHeroesForCrafting
 `public static IEnumerable<Hero> GetAvailableHeroesForCrafting()`
 
-**Purpose:** Reads and returns the `available heroes for crafting` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available heroes for crafting value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CraftingHelper.GetAvailableHeroesForCrafting();
 ### ChangeCurrentCraftingTemplate
 `public static void ChangeCurrentCraftingTemplate(CraftingTemplate craftingTemplate)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeCurrentCraftingTemplate logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CraftingHelper.ChangeCurrentCraftingTemplate(craftingTemplate);
 ### OpenCrafting
 `public static void OpenCrafting(CraftingTemplate craftingTemplate, CraftingState oldState = null)`
 
-**Purpose:** Opens the resource or UI associated with `crafting`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with crafting.
 
 ```csharp
 // Static call; no instance required

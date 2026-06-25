@@ -23,7 +23,7 @@ description: "SandboxAgentStatCalculateModel 的自动生成类参考。"
 ### GetDifficultyModifier
 `public override float GetDifficultyModifier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「difficulty modifier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 difficulty modifier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -34,7 +34,7 @@ var result = sandboxAgentStatCalculateModel.GetDifficultyModifier();
 ### CanAgentRideMount
 `public override bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「agent ride mount」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 agent ride mount 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -45,7 +45,7 @@ var result = sandboxAgentStatCalculateModel.CanAgentRideMount(agent, targetMount
 ### InitializeAgentStats
 `public override void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**用途 / Purpose:** 为 「agent stats」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 agent stats 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -56,7 +56,7 @@ sandboxAgentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agent
 ### InitializeMissionEquipment
 `public override void InitializeMissionEquipment(Agent agent)`
 
-**用途 / Purpose:** 为 「mission equipment」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 mission equipment 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -67,7 +67,7 @@ sandboxAgentStatCalculateModel.InitializeMissionEquipment(agent);
 ### UpdateAgentStats
 `public override void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**用途 / Purpose:** 重新计算并更新 「agent stats」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 agent stats 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -78,7 +78,7 @@ sandboxAgentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties);
 ### GetEffectiveSkill
 `public override int GetEffectiveSkill(Agent agent, SkillObject skill)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective skill」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective skill 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -89,7 +89,7 @@ var result = sandboxAgentStatCalculateModel.GetEffectiveSkill(agent, skill);
 ### GetWeaponDamageMultiplier
 `public override float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon damage multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon damage multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -100,7 +100,7 @@ var result = sandboxAgentStatCalculateModel.GetWeaponDamageMultiplier(agent, wea
 ### GetEquipmentStealthBonus
 `public override float GetEquipmentStealthBonus(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「equipment stealth bonus」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 equipment stealth bonus 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -111,7 +111,7 @@ var result = sandboxAgentStatCalculateModel.GetEquipmentStealthBonus(agent);
 ### GetSneakAttackMultiplier
 `public override float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sneak attack multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sneak attack multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -122,7 +122,7 @@ var result = sandboxAgentStatCalculateModel.GetSneakAttackMultiplier(agent, weap
 ### GetKnockBackResistance
 `public override float GetKnockBackResistance(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「knock back resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock back resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -133,7 +133,7 @@ var result = sandboxAgentStatCalculateModel.GetKnockBackResistance(agent);
 ### GetKnockDownResistance
 `public override float GetKnockDownResistance(Agent agent, StrikeType strikeType = -1)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「knock down resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 knock down resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -144,7 +144,7 @@ var result = sandboxAgentStatCalculateModel.GetKnockDownResistance(agent, -1);
 ### GetDismountResistance
 `public override float GetDismountResistance(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「dismount resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 dismount resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -155,7 +155,7 @@ var result = sandboxAgentStatCalculateModel.GetDismountResistance(agent);
 ### GetBreatheHoldMaxDuration
 `public override float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「breathe hold max duration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 breathe hold max duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -166,7 +166,7 @@ var result = sandboxAgentStatCalculateModel.GetBreatheHoldMaxDuration(agent, 0);
 ### GetWeaponInaccuracy
 `public override float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon inaccuracy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon inaccuracy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -177,7 +177,7 @@ var result = sandboxAgentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0
 ### GetInteractionDistance
 `public override float GetInteractionDistance(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「interaction distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 interaction distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -188,7 +188,7 @@ var result = sandboxAgentStatCalculateModel.GetInteractionDistance(agent);
 ### GetMaxCameraZoom
 `public override float GetMaxCameraZoom(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max camera zoom」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max camera zoom 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -199,7 +199,7 @@ var result = sandboxAgentStatCalculateModel.GetMaxCameraZoom(agent);
 ### GetPerksOfAgent
 `public List<PerkObject> GetPerksOfAgent(CharacterObject agentCharacter, SkillObject skill = null, bool filterPartyRole = false, PartyRole partyRole = 12)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「perks of agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 perks of agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -210,7 +210,7 @@ var result = sandboxAgentStatCalculateModel.GetPerksOfAgent(agentCharacter, null
 ### GetMissionDebugInfoForAgent
 `public override string GetMissionDebugInfoForAgent(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「mission debug info for agent」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mission debug info for agent 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -221,7 +221,7 @@ var result = sandboxAgentStatCalculateModel.GetMissionDebugInfoForAgent(agent);
 ### GetEffectiveArmorEncumbrance
 `public override float GetEffectiveArmorEncumbrance(Agent agent, Equipment equipment)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective armor encumbrance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective armor encumbrance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -232,7 +232,7 @@ var result = sandboxAgentStatCalculateModel.GetEffectiveArmorEncumbrance(agent, 
 ### GetEffectiveMaxHealth
 `public override float GetEffectiveMaxHealth(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective max health」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective max health 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -243,7 +243,7 @@ var result = sandboxAgentStatCalculateModel.GetEffectiveMaxHealth(agent);
 ### GetEnvironmentSpeedFactor
 `public override float GetEnvironmentSpeedFactor(Agent agent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「environment speed factor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 environment speed factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentStatCalculateModel 实例
@@ -254,7 +254,7 @@ var result = sandboxAgentStatCalculateModel.GetEnvironmentSpeedFactor(agent);
 ### CalculateMaximumSpeedMultiplier
 `public static float CalculateMaximumSpeedMultiplier(int athletics, float baseWeight, float totalEncumbrance)`
 
-**用途 / Purpose:** 计算「maximum speed multiplier」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算maximum speed multiplier的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例

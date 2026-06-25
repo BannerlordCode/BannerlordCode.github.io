@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineMarkerTargetVM from the subsystem API first

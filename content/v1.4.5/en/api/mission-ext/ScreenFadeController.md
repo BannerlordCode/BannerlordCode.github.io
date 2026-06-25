@@ -32,7 +32,7 @@ Treat `ScreenFadeController` as a Controller-style extension point: first identi
 ### RegisterHandler
 `public static void RegisterHandler(IScreenFadeHandler handler)`
 
-**Purpose:** Registers `handler` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers handler with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Static call; no instance required
@@ -42,7 +42,7 @@ ScreenFadeController.RegisterHandler(handler);
 ### BeginFadeOutAndIn
 `public static void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeOutAndIn logic.
 
 ```csharp
 // Static call; no instance required
@@ -52,7 +52,7 @@ ScreenFadeController.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public static void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeOut logic.
 
 ```csharp
 // Static call; no instance required
@@ -62,7 +62,7 @@ ScreenFadeController.BeginFadeOut(0);
 ### BeginFadeIn
 `public static void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginFadeIn logic.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "FtlCapsuleData 的自动生成类参考。"
 ### GetBoxMin
 `public Vec3 GetBoxMin()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「box min」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 box min 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FtlCapsuleData 实例
@@ -34,7 +34,7 @@ var result = ftlCapsuleData.GetBoxMin();
 ### GetBoxMax
 `public Vec3 GetBoxMax()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「box max」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 box max 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FtlCapsuleData 实例

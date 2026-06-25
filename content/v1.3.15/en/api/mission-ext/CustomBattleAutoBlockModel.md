@@ -23,7 +23,7 @@ Treat `CustomBattleAutoBlockModel` as a Model-style extension point: first ident
 ### GetBlockDirection
 `public override Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**Purpose:** Reads and returns the `block direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the block direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of CustomBattleAutoBlockModel from the subsystem API first

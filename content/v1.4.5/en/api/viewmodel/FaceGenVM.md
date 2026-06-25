@@ -93,7 +93,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -104,7 +104,7 @@ faceGenVM.Reset();
 ### SetFaceGenerationParams
 `public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)`
 
-**Purpose:** Assigns a new value to `face generation params` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to face generation params and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -115,7 +115,7 @@ faceGenVM.SetFaceGenerationParams(faceGenerationParams);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -126,7 +126,7 @@ faceGenVM.RefreshValues();
 ### InitializeHistory
 `public void InitializeHistory(FaceGenHistory faceGenHistory)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `history`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by history.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -137,7 +137,7 @@ faceGenVM.InitializeHistory(faceGenHistory);
 ### OnTabClicked
 `public void OnTabClicked(int index)`
 
-**Purpose:** Invoked when the `tab clicked` event is raised.
+**Purpose:** **Purpose:** Invoked when the tab clicked event is raised.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -148,7 +148,7 @@ faceGenVM.OnTabClicked(0);
 ### SelectPreviousTab
 `public void SelectPreviousTab()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectPreviousTab logic.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -159,7 +159,7 @@ faceGenVM.SelectPreviousTab();
 ### SelectNextTab
 `public void SelectNextTab()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SelectNextTab logic.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -170,7 +170,7 @@ faceGenVM.SelectNextTab();
 ### Refresh
 `public void Refresh(bool clearProperties)`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -181,7 +181,7 @@ faceGenVM.Refresh(false);
 ### ExecuteHearCurrentVoiceSample
 `public void ExecuteHearCurrentVoiceSample()`
 
-**Purpose:** Runs the operation or workflow associated with `hear current voice sample`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with hear current voice sample.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -192,7 +192,7 @@ faceGenVM.ExecuteHearCurrentVoiceSample();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Runs the operation or workflow associated with `reset`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -203,7 +203,7 @@ faceGenVM.ExecuteReset();
 ### ExecuteResetAll
 `public void ExecuteResetAll()`
 
-**Purpose:** Runs the operation or workflow associated with `reset all`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset all.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -214,7 +214,7 @@ faceGenVM.ExecuteResetAll();
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Runs the operation or workflow associated with `randomize`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -225,7 +225,7 @@ faceGenVM.ExecuteRandomize();
 ### ExecuteRandomizeAll
 `public void ExecuteRandomizeAll()`
 
-**Purpose:** Runs the operation or workflow associated with `randomize all`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize all.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -236,7 +236,7 @@ faceGenVM.ExecuteRandomizeAll();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -247,7 +247,7 @@ faceGenVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -258,7 +258,7 @@ faceGenVM.ExecuteDone();
 ### ExecuteRedo
 `public void ExecuteRedo()`
 
-**Purpose:** Runs the operation or workflow associated with `redo`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with redo.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -269,7 +269,7 @@ faceGenVM.ExecuteRedo();
 ### ExecuteUndo
 `public void ExecuteUndo()`
 
-**Purpose:** Runs the operation or workflow associated with `undo`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with undo.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -280,7 +280,7 @@ faceGenVM.ExecuteUndo();
 ### ExecuteChangeClothing
 `public void ExecuteChangeClothing()`
 
-**Purpose:** Runs the operation or workflow associated with `change clothing`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with change clothing.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -291,7 +291,7 @@ faceGenVM.ExecuteChangeClothing();
 ### AddCommand
 `public void AddCommand()`
 
-**Purpose:** Adds `command` to the current collection or state.
+**Purpose:** **Purpose:** Adds command to the current collection or state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -302,7 +302,7 @@ faceGenVM.AddCommand();
 ### SetBodyProperties
 `public void SetBodyProperties(BodyProperties bodyProperties, bool ignoreDebugValues, int race = 0, int gender = -1, bool recordChange = false)`
 
-**Purpose:** Assigns a new value to `body properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to body properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -313,7 +313,7 @@ faceGenVM.SetBodyProperties(bodyProperties, false, 0, 0, false);
 ### UpdateFacegen
 `public void UpdateFacegen()`
 
-**Purpose:** Recalculates and stores the latest representation of `facegen`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of facegen.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -324,7 +324,7 @@ faceGenVM.UpdateFacegen();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -335,7 +335,7 @@ faceGenVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -346,7 +346,7 @@ faceGenVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -357,7 +357,7 @@ faceGenVM.SetDoneInputKey(hotKey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `previous tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to previous tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -368,7 +368,7 @@ faceGenVM.SetPreviousTabInputKey(hotKey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `next tab input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to next tab input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -379,7 +379,7 @@ faceGenVM.SetNextTabInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**Purpose:** Adds `camera control input key` to the current collection or state.
+**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -390,7 +390,7 @@ faceGenVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**Purpose:** Adds `camera control input key` to the current collection or state.
+**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first
@@ -401,7 +401,7 @@ faceGenVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey)`
 
-**Purpose:** Adds `camera control input key` to the current collection or state.
+**Purpose:** **Purpose:** Adds camera control input key to the current collection or state.
 
 ```csharp
 // Obtain an instance of FaceGenVM from the subsystem API first

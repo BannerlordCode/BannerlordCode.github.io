@@ -29,7 +29,7 @@ Treat `MultiplayerGeneralKillFeedItemWidget` as a Widget-style extension point: 
 ### SetSpeedModifier
 `public void SetSpeedModifier(float newSpeed)`
 
-**Purpose:** Assigns a new value to `speed modifier` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to speed modifier and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MultiplayerGeneralKillFeedItemWidget from the subsystem API first

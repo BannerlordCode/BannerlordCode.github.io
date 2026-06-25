@@ -366,6 +366,4 @@ rglAsset_metadata_morph_anim::vftable
 
 ## 使用示例
 
-```csharp
-var example = new 动画系统();
-```
+// （占位示例已移除，见正文说明）

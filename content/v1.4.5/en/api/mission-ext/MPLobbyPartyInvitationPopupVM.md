@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
@@ -45,7 +45,7 @@ mPLobbyPartyInvitationPopupVM.RefreshValues();
 ### OpenWith
 `public void OpenWith(PlayerId invitingPlayerID)`
 
-**Purpose:** Opens the resource or UI associated with `with`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with with.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
@@ -56,7 +56,7 @@ mPLobbyPartyInvitationPopupVM.OpenWith(invitingPlayerID);
 ### Close
 `public void Close()`
 
-**Purpose:** Closes the resource or UI represented by the current object.
+**Purpose:** **Purpose:** Closes the resource or UI represented by the this instance.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first
@@ -67,7 +67,7 @@ mPLobbyPartyInvitationPopupVM.Close();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyPartyInvitationPopupVM from the subsystem API first

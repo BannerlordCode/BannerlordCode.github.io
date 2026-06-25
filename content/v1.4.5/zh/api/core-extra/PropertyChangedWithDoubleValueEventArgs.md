@@ -30,7 +30,7 @@ description: "PropertyChangedWithDoubleValueEventArgs 的自动生成类参考�
 ### PropertyChangedWithDoubleValueEventArgs
 `public struct PropertyChangedWithDoubleValueEventArgs(string propertyName, double value)`
 
-**用途 / Purpose:** 处理与 「property changed with double value event args」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PropertyChangedWithDoubleValueEventArgs 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyChangedWithDoubleValueEventArgs 实例

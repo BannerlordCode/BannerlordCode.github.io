@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library.Information` to place it in the stack, 
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of TooltipTriggerVM from the subsystem API first
@@ -34,7 +34,7 @@ tooltipTriggerVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of TooltipTriggerVM from the subsystem API first

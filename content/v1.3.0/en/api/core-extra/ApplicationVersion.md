@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### FromParametersFile
 `public static ApplicationVersion FromParametersFile(string customParameterFilePath = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FromParametersFile logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ApplicationVersion.FromParametersFile("example");
 ### FromString
 `public static ApplicationVersion FromString(string versionAsString, int defaultChangeSet = 0)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FromString logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ApplicationVersion.FromString("example", 0);
 ### IsSame
 `public bool IsSame(ApplicationVersion other, bool checkChangeSet)`
 
-**Purpose:** Determines whether the current object is in the `same` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the same state or condition.
 
 ```csharp
 // Obtain an instance of ApplicationVersion from the subsystem API first
@@ -64,7 +64,7 @@ var result = applicationVersion.IsSame(other, false);
 ### IsOlderThan
 `public bool IsOlderThan(ApplicationVersion other)`
 
-**Purpose:** Determines whether the current object is in the `older than` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the older than state or condition.
 
 ```csharp
 // Obtain an instance of ApplicationVersion from the subsystem API first
@@ -75,7 +75,7 @@ var result = applicationVersion.IsOlderThan(other);
 ### IsNewerThan
 `public bool IsNewerThan(ApplicationVersion other)`
 
-**Purpose:** Determines whether the current object is in the `newer than` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the newer than state or condition.
 
 ```csharp
 // Obtain an instance of ApplicationVersion from the subsystem API first
@@ -86,7 +86,7 @@ var result = applicationVersion.IsNewerThan(other);
 ### ApplicationVersionTypeFromString
 `public static ApplicationVersionType ApplicationVersionTypeFromString(string applicationVersionTypeAsString)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ApplicationVersionTypeFromString logic.
 
 ```csharp
 // Static call; no instance required
@@ -96,7 +96,7 @@ ApplicationVersion.ApplicationVersionTypeFromString("example");
 ### GetPrefix
 `public static string GetPrefix(ApplicationVersionType applicationVersionType)`
 
-**Purpose:** Reads and returns the `prefix` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prefix value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -106,7 +106,7 @@ ApplicationVersion.GetPrefix(applicationVersionType);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of ApplicationVersion from the subsystem API first
@@ -117,7 +117,7 @@ var result = applicationVersion.ToString();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of ApplicationVersion from the subsystem API first
@@ -128,7 +128,7 @@ var result = applicationVersion.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of ApplicationVersion from the subsystem API first

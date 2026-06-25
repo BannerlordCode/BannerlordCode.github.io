@@ -33,7 +33,7 @@ Treat `MultiplayerFactionBannerWidget` as a Widget-style extension point: first 
 ### MultiplayerFactionBannerWidget
 `public class MultiplayerFactionBannerWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerFactionBannerWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerFactionBannerWidget from the subsystem API first

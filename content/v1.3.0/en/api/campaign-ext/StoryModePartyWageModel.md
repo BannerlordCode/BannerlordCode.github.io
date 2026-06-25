@@ -29,7 +29,7 @@ Treat `StoryModePartyWageModel` as a Model-style extension point: first identify
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**Purpose:** Reads and returns the `character wage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character wage value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModePartyWageModel from the subsystem API first
@@ -40,7 +40,7 @@ var result = storyModePartyWageModel.GetCharacterWage(character);
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the `total wage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total wage value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModePartyWageModel from the subsystem API first
@@ -51,7 +51,7 @@ var result = storyModePartyWageModel.GetTotalWage(mobileParty, troopRoster, fals
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**Purpose:** Reads and returns the `troop recruitment cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop recruitment cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModePartyWageModel from the subsystem API first

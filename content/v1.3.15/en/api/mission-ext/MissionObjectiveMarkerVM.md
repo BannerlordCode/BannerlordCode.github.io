@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Obje
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkerVM from the subsystem API first
@@ -45,7 +45,7 @@ missionObjectiveMarkerVM.RefreshValues();
 ### UpdateActiveState
 `public void UpdateActiveState()`
 
-**Purpose:** Recalculates and stores the latest representation of `active state`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of active state.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkerVM from the subsystem API first
@@ -56,7 +56,7 @@ missionObjectiveMarkerVM.UpdateActiveState();
 ### UpdatePosition
 `public void UpdatePosition(Camera missionCamera)`
 
-**Purpose:** Recalculates and stores the latest representation of `position`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of position.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkerVM from the subsystem API first

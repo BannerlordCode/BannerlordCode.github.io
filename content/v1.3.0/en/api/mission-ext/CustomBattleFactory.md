@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.CustomBattle` to place it in
 ### StartCustomBattle
 `public static void StartCustomBattle()`
 
-**Purpose:** Starts the `custom battle` flow or state machine.
+**Purpose:** **Purpose:** Starts the custom battle flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CustomBattleFactory.StartCustomBattle();
 ### GetProviderCount
 `public static int GetProviderCount()`
 
-**Purpose:** Reads and returns the `provider count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the provider count value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CustomBattleFactory.GetProviderCount();
 ### CollectProviders
 `public static List<ICustomBattleProvider> CollectProviders()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectProviders logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CustomBattleFactory.CollectProviders();
 ### CollectNextProvider
 `public static ICustomBattleProvider CollectNextProvider(Type currentProviderType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectNextProvider logic.
 
 ```csharp
 // Static call; no instance required

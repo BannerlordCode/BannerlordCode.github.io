@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Diamond.ClientApplication` to place it in the s
 ### CreateSession
 `public IClientSession CreateSession(T client)`
 
-**Purpose:** Constructs a new `session` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new session entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of GenericThreadedRestSessionProvider from the subsystem API first

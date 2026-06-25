@@ -33,7 +33,7 @@ description: "MissionResult 的自动生成类参考。"
 ### CreateSuccessful
 `public static MissionResult CreateSuccessful(IMission mission, bool enemyRetreated = false)`
 
-**用途 / Purpose:** 构建一个新的 「successful」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 successful 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MissionResult.CreateSuccessful(mission, false);
 ### CreateDefeated
 `public static MissionResult CreateDefeated(IMission mission)`
 
-**用途 / Purpose:** 构建一个新的 「defeated」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 defeated 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MissionResult.CreateDefeated(mission);
 ### CreateDefenderPushedBack
 `public static MissionResult CreateDefenderPushedBack()`
 
-**用途 / Purpose:** 构建一个新的 「defender pushed back」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 defender pushed back 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

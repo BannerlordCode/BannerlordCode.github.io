@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RequestTrack
 `public Track RequestTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestTrack logic.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ var result = mapTracksCampaignBehavior.RequestTrack(party, trackPosition, trackD
 ### RequestMapArrow
 `public Track RequestMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RequestMapArrow logic.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = mapTracksCampaignBehavior.RequestMapArrow(pointerName, trackPositio
 ### ReleaseTrack
 `public void ReleaseTrack(Track track)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseTrack logic.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ mapTracksCampaignBehavior.ReleaseTrack(track);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ var result = mapTracksCampaignBehavior.ToString();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ mapTracksCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ mapTracksCampaignBehavior.SyncData(dataStore);
 ### IsTrackDropped
 `public bool IsTrackDropped(MobileParty mobileParty)`
 
-**Purpose:** Determines whether the current object is in the `track dropped` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the track dropped state or condition.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ var result = mapTracksCampaignBehavior.IsTrackDropped(mobileParty);
 ### AddTrack
 `public void AddTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-**Purpose:** Adds `track` to the current collection or state.
+**Purpose:** **Purpose:** Adds track to the current collection or state.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ mapTracksCampaignBehavior.AddTrack(party, trackPosition, trackDirection);
 ### AddMapArrow
 `public void AddMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-**Purpose:** Adds `map arrow` to the current collection or state.
+**Purpose:** **Purpose:** Adds map arrow to the current collection or state.
 
 ```csharp
 // Obtain an instance of MapTracksCampaignBehavior from the subsystem API first

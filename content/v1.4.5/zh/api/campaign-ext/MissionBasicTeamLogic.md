@@ -23,7 +23,7 @@ description: "MissionBasicTeamLogic 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBasicTeamLogic 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SaveCompability` to place it in 
 ### IsApplicable
 `public bool IsApplicable(ApplicationVersion version)`
 
-**Purpose:** Determines whether the current object is in the `applicable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the applicable state or condition.
 
 ```csharp
 // Obtain an instance of CharacterAttributesResolver from the subsystem API first
@@ -34,7 +34,7 @@ var result = characterAttributesResolver.IsApplicable(version);
 ### GetFieldMemberWithId
 `public MemberTypeId GetFieldMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** Reads and returns the `field member with id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the field member with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterAttributesResolver from the subsystem API first
@@ -45,7 +45,7 @@ var result = characterAttributesResolver.GetFieldMemberWithId(memberTypeId);
 ### GetNewType
 `public Type GetNewType()`
 
-**Purpose:** Reads and returns the `new type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the new type value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterAttributesResolver from the subsystem API first
@@ -56,7 +56,7 @@ var result = characterAttributesResolver.GetNewType();
 ### GetPropertyMemberWithId
 `public MemberTypeId GetPropertyMemberWithId(MemberTypeId memberTypeId)`
 
-**Purpose:** Reads and returns the `property member with id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the property member with id value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterAttributesResolver from the subsystem API first

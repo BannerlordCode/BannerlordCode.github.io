@@ -31,7 +31,7 @@ Treat `SkillIconVisualWidget` as a Widget-style extension point: first identify 
 ### SkillIconVisualWidget
 `public class SkillIconVisualWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SkillIconVisualWidget logic.
 
 ```csharp
 // Obtain an instance of SkillIconVisualWidget from the subsystem API first

@@ -33,7 +33,7 @@ description: "VideoPlaybackState 的自动生成类参考。"
 ### SetStartingParameters
 `public void SetStartingParameters(string videoPath, string audioPath, string subtitleFileBasePath, float frameRate = 30f, bool canUserSkip = true)`
 
-**用途 / Purpose:** 为 「starting parameters」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 starting parameters 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlaybackState 实例
@@ -44,7 +44,7 @@ videoPlaybackState.SetStartingParameters("example", "example", "example", 0, fal
 ### SetOnVideoFinisedDelegate
 `public void SetOnVideoFinisedDelegate(Action onVideoFinised)`
 
-**用途 / Purpose:** 为 「on video finised delegate」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 on video finised delegate 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlaybackState 实例
@@ -55,7 +55,7 @@ videoPlaybackState.SetOnVideoFinisedDelegate(onVideoFinised);
 ### OnVideoFinished
 `public void OnVideoFinished()`
 
-**用途 / Purpose:** 在 「video finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 video finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlaybackState 实例

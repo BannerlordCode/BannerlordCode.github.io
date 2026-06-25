@@ -31,7 +31,7 @@ description: "AccessObjectResult 的自动生成类参考。"
 ### CreateSuccess
 `public static AccessObjectResult CreateSuccess(AccessObject accessObject)`
 
-**用途 / Purpose:** 构建一个新的 「success」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 success 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ AccessObjectResult.CreateSuccess(accessObject);
 ### CreateFailed
 `public static AccessObjectResult CreateFailed(TextObject failReason)`
 
-**用途 / Purpose:** 构建一个新的 「failed」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 failed 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例

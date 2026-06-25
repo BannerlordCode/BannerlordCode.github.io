@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### GetGoldOnKill
 `public override int GetGoldOnKill(float attackerValue, float victimValue)`
 
-**Purpose:** Reads and returns the `gold on kill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold on kill value held by the this instance.
 
 ```csharp
 // Obtain an instance of GoldGainOnKillEffect from the subsystem API first

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject logEntryDescription, TextObject secondaryEffects, float authoritarianWeight, float oligarchyWeight, float egalitarianWeight)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PolicyObject from the subsystem API first
@@ -44,7 +44,7 @@ policyObject.Initialize(name, description, logEntryDescription, secondaryEffects
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PolicyObject from the subsystem API first

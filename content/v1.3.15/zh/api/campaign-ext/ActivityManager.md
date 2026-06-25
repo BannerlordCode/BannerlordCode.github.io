@@ -29,7 +29,7 @@ description: "ActivityManager 的自动生成类参考。"
 ### StartActivity
 `public static bool StartActivity(string activityId)`
 
-**用途 / Purpose:** 启动「activity」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动activity流程或状态机。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ ActivityManager.StartActivity("example");
 ### EndActivity
 `public static bool EndActivity(string activityId, ActivityOutcome outcome)`
 
-**用途 / Purpose:** 处理与 「end activity」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndActivity 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -49,7 +49,7 @@ ActivityManager.EndActivity("example", outcome);
 ### SetActivityAvailability
 `public static bool SetActivityAvailability(string activityId, bool isAvailable)`
 
-**用途 / Purpose:** 为 「activity availability」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 activity availability 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -59,7 +59,7 @@ ActivityManager.SetActivityAvailability("example", false);
 ### GetActivity
 `public static Task<Activity> GetActivity(string activityId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「activity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 activity 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -69,7 +69,7 @@ ActivityManager.GetActivity("example");
 ### GetActivityTransition
 `public static ActivityTransition GetActivityTransition(string activityId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「activity transition」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 activity transition 的结果。
 
 ```csharp
 // 静态调用，不需要实例

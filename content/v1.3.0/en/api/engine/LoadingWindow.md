@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ LoadingWindow.Initialize();
 ### Destroy
 `public static void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ LoadingWindow.Destroy();
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DisableGlobalLoadingWindow logic.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ LoadingWindow.DisableGlobalLoadingWindow();
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EnableGlobalLoadingWindow logic.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "DefaultPartyImpairmentModel 的自动生成类参考。"
 ### GetSiegeExpectedVulnerabilityTime
 `public override float GetSiegeExpectedVulnerabilityTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「siege expected vulnerability time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 siege expected vulnerability time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyImpairmentModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyImpairmentModel.GetSiegeExpectedVulnerabilityTime();
 ### GetDisorganizedStateDuration
 `public override ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「disorganized state duration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 disorganized state duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyImpairmentModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyImpairmentModel.GetDisorganizedStateDuration(party);
 ### CanGetDisorganized
 `public override bool CanGetDisorganized(PartyBase party)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「get disorganized」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 get disorganized 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyImpairmentModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartyImpairmentModel.CanGetDisorganized(party);
 ### GetVulnerabilityStateDuration
 `public override float GetVulnerabilityStateDuration(PartyBase party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「vulnerability state duration」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 vulnerability state duration 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyImpairmentModel 实例

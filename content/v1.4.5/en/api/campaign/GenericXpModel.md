@@ -23,7 +23,7 @@ Treat `GenericXpModel` as a Model-style extension point: first identify who crea
 ### GetXpMultiplier
 `public abstract float GetXpMultiplier(Hero hero)`
 
-**Purpose:** Reads and returns the `xp multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the xp multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of GenericXpModel from the subsystem API first

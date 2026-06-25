@@ -23,7 +23,7 @@ description: "XmlHelper 的自动生成类参考。"
 ### ReadInt
 `public static int ReadInt(XmlNode node, string str)`
 
-**用途 / Purpose:** 读取「int」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取int的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ XmlHelper.ReadInt(node, "example");
 ### ReadInt
 `public static void ReadInt(ref int val, XmlNode node, string str)`
 
-**用途 / Purpose:** 读取「int」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取int的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ XmlHelper.ReadInt(val, node, "example");
 ### ReadFloat
 `public static float ReadFloat(XmlNode node, string str, float defaultValue = 0f)`
 
-**用途 / Purpose:** 读取「float」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取float的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ XmlHelper.ReadFloat(node, "example", 0);
 ### ReadString
 `public static string ReadString(XmlNode node, string str)`
 
-**用途 / Purpose:** 读取「string」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取string的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ XmlHelper.ReadString(node, "example");
 ### ReadHexCode
 `public static void ReadHexCode(ref uint val, XmlNode node, string str)`
 
-**用途 / Purpose:** 读取「hex code」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取hex code的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ XmlHelper.ReadHexCode(val, node, "example");
 ### ReadBool
 `public static bool ReadBool(XmlNode node, string str)`
 
-**用途 / Purpose:** 读取「bool」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取bool的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例

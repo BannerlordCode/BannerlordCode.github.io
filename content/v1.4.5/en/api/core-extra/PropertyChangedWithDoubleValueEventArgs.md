@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithDoubleValueEventArgs
 `public struct PropertyChangedWithDoubleValueEventArgs(string propertyName, double value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PropertyChangedWithDoubleValueEventArgs logic.
 
 ```csharp
 // Obtain an instance of PropertyChangedWithDoubleValueEventArgs from the subsystem API first

@@ -29,7 +29,7 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ### Clone
 `public MissionPathGenerationLogic.PointOfInterestScorePair Clone()`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of PointOfInterestScorePair from the subsystem API first
@@ -40,7 +40,7 @@ var result = pointOfInterestScorePair.Clone();
 ### AddToData
 `public void AddToData(MissionPathGenerationLogic.PointOfInterestBaseData pointOfInterestToAdd)`
 
-**Purpose:** Adds `to data` to the current collection or state.
+**Purpose:** **Purpose:** Adds to data to the current collection or state.
 
 ```csharp
 // Obtain an instance of PointOfInterestScorePair from the subsystem API first
@@ -51,7 +51,7 @@ pointOfInterestScorePair.AddToData(pointOfInterestToAdd);
 ### IsDataEqualTo
 `public bool IsDataEqualTo(MissionPathGenerationLogic.PointOfInterestScorePair other, MissionPathGenerationLogic.PointOfInterestBaseData newDataToAdd)`
 
-**Purpose:** Determines whether the current object is in the `data equal to` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the data equal to state or condition.
 
 ```csharp
 // Obtain an instance of PointOfInterestScorePair from the subsystem API first
@@ -62,7 +62,7 @@ var result = pointOfInterestScorePair.IsDataEqualTo(other, newDataToAdd);
 ### IsBetterThan
 `public bool IsBetterThan(MissionPathGenerationLogic.PointOfInterestScorePair other)`
 
-**Purpose:** Determines whether the current object is in the `better than` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the better than state or condition.
 
 ```csharp
 // Obtain an instance of PointOfInterestScorePair from the subsystem API first
@@ -73,7 +73,7 @@ var result = pointOfInterestScorePair.IsBetterThan(other);
 ### IsSufficient
 `public bool IsSufficient()`
 
-**Purpose:** Determines whether the current object is in the `sufficient` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the sufficient state or condition.
 
 ```csharp
 // Obtain an instance of PointOfInterestScorePair from the subsystem API first
@@ -84,7 +84,7 @@ var result = pointOfInterestScorePair.IsSufficient();
 ### ReOrderDataAccordingToPathRatios
 `public void ReOrderDataAccordingToPathRatios()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReOrderDataAccordingToPathRatios logic.
 
 ```csharp
 // Obtain an instance of PointOfInterestScorePair from the subsystem API first

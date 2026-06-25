@@ -32,7 +32,7 @@ description: "MPArmoryHeroPerkSelectionVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryHeroPerkSelectionVM 实例
@@ -43,7 +43,7 @@ mPArmoryHeroPerkSelectionVM.RefreshValues();
 ### RefreshPerksListWithHero
 `public void RefreshPerksListWithHero(MPHeroClass heroClass)`
 
-**用途 / Purpose:** 使 「perks list with hero」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 perks list with hero 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryHeroPerkSelectionVM 实例

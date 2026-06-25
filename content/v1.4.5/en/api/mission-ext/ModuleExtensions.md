@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetUsedMachines
 `public static IEnumerable<UsableMachine> GetUsedMachines(this Formation formation)`
 
-**Purpose:** Reads and returns the `used machines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the used machines value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ModuleExtensions.GetUsedMachines(formation);
 ### StartUsingMachine
 `public static void StartUsingMachine(this Formation formation, UsableMachine usable, bool isPlayerOrder = false)`
 
-**Purpose:** Starts the `using machine` flow or state machine.
+**Purpose:** **Purpose:** Starts the using machine flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ModuleExtensions.StartUsingMachine(formation, usable, false);
 ### StopUsingMachine
 `public static void StopUsingMachine(this Formation formation, UsableMachine usable, bool isPlayerOrder = false)`
 
-**Purpose:** Stops the `using machine` flow or state machine.
+**Purpose:** **Purpose:** Stops the using machine flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ModuleExtensions.StopUsingMachine(formation, usable, false);
 ### ToWorldPosition
 `public static WorldPosition ToWorldPosition(this Vec3 rawPosition)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToWorldPosition logic.
 
 ```csharp
 // Static call; no instance required

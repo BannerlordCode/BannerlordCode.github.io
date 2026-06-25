@@ -37,7 +37,7 @@ description: "BuildingType 的自动生成类参考。"
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -48,7 +48,7 @@ var result = buildingType.GetName();
 ### Initialize
 `public void Initialize(TextObject name, TextObject explanation, int productionCosts, Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float> effects, bool isMilitaryProject, float varianceChance, int startLevel = 0)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -59,7 +59,7 @@ buildingType.Initialize(name, explanation, 0, tuple<BuildingEffectEnum, building
 ### InitializeDailyProject
 `public void InitializeDailyProject(TextObject name, TextObject explanation, Tuple<BuildingEffectEnum, BuildingEffectIncrementType, float, float, float> effects)`
 
-**用途 / Purpose:** 为 「daily project」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 daily project 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -70,7 +70,7 @@ buildingType.InitializeDailyProject(name, explanation, tuple<BuildingEffectEnum,
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -81,7 +81,7 @@ var result = buildingType.ToString();
 ### GetProductionCost
 `public int GetProductionCost(int level)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「production cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 production cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -92,7 +92,7 @@ var result = buildingType.GetProductionCost(0);
 ### GetBaseBuildingEffectAmount
 `public float GetBaseBuildingEffectAmount(BuildingEffectEnum effect, int level)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「base building effect amount」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 base building effect amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -103,7 +103,7 @@ var result = buildingType.GetBaseBuildingEffectAmount(effect, 0);
 ### HasEffect
 `public bool HasEffect(BuildingEffectEnum effect)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「effect」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 effect。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -114,7 +114,7 @@ var result = buildingType.HasEffect(effect);
 ### GetExplanationAtLevel
 `public TextObject GetExplanationAtLevel(int level)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「explanation at level」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 explanation at level 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -125,7 +125,7 @@ var result = buildingType.GetExplanationAtLevel(0);
 ### GetBuildingEffectType
 `public BuildingEffectIncrementType GetBuildingEffectType(BuildingEffectEnum effect)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「building effect type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 building effect type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例
@@ -136,7 +136,7 @@ var result = buildingType.GetBuildingEffectType(effect);
 ### GetEffectValue
 `public float GetEffectValue(int i)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effect value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effect value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BuildingType 实例

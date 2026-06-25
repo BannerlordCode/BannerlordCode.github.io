@@ -29,7 +29,7 @@ Treat `AchievementManager` as a Manager-style extension point: first identify wh
 ### SetStat
 `public static bool SetStat(string name, int value)`
 
-**Purpose:** Assigns a new value to `stat` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to stat and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ AchievementManager.SetStat("example", 0);
 ### GetStat
 `public static async Task<int> GetStat(string name)`
 
-**Purpose:** Reads and returns the `stat` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stat value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ AchievementManager.GetStat("example");
 ### GetStats
 `public static async Task<int > GetStats(string names)`
 
-**Purpose:** Reads and returns the `stats` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stats value held by the this instance.
 
 ```csharp
 // Static call; no instance required

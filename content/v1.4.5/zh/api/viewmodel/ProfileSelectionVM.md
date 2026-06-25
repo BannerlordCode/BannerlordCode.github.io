@@ -33,7 +33,7 @@ description: "ProfileSelectionVM 的自动生成类参考。"
 ### OnActivate
 `public void OnActivate(bool isDirectPlayPossible)`
 
-**用途 / Purpose:** 在 「activate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 activate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfileSelectionVM 实例
@@ -44,7 +44,7 @@ profileSelectionVM.OnActivate(false);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfileSelectionVM 实例

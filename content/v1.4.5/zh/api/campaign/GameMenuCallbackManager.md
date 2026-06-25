@@ -23,7 +23,7 @@ description: "GameMenuCallbackManager 的自动生成类参考。"
 ### OnGameLoad
 `public void OnGameLoad()`
 
-**用途 / Purpose:** 在 「game load」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game load 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例
@@ -34,7 +34,7 @@ gameMenuCallbackManager.OnGameLoad();
 ### InitializeState
 `public void InitializeState(string menuId, MenuContext state)`
 
-**用途 / Purpose:** 为 「state」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 state 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例
@@ -45,7 +45,7 @@ gameMenuCallbackManager.InitializeState("example", state);
 ### OnConsequence
 `public void OnConsequence(string menuId, GameMenuOption gameMenuOption, MenuContext state)`
 
-**用途 / Purpose:** 在 「consequence」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 consequence 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例
@@ -56,7 +56,7 @@ gameMenuCallbackManager.OnConsequence("example", gameMenuOption, state);
 ### GetMenuOptionTooltip
 `public TextObject GetMenuOptionTooltip(MenuContext menuContext, int menuItemNumber)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「menu option tooltip」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 menu option tooltip 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例
@@ -67,7 +67,7 @@ var result = gameMenuCallbackManager.GetMenuOptionTooltip(menuContext, 0);
 ### GetVirtualMenuOptionTooltip
 `public TextObject GetVirtualMenuOptionTooltip(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「virtual menu option tooltip」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 virtual menu option tooltip 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例
@@ -78,7 +78,7 @@ var result = gameMenuCallbackManager.GetVirtualMenuOptionTooltip(menuContext, 0)
 ### GetVirtualMenuOptionText
 `public TextObject GetVirtualMenuOptionText(MenuContext menuContext, int virtualMenuItemIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「virtual menu option text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 virtual menu option text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例
@@ -89,7 +89,7 @@ var result = gameMenuCallbackManager.GetVirtualMenuOptionText(menuContext, 0);
 ### GetMenuOptionText
 `public TextObject GetMenuOptionText(MenuContext menuContext, int menuItemNumber)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「menu option text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 menu option text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuCallbackManager 实例

@@ -60,7 +60,7 @@ description: "BasicCharacterObject 的自动生成类参考。"
 ### GetName
 `public override TextObject GetName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -71,7 +71,7 @@ var result = basicCharacterObject.GetName();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -82,7 +82,7 @@ var result = basicCharacterObject.ToString();
 ### InitializeEquipmentsOnLoad
 `public void InitializeEquipmentsOnLoad(BasicCharacterObject character)`
 
-**用途 / Purpose:** 为 「equipments on load」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 equipments on load 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -93,7 +93,7 @@ basicCharacterObject.InitializeEquipmentsOnLoad(character);
 ### GetFirstEquipment
 `public Equipment GetFirstEquipment(Func<Equipment, bool> predicate)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「first equipment」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 first equipment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -104,7 +104,7 @@ var result = basicCharacterObject.GetFirstEquipment(func<Equipment, false);
 ### GetBodyPropertiesMin
 `public virtual BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「body properties min」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 body properties min 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -115,7 +115,7 @@ var result = basicCharacterObject.GetBodyPropertiesMin(false);
 ### GetBodyPropertiesMax
 `public virtual BodyProperties GetBodyPropertiesMax(bool returnBaseValue = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「body properties max」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 body properties max 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -126,7 +126,7 @@ var result = basicCharacterObject.GetBodyPropertiesMax(false);
 ### GetBodyProperties
 `public virtual BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「body properties」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 body properties 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -137,7 +137,7 @@ var result = basicCharacterObject.GetBodyProperties(equipment, 0);
 ### UpdatePlayerCharacterBodyProperties
 `public virtual void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)`
 
-**用途 / Purpose:** 重新计算并更新 「player character body properties」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 player character body properties 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -148,7 +148,7 @@ basicCharacterObject.UpdatePlayerCharacterBodyProperties(properties, 0, false);
 ### GetDefaultFaceSeed
 `public int GetDefaultFaceSeed(int rank)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default face seed」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default face seed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -159,7 +159,7 @@ var result = basicCharacterObject.GetDefaultFaceSeed(0);
 ### GetStepSize
 `public float GetStepSize()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「step size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 step size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -170,7 +170,7 @@ var result = basicCharacterObject.GetStepSize();
 ### HasMount
 `public bool HasMount()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「mount」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 mount。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -181,7 +181,7 @@ var result = basicCharacterObject.HasMount();
 ### MaxHitPoints
 `public virtual int MaxHitPoints()`
 
-**用途 / Purpose:** 处理与 「max hit points」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MaxHitPoints 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -192,7 +192,7 @@ var result = basicCharacterObject.MaxHitPoints();
 ### GetPower
 `public virtual float GetPower()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -203,7 +203,7 @@ var result = basicCharacterObject.GetPower();
 ### GetBattlePower
 `public virtual float GetBattlePower()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「battle power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -214,7 +214,7 @@ var result = basicCharacterObject.GetBattlePower();
 ### GetMoraleResistance
 `public virtual float GetMoraleResistance()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「morale resistance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 morale resistance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -225,7 +225,7 @@ var result = basicCharacterObject.GetMoraleResistance();
 ### GetMountKeySeed
 `public virtual int GetMountKeySeed()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「mount key seed」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 mount key seed 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -236,7 +236,7 @@ var result = basicCharacterObject.GetMountKeySeed();
 ### GetBattleTier
 `public virtual int GetBattleTier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「battle tier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 battle tier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -247,7 +247,7 @@ var result = basicCharacterObject.GetBattleTier();
 ### GetDefaultCharacterSkills
 `public MBCharacterSkills GetDefaultCharacterSkills()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default character skills」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default character skills 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -258,7 +258,7 @@ var result = basicCharacterObject.GetDefaultCharacterSkills();
 ### GetSkillValue
 `public virtual int GetSkillValue(SkillObject skill)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「skill value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 skill value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -269,7 +269,7 @@ var result = basicCharacterObject.GetSkillValue(skill);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例
@@ -280,7 +280,7 @@ basicCharacterObject.Deserialize(objectManager, node);
 ### GetFormationClass
 `public virtual FormationClass GetFormationClass()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「formation class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 formation class 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterObject 实例

@@ -74,7 +74,7 @@ description: "MPLobbyVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -85,7 +85,7 @@ mPLobbyVM.RefreshValues();
 ### CreateInputKeyVisuals
 `public void CreateInputKeyVisuals(HotKey cancelInputKey, HotKey doneInputKey, HotKey previousInputKey, HotKey nextInputKey, HotKey firstInputKey, HotKey lastInputKey)`
 
-**用途 / Purpose:** 构建一个新的 「input key visuals」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 input key visuals 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -96,7 +96,7 @@ mPLobbyVM.CreateInputKeyVisuals(cancelInputKey, doneInputKey, previousInputKey, 
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -107,7 +107,7 @@ mPLobbyVM.OnFinalize();
 ### OnActivate
 `public void OnActivate()`
 
-**用途 / Purpose:** 在 「activate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 activate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -118,7 +118,7 @@ mPLobbyVM.OnActivate();
 ### OnDeactivate
 `public void OnDeactivate()`
 
-**用途 / Purpose:** 在 「deactivate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deactivate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -129,7 +129,7 @@ mPLobbyVM.OnDeactivate();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -140,7 +140,7 @@ mPLobbyVM.OnTick(0);
 ### OnConfirm
 `public void OnConfirm()`
 
-**用途 / Purpose:** 在 「confirm」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 confirm 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -151,7 +151,7 @@ mPLobbyVM.OnConfirm();
 ### OnEscape
 `public async void OnEscape()`
 
-**用途 / Purpose:** 在 「escape」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 escape 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -162,7 +162,7 @@ mPLobbyVM.OnEscape();
 ### HasAnyContextMenuOpen
 `public bool HasAnyContextMenuOpen()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「any context menu open」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any context menu open。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -173,7 +173,7 @@ var result = mPLobbyVM.HasAnyContextMenuOpen();
 ### ForceCloseContextMenus
 `public void ForceCloseContextMenus()`
 
-**用途 / Purpose:** 处理与 「force close context menus」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceCloseContextMenus 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -184,7 +184,7 @@ mPLobbyVM.ForceCloseContextMenus();
 ### HasNoPopupOpen
 `public bool HasNoPopupOpen()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「no popup open」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 no popup open。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -195,7 +195,7 @@ var result = mPLobbyVM.HasNoPopupOpen();
 ### RequestExit
 `public async Task RequestExit()`
 
-**用途 / Purpose:** 处理与 「request exit」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestExit 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -206,7 +206,7 @@ var result = mPLobbyVM.RequestExit();
 ### ConnectionStateUpdated
 `public void ConnectionStateUpdated(bool isAuthenticated)`
 
-**用途 / Purpose:** 响应 「connection state updated」 事件并执行相关处理。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ConnectionStateUpdated 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -217,7 +217,7 @@ mPLobbyVM.ConnectionStateUpdated(false);
 ### ShowOptionsChangedInquiry
 `public void ShowOptionsChangedInquiry(Action onAccept = null, Action onDecline = null)`
 
-**用途 / Purpose:** 显示「options changed inquiry」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示options changed inquiry对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -228,7 +228,7 @@ mPLobbyVM.ShowOptionsChangedInquiry(null, null);
 ### SetPage
 `public void SetPage(LobbyPage lobbyPage, MPMatchmakingVM.MatchmakingSubPages matchmakingSubPage = MPMatchmakingVM.MatchmakingSubPages.Default)`
 
-**用途 / Purpose:** 为 「page」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 page 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -239,7 +239,7 @@ mPLobbyVM.SetPage(lobbyPage, mPMatchmakingVM.MatchmakingSubPages.Default);
 ### RefreshRecentGames
 `public void RefreshRecentGames()`
 
-**用途 / Purpose:** 使 「recent games」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 recent games 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -250,7 +250,7 @@ mPLobbyVM.RefreshRecentGames();
 ### OnDisconnected
 `public void OnDisconnected()`
 
-**用途 / Purpose:** 在 「disconnected」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 disconnected 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -261,7 +261,7 @@ mPLobbyVM.OnDisconnected();
 ### OnServerStatusReceived
 `public void OnServerStatusReceived(ServerStatus serverStatus)`
 
-**用途 / Purpose:** 在 「server status received」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 server status received 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -272,7 +272,7 @@ mPLobbyVM.OnServerStatusReceived(serverStatus);
 ### OnRejoinBattleRequestAnswered
 `public void OnRejoinBattleRequestAnswered(bool isSuccessful)`
 
-**用途 / Purpose:** 在 「rejoin battle request answered」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 rejoin battle request answered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -283,7 +283,7 @@ mPLobbyVM.OnRejoinBattleRequestAnswered(false);
 ### OnRequestedToSearchBattle
 `public void OnRequestedToSearchBattle()`
 
-**用途 / Purpose:** 在 「requested to search battle」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 requested to search battle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -294,7 +294,7 @@ mPLobbyVM.OnRequestedToSearchBattle();
 ### OnUpdateFindingGame
 `public void OnUpdateFindingGame(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)`
 
-**用途 / Purpose:** 在 「update finding game」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 update finding game 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -305,7 +305,7 @@ mPLobbyVM.OnUpdateFindingGame(matchmakingWaitTimeStats, "example");
 ### OnPremadeGameCreated
 `public void OnPremadeGameCreated()`
 
-**用途 / Purpose:** 在 「premade game created」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 premade game created 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -316,7 +316,7 @@ mPLobbyVM.OnPremadeGameCreated();
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**用途 / Purpose:** 在 「requested to cancel search battle」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 requested to cancel search battle 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -327,7 +327,7 @@ mPLobbyVM.OnRequestedToCancelSearchBattle();
 ### OnPlayerRemovedFromParty
 `public void OnPlayerRemovedFromParty(PlayerId playerId, PartyRemoveReason reason)`
 
-**用途 / Purpose:** 在 「player removed from party」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player removed from party 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -338,7 +338,7 @@ mPLobbyVM.OnPlayerRemovedFromParty(playerId, reason);
 ### OnPlayerAddedToParty
 `public void OnPlayerAddedToParty(PlayerId playerId)`
 
-**用途 / Purpose:** 在 「player added to party」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player added to party 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -349,7 +349,7 @@ mPLobbyVM.OnPlayerAddedToParty(playerId);
 ### OnPlayerAssignedPartyLeader
 `public void OnPlayerAssignedPartyLeader(PlayerId newPartyLeaderId)`
 
-**用途 / Purpose:** 在 「player assigned party leader」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player assigned party leader 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -360,7 +360,7 @@ mPLobbyVM.OnPlayerAssignedPartyLeader(newPartyLeaderId);
 ### OnPlayerSuggestedToParty
 `public void OnPlayerSuggestedToParty(PlayerId playerId, string playerName, PlayerId suggestingPlayerId, string suggestingPlayerName)`
 
-**用途 / Purpose:** 在 「player suggested to party」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player suggested to party 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -371,7 +371,7 @@ mPLobbyVM.OnPlayerSuggestedToParty(playerId, "example", suggestingPlayerId, "exa
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**用途 / Purpose:** 在 「player name updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player name updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -382,7 +382,7 @@ mPLobbyVM.OnPlayerNameUpdated("example");
 ### OnSearchBattleCanceled
 `public void OnSearchBattleCanceled()`
 
-**用途 / Purpose:** 在 「search battle canceled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 search battle canceled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -393,7 +393,7 @@ mPLobbyVM.OnSearchBattleCanceled();
 ### RefreshPlayerData
 `public void RefreshPlayerData(PlayerData playerData)`
 
-**用途 / Purpose:** 使 「player data」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 player data 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -404,7 +404,7 @@ mPLobbyVM.RefreshPlayerData(playerData);
 ### RefreshSupportedFeatures
 `public void RefreshSupportedFeatures()`
 
-**用途 / Purpose:** 使 「supported features」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 supported features 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -415,7 +415,7 @@ mPLobbyVM.RefreshSupportedFeatures();
 ### OnNotificationsReceived
 `public void OnNotificationsReceived(LobbyNotification notifications)`
 
-**用途 / Purpose:** 在 「notifications received」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 notifications received 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -426,7 +426,7 @@ mPLobbyVM.OnNotificationsReceived(notifications);
 ### OnSigilChanged
 `public void OnSigilChanged(int iconID)`
 
-**用途 / Purpose:** 在 「sigil changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 sigil changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -437,7 +437,7 @@ mPLobbyVM.OnSigilChanged(0);
 ### OnClanCreationFinished
 `public void OnClanCreationFinished()`
 
-**用途 / Purpose:** 在 「clan creation finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clan creation finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -448,7 +448,7 @@ mPLobbyVM.OnClanCreationFinished();
 ### OnEnableGenericAvatarsChanged
 `public void OnEnableGenericAvatarsChanged()`
 
-**用途 / Purpose:** 在 「enable generic avatars changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 enable generic avatars changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -459,7 +459,7 @@ mPLobbyVM.OnEnableGenericAvatarsChanged();
 ### OnEnableGenericNamesChanged
 `public void OnEnableGenericNamesChanged()`
 
-**用途 / Purpose:** 在 「enable generic names changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 enable generic names changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -470,7 +470,7 @@ mPLobbyVM.OnEnableGenericNamesChanged();
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** 在 「friend list updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 friend list updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -481,7 +481,7 @@ mPLobbyVM.OnFriendListUpdated(false);
 ### OnClanInfoChanged
 `public void OnClanInfoChanged()`
 
-**用途 / Purpose:** 在 「clan info changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clan info changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -492,7 +492,7 @@ mPLobbyVM.OnClanInfoChanged();
 ### GetLocalizedGameTypesString
 `public static string GetLocalizedGameTypesString(string gameTypes)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「localized game types string」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 localized game types string 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -502,7 +502,7 @@ MPLobbyVM.GetLocalizedGameTypesString("example");
 ### GetLocalizedRankName
 `public static string GetLocalizedRankName(string rankID)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「localized rank name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 localized rank name 的结果。
 
 ```csharp
 // 静态调用，不需要实例

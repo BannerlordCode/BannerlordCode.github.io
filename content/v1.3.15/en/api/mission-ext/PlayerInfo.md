@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby.LocalData` to place
 ### HasSameContentWith
 `public bool HasSameContentWith(PlayerInfo other)`
 
-**Purpose:** Determines whether the current object already holds `same content with`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds same content with.
 
 ```csharp
 // Obtain an instance of PlayerInfo from the subsystem API first

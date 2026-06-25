@@ -23,7 +23,7 @@ description: "MissionGauntletTournamentView 的自动生成类参考。"
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**用途 / Purpose:** 在 「mission screen initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -34,7 +34,7 @@ missionGauntletTournamentView.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -45,7 +45,7 @@ missionGauntletTournamentView.OnMissionScreenFinalize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -56,7 +56,7 @@ missionGauntletTournamentView.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -67,7 +67,7 @@ missionGauntletTournamentView.OnMissionTick(0);
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「opening escape menu on focus change allowed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 opening escape menu on focus change allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -78,7 +78,7 @@ var result = missionGauntletTournamentView.IsOpeningEscapeMenuOnFocusChangeAllow
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -89,7 +89,7 @@ missionGauntletTournamentView.OnAgentRemoved(affectedAgent, affectorAgent, agent
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**用途 / Purpose:** 在 「photo mode activated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 photo mode activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例
@@ -100,7 +100,7 @@ missionGauntletTournamentView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**用途 / Purpose:** 在 「photo mode deactivated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 photo mode deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletTournamentView 实例

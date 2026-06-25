@@ -23,7 +23,7 @@ description: "SandboxBattleSpawnModel 的自动生成类参考。"
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission start 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleSpawnModel 实例
@@ -34,7 +34,7 @@ sandboxBattleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**用途 / Purpose:** 在 「mission end」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxBattleSpawnModel 实例

@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -43,7 +43,7 @@ var result = lordsNeedsTutorIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -54,7 +54,7 @@ var result = lordsNeedsTutorIssueBehavior.IssueStayAliveConditions();
 ### OnHeroCanBeSelectedInInventoryInfoIsRequested
 `public override void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can be selected in inventory info is requested event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -65,7 +65,7 @@ lordsNeedsTutorIssueBehavior.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero,
 ### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
 `public override void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have party role or be governor info is requested event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -76,7 +76,7 @@ lordsNeedsTutorIssueBehavior.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(h
 ### OnHeroCanLeadPartyInfoIsRequested
 `public override void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can lead party info is requested event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -87,7 +87,7 @@ lordsNeedsTutorIssueBehavior.OnHeroCanLeadPartyInfoIsRequested(hero, result);
 ### OnHeroCanHaveCampaignIssuesInfoIsRequested
 `public override void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can have campaign issues info is requested event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -98,7 +98,7 @@ lordsNeedsTutorIssueBehavior.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, re
 ### OnHeroCanMarryInfoIsRequested
 `public override void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
 
-**Purpose:** Invoked when the `hero can marry info is requested` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero can marry info is requested event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -109,7 +109,7 @@ lordsNeedsTutorIssueBehavior.OnHeroCanMarryInfoIsRequested(hero, result);
 ### OnHeroGainedSkill
 `public void OnHeroGainedSkill(Hero hero, SkillObject skill, int change = 1, bool shouldNotify = true)`
 
-**Purpose:** Invoked when the `hero gained skill` event is raised.
+**Purpose:** **Purpose:** Invoked when the hero gained skill event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -120,7 +120,7 @@ lordsNeedsTutorIssueBehavior.OnHeroGainedSkill(hero, skill, 0, false);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -131,7 +131,7 @@ lordsNeedsTutorIssueBehavior.RegisterEvents();
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Invoked when the `check for issue` event is raised.
+**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first
@@ -142,7 +142,7 @@ lordsNeedsTutorIssueBehavior.OnCheckForIssue(hero);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of LordsNeedsTutorIssueBehavior from the subsystem API first

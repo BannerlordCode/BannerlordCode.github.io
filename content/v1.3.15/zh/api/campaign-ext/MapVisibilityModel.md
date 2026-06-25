@@ -23,7 +23,7 @@ description: "MapVisibilityModel 的自动生成类参考。"
 ### MaximumSeeingRange
 `public abstract float MaximumSeeingRange()`
 
-**用途 / Purpose:** 处理与 「maximum seeing range」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MaximumSeeingRange 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapVisibilityModel 实例
@@ -34,7 +34,7 @@ var result = mapVisibilityModel.MaximumSeeingRange();
 ### GetPartySpottingRangeBase
 `public abstract float GetPartySpottingRangeBase(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party spotting range base」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party spotting range base 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapVisibilityModel 实例
@@ -45,7 +45,7 @@ var result = mapVisibilityModel.GetPartySpottingRangeBase(party);
 ### GetPartySpottingRange
 `public abstract ExplainedNumber GetPartySpottingRange(MobileParty party, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party spotting range」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party spotting range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapVisibilityModel 实例
@@ -56,7 +56,7 @@ var result = mapVisibilityModel.GetPartySpottingRange(party, false);
 ### GetPartyRelativeInspectionRange
 `public abstract float GetPartyRelativeInspectionRange(IMapPoint party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party relative inspection range」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party relative inspection range 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapVisibilityModel 实例
@@ -67,7 +67,7 @@ var result = mapVisibilityModel.GetPartyRelativeInspectionRange(party);
 ### GetPartySpottingDifficulty
 `public abstract float GetPartySpottingDifficulty(MobileParty spotterParty, MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「party spotting difficulty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 party spotting difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapVisibilityModel 实例
@@ -78,7 +78,7 @@ var result = mapVisibilityModel.GetPartySpottingDifficulty(spotterParty, party);
 ### GetHideoutSpottingDistance
 `public abstract float GetHideoutSpottingDistance()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hideout spotting distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hideout spotting distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapVisibilityModel 实例

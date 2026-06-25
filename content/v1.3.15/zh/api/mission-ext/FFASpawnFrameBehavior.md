@@ -23,7 +23,7 @@ description: "FFASpawnFrameBehavior 的自动生成类参考。"
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FFASpawnFrameBehavior 实例

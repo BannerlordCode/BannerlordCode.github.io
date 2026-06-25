@@ -23,7 +23,7 @@ description: "FrenchTextProcessor 的自动生成类参考。"
 ### ProcessToken
 `public override void ProcessToken(string sourceText, ref int cursorPos, string token, StringBuilder outputString)`
 
-**用途 / Purpose:** 处理与 「process token」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ProcessToken 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FrenchTextProcessor 实例

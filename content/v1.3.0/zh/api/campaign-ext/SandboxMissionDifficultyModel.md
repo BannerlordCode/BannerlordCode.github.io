@@ -23,7 +23,7 @@ description: "SandboxMissionDifficultyModel 的自动生成类参考。"
 ### GetDamageMultiplierOfCombatDifficulty
 `public override float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「damage multiplier of combat difficulty」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage multiplier of combat difficulty 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxMissionDifficultyModel 实例

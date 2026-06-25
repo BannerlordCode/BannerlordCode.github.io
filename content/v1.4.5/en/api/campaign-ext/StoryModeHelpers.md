@@ -23,7 +23,7 @@ Start from namespace `StoryMode` to place it in the stack, then inspect its publ
 ### SetPlayerSiblingsSkillsIfNeeded
 `public static void SetPlayerSiblingsSkillsIfNeeded(Hero hero)`
 
-**Purpose:** Assigns a new value to `player siblings skills if needed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to player siblings skills if needed and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

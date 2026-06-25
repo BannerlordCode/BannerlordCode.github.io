@@ -31,7 +31,7 @@ description: "MissionAgentLockItemVM 的自动生成类参考。"
 ### SetLockState
 `public void SetLockState(LockStates lockState)`
 
-**用途 / Purpose:** 为 「lock state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 lock state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentLockItemVM 实例
@@ -42,7 +42,7 @@ missionAgentLockItemVM.SetLockState(lockState);
 ### UpdatePosition
 `public void UpdatePosition(Vec2 position)`
 
-**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentLockItemVM 实例

@@ -32,7 +32,7 @@ description: "InputRestrictions 的自动生成类参考。"
 ### SetMouseVisibility
 `public void SetMouseVisibility(bool isVisible)`
 
-**用途 / Purpose:** 为 「mouse visibility」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 mouse visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InputRestrictions 实例
@@ -43,7 +43,7 @@ inputRestrictions.SetMouseVisibility(false);
 ### SetInputRestrictions
 `public void SetInputRestrictions(bool isMouseVisible = true, InputUsageMask mask = InputUsageMask.All)`
 
-**用途 / Purpose:** 为 「input restrictions」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 input restrictions 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InputRestrictions 实例
@@ -54,7 +54,7 @@ inputRestrictions.SetInputRestrictions(false, inputUsageMask.All);
 ### ResetInputRestrictions
 `public void ResetInputRestrictions()`
 
-**用途 / Purpose:** 将 「input restrictions」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 input restrictions 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InputRestrictions 实例

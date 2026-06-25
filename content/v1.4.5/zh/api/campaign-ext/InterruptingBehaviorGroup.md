@@ -23,7 +23,7 @@ description: "InterruptingBehaviorGroup 的自动生成类参考。"
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
@@ -34,7 +34,7 @@ interruptingBehaviorGroup.Tick(0, false);
 ### GetScore
 `public override float GetScore(bool isSimulation)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「score」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
@@ -45,7 +45,7 @@ var result = interruptingBehaviorGroup.GetScore(false);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 处理与 「force think」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceThink 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
@@ -56,7 +56,7 @@ interruptingBehaviorGroup.ForceThink(0);
 ### ConversationTick
 `public override void ConversationTick()`
 
-**用途 / Purpose:** 推进 「conversation」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ConversationTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例

@@ -58,7 +58,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Conversation
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -69,7 +69,7 @@ missionConversationVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -80,7 +80,7 @@ missionConversationVM.Tick(0);
 ### OnConversationContinue
 `public void OnConversationContinue()`
 
-**Purpose:** Invoked when the `conversation continue` event is raised.
+**Purpose:** **Purpose:** Invoked when the conversation continue event is raised.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -91,7 +91,7 @@ missionConversationVM.OnConversationContinue();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -102,7 +102,7 @@ missionConversationVM.ExecuteLink("example");
 ### ExecuteConversedHeroLink
 `public void ExecuteConversedHeroLink()`
 
-**Purpose:** Runs the operation or workflow associated with `conversed hero link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with conversed hero link.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -113,7 +113,7 @@ missionConversationVM.ExecuteConversedHeroLink();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -124,7 +124,7 @@ missionConversationVM.Refresh();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close tooltip.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -135,7 +135,7 @@ missionConversationVM.ExecuteCloseTooltip();
 ### ExecuteHeroTooltip
 `public void ExecuteHeroTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `hero tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with hero tooltip.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -146,7 +146,7 @@ missionConversationVM.ExecuteHeroTooltip();
 ### ExecuteFinalizeSelection
 `public void ExecuteFinalizeSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `finalize selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with finalize selection.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -157,7 +157,7 @@ missionConversationVM.ExecuteFinalizeSelection();
 ### ExecuteContinue
 `public void ExecuteContinue()`
 
-**Purpose:** Runs the operation or workflow associated with `continue`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with continue.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first
@@ -168,7 +168,7 @@ missionConversationVM.ExecuteContinue();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionConversationVM from the subsystem API first

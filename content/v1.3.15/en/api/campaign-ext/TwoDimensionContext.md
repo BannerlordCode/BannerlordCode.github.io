@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### PlaySound
 `public void PlaySound(string soundName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -45,7 +45,7 @@ twoDimensionContext.PlaySound("example");
 ### CreateSoundEvent
 `public void CreateSoundEvent(string soundName)`
 
-**Purpose:** Constructs a new `sound event` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new sound event entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -56,7 +56,7 @@ twoDimensionContext.CreateSoundEvent("example");
 ### StopAndRemoveSoundEvent
 `public void StopAndRemoveSoundEvent(string soundName)`
 
-**Purpose:** Stops the `and remove sound event` flow or state machine.
+**Purpose:** **Purpose:** Stops the and remove sound event flow or state machine.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -67,7 +67,7 @@ twoDimensionContext.StopAndRemoveSoundEvent("example");
 ### PlaySoundEvent
 `public void PlaySoundEvent(string soundName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlaySoundEvent logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -78,7 +78,7 @@ twoDimensionContext.PlaySoundEvent("example");
 ### DrawImage
 `public void DrawImage(SimpleMaterial material, in ImageDrawObject drawObject2D, int layer = 0)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawImage logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -89,7 +89,7 @@ twoDimensionContext.DrawImage(material, drawObject2D, 0);
 ### DrawText
 `public void DrawText(TextMaterial material, in TextDrawObject drawObject2D, int layer = 0)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawText logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -100,7 +100,7 @@ twoDimensionContext.DrawText(material, drawObject2D, 0);
 ### BeginDebugPanel
 `public void BeginDebugPanel(string panelTitle)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginDebugPanel logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -111,7 +111,7 @@ twoDimensionContext.BeginDebugPanel("example");
 ### EndDebugPanel
 `public void EndDebugPanel()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndDebugPanel logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -122,7 +122,7 @@ twoDimensionContext.EndDebugPanel();
 ### DrawDebugText
 `public void DrawDebugText(string text)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawDebugText logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -133,7 +133,7 @@ twoDimensionContext.DrawDebugText("example");
 ### DrawDebugTreeNode
 `public bool DrawDebugTreeNode(string text)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawDebugTreeNode logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -144,7 +144,7 @@ var result = twoDimensionContext.DrawDebugTreeNode("example");
 ### PopDebugTreeNode
 `public void PopDebugTreeNode()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PopDebugTreeNode logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -155,7 +155,7 @@ twoDimensionContext.PopDebugTreeNode();
 ### DrawCheckbox
 `public void DrawCheckbox(string label, ref bool isChecked)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DrawCheckbox logic.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -166,7 +166,7 @@ twoDimensionContext.DrawCheckbox("example", isChecked);
 ### IsDebugItemHovered
 `public bool IsDebugItemHovered()`
 
-**Purpose:** Determines whether the current object is in the `debug item hovered` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the debug item hovered state or condition.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -177,7 +177,7 @@ var result = twoDimensionContext.IsDebugItemHovered();
 ### LoadTexture
 `public Texture LoadTexture(string name)`
 
-**Purpose:** Reads `texture` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads texture from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -188,7 +188,7 @@ var result = twoDimensionContext.LoadTexture("example");
 ### SetScissor
 `public void SetScissor(ScissorTestInfo scissor)`
 
-**Purpose:** Assigns a new value to `scissor` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to scissor and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first
@@ -199,7 +199,7 @@ twoDimensionContext.SetScissor(scissor);
 ### ResetScissor
 `public void ResetScissor()`
 
-**Purpose:** Returns `scissor` to its default or initial condition.
+**Purpose:** **Purpose:** Returns scissor to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TwoDimensionContext from the subsystem API first

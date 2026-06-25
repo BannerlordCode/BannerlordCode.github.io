@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Update
 `public void Update(ulong frameNumber, float globalAnimTime, float dt)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of BrushRenderer from the subsystem API first
@@ -43,7 +43,7 @@ brushRenderer.Update(0, 0, 0);
 ### IsUpdateNeeded
 `public bool IsUpdateNeeded()`
 
-**Purpose:** Determines whether the current object is in the `update needed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the update needed state or condition.
 
 ```csharp
 // Obtain an instance of BrushRenderer from the subsystem API first
@@ -54,7 +54,7 @@ var result = brushRenderer.IsUpdateNeeded();
 ### Render
 `public void Render(TwoDimensionDrawContext drawContext, in Rectangle2D rect, float scale, float contextAlpha, Vector2 overlayOffset = default(Vector2), Vector2 overlaySize = default(Vector2))`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Render logic.
 
 ```csharp
 // Obtain an instance of BrushRenderer from the subsystem API first
@@ -65,7 +65,7 @@ brushRenderer.Render(drawContext, rect, 0, 0, default(Vector2), default(Vector2)
 ### CreateTextMaterial
 `public TextMaterial CreateTextMaterial(TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Constructs a new `text material` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new text material entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of BrushRenderer from the subsystem API first
@@ -76,7 +76,7 @@ var result = brushRenderer.CreateTextMaterial(drawContext);
 ### RestartAnimation
 `public void RestartAnimation()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RestartAnimation logic.
 
 ```csharp
 // Obtain an instance of BrushRenderer from the subsystem API first
@@ -87,7 +87,7 @@ brushRenderer.RestartAnimation();
 ### SetSeed
 `public void SetSeed(int seed)`
 
-**Purpose:** Assigns a new value to `seed` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to seed and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrushRenderer from the subsystem API first

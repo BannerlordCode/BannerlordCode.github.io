@@ -34,7 +34,7 @@ description: "MountCreationKey 的自动生成类参考。"
 ### FromString
 `public static MountCreationKey FromString(string str)`
 
-**用途 / Purpose:** 处理与 「from string」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FromString 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ MountCreationKey.FromString("example");
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MountCreationKey 实例
@@ -55,7 +55,7 @@ var result = mountCreationKey.ToString();
 ### GetRandomMountKeyString
 `public static string GetRandomMountKeyString(ItemObject mountItem, int randomSeed)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random mount key string」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random mount key string 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ MountCreationKey.GetRandomMountKeyString(mountItem, 0);
 ### GetRandomMountKey
 `public static MountCreationKey GetRandomMountKey(ItemObject mountItem, int randomSeed)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random mount key」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random mount key 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then ins
 ### ChangeKey
 `public void ChangeKey(InputKey key)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeKey logic.
 
 ```csharp
 // Obtain an instance of Key from the subsystem API first
@@ -44,7 +44,7 @@ key.ChangeKey(key);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Key from the subsystem API first
@@ -55,7 +55,7 @@ var result = key.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of Key from the subsystem API first
@@ -66,7 +66,7 @@ var result = key.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of Key from the subsystem API first
@@ -77,7 +77,7 @@ var result = key.GetHashCode();
 ### IsLeftAnalogInput
 `public static bool IsLeftAnalogInput(InputKey key)`
 
-**Purpose:** Determines whether the current object is in the `left analog input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the left analog input state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -87,7 +87,7 @@ Key.IsLeftAnalogInput(key);
 ### IsLeftBumperOrTriggerInput
 `public static bool IsLeftBumperOrTriggerInput(InputKey key)`
 
-**Purpose:** Determines whether the current object is in the `left bumper or trigger input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the left bumper or trigger input state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -97,7 +97,7 @@ Key.IsLeftBumperOrTriggerInput(key);
 ### IsRightBumperOrTriggerInput
 `public static bool IsRightBumperOrTriggerInput(InputKey key)`
 
-**Purpose:** Determines whether the current object is in the `right bumper or trigger input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the right bumper or trigger input state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -107,7 +107,7 @@ Key.IsRightBumperOrTriggerInput(key);
 ### IsFaceKeyInput
 `public static bool IsFaceKeyInput(InputKey key)`
 
-**Purpose:** Determines whether the current object is in the `face key input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the face key input state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -117,7 +117,7 @@ Key.IsFaceKeyInput(key);
 ### IsRightAnalogInput
 `public static bool IsRightAnalogInput(InputKey key)`
 
-**Purpose:** Determines whether the current object is in the `right analog input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the right analog input state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -127,7 +127,7 @@ Key.IsRightAnalogInput(key);
 ### IsDpadInput
 `public static bool IsDpadInput(InputKey key)`
 
-**Purpose:** Determines whether the current object is in the `dpad input` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the dpad input state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -137,7 +137,7 @@ Key.IsDpadInput(key);
 ### GetInputType
 `public static InputType GetInputType(InputKey key)`
 
-**Purpose:** Reads and returns the `input type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the input type value held by the this instance.
 
 ```csharp
 // Static call; no instance required

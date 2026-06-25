@@ -23,7 +23,7 @@ description: "BasicTooltipViewModel 的自动生成类参考。"
 ### SetToolipCallback
 `public void SetToolipCallback(Func<List<TooltipProperty>> tooltipPropertiesDelegate)`
 
-**用途 / Purpose:** 为 「toolip callback」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 toolip callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicTooltipViewModel 实例
@@ -34,7 +34,7 @@ basicTooltipViewModel.SetToolipCallback(tooltipPropertiesDelegate);
 ### SetGenericTooltipCallback
 `public void SetGenericTooltipCallback(Action preBuiltTooltipCallback)`
 
-**用途 / Purpose:** 为 「generic tooltip callback」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 generic tooltip callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicTooltipViewModel 实例
@@ -45,7 +45,7 @@ basicTooltipViewModel.SetGenericTooltipCallback(preBuiltTooltipCallback);
 ### SetHintCallback
 `public void SetHintCallback(Func<string> hintProperty)`
 
-**用途 / Purpose:** 为 「hint callback」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 hint callback 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicTooltipViewModel 实例
@@ -56,7 +56,7 @@ basicTooltipViewModel.SetHintCallback(hintProperty);
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicTooltipViewModel 实例
@@ -67,7 +67,7 @@ basicTooltipViewModel.ExecuteBeginHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicTooltipViewModel 实例

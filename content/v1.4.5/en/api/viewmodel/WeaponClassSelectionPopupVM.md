@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of WeaponClassSelectionPopupVM from the subsystem API first
@@ -42,7 +42,7 @@ weaponClassSelectionPopupVM.RefreshValues();
 ### UpdateNewlyUnlockedPiecesCount
 `public void UpdateNewlyUnlockedPiecesCount(List<CraftingPiece> newlyUnlockedPieces)`
 
-**Purpose:** Recalculates and stores the latest representation of `newly unlocked pieces count`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of newly unlocked pieces count.
 
 ```csharp
 // Obtain an instance of WeaponClassSelectionPopupVM from the subsystem API first
@@ -53,7 +53,7 @@ weaponClassSelectionPopupVM.UpdateNewlyUnlockedPiecesCount(newlyUnlockedPieces);
 ### ExecuteSelectWeaponClass
 `public void ExecuteSelectWeaponClass(int index)`
 
-**Purpose:** Runs the operation or workflow associated with `select weapon class`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select weapon class.
 
 ```csharp
 // Obtain an instance of WeaponClassSelectionPopupVM from the subsystem API first
@@ -64,7 +64,7 @@ weaponClassSelectionPopupVM.ExecuteSelectWeaponClass(0);
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of WeaponClassSelectionPopupVM from the subsystem API first
@@ -75,7 +75,7 @@ weaponClassSelectionPopupVM.ExecuteClosePopup();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of WeaponClassSelectionPopupVM from the subsystem API first

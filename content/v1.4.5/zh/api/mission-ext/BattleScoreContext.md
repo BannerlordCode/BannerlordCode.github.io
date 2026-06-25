@@ -29,7 +29,7 @@ description: "BattleScoreContext 的自动生成类参考。"
 ### GetAttackerBanner
 `public abstract Banner GetAttackerBanner()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attacker banner」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attacker banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleScoreContext 实例
@@ -40,7 +40,7 @@ var result = battleScoreContext.GetAttackerBanner();
 ### GetDefenderBanner
 `public abstract Banner GetDefenderBanner()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「defender banner」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defender banner 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleScoreContext 实例

@@ -23,7 +23,7 @@ Treat `BuildingModel` as a Model-style extension point: first identify who creat
 ### CanAddBuildingTypeToTown
 `public abstract bool CanAddBuildingTypeToTown(BuildingType buildingType, Town town)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `add building type to town`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for add building type to town.
 
 ```csharp
 // Obtain an instance of BuildingModel from the subsystem API first

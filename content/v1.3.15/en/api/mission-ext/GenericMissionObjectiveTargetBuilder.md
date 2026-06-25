@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ### SetIsActiveCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetIsActiveCallback(Func<T, bool> callback)`
 
-**Purpose:** Assigns a new value to `is active callback` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is active callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
@@ -34,7 +34,7 @@ var result = genericMissionObjectiveTargetBuilder.SetIsActiveCallback(func<T, fa
 ### SetGetGlobalPositionCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetGlobalPositionCallback(Func<T, Vec3> callback)`
 
-**Purpose:** Assigns a new value to `get global position callback` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to get global position callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
@@ -45,7 +45,7 @@ var result = genericMissionObjectiveTargetBuilder.SetGetGlobalPositionCallback(f
 ### SetGetNameCallback
 `public MissionObjective.GenericMissionObjectiveTargetBuilder<T> SetGetNameCallback(Func<T, TextObject> callback)`
 
-**Purpose:** Assigns a new value to `get name callback` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to get name callback and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first
@@ -56,7 +56,7 @@ var result = genericMissionObjectiveTargetBuilder.SetGetNameCallback(func<T, cal
 ### Build
 `public MissionObjectiveTarget<T> Build()`
 
-**Purpose:** Builds an instance or representation of the current object.
+**Purpose:** **Purpose:** Builds an instance or representation of the this instance.
 
 ```csharp
 // Obtain an instance of GenericMissionObjectiveTargetBuilder from the subsystem API first

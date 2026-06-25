@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### ClosedDelegate
 `public delegate Task ClosedDelegate()`
 
-**Purpose:** Closes the resource or UI associated with `d delegate`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with d delegate.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first
@@ -40,7 +40,7 @@ var result = messageServiceConnection.ClosedDelegate();
 ### StateChangedDelegate
 `public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the StateChangedDelegate logic.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first
@@ -51,7 +51,7 @@ messageServiceConnection.StateChangedDelegate(oldState, newState);
 ### SendAsync
 `public abstract Task SendAsync(string text)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SendAsync logic.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first
@@ -62,7 +62,7 @@ var result = messageServiceConnection.SendAsync("example");
 ### Init
 `public abstract void Init(string address, string token)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first
@@ -73,7 +73,7 @@ messageServiceConnection.Init("example", "example");
 ### RegisterProxyClient
 `public abstract void RegisterProxyClient(string name, IMessageProxyClient playerClient)`
 
-**Purpose:** Registers `proxy client` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers proxy client with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first
@@ -84,7 +84,7 @@ messageServiceConnection.RegisterProxyClient("example", playerClient);
 ### StartAsync
 `public abstract Task StartAsync()`
 
-**Purpose:** Starts the `async` flow or state machine.
+**Purpose:** **Purpose:** Starts the async flow or state machine.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first
@@ -95,7 +95,7 @@ var result = messageServiceConnection.StartAsync();
 ### StopAsync
 `public abstract Task StopAsync()`
 
-**Purpose:** Stops the `async` flow or state machine.
+**Purpose:** **Purpose:** Stops the async flow or state machine.
 
 ```csharp
 // Obtain an instance of MessageServiceConnection from the subsystem API first

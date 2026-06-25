@@ -23,7 +23,7 @@ description: "CheckpointMissionLogic 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointMissionLogic 实例
@@ -34,7 +34,7 @@ checkpointMissionLogic.EarlyStart();
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**用途 / Purpose:** 在 「rendering started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 rendering started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointMissionLogic 实例
@@ -45,7 +45,7 @@ checkpointMissionLogic.OnRenderingStarted();
 ### OnEarlyAgentRemoved
 `public override void OnEarlyAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「early agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 early agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointMissionLogic 实例
@@ -56,7 +56,7 @@ checkpointMissionLogic.OnEarlyAgentRemoved(affectedAgent, affectorAgent, agentSt
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointMissionLogic 实例
@@ -67,7 +67,7 @@ checkpointMissionLogic.OnMissionTick(0);
 ### OnCheckpointUsed
 `public void OnCheckpointUsed(int checkpointUniqueId)`
 
-**用途 / Purpose:** 在 「checkpoint used」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 checkpoint used 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointMissionLogic 实例
@@ -78,7 +78,7 @@ checkpointMissionLogic.OnCheckpointUsed(0);
 ### RegisterAgent
 `public void RegisterAgent(Agent agent)`
 
-**用途 / Purpose:** 将「agent」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将agent注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 CheckpointMissionLogic 实例

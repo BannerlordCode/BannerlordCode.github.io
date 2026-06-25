@@ -34,7 +34,7 @@ description: "WidgetInfo 的自动生成类参考。"
 ### Refresh
 `public static void Refresh()`
 
-**用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 刷新当前对象的显示或缓存，使其与底层状态保持一致。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ WidgetInfo.Refresh();
 ### GetWidgetInfo
 `public static WidgetInfo GetWidgetInfo(Type type)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「widget info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 widget info 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ WidgetInfo.GetWidgetInfo(type);
 ### GetWidgetInfos
 `public static WidgetInfo GetWidgetInfos()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「widget infos」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 widget infos 的结果。
 
 ```csharp
 // 静态调用，不需要实例

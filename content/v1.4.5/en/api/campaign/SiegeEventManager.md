@@ -23,7 +23,7 @@ Treat `SiegeEventManager` as a Manager-style extension point: first identify who
 ### StartSiegeEvent
 `public SiegeEvent StartSiegeEvent(Settlement settlement, MobileParty besiegerParty)`
 
-**Purpose:** Starts the `siege event` flow or state machine.
+**Purpose:** **Purpose:** Starts the siege event flow or state machine.
 
 ```csharp
 // Obtain an instance of SiegeEventManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = siegeEventManager.StartSiegeEvent(settlement, besiegerParty);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SiegeEventManager from the subsystem API first
@@ -45,7 +45,7 @@ siegeEventManager.Tick(0);
 ### OnAfterLoad
 `public void OnAfterLoad()`
 
-**Purpose:** Invoked when the `after load` event is raised.
+**Purpose:** **Purpose:** Invoked when the after load event is raised.
 
 ```csharp
 // Obtain an instance of SiegeEventManager from the subsystem API first

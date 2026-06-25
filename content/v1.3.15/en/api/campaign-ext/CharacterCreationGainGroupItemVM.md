@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### ResetValues
 `public void ResetValues()`
 
-**Purpose:** Returns `values` to its default or initial condition.
+**Purpose:** **Purpose:** Returns values to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CharacterCreationGainGroupItemVM from the subsystem API first

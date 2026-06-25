@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadDefaultEquipments
 `public static Dictionary<string, Equipment> ReadDefaultEquipments(string defaultEquipmentsPath)`
 
-**Purpose:** Reads the data or state of `default equipments`.
+**Purpose:** **Purpose:** Reads the data or state of default equipments.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerGame.ReadDefaultEquipments("example");
 ### OnDestroy
 `public override void OnDestroy()`
 
-**Purpose:** Invoked when the `destroy` event is raised.
+**Purpose:** **Purpose:** Invoked when the destroy event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGame from the subsystem API first
@@ -44,7 +44,7 @@ multiplayerGame.OnDestroy();
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**Purpose:** Invoked when the `state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the state changed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerGame from the subsystem API first

@@ -47,7 +47,7 @@ description: "ConversationSentence 的自动生成类参考。"
 ### Variation
 `public ConversationSentence Variation(params object list)`
 
-**用途 / Purpose:** 处理与 「variation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Variation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例
@@ -58,7 +58,7 @@ var result = conversationSentence.Variation(list);
 ### Deserialize
 `public void Deserialize(XmlNode node, Type typeOfConversationCallbacks, ConversationManager conversationManager, int defaultPriority)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例
@@ -69,7 +69,7 @@ conversationSentence.Deserialize(node, typeOfConversationCallbacks, conversation
 ### SetObjectsToRepeatOver
 `public static void SetObjectsToRepeatOver(IReadOnlyList<object> objectsToRepeatOver, int maxRepeatedDialogsInConversation = 5)`
 
-**用途 / Purpose:** 为 「objects to repeat over」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 objects to repeat over 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -79,7 +79,7 @@ ConversationSentence.SetObjectsToRepeatOver(objectsToRepeatOver, 0);
 ### OnConditionDelegate
 `public delegate bool OnConditionDelegate()`
 
-**用途 / Purpose:** 在 「condition delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 condition delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例
@@ -90,7 +90,7 @@ var result = conversationSentence.OnConditionDelegate();
 ### OnClickableConditionDelegate
 `public delegate bool OnClickableConditionDelegate(out TextObject explanation)`
 
-**用途 / Purpose:** 在 「clickable condition delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clickable condition delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例
@@ -101,7 +101,7 @@ var result = conversationSentence.OnClickableConditionDelegate(explanation);
 ### OnPersuasionOptionDelegate
 `public delegate PersuasionOptionArgs OnPersuasionOptionDelegate()`
 
-**用途 / Purpose:** 在 「persuasion option delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 persuasion option delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例
@@ -112,7 +112,7 @@ var result = conversationSentence.OnPersuasionOptionDelegate();
 ### OnConsequenceDelegate
 `public delegate void OnConsequenceDelegate()`
 
-**用途 / Purpose:** 在 「consequence delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 consequence delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例
@@ -123,7 +123,7 @@ conversationSentence.OnConsequenceDelegate();
 ### OnMultipleConversationConsequenceDelegate
 `public delegate bool OnMultipleConversationConsequenceDelegate(IAgent agent)`
 
-**用途 / Purpose:** 在 「multiple conversation consequence delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 multiple conversation consequence delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationSentence 实例

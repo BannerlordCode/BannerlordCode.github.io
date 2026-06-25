@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemVM from the subsystem API first
@@ -47,7 +47,7 @@ encyclopediaListItemVM.RefreshValues();
 ### Execute
 `public void Execute()`
 
-**Purpose:** Runs the operation or workflow represented by the current object.
+**Purpose:** **Purpose:** Runs the operation or workflow represented by the this instance.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemVM from the subsystem API first
@@ -58,7 +58,7 @@ encyclopediaListItemVM.Execute();
 ### SetComparedValue
 `public void SetComparedValue(EncyclopediaListItemComparerBase comparer)`
 
-**Purpose:** Assigns a new value to `compared value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to compared value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemVM from the subsystem API first
@@ -69,7 +69,7 @@ encyclopediaListItemVM.SetComparedValue(comparer);
 ### ExecuteBeginTooltip
 `public void ExecuteBeginTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `begin tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin tooltip.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemVM from the subsystem API first
@@ -80,7 +80,7 @@ encyclopediaListItemVM.ExecuteBeginTooltip();
 ### ExecuteEndTooltip
 `public void ExecuteEndTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `end tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end tooltip.
 
 ```csharp
 // Obtain an instance of EncyclopediaListItemVM from the subsystem API first

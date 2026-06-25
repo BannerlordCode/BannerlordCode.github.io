@@ -34,7 +34,7 @@ Treat `MultiplayerLobbyAnimatedRankChangeWidget` as a Widget-style extension poi
 ### MultiplayerLobbyAnimatedRankChangeWidget
 `public class MultiplayerLobbyAnimatedRankChangeWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerLobbyAnimatedRankChangeWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyAnimatedRankChangeWidget from the subsystem API first

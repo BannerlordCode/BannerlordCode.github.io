@@ -23,7 +23,7 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ### AddPlayer
 `public void AddPlayer(PlayerId playerId, string playerName, bool isPartyLeader)`
 
-**Purpose:** Adds `player` to the current collection or state.
+**Purpose:** **Purpose:** Adds player to the current collection or state.
 
 ```csharp
 // Obtain an instance of PlayersAddedToPartyMessage from the subsystem API first
@@ -34,7 +34,7 @@ playersAddedToPartyMessage.AddPlayer(playerId, "example", false);
 ### AddInvitedPlayer
 `public void AddInvitedPlayer(PlayerId playerId, string playerName)`
 
-**Purpose:** Adds `invited player` to the current collection or state.
+**Purpose:** **Purpose:** Adds invited player to the current collection or state.
 
 ```csharp
 // Obtain an instance of PlayersAddedToPartyMessage from the subsystem API first

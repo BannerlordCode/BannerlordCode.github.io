@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### IsAgentFullySitting
 `public bool IsAgentFullySitting(Agent usingAgent)`
 
-**Purpose:** Determines whether the current object is in the `agent fully sitting` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the agent fully sitting state or condition.
 
 ```csharp
 // Obtain an instance of Chair from the subsystem API first
@@ -34,7 +34,7 @@ var result = chair.IsAgentFullySitting(usingAgent);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of Chair from the subsystem API first
@@ -45,7 +45,7 @@ var result = chair.CreateAIBehaviorObject();
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of Chair from the subsystem API first
@@ -56,7 +56,7 @@ var result = chair.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of Chair from the subsystem API first
@@ -67,7 +67,7 @@ var result = chair.GetDescriptionText(gameEntity);
 ### GetBestPointAlternativeTo
 `public override StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
 
-**Purpose:** Reads and returns the `best point alternative to` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the best point alternative to value held by the this instance.
 
 ```csharp
 // Obtain an instance of Chair from the subsystem API first
@@ -78,7 +78,7 @@ var result = chair.GetBestPointAlternativeTo(standingPoint, agent);
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `order` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the order value held by the this instance.
 
 ```csharp
 // Obtain an instance of Chair from the subsystem API first

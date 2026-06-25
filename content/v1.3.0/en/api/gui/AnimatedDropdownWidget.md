@@ -37,7 +37,7 @@ Treat `AnimatedDropdownWidget` as a Widget-style extension point: first identify
 ### OnButtonClick
 `public void OnButtonClick(Widget widget)`
 
-**Purpose:** Invoked when the `button click` event is raised.
+**Purpose:** **Purpose:** Invoked when the button click event is raised.
 
 ```csharp
 // Obtain an instance of AnimatedDropdownWidget from the subsystem API first
@@ -48,7 +48,7 @@ animatedDropdownWidget.OnButtonClick(widget);
 ### UpdateButtonText
 `public void UpdateButtonText(string text)`
 
-**Purpose:** Recalculates and stores the latest representation of `button text`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of button text.
 
 ```csharp
 // Obtain an instance of AnimatedDropdownWidget from the subsystem API first
@@ -59,7 +59,7 @@ animatedDropdownWidget.UpdateButtonText("example");
 ### OnListChanged
 `public void OnListChanged(Widget widget)`
 
-**Purpose:** Invoked when the `list changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the list changed event is raised.
 
 ```csharp
 // Obtain an instance of AnimatedDropdownWidget from the subsystem API first
@@ -70,7 +70,7 @@ animatedDropdownWidget.OnListChanged(widget);
 ### OnListChanged
 `public void OnListChanged(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Invoked when the `list changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the list changed event is raised.
 
 ```csharp
 // Obtain an instance of AnimatedDropdownWidget from the subsystem API first
@@ -81,7 +81,7 @@ animatedDropdownWidget.OnListChanged(parentWidget, addedWidget);
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**Purpose:** Invoked when the `selection changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the selection changed event is raised.
 
 ```csharp
 // Obtain an instance of AnimatedDropdownWidget from the subsystem API first

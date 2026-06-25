@@ -36,7 +36,7 @@ Treat `DefaultEncounterModel` as a Model-style extension point: first identify w
 ### IsEncounterExemptFromHostileActions
 `public override bool IsEncounterExemptFromHostileActions(PartyBase side1, PartyBase side2)`
 
-**Purpose:** Determines whether the current object is in the `encounter exempt from hostile actions` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the encounter exempt from hostile actions state or condition.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -47,7 +47,7 @@ var result = defaultEncounterModel.IsEncounterExemptFromHostileActions(side1, si
 ### GetLeaderOfSiegeEvent
 `public override Hero GetLeaderOfSiegeEvent(SiegeEvent siegeEvent, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `leader of siege event` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the leader of siege event value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -58,7 +58,7 @@ var result = defaultEncounterModel.GetLeaderOfSiegeEvent(siegeEvent, side);
 ### CanMainHeroDoParleyWithParty
 `public override bool CanMainHeroDoParleyWithParty(PartyBase partyBase, out TextObject explanation)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `main hero do parley with party`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for main hero do parley with party.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -69,7 +69,7 @@ var result = defaultEncounterModel.CanMainHeroDoParleyWithParty(partyBase, expla
 ### GetLeaderOfMapEvent
 `public override Hero GetLeaderOfMapEvent(MapEvent mapEvent, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `leader of map event` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the leader of map event value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -80,7 +80,7 @@ var result = defaultEncounterModel.GetLeaderOfMapEvent(mapEvent, side);
 ### GetCharacterSergeantScore
 `public override int GetCharacterSergeantScore(Hero hero)`
 
-**Purpose:** Reads and returns the `character sergeant score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character sergeant score value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -91,7 +91,7 @@ var result = defaultEncounterModel.GetCharacterSergeantScore(hero);
 ### GetDefenderPartiesOfSettlement
 `public override IEnumerable<PartyBase> GetDefenderPartiesOfSettlement(Settlement settlement, MapEvent.BattleTypes mapEventType)`
 
-**Purpose:** Reads and returns the `defender parties of settlement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the defender parties of settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -102,7 +102,7 @@ var result = defaultEncounterModel.GetDefenderPartiesOfSettlement(settlement, ma
 ### GetNextDefenderPartyOfSettlement
 `public override PartyBase GetNextDefenderPartyOfSettlement(Settlement settlement, ref int partyIndex, MapEvent.BattleTypes mapEventType)`
 
-**Purpose:** Reads and returns the `next defender party of settlement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next defender party of settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -113,7 +113,7 @@ var result = defaultEncounterModel.GetNextDefenderPartyOfSettlement(settlement, 
 ### CreateMapEventComponentForEncounter
 `public override MapEventComponent CreateMapEventComponentForEncounter(PartyBase attackerParty, PartyBase defenderParty, MapEvent.BattleTypes battleType)`
 
-**Purpose:** Constructs a new `map event component for encounter` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new map event component for encounter entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -124,7 +124,7 @@ var result = defaultEncounterModel.CreateMapEventComponentForEncounter(attackerP
 ### GetSurrenderChance
 `public override float GetSurrenderChance(MobileParty defenderParty, MobileParty attackerParty)`
 
-**Purpose:** Reads and returns the `surrender chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the surrender chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -135,7 +135,7 @@ var result = defaultEncounterModel.GetSurrenderChance(defenderParty, attackerPar
 ### GetBribeChance
 `public override ExplainedNumber GetBribeChance(MobileParty defenderParty, MobileParty attackerParty)`
 
-**Purpose:** Reads and returns the `bribe chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bribe chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -146,7 +146,7 @@ var result = defaultEncounterModel.GetBribeChance(defenderParty, attackerParty);
 ### GetMapEventSideRunAwayChance
 `public override float GetMapEventSideRunAwayChance(MapEventSide mapEventSide)`
 
-**Purpose:** Reads and returns the `map event side run away chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the map event side run away chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -157,7 +157,7 @@ var result = defaultEncounterModel.GetMapEventSideRunAwayChance(mapEventSide);
 ### FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter
 `public override void FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(List<MobileParty> partiesToJoinPlayerSide, List<MobileParty> partiesToJoinEnemySide)`
 
-**Purpose:** Looks up the matching `non attached npc parties who will join player encounter` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching non attached npc parties who will join player encounter in the current collection or scope.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first
@@ -168,7 +168,7 @@ defaultEncounterModel.FindNonAttachedNpcPartiesWhoWillJoinPlayerEncounter(partie
 ### CanPlayerForceBanditsToJoin
 `public override bool CanPlayerForceBanditsToJoin(out TextObject explanation)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `player force bandits to join`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player force bandits to join.
 
 ```csharp
 // Obtain an instance of DefaultEncounterModel from the subsystem API first

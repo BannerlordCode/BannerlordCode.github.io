@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to pla
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -49,7 +49,7 @@ troopTypeSelectionPopUpVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -60,7 +60,7 @@ troopTypeSelectionPopUpVM.OnFinalize();
 ### OpenPopUp
 `public void OpenPopUp(string title, MBBindingList<CustomBattleTroopTypeVM> troops)`
 
-**Purpose:** Opens the resource or UI associated with `pop up`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with pop up.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -71,7 +71,7 @@ troopTypeSelectionPopUpVM.OpenPopUp("example", troops);
 ### OnItemSelectionToggled
 `public void OnItemSelectionToggled(CustomBattleTroopTypeVM item)`
 
-**Purpose:** Invoked when the `item selection toggled` event is raised.
+**Purpose:** **Purpose:** Invoked when the item selection toggled event is raised.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -82,7 +82,7 @@ troopTypeSelectionPopUpVM.OnItemSelectionToggled(item);
 ### ExecuteSelectAll
 `public void ExecuteSelectAll()`
 
-**Purpose:** Runs the operation or workflow associated with `select all`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select all.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -93,7 +93,7 @@ troopTypeSelectionPopUpVM.ExecuteSelectAll();
 ### ExecuteBackToDefault
 `public void ExecuteBackToDefault()`
 
-**Purpose:** Runs the operation or workflow associated with `back to default`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with back to default.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -104,7 +104,7 @@ troopTypeSelectionPopUpVM.ExecuteBackToDefault();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -115,7 +115,7 @@ troopTypeSelectionPopUpVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -126,7 +126,7 @@ troopTypeSelectionPopUpVM.ExecuteDone();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**Purpose:** Runs the operation or workflow associated with `reset`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -137,7 +137,7 @@ troopTypeSelectionPopUpVM.ExecuteReset();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -148,7 +148,7 @@ troopTypeSelectionPopUpVM.SetCancelInputKey(hotkey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first
@@ -159,7 +159,7 @@ troopTypeSelectionPopUpVM.SetDoneInputKey(hotkey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotkey)`
 
-**Purpose:** Assigns a new value to `reset input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reset input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TroopTypeSelectionPopUpVM from the subsystem API first

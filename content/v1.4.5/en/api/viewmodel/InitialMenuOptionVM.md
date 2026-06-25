@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu` 
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of InitialMenuOptionVM from the subsystem API first
@@ -41,7 +41,7 @@ initialMenuOptionVM.ExecuteAction();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of InitialMenuOptionVM from the subsystem API first

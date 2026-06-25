@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ lordDefectionCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ lordDefectionCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ lordDefectionCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### ClearPersuasion
 `public void ClearPersuasion()`
 
-**Purpose:** Removes all `persuasion` from the current object.
+**Purpose:** **Purpose:** Removes all persuasion from the this instance.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ lordDefectionCampaignBehavior.ClearPersuasion();
 ### conversation_lord_player_has_failed_in_defection_on_condition
 `public bool conversation_lord_player_has_failed_in_defection_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_player_has_failed_in_defection_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_player_has_failed_i
 ### conversation_lord_recruit_check_if_reservations_met_on_condition
 `public bool conversation_lord_recruit_check_if_reservations_met_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_recruit_check_if_reservations_met_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_recruit_check_if_re
 ### conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition
 `public bool conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_check_if_ready_to_j
 ### conversation_lord_defect_to_clan_without_barter_on_consequence
 `public void conversation_lord_defect_to_clan_without_barter_on_consequence()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_defect_to_clan_without_barter_on_consequence logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ lordDefectionCampaignBehavior.conversation_lord_defect_to_clan_without_barter_on
 ### conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition
 `public bool conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -122,7 +122,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_check_if_ready_to_j
 ### conversation_player_is_asking_to_recruit_enemy_on_condition
 `public bool conversation_player_is_asking_to_recruit_enemy_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_player_is_asking_to_recruit_enemy_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -133,7 +133,7 @@ var result = lordDefectionCampaignBehavior.conversation_player_is_asking_to_recr
 ### conversation_player_is_asking_to_recruit_neutral_on_condition
 `public bool conversation_player_is_asking_to_recruit_neutral_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_player_is_asking_to_recruit_neutral_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -144,7 +144,7 @@ var result = lordDefectionCampaignBehavior.conversation_player_is_asking_to_recr
 ### conversation_lord_from_ruling_clan_on_condition
 `public bool conversation_lord_from_ruling_clan_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_from_ruling_clan_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first
@@ -155,7 +155,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_from_ruling_clan_on
 ### conversation_lord_redirects_to_clan_leader_on_condition
 `public bool conversation_lord_redirects_to_clan_leader_on_condition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the conversation_lord_redirects_to_clan_leader_on_condition logic.
 
 ```csharp
 // Obtain an instance of LordDefectionCampaignBehavior from the subsystem API first

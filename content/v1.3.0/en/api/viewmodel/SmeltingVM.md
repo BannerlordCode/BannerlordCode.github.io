@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SmeltingVM from the subsystem API first
@@ -46,7 +46,7 @@ smeltingVM.RefreshValues();
 ### RefreshList
 `public void RefreshList()`
 
-**Purpose:** Keeps the display or cache of `list` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SmeltingVM from the subsystem API first
@@ -57,7 +57,7 @@ smeltingVM.RefreshList();
 ### TrySmeltingSelectedItems
 `public void TrySmeltingSelectedItems(Hero currentCraftingHero)`
 
-**Purpose:** Attempts to retrieve `smelting selected items`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve smelting selected items, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of SmeltingVM from the subsystem API first
@@ -68,7 +68,7 @@ smeltingVM.TrySmeltingSelectedItems(currentCraftingHero);
 ### SaveItemLockStates
 `public void SaveItemLockStates()`
 
-**Purpose:** Writes `item lock states` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes item lock states to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of SmeltingVM from the subsystem API first

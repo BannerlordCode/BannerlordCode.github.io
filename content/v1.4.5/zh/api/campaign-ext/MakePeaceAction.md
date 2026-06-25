@@ -19,7 +19,7 @@ MakePeaceAction 是一组静态方法，用于在战役中以特定原因触发"
 public static void Apply(IFaction faction1, IFaction faction2)
 ```
 
-**用途 / Purpose:** 。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的效果应用到目标。
 
 ### ApplyByKingdomDecision
 
@@ -27,7 +27,7 @@ public static void Apply(IFaction faction1, IFaction faction2)
 public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2, int dailyTributeDuration)
 ```
 
-**用途 / Purpose:** kingdom decision。
+**用途 / Purpose:** **用途 / Purpose:** 将 by kingdom decision 的效果应用到当前对象。
 
 ## 使用示例
 

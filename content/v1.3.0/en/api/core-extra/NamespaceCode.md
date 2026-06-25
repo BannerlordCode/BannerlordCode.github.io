@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Generates an instance, data, or representation of `into`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of into.
 
 ```csharp
 // Obtain an instance of NamespaceCode from the subsystem API first
@@ -41,7 +41,7 @@ namespaceCode.GenerateInto(codeGenerationFile);
 ### AddClass
 `public void AddClass(ClassCode clasCode)`
 
-**Purpose:** Adds `class` to the current collection or state.
+**Purpose:** **Purpose:** Adds class to the current collection or state.
 
 ```csharp
 // Obtain an instance of NamespaceCode from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(IBrushLayerData styleLayer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -34,7 +34,7 @@ brushLayerState.FillFrom(styleLayer);
 ### LerpFrom
 `public void LerpFrom(BrushLayerState start, IBrushLayerData end, float ratio)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LerpFrom logic.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -45,7 +45,7 @@ brushLayerState.LerpFrom(start, end, 0);
 ### SetValueAsFloat
 `public void SetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType, float value)`
 
-**Purpose:** Assigns a new value to `value as float` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value as float and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -56,7 +56,7 @@ brushLayerState.SetValueAsFloat(propertyType, 0);
 ### SetValueAsColor
 `public void SetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType, in Color value)`
 
-**Purpose:** Assigns a new value to `value as color` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value as color and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -67,7 +67,7 @@ brushLayerState.SetValueAsColor(propertyType, value);
 ### SetValueAsSprite
 `public void SetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType, Sprite value)`
 
-**Purpose:** Assigns a new value to `value as sprite` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value as sprite and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -78,7 +78,7 @@ brushLayerState.SetValueAsSprite(propertyType, value);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as float` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as float value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -89,7 +89,7 @@ var result = brushLayerState.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as color` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as color value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -100,7 +100,7 @@ var result = brushLayerState.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as sprite value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushLayerState from the subsystem API first
@@ -111,7 +111,7 @@ var result = brushLayerState.GetValueAsSprite(propertyType);
 ### SetValueAsLerpOfValues
 `public static void SetValueAsLerpOfValues(ref BrushLayerState currentState, in BrushAnimationKeyFrame startValue, in BrushAnimationKeyFrame endValue, BrushAnimationProperty.BrushAnimationPropertyType propertyType, float ratio)`
 
-**Purpose:** Assigns a new value to `value as lerp of values` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to value as lerp of values and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Treat `MissionBoundaryWallView` as a View-style extension point: first identify 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionBoundaryWallView from the subsystem API first

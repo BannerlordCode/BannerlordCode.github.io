@@ -23,7 +23,7 @@ description: "KingdomDecisionPermissionModel 的自动生成类参考。"
 ### IsPolicyDecisionAllowed
 `public abstract bool IsPolicyDecisionAllowed(PolicyObject policy)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「policy decision allowed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 policy decision allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例
@@ -34,7 +34,7 @@ var result = kingdomDecisionPermissionModel.IsPolicyDecisionAllowed(policy);
 ### IsWarDecisionAllowedBetweenKingdoms
 `public abstract bool IsWarDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「war decision allowed between kingdoms」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 war decision allowed between kingdoms 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例
@@ -45,7 +45,7 @@ var result = kingdomDecisionPermissionModel.IsWarDecisionAllowedBetweenKingdoms(
 ### IsPeaceDecisionAllowedBetweenKingdoms
 `public abstract bool IsPeaceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「peace decision allowed between kingdoms」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 peace decision allowed between kingdoms 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例
@@ -56,7 +56,7 @@ var result = kingdomDecisionPermissionModel.IsPeaceDecisionAllowedBetweenKingdom
 ### IsStartAllianceDecisionAllowedBetweenKingdoms
 `public abstract bool IsStartAllianceDecisionAllowedBetweenKingdoms(Kingdom kingdom1, Kingdom kingdom2, out TextObject reason)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「start alliance decision allowed between kingdoms」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 start alliance decision allowed between kingdoms 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例
@@ -67,7 +67,7 @@ var result = kingdomDecisionPermissionModel.IsStartAllianceDecisionAllowedBetwee
 ### IsAnnexationDecisionAllowed
 `public abstract bool IsAnnexationDecisionAllowed(Settlement annexedSettlement)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「annexation decision allowed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 annexation decision allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例
@@ -78,7 +78,7 @@ var result = kingdomDecisionPermissionModel.IsAnnexationDecisionAllowed(annexedS
 ### IsExpulsionDecisionAllowed
 `public abstract bool IsExpulsionDecisionAllowed(Clan expelledClan)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「expulsion decision allowed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 expulsion decision allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例
@@ -89,7 +89,7 @@ var result = kingdomDecisionPermissionModel.IsExpulsionDecisionAllowed(expelledC
 ### IsKingSelectionDecisionAllowed
 `public abstract bool IsKingSelectionDecisionAllowed(Kingdom kingdom)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「king selection decision allowed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 king selection decision allowed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecisionPermissionModel 实例

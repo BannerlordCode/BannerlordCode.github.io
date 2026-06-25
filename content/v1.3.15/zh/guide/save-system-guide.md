@@ -254,6 +254,4 @@ public class MyData
 
 ## 使用示例
 
-```csharp
-var example = new 存档系统指南();
-```
+// （占位示例已移除，见正文说明）

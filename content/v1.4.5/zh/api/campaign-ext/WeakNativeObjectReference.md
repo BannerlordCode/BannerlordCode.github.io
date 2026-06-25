@@ -23,7 +23,7 @@ description: "WeakNativeObjectReference 的自动生成类参考。"
 ### ManualInvalidate
 `public void ManualInvalidate()`
 
-**用途 / Purpose:** 处理与 「manual invalidate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ManualInvalidate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakNativeObjectReference 实例
@@ -34,7 +34,7 @@ weakNativeObjectReference.ManualInvalidate();
 ### GetNativeObject
 `public NativeObject GetNativeObject()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「native object」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 native object 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakNativeObjectReference 实例

@@ -34,7 +34,7 @@ description: "TextLineOutput 的自动生成类参考。"
 ### AddToken
 `public void AddToken(TextToken textToken, float tokenWidth, float tokenHeight, string style, float scaleValue)`
 
-**用途 / Purpose:** 将 「token」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 token 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TextLineOutput 实例
@@ -45,7 +45,7 @@ textLineOutput.AddToken(textToken, 0, 0, "example", 0);
 ### GetToken
 `public TextToken GetToken(int i)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「token」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 token 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextLineOutput 实例
@@ -56,7 +56,7 @@ var result = textLineOutput.GetToken(0);
 ### GetTokenOutput
 `public TextTokenOutput GetTokenOutput(int i)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「token output」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 token output 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextLineOutput 实例
@@ -67,7 +67,7 @@ var result = textLineOutput.GetTokenOutput(0);
 ### RemoveTokenFromEnd
 `public TextTokenOutput RemoveTokenFromEnd()`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「token from end」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 token from end。
 
 ```csharp
 // 先通过子系统 API 拿到 TextLineOutput 实例

@@ -31,7 +31,7 @@ Treat `MapSiegeMachineButtonWidget` as a Widget-style extension point: first ide
 ### MapSiegeMachineButtonWidget
 `public class MapSiegeMachineButtonWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MapSiegeMachineButtonWidget logic.
 
 ```csharp
 // Obtain an instance of MapSiegeMachineButtonWidget from the subsystem API first

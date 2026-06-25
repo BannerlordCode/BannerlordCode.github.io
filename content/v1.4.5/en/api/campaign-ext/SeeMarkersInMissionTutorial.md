@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GauntletUI.Tutorial` to place it in the stack, t
 ### IsConditionsMetForCompletion
 `public override bool IsConditionsMetForCompletion()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for completion` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for completion state or condition.
 
 ```csharp
 // Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
@@ -34,7 +34,7 @@ var result = seeMarkersInMissionTutorial.IsConditionsMetForCompletion();
 ### OnMissionNameMarkerToggled
 `public override void OnMissionNameMarkerToggled(MissionNameMarkerToggleEvent obj)`
 
-**Purpose:** Invoked when the `mission name marker toggled` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission name marker toggled event is raised.
 
 ```csharp
 // Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
@@ -45,7 +45,7 @@ seeMarkersInMissionTutorial.OnMissionNameMarkerToggled(obj);
 ### GetTutorialsRelevantContext
 `public override TutorialContexts GetTutorialsRelevantContext()`
 
-**Purpose:** Reads and returns the `tutorials relevant context` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tutorials relevant context value held by the this instance.
 
 ```csharp
 // Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first
@@ -56,7 +56,7 @@ var result = seeMarkersInMissionTutorial.GetTutorialsRelevantContext();
 ### IsConditionsMetForActivation
 `public override bool IsConditionsMetForActivation()`
 
-**Purpose:** Determines whether the current object is in the `conditions met for activation` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the conditions met for activation state or condition.
 
 ```csharp
 // Obtain an instance of SeeMarkersInMissionTutorial from the subsystem API first

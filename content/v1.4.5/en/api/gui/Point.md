@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone.Native.Windows` to plac
 ### Point
 `public struct Point(int x, int y)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Point logic.
 
 ```csharp
 // Obtain an instance of Point from the subsystem API first

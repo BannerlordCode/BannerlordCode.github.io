@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Party.PartyComponents` to place 
 ### InitializeBanditOnCreation
 `public void InitializeBanditOnCreation(MobileParty mobileParty)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `bandit on creation`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by bandit on creation.
 
 ```csharp
 // Obtain an instance of InitializationArgs from the subsystem API first

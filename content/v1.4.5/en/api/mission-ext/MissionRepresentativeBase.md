@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetAgent
 `public void SetAgent(Agent agent)`
 
-**Purpose:** Assigns a new value to `agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionRepresentativeBase from the subsystem API first
@@ -42,7 +42,7 @@ missionRepresentativeBase.SetAgent(agent);
 ### OnAgentSpawned
 `public virtual void OnAgentSpawned()`
 
-**Purpose:** Invoked when the `agent spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent spawned event is raised.
 
 ```csharp
 // Obtain an instance of MissionRepresentativeBase from the subsystem API first
@@ -53,7 +53,7 @@ missionRepresentativeBase.OnAgentSpawned();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionRepresentativeBase from the subsystem API first
@@ -64,7 +64,7 @@ missionRepresentativeBase.Tick(0);
 ### UpdateGold
 `public void UpdateGold(int gold)`
 
-**Purpose:** Recalculates and stores the latest representation of `gold`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of gold.
 
 ```csharp
 // Obtain an instance of MissionRepresentativeBase from the subsystem API first

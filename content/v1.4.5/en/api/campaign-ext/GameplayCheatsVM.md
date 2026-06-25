@@ -32,7 +32,7 @@ Start from namespace `SandBox.ViewModelCollection.Map.Cheat` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameplayCheatsVM from the subsystem API first
@@ -43,7 +43,7 @@ gameplayCheatsVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GameplayCheatsVM from the subsystem API first
@@ -54,7 +54,7 @@ gameplayCheatsVM.OnFinalize();
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**Purpose:** Runs the operation or workflow associated with `close`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close.
 
 ```csharp
 // Obtain an instance of GameplayCheatsVM from the subsystem API first
@@ -65,7 +65,7 @@ gameplayCheatsVM.ExecuteClose();
 ### SetCloseInputKey
 `public void SetCloseInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `close input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to close input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of GameplayCheatsVM from the subsystem API first

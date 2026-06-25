@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Library.Graph` to place it in the stack, then i
 ### Draw
 `public void Draw(IEnumerable<(GraphLineVM line, IEnumerable<GraphLinePointVM> points)> linesWithPoints, in Vec2 horizontalRange, in Vec2 verticalRange, float autoRangeHorizontalCoefficient = 1f, float autoRangeVerticalCoefficient = 1f, bool useAutoHorizontalRange = false, bool useAutoVerticalRange = false)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Draw logic.
 
 ```csharp
 // Obtain an instance of GraphVM from the subsystem API first

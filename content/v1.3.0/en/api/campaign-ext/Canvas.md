@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI.Canvas` to place it in the stack, th
 ### LoadFrom
 `public void LoadFrom(XmlNode canvasNode)`
 
-**Purpose:** Reads `from` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of Canvas from the subsystem API first
@@ -40,7 +40,7 @@ canvas.LoadFrom(canvasNode);
 ### Update
 `public void Update(float scale)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of Canvas from the subsystem API first
@@ -51,7 +51,7 @@ canvas.Update(0);
 ### DoMeasure
 `public void DoMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoMeasure logic.
 
 ```csharp
 // Obtain an instance of Canvas from the subsystem API first
@@ -62,7 +62,7 @@ canvas.DoMeasure(false, false, 0, 0);
 ### DoLayout
 `public void DoLayout()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoLayout logic.
 
 ```csharp
 // Obtain an instance of Canvas from the subsystem API first
@@ -73,7 +73,7 @@ canvas.DoLayout();
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoRender logic.
 
 ```csharp
 // Obtain an instance of Canvas from the subsystem API first

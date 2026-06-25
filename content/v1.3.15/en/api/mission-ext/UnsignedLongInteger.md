@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumBits
 `public int GetNumBits()`
 
-**Purpose:** Reads and returns the `num bits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the num bits value held by the this instance.
 
 ```csharp
 // Obtain an instance of UnsignedLongInteger from the subsystem API first

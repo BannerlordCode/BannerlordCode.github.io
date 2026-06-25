@@ -29,7 +29,7 @@ description: "BasicCharacterTableau 的自动生成类参考。"
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterTableau 实例
@@ -40,7 +40,7 @@ basicCharacterTableau.OnTick(0);
 ### SetTargetSize
 `public void SetTargetSize(int width, int height)`
 
-**用途 / Purpose:** 为 「target size」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 target size 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterTableau 实例
@@ -51,7 +51,7 @@ basicCharacterTableau.SetTargetSize(0, 0);
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterTableau 实例
@@ -62,7 +62,7 @@ basicCharacterTableau.OnFinalize();
 ### DeserializeCharacterCode
 `public void DeserializeCharacterCode(string code)`
 
-**用途 / Purpose:** 从序列化数据还原出「character code」。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原出character code。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterTableau 实例
@@ -73,7 +73,7 @@ basicCharacterTableau.DeserializeCharacterCode("example");
 ### RotateCharacter
 `public void RotateCharacter(bool value)`
 
-**用途 / Purpose:** 处理与 「rotate character」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RotateCharacter 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterTableau 实例
@@ -84,7 +84,7 @@ basicCharacterTableau.RotateCharacter(false);
 ### SetBannerCode
 `public void SetBannerCode(string value)`
 
-**用途 / Purpose:** 为 「banner code」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 banner code 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BasicCharacterTableau 实例

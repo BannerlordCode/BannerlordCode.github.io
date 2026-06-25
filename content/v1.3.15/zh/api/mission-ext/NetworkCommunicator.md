@@ -47,7 +47,7 @@ description: "NetworkCommunicator 的自动生成类参考。"
 ### SetRelevantGameOptions
 `public void SetRelevantGameOptions(bool sendMeBloodEvents, bool sendMeSoundEvents)`
 
-**用途 / Purpose:** 为 「relevant game options」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 relevant game options 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例
@@ -58,7 +58,7 @@ networkCommunicator.SetRelevantGameOptions(false, false);
 ### GetHost
 `public uint GetHost()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「host」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 host 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例
@@ -69,7 +69,7 @@ var result = networkCommunicator.GetHost();
 ### GetReversedHost
 `public uint GetReversedHost()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「reversed host」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 reversed host 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例
@@ -80,7 +80,7 @@ var result = networkCommunicator.GetReversedHost();
 ### GetPort
 `public ushort GetPort()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「port」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 port 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例
@@ -91,7 +91,7 @@ var result = networkCommunicator.GetPort();
 ### UpdateConnectionInfoForReconnect
 `public void UpdateConnectionInfoForReconnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)`
 
-**用途 / Purpose:** 重新计算并更新 「connection info for reconnect」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 connection info for reconnect 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例
@@ -102,7 +102,7 @@ networkCommunicator.UpdateConnectionInfoForReconnect(playerConnectionInfo, false
 ### UpdateIndexForReconnectingPlayer
 `public void UpdateIndexForReconnectingPlayer(int newIndex)`
 
-**用途 / Purpose:** 重新计算并更新 「index for reconnecting player」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 index for reconnecting player 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例
@@ -113,7 +113,7 @@ networkCommunicator.UpdateIndexForReconnectingPlayer(0);
 ### UpdateForJoiningCustomGame
 `public void UpdateForJoiningCustomGame(bool isAdmin)`
 
-**用途 / Purpose:** 重新计算并更新 「for joining custom game」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 for joining custom game 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 NetworkCommunicator 实例

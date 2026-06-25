@@ -35,7 +35,7 @@ description: "GameState 的自动生成类参考。"
 ### RegisterListener
 `public bool RegisterListener(IGameStateListener listener)`
 
-**用途 / Purpose:** 将「listener」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将listener注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 GameState 实例
@@ -46,7 +46,7 @@ var result = gameState.RegisterListener(listener);
 ### UnregisterListener
 `public bool UnregisterListener(IGameStateListener listener)`
 
-**用途 / Purpose:** 从当前系统中注销「listener」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前系统中注销listener。
 
 ```csharp
 // 先通过子系统 API 拿到 GameState 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ContainsItem
 `public static bool ContainsItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**Purpose:** Indicates whether the current object contains `item`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains item.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ IntermissionVoteItemListExtensions.ContainsItem(intermissionVoteItems, "example"
 ### Add
 `public static IntermissionVoteItem Add(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ IntermissionVoteItemListExtensions.Add(intermissionVoteItems, "example");
 ### GetItem
 `public static IntermissionVoteItem GetItem(this List<IntermissionVoteItem> intermissionVoteItems, string id)`
 
-**Purpose:** Reads and returns the `item` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item value held by the this instance.
 
 ```csharp
 // Static call; no instance required

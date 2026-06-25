@@ -35,7 +35,7 @@ description: "LordPartyComponent 的自动生成类参考。"
 ### SetWagePaymentLimit
 `public override void SetWagePaymentLimit(int newLimit)`
 
-**用途 / Purpose:** 为 「wage payment limit」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 wage payment limit 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordPartyComponent 实例
@@ -46,7 +46,7 @@ lordPartyComponent.SetWagePaymentLimit(0);
 ### CreateLordParty
 `public static MobileParty CreateLordParty(string stringId, Hero hero, CampaignVec2 position, float spawnRadius, Settlement spawnSettlement, Hero partyLeader)`
 
-**用途 / Purpose:** 构建一个新的 「lord party」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 lord party 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -56,7 +56,7 @@ LordPartyComponent.CreateLordParty("example", hero, position, 0, spawnSettlement
 ### ConvertPartyToLordParty
 `public static void ConvertPartyToLordParty(MobileParty mobileParty, Hero owner, Hero partyLeader)`
 
-**用途 / Purpose:** 把「party to lord party」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把party to lord party转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ LordPartyComponent.ConvertPartyToLordParty(mobileParty, owner, partyLeader);
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**用途 / Purpose:** 清空当前对象中的「cached name」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的cached name。
 
 ```csharp
 // 先通过子系统 API 拿到 LordPartyComponent 实例
@@ -77,7 +77,7 @@ lordPartyComponent.ClearCachedName();
 ### InitializeLordPartyProperties
 `public void InitializeLordPartyProperties(MobileParty mobileParty, Hero owner)`
 
-**用途 / Purpose:** 为 「lord party properties」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 lord party properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 LordPartyComponent 实例

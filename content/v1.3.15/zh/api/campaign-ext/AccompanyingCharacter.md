@@ -29,7 +29,7 @@ description: "AccompanyingCharacter 的自动生成类参考。"
 ### CanEnterLocation
 `public bool CanEnterLocation(Location location)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「enter location」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 enter location 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 AccompanyingCharacter 实例
@@ -40,7 +40,7 @@ var result = accompanyingCharacter.CanEnterLocation(location);
 ### AllowEntranceToLocations
 `public void AllowEntranceToLocations(Func<Location, bool> predicate)`
 
-**用途 / Purpose:** 允许当前对象启用或执行「entrance to locations」。
+**用途 / Purpose:** **用途 / Purpose:** 允许当前对象启用或执行entrance to locations。
 
 ```csharp
 // 先通过子系统 API 拿到 AccompanyingCharacter 实例
@@ -51,7 +51,7 @@ accompanyingCharacter.AllowEntranceToLocations(func<Location, false);
 ### DisallowEntranceToLocations
 `public void DisallowEntranceToLocations(Func<Location, bool> predicate)`
 
-**用途 / Purpose:** 禁止当前对象启用或执行「entrance to locations」。
+**用途 / Purpose:** **用途 / Purpose:** 禁止当前对象启用或执行entrance to locations。
 
 ```csharp
 // 先通过子系统 API 拿到 AccompanyingCharacter 实例
@@ -62,7 +62,7 @@ accompanyingCharacter.DisallowEntranceToLocations(func<Location, false);
 ### AllowEntranceToAllLocations
 `public void AllowEntranceToAllLocations()`
 
-**用途 / Purpose:** 允许当前对象启用或执行「entrance to all locations」。
+**用途 / Purpose:** **用途 / Purpose:** 允许当前对象启用或执行entrance to all locations。
 
 ```csharp
 // 先通过子系统 API 拿到 AccompanyingCharacter 实例
@@ -73,7 +73,7 @@ accompanyingCharacter.AllowEntranceToAllLocations();
 ### DisallowEntranceToAllLocations
 `public void DisallowEntranceToAllLocations()`
 
-**用途 / Purpose:** 禁止当前对象启用或执行「entrance to all locations」。
+**用途 / Purpose:** **用途 / Purpose:** 禁止当前对象启用或执行entrance to all locations。
 
 ```csharp
 // 先通过子系统 API 拿到 AccompanyingCharacter 实例

@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### SetGlobalCenter
 `public void SetGlobalCenter(in Vec2 globalCenter)`
 
-**Purpose:** Assigns a new value to `global center` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to global center and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -47,7 +47,7 @@ oriented2DArea.SetGlobalCenter(globalCenter);
 ### SetLocalDimensions
 `public void SetLocalDimensions(in Vec2 localDimensions)`
 
-**Purpose:** Assigns a new value to `local dimensions` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to local dimensions and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -58,7 +58,7 @@ oriented2DArea.SetLocalDimensions(localDimensions);
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Overlaps logic.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -69,7 +69,7 @@ var result = oriented2DArea.Overlaps(otherArea, 0);
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Intersects logic.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first
@@ -80,7 +80,7 @@ var result = oriented2DArea.Intersects(line, 0);
 ### GetCorners
 `public Corners GetCorners()`
 
-**Purpose:** Reads and returns the `corners` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the corners value held by the this instance.
 
 ```csharp
 // Obtain an instance of Oriented2DArea from the subsystem API first

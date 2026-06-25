@@ -23,7 +23,7 @@ description: "TeamDeathmatchMissionRepresentative 的自动生成类参考。"
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**用途 / Purpose:** 在 「agent spawned」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent spawned 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamDeathmatchMissionRepresentative 实例
@@ -34,7 +34,7 @@ teamDeathmatchMissionRepresentative.OnAgentSpawned();
 ### GetGoldGainsFromKillDataAndUpdateFlags
 `public int GetGoldGainsFromKillDataAndUpdateFlags(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isRanged, bool isFriendly)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「gold gains from kill data and update flags」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold gains from kill data and update flags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamDeathmatchMissionRepresentative 实例
@@ -45,7 +45,7 @@ var result = teamDeathmatchMissionRepresentative.GetGoldGainsFromKillDataAndUpda
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「gold gains from ally death reward」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold gains from ally death reward 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamDeathmatchMissionRepresentative 实例

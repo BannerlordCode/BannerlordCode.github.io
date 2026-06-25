@@ -23,7 +23,7 @@ Treat `MultiplayerAdminMessageItemWidget` as a Widget-style extension point: fir
 ### Remove
 `public void Remove()`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerAdminMessageItemWidget from the subsystem API first

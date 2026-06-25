@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Diamond.Rest` to place it in the stack, then in
 ### ReadJson
 `public override RestData ReadJson(JsonReader reader, Type objectType, RestData existingValue, bool hasExistingValue, JsonSerializer serializer)`
 
-**Purpose:** Reads the data or state of `json`.
+**Purpose:** **Purpose:** Reads the data or state of json.
 
 ```csharp
 // Obtain an instance of RestDataJsonConverter from the subsystem API first
@@ -41,7 +41,7 @@ var result = restDataJsonConverter.ReadJson(reader, objectType, existingValue, f
 ### WriteJson
 `public override void WriteJson(JsonWriter writer, RestData value, JsonSerializer serializer)`
 
-**Purpose:** Writes `json` to the target location.
+**Purpose:** **Purpose:** Writes json to the target location.
 
 ```csharp
 // Obtain an instance of RestDataJsonConverter from the subsystem API first

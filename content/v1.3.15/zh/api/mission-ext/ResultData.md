@@ -30,7 +30,7 @@ description: "ResultData 的自动生成类参考。"
 ### AddDLLResult
 `public void AddDLLResult(string dllName, bool isSafe, string information)`
 
-**用途 / Purpose:** 将 「d l l result」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 d l l result 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ResultData 实例
@@ -41,7 +41,7 @@ resultData.AddDLLResult("example", false, "example");
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ResultData 实例

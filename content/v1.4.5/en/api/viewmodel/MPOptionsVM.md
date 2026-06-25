@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPOptionsVM from the subsystem API first
@@ -43,7 +43,7 @@ mPOptionsVM.RefreshValues();
 ### ExecuteCancel
 `public new void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of MPOptionsVM from the subsystem API first
@@ -54,7 +54,7 @@ mPOptionsVM.ExecuteCancel();
 ### ExecuteApply
 `public void ExecuteApply()`
 
-**Purpose:** Runs the operation or workflow associated with `apply`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with apply.
 
 ```csharp
 // Obtain an instance of MPOptionsVM from the subsystem API first
@@ -65,7 +65,7 @@ mPOptionsVM.ExecuteApply();
 ### ForceCancel
 `public void ForceCancel()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ForceCancel logic.
 
 ```csharp
 // Obtain an instance of MPOptionsVM from the subsystem API first

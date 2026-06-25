@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.BarterSystem.Barterables` to pla
 ### GetUnitValueForFaction
 `public override int GetUnitValueForFaction(IFaction faction)`
 
-**Purpose:** Reads and returns the `unit value for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the unit value for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageBarterable from the subsystem API first
@@ -41,7 +41,7 @@ var result = marriageBarterable.GetUnitValueForFaction(faction);
 ### CheckBarterLink
 `public override void CheckBarterLink(Barterable linkedBarterable)`
 
-**Purpose:** Verifies whether `barter link` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether barter link holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MarriageBarterable from the subsystem API first
@@ -52,7 +52,7 @@ marriageBarterable.CheckBarterLink(linkedBarterable);
 ### IsCompatible
 `public override bool IsCompatible(Barterable barterable)`
 
-**Purpose:** Determines whether the current object is in the `compatible` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the compatible state or condition.
 
 ```csharp
 // Obtain an instance of MarriageBarterable from the subsystem API first
@@ -63,7 +63,7 @@ var result = marriageBarterable.IsCompatible(barterable);
 ### GetVisualIdentifier
 `public override ImageIdentifier GetVisualIdentifier()`
 
-**Purpose:** Reads and returns the `visual identifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageBarterable from the subsystem API first
@@ -74,7 +74,7 @@ var result = marriageBarterable.GetVisualIdentifier();
 ### GetEncyclopediaLink
 `public override string GetEncyclopediaLink()`
 
-**Purpose:** Reads and returns the `encyclopedia link` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the encyclopedia link value held by the this instance.
 
 ```csharp
 // Obtain an instance of MarriageBarterable from the subsystem API first
@@ -85,7 +85,7 @@ var result = marriageBarterable.GetEncyclopediaLink();
 ### Apply
 `public override void Apply()`
 
-**Purpose:** Applies the current object's effect to its target.
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ```csharp
 // Obtain an instance of MarriageBarterable from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.Lobby` to place it in the
 ### CreateAsAdd
 `public static ContainerOperation CreateAsAdd(T item)`
 
-**Purpose:** Constructs a new `as add` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new as add entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MultiplayerLocalDataContainer.CreateAsAdd(item);
 ### CreateAsRemove
 `public static ContainerOperation CreateAsRemove(T item)`
 
-**Purpose:** Constructs a new `as remove` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new as remove entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MultiplayerLocalDataContainer.CreateAsRemove(item);
 ### CreateAsInsert
 `public static ContainerOperation CreateAsInsert(T item, int index)`
 
-**Purpose:** Constructs a new `as insert` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new as insert entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ MultiplayerLocalDataContainer.CreateAsInsert(item, 0);
 ### Compare
 `public int Compare(ContainerOperation x, ContainerOperation y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
@@ -64,7 +64,7 @@ var result = multiplayerLocalDataContainer.Compare(x, y);
 ### AddEntry
 `public void AddEntry(T item)`
 
-**Purpose:** Adds `entry` to the current collection or state.
+**Purpose:** **Purpose:** Adds entry to the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
@@ -75,7 +75,7 @@ multiplayerLocalDataContainer.AddEntry(item);
 ### InsertEntry
 `public void InsertEntry(T item, int index)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InsertEntry logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
@@ -86,7 +86,7 @@ multiplayerLocalDataContainer.InsertEntry(item, 0);
 ### RemoveEntry
 `public void RemoveEntry(T item)`
 
-**Purpose:** Removes `entry` from the current collection or state.
+**Purpose:** **Purpose:** Removes entry from the current collection or state.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first
@@ -97,7 +97,7 @@ multiplayerLocalDataContainer.RemoveEntry(item);
 ### GetEntries
 `public MBReadOnlyList<T> GetEntries()`
 
-**Purpose:** Reads and returns the `entries` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the entries value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerLocalDataContainer from the subsystem API first

@@ -49,7 +49,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### FilterGameServerEntriesBasedOnCrossplay
 `public static void FilterGameServerEntriesBasedOnCrossplay(ref List<GameServerEntry> serverList, bool hasCrossplayPrivilege)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FilterGameServerEntriesBasedOnCrossplay logic.
 
 ```csharp
 // Static call; no instance required

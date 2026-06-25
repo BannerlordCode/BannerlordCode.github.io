@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -34,7 +34,7 @@ alliance.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -45,7 +45,7 @@ alliance.SyncData(dataStore);
 ### OnCallToWarAgreementProposedByPlayerKingdom
 `public void OnCallToWarAgreementProposedByPlayerKingdom(Kingdom proposedKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**Purpose:** Invoked when the `call to war agreement proposed by player kingdom` event is raised.
+**Purpose:** **Purpose:** Invoked when the call to war agreement proposed by player kingdom event is raised.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -56,7 +56,7 @@ alliance.OnCallToWarAgreementProposedByPlayerKingdom(proposedKingdom, kingdomToC
 ### IsAllyWithKingdom
 `public bool IsAllyWithKingdom(Kingdom kingdom1, Kingdom kingdom2)`
 
-**Purpose:** Determines whether the current object is in the `ally with kingdom` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ally with kingdom state or condition.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -67,7 +67,7 @@ var result = alliance.IsAllyWithKingdom(kingdom1, kingdom2);
 ### StartAlliance
 `public void StartAlliance(Kingdom proposerKingdom, Kingdom receiverKingdom)`
 
-**Purpose:** Starts the `alliance` flow or state machine.
+**Purpose:** **Purpose:** Starts the alliance flow or state machine.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -78,7 +78,7 @@ alliance.StartAlliance(proposerKingdom, receiverKingdom);
 ### EndAlliance
 `public void EndAlliance(Kingdom kingdom1, Kingdom kingdom2)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndAlliance logic.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -89,7 +89,7 @@ alliance.EndAlliance(kingdom1, kingdom2);
 ### HasCalledToWar
 `public bool HasCalledToWar(Kingdom callingKingdom, Kingdom calledKingdom)`
 
-**Purpose:** Determines whether the current object already holds `called to war`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds called to war.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -100,7 +100,7 @@ var result = alliance.HasCalledToWar(callingKingdom, calledKingdom);
 ### IsAtWarByCallToWarAgreement
 `public bool IsAtWarByCallToWarAgreement(Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**Purpose:** Determines whether the current object is in the `at war by call to war agreement` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the at war by call to war agreement state or condition.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -111,7 +111,7 @@ var result = alliance.IsAtWarByCallToWarAgreement(calledKingdom, kingdomToCallTo
 ### StartCallToWarAgreement
 `public void StartCallToWarAgreement(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst, int callToWarCost, bool isPlayerPaying = false)`
 
-**Purpose:** Starts the `call to war agreement` flow or state machine.
+**Purpose:** **Purpose:** Starts the call to war agreement flow or state machine.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -122,7 +122,7 @@ alliance.StartCallToWarAgreement(callingKingdom, calledKingdom, kingdomToCallToW
 ### EndCallToWarAgreement
 `public void EndCallToWarAgreement(Kingdom callingKingdom, Kingdom calledKingdom, Kingdom kingdomToCallToWarAgainst)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndCallToWarAgreement logic.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -133,7 +133,7 @@ alliance.EndCallToWarAgreement(callingKingdom, calledKingdom, kingdomToCallToWar
 ### GetKingdomsToCallToWarAgainst
 `public List<Kingdom> GetKingdomsToCallToWarAgainst(Kingdom callingKingdom, Kingdom calledKingdom)`
 
-**Purpose:** Reads and returns the `kingdoms to call to war against` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the kingdoms to call to war against value held by the this instance.
 
 ```csharp
 // Obtain an instance of Alliance from the subsystem API first
@@ -144,7 +144,7 @@ var result = alliance.GetKingdomsToCallToWarAgainst(callingKingdom, calledKingdo
 ### AutoGeneratedStaticCollectObjectsAlliance
 `public static void AutoGeneratedStaticCollectObjectsAlliance(object o, List<object> collectedObjects)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoGeneratedStaticCollectObjectsAlliance logic.
 
 ```csharp
 // Static call; no instance required
@@ -154,7 +154,7 @@ Alliance.AutoGeneratedStaticCollectObjectsAlliance(o, collectedObjects);
 ### AutoGeneratedStaticCollectObjectsCallToWarAgreement
 `public static void AutoGeneratedStaticCollectObjectsCallToWarAgreement(object o, List<object> collectedObjects)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoGeneratedStaticCollectObjectsCallToWarAgreement logic.
 
 ```csharp
 // Static call; no instance required

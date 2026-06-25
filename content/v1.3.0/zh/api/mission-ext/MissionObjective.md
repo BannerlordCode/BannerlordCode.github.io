@@ -34,7 +34,7 @@ description: "MissionObjective 的自动生成类参考。"
 ### ForceComplete
 `public void ForceComplete()`
 
-**用途 / Purpose:** 处理与 「force complete」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceComplete 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjective 实例
@@ -45,7 +45,7 @@ missionObjective.ForceComplete();
 ### GetIsActivationRequirementsMet
 `public bool GetIsActivationRequirementsMet()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is activation requirements met」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is activation requirements met 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjective 实例
@@ -56,7 +56,7 @@ var result = missionObjective.GetIsActivationRequirementsMet();
 ### GetIsCompletionRequirementsMet
 `public bool GetIsCompletionRequirementsMet()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is completion requirements met」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is completion requirements met 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjective 实例
@@ -67,7 +67,7 @@ var result = missionObjective.GetIsCompletionRequirementsMet();
 ### GetCurrentProgress
 `public virtual MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「current progress」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 current progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjective 实例
@@ -78,7 +78,7 @@ var result = missionObjective.GetCurrentProgress();
 ### GetTargets
 `public abstract IMissionObjectiveTarget GetTargets()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「targets」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 targets 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjective 实例

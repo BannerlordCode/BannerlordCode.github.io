@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### ManualRefreshRelevantStatus
 `public override void ManualRefreshRelevantStatus()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ManualRefreshRelevantStatus logic.
 
 ```csharp
 // Obtain an instance of QuestNotificationItemVM from the subsystem API first

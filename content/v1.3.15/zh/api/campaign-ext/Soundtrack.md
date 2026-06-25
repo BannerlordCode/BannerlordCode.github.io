@@ -23,7 +23,7 @@ description: "Soundtrack 的自动生成类参考。"
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -34,7 +34,7 @@ soundtrack.Clear();
 ### getThemeById
 `public Theme getThemeById(int id)`
 
-**用途 / Purpose:** 处理与 「get theme by id」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 getThemeById 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -45,7 +45,7 @@ var result = soundtrack.getThemeById(0);
 ### GetSegmentById
 `public Segment GetSegmentById(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「segment by id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 segment by id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -56,7 +56,7 @@ var result = soundtrack.GetSegmentById(0);
 ### getSoundtrackInfo
 `public SoundtrackInfo getSoundtrackInfo()`
 
-**用途 / Purpose:** 获取或维护 「get soundtrack info」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 getSoundtrackInfo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -67,7 +67,7 @@ var result = soundtrack.getSoundtrackInfo();
 ### getThemeInfo
 `public ThemeInfo getThemeInfo(int themeId)`
 
-**用途 / Purpose:** 获取或维护 「get theme info」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 getThemeInfo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -78,7 +78,7 @@ var result = soundtrack.getThemeInfo(0);
 ### getSegmentInfo
 `public SegmentInfo getSegmentInfo(int snippetId)`
 
-**用途 / Purpose:** 获取或维护 「get segment info」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 getSegmentInfo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -89,7 +89,7 @@ var result = soundtrack.getSegmentInfo(0);
 ### UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets
 `public void UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets()`
 
-**用途 / Purpose:** 重新计算并更新 「max pre beat ms of compatible middle or bridge snippets」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 max pre beat ms of compatible middle or bridge snippets 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -100,7 +100,7 @@ soundtrack.UpdateMaxPreBeatMsOfCompatibleMiddleOrBridgeSnippets();
 ### BuildAllIndirectionSequences
 `public void BuildAllIndirectionSequences()`
 
-**用途 / Purpose:** 组装并返回「all indirection sequences」的构建结果。
+**用途 / Purpose:** **用途 / Purpose:** 组装并返回all indirection sequences的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例

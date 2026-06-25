@@ -35,7 +35,7 @@ Start from namespace `NetworkMessages.FromClient` to place it in the stack, then
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, bool value)`
 
-**Purpose:** Adds `multiplayer option` to the current collection or state.
+**Purpose:** **Purpose:** Adds multiplayer option to the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminUpdateMultiplayerOptions from the subsystem API first
@@ -46,7 +46,7 @@ adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, false
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, int value)`
 
-**Purpose:** Adds `multiplayer option` to the current collection or state.
+**Purpose:** **Purpose:** Adds multiplayer option to the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminUpdateMultiplayerOptions from the subsystem API first
@@ -57,7 +57,7 @@ adminUpdateMultiplayerOptions.AddMultiplayerOption(optionType, accessMode, 0);
 ### AddMultiplayerOption
 `public void AddMultiplayerOption(MultiplayerOptions.OptionType optionType, MultiplayerOptions.MultiplayerOptionsAccessMode accessMode, string value)`
 
-**Purpose:** Adds `multiplayer option` to the current collection or state.
+**Purpose:** **Purpose:** Adds multiplayer option to the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminUpdateMultiplayerOptions from the subsystem API first

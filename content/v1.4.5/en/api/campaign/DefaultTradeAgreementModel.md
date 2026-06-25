@@ -23,7 +23,7 @@ Treat `DefaultTradeAgreementModel` as a Model-style extension point: first ident
 ### GetInfluenceCostOfProposingTradeAgreement
 `public override int GetInfluenceCostOfProposingTradeAgreement(Clan proposerClan)`
 
-**Purpose:** Reads and returns the `influence cost of proposing trade agreement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the influence cost of proposing trade agreement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultTradeAgreementModel.GetInfluenceCostOfProposingTradeAgreemen
 ### GetMaximumTradeAgreementCount
 `public override int GetMaximumTradeAgreementCount(Kingdom kingdom)`
 
-**Purpose:** Reads and returns the `maximum trade agreement count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum trade agreement count value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultTradeAgreementModel.GetMaximumTradeAgreementCount(kingdom);
 ### CanMakeTradeAgreement
 `public override bool CanMakeTradeAgreement(Kingdom querierKingdom, Kingdom queriedKingdom, bool checkOtherSideSupport, out TextObject reason, bool includeReason = false)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `make trade agreement`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for make trade agreement.
 
 ```csharp
 // Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultTradeAgreementModel.CanMakeTradeAgreement(querierKingdom, qu
 ### GetScoreOfStartingTradeAgreement
 `public override float GetScoreOfStartingTradeAgreement(Kingdom querierKingdom, Kingdom queriedKingdom, Clan clan, out TextObject detailedBreakdownTooltip, bool includeExplanation = false)`
 
-**Purpose:** Reads and returns the `score of starting trade agreement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the score of starting trade agreement value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultTradeAgreementModel.GetScoreOfStartingTradeAgreement(querier
 ### GetTradeAgreementDurationInYears
 `public override CampaignTime GetTradeAgreementDurationInYears(Kingdom iniatatingKingdom, Kingdom otherKingdom)`
 
-**Purpose:** Reads and returns the `trade agreement duration in years` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the trade agreement duration in years value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeAgreementModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultTradeAgreementModel.GetTradeAgreementDurationInYears(iniatat
 ### GetProfitPerCaravanVisit
 `public override int GetProfitPerCaravanVisit(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `profit per caravan visit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the profit per caravan visit value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultTradeAgreementModel from the subsystem API first

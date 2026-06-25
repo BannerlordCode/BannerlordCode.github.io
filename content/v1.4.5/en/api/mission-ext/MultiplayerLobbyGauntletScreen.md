@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI` to place 
 ### OnBattleServerInformationReceived
 `public void OnBattleServerInformationReceived(BattleServerInformationForClient battleServerInformation)`
 
-**Purpose:** Invoked when the `battle server information received` event is raised.
+**Purpose:** **Purpose:** Invoked when the battle server information received event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyGauntletScreen from the subsystem API first

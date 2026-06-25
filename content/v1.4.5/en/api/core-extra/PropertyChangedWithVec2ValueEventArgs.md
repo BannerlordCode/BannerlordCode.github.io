@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PropertyChangedWithVec2ValueEventArgs
 `public struct PropertyChangedWithVec2ValueEventArgs(string propertyName, Vec2 value)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PropertyChangedWithVec2ValueEventArgs logic.
 
 ```csharp
 // Obtain an instance of PropertyChangedWithVec2ValueEventArgs from the subsystem API first

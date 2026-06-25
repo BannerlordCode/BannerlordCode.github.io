@@ -33,7 +33,7 @@ description: "FlagCapturePoint 的自动生成类参考。"
 ### ResetPointAsServer
 `public void ResetPointAsServer(uint defaultColor, uint defaultColor2)`
 
-**用途 / Purpose:** 将 「point as server」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 point as server 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -44,7 +44,7 @@ flagCapturePoint.ResetPointAsServer(0, 0);
 ### RemovePointAsServer
 `public void RemovePointAsServer()`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「point as server」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 point as server。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -55,7 +55,7 @@ flagCapturePoint.RemovePointAsServer();
 ### OnAfterTick
 `public void OnAfterTick(bool canOwnershipChange, out bool ownerTeamChanged)`
 
-**用途 / Purpose:** 在 「after tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 after tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -66,7 +66,7 @@ flagCapturePoint.OnAfterTick(false, ownerTeamChanged);
 ### SetMoveFlag
 `public void SetMoveFlag(CaptureTheFlagFlagDirection directionTo, float speedMultiplier = 1f)`
 
-**用途 / Purpose:** 为 「move flag」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 move flag 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -77,7 +77,7 @@ flagCapturePoint.SetMoveFlag(directionTo, 0);
 ### ChangeMovementSpeed
 `public void ChangeMovementSpeed(float speedMultiplier)`
 
-**用途 / Purpose:** 处理与 「change movement speed」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeMovementSpeed 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -88,7 +88,7 @@ flagCapturePoint.ChangeMovementSpeed(0);
 ### SetMoveNone
 `public void SetMoveNone()`
 
-**用途 / Purpose:** 为 「move none」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 move none 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -99,7 +99,7 @@ flagCapturePoint.SetMoveNone();
 ### SetVisibleWithAllSynched
 `public void SetVisibleWithAllSynched(bool value, bool forceChildrenVisible = false)`
 
-**用途 / Purpose:** 为 「visible with all synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 visible with all synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -110,7 +110,7 @@ flagCapturePoint.SetVisibleWithAllSynched(false, false);
 ### SetTeamColorsWithAllSynched
 `public void SetTeamColorsWithAllSynched(uint color, uint color2)`
 
-**用途 / Purpose:** 为 「team colors with all synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 team colors with all synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -121,7 +121,7 @@ flagCapturePoint.SetTeamColorsWithAllSynched(0, 0);
 ### GetFlagColor
 `public uint GetFlagColor()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「flag color」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flag color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -132,7 +132,7 @@ var result = flagCapturePoint.GetFlagColor();
 ### GetFlagColor2
 `public uint GetFlagColor2()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「flag color2」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flag color2 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例
@@ -143,7 +143,7 @@ var result = flagCapturePoint.GetFlagColor2();
 ### GetFlagProgress
 `public float GetFlagProgress()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「flag progress」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 flag progress 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例

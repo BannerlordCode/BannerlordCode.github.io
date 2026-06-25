@@ -31,7 +31,7 @@ description: "SynchedMissionObject 的自动生成类参考。"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -42,7 +42,7 @@ var result = synchedMissionObject.GetTickRequirement();
 ### SetLocalPositionSmoothStep
 `public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)`
 
-**用途 / Purpose:** 为 「local position smooth step」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 local position smooth step 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -53,7 +53,7 @@ synchedMissionObject.SetLocalPositionSmoothStep(targetPosition);
 ### SetVisibleSynched
 `public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
 
-**用途 / Purpose:** 为 「visible synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 visible synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -64,7 +64,7 @@ synchedMissionObject.SetVisibleSynched(false, false);
 ### SetPhysicsStateSynched
 `public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)`
 
-**用途 / Purpose:** 为 「physics state synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 physics state synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -75,7 +75,7 @@ synchedMissionObject.SetPhysicsStateSynched(false, false);
 ### SetDisabledSynched
 `public virtual void SetDisabledSynched()`
 
-**用途 / Purpose:** 为 「disabled synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 disabled synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -86,7 +86,7 @@ synchedMissionObject.SetDisabledSynched();
 ### SetFrameSynched
 `public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-**用途 / Purpose:** 为 「frame synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 frame synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -97,7 +97,7 @@ synchedMissionObject.SetFrameSynched(frame, false);
 ### SetGlobalFrameSynched
 `public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)`
 
-**用途 / Purpose:** 为 「global frame synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 global frame synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -108,7 +108,7 @@ synchedMissionObject.SetGlobalFrameSynched(frame, false);
 ### SetFrameSynchedOverTime
 `public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-**用途 / Purpose:** 为 「frame synched over time」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 frame synched over time 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -119,7 +119,7 @@ synchedMissionObject.SetFrameSynchedOverTime(frame, 0, false);
 ### SetGlobalFrameSynchedOverTime
 `public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
 
-**用途 / Purpose:** 为 「global frame synched over time」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 global frame synched over time 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -130,7 +130,7 @@ synchedMissionObject.SetGlobalFrameSynchedOverTime(frame, 0, false);
 ### SetAnimationAtChannelSynched
 `public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)`
 
-**用途 / Purpose:** 为 「animation at channel synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 animation at channel synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -141,7 +141,7 @@ synchedMissionObject.SetAnimationAtChannelSynched("example", 0, 0);
 ### SetAnimationAtChannelSynched
 `public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)`
 
-**用途 / Purpose:** 为 「animation at channel synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 animation at channel synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -152,7 +152,7 @@ synchedMissionObject.SetAnimationAtChannelSynched(0, 0, 0);
 ### SetAnimationChannelParameterSynched
 `public void SetAnimationChannelParameterSynched(int channelNo, float parameter)`
 
-**用途 / Purpose:** 为 「animation channel parameter synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 animation channel parameter synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -163,7 +163,7 @@ synchedMissionObject.SetAnimationChannelParameterSynched(0, 0);
 ### PauseSkeletonAnimationSynched
 `public void PauseSkeletonAnimationSynched()`
 
-**用途 / Purpose:** 处理与 「pause skeleton animation synched」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PauseSkeletonAnimationSynched 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -174,7 +174,7 @@ synchedMissionObject.PauseSkeletonAnimationSynched();
 ### ResumeSkeletonAnimationSynched
 `public void ResumeSkeletonAnimationSynched()`
 
-**用途 / Purpose:** 处理与 「resume skeleton animation synched」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ResumeSkeletonAnimationSynched 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -185,7 +185,7 @@ synchedMissionObject.ResumeSkeletonAnimationSynched();
 ### BurstParticlesSynched
 `public void BurstParticlesSynched(bool doChildren = true)`
 
-**用途 / Purpose:** 处理与 「burst particles synched」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BurstParticlesSynched 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -196,7 +196,7 @@ synchedMissionObject.BurstParticlesSynched(false);
 ### ApplyImpulseSynched
 `public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)`
 
-**用途 / Purpose:** 将 「impulse synched」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 impulse synched 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -207,7 +207,7 @@ synchedMissionObject.ApplyImpulseSynched(localPosition, impulse);
 ### AddBodyFlagsSynched
 `public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
-**用途 / Purpose:** 将 「body flags synched」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 body flags synched 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -218,7 +218,7 @@ synchedMissionObject.AddBodyFlagsSynched(flags, false);
 ### RemoveBodyFlagsSynched
 `public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「body flags synched」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 body flags synched。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -229,7 +229,7 @@ synchedMissionObject.RemoveBodyFlagsSynched(flags, false);
 ### SetTeamColors
 `public void SetTeamColors(uint color, uint color2)`
 
-**用途 / Purpose:** 为 「team colors」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 team colors 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -240,7 +240,7 @@ synchedMissionObject.SetTeamColors(0, 0);
 ### SetTeamColorsSynched
 `public virtual void SetTeamColorsSynched(uint color, uint color2)`
 
-**用途 / Purpose:** 为 「team colors synched」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 team colors synched 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -251,7 +251,7 @@ synchedMissionObject.SetTeamColorsSynched(0, 0);
 ### WriteToNetwork
 `public virtual void WriteToNetwork()`
 
-**用途 / Purpose:** 将「to network」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将to network写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -262,7 +262,7 @@ synchedMissionObject.WriteToNetwork();
 ### OnAfterReadFromNetwork
 `public virtual void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
 
-**用途 / Purpose:** 在 「after read from network」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例

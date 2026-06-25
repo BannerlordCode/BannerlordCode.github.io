@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Diamond` to place it in the stack, then inspect
 ### Tick
 `public void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ThreadedClient from the subsystem API first
@@ -42,7 +42,7 @@ threadedClient.Tick();
 ### CheckConnection
 `public Task<bool> CheckConnection()`
 
-**Purpose:** Verifies whether `connection` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether connection holds true for the this instance.
 
 ```csharp
 // Obtain an instance of ThreadedClient from the subsystem API first

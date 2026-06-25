@@ -29,7 +29,7 @@ description: "MPIntermissionCultureItemVM 的自动生成类参考。"
 ### ExecuteVote
 `public void ExecuteVote()`
 
-**用途 / Purpose:** 执行 「vote」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 vote 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPIntermissionCultureItemVM 实例

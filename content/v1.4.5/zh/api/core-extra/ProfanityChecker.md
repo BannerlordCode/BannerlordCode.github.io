@@ -23,7 +23,7 @@ description: "ProfanityChecker 的自动生成类参考。"
 ### IsProfane
 `public bool IsProfane(string word)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「profane」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 profane 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfanityChecker 实例
@@ -34,7 +34,7 @@ var result = profanityChecker.IsProfane("example");
 ### ContainsProfanity
 `public bool ContainsProfanity(string text, ProfanityChechkerType checkType)`
 
-**用途 / Purpose:** 判断当前对象是否包含「profanity」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含profanity。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfanityChecker 实例
@@ -45,7 +45,7 @@ var result = profanityChecker.ContainsProfanity("example", checkType);
 ### CensorText
 `public string CensorText(string text)`
 
-**用途 / Purpose:** 处理与 「censor text」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CensorText 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfanityChecker 实例

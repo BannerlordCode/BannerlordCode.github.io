@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
@@ -41,7 +41,7 @@ missionGauntletClassLoadout.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
@@ -52,7 +52,7 @@ missionGauntletClassLoadout.OnMissionScreenFinalize();
 ### OnTryToggle
 `public void OnTryToggle(bool isActive)`
 
-**Purpose:** Invoked when the `try toggle` event is raised.
+**Purpose:** **Purpose:** Invoked when the try toggle event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletClassLoadout from the subsystem API first
@@ -63,7 +63,7 @@ missionGauntletClassLoadout.OnTryToggle(false);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletClassLoadout from the subsystem API first

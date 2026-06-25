@@ -23,7 +23,7 @@ Treat `NativeSelectionOptionData` as a Data-style extension point: first identif
 ### GetSelectableOptionsLimit
 `public int GetSelectableOptionsLimit()`
 
-**Purpose:** Reads and returns the `selectable options limit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the selectable options limit value held by the this instance.
 
 ```csharp
 // Obtain an instance of NativeSelectionOptionData from the subsystem API first
@@ -34,7 +34,7 @@ var result = nativeSelectionOptionData.GetSelectableOptionsLimit();
 ### GetSelectableOptionNames
 `public IEnumerable<SelectionData> GetSelectableOptionNames()`
 
-**Purpose:** Reads and returns the `selectable option names` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the selectable option names value held by the this instance.
 
 ```csharp
 // Obtain an instance of NativeSelectionOptionData from the subsystem API first
@@ -45,7 +45,7 @@ var result = nativeSelectionOptionData.GetSelectableOptionNames();
 ### GetOptionsLimit
 `public static int GetOptionsLimit(NativeOptions.NativeOptionsType optionType)`
 
-**Purpose:** Reads and returns the `options limit` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the options limit value held by the this instance.
 
 ```csharp
 // Static call; no instance required

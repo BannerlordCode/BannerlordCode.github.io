@@ -34,7 +34,7 @@ description: "QuestMarkerVM 的自动生成类参考。"
 ### RefreshWith
 `public void RefreshWith(CampaignUIHelper.IssueQuestFlags issueQuestFlag, TextObject questTitle = null, TextObject questHintText = null)`
 
-**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestMarkerVM 实例
@@ -45,7 +45,7 @@ questMarkerVM.RefreshWith(issueQuestFlag, null, null);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestMarkerVM 实例

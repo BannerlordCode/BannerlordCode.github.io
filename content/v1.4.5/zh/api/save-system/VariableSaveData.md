@@ -33,7 +33,7 @@ description: "VariableSaveData 的自动生成类参考。"
 ### SaveTo
 `public void SaveTo(IWriter writer)`
 
-**用途 / Purpose:** 将 「to」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 to 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 VariableSaveData 实例
@@ -44,7 +44,7 @@ variableSaveData.SaveTo(writer);
 ### GetDataSize
 `public int GetDataSize()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「data size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 data size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 VariableSaveData 实例

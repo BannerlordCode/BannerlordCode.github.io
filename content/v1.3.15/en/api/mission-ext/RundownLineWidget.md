@@ -31,7 +31,7 @@ Treat `RundownLineWidget` as a Widget-style extension point: first identify who 
 ### RefreshValueOffset
 `public void RefreshValueOffset(float columnWidth)`
 
-**Purpose:** Keeps the display or cache of `value offset` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of value offset in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RundownLineWidget from the subsystem API first

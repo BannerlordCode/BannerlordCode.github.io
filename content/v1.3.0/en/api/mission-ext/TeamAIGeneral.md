@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnUnitAddedToFormationForTheFirstTime
 `public override void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
 
-**Purpose:** Invoked when the `unit added to formation for the first time` event is raised.
+**Purpose:** **Purpose:** Invoked when the unit added to formation for the first time event is raised.
 
 ```csharp
 // Obtain an instance of TeamAIGeneral from the subsystem API first

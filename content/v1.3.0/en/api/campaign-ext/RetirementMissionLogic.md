@@ -23,7 +23,7 @@ Treat `RetirementMissionLogic` as a Logic-style extension point: first identify 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of RetirementMissionLogic from the subsystem API first

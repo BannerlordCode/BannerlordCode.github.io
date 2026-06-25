@@ -23,7 +23,7 @@ description: "ObjectInstanceTracker 的自动生成类参考。"
 ### RegisterTrackedInstance
 `public static void RegisterTrackedInstance(string name, WeakReference instance)`
 
-**用途 / Purpose:** 将「tracked instance」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将tracked instance注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ObjectInstanceTracker.RegisterTrackedInstance("example", instance);
 ### CheckBlacklistedTypeCounts
 `public static bool CheckBlacklistedTypeCounts(Dictionary<string, int> typeNameCounts, ref string outputLog)`
 
-**用途 / Purpose:** 检查「blacklisted type counts」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查blacklisted type counts在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例

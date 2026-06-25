@@ -23,7 +23,7 @@ description: "CharacterBecameFugitiveLogEntry 的自动生成类参考。"
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterBecameFugitiveLogEntry 实例
@@ -34,7 +34,7 @@ var result = characterBecameFugitiveLogEntry.ToString();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「encyclopedia text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 encyclopedia text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterBecameFugitiveLogEntry 实例
@@ -45,7 +45,7 @@ var result = characterBecameFugitiveLogEntry.GetEncyclopediaText();
 ### IsValid
 `public override bool IsValid()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「valid」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterBecameFugitiveLogEntry 实例

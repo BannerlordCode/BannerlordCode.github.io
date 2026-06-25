@@ -29,7 +29,7 @@ Treat `EmissaryModel` as a Model-style extension point: first identify who creat
 ### IsEmissary
 `public abstract bool IsEmissary(Hero hero)`
 
-**Purpose:** Determines whether the current object is in the `emissary` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the emissary state or condition.
 
 ```csharp
 // Obtain an instance of EmissaryModel from the subsystem API first

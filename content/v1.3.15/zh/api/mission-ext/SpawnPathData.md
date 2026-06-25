@@ -29,7 +29,7 @@ description: "SpawnPathData 的自动生成类参考。"
 ### Invert
 `public SpawnPathData Invert()`
 
-**用途 / Purpose:** 处理与 「invert」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Invert 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -40,7 +40,7 @@ var result = spawnPathData.Invert();
 ### ClampPathOffset
 `public float ClampPathOffset(float pathOffsetRatio)`
 
-**用途 / Purpose:** 处理与 「clamp path offset」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ClampPathOffset 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -51,7 +51,7 @@ var result = spawnPathData.ClampPathOffset(0);
 ### GetOffsetOverflow
 `public float GetOffsetOverflow(float pathOffset)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「offset overflow」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 offset overflow 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -62,7 +62,7 @@ var result = spawnPathData.GetOffsetOverflow(0);
 ### GetSpawnPathFrameFacingTarget
 `public void GetSpawnPathFrameFacingTarget(float baseOffset, float targetOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn path frame facing target」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing target 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -73,7 +73,7 @@ spawnPathData.GetSpawnPathFrameFacingTarget(0, 0, false, spawnPathPosition, spaw
 ### GetSpawnPathFrameFacingPivot
 `public void GetSpawnPathFrameFacingPivot(float pathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn path frame facing pivot」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing pivot 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -84,7 +84,7 @@ spawnPathData.GetSpawnPathFrameFacingPivot(0, false, spawnPathPosition, spawnPat
 ### GetSpawnPathFrameFacingTangentDirection
 `public void GetSpawnPathFrameFacingTangentDirection(float baseOffset, int tangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn path frame facing tangent direction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing tangent direction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -95,7 +95,7 @@ spawnPathData.GetSpawnPathFrameFacingTangentDirection(0, 0, spawnPathPosition, s
 ### Create
 `public static SpawnPathData Create(Scene scene, Path path, float pivotRatio = 0f, bool isInverted = false, SpawnPathData.SnapMethod snapType = SpawnPathData.SnapMethod.DontSnap)`
 
-**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例

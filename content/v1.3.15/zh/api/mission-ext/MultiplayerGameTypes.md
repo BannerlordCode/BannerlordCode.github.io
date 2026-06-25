@@ -23,7 +23,7 @@ description: "MultiplayerGameTypes 的自动生成类参考。"
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerGameTypes.Initialize();
 ### CheckGameTypeInfoExists
 `public static bool CheckGameTypeInfoExists(string gameType)`
 
-**用途 / Purpose:** 检查「game type info exists」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查game type info exists在当前对象中是否成立。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MultiplayerGameTypes.CheckGameTypeInfoExists("example");
 ### GetGameTypeInfo
 `public static MultiplayerGameTypeInfo GetGameTypeInfo(string gameType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「game type info」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 game type info 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ Start from namespace `Messages.FromLobbyServer.ToClient` to place it in the stac
 ### CreateClanGameRequest
 `public static JoinPremadeGameRequestMessage CreateClanGameRequest(Guid challengerPartyId, string clanName, string sigil, PlayerId challengerPlayers)`
 
-**Purpose:** Constructs a new `clan game request` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new clan game request entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ JoinPremadeGameRequestMessage.CreateClanGameRequest(challengerPartyId, "example"
 ### CreatePracticeGameRequest
 `public static JoinPremadeGameRequestMessage CreatePracticeGameRequest(Guid challengerPartyId, PlayerId leaderId, PlayerId challengerPlayers)`
 
-**Purpose:** Constructs a new `practice game request` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new practice game request entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

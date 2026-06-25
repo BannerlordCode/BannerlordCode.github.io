@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshData
 `public override void RefreshData()`
 
-**Purpose:** Keeps the display or cache of `data` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of data in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultipleSelectionHostGameOptionDataVM from the subsystem API first
@@ -40,7 +40,7 @@ multipleSelectionHostGameOptionDataVM.RefreshData();
 ### RefreshList
 `public void RefreshList()`
 
-**Purpose:** Keeps the display or cache of `list` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultipleSelectionHostGameOptionDataVM from the subsystem API first

@@ -33,7 +33,7 @@ description: "CustomWidgetType 的自动生成类参考。"
 ### CheckForUpdate
 `public bool CheckForUpdate()`
 
-**用途 / Purpose:** 检查「for update」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查for update在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomWidgetType 实例

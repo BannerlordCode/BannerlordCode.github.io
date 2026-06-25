@@ -23,7 +23,7 @@ description: "CharacterCreationCultureStageView 的自动生成类参考。"
 ### Tick
 `public override void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例
@@ -34,7 +34,7 @@ characterCreationCultureStageView.Tick(0);
 ### NextStage
 `public override void NextStage()`
 
-**用途 / Purpose:** 处理与 「next stage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NextStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例
@@ -45,7 +45,7 @@ characterCreationCultureStageView.NextStage();
 ### PreviousStage
 `public override void PreviousStage()`
 
-**用途 / Purpose:** 处理与 「previous stage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PreviousStage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例
@@ -56,7 +56,7 @@ characterCreationCultureStageView.PreviousStage();
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「virtual stage count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 virtual stage count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例
@@ -67,7 +67,7 @@ var result = characterCreationCultureStageView.GetVirtualStageCount();
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「layers」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 layers 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例
@@ -78,7 +78,7 @@ var result = characterCreationCultureStageView.GetLayers();
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「escape menu movie」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 escape menu movie。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例
@@ -89,7 +89,7 @@ characterCreationCultureStageView.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 处理与 「release escape menu movie」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReleaseEscapeMenuMovie 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCultureStageView 实例

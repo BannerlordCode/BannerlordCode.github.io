@@ -23,7 +23,7 @@ description: "PopupSceneSequence 的自动生成类参考。"
 ### InitializeWithAgentVisuals
 `public void InitializeWithAgentVisuals(AgentVisuals visuals)`
 
-**用途 / Purpose:** 为 「with agent visuals」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 with agent visuals 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -34,7 +34,7 @@ popupSceneSequence.InitializeWithAgentVisuals(visuals);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -45,7 +45,7 @@ var result = popupSceneSequence.GetTickRequirement();
 ### OnInitialState
 `public virtual void OnInitialState()`
 
-**用途 / Purpose:** 在 「initial state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 initial state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -56,7 +56,7 @@ popupSceneSequence.OnInitialState();
 ### OnPositiveState
 `public virtual void OnPositiveState()`
 
-**用途 / Purpose:** 在 「positive state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 positive state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -67,7 +67,7 @@ popupSceneSequence.OnPositiveState();
 ### OnNegativeState
 `public virtual void OnNegativeState()`
 
-**用途 / Purpose:** 在 「negative state」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 negative state 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -78,7 +78,7 @@ popupSceneSequence.OnNegativeState();
 ### SetInitialState
 `public void SetInitialState()`
 
-**用途 / Purpose:** 为 「initial state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 initial state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -89,7 +89,7 @@ popupSceneSequence.SetInitialState();
 ### SetPositiveState
 `public void SetPositiveState()`
 
-**用途 / Purpose:** 为 「positive state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 positive state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例
@@ -100,7 +100,7 @@ popupSceneSequence.SetPositiveState();
 ### SetNegativeState
 `public void SetNegativeState()`
 
-**用途 / Purpose:** 为 「negative state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 negative state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopupSceneSequence 实例

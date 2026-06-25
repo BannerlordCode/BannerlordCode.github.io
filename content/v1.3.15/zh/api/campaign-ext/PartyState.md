@@ -33,7 +33,7 @@ description: "PartyState 的自动生成类参考。"
 ### RequestUserInput
 `public void RequestUserInput(string text, Action accept, Action cancel)`
 
-**用途 / Purpose:** 处理与 「request user input」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RequestUserInput 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyState 实例

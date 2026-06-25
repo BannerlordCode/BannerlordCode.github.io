@@ -39,7 +39,7 @@ description: "MissionSpectatorControlVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -50,7 +50,7 @@ missionSpectatorControlVM.RefreshValues();
 ### OnSpectatedAgentFocusIn
 `public void OnSpectatedAgentFocusIn(Agent followedAgent)`
 
-**用途 / Purpose:** 在 「spectated agent focus in」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 spectated agent focus in 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -61,7 +61,7 @@ missionSpectatorControlVM.OnSpectatedAgentFocusIn(followedAgent);
 ### OnSpectatedAgentFocusOut
 `public void OnSpectatedAgentFocusOut(Agent followedAgent)`
 
-**用途 / Purpose:** 在 「spectated agent focus out」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 spectated agent focus out 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -72,7 +72,7 @@ missionSpectatorControlVM.OnSpectatedAgentFocusOut(followedAgent);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -83,7 +83,7 @@ missionSpectatorControlVM.OnFinalize();
 ### SetMainAgentStatus
 `public void SetMainAgentStatus(bool isDead)`
 
-**用途 / Purpose:** 为 「main agent status」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 main agent status 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -94,7 +94,7 @@ missionSpectatorControlVM.SetMainAgentStatus(false);
 ### SetPrevCharacterInputKey
 `public void SetPrevCharacterInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 为 「prev character input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 prev character input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -105,7 +105,7 @@ missionSpectatorControlVM.SetPrevCharacterInputKey(gameKey);
 ### SetNextCharacterInputKey
 `public void SetNextCharacterInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 为 「next character input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next character input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例
@@ -116,7 +116,7 @@ missionSpectatorControlVM.SetNextCharacterInputKey(gameKey);
 ### SetTakeControlInputKey
 `public void SetTakeControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 为 「take control input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 take control input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSpectatorControlVM 实例

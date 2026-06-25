@@ -39,7 +39,7 @@ description: "BoardGameVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -50,7 +50,7 @@ boardGameVM.RefreshValues();
 ### Activate
 `public void Activate()`
 
-**用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 激活当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -61,7 +61,7 @@ boardGameVM.Activate();
 ### DiceRoll
 `public void DiceRoll(int roll)`
 
-**用途 / Purpose:** 处理与 「dice roll」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DiceRoll 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -72,7 +72,7 @@ boardGameVM.DiceRoll(0);
 ### SwitchTurns
 `public void SwitchTurns()`
 
-**用途 / Purpose:** 处理与 「switch turns」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SwitchTurns 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -83,7 +83,7 @@ boardGameVM.SwitchTurns();
 ### ExecuteRoll
 `public void ExecuteRoll()`
 
-**用途 / Purpose:** 执行 「roll」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 roll 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -94,7 +94,7 @@ boardGameVM.ExecuteRoll();
 ### ExecuteForfeit
 `public void ExecuteForfeit()`
 
-**用途 / Purpose:** 执行 「forfeit」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 forfeit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -105,7 +105,7 @@ boardGameVM.ExecuteForfeit();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -116,7 +116,7 @@ boardGameVM.OnFinalize();
 ### SetRollDiceKey
 `public void SetRollDiceKey(HotKey key)`
 
-**用途 / Purpose:** 为 「roll dice key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 roll dice key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例

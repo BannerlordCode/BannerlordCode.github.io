@@ -30,7 +30,7 @@ Treat `BadgeManager` as a Manager-style extension point: first identify who crea
 ### InitializeWithXML
 `public static void InitializeWithXML(string xmlPath)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `with x m l`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with x m l.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ BadgeManager.InitializeWithXML("example");
 ### OnFinalize
 `public static void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ BadgeManager.OnFinalize();
 ### GetByIndex
 `public static Badge GetByIndex(int index)`
 
-**Purpose:** Reads and returns the `by index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the by index value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -60,7 +60,7 @@ BadgeManager.GetByIndex(0);
 ### GetById
 `public static Badge GetById(string id)`
 
-**Purpose:** Reads and returns the `by id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the by id value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -70,7 +70,7 @@ BadgeManager.GetById("example");
 ### GetByType
 `public static List<Badge> GetByType(BadgeType type)`
 
-**Purpose:** Reads and returns the `by type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the by type value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -80,7 +80,7 @@ BadgeManager.GetByType(type);
 ### GetBadgeConditionValue
 `public static string GetBadgeConditionValue(this PlayerData playerData, BadgeCondition condition)`
 
-**Purpose:** Reads and returns the `badge condition value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the badge condition value value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -90,7 +90,7 @@ BadgeManager.GetBadgeConditionValue(playerData, condition);
 ### GetBadgeConditionNumericValue
 `public static int GetBadgeConditionNumericValue(this PlayerData playerData, BadgeCondition condition)`
 
-**Purpose:** Reads and returns the `badge condition numeric value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the badge condition numeric value value held by the this instance.
 
 ```csharp
 // Static call; no instance required

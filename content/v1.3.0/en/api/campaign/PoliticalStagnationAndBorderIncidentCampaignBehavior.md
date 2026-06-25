@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PoliticalStagnationAndBorderIncidentCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ politicalStagnationAndBorderIncidentCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PoliticalStagnationAndBorderIncidentCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ politicalStagnationAndBorderIncidentCampaignBehavior.SyncData(dataStore);
 ### HourlyTickSettlement
 `public void HourlyTickSettlement(Settlement settlement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HourlyTickSettlement logic.
 
 ```csharp
 // Obtain an instance of PoliticalStagnationAndBorderIncidentCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ politicalStagnationAndBorderIncidentCampaignBehavior.HourlyTickSettlement(settle
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of PoliticalStagnationAndBorderIncidentCampaignBehavior from the subsystem API first

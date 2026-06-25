@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Network` to place it in the stack, then inspect
 ### Invoke
 `public override MessageContract Invoke()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Invoke logic.
 
 ```csharp
 // Obtain an instance of MessageContractCreator from the subsystem API first

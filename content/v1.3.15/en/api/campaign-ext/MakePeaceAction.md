@@ -19,7 +19,7 @@ MakePeaceAction is a set of static methods that trigger "MakePeace" in the campa
 public static void Apply(IFaction faction1, IFaction faction2)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyByKingdomDecision
 
@@ -27,7 +27,7 @@ public static void Apply(IFaction faction1, IFaction faction2)
 public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2, int dailyTributeFrom1To2, int dailyTributeDuration)
 ```
 
-**Purpose:** kingdom decision.
+**Purpose:** **Purpose:** Applies the effect of by kingdom decision to the this instance.
 
 ## Usage Example
 

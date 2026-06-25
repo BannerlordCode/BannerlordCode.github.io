@@ -29,7 +29,7 @@ description: "FacingOrder 的自动生成类参考。"
 ### FacingOrderLookAtDirection
 `public static FacingOrder FacingOrderLookAtDirection(Vec2 direction)`
 
-**用途 / Purpose:** 处理与 「facing order look at direction」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FacingOrderLookAtDirection 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ FacingOrder.FacingOrderLookAtDirection(direction);
 ### GetDirection
 `public Vec2 GetDirection(Formation f, Agent targetAgent = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「direction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 direction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FacingOrder 实例
@@ -50,7 +50,7 @@ var result = facingOrder.GetDirection(f, null);
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 FacingOrder 实例
@@ -61,7 +61,7 @@ var result = facingOrder.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 FacingOrder 实例

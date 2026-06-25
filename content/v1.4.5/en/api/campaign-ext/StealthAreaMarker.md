@@ -30,7 +30,7 @@ Start from namespace `SandBox.Objects.AreaMarkers` to place it in the stack, the
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterMissionStart logic.
 
 ```csharp
 // Obtain an instance of StealthAreaMarker from the subsystem API first

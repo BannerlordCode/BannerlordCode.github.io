@@ -47,7 +47,7 @@ description: "MissionWeapon 的自动生成类参考。"
 ### GetModifiedItemName
 `public TextObject GetModifiedItemName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified item name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified item name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -58,7 +58,7 @@ var result = missionWeapon.GetModifiedItemName();
 ### IsEqualTo
 `public bool IsEqualTo(MissionWeapon other)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「equal to」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 equal to 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -69,7 +69,7 @@ var result = missionWeapon.IsEqualTo(other);
 ### IsSameType
 `public bool IsSameType(MissionWeapon other)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「same type」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 same type 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -80,7 +80,7 @@ var result = missionWeapon.IsSameType(other);
 ### GetWeight
 `public float GetWeight()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weight」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weight 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -91,7 +91,7 @@ var result = missionWeapon.GetWeight();
 ### GetWeaponComponentDataForUsage
 `public WeaponComponentData GetWeaponComponentDataForUsage(int usageIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon component data for usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon component data for usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -102,7 +102,7 @@ var result = missionWeapon.GetWeaponComponentDataForUsage(0);
 ### GetGetModifiedArmorForCurrentUsage
 `public int GetGetModifiedArmorForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「get modified armor for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 get modified armor for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -113,7 +113,7 @@ var result = missionWeapon.GetGetModifiedArmorForCurrentUsage();
 ### GetModifiedThrustDamageForCurrentUsage
 `public int GetModifiedThrustDamageForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified thrust damage for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified thrust damage for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -124,7 +124,7 @@ var result = missionWeapon.GetModifiedThrustDamageForCurrentUsage();
 ### GetModifiedSwingDamageForCurrentUsage
 `public int GetModifiedSwingDamageForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified swing damage for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified swing damage for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -135,7 +135,7 @@ var result = missionWeapon.GetModifiedSwingDamageForCurrentUsage();
 ### GetModifiedMissileDamageForCurrentUsage
 `public int GetModifiedMissileDamageForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified missile damage for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified missile damage for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -146,7 +146,7 @@ var result = missionWeapon.GetModifiedMissileDamageForCurrentUsage();
 ### GetModifiedThrustSpeedForCurrentUsage
 `public int GetModifiedThrustSpeedForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified thrust speed for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified thrust speed for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -157,7 +157,7 @@ var result = missionWeapon.GetModifiedThrustSpeedForCurrentUsage();
 ### GetModifiedSwingSpeedForCurrentUsage
 `public int GetModifiedSwingSpeedForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified swing speed for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified swing speed for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -168,7 +168,7 @@ var result = missionWeapon.GetModifiedSwingSpeedForCurrentUsage();
 ### GetModifiedMissileSpeedForCurrentUsage
 `public int GetModifiedMissileSpeedForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified missile speed for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified missile speed for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -179,7 +179,7 @@ var result = missionWeapon.GetModifiedMissileSpeedForCurrentUsage();
 ### GetModifiedMissileSpeedForUsage
 `public int GetModifiedMissileSpeedForUsage(int usageIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified missile speed for usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified missile speed for usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -190,7 +190,7 @@ var result = missionWeapon.GetModifiedMissileSpeedForUsage(0);
 ### GetModifiedHandlingForCurrentUsage
 `public int GetModifiedHandlingForCurrentUsage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「modified handling for current usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 modified handling for current usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -201,7 +201,7 @@ var result = missionWeapon.GetModifiedHandlingForCurrentUsage();
 ### GetWeaponData
 `public WeaponData GetWeaponData(bool needBatchedVersionForMeshes)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -212,7 +212,7 @@ var result = missionWeapon.GetWeaponData(false);
 ### GetWeaponStatsData
 `public WeaponStatsData GetWeaponStatsData()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon stats data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon stats data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -223,7 +223,7 @@ var result = missionWeapon.GetWeaponStatsData();
 ### GetWeaponStatsDataForUsage
 `public WeaponStatsData GetWeaponStatsDataForUsage(int usageIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「weapon stats data for usage」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 weapon stats data for usage 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -234,7 +234,7 @@ var result = missionWeapon.GetWeaponStatsDataForUsage(0);
 ### GetAmmoWeaponData
 `public WeaponData GetAmmoWeaponData(bool needBatchedVersion)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ammo weapon data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ammo weapon data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -245,7 +245,7 @@ var result = missionWeapon.GetAmmoWeaponData(false);
 ### GetAmmoWeaponStatsData
 `public WeaponStatsData GetAmmoWeaponStatsData()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ammo weapon stats data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ammo weapon stats data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -256,7 +256,7 @@ var result = missionWeapon.GetAmmoWeaponStatsData();
 ### GetAttachedWeaponsCount
 `public int GetAttachedWeaponsCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attached weapons count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attached weapons count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -267,7 +267,7 @@ var result = missionWeapon.GetAttachedWeaponsCount();
 ### GetAttachedWeapon
 `public MissionWeapon GetAttachedWeapon(int attachmentIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attached weapon」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attached weapon 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -278,7 +278,7 @@ var result = missionWeapon.GetAttachedWeapon(0);
 ### GetAttachedWeaponFrame
 `public MatrixFrame GetAttachedWeaponFrame(int attachmentIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「attached weapon frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 attached weapon frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -289,7 +289,7 @@ var result = missionWeapon.GetAttachedWeaponFrame(0);
 ### IsShield
 `public bool IsShield()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「shield」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 shield 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -300,7 +300,7 @@ var result = missionWeapon.IsShield();
 ### IsBanner
 `public bool IsBanner()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「banner」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 banner 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -311,7 +311,7 @@ var result = missionWeapon.IsBanner();
 ### IsAnyAmmo
 `public bool IsAnyAmmo()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「any ammo」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any ammo 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -322,7 +322,7 @@ var result = missionWeapon.IsAnyAmmo();
 ### HasAnyUsageWithWeaponClass
 `public bool HasAnyUsageWithWeaponClass(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「any usage with weapon class」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any usage with weapon class。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -333,7 +333,7 @@ var result = missionWeapon.HasAnyUsageWithWeaponClass(weaponClass);
 ### HasAnyUsageWithAmmoClass
 `public bool HasAnyUsageWithAmmoClass(WeaponClass ammoClass)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「any usage with ammo class」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any usage with ammo class。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -344,7 +344,7 @@ var result = missionWeapon.HasAnyUsageWithAmmoClass(ammoClass);
 ### HasAllUsagesWithAnyWeaponFlag
 `public bool HasAllUsagesWithAnyWeaponFlag(WeaponFlags flags)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「all usages with any weapon flag」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 all usages with any weapon flag。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -355,7 +355,7 @@ var result = missionWeapon.HasAllUsagesWithAnyWeaponFlag(flags);
 ### HasAnyUsageWithoutWeaponFlag
 `public bool HasAnyUsageWithoutWeaponFlag(WeaponFlags flags)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「any usage without weapon flag」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 any usage without weapon flag。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -366,7 +366,7 @@ var result = missionWeapon.HasAnyUsageWithoutWeaponFlag(flags);
 ### GatherInformationFromWeapon
 `public void GatherInformationFromWeapon(out bool weaponHasMelee, out bool weaponHasShield, out bool weaponHasPolearm, out bool weaponHasNonConsumableRanged, out bool weaponHasThrown, out WeaponClass rangedAmmoClass)`
 
-**用途 / Purpose:** 收集或汇总「information from weapon」到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 收集或汇总information from weapon到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -377,7 +377,7 @@ missionWeapon.GatherInformationFromWeapon(weaponHasMelee, weaponHasShield, weapo
 ### GetConsumableIfAny
 `public bool GetConsumableIfAny(out WeaponComponentData consumableWeapon)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「consumable if any」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 consumable if any 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -388,7 +388,7 @@ var result = missionWeapon.GetConsumableIfAny(consumableWeapon);
 ### IsAnyConsumable
 `public bool IsAnyConsumable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「any consumable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 any consumable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -399,7 +399,7 @@ var result = missionWeapon.IsAnyConsumable();
 ### GetRangedUsageIndex
 `public int GetRangedUsageIndex()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ranged usage index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ranged usage index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -410,7 +410,7 @@ var result = missionWeapon.GetRangedUsageIndex();
 ### Consume
 `public MissionWeapon Consume(short count)`
 
-**用途 / Purpose:** 处理与 「consume」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Consume 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -421,7 +421,7 @@ var result = missionWeapon.Consume(0);
 ### ConsumeAmmo
 `public void ConsumeAmmo(short count)`
 
-**用途 / Purpose:** 处理与 「consume ammo」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ConsumeAmmo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -432,7 +432,7 @@ missionWeapon.ConsumeAmmo(0);
 ### SetAmmo
 `public void SetAmmo(MissionWeapon ammoWeapon)`
 
-**用途 / Purpose:** 为 「ammo」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 ammo 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -443,7 +443,7 @@ missionWeapon.SetAmmo(ammoWeapon);
 ### ReloadAmmo
 `public void ReloadAmmo(MissionWeapon ammoWeapon, short reloadPhase)`
 
-**用途 / Purpose:** 处理与 「reload ammo」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReloadAmmo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -454,7 +454,7 @@ missionWeapon.ReloadAmmo(ammoWeapon, 0);
 ### AttachWeapon
 `public void AttachWeapon(MissionWeapon attachedWeapon, ref MatrixFrame attachFrame)`
 
-**用途 / Purpose:** 处理与 「attach weapon」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AttachWeapon 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -465,7 +465,7 @@ missionWeapon.AttachWeapon(attachedWeapon, attachFrame);
 ### RemoveAttachedWeapon
 `public void RemoveAttachedWeapon(int attachmentIndex)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「attached weapon」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 attached weapon。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -476,7 +476,7 @@ missionWeapon.RemoveAttachedWeapon(0);
 ### HasEnoughSpaceForAmount
 `public bool HasEnoughSpaceForAmount(int amount)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「enough space for amount」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 enough space for amount。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -487,7 +487,7 @@ var result = missionWeapon.HasEnoughSpaceForAmount(0);
 ### SetRandomGlossMultiplier
 `public void SetRandomGlossMultiplier(int seed)`
 
-**用途 / Purpose:** 为 「random gloss multiplier」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 random gloss multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -498,7 +498,7 @@ missionWeapon.SetRandomGlossMultiplier(0);
 ### AddExtraModifiedMaxValue
 `public void AddExtraModifiedMaxValue(short extraValue)`
 
-**用途 / Purpose:** 将 「extra modified max value」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 extra modified max value 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -509,7 +509,7 @@ missionWeapon.AddExtraModifiedMaxValue(0);
 ### OnGetWeaponDataDelegate
 `public delegate void OnGetWeaponDataDelegate(ref WeaponData weaponData, MissionWeapon weapon, bool isFemale, Banner banner, bool needBatchedVersion)`
 
-**用途 / Purpose:** 在 「get weapon data delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 get weapon data delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例

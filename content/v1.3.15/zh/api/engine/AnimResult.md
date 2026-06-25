@@ -23,7 +23,7 @@ description: "AnimResult 的自动生成类参考。"
 ### GetEntitialOutTransform
 `public Transformation GetEntitialOutTransform(sbyte boneIndex, Skeleton skeleton)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「entitial out transform」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 entitial out transform 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimResult 实例
@@ -34,7 +34,7 @@ var result = animResult.GetEntitialOutTransform(0, skeleton);
 ### SetOutBoneDisplacement
 `public void SetOutBoneDisplacement(sbyte boneIndex, Vec3 position, Skeleton skeleton)`
 
-**用途 / Purpose:** 为 「out bone displacement」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 out bone displacement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimResult 实例
@@ -45,7 +45,7 @@ animResult.SetOutBoneDisplacement(0, position, skeleton);
 ### SetOutQuat
 `public void SetOutQuat(sbyte boneIndex, Mat3 rotation, Skeleton skeleton)`
 
-**用途 / Purpose:** 为 「out quat」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 out quat 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimResult 实例

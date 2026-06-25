@@ -154,7 +154,7 @@ description: "Widget 的自动生成类参考。"
 ### GetAllChildrenAndThisRecursive
 `public List<Widget> GetAllChildrenAndThisRecursive()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all children and this recursive」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all children and this recursive 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -165,7 +165,7 @@ var result = widget.GetAllChildrenAndThisRecursive();
 ### ApplyActionToAllChildren
 `public void ApplyActionToAllChildren(Action<Widget> action)`
 
-**用途 / Purpose:** 将 「action to all children」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 action to all children 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -176,7 +176,7 @@ widget.ApplyActionToAllChildren(action);
 ### ApplyActionToAllChildrenRecursive
 `public void ApplyActionToAllChildrenRecursive(Action<Widget> action)`
 
-**用途 / Purpose:** 将 「action to all children recursive」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 action to all children recursive 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -187,7 +187,7 @@ widget.ApplyActionToAllChildrenRecursive(action);
 ### GetAllChildrenRecursive
 `public List<Widget> GetAllChildrenRecursive(Func<Widget, bool> predicate = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all children recursive」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all children recursive 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -198,7 +198,7 @@ var result = widget.GetAllChildrenRecursive(func<Widget, false);
 ### GetAllParents
 `public List<Widget> GetAllParents()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all parents」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all parents 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -209,7 +209,7 @@ var result = widget.GetAllParents();
 ### AddComponent
 `public void AddComponent(WidgetComponent component)`
 
-**用途 / Purpose:** 将 「component」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 component 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -220,7 +220,7 @@ widget.AddComponent(component);
 ### AddState
 `public void AddState(string stateName)`
 
-**用途 / Purpose:** 将 「state」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 state 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -231,7 +231,7 @@ widget.AddState("example");
 ### ContainsState
 `public bool ContainsState(string stateName)`
 
-**用途 / Purpose:** 判断当前对象是否包含「state」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含state。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -242,7 +242,7 @@ var result = widget.ContainsState("example");
 ### SetState
 `public virtual void SetState(string stateName)`
 
-**用途 / Purpose:** 为 「state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -253,7 +253,7 @@ widget.SetState("example");
 ### FindChild
 `public Widget FindChild(BindingPath path)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「child」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -264,7 +264,7 @@ var result = widget.FindChild(path);
 ### FindChild
 `public Widget FindChild(string singlePathNode)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「child」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -275,7 +275,7 @@ var result = widget.FindChild("example");
 ### FindChild
 `public Widget FindChild(WidgetSearchDelegate widgetSearchDelegate)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「child」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -286,7 +286,7 @@ var result = widget.FindChild(widgetSearchDelegate);
 ### FindChild
 `public Widget FindChild(string id, bool includeAllChildren = false)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「child」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的child。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -297,7 +297,7 @@ var result = widget.FindChild("example", false);
 ### GetFirstInChildrenAndThisRecursive
 `public Widget GetFirstInChildrenAndThisRecursive(Func<Widget, bool> predicate)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「first in children and this recursive」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 first in children and this recursive 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -308,7 +308,7 @@ var result = widget.GetFirstInChildrenAndThisRecursive(func<Widget, false);
 ### GetFirstInChildrenRecursive
 `public Widget GetFirstInChildrenRecursive(Func<Widget, bool> predicate)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「first in children recursive」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 first in children recursive 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -319,7 +319,7 @@ var result = widget.GetFirstInChildrenRecursive(func<Widget, false);
 ### RemoveAllChildren
 `public void RemoveAllChildren()`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「all children」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 all children。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -330,7 +330,7 @@ widget.RemoveAllChildren();
 ### UpdateAnimationPropertiesSubTask
 `public virtual void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**用途 / Purpose:** 重新计算并更新 「animation properties sub task」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 animation properties sub task 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -341,7 +341,7 @@ widget.UpdateAnimationPropertiesSubTask(0);
 ### Measure
 `public void Measure(Vector2 measureSpec)`
 
-**用途 / Purpose:** 处理与 「measure」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Measure 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -352,7 +352,7 @@ widget.Measure(measureSpec);
 ### CheckIsMyChildRecursive
 `public bool CheckIsMyChildRecursive(Widget child)`
 
-**用途 / Purpose:** 检查「is my child recursive」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查is my child recursive在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -363,7 +363,7 @@ var result = widget.CheckIsMyChildRecursive(child);
 ### AddChild
 `public void AddChild(Widget widget)`
 
-**用途 / Purpose:** 将 「child」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 child 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -374,7 +374,7 @@ widget.AddChild(widget);
 ### AddChildAtIndex
 `public void AddChildAtIndex(Widget widget, int index)`
 
-**用途 / Purpose:** 将 「child at index」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 child at index 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -385,7 +385,7 @@ widget.AddChildAtIndex(widget, 0);
 ### SwapChildren
 `public void SwapChildren(Widget widget1, Widget widget2)`
 
-**用途 / Purpose:** 处理与 「swap children」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SwapChildren 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -396,7 +396,7 @@ widget.SwapChildren(widget1, widget2);
 ### RemoveChild
 `public void RemoveChild(Widget widget)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「child」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 child。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -407,7 +407,7 @@ widget.RemoveChild(widget);
 ### OnBeforeRemovedChild
 `public virtual void OnBeforeRemovedChild(Widget widget)`
 
-**用途 / Purpose:** 在 「before removed child」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 before removed child 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -418,7 +418,7 @@ widget.OnBeforeRemovedChild(widget);
 ### HasChild
 `public bool HasChild(Widget widget)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「child」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 child。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -429,7 +429,7 @@ var result = widget.HasChild(widget);
 ### UpdateBrushes
 `public virtual void UpdateBrushes(float dt)`
 
-**用途 / Purpose:** 重新计算并更新 「brushes」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 brushes 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -440,7 +440,7 @@ widget.UpdateBrushes(0);
 ### GetChildIndex
 `public int GetChildIndex(Widget child)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「child index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -451,7 +451,7 @@ var result = widget.GetChildIndex(child);
 ### GetVisibleChildIndex
 `public int GetVisibleChildIndex(Widget child)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「visible child index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visible child index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -462,7 +462,7 @@ var result = widget.GetVisibleChildIndex(child);
 ### GetFilterChildIndex
 `public int GetFilterChildIndex(Widget child, Func<Widget, bool> childrenFilter)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「filter child index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 filter child index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -473,7 +473,7 @@ var result = widget.GetFilterChildIndex(child, func<Widget, false);
 ### GetChild
 `public Widget GetChild(int i)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「child」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -484,7 +484,7 @@ var result = widget.GetChild(0);
 ### Layout
 `public void Layout(float left, float bottom, float right, float top)`
 
-**用途 / Purpose:** 处理与 「layout」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Layout 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -495,7 +495,7 @@ widget.Layout(0, 0, 0, 0);
 ### HandleInput
 `public virtual void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**用途 / Purpose:** 执行与 「input」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 input 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -506,7 +506,7 @@ widget.HandleInput(lastKeysPressed);
 ### IsPointInsideMeasuredArea
 `public bool IsPointInsideMeasuredArea(Vector2 p)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「point inside measured area」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 point inside measured area 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -517,7 +517,7 @@ var result = widget.IsPointInsideMeasuredArea(p);
 ### IsPointInsideGamepadCursorArea
 `public bool IsPointInsideGamepadCursorArea(Vector2 p)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「point inside gamepad cursor area」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 point inside gamepad cursor area 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -528,7 +528,7 @@ var result = widget.IsPointInsideGamepadCursorArea(p);
 ### Hide
 `public void Hide()`
 
-**用途 / Purpose:** 隐藏当前对象对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 隐藏当前对象对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -539,7 +539,7 @@ widget.Hide();
 ### Show
 `public void Show()`
 
-**用途 / Purpose:** 显示当前对象对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示当前对象对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -550,7 +550,7 @@ widget.Show();
 ### GetLocalPoint
 `public Vector2 GetLocalPoint(Vector2 globalPoint)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「local point」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 local point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -561,7 +561,7 @@ var result = widget.GetLocalPoint(globalPoint);
 ### SetSiblingIndex
 `public void SetSiblingIndex(int index, bool force = false)`
 
-**用途 / Purpose:** 为 「sibling index」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sibling index 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -572,7 +572,7 @@ widget.SetSiblingIndex(0, false);
 ### GetSiblingIndex
 `public int GetSiblingIndex()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sibling index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sibling index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -583,7 +583,7 @@ var result = widget.GetSiblingIndex();
 ### GetVisibleSiblingIndex
 `public int GetVisibleSiblingIndex()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「visible sibling index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 visible sibling index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -594,7 +594,7 @@ var result = widget.GetVisibleSiblingIndex();
 ### Render
 `public void Render(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** 处理与 「render」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Render 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -605,7 +605,7 @@ widget.Render(twoDimensionContext, drawContext);
 ### IsRecursivelyVisible
 `public bool IsRecursivelyVisible()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「recursively visible」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 recursively visible 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -616,7 +616,7 @@ var result = widget.IsRecursivelyVisible();
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -627,7 +627,7 @@ var result = widget.ToString();
 ### OnGamepadNavigationFocusGain
 `public void OnGamepadNavigationFocusGain()`
 
-**用途 / Purpose:** 在 「gamepad navigation focus gain」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 gamepad navigation focus gain 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例

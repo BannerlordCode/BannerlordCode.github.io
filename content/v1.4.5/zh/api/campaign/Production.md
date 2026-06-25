@@ -23,7 +23,7 @@ description: "Production 的自动生成类参考。"
 ### Production
 `public struct Production(float conversionSpeed)`
 
-**用途 / Purpose:** 处理与 「production」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Production 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Production 实例
@@ -34,7 +34,7 @@ var result = production.Production(0);
 ### AddInput
 `public void AddInput(ItemCategory item, int count = 1)`
 
-**用途 / Purpose:** 将 「input」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 input 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Production 实例
@@ -45,7 +45,7 @@ production.AddInput(item, 0);
 ### AddOutput
 `public void AddOutput(ItemCategory outputCategory, int outputCount)`
 
-**用途 / Purpose:** 将 「output」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 output 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Production 实例
@@ -56,7 +56,7 @@ production.AddOutput(outputCategory, 0);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Production 实例

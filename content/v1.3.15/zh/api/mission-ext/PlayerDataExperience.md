@@ -32,7 +32,7 @@ description: "PlayerDataExperience 的自动生成类参考。"
 ### CalculateLevelFromExperience
 `public static int CalculateLevelFromExperience(int experience)`
 
-**用途 / Purpose:** 计算「level from experience」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算level from experience的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ PlayerDataExperience.CalculateLevelFromExperience(0);
 ### CalculateExperienceFromLevel
 `public static int CalculateExperienceFromLevel(int level)`
 
-**用途 / Purpose:** 计算「experience from level」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算experience from level的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ PlayerDataExperience.CalculateExperienceFromLevel(0);
 ### ExperienceRequiredForLevel
 `public static int ExperienceRequiredForLevel(int level)`
 
-**用途 / Purpose:** 处理与 「experience required for level」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ExperienceRequiredForLevel 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

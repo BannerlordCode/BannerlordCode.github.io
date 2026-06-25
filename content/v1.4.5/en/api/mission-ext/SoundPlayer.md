@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### UpdatePlaying
 `public void UpdatePlaying()`
 
-**Purpose:** Recalculates and stores the latest representation of `playing`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of playing.
 
 ```csharp
 // Obtain an instance of SoundPlayer from the subsystem API first
@@ -34,7 +34,7 @@ soundPlayer.UpdatePlaying();
 ### PlaySound
 `public void PlaySound()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlaySound logic.
 
 ```csharp
 // Obtain an instance of SoundPlayer from the subsystem API first
@@ -45,7 +45,7 @@ soundPlayer.PlaySound();
 ### ResumeSound
 `public void ResumeSound()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ResumeSound logic.
 
 ```csharp
 // Obtain an instance of SoundPlayer from the subsystem API first
@@ -56,7 +56,7 @@ soundPlayer.ResumeSound();
 ### PauseSound
 `public void PauseSound()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PauseSound logic.
 
 ```csharp
 // Obtain an instance of SoundPlayer from the subsystem API first
@@ -67,7 +67,7 @@ soundPlayer.PauseSound();
 ### StopSound
 `public void StopSound()`
 
-**Purpose:** Stops the `sound` flow or state machine.
+**Purpose:** **Purpose:** Stops the sound flow or state machine.
 
 ```csharp
 // Obtain an instance of SoundPlayer from the subsystem API first
@@ -78,7 +78,7 @@ soundPlayer.StopSound();
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of SoundPlayer from the subsystem API first

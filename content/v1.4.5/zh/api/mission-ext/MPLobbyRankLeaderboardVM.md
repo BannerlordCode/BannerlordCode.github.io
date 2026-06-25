@@ -51,7 +51,7 @@ description: "MPLobbyRankLeaderboardVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -62,7 +62,7 @@ mPLobbyRankLeaderboardVM.RefreshValues();
 ### OpenWith
 `public async void OpenWith(string gameType)`
 
-**用途 / Purpose:** 打开「with」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开with对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -73,7 +73,7 @@ mPLobbyRankLeaderboardVM.OpenWith("example");
 ### ExecuteLoadFirstPage
 `public void ExecuteLoadFirstPage()`
 
-**用途 / Purpose:** 执行 「load first page」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 load first page 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -84,7 +84,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadFirstPage();
 ### ExecuteLoadPreviousPage
 `public void ExecuteLoadPreviousPage()`
 
-**用途 / Purpose:** 执行 「load previous page」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 load previous page 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -95,7 +95,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadPreviousPage();
 ### ExecuteLoadNextPage
 `public void ExecuteLoadNextPage()`
 
-**用途 / Purpose:** 执行 「load next page」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 load next page 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -106,7 +106,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadNextPage();
 ### ExecuteLoadLastPage
 `public void ExecuteLoadLastPage()`
 
-**用途 / Purpose:** 执行 「load last page」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 load last page 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -117,7 +117,7 @@ mPLobbyRankLeaderboardVM.ExecuteLoadLastPage();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**用途 / Purpose:** 执行 「close popup」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close popup 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -128,7 +128,7 @@ mPLobbyRankLeaderboardVM.ExecuteClosePopup();
 ### ActivatePlayerActions
 `public void ActivatePlayerActions(MPLobbyLeaderboardPlayerItemVM playerVM)`
 
-**用途 / Purpose:** 激活「player actions」对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 激活player actions对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -139,7 +139,7 @@ mPLobbyRankLeaderboardVM.ActivatePlayerActions(playerVM);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -150,7 +150,7 @@ mPLobbyRankLeaderboardVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -161,7 +161,7 @@ mPLobbyRankLeaderboardVM.SetCancelInputKey(hotKey);
 ### SetPreviousInputKey
 `public void SetPreviousInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「previous input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 previous input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -172,7 +172,7 @@ mPLobbyRankLeaderboardVM.SetPreviousInputKey(hotKey);
 ### SetNextInputKey
 `public void SetNextInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「next input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -183,7 +183,7 @@ mPLobbyRankLeaderboardVM.SetNextInputKey(hotKey);
 ### SetFirstInputKey
 `public void SetFirstInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「first input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 first input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例
@@ -194,7 +194,7 @@ mPLobbyRankLeaderboardVM.SetFirstInputKey(hotKey);
 ### SetLastInputKey
 `public void SetLastInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「last input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 last input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRankLeaderboardVM 实例

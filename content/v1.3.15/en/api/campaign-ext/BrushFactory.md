@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of BrushFactory from the subsystem API first
@@ -41,7 +41,7 @@ brushFactory.Initialize();
 ### LoadBrushFile
 `public void LoadBrushFile(string name)`
 
-**Purpose:** Reads `brush file` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads brush file from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of BrushFactory from the subsystem API first
@@ -52,7 +52,7 @@ brushFactory.LoadBrushFile("example");
 ### GetBrush
 `public Brush GetBrush(string name)`
 
-**Purpose:** Reads and returns the `brush` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the brush value held by the this instance.
 
 ```csharp
 // Obtain an instance of BrushFactory from the subsystem API first
@@ -63,7 +63,7 @@ var result = brushFactory.GetBrush("example");
 ### SaveBrushAs
 `public bool SaveBrushAs(string name, Brush brush)`
 
-**Purpose:** Writes `brush as` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes brush as to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of BrushFactory from the subsystem API first
@@ -74,7 +74,7 @@ var result = brushFactory.SaveBrushAs("example", brush);
 ### CheckForUpdates
 `public void CheckForUpdates()`
 
-**Purpose:** Verifies whether `for updates` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether for updates holds true for the this instance.
 
 ```csharp
 // Obtain an instance of BrushFactory from the subsystem API first

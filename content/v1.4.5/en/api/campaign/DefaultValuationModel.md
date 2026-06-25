@@ -23,7 +23,7 @@ Treat `DefaultValuationModel` as a Model-style extension point: first identify w
 ### GetMilitaryValueOfParty
 `public override float GetMilitaryValueOfParty(MobileParty party)`
 
-**Purpose:** Reads and returns the `military value of party` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the military value of party value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultValuationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultValuationModel.GetMilitaryValueOfParty(party);
 ### GetValueOfTroop
 `public override float GetValueOfTroop(CharacterObject troop)`
 
-**Purpose:** Reads and returns the `value of troop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value of troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultValuationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultValuationModel.GetValueOfTroop(troop);
 ### GetValueOfHero
 `public override float GetValueOfHero(Hero hero)`
 
-**Purpose:** Reads and returns the `value of hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value of hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultValuationModel from the subsystem API first

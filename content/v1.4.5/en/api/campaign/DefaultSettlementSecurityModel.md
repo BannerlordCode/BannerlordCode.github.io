@@ -23,7 +23,7 @@ Treat `DefaultSettlementSecurityModel` as a Model-style extension point: first i
 ### CalculateSecurityChange
 `public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `security change`.
+**Purpose:** **Purpose:** Calculates the current value or result of security change.
 
 ```csharp
 // Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultSettlementSecurityModel.CalculateSecurityChange(town, false)
 ### GetLootedNearbyPartySecurityEffect
 `public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**Purpose:** Reads and returns the `looted nearby party security effect` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the looted nearby party security effect value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultSettlementSecurityModel.GetLootedNearbyPartySecurityEffect(t
 ### GetNearbyBanditPartyDefeatedSecurityEffect
 `public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**Purpose:** Reads and returns the `nearby bandit party defeated security effect` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the nearby bandit party defeated security effect value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultSettlementSecurityModel.GetNearbyBanditPartyDefeatedSecurity
 ### CalculateGoldGainDueToHighSecurity
 `public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Calculates the current value or result of `gold gain due to high security`.
+**Purpose:** **Purpose:** Calculates the current value or result of gold gain due to high security.
 
 ```csharp
 // Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first
@@ -67,7 +67,7 @@ defaultSettlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explaine
 ### CalculateGoldCutDueToLowSecurity
 `public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**Purpose:** Calculates the current value or result of `gold cut due to low security`.
+**Purpose:** **Purpose:** Calculates the current value or result of gold cut due to low security.
 
 ```csharp
 // Obtain an instance of DefaultSettlementSecurityModel from the subsystem API first

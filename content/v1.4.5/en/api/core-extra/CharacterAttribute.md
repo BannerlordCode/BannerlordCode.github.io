@@ -29,7 +29,7 @@ Treat `CharacterAttribute` as a Attribute-style extension point: first identify 
 ### Initialize
 `public void Initialize(TextObject name, TextObject description, TextObject abbreviation)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of CharacterAttribute from the subsystem API first

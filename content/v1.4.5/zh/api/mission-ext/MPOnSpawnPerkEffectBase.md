@@ -23,7 +23,7 @@ description: "MPOnSpawnPerkEffectBase 的自动生成类参考。"
 ### GetTroopCountMultiplier
 `public virtual float GetTroopCountMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troop count multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop count multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
@@ -34,7 +34,7 @@ var result = mPOnSpawnPerkEffectBase.GetTroopCountMultiplier();
 ### GetExtraTroopCount
 `public virtual int GetExtraTroopCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「extra troop count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 extra troop count 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
@@ -45,7 +45,7 @@ var result = mPOnSpawnPerkEffectBase.GetExtraTroopCount();
 ### GetDrivenPropertyBonusOnSpawn
 `public virtual float GetDrivenPropertyBonusOnSpawn(bool isPlayer, DrivenProperty drivenProperty, float baseValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「driven property bonus on spawn」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 driven property bonus on spawn 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例
@@ -56,7 +56,7 @@ var result = mPOnSpawnPerkEffectBase.GetDrivenPropertyBonusOnSpawn(false, driven
 ### GetHitpoints
 `public virtual float GetHitpoints(bool isPlayer)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「hitpoints」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 hitpoints 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MPOnSpawnPerkEffectBase 实例

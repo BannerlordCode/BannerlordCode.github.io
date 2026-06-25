@@ -23,7 +23,7 @@ Treat `PartyImpairmentModel` as a Model-style extension point: first identify wh
 ### GetDisorganizedStateDuration
 `public abstract ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
 
-**Purpose:** Reads and returns the `disorganized state duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the disorganized state duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyImpairmentModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyImpairmentModel.GetDisorganizedStateDuration(party);
 ### GetVulnerabilityStateDuration
 `public abstract float GetVulnerabilityStateDuration(PartyBase party)`
 
-**Purpose:** Reads and returns the `vulnerability state duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the vulnerability state duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyImpairmentModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyImpairmentModel.GetVulnerabilityStateDuration(party);
 ### GetSiegeExpectedVulnerabilityTime
 `public abstract float GetSiegeExpectedVulnerabilityTime()`
 
-**Purpose:** Reads and returns the `siege expected vulnerability time` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege expected vulnerability time value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyImpairmentModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = partyImpairmentModel.GetSiegeExpectedVulnerabilityTime();
 ### CanGetDisorganized
 `public abstract bool CanGetDisorganized(PartyBase partyBase)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `get disorganized`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for get disorganized.
 
 ```csharp
 // Obtain an instance of PartyImpairmentModel from the subsystem API first

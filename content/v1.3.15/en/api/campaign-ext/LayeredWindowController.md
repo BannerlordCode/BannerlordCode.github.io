@@ -23,7 +23,7 @@ Treat `LayeredWindowController` as a Controller-style extension point: first ide
 ### SetSize
 `public void SetSize(int width, int height)`
 
-**Purpose:** Assigns a new value to `size` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LayeredWindowController from the subsystem API first
@@ -34,7 +34,7 @@ layeredWindowController.SetSize(0, 0);
 ### PostRender
 `public void PostRender()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PostRender logic.
 
 ```csharp
 // Obtain an instance of LayeredWindowController from the subsystem API first
@@ -45,7 +45,7 @@ layeredWindowController.PostRender();
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of LayeredWindowController from the subsystem API first

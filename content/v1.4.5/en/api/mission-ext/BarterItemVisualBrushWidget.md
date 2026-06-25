@@ -35,7 +35,7 @@ Treat `BarterItemVisualBrushWidget` as a Widget-style extension point: first ide
 ### BarterItemVisualBrushWidget
 `public class BarterItemVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BarterItemVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of BarterItemVisualBrushWidget from the subsystem API first

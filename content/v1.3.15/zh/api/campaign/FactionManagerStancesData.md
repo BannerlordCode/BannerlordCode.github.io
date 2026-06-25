@@ -23,7 +23,7 @@ description: "FactionManagerStancesData 的自动生成类参考。"
 ### GetStanceLinks
 `public Dictionary<ValueTuple<IFaction, IFaction>, StanceLink>.ValueCollection GetStanceLinks()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「stance links」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 stance links 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FactionManagerStancesData 实例
@@ -34,7 +34,7 @@ var result = factionManagerStancesData.GetStanceLinks();
 ### AddStance
 `public void AddStance(StanceLink stance)`
 
-**用途 / Purpose:** 将 「stance」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 stance 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 FactionManagerStancesData 实例
@@ -45,7 +45,7 @@ factionManagerStancesData.AddStance(stance);
 ### RemoveStance
 `public void RemoveStance(StanceLink stance)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「stance」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 stance。
 
 ```csharp
 // 先通过子系统 API 拿到 FactionManagerStancesData 实例

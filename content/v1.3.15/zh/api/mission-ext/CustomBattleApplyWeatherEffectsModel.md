@@ -23,7 +23,7 @@ description: "CustomBattleApplyWeatherEffectsModel 的自动生成类参考。"
 ### ApplyWeatherEffects
 `public override void ApplyWeatherEffects()`
 
-**用途 / Purpose:** 将 「weather effects」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 weather effects 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleApplyWeatherEffectsModel 实例

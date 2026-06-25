@@ -29,7 +29,7 @@ description: "CheatItemBaseVM 的自动生成类参考。"
 ### ExecuteAction
 `public abstract void ExecuteAction()`
 
-**用途 / Purpose:** 执行 「action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CheatItemBaseVM 实例

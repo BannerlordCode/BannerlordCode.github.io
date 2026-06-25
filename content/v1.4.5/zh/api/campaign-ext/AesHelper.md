@@ -23,7 +23,7 @@ description: "AesHelper 的自动生成类参考。"
 ### Encrypt
 `public static byte Encrypt(byte plainData, byte key, byte initializationVector)`
 
-**用途 / Purpose:** 处理与 「encrypt」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Encrypt 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ AesHelper.Encrypt(0, 0, 0);
 ### Decrypt
 `public static byte Decrypt(byte encrypted, byte key, byte initializationVector)`
 
-**用途 / Purpose:** 处理与 「decrypt」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Decrypt 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

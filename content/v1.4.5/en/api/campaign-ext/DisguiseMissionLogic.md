@@ -32,7 +32,7 @@ Treat `DisguiseMissionLogic` as a Logic-style extension point: first identify wh
 ### SetCanPlayerCameraSeeTheAgent
 `public void SetCanPlayerCameraSeeTheAgent(bool value)`
 
-**Purpose:** Assigns a new value to `can player camera see the agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can player camera see the agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -43,7 +43,7 @@ disguiseMissionLogic.SetCanPlayerCameraSeeTheAgent(false);
 ### OnCreated
 `public override void OnCreated()`
 
-**Purpose:** Invoked when the `created` event is raised.
+**Purpose:** **Purpose:** Invoked when the created event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -54,7 +54,7 @@ disguiseMissionLogic.OnCreated();
 ### GetSpawnFrameOfPassage
 `public MatrixFrame GetSpawnFrameOfPassage(Location location)`
 
-**Purpose:** Reads and returns the `spawn frame of passage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn frame of passage value held by the this instance.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -65,7 +65,7 @@ var result = disguiseMissionLogic.GetSpawnFrameOfPassage(location);
 ### IsContactAgentTracked
 `public bool IsContactAgentTracked(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `contact agent tracked` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the contact agent tracked state or condition.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -76,7 +76,7 @@ var result = disguiseMissionLogic.IsContactAgentTracked(agent);
 ### CanCommonAreaFightBeTriggered
 `public bool CanCommonAreaFightBeTriggered()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `common area fight be triggered`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for common area fight be triggered.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -87,7 +87,7 @@ var result = disguiseMissionLogic.CanCommonAreaFightBeTriggered();
 ### ContactAlreadySetCommonCondition
 `public bool ContactAlreadySetCommonCondition()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ContactAlreadySetCommonCondition logic.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -98,7 +98,7 @@ var result = disguiseMissionLogic.ContactAlreadySetCommonCondition();
 ### IsOnLeftSide
 `public bool IsOnLeftSide(Vec2 lineA, Vec2 lineB, Vec2 point)`
 
-**Purpose:** Determines whether the current object is in the `on left side` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the on left side state or condition.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -109,7 +109,7 @@ var result = disguiseMissionLogic.IsOnLeftSide(lineA, lineB, point);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**Purpose:** Invoked when the `agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent build event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -120,7 +120,7 @@ disguiseMissionLogic.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -131,7 +131,7 @@ disguiseMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, bl
 ### SpawnDisguiseMissionAgentInternal
 `public Agent SpawnDisguiseMissionAgentInternal(CharacterObject agentCharacter, Vec3 initialPosition, Vec2 initialDirection, string actionSetId, bool isEnemy = true)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnDisguiseMissionAgentInternal logic.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -142,7 +142,7 @@ var result = disguiseMissionLogic.SpawnDisguiseMissionAgentInternal(agentCharact
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -153,7 +153,7 @@ disguiseMissionLogic.OnMissionTick(0);
 ### GetAgentOffenseInfo
 `public ShadowingAgentOffenseInfo GetAgentOffenseInfo(Agent agent)`
 
-**Purpose:** Reads and returns the `agent offense info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent offense info value held by the this instance.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -164,7 +164,7 @@ var result = disguiseMissionLogic.GetAgentOffenseInfo(agent);
 ### IsAgentInDetectionRadius
 `public bool IsAgentInDetectionRadius(Agent offenderAgent, Agent detectorAgent)`
 
-**Purpose:** Determines whether the current object is in the `agent in detection radius` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the agent in detection radius state or condition.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -175,7 +175,7 @@ var result = disguiseMissionLogic.IsAgentInDetectionRadius(offenderAgent, detect
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first
@@ -186,7 +186,7 @@ var result = disguiseMissionLogic.OnEndMissionRequest(canPlayerLeave);
 ### OnCollectPlayerEventControlFlags
 `public EventControlFlag OnCollectPlayerEventControlFlags()`
 
-**Purpose:** Invoked when the `collect player event control flags` event is raised.
+**Purpose:** **Purpose:** Invoked when the collect player event control flags event is raised.
 
 ```csharp
 // Obtain an instance of DisguiseMissionLogic from the subsystem API first

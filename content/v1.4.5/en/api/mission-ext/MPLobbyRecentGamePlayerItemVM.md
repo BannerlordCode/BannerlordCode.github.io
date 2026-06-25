@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### MPLobbyRecentGamePlayerItemVM
 `public unsafe MPLobbyRecentGamePlayerItemVM(PlayerId playerId, MatchHistoryData matchOfThePlayer, Action<MPLobbyRecentGamePlayerItemVM> onActivatePlayerActions)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MPLobbyRecentGamePlayerItemVM logic.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamePlayerItemVM from the subsystem API first
@@ -42,7 +42,7 @@ var result = mPLobbyRecentGamePlayerItemVM.MPLobbyRecentGamePlayerItemVM(playerI
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyRecentGamePlayerItemVM from the subsystem API first

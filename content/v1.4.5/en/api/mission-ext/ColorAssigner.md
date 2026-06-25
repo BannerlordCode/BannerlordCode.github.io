@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetColor
 `public void SetColor(WeakGameEntity entity)`
 
-**Purpose:** Assigns a new value to `color` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to color and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ColorAssigner from the subsystem API first

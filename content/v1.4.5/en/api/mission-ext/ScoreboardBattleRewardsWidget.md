@@ -31,7 +31,7 @@ Treat `ScoreboardBattleRewardsWidget` as a Widget-style extension point: first i
 ### ScoreboardBattleRewardsWidget
 `public class ScoreboardBattleRewardsWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ScoreboardBattleRewardsWidget logic.
 
 ```csharp
 // Obtain an instance of ScoreboardBattleRewardsWidget from the subsystem API first
@@ -42,7 +42,7 @@ var result = scoreboardBattleRewardsWidget.ScoreboardBattleRewardsWidget(context
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Starts the `animation` flow or state machine.
+**Purpose:** **Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of ScoreboardBattleRewardsWidget from the subsystem API first
@@ -53,7 +53,7 @@ scoreboardBattleRewardsWidget.StartAnimation();
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of ScoreboardBattleRewardsWidget from the subsystem API first

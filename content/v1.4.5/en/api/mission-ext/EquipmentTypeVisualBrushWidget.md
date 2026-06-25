@@ -29,7 +29,7 @@ Treat `EquipmentTypeVisualBrushWidget` as a Widget-style extension point: first 
 ### EquipmentTypeVisualBrushWidget
 `public class EquipmentTypeVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EquipmentTypeVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of EquipmentTypeVisualBrushWidget from the subsystem API first

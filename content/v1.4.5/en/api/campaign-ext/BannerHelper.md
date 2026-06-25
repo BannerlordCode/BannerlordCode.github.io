@@ -23,7 +23,7 @@ Treat `BannerHelper` as a Helper-style extension point: first identify who creat
 ### AddBannerBonusForBanner
 `public static void AddBannerBonusForBanner(BannerEffect bannerEffect, BannerComponent bannerComponent, ref FactoredNumber bonuses)`
 
-**Purpose:** Adds `banner bonus for banner` to the current collection or state.
+**Purpose:** **Purpose:** Adds banner bonus for banner to the current collection or state.
 
 ```csharp
 // Static call; no instance required

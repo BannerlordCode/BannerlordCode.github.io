@@ -23,7 +23,7 @@ description: "BrushLayerState 的自动生成类参考。"
 ### FillFrom
 `public void FillFrom(IBrushLayerData styleLayer)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -34,7 +34,7 @@ brushLayerState.FillFrom(styleLayer);
 ### LerpFrom
 `public void LerpFrom(BrushLayerState start, IBrushLayerData end, float ratio)`
 
-**用途 / Purpose:** 处理与 「lerp from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 LerpFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -45,7 +45,7 @@ brushLayerState.LerpFrom(start, end, 0);
 ### SetValueAsFloat
 `public void SetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType, float value)`
 
-**用途 / Purpose:** 为 「value as float」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 value as float 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -56,7 +56,7 @@ brushLayerState.SetValueAsFloat(propertyType, 0);
 ### SetValueAsColor
 `public void SetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType, in Color value)`
 
-**用途 / Purpose:** 为 「value as color」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 value as color 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -67,7 +67,7 @@ brushLayerState.SetValueAsColor(propertyType, value);
 ### SetValueAsSprite
 `public void SetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType, Sprite value)`
 
-**用途 / Purpose:** 为 「value as sprite」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 value as sprite 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -78,7 +78,7 @@ brushLayerState.SetValueAsSprite(propertyType, value);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value as float」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as float 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -89,7 +89,7 @@ var result = brushLayerState.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value as color」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -100,7 +100,7 @@ var result = brushLayerState.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value as sprite」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value as sprite 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -111,7 +111,7 @@ var result = brushLayerState.GetValueAsSprite(propertyType);
 ### SetValueAsLerpOfValues
 `public static void SetValueAsLerpOfValues(ref BrushLayerState currentState, in BrushAnimationKeyFrame startValue, in BrushAnimationKeyFrame endValue, BrushAnimationProperty.BrushAnimationPropertyType propertyType, float ratio)`
 
-**用途 / Purpose:** 为 「value as lerp of values」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 value as lerp of values 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

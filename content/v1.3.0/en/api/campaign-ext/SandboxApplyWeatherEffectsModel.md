@@ -23,7 +23,7 @@ Treat `SandboxApplyWeatherEffectsModel` as a Model-style extension point: first 
 ### ApplyWeatherEffects
 `public override void ApplyWeatherEffects()`
 
-**Purpose:** Applies the effect of `weather effects` to the current object.
+**Purpose:** **Purpose:** Applies the effect of weather effects to the this instance.
 
 ```csharp
 // Obtain an instance of SandboxApplyWeatherEffectsModel from the subsystem API first

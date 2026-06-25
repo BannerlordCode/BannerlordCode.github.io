@@ -23,7 +23,7 @@ Treat `MissionAudienceHandler` as a Handler-style extension point: first identif
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionAudienceHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionAudienceHandler.EarlyStart();
 ### OnInit
 `public void OnInit()`
 
-**Purpose:** Invoked when the `init` event is raised.
+**Purpose:** **Purpose:** Invoked when the init event is raised.
 
 ```csharp
 // Obtain an instance of MissionAudienceHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionAudienceHandler.OnInit();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionAudienceHandler from the subsystem API first
@@ -56,7 +56,7 @@ missionAudienceHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, 
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionAudienceHandler from the subsystem API first
@@ -67,7 +67,7 @@ missionAudienceHandler.OnMissionTick(0);
 ### OnMissionModeChange
 `public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
 
-**Purpose:** Invoked when the `mission mode change` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission mode change event is raised.
 
 ```csharp
 // Obtain an instance of MissionAudienceHandler from the subsystem API first
@@ -78,7 +78,7 @@ missionAudienceHandler.OnMissionModeChange(oldMissionMode, false);
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionAudienceHandler from the subsystem API first

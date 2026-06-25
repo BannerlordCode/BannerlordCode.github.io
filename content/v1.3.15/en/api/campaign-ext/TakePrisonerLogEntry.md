@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedToWar
 `public bool IsRelatedToWar(StanceLink stance, out IFaction effector, out IFaction effected)`
 
-**Purpose:** Determines whether the current object is in the `related to war` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the related to war state or condition.
 
 ```csharp
 // Obtain an instance of TakePrisonerLogEntry from the subsystem API first
@@ -42,7 +42,7 @@ var result = takePrisonerLogEntry.IsRelatedToWar(stance, effector, effected);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of TakePrisonerLogEntry from the subsystem API first
@@ -53,7 +53,7 @@ var result = takePrisonerLogEntry.ToString();
 ### GetNotificationText
 `public TextObject GetNotificationText()`
 
-**Purpose:** Reads and returns the `notification text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the notification text value held by the this instance.
 
 ```csharp
 // Obtain an instance of TakePrisonerLogEntry from the subsystem API first
@@ -64,7 +64,7 @@ var result = takePrisonerLogEntry.GetNotificationText();
 ### GetEncyclopediaText
 `public TextObject GetEncyclopediaText()`
 
-**Purpose:** Reads and returns the `encyclopedia text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the encyclopedia text value held by the this instance.
 
 ```csharp
 // Obtain an instance of TakePrisonerLogEntry from the subsystem API first
@@ -75,7 +75,7 @@ var result = takePrisonerLogEntry.GetEncyclopediaText();
 ### IsValid
 `public override bool IsValid()`
 
-**Purpose:** Determines whether the current object is in the `valid` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid state or condition.
 
 ```csharp
 // Obtain an instance of TakePrisonerLogEntry from the subsystem API first

@@ -23,7 +23,7 @@ Treat `DefaultPlayerProgressionModel` as a Model-style extension point: first id
 ### GetPlayerProgress
 `public override float GetPlayerProgress()`
 
-**Purpose:** Reads and returns the `player progress` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPlayerProgressionModel from the subsystem API first

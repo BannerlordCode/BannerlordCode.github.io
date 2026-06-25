@@ -23,7 +23,7 @@ Treat `MissionGauntletMultiplayerMarkerUIHandler` as a Handler-style extension p
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerMarkerUIHandler from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerMarkerUIHandler from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletMultiplayerMarkerUIHandler.OnMissionScreenFinalize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletMultiplayerMarkerUIHandler from the subsystem API first

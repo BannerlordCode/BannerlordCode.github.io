@@ -29,7 +29,7 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of StoryModeTutorialBoxCampaignBehavior from the subsystem API first
@@ -40,7 +40,7 @@ storyModeTutorialBoxCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of StoryModeTutorialBoxCampaignBehavior from the subsystem API first
@@ -51,7 +51,7 @@ storyModeTutorialBoxCampaignBehavior.SyncData(dataStore);
 ### OnResetAllTutorials
 `public void OnResetAllTutorials(ResetAllTutorialsEvent obj)`
 
-**Purpose:** Invoked when the `reset all tutorials` event is raised.
+**Purpose:** **Purpose:** Invoked when the reset all tutorials event is raised.
 
 ```csharp
 // Obtain an instance of StoryModeTutorialBoxCampaignBehavior from the subsystem API first

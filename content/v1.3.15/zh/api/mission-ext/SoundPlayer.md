@@ -23,7 +23,7 @@ description: "SoundPlayer 的自动生成类参考。"
 ### UpdatePlaying
 `public void UpdatePlaying()`
 
-**用途 / Purpose:** 重新计算并更新 「playing」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 playing 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -34,7 +34,7 @@ soundPlayer.UpdatePlaying();
 ### PlaySound
 `public void PlaySound()`
 
-**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlaySound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -45,7 +45,7 @@ soundPlayer.PlaySound();
 ### ResumeSound
 `public void ResumeSound()`
 
-**用途 / Purpose:** 处理与 「resume sound」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ResumeSound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -56,7 +56,7 @@ soundPlayer.ResumeSound();
 ### PauseSound
 `public void PauseSound()`
 
-**用途 / Purpose:** 处理与 「pause sound」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PauseSound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -67,7 +67,7 @@ soundPlayer.PauseSound();
 ### StopSound
 `public void StopSound()`
 
-**用途 / Purpose:** 停止「sound」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止sound流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -78,7 +78,7 @@ soundPlayer.StopSound();
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例

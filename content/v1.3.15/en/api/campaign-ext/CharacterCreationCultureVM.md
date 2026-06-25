@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### ExecuteSelectCulture
 `public void ExecuteSelectCulture()`
 
-**Purpose:** Runs the operation or workflow associated with `select culture`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select culture.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureVM from the subsystem API first

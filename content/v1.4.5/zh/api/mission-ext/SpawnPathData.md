@@ -29,7 +29,7 @@ description: "SpawnPathData 的自动生成类参考。"
 ### Invert
 `public SpawnPathData Invert()`
 
-**用途 / Purpose:** 处理与 「invert」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Invert 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -40,7 +40,7 @@ var result = spawnPathData.Invert();
 ### ClampPathOffset
 `public void ClampPathOffset(ref float relativePathOffset)`
 
-**用途 / Purpose:** 处理与 「clamp path offset」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ClampPathOffset 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -51,7 +51,7 @@ spawnPathData.ClampPathOffset(relativePathOffset);
 ### ConvertPointToRelativePathOffset
 `public float ConvertPointToRelativePathOffset(int pointIndex)`
 
-**用途 / Purpose:** 把「point to relative path offset」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把point to relative path offset转换为另一种表示或类型。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -62,7 +62,7 @@ var result = spawnPathData.ConvertPointToRelativePathOffset(0);
 ### ConvertRelativePathOffsetToPathDistance
 `public float ConvertRelativePathOffsetToPathDistance(float relativePathOffset)`
 
-**用途 / Purpose:** 把「relative path offset to path distance」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把relative path offset to path distance转换为另一种表示或类型。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -73,7 +73,7 @@ var result = spawnPathData.ConvertRelativePathOffsetToPathDistance(0);
 ### GetNodeIndexAtPathDistance
 `public int GetNodeIndexAtPathDistance(float pathDistance)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「node index at path distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 node index at path distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -84,7 +84,7 @@ var result = spawnPathData.GetNodeIndexAtPathDistance(0);
 ### GetBaseOffset
 `public float GetBaseOffset()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「base offset」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 base offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -95,7 +95,7 @@ var result = spawnPathData.GetBaseOffset();
 ### IsPathOffsetValid
 `public bool IsPathOffsetValid(float relativePathOffset)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「path offset valid」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 path offset valid 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -106,7 +106,7 @@ var result = spawnPathData.IsPathOffsetValid(0);
 ### GetOffsetOverflow
 `public float GetOffsetOverflow(float relativePathOffset)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「offset overflow」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 offset overflow 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -117,7 +117,7 @@ var result = spawnPathData.GetOffsetOverflow(0);
 ### GetSpawnFrame
 `public MatrixFrame GetSpawnFrame(float relativePathOffset, bool searchNearestValidFrame = false, SearchDirection searchDirection = SearchDirection.Backward)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn frame」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn frame 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -128,7 +128,7 @@ var result = spawnPathData.GetSpawnFrame(0, false, searchDirection.Backward);
 ### GetSpawnPathFrameFacingTarget
 `public void GetSpawnPathFrameFacingTarget(float basePathOffset, float targetPathOffset, bool useTangentDirection, out Vec2 spawnPathPosition, out Vec2 spawnPathDirection, bool decideDirectionDynamically = false, float dynamicDistancePercentage = 0.2f)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「spawn path frame facing target」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 spawn path frame facing target 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -139,7 +139,7 @@ spawnPathData.GetSpawnPathFrameFacingTarget(0, 0, false, spawnPathPosition, spaw
 ### Create
 `public static SpawnPathData Create(Scene scene, Path path, float pivotOffset, bool isInverted = false, SnapMethod snapType = SnapMethod.DontSnap)`
 
-**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例

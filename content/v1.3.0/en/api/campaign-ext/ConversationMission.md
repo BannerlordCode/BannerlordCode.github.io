@@ -31,7 +31,7 @@ Start from namespace `SandBox.Conversation` to place it in the stack, then inspe
 ### StartConversationWithAgent
 `public static void StartConversationWithAgent(Agent agent)`
 
-**Purpose:** Starts the `conversation with agent` flow or state machine.
+**Purpose:** **Purpose:** Starts the conversation with agent flow or state machine.
 
 ```csharp
 // Static call; no instance required

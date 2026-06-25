@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### SetDefensePositionFromTactic
 `public void SetDefensePositionFromTactic(WorldPosition defensePosition)`
 
-**Purpose:** Assigns a new value to `defense position from tactic` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to defense position from tactic and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
@@ -34,7 +34,7 @@ behaviorDefendSiegeWeapon.SetDefensePositionFromTactic(defensePosition);
 ### SetDefendedSiegeWeaponFromTactic
 `public void SetDefendedSiegeWeaponFromTactic(SiegeWeapon siegeWeapon)`
 
-**Purpose:** Assigns a new value to `defended siege weapon from tactic` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to defended siege weapon from tactic and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
@@ -45,7 +45,7 @@ behaviorDefendSiegeWeapon.SetDefendedSiegeWeaponFromTactic(siegeWeapon);
 ### GetBehaviorString
 `public override TextObject GetBehaviorString()`
 
-**Purpose:** Reads and returns the `behavior string` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the behavior string value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
@@ -56,7 +56,7 @@ var result = behaviorDefendSiegeWeapon.GetBehaviorString();
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Advances the `occasionally` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first
@@ -67,7 +67,7 @@ behaviorDefendSiegeWeapon.TickOccasionally();
 ### ResetBehavior
 `public override void ResetBehavior()`
 
-**Purpose:** Returns `behavior` to its default or initial condition.
+**Purpose:** **Purpose:** Returns behavior to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BehaviorDefendSiegeWeapon from the subsystem API first

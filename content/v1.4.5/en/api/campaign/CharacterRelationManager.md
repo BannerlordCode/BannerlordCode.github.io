@@ -23,7 +23,7 @@ Treat `CharacterRelationManager` as a Manager-style extension point: first ident
 ### GetRelation
 `public int GetRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** Reads and returns the `relation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterRelationManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = characterRelationManager.GetRelation(hero1, hero2);
 ### SetRelation
 `public void SetRelation(Hero hero1, Hero hero2, int value)`
 
-**Purpose:** Assigns a new value to `relation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to relation and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterRelationManager from the subsystem API first
@@ -45,7 +45,7 @@ characterRelationManager.SetRelation(hero1, hero2, 0);
 ### Remove
 `public void Remove(Hero hero)`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterRelationManager from the subsystem API first
@@ -56,7 +56,7 @@ characterRelationManager.Remove(hero);
 ### ClearOldData
 `public void ClearOldData()`
 
-**Purpose:** Removes all `old data` from the current object.
+**Purpose:** **Purpose:** Removes all old data from the this instance.
 
 ```csharp
 // Obtain an instance of CharacterRelationManager from the subsystem API first
@@ -67,7 +67,7 @@ characterRelationManager.ClearOldData();
 ### GetHeroRelation
 `public static int GetHeroRelation(Hero hero1, Hero hero2)`
 
-**Purpose:** Reads and returns the `hero relation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the hero relation value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -77,7 +77,7 @@ CharacterRelationManager.GetHeroRelation(hero1, hero2);
 ### SetHeroRelation
 `public static void SetHeroRelation(Hero hero1, Hero hero2, int value)`
 
-**Purpose:** Assigns a new value to `hero relation` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to hero relation and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -87,7 +87,7 @@ CharacterRelationManager.SetHeroRelation(hero1, hero2, 0);
 ### AfterLoad
 `public void AfterLoad()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterLoad logic.
 
 ```csharp
 // Obtain an instance of CharacterRelationManager from the subsystem API first
@@ -98,7 +98,7 @@ characterRelationManager.AfterLoad();
 ### RemoveHero
 `public void RemoveHero(Hero deadHero)`
 
-**Purpose:** Removes `hero` from the current collection or state.
+**Purpose:** **Purpose:** Removes hero from the current collection or state.
 
 ```csharp
 // Obtain an instance of CharacterRelationManager from the subsystem API first

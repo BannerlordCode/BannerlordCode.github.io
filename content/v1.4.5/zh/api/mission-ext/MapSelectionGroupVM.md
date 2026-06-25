@@ -49,7 +49,7 @@ description: "MapSelectionGroupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSelectionGroupVM 实例
@@ -60,7 +60,7 @@ mapSelectionGroupVM.RefreshValues();
 ### ExecuteSallyOutChange
 `public void ExecuteSallyOutChange()`
 
-**用途 / Purpose:** 执行 「sally out change」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sally out change 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSelectionGroupVM 实例
@@ -71,7 +71,7 @@ mapSelectionGroupVM.ExecuteSallyOutChange();
 ### OnGameTypeChange
 `public void OnGameTypeChange(string gameTypeStringId)`
 
-**用途 / Purpose:** 在 「game type change」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game type change 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSelectionGroupVM 实例
@@ -82,7 +82,7 @@ mapSelectionGroupVM.OnGameTypeChange("example");
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**用途 / Purpose:** 处理与 「randomize all」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RandomizeAll 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSelectionGroupVM 实例

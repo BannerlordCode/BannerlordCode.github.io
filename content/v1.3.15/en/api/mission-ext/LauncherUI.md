@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Launcher.Library` to place it in 
 ### Initialize
 `public void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of LauncherUI from the subsystem API first
@@ -41,7 +41,7 @@ launcherUI.Initialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of LauncherUI from the subsystem API first
@@ -52,7 +52,7 @@ launcherUI.OnFinalize();
 ### Update
 `public void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of LauncherUI from the subsystem API first
@@ -63,7 +63,7 @@ launcherUI.Update();
 ### CheckMouseOverWindowDragArea
 `public bool CheckMouseOverWindowDragArea()`
 
-**Purpose:** Verifies whether `mouse over window drag area` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether mouse over window drag area holds true for the this instance.
 
 ```csharp
 // Obtain an instance of LauncherUI from the subsystem API first
@@ -74,7 +74,7 @@ var result = launcherUI.CheckMouseOverWindowDragArea();
 ### HitTest
 `public bool HitTest()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Obtain an instance of LauncherUI from the subsystem API first
@@ -85,7 +85,7 @@ var result = launcherUI.HitTest();
 ### AddHintInformation
 `public static void AddHintInformation(string message)`
 
-**Purpose:** Adds `hint information` to the current collection or state.
+**Purpose:** **Purpose:** Adds hint information to the current collection or state.
 
 ```csharp
 // Static call; no instance required
@@ -95,7 +95,7 @@ LauncherUI.AddHintInformation("example");
 ### HideHintInformation
 `public static void HideHintInformation()`
 
-**Purpose:** Hides the UI or element associated with `hint information`.
+**Purpose:** **Purpose:** Hides the UI or element associated with hint information.
 
 ```csharp
 // Static call; no instance required

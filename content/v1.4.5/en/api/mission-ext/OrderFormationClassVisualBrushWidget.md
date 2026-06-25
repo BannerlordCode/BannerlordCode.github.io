@@ -29,7 +29,7 @@ Treat `OrderFormationClassVisualBrushWidget` as a Widget-style extension point: 
 ### OrderFormationClassVisualBrushWidget
 `public class OrderFormationClassVisualBrushWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the OrderFormationClassVisualBrushWidget logic.
 
 ```csharp
 // Obtain an instance of OrderFormationClassVisualBrushWidget from the subsystem API first

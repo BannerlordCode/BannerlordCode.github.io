@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### CollectCommandLineFunctions
 `public static List<string> CollectCommandLineFunctions()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectCommandLineFunctions logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ CommandLineFunctionality.CollectCommandLineFunctions();
 ### HasFunctionForCommand
 `public static bool HasFunctionForCommand(string command)`
 
-**Purpose:** Determines whether the current object already holds `function for command`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds function for command.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ CommandLineFunctionality.HasFunctionForCommand("example");
 ### CallFunction
 `public static string CallFunction(string concatName, string concatArguments, out bool found)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CallFunction logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ CommandLineFunctionality.CallFunction("example", "example", found);
 ### CallFunction
 `public static string CallFunction(string concatName, List<string> argList, out bool found)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CallFunction logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ CommandLineFunctionality.CallFunction("example", argList, found);
 ### Call
 `public string Call(List<string> objects)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Call logic.
 
 ```csharp
 // Obtain an instance of CommandLineFunctionality from the subsystem API first

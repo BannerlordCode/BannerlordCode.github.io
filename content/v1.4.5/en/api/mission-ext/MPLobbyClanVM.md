@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first
@@ -44,7 +44,7 @@ mPLobbyClanVM.RefreshValues();
 ### OnClanInfoChanged
 `public async void OnClanInfoChanged()`
 
-**Purpose:** Invoked when the `clan info changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the clan info changed event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first
@@ -55,7 +55,7 @@ mPLobbyClanVM.OnClanInfoChanged();
 ### TrySetClanSubPage
 `public async void TrySetClanSubPage(ClanSubPages newPage)`
 
-**Purpose:** Attempts to retrieve `set clan sub page`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve set clan sub page, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first
@@ -66,7 +66,7 @@ mPLobbyClanVM.TrySetClanSubPage(newPage);
 ### OnNotificationReceived
 `public void OnNotificationReceived(LobbyNotification notification)`
 
-**Purpose:** Invoked when the `notification received` event is raised.
+**Purpose:** **Purpose:** Invoked when the notification received event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first
@@ -77,7 +77,7 @@ mPLobbyClanVM.OnNotificationReceived(notification);
 ### OnPlayerNameUpdated
 `public void OnPlayerNameUpdated(string playerName)`
 
-**Purpose:** Invoked when the `player name updated` event is raised.
+**Purpose:** **Purpose:** Invoked when the player name updated event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first
@@ -88,7 +88,7 @@ mPLobbyClanVM.OnPlayerNameUpdated("example");
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first
@@ -99,7 +99,7 @@ mPLobbyClanVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanVM from the subsystem API first

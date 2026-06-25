@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ArmyCompositionItemVM from the subsystem API first
@@ -46,7 +46,7 @@ armyCompositionItemVM.RefreshValues();
 ### SetCurrentSelectedCulture
 `public void SetCurrentSelectedCulture(BasicCultureObject culture)`
 
-**Purpose:** Assigns a new value to `current selected culture` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current selected culture and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArmyCompositionItemVM from the subsystem API first
@@ -57,7 +57,7 @@ armyCompositionItemVM.SetCurrentSelectedCulture(culture);
 ### ExecuteRandomize
 `public void ExecuteRandomize(int compositionValue)`
 
-**Purpose:** Runs the operation or workflow associated with `randomize`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of ArmyCompositionItemVM from the subsystem API first
@@ -68,7 +68,7 @@ armyCompositionItemVM.ExecuteRandomize(0);
 ### ExecuteAddTroopTypes
 `public void ExecuteAddTroopTypes()`
 
-**Purpose:** Runs the operation or workflow associated with `add troop types`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with add troop types.
 
 ```csharp
 // Obtain an instance of ArmyCompositionItemVM from the subsystem API first
@@ -79,7 +79,7 @@ armyCompositionItemVM.ExecuteAddTroopTypes();
 ### RefreshCompositionValue
 `public void RefreshCompositionValue()`
 
-**Purpose:** Keeps the display or cache of `composition value` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of composition value in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ArmyCompositionItemVM from the subsystem API first
@@ -90,7 +90,7 @@ armyCompositionItemVM.RefreshCompositionValue();
 ### GetTroopTypeIconData
 `public static StringItemWithHintVM GetTroopTypeIconData(BasicCharacterObject basicCharacterObject, CompositionType type, bool isBig = false)`
 
-**Purpose:** Reads and returns the `troop type icon data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troop type icon data value held by the this instance.
 
 ```csharp
 // Static call; no instance required

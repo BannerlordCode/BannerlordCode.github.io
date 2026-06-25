@@ -34,7 +34,7 @@ description: "FindingThirdBannerPieceSceneNotificationItem 的自动生成类参
 ### GetBanners
 `public override Banner GetBanners()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「banners」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banners 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FindingThirdBannerPieceSceneNotificationItem 实例

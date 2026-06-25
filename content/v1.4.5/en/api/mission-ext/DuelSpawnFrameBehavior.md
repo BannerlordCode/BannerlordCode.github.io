@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Initialize
 `public override void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of DuelSpawnFrameBehavior from the subsystem API first
@@ -34,7 +34,7 @@ duelSpawnFrameBehavior.Initialize();
 ### GetSpawnFrame
 `public override MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn)`
 
-**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of DuelSpawnFrameBehavior from the subsystem API first

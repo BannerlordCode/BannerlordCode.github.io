@@ -30,7 +30,7 @@ description: "MultiplayerWarmupComponent 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -41,7 +41,7 @@ multiplayerWarmupComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -52,7 +52,7 @@ multiplayerWarmupComponent.AfterStart();
 ### CheckForWarmupProgressEnd
 `public bool CheckForWarmupProgressEnd()`
 
-**用途 / Purpose:** 检查「for warmup progress end」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查for warmup progress end在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -63,7 +63,7 @@ var result = multiplayerWarmupComponent.CheckForWarmupProgressEnd();
 ### OnPreDisplayMissionTick
 `public override void OnPreDisplayMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「pre display mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 pre display mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -74,7 +74,7 @@ multiplayerWarmupComponent.OnPreDisplayMissionTick(0);
 ### EndWarmupProgress
 `public void EndWarmupProgress()`
 
-**用途 / Purpose:** 处理与 「end warmup progress」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndWarmupProgress 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -85,7 +85,7 @@ multiplayerWarmupComponent.EndWarmupProgress();
 ### CanMatchStartAfterWarmup
 `public bool CanMatchStartAfterWarmup()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「match start after warmup」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 match start after warmup 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -96,7 +96,7 @@ var result = multiplayerWarmupComponent.CanMatchStartAfterWarmup();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerWarmupComponent 实例
@@ -107,7 +107,7 @@ multiplayerWarmupComponent.OnRemoveBehavior();
 ### CommandEndWarmup
 `public static string CommandEndWarmup(List<string> strings)`
 
-**用途 / Purpose:** 处理与 「command end warmup」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CommandEndWarmup 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

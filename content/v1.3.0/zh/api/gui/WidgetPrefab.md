@@ -33,7 +33,7 @@ description: "WidgetPrefab 的自动生成类参考。"
 ### LoadFrom
 `public static WidgetPrefab LoadFrom(PrefabExtensionContext prefabExtensionContext, WidgetAttributeContext widgetAttributeContext, string path)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「from」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 from。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ WidgetPrefab.LoadFrom(prefabExtensionContext, widgetAttributeContext, "example")
 ### Save
 `public XmlDocument Save(PrefabExtensionContext prefabExtensionContext)`
 
-**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例
@@ -54,7 +54,7 @@ var result = widgetPrefab.Save(prefabExtensionContext);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)`
 
-**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Instantiate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例
@@ -65,7 +65,7 @@ var result = widgetPrefab.Instantiate(widgetCreationData);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Instantiate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例
@@ -76,7 +76,7 @@ var result = widgetPrefab.Instantiate(widgetCreationData, dictionary<string, par
 ### OnRelease
 `public void OnRelease()`
 
-**用途 / Purpose:** 在 「release」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 release 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例
@@ -87,7 +87,7 @@ widgetPrefab.OnRelease();
 ### GetConstantValue
 `public ConstantDefinition GetConstantValue(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「constant value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 constant value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例
@@ -98,7 +98,7 @@ var result = widgetPrefab.GetConstantValue("example");
 ### GetParameterDefaultValue
 `public string GetParameterDefaultValue(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「parameter default value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parameter default value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例

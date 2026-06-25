@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnDestroy
 `public override void OnDestroy()`
 
-**Purpose:** Invoked when the `destroy` event is raised.
+**Purpose:** **Purpose:** Invoked when the destroy event is raised.
 
 ```csharp
 // Obtain an instance of EditorGame from the subsystem API first
@@ -40,7 +40,7 @@ editorGame.OnDestroy();
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**Purpose:** Invoked when the `state changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the state changed event is raised.
 
 ```csharp
 // Obtain an instance of EditorGame from the subsystem API first

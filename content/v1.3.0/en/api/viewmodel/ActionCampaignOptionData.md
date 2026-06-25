@@ -23,7 +23,7 @@ Treat `ActionCampaignOptionData` as a Data-style extension point: first identify
 ### GetDataType
 `public override CampaignOptionDataType GetDataType()`
 
-**Purpose:** Reads and returns the `data type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the data type value held by the this instance.
 
 ```csharp
 // Obtain an instance of ActionCampaignOptionData from the subsystem API first
@@ -34,7 +34,7 @@ var result = actionCampaignOptionData.GetDataType();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of ActionCampaignOptionData from the subsystem API first

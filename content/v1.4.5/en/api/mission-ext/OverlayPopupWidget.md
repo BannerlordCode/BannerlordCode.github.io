@@ -36,7 +36,7 @@ Treat `OverlayPopupWidget` as a Widget-style extension point: first identify who
 ### SetCurrentCharacter
 `public void SetCurrentCharacter(GameMenuPartyItemButtonWidget item)`
 
-**Purpose:** Assigns a new value to `current character` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current character and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OverlayPopupWidget from the subsystem API first
@@ -47,7 +47,7 @@ overlayPopupWidget.SetCurrentCharacter(item);
 ### OnCloseButtonClick
 `public void OnCloseButtonClick(Widget widget)`
 
-**Purpose:** Invoked when the `close button click` event is raised.
+**Purpose:** **Purpose:** Invoked when the close button click event is raised.
 
 ```csharp
 // Obtain an instance of OverlayPopupWidget from the subsystem API first

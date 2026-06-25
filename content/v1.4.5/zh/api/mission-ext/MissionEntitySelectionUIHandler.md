@@ -23,7 +23,7 @@ description: "MissionEntitySelectionUIHandler 的自动生成类参考。"
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEntitySelectionUIHandler 实例
@@ -34,7 +34,7 @@ missionEntitySelectionUIHandler.OnMissionScreenTick(0);
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEntitySelectionUIHandler 实例
@@ -45,7 +45,7 @@ missionEntitySelectionUIHandler.OnRemoveBehavior();
 ### TickDebug
 `public void TickDebug()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「debug」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进debug的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEntitySelectionUIHandler 实例

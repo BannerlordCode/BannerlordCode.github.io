@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Objects.Siege` to place it in the
 ### AssignParameters
 `public override void AssignParameters(SpawnerEntityMissionHelper _spawnerMissionHelper)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AssignParameters logic.
 
 ```csharp
 // Obtain an instance of SiegeLadderSpawner from the subsystem API first

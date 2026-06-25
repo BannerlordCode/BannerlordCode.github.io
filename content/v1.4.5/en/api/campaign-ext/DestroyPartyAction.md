@@ -19,7 +19,7 @@ DestroyPartyAction is a set of static methods that trigger "DestroyParty" in the
 public static void Apply(PartyBase destroyerParty, MobileParty destroyedParty)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ### ApplyForDisbanding
 
@@ -27,7 +27,7 @@ public static void Apply(PartyBase destroyerParty, MobileParty destroyedParty)
 public static void ApplyForDisbanding(MobileParty disbandedParty, Settlement relatedSettlement)
 ```
 
-**Purpose:** for disbanding.
+**Purpose:** **Purpose:** Applies the effect of for disbanding to the this instance.
 
 ## Usage Example
 

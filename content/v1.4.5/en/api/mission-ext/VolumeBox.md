@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### VolumeBoxDelegate
 `public delegate void VolumeBoxDelegate(VolumeBox volumeBox, List<Agent> agentsInVolume)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the VolumeBoxDelegate logic.
 
 ```csharp
 // Obtain an instance of VolumeBox from the subsystem API first
@@ -34,7 +34,7 @@ volumeBox.VolumeBoxDelegate(volumeBox, agentsInVolume);
 ### AddToCheckList
 `public void AddToCheckList(Agent agent)`
 
-**Purpose:** Adds `to check list` to the current collection or state.
+**Purpose:** **Purpose:** Adds to check list to the current collection or state.
 
 ```csharp
 // Obtain an instance of VolumeBox from the subsystem API first
@@ -45,7 +45,7 @@ volumeBox.AddToCheckList(agent);
 ### RemoveFromCheckList
 `public void RemoveFromCheckList(Agent agent)`
 
-**Purpose:** Removes `from check list` from the current collection or state.
+**Purpose:** **Purpose:** Removes from check list from the current collection or state.
 
 ```csharp
 // Obtain an instance of VolumeBox from the subsystem API first
@@ -56,7 +56,7 @@ volumeBox.RemoveFromCheckList(agent);
 ### SetIsOccupiedDelegate
 `public void SetIsOccupiedDelegate(VolumeBoxDelegate volumeBoxDelegate)`
 
-**Purpose:** Assigns a new value to `is occupied delegate` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is occupied delegate and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of VolumeBox from the subsystem API first
@@ -67,7 +67,7 @@ volumeBox.SetIsOccupiedDelegate(volumeBoxDelegate);
 ### HasAgentsInAttackerSide
 `public bool HasAgentsInAttackerSide()`
 
-**Purpose:** Determines whether the current object already holds `agents in attacker side`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds agents in attacker side.
 
 ```csharp
 // Obtain an instance of VolumeBox from the subsystem API first
@@ -78,7 +78,7 @@ var result = volumeBox.HasAgentsInAttackerSide();
 ### IsPointIn
 `public bool IsPointIn(Vec3 point)`
 
-**Purpose:** Determines whether the current object is in the `point in` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the point in state or condition.
 
 ```csharp
 // Obtain an instance of VolumeBox from the subsystem API first

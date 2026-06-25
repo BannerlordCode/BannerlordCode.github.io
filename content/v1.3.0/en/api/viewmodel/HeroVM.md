@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection` to place it
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of HeroVM from the subsystem API first
@@ -48,7 +48,7 @@ heroVM.RefreshValues();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of HeroVM from the subsystem API first
@@ -59,7 +59,7 @@ heroVM.ExecuteLink();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of HeroVM from the subsystem API first
@@ -70,7 +70,7 @@ heroVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of HeroVM from the subsystem API first
@@ -81,7 +81,7 @@ heroVM.ExecuteEndHint();
 ### GetRelation
 `public static int GetRelation(Hero hero)`
 
-**Purpose:** Reads and returns the `relation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the relation value held by the this instance.
 
 ```csharp
 // Static call; no instance required

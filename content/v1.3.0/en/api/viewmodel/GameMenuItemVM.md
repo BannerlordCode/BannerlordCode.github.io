@@ -43,7 +43,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu` to
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuItemVM from the subsystem API first
@@ -54,7 +54,7 @@ gameMenuItemVM.RefreshValues();
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of GameMenuItemVM from the subsystem API first
@@ -65,7 +65,7 @@ gameMenuItemVM.ExecuteAction();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuItemVM from the subsystem API first
@@ -76,7 +76,7 @@ gameMenuItemVM.OnFinalize();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuItemVM from the subsystem API first
@@ -87,7 +87,7 @@ gameMenuItemVM.Refresh();
 ### UpdateWith
 `public void UpdateWith(GameMenuItemVM newItem)`
 
-**Purpose:** Recalculates and stores the latest representation of `with`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of with.
 
 ```csharp
 // Obtain an instance of GameMenuItemVM from the subsystem API first

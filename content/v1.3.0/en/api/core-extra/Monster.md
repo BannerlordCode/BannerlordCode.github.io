@@ -113,7 +113,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of Monster from the subsystem API first
@@ -124,7 +124,7 @@ monster.Deserialize(objectManager, node);
 ### GetBoneToAttachForItemFlags
 `public sbyte GetBoneToAttachForItemFlags(ItemFlags itemFlags)`
 
-**Purpose:** Reads and returns the `bone to attach for item flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the bone to attach for item flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of Monster from the subsystem API first

@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### Rejoin
 `public void Rejoin(int teamNo)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Rejoin logic.
 
 ```csharp
 // Obtain an instance of BattlePeer from the subsystem API first
@@ -49,7 +49,7 @@ battlePeer.Rejoin(0);
 ### InitializeSession
 `public void InitializeSession(int index, int sessionKey)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `session`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by session.
 
 ```csharp
 // Obtain an instance of BattlePeer from the subsystem API first

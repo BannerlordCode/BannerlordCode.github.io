@@ -38,7 +38,7 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### GetClassString
 `public override string GetClassString()`
 
-**Purpose:** Reads and returns the `class string` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the class string value held by the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -49,7 +49,7 @@ var result = group.GetClassString();
 ### AddSegment
 `public void AddSegment(Segment snippet)`
 
-**Purpose:** Adds `segment` to the current collection or state.
+**Purpose:** **Purpose:** Adds segment to the current collection or state.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -60,7 +60,7 @@ group.AddSegment(snippet);
 ### AddSegment
 `public void AddSegment(Segment snippet, int index)`
 
-**Purpose:** Adds `segment` to the current collection or state.
+**Purpose:** **Purpose:** Adds segment to the current collection or state.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -71,7 +71,7 @@ group.AddSegment(snippet, 0);
 ### RemoveSegment
 `public void RemoveSegment(Segment snippet)`
 
-**Purpose:** Removes `segment` from the current collection or state.
+**Purpose:** **Purpose:** Removes segment from the current collection or state.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -82,7 +82,7 @@ group.RemoveSegment(snippet);
 ### HasAtLeastOneBridgeSegmentToTargetGroup
 `public bool HasAtLeastOneBridgeSegmentToTargetGroup(Group targetGroup)`
 
-**Purpose:** Determines whether the current object already holds `at least one bridge segment to target group`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds at least one bridge segment to target group.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -93,7 +93,7 @@ var result = group.HasAtLeastOneBridgeSegmentToTargetGroup(targetGroup);
 ### ContainsAtLeastOneManualBridgeSegmentForSourceGroup
 `public bool ContainsAtLeastOneManualBridgeSegmentForSourceGroup(Group sourceGroup)`
 
-**Purpose:** Indicates whether the current object contains `at least one manual bridge segment for source group`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains at least one manual bridge segment for source group.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -104,7 +104,7 @@ var result = group.ContainsAtLeastOneManualBridgeSegmentForSourceGroup(sourceGro
 ### ContainsAtLeastOneAutomaticBridgeSegment
 `public bool ContainsAtLeastOneAutomaticBridgeSegment()`
 
-**Purpose:** Indicates whether the current object contains `at least one automatic bridge segment`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains at least one automatic bridge segment.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -115,7 +115,7 @@ var result = group.ContainsAtLeastOneAutomaticBridgeSegment();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -126,7 +126,7 @@ var result = group.ToString();
 ### GetCompatibilitySetting
 `public override CompatibilitySetting GetCompatibilitySetting(PsaiMusicEntity targetEntity)`
 
-**Purpose:** Reads and returns the `compatibility setting` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compatibility setting value held by the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -137,7 +137,7 @@ var result = group.GetCompatibilitySetting(targetEntity);
 ### GetCompatibilityType
 `public override CompatibilityType GetCompatibilityType(PsaiMusicEntity targetEntity, out CompatibilityReason reason)`
 
-**Purpose:** Reads and returns the `compatibility type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the compatibility type value held by the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -148,7 +148,7 @@ var result = group.GetCompatibilityType(targetEntity, reason);
 ### SetAsParentGroupForAllSegments
 `public void SetAsParentGroupForAllSegments()`
 
-**Purpose:** Assigns a new value to `as parent group for all segments` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to as parent group for all segments and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -159,7 +159,7 @@ group.SetAsParentGroupForAllSegments();
 ### GetParent
 `public override PsaiMusicEntity GetParent()`
 
-**Purpose:** Reads and returns the `parent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the parent value held by the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -170,7 +170,7 @@ var result = group.GetParent();
 ### GetChildren
 `public override List<PsaiMusicEntity> GetChildren()`
 
-**Purpose:** Reads and returns the `children` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the children value held by the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -181,7 +181,7 @@ var result = group.GetChildren();
 ### GetIndexPositionWithinParentEntity
 `public override int GetIndexPositionWithinParentEntity(PsaiProject parentProject)`
 
-**Purpose:** Reads and returns the `index position within parent entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the index position within parent entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -192,7 +192,7 @@ var result = group.GetIndexPositionWithinParentEntity(parentProject);
 ### Clone
 `public override object Clone()`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first
@@ -203,7 +203,7 @@ var result = group.Clone();
 ### ShallowCopy
 `public override PsaiMusicEntity ShallowCopy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ShallowCopy logic.
 
 ```csharp
 // Obtain an instance of Group from the subsystem API first

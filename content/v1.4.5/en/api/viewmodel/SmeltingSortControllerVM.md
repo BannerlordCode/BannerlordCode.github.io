@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**Purpose:** Assigns a new value to `sort mode` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to sort mode and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -48,7 +48,7 @@ smeltingSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -59,7 +59,7 @@ var result = smeltingSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -70,7 +70,7 @@ var result = smeltingSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -81,7 +81,7 @@ var result = smeltingSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(SmeltingItemVM x, SmeltingItemVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -92,7 +92,7 @@ var result = smeltingSortControllerVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -103,7 +103,7 @@ smeltingSortControllerVM.RefreshValues();
 ### SetListToControl
 `public void SetListToControl(MBBindingList<SmeltingItemVM> listToControl)`
 
-**Purpose:** Assigns a new value to `list to control` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to list to control and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -114,7 +114,7 @@ smeltingSortControllerVM.SetListToControl(listToControl);
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SortByCurrentState logic.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -125,7 +125,7 @@ smeltingSortControllerVM.SortByCurrentState();
 ### ExecuteSortByName
 `public void ExecuteSortByName()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by name`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by name.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -136,7 +136,7 @@ smeltingSortControllerVM.ExecuteSortByName();
 ### ExecuteSortByYield
 `public void ExecuteSortByYield()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by yield`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by yield.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first
@@ -147,7 +147,7 @@ smeltingSortControllerVM.ExecuteSortByYield();
 ### ExecuteSortByType
 `public void ExecuteSortByType()`
 
-**Purpose:** Runs the operation or workflow associated with `sort by type`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sort by type.
 
 ```csharp
 // Obtain an instance of SmeltingSortControllerVM from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Source.Objects.Siege` to place it
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of AgentPathNavMeshChecker from the subsystem API first
@@ -34,7 +34,7 @@ agentPathNavMeshChecker.Tick(0);
 ### TickOccasionally
 `public void TickOccasionally(float dt)`
 
-**Purpose:** Advances the `occasionally` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of AgentPathNavMeshChecker from the subsystem API first
@@ -45,7 +45,7 @@ agentPathNavMeshChecker.TickOccasionally(0);
 ### HasAgentsUsingPath
 `public bool HasAgentsUsingPath()`
 
-**Purpose:** Determines whether the current object already holds `agents using path`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds agents using path.
 
 ```csharp
 // Obtain an instance of AgentPathNavMeshChecker from the subsystem API first

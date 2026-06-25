@@ -216,6 +216,4 @@ C:\Users\<用户名>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 ## 使用示例
 
-```csharp
-var example = new 常见模式();
-```
+// （占位示例已移除，见正文说明）

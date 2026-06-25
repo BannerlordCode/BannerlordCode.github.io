@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation` to place it in the
 ### IsEnemyOf
 `public bool IsEnemyOf(IAgent agent)`
 
-**Purpose:** Determines whether the current object is in the `enemy of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the enemy of state or condition.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -44,7 +44,7 @@ var result = mapConversationAgent.IsEnemyOf(agent);
 ### IsFriendOf
 `public bool IsFriendOf(IAgent agent)`
 
-**Purpose:** Determines whether the current object is in the `friend of` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the friend of state or condition.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -55,7 +55,7 @@ var result = mapConversationAgent.IsFriendOf(agent);
 ### IsActive
 `public bool IsActive()`
 
-**Purpose:** Determines whether the current object is in the `active` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the active state or condition.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first
@@ -66,7 +66,7 @@ var result = mapConversationAgent.IsActive();
 ### SetAsConversationAgent
 `public void SetAsConversationAgent(bool set)`
 
-**Purpose:** Assigns a new value to `as conversation agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to as conversation agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapConversationAgent from the subsystem API first

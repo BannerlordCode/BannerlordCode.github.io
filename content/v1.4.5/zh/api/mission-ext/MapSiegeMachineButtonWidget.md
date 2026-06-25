@@ -31,7 +31,7 @@ description: "MapSiegeMachineButtonWidget 的自动生成类参考。"
 ### MapSiegeMachineButtonWidget
 `public class MapSiegeMachineButtonWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「map siege machine button widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MapSiegeMachineButtonWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MapSiegeMachineButtonWidget 实例

@@ -37,7 +37,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotif
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -48,7 +48,7 @@ mapNotificationItemBaseVM.RefreshValues();
 ### SetNavigationHandler
 `public void SetNavigationHandler(INavigationHandler navigationHandler)`
 
-**Purpose:** Assigns a new value to `navigation handler` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to navigation handler and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -59,7 +59,7 @@ mapNotificationItemBaseVM.SetNavigationHandler(navigationHandler);
 ### SetFastMoveCameraToPosition
 `public void SetFastMoveCameraToPosition(Action<CampaignVec2> fastMoveCameraToPosition)`
 
-**Purpose:** Assigns a new value to `fast move camera to position` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to fast move camera to position and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -70,7 +70,7 @@ mapNotificationItemBaseVM.SetFastMoveCameraToPosition(fastMoveCameraToPosition);
 ### ExecuteAction
 `public void ExecuteAction()`
 
-**Purpose:** Runs the operation or workflow associated with `action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with action.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -81,7 +81,7 @@ mapNotificationItemBaseVM.ExecuteAction();
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**Purpose:** Runs the operation or workflow associated with `remove`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with remove.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -92,7 +92,7 @@ mapNotificationItemBaseVM.ExecuteRemove();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Runs the operation or workflow associated with `set focused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set focused.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -103,7 +103,7 @@ mapNotificationItemBaseVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set unfocused.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -114,7 +114,7 @@ mapNotificationItemBaseVM.ExecuteSetUnfocused();
 ### ManualRefreshRelevantStatus
 `public virtual void ManualRefreshRelevantStatus()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ManualRefreshRelevantStatus logic.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first
@@ -125,7 +125,7 @@ mapNotificationItemBaseVM.ManualRefreshRelevantStatus();
 ### SetRemoveInputKey
 `public void SetRemoveInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `remove input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to remove input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MapNotificationItemBaseVM from the subsystem API first

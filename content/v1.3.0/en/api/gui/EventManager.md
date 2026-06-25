@@ -53,7 +53,7 @@ Treat `EventManager` as a Manager-style extension point: first identify who crea
 ### AddAfterFinalizedCallback
 `public void AddAfterFinalizedCallback(Action callback)`
 
-**Purpose:** Adds `after finalized callback` to the current collection or state.
+**Purpose:** **Purpose:** Adds after finalized callback to the current collection or state.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -64,7 +64,7 @@ eventManager.AddAfterFinalizedCallback(callback);
 ### ClearFocus
 `public void ClearFocus()`
 
-**Purpose:** Removes all `focus` from the current object.
+**Purpose:** **Purpose:** Removes all focus from the this instance.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -75,7 +75,7 @@ eventManager.ClearFocus();
 ### IsPointInsideUsableArea
 `public bool IsPointInsideUsableArea(Vector2 p)`
 
-**Purpose:** Determines whether the current object is in the `point inside usable area` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the point inside usable area state or condition.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -86,7 +86,7 @@ var result = eventManager.IsPointInsideUsableArea(p);
 ### HitTest
 `public static bool HitTest(Widget widget, Vector2 position)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HitTest logic.
 
 ```csharp
 // Static call; no instance required
@@ -96,7 +96,7 @@ EventManager.HitTest(widget, position);
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusTest logic.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -107,7 +107,7 @@ var result = eventManager.FocusTest(root);
 ### AddLateUpdateAction
 `public void AddLateUpdateAction(Widget owner, Action<float> action, int order)`
 
-**Purpose:** Adds `late update action` to the current collection or state.
+**Purpose:** **Purpose:** Adds late update action to the current collection or state.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -118,7 +118,7 @@ eventManager.AddLateUpdateAction(owner, action, 0);
 ### SetHoveredView
 `public void SetHoveredView(Widget view)`
 
-**Purpose:** Assigns a new value to `hovered view` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to hovered view and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -129,7 +129,7 @@ eventManager.SetHoveredView(view);
 ### UpdateLayout
 `public void UpdateLayout()`
 
-**Purpose:** Recalculates and stores the latest representation of `layout`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of layout.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first
@@ -140,7 +140,7 @@ eventManager.UpdateLayout();
 ### GetIsHitThisFrame
 `public bool GetIsHitThisFrame()`
 
-**Purpose:** Reads and returns the `is hit this frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is hit this frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of EventManager from the subsystem API first

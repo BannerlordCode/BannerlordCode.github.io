@@ -33,7 +33,7 @@ description: "MultiplayerMissionMarkerVM 的自动生成类参考。"
 ### Compare
 `public int Compare(MissionMarkerTargetVM x, MissionMarkerTargetVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
@@ -44,7 +44,7 @@ var result = multiplayerMissionMarkerVM.Compare(x, y);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
@@ -55,7 +55,7 @@ multiplayerMissionMarkerVM.OnFinalize();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例
@@ -66,7 +66,7 @@ multiplayerMissionMarkerVM.Tick(0);
 ### OnRemoveAlwaysVisibleMarker
 `public void OnRemoveAlwaysVisibleMarker(MissionAlwaysVisibleMarkerTargetVM marker)`
 
-**用途 / Purpose:** 在 「remove always visible marker」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove always visible marker 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionMarkerVM 实例

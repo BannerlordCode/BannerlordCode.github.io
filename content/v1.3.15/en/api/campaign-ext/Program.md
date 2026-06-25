@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.SteamWorkshop` to place it in the
 ### ExitProgram
 `public static void ExitProgram(int exitCode)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ExitProgram logic.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ Program.ExitProgram(0);
 ### Log
 `public static void Log(string log)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Log logic.
 
 ```csharp
 // Static call; no instance required

@@ -30,7 +30,7 @@ description: "LauncherUI 的自动生成类参考。"
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherUI 实例
@@ -41,7 +41,7 @@ launcherUI.Initialize();
 ### OnFinalize
 `public void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherUI 实例
@@ -52,7 +52,7 @@ launcherUI.OnFinalize();
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherUI 实例
@@ -63,7 +63,7 @@ launcherUI.Update();
 ### CheckMouseOverWindowDragArea
 `public bool CheckMouseOverWindowDragArea()`
 
-**用途 / Purpose:** 检查「mouse over window drag area」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查mouse over window drag area在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherUI 实例
@@ -74,7 +74,7 @@ var result = launcherUI.CheckMouseOverWindowDragArea();
 ### HitTest
 `public bool HitTest()`
 
-**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherUI 实例
@@ -85,7 +85,7 @@ var result = launcherUI.HitTest();
 ### AddHintInformation
 `public static void AddHintInformation(string message)`
 
-**用途 / Purpose:** 将 「hint information」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 hint information 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -95,7 +95,7 @@ LauncherUI.AddHintInformation("example");
 ### HideHintInformation
 `public static void HideHintInformation()`
 
-**用途 / Purpose:** 隐藏「hint information」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 隐藏hint information对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例

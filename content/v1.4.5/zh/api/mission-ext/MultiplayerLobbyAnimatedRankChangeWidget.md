@@ -34,7 +34,7 @@ description: "MultiplayerLobbyAnimatedRankChangeWidget 的自动生成类参考�
 ### MultiplayerLobbyAnimatedRankChangeWidget
 `public class MultiplayerLobbyAnimatedRankChangeWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「multiplayer lobby animated rank change widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerLobbyAnimatedRankChangeWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyAnimatedRankChangeWidget 实例

@@ -29,7 +29,7 @@ description: "VisualCreator 的自动生成类参考。"
 ### CreateMapEventVisual
 `public IMapEventVisual CreateMapEventVisual(MapEvent mapEvent)`
 
-**用途 / Purpose:** 构建一个新的 「map event visual」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 map event visual 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualCreator 实例

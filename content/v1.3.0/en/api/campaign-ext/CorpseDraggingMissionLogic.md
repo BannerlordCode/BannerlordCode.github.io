@@ -23,7 +23,7 @@ Treat `CorpseDraggingMissionLogic` as a Logic-style extension point: first ident
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ corpseDraggingMissionLogic.AfterStart();
 ### OnFixedMissionTick
 `public override void OnFixedMissionTick(float fixedDt)`
 
-**Purpose:** Invoked when the `fixed mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the fixed mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
@@ -45,7 +45,7 @@ corpseDraggingMissionLogic.OnFixedMissionTick(0);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
@@ -56,7 +56,7 @@ corpseDraggingMissionLogic.OnMissionTick(0);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there agent action state or condition.
 
 ```csharp
 // Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
@@ -67,7 +67,7 @@ var result = corpseDraggingMissionLogic.IsThereAgentAction(userAgent, otherAgent
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `agent interaction` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent interaction event is raised.
 
 ```csharp
 // Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first
@@ -78,7 +78,7 @@ corpseDraggingMissionLogic.OnAgentInteraction(userAgent, agent, 0);
 ### OnCollectPlayerEventControlFlags
 `public Agent.EventControlFlag OnCollectPlayerEventControlFlags()`
 
-**Purpose:** Invoked when the `collect player event control flags` event is raised.
+**Purpose:** **Purpose:** Invoked when the collect player event control flags event is raised.
 
 ```csharp
 // Obtain an instance of CorpseDraggingMissionLogic from the subsystem API first

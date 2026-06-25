@@ -29,7 +29,7 @@ Treat `MobilePartyVisualManager` as a Manager-style extension point: first ident
 ### OnTick
 `public override void OnTick(float realDt, float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisualManager from the subsystem API first
@@ -40,7 +40,7 @@ mobilePartyVisualManager.OnTick(0, 0);
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Invoked when the `visual tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the visual tick event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisualManager from the subsystem API first
@@ -51,7 +51,7 @@ mobilePartyVisualManager.OnVisualTick(screen, 0, 0);
 ### OnVisualIntersected
 `public override void OnVisualIntersected(Ray mouseRay, UIntPtr intersectedEntityIDs, Intersection intersectionInfos, int entityCount, Vec3 worldMouseNear, Vec3 worldMouseFar, Vec3 terrainIntersectionPoint, float closestDistanceSquared, ref MapEntityVisual hoveredVisual, ref MapEntityVisual selectedVisual)`
 
-**Purpose:** Invoked when the `visual intersected` event is raised.
+**Purpose:** **Purpose:** Invoked when the visual intersected event is raised.
 
 ```csharp
 // Obtain an instance of MobilePartyVisualManager from the subsystem API first
@@ -62,7 +62,7 @@ mobilePartyVisualManager.OnVisualIntersected(mouseRay, intersectedEntityIDs, int
 ### GetVisualOfEntity
 `public override MapEntityVisual<PartyBase> GetVisualOfEntity(PartyBase partyBase)`
 
-**Purpose:** Reads and returns the `visual of entity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the visual of entity value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyVisualManager from the subsystem API first
@@ -73,7 +73,7 @@ var result = mobilePartyVisualManager.GetVisualOfEntity(partyBase);
 ### GetPartyVisual
 `public MobilePartyVisual GetPartyVisual(PartyBase partyBase)`
 
-**Purpose:** Reads and returns the `party visual` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party visual value held by the this instance.
 
 ```csharp
 // Obtain an instance of MobilePartyVisualManager from the subsystem API first

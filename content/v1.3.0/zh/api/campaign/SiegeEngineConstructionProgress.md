@@ -36,7 +36,7 @@ description: "SiegeEngineConstructionProgress 的自动生成类参考。"
 ### SetRedeploymentProgress
 `public void SetRedeploymentProgress(float redeploymentProgress)`
 
-**用途 / Purpose:** 为 「redeployment progress」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 redeployment progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
@@ -47,7 +47,7 @@ siegeEngineConstructionProgress.SetRedeploymentProgress(0);
 ### SetHitpoints
 `public void SetHitpoints(float hitPoints)`
 
-**用途 / Purpose:** 为 「hitpoints」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 hitpoints 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
@@ -58,7 +58,7 @@ siegeEngineConstructionProgress.SetHitpoints(0);
 ### SetProgress
 `public void SetProgress(float progress)`
 
-**用途 / Purpose:** 为 「progress」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 progress 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例
@@ -69,7 +69,7 @@ siegeEngineConstructionProgress.SetProgress(0);
 ### SetRangedSiegeEngine
 `public void SetRangedSiegeEngine(SiegeEvent.RangedSiegeEngine rangedSiegeEngine)`
 
-**用途 / Purpose:** 为 「ranged siege engine」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 ranged siege engine 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEngineConstructionProgress 实例

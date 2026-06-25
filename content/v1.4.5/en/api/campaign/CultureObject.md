@@ -118,7 +118,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### HasTrait
 `public bool HasTrait(CultureTrait trait)`
 
-**Purpose:** Determines whether the current object already holds `trait`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds trait.
 
 ```csharp
 // Obtain an instance of CultureObject from the subsystem API first
@@ -129,7 +129,7 @@ var result = cultureObject.HasTrait(trait);
 ### HasFeat
 `public bool HasFeat(FeatObject feat)`
 
-**Purpose:** Determines whether the current object already holds `feat`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds feat.
 
 ```csharp
 // Obtain an instance of CultureObject from the subsystem API first
@@ -140,7 +140,7 @@ var result = cultureObject.HasFeat(feat);
 ### GetCulturalFeats
 `public IEnumerable<FeatObject> GetCulturalFeats(Func<FeatObject, bool> predicate = null)`
 
-**Purpose:** Reads and returns the `cultural feats` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cultural feats value held by the this instance.
 
 ```csharp
 // Obtain an instance of CultureObject from the subsystem API first
@@ -151,7 +151,7 @@ var result = cultureObject.GetCulturalFeats(func<FeatObject, false);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of CultureObject from the subsystem API first
@@ -162,7 +162,7 @@ var result = cultureObject.ToString();
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of CultureObject from the subsystem API first
@@ -173,7 +173,7 @@ cultureObject.Deserialize(objectManager, node);
 ### GetName
 `public override TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of CultureObject from the subsystem API first

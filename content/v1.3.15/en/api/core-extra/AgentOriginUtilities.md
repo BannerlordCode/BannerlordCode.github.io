@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### GetDefaultTraitsMask
 `public static TroopTraitsMask GetDefaultTraitsMask(IAgentOriginBase origin)`
 
-**Purpose:** Reads and returns the `default traits mask` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default traits mask value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ AgentOriginUtilities.GetDefaultTraitsMask(origin);
 ### GetDefaultTroopTraits
 `public static void GetDefaultTroopTraits(BasicCharacterObject troop, out bool hasThrownWeapon, out bool hasSpear, out bool hasShield, out bool hasHeavyArmor)`
 
-**Purpose:** Reads and returns the `default troop traits` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default troop traits value held by the this instance.
 
 ```csharp
 // Static call; no instance required

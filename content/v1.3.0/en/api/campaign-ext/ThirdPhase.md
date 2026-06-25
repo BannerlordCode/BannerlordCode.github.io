@@ -31,7 +31,7 @@ Start from namespace `StoryMode.StoryModePhases` to place it in the stack, then 
 ### AddAllyKingdom
 `public void AddAllyKingdom(Kingdom kingdom)`
 
-**Purpose:** Adds `ally kingdom` to the current collection or state.
+**Purpose:** **Purpose:** Adds ally kingdom to the current collection or state.
 
 ```csharp
 // Obtain an instance of ThirdPhase from the subsystem API first
@@ -42,7 +42,7 @@ thirdPhase.AddAllyKingdom(kingdom);
 ### AddOppositionKingdom
 `public void AddOppositionKingdom(Kingdom kingdom)`
 
-**Purpose:** Adds `opposition kingdom` to the current collection or state.
+**Purpose:** **Purpose:** Adds opposition kingdom to the current collection or state.
 
 ```csharp
 // Obtain an instance of ThirdPhase from the subsystem API first
@@ -53,7 +53,7 @@ thirdPhase.AddOppositionKingdom(kingdom);
 ### RemoveOppositionKingdom
 `public void RemoveOppositionKingdom(Kingdom kingdom)`
 
-**Purpose:** Removes `opposition kingdom` from the current collection or state.
+**Purpose:** **Purpose:** Removes opposition kingdom from the current collection or state.
 
 ```csharp
 // Obtain an instance of ThirdPhase from the subsystem API first
@@ -64,7 +64,7 @@ thirdPhase.RemoveOppositionKingdom(kingdom);
 ### CompleteThirdPhase
 `public void CompleteThirdPhase(QuestBase.QuestCompleteDetails defeatTheConspiracyQuestCompleteDetail)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CompleteThirdPhase logic.
 
 ```csharp
 // Obtain an instance of ThirdPhase from the subsystem API first

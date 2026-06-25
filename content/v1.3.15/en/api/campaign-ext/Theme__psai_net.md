@@ -23,7 +23,7 @@ Start from namespace `psai.net` to place it in the stack, then inspect its publi
 ### ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities
 `public static bool ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(ThemeInterruptionBehavior interruptionBehavior)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interr
 ### ThemeTypeToString
 `public static string ThemeTypeToString(ThemeType themeType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ThemeTypeToString logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Theme.ThemeTypeToString(themeType);
 ### GetThemeInterruptionBehavior
 `public static ThemeInterruptionBehavior GetThemeInterruptionBehavior(ThemeType sourceThemeType, ThemeType targetThemeType)`
 
-**Purpose:** Reads and returns the `theme interruption behavior` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the theme interruption behavior value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ Theme.GetThemeInterruptionBehavior(sourceThemeType, targetThemeType);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of Theme from the subsystem API first

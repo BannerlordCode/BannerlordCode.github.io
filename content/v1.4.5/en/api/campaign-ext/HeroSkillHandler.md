@@ -23,7 +23,7 @@ Treat `HeroSkillHandler` as a Handler-style extension point: first identify who 
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of HeroSkillHandler from the subsystem API first
@@ -34,7 +34,7 @@ heroSkillHandler.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of HeroSkillHandler from the subsystem API first

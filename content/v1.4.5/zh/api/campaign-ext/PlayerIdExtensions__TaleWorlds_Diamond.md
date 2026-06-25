@@ -23,7 +23,7 @@ description: "PlayerIdExtensions 的自动生成类参考。"
 ### ConvertToPeerId
 `public static PeerId ConvertToPeerId(this PlayerId playerId)`
 
-**用途 / Purpose:** 把「to peer id」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把to peer id转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ PlayerIdExtensions.ConvertToPeerId(playerId);
 ### ConvertToPlayerId
 `public static PlayerId ConvertToPlayerId(this PeerId peerId)`
 
-**用途 / Purpose:** 把「to player id」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把to player id转换为另一种表示或类型。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Extensions` to place it in the s
 ### SetCharacterProperties
 `public static void SetCharacterProperties(this TextObject to, string tag, CharacterObject character, bool includeDetails = false)`
 
-**Purpose:** Assigns a new value to `character properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to character properties and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ TextObjectExtensions.SetCharacterProperties(to, "example", character, false);
 ### SetSettlementProperties
 `public static void SetSettlementProperties(this TextObject to, Settlement settlement)`
 
-**Purpose:** Assigns a new value to `settlement properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to settlement properties and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required

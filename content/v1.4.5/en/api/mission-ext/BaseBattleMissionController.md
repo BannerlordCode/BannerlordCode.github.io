@@ -23,7 +23,7 @@ Treat `BaseBattleMissionController` as a Controller-style extension point: first
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first
@@ -34,7 +34,7 @@ baseBattleMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first
@@ -45,7 +45,7 @@ baseBattleMissionController.AfterStart();
 ### GetTeamAI
 `public virtual TeamAIComponent GetTeamAI(Team team, float thinkTimerTime = 5f, float applyTimerTime = 1f)`
 
-**Purpose:** Reads and returns the `team a i` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the team a i value held by the this instance.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first
@@ -56,7 +56,7 @@ var result = baseBattleMissionController.GetTeamAI(team, 0, 0);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first
@@ -67,7 +67,7 @@ baseBattleMissionController.OnMissionTick(0);
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first
@@ -78,7 +78,7 @@ var result = baseBattleMissionController.MissionEnded(missionResult);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first
@@ -89,7 +89,7 @@ var result = baseBattleMissionController.OnEndMissionRequest(canPlayerLeave);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of BaseBattleMissionController from the subsystem API first

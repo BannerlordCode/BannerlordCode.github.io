@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ### IsActive
 `public abstract bool IsActive()`
 
-**Purpose:** Determines whether the current object is in the `active` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the active state or condition.
 
 ```csharp
 // Obtain an instance of MissionObjectiveTarget from the subsystem API first
@@ -34,7 +34,7 @@ var result = missionObjectiveTarget.IsActive();
 ### GetName
 `public abstract TextObject GetName()`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjectiveTarget from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionObjectiveTarget.GetName();
 ### GetGlobalPosition
 `public abstract Vec3 GetGlobalPosition()`
 
-**Purpose:** Reads and returns the `global position` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the global position value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionObjectiveTarget from the subsystem API first

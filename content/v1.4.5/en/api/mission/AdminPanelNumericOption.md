@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin.Internal` to pl
 ### SetMinimumValue
 `public AdminPanelNumericOption SetMinimumValue(int value)`
 
-**Purpose:** Assigns a new value to `minimum value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to minimum value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelNumericOption from the subsystem API first
@@ -34,7 +34,7 @@ var result = adminPanelNumericOption.SetMinimumValue(0);
 ### SetMaximumValue
 `public AdminPanelNumericOption SetMaximumValue(int value)`
 
-**Purpose:** Assigns a new value to `maximum value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to maximum value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelNumericOption from the subsystem API first
@@ -45,7 +45,7 @@ var result = adminPanelNumericOption.SetMaximumValue(0);
 ### SetMinimumAndMaximumFrom
 `public AdminPanelNumericOption SetMinimumAndMaximumFrom(OptionType optionType)`
 
-**Purpose:** Assigns a new value to `minimum and maximum from` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to minimum and maximum from and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelNumericOption from the subsystem API first
@@ -56,7 +56,7 @@ var result = adminPanelNumericOption.SetMinimumAndMaximumFrom(optionType);
 ### GetMinimumValue
 `public int? GetMinimumValue()`
 
-**Purpose:** Reads and returns the `minimum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the minimum value value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelNumericOption from the subsystem API first
@@ -67,7 +67,7 @@ var result = adminPanelNumericOption.GetMinimumValue();
 ### GetMaximumValue
 `public int? GetMaximumValue()`
 
-**Purpose:** Reads and returns the `maximum value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum value value held by the this instance.
 
 ```csharp
 // Obtain an instance of AdminPanelNumericOption from the subsystem API first

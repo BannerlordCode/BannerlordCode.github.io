@@ -23,7 +23,7 @@ description: "SandBoxMissions 的自动生成类参考。"
 ### CreateSandBoxMissionInitializerRecord
 `public static MissionInitializerRecord CreateSandBoxMissionInitializerRecord(string sceneName, string sceneLevels = "", bool doNotUseLoadingScreen = false, DecalAtlasGroup decalAtlasGroup = 0)`
 
-**用途 / Purpose:** 构建一个新的 「sand box mission initializer record」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 sand box mission initializer record 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SandBoxMissions.CreateSandBoxMissionInitializerRecord("example", "example", fals
 ### CreateSandBoxTrainingMissionInitializerRecord
 `public static MissionInitializerRecord CreateSandBoxTrainingMissionInitializerRecord(string sceneName, string sceneLevels = "", bool doNotUseLoadingScreen = false)`
 
-**用途 / Purpose:** 构建一个新的 「sand box training mission initializer record」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 sand box training mission initializer record 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ SandBoxMissions.CreateSandBoxTrainingMissionInitializerRecord("example", "exampl
 ### OpenTownCenterMission
 `public static Mission OpenTownCenterMission(string scene, int townUpgradeLevel, Location location, CharacterObject talkToChar, string playerSpawnTag)`
 
-**用途 / Purpose:** 打开「town center mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开town center mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ SandBoxMissions.OpenTownCenterMission("example", 0, location, talkToChar, "examp
 ### OpenTownCenterMission
 `public static Mission OpenTownCenterMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar, string playerSpawnTag)`
 
-**用途 / Purpose:** 打开「town center mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开town center mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ SandBoxMissions.OpenTownCenterMission("example", "example", location, talkToChar
 ### OpenTownCenterShadowATargetMission
 `public static Mission OpenTownCenterShadowATargetMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar, string playerSpawnTag)`
 
-**用途 / Purpose:** 打开「town center shadow a target mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开town center shadow a target mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ SandBoxMissions.OpenTownCenterShadowATargetMission("example", "example", locatio
 ### OpenCastleCourtyardMission
 `public static Mission OpenCastleCourtyardMission(string scene, int castleUpgradeLevel, Location location, CharacterObject talkToChar)`
 
-**用途 / Purpose:** 打开「castle courtyard mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开castle courtyard mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ SandBoxMissions.OpenCastleCourtyardMission("example", 0, location, talkToChar);
 ### OpenCastleCourtyardMission
 `public static Mission OpenCastleCourtyardMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar)`
 
-**用途 / Purpose:** 打开「castle courtyard mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开castle courtyard mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ SandBoxMissions.OpenCastleCourtyardMission("example", "example", location, talkT
 ### OpenIndoorMission
 `public static Mission OpenIndoorMission(string scene, int townUpgradeLevel, Location location, CharacterObject talkToChar)`
 
-**用途 / Purpose:** 打开「indoor mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开indoor mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ SandBoxMissions.OpenIndoorMission("example", 0, location, talkToChar);
 ### OpenIndoorMission
 `public static Mission OpenIndoorMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = "")`
 
-**用途 / Purpose:** 打开「indoor mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开indoor mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ SandBoxMissions.OpenIndoorMission("example", location, null, "example");
 ### OpenPrisonBreakMission
 `public static Mission OpenPrisonBreakMission(string scene, Location location, CharacterObject prisonerCharacter)`
 
-**用途 / Purpose:** 打开「prison break mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开prison break mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ SandBoxMissions.OpenPrisonBreakMission("example", location, prisonerCharacter);
 ### OpenVillageMission
 `public static Mission OpenVillageMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)`
 
-**用途 / Purpose:** 打开「village mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开village mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ SandBoxMissions.OpenVillageMission("example", location, null, "example");
 ### OpenArenaStartMission
 `public static Mission OpenArenaStartMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = "")`
 
-**用途 / Purpose:** 打开「arena start mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开arena start mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ SandBoxMissions.OpenArenaStartMission("example", location, null, "example");
 ### OpenRetirementMission
 `public static Mission OpenRetirementMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null, string unconsciousMenuId = "")`
 
-**用途 / Purpose:** 打开「retirement mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开retirement mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ SandBoxMissions.OpenRetirementMission("example", location, null, "example", "exa
 ### OpenArenaDuelMission
 `public static Mission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action<CharacterObject> onDuelEnd, float customAgentHealth, string sceneLevels = "")`
 
-**用途 / Purpose:** 打开「arena duel mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开arena duel mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ SandBoxMissions.OpenArenaDuelMission("example", location, duelCharacter, false, 
 ### OpenArenaDuelMission
 `public static Mission OpenArenaDuelMission(string scene, Location location)`
 
-**用途 / Purpose:** 打开「arena duel mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开arena duel mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ SandBoxMissions.OpenArenaDuelMission("example", location);
 ### OpenBattleMission
 `public static Mission OpenBattleMission(MissionInitializerRecord rec)`
 
-**用途 / Purpose:** 打开「battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ SandBoxMissions.OpenBattleMission(rec);
 ### OpenCaravanBattleMission
 `public static Mission OpenCaravanBattleMission(MissionInitializerRecord rec, bool isCaravan)`
 
-**用途 / Purpose:** 打开「caravan battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开caravan battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ SandBoxMissions.OpenCaravanBattleMission(rec, false);
 ### OpenAlleyFightMission
 `public static Mission OpenAlleyFightMission(MissionInitializerRecord rec, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)`
 
-**用途 / Purpose:** 打开「alley fight mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开alley fight mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ SandBoxMissions.OpenAlleyFightMission(rec, location, playerSideTroops, rivalSide
 ### OpenCombatMissionWithDialogue
 `public static Mission OpenCombatMissionWithDialogue(MissionInitializerRecord rec, CharacterObject characterToTalkTo)`
 
-**用途 / Purpose:** 打开「combat mission with dialogue」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开combat mission with dialogue对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ SandBoxMissions.OpenCombatMissionWithDialogue(rec, characterToTalkTo);
 ### OpenBattleMissionWhileEnteringSettlement
 `public static Mission OpenBattleMissionWhileEnteringSettlement(string scene, int upgradeLevel, int numberOfMaxTroopToBeSpawnedForPlayer, int numberOfMaxTroopToBeSpawnedForOpponent)`
 
-**用途 / Purpose:** 打开「battle mission while entering settlement」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开battle mission while entering settlement对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ SandBoxMissions.OpenBattleMissionWhileEnteringSettlement("example", 0, 0, 0);
 ### OpenBattleMission
 `public static Mission OpenBattleMission(string scene, bool usesTownDecalAtlas)`
 
-**用途 / Purpose:** 打开「battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -233,7 +233,7 @@ SandBoxMissions.OpenBattleMission("example", false);
 ### OpenAlleyFightMission
 `public static Mission OpenAlleyFightMission(string scene, int upgradeLevel, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)`
 
-**用途 / Purpose:** 打开「alley fight mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开alley fight mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -243,7 +243,7 @@ SandBoxMissions.OpenAlleyFightMission("example", 0, location, playerSideTroops, 
 ### OpenCombatMissionWithDialogue
 `public static Mission OpenCombatMissionWithDialogue(string scene, CharacterObject characterToTalkTo, int upgradeLevel)`
 
-**用途 / Purpose:** 打开「combat mission with dialogue」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开combat mission with dialogue对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ SandBoxMissions.OpenCombatMissionWithDialogue("example", characterToTalkTo, 0);
 ### OpenHideoutBattleMission
 `public static Mission OpenHideoutBattleMission(string scene, FlattenedTroopRoster playerTroops)`
 
-**用途 / Purpose:** 打开「hideout battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开hideout battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -263,7 +263,7 @@ SandBoxMissions.OpenHideoutBattleMission("example", playerTroops);
 ### OpenHideoutAmbushMission
 `public static Mission OpenHideoutAmbushMission(string sceneName, FlattenedTroopRoster playerTroops, Location location)`
 
-**用途 / Purpose:** 打开「hideout ambush mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开hideout ambush mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -273,7 +273,7 @@ SandBoxMissions.OpenHideoutAmbushMission("example", playerTroops, location);
 ### OpenCampMission
 `public static Mission OpenCampMission(string scene)`
 
-**用途 / Purpose:** 打开「camp mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开camp mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -283,7 +283,7 @@ SandBoxMissions.OpenCampMission("example");
 ### OpenSiegeMissionWithDeployment
 `public static Mission OpenSiegeMissionWithDeployment(string scene, float wallHitPointPercentages, bool hasAnySiegeTower, List<MissionSiegeWeapon> siegeWeaponsOfAttackers, List<MissionSiegeWeapon> siegeWeaponsOfDefenders, bool isPlayerAttacker, int sceneUpgradeLevel = 0, bool isSallyOut = false, bool isReliefForceAttack = false)`
 
-**用途 / Purpose:** 打开「siege mission with deployment」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开siege mission with deployment对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -293,7 +293,7 @@ SandBoxMissions.OpenSiegeMissionWithDeployment("example", 0, false, siegeWeapons
 ### OpenSiegeMissionNoDeployment
 `public static Mission OpenSiegeMissionNoDeployment(string scene, bool isSallyOut = false, bool isReliefForceAttack = false)`
 
-**用途 / Purpose:** 打开「siege mission no deployment」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开siege mission no deployment对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -303,7 +303,7 @@ SandBoxMissions.OpenSiegeMissionNoDeployment("example", false, false);
 ### OpenSiegeLordsHallFightMission
 `public static Mission OpenSiegeLordsHallFightMission(string scene, FlattenedTroopRoster attackerPriorityList)`
 
-**用途 / Purpose:** 打开「siege lords hall fight mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开siege lords hall fight mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -313,7 +313,7 @@ SandBoxMissions.OpenSiegeLordsHallFightMission("example", attackerPriorityList);
 ### OpenVillageBattleMission
 `public static Mission OpenVillageBattleMission(string scene)`
 
-**用途 / Purpose:** 打开「village battle mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开village battle mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -323,7 +323,7 @@ SandBoxMissions.OpenVillageBattleMission("example");
 ### OpenConversationMission
 `public static Mission OpenConversationMission(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, string specialScene = "", string sceneLevels = "")`
 
-**用途 / Purpose:** 打开「conversation mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开conversation mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -333,7 +333,7 @@ SandBoxMissions.OpenConversationMission(playerCharacterData, conversationPartner
 ### OpenMeetingMission
 `public static Mission OpenMeetingMission(string scene, CharacterObject character)`
 
-**用途 / Purpose:** 打开「meeting mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开meeting mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -343,7 +343,7 @@ SandBoxMissions.OpenMeetingMission("example", character);
 ### OpenDisguiseMission
 `public static Mission OpenDisguiseMission(string scene, bool willSetUpContact, Location fromLocation, string sceneLevels = null)`
 
-**用途 / Purpose:** 打开「disguise mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开disguise mission对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

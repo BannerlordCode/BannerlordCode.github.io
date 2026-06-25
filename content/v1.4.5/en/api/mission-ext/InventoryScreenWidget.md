@@ -44,7 +44,7 @@ Treat `InventoryScreenWidget` as a Widget-style extension point: first identify 
 ### InventoryScreenWidget
 `public class InventoryScreenWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the InventoryScreenWidget logic.
 
 ```csharp
 // Obtain an instance of InventoryScreenWidget from the subsystem API first
@@ -55,7 +55,7 @@ var result = inventoryScreenWidget.InventoryScreenWidget(context);
 ### ItemWidgetDragBegin
 `public void ItemWidgetDragBegin(InventoryItemButtonWidget itemWidget)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ItemWidgetDragBegin logic.
 
 ```csharp
 // Obtain an instance of InventoryScreenWidget from the subsystem API first
@@ -66,7 +66,7 @@ inventoryScreenWidget.ItemWidgetDragBegin(itemWidget);
 ### ItemWidgetDrop
 `public void ItemWidgetDrop(InventoryItemButtonWidget itemWidget)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ItemWidgetDrop logic.
 
 ```csharp
 // Obtain an instance of InventoryScreenWidget from the subsystem API first

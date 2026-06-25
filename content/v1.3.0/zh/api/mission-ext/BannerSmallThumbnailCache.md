@@ -23,7 +23,7 @@ description: "BannerSmallThumbnailCache 的自动生成类参考。"
 ### CreateTexture
 `public override Texture CreateTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 构建一个新的 「texture」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 texture 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerSmallThumbnailCache 实例

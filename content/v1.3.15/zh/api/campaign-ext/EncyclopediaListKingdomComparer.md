@@ -23,7 +23,7 @@ description: "EncyclopediaListKingdomComparer 的自动生成类参考。"
 ### CompareKingdoms
 `public int CompareKingdoms(EncyclopediaListItem x, EncyclopediaListItem y, Func<Kingdom, Kingdom, int> comparison)`
 
-**用途 / Purpose:** 比较两个「kingdoms」对象并返回大小/顺序结果。
+**用途 / Purpose:** **用途 / Purpose:** 比较两个kingdoms对象并返回大小/顺序结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaListKingdomComparer 实例

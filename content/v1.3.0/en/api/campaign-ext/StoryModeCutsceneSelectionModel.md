@@ -23,7 +23,7 @@ Treat `StoryModeCutsceneSelectionModel` as a Model-style extension point: first 
 ### GetKingdomDestroyedSceneNotification
 `public override SceneNotificationData GetKingdomDestroyedSceneNotification(Kingdom kingdom)`
 
-**Purpose:** Reads and returns the `kingdom destroyed scene notification` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the kingdom destroyed scene notification value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeCutsceneSelectionModel from the subsystem API first

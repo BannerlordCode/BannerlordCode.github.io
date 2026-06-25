@@ -46,7 +46,7 @@ description: "MPLobbyRecentGameItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGameItemVM 实例
@@ -57,7 +57,7 @@ mPLobbyRecentGameItemVM.RefreshValues();
 ### FillFrom
 `public void FillFrom(MatchHistoryData match)`
 
-**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFrom 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGameItemVM 实例
@@ -68,7 +68,7 @@ mPLobbyRecentGameItemVM.FillFrom(match);
 ### OnFriendListUpdated
 `public void OnFriendListUpdated(bool forceUpdate = false)`
 
-**用途 / Purpose:** 在 「friend list updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 friend list updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyRecentGameItemVM 实例

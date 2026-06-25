@@ -23,7 +23,7 @@ Treat `DifficultyModel` as a Model-style extension point: first identify who cre
 ### GetPlayerTroopsReceivedDamageMultiplier
 `public abstract float GetPlayerTroopsReceivedDamageMultiplier()`
 
-**Purpose:** Reads and returns the `player troops received damage multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player troops received damage multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = difficultyModel.GetPlayerTroopsReceivedDamageMultiplier();
 ### GetPlayerRecruitSlotBonus
 `public abstract int GetPlayerRecruitSlotBonus()`
 
-**Purpose:** Reads and returns the `player recruit slot bonus` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player recruit slot bonus value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = difficultyModel.GetPlayerRecruitSlotBonus();
 ### GetPlayerMapMovementSpeedBonusMultiplier
 `public abstract float GetPlayerMapMovementSpeedBonusMultiplier()`
 
-**Purpose:** Reads and returns the `player map movement speed bonus multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the player map movement speed bonus multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = difficultyModel.GetPlayerMapMovementSpeedBonusMultiplier();
 ### GetCombatAIDifficultyMultiplier
 `public abstract float GetCombatAIDifficultyMultiplier()`
 
-**Purpose:** Reads and returns the `combat a i difficulty multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the combat a i difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = difficultyModel.GetCombatAIDifficultyMultiplier();
 ### GetPersuasionBonusChance
 `public abstract float GetPersuasionBonusChance()`
 
-**Purpose:** Reads and returns the `persuasion bonus chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the persuasion bonus chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = difficultyModel.GetPersuasionBonusChance();
 ### GetClanMemberDeathChanceMultiplier
 `public abstract float GetClanMemberDeathChanceMultiplier()`
 
-**Purpose:** Reads and returns the `clan member death chance multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the clan member death chance multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = difficultyModel.GetClanMemberDeathChanceMultiplier();
 ### GetStealthDifficultyMultiplier
 `public abstract float GetStealthDifficultyMultiplier()`
 
-**Purpose:** Reads and returns the `stealth difficulty multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the stealth difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = difficultyModel.GetStealthDifficultyMultiplier();
 ### GetDisguiseDifficultyMultiplier
 `public abstract float GetDisguiseDifficultyMultiplier()`
 
-**Purpose:** Reads and returns the `disguise difficulty multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the disguise difficulty multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of DifficultyModel from the subsystem API first

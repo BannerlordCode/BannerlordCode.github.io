@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### OnManagedOptionChangedDelegate
 `public delegate void OnManagedOptionChangedDelegate(ManagedOptionsType changedManagedOptionsType)`
 
-**Purpose:** Invoked when the `managed option changed delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the managed option changed delegate event is raised.
 
 ```csharp
 // Obtain an instance of ManagedOptions from the subsystem API first
@@ -34,7 +34,7 @@ managedOptions.OnManagedOptionChangedDelegate(changedManagedOptionsType);
 ### GetConfig
 `public static float GetConfig(ManagedOptionsType type)`
 
-**Purpose:** Reads and returns the `config` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the config value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ ManagedOptions.GetConfig(type);
 ### GetDefaultConfig
 `public static float GetDefaultConfig(ManagedOptionsType type)`
 
-**Purpose:** Reads and returns the `default config` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default config value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ ManagedOptions.GetDefaultConfig(type);
 ### SetConfig
 `public static void SetConfig(ManagedOptionsType type, float value)`
 
-**Purpose:** Assigns a new value to `config` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to config and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ ManagedOptions.SetConfig(type, 0);
 ### SaveConfig
 `public static SaveResult SaveConfig()`
 
-**Purpose:** Writes `config` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes config to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

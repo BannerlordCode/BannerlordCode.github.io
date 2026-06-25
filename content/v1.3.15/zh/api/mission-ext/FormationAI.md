@@ -32,7 +32,7 @@ description: "FormationAI 的自动生成类参考。"
 ### AddAiBehavior
 `public void AddAiBehavior(BehaviorComponent behaviorComponent)`
 
-**用途 / Purpose:** 将 「ai behavior」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 ai behavior 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -43,7 +43,7 @@ formationAI.AddAiBehavior(behaviorComponent);
 ### AddSpecialBehavior
 `public void AddSpecialBehavior(BehaviorComponent behavior, bool purgePreviousSpecialBehaviors = false)`
 
-**用途 / Purpose:** 将 「special behavior」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 special behavior 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -54,7 +54,7 @@ formationAI.AddSpecialBehavior(behavior, false);
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -65,7 +65,7 @@ formationAI.Tick();
 ### OnDeploymentFinished
 `public void OnDeploymentFinished()`
 
-**用途 / Purpose:** 在 「deployment finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -76,7 +76,7 @@ formationAI.OnDeploymentFinished();
 ### OnAgentRemoved
 `public void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -87,7 +87,7 @@ formationAI.OnAgentRemoved(agent);
 ### GetBehaviorAtIndex
 `public BehaviorComponent GetBehaviorAtIndex(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「behavior at index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 behavior at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -98,7 +98,7 @@ var result = formationAI.GetBehaviorAtIndex(0);
 ### DebugMore
 `public void DebugMore()`
 
-**用途 / Purpose:** 处理与 「debug more」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DebugMore 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -109,7 +109,7 @@ formationAI.DebugMore();
 ### DebugScores
 `public void DebugScores()`
 
-**用途 / Purpose:** 处理与 「debug scores」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DebugScores 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例
@@ -120,7 +120,7 @@ formationAI.DebugScores();
 ### ResetBehaviorWeights
 `public void ResetBehaviorWeights()`
 
-**用途 / Purpose:** 将 「behavior weights」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 behavior weights 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationAI 实例

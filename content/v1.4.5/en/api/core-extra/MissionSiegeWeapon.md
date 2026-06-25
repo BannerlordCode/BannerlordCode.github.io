@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### CreateDefaultWeapon
 `public static MissionSiegeWeapon CreateDefaultWeapon(SiegeEngineType type)`
 
-**Purpose:** Constructs a new `default weapon` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new default weapon entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ MissionSiegeWeapon.CreateDefaultWeapon(type);
 ### CreateCampaignWeapon
 `public static MissionSiegeWeapon CreateCampaignWeapon(SiegeEngineType type, int index, float health, float maxHealth)`
 
-**Purpose:** Constructs a new `campaign weapon` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new campaign weapon entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ MissionSiegeWeapon.CreateCampaignWeapon(type, 0, 0, 0);
 ### SetHealth
 `public void SetHealth(float health)`
 
-**Purpose:** Assigns a new value to `health` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to health and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionSiegeWeapon from the subsystem API first

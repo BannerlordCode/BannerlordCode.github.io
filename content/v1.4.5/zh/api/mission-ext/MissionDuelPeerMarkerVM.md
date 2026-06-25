@@ -46,7 +46,7 @@ description: "MissionDuelPeerMarkerVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -57,7 +57,7 @@ missionDuelPeerMarkerVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -68,7 +68,7 @@ missionDuelPeerMarkerVM.OnTick(0);
 ### UpdateScreenPosition
 `public void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 screen position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -79,7 +79,7 @@ missionDuelPeerMarkerVM.UpdateScreenPosition(missionCamera);
 ### UpdateBounty
 `public void UpdateBounty()`
 
-**用途 / Purpose:** 重新计算并更新 「bounty」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 bounty 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -90,7 +90,7 @@ missionDuelPeerMarkerVM.UpdateBounty();
 ### OnDuelStarted
 `public void OnDuelStarted()`
 
-**用途 / Purpose:** 在 「duel started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 duel started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -101,7 +101,7 @@ missionDuelPeerMarkerVM.OnDuelStarted();
 ### OnDuelEnded
 `public void OnDuelEnded()`
 
-**用途 / Purpose:** 在 「duel ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 duel ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -112,7 +112,7 @@ missionDuelPeerMarkerVM.OnDuelEnded();
 ### UpdateCurentDuelStatus
 `public void UpdateCurentDuelStatus(bool isInDuel)`
 
-**用途 / Purpose:** 重新计算并更新 「curent duel status」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 curent duel status 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例
@@ -123,7 +123,7 @@ missionDuelPeerMarkerVM.UpdateCurentDuelStatus(false);
 ### RefreshPerkSelection
 `public void RefreshPerkSelection()`
 
-**用途 / Purpose:** 使 「perk selection」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 perk selection 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDuelPeerMarkerVM 实例

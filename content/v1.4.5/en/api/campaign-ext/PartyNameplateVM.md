@@ -46,7 +46,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate` to place it in the 
 ### InitializeWith
 `public void InitializeWith(MobileParty party, Camera mapCamera)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `with`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -57,7 +57,7 @@ partyNameplateVM.InitializeWith(party, mapCamera);
 ### Clear
 `public virtual void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -68,7 +68,7 @@ partyNameplateVM.Clear();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -79,7 +79,7 @@ partyNameplateVM.RefreshValues();
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -90,7 +90,7 @@ partyNameplateVM.RegisterEvents();
 ### UnregisterEvents
 `public void UnregisterEvents()`
 
-**Purpose:** Unregisters `events` from the current system.
+**Purpose:** **Purpose:** Unregisters events from the current system.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -101,7 +101,7 @@ partyNameplateVM.UnregisterEvents();
 ### RefreshDynamicProperties
 `public override void RefreshDynamicProperties(bool forceUpdate)`
 
-**Purpose:** Keeps the display or cache of `dynamic properties` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of dynamic properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -112,7 +112,7 @@ partyNameplateVM.RefreshDynamicProperties(false);
 ### RefreshPosition
 `public override void RefreshPosition()`
 
-**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of position in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -123,7 +123,7 @@ partyNameplateVM.RefreshPosition();
 ### RefreshTutorialStatus
 `public override void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**Purpose:** Keeps the display or cache of `tutorial status` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of tutorial status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -134,7 +134,7 @@ partyNameplateVM.RefreshTutorialStatus("example");
 ### DetermineIsVisibleOnMap
 `public void DetermineIsVisibleOnMap()`
 
-**Purpose:** Determines the result of `is visible on map` based on the current state.
+**Purpose:** **Purpose:** Determines the result of is visible on map based on the current state.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first
@@ -145,7 +145,7 @@ partyNameplateVM.DetermineIsVisibleOnMap();
 ### RefreshBinding
 `public virtual void RefreshBinding()`
 
-**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of binding in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyNameplateVM from the subsystem API first

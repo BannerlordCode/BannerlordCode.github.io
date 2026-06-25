@@ -45,7 +45,7 @@ description: "MPGeneralKillNotificationItemVM 的自动生成类参考。"
 ### InitProperties
 `public unsafe virtual void InitProperties(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 为 「properties」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MPGeneralKillNotificationItemVM 实例
@@ -56,7 +56,7 @@ mPGeneralKillNotificationItemVM.InitProperties(affectedAgent, affectorAgent);
 ### InitDeathProperties
 `public void InitDeathProperties(Agent affectedAgent, Agent affectorAgent, Agent assistedAgent)`
 
-**用途 / Purpose:** 为 「death properties」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 death properties 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MPGeneralKillNotificationItemVM 实例
@@ -67,7 +67,7 @@ mPGeneralKillNotificationItemVM.InitDeathProperties(affectedAgent, affectorAgent
 ### ExecuteRemove
 `public void ExecuteRemove()`
 
-**用途 / Purpose:** 执行 「remove」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 remove 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MPGeneralKillNotificationItemVM 实例

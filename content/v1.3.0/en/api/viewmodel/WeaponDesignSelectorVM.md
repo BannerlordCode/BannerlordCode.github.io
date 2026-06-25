@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Runs the operation or workflow associated with `select`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of WeaponDesignSelectorVM from the subsystem API first
@@ -45,7 +45,7 @@ weaponDesignSelectorVM.ExecuteSelect();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of WeaponDesignSelectorVM from the subsystem API first

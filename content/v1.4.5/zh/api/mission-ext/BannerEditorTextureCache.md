@@ -29,7 +29,7 @@ description: "BannerEditorTextureCache 的自动生成类参考。"
 ### FlushCache
 `public void FlushCache()`
 
-**用途 / Purpose:** 处理与 「flush cache」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FlushCache 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerEditorTextureCache 实例

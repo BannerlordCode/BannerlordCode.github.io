@@ -23,7 +23,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### Tick
 `public override void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TalkBehavior from the subsystem API first
@@ -34,7 +34,7 @@ talkBehavior.Tick(0, false);
 ### GetAvailability
 `public override float GetAvailability(bool isSimulation)`
 
-**Purpose:** Reads and returns the `availability` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of TalkBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = talkBehavior.GetAvailability(false);
 ### GetDebugInfo
 `public override string GetDebugInfo()`
 
-**Purpose:** Reads and returns the `debug info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of TalkBehavior from the subsystem API first
@@ -56,7 +56,7 @@ var result = talkBehavior.GetDebugInfo();
 ### Disable
 `public void Disable()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Disable logic.
 
 ```csharp
 // Obtain an instance of TalkBehavior from the subsystem API first
@@ -67,7 +67,7 @@ talkBehavior.Disable();
 ### Enable
 `public void Enable(bool doNotMove)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Enable logic.
 
 ```csharp
 // Obtain an instance of TalkBehavior from the subsystem API first

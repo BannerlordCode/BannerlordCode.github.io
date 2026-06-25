@@ -23,7 +23,7 @@ Treat `MissionGauntletBoundaryCrossingView` as a View-style extension point: fir
 ### OnPhotoModeActivated
 `public override void OnPhotoModeActivated()`
 
-**Purpose:** Invoked when the `photo mode activated` event is raised.
+**Purpose:** **Purpose:** Invoked when the photo mode activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoundaryCrossingView from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletBoundaryCrossingView.OnPhotoModeActivated();
 ### OnPhotoModeDeactivated
 `public override void OnPhotoModeDeactivated()`
 
-**Purpose:** Invoked when the `photo mode deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the photo mode deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletBoundaryCrossingView from the subsystem API first

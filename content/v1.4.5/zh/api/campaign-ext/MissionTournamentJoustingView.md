@@ -23,7 +23,7 @@ description: "MissionTournamentJoustingView 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -34,7 +34,7 @@ missionTournamentJoustingView.AfterStart();
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**用途 / Purpose:** 在 「agent hit」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent hit 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -45,7 +45,7 @@ missionTournamentJoustingView.OnAgentHit(affectedAgent, affectorAgent, attackerW
 ### ShowMessage
 `public void ShowMessage(string str, float duration, bool hasPriority = true)`
 
-**用途 / Purpose:** 显示「message」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示message对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -56,7 +56,7 @@ missionTournamentJoustingView.ShowMessage("example", 0, false);
 ### ShowMessage
 `public void ShowMessage(Agent agent, string str, float duration, bool hasPriority = true)`
 
-**用途 / Purpose:** 显示「message」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示message对应的界面或元素。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -67,7 +67,7 @@ missionTournamentJoustingView.ShowMessage(agent, "example", 0, false);
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**用途 / Purpose:** 处理与 「delete message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -78,7 +78,7 @@ missionTournamentJoustingView.DeleteMessage("example");
 ### DeleteMessage
 `public void DeleteMessage(Agent agent, string str)`
 
-**用途 / Purpose:** 处理与 「delete message」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteMessage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例

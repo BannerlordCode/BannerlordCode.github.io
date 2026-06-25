@@ -23,7 +23,7 @@ Treat `BattleBannerBearersModel` as a Model-style extension point: first identif
 ### InitializeModel
 `public void InitializeModel(BannerBearerLogic bannerBearerLogic)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `model`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by model.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -34,7 +34,7 @@ battleBannerBearersModel.InitializeModel(bannerBearerLogic);
 ### FinalizeModel
 `public void FinalizeModel()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeModel logic.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -45,7 +45,7 @@ battleBannerBearersModel.FinalizeModel();
 ### IsFormationBanner
 `public bool IsFormationBanner(Formation formation, SpawnedItemEntity item)`
 
-**Purpose:** Determines whether the current object is in the `formation banner` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the formation banner state or condition.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = battleBannerBearersModel.IsFormationBanner(formation, item);
 ### IsBannerSearchingAgent
 `public bool IsBannerSearchingAgent(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `banner searching agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the banner searching agent state or condition.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = battleBannerBearersModel.IsBannerSearchingAgent(agent);
 ### IsInteractableFormationBanner
 `public bool IsInteractableFormationBanner(SpawnedItemEntity item, Agent interactingAgent)`
 
-**Purpose:** Determines whether the current object is in the `interactable formation banner` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the interactable formation banner state or condition.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = battleBannerBearersModel.IsInteractableFormationBanner(item, intera
 ### HasFormationBanner
 `public bool HasFormationBanner(Formation formation)`
 
-**Purpose:** Determines whether the current object already holds `formation banner`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds formation banner.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = battleBannerBearersModel.HasFormationBanner(formation);
 ### HasBannerOnGround
 `public bool HasBannerOnGround(Formation formation)`
 
-**Purpose:** Determines whether the current object already holds `banner on ground`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds banner on ground.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = battleBannerBearersModel.HasBannerOnGround(formation);
 ### GetFormationBanner
 `public ItemObject GetFormationBanner(Formation formation)`
 
-**Purpose:** Reads and returns the `formation banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = battleBannerBearersModel.GetFormationBanner(formation);
 ### GetFormationBannerBearers
 `public List<Agent> GetFormationBannerBearers(Formation formation)`
 
-**Purpose:** Reads and returns the `formation banner bearers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formation banner bearers value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = battleBannerBearersModel.GetFormationBannerBearers(formation);
 ### GetActiveBanner
 `public BannerComponent GetActiveBanner(Formation formation)`
 
-**Purpose:** Reads and returns the `active banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the active banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = battleBannerBearersModel.GetActiveBanner(formation);
 ### GetMinimumFormationTroopCountToBearBanners
 `public abstract int GetMinimumFormationTroopCountToBearBanners()`
 
-**Purpose:** Reads and returns the `minimum formation troop count to bear banners` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the minimum formation troop count to bear banners value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -144,7 +144,7 @@ var result = battleBannerBearersModel.GetMinimumFormationTroopCountToBearBanners
 ### GetBannerInteractionDistance
 `public abstract float GetBannerInteractionDistance(Agent interactingAgent)`
 
-**Purpose:** Reads and returns the `banner interaction distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner interaction distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -155,7 +155,7 @@ var result = battleBannerBearersModel.GetBannerInteractionDistance(interactingAg
 ### CanBannerBearerProvideEffectToFormation
 `public abstract bool CanBannerBearerProvideEffectToFormation(Agent agent, Formation formation)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `banner bearer provide effect to formation`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for banner bearer provide effect to formation.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -166,7 +166,7 @@ var result = battleBannerBearersModel.CanBannerBearerProvideEffectToFormation(ag
 ### CanAgentPickUpAnyBanner
 `public abstract bool CanAgentPickUpAnyBanner(Agent agent)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `agent pick up any banner`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for agent pick up any banner.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -177,7 +177,7 @@ var result = battleBannerBearersModel.CanAgentPickUpAnyBanner(agent);
 ### CanAgentBecomeBannerBearer
 `public abstract bool CanAgentBecomeBannerBearer(Agent agent)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `agent become banner bearer`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for agent become banner bearer.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -188,7 +188,7 @@ var result = battleBannerBearersModel.CanAgentBecomeBannerBearer(agent);
 ### GetAgentBannerBearingPriority
 `public abstract int GetAgentBannerBearingPriority(Agent agent)`
 
-**Purpose:** Reads and returns the `agent banner bearing priority` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent banner bearing priority value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -199,7 +199,7 @@ var result = battleBannerBearersModel.GetAgentBannerBearingPriority(agent);
 ### CanFormationDeployBannerBearers
 `public abstract bool CanFormationDeployBannerBearers(Formation formation)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `formation deploy banner bearers`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for formation deploy banner bearers.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -210,7 +210,7 @@ var result = battleBannerBearersModel.CanFormationDeployBannerBearers(formation)
 ### GetDesiredNumberOfBannerBearersForFormation
 `public abstract int GetDesiredNumberOfBannerBearersForFormation(Formation formation)`
 
-**Purpose:** Reads and returns the `desired number of banner bearers for formation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the desired number of banner bearers for formation value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first
@@ -221,7 +221,7 @@ var result = battleBannerBearersModel.GetDesiredNumberOfBannerBearersForFormatio
 ### GetBannerBearerReplacementWeapon
 `public abstract ItemObject GetBannerBearerReplacementWeapon(BasicCharacterObject agentCharacter)`
 
-**Purpose:** Reads and returns the `banner bearer replacement weapon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner bearer replacement weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of BattleBannerBearersModel from the subsystem API first

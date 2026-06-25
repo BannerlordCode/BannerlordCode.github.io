@@ -32,7 +32,7 @@ description: "GameNotificationVM 的自动生成类参考。"
 ### ClearNotifications
 `public void ClearNotifications()`
 
-**用途 / Purpose:** 清空当前对象中的「notifications」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的notifications。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -43,7 +43,7 @@ gameNotificationVM.ClearNotifications();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例
@@ -54,7 +54,7 @@ gameNotificationVM.Tick(0);
 ### AddGameNotification
 `public void AddGameNotification(string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, Equipment equipment, string soundId)`
 
-**用途 / Purpose:** 将 「game notification」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 game notification 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 GameNotificationVM 实例

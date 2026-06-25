@@ -36,7 +36,7 @@ description: "MultiplayerPollProgressVM 的自动生成类参考。"
 ### OnKickPollOpened
 `public void OnKickPollOpened(MissionPeer initiatorPeer, MissionPeer targetPeer, bool isBanRequested)`
 
-**用途 / Purpose:** 在 「kick poll opened」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 kick poll opened 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
@@ -47,7 +47,7 @@ multiplayerPollProgressVM.OnKickPollOpened(initiatorPeer, targetPeer, false);
 ### OnPollUpdated
 `public void OnPollUpdated(int votesAccepted, int votesRejected)`
 
-**用途 / Purpose:** 在 「poll updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 poll updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
@@ -58,7 +58,7 @@ multiplayerPollProgressVM.OnPollUpdated(0, 0);
 ### OnPollClosed
 `public void OnPollClosed()`
 
-**用途 / Purpose:** 在 「poll closed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 poll closed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
@@ -69,7 +69,7 @@ multiplayerPollProgressVM.OnPollClosed();
 ### OnPollOptionPicked
 `public void OnPollOptionPicked()`
 
-**用途 / Purpose:** 在 「poll option picked」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 poll option picked 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例
@@ -80,7 +80,7 @@ multiplayerPollProgressVM.OnPollOptionPicked();
 ### AddKey
 `public void AddKey(GameKey key)`
 
-**用途 / Purpose:** 将 「key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollProgressVM 实例

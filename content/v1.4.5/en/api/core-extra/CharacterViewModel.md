@@ -50,7 +50,7 @@ Treat `CharacterViewModel` as a ViewModel-style extension point: first identify 
 ### SetEquipment
 `public void SetEquipment(EquipmentIndex index, EquipmentElement item)`
 
-**Purpose:** Assigns a new value to `equipment` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to equipment and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first
@@ -61,7 +61,7 @@ characterViewModel.SetEquipment(index, item);
 ### SetEquipment
 `public virtual void SetEquipment(Equipment equipment)`
 
-**Purpose:** Assigns a new value to `equipment` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to equipment and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first
@@ -72,7 +72,7 @@ characterViewModel.SetEquipment(equipment);
 ### FillFrom
 `public void FillFrom(BasicCharacterObject character, int seed = -1, string bannerCode = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first
@@ -83,7 +83,7 @@ characterViewModel.FillFrom(character, 0, "example");
 ### FillFrom
 `public void FillFrom(CharacterViewModel characterViewModel, int seed = -1)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first
@@ -94,7 +94,7 @@ characterViewModel.FillFrom(characterViewModel, 0);
 ### ExecuteEquipWeaponAtIndex
 `public void ExecuteEquipWeaponAtIndex(EquipmentIndex index, bool isLeftHand)`
 
-**Purpose:** Runs the operation or workflow associated with `equip weapon at index`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with equip weapon at index.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first
@@ -105,7 +105,7 @@ characterViewModel.ExecuteEquipWeaponAtIndex(index, false);
 ### ExecuteStartCustomAnimation
 `public void ExecuteStartCustomAnimation(string animation, bool loop = false, float loopInterval = 0f)`
 
-**Purpose:** Runs the operation or workflow associated with `start custom animation`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with start custom animation.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first
@@ -116,7 +116,7 @@ characterViewModel.ExecuteStartCustomAnimation("example", false, 0);
 ### ExecuteStopCustomAnimation
 `public void ExecuteStopCustomAnimation()`
 
-**Purpose:** Runs the operation or workflow associated with `stop custom animation`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with stop custom animation.
 
 ```csharp
 // Obtain an instance of CharacterViewModel from the subsystem API first

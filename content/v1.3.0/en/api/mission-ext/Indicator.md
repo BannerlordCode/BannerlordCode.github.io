@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer` t
 ### DetermineIndicatorState
 `public void DetermineIndicatorState(float dt, Vec3 position)`
 
-**Purpose:** Determines the result of `indicator state` based on the current state.
+**Purpose:** **Purpose:** Determines the result of indicator state based on the current state.
 
 ```csharp
 // Obtain an instance of Indicator from the subsystem API first

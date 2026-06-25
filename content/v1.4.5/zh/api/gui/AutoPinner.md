@@ -23,7 +23,7 @@ description: "AutoPinner 的自动生成类参考。"
 ### IntPtr
 `public static implicit operator IntPtr(AutoPinner autoPinner)`
 
-**用途 / Purpose:** 处理与 「int ptr」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IntPtr 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ AutoPinner.IntPtr(autoPinner);
 ### Dispose
 `public void Dispose()`
 
-**用途 / Purpose:** 释放当前对象占用的非托管资源。
+**用途 / Purpose:** **用途 / Purpose:** 释放当前对象占用的非托管资源。
 
 ```csharp
 // 先通过子系统 API 拿到 AutoPinner 实例

@@ -29,7 +29,7 @@ Treat `CosmeticsManager` as a Manager-style extension point: first identify who 
 ### GetCosmeticElement
 `public static CosmeticElement GetCosmeticElement(string cosmeticId)`
 
-**Purpose:** Reads and returns the `cosmetic element` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cosmetic element value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ CosmeticsManager.GetCosmeticElement("example");
 ### LoadFromXml
 `public static void LoadFromXml(string path)`
 
-**Purpose:** Reads `from xml` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from xml from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

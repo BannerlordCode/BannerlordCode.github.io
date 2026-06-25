@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.TwoDimension.Standalone` to place it in the sta
 ### Update
 `public abstract void Update()`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of FrameworkDomain from the subsystem API first
@@ -34,7 +34,7 @@ frameworkDomain.Update();
 ### Destroy
 `public abstract void Destroy()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Destroy logic.
 
 ```csharp
 // Obtain an instance of FrameworkDomain from the subsystem API first

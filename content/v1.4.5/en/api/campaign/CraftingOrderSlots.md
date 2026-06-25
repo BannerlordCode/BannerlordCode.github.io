@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### IsThereAvailableSlot
 `public bool IsThereAvailableSlot()`
 
-**Purpose:** Determines whether the current object is in the `there available slot` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the there available slot state or condition.
 
 ```csharp
 // Obtain an instance of CraftingOrderSlots from the subsystem API first
@@ -34,7 +34,7 @@ var result = craftingOrderSlots.IsThereAvailableSlot();
 ### GetAvailableSlot
 `public int GetAvailableSlot()`
 
-**Purpose:** Reads and returns the `available slot` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available slot value held by the this instance.
 
 ```csharp
 // Obtain an instance of CraftingOrderSlots from the subsystem API first

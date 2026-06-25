@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.LogEntries` to place it in the s
 ### IsRelatedTo
 `public bool IsRelatedTo(MBObjectBase obj)`
 
-**Purpose:** Determines whether the current object is in the `related to` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the related to state or condition.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first
@@ -40,7 +40,7 @@ var result = journalLogEntry.IsRelatedTo(obj);
 ### GetEntries
 `public IEnumerable<JournalLog> GetEntries()`
 
-**Purpose:** Reads and returns the `entries` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the entries value held by the this instance.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first
@@ -51,7 +51,7 @@ var result = journalLogEntry.GetEntries();
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, IssueBase.IssueUpdateDetails issueStatus = IssueBase.IssueUpdateDetails.None)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first
@@ -62,7 +62,7 @@ journalLogEntry.Update(entries, issueBase.IssueUpdateDetails.None);
 ### Update
 `public void Update(MBReadOnlyList<JournalLog> entries, QuestBase.QuestCompleteDetails questCompletionDetail)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first
@@ -73,7 +73,7 @@ journalLogEntry.Update(entries, questCompletionDetail);
 ### IsEndedUnsuccessfully
 `public bool IsEndedUnsuccessfully()`
 
-**Purpose:** Determines whether the current object is in the `ended unsuccessfully` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ended unsuccessfully state or condition.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first
@@ -84,7 +84,7 @@ var result = journalLogEntry.IsEndedUnsuccessfully();
 ### IsEnded
 `public bool IsEnded()`
 
-**Purpose:** Determines whether the current object is in the `ended` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the ended state or condition.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first
@@ -95,7 +95,7 @@ var result = journalLogEntry.IsEnded();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of JournalLogEntry from the subsystem API first

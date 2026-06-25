@@ -30,7 +30,7 @@ description: "ConversationMissionLogic 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationMissionLogic 实例
@@ -41,7 +41,7 @@ conversationMissionLogic.AfterStart();
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**用途 / Purpose:** 在 「rendering started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 rendering started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationMissionLogic 实例
@@ -52,7 +52,7 @@ conversationMissionLogic.OnRenderingStarted();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationMissionLogic 实例

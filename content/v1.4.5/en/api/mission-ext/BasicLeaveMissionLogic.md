@@ -23,7 +23,7 @@ Treat `BasicLeaveMissionLogic` as a Logic-style extension point: first identify 
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of BasicLeaveMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ var result = basicLeaveMissionLogic.MissionEnded(missionResult);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**Purpose:** Invoked when the `end mission request` event is raised.
+**Purpose:** **Purpose:** Invoked when the end mission request event is raised.
 
 ```csharp
 // Obtain an instance of BasicLeaveMissionLogic from the subsystem API first

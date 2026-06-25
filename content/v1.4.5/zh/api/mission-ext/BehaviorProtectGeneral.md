@@ -23,7 +23,7 @@ description: "BehaviorProtectGeneral 的自动生成类参考。"
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**用途 / Purpose:** 在每一帧或每个更新周期内推进「occasionally」的状态。
+**用途 / Purpose:** **用途 / Purpose:** 在每一帧或每个更新周期内推进occasionally的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorProtectGeneral 实例
@@ -34,7 +34,7 @@ behaviorProtectGeneral.TickOccasionally();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent agent)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorProtectGeneral 实例

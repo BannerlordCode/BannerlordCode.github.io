@@ -36,7 +36,7 @@ description: "NameplateVM 的自动生成类参考。"
 ### RefreshDynamicProperties
 `public virtual void RefreshDynamicProperties(bool forceUpdate)`
 
-**用途 / Purpose:** 使 「dynamic properties」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 dynamic properties 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 NameplateVM 实例
@@ -47,7 +47,7 @@ nameplateVM.RefreshDynamicProperties(false);
 ### RefreshPosition
 `public virtual void RefreshPosition()`
 
-**用途 / Purpose:** 使 「position」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 position 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 NameplateVM 实例
@@ -58,7 +58,7 @@ nameplateVM.RefreshPosition();
 ### RefreshRelationStatus
 `public virtual void RefreshRelationStatus()`
 
-**用途 / Purpose:** 使 「relation status」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 relation status 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 NameplateVM 实例
@@ -69,7 +69,7 @@ nameplateVM.RefreshRelationStatus();
 ### RefreshTutorialStatus
 `public virtual void RefreshTutorialStatus(string newTutorialHighlightElementID)`
 
-**用途 / Purpose:** 使 「tutorial status」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 tutorial status 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 NameplateVM 实例

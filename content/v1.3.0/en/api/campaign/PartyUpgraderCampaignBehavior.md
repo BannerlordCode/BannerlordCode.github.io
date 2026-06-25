@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ partyUpgraderCampaignBehavior.RegisterEvents();
 ### DailyTickParty
 `public void DailyTickParty(MobileParty party)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyTickParty logic.
 
 ```csharp
 // Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ partyUpgraderCampaignBehavior.DailyTickParty(party);
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ partyUpgraderCampaignBehavior.SyncData(dataStore);
 ### UpgradeReadyTroops
 `public void UpgradeReadyTroops(PartyBase party)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UpgradeReadyTroops logic.
 
 ```csharp
 // Obtain an instance of PartyUpgraderCampaignBehavior from the subsystem API first

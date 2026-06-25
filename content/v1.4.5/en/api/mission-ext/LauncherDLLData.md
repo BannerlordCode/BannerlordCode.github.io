@@ -32,7 +32,7 @@ Treat `LauncherDLLData` as a Data-style extension point: first identify who crea
 ### SetIsDLLDangerous
 `public void SetIsDLLDangerous(bool isDangerous)`
 
-**Purpose:** Assigns a new value to `is d l l dangerous` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is d l l dangerous and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LauncherDLLData from the subsystem API first
@@ -43,7 +43,7 @@ launcherDLLData.SetIsDLLDangerous(false);
 ### SetDLLSize
 `public void SetDLLSize(uint size)`
 
-**Purpose:** Assigns a new value to `d l l size` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to d l l size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LauncherDLLData from the subsystem API first
@@ -54,7 +54,7 @@ launcherDLLData.SetDLLSize(0);
 ### SetDLLVerifyInformation
 `public void SetDLLVerifyInformation(string info)`
 
-**Purpose:** Assigns a new value to `d l l verify information` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to d l l verify information and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of LauncherDLLData from the subsystem API first

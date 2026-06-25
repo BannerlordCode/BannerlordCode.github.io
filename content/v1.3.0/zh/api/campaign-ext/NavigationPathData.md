@@ -23,7 +23,7 @@ description: "NavigationPathData 的自动生成类参考。"
 ### ReverseClone
 `public MissionPathGenerationLogic.NavigationPathData ReverseClone()`
 
-**用途 / Purpose:** 处理与 「reverse clone」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReverseClone 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationPathData 实例
@@ -34,7 +34,7 @@ var result = navigationPathData.ReverseClone();
 ### InitializeUsablePoints
 `public void InitializeUsablePoints(List<UsableMachine> allUsableMachines)`
 
-**用途 / Purpose:** 为 「usable points」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 usable points 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 NavigationPathData 实例

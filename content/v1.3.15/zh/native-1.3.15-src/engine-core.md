@@ -334,6 +334,4 @@ ftmmEpic_module_extension::vftable
 
 ## 使用示例
 
-```csharp
-var example = new 引擎核心();
-```
+// （占位示例已移除，见正文说明）

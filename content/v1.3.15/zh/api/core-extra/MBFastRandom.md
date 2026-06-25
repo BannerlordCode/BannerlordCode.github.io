@@ -23,7 +23,7 @@ description: "MBFastRandom 的自动生成类参考。"
 ### SetSeed
 `public void SetSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 为 「seed」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 seed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -34,7 +34,7 @@ mBFastRandom.SetSeed(0, 0);
 ### Next
 `public int Next()`
 
-**用途 / Purpose:** 处理与 「next」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Next 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -45,7 +45,7 @@ var result = mBFastRandom.Next();
 ### Next
 `public int Next(int maxValue)`
 
-**用途 / Purpose:** 处理与 「next」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Next 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -56,7 +56,7 @@ var result = mBFastRandom.Next(0);
 ### Next
 `public int Next(int minValue, int maxValue)`
 
-**用途 / Purpose:** 处理与 「next」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Next 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -67,7 +67,7 @@ var result = mBFastRandom.Next(0, 0);
 ### NextDouble
 `public double NextDouble()`
 
-**用途 / Purpose:** 处理与 「next double」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NextDouble 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -78,7 +78,7 @@ var result = mBFastRandom.NextDouble();
 ### NextFloat
 `public float NextFloat()`
 
-**用途 / Purpose:** 处理与 「next float」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NextFloat 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -89,7 +89,7 @@ var result = mBFastRandom.NextFloat();
 ### NextFloatRanged
 `public float NextFloatRanged(float minVal, float maxVal)`
 
-**用途 / Purpose:** 处理与 「next float ranged」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NextFloatRanged 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -100,7 +100,7 @@ var result = mBFastRandom.NextFloatRanged(0, 0);
 ### NextBytes
 `public void NextBytes(byte buffer)`
 
-**用途 / Purpose:** 处理与 「next bytes」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NextBytes 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例

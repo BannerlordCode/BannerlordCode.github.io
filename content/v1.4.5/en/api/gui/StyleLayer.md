@@ -61,7 +61,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### CreateFrom
 `public static StyleLayer CreateFrom(StyleLayer source)`
 
-**Purpose:** Constructs a new `from` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -71,7 +71,7 @@ StyleLayer.CreateFrom(source);
 ### FillFrom
 `public void FillFrom(StyleLayer source)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of StyleLayer from the subsystem API first
@@ -82,7 +82,7 @@ styleLayer.FillFrom(source);
 ### GetValueAsFloat
 `public float GetValueAsFloat(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as float` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as float value held by the this instance.
 
 ```csharp
 // Obtain an instance of StyleLayer from the subsystem API first
@@ -93,7 +93,7 @@ var result = styleLayer.GetValueAsFloat(propertyType);
 ### GetValueAsColor
 `public Color GetValueAsColor(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as color` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as color value held by the this instance.
 
 ```csharp
 // Obtain an instance of StyleLayer from the subsystem API first
@@ -104,7 +104,7 @@ var result = styleLayer.GetValueAsColor(propertyType);
 ### GetValueAsSprite
 `public Sprite GetValueAsSprite(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `value as sprite` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value as sprite value held by the this instance.
 
 ```csharp
 // Obtain an instance of StyleLayer from the subsystem API first
@@ -115,7 +115,7 @@ var result = styleLayer.GetValueAsSprite(propertyType);
 ### GetIsValueChanged
 `public bool GetIsValueChanged(BrushAnimationProperty.BrushAnimationPropertyType propertyType)`
 
-**Purpose:** Reads and returns the `is value changed` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the is value changed value held by the this instance.
 
 ```csharp
 // Obtain an instance of StyleLayer from the subsystem API first

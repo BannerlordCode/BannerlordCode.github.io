@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### TooltipRegistry
 `public struct TooltipRegistry(Type tooltipType, object onRefreshData, string movieName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TooltipRegistry logic.
 
 ```csharp
 // Obtain an instance of TooltipRegistry from the subsystem API first

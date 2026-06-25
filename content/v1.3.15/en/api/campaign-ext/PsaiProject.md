@@ -32,7 +32,7 @@ Start from namespace `psai.Editor` to place it in the stack, then inspect its pu
 ### Init
 `public void Init()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -43,7 +43,7 @@ psaiProject.Init();
 ### LoadProjectFromStream
 `public static PsaiProject LoadProjectFromStream(StreamReader reader, string path)`
 
-**Purpose:** Reads `project from stream` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads project from stream from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ PsaiProject.LoadProjectFromStream(reader, "example");
 ### LoadProjectFromXmlFile
 `public static PsaiProject LoadProjectFromXmlFile(string filename)`
 
-**Purpose:** Reads `project from xml file` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads project from xml file from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ PsaiProject.LoadProjectFromXmlFile("example");
 ### SaveAsXmlFile
 `public void SaveAsXmlFile(string filename)`
 
-**Purpose:** Writes `as xml file` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes as xml file to persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -74,7 +74,7 @@ psaiProject.SaveAsXmlFile("example");
 ### Report
 `public void Report(bool reportGroups, bool reportSegments)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Report logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -85,7 +85,7 @@ psaiProject.Report(false, false);
 ### ConvertProjectFile_From_Legacy_To_0_9_12
 `public bool ConvertProjectFile_From_Legacy_To_0_9_12(string pathToProjectFile)`
 
-**Purpose:** Converts `project file_ from_ legacy_ to_0_9_12` into another representation or type.
+**Purpose:** **Purpose:** Converts project file_ from_ legacy_ to_0_9_12 into another representation or type.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -96,7 +96,7 @@ var result = psaiProject.ConvertProjectFile_From_Legacy_To_0_9_12("example");
 ### ReconstructReferencesAfterXmlDeserialization
 `public void ReconstructReferencesAfterXmlDeserialization()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReconstructReferencesAfterXmlDeserialization logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -107,7 +107,7 @@ psaiProject.ReconstructReferencesAfterXmlDeserialization();
 ### MergeProjects
 `public void MergeProjects(PsaiProject project)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MergeProjects logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -118,7 +118,7 @@ psaiProject.MergeProjects(project);
 ### ReconstructIds
 `public void ReconstructIds(string path)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReconstructIds logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -129,7 +129,7 @@ psaiProject.ReconstructIds("example");
 ### DebugCheckProjectIntegrity
 `public void DebugCheckProjectIntegrity()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DebugCheckProjectIntegrity logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -140,7 +140,7 @@ psaiProject.DebugCheckProjectIntegrity();
 ### BuildPsaiDotNetSoundtrackFromProject
 `public Soundtrack BuildPsaiDotNetSoundtrackFromProject()`
 
-**Purpose:** Assembles and returns the built result for `psai dot net soundtrack from project`.
+**Purpose:** **Purpose:** Assembles and returns the built result for psai dot net soundtrack from project.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -151,7 +151,7 @@ var result = psaiProject.BuildPsaiDotNetSoundtrackFromProject();
 ### GetSegmentsOfAllThemes
 `public HashSet<Segment> GetSegmentsOfAllThemes()`
 
-**Purpose:** Reads and returns the `segments of all themes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the segments of all themes value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -162,7 +162,7 @@ var result = psaiProject.GetSegmentsOfAllThemes();
 ### GetThemeById
 `public Theme GetThemeById(int themeId)`
 
-**Purpose:** Reads and returns the `theme by id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the theme by id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -173,7 +173,7 @@ var result = psaiProject.GetThemeById(0);
 ### GetSnippetById
 `public Segment GetSnippetById(int id)`
 
-**Purpose:** Reads and returns the `snippet by id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the snippet by id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -184,7 +184,7 @@ var result = psaiProject.GetSnippetById(0);
 ### GetGroupBySerializationId
 `public Group GetGroupBySerializationId(int id)`
 
-**Purpose:** Reads and returns the `group by serialization id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the group by serialization id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -195,7 +195,7 @@ var result = psaiProject.GetGroupBySerializationId(0);
 ### AddPsaiMusicEntity
 `public void AddPsaiMusicEntity(PsaiMusicEntity entity)`
 
-**Purpose:** Adds `psai music entity` to the current collection or state.
+**Purpose:** **Purpose:** Adds psai music entity to the current collection or state.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -206,7 +206,7 @@ psaiProject.AddPsaiMusicEntity(entity);
 ### AddPsaiMusicEntity
 `public void AddPsaiMusicEntity(PsaiMusicEntity entity, int targetIndex)`
 
-**Purpose:** Adds `psai music entity` to the current collection or state.
+**Purpose:** **Purpose:** Adds psai music entity to the current collection or state.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -217,7 +217,7 @@ psaiProject.AddPsaiMusicEntity(entity, 0);
 ### DeleteMusicEntity
 `public void DeleteMusicEntity(PsaiMusicEntity entity)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteMusicEntity logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -228,7 +228,7 @@ psaiProject.DeleteMusicEntity(entity);
 ### GetHighestSegmentId
 `public int GetHighestSegmentId()`
 
-**Purpose:** Reads and returns the `highest segment id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the highest segment id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -239,7 +239,7 @@ var result = psaiProject.GetHighestSegmentId();
 ### GetNextFreeSnippetId
 `public int GetNextFreeSnippetId(int idToStartSearchFrom)`
 
-**Purpose:** Reads and returns the `next free snippet id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next free snippet id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -250,7 +250,7 @@ var result = psaiProject.GetNextFreeSnippetId(0);
 ### GetGroupsOfAllThemes
 `public HashSet<Group> GetGroupsOfAllThemes()`
 
-**Purpose:** Reads and returns the `groups of all themes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the groups of all themes value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -261,7 +261,7 @@ var result = psaiProject.GetGroupsOfAllThemes();
 ### CheckIfSnippetIsManualBridgeSnippetForSourceGroup
 `public bool CheckIfSnippetIsManualBridgeSnippetForSourceGroup(Segment snippet, Group sourceGroup)`
 
-**Purpose:** Verifies whether `if snippet is manual bridge snippet for source group` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if snippet is manual bridge snippet for source group holds true for the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -272,7 +272,7 @@ var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetForSourceGroup(snipp
 ### CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup
 `public bool CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup(Group sourceGroup, Group targetGroup)`
 
-**Purpose:** Verifies whether `if there is at least one bridge snippet from source group to target group` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if there is at least one bridge snippet from source group to target group holds true for the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -283,7 +283,7 @@ var result = psaiProject.CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToT
 ### CheckIfSnippetIsManualBridgeSnippetToAnyGroup
 `public bool CheckIfSnippetIsManualBridgeSnippetToAnyGroup(Segment snippet, bool getGroups, out List<Group> groups)`
 
-**Purpose:** Verifies whether `if snippet is manual bridge snippet to any group` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if snippet is manual bridge snippet to any group holds true for the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -294,7 +294,7 @@ var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetToAnyGroup(snippet, 
 ### DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities
 `public void DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities logic.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -305,7 +305,7 @@ psaiProject.DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities();
 ### GetNextFreeThemeId
 `public int GetNextFreeThemeId(int idToStartSearchFrom)`
 
-**Purpose:** Reads and returns the `next free theme id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the next free theme id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -316,7 +316,7 @@ var result = psaiProject.GetNextFreeThemeId(0);
 ### CheckIfThemeIdIsInUse
 `public bool CheckIfThemeIdIsInUse(int themeId)`
 
-**Purpose:** Verifies whether `if theme id is in use` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if theme id is in use holds true for the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -327,7 +327,7 @@ var result = psaiProject.CheckIfThemeIdIsInUse(0);
 ### GetSnippetsById
 `public List<Segment> GetSnippetsById(int id)`
 
-**Purpose:** Reads and returns the `snippets by id` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the snippets by id value held by the this instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first
@@ -338,7 +338,7 @@ var result = psaiProject.GetSnippetsById(0);
 ### Clone
 `public object Clone()`
 
-**Purpose:** Duplicates the current object's state and returns a new instance.
+**Purpose:** **Purpose:** Duplicates the this instance's state and returns a new instance.
 
 ```csharp
 // Obtain an instance of PsaiProject from the subsystem API first

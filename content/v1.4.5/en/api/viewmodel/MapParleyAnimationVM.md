@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Map.Parley` 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapParleyAnimationVM from the subsystem API first
@@ -41,7 +41,7 @@ mapParleyAnimationVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MapParleyAnimationVM from the subsystem API first

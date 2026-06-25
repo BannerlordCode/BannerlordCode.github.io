@@ -36,7 +36,7 @@ description: "Oriented2DArea 的自动生成类参考。"
 ### SetGlobalCenter
 `public void SetGlobalCenter(in Vec2 globalCenter)`
 
-**用途 / Purpose:** 为 「global center」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 global center 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例
@@ -47,7 +47,7 @@ oriented2DArea.SetGlobalCenter(globalCenter);
 ### SetLocalDimensions
 `public void SetLocalDimensions(in Vec2 localDimensions)`
 
-**用途 / Purpose:** 为 「local dimensions」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 local dimensions 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例
@@ -58,7 +58,7 @@ oriented2DArea.SetLocalDimensions(localDimensions);
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例
@@ -69,7 +69,7 @@ var result = oriented2DArea.Overlaps(otherArea, 0);
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**用途 / Purpose:** 处理与 「intersects」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Intersects 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例
@@ -80,7 +80,7 @@ var result = oriented2DArea.Intersects(line, 0);
 ### GetCorners
 `public Oriented2DArea.Corners GetCorners()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「corners」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 corners 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例

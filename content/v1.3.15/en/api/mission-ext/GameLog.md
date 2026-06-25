@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond` to place it in the stack
 ### GetDataAsString
 `public string GetDataAsString()`
 
-**Purpose:** Reads and returns the `data as string` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the data as string value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameLog from the subsystem API first

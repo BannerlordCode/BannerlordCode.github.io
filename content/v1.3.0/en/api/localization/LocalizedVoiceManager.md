@@ -23,7 +23,7 @@ Treat `LocalizedVoiceManager` as a Manager-style extension point: first identify
 ### GetLocalizedVoice
 `public static VoiceObject GetLocalizedVoice(string id)`
 
-**Purpose:** Reads and returns the `localized voice` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the localized voice value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ LocalizedVoiceManager.GetLocalizedVoice("example");
 ### GetVoiceLanguageIds
 `public static List<string> GetVoiceLanguageIds()`
 
-**Purpose:** Reads and returns the `voice language ids` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the voice language ids value held by the this instance.
 
 ```csharp
 // Static call; no instance required

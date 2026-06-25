@@ -23,7 +23,7 @@ description: "PortStateHelper 的自动生成类参考。"
 ### OpenAsTrade
 `public static void OpenAsTrade(Town town)`
 
-**用途 / Purpose:** 打开「as trade」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开as trade对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ PortStateHelper.OpenAsTrade(town);
 ### OpenAsLoot
 `public static void OpenAsLoot(MBReadOnlyList<Ship> lootShips)`
 
-**用途 / Purpose:** 打开「as loot」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开as loot对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ PortStateHelper.OpenAsLoot(lootShips);
 ### OpenAsRestricted
 `public static void OpenAsRestricted(Town town, TextObject restrictedReason)`
 
-**用途 / Purpose:** 打开「as restricted」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开as restricted对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ PortStateHelper.OpenAsRestricted(town, restrictedReason);
 ### OpenAsStoryMode
 `public static void OpenAsStoryMode(Settlement settlement)`
 
-**用途 / Purpose:** 打开「as story mode」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开as story mode对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ PortStateHelper.OpenAsStoryMode(settlement);
 ### OpenAsManageFleet
 `public static void OpenAsManageFleet(MBReadOnlyList<Ship> leftShips)`
 
-**用途 / Purpose:** 打开「as manage fleet」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开as manage fleet对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ PortStateHelper.OpenAsManageFleet(leftShips);
 ### OpenAsManageOtherFleet
 `public static void OpenAsManageOtherFleet(PartyBase other, Action onEndAction)`
 
-**用途 / Purpose:** 打开「as manage other fleet」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开as manage other fleet对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例

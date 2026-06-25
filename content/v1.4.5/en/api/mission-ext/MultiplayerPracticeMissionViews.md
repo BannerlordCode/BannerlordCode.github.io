@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.View.MissionViews` to
 ### OpenMultiplayerPracticeMission
 `public static MissionView OpenMultiplayerPracticeMission(Mission mission)`
 
-**Purpose:** Opens the resource or UI associated with `multiplayer practice mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with multiplayer practice mission.
 
 ```csharp
 // Static call; no instance required

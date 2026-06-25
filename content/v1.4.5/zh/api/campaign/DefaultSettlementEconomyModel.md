@@ -23,7 +23,7 @@ description: "DefaultSettlementEconomyModel 的自动生成类参考。"
 ### GetValueOfCategory
 `public int GetValueOfCategory(ItemCategory category)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of category」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
@@ -34,7 +34,7 @@ var result = defaultSettlementEconomyModel.GetValueOfCategory(category);
 ### GetDailyDemandForCategory
 `public override float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「daily demand for category」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 daily demand for category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
@@ -45,7 +45,7 @@ var result = defaultSettlementEconomyModel.GetDailyDemandForCategory(town, categ
 ### GetTownGoldChange
 `public override int GetTownGoldChange(Town town)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「town gold change」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 town gold change 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
@@ -56,7 +56,7 @@ var result = defaultSettlementEconomyModel.GetTownGoldChange(town);
 ### CalculateDailySettlementBudgetForItemCategory
 `public override float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
 
-**用途 / Purpose:** 计算「daily settlement budget for item category」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算daily settlement budget for item category的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
@@ -67,7 +67,7 @@ var result = defaultSettlementEconomyModel.CalculateDailySettlementBudgetForItem
 ### GetDemandChangeFromValue
 `public override float GetDemandChangeFromValue(float purchaseValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「demand change from value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 demand change from value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例
@@ -78,7 +78,7 @@ var result = defaultSettlementEconomyModel.GetDemandChangeFromValue(0);
 ### GetEstimatedDemandForCategory
 `public override float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「estimated demand for category」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 estimated demand for category 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementEconomyModel 实例

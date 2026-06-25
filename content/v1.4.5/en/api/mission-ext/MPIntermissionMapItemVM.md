@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.I
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPIntermissionMapItemVM from the subsystem API first
@@ -43,7 +43,7 @@ mPIntermissionMapItemVM.RefreshValues();
 ### ExecuteVote
 `public void ExecuteVote()`
 
-**Purpose:** Runs the operation or workflow associated with `vote`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with vote.
 
 ```csharp
 // Obtain an instance of MPIntermissionMapItemVM from the subsystem API first

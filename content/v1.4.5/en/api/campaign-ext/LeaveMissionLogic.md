@@ -23,7 +23,7 @@ Treat `LeaveMissionLogic` as a Logic-style extension point: first identify who c
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MissionEnded logic.
 
 ```csharp
 // Obtain an instance of LeaveMissionLogic from the subsystem API first
@@ -34,7 +34,7 @@ var result = leaveMissionLogic.MissionEnded(missionResult);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of LeaveMissionLogic from the subsystem API first

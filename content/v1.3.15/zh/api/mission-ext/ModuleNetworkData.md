@@ -23,7 +23,7 @@ description: "ModuleNetworkData 的自动生成类参考。"
 ### ReadItemReferenceFromPacket
 `public static EquipmentElement ReadItemReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**用途 / Purpose:** 读取「item reference from packet」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取item reference from packet的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ModuleNetworkData.ReadItemReferenceFromPacket(objectManager, bufferReadValid);
 ### WriteItemReferenceToPacket
 `public static void WriteItemReferenceToPacket(EquipmentElement equipElement)`
 
-**用途 / Purpose:** 将「item reference to packet」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将item reference to packet写入目标位置。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ModuleNetworkData.WriteItemReferenceToPacket(equipElement);
 ### ReadWeaponReferenceFromPacket
 `public static MissionWeapon ReadWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**用途 / Purpose:** 读取「weapon reference from packet」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取weapon reference from packet的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ModuleNetworkData.ReadWeaponReferenceFromPacket(objectManager, bufferReadValid);
 ### WriteWeaponReferenceToPacket
 `public static void WriteWeaponReferenceToPacket(MissionWeapon weapon)`
 
-**用途 / Purpose:** 将「weapon reference to packet」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将weapon reference to packet写入目标位置。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ ModuleNetworkData.WriteWeaponReferenceToPacket(weapon);
 ### ReadMissileWeaponReferenceFromPacket
 `public static MissionWeapon ReadMissileWeaponReferenceFromPacket(MBObjectManager objectManager, ref bool bufferReadValid)`
 
-**用途 / Purpose:** 读取「missile weapon reference from packet」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取missile weapon reference from packet的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ ModuleNetworkData.ReadMissileWeaponReferenceFromPacket(objectManager, bufferRead
 ### WriteMissileWeaponReferenceToPacket
 `public static void WriteMissileWeaponReferenceToPacket(MissionWeapon weapon)`
 
-**用途 / Purpose:** 将「missile weapon reference to packet」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将missile weapon reference to packet写入目标位置。
 
 ```csharp
 // 静态调用，不需要实例

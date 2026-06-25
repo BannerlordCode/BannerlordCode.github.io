@@ -23,7 +23,7 @@ Treat `PartyHealingModel` as a Model-style extension point: first identify who c
 ### GetSurgeryChance
 `public abstract float GetSurgeryChance(PartyBase party)`
 
-**Purpose:** Reads and returns the `surgery chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the surgery chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyHealingModel.GetSurgeryChance(party);
 ### GetSurvivalChance
 `public abstract float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
 
-**Purpose:** Reads and returns the `survival chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the survival chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyHealingModel.GetSurvivalChance(party, agentCharacter, damageTy
 ### GetSkillXpFromHealingTroop
 `public abstract int GetSkillXpFromHealingTroop(PartyBase party)`
 
-**Purpose:** Reads and returns the `skill xp from healing troop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill xp from healing troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = partyHealingModel.GetSkillXpFromHealingTroop(party);
 ### GetDailyHealingForRegulars
 `public abstract ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the `daily healing for regulars` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the daily healing for regulars value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = partyHealingModel.GetDailyHealingForRegulars(partyBase, false, fals
 ### GetDailyHealingHpForHeroes
 `public abstract ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the `daily healing hp for heroes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the daily healing hp for heroes value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = partyHealingModel.GetDailyHealingHpForHeroes(partyBase, false, fals
 ### GetHeroesEffectedHealingAmount
 `public abstract int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
 
-**Purpose:** Reads and returns the `heroes effected healing amount` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the heroes effected healing amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = partyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
 ### GetSiegeBombardmentHitSurgeryChance
 `public abstract float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
 
-**Purpose:** Reads and returns the `siege bombardment hit surgery chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege bombardment hit surgery chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = partyHealingModel.GetSiegeBombardmentHitSurgeryChance(party);
 ### GetBattleEndHealingAmount
 `public abstract ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)`
 
-**Purpose:** Reads and returns the `battle end healing amount` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the battle end healing amount value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyHealingModel from the subsystem API first

@@ -23,7 +23,7 @@ description: "MissionGauntletStoryModeCheatView 的自动生成类参考。"
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**用途 / Purpose:** 在 「mission screen finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
@@ -34,7 +34,7 @@ missionGauntletStoryModeCheatView.OnMissionScreenFinalize();
 ### GetIsCheatsAvailable
 `public override bool GetIsCheatsAvailable()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「is cheats available」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 is cheats available 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
@@ -45,7 +45,7 @@ var result = missionGauntletStoryModeCheatView.GetIsCheatsAvailable();
 ### InitializeScreen
 `public override void InitializeScreen()`
 
-**用途 / Purpose:** 为 「screen」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 screen 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
@@ -56,7 +56,7 @@ missionGauntletStoryModeCheatView.InitializeScreen();
 ### FinalizeScreen
 `public override void FinalizeScreen()`
 
-**用途 / Purpose:** 处理与 「finalize screen」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizeScreen 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例
@@ -67,7 +67,7 @@ missionGauntletStoryModeCheatView.FinalizeScreen();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**用途 / Purpose:** 在 「mission screen tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission screen tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionGauntletStoryModeCheatView 实例

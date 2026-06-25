@@ -23,7 +23,7 @@ description: "PersuasionHelper 的自动生成类参考。"
 ### ShowSuccess
 `public static TextObject ShowSuccess(PersuasionOptionArgs optionArgs, bool showToPlayer = true)`
 
-**用途 / Purpose:** 显示「success」对应的界面或元素。
+**用途 / Purpose:** **用途 / Purpose:** 显示success对应的界面或元素。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ PersuasionHelper.ShowSuccess(optionArgs, false);
 ### GetDefaultPersuasionOptionReaction
 `public static TextObject GetDefaultPersuasionOptionReaction(PersuasionOptionResult optionResult)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「default persuasion option reaction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 default persuasion option reaction 的结果。
 
 ```csharp
 // 静态调用，不需要实例

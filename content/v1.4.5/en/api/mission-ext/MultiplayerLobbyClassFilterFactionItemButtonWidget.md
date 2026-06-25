@@ -30,7 +30,7 @@ Treat `MultiplayerLobbyClassFilterFactionItemButtonWidget` as a Widget-style ext
 ### MultiplayerLobbyClassFilterFactionItemButtonWidget
 `public class MultiplayerLobbyClassFilterFactionItemButtonWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerLobbyClassFilterFactionItemButtonWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerLobbyClassFilterFactionItemButtonWidget from the subsystem API first

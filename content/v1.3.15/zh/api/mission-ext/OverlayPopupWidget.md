@@ -36,7 +36,7 @@ description: "OverlayPopupWidget 的自动生成类参考。"
 ### SetCurrentCharacter
 `public void SetCurrentCharacter(GameMenuPartyItemButtonWidget item)`
 
-**用途 / Purpose:** 为 「current character」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 current character 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OverlayPopupWidget 实例
@@ -47,7 +47,7 @@ overlayPopupWidget.SetCurrentCharacter(item);
 ### OnCloseButtonClick
 `public void OnCloseButtonClick(Widget widget)`
 
-**用途 / Purpose:** 在 「close button click」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 close button click 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OverlayPopupWidget 实例

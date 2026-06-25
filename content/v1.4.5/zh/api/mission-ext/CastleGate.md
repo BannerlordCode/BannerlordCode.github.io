@@ -35,7 +35,7 @@ description: "CastleGate 的自动生成类参考。"
 ### GetPosition
 `public Vec3 GetPosition()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「position」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 position 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -46,7 +46,7 @@ var result = castleGate.GetPosition();
 ### GetOrder
 `public override OrderType GetOrder(BattleSideEnum side)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「order」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -57,7 +57,7 @@ var result = castleGate.GetOrder(side);
 ### SetUsableTeam
 `public void SetUsableTeam(Team team)`
 
-**用途 / Purpose:** 为 「usable team」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 usable team 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -68,7 +68,7 @@ castleGate.SetUsableTeam(team);
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterMissionStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -79,7 +79,7 @@ castleGate.AfterMissionStart();
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -90,7 +90,7 @@ var result = castleGate.GetDescriptionText(gameEntity);
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「action text for standing point」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action text for standing point 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -101,7 +101,7 @@ var result = castleGate.GetActionTextForStandingPoint(usableGameObject);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**用途 / Purpose:** 构建一个新的 「a i behavior object」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 a i behavior object 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -112,7 +112,7 @@ var result = castleGate.CreateAIBehaviorObject();
 ### OpenDoorAndDisableGateForCivilianMission
 `public void OpenDoorAndDisableGateForCivilianMission()`
 
-**用途 / Purpose:** 打开「door and disable gate for civilian mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开door and disable gate for civilian mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -123,7 +123,7 @@ castleGate.OpenDoorAndDisableGateForCivilianMission();
 ### OpenDoor
 `public void OpenDoor()`
 
-**用途 / Purpose:** 打开「door」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开door对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -134,7 +134,7 @@ castleGate.OpenDoor();
 ### CloseDoor
 `public void CloseDoor()`
 
-**用途 / Purpose:** 关闭「door」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭door对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -145,7 +145,7 @@ castleGate.CloseDoor();
 ### SetAutoOpenState
 `public void SetAutoOpenState(bool isEnabled)`
 
-**用途 / Purpose:** 为 「auto open state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 auto open state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -156,7 +156,7 @@ castleGate.SetAutoOpenState(false);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -167,7 +167,7 @@ var result = castleGate.GetTickRequirement();
 ### GetTargetFlags
 `public TargetFlags GetTargetFlags()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target flags」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target flags 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -178,7 +178,7 @@ var result = castleGate.GetTargetFlags();
 ### GetTargetValue
 `public float GetTargetValue(List<Vec3> weaponPos)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -189,7 +189,7 @@ var result = castleGate.GetTargetValue(weaponPos);
 ### GetTargetEntity
 `public WeakGameEntity GetTargetEntity()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target entity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target entity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -200,7 +200,7 @@ var result = castleGate.GetTargetEntity();
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「side」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -211,7 +211,7 @@ var result = castleGate.GetSide();
 ### GetTargetGlobalVelocity
 `public Vec3 GetTargetGlobalVelocity()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target global velocity」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target global velocity 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -222,7 +222,7 @@ var result = castleGate.GetTargetGlobalVelocity();
 ### IsDestructable
 `public bool IsDestructable()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「destructable」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 destructable 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -233,7 +233,7 @@ var result = castleGate.IsDestructable();
 ### Entity
 `public WeakGameEntity Entity()`
 
-**用途 / Purpose:** 处理与 「entity」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Entity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -244,7 +244,7 @@ var result = castleGate.Entity();
 ### GetTargetingOffset
 `public Vec3 GetTargetingOffset()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「targeting offset」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 targeting offset 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### FillFrom
 `public static void FillFrom(this ZipArchiveEntry entry, byte data)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ZipExtensions.FillFrom(entry, 0);
 ### FillFrom
 `public static void FillFrom(this ZipArchiveEntry entry, BinaryWriter writer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ZipExtensions.FillFrom(entry, writer);
 ### GetBinaryReader
 `public static BinaryReader GetBinaryReader(this ZipArchiveEntry entry)`
 
-**Purpose:** Reads and returns the `binary reader` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the binary reader value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ZipExtensions.GetBinaryReader(entry);
 ### GetBinaryData
 `public static byte GetBinaryData(this ZipArchiveEntry entry)`
 
-**Purpose:** Reads and returns the `binary data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the binary data value held by the this instance.
 
 ```csharp
 // Static call; no instance required

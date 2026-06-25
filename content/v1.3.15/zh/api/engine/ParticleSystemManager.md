@@ -23,7 +23,7 @@ description: "ParticleSystemManager 的自动生成类参考。"
 ### GetRuntimeIdByName
 `public static int GetRuntimeIdByName(string particleSystemName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「runtime id by name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 runtime id by name 的结果。
 
 ```csharp
 // 静态调用，不需要实例

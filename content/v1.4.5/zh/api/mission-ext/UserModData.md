@@ -31,7 +31,7 @@ description: "UserModData 的自动生成类参考。"
 ### IsUpdatedToBeDefault
 `public bool IsUpdatedToBeDefault(ModuleInfo module)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「updated to be default」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 updated to be default 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 UserModData 实例

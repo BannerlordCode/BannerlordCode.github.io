@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries` to
 ### SetData
 `public void SetData(TextInquiryData data)`
 
-**Purpose:** Assigns a new value to `data` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to data and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TextQueryPopUpVM from the subsystem API first
@@ -42,7 +42,7 @@ textQueryPopUpVM.SetData(data);
 ### ExecuteAffirmativeAction
 `public override void ExecuteAffirmativeAction()`
 
-**Purpose:** Runs the operation or workflow associated with `affirmative action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with affirmative action.
 
 ```csharp
 // Obtain an instance of TextQueryPopUpVM from the subsystem API first
@@ -53,7 +53,7 @@ textQueryPopUpVM.ExecuteAffirmativeAction();
 ### ExecuteNegativeAction
 `public override void ExecuteNegativeAction()`
 
-**Purpose:** Runs the operation or workflow associated with `negative action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with negative action.
 
 ```csharp
 // Obtain an instance of TextQueryPopUpVM from the subsystem API first
@@ -64,7 +64,7 @@ textQueryPopUpVM.ExecuteNegativeAction();
 ### OnClearData
 `public override void OnClearData()`
 
-**Purpose:** Invoked when the `clear data` event is raised.
+**Purpose:** **Purpose:** Invoked when the clear data event is raised.
 
 ```csharp
 // Obtain an instance of TextQueryPopUpVM from the subsystem API first

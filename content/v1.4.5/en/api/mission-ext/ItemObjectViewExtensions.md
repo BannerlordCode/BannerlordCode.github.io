@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View` to place it in the stack, t
 ### GetCraftedMultiMesh
 `public static MetaMesh GetCraftedMultiMesh(this ItemObject itemObject, bool needBatchedVersion)`
 
-**Purpose:** Reads and returns the `crafted multi mesh` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the crafted multi mesh value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ ItemObjectViewExtensions.GetCraftedMultiMesh(itemObject, false);
 ### GetMultiMeshCopy
 `public static MetaMesh GetMultiMeshCopy(this ItemObject itemObject)`
 
-**Purpose:** Reads and returns the `multi mesh copy` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the multi mesh copy value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ ItemObjectViewExtensions.GetMultiMeshCopy(itemObject);
 ### GetMultiMeshCopyWithGenderData
 `public static MetaMesh GetMultiMeshCopyWithGenderData(this ItemObject itemObject, bool isFemale, bool useSlimVersion, bool needBatchedVersion)`
 
-**Purpose:** Reads and returns the `multi mesh copy with gender data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the multi mesh copy with gender data value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ ItemObjectViewExtensions.GetMultiMeshCopyWithGenderData(itemObject, false, false
 ### GetScaledFrame
 `public static MatrixFrame GetScaledFrame(this ItemObject itemObject, Mat3 rotationMatrix, MetaMesh metaMesh, float scaleFactor, Vec3 positionShift)`
 
-**Purpose:** Reads and returns the `scaled frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scaled frame value held by the this instance.
 
 ```csharp
 // Static call; no instance required

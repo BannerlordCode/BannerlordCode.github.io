@@ -30,7 +30,7 @@ Treat `MultiplayerEndOfBattleScreenWidget` as a Widget-style extension point: fi
 ### MultiplayerEndOfBattleScreenWidget
 `public class MultiplayerEndOfBattleScreenWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MultiplayerEndOfBattleScreenWidget logic.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfBattleScreenWidget from the subsystem API first

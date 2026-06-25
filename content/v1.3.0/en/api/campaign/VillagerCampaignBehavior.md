@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ villagerCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ villagerCampaignBehavior.SyncData(dataStore);
 ### DailyTick
 `public void DailyTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyTick logic.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ villagerCampaignBehavior.DailyTick();
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ villagerCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### taking_food_from_villagers_wait_on_condition
 `public bool taking_food_from_villagers_wait_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the taking_food_from_villagers_wait_on_condition logic.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = villagerCampaignBehavior.taking_food_from_villagers_wait_on_conditi
 ### press_into_service_confirm_on_condition
 `public bool press_into_service_confirm_on_condition(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the press_into_service_confirm_on_condition logic.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ var result = villagerCampaignBehavior.press_into_service_confirm_on_condition(ar
 ### taking_food_from_villagers_wait_on_tick
 `public void taking_food_from_villagers_wait_on_tick(MenuCallbackArgs args, CampaignTime campaignTime)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the taking_food_from_villagers_wait_on_tick logic.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -100,7 +100,7 @@ villagerCampaignBehavior.taking_food_from_villagers_wait_on_tick(args, campaignT
 ### press_into_service_confirm_on_tick
 `public void press_into_service_confirm_on_tick(MenuCallbackArgs args, CampaignTime campaignTime)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the press_into_service_confirm_on_tick logic.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first
@@ -111,7 +111,7 @@ villagerCampaignBehavior.press_into_service_confirm_on_tick(args, campaignTime);
 ### taking_food_from_villagers_wait_on_consequence
 `public void taking_food_from_villagers_wait_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the taking_food_from_villagers_wait_on_consequence logic.
 
 ```csharp
 // Obtain an instance of VillagerCampaignBehavior from the subsystem API first

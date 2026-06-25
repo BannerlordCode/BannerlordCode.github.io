@@ -40,7 +40,7 @@ description: "CraftingHistoryVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -51,7 +51,7 @@ craftingHistoryVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -62,7 +62,7 @@ craftingHistoryVM.OnFinalize();
 ### RefreshAvailability
 `public void RefreshAvailability()`
 
-**用途 / Purpose:** 使 「availability」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 availability 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -73,7 +73,7 @@ craftingHistoryVM.RefreshAvailability();
 ### ExecuteOpen
 `public void ExecuteOpen()`
 
-**用途 / Purpose:** 执行 「open」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 open 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -84,7 +84,7 @@ craftingHistoryVM.ExecuteOpen();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -95,7 +95,7 @@ craftingHistoryVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -106,7 +106,7 @@ craftingHistoryVM.ExecuteDone();
 ### SetDoneKey
 `public void SetDoneKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「done key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例
@@ -117,7 +117,7 @@ craftingHistoryVM.SetDoneKey(hotkey);
 ### SetCancelKey
 `public void SetCancelKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「cancel key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingHistoryVM 实例

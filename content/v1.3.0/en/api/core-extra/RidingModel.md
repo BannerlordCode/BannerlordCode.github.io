@@ -23,7 +23,7 @@ Treat `RidingModel` as a Model-style extension point: first identify who creates
 ### CalculateAcceleration
 `public abstract float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**Purpose:** Calculates the current value or result of `acceleration`.
+**Purpose:** **Purpose:** Calculates the current value or result of acceleration.
 
 ```csharp
 // Obtain an instance of RidingModel from the subsystem API first

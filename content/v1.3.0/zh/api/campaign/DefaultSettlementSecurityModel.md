@@ -44,7 +44,7 @@ description: "DefaultSettlementSecurityModel 的自动生成类参考。"
 ### CalculateSecurityChange
 `public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 计算「security change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算security change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
@@ -55,7 +55,7 @@ var result = defaultSettlementSecurityModel.CalculateSecurityChange(town, false)
 ### GetLootedNearbyPartySecurityEffect
 `public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「looted nearby party security effect」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 looted nearby party security effect 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
@@ -66,7 +66,7 @@ var result = defaultSettlementSecurityModel.GetLootedNearbyPartySecurityEffect(t
 ### GetNearbyBanditPartyDefeatedSecurityEffect
 `public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「nearby bandit party defeated security effect」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 nearby bandit party defeated security effect 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
@@ -77,7 +77,7 @@ var result = defaultSettlementSecurityModel.GetNearbyBanditPartyDefeatedSecurity
 ### CalculateGoldGainDueToHighSecurity
 `public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 计算「gold gain due to high security」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算gold gain due to high security的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
@@ -88,7 +88,7 @@ defaultSettlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explaine
 ### CalculateGoldCutDueToLowSecurity
 `public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 计算「gold cut due to low security」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算gold cut due to low security的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例

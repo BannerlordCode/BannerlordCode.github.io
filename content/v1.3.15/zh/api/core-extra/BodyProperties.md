@@ -42,7 +42,7 @@ description: "BodyProperties 的自动生成类参考。"
 ### FromXmlNode
 `public static bool FromXmlNode(XmlNode node, out BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 处理与 「from xml node」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FromXmlNode 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ BodyProperties.FromXmlNode(node, bodyProperties);
 ### FromString
 `public static bool FromString(string keyValue, out BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 处理与 「from string」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FromString 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ BodyProperties.FromString("example", bodyProperties);
 ### GetRandomBodyProperties
 `public static BodyProperties GetRandomBodyProperties(int race, bool isFemale, BodyProperties bodyPropertiesMin, BodyProperties bodyPropertiesMax, int hairCoverType, int seed, string hairTags, string beardTags, string tattooTags, float variationAmount = 0f)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「random body properties」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 random body properties 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -72,7 +72,7 @@ BodyProperties.GetRandomBodyProperties(0, false, bodyPropertiesMin, bodyProperti
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyProperties 实例
@@ -83,7 +83,7 @@ var result = bodyProperties.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyProperties 实例
@@ -94,7 +94,7 @@ var result = bodyProperties.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyProperties 实例
@@ -105,7 +105,7 @@ var result = bodyProperties.GetHashCode();
 ### ClampForMultiplayer
 `public BodyProperties ClampForMultiplayer()`
 
-**用途 / Purpose:** 处理与 「clamp for multiplayer」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ClampForMultiplayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyProperties 实例

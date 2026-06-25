@@ -36,7 +36,7 @@ description: "CustomBattleTroopTypeVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopTypeVM 实例
@@ -47,7 +47,7 @@ customBattleTroopTypeVM.RefreshValues();
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**用途 / Purpose:** 执行 「toggle selection」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 toggle selection 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopTypeVM 实例
@@ -58,7 +58,7 @@ customBattleTroopTypeVM.ExecuteToggleSelection();
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**用途 / Purpose:** 执行 「randomize」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 randomize 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopTypeVM 实例
@@ -69,7 +69,7 @@ customBattleTroopTypeVM.ExecuteRandomize();
 ### GetCharacterTierData
 `public static StringItemWithHintVM GetCharacterTierData(BasicCharacterObject character, bool isBig = false)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「character tier data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character tier data 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -79,7 +79,7 @@ CustomBattleTroopTypeVM.GetCharacterTierData(character, false);
 ### GetCharacterTier
 `public static int GetCharacterTier(BasicCharacterObject character)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「character tier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 character tier 的结果。
 
 ```csharp
 // 静态调用，不需要实例

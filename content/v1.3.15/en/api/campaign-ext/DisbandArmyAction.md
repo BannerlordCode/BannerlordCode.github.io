@@ -19,7 +19,7 @@ DisbandArmyAction is a set of static methods that trigger "DisbandArmy" in the c
 public static void ApplyByReleasedByPlayerAfterBattle(Army army)
 ```
 
-**Purpose:** released by player after battle.
+**Purpose:** **Purpose:** Applies the effect of by released by player after battle to the this instance.
 
 ### ApplyByArmyLeaderIsDead
 
@@ -27,7 +27,7 @@ public static void ApplyByReleasedByPlayerAfterBattle(Army army)
 public static void ApplyByArmyLeaderIsDead(Army army)
 ```
 
-**Purpose:** army leader is dead.
+**Purpose:** **Purpose:** Applies the effect of by army leader is dead to the this instance.
 
 ### ApplyByNotEnoughParty
 
@@ -35,7 +35,7 @@ public static void ApplyByArmyLeaderIsDead(Army army)
 public static void ApplyByNotEnoughParty(Army army)
 ```
 
-**Purpose:** not enough party.
+**Purpose:** **Purpose:** Applies the effect of by not enough party to the this instance.
 
 ### ApplyByObjectiveFinished
 
@@ -43,7 +43,7 @@ public static void ApplyByNotEnoughParty(Army army)
 public static void ApplyByObjectiveFinished(Army army)
 ```
 
-**Purpose:** objective finished.
+**Purpose:** **Purpose:** Applies the effect of by objective finished to the this instance.
 
 ### ApplyByPlayerTakenPrisoner
 
@@ -51,7 +51,7 @@ public static void ApplyByObjectiveFinished(Army army)
 public static void ApplyByPlayerTakenPrisoner(Army army)
 ```
 
-**Purpose:** player taken prisoner.
+**Purpose:** **Purpose:** Applies the effect of by player taken prisoner to the this instance.
 
 ### ApplyByFoodProblem
 
@@ -59,7 +59,7 @@ public static void ApplyByPlayerTakenPrisoner(Army army)
 public static void ApplyByFoodProblem(Army army)
 ```
 
-**Purpose:** food problem.
+**Purpose:** **Purpose:** Applies the effect of by food problem to the this instance.
 
 ### ApplyByInactivity
 
@@ -67,7 +67,7 @@ public static void ApplyByFoodProblem(Army army)
 public static void ApplyByInactivity(Army army)
 ```
 
-**Purpose:** inactivity.
+**Purpose:** **Purpose:** Applies the effect of by inactivity to the this instance.
 
 ### ApplyByCohesionDepleted
 
@@ -75,7 +75,7 @@ public static void ApplyByInactivity(Army army)
 public static void ApplyByCohesionDepleted(Army army)
 ```
 
-**Purpose:** cohesion depleted.
+**Purpose:** **Purpose:** Applies the effect of by cohesion depleted to the this instance.
 
 ### ApplyByNoActiveWar
 
@@ -83,7 +83,7 @@ public static void ApplyByCohesionDepleted(Army army)
 public static void ApplyByNoActiveWar(Army army)
 ```
 
-**Purpose:** no active war.
+**Purpose:** **Purpose:** Applies the effect of by no active war to the this instance.
 
 ### ApplyByUnknownReason
 
@@ -91,7 +91,7 @@ public static void ApplyByNoActiveWar(Army army)
 public static void ApplyByUnknownReason(Army army)
 ```
 
-**Purpose:** unknown reason.
+**Purpose:** **Purpose:** Applies the effect of by unknown reason to the this instance.
 
 ### ApplyByLeaderPartyRemoved
 
@@ -99,7 +99,7 @@ public static void ApplyByUnknownReason(Army army)
 public static void ApplyByLeaderPartyRemoved(Army army)
 ```
 
-**Purpose:** leader party removed.
+**Purpose:** **Purpose:** Applies the effect of by leader party removed to the this instance.
 
 ### ApplyByNoShip
 
@@ -107,7 +107,7 @@ public static void ApplyByLeaderPartyRemoved(Army army)
 public static void ApplyByNoShip(Army army)
 ```
 
-**Purpose:** no ship.
+**Purpose:** **Purpose:** Applies the effect of by no ship to the this instance.
 
 ## Usage Example
 

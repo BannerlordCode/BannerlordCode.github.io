@@ -37,7 +37,7 @@ Treat `MapConversationTableauData` as a Data-style extension point: first identi
 ### CreateFrom
 `public static MapConversationTableauData CreateFrom(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, TerrainType terrainType, float timeOfDay, bool isCurrentTerrainUnderSnow, Settlement settlement, string locationId, bool isRaining, bool isSnowing)`
 
-**Purpose:** Constructs a new `from` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

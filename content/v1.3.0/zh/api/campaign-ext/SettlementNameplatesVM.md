@@ -29,7 +29,7 @@ description: "SettlementNameplatesVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatesVM 实例
@@ -40,7 +40,7 @@ settlementNameplatesVM.RefreshValues();
 ### Initialize
 `public void Initialize(IEnumerable<Tuple<Settlement, GameEntity>> settlements)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatesVM 实例
@@ -51,7 +51,7 @@ settlementNameplatesVM.Initialize(iEnumerable<Tuple<Settlement, settlements);
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatesVM 实例
@@ -62,7 +62,7 @@ settlementNameplatesVM.Update();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SettlementNameplatesVM 实例

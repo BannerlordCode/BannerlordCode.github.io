@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.MissionRepresentatives` to place 
 ### OnAgentSpawned
 `public override void OnAgentSpawned()`
 
-**Purpose:** Invoked when the `agent spawned` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent spawned event is raised.
 
 ```csharp
 // Obtain an instance of SiegeMissionRepresentative from the subsystem API first
@@ -34,7 +34,7 @@ siegeMissionRepresentative.OnAgentSpawned();
 ### GetGoldGainsFromKillDataAndUpdateFlags
 `public int GetGoldGainsFromKillDataAndUpdateFlags(MPPerkObject.MPPerkHandler killerPerkHandler, MPPerkObject.MPPerkHandler assistingHitterPerkHandler, MultiplayerClassDivisions.MPHeroClass victimClass, bool isAssist, bool isRanged, bool isFriendly)`
 
-**Purpose:** Reads and returns the `gold gains from kill data and update flags` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold gains from kill data and update flags value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeMissionRepresentative from the subsystem API first
@@ -45,7 +45,7 @@ var result = siegeMissionRepresentative.GetGoldGainsFromKillDataAndUpdateFlags(k
 ### GetGoldGainsFromObjectiveAssist
 `public int GetGoldGainsFromObjectiveAssist(GameEntity objectiveMostParentEntity, float contributionRatio, bool isCompleted)`
 
-**Purpose:** Reads and returns the `gold gains from objective assist` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold gains from objective assist value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeMissionRepresentative from the subsystem API first
@@ -56,7 +56,7 @@ var result = siegeMissionRepresentative.GetGoldGainsFromObjectiveAssist(objectiv
 ### GetGoldGainsFromAllyDeathReward
 `public int GetGoldGainsFromAllyDeathReward(int baseAmount)`
 
-**Purpose:** Reads and returns the `gold gains from ally death reward` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the gold gains from ally death reward value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeMissionRepresentative from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### SetSaveDriver
 `public static void SetSaveDriver(ISaveDriver saveDriver)`
 
-**Purpose:** Assigns a new value to `save driver` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to save driver and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -45,7 +45,7 @@ MBSaveLoad.SetSaveDriver(saveDriver);
 ### GetSaveFiles
 `public static SaveGameFileInfo GetSaveFiles(Func<SaveGameFileInfo, bool> condition = null)`
 
-**Purpose:** Reads and returns the `save files` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the save files value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -55,7 +55,7 @@ MBSaveLoad.GetSaveFiles(func<SaveGameFileInfo, false);
 ### IsSaveGameFileExists
 `public static bool IsSaveGameFileExists(string saveFileName)`
 
-**Purpose:** Determines whether the current object is in the `save game file exists` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the save game file exists state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -65,7 +65,7 @@ MBSaveLoad.IsSaveGameFileExists("example");
 ### GetSaveFileNames
 `public static string GetSaveFileNames()`
 
-**Purpose:** Reads and returns the `save file names` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the save file names value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -75,7 +75,7 @@ MBSaveLoad.GetSaveFileNames();
 ### LoadSaveGameData
 `public static LoadResult LoadSaveGameData(string saveName)`
 
-**Purpose:** Reads `save game data` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads save game data from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -85,7 +85,7 @@ MBSaveLoad.LoadSaveGameData("example");
 ### GetSaveFileWithName
 `public static SaveGameFileInfo GetSaveFileWithName(string saveName)`
 
-**Purpose:** Reads and returns the `save file with name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the save file with name value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -95,7 +95,7 @@ MBSaveLoad.GetSaveFileWithName("example");
 ### QuickSaveCurrentGame
 `public static void QuickSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the QuickSaveCurrentGame logic.
 
 ```csharp
 // Static call; no instance required
@@ -105,7 +105,7 @@ MBSaveLoad.QuickSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, 
 ### AutoSaveCurrentGame
 `public static void AutoSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AutoSaveCurrentGame logic.
 
 ```csharp
 // Static call; no instance required
@@ -115,7 +115,7 @@ MBSaveLoad.AutoSaveCurrentGame(campaignMetaData, action<ValueTuple<SaveResult, "
 ### SaveAsCurrentGame
 `public static void SaveAsCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, string saveName, Action<ValueTuple<SaveResult, string>> onSaveCompleted)`
 
-**Purpose:** Writes `as current game` to persistent storage or a stream.
+**Purpose:** **Purpose:** Writes as current game to persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -125,7 +125,7 @@ MBSaveLoad.SaveAsCurrentGame(campaignMetaData, "example", action<ValueTuple<Save
 ### DeleteSaveGame
 `public static bool DeleteSaveGame(string saveName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteSaveGame logic.
 
 ```csharp
 // Static call; no instance required
@@ -135,7 +135,7 @@ MBSaveLoad.DeleteSaveGame("example");
 ### Initialize
 `public static void Initialize(GameTextManager localizedTextProvider)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -145,7 +145,7 @@ MBSaveLoad.Initialize(localizedTextProvider);
 ### OnNewGame
 `public static void OnNewGame()`
 
-**Purpose:** Invoked when the `new game` event is raised.
+**Purpose:** **Purpose:** Invoked when the new game event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -155,7 +155,7 @@ MBSaveLoad.OnNewGame();
 ### OnGameDestroy
 `public static void OnGameDestroy()`
 
-**Purpose:** Invoked when the `game destroy` event is raised.
+**Purpose:** **Purpose:** Invoked when the game destroy event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -165,7 +165,7 @@ MBSaveLoad.OnGameDestroy();
 ### OnStartGame
 `public static void OnStartGame(LoadResult loadResult)`
 
-**Purpose:** Invoked when the `start game` event is raised.
+**Purpose:** **Purpose:** Invoked when the start game event is raised.
 
 ```csharp
 // Static call; no instance required
@@ -175,7 +175,7 @@ MBSaveLoad.OnStartGame(loadResult);
 ### IsSaveFileNameReserved
 `public static bool IsSaveFileNameReserved(string name)`
 
-**Purpose:** Determines whether the current object is in the `save file name reserved` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the save file name reserved state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -185,7 +185,7 @@ MBSaveLoad.IsSaveFileNameReserved("example");
 ### GetMaxNumberOfSaves
 `public static int GetMaxNumberOfSaves()`
 
-**Purpose:** Reads and returns the `max number of saves` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max number of saves value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -195,7 +195,7 @@ MBSaveLoad.GetMaxNumberOfSaves();
 ### IsMaxNumberOfSavesReached
 `public static bool IsMaxNumberOfSavesReached()`
 
-**Purpose:** Determines whether the current object is in the `max number of saves reached` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the max number of saves reached state or condition.
 
 ```csharp
 // Static call; no instance required

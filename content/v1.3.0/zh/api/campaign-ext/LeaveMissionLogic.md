@@ -23,7 +23,7 @@ description: "LeaveMissionLogic 的自动生成类参考。"
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 处理与 「mission ended」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveMissionLogic 实例
@@ -34,7 +34,7 @@ var result = leaveMissionLogic.MissionEnded(missionResult);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LeaveMissionLogic 实例

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Create
 `public static FaceGenerationParams Create()`
 
-**Purpose:** Creates a new instance or related entity for the current object.
+**Purpose:** **Purpose:** Creates a new instance or related entity for the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ FaceGenerationParams.Create();
 ### SetRaceGenderAndAdjustParams
 `public void SetRaceGenderAndAdjustParams(int race, int gender, int curAge)`
 
-**Purpose:** Assigns a new value to `race gender and adjust params` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to race gender and adjust params and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenerationParams from the subsystem API first
@@ -44,7 +44,7 @@ faceGenerationParams.SetRaceGenderAndAdjustParams(0, 0, 0);
 ### SetRandomParamsExceptKeys
 `public void SetRandomParamsExceptKeys(int race, int gender, int minAge, out float scale)`
 
-**Purpose:** Assigns a new value to `random params except keys` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to random params except keys and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of FaceGenerationParams from the subsystem API first

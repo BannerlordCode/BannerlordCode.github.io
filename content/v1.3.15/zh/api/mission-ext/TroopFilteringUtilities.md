@@ -23,7 +23,7 @@ description: "TroopFilteringUtilities 的自动生成类参考。"
 ### GetFilter
 `public static TroopTraitsMask GetFilter(bool isMounted, bool isRanged, bool isMelee, bool hasHeavyArmor, bool hasThrown, bool hasSpear, bool hasShield)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「filter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 filter 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TroopFilteringUtilities.GetFilter(false, false, false, false, false, false, fals
 ### GetFilter
 `public static TroopTraitsMask GetFilter(params FormationClass formationClasses)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「filter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 filter 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ TroopFilteringUtilities.GetFilter(formationClasses);
 ### GetFilter
 `public static TroopTraitsMask GetFilter(params FormationFilterType filterTypes)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「filter」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 filter 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ TroopFilteringUtilities.GetFilter(filterTypes);
 ### GetPriorityFunction
 `public static void GetPriorityFunction(TroopTraitsMask filter, out Func<Agent, int> priorityFunc)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「priority function」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 priority function 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ TroopFilteringUtilities.GetPriorityFunction(filter, func<Agent, 0);
 ### GetPriorityFunction
 `public static void GetPriorityFunction(TroopTraitsMask filter, out Func<IAgentOriginBase, int> priorityFunc)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「priority function」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 priority function 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ TroopFilteringUtilities.GetPriorityFunction(filter, func<IAgentOriginBase, 0);
 ### GetTroopPriority
 `public static int GetTroopPriority(TroopTraitsMask troopMask, int battleTier, TroopTraitsMask filter)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troop priority」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop priority 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ TroopFilteringUtilities.GetTroopPriority(troopMask, 0, filter);
 ### GetMaxPriority
 `public static int GetMaxPriority(TroopTraitsMask filter)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max priority」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max priority 的结果。
 
 ```csharp
 // 静态调用，不需要实例

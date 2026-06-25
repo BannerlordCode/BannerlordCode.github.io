@@ -117,6 +117,4 @@ LibraryApplicationInterface.SetObjects(...)
 
 ## 使用示例
 
-```csharp
-var example = new 导出与托管桥接();
-```
+// （占位示例已移除，见正文说明）

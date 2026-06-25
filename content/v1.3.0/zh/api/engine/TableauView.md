@@ -23,7 +23,7 @@ description: "TableauView 的自动生成类参考。"
 ### CreateTableauView
 `public static TableauView CreateTableauView()`
 
-**用途 / Purpose:** 构建一个新的 「tableau view」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 tableau view 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TableauView.CreateTableauView();
 ### SetSortingEnabled
 `public void SetSortingEnabled(bool value)`
 
-**用途 / Purpose:** 为 「sorting enabled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sorting enabled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TableauView 实例
@@ -44,7 +44,7 @@ tableauView.SetSortingEnabled(false);
 ### SetContinuousRendering
 `public void SetContinuousRendering(bool value)`
 
-**用途 / Purpose:** 为 「continuous rendering」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 continuous rendering 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TableauView 实例
@@ -55,7 +55,7 @@ tableauView.SetContinuousRendering(false);
 ### SetDoNotRenderThisFrame
 `public void SetDoNotRenderThisFrame(bool value)`
 
-**用途 / Purpose:** 为 「do not render this frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 do not render this frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TableauView 实例
@@ -66,7 +66,7 @@ tableauView.SetDoNotRenderThisFrame(false);
 ### SetDeleteAfterRendering
 `public void SetDeleteAfterRendering(bool value)`
 
-**用途 / Purpose:** 为 「delete after rendering」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 delete after rendering 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TableauView 实例
@@ -77,7 +77,7 @@ tableauView.SetDeleteAfterRendering(false);
 ### AddTableau
 `public static Texture AddTableau(string name, RenderTargetComponent.TextureUpdateEventHandler eventHandler, object objectRef, int tableauSizeX, int tableauSizeY)`
 
-**用途 / Purpose:** 将 「tableau」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 tableau 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

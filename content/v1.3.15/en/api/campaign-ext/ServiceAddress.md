@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.ServiceDiscovery.Client` to place it in the sta
 ### IsServiceAddress
 `public static bool IsServiceAddress(string address)`
 
-**Purpose:** Determines whether the current object is in the `service address` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the service address state or condition.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ ServiceAddress.IsServiceAddress("example");
 ### TryGetAddressName
 `public static bool TryGetAddressName(string serviceAddress, out string addressName)`
 
-**Purpose:** Attempts to retrieve `get address name`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve get address name, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required

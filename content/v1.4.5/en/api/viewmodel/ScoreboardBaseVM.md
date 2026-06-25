@@ -61,7 +61,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -72,7 +72,7 @@ scoreboardBaseVM.RefreshValues();
 ### OnMainHeroDeath
 `public void OnMainHeroDeath()`
 
-**Purpose:** Invoked when the `main hero death` event is raised.
+**Purpose:** **Purpose:** Invoked when the main hero death event is raised.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -83,7 +83,7 @@ scoreboardBaseVM.OnMainHeroDeath();
 ### OnTakenControlOfAnotherAgent
 `public void OnTakenControlOfAnotherAgent()`
 
-**Purpose:** Invoked when the `taken control of another agent` event is raised.
+**Purpose:** **Purpose:** Invoked when the taken control of another agent event is raised.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -94,7 +94,7 @@ scoreboardBaseVM.OnTakenControlOfAnotherAgent();
 ### Initialize
 `public virtual void Initialize(IMissionScreen missionScreen, Mission mission, Action releaseSimulationSources, Action<bool> onToggle)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -105,7 +105,7 @@ scoreboardBaseVM.Initialize(missionScreen, mission, releaseSimulationSources, on
 ### OnDeploymentFinished
 `public virtual void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -116,7 +116,7 @@ scoreboardBaseVM.OnDeploymentFinished();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -127,7 +127,7 @@ scoreboardBaseVM.Tick(0);
 ### SetMouseState
 `public void SetMouseState(bool visible)`
 
-**Purpose:** Assigns a new value to `mouse state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mouse state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -138,7 +138,7 @@ scoreboardBaseVM.SetMouseState(false);
 ### GetFormattedTimeTextFromSeconds
 `public static string GetFormattedTimeTextFromSeconds(int seconds)`
 
-**Purpose:** Reads and returns the `formatted time text from seconds` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the formatted time text from seconds value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -148,7 +148,7 @@ ScoreboardBaseVM.GetFormattedTimeTextFromSeconds(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -159,7 +159,7 @@ scoreboardBaseVM.OnFinalize();
 ### ExecuteShowScoreboardAction
 `public virtual void ExecuteShowScoreboardAction()`
 
-**Purpose:** Runs the operation or workflow associated with `show scoreboard action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with show scoreboard action.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -170,7 +170,7 @@ scoreboardBaseVM.ExecuteShowScoreboardAction();
 ### ExecutePlayAction
 `public virtual void ExecutePlayAction()`
 
-**Purpose:** Runs the operation or workflow associated with `play action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with play action.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -181,7 +181,7 @@ scoreboardBaseVM.ExecutePlayAction();
 ### ExecuteFastForwardAction
 `public virtual void ExecuteFastForwardAction()`
 
-**Purpose:** Runs the operation or workflow associated with `fast forward action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with fast forward action.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -192,7 +192,7 @@ scoreboardBaseVM.ExecuteFastForwardAction();
 ### ExecutePauseSimulationAction
 `public virtual void ExecutePauseSimulationAction()`
 
-**Purpose:** Runs the operation or workflow associated with `pause simulation action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with pause simulation action.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -203,7 +203,7 @@ scoreboardBaseVM.ExecutePauseSimulationAction();
 ### ExecuteEndSimulationAction
 `public virtual void ExecuteEndSimulationAction()`
 
-**Purpose:** Runs the operation or workflow associated with `end simulation action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end simulation action.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -214,7 +214,7 @@ scoreboardBaseVM.ExecuteEndSimulationAction();
 ### ExecuteQuitAction
 `public virtual void ExecuteQuitAction()`
 
-**Purpose:** Runs the operation or workflow associated with `quit action`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with quit action.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first
@@ -225,7 +225,7 @@ scoreboardBaseVM.ExecuteQuitAction();
 ### SetShortcuts
 `public virtual void SetShortcuts(ScoreboardHotkeys shortcuts)`
 
-**Purpose:** Assigns a new value to `shortcuts` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to shortcuts and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ScoreboardBaseVM from the subsystem API first

@@ -35,7 +35,7 @@ description: "Incident 的自动生成类参考。"
 ### Initialize
 `public void Initialize(string title, string description, IncidentsCampaignBehaviour.IncidentTrigger trigger, IncidentsCampaignBehaviour.IncidentType type, CampaignTime cooldown, Func<TextObject, bool> condition)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -46,7 +46,7 @@ incident.Initialize("example", "example", trigger, type, cooldown, func<TextObje
 ### AddOption
 `public void AddOption(string text, List<IncidentEffect> effects, Incident.IncidentOptionConditionDelegate condition = null, Incident.IncidentOptionConsequenceDelegate consequence = null)`
 
-**用途 / Purpose:** 将 「option」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 option 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -57,7 +57,7 @@ incident.AddOption("example", effects, null, null);
 ### CanIncidentBeInvoked
 `public bool CanIncidentBeInvoked()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「incident be invoked」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 incident be invoked 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -68,7 +68,7 @@ var result = incident.CanIncidentBeInvoked();
 ### GetOptionText
 `public TextObject GetOptionText(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「option text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -79,7 +79,7 @@ var result = incident.GetOptionText(0);
 ### GetOptionHint
 `public List<TextObject> GetOptionHint(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「option hint」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option hint 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -90,7 +90,7 @@ var result = incident.GetOptionHint(0);
 ### InvokeOption
 `public List<TextObject> InvokeOption(int index)`
 
-**用途 / Purpose:** 处理与 「invoke option」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 InvokeOption 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -101,7 +101,7 @@ var result = incident.InvokeOption(0);
 ### IncidentOptionConditionDelegate
 `public delegate bool IncidentOptionConditionDelegate(TextObject text)`
 
-**用途 / Purpose:** 处理与 「incident option condition delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IncidentOptionConditionDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -112,7 +112,7 @@ var result = incident.IncidentOptionConditionDelegate(text);
 ### IncidentOptionConsequenceDelegate
 `public delegate void IncidentOptionConsequenceDelegate()`
 
-**用途 / Purpose:** 处理与 「incident option consequence delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IncidentOptionConsequenceDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例

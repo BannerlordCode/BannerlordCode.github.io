@@ -32,7 +32,7 @@ description: "KingdomElection 的自动生成类参考。"
 ### StartElection
 `public void StartElection()`
 
-**用途 / Purpose:** 启动「election」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动election流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -43,7 +43,7 @@ kingdomElection.StartElection();
 ### StartElectionWithoutPlayer
 `public void StartElectionWithoutPlayer()`
 
-**用途 / Purpose:** 启动「election without player」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动election without player流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -54,7 +54,7 @@ kingdomElection.StartElectionWithoutPlayer();
 ### GetLikelihoodForSponsor
 `public float GetLikelihoodForSponsor(Clan sponsor)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「likelihood for sponsor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 likelihood for sponsor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -65,7 +65,7 @@ var result = kingdomElection.GetLikelihoodForSponsor(sponsor);
 ### GetRelationChangeWithSponsor
 `public int GetRelationChangeWithSponsor(Hero opposerOrSupporter, Supporter.SupportWeights supportWeight, bool isOpposingSides)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relation change with sponsor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation change with sponsor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -76,7 +76,7 @@ var result = kingdomElection.GetRelationChangeWithSponsor(opposerOrSupporter, su
 ### GetChosenOutcomeText
 `public TextObject GetChosenOutcomeText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「chosen outcome text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 chosen outcome text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -87,7 +87,7 @@ var result = kingdomElection.GetChosenOutcomeText();
 ### DetermineOfficialSupport
 `public void DetermineOfficialSupport()`
 
-**用途 / Purpose:** 根据当前状态判定「official support」的结果。
+**用途 / Purpose:** **用途 / Purpose:** 根据当前状态判定official support的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -98,7 +98,7 @@ kingdomElection.DetermineOfficialSupport();
 ### GetInfluenceCostOfOutcome
 `public int GetInfluenceCostOfOutcome(DecisionOutcome outcome, Clan supporter, Supporter.SupportWeights weight)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence cost of outcome」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence cost of outcome 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -109,7 +109,7 @@ var result = kingdomElection.GetInfluenceCostOfOutcome(outcome, supporter, weigh
 ### GetSecondaryEffects
 `public TextObject GetSecondaryEffects()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「secondary effects」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 secondary effects 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -120,7 +120,7 @@ var result = kingdomElection.GetSecondaryEffects();
 ### OnPlayerSupport
 `public void OnPlayerSupport(DecisionOutcome decisionOutcome, Supporter.SupportWeights supportWeight)`
 
-**用途 / Purpose:** 在 「player support」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player support 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -131,7 +131,7 @@ kingdomElection.OnPlayerSupport(decisionOutcome, supportWeight);
 ### ApplySelection
 `public void ApplySelection()`
 
-**用途 / Purpose:** 将 「selection」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 selection 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -142,7 +142,7 @@ kingdomElection.ApplySelection();
 ### GetSortedDecisionOutcomes
 `public MBList<DecisionOutcome> GetSortedDecisionOutcomes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sorted decision outcomes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sorted decision outcomes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -153,7 +153,7 @@ var result = kingdomElection.GetSortedDecisionOutcomes();
 ### GetGeneralTitle
 `public TextObject GetGeneralTitle()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「general title」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 general title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -164,7 +164,7 @@ var result = kingdomElection.GetGeneralTitle();
 ### GetTitle
 `public TextObject GetTitle()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「title」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 title 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例
@@ -175,7 +175,7 @@ var result = kingdomElection.GetTitle();
 ### GetDescription
 `public TextObject GetDescription()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomElection 实例

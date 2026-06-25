@@ -33,7 +33,7 @@ Treat `TextureWidget` as a Widget-style extension point: first identify who crea
 ### OnClearTextureProvider
 `public virtual void OnClearTextureProvider()`
 
-**Purpose:** Invoked when the `clear texture provider` event is raised.
+**Purpose:** **Purpose:** Invoked when the clear texture provider event is raised.
 
 ```csharp
 // Obtain an instance of TextureWidget from the subsystem API first

@@ -23,7 +23,7 @@ description: "Gdi32 的自动生成类参考。"
 ### ChoosePixelFormat
 `public static extern int ChoosePixelFormat(IntPtr hdc, ref PixelFormatDescriptor ppfd)`
 
-**用途 / Purpose:** 处理与 「choose pixel format」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChoosePixelFormat 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Gdi32.ChoosePixelFormat(hdc, ppfd);
 ### SetPixelFormat
 `public static extern bool SetPixelFormat(IntPtr hdc, int iPixelFormat, ref PixelFormatDescriptor ppfd)`
 
-**用途 / Purpose:** 为 「pixel format」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 pixel format 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Gdi32.SetPixelFormat(hdc, 0, ppfd);
 ### SwapBuffers
 `public static extern bool SwapBuffers(IntPtr hdc)`
 
-**用途 / Purpose:** 处理与 「swap buffers」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SwapBuffers 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Gdi32.SwapBuffers(hdc);
 ### CreateRectRgn
 `public static extern IntPtr CreateRectRgn(int x1, int y1, int x2, int y2)`
 
-**用途 / Purpose:** 构建一个新的 「rect rgn」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 rect rgn 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Gdi32.CreateRectRgn(0, 0, 0, 0);
 ### CreateSolidBrush
 `public static extern IntPtr CreateSolidBrush(IntPtr colorRef)`
 
-**用途 / Purpose:** 构建一个新的 「solid brush」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 solid brush 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Gdi32.CreateSolidBrush(colorRef);
 ### CreateCompatibleDC
 `public static extern IntPtr CreateCompatibleDC(IntPtr hdc)`
 
-**用途 / Purpose:** 构建一个新的 「compatible d c」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 compatible d c 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ Gdi32.CreateCompatibleDC(hdc);
 ### SelectObject
 `public static extern IntPtr SelectObject(IntPtr hdc, IntPtr h)`
 
-**用途 / Purpose:** 处理与 「select object」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectObject 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ Gdi32.SelectObject(hdc, h);
 ### DeleteObject
 `public static extern bool DeleteObject(IntPtr ho)`
 
-**用途 / Purpose:** 处理与 「delete object」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteObject 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ Gdi32.DeleteObject(ho);
 ### DeleteDC
 `public static extern bool DeleteDC(IntPtr hdc)`
 
-**用途 / Purpose:** 处理与 「delete dc」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteDC 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ Gdi32.DeleteDC(hdc);
 ### CreateCompatibleBitmap
 `public static extern IntPtr CreateCompatibleBitmap(IntPtr hdc, int cx, int cy)`
 
-**用途 / Purpose:** 构建一个新的 「compatible bitmap」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 compatible bitmap 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ Gdi32.CreateCompatibleBitmap(hdc, 0, 0);
 ### StretchDIBits
 `public static extern int StretchDIBits(IntPtr hdc, int xDest, int yDest, int DestWidth, int DestHeight, int xSrc, int ySrc, int SrcWidth, int SrcHeight, byte lpBits, ref BitmapInfo lpbmi, uint iUsage, int rop)`
 
-**用途 / Purpose:** 处理与 「stretch di bits」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 StretchDIBits 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

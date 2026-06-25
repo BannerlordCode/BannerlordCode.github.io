@@ -45,7 +45,7 @@ description: "TextMaterial 的自动生成类参考。"
 ### CopyFrom
 `public void CopyFrom(TextMaterial sourceMaterial)`
 
-**用途 / Purpose:** 把当前对象的「from」状态复制到目标对象。
+**用途 / Purpose:** **用途 / Purpose:** 把当前对象的from状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 TextMaterial 实例

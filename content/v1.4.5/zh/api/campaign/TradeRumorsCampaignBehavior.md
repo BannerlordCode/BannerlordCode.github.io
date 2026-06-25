@@ -29,7 +29,7 @@ description: "TradeRumorsCampaignBehavior 的自动生成类参考。"
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -40,7 +40,7 @@ tradeRumorsCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -51,7 +51,7 @@ tradeRumorsCampaignBehavior.RegisterEvents();
 ### OnTradeRumorIsTaken
 `public void OnTradeRumorIsTaken(List<TradeRumor> newRumors, Settlement sourceSettlement = null)`
 
-**用途 / Purpose:** 在 「trade rumor is taken」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 trade rumor is taken 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -62,7 +62,7 @@ tradeRumorsCampaignBehavior.OnTradeRumorIsTaken(newRumors, null);
 ### AddTradeRumors
 `public void AddTradeRumors(List<TradeRumor> newRumors, Settlement sourceSettlement = null)`
 
-**用途 / Purpose:** 将 「trade rumors」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 trade rumors 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -73,7 +73,7 @@ tradeRumorsCampaignBehavior.AddTradeRumors(newRumors, null);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DailyTick 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -84,7 +84,7 @@ tradeRumorsCampaignBehavior.DailyTick();
 ### OnSettlementEntered
 `public void OnSettlementEntered(MobileParty mobileParty, Settlement settlement, Hero hero)`
 
-**用途 / Purpose:** 在 「settlement entered」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 settlement entered 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -95,7 +95,7 @@ tradeRumorsCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### DeleteExpiredRumors
 `public void DeleteExpiredRumors()`
 
-**用途 / Purpose:** 处理与 「delete expired rumors」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteExpiredRumors 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -106,7 +106,7 @@ tradeRumorsCampaignBehavior.DeleteExpiredRumors();
 ### AddDailyTradeRumors
 `public void AddDailyTradeRumors(int numberOfTradeRumors)`
 
-**用途 / Purpose:** 将 「daily trade rumors」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 daily trade rumors 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例

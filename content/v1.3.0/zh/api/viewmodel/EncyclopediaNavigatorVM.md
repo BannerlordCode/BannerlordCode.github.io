@@ -45,7 +45,7 @@ description: "EncyclopediaNavigatorVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -56,7 +56,7 @@ encyclopediaNavigatorVM.OnFinalize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -67,7 +67,7 @@ encyclopediaNavigatorVM.RefreshValues();
 ### ExecuteHome
 `public void ExecuteHome()`
 
-**用途 / Purpose:** 执行 「home」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 home 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -78,7 +78,7 @@ encyclopediaNavigatorVM.ExecuteHome();
 ### ExecuteBarLink
 `public void ExecuteBarLink(string targetID)`
 
-**用途 / Purpose:** 执行 「bar link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 bar link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -89,7 +89,7 @@ encyclopediaNavigatorVM.ExecuteBarLink("example");
 ### ExecuteCloseEncyclopedia
 `public void ExecuteCloseEncyclopedia()`
 
-**用途 / Purpose:** 执行 「close encyclopedia」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close encyclopedia 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -100,7 +100,7 @@ encyclopediaNavigatorVM.ExecuteCloseEncyclopedia();
 ### ResetHistory
 `public void ResetHistory()`
 
-**用途 / Purpose:** 将 「history」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 history 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -111,7 +111,7 @@ encyclopediaNavigatorVM.ResetHistory();
 ### ExecuteBack
 `public void ExecuteBack()`
 
-**用途 / Purpose:** 执行 「back」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 back 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -122,7 +122,7 @@ encyclopediaNavigatorVM.ExecuteBack();
 ### ExecuteForward
 `public void ExecuteForward()`
 
-**用途 / Purpose:** 执行 「forward」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 forward 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -133,7 +133,7 @@ encyclopediaNavigatorVM.ExecuteForward();
 ### GetLastPage
 `public Tuple<string, object> GetLastPage()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「last page」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 last page 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -144,7 +144,7 @@ var result = encyclopediaNavigatorVM.GetLastPage();
 ### AddHistory
 `public void AddHistory(string pageId, object obj)`
 
-**用途 / Purpose:** 将 「history」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 history 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -155,7 +155,7 @@ encyclopediaNavigatorVM.AddHistory("example", obj);
 ### UpdatePageName
 `public void UpdatePageName(string value)`
 
-**用途 / Purpose:** 重新计算并更新 「page name」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 page name 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -166,7 +166,7 @@ encyclopediaNavigatorVM.UpdatePageName("example");
 ### ResetSearch
 `public void ResetSearch()`
 
-**用途 / Purpose:** 将 「search」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 search 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -177,7 +177,7 @@ encyclopediaNavigatorVM.ResetSearch();
 ### ExecuteOnSearchActivated
 `public void ExecuteOnSearchActivated()`
 
-**用途 / Purpose:** 执行 「on search activated」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 on search activated 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -188,7 +188,7 @@ encyclopediaNavigatorVM.ExecuteOnSearchActivated();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -199,7 +199,7 @@ encyclopediaNavigatorVM.SetCancelInputKey(hotkey);
 ### SetPreviousPageInputKey
 `public void SetPreviousPageInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「previous page input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 previous page input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -210,7 +210,7 @@ encyclopediaNavigatorVM.SetPreviousPageInputKey(hotkey);
 ### SetNextPageInputKey
 `public void SetNextPageInputKey(HotKey hotkey)`
 
-**用途 / Purpose:** 为 「next page input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next page input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例
@@ -221,7 +221,7 @@ encyclopediaNavigatorVM.SetNextPageInputKey(hotkey);
 ### Compare
 `public int Compare(EncyclopediaSearchResultVM x, EncyclopediaSearchResultVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaNavigatorVM 实例

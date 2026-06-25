@@ -23,7 +23,7 @@ description: "MissionObjectiveLogic 的自动生成类参考。"
 ### StartObjective
 `public void StartObjective(MissionObjective objective)`
 
-**用途 / Purpose:** 启动「objective」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动objective流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例
@@ -34,7 +34,7 @@ missionObjectiveLogic.StartObjective(objective);
 ### CompleteCurrentObjective
 `public void CompleteCurrentObjective()`
 
-**用途 / Purpose:** 处理与 「complete current objective」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CompleteCurrentObjective 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例
@@ -45,7 +45,7 @@ missionObjectiveLogic.CompleteCurrentObjective();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例

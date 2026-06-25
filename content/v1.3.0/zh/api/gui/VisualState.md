@@ -47,7 +47,7 @@ description: "VisualState 的自动生成类参考。"
 ### FillFromWidget
 `public void FillFromWidget(Widget widget)`
 
-**用途 / Purpose:** 处理与 「fill from widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillFromWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualState 实例

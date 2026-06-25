@@ -29,7 +29,7 @@ description: "DefaultIssueModel 的自动生成类参考。"
 ### GetIssueDifficultyMultiplier
 `public override float GetIssueDifficultyMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「issue difficulty multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue difficulty multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -40,7 +40,7 @@ var result = defaultIssueModel.GetIssueDifficultyMultiplier();
 ### GetIssueEffectsOfSettlement
 `public override void GetIssueEffectsOfSettlement(IssueEffect issueEffect, Settlement settlement, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「issue effects of settlement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue effects of settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -51,7 +51,7 @@ defaultIssueModel.GetIssueEffectsOfSettlement(issueEffect, settlement, explained
 ### GetIssueEffectOfHero
 `public override void GetIssueEffectOfHero(IssueEffect issueEffect, Hero hero, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「issue effect of hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue effect of hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -62,7 +62,7 @@ defaultIssueModel.GetIssueEffectOfHero(issueEffect, hero, explainedNumber);
 ### GetIssueEffectOfClan
 `public override void GetIssueEffectOfClan(IssueEffect issueEffect, Clan clan, ref ExplainedNumber explainedNumber)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「issue effect of clan」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue effect of clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -73,7 +73,7 @@ defaultIssueModel.GetIssueEffectOfClan(issueEffect, clan, explainedNumber);
 ### GetCausalityForHero
 `public override ValueTuple<int, int> GetCausalityForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「causality for hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 causality for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -84,7 +84,7 @@ var result = defaultIssueModel.GetCausalityForHero(alternativeSolutionHero, issu
 ### GetFailureRiskForHero
 `public override float GetFailureRiskForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「failure risk for hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 failure risk for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -95,7 +95,7 @@ var result = defaultIssueModel.GetFailureRiskForHero(alternativeSolutionHero, is
 ### GetDurationOfResolutionForHero
 `public override CampaignTime GetDurationOfResolutionForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「duration of resolution for hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 duration of resolution for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -106,7 +106,7 @@ var result = defaultIssueModel.GetDurationOfResolutionForHero(alternativeSolutio
 ### GetTroopsRequiredForHero
 `public override int GetTroopsRequiredForHero(Hero alternativeSolutionHero, IssueBase issue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troops required for hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troops required for hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -117,7 +117,7 @@ var result = defaultIssueModel.GetTroopsRequiredForHero(alternativeSolutionHero,
 ### GetIssueAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetIssueAlternativeSolutionSkill(Hero hero, IssueBase issue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「issue alternative solution skill」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 issue alternative solution skill 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例
@@ -128,7 +128,7 @@ var result = defaultIssueModel.GetIssueAlternativeSolutionSkill(hero, issue);
 ### CanTroopsReturnFromAlternativeSolution
 `public override bool CanTroopsReturnFromAlternativeSolution()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「troops return from alternative solution」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 troops return from alternative solution 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultIssueModel 实例

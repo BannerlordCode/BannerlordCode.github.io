@@ -23,7 +23,7 @@ Treat `SandboxBattleSpawnModel` as a Model-style extension point: first identify
 ### OnMissionStart
 `public override void OnMissionStart()`
 
-**Purpose:** Invoked when the `mission start` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission start event is raised.
 
 ```csharp
 // Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
@@ -34,7 +34,7 @@ sandboxBattleSpawnModel.OnMissionStart();
 ### OnMissionEnd
 `public override void OnMissionEnd()`
 
-**Purpose:** Invoked when the `mission end` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
 // Obtain an instance of SandboxBattleSpawnModel from the subsystem API first

@@ -31,7 +31,7 @@ description: "ShipSoldNotificationItemVM 的自动生成类参考。"
 ### AddNewTransaction
 `public void AddNewTransaction(int amount)`
 
-**用途 / Purpose:** 将 「new transaction」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 new transaction 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSoldNotificationItemVM 实例

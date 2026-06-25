@@ -33,7 +33,7 @@ description: "MissionMainAgentCheerBarkControllerVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例
@@ -44,7 +44,7 @@ missionMainAgentCheerBarkControllerVM.OnFinalize();
 ### SelectItem
 `public void SelectItem(int itemIndex, int subNodeIndex = -1)`
 
-**用途 / Purpose:** 处理与 「select item」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectItem 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例
@@ -55,7 +55,7 @@ missionMainAgentCheerBarkControllerVM.SelectItem(0, 0);
 ### ExecuteActivate
 `public void ExecuteActivate()`
 
-**用途 / Purpose:** 执行 「activate」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 activate 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例
@@ -66,7 +66,7 @@ missionMainAgentCheerBarkControllerVM.ExecuteActivate();
 ### ExecuteDeactivate
 `public void ExecuteDeactivate(bool applySelection)`
 
-**用途 / Purpose:** 执行 「deactivate」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 deactivate 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例
@@ -77,7 +77,7 @@ missionMainAgentCheerBarkControllerVM.ExecuteDeactivate(false);
 ### OnNodeFocused
 `public void OnNodeFocused(CheerBarkNodeItemVM focusedNode)`
 
-**用途 / Purpose:** 在 「node focused」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 node focused 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例
@@ -88,7 +88,7 @@ missionMainAgentCheerBarkControllerVM.OnNodeFocused(focusedNode);
 ### OnNodeTooltipToggled
 `public void OnNodeTooltipToggled(CheerBarkNodeItemVM node)`
 
-**用途 / Purpose:** 在 「node tooltip toggled」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 node tooltip toggled 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例

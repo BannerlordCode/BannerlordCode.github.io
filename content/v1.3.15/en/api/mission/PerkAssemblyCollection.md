@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks` to place 
 ### GetPerkAssemblyTypes
 `public static List<Type> GetPerkAssemblyTypes()`
 
-**Purpose:** Reads and returns the `perk assembly types` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the perk assembly types value held by the this instance.
 
 ```csharp
 // Static call; no instance required

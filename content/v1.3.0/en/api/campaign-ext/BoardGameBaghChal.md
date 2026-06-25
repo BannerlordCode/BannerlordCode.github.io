@@ -29,7 +29,7 @@ Start from namespace `SandBox.BoardGames` to place it in the stack, then inspect
 ### InitializeUnits
 `public override void InitializeUnits()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `units`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by units.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -40,7 +40,7 @@ boardGameBaghChal.InitializeUnits();
 ### InitializeTiles
 `public override void InitializeTiles()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `tiles`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by tiles.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -51,7 +51,7 @@ boardGameBaghChal.InitializeTiles();
 ### InitializeSound
 `public override void InitializeSound()`
 
-**Purpose:** Prepares the resources, state, or bindings required by `sound`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by sound.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -62,7 +62,7 @@ boardGameBaghChal.InitializeSound();
 ### Reset
 `public override void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -73,7 +73,7 @@ boardGameBaghChal.Reset();
 ### CalculateAllValidMoves
 `public override List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**Purpose:** Calculates the current value or result of `all valid moves`.
+**Purpose:** **Purpose:** Calculates the current value or result of all valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -84,7 +84,7 @@ var result = boardGameBaghChal.CalculateAllValidMoves(side);
 ### CalculateValidMoves
 `public override List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**Purpose:** Calculates the current value or result of `valid moves`.
+**Purpose:** **Purpose:** Calculates the current value or result of valid moves.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -95,7 +95,7 @@ var result = boardGameBaghChal.CalculateValidMoves(pawn);
 ### SetPawnCaptured
 `public override void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**Purpose:** Assigns a new value to `pawn captured` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to pawn captured and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -106,7 +106,7 @@ boardGameBaghChal.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AIMakeMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -117,7 +117,7 @@ boardGameBaghChal.AIMakeMove(move);
 ### TakeBoardSnapshot
 `public BoardGameBaghChal.BoardInformation TakeBoardSnapshot()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TakeBoardSnapshot logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -128,7 +128,7 @@ var result = boardGameBaghChal.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameBaghChal.BoardInformation board)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UndoMove logic.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first
@@ -139,7 +139,7 @@ boardGameBaghChal.UndoMove(board);
 ### GetANonePlacedGoat
 `public PawnBaghChal GetANonePlacedGoat()`
 
-**Purpose:** Reads and returns the `a none placed goat` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the a none placed goat value held by the this instance.
 
 ```csharp
 // Obtain an instance of BoardGameBaghChal from the subsystem API first

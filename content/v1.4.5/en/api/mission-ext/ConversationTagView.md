@@ -23,7 +23,7 @@ Treat `ConversationTagView` as a View-style extension point: first identify who 
 ### GetSkillMeshName
 `public static string GetSkillMeshName(SkillObject skillEnum, bool isOn = false)`
 
-**Purpose:** Reads and returns the `skill mesh name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the skill mesh name value held by the this instance.
 
 ```csharp
 // Static call; no instance required

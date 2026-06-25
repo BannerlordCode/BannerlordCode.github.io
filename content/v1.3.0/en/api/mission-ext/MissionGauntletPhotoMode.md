@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletPhotoMode.OnMissionScreenInitialize();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletPhotoMode.OnMissionScreenTick(0);
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Invoked when the `escape` event is raised.
+**Purpose:** **Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionGauntletPhotoMode.OnEscape();
 ### IsOpeningEscapeMenuOnFocusChangeAllowed
 `public override bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
 
-**Purpose:** Determines whether the current object is in the `opening escape menu on focus change allowed` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
 
 ```csharp
 // Obtain an instance of MissionGauntletPhotoMode from the subsystem API first
@@ -67,7 +67,7 @@ var result = missionGauntletPhotoMode.IsOpeningEscapeMenuOnFocusChangeAllowed();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletPhotoMode from the subsystem API first

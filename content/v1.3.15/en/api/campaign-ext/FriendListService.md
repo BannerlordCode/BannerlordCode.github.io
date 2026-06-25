@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.PlatformService` to place it in the stack, then
 ### GetAllFriendsInAllPlatforms
 `public static IEnumerable<PlayerId> GetAllFriendsInAllPlatforms()`
 
-**Purpose:** Reads and returns the `all friends in all platforms` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all friends in all platforms value held by the this instance.
 
 ```csharp
 // Static call; no instance required

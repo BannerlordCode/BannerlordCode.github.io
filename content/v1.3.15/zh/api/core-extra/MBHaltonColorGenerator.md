@@ -30,7 +30,7 @@ description: "MBHaltonColorGenerator 的自动生成类参考。"
 ### SetBase
 `public void SetBase()`
 
-**用途 / Purpose:** 为 「base」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 base 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
@@ -41,7 +41,7 @@ mBHaltonColorGenerator.SetBase();
 ### SetBase
 `public void SetBase(int baseValue)`
 
-**用途 / Purpose:** 为 「base」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 base 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
@@ -52,7 +52,7 @@ mBHaltonColorGenerator.SetBase(0);
 ### SetOffset
 `public void SetOffset(float offset)`
 
-**用途 / Purpose:** 为 「offset」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 offset 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
@@ -63,7 +63,7 @@ mBHaltonColorGenerator.SetOffset(0);
 ### SetRandomOffset
 `public void SetRandomOffset()`
 
-**用途 / Purpose:** 为 「random offset」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 random offset 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MBHaltonColorGenerator 实例
@@ -74,7 +74,7 @@ mBHaltonColorGenerator.SetRandomOffset();
 ### GetColor
 `public Color GetColor(int index, int maxIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「color」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 color 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBHaltonColorGenerator 实例

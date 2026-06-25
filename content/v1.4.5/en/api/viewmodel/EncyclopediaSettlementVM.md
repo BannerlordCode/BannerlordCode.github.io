@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of EncyclopediaSettlementVM from the subsystem API first
@@ -41,7 +41,7 @@ encyclopediaSettlementVM.RefreshValues();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**Purpose:** Runs the operation or workflow associated with `link`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with link.
 
 ```csharp
 // Obtain an instance of EncyclopediaSettlementVM from the subsystem API first
@@ -52,7 +52,7 @@ encyclopediaSettlementVM.ExecuteLink();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**Purpose:** Runs the operation or workflow associated with `end hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with end hint.
 
 ```csharp
 // Obtain an instance of EncyclopediaSettlementVM from the subsystem API first
@@ -63,7 +63,7 @@ encyclopediaSettlementVM.ExecuteEndHint();
 ### ExecuteBeginHint
 `public void ExecuteBeginHint()`
 
-**Purpose:** Runs the operation or workflow associated with `begin hint`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin hint.
 
 ```csharp
 // Obtain an instance of EncyclopediaSettlementVM from the subsystem API first

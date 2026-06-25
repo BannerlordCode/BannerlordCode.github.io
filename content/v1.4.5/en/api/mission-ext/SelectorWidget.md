@@ -31,7 +31,7 @@ Treat `SelectorWidget` as a Widget-style extension point: first identify who cre
 ### OnListChanged
 `public void OnListChanged(Widget widget)`
 
-**Purpose:** Invoked when the `list changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the list changed event is raised.
 
 ```csharp
 // Obtain an instance of SelectorWidget from the subsystem API first
@@ -42,7 +42,7 @@ selectorWidget.OnListChanged(widget);
 ### OnListChanged
 `public void OnListChanged(Widget parentWidget, Widget addedWidget)`
 
-**Purpose:** Invoked when the `list changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the list changed event is raised.
 
 ```csharp
 // Obtain an instance of SelectorWidget from the subsystem API first
@@ -53,7 +53,7 @@ selectorWidget.OnListChanged(parentWidget, addedWidget);
 ### OnSelectionChanged
 `public void OnSelectionChanged(Widget widget)`
 
-**Purpose:** Invoked when the `selection changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the selection changed event is raised.
 
 ```csharp
 // Obtain an instance of SelectorWidget from the subsystem API first

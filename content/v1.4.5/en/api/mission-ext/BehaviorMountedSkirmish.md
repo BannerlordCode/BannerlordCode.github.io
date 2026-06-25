@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetTargetPos
 `public Vec2 GetTargetPos(Vec2 position, float distance)`
 
-**Purpose:** Reads and returns the `target pos` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target pos value held by the this instance.
 
 ```csharp
 // Obtain an instance of BehaviorMountedSkirmish from the subsystem API first
@@ -34,7 +34,7 @@ var result = behaviorMountedSkirmish.GetTargetPos(position, 0);
 ### TickOccasionally
 `public override void TickOccasionally()`
 
-**Purpose:** Advances the `occasionally` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the occasionally state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of BehaviorMountedSkirmish from the subsystem API first

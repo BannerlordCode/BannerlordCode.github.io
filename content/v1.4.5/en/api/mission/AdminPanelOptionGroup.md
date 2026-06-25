@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin` to place it in
 ### AddOption
 `public void AddOption(IAdminPanelOption option)`
 
-**Purpose:** Adds `option` to the current collection or state.
+**Purpose:** **Purpose:** Adds option to the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminPanelOptionGroup from the subsystem API first
@@ -34,7 +34,7 @@ adminPanelOptionGroup.AddOption(option);
 ### AddAction
 `public void AddAction(IAdminPanelAction action)`
 
-**Purpose:** Adds `action` to the current collection or state.
+**Purpose:** **Purpose:** Adds action to the current collection or state.
 
 ```csharp
 // Obtain an instance of AdminPanelOptionGroup from the subsystem API first

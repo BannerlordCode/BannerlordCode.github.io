@@ -23,7 +23,7 @@ Treat `HeroAgentLocationModel` as a Model-style extension point: first identify 
 ### WillBeListedInOverlay
 `public abstract bool WillBeListedInOverlay(LocationCharacter locationCharacter)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WillBeListedInOverlay logic.
 
 ```csharp
 // Obtain an instance of HeroAgentLocationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = heroAgentLocationModel.WillBeListedInOverlay(locationCharacter);
 ### GetLocationForHero
 `public abstract Location GetLocationForHero(Hero hero, Settlement settlement, out HeroLocationDetail heroSpawnDetail)`
 
-**Purpose:** Reads and returns the `location for hero` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the location for hero value held by the this instance.
 
 ```csharp
 // Obtain an instance of HeroAgentLocationModel from the subsystem API first

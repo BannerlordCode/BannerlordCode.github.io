@@ -85,7 +85,7 @@ description: "BannerlordConfig 的自动生成类参考。"
 ### IsValidValue
 `public bool IsValidValue(int value)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「valid value」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 valid value 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerlordConfig 实例
@@ -96,7 +96,7 @@ var result = bannerlordConfig.IsValidValue(0);
 ### Initialize
 `public static void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ BannerlordConfig.Initialize();
 ### Save
 `public static SaveResult Save()`
 
-**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -116,7 +116,7 @@ BannerlordConfig.Save();
 ### GetDamageToPlayerMultiplier
 `public static float GetDamageToPlayerMultiplier()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「damage to player multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 damage to player multiplier 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -126,7 +126,7 @@ BannerlordConfig.GetDamageToPlayerMultiplier();
 ### GetRealBattleSize
 `public static int GetRealBattleSize()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「real battle size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 real battle size 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -136,7 +136,7 @@ BannerlordConfig.GetRealBattleSize();
 ### GetRealBattleSizeForSiege
 `public static int GetRealBattleSizeForSiege()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「real battle size for siege」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 real battle size for siege 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -146,7 +146,7 @@ BannerlordConfig.GetRealBattleSizeForSiege();
 ### GetRealBattleSizeForNaval
 `public static int GetRealBattleSizeForNaval()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「real battle size for naval」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 real battle size for naval 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -156,7 +156,7 @@ BannerlordConfig.GetRealBattleSizeForNaval();
 ### GetReinforcementWaveCount
 `public static int GetReinforcementWaveCount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「reinforcement wave count」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 reinforcement wave count 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -166,7 +166,7 @@ BannerlordConfig.GetReinforcementWaveCount();
 ### GetRealBattleSizeForSallyOut
 `public static int GetRealBattleSizeForSallyOut()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「real battle size for sally out」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 real battle size for sally out 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "ShipSail 的自动生成类参考。"
 ### NearlyEquals
 `public bool NearlyEquals(ShipSail otherShipSail)`
 
-**用途 / Purpose:** 处理与 「nearly equals」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NearlyEquals 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSail 实例

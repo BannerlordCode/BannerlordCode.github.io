@@ -46,7 +46,7 @@ Start from namespace `SandBox.ViewModelCollection.MapSiege` to place it in the s
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first
@@ -57,7 +57,7 @@ mapSiegePOIVM.ExecuteSelection();
 ### UpdateProperties
 `public void UpdateProperties()`
 
-**Purpose:** Recalculates and stores the latest representation of `properties`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of properties.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first
@@ -68,7 +68,7 @@ mapSiegePOIVM.UpdateProperties();
 ### RefreshDistanceValue
 `public void RefreshDistanceValue(float newDistance)`
 
-**Purpose:** Keeps the display or cache of `distance value` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of distance value in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first
@@ -79,7 +79,7 @@ mapSiegePOIVM.RefreshDistanceValue(0);
 ### RefreshPosition
 `public void RefreshPosition()`
 
-**Purpose:** Keeps the display or cache of `position` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of position in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first
@@ -90,7 +90,7 @@ mapSiegePOIVM.RefreshPosition();
 ### RefreshBinding
 `public void RefreshBinding()`
 
-**Purpose:** Keeps the display or cache of `binding` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of binding in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first
@@ -101,7 +101,7 @@ mapSiegePOIVM.RefreshBinding();
 ### ExecuteShowTooltip
 `public void ExecuteShowTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `show tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with show tooltip.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first
@@ -112,7 +112,7 @@ mapSiegePOIVM.ExecuteShowTooltip();
 ### ExecuteHideTooltip
 `public void ExecuteHideTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `hide tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with hide tooltip.
 
 ```csharp
 // Obtain an instance of MapSiegePOIVM from the subsystem API first

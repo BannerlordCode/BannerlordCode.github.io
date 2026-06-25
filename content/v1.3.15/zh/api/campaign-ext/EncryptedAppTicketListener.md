@@ -29,7 +29,7 @@ description: "EncryptedAppTicketListener 的自动生成类参考。"
 ### OnEncryptedAppTicketRetrieveFailure
 `public override void OnEncryptedAppTicketRetrieveFailure(IEncryptedAppTicketListener.FailureReason failureReason)`
 
-**用途 / Purpose:** 在 「encrypted app ticket retrieve failure」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 encrypted app ticket retrieve failure 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncryptedAppTicketListener 实例
@@ -40,7 +40,7 @@ encryptedAppTicketListener.OnEncryptedAppTicketRetrieveFailure(failureReason);
 ### OnEncryptedAppTicketRetrieveSuccess
 `public override void OnEncryptedAppTicketRetrieveSuccess()`
 
-**用途 / Purpose:** 在 「encrypted app ticket retrieve success」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 encrypted app ticket retrieve success 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 EncryptedAppTicketListener 实例

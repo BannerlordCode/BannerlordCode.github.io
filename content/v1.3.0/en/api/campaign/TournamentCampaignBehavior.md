@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.TournamentGames` to place it in 
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of TournamentCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ tournamentCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of TournamentCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ tournamentCampaignBehavior.SyncData(dataStore);
 ### OnSessionLaunched
 `public void OnSessionLaunched(CampaignGameStarter campaignGameStarter)`
 
-**Purpose:** Invoked when the `session launched` event is raised.
+**Purpose:** **Purpose:** Invoked when the session launched event is raised.
 
 ```csharp
 // Obtain an instance of TournamentCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ tournamentCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### game_menu_ui_town_arena_see_leaderboard_on_consequence
 `public static void game_menu_ui_town_arena_see_leaderboard_on_consequence(MenuCallbackArgs args)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the game_menu_ui_town_arena_see_leaderboard_on_consequence logic.
 
 ```csharp
 // Static call; no instance required

@@ -37,7 +37,7 @@ Treat `LanguageData` as a Data-style extension point: first identify who creates
 ### InitializeDefault
 `public void InitializeDefault(string title, string supportedIsoCodes, string subtitleExtension, string textProcessor, bool isUnderDevelopment)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `default`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by default.
 
 ```csharp
 // Obtain an instance of LanguageData from the subsystem API first
@@ -48,7 +48,7 @@ languageData.InitializeDefault("example", "example", "example", "example", false
 ### Clear
 `public static void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -58,7 +58,7 @@ LanguageData.Clear();
 ### GetLanguageData
 `public static LanguageData GetLanguageData(string stringId)`
 
-**Purpose:** Reads and returns the `language data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the language data value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -68,7 +68,7 @@ LanguageData.GetLanguageData("example");
 ### GetLanguageDataIndex
 `public static int GetLanguageDataIndex(string stringId)`
 
-**Purpose:** Reads and returns the `language data index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the language data index value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -78,7 +78,7 @@ LanguageData.GetLanguageDataIndex("example");
 ### LoadFromXml
 `public static void LoadFromXml(XmlDocument doc, string modulePath)`
 
-**Purpose:** Reads `from xml` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads from xml from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required
@@ -88,7 +88,7 @@ LanguageData.LoadFromXml(doc, "example");
 ### LoadTestData
 `public static void LoadTestData(LanguageData data)`
 
-**Purpose:** Reads `test data` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads test data from persistent storage or a stream.
 
 ```csharp
 // Static call; no instance required

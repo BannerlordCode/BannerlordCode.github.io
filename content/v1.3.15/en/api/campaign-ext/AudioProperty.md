@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### FillFrom
 `public void FillFrom(AudioProperty audioProperty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of AudioProperty from the subsystem API first

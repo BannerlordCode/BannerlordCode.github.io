@@ -33,7 +33,7 @@ description: "IntegerInputTextWidget 的自动生成类参考。"
 ### HandleInput
 `public override void HandleInput(IReadOnlyList<int> lastKeysPressed)`
 
-**用途 / Purpose:** 执行与 「input」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 input 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IntegerInputTextWidget 实例
@@ -44,7 +44,7 @@ integerInputTextWidget.HandleInput(lastKeysPressed);
 ### SetAllText
 `public override void SetAllText(string text)`
 
-**用途 / Purpose:** 为 「all text」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 all text 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 IntegerInputTextWidget 实例

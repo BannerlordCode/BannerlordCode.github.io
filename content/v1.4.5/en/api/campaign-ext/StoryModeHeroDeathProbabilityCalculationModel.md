@@ -23,7 +23,7 @@ Treat `StoryModeHeroDeathProbabilityCalculationModel` as a Model-style extension
 ### CalculateHeroDeathProbability
 `public override float CalculateHeroDeathProbability(Hero hero)`
 
-**Purpose:** Calculates the current value or result of `hero death probability`.
+**Purpose:** **Purpose:** Calculates the current value or result of hero death probability.
 
 ```csharp
 // Obtain an instance of StoryModeHeroDeathProbabilityCalculationModel from the subsystem API first

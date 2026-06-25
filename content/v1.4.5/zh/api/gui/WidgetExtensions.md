@@ -23,7 +23,7 @@ description: "WidgetExtensions 的自动生成类参考。"
 ### SetWidgetAttributeFromString
 `public static void SetWidgetAttributeFromString(object target, string name, string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, VisualDefinitionTemplate> visualDefinitionTemplates, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, XmlElement> customElements, Dictionary<string, string> defaultParameters)`
 
-**用途 / Purpose:** 为 「widget attribute from string」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 widget attribute from string 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ WidgetExtensions.SetWidgetAttributeFromString(target, "example", "example", brus
 ### GetWidgetAttributeType
 `public static Type GetWidgetAttributeType(object target, string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「widget attribute type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 widget attribute type 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ WidgetExtensions.GetWidgetAttributeType(target, "example");
 ### SetWidgetAttribute
 `public static void SetWidgetAttribute(UIContext context, object target, string name, object value)`
 
-**用途 / Purpose:** 为 「widget attribute」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 widget attribute 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

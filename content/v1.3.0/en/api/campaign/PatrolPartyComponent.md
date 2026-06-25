@@ -32,7 +32,7 @@ Treat `PatrolPartyComponent` as a Component-style extension point: first identif
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Reads and returns the `default component banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of PatrolPartyComponent from the subsystem API first
@@ -43,7 +43,7 @@ var result = patrolPartyComponent.GetDefaultComponentBanner();
 ### CreatePatrolParty
 `public static MobileParty CreatePatrolParty(string stringId, CampaignVec2 position, float spawnRadius, Settlement homeSettlement, PartyTemplateObject template)`
 
-**Purpose:** Constructs a new `patrol party` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new patrol party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ PatrolPartyComponent.CreatePatrolParty("example", position, 0, homeSettlement, t
 ### SortRoster
 `public void SortRoster()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SortRoster logic.
 
 ```csharp
 // Obtain an instance of PatrolPartyComponent from the subsystem API first

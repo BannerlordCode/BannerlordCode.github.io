@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then 
 ### IsCompatable
 `public bool IsCompatable(ItemObject item)`
 
-**Purpose:** Determines whether the current object is in the `compatable` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the compatable state or condition.
 
 ```csharp
 // Obtain an instance of TradeRumor from the subsystem API first
@@ -40,7 +40,7 @@ var result = tradeRumor.IsCompatable(item);
 ### IsExpired
 `public bool IsExpired()`
 
-**Purpose:** Determines whether the current object is in the `expired` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the expired state or condition.
 
 ```csharp
 // Obtain an instance of TradeRumor from the subsystem API first

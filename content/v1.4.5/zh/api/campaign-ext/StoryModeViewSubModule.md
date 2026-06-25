@@ -23,7 +23,7 @@ description: "StoryModeViewSubModule 的自动生成类参考。"
 ### OnGameInitializationFinished
 `public override void OnGameInitializationFinished(Game game)`
 
-**用途 / Purpose:** 在 「game initialization finished」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game initialization finished 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeViewSubModule 实例
@@ -34,7 +34,7 @@ storyModeViewSubModule.OnGameInitializationFinished(game);
 ### OnGameEnd
 `public override void OnGameEnd(Game game)`
 
-**用途 / Purpose:** 在 「game end」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeViewSubModule 实例
@@ -45,7 +45,7 @@ storyModeViewSubModule.OnGameEnd(game);
 ### OnSubModuleDeactivated
 `public override void OnSubModuleDeactivated()`
 
-**用途 / Purpose:** 在 「sub module deactivated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 sub module deactivated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeViewSubModule 实例
@@ -56,7 +56,7 @@ storyModeViewSubModule.OnSubModuleDeactivated();
 ### OnSubModuleActivated
 `public override void OnSubModuleActivated()`
 
-**用途 / Purpose:** 在 「sub module activated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 sub module activated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeViewSubModule 实例

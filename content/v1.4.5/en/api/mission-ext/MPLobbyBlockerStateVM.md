@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### OnLobbyStateIsBlocker
 `public void OnLobbyStateIsBlocker(TextObject description)`
 
-**Purpose:** Invoked when the `lobby state is blocker` event is raised.
+**Purpose:** **Purpose:** Invoked when the lobby state is blocker event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyBlockerStateVM from the subsystem API first
@@ -41,7 +41,7 @@ mPLobbyBlockerStateVM.OnLobbyStateIsBlocker(description);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyBlockerStateVM from the subsystem API first
@@ -52,7 +52,7 @@ mPLobbyBlockerStateVM.RefreshValues();
 ### OnLobbyStateNotBlocker
 `public void OnLobbyStateNotBlocker()`
 
-**Purpose:** Invoked when the `lobby state not blocker` event is raised.
+**Purpose:** **Purpose:** Invoked when the lobby state not blocker event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyBlockerStateVM from the subsystem API first

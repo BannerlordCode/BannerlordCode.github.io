@@ -29,7 +29,7 @@ Treat `MapNavigationHandler` as a Handler-style extension point: first identify 
 ### GetElements
 `public INavigationElement GetElements()`
 
-**Purpose:** Reads and returns the `elements` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the elements value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapNavigationHandler from the subsystem API first
@@ -40,7 +40,7 @@ var result = mapNavigationHandler.GetElements();
 ### IsAnyElementActive
 `public bool IsAnyElementActive()`
 
-**Purpose:** Determines whether the current object is in the `any element active` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the any element active state or condition.
 
 ```csharp
 // Obtain an instance of MapNavigationHandler from the subsystem API first
@@ -51,7 +51,7 @@ var result = mapNavigationHandler.IsAnyElementActive();
 ### GetElement
 `public INavigationElement GetElement(string id)`
 
-**Purpose:** Reads and returns the `element` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the element value held by the this instance.
 
 ```csharp
 // Obtain an instance of MapNavigationHandler from the subsystem API first

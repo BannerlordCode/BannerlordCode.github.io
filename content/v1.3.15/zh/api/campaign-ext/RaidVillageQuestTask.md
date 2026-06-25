@@ -23,7 +23,7 @@ description: "RaidVillageQuestTask 的自动生成类参考。"
 ### OnVillageLooted
 `public void OnVillageLooted(Village village)`
 
-**用途 / Purpose:** 在 「village looted」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 village looted 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RaidVillageQuestTask 实例
@@ -34,7 +34,7 @@ raidVillageQuestTask.OnVillageLooted(village);
 ### OnClanChangedKingdom
 `public void OnClanChangedKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification)`
 
-**用途 / Purpose:** 在 「clan changed kingdom」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clan changed kingdom 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RaidVillageQuestTask 实例
@@ -45,7 +45,7 @@ raidVillageQuestTask.OnClanChangedKingdom(clan, oldKingdom, newKingdom, detail, 
 ### SetReferences
 `public override void SetReferences()`
 
-**用途 / Purpose:** 为 「references」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 references 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RaidVillageQuestTask 实例

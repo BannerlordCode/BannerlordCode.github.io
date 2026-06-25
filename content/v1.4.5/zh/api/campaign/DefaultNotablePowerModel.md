@@ -23,7 +23,7 @@ description: "DefaultNotablePowerModel 的自动生成类参考。"
 ### CalculateDailyPowerChangeForHero
 `public override ExplainedNumber CalculateDailyPowerChangeForHero(Hero hero, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 计算「daily power change for hero」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算daily power change for hero的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
@@ -34,7 +34,7 @@ var result = defaultNotablePowerModel.CalculateDailyPowerChangeForHero(hero, fal
 ### GetPowerRankName
 `public override TextObject GetPowerRankName(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「power rank name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 power rank name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
@@ -45,7 +45,7 @@ var result = defaultNotablePowerModel.GetPowerRankName(hero);
 ### GetInfluenceBonusToClan
 `public override float GetInfluenceBonusToClan(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence bonus to clan」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence bonus to clan 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
@@ -56,7 +56,7 @@ var result = defaultNotablePowerModel.GetInfluenceBonusToClan(hero);
 ### GetInitialPower
 `public override int GetInitialPower(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「initial power」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial power 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultNotablePowerModel 实例
@@ -67,7 +67,7 @@ var result = defaultNotablePowerModel.GetInitialPower(hero);
 ### GetInitialNotableSupporterCost
 `public override int GetInitialNotableSupporterCost(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「initial notable supporter cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 initial notable supporter cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultNotablePowerModel 实例

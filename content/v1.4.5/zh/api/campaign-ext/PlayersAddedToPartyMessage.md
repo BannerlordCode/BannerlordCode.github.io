@@ -23,7 +23,7 @@ description: "PlayersAddedToPartyMessage 的自动生成类参考。"
 ### AddPlayer
 `public void AddPlayer(PlayerId playerId, string playerName, bool isPartyLeader)`
 
-**用途 / Purpose:** 将 「player」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 player 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayersAddedToPartyMessage 实例
@@ -34,7 +34,7 @@ playersAddedToPartyMessage.AddPlayer(playerId, "example", false);
 ### AddInvitedPlayer
 `public void AddInvitedPlayer(PlayerId playerId, string playerName)`
 
-**用途 / Purpose:** 将 「invited player」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 invited player 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayersAddedToPartyMessage 实例

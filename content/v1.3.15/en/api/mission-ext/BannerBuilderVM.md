@@ -59,7 +59,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -70,7 +70,7 @@ bannerBuilderVM.RefreshValues();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -81,7 +81,7 @@ bannerBuilderVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -92,7 +92,7 @@ bannerBuilderVM.ExecuteDone();
 ### ExecuteAddDefaultLayer
 `public void ExecuteAddDefaultLayer()`
 
-**Purpose:** Runs the operation or workflow associated with `add default layer`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with add default layer.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -103,7 +103,7 @@ bannerBuilderVM.ExecuteAddDefaultLayer();
 ### ExecuteDuplicateCurrentLayer
 `public void ExecuteDuplicateCurrentLayer()`
 
-**Purpose:** Runs the operation or workflow associated with `duplicate current layer`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with duplicate current layer.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -114,7 +114,7 @@ bannerBuilderVM.ExecuteDuplicateCurrentLayer();
 ### ExecuteCopyBannerCode
 `public void ExecuteCopyBannerCode()`
 
-**Purpose:** Runs the operation or workflow associated with `copy banner code`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with copy banner code.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -125,7 +125,7 @@ bannerBuilderVM.ExecuteCopyBannerCode();
 ### ExecuteReorderWithParameters
 `public void ExecuteReorderWithParameters(BannerBuilderLayerVM layer, int index, string targetTag)`
 
-**Purpose:** Runs the operation or workflow associated with `reorder with parameters`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reorder with parameters.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -136,7 +136,7 @@ bannerBuilderVM.ExecuteReorderWithParameters(layer, 0, "example");
 ### ExecuteReorderToEndWithParameters
 `public void ExecuteReorderToEndWithParameters(BannerBuilderLayerVM layer, int index, string targetTag)`
 
-**Purpose:** Runs the operation or workflow associated with `reorder to end with parameters`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reorder to end with parameters.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -147,7 +147,7 @@ bannerBuilderVM.ExecuteReorderToEndWithParameters(layer, 0, "example");
 ### GetBannerCode
 `public string GetBannerCode()`
 
-**Purpose:** Reads and returns the `banner code` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the banner code value held by the this instance.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -158,7 +158,7 @@ var result = bannerBuilderVM.GetBannerCode();
 ### SetBannerCode
 `public void SetBannerCode(string v)`
 
-**Purpose:** Assigns a new value to `banner code` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to banner code and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -169,7 +169,7 @@ bannerBuilderVM.SetBannerCode("example");
 ### TranslateCurrentLayerWith
 `public void TranslateCurrentLayerWith(Vec2 moveDirection)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TranslateCurrentLayerWith logic.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -180,7 +180,7 @@ bannerBuilderVM.TranslateCurrentLayerWith(moveDirection);
 ### DeleteCurrentLayer
 `public void DeleteCurrentLayer()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DeleteCurrentLayer logic.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -191,7 +191,7 @@ bannerBuilderVM.DeleteCurrentLayer();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -202,7 +202,7 @@ bannerBuilderVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first
@@ -213,7 +213,7 @@ bannerBuilderVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerBuilderVM from the subsystem API first

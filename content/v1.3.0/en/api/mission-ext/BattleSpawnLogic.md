@@ -23,7 +23,7 @@ Treat `BattleSpawnLogic` as a Logic-style extension point: first identify who cr
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of BattleSpawnLogic from the subsystem API first

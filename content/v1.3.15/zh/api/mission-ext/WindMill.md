@@ -23,7 +23,7 @@ description: "WindMill 的自动生成类参考。"
 ### GetIntegerFromStringEnd
 `public static int GetIntegerFromStringEnd(string str)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「integer from string end」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 integer from string end 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ WindMill.GetIntegerFromStringEnd("example");
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 WindMill 实例

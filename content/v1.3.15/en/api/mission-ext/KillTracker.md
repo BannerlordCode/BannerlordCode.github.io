@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Diamond.MultiplayerBadges` to pla
 ### OnKill
 `public override void OnKill(KillData killData)`
 
-**Purpose:** Invoked when the `kill` event is raised.
+**Purpose:** **Purpose:** Invoked when the kill event is raised.
 
 ```csharp
 // Obtain an instance of KillTracker from the subsystem API first

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### SerializeEntry
 `public void SerializeEntry(SaveEntry entry)`
 
-**Purpose:** Serializes `entry` into a storable or transmittable format.
+**Purpose:** **Purpose:** Serializes entry into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of ArchiveSerializer from the subsystem API first
@@ -34,7 +34,7 @@ archiveSerializer.SerializeEntry(entry);
 ### SerializeFolder
 `public void SerializeFolder(SaveEntryFolder folder)`
 
-**Purpose:** Serializes `folder` into a storable or transmittable format.
+**Purpose:** **Purpose:** Serializes folder into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of ArchiveSerializer from the subsystem API first
@@ -45,7 +45,7 @@ archiveSerializer.SerializeFolder(folder);
 ### CreateFolder
 `public SaveEntryFolder CreateFolder(SaveEntryFolder parentFolder, FolderId folderId, int entryCount)`
 
-**Purpose:** Constructs a new `folder` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new folder entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ArchiveSerializer from the subsystem API first
@@ -56,7 +56,7 @@ var result = archiveSerializer.CreateFolder(parentFolder, folderId, 0);
 ### FinalizeAndGetBinaryData
 `public byte FinalizeAndGetBinaryData()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeAndGetBinaryData logic.
 
 ```csharp
 // Obtain an instance of ArchiveSerializer from the subsystem API first
@@ -67,7 +67,7 @@ var result = archiveSerializer.FinalizeAndGetBinaryData();
 ### GetBinaryDataDebug
 `public byte GetBinaryDataDebug()`
 
-**Purpose:** Reads and returns the `binary data debug` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the binary data debug value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArchiveSerializer from the subsystem API first

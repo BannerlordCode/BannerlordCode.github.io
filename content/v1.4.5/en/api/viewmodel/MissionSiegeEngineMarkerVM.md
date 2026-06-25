@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Formation
 ### Compare
 `public int Compare(MissionSiegeEngineMarkerTargetVM x, MissionSiegeEngineMarkerTargetVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
@@ -42,7 +42,7 @@ var result = missionSiegeEngineMarkerVM.Compare(x, y);
 ### InitializeWith
 `public void InitializeWith(List<SiegeWeapon> siegeEngines)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `with`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by with.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
@@ -53,7 +53,7 @@ missionSiegeEngineMarkerVM.InitializeWith(siegeEngines);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first
@@ -64,7 +64,7 @@ missionSiegeEngineMarkerVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionSiegeEngineMarkerVM from the subsystem API first

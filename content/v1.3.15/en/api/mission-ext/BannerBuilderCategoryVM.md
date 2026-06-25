@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of BannerBuilderCategoryVM from the subsystem API first

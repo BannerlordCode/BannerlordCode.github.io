@@ -23,7 +23,7 @@ Treat `SandBoxMissionManager` as a Manager-style extension point: first identify
 ### OpenTournamentFightMission
 `public IMission OpenTournamentFightMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Opens the resource or UI associated with `tournament fight mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with tournament fight mission.
 
 ```csharp
 // Obtain an instance of SandBoxMissionManager from the subsystem API first
@@ -34,7 +34,7 @@ var result = sandBoxMissionManager.OpenTournamentFightMission("example", tournam
 ### OpenTournamentHorseRaceMission
 `public IMission OpenTournamentHorseRaceMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Opens the resource or UI associated with `tournament horse race mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with tournament horse race mission.
 
 ```csharp
 // Obtain an instance of SandBoxMissionManager from the subsystem API first
@@ -45,7 +45,7 @@ var result = sandBoxMissionManager.OpenTournamentHorseRaceMission("example", tou
 ### OpenTournamentJoustingMission
 `public IMission OpenTournamentJoustingMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Opens the resource or UI associated with `tournament jousting mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with tournament jousting mission.
 
 ```csharp
 // Obtain an instance of SandBoxMissionManager from the subsystem API first
@@ -56,7 +56,7 @@ var result = sandBoxMissionManager.OpenTournamentJoustingMission("example", tour
 ### OpenTournamentArcheryMission
 `public IMission OpenTournamentArcheryMission(string scene, TournamentGame tournamentGame, Settlement settlement, CultureObject culture, bool isPlayerParticipating)`
 
-**Purpose:** Opens the resource or UI associated with `tournament archery mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with tournament archery mission.
 
 ```csharp
 // Obtain an instance of SandBoxMissionManager from the subsystem API first

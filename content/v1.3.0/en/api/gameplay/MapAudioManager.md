@@ -23,7 +23,7 @@ Treat `MapAudioManager` as a Manager-style extension point: first identify who c
 ### OnVisualTick
 `public override void OnVisualTick(MapScreen screen, float realDt, float dt)`
 
-**Purpose:** Invoked when the `visual tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the visual tick event is raised.
 
 ```csharp
 // Obtain an instance of MapAudioManager from the subsystem API first

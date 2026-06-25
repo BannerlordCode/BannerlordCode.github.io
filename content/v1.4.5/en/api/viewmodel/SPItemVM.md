@@ -50,7 +50,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Inventory` t
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -61,7 +61,7 @@ sPItemVM.RefreshValues();
 ### RefreshWith
 `public void RefreshWith(SPItemVM itemVM, InventoryLogic.InventorySide inventorySide)`
 
-**Purpose:** Keeps the display or cache of `with` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of with in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -72,7 +72,7 @@ sPItemVM.RefreshWith(itemVM, inventorySide);
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**Purpose:** Runs the operation or workflow associated with `buy single`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with buy single.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -83,7 +83,7 @@ sPItemVM.ExecuteBuySingle();
 ### ExecuteBuy
 `public void ExecuteBuy(int amount)`
 
-**Purpose:** Runs the operation or workflow associated with `buy`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with buy.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -94,7 +94,7 @@ sPItemVM.ExecuteBuy(0);
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**Purpose:** Runs the operation or workflow associated with `sell single`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sell single.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -105,7 +105,7 @@ sPItemVM.ExecuteSellSingle();
 ### ExecuteSell
 `public void ExecuteSell(int amount)`
 
-**Purpose:** Runs the operation or workflow associated with `sell`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sell.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -116,7 +116,7 @@ sPItemVM.ExecuteSell(0);
 ### ExecuteSellItem
 `public void ExecuteSellItem()`
 
-**Purpose:** Runs the operation or workflow associated with `sell item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with sell item.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -127,7 +127,7 @@ sPItemVM.ExecuteSellItem();
 ### ExecuteConcept
 `public void ExecuteConcept()`
 
-**Purpose:** Runs the operation or workflow associated with `concept`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with concept.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -138,7 +138,7 @@ sPItemVM.ExecuteConcept();
 ### ExecuteResetTrade
 `public void ExecuteResetTrade()`
 
-**Purpose:** Runs the operation or workflow associated with `reset trade`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset trade.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -149,7 +149,7 @@ sPItemVM.ExecuteResetTrade();
 ### UpdateTradeData
 `public void UpdateTradeData(bool forceUpdateAmounts)`
 
-**Purpose:** Recalculates and stores the latest representation of `trade data`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of trade data.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -160,7 +160,7 @@ sPItemVM.UpdateTradeData(false);
 ### ExecuteSlaughterItem
 `public void ExecuteSlaughterItem()`
 
-**Purpose:** Runs the operation or workflow associated with `slaughter item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with slaughter item.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -171,7 +171,7 @@ sPItemVM.ExecuteSlaughterItem();
 ### ExecuteDonateItem
 `public void ExecuteDonateItem()`
 
-**Purpose:** Runs the operation or workflow associated with `donate item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with donate item.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -182,7 +182,7 @@ sPItemVM.ExecuteDonateItem();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**Purpose:** Runs the operation or workflow associated with `set focused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set focused.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -193,7 +193,7 @@ sPItemVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**Purpose:** Runs the operation or workflow associated with `set unfocused`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set unfocused.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -204,7 +204,7 @@ sPItemVM.ExecuteSetUnfocused();
 ### UpdateCanBeSlaughtered
 `public void UpdateCanBeSlaughtered()`
 
-**Purpose:** Recalculates and stores the latest representation of `can be slaughtered`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of can be slaughtered.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -215,7 +215,7 @@ sPItemVM.UpdateCanBeSlaughtered();
 ### UpdateHintTexts
 `public void UpdateHintTexts()`
 
-**Purpose:** Recalculates and stores the latest representation of `hint texts`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of hint texts.
 
 ```csharp
 // Obtain an instance of SPItemVM from the subsystem API first
@@ -226,7 +226,7 @@ sPItemVM.UpdateHintTexts();
 ### GetProfitTypeFromDiff
 `public static ProfitTypes GetProfitTypeFromDiff(float averageValue, float currentValue)`
 
-**Purpose:** Reads and returns the `profit type from diff` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the profit type from diff value held by the this instance.
 
 ```csharp
 // Static call; no instance required

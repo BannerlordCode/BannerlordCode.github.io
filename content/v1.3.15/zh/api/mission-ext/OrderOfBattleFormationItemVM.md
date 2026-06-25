@@ -64,7 +64,7 @@ description: "OrderOfBattleFormationItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -75,7 +75,7 @@ orderOfBattleFormationItemVM.RefreshValues();
 ### Tick
 `public void Tick()`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -86,7 +86,7 @@ orderOfBattleFormationItemVM.Tick();
 ### RefreshFormation
 `public void RefreshFormation(Formation formation, DeploymentFormationClass overriddenClass = DeploymentFormationClass.Unset, bool mustExist = false)`
 
-**用途 / Purpose:** 使 「formation」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 formation 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -97,7 +97,7 @@ orderOfBattleFormationItemVM.RefreshFormation(formation, deploymentFormationClas
 ### MakeMarkerWorldPositionDirty
 `public void MakeMarkerWorldPositionDirty()`
 
-**用途 / Purpose:** 处理与 「make marker world position dirty」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MakeMarkerWorldPositionDirty 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -108,7 +108,7 @@ orderOfBattleFormationItemVM.MakeMarkerWorldPositionDirty();
 ### OnSizeChanged
 `public void OnSizeChanged()`
 
-**用途 / Purpose:** 在 「size changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 size changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -119,7 +119,7 @@ orderOfBattleFormationItemVM.OnSizeChanged();
 ### GetOrderOfBattleClass
 `public DeploymentFormationClass GetOrderOfBattleClass()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「order of battle class」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 order of battle class 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -130,7 +130,7 @@ var result = orderOfBattleFormationItemVM.GetOrderOfBattleClass();
 ### UpdateAdjustable
 `public void UpdateAdjustable()`
 
-**用途 / Purpose:** 重新计算并更新 「adjustable」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 adjustable 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -141,7 +141,7 @@ orderOfBattleFormationItemVM.UpdateAdjustable();
 ### HasFilter
 `public bool HasFilter(FormationFilterType filter)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「filter」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 filter。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -152,7 +152,7 @@ var result = orderOfBattleFormationItemVM.HasFilter(filter);
 ### HasOnlyOneClass
 `public bool HasOnlyOneClass()`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「only one class」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 only one class。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -163,7 +163,7 @@ var result = orderOfBattleFormationItemVM.HasOnlyOneClass();
 ### HasClass
 `public bool HasClass(FormationClass formationClass)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「class」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 class。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -174,7 +174,7 @@ var result = orderOfBattleFormationItemVM.HasClass(formationClass);
 ### HasClasses
 `public bool HasClasses(FormationClass formationClasses)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「classes」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 classes。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -185,7 +185,7 @@ var result = orderOfBattleFormationItemVM.HasClasses(formationClasses);
 ### UnassignCaptain
 `public void UnassignCaptain()`
 
-**用途 / Purpose:** 处理与 「unassign captain」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 UnassignCaptain 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -196,7 +196,7 @@ orderOfBattleFormationItemVM.UnassignCaptain();
 ### ExecuteAcceptCaptain
 `public void ExecuteAcceptCaptain()`
 
-**用途 / Purpose:** 执行 「accept captain」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 accept captain 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -207,7 +207,7 @@ orderOfBattleFormationItemVM.ExecuteAcceptCaptain();
 ### ExecuteAcceptHeroTroops
 `public void ExecuteAcceptHeroTroops()`
 
-**用途 / Purpose:** 执行 「accept hero troops」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 accept hero troops 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -218,7 +218,7 @@ orderOfBattleFormationItemVM.ExecuteAcceptHeroTroops();
 ### OnHeroSelectionUpdated
 `public void OnHeroSelectionUpdated(int selectedHeroCount, bool hasOwnHeroTroopInSelection)`
 
-**用途 / Purpose:** 在 「hero selection updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hero selection updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -229,7 +229,7 @@ orderOfBattleFormationItemVM.OnHeroSelectionUpdated(0, false);
 ### AddHeroTroop
 `public void AddHeroTroop(OrderOfBattleHeroItemVM heroItem)`
 
-**用途 / Purpose:** 将 「hero troop」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 hero troop 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例
@@ -240,7 +240,7 @@ orderOfBattleFormationItemVM.AddHeroTroop(heroItem);
 ### RemoveHeroTroop
 `public void RemoveHeroTroop(OrderOfBattleHeroItemVM heroItem)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「hero troop」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 hero troop。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationItemVM 实例

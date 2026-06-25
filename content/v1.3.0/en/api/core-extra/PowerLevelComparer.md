@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.Core.ViewModelCollection` to place it in the st
 ### SetColors
 `public void SetColors(string defenderColor, string attackerColor)`
 
-**Purpose:** Assigns a new value to `colors` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to colors and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of PowerLevelComparer from the subsystem API first
@@ -53,7 +53,7 @@ powerLevelComparer.SetColors("example", "example");
 ### Update
 `public void Update(double defenderPower, double attackerPower)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of PowerLevelComparer from the subsystem API first
@@ -64,7 +64,7 @@ powerLevelComparer.Update(0, 0);
 ### Update
 `public void Update(double defenderPower, double attackerPower, double initialDefenderPower, double initialAttackerPower)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of PowerLevelComparer from the subsystem API first

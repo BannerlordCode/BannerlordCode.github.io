@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.AnimationPoints` to place it in the stack,
 ### OnUse
 `public override void OnUse(Agent userAgent, sbyte agentBoneIndex)`
 
-**Purpose:** Invoked when the `use` event is raised.
+**Purpose:** **Purpose:** Invoked when the use event is raised.
 
 ```csharp
 // Obtain an instance of ChairUsePoint from the subsystem API first

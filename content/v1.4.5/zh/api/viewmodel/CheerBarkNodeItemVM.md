@@ -37,7 +37,7 @@ description: "CheerBarkNodeItemVM 的自动生成类参考。"
 ### ClearSelectionRecursive
 `public void ClearSelectionRecursive()`
 
-**用途 / Purpose:** 清空当前对象中的「selection recursive」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的selection recursive。
 
 ```csharp
 // 先通过子系统 API 拿到 CheerBarkNodeItemVM 实例
@@ -48,7 +48,7 @@ cheerBarkNodeItemVM.ClearSelectionRecursive();
 ### ExecuteFocused
 `public void ExecuteFocused()`
 
-**用途 / Purpose:** 执行 「focused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CheerBarkNodeItemVM 实例
@@ -59,7 +59,7 @@ cheerBarkNodeItemVM.ExecuteFocused();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CheerBarkNodeItemVM 实例
@@ -70,7 +70,7 @@ cheerBarkNodeItemVM.RefreshValues();
 ### AddSubNode
 `public void AddSubNode(CheerBarkNodeItemVM subNode)`
 
-**用途 / Purpose:** 将 「sub node」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 sub node 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CheerBarkNodeItemVM 实例
@@ -81,7 +81,7 @@ cheerBarkNodeItemVM.AddSubNode(subNode);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CheerBarkNodeItemVM 实例

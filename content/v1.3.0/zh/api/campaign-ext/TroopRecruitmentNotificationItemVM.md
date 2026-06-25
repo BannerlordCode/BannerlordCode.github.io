@@ -29,7 +29,7 @@ description: "TroopRecruitmentNotificationItemVM 的自动生成类参考。"
 ### AddNewAction
 `public void AddNewAction(int addedAmount)`
 
-**用途 / Purpose:** 将 「new action」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 new action 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRecruitmentNotificationItemVM 实例

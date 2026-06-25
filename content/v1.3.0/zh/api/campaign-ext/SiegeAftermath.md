@@ -19,7 +19,7 @@ SiegeAftermath 是一组静态方法，用于在战役中以特定原因触发"S
 public static void ApplyAftermath(MobileParty attackerParty, Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermathType, Clan previousSettlementOwner, Dictionary<MobileParty, float> partyContributions)
 ```
 
-**用途 / Purpose:** aftermath。
+**用途 / Purpose:** **用途 / Purpose:** 将 aftermath 的效果应用到当前对象。
 
 ## 使用示例
 

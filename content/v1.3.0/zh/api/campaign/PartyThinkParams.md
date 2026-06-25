@@ -30,7 +30,7 @@ description: "PartyThinkParams 的自动生成类参考。"
 ### Reset
 `public void Reset(MobileParty mobileParty)`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyThinkParams 实例
@@ -41,7 +41,7 @@ partyThinkParams.Reset(mobileParty);
 ### Initialization
 `public void Initialization()`
 
-**用途 / Purpose:** 为 「ialization」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 ialization 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyThinkParams 实例
@@ -52,7 +52,7 @@ partyThinkParams.Initialization();
 ### AddPotentialArmyMember
 `public void AddPotentialArmyMember(MobileParty armyMember)`
 
-**用途 / Purpose:** 将 「potential army member」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 potential army member 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyThinkParams 实例
@@ -63,7 +63,7 @@ partyThinkParams.AddPotentialArmyMember(armyMember);
 ### TryGetBehaviorScore
 `public bool TryGetBehaviorScore(in AIBehaviorData aiBehaviorData, out float score)`
 
-**用途 / Purpose:** 尝试获取 「get behavior score」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get behavior score 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyThinkParams 实例
@@ -74,7 +74,7 @@ var result = partyThinkParams.TryGetBehaviorScore(aiBehaviorData, score);
 ### SetBehaviorScore
 `public void SetBehaviorScore(in AIBehaviorData aiBehaviorData, float score)`
 
-**用途 / Purpose:** 为 「behavior score」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 behavior score 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyThinkParams 实例
@@ -85,7 +85,7 @@ partyThinkParams.SetBehaviorScore(aiBehaviorData, 0);
 ### AddBehaviorScore
 `public void AddBehaviorScore(in ValueTuple<AIBehaviorData, float> value)`
 
-**用途 / Purpose:** 将 「behavior score」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 behavior score 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyThinkParams 实例

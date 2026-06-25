@@ -23,7 +23,7 @@ Start from namespace `SandBox.GauntletUI.BannerEditor` to place it in the stack,
 ### OnDone
 `public void OnDone()`
 
-**Purpose:** Invoked when the `done` event is raised.
+**Purpose:** **Purpose:** Invoked when the done event is raised.
 
 ```csharp
 // Obtain an instance of GauntletBannerEditorScreen from the subsystem API first
@@ -34,7 +34,7 @@ gauntletBannerEditorScreen.OnDone();
 ### OnCancel
 `public void OnCancel()`
 
-**Purpose:** Invoked when the `cancel` event is raised.
+**Purpose:** **Purpose:** Invoked when the cancel event is raised.
 
 ```csharp
 // Obtain an instance of GauntletBannerEditorScreen from the subsystem API first

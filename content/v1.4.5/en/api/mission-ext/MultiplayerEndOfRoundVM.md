@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.E
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfRoundVM from the subsystem API first
@@ -52,7 +52,7 @@ multiplayerEndOfRoundVM.RefreshValues();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfRoundVM from the subsystem API first
@@ -63,7 +63,7 @@ multiplayerEndOfRoundVM.Refresh();
 ### OnMVPSelected
 `public void OnMVPSelected(MissionPeer mvpPeer)`
 
-**Purpose:** Invoked when the `m v p selected` event is raised.
+**Purpose:** **Purpose:** Invoked when the m v p selected event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerEndOfRoundVM from the subsystem API first

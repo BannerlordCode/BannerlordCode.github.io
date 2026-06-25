@@ -29,7 +29,7 @@ description: "BinaryReader 的自动生成类参考。"
 ### ReadSerializableObject
 `public ISerializableObject ReadSerializableObject()`
 
-**用途 / Purpose:** 读取「serializable object」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取serializable object的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -40,7 +40,7 @@ var result = binaryReader.ReadSerializableObject();
 ### Read3ByteInt
 `public int Read3ByteInt()`
 
-**用途 / Purpose:** 读取「3 byte int」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取3 byte int的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -51,7 +51,7 @@ var result = binaryReader.Read3ByteInt();
 ### ReadInt
 `public int ReadInt()`
 
-**用途 / Purpose:** 读取「int」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取int的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -62,7 +62,7 @@ var result = binaryReader.ReadInt();
 ### ReadShort
 `public short ReadShort()`
 
-**用途 / Purpose:** 读取「short」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取short的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -73,7 +73,7 @@ var result = binaryReader.ReadShort();
 ### ReadFloats
 `public void ReadFloats(float output, int count)`
 
-**用途 / Purpose:** 读取「floats」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取floats的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -84,7 +84,7 @@ binaryReader.ReadFloats(0, 0);
 ### ReadShorts
 `public void ReadShorts(short output, int count)`
 
-**用途 / Purpose:** 读取「shorts」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取shorts的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -95,7 +95,7 @@ binaryReader.ReadShorts(0, 0);
 ### ReadString
 `public string ReadString()`
 
-**用途 / Purpose:** 读取「string」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取string的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -106,7 +106,7 @@ var result = binaryReader.ReadString();
 ### ReadColor
 `public Color ReadColor()`
 
-**用途 / Purpose:** 读取「color」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取color的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -117,7 +117,7 @@ var result = binaryReader.ReadColor();
 ### ReadBool
 `public bool ReadBool()`
 
-**用途 / Purpose:** 读取「bool」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取bool的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -128,7 +128,7 @@ var result = binaryReader.ReadBool();
 ### ReadFloat
 `public float ReadFloat()`
 
-**用途 / Purpose:** 读取「float」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取float的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -139,7 +139,7 @@ var result = binaryReader.ReadFloat();
 ### ReadUInt
 `public uint ReadUInt()`
 
-**用途 / Purpose:** 读取「u int」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取u int的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -150,7 +150,7 @@ var result = binaryReader.ReadUInt();
 ### ReadULong
 `public ulong ReadULong()`
 
-**用途 / Purpose:** 读取「u long」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取u long的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -161,7 +161,7 @@ var result = binaryReader.ReadULong();
 ### ReadLong
 `public long ReadLong()`
 
-**用途 / Purpose:** 读取「long」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取long的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -172,7 +172,7 @@ var result = binaryReader.ReadLong();
 ### ReadByte
 `public byte ReadByte()`
 
-**用途 / Purpose:** 读取「byte」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取byte的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -183,7 +183,7 @@ var result = binaryReader.ReadByte();
 ### ReadBytes
 `public byte ReadBytes(int length)`
 
-**用途 / Purpose:** 读取「bytes」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取bytes的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -194,7 +194,7 @@ var result = binaryReader.ReadBytes(0);
 ### ReadVec2
 `public Vec2 ReadVec2()`
 
-**用途 / Purpose:** 读取「vec2」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取vec2的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -205,7 +205,7 @@ var result = binaryReader.ReadVec2();
 ### ReadVec3
 `public Vec3 ReadVec3()`
 
-**用途 / Purpose:** 读取「vec3」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取vec3的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -216,7 +216,7 @@ var result = binaryReader.ReadVec3();
 ### ReadVec3Int
 `public Vec3i ReadVec3Int()`
 
-**用途 / Purpose:** 读取「vec3 int」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取vec3 int的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -227,7 +227,7 @@ var result = binaryReader.ReadVec3Int();
 ### ReadSByte
 `public sbyte ReadSByte()`
 
-**用途 / Purpose:** 读取「s byte」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取s byte的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -238,7 +238,7 @@ var result = binaryReader.ReadSByte();
 ### ReadUShort
 `public ushort ReadUShort()`
 
-**用途 / Purpose:** 读取「u short」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取u short的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例
@@ -249,7 +249,7 @@ var result = binaryReader.ReadUShort();
 ### ReadDouble
 `public double ReadDouble()`
 
-**用途 / Purpose:** 读取「double」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取double的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BinaryReader 实例

@@ -23,7 +23,7 @@ Treat `StoryModeTargetScoreCalculatingModel` as a Model-style extension point: f
 ### GetDefensivePatrollingFactor
 `public override float GetDefensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Reads and returns the `defensive patrolling factor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the defensive patrolling factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = storyModeTargetScoreCalculatingModel.GetDefensivePatrollingFactor(f
 ### GetOffensivePatrollingFactor
 `public override float GetOffensivePatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Reads and returns the `offensive patrolling factor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the offensive patrolling factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = storyModeTargetScoreCalculatingModel.GetOffensivePatrollingFactor(f
 ### CalculateDefensivePatrollingScoreForSettlement
 `public override float CalculateDefensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** Calculates the current value or result of `defensive patrolling score for settlement`.
+**Purpose:** **Purpose:** Calculates the current value or result of defensive patrolling score for settlement.
 
 ```csharp
 // Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = storyModeTargetScoreCalculatingModel.CalculateDefensivePatrollingSc
 ### CalculateOffensivePatrollingScoreForSettlement
 `public override float CalculateOffensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**Purpose:** Calculates the current value or result of `offensive patrolling score for settlement`.
+**Purpose:** **Purpose:** Calculates the current value or result of offensive patrolling score for settlement.
 
 ```csharp
 // Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = storyModeTargetScoreCalculatingModel.CalculateOffensivePatrollingSc
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CurrentObjectiveValue logic.
 
 ```csharp
 // Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = storyModeTargetScoreCalculatingModel.CurrentObjectiveValue(mobilePa
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** Reads and returns the `target score for faction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target score for faction value held by the this instance.
 
 ```csharp
 // Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### OnCloseAction
 `public override void OnCloseAction()`
 
-**Purpose:** Invoked when the `close action` event is raised.
+**Purpose:** **Purpose:** Invoked when the close action event is raised.
 
 ```csharp
 // Obtain an instance of FindingFirstBannerPieceSceneNotificationItem from the subsystem API first

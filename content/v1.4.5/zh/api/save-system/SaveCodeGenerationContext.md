@@ -23,7 +23,7 @@ description: "SaveCodeGenerationContext 的自动生成类参考。"
 ### AddAssembly
 `public void AddAssembly(Assembly assembly, string defaultNamespace, string location, string fileName)`
 
-**用途 / Purpose:** 将 「assembly」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 assembly 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveCodeGenerationContext 实例

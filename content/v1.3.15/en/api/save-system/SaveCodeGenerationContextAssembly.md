@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.SaveSystem.Definition` to place it in the stack
 ### AddClassDefinition
 `public void AddClassDefinition(TypeDefinition classDefinition)`
 
-**Purpose:** Adds `class definition` to the current collection or state.
+**Purpose:** **Purpose:** Adds class definition to the current collection or state.
 
 ```csharp
 // Obtain an instance of SaveCodeGenerationContextAssembly from the subsystem API first
@@ -43,7 +43,7 @@ saveCodeGenerationContextAssembly.AddClassDefinition(classDefinition);
 ### AddStructDefinition
 `public void AddStructDefinition(TypeDefinition classDefinition)`
 
-**Purpose:** Adds `struct definition` to the current collection or state.
+**Purpose:** **Purpose:** Adds struct definition to the current collection or state.
 
 ```csharp
 // Obtain an instance of SaveCodeGenerationContextAssembly from the subsystem API first
@@ -54,7 +54,7 @@ saveCodeGenerationContextAssembly.AddStructDefinition(classDefinition);
 ### CheckIfGotAnyNonPrimitiveMembers
 `public bool CheckIfGotAnyNonPrimitiveMembers(TypeDefinition typeDefinition)`
 
-**Purpose:** Verifies whether `if got any non primitive members` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether if got any non primitive members holds true for the this instance.
 
 ```csharp
 // Obtain an instance of SaveCodeGenerationContextAssembly from the subsystem API first
@@ -65,7 +65,7 @@ var result = saveCodeGenerationContextAssembly.CheckIfGotAnyNonPrimitiveMembers(
 ### Generate
 `public void Generate()`
 
-**Purpose:** Generates an instance, data, or representation for the current object.
+**Purpose:** **Purpose:** Generates an instance, data, or representation for the this instance.
 
 ```csharp
 // Obtain an instance of SaveCodeGenerationContextAssembly from the subsystem API first
@@ -76,7 +76,7 @@ saveCodeGenerationContextAssembly.Generate();
 ### GenerateText
 `public string GenerateText()`
 
-**Purpose:** Generates an instance, data, or representation of `text`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of text.
 
 ```csharp
 // Obtain an instance of SaveCodeGenerationContextAssembly from the subsystem API first

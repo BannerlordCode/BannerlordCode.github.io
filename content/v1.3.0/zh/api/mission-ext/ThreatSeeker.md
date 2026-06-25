@@ -23,7 +23,7 @@ description: "ThreatSeeker 的自动生成类参考。"
 ### PrepareTargetFromTask
 `public Threat PrepareTargetFromTask()`
 
-**用途 / Purpose:** 为即将执行的「target from task」操作完成前置准备工作。
+**用途 / Purpose:** **用途 / Purpose:** 为即将执行的target from task操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreatSeeker 实例
@@ -34,7 +34,7 @@ var result = threatSeeker.PrepareTargetFromTask();
 ### UpdateThreatSeekerTask
 `public bool UpdateThreatSeekerTask()`
 
-**用途 / Purpose:** 重新计算并更新 「threat seeker task」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 threat seeker task 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreatSeeker 实例
@@ -45,7 +45,7 @@ var result = threatSeeker.UpdateThreatSeekerTask();
 ### PrepareThreatSeekerTask
 `public void PrepareThreatSeekerTask(Action lastAction)`
 
-**用途 / Purpose:** 为即将执行的「threat seeker task」操作完成前置准备工作。
+**用途 / Purpose:** **用途 / Purpose:** 为即将执行的threat seeker task操作完成前置准备工作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreatSeeker 实例
@@ -56,7 +56,7 @@ threatSeeker.PrepareThreatSeekerTask(lastAction);
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 处理与 「release」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Release 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreatSeeker 实例
@@ -67,7 +67,7 @@ threatSeeker.Release();
 ### GetAllThreats
 `public List<Threat> GetAllThreats()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「all threats」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 all threats 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ThreatSeeker 实例
@@ -78,7 +78,7 @@ var result = threatSeeker.GetAllThreats();
 ### GetTargetFlagsOfFormation
 `public static TargetFlags GetTargetFlagsOfFormation()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target flags of formation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target flags of formation 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -88,7 +88,7 @@ ThreatSeeker.GetTargetFlagsOfFormation();
 ### GetMaxThreat
 `public static Threat GetMaxThreat(List<ICastleKeyPosition> castleKeyPositions)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max threat」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max threat 的结果。
 
 ```csharp
 // 静态调用，不需要实例

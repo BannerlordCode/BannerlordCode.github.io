@@ -23,7 +23,7 @@ Treat `RainbowRichTextWidget` as a Widget-style extension point: first identify 
 ### RainbowRichTextWidget
 `public class RainbowRichTextWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RainbowRichTextWidget logic.
 
 ```csharp
 // Obtain an instance of RainbowRichTextWidget from the subsystem API first

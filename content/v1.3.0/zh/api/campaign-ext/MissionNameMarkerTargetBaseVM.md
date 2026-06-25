@@ -40,7 +40,7 @@ description: "MissionNameMarkerTargetBaseVM 的自动生成类参考。"
 ### UpdatePosition
 `public abstract void UpdatePosition(Camera missionCamera)`
 
-**用途 / Purpose:** 重新计算并更新 「position」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
@@ -51,7 +51,7 @@ missionNameMarkerTargetBaseVM.UpdatePosition(missionCamera);
 ### Equals
 `public abstract bool Equals(MissionNameMarkerTargetBaseVM other)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
@@ -62,7 +62,7 @@ var result = missionNameMarkerTargetBaseVM.Equals(other);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例
@@ -73,7 +73,7 @@ missionNameMarkerTargetBaseVM.RefreshValues();
 ### SetEnabledState
 `public void SetEnabledState(bool enabled)`
 
-**用途 / Purpose:** 为 「enabled state」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 enabled state 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerTargetBaseVM 实例

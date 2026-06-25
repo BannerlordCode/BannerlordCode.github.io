@@ -30,7 +30,7 @@ description: "MBArrayList 的自动生成类参考。"
 ### IndexOf
 `public int IndexOf(T item)`
 
-**用途 / Purpose:** 查找指定内容在当前对象中的位置索引。
+**用途 / Purpose:** **用途 / Purpose:** 查找指定内容在当前对象中的位置索引。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -41,7 +41,7 @@ var result = mBArrayList.IndexOf(item);
 ### Contains
 `public bool Contains(T item)`
 
-**用途 / Purpose:** 判断当前对象是否包含指定项。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含指定项。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -52,7 +52,7 @@ var result = mBArrayList.Contains(item);
 ### GetEnumerator
 `public IEnumerator<T> GetEnumerator()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 enumerator 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -63,7 +63,7 @@ var result = mBArrayList.GetEnumerator();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -74,7 +74,7 @@ mBArrayList.Clear();
 ### Add
 `public void Add(T item)`
 
-**用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -85,7 +85,7 @@ mBArrayList.Add(item);
 ### AddRange
 `public void AddRange(IEnumerable<T> list)`
 
-**用途 / Purpose:** 将 「range」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 range 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -96,7 +96,7 @@ mBArrayList.AddRange(list);
 ### Remove
 `public bool Remove(T item)`
 
-**用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例
@@ -107,7 +107,7 @@ var result = mBArrayList.Remove(item);
 ### CopyTo
 `public void CopyTo(Array array, int index)`
 
-**用途 / Purpose:** 把当前对象的「to」状态复制到目标对象。
+**用途 / Purpose:** **用途 / Purpose:** 把当前对象的to状态复制到目标对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MBArrayList 实例

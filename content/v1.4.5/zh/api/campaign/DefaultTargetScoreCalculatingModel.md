@@ -23,7 +23,7 @@ description: "DefaultTargetScoreCalculatingModel 的自动生成类参考。"
 ### GetDefensivePatrollingFactor
 `public override float GetDefensivePatrollingFactor(bool isNavalPatrolling)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「defensive patrolling factor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 defensive patrolling factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
@@ -34,7 +34,7 @@ var result = defaultTargetScoreCalculatingModel.GetDefensivePatrollingFactor(fal
 ### GetOffensivePatrollingFactor
 `public override float GetOffensivePatrollingFactor(bool isNavalPatrolling)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「offensive patrolling factor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 offensive patrolling factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
@@ -45,7 +45,7 @@ var result = defaultTargetScoreCalculatingModel.GetOffensivePatrollingFactor(fal
 ### CalculateOffensivePatrollingScoreForSettlement
 `public override float CalculateOffensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**用途 / Purpose:** 计算「offensive patrolling score for settlement」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算offensive patrolling score for settlement的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
@@ -56,7 +56,7 @@ var result = defaultTargetScoreCalculatingModel.CalculateOffensivePatrollingScor
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理与 「current objective value」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CurrentObjectiveValue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
@@ -67,7 +67,7 @@ var result = defaultTargetScoreCalculatingModel.CurrentObjectiveValue(mobilePart
 ### CalculateDefensivePatrollingScoreForSettlement
 `public override float CalculateDefensivePatrollingScoreForSettlement(Settlement settlement, bool isTargetingPort, MobileParty mobileParty)`
 
-**用途 / Purpose:** 计算「defensive patrolling score for settlement」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算defensive patrolling score for settlement的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例
@@ -78,7 +78,7 @@ var result = defaultTargetScoreCalculatingModel.CalculateDefensivePatrollingScor
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target score for faction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target score for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTargetScoreCalculatingModel 实例

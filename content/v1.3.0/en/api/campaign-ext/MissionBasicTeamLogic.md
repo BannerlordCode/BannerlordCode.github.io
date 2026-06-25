@@ -23,7 +23,7 @@ Treat `MissionBasicTeamLogic` as a Logic-style extension point: first identify w
 ### EarlyStart
 `public override void EarlyStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EarlyStart logic.
 
 ```csharp
 // Obtain an instance of MissionBasicTeamLogic from the subsystem API first

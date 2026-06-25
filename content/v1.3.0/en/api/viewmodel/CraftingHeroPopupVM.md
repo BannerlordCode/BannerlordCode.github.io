@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of CraftingHeroPopupVM from the subsystem API first
@@ -43,7 +43,7 @@ craftingHeroPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of CraftingHeroPopupVM from the subsystem API first
@@ -54,7 +54,7 @@ craftingHeroPopupVM.ExecuteClosePopup();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of CraftingHeroPopupVM from the subsystem API first
@@ -65,7 +65,7 @@ craftingHeroPopupVM.OnFinalize();
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `exit input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to exit input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CraftingHeroPopupVM from the subsystem API first

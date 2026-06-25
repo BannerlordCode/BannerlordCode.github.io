@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual`
 ### OrderActionDelegate
 `public delegate void OrderActionDelegate(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the OrderActionDelegate logic.
 
 ```csharp
 // Obtain an instance of ActionVisualOrder from the subsystem API first
@@ -34,7 +34,7 @@ actionVisualOrder.OrderActionDelegate(orderController, executionParameters);
 ### GetName
 `public override TextObject GetName(OrderController orderController)`
 
-**Purpose:** Reads and returns the `name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the name value held by the this instance.
 
 ```csharp
 // Obtain an instance of ActionVisualOrder from the subsystem API first
@@ -45,7 +45,7 @@ var result = actionVisualOrder.GetName(orderController);
 ### IsTargeted
 `public override bool IsTargeted()`
 
-**Purpose:** Determines whether the current object is in the `targeted` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the targeted state or condition.
 
 ```csharp
 // Obtain an instance of ActionVisualOrder from the subsystem API first
@@ -56,7 +56,7 @@ var result = actionVisualOrder.IsTargeted();
 ### ExecuteOrder
 `public override void ExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**Purpose:** Runs the operation or workflow associated with `order`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with order.
 
 ```csharp
 // Obtain an instance of ActionVisualOrder from the subsystem API first

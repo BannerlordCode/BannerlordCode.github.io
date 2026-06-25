@@ -23,7 +23,7 @@ description: "MultiplayerGame 的自动生成类参考。"
 ### ReadDefaultEquipments
 `public static Dictionary<string, Equipment> ReadDefaultEquipments(string defaultEquipmentsPath)`
 
-**用途 / Purpose:** 读取「default equipments」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取default equipments的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerGame.ReadDefaultEquipments("example");
 ### OnDestroy
 `public override void OnDestroy()`
 
-**用途 / Purpose:** 在 「destroy」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 destroy 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGame 实例
@@ -44,7 +44,7 @@ multiplayerGame.OnDestroy();
 ### OnStateChanged
 `public override void OnStateChanged(GameState oldState)`
 
-**用途 / Purpose:** 在 「state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerGame 实例

@@ -49,7 +49,7 @@ description: "LauncherVM 的自动生成类参考。"
 ### ExecuteStartGame
 `public void ExecuteStartGame(int mode)`
 
-**用途 / Purpose:** 执行 「start game」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 start game 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherVM 实例
@@ -60,7 +60,7 @@ launcherVM.ExecuteStartGame(0);
 ### ExecuteClose
 `public void ExecuteClose()`
 
-**用途 / Purpose:** 执行 「close」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 close 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherVM 实例
@@ -71,7 +71,7 @@ launcherVM.ExecuteClose();
 ### ExecuteMinimize
 `public void ExecuteMinimize()`
 
-**用途 / Purpose:** 执行 「minimize」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 minimize 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherVM 实例

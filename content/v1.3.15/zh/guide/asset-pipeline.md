@@ -143,6 +143,4 @@ entity.SetMeshWithMaterial("my_mesh", "my_material");
 
 ## 使用示例
 
-```csharp
-var example = new 资源管线();
-```
+// （占位示例已移除，见正文说明）

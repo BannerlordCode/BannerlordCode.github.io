@@ -23,7 +23,7 @@ Treat `FtlCapsuleData` as a Data-style extension point: first identify who creat
 ### GetBoxMin
 `public Vec3 GetBoxMin()`
 
-**Purpose:** Reads and returns the `box min` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the box min value held by the this instance.
 
 ```csharp
 // Obtain an instance of FtlCapsuleData from the subsystem API first
@@ -34,7 +34,7 @@ var result = ftlCapsuleData.GetBoxMin();
 ### GetBoxMax
 `public Vec3 GetBoxMax()`
 
-**Purpose:** Reads and returns the `box max` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the box max value held by the this instance.
 
 ```csharp
 // Obtain an instance of FtlCapsuleData from the subsystem API first

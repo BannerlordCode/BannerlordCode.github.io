@@ -23,7 +23,7 @@ description: "FormationClassExtensions 的自动生成类参考。"
 ### GetName
 `public static string GetName(this FormationClass formationClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 name 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ FormationClassExtensions.GetName(formationClass);
 ### GetLocalizedName
 `public static TextObject GetLocalizedName(this FormationClass formationClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「localized name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 localized name 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ FormationClassExtensions.GetLocalizedName(formationClass);
 ### GetTroopUsageFlags
 `public static TroopUsageFlags GetTroopUsageFlags(this FormationClass troopClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troop usage flags」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop usage flags 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ FormationClassExtensions.GetTroopUsageFlags(troopClass);
 ### GetTroopTypeForRegularFormation
 `public static TroopType GetTroopTypeForRegularFormation(this FormationClass formationClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「troop type for regular formation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 troop type for regular formation 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ FormationClassExtensions.GetTroopTypeForRegularFormation(formationClass);
 ### IsDefaultFormationClass
 `public static bool IsDefaultFormationClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「default formation class」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 default formation class 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ FormationClassExtensions.IsDefaultFormationClass(formationClass);
 ### IsRegularFormationClass
 `public static bool IsRegularFormationClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「regular formation class」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 regular formation class 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ FormationClassExtensions.IsRegularFormationClass(formationClass);
 ### FallbackClass
 `public static FormationClass FallbackClass(this FormationClass formationClass)`
 
-**用途 / Purpose:** 处理与 「fallback class」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FallbackClass 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

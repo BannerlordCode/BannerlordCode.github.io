@@ -47,7 +47,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Quests` to p
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of QuestItemVM from the subsystem API first
@@ -58,7 +58,7 @@ questItemVM.RefreshValues();
 ### UpdateIsUpdated
 `public void UpdateIsUpdated()`
 
-**Purpose:** Recalculates and stores the latest representation of `is updated`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of is updated.
 
 ```csharp
 // Obtain an instance of QuestItemVM from the subsystem API first
@@ -69,7 +69,7 @@ questItemVM.UpdateIsUpdated();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of QuestItemVM from the subsystem API first
@@ -80,7 +80,7 @@ questItemVM.ExecuteSelection();
 ### ExecuteToggleQuestTrack
 `public void ExecuteToggleQuestTrack()`
 
-**Purpose:** Runs the operation or workflow associated with `toggle quest track`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle quest track.
 
 ```csharp
 // Obtain an instance of QuestItemVM from the subsystem API first

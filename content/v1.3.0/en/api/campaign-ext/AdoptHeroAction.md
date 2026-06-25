@@ -19,7 +19,7 @@ AdoptHeroAction is a set of static methods that trigger "AdoptHero" in the campa
 public static void Apply(Hero adoptedHero)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

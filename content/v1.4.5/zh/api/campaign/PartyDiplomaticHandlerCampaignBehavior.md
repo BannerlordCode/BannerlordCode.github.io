@@ -23,7 +23,7 @@ description: "PartyDiplomaticHandlerCampaignBehavior 的自动生成类参考。
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyDiplomaticHandlerCampaignBehavior 实例
@@ -34,7 +34,7 @@ partyDiplomaticHandlerCampaignBehavior.RegisterEvents();
 ### hostile_action_end_by_peace_on_init
 `public static void hostile_action_end_by_peace_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 处理与 「hostile_action_end_by_peace_on_init」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 hostile_action_end_by_peace_on_init 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ PartyDiplomaticHandlerCampaignBehavior.hostile_action_end_by_peace_on_init(args)
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyDiplomaticHandlerCampaignBehavior 实例

@@ -35,7 +35,7 @@ Treat `CraftedDataView` as a View-style extension point: first identify who crea
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of CraftedDataView from the subsystem API first
@@ -46,7 +46,7 @@ craftedDataView.Clear();
 ### BuildWeaponMesh
 `public static MetaMesh BuildWeaponMesh(WeaponDesign craftedData, float pivotDiff, bool pieceTypeHidingEnabledForHolster, bool batchAllMeshes)`
 
-**Purpose:** Assembles and returns the built result for `weapon mesh`.
+**Purpose:** **Purpose:** Assembles and returns the built result for weapon mesh.
 
 ```csharp
 // Static call; no instance required
@@ -56,7 +56,7 @@ CraftedDataView.BuildWeaponMesh(craftedData, 0, false, false);
 ### BuildHolsterMesh
 `public static MetaMesh BuildHolsterMesh(WeaponDesign craftedData)`
 
-**Purpose:** Assembles and returns the built result for `holster mesh`.
+**Purpose:** **Purpose:** Assembles and returns the built result for holster mesh.
 
 ```csharp
 // Static call; no instance required
@@ -66,7 +66,7 @@ CraftedDataView.BuildHolsterMesh(craftedData);
 ### BuildHolsterMeshWithWeapon
 `public static MetaMesh BuildHolsterMeshWithWeapon(WeaponDesign craftedData, float pivotDiff, bool batchAllMeshes)`
 
-**Purpose:** Assembles and returns the built result for `holster mesh with weapon`.
+**Purpose:** **Purpose:** Assembles and returns the built result for holster mesh with weapon.
 
 ```csharp
 // Static call; no instance required
@@ -76,7 +76,7 @@ CraftedDataView.BuildHolsterMeshWithWeapon(craftedData, 0, false);
 ### OnMeshBuiltDelegate
 `public delegate void OnMeshBuiltDelegate(WeaponDesign weaponDesign, ref MetaMesh builtMesh)`
 
-**Purpose:** Invoked when the `mesh built delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the mesh built delegate event is raised.
 
 ```csharp
 // Obtain an instance of CraftedDataView from the subsystem API first

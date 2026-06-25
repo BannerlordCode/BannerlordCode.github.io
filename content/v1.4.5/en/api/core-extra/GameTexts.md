@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Variation
 `public GameTextHelper Variation(string text, params object propertiesAndWeights)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Variation logic.
 
 ```csharp
 // Obtain an instance of GameTexts from the subsystem API first
@@ -34,7 +34,7 @@ var result = gameTexts.Variation("example", propertiesAndWeights);
 ### MergeTextObjectsWithComma
 `public static TextObject MergeTextObjectsWithComma(List<TextObject> textObjects, bool includeAnd)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MergeTextObjectsWithComma logic.
 
 ```csharp
 // Static call; no instance required
@@ -44,7 +44,7 @@ GameTexts.MergeTextObjectsWithComma(textObjects, false);
 ### MergeTextObjectsWithSymbol
 `public static TextObject MergeTextObjectsWithSymbol(List<TextObject> textObjects, TextObject symbol, TextObject lastSymbol = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MergeTextObjectsWithSymbol logic.
 
 ```csharp
 // Static call; no instance required
@@ -54,7 +54,7 @@ GameTexts.MergeTextObjectsWithSymbol(textObjects, symbol, null);
 ### Initialize
 `public static void Initialize(GameTextManager gameTextManager)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -64,7 +64,7 @@ GameTexts.Initialize(gameTextManager);
 ### FindText
 `public static TextObject FindText(string id, string variation = null)`
 
-**Purpose:** Looks up the matching `text` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching text in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -74,7 +74,7 @@ GameTexts.FindText("example", "example");
 ### TryGetText
 `public static bool TryGetText(string id, out TextObject textObject, string variation = null)`
 
-**Purpose:** Attempts to retrieve `get text`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve get text, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ GameTexts.TryGetText("example", textObject, "example");
 ### FindAllTextVariations
 `public static IEnumerable<TextObject> FindAllTextVariations(string id)`
 
-**Purpose:** Looks up the matching `all text variations` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching all text variations in the current collection or scope.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ GameTexts.FindAllTextVariations("example");
 ### SetVariable
 `public static void SetVariable(string variableName, string content)`
 
-**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to variable and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -104,7 +104,7 @@ GameTexts.SetVariable("example", "example");
 ### SetVariable
 `public static void SetVariable(string variableName, float content)`
 
-**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to variable and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -114,7 +114,7 @@ GameTexts.SetVariable("example", 0);
 ### SetVariable
 `public static void SetVariable(string variableName, int content)`
 
-**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to variable and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -124,7 +124,7 @@ GameTexts.SetVariable("example", 0);
 ### SetVariable
 `public static void SetVariable(string variableName, TextObject content)`
 
-**Purpose:** Assigns a new value to `variable` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to variable and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -134,7 +134,7 @@ GameTexts.SetVariable("example", content);
 ### ClearInstance
 `public static void ClearInstance()`
 
-**Purpose:** Removes all `instance` from the current object.
+**Purpose:** **Purpose:** Removes all instance from the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -144,7 +144,7 @@ GameTexts.ClearInstance();
 ### AddGameTextWithVariation
 `public static GameTextHelper AddGameTextWithVariation(string id)`
 
-**Purpose:** Adds `game text with variation` to the current collection or state.
+**Purpose:** **Purpose:** Adds game text with variation to the current collection or state.
 
 ```csharp
 // Static call; no instance required

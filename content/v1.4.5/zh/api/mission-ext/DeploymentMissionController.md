@@ -29,7 +29,7 @@ description: "DeploymentMissionController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionController 实例
@@ -40,7 +40,7 @@ deploymentMissionController.AfterStart();
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionController 实例
@@ -51,7 +51,7 @@ deploymentMissionController.OnBehaviorInitialize();
 ### FinishDeployment
 `public void FinishDeployment()`
 
-**用途 / Purpose:** 结束「deployment」流程并执行必要的收尾工作。
+**用途 / Purpose:** **用途 / Purpose:** 结束deployment流程并执行必要的收尾工作。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionController 实例
@@ -62,7 +62,7 @@ deploymentMissionController.FinishDeployment();
 ### OnAgentControllerSetToPlayer
 `public override void OnAgentControllerSetToPlayer(Agent agent)`
 
-**用途 / Purpose:** 在 「agent controller set to player」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent controller set to player 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionController 实例
@@ -73,7 +73,7 @@ deploymentMissionController.OnAgentControllerSetToPlayer(agent);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentMissionController 实例

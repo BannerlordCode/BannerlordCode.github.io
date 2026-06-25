@@ -30,7 +30,7 @@ description: "ReloadPhaseItemVM 的自动生成类参考。"
 ### Update
 `public void Update(float progress, float relativeDurationToMaxDuration)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ReloadPhaseItemVM 实例

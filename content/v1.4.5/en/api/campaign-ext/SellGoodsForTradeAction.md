@@ -19,7 +19,7 @@ SellGoodsForTradeAction is a set of static methods that trigger "SellGoodsForTra
 public static void ApplyByVillagerTrade(Settlement settlement, MobileParty villagerParty)
 ```
 
-**Purpose:** villager trade.
+**Purpose:** **Purpose:** Applies the effect of by villager trade to the this instance.
 
 ## Usage Example
 

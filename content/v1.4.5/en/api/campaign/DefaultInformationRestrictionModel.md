@@ -23,7 +23,7 @@ Treat `DefaultInformationRestrictionModel` as a Model-style extension point: fir
 ### DoesPlayerKnowDetailsOf
 `public override bool DoesPlayerKnowDetailsOf(Settlement settlement)`
 
-**Purpose:** Returns a boolean answer to whether `player know details of` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether player know details of is true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultInformationRestrictionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultInformationRestrictionModel.DoesPlayerKnowDetailsOf(settleme
 ### DoesPlayerKnowDetailsOf
 `public override bool DoesPlayerKnowDetailsOf(Hero hero)`
 
-**Purpose:** Returns a boolean answer to whether `player know details of` is true for the current object.
+**Purpose:** **Purpose:** Returns a boolean answer to whether player know details of is true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultInformationRestrictionModel from the subsystem API first

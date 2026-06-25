@@ -29,7 +29,7 @@ description: "TreeNodeTablut 的自动生成类参考。"
 ### CreateTreeAndReturnRootNode
 `public static TreeNodeTablut CreateTreeAndReturnRootNode(BoardGameTablut.BoardInformation initialBoardState, int maxDepth)`
 
-**用途 / Purpose:** 构建一个新的 「tree and return root node」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 tree and return root node 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ TreeNodeTablut.CreateTreeAndReturnRootNode(initialBoardState, 0);
 ### GetChildWithBestScore
 `public TreeNodeTablut GetChildWithBestScore()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「child with best score」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 child with best score 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TreeNodeTablut 实例
@@ -50,7 +50,7 @@ var result = treeNodeTablut.GetChildWithBestScore();
 ### SelectAction
 `public void SelectAction()`
 
-**用途 / Purpose:** 处理与 「select action」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectAction 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TreeNodeTablut 实例

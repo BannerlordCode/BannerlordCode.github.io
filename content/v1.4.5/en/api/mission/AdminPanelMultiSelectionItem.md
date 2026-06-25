@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.Admin.Internal` to pl
 ### SetIsFallbackValue
 `public void SetIsFallbackValue(bool value)`
 
-**Purpose:** Assigns a new value to `is fallback value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is fallback value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelMultiSelectionItem from the subsystem API first
@@ -34,7 +34,7 @@ adminPanelMultiSelectionItem.SetIsFallbackValue(false);
 ### SetIsDisabled
 `public void SetIsDisabled(bool value)`
 
-**Purpose:** Assigns a new value to `is disabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to is disabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelMultiSelectionItem from the subsystem API first
@@ -45,7 +45,7 @@ adminPanelMultiSelectionItem.SetIsDisabled(false);
 ### SetCanBeApplied
 `public void SetCanBeApplied(bool value)`
 
-**Purpose:** Assigns a new value to `can be applied` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can be applied and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AdminPanelMultiSelectionItem from the subsystem API first

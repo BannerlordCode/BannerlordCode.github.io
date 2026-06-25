@@ -32,7 +32,7 @@ description: "MissionMultiplayerTeamDeathmatchClient 的自动生成类参考。
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
@@ -43,7 +43,7 @@ missionMultiplayerTeamDeathmatchClient.OnBehaviorInitialize();
 ### OnGoldAmountChangedForRepresentative
 `public override void OnGoldAmountChangedForRepresentative(MissionRepresentativeBase representative, int goldAmount)`
 
-**用途 / Purpose:** 在 「gold amount changed for representative」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 gold amount changed for representative 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
@@ -54,7 +54,7 @@ missionMultiplayerTeamDeathmatchClient.OnGoldAmountChangedForRepresentative(repr
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
@@ -65,7 +65,7 @@ missionMultiplayerTeamDeathmatchClient.AfterStart();
 ### GetGoldAmount
 `public override int GetGoldAmount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「gold amount」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例
@@ -76,7 +76,7 @@ var result = missionMultiplayerTeamDeathmatchClient.GetGoldAmount();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerTeamDeathmatchClient 实例

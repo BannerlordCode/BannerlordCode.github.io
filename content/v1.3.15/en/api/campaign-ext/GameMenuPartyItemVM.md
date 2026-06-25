@@ -53,7 +53,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Ove
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -64,7 +64,7 @@ gameMenuPartyItemVM.RefreshValues();
 ### ExecuteSetAsContextMenuItem
 `public void ExecuteSetAsContextMenuItem()`
 
-**Purpose:** Runs the operation or workflow associated with `set as context menu item`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with set as context menu item.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -75,7 +75,7 @@ gameMenuPartyItemVM.ExecuteSetAsContextMenuItem();
 ### ExecuteOpenEncyclopedia
 `public void ExecuteOpenEncyclopedia()`
 
-**Purpose:** Runs the operation or workflow associated with `open encyclopedia`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open encyclopedia.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -86,7 +86,7 @@ gameMenuPartyItemVM.ExecuteOpenEncyclopedia();
 ### ExecuteCloseTooltip
 `public void ExecuteCloseTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `close tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close tooltip.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -97,7 +97,7 @@ gameMenuPartyItemVM.ExecuteCloseTooltip();
 ### ExecuteOpenTooltip
 `public void ExecuteOpenTooltip()`
 
-**Purpose:** Runs the operation or workflow associated with `open tooltip`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open tooltip.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -108,7 +108,7 @@ gameMenuPartyItemVM.ExecuteOpenTooltip();
 ### RefreshProperties
 `public void RefreshProperties()`
 
-**Purpose:** Keeps the display or cache of `properties` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of properties in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -119,7 +119,7 @@ gameMenuPartyItemVM.RefreshProperties();
 ### RefreshQuestStatus
 `public void RefreshQuestStatus()`
 
-**Purpose:** Keeps the display or cache of `quest status` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of quest status in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -130,7 +130,7 @@ gameMenuPartyItemVM.RefreshQuestStatus();
 ### RefreshVisual
 `public void RefreshVisual()`
 
-**Purpose:** Keeps the display or cache of `visual` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of visual in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -141,7 +141,7 @@ gameMenuPartyItemVM.RefreshVisual();
 ### RefreshCounts
 `public void RefreshCounts()`
 
-**Purpose:** Keeps the display or cache of `counts` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of counts in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -152,7 +152,7 @@ gameMenuPartyItemVM.RefreshCounts();
 ### GetPartyDescriptionTextFromValues
 `public string GetPartyDescriptionTextFromValues()`
 
-**Purpose:** Reads and returns the `party description text from values` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party description text from values value held by the this instance.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -163,7 +163,7 @@ var result = gameMenuPartyItemVM.GetPartyDescriptionTextFromValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first
@@ -174,7 +174,7 @@ gameMenuPartyItemVM.OnFinalize();
 ### Compare
 `public int Compare(QuestMarkerVM x, QuestMarkerVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of GameMenuPartyItemVM from the subsystem API first

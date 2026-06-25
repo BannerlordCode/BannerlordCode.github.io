@@ -41,7 +41,7 @@ description: "TournamentRoundVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRoundVM 实例
@@ -52,7 +52,7 @@ tournamentRoundVM.RefreshValues();
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRoundVM 实例
@@ -63,7 +63,7 @@ tournamentRoundVM.Initialize();
 ### Initialize
 `public void Initialize(TournamentRound round, TextObject name)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRoundVM 实例
@@ -74,7 +74,7 @@ tournamentRoundVM.Initialize(round, name);
 ### GetParticipants
 `public IEnumerable<TournamentParticipantVM> GetParticipants()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「participants」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 participants 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRoundVM 实例

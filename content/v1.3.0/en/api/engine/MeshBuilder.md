@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### AddFaceCorner
 `public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color)`
 
-**Purpose:** Adds `face corner` to the current collection or state.
+**Purpose:** **Purpose:** Adds face corner to the current collection or state.
 
 ```csharp
 // Obtain an instance of MeshBuilder from the subsystem API first
@@ -34,7 +34,7 @@ var result = meshBuilder.AddFaceCorner(position, normal, uvCoord, 0);
 ### AddFace
 `public int AddFace(int patchNode0, int patchNode1, int patchNode2)`
 
-**Purpose:** Adds `face` to the current collection or state.
+**Purpose:** **Purpose:** Adds face to the current collection or state.
 
 ```csharp
 // Obtain an instance of MeshBuilder from the subsystem API first
@@ -45,7 +45,7 @@ var result = meshBuilder.AddFace(0, 0, 0);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MeshBuilder from the subsystem API first
@@ -56,7 +56,7 @@ meshBuilder.Clear();
 ### Finalize
 `public new Mesh Finalize()`
 
-**Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
+**Purpose:** **Purpose:** Performs cleanup work when the object is garbage collected (usually for unmanaged resources).
 
 ```csharp
 // Obtain an instance of MeshBuilder from the subsystem API first
@@ -67,7 +67,7 @@ var result = meshBuilder.Finalize();
 ### CreateUnitMesh
 `public static Mesh CreateUnitMesh()`
 
-**Purpose:** Constructs a new `unit mesh` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new unit mesh entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -77,7 +77,7 @@ MeshBuilder.CreateUnitMesh();
 ### CreateTilingWindowMesh
 `public static Mesh CreateTilingWindowMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness, Vec2 bgBorderThickness)`
 
-**Purpose:** Constructs a new `tiling window mesh` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new tiling window mesh entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -87,7 +87,7 @@ MeshBuilder.CreateTilingWindowMesh("example", meshSizeMin, meshSizeMax, borderTh
 ### CreateTilingButtonMesh
 `public static Mesh CreateTilingButtonMesh(string baseMeshName, Vec2 meshSizeMin, Vec2 meshSizeMax, Vec2 borderThickness)`
 
-**Purpose:** Constructs a new `tiling button mesh` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new tiling button mesh entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

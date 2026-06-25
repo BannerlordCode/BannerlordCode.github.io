@@ -23,7 +23,7 @@ Treat `PartyDesertionModel` as a Model-style extension point: first identify who
 ### GetTroopsToDesert
 `public abstract TroopRoster GetTroopsToDesert(MobileParty mobileParty)`
 
-**Purpose:** Reads and returns the `troops to desert` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the troops to desert value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyDesertionModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = partyDesertionModel.GetTroopsToDesert(mobileParty);
 ### GetDesertionChanceForTroop
 `public abstract float GetDesertionChanceForTroop(MobileParty mobileParty, in TroopRosterElement troopRosterElement)`
 
-**Purpose:** Reads and returns the `desertion chance for troop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the desertion chance for troop value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyDesertionModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = partyDesertionModel.GetDesertionChanceForTroop(mobileParty, troopRo
 ### GetMoraleThresholdForTroopDesertion
 `public abstract int GetMoraleThresholdForTroopDesertion()`
 
-**Purpose:** Reads and returns the `morale threshold for troop desertion` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the morale threshold for troop desertion value held by the this instance.
 
 ```csharp
 // Obtain an instance of PartyDesertionModel from the subsystem API first

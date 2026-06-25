@@ -23,7 +23,7 @@ description: "DefaultPrisonerDonationModel 的自动生成类参考。"
 ### CalculateRelationGainAfterHeroPrisonerDonate
 `public override float CalculateRelationGainAfterHeroPrisonerDonate(PartyBase donatingParty, Hero donatedHero, Settlement donatedSettlement)`
 
-**用途 / Purpose:** 计算「relation gain after hero prisoner donate」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算relation gain after hero prisoner donate的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPrisonerDonationModel 实例
@@ -34,7 +34,7 @@ var result = defaultPrisonerDonationModel.CalculateRelationGainAfterHeroPrisoner
 ### CalculateInfluenceGainAfterPrisonerDonation
 `public override float CalculateInfluenceGainAfterPrisonerDonation(PartyBase donatingParty, CharacterObject donatedPrisoner, Settlement donatedSettlement)`
 
-**用途 / Purpose:** 计算「influence gain after prisoner donation」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算influence gain after prisoner donation的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPrisonerDonationModel 实例
@@ -45,7 +45,7 @@ var result = defaultPrisonerDonationModel.CalculateInfluenceGainAfterPrisonerDon
 ### CalculateInfluenceGainAfterTroopDonation
 `public override float CalculateInfluenceGainAfterTroopDonation(PartyBase donatingParty, CharacterObject donatedCharacter, Settlement donatedSettlement)`
 
-**用途 / Purpose:** 计算「influence gain after troop donation」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算influence gain after troop donation的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPrisonerDonationModel 实例

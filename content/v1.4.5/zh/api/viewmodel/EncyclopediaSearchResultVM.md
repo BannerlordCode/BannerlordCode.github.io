@@ -30,7 +30,7 @@ description: "EncyclopediaSearchResultVM 的自动生成类参考。"
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**用途 / Purpose:** 重新计算并更新 「searched text」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 searched text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSearchResultVM 实例
@@ -41,7 +41,7 @@ encyclopediaSearchResultVM.UpdateSearchedText("example");
 ### Execute
 `public void Execute()`
 
-**用途 / Purpose:** 执行当前对象代表的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行当前对象代表的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 EncyclopediaSearchResultVM 实例

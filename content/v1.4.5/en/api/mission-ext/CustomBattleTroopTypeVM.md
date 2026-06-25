@@ -36,7 +36,7 @@ Start from namespace `TaleWorlds.MountAndBlade.CustomBattle` to place it in the 
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopTypeVM from the subsystem API first
@@ -47,7 +47,7 @@ customBattleTroopTypeVM.RefreshValues();
 ### ExecuteToggleSelection
 `public void ExecuteToggleSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `toggle selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with toggle selection.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopTypeVM from the subsystem API first
@@ -58,7 +58,7 @@ customBattleTroopTypeVM.ExecuteToggleSelection();
 ### ExecuteRandomize
 `public void ExecuteRandomize()`
 
-**Purpose:** Runs the operation or workflow associated with `randomize`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with randomize.
 
 ```csharp
 // Obtain an instance of CustomBattleTroopTypeVM from the subsystem API first
@@ -69,7 +69,7 @@ customBattleTroopTypeVM.ExecuteRandomize();
 ### GetCharacterTierData
 `public static StringItemWithHintVM GetCharacterTierData(BasicCharacterObject character, bool isBig = false)`
 
-**Purpose:** Reads and returns the `character tier data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character tier data value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -79,7 +79,7 @@ CustomBattleTroopTypeVM.GetCharacterTierData(character, false);
 ### GetCharacterTier
 `public static int GetCharacterTier(BasicCharacterObject character)`
 
-**Purpose:** Reads and returns the `character tier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the character tier value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ description: "ValuationModel 的自动生成类参考。"
 ### GetValueOfTroop
 `public abstract float GetValueOfTroop(CharacterObject troop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of troop」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of troop 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ValuationModel 实例
@@ -34,7 +34,7 @@ var result = valuationModel.GetValueOfTroop(troop);
 ### GetMilitaryValueOfParty
 `public abstract float GetMilitaryValueOfParty(MobileParty party)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「military value of party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 military value of party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ValuationModel 实例
@@ -45,7 +45,7 @@ var result = valuationModel.GetMilitaryValueOfParty(party);
 ### GetValueOfHero
 `public abstract float GetValueOfHero(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value of hero」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value of hero 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ValuationModel 实例

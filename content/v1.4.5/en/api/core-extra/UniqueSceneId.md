@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Serialize
 `public string Serialize()`
 
-**Purpose:** Serializes the current object into a storable or transmittable format.
+**Purpose:** **Purpose:** Serializes the this instance into a storable or transmittable format.
 
 ```csharp
 // Obtain an instance of UniqueSceneId from the subsystem API first
@@ -41,7 +41,7 @@ var result = uniqueSceneId.Serialize();
 ### TryParse
 `public static bool TryParse(string uniqueMapId, out UniqueSceneId identifiers)`
 
-**Purpose:** Attempts to retrieve `parse`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve parse, usually returning success through an out parameter.
 
 ```csharp
 // Static call; no instance required

@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors` t
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of AiMilitaryBehavior from the subsystem API first
@@ -34,7 +34,7 @@ aiMilitaryBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of AiMilitaryBehavior from the subsystem API first
@@ -45,7 +45,7 @@ aiMilitaryBehavior.SyncData(dataStore);
 ### FindBestTargetAndItsValueForFaction
 `public void FindBestTargetAndItsValueForFaction(Army.ArmyTypes missionType, PartyThinkParams p, float ourStrength)`
 
-**Purpose:** Looks up the matching `best target and its value for faction` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching best target and its value for faction in the current collection or scope.
 
 ```csharp
 // Obtain an instance of AiMilitaryBehavior from the subsystem API first

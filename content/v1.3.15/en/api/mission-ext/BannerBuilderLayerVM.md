@@ -51,7 +51,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -62,7 +62,7 @@ bannerBuilderLayerVM.Refresh();
 ### ExecuteDelete
 `public void ExecuteDelete()`
 
-**Purpose:** Runs the operation or workflow associated with `delete`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with delete.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -73,7 +73,7 @@ bannerBuilderLayerVM.ExecuteDelete();
 ### ExecuteSelection
 `public void ExecuteSelection()`
 
-**Purpose:** Runs the operation or workflow associated with `selection`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with selection.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -84,7 +84,7 @@ bannerBuilderLayerVM.ExecuteSelection();
 ### SetLayerIndex
 `public void SetLayerIndex(int newIndex)`
 
-**Purpose:** Assigns a new value to `layer index` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to layer index and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -95,7 +95,7 @@ bannerBuilderLayerVM.SetLayerIndex(0);
 ### ExecuteSelectColor1
 `public void ExecuteSelectColor1()`
 
-**Purpose:** Runs the operation or workflow associated with `select color1`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select color1.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -106,7 +106,7 @@ bannerBuilderLayerVM.ExecuteSelectColor1();
 ### ExecuteSelectColor2
 `public void ExecuteSelectColor2()`
 
-**Purpose:** Runs the operation or workflow associated with `select color2`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select color2.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -117,7 +117,7 @@ bannerBuilderLayerVM.ExecuteSelectColor2();
 ### ExecuteSwapColors
 `public void ExecuteSwapColors()`
 
-**Purpose:** Runs the operation or workflow associated with `swap colors`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with swap colors.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -128,7 +128,7 @@ bannerBuilderLayerVM.ExecuteSwapColors();
 ### ExecuteCenterSigil
 `public void ExecuteCenterSigil()`
 
-**Purpose:** Runs the operation or workflow associated with `center sigil`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with center sigil.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -139,7 +139,7 @@ bannerBuilderLayerVM.ExecuteCenterSigil();
 ### ExecuteResetSize
 `public void ExecuteResetSize()`
 
-**Purpose:** Runs the operation or workflow associated with `reset size`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with reset size.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -150,7 +150,7 @@ bannerBuilderLayerVM.ExecuteResetSize();
 ### ExecuteUpdateBanner
 `public void ExecuteUpdateBanner()`
 
-**Purpose:** Runs the operation or workflow associated with `update banner`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with update banner.
 
 ```csharp
 // Obtain an instance of BannerBuilderLayerVM from the subsystem API first
@@ -161,7 +161,7 @@ bannerBuilderLayerVM.ExecuteUpdateBanner();
 ### SetLayerActions
 `public static void SetLayerActions(Action refresh, Action<BannerBuilderLayerVM> onSelection, Action<BannerBuilderLayerVM> onDeletion, Action<int, Action<BannerBuilderColorItemVM>> onColorSelection)`
 
-**Purpose:** Assigns a new value to `layer actions` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to layer actions and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -171,7 +171,7 @@ BannerBuilderLayerVM.SetLayerActions(refresh, onSelection, onDeletion, action<in
 ### ResetLayerActions
 `public static void ResetLayerActions()`
 
-**Purpose:** Returns `layer actions` to its default or initial condition.
+**Purpose:** **Purpose:** Returns layer actions to its default or initial condition.
 
 ```csharp
 // Static call; no instance required

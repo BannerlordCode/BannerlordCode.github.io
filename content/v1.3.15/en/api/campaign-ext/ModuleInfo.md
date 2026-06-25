@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.ModuleManager` to place it in the stack, then i
 ### LoadWithFullPath
 `public void LoadWithFullPath(string fullPath)`
 
-**Purpose:** Reads `with full path` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads with full path from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of ModuleInfo from the subsystem API first
@@ -53,7 +53,7 @@ moduleInfo.LoadWithFullPath("example");
 ### ActivateModule
 `public void ActivateModule()`
 
-**Purpose:** Activates the resource, state, or feature associated with `module`.
+**Purpose:** **Purpose:** Activates the resource, state, or feature associated with module.
 
 ```csharp
 // Obtain an instance of ModuleInfo from the subsystem API first
@@ -64,7 +64,7 @@ moduleInfo.ActivateModule();
 ### DeactivateModule
 `public void DeactivateModule()`
 
-**Purpose:** Deactivates the resource, state, or feature associated with `module`.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature associated with module.
 
 ```csharp
 // Obtain an instance of ModuleInfo from the subsystem API first
@@ -75,7 +75,7 @@ moduleInfo.DeactivateModule();
 ### UpdateVersionChangeSet
 `public void UpdateVersionChangeSet()`
 
-**Purpose:** Recalculates and stores the latest representation of `version change set`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of version change set.
 
 ```csharp
 // Obtain an instance of ModuleInfo from the subsystem API first

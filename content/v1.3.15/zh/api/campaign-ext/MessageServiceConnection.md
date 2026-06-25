@@ -29,7 +29,7 @@ description: "MessageServiceConnection 的自动生成类参考。"
 ### SendAsync
 `public abstract Task SendAsync(string text)`
 
-**用途 / Purpose:** 处理与 「send async」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SendAsync 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -40,7 +40,7 @@ var result = messageServiceConnection.SendAsync("example");
 ### Init
 `public abstract void Init(string address, string token)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -51,7 +51,7 @@ messageServiceConnection.Init("example", "example");
 ### RegisterProxyClient
 `public abstract void RegisterProxyClient(string name, IMessageProxyClient playerClient)`
 
-**用途 / Purpose:** 将「proxy client」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将proxy client注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -62,7 +62,7 @@ messageServiceConnection.RegisterProxyClient("example", playerClient);
 ### StartAsync
 `public abstract Task StartAsync()`
 
-**用途 / Purpose:** 启动「async」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动async流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -73,7 +73,7 @@ var result = messageServiceConnection.StartAsync();
 ### StopAsync
 `public abstract Task StopAsync()`
 
-**用途 / Purpose:** 停止「async」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止async流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -84,7 +84,7 @@ var result = messageServiceConnection.StopAsync();
 ### ClosedDelegate
 `public delegate Task ClosedDelegate()`
 
-**用途 / Purpose:** 关闭「d delegate」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭d delegate对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -95,7 +95,7 @@ var result = messageServiceConnection.ClosedDelegate();
 ### StateChangedDelegate
 `public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
 
-**用途 / Purpose:** 处理与 「state changed delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 StateChangedDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例

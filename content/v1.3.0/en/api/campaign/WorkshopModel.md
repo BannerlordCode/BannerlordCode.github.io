@@ -35,7 +35,7 @@ Treat `WorkshopModel` as a Model-style extension point: first identify who creat
 ### GetMaxWorkshopCountForClanTier
 `public abstract int GetMaxWorkshopCountForClanTier(int tier)`
 
-**Purpose:** Reads and returns the `max workshop count for clan tier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max workshop count for clan tier value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -46,7 +46,7 @@ var result = workshopModel.GetMaxWorkshopCountForClanTier(0);
 ### GetCostForPlayer
 `public abstract int GetCostForPlayer(Workshop workshop)`
 
-**Purpose:** Reads and returns the `cost for player` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cost for player value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -57,7 +57,7 @@ var result = workshopModel.GetCostForPlayer(workshop);
 ### GetCostForNotable
 `public abstract int GetCostForNotable(Workshop workshop)`
 
-**Purpose:** Reads and returns the `cost for notable` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cost for notable value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -68,7 +68,7 @@ var result = workshopModel.GetCostForNotable(workshop);
 ### GetNotableOwnerForWorkshop
 `public abstract Hero GetNotableOwnerForWorkshop(Workshop workshop)`
 
-**Purpose:** Reads and returns the `notable owner for workshop` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the notable owner for workshop value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -79,7 +79,7 @@ var result = workshopModel.GetNotableOwnerForWorkshop(workshop);
 ### GetEffectiveConversionSpeedOfProduction
 `public abstract ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescriptions)`
 
-**Purpose:** Reads and returns the `effective conversion speed of production` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective conversion speed of production value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -90,7 +90,7 @@ var result = workshopModel.GetEffectiveConversionSpeedOfProduction(workshop, 0, 
 ### GetConvertProductionCost
 `public abstract int GetConvertProductionCost(WorkshopType workshopType)`
 
-**Purpose:** Reads and returns the `convert production cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the convert production cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -101,7 +101,7 @@ var result = workshopModel.GetConvertProductionCost(workshopType);
 ### CanPlayerSellWorkshop
 `public abstract bool CanPlayerSellWorkshop(Workshop workshop, out TextObject explanation)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `player sell workshop`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player sell workshop.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first
@@ -112,7 +112,7 @@ var result = workshopModel.CanPlayerSellWorkshop(workshop, explanation);
 ### GetTradeXpPerWarehouseProduction
 `public abstract float GetTradeXpPerWarehouseProduction(EquipmentElement production)`
 
-**Purpose:** Reads and returns the `trade xp per warehouse production` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the trade xp per warehouse production value held by the this instance.
 
 ```csharp
 // Obtain an instance of WorkshopModel from the subsystem API first

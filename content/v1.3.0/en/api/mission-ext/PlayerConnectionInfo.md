@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### AddParameter
 `public void AddParameter(string name, object parameter)`
 
-**Purpose:** Adds `parameter` to the current collection or state.
+**Purpose:** **Purpose:** Adds parameter to the current collection or state.
 
 ```csharp
 // Obtain an instance of PlayerConnectionInfo from the subsystem API first

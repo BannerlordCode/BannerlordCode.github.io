@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.SaveSystem` to place it in the stack, then insp
 ### CreateFrom
 `public static SaveEntry CreateFrom(int entryFolderId, EntryId entryId, byte data)`
 
-**Purpose:** Constructs a new `from` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new from entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ SaveEntry.CreateFrom(0, entryId, 0);
 ### CreateNew
 `public static SaveEntry CreateNew(SaveEntryFolder parentFolder, EntryId entryId)`
 
-**Purpose:** Constructs a new `new` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new new entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ SaveEntry.CreateNew(parentFolder, entryId);
 ### GetBinaryReader
 `public BinaryReader GetBinaryReader()`
 
-**Purpose:** Reads and returns the `binary reader` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the binary reader value held by the this instance.
 
 ```csharp
 // Obtain an instance of SaveEntry from the subsystem API first
@@ -61,7 +61,7 @@ var result = saveEntry.GetBinaryReader();
 ### FillFrom
 `public void FillFrom(BinaryWriter writer)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FillFrom logic.
 
 ```csharp
 // Obtain an instance of SaveEntry from the subsystem API first

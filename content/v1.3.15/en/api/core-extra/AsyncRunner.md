@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Run
 `public abstract void Run()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Run logic.
 
 ```csharp
 // Obtain an instance of AsyncRunner from the subsystem API first
@@ -34,7 +34,7 @@ asyncRunner.Run();
 ### SyncTick
 `public abstract void SyncTick()`
 
-**Purpose:** Synchronizes `tick` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes tick across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of AsyncRunner from the subsystem API first
@@ -45,7 +45,7 @@ asyncRunner.SyncTick();
 ### OnRemove
 `public abstract void OnRemove()`
 
-**Purpose:** Invoked when the `remove` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove event is raised.
 
 ```csharp
 // Obtain an instance of AsyncRunner from the subsystem API first

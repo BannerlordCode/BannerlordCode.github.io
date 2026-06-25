@@ -23,7 +23,7 @@ description: "DefaultClanPoliticsModel 的自动生成类参考。"
 ### CalculateInfluenceChange
 `public override ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 计算「influence change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算influence change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
@@ -34,7 +34,7 @@ var result = defaultClanPoliticsModel.CalculateInfluenceChange(clan, false);
 ### CalculateSupportForPolicyInClan
 `public override float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**用途 / Purpose:** 计算「support for policy in clan」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算support for policy in clan的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
@@ -45,7 +45,7 @@ var result = defaultClanPoliticsModel.CalculateSupportForPolicyInClan(clan, poli
 ### CalculateRelationshipChangeWithSponsor
 `public override float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**用途 / Purpose:** 计算「relationship change with sponsor」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算relationship change with sponsor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
@@ -56,7 +56,7 @@ var result = defaultClanPoliticsModel.CalculateRelationshipChangeWithSponsor(cla
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public override int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence required to override kingdom decision」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence required to override kingdom decision 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例
@@ -67,7 +67,7 @@ var result = defaultClanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecis
 ### CanHeroBeGovernor
 `public override bool CanHeroBeGovernor(Hero hero)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「hero be governor」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 hero be governor 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultClanPoliticsModel 实例

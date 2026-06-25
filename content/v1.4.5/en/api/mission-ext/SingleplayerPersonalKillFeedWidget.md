@@ -23,7 +23,7 @@ Treat `SingleplayerPersonalKillFeedWidget` as a Widget-style extension point: fi
 ### SingleplayerPersonalKillFeedWidget
 `public class SingleplayerPersonalKillFeedWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SingleplayerPersonalKillFeedWidget logic.
 
 ```csharp
 // Obtain an instance of SingleplayerPersonalKillFeedWidget from the subsystem API first

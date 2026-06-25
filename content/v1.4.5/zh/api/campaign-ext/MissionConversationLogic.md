@@ -32,7 +32,7 @@ description: "MissionConversationLogic 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -43,7 +43,7 @@ missionConversationLogic.OnBehaviorInitialize();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**用途 / Purpose:** 在 「remove behavior」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remove behavior 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -54,7 +54,7 @@ missionConversationLogic.OnRemoveBehavior();
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -65,7 +65,7 @@ missionConversationLogic.OnAgentBuild(agent, banner);
 ### SetSpawnArea
 `public void SetSpawnArea(Alley alley)`
 
-**用途 / Purpose:** 为 「spawn area」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 spawn area 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -76,7 +76,7 @@ missionConversationLogic.SetSpawnArea(alley);
 ### SetSpawnArea
 `public void SetSpawnArea(Workshop workshop)`
 
-**用途 / Purpose:** 为 「spawn area」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 spawn area 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -87,7 +87,7 @@ missionConversationLogic.SetSpawnArea(workshop);
 ### SetSpawnArea
 `public void SetSpawnArea(string customTag)`
 
-**用途 / Purpose:** 为 「spawn area」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 spawn area 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -98,7 +98,7 @@ missionConversationLogic.SetSpawnArea("example");
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -109,7 +109,7 @@ missionConversationLogic.OnMissionTick(0);
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -120,7 +120,7 @@ missionConversationLogic.EarlyStart();
 ### OnAgentInteraction
 `public override void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
 
-**用途 / Purpose:** 在 「agent interaction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent interaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -131,7 +131,7 @@ missionConversationLogic.OnAgentInteraction(userAgent, agent, 0);
 ### StartConversation
 `public void StartConversation(Agent agent, bool setActionsInstantly, bool isInitialization = false)`
 
-**用途 / Purpose:** 启动「conversation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动conversation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -142,7 +142,7 @@ missionConversationLogic.StartConversation(agent, false, false);
 ### IsThereAgentAction
 `public override bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「there agent action」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 there agent action 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -153,7 +153,7 @@ var result = missionConversationLogic.IsThereAgentAction(userAgent, otherAgent);
 ### OnRenderingStarted
 `public override void OnRenderingStarted()`
 
-**用途 / Purpose:** 在 「rendering started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 rendering started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例
@@ -164,7 +164,7 @@ missionConversationLogic.OnRenderingStarted();
 ### DisableStartConversation
 `public void DisableStartConversation(bool isDisabled)`
 
-**用途 / Purpose:** 处理与 「disable start conversation」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableStartConversation 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionConversationLogic 实例

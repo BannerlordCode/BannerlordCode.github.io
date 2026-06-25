@@ -31,7 +31,7 @@ description: "GauntletMapEventVisual 的自动生成类参考。"
 ### Initialize
 `public void Initialize(CampaignVec2 position, bool isVisible)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMapEventVisual 实例
@@ -42,7 +42,7 @@ gauntletMapEventVisual.Initialize(position, false);
 ### OnMapEventEnd
 `public void OnMapEventEnd()`
 
-**用途 / Purpose:** 在 「map event end」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 map event end 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMapEventVisual 实例
@@ -53,7 +53,7 @@ gauntletMapEventVisual.OnMapEventEnd();
 ### SetVisibility
 `public void SetVisibility(bool isVisible)`
 
-**用途 / Purpose:** 为 「visibility」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 visibility 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletMapEventVisual 实例

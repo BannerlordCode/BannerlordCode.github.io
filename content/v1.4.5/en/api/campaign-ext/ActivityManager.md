@@ -29,7 +29,7 @@ Treat `ActivityManager` as a Manager-style extension point: first identify who c
 ### StartActivity
 `public static bool StartActivity(string activityId)`
 
-**Purpose:** Starts the `activity` flow or state machine.
+**Purpose:** **Purpose:** Starts the activity flow or state machine.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ ActivityManager.StartActivity("example");
 ### EndActivity
 `public static bool EndActivity(string activityId, ActivityOutcome outcome)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndActivity logic.
 
 ```csharp
 // Static call; no instance required
@@ -49,7 +49,7 @@ ActivityManager.EndActivity("example", outcome);
 ### SetActivityAvailability
 `public static bool SetActivityAvailability(string activityId, bool isAvailable)`
 
-**Purpose:** Assigns a new value to `activity availability` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to activity availability and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -59,7 +59,7 @@ ActivityManager.SetActivityAvailability("example", false);
 ### GetActivity
 `public static Task<Activity> GetActivity(string activityId)`
 
-**Purpose:** Reads and returns the `activity` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the activity value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -69,7 +69,7 @@ ActivityManager.GetActivity("example");
 ### GetActivityTransition
 `public static ActivityTransition GetActivityTransition(string activityId)`
 
-**Purpose:** Reads and returns the `activity transition` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the activity transition value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetEnumerator
 `public IEnumerator<KeyValuePair<string, ICollection<Vec2>>> GetEnumerator()`
 
-**Purpose:** Reads and returns the `enumerator` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the enumerator value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -42,7 +42,7 @@ var result = mBBoundaryCollection.GetEnumerator();
 ### GetBoundaryRadius
 `public float GetBoundaryRadius(string name)`
 
-**Purpose:** Reads and returns the `boundary radius` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the boundary radius value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -53,7 +53,7 @@ var result = mBBoundaryCollection.GetBoundaryRadius("example");
 ### GetOrientedBoundariesBox
 `public void GetOrientedBoundariesBox(out Vec2 boxMinimum, out Vec2 boxMaximum, float rotationInRadians = 0f)`
 
-**Purpose:** Reads and returns the `oriented boundaries box` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the oriented boundaries box value held by the this instance.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -64,7 +64,7 @@ mBBoundaryCollection.GetOrientedBoundariesBox(boxMinimum, boxMaximum, 0);
 ### Add
 `public void Add(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -75,7 +75,7 @@ mBBoundaryCollection.Add(keyValuePair<string, item);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -86,7 +86,7 @@ mBBoundaryCollection.Clear();
 ### Contains
 `public bool Contains(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**Purpose:** Indicates whether the current object contains the specified item.
+**Purpose:** **Purpose:** Indicates whether the this instance contains the specified item.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -97,7 +97,7 @@ var result = mBBoundaryCollection.Contains(keyValuePair<string, item);
 ### CopyTo
 `public void CopyTo(KeyValuePair<string, ICollection<Vec2>> array, int arrayIndex)`
 
-**Purpose:** Copies the `to` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the to state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -108,7 +108,7 @@ mBBoundaryCollection.CopyTo(keyValuePair<string, array, 0);
 ### Remove
 `public bool Remove(KeyValuePair<string, ICollection<Vec2>> item)`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -119,7 +119,7 @@ var result = mBBoundaryCollection.Remove(keyValuePair<string, item);
 ### Add
 `public void Add(string name, ICollection<Vec2> points)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -130,7 +130,7 @@ mBBoundaryCollection.Add("example", points);
 ### Add
 `public void Add(string name, ICollection<Vec2> points, bool isAllowanceInside)`
 
-**Purpose:** Adds an item to the current collection or state.
+**Purpose:** **Purpose:** Adds an item to the current collection or state.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -141,7 +141,7 @@ mBBoundaryCollection.Add("example", points, false);
 ### ContainsKey
 `public bool ContainsKey(string name)`
 
-**Purpose:** Indicates whether the current object contains `key`.
+**Purpose:** **Purpose:** Indicates whether the this instance contains key.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -152,7 +152,7 @@ var result = mBBoundaryCollection.ContainsKey("example");
 ### Remove
 `public bool Remove(string name)`
 
-**Purpose:** Removes an item from the current collection or state.
+**Purpose:** **Purpose:** Removes an item from the current collection or state.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first
@@ -163,7 +163,7 @@ var result = mBBoundaryCollection.Remove("example");
 ### TryGetValue
 `public bool TryGetValue(string name, out ICollection<Vec2> points)`
 
-**Purpose:** Attempts to retrieve `get value`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve get value, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MBBoundaryCollection from the subsystem API first

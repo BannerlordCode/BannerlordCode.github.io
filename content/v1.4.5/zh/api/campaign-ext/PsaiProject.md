@@ -32,7 +32,7 @@ description: "PsaiProject 的自动生成类参考。"
 ### Init
 `public void Init()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -43,7 +43,7 @@ psaiProject.Init();
 ### LoadProjectFromStream
 `public static PsaiProject LoadProjectFromStream(StreamReader reader, string path)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「project from stream」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 project from stream。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ PsaiProject.LoadProjectFromStream(reader, "example");
 ### LoadProjectFromXmlFile
 `public static PsaiProject LoadProjectFromXmlFile(string filename)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「project from xml file」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 project from xml file。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ PsaiProject.LoadProjectFromXmlFile("example");
 ### SaveAsXmlFile
 `public void SaveAsXmlFile(string filename)`
 
-**用途 / Purpose:** 将 「as xml file」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 as xml file 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -74,7 +74,7 @@ psaiProject.SaveAsXmlFile("example");
 ### Report
 `public void Report(bool reportGroups, bool reportSegments)`
 
-**用途 / Purpose:** 处理与 「report」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Report 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -85,7 +85,7 @@ psaiProject.Report(false, false);
 ### ConvertProjectFile_From_Legacy_To_0_9_12
 `public bool ConvertProjectFile_From_Legacy_To_0_9_12(string pathToProjectFile)`
 
-**用途 / Purpose:** 把「project file_ from_ legacy_ to_0_9_12」转换为另一种表示或类型。
+**用途 / Purpose:** **用途 / Purpose:** 把project file_ from_ legacy_ to_0_9_12转换为另一种表示或类型。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -96,7 +96,7 @@ var result = psaiProject.ConvertProjectFile_From_Legacy_To_0_9_12("example");
 ### ReconstructReferencesAfterXmlDeserialization
 `public void ReconstructReferencesAfterXmlDeserialization()`
 
-**用途 / Purpose:** 处理与 「reconstruct references after xml deserialization」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReconstructReferencesAfterXmlDeserialization 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -107,7 +107,7 @@ psaiProject.ReconstructReferencesAfterXmlDeserialization();
 ### MergeProjects
 `public void MergeProjects(PsaiProject project)`
 
-**用途 / Purpose:** 处理与 「merge projects」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MergeProjects 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -118,7 +118,7 @@ psaiProject.MergeProjects(project);
 ### ReconstructIds
 `public void ReconstructIds(string path)`
 
-**用途 / Purpose:** 处理与 「reconstruct ids」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ReconstructIds 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -129,7 +129,7 @@ psaiProject.ReconstructIds("example");
 ### DebugCheckProjectIntegrity
 `public void DebugCheckProjectIntegrity()`
 
-**用途 / Purpose:** 处理与 「debug check project integrity」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DebugCheckProjectIntegrity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -140,7 +140,7 @@ psaiProject.DebugCheckProjectIntegrity();
 ### BuildPsaiDotNetSoundtrackFromProject
 `public Soundtrack BuildPsaiDotNetSoundtrackFromProject()`
 
-**用途 / Purpose:** 组装并返回「psai dot net soundtrack from project」的构建结果。
+**用途 / Purpose:** **用途 / Purpose:** 组装并返回psai dot net soundtrack from project的构建结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -151,7 +151,7 @@ var result = psaiProject.BuildPsaiDotNetSoundtrackFromProject();
 ### GetSegmentsOfAllThemes
 `public HashSet<Segment> GetSegmentsOfAllThemes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「segments of all themes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 segments of all themes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -162,7 +162,7 @@ var result = psaiProject.GetSegmentsOfAllThemes();
 ### GetThemeById
 `public Theme GetThemeById(int themeId)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「theme by id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 theme by id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -173,7 +173,7 @@ var result = psaiProject.GetThemeById(0);
 ### GetSnippetById
 `public Segment GetSnippetById(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「snippet by id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 snippet by id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -184,7 +184,7 @@ var result = psaiProject.GetSnippetById(0);
 ### GetGroupBySerializationId
 `public Group GetGroupBySerializationId(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「group by serialization id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 group by serialization id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -195,7 +195,7 @@ var result = psaiProject.GetGroupBySerializationId(0);
 ### AddPsaiMusicEntity
 `public void AddPsaiMusicEntity(PsaiMusicEntity entity)`
 
-**用途 / Purpose:** 将 「psai music entity」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 psai music entity 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -206,7 +206,7 @@ psaiProject.AddPsaiMusicEntity(entity);
 ### AddPsaiMusicEntity
 `public void AddPsaiMusicEntity(PsaiMusicEntity entity, int targetIndex)`
 
-**用途 / Purpose:** 将 「psai music entity」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 psai music entity 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -217,7 +217,7 @@ psaiProject.AddPsaiMusicEntity(entity, 0);
 ### DeleteMusicEntity
 `public void DeleteMusicEntity(PsaiMusicEntity entity)`
 
-**用途 / Purpose:** 处理与 「delete music entity」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteMusicEntity 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -228,7 +228,7 @@ psaiProject.DeleteMusicEntity(entity);
 ### GetHighestSegmentId
 `public int GetHighestSegmentId()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「highest segment id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 highest segment id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -239,7 +239,7 @@ var result = psaiProject.GetHighestSegmentId();
 ### GetNextFreeSnippetId
 `public int GetNextFreeSnippetId(int idToStartSearchFrom)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「next free snippet id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next free snippet id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -250,7 +250,7 @@ var result = psaiProject.GetNextFreeSnippetId(0);
 ### GetGroupsOfAllThemes
 `public HashSet<Group> GetGroupsOfAllThemes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「groups of all themes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 groups of all themes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -261,7 +261,7 @@ var result = psaiProject.GetGroupsOfAllThemes();
 ### CheckIfSnippetIsManualBridgeSnippetForSourceGroup
 `public bool CheckIfSnippetIsManualBridgeSnippetForSourceGroup(Segment snippet, Group sourceGroup)`
 
-**用途 / Purpose:** 检查「if snippet is manual bridge snippet for source group」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查if snippet is manual bridge snippet for source group在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -272,7 +272,7 @@ var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetForSourceGroup(snipp
 ### CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup
 `public bool CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToTargetGroup(Group sourceGroup, Group targetGroup)`
 
-**用途 / Purpose:** 检查「if there is at least one bridge snippet from source group to target group」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查if there is at least one bridge snippet from source group to target group在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -283,7 +283,7 @@ var result = psaiProject.CheckIfThereIsAtLeastOneBridgeSnippetFromSourceGroupToT
 ### CheckIfSnippetIsManualBridgeSnippetToAnyGroup
 `public bool CheckIfSnippetIsManualBridgeSnippetToAnyGroup(Segment snippet, bool getGroups, out List<Group> groups)`
 
-**用途 / Purpose:** 检查「if snippet is manual bridge snippet to any group」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查if snippet is manual bridge snippet to any group在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -294,7 +294,7 @@ var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetToAnyGroup(snippet, 
 ### DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities
 `public void DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities()`
 
-**用途 / Purpose:** 处理与 「do update all parent theme ids and groups of child psai entities」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -305,7 +305,7 @@ psaiProject.DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities();
 ### GetNextFreeThemeId
 `public int GetNextFreeThemeId(int idToStartSearchFrom)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「next free theme id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 next free theme id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -316,7 +316,7 @@ var result = psaiProject.GetNextFreeThemeId(0);
 ### CheckIfThemeIdIsInUse
 `public bool CheckIfThemeIdIsInUse(int themeId)`
 
-**用途 / Purpose:** 检查「if theme id is in use」在当前对象中是否成立。
+**用途 / Purpose:** **用途 / Purpose:** 检查if theme id is in use在当前对象中是否成立。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -327,7 +327,7 @@ var result = psaiProject.CheckIfThemeIdIsInUse(0);
 ### GetSnippetsById
 `public List<Segment> GetSnippetsById(int id)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「snippets by id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 snippets by id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -338,7 +338,7 @@ var result = psaiProject.GetSnippetsById(0);
 ### Clone
 `public object Clone()`
 
-**用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
+**用途 / Purpose:** **用途 / Purpose:** 复制当前对象的状态并返回一个新实例。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例

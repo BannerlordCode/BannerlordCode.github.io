@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.TwoDimension` to place it in the stack, then in
 ### GetMinUvs
 `public override Vec2 GetMinUvs()`
 
-**Purpose:** Reads and returns the `min uvs` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the min uvs value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpriteGeneric from the subsystem API first
@@ -40,7 +40,7 @@ var result = spriteGeneric.GetMinUvs();
 ### GetMaxUvs
 `public override Vec2 GetMaxUvs()`
 
-**Purpose:** Reads and returns the `max uvs` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max uvs value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpriteGeneric from the subsystem API first

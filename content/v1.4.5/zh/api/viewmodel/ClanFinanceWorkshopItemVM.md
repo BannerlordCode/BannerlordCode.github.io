@@ -47,7 +47,7 @@ description: "ClanFinanceWorkshopItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
@@ -58,7 +58,7 @@ clanFinanceWorkshopItemVM.RefreshValues();
 ### ExecuteToggleWarehouseUsage
 `public void ExecuteToggleWarehouseUsage()`
 
-**用途 / Purpose:** 执行 「toggle warehouse usage」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 toggle warehouse usage 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
@@ -69,7 +69,7 @@ clanFinanceWorkshopItemVM.ExecuteToggleWarehouseUsage();
 ### ExecuteBeginWorkshopHint
 `public void ExecuteBeginWorkshopHint()`
 
-**用途 / Purpose:** 执行 「begin workshop hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin workshop hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
@@ -80,7 +80,7 @@ clanFinanceWorkshopItemVM.ExecuteBeginWorkshopHint();
 ### ExecuteEndHint
 `public void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
@@ -91,7 +91,7 @@ clanFinanceWorkshopItemVM.ExecuteEndHint();
 ### OnStoreOutputInWarehousePercentageUpdated
 `public void OnStoreOutputInWarehousePercentageUpdated(SelectorVM<WorkshopPercentageSelectorItemVM> selector)`
 
-**用途 / Purpose:** 在 「store output in warehouse percentage updated」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 store output in warehouse percentage updated 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例
@@ -102,7 +102,7 @@ clanFinanceWorkshopItemVM.OnStoreOutputInWarehousePercentageUpdated(selector);
 ### ExecuteManageWorkshop
 `public void ExecuteManageWorkshop()`
 
-**用途 / Purpose:** 执行 「manage workshop」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 manage workshop 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceWorkshopItemVM 实例

@@ -23,7 +23,7 @@ description: "RidingModel 的自动生成类参考。"
 ### CalculateAcceleration
 `public abstract float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**用途 / Purpose:** 计算「acceleration」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算acceleration的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RidingModel 实例

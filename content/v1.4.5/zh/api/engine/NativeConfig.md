@@ -34,7 +34,7 @@ description: "NativeConfig 的自动生成类参考。"
 ### OnConfigChanged
 `public static void OnConfigChanged()`
 
-**用途 / Purpose:** 在 「config changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 config changed 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ NativeConfig.OnConfigChanged();
 ### SetAutoConfigWrtHardware
 `public static void SetAutoConfigWrtHardware()`
 
-**用途 / Purpose:** 为 「auto config wrt hardware」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 auto config wrt hardware 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

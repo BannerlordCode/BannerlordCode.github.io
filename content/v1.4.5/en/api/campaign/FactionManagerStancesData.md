@@ -23,7 +23,7 @@ Treat `FactionManagerStancesData` as a Data-style extension point: first identif
 ### AddStance
 `public void AddStance(StanceLink stance)`
 
-**Purpose:** Adds `stance` to the current collection or state.
+**Purpose:** **Purpose:** Adds stance to the current collection or state.
 
 ```csharp
 // Obtain an instance of FactionManagerStancesData from the subsystem API first
@@ -34,7 +34,7 @@ factionManagerStancesData.AddStance(stance);
 ### RemoveStance
 `public void RemoveStance(StanceLink stance)`
 
-**Purpose:** Removes `stance` from the current collection or state.
+**Purpose:** **Purpose:** Removes stance from the current collection or state.
 
 ```csharp
 // Obtain an instance of FactionManagerStancesData from the subsystem API first

@@ -37,7 +37,7 @@ Treat `CustomBattleData` as a Data-style extension point: first identify who cre
 ### GetAllAttackerMeleeMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerMeleeMachines()`
 
-**Purpose:** Reads and returns the `all attacker melee machines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all attacker melee machines value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -47,7 +47,7 @@ CustomBattleData.GetAllAttackerMeleeMachines();
 ### GetAllDefenderRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllDefenderRangedMachines()`
 
-**Purpose:** Reads and returns the `all defender ranged machines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all defender ranged machines value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -57,7 +57,7 @@ CustomBattleData.GetAllDefenderRangedMachines();
 ### GetAllAttackerRangedMachines
 `public static IEnumerable<SiegeEngineType> GetAllAttackerRangedMachines()`
 
-**Purpose:** Reads and returns the `all attacker ranged machines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all attacker ranged machines value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -44,7 +44,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**Purpose:** Reads the data or state of `from network`.
+**Purpose:** **Purpose:** Reads the data or state of from network.
 
 ```csharp
 // Obtain an instance of BaseSynchedMissionObjectReadableRecord from the subsystem API first
@@ -55,7 +55,7 @@ var result = baseSynchedMissionObjectReadableRecord.ReadFromNetwork(bufferReadVa
 ### SetSetVisibilityExcludeParents
 `public void SetSetVisibilityExcludeParents(bool visible)`
 
-**Purpose:** Assigns a new value to `set visibility exclude parents` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to set visibility exclude parents and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BaseSynchedMissionObjectReadableRecord from the subsystem API first

@@ -23,7 +23,7 @@ Treat `AgentStatCalculateModel` as a Model-style extension point: first identify
 ### InitializeAgentStats
 `public abstract void InitializeAgentStats(Agent agent, Equipment spawnEquipment, AgentDrivenProperties agentDrivenProperties, AgentBuildData agentBuildData)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `agent stats`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by agent stats.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -34,7 +34,7 @@ agentStatCalculateModel.InitializeAgentStats(agent, spawnEquipment, agentDrivenP
 ### InitializeMissionEquipment
 `public virtual void InitializeMissionEquipment(Agent agent)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `mission equipment`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by mission equipment.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -45,7 +45,7 @@ agentStatCalculateModel.InitializeMissionEquipment(agent);
 ### UpdateAgentStats
 `public abstract void UpdateAgentStats(Agent agent, AgentDrivenProperties agentDrivenProperties)`
 
-**Purpose:** Recalculates and stores the latest representation of `agent stats`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of agent stats.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -56,7 +56,7 @@ agentStatCalculateModel.UpdateAgentStats(agent, agentDrivenProperties);
 ### GetDifficultyModifier
 `public abstract float GetDifficultyModifier()`
 
-**Purpose:** Reads and returns the `difficulty modifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the difficulty modifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = agentStatCalculateModel.GetDifficultyModifier();
 ### CanAgentRideMount
 `public abstract bool CanAgentRideMount(Agent agent, Agent targetMount)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `agent ride mount`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for agent ride mount.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = agentStatCalculateModel.CanAgentRideMount(agent, targetMount);
 ### HasHeavyArmor
 `public virtual bool HasHeavyArmor(Agent agent)`
 
-**Purpose:** Determines whether the current object already holds `heavy armor`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds heavy armor.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = agentStatCalculateModel.HasHeavyArmor(agent);
 ### GetEffectiveArmorEncumbrance
 `public virtual float GetEffectiveArmorEncumbrance(Agent agent, Equipment equipment)`
 
-**Purpose:** Reads and returns the `effective armor encumbrance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective armor encumbrance value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = agentStatCalculateModel.GetEffectiveArmorEncumbrance(agent, equipme
 ### GetEffectiveMaxHealth
 `public virtual float GetEffectiveMaxHealth(Agent agent)`
 
-**Purpose:** Reads and returns the `effective max health` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective max health value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = agentStatCalculateModel.GetEffectiveMaxHealth(agent);
 ### GetEnvironmentSpeedFactor
 `public virtual float GetEnvironmentSpeedFactor(Agent agent)`
 
-**Purpose:** Reads and returns the `environment speed factor` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the environment speed factor value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = agentStatCalculateModel.GetEnvironmentSpeedFactor(agent);
 ### CalculateAIAttackOnDecideMaxValue
 `public float CalculateAIAttackOnDecideMaxValue()`
 
-**Purpose:** Calculates the current value or result of `a i attack on decide max value`.
+**Purpose:** **Purpose:** Calculates the current value or result of a i attack on decide max value.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = agentStatCalculateModel.CalculateAIAttackOnDecideMaxValue();
 ### GetWeaponInaccuracy
 `public virtual float GetWeaponInaccuracy(Agent agent, WeaponComponentData weapon, int weaponSkill)`
 
-**Purpose:** Reads and returns the `weapon inaccuracy` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the weapon inaccuracy value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -144,7 +144,7 @@ var result = agentStatCalculateModel.GetWeaponInaccuracy(agent, weapon, 0);
 ### GetDetachmentCostMultiplierOfAgent
 `public virtual float GetDetachmentCostMultiplierOfAgent(Agent agent, IDetachment detachment)`
 
-**Purpose:** Reads and returns the `detachment cost multiplier of agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the detachment cost multiplier of agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -155,7 +155,7 @@ var result = agentStatCalculateModel.GetDetachmentCostMultiplierOfAgent(agent, d
 ### GetInteractionDistance
 `public virtual float GetInteractionDistance(Agent agent)`
 
-**Purpose:** Reads and returns the `interaction distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the interaction distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -166,7 +166,7 @@ var result = agentStatCalculateModel.GetInteractionDistance(agent);
 ### GetMaxCameraZoom
 `public virtual float GetMaxCameraZoom(Agent agent)`
 
-**Purpose:** Reads and returns the `max camera zoom` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the max camera zoom value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -177,7 +177,7 @@ var result = agentStatCalculateModel.GetMaxCameraZoom(agent);
 ### GetEffectiveSkill
 `public virtual int GetEffectiveSkill(Agent agent, SkillObject skill)`
 
-**Purpose:** Reads and returns the `effective skill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective skill value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -188,7 +188,7 @@ var result = agentStatCalculateModel.GetEffectiveSkill(agent, skill);
 ### GetEffectiveSkillForWeapon
 `public virtual int GetEffectiveSkillForWeapon(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Reads and returns the `effective skill for weapon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective skill for weapon value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -199,7 +199,7 @@ var result = agentStatCalculateModel.GetEffectiveSkillForWeapon(agent, weapon);
 ### GetWeaponDamageMultiplier
 `public abstract float GetWeaponDamageMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Reads and returns the `weapon damage multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the weapon damage multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -210,7 +210,7 @@ var result = agentStatCalculateModel.GetWeaponDamageMultiplier(agent, weapon);
 ### GetEquipmentStealthBonus
 `public abstract float GetEquipmentStealthBonus(Agent agent)`
 
-**Purpose:** Reads and returns the `equipment stealth bonus` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the equipment stealth bonus value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -221,7 +221,7 @@ var result = agentStatCalculateModel.GetEquipmentStealthBonus(agent);
 ### GetSneakAttackMultiplier
 `public abstract float GetSneakAttackMultiplier(Agent agent, WeaponComponentData weapon)`
 
-**Purpose:** Reads and returns the `sneak attack multiplier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the sneak attack multiplier value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -232,7 +232,7 @@ var result = agentStatCalculateModel.GetSneakAttackMultiplier(agent, weapon);
 ### GetKnockBackResistance
 `public abstract float GetKnockBackResistance(Agent agent)`
 
-**Purpose:** Reads and returns the `knock back resistance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the knock back resistance value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -243,7 +243,7 @@ var result = agentStatCalculateModel.GetKnockBackResistance(agent);
 ### GetKnockDownResistance
 `public abstract float GetKnockDownResistance(Agent agent, StrikeType strikeType = StrikeType.Invalid)`
 
-**Purpose:** Reads and returns the `knock down resistance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the knock down resistance value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -254,7 +254,7 @@ var result = agentStatCalculateModel.GetKnockDownResistance(agent, strikeType.In
 ### GetDismountResistance
 `public abstract float GetDismountResistance(Agent agent)`
 
-**Purpose:** Reads and returns the `dismount resistance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the dismount resistance value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -265,7 +265,7 @@ var result = agentStatCalculateModel.GetDismountResistance(agent);
 ### GetBreatheHoldMaxDuration
 `public abstract float GetBreatheHoldMaxDuration(Agent agent, float baseBreatheHoldMaxDuration)`
 
-**Purpose:** Reads and returns the `breathe hold max duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the breathe hold max duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -276,7 +276,7 @@ var result = agentStatCalculateModel.GetBreatheHoldMaxDuration(agent, 0);
 ### GetMissionDebugInfoForAgent
 `public virtual string GetMissionDebugInfoForAgent(Agent agent)`
 
-**Purpose:** Reads and returns the `mission debug info for agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mission debug info for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -287,7 +287,7 @@ var result = agentStatCalculateModel.GetMissionDebugInfoForAgent(agent);
 ### ResetAILevelMultiplier
 `public void ResetAILevelMultiplier()`
 
-**Purpose:** Returns `a i level multiplier` to its default or initial condition.
+**Purpose:** **Purpose:** Returns a i level multiplier to its default or initial condition.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first
@@ -298,7 +298,7 @@ agentStatCalculateModel.ResetAILevelMultiplier();
 ### SetAILevelMultiplier
 `public void SetAILevelMultiplier(float multiplier)`
 
-**Purpose:** Assigns a new value to `a i level multiplier` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to a i level multiplier and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentStatCalculateModel from the subsystem API first

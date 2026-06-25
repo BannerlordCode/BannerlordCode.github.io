@@ -42,7 +42,7 @@ description: "MarriageOfferPopupVM 的自动生成类参考。"
 ### Update
 `public void Update()`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -53,7 +53,7 @@ marriageOfferPopupVM.Update();
 ### ExecuteAcceptOffer
 `public void ExecuteAcceptOffer()`
 
-**用途 / Purpose:** 执行 「accept offer」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 accept offer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -64,7 +64,7 @@ marriageOfferPopupVM.ExecuteAcceptOffer();
 ### ExecuteDeclineOffer
 `public void ExecuteDeclineOffer()`
 
-**用途 / Purpose:** 执行 「decline offer」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 decline offer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -75,7 +75,7 @@ marriageOfferPopupVM.ExecuteDeclineOffer();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -86,7 +86,7 @@ marriageOfferPopupVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -97,7 +97,7 @@ marriageOfferPopupVM.OnFinalize();
 ### ExecuteLink
 `public void ExecuteLink(string link)`
 
-**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -108,7 +108,7 @@ marriageOfferPopupVM.ExecuteLink("example");
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例
@@ -119,7 +119,7 @@ marriageOfferPopupVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MarriageOfferPopupVM 实例

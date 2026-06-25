@@ -23,7 +23,7 @@ description: "DefaultGenericXpModel 的自动生成类参考。"
 ### GetXpMultiplier
 `public override float GetXpMultiplier(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp multiplier」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp multiplier 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultGenericXpModel 实例

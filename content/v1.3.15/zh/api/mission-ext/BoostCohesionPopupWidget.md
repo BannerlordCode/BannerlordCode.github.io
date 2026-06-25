@@ -29,7 +29,7 @@ description: "BoostCohesionPopupWidget 的自动生成类参考。"
 ### ClosePopup
 `public void ClosePopup(Widget widget)`
 
-**用途 / Purpose:** 关闭「popup」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭popup对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 BoostCohesionPopupWidget 实例

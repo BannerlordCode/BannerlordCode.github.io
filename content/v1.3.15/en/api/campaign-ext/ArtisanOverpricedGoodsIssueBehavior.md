@@ -57,7 +57,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -68,7 +68,7 @@ artisanOverpricedGoodsIssueBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -79,7 +79,7 @@ artisanOverpricedGoodsIssueBehavior.SyncData(dataStore);
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**Purpose:** Invoked when the `check for issue` event is raised.
+**Purpose:** **Purpose:** Invoked when the check for issue event is raised.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -90,7 +90,7 @@ artisanOverpricedGoodsIssueBehavior.OnCheckForIssue(hero);
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**Purpose:** Creates or raises `stay alive conditions`.
+**Purpose:** **Purpose:** Creates or raises stay alive conditions.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -101,7 +101,7 @@ var result = artisanOverpricedGoodsIssueBehavior.IssueStayAliveConditions();
 ### GetAlternativeSolutionSkill
 `public override ValueTuple<SkillObject, int> GetAlternativeSolutionSkill(Hero hero)`
 
-**Purpose:** Reads and returns the `alternative solution skill` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the alternative solution skill value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -112,7 +112,7 @@ var result = artisanOverpricedGoodsIssueBehavior.GetAlternativeSolutionSkill(her
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -123,7 +123,7 @@ var result = artisanOverpricedGoodsIssueBehavior.AlternativeSolutionCondition(ex
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DoTroopsSatisfyAlternativeSolution logic.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -134,7 +134,7 @@ var result = artisanOverpricedGoodsIssueBehavior.DoTroopsSatisfyAlternativeSolut
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop type needed by alternative solution` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop type needed by alternative solution state or condition.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -145,7 +145,7 @@ var result = artisanOverpricedGoodsIssueBehavior.IsTroopTypeNeededByAlternativeS
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AlternativeSolutionStartConsequence logic.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -156,7 +156,7 @@ artisanOverpricedGoodsIssueBehavior.AlternativeSolutionStartConsequence();
 ### LordSolutionCondition
 `public override bool LordSolutionCondition(out TextObject explanation)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the LordSolutionCondition logic.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -167,7 +167,7 @@ var result = artisanOverpricedGoodsIssueBehavior.LordSolutionCondition(explanati
 ### GetFrequency
 `public override IssueBase.IssueFrequency GetFrequency()`
 
-**Purpose:** Reads and returns the `frequency` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the frequency value held by the this instance.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first
@@ -178,7 +178,7 @@ var result = artisanOverpricedGoodsIssueBehavior.GetFrequency();
 ### OnFailed
 `public override void OnFailed()`
 
-**Purpose:** Invoked when the `failed` event is raised.
+**Purpose:** **Purpose:** Invoked when the failed event is raised.
 
 ```csharp
 // Obtain an instance of ArtisanOverpricedGoodsIssueBehavior from the subsystem API first

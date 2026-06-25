@@ -39,7 +39,7 @@ Start from namespace `SandBox.ViewModelCollection.Tutorial` to place it in the s
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of TutorialVM from the subsystem API first
@@ -50,7 +50,7 @@ tutorialVM.RefreshValues();
 ### SetCurrentTutorial
 `public void SetCurrentTutorial(TutorialItemVM.ItemPlacements placement, string tutorialTypeId, bool requiresMouse)`
 
-**Purpose:** Assigns a new value to `current tutorial` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current tutorial and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TutorialVM from the subsystem API first
@@ -61,7 +61,7 @@ tutorialVM.SetCurrentTutorial(placement, "example", false);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TutorialVM from the subsystem API first
@@ -72,7 +72,7 @@ tutorialVM.Tick(0);
 ### CloseTutorialStep
 `public void CloseTutorialStep(bool finalizeAllSteps = false)`
 
-**Purpose:** Closes the resource or UI associated with `tutorial step`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with tutorial step.
 
 ```csharp
 // Obtain an instance of TutorialVM from the subsystem API first
@@ -83,7 +83,7 @@ tutorialVM.CloseTutorialStep(false);
 ### FinalizeTutorial
 `public void FinalizeTutorial()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeTutorial logic.
 
 ```csharp
 // Obtain an instance of TutorialVM from the subsystem API first

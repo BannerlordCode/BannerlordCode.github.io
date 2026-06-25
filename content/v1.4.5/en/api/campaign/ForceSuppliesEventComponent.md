@@ -29,7 +29,7 @@ Treat `ForceSuppliesEventComponent` as a Component-style extension point: first 
 ### CreateForceSuppliesEvent
 `public static ForceSuppliesEventComponent CreateForceSuppliesEvent(PartyBase attackerParty, PartyBase defenderParty)`
 
-**Purpose:** Constructs a new `force supplies event` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new force supplies event entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -39,7 +39,7 @@ ForceSuppliesEventComponent.CreateForceSuppliesEvent(attackerParty, defenderPart
 ### CreateComponentForOldSaves
 `public static ForceSuppliesEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
 
-**Purpose:** Constructs a new `component for old saves` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new component for old saves entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

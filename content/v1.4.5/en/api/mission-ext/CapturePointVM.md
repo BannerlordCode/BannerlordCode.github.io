@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.H
 ### Refresh
 `public override void Refresh(float circleX, float x, float distance)`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of CapturePointVM from the subsystem API first
@@ -43,7 +43,7 @@ capturePointVM.Refresh(0, 0, 0);
 ### OnOwnerChanged
 `public void OnOwnerChanged(Team newTeam)`
 
-**Purpose:** Invoked when the `owner changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the owner changed event is raised.
 
 ```csharp
 // Obtain an instance of CapturePointVM from the subsystem API first
@@ -54,7 +54,7 @@ capturePointVM.OnOwnerChanged(newTeam);
 ### ResetFlag
 `public void ResetFlag()`
 
-**Purpose:** Returns `flag` to its default or initial condition.
+**Purpose:** **Purpose:** Returns flag to its default or initial condition.
 
 ```csharp
 // Obtain an instance of CapturePointVM from the subsystem API first

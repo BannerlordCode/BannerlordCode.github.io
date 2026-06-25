@@ -34,7 +34,7 @@ description: "MissionFlagMarkerTargetVM 的自动生成类参考。"
 ### UpdateScreenPosition
 `public override void UpdateScreenPosition(Camera missionCamera)`
 
-**用途 / Purpose:** 重新计算并更新 「screen position」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 screen position 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFlagMarkerTargetVM 实例
@@ -45,7 +45,7 @@ missionFlagMarkerTargetVM.UpdateScreenPosition(missionCamera);
 ### OnOwnerChanged
 `public void OnOwnerChanged(Team team)`
 
-**用途 / Purpose:** 在 「owner changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 owner changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFlagMarkerTargetVM 实例
@@ -56,7 +56,7 @@ missionFlagMarkerTargetVM.OnOwnerChanged(team);
 ### OnRemainingMoraleChanged
 `public void OnRemainingMoraleChanged(int remainingMorale)`
 
-**用途 / Purpose:** 在 「remaining morale changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 remaining morale changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionFlagMarkerTargetVM 实例

@@ -30,7 +30,7 @@ description: "DecalEntity 的自动生成类参考。"
 ### Create
 `public static DecalEntity Create(Scene scene, string material, string entityName = null)`
 
-**用途 / Purpose:** 创建当前对象的新实例或相关实体。
+**用途 / Purpose:** **用途 / Purpose:** 创建当前对象的新实例或相关实体。
 
 ```csharp
 // 静态调用，不需要实例

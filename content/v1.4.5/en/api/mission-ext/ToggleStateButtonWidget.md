@@ -31,7 +31,7 @@ Treat `ToggleStateButtonWidget` as a Widget-style extension point: first identif
 ### ToggleStateButtonWidget
 `public class ToggleStateButtonWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToggleStateButtonWidget logic.
 
 ```csharp
 // Obtain an instance of ToggleStateButtonWidget from the subsystem API first

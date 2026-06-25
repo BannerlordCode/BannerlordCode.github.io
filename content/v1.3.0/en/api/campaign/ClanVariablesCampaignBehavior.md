@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ clanVariablesCampaignBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ clanVariablesCampaignBehavior.SyncData(dataStore);
 ### OnSettlementOwnerChanged
 `public void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner, Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)`
 
-**Purpose:** Invoked when the `settlement owner changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the settlement owner changed event is raised.
 
 ```csharp
 // Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ clanVariablesCampaignBehavior.OnSettlementOwnerChanged(settlement, false, newOwn
 ### OnNewGameCreated
 `public void OnNewGameCreated(CampaignGameStarter starter)`
 
-**Purpose:** Invoked when the `new game created` event is raised.
+**Purpose:** **Purpose:** Invoked when the new game created event is raised.
 
 ```csharp
 // Obtain an instance of ClanVariablesCampaignBehavior from the subsystem API first

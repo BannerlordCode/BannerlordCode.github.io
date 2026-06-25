@@ -30,7 +30,7 @@ description: "GameKeyGroupVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyGroupVM 实例
@@ -41,7 +41,7 @@ gameKeyGroupVM.RefreshValues();
 ### OnDone
 `public void OnDone()`
 
-**用途 / Purpose:** 在 「done」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 done 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyGroupVM 实例
@@ -52,7 +52,7 @@ gameKeyGroupVM.OnDone();
 ### OnGamepadActiveStateChanged
 `public void OnGamepadActiveStateChanged()`
 
-**用途 / Purpose:** 在 「gamepad active state changed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 gamepad active state changed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyGroupVM 实例
@@ -63,7 +63,7 @@ gameKeyGroupVM.OnGamepadActiveStateChanged();
 ### Cancel
 `public void Cancel()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「cel」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyGroupVM 实例
@@ -74,7 +74,7 @@ gameKeyGroupVM.Cancel();
 ### ApplyValues
 `public void ApplyValues()`
 
-**用途 / Purpose:** 将 「values」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 values 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 GameKeyGroupVM 实例

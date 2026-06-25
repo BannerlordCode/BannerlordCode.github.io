@@ -41,7 +41,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -52,7 +52,7 @@ mPLobbyGameSearchVM.RefreshValues();
 ### OnTick
 `public void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -63,7 +63,7 @@ mPLobbyGameSearchVM.OnTick(0);
 ### SetEnabled
 `public void SetEnabled(bool enabled)`
 
-**Purpose:** Assigns a new value to `enabled` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to enabled and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -74,7 +74,7 @@ mPLobbyGameSearchVM.SetEnabled(false);
 ### UpdateData
 `public void UpdateData(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)`
 
-**Purpose:** Recalculates and stores the latest representation of `data`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of data.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -85,7 +85,7 @@ mPLobbyGameSearchVM.UpdateData(matchmakingWaitTimeStats, "example");
 ### UpdatePremadeGameData
 `public void UpdatePremadeGameData()`
 
-**Purpose:** Recalculates and stores the latest representation of `premade game data`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of premade game data.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -96,7 +96,7 @@ mPLobbyGameSearchVM.UpdatePremadeGameData();
 ### OnJoinPremadeGameRequestSuccessful
 `public void OnJoinPremadeGameRequestSuccessful()`
 
-**Purpose:** Invoked when the `join premade game request successful` event is raised.
+**Purpose:** **Purpose:** Invoked when the join premade game request successful event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -107,7 +107,7 @@ mPLobbyGameSearchVM.OnJoinPremadeGameRequestSuccessful();
 ### OnRequestedToCancelSearchBattle
 `public void OnRequestedToCancelSearchBattle()`
 
-**Purpose:** Invoked when the `requested to cancel search battle` event is raised.
+**Purpose:** **Purpose:** Invoked when the requested to cancel search battle event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first
@@ -118,7 +118,7 @@ mPLobbyGameSearchVM.OnRequestedToCancelSearchBattle();
 ### UpdateCanCancel
 `public void UpdateCanCancel()`
 
-**Purpose:** Recalculates and stores the latest representation of `can cancel`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of can cancel.
 
 ```csharp
 // Obtain an instance of MPLobbyGameSearchVM from the subsystem API first

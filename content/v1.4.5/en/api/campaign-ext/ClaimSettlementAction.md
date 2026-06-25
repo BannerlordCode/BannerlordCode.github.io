@@ -19,7 +19,7 @@ ClaimSettlementAction is a set of static methods that trigger "ClaimSettlement" 
 public static void Apply(Hero claimant, Settlement claimedSettlement)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

@@ -23,7 +23,7 @@ Treat `CharacterCreationCultureStageView` as a View-style extension point: first
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
@@ -34,7 +34,7 @@ characterCreationCultureStageView.Tick(0);
 ### NextStage
 `public override void NextStage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the NextStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
@@ -45,7 +45,7 @@ characterCreationCultureStageView.NextStage();
 ### PreviousStage
 `public override void PreviousStage()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PreviousStage logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
@@ -56,7 +56,7 @@ characterCreationCultureStageView.PreviousStage();
 ### GetVirtualStageCount
 `public override int GetVirtualStageCount()`
 
-**Purpose:** Reads and returns the `virtual stage count` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the virtual stage count value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
@@ -67,7 +67,7 @@ var result = characterCreationCultureStageView.GetVirtualStageCount();
 ### GetLayers
 `public override IEnumerable<ScreenLayer> GetLayers()`
 
-**Purpose:** Reads and returns the `layers` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the layers value held by the this instance.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
@@ -78,7 +78,7 @@ var result = characterCreationCultureStageView.GetLayers();
 ### LoadEscapeMenuMovie
 `public override void LoadEscapeMenuMovie()`
 
-**Purpose:** Reads `escape menu movie` from persistent storage or a stream.
+**Purpose:** **Purpose:** Reads escape menu movie from persistent storage or a stream.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first
@@ -89,7 +89,7 @@ characterCreationCultureStageView.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReleaseEscapeMenuMovie logic.
 
 ```csharp
 // Obtain an instance of CharacterCreationCultureStageView from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `SandBox.Missions.MissionLogics` to place it in the stack, 
 ### SetCanPlayerCameraSeeTheAgent
 `public void SetCanPlayerCameraSeeTheAgent(bool value)`
 
-**Purpose:** Assigns a new value to `can player camera see the agent` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to can player camera see the agent and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ShadowingAgentOffenseInfo from the subsystem API first

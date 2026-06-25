@@ -34,7 +34,7 @@ Treat `OptionsScreenWidget` as a Widget-style extension point: first identify wh
 ### SetCurrentOption
 `public void SetCurrentOption(Widget currentOptionWidget, Sprite newgraphicsSprite)`
 
-**Purpose:** Assigns a new value to `current option` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to current option and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of OptionsScreenWidget from the subsystem API first

@@ -31,7 +31,7 @@ description: "SceneLayer 的自动生成类参考。"
 ### SetScene
 `public void SetScene(Scene scene)`
 
-**用途 / Purpose:** 为 「scene」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 scene 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -42,7 +42,7 @@ sceneLayer.SetScene(scene);
 ### SetRenderWithPostfx
 `public void SetRenderWithPostfx(bool value)`
 
-**用途 / Purpose:** 为 「render with postfx」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 render with postfx 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -53,7 +53,7 @@ sceneLayer.SetRenderWithPostfx(false);
 ### SetPostfxConfigParams
 `public void SetPostfxConfigParams(int value)`
 
-**用途 / Purpose:** 为 「postfx config params」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 postfx config params 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -64,7 +64,7 @@ sceneLayer.SetPostfxConfigParams(0);
 ### SetCamera
 `public void SetCamera(Camera camera)`
 
-**用途 / Purpose:** 为 「camera」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 camera 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -75,7 +75,7 @@ sceneLayer.SetCamera(camera);
 ### SetPostfxFromConfig
 `public void SetPostfxFromConfig()`
 
-**用途 / Purpose:** 为 「postfx from config」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 postfx from config 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -86,7 +86,7 @@ sceneLayer.SetPostfxFromConfig();
 ### WorldPointToScreenPoint
 `public Vec2 WorldPointToScreenPoint(Vec3 position)`
 
-**用途 / Purpose:** 处理与 「world point to screen point」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 WorldPointToScreenPoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -97,7 +97,7 @@ var result = sceneLayer.WorldPointToScreenPoint(position);
 ### ScreenPointToViewportPoint
 `public Vec2 ScreenPointToViewportPoint(Vec2 position)`
 
-**用途 / Purpose:** 处理与 「screen point to viewport point」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ScreenPointToViewportPoint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -108,7 +108,7 @@ var result = sceneLayer.ScreenPointToViewportPoint(position);
 ### ProjectedMousePositionOnGround
 `public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**用途 / Purpose:** 处理与 「projected mouse position on ground」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ProjectedMousePositionOnGround 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -119,7 +119,7 @@ var result = sceneLayer.ProjectedMousePositionOnGround(groundPosition, groundNor
 ### TranslateMouse
 `public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
 
-**用途 / Purpose:** 处理与 「translate mouse」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TranslateMouse 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -130,7 +130,7 @@ sceneLayer.TranslateMouse(worldMouseNear, worldMouseFar, 0);
 ### SetSceneUsesSkybox
 `public void SetSceneUsesSkybox(bool value)`
 
-**用途 / Purpose:** 为 「scene uses skybox」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 scene uses skybox 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -141,7 +141,7 @@ sceneLayer.SetSceneUsesSkybox(false);
 ### SetSceneUsesShadows
 `public void SetSceneUsesShadows(bool value)`
 
-**用途 / Purpose:** 为 「scene uses shadows」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 scene uses shadows 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -152,7 +152,7 @@ sceneLayer.SetSceneUsesShadows(false);
 ### SetSceneUsesContour
 `public void SetSceneUsesContour(bool value)`
 
-**用途 / Purpose:** 为 「scene uses contour」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 scene uses contour 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -163,7 +163,7 @@ sceneLayer.SetSceneUsesContour(false);
 ### SetShadowmapResolutionMultiplier
 `public void SetShadowmapResolutionMultiplier(float value)`
 
-**用途 / Purpose:** 为 「shadowmap resolution multiplier」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 shadowmap resolution multiplier 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -174,7 +174,7 @@ sceneLayer.SetShadowmapResolutionMultiplier(0);
 ### SetFocusedShadowmap
 `public void SetFocusedShadowmap(bool enable, ref Vec3 center, float radius)`
 
-**用途 / Purpose:** 为 「focused shadowmap」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 focused shadowmap 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -185,7 +185,7 @@ sceneLayer.SetFocusedShadowmap(false, center, 0);
 ### DoNotClear
 `public void DoNotClear(bool value)`
 
-**用途 / Purpose:** 处理与 「do not clear」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoNotClear 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -196,7 +196,7 @@ sceneLayer.DoNotClear(false);
 ### ReadyToRender
 `public bool ReadyToRender()`
 
-**用途 / Purpose:** 读取「y to render」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取y to render的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -207,7 +207,7 @@ var result = sceneLayer.ReadyToRender();
 ### SetCleanScreenUntilLoadingDone
 `public void SetCleanScreenUntilLoadingDone(bool value)`
 
-**用途 / Purpose:** 为 「clean screen until loading done」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 clean screen until loading done 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -218,7 +218,7 @@ sceneLayer.SetCleanScreenUntilLoadingDone(false);
 ### ClearAll
 `public void ClearAll()`
 
-**用途 / Purpose:** 清空当前对象中的「all」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的all。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -229,7 +229,7 @@ sceneLayer.ClearAll();
 ### ClearRuntimeGPUMemory
 `public void ClearRuntimeGPUMemory(bool remove_terrain)`
 
-**用途 / Purpose:** 清空当前对象中的「runtime g p u memory」。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的runtime g p u memory。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -240,7 +240,7 @@ sceneLayer.ClearRuntimeGPUMemory(false);
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -251,7 +251,7 @@ var result = sceneLayer.HitTest(position);
 ### HitTest
 `public override bool HitTest()`
 
-**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 HitTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -262,7 +262,7 @@ var result = sceneLayer.HitTest();
 ### FocusTest
 `public override bool FocusTest()`
 
-**用途 / Purpose:** 处理与 「focus test」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FocusTest 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例

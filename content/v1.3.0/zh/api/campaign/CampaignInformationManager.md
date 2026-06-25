@@ -23,7 +23,7 @@ description: "CampaignInformationManager 的自动生成类参考。"
 ### OnGameLoaded
 `public void OnGameLoaded()`
 
-**用途 / Purpose:** 在 「game loaded」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 game loaded 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignInformationManager 实例
@@ -34,7 +34,7 @@ campaignInformationManager.OnGameLoaded();
 ### NewMapNoticeAdded
 `public void NewMapNoticeAdded(InformationData informationData)`
 
-**用途 / Purpose:** 处理与 「new map notice added」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 NewMapNoticeAdded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignInformationManager 实例

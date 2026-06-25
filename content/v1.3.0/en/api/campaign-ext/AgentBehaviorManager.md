@@ -23,7 +23,7 @@ Treat `AgentBehaviorManager` as a Manager-style extension point: first identify 
 ### AddQuestCharacterBehaviors
 `public void AddQuestCharacterBehaviors(IAgent agent)`
 
-**Purpose:** Adds `quest character behaviors` to the current collection or state.
+**Purpose:** **Purpose:** Adds quest character behaviors to the current collection or state.
 
 ```csharp
 // Obtain an instance of AgentBehaviorManager from the subsystem API first
@@ -34,7 +34,7 @@ agentBehaviorManager.AddQuestCharacterBehaviors(agent);
 ### AddFirstCompanionBehavior
 `public void AddFirstCompanionBehavior(IAgent agent)`
 
-**Purpose:** Adds `first companion behavior` to the current collection or state.
+**Purpose:** **Purpose:** Adds first companion behavior to the current collection or state.
 
 ```csharp
 // Obtain an instance of AgentBehaviorManager from the subsystem API first

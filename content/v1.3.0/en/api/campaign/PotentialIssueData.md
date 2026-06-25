@@ -34,7 +34,7 @@ Treat `PotentialIssueData` as a Data-style extension point: first identify who c
 ### StartIssueDelegate
 `public delegate IssueBase StartIssueDelegate(in PotentialIssueData pid, Hero issueOwner)`
 
-**Purpose:** Starts the `issue delegate` flow or state machine.
+**Purpose:** **Purpose:** Starts the issue delegate flow or state machine.
 
 ```csharp
 // Obtain an instance of PotentialIssueData from the subsystem API first

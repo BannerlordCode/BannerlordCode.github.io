@@ -36,7 +36,7 @@ description: "DestructableComponent 的自动生成类参考。"
 ### GetOriginalState
 `public WeakGameEntity GetOriginalState(WeakGameEntity parent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「original state」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 original state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -47,7 +47,7 @@ var result = destructableComponent.GetOriginalState(parent);
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -58,7 +58,7 @@ destructableComponent.Reset();
 ### TriggerOnHit
 `public void TriggerOnHit(Agent attackerAgent, int inflictedDamage, Vec3 impactPosition, Vec3 impactDirection, in MissionWeapon weapon, int affectorWeaponSlotOrMissileIndex, ScriptComponentBehavior attackerScriptComponentBehavior)`
 
-**用途 / Purpose:** 触发「on hit」对应的逻辑或事件。
+**用途 / Purpose:** **用途 / Purpose:** 触发on hit对应的逻辑或事件。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -69,7 +69,7 @@ destructableComponent.TriggerOnHit(attackerAgent, 0, impactPosition, impactDirec
 ### BurstHeavyHitParticles
 `public void BurstHeavyHitParticles()`
 
-**用途 / Purpose:** 处理与 「burst heavy hit particles」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BurstHeavyHitParticles 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -80,7 +80,7 @@ destructableComponent.BurstHeavyHitParticles();
 ### SetDestructionLevel
 `public void SetDestructionLevel(int state, int forcedId, float blowMagnitude, Vec3 blowPosition, Vec3 blowDirection, bool noEffects = false)`
 
-**用途 / Purpose:** 为 「destruction level」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 destruction level 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -91,7 +91,7 @@ destructableComponent.SetDestructionLevel(0, 0, 0, blowPosition, blowDirection, 
 ### PreDestroy
 `public void PreDestroy()`
 
-**用途 / Purpose:** 处理与 「pre destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PreDestroy 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -102,7 +102,7 @@ destructableComponent.PreDestroy();
 ### WriteToNetwork
 `public override void WriteToNetwork()`
 
-**用途 / Purpose:** 将「to network」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将to network写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -113,7 +113,7 @@ destructableComponent.WriteToNetwork();
 ### AddStuckMissile
 `public override void AddStuckMissile(GameEntity missileEntity)`
 
-**用途 / Purpose:** 将 「stuck missile」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 stuck missile 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -124,7 +124,7 @@ destructableComponent.AddStuckMissile(missileEntity);
 ### OnFocusGain
 `public void OnFocusGain(Agent userAgent)`
 
-**用途 / Purpose:** 在 「focus gain」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus gain 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -135,7 +135,7 @@ destructableComponent.OnFocusGain(userAgent);
 ### OnFocusLose
 `public void OnFocusLose(Agent userAgent)`
 
-**用途 / Purpose:** 在 「focus lose」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 focus lose 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -146,7 +146,7 @@ destructableComponent.OnFocusLose(userAgent);
 ### GetInfoTextForBeingNotInteractable
 `public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「info text for being not interactable」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 info text for being not interactable 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -157,7 +157,7 @@ var result = destructableComponent.GetInfoTextForBeingNotInteractable(userAgent)
 ### OnAfterReadFromNetwork
 `public override void OnAfterReadFromNetwork(ValueTuple<BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord> synchedMissionObjectReadableRecord)`
 
-**用途 / Purpose:** 在 「after read from network」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -168,7 +168,7 @@ destructableComponent.OnAfterReadFromNetwork(valueTuple<BaseSynchedMissionObject
 ### GetDescriptionText
 `public TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「description text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 description text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -179,7 +179,7 @@ var result = destructableComponent.GetDescriptionText(gameEntity);
 ### ReadFromNetwork
 `public bool ReadFromNetwork(ref bool bufferReadValid)`
 
-**用途 / Purpose:** 读取「from network」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取from network的数据或状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -190,7 +190,7 @@ var result = destructableComponent.ReadFromNetwork(bufferReadValid);
 ### OnHitTakenAndDestroyedDelegate
 `public delegate void OnHitTakenAndDestroyedDelegate(DestructableComponent target, Agent attackerAgent, in MissionWeapon weapon, ScriptComponentBehavior attackerScriptComponentBehavior, int inflictedDamage)`
 
-**用途 / Purpose:** 在 「hit taken and destroyed delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 hit taken and destroyed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例

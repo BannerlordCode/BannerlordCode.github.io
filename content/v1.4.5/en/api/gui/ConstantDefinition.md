@@ -40,7 +40,7 @@ Start from namespace `TaleWorlds.GauntletUI.PrefabSystem` to place it in the sta
 ### GetValue
 `public string GetValue(BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Reads and returns the `value` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the value value held by the this instance.
 
 ```csharp
 // Obtain an instance of ConstantDefinition from the subsystem API first
@@ -51,7 +51,7 @@ var result = constantDefinition.GetValue(brushFactory, spriteData, dictionary<st
 ### GetActualValueOf
 `public static string GetActualValueOf(string value, BrushFactory brushFactory, SpriteData spriteData, Dictionary<string, ConstantDefinition> constants, Dictionary<string, WidgetAttributeTemplate> parameters, Dictionary<string, string> defaultParameters)`
 
-**Purpose:** Reads and returns the `actual value of` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the actual value of value held by the this instance.
 
 ```csharp
 // Static call; no instance required

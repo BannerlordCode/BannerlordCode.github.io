@@ -31,7 +31,7 @@ Treat `BaseNetworkComponent` as a Component-style extension point: first identif
 ### WelcomeMessageReceivedDelegate
 `public delegate void WelcomeMessageReceivedDelegate(string messageText)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WelcomeMessageReceivedDelegate logic.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -42,7 +42,7 @@ baseNetworkComponent.WelcomeMessageReceivedDelegate("example");
 ### OnUdpNetworkHandlerTick
 `public override void OnUdpNetworkHandlerTick(float dt)`
 
-**Purpose:** Invoked when the `udp network handler tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the udp network handler tick event is raised.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -53,7 +53,7 @@ baseNetworkComponent.OnUdpNetworkHandlerTick(0);
 ### HandleNewClientConnect
 `public override void HandleNewClientConnect(PlayerConnectionInfo playerConnectionInfo)`
 
-**Purpose:** Executes the response logic associated with `new client connect`.
+**Purpose:** **Purpose:** Executes the response logic associated with new client connect.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -64,7 +64,7 @@ baseNetworkComponent.HandleNewClientConnect(playerConnectionInfo);
 ### HandlePlayerDisconnect
 `public override void HandlePlayerDisconnect(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `player disconnect`.
+**Purpose:** **Purpose:** Executes the response logic associated with player disconnect.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -75,7 +75,7 @@ baseNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### IntermissionCastVote
 `public void IntermissionCastVote(string itemID, int voteCount)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the IntermissionCastVote logic.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -86,7 +86,7 @@ baseNetworkComponent.IntermissionCastVote("example", 0);
 ### HandleNewClientAfterSynchronized
 `public override void HandleNewClientAfterSynchronized(NetworkCommunicator networkPeer)`
 
-**Purpose:** Executes the response logic associated with `new client after synchronized`.
+**Purpose:** **Purpose:** Executes the response logic associated with new client after synchronized.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -97,7 +97,7 @@ baseNetworkComponent.HandleNewClientAfterSynchronized(networkPeer);
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**Purpose:** Invoked when the `udp network handler close` event is raised.
+**Purpose:** **Purpose:** Invoked when the udp network handler close event is raised.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first
@@ -108,7 +108,7 @@ baseNetworkComponent.OnUdpNetworkHandlerClose();
 ### SetDisplayingWelcomeMessage
 `public void SetDisplayingWelcomeMessage(bool displaying)`
 
-**Purpose:** Assigns a new value to `displaying welcome message` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to displaying welcome message and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BaseNetworkComponent from the subsystem API first

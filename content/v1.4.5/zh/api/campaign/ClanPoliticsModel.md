@@ -23,7 +23,7 @@ description: "ClanPoliticsModel 的自动生成类参考。"
 ### CalculateInfluenceChange
 `public abstract ExplainedNumber CalculateInfluenceChange(Clan clan, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 计算「influence change」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算influence change的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPoliticsModel 实例
@@ -34,7 +34,7 @@ var result = clanPoliticsModel.CalculateInfluenceChange(clan, false);
 ### CalculateSupportForPolicyInClan
 `public abstract float CalculateSupportForPolicyInClan(Clan clan, PolicyObject policy)`
 
-**用途 / Purpose:** 计算「support for policy in clan」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算support for policy in clan的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPoliticsModel 实例
@@ -45,7 +45,7 @@ var result = clanPoliticsModel.CalculateSupportForPolicyInClan(clan, policy);
 ### CalculateRelationshipChangeWithSponsor
 `public abstract float CalculateRelationshipChangeWithSponsor(Clan clan, Clan sponsorClan)`
 
-**用途 / Purpose:** 计算「relationship change with sponsor」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算relationship change with sponsor的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPoliticsModel 实例
@@ -56,7 +56,7 @@ var result = clanPoliticsModel.CalculateRelationshipChangeWithSponsor(clan, spon
 ### GetInfluenceRequiredToOverrideKingdomDecision
 `public abstract int GetInfluenceRequiredToOverrideKingdomDecision(DecisionOutcome popularOption, DecisionOutcome overridingOption, KingdomDecision decision)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「influence required to override kingdom decision」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 influence required to override kingdom decision 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPoliticsModel 实例
@@ -67,7 +67,7 @@ var result = clanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision(pop
 ### CanHeroBeGovernor
 `public abstract bool CanHeroBeGovernor(Hero hero)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「hero be governor」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 hero be governor 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanPoliticsModel 实例

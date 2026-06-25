@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CreatePointLight
 `public static Light CreatePointLight(float lightRadius)`
 
-**Purpose:** Constructs a new `point light` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new point light entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ Light.CreatePointLight(0);
 ### SetShadowType
 `public void SetShadowType(ShadowType type)`
 
-**Purpose:** Assigns a new value to `shadow type` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to shadow type and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Light from the subsystem API first
@@ -54,7 +54,7 @@ light.SetShadowType(type);
 ### SetLightFlicker
 `public void SetLightFlicker(float magnitude, float interval)`
 
-**Purpose:** Assigns a new value to `light flicker` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to light flicker and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Light from the subsystem API first
@@ -65,7 +65,7 @@ light.SetLightFlicker(0, 0);
 ### SetVolumetricProperties
 `public void SetVolumetricProperties(bool volumetricLightEnabled, float volumeParameters)`
 
-**Purpose:** Assigns a new value to `volumetric properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to volumetric properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Light from the subsystem API first
@@ -76,7 +76,7 @@ light.SetVolumetricProperties(false, 0);
 ### Dispose
 `public void Dispose()`
 
-**Purpose:** Releases unmanaged resources held by the current object.
+**Purpose:** **Purpose:** Releases unmanaged resources held by the this instance.
 
 ```csharp
 // Obtain an instance of Light from the subsystem API first
@@ -87,7 +87,7 @@ light.Dispose();
 ### SetVisibility
 `public void SetVisibility(bool value)`
 
-**Purpose:** Assigns a new value to `visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of Light from the subsystem API first

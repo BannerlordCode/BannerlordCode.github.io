@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Missions.Objectives` to place it 
 ### GetCurrentProgress
 `public override MissionObjectiveProgressInfo GetCurrentProgress()`
 
-**Purpose:** Reads and returns the `current progress` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the current progress value held by the this instance.
 
 ```csharp
 // Obtain an instance of GenericMissionObjective from the subsystem API first

@@ -23,7 +23,7 @@ description: "LegacyGameDataDeserializer 的自动生成类参考。"
 ### Deserialize
 `public static GameData Deserialize(Stream stream)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 静态调用，不需要实例

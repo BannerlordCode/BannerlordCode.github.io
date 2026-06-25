@@ -23,7 +23,7 @@ Treat `DefaultLocationModel` as a Model-style extension point: first identify wh
 ### GetSettlementUpgradeLevel
 `public override int GetSettlementUpgradeLevel(LocationEncounter locationEncounter)`
 
-**Purpose:** Reads and returns the `settlement upgrade level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the settlement upgrade level value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultLocationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultLocationModel.GetSettlementUpgradeLevel(locationEncounter);
 ### GetCivilianSceneLevel
 `public override string GetCivilianSceneLevel(Settlement settlement)`
 
-**Purpose:** Reads and returns the `civilian scene level` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the civilian scene level value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultLocationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultLocationModel.GetCivilianSceneLevel(settlement);
 ### GetCivilianUpgradeLevelTag
 `public override string GetCivilianUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** Reads and returns the `civilian upgrade level tag` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the civilian upgrade level tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultLocationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultLocationModel.GetCivilianUpgradeLevelTag(0);
 ### GetUpgradeLevelTag
 `public override string GetUpgradeLevelTag(int upgradeLevel)`
 
-**Purpose:** Reads and returns the `upgrade level tag` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the upgrade level tag value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultLocationModel from the subsystem API first

@@ -23,7 +23,7 @@ description: "FakeInventoryListener 的自动生成类参考。"
 ### GetGold
 `public override int GetGold()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「gold」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 gold 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FakeInventoryListener 实例
@@ -34,7 +34,7 @@ var result = fakeInventoryListener.GetGold();
 ### GetTraderName
 `public override TextObject GetTraderName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「trader name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 trader name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FakeInventoryListener 实例
@@ -45,7 +45,7 @@ var result = fakeInventoryListener.GetTraderName();
 ### SetGold
 `public override void SetGold(int gold)`
 
-**用途 / Purpose:** 为 「gold」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 gold 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FakeInventoryListener 实例
@@ -56,7 +56,7 @@ fakeInventoryListener.SetGold(0);
 ### OnTransaction
 `public override void OnTransaction()`
 
-**用途 / Purpose:** 在 「transaction」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 transaction 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 FakeInventoryListener 实例
@@ -67,7 +67,7 @@ fakeInventoryListener.OnTransaction();
 ### GetOppositeParty
 `public override PartyBase GetOppositeParty()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「opposite party」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 opposite party 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FakeInventoryListener 实例

@@ -23,7 +23,7 @@ description: "DefaultSiegeStrategyActionModel 的自动生成类参考。"
 ### GetLogicalActionForStrategy
 `public override void GetLogicalActionForStrategy(ISiegeEventSide side, out SiegeStrategyActionModel.SiegeAction siegeAction, out SiegeEngineType siegeEngineType, out int deploymentIndex, out int reserveIndex)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「logical action for strategy」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 logical action for strategy 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultSiegeStrategyActionModel 实例

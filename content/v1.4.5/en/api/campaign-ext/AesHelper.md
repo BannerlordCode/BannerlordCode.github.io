@@ -23,7 +23,7 @@ Treat `AesHelper` as a Helper-style extension point: first identify who creates 
 ### Encrypt
 `public static byte Encrypt(byte plainData, byte key, byte initializationVector)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Encrypt logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ AesHelper.Encrypt(0, 0, 0);
 ### Decrypt
 `public static byte Decrypt(byte encrypted, byte key, byte initializationVector)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Decrypt logic.
 
 ```csharp
 // Static call; no instance required

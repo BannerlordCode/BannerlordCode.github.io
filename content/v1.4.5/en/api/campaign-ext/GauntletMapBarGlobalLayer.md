@@ -29,7 +29,7 @@ Start from namespace `SandBox.GauntletUI.Map` to place it in the stack, then ins
 ### Initialize
 `public void Initialize(MapBarVM dataSource)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
@@ -40,7 +40,7 @@ gauntletMapBarGlobalLayer.Initialize(dataSource);
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
@@ -51,7 +51,7 @@ gauntletMapBarGlobalLayer.OnFinalize();
 ### OnMapConversationStarted
 `public void OnMapConversationStarted()`
 
-**Purpose:** Invoked when the `map conversation started` event is raised.
+**Purpose:** **Purpose:** Invoked when the map conversation started event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
@@ -62,7 +62,7 @@ gauntletMapBarGlobalLayer.OnMapConversationStarted();
 ### OnMapConversationOver
 `public void OnMapConversationOver()`
 
-**Purpose:** Invoked when the `map conversation over` event is raised.
+**Purpose:** **Purpose:** Invoked when the map conversation over event is raised.
 
 ```csharp
 // Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
@@ -73,7 +73,7 @@ gauntletMapBarGlobalLayer.OnMapConversationOver();
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first
@@ -84,7 +84,7 @@ gauntletMapBarGlobalLayer.Refresh();
 ### IsEscaped
 `public bool IsEscaped()`
 
-**Purpose:** Determines whether the current object is in the `escaped` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the escaped state or condition.
 
 ```csharp
 // Obtain an instance of GauntletMapBarGlobalLayer from the subsystem API first

@@ -36,7 +36,7 @@ description: "GenericOptionDataVM 的自动生成类参考。"
 ### UpdateData
 `public virtual void UpdateData(bool initUpdate)`
 
-**用途 / Purpose:** 重新计算并更新 「data」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -47,7 +47,7 @@ genericOptionDataVM.UpdateData(false);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -58,7 +58,7 @@ genericOptionDataVM.RefreshValues();
 ### GetOptionType
 `public object GetOptionType()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「option type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option type 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -69,7 +69,7 @@ var result = genericOptionDataVM.GetOptionType();
 ### GetOptionData
 `public IOptionData GetOptionData()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「option data」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 option data 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -80,7 +80,7 @@ var result = genericOptionDataVM.GetOptionData();
 ### ResetToDefault
 `public void ResetToDefault()`
 
-**用途 / Purpose:** 将 「to default」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 to default 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -91,7 +91,7 @@ genericOptionDataVM.ResetToDefault();
 ### UpdateEnableState
 `public void UpdateEnableState()`
 
-**用途 / Purpose:** 重新计算并更新 「enable state」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 enable state 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -102,7 +102,7 @@ genericOptionDataVM.UpdateEnableState();
 ### UpdateValue
 `public abstract void UpdateValue()`
 
-**用途 / Purpose:** 重新计算并更新 「value」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 value 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -113,7 +113,7 @@ genericOptionDataVM.UpdateValue();
 ### Cancel
 `public abstract void Cancel()`
 
-**用途 / Purpose:** 检查当前对象是否满足 「cel」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 cel 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -124,7 +124,7 @@ genericOptionDataVM.Cancel();
 ### IsChanged
 `public abstract bool IsChanged()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「changed」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 changed 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -135,7 +135,7 @@ var result = genericOptionDataVM.IsChanged();
 ### SetValue
 `public abstract void SetValue(float value)`
 
-**用途 / Purpose:** 为 「value」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 value 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -146,7 +146,7 @@ genericOptionDataVM.SetValue(0);
 ### ResetData
 `public abstract void ResetData()`
 
-**用途 / Purpose:** 将 「data」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 data 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例
@@ -157,7 +157,7 @@ genericOptionDataVM.ResetData();
 ### ApplyValue
 `public abstract void ApplyValue()`
 
-**用途 / Purpose:** 将 「value」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 value 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 GenericOptionDataVM 实例

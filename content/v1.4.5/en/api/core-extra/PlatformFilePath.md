@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### PlatformFilePath
 `public struct PlatformFilePath(PlatformDirectoryPath folderPath, string fileName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PlatformFilePath logic.
 
 ```csharp
 // Obtain an instance of PlatformFilePath from the subsystem API first
@@ -34,7 +34,7 @@ var result = platformFilePath.PlatformFilePath(folderPath, "example");
 ### GetFileNameWithoutExtension
 `public string GetFileNameWithoutExtension()`
 
-**Purpose:** Reads and returns the `file name without extension` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the file name without extension value held by the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFilePath from the subsystem API first
@@ -45,7 +45,7 @@ var result = platformFilePath.GetFileNameWithoutExtension();
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of PlatformFilePath from the subsystem API first

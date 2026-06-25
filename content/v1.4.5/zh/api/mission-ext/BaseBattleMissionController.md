@@ -23,7 +23,7 @@ description: "BaseBattleMissionController 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -34,7 +34,7 @@ baseBattleMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AfterStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -45,7 +45,7 @@ baseBattleMissionController.AfterStart();
 ### GetTeamAI
 `public virtual TeamAIComponent GetTeamAI(Team team, float thinkTimerTime = 5f, float applyTimerTime = 1f)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「team a i」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 team a i 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -56,7 +56,7 @@ var result = baseBattleMissionController.GetTeamAI(team, 0, 0);
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -67,7 +67,7 @@ baseBattleMissionController.OnMissionTick(0);
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 处理与 「mission ended」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MissionEnded 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -78,7 +78,7 @@ var result = baseBattleMissionController.MissionEnded(missionResult);
 ### OnEndMissionRequest
 `public override InquiryData OnEndMissionRequest(out bool canPlayerLeave)`
 
-**用途 / Purpose:** 在 「end mission request」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 end mission request 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -89,7 +89,7 @@ var result = baseBattleMissionController.OnEndMissionRequest(canPlayerLeave);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例

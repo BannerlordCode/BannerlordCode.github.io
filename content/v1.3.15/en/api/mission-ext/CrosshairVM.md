@@ -42,7 +42,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.HUD` to place
 ### SetProperties
 `public void SetProperties(double accuracy, double scale)`
 
-**Purpose:** Assigns a new value to `properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CrosshairVM from the subsystem API first
@@ -53,7 +53,7 @@ crosshairVM.SetProperties(0, 0);
 ### SetArrowProperties
 `public void SetArrowProperties(double topArrowOpacity, double rightArrowOpacity, double bottomArrowOpacity, double leftArrowOpacity)`
 
-**Purpose:** Assigns a new value to `arrow properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to arrow properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CrosshairVM from the subsystem API first
@@ -64,7 +64,7 @@ crosshairVM.SetArrowProperties(0, 0, 0, 0);
 ### SetReloadProperties
 `public void SetReloadProperties(in StackArray.StackArray10FloatFloatTuple reloadPhases, int reloadPhaseCount)`
 
-**Purpose:** Assigns a new value to `reload properties` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reload properties and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of CrosshairVM from the subsystem API first
@@ -75,7 +75,7 @@ crosshairVM.SetReloadProperties(reloadPhases, 0);
 ### ShowHitMarker
 `public void ShowHitMarker(bool isVictimDead, bool isHumanoidHeadShot)`
 
-**Purpose:** Displays the UI or element associated with `hit marker`.
+**Purpose:** **Purpose:** Displays the UI or element associated with hit marker.
 
 ```csharp
 // Obtain an instance of CrosshairVM from the subsystem API first

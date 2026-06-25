@@ -36,7 +36,7 @@ description: "RichText 的自动生成类参考。"
 ### Update
 `public virtual void Update(float dt, SpriteData spriteData, Vector2 focusPosition, bool focus, bool isFixedWidth, bool isFixedHeight, float renderScale)`
 
-**用途 / Purpose:** 重新计算并更新当前对象的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新当前对象的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 RichText 实例
@@ -47,7 +47,7 @@ richText.Update(0, spriteData, focusPosition, false, false, false, 0);
 ### SetAllDirty
 `public void SetAllDirty()`
 
-**用途 / Purpose:** 为 「all dirty」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 all dirty 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RichText 实例
@@ -58,7 +58,7 @@ richText.SetAllDirty();
 ### GetPreferredSize
 `public Vector2 GetPreferredSize(bool fixedWidth, float widthSize, bool fixedHeight, float heightSize, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「preferred size」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 preferred size 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RichText 实例
@@ -69,7 +69,7 @@ var result = richText.GetPreferredSize(false, 0, false, 0, spriteData, 0);
 ### CalculateTextOutput
 `public void CalculateTextOutput(float width, float height, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** 计算「text output」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算text output的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RichText 实例
@@ -80,7 +80,7 @@ richText.CalculateTextOutput(0, 0, spriteData, 0);
 ### UpdateSize
 `public void UpdateSize(int width, int height)`
 
-**用途 / Purpose:** 重新计算并更新 「size」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 size 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 RichText 实例
@@ -91,7 +91,7 @@ richText.UpdateSize(0, 0);
 ### GetParts
 `public List<RichTextPart> GetParts()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「parts」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 parts 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 RichText 实例

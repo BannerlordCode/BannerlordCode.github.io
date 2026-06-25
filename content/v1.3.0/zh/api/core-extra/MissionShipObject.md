@@ -61,7 +61,7 @@ description: "MissionShipObject 的自动生成类参考。"
 ### SetPhysicsReference
 `public void SetPhysicsReference(ShipPhysicsReference physicsReference)`
 
-**用途 / Purpose:** 为 「physics reference」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 physics reference 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionShipObject 实例
@@ -72,7 +72,7 @@ missionShipObject.SetPhysicsReference(physicsReference);
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 从序列化数据还原当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionShipObject 实例

@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Conversation.Persuasion` to plac
 ### CommitProgress
 `public void CommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CommitProgress logic.
 
 ```csharp
 // Obtain an instance of Persuasion from the subsystem API first
@@ -40,7 +40,7 @@ persuasion.CommitProgress(persuasionOptionArgs);
 ### GetChosenOptions
 `public IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetChosenOptions()`
 
-**Purpose:** Reads and returns the `chosen options` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the chosen options value held by the this instance.
 
 ```csharp
 // Obtain an instance of Persuasion from the subsystem API first

@@ -19,7 +19,7 @@ SetPartyAiAction 是一组静态方法，用于在战役中以特定原因触发
 public static void GetActionForVisitingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**用途 / Purpose:** get action for visiting settlement。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for visiting settlement 的结果。
 
 ### GetActionForPatrollingAroundSettlement
 
@@ -27,7 +27,7 @@ public static void GetActionForVisitingSettlement(MobileParty owner, Settlement 
 public static void GetActionForPatrollingAroundSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**用途 / Purpose:** get action for patrolling around settlement。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for patrolling around settlement 的结果。
 
 ### GetActionForPatrollingAroundPoint
 
@@ -35,7 +35,7 @@ public static void GetActionForPatrollingAroundSettlement(MobileParty owner, Set
 public static void GetActionForPatrollingAroundPoint(MobileParty owner, CampaignVec2 position, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**用途 / Purpose:** get action for patrolling around point。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for patrolling around point 的结果。
 
 ### GetActionForRaidingSettlement
 
@@ -43,7 +43,7 @@ public static void GetActionForPatrollingAroundPoint(MobileParty owner, Campaign
 public static void GetActionForRaidingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**用途 / Purpose:** get action for raiding settlement。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for raiding settlement 的结果。
 
 ### GetActionForBesiegingSettlement
 
@@ -51,7 +51,7 @@ public static void GetActionForRaidingSettlement(MobileParty owner, Settlement s
 public static void GetActionForBesiegingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**用途 / Purpose:** get action for besieging settlement。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for besieging settlement 的结果。
 
 ### GetActionForEngagingParty
 
@@ -59,7 +59,7 @@ public static void GetActionForBesiegingSettlement(MobileParty owner, Settlement
 public static void GetActionForEngagingParty(MobileParty owner, MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**用途 / Purpose:** get action for engaging party。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for engaging party 的结果。
 
 ### GetActionForGoingAroundParty
 
@@ -67,7 +67,7 @@ public static void GetActionForEngagingParty(MobileParty owner, MobileParty mobi
 public static void GetActionForGoingAroundParty(MobileParty owner, MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**用途 / Purpose:** get action for going around party。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for going around party 的结果。
 
 ### GetActionForDefendingSettlement
 
@@ -75,7 +75,7 @@ public static void GetActionForGoingAroundParty(MobileParty owner, MobileParty m
 public static void GetActionForDefendingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**用途 / Purpose:** get action for defending settlement。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for defending settlement 的结果。
 
 ### GetActionForEscortingParty
 
@@ -83,7 +83,7 @@ public static void GetActionForDefendingSettlement(MobileParty owner, Settlement
 public static void GetActionForEscortingParty(MobileParty owner, MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**用途 / Purpose:** get action for escorting party。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for escorting party 的结果。
 
 ### GetActionForMovingToNearestLand
 
@@ -91,7 +91,7 @@ public static void GetActionForEscortingParty(MobileParty owner, MobileParty mob
 public static void GetActionForMovingToNearestLand(MobileParty owner, Settlement settlement)
 ```
 
-**用途 / Purpose:** get action for moving to nearest land。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 action for moving to nearest land 的结果。
 
 ## 使用示例
 

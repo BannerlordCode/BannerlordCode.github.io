@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### GetNumberOfPlayerControllableTroops
 `public int GetNumberOfPlayerControllableTroops()`
 
-**Purpose:** Reads and returns the `number of player controllable troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the number of player controllable troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -45,7 +45,7 @@ var result = missionBattleSideSpawnContext.GetNumberOfPlayerControllableTroops()
 ### TryReinforcementSpawn
 `public int TryReinforcementSpawn()`
 
-**Purpose:** Attempts to retrieve `reinforcement spawn`, usually returning success through an out parameter.
+**Purpose:** **Purpose:** Attempts to retrieve reinforcement spawn, usually returning success through an out parameter.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionBattleSideSpawnContext.TryReinforcementSpawn();
 ### GetTeamFormationsSpawnData
 `public void GetTeamFormationsSpawnData(out MBList<(Team team, MissionFormationSpawnData formationSpawnData)> teamFormationsSpawnData)`
 
-**Purpose:** Reads and returns the `team formations spawn data` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the team formations spawn data value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -67,7 +67,7 @@ missionBattleSideSpawnContext.GetTeamFormationsSpawnData(team, teamFormationsSpa
 ### ReserveTroops
 `public void ReserveTroops(int number)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ReserveTroops logic.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -78,7 +78,7 @@ missionBattleSideSpawnContext.ReserveTroops(0);
 ### GetGeneralCharacter
 `public BasicCharacterObject GetGeneralCharacter()`
 
-**Purpose:** Reads and returns the `general character` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the general character value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -89,7 +89,7 @@ var result = missionBattleSideSpawnContext.GetGeneralCharacter();
 ### CheckReinforcementBatch
 `public bool CheckReinforcementBatch()`
 
-**Purpose:** Verifies whether `reinforcement batch` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether reinforcement batch holds true for the this instance.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -100,7 +100,7 @@ var result = missionBattleSideSpawnContext.CheckReinforcementBatch();
 ### GetAllTroops
 `public IEnumerable<IAgentOriginBase> GetAllTroops()`
 
-**Purpose:** Reads and returns the `all troops` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all troops value held by the this instance.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -111,7 +111,7 @@ var result = missionBattleSideSpawnContext.GetAllTroops();
 ### SpawnTroops
 `public int SpawnTroops(int number, bool isReinforcement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SpawnTroops logic.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -122,7 +122,7 @@ var result = missionBattleSideSpawnContext.SpawnTroops(0, false);
 ### SetSpawnWithHorses
 `public void SetSpawnWithHorses(bool spawnWithHorses)`
 
-**Purpose:** Assigns a new value to `spawn with horses` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to spawn with horses and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -133,7 +133,7 @@ missionBattleSideSpawnContext.SetSpawnWithHorses(false);
 ### SetBannerBearerLogic
 `public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)`
 
-**Purpose:** Assigns a new value to `banner bearer logic` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to banner bearer logic and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -144,7 +144,7 @@ missionBattleSideSpawnContext.SetBannerBearerLogic(bannerBearerLogic);
 ### SetReinforcementsNotifiedOnLastBatch
 `public void SetReinforcementsNotifiedOnLastBatch(bool value)`
 
-**Purpose:** Assigns a new value to `reinforcements notified on last batch` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to reinforcements notified on last batch and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -155,7 +155,7 @@ missionBattleSideSpawnContext.SetReinforcementsNotifiedOnLastBatch(false);
 ### SetSpawnTroops
 `public void SetSpawnTroops(bool spawnTroops)`
 
-**Purpose:** Assigns a new value to `spawn troops` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to spawn troops and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first
@@ -166,7 +166,7 @@ missionBattleSideSpawnContext.SetSpawnTroops(false);
 ### OnInitialSpawnOver
 `public void OnInitialSpawnOver()`
 
-**Purpose:** Invoked when the `initial spawn over` event is raised.
+**Purpose:** **Purpose:** Invoked when the initial spawn over event is raised.
 
 ```csharp
 // Obtain an instance of MissionBattleSideSpawnContext from the subsystem API first

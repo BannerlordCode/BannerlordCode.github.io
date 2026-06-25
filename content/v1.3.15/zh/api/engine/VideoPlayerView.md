@@ -23,7 +23,7 @@ description: "VideoPlayerView 的自动生成类参考。"
 ### CreateVideoPlayerView
 `public static VideoPlayerView CreateVideoPlayerView()`
 
-**用途 / Purpose:** 构建一个新的 「video player view」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 video player view 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ VideoPlayerView.CreateVideoPlayerView();
 ### PlayVideo
 `public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
 
-**用途 / Purpose:** 处理与 「play video」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlayVideo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlayerView 实例
@@ -44,7 +44,7 @@ videoPlayerView.PlayVideo("example", "example", 0, false);
 ### StopVideo
 `public void StopVideo()`
 
-**用途 / Purpose:** 停止「video」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止video流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlayerView 实例
@@ -55,7 +55,7 @@ videoPlayerView.StopVideo();
 ### IsVideoFinished
 `public bool IsVideoFinished()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「video finished」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 video finished 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlayerView 实例
@@ -66,7 +66,7 @@ var result = videoPlayerView.IsVideoFinished();
 ### FinalizePlayer
 `public void FinalizePlayer()`
 
-**用途 / Purpose:** 处理与 「finalize player」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FinalizePlayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlayerView 实例

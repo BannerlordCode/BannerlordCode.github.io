@@ -19,7 +19,7 @@ IncreaseSettlementHealthAction is a set of static methods that trigger "Increase
 public static void Apply(Settlement settlement, float percentage)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

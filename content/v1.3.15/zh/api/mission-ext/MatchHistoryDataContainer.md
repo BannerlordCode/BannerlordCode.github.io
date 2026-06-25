@@ -23,7 +23,7 @@ description: "MatchHistoryDataContainer 的自动生成类参考。"
 ### TryGetHistoryData
 `public bool TryGetHistoryData(string matchId, out MatchHistoryData historyData)`
 
-**用途 / Purpose:** 尝试获取 「get history data」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get history data 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 MatchHistoryDataContainer 实例

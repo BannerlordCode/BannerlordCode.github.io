@@ -40,7 +40,7 @@ description: "ScrollablePanel 的自动生成类参考。"
 ### SetControlledScrollbar
 `public void SetControlledScrollbar(ScrollbarWidget scrollbar)`
 
-**用途 / Purpose:** 为 「controlled scrollbar」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 controlled scrollbar 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -51,7 +51,7 @@ scrollablePanel.SetControlledScrollbar(scrollbar);
 ### StartInterpolation
 `public void StartInterpolation(float targetValue, float duration)`
 
-**用途 / Purpose:** 启动「interpolation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动interpolation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -62,7 +62,7 @@ scrollablePanel.StartInterpolation(0, 0);
 ### StopInterpolation
 `public void StopInterpolation()`
 
-**用途 / Purpose:** 停止「interpolation」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 停止interpolation流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -73,7 +73,7 @@ scrollablePanel.StopInterpolation();
 ### GetValue
 `public float GetValue()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「value」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 value 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -84,7 +84,7 @@ var result = scrollablePanel.GetValue();
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -95,7 +95,7 @@ scrollablePanel.Tick(0);
 ### ResetTweenSpeed
 `public void ResetTweenSpeed()`
 
-**用途 / Purpose:** 将 「tween speed」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 tween speed 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -106,7 +106,7 @@ scrollablePanel.ResetTweenSpeed();
 ### ScrollToChild
 `public void ScrollToChild(Widget targetWidget, AutoScrollParameters scrollParameters = null)`
 
-**用途 / Purpose:** 处理与 「scroll to child」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ScrollToChild 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -117,7 +117,7 @@ scrollablePanel.ScrollToChild(targetWidget, null);
 ### SetVerticalScrollTarget
 `public void SetVerticalScrollTarget(float targetValue, float interpolationDuration)`
 
-**用途 / Purpose:** 为 「vertical scroll target」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 vertical scroll target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例
@@ -128,7 +128,7 @@ scrollablePanel.SetVerticalScrollTarget(0, 0);
 ### SetHorizontalScrollTarget
 `public void SetHorizontalScrollTarget(float targetValue, float interpolationDuration)`
 
-**用途 / Purpose:** 为 「horizontal scroll target」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 horizontal scroll target 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ScrollablePanel 实例

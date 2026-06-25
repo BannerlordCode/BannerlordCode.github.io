@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCre
 ### OnNextStage
 `public abstract void OnNextStage()`
 
-**Purpose:** Invoked when the `next stage` event is raised.
+**Purpose:** **Purpose:** Invoked when the next stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageBaseVM from the subsystem API first
@@ -49,7 +49,7 @@ characterCreationStageBaseVM.OnNextStage();
 ### OnPreviousStage
 `public abstract void OnPreviousStage()`
 
-**Purpose:** Invoked when the `previous stage` event is raised.
+**Purpose:** **Purpose:** Invoked when the previous stage event is raised.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageBaseVM from the subsystem API first
@@ -60,7 +60,7 @@ characterCreationStageBaseVM.OnPreviousStage();
 ### CanAdvanceToNextStage
 `public abstract bool CanAdvanceToNextStage()`
 
-**Purpose:** Checks whether the current object meets the preconditions for `advance to next stage`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for advance to next stage.
 
 ```csharp
 // Obtain an instance of CharacterCreationStageBaseVM from the subsystem API first

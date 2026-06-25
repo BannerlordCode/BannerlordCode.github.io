@@ -23,7 +23,7 @@ description: "MultiplayerAchievementComponent 的自动生成类参考。"
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**用途 / Purpose:** 在 「behavior initialize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 behavior initialize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
@@ -34,7 +34,7 @@ multiplayerAchievementComponent.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EarlyStart 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
@@ -45,7 +45,7 @@ multiplayerAchievementComponent.EarlyStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**用途 / Purpose:** 在 「mission tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
@@ -56,7 +56,7 @@ multiplayerAchievementComponent.OnMissionTick(0);
 ### OnAgentMount
 `public override void OnAgentMount(Agent agent)`
 
-**用途 / Purpose:** 在 「agent mount」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent mount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
@@ -67,7 +67,7 @@ multiplayerAchievementComponent.OnAgentMount(agent);
 ### OnAgentDismount
 `public override void OnAgentDismount(Agent agent)`
 
-**用途 / Purpose:** 在 「agent dismount」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent dismount 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
@@ -78,7 +78,7 @@ multiplayerAchievementComponent.OnAgentDismount(agent);
 ### OnAgentBuild
 `public override void OnAgentBuild(Agent agent, Banner banner)`
 
-**用途 / Purpose:** 在 「agent build」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent build 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例
@@ -89,7 +89,7 @@ multiplayerAchievementComponent.OnAgentBuild(agent, banner);
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**用途 / Purpose:** 在 「agent removed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 agent removed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerAchievementComponent 实例

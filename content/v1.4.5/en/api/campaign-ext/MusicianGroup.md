@@ -23,7 +23,7 @@ Start from namespace `SandBox.Objects.Usables` to place it in the stack, then in
 ### GetActionTextForStandingPoint
 `public override TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
 
-**Purpose:** Reads and returns the `action text for standing point` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the action text for standing point value held by the this instance.
 
 ```csharp
 // Obtain an instance of MusicianGroup from the subsystem API first
@@ -34,7 +34,7 @@ var result = musicianGroup.GetActionTextForStandingPoint(usableGameObject);
 ### GetDescriptionText
 `public override TextObject GetDescriptionText(WeakGameEntity gameEntity)`
 
-**Purpose:** Reads and returns the `description text` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the description text value held by the this instance.
 
 ```csharp
 // Obtain an instance of MusicianGroup from the subsystem API first
@@ -45,7 +45,7 @@ var result = musicianGroup.GetDescriptionText(gameEntity);
 ### CreateAIBehaviorObject
 `public override UsableMachineAIBase CreateAIBehaviorObject()`
 
-**Purpose:** Constructs a new `a i behavior object` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of MusicianGroup from the subsystem API first
@@ -56,7 +56,7 @@ var result = musicianGroup.CreateAIBehaviorObject();
 ### SetPlayList
 `public void SetPlayList(List<SettlementMusicData> playList)`
 
-**Purpose:** Assigns a new value to `play list` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to play list and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MusicianGroup from the subsystem API first
@@ -67,7 +67,7 @@ musicianGroup.SetPlayList(playList);
 ### GetTickRequirement
 `public override TickRequirement GetTickRequirement()`
 
-**Purpose:** Reads and returns the `tick requirement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the tick requirement value held by the this instance.
 
 ```csharp
 // Obtain an instance of MusicianGroup from the subsystem API first

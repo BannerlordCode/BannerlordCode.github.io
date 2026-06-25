@@ -30,7 +30,7 @@ description: "LoadingWindow 的自动生成类参考。"
 ### Destroy
 `public static void Destroy()`
 
-**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Destroy 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ LoadingWindow.Destroy();
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 处理与 「disable global loading window」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DisableGlobalLoadingWindow 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ LoadingWindow.DisableGlobalLoadingWindow();
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 处理与 「enable global loading window」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EnableGlobalLoadingWindow 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ LoadingWindow.EnableGlobalLoadingWindow();
 ### SetCurrentModeIsMultiplayer
 `public static void SetCurrentModeIsMultiplayer(bool isMultiplayer)`
 
-**用途 / Purpose:** 为 「current mode is multiplayer」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 current mode is multiplayer 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 静态调用，不需要实例

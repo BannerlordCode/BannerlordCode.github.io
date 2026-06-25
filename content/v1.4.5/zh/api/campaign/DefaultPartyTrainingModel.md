@@ -23,7 +23,7 @@ description: "DefaultPartyTrainingModel 的自动生成类参考。"
 ### GetXpReward
 `public override int GetXpReward(CharacterObject character)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「xp reward」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 xp reward 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
@@ -34,7 +34,7 @@ var result = defaultPartyTrainingModel.GetXpReward(character);
 ### GetEffectiveDailyExperience
 `public override ExplainedNumber GetEffectiveDailyExperience(MobileParty mobileParty, TroopRosterElement troop)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「effective daily experience」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 effective daily experience 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
@@ -45,7 +45,7 @@ var result = defaultPartyTrainingModel.GetEffectiveDailyExperience(mobileParty, 
 ### GenerateSharedXp
 `public override int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
 
-**用途 / Purpose:** 生成「shared xp」的实例、数据或表示。
+**用途 / Purpose:** **用途 / Purpose:** 生成shared xp的实例、数据或表示。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例
@@ -56,7 +56,7 @@ var result = defaultPartyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
 ### CalculateXpGainFromBattles
 `public override ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
 
-**用途 / Purpose:** 计算「xp gain from battles」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算xp gain from battles的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultPartyTrainingModel 实例

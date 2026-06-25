@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.Library.CodeGeneration` to place it in the stac
 ### FindOrCreateNamespace
 `public NamespaceCode FindOrCreateNamespace(string name)`
 
-**Purpose:** Looks up the matching `or create namespace` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching or create namespace in the current collection or scope.
 
 ```csharp
 // Obtain an instance of CodeGenerationContext from the subsystem API first
@@ -40,7 +40,7 @@ var result = codeGenerationContext.FindOrCreateNamespace("example");
 ### GenerateInto
 `public void GenerateInto(CodeGenerationFile codeGenerationFile)`
 
-**Purpose:** Generates an instance, data, or representation of `into`.
+**Purpose:** **Purpose:** Generates an instance, data, or representation of into.
 
 ```csharp
 // Obtain an instance of CodeGenerationContext from the subsystem API first

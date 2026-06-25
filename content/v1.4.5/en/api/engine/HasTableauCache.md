@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### CollectTableauCacheTypes
 `public static void CollectTableauCacheTypes()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the CollectTableauCacheTypes logic.
 
 ```csharp
 // Static call; no instance required

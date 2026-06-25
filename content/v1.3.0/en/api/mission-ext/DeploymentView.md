@@ -23,7 +23,7 @@ Treat `DeploymentView` as a View-style extension point: first identify who creat
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of DeploymentView from the subsystem API first
@@ -34,7 +34,7 @@ deploymentView.AfterStart();
 ### OnRemoveBehavior
 `public override void OnRemoveBehavior()`
 
-**Purpose:** Invoked when the `remove behavior` event is raised.
+**Purpose:** **Purpose:** Invoked when the remove behavior event is raised.
 
 ```csharp
 // Obtain an instance of DeploymentView from the subsystem API first

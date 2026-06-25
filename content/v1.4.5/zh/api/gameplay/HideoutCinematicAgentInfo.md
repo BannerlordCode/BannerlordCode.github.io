@@ -23,7 +23,7 @@ description: "HideoutCinematicAgentInfo 的自动生成类参考。"
 ### HasReachedTarget
 `public bool HasReachedTarget(float proximityThreshold = 0.5f)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「reached target」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 reached target。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCinematicAgentInfo 实例

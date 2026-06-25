@@ -23,7 +23,7 @@ description: "ShipHelper 的自动生成类参考。"
 ### GetShipBanner
 `public static Banner GetShipBanner(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ship banner」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship banner 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ShipHelper.GetShipBanner(shipOrigin, null);
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(IShipOrigin shipOrigin, IAgent captain = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sail colors」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sail colors 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ ShipHelper.GetSailColors(shipOrigin, null);
 ### GetShipBanner
 `public static Banner GetShipBanner(PartyBase party = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ship banner」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ship banner 的结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ ShipHelper.GetShipBanner(null);
 ### GetSailColors
 `public static ValueTuple<uint, uint> GetSailColors(PartyBase party = null)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「sail colors」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 sail colors 的结果。
 
 ```csharp
 // 静态调用，不需要实例

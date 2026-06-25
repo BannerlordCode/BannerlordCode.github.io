@@ -37,7 +37,7 @@ description: "HeroVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroVM 实例
@@ -48,7 +48,7 @@ heroVM.RefreshValues();
 ### ExecuteLink
 `public void ExecuteLink()`
 
-**用途 / Purpose:** 执行 「link」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 link 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroVM 实例
@@ -59,7 +59,7 @@ heroVM.ExecuteLink();
 ### ExecuteBeginHint
 `public virtual void ExecuteBeginHint()`
 
-**用途 / Purpose:** 执行 「begin hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 begin hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroVM 实例
@@ -70,7 +70,7 @@ heroVM.ExecuteBeginHint();
 ### ExecuteEndHint
 `public virtual void ExecuteEndHint()`
 
-**用途 / Purpose:** 执行 「end hint」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 end hint 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroVM 实例
@@ -81,7 +81,7 @@ heroVM.ExecuteEndHint();
 ### GetRelation
 `public static int GetRelation(Hero hero)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「relation」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 relation 的结果。
 
 ```csharp
 // 静态调用，不需要实例

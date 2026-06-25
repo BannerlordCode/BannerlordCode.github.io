@@ -35,7 +35,7 @@ description: "CircleActionSelectorWidget 的自动生成类参考。"
 ### AnimateDistanceFromCenterTo
 `public void AnimateDistanceFromCenterTo(float distanceFromCenter, float animationDuration)`
 
-**用途 / Purpose:** 处理与 「animate distance from center to」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AnimateDistanceFromCenterTo 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 CircleActionSelectorWidget 实例
@@ -46,7 +46,7 @@ circleActionSelectorWidget.AnimateDistanceFromCenterTo(0, 0);
 ### TrySetSelectedIndex
 `public bool TrySetSelectedIndex(int index)`
 
-**用途 / Purpose:** 尝试获取 「set selected index」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 set selected index 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 CircleActionSelectorWidget 实例

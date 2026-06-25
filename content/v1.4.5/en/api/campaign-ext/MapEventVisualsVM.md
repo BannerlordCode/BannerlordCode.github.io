@@ -29,7 +29,7 @@ Start from namespace `SandBox.ViewModelCollection.Map` to place it in the stack,
 ### Update
 `public void Update(float dt)`
 
-**Purpose:** Recalculates and stores the latest representation of the current object.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of the this instance.
 
 ```csharp
 // Obtain an instance of MapEventVisualsVM from the subsystem API first
@@ -40,7 +40,7 @@ mapEventVisualsVM.Update(0);
 ### OnMapEventVisibilityChanged
 `public void OnMapEventVisibilityChanged(MapEvent mapEvent)`
 
-**Purpose:** Invoked when the `map event visibility changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the map event visibility changed event is raised.
 
 ```csharp
 // Obtain an instance of MapEventVisualsVM from the subsystem API first
@@ -51,7 +51,7 @@ mapEventVisualsVM.OnMapEventVisibilityChanged(mapEvent);
 ### OnMapEventStarted
 `public void OnMapEventStarted(MapEvent mapEvent)`
 
-**Purpose:** Invoked when the `map event started` event is raised.
+**Purpose:** **Purpose:** Invoked when the map event started event is raised.
 
 ```csharp
 // Obtain an instance of MapEventVisualsVM from the subsystem API first
@@ -62,7 +62,7 @@ mapEventVisualsVM.OnMapEventStarted(mapEvent);
 ### OnMapEventEnded
 `public void OnMapEventEnded(MapEvent mapEvent)`
 
-**Purpose:** Invoked when the `map event ended` event is raised.
+**Purpose:** **Purpose:** Invoked when the map event ended event is raised.
 
 ```csharp
 // Obtain an instance of MapEventVisualsVM from the subsystem API first

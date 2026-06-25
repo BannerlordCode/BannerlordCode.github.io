@@ -23,7 +23,7 @@ description: "MultiplayerPlayerContextMenuHelper 的自动生成类参考。"
 ### AddLobbyViewProfileOptions
 `public static void AddLobbyViewProfileOptions(MPLobbyPlayerBaseVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
-**用途 / Purpose:** 将 「lobby view profile options」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 lobby view profile options 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MultiplayerPlayerContextMenuHelper.AddLobbyViewProfileOptions(player, contextMen
 ### AddMissionViewProfileOptions
 `public static void AddMissionViewProfileOptions(MPPlayerVM player, MBBindingList<StringPairItemWithActionVM> contextMenuOptions)`
 
-**用途 / Purpose:** 将 「mission view profile options」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 mission view profile options 添加到当前容器或状态中。
 
 ```csharp
 // 静态调用，不需要实例

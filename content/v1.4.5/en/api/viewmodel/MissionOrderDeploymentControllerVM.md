@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Order` to pla
 ### SetMissionParameters
 `public void SetMissionParameters(Camera deploymentCamera, List<DeploymentPoint> deploymentPoints)`
 
-**Purpose:** Assigns a new value to `mission parameters` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to mission parameters and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -43,7 +43,7 @@ missionOrderDeploymentControllerVM.SetMissionParameters(deploymentCamera, deploy
 ### SetCallbacks
 `public void SetCallbacks(MissionOrderCallbacks callbacks)`
 
-**Purpose:** Assigns a new value to `callbacks` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to callbacks and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -54,7 +54,7 @@ missionOrderDeploymentControllerVM.SetCallbacks(callbacks);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -65,7 +65,7 @@ missionOrderDeploymentControllerVM.RefreshValues();
 ### OnRefreshSelectedDeploymentPoint
 `public void OnRefreshSelectedDeploymentPoint(DeploymentSiegeMachineVM item)`
 
-**Purpose:** Invoked when the `refresh selected deployment point` event is raised.
+**Purpose:** **Purpose:** Invoked when the refresh selected deployment point event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -76,7 +76,7 @@ missionOrderDeploymentControllerVM.OnRefreshSelectedDeploymentPoint(item);
 ### OnEntityHover
 `public void OnEntityHover(WeakGameEntity hoveredEntity)`
 
-**Purpose:** Invoked when the `entity hover` event is raised.
+**Purpose:** **Purpose:** Invoked when the entity hover event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -87,7 +87,7 @@ missionOrderDeploymentControllerVM.OnEntityHover(hoveredEntity);
 ### OnEntityHover
 `public void OnEntityHover(DeploymentPoint deploymentPoint)`
 
-**Purpose:** Invoked when the `entity hover` event is raised.
+**Purpose:** **Purpose:** Invoked when the entity hover event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -98,7 +98,7 @@ missionOrderDeploymentControllerVM.OnEntityHover(deploymentPoint);
 ### OnEntitySelect
 `public void OnEntitySelect(WeakGameEntity selectedEntity)`
 
-**Purpose:** Invoked when the `entity select` event is raised.
+**Purpose:** **Purpose:** Invoked when the entity select event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -109,7 +109,7 @@ missionOrderDeploymentControllerVM.OnEntitySelect(selectedEntity);
 ### RefreshSelectedDeploymentPoint
 `public void RefreshSelectedDeploymentPoint(DeploymentPoint selectedDeploymentPoint)`
 
-**Purpose:** Keeps the display or cache of `selected deployment point` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of selected deployment point in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -120,7 +120,7 @@ missionOrderDeploymentControllerVM.RefreshSelectedDeploymentPoint(selectedDeploy
 ### ExecuteCancelSelectedDeploymentPoint
 `public void ExecuteCancelSelectedDeploymentPoint()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel selected deployment point`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel selected deployment point.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -131,7 +131,7 @@ missionOrderDeploymentControllerVM.ExecuteCancelSelectedDeploymentPoint();
 ### ExecuteBeginMission
 `public void ExecuteBeginMission()`
 
-**Purpose:** Runs the operation or workflow associated with `begin mission`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with begin mission.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -142,7 +142,7 @@ missionOrderDeploymentControllerVM.ExecuteBeginMission();
 ### ExecuteAutoDeploy
 `public void ExecuteAutoDeploy()`
 
-**Purpose:** Runs the operation or workflow associated with `auto deploy`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with auto deploy.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -153,7 +153,7 @@ missionOrderDeploymentControllerVM.ExecuteAutoDeploy();
 ### ExecuteDeployPlayerSide
 `public void ExecuteDeployPlayerSide()`
 
-**Purpose:** Runs the operation or workflow associated with `deploy player side`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with deploy player side.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -164,7 +164,7 @@ missionOrderDeploymentControllerVM.ExecuteDeployPlayerSide();
 ### FinalizeDeployment
 `public void FinalizeDeployment()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FinalizeDeployment logic.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first
@@ -175,7 +175,7 @@ missionOrderDeploymentControllerVM.FinalizeDeployment();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionOrderDeploymentControllerVM from the subsystem API first

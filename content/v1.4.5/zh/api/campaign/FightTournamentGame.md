@@ -23,7 +23,7 @@ description: "FightTournamentGame 的自动生成类参考。"
 ### CanBeAParticipant
 `public override bool CanBeAParticipant(CharacterObject character, bool considerSkills)`
 
-**用途 / Purpose:** 检查当前对象是否满足 「be a participant」 的前置条件。
+**用途 / Purpose:** **用途 / Purpose:** 检查当前对象是否满足 be a participant 的前置条件。
 
 ```csharp
 // 先通过子系统 API 拿到 FightTournamentGame 实例
@@ -34,7 +34,7 @@ var result = fightTournamentGame.CanBeAParticipant(character, false);
 ### GetMenuText
 `public override TextObject GetMenuText()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「menu text」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 menu text 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FightTournamentGame 实例
@@ -45,7 +45,7 @@ var result = fightTournamentGame.GetMenuText();
 ### OpenMission
 `public override void OpenMission(Settlement settlement, bool isPlayerParticipating)`
 
-**用途 / Purpose:** 打开「mission」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开mission对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 FightTournamentGame 实例
@@ -56,7 +56,7 @@ fightTournamentGame.OpenMission(settlement, false);
 ### GetParticipantCharacters
 `public override MBList<CharacterObject> GetParticipantCharacters(Settlement settlement, bool includePlayer = true)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「participant characters」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 participant characters 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FightTournamentGame 实例

@@ -23,7 +23,7 @@ Treat `MissionLobbyEquipmentNetworkComponent` as a Component-style extension poi
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
@@ -34,7 +34,7 @@ missionLobbyEquipmentNetworkComponent.OnBehaviorInitialize();
 ### PerkUpdated
 `public void PerkUpdated(int perkList, int perkIndex)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the PerkUpdated logic.
 
 ```csharp
 // Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
@@ -45,7 +45,7 @@ missionLobbyEquipmentNetworkComponent.PerkUpdated(0, 0);
 ### EquipmentUpdated
 `public void EquipmentUpdated()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EquipmentUpdated logic.
 
 ```csharp
 // Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
@@ -56,7 +56,7 @@ missionLobbyEquipmentNetworkComponent.EquipmentUpdated();
 ### ToggleLoadout
 `public void ToggleLoadout(bool isActive)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToggleLoadout logic.
 
 ```csharp
 // Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
@@ -67,7 +67,7 @@ missionLobbyEquipmentNetworkComponent.ToggleLoadout(false);
 ### OnToggleLoadoutDelegate
 `public delegate void OnToggleLoadoutDelegate(bool isActive)`
 
-**Purpose:** Invoked when the `toggle loadout delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the toggle loadout delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first
@@ -78,7 +78,7 @@ missionLobbyEquipmentNetworkComponent.OnToggleLoadoutDelegate(false);
 ### OnRefreshEquipmentEventDelegate
 `public delegate void OnRefreshEquipmentEventDelegate(MissionPeer lobbyPeer)`
 
-**Purpose:** Invoked when the `refresh equipment event delegate` event is raised.
+**Purpose:** **Purpose:** Invoked when the refresh equipment event delegate event is raised.
 
 ```csharp
 // Obtain an instance of MissionLobbyEquipmentNetworkComponent from the subsystem API first

@@ -23,7 +23,7 @@ description: "SphereData 的自动生成类参考。"
 ### SphereData
 `public struct SphereData(float radius, Vec3 origin)`
 
-**用途 / Purpose:** 获取或维护 「sphere data」 数据。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SphereData 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SphereData 实例

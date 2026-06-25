@@ -30,7 +30,7 @@ Start from namespace `SandBox.Missions.AgentBehaviors` to place it in the stack,
 ### GetAvailability
 `public virtual float GetAvailability(bool isSimulation)`
 
-**Purpose:** Reads and returns the `availability` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the availability value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -41,7 +41,7 @@ var result = agentBehavior.GetAvailability(false);
 ### Tick
 `public virtual void Tick(float dt, bool isSimulation)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -52,7 +52,7 @@ agentBehavior.Tick(0, false);
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ConversationTick logic.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -63,7 +63,7 @@ agentBehavior.ConversationTick();
 ### CheckStartWithBehavior
 `public virtual bool CheckStartWithBehavior()`
 
-**Purpose:** Verifies whether `start with behavior` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether start with behavior holds true for the this instance.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -74,7 +74,7 @@ var result = agentBehavior.CheckStartWithBehavior();
 ### OnSpecialTargetChanged
 `public virtual void OnSpecialTargetChanged()`
 
-**Purpose:** Invoked when the `special target changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the special target changed event is raised.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -85,7 +85,7 @@ agentBehavior.OnSpecialTargetChanged();
 ### SetCustomWanderTarget
 `public virtual void SetCustomWanderTarget(UsableMachine customUsableMachine)`
 
-**Purpose:** Assigns a new value to `custom wander target` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to custom wander target and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -96,7 +96,7 @@ agentBehavior.SetCustomWanderTarget(customUsableMachine);
 ### OnAgentRemoved
 `public virtual void OnAgentRemoved(Agent agent)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first
@@ -107,7 +107,7 @@ agentBehavior.OnAgentRemoved(agent);
 ### GetDebugInfo
 `public abstract string GetDebugInfo()`
 
-**Purpose:** Reads and returns the `debug info` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the debug info value held by the this instance.
 
 ```csharp
 // Obtain an instance of AgentBehavior from the subsystem API first

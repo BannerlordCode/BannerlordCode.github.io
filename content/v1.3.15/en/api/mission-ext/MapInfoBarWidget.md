@@ -30,7 +30,7 @@ Treat `MapInfoBarWidget` as a Widget-style extension point: first identify who c
 ### MapBarExtendStateChangeEvent
 `public delegate void MapBarExtendStateChangeEvent(bool newState)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MapBarExtendStateChangeEvent logic.
 
 ```csharp
 // Obtain an instance of MapInfoBarWidget from the subsystem API first

@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Issues` to place it in the stack
 ### Initialize
 `public void Initialize(TextObject name, TextObject description)`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Obtain an instance of IssueEffect from the subsystem API first
@@ -42,7 +42,7 @@ issueEffect.Initialize(name, description);
 ### ToString
 `public override string ToString()`
 
-**Purpose:** Returns a human-readable string representation of the current object.
+**Purpose:** **Purpose:** Returns a human-readable string representation of the this instance.
 
 ```csharp
 // Obtain an instance of IssueEffect from the subsystem API first

@@ -33,7 +33,7 @@ Treat `ArmyOverlayWidget` as a Widget-style extension point: first identify who 
 ### ArmyOverlayWidget
 `public class ArmyOverlayWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ArmyOverlayWidget logic.
 
 ```csharp
 // Obtain an instance of ArmyOverlayWidget from the subsystem API first

@@ -35,7 +35,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Education` t
 ### SetFocusValue
 `public void SetFocusValue(int gainedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Assigns a new value to `focus value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to focus value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EducationGainedSkillItemVM from the subsystem API first
@@ -46,7 +46,7 @@ educationGainedSkillItemVM.SetFocusValue(0, 0);
 ### SetSkillValue
 `public void SetSkillValue(int gaintedFromOtherStages, int gainedFromCurrentStage)`
 
-**Purpose:** Assigns a new value to `skill value` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to skill value and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of EducationGainedSkillItemVM from the subsystem API first

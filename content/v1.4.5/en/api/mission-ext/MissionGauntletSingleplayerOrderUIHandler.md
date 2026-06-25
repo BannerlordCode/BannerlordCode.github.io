@@ -31,7 +31,7 @@ Treat `MissionGauntletSingleplayerOrderUIHandler` as a Handler-style extension p
 ### OnConversationBegin
 `public override void OnConversationBegin()`
 
-**Purpose:** Invoked when the `conversation begin` event is raised.
+**Purpose:** **Purpose:** Invoked when the conversation begin event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -42,7 +42,7 @@ missionGauntletSingleplayerOrderUIHandler.OnConversationBegin();
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -53,7 +53,7 @@ missionGauntletSingleplayerOrderUIHandler.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -64,7 +64,7 @@ missionGauntletSingleplayerOrderUIHandler.OnMissionScreenFinalize();
 ### OnAutoDeploy
 `public void OnAutoDeploy()`
 
-**Purpose:** Invoked when the `auto deploy` event is raised.
+**Purpose:** **Purpose:** Invoked when the auto deploy event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -75,7 +75,7 @@ missionGauntletSingleplayerOrderUIHandler.OnAutoDeploy();
 ### OnBeginMission
 `public void OnBeginMission()`
 
-**Purpose:** Invoked when the `begin mission` event is raised.
+**Purpose:** **Purpose:** Invoked when the begin mission event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -86,7 +86,7 @@ missionGauntletSingleplayerOrderUIHandler.OnBeginMission();
 ### OnDeploymentFinished
 `public override void OnDeploymentFinished()`
 
-**Purpose:** Invoked when the `deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -97,7 +97,7 @@ missionGauntletSingleplayerOrderUIHandler.OnDeploymentFinished();
 ### OnAfterDeploymentFinished
 `public override void OnAfterDeploymentFinished()`
 
-**Purpose:** Invoked when the `after deployment finished` event is raised.
+**Purpose:** **Purpose:** Invoked when the after deployment finished event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -108,7 +108,7 @@ missionGauntletSingleplayerOrderUIHandler.OnAfterDeploymentFinished();
 ### ClearFormationSelection
 `public void ClearFormationSelection()`
 
-**Purpose:** Removes all `formation selection` from the current object.
+**Purpose:** **Purpose:** Removes all formation selection from the this instance.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first
@@ -119,7 +119,7 @@ missionGauntletSingleplayerOrderUIHandler.ClearFormationSelection();
 ### OnFiltersSet
 `public void OnFiltersSet(List<FormationConfiguration> filterData)`
 
-**Purpose:** Invoked when the `filters set` event is raised.
+**Purpose:** **Purpose:** Invoked when the filters set event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletSingleplayerOrderUIHandler from the subsystem API first

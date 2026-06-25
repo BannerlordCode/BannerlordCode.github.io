@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.Election` to place it in the sta
 ### GetDecisionTitle
 `public override TextObject GetDecisionTitle()`
 
-**Purpose:** Reads and returns the `decision title` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision title value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
@@ -34,7 +34,7 @@ var result = settlementClaimantPreliminaryOutcome.GetDecisionTitle();
 ### GetDecisionDescription
 `public override TextObject GetDecisionDescription()`
 
-**Purpose:** Reads and returns the `decision description` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision description value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
@@ -45,7 +45,7 @@ var result = settlementClaimantPreliminaryOutcome.GetDecisionDescription();
 ### GetDecisionLink
 `public override string GetDecisionLink()`
 
-**Purpose:** Reads and returns the `decision link` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision link value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first
@@ -56,7 +56,7 @@ var result = settlementClaimantPreliminaryOutcome.GetDecisionLink();
 ### GetDecisionImageIdentifier
 `public override ImageIdentifier GetDecisionImageIdentifier()`
 
-**Purpose:** Reads and returns the `decision image identifier` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the decision image identifier value held by the this instance.
 
 ```csharp
 // Obtain an instance of SettlementClaimantPreliminaryOutcome from the subsystem API first

@@ -33,7 +33,7 @@ description: "AvatarData 的自动生成类参考。"
 ### SetImageData
 `public void SetImageData(byte image, uint width, uint height)`
 
-**用途 / Purpose:** 为 「image data」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 image data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AvatarData 实例
@@ -44,7 +44,7 @@ avatarData.SetImageData(0, 0, 0);
 ### SetImageData
 `public void SetImageData(byte image)`
 
-**用途 / Purpose:** 为 「image data」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 image data 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AvatarData 实例
@@ -55,7 +55,7 @@ avatarData.SetImageData(0);
 ### SetFailed
 `public void SetFailed()`
 
-**用途 / Purpose:** 为 「failed」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 failed 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 AvatarData 实例

@@ -23,7 +23,7 @@ Treat `MultiplayerRidingModel` as a Model-style extension point: first identify 
 ### CalculateAcceleration
 `public override float CalculateAcceleration(in EquipmentElement mountElement, in EquipmentElement harnessElement, int ridingSkill)`
 
-**Purpose:** Calculates the current value or result of `acceleration`.
+**Purpose:** **Purpose:** Calculates the current value or result of acceleration.
 
 ```csharp
 // Obtain an instance of MultiplayerRidingModel from the subsystem API first

@@ -53,7 +53,7 @@ Start from namespace `TaleWorlds.MountAndBlade.DedicatedCustomServer.ClientHelpe
 ### Refresh
 `public void Refresh()`
 
-**Purpose:** Refreshes the current object's display or cache to match the underlying state.
+**Purpose:** **Purpose:** Refreshes the this instance's display or cache to match the underlying state.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -64,7 +64,7 @@ dCSHelperVM.Refresh();
 ### GetPanelSubtitle
 `public string GetPanelSubtitle(string serverName)`
 
-**Purpose:** Reads and returns the `panel subtitle` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the panel subtitle value held by the this instance.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -75,7 +75,7 @@ var result = dCSHelperVM.GetPanelSubtitle("example");
 ### GetProgressCounter
 `public string GetProgressCounter(int downloadedCount, int totalCount)`
 
-**Purpose:** Reads and returns the `progress counter` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the progress counter value held by the this instance.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -86,7 +86,7 @@ var result = dCSHelperVM.GetProgressCounter(0, 0);
 ### GetDownloadCompleteMessageSingular
 `public string GetDownloadCompleteMessageSingular(string mapName)`
 
-**Purpose:** Reads and returns the `download complete message singular` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the download complete message singular value held by the this instance.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -97,7 +97,7 @@ var result = dCSHelperVM.GetDownloadCompleteMessageSingular("example");
 ### GetDownloadCompleteMessagePlural
 `public string GetDownloadCompleteMessagePlural(int mapCount)`
 
-**Purpose:** Reads and returns the `download complete message plural` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the download complete message plural value held by the this instance.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -108,7 +108,7 @@ var result = dCSHelperVM.GetDownloadCompleteMessagePlural(0);
 ### GetReplacementConfirmationMessage
 `public string GetReplacementConfirmationMessage(string mapName)`
 
-**Purpose:** Reads and returns the `replacement confirmation message` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the replacement confirmation message value held by the this instance.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -119,7 +119,7 @@ var result = dCSHelperVM.GetReplacementConfirmationMessage("example");
 ### OpenPopup
 `public async Task OpenPopup()`
 
-**Purpose:** Opens the resource or UI associated with `popup`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with popup.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -130,7 +130,7 @@ var result = dCSHelperVM.OpenPopup();
 ### ExecuteDownloadMap
 `public async Task ExecuteDownloadMap()`
 
-**Purpose:** Runs the operation or workflow associated with `download map`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with download map.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -141,7 +141,7 @@ var result = dCSHelperVM.ExecuteDownloadMap();
 ### ExecuteCloseOrCancel
 `public void ExecuteCloseOrCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `close or cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close or cancel.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -152,7 +152,7 @@ dCSHelperVM.ExecuteCloseOrCancel();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first
@@ -163,7 +163,7 @@ dCSHelperVM.ExecuteClosePopup();
 ### ExecuteCancelDownload
 `public void ExecuteCancelDownload()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel download`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel download.
 
 ```csharp
 // Obtain an instance of DCSHelperVM from the subsystem API first

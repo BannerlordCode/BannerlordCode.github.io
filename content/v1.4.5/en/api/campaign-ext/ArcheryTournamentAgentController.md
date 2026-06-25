@@ -23,7 +23,7 @@ Treat `ArcheryTournamentAgentController` as a Controller-style extension point: 
 ### OnInitialize
 `public override void OnInitialize()`
 
-**Purpose:** Invoked when the `initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
@@ -34,7 +34,7 @@ archeryTournamentAgentController.OnInitialize();
 ### OnTick
 `public void OnTick()`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
@@ -45,7 +45,7 @@ archeryTournamentAgentController.OnTick();
 ### SetTargets
 `public void SetTargets(List<DestructableComponent> targetList)`
 
-**Purpose:** Assigns a new value to `targets` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to targets and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of ArcheryTournamentAgentController from the subsystem API first
@@ -56,7 +56,7 @@ archeryTournamentAgentController.SetTargets(targetList);
 ### OnTargetHit
 `public void OnTargetHit(Agent agent, DestructableComponent target)`
 
-**Purpose:** Invoked when the `target hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the target hit event is raised.
 
 ```csharp
 // Obtain an instance of ArcheryTournamentAgentController from the subsystem API first

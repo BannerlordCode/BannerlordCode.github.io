@@ -23,7 +23,7 @@ Treat `AlleyHelper` as a Helper-style extension point: first identify who create
 ### OpenScreenForManagingAlley
 `public static void OpenScreenForManagingAlley(TroopRoster leftMemberRoster, PartyPresentationDoneButtonDelegate onDoneButtonClicked, TextObject leftText, PartyPresentationCancelButtonDelegate onCancelButtonClicked = null)`
 
-**Purpose:** Opens the resource or UI associated with `screen for managing alley`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with screen for managing alley.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ AlleyHelper.OpenScreenForManagingAlley(leftMemberRoster, onDoneButtonClicked, le
 ### CreateMultiSelectionInquiryForSelectingClanMemberToAlley
 `public static void CreateMultiSelectionInquiryForSelectingClanMemberToAlley(Alley alley, Action<List<InquiryElement>> affirmativeAction, Action<List<InquiryElement>> negativeAction)`
 
-**Purpose:** Constructs a new `multi selection inquiry for selecting clan member to alley` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new multi selection inquiry for selecting clan member to alley entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required

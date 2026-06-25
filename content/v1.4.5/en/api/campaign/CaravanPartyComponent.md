@@ -31,7 +31,7 @@ Treat `CaravanPartyComponent` as a Component-style extension point: first identi
 ### InitializeCaravanOnCreation
 `public void InitializeCaravanOnCreation(MobileParty mobileParty, Settlement settlement)`
 
-**Purpose:** Prepares the resources, state, or bindings required by `caravan on creation`.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings required by caravan on creation.
 
 ```csharp
 // Obtain an instance of CaravanPartyComponent from the subsystem API first
@@ -42,7 +42,7 @@ caravanPartyComponent.InitializeCaravanOnCreation(mobileParty, settlement);
 ### GetDefaultComponentBanner
 `public override Banner GetDefaultComponentBanner()`
 
-**Purpose:** Reads and returns the `default component banner` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the default component banner value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanPartyComponent from the subsystem API first
@@ -53,7 +53,7 @@ var result = caravanPartyComponent.GetDefaultComponentBanner();
 ### ConvertPartyToCaravanParty
 `public static void ConvertPartyToCaravanParty(MobileParty mobileParty, Hero caravanOwner, Settlement spawnSettlement, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
 
-**Purpose:** Converts `party to caravan party` into another representation or type.
+**Purpose:** **Purpose:** Converts party to caravan party into another representation or type.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ CaravanPartyComponent.ConvertPartyToCaravanParty(mobileParty, caravanOwner, spaw
 ### ClearCachedName
 `public override void ClearCachedName()`
 
-**Purpose:** Removes all `cached name` from the current object.
+**Purpose:** **Purpose:** Removes all cached name from the this instance.
 
 ```csharp
 // Obtain an instance of CaravanPartyComponent from the subsystem API first
@@ -74,7 +74,7 @@ caravanPartyComponent.ClearCachedName();
 ### CreateCaravanParty
 `public static MobileParty CreateCaravanParty(Hero caravanOwner, Settlement spawnSettlement, PartyTemplateObject templateObject, bool isInitialSpawn = false, Hero caravanLeader = null, ItemRoster caravanItems = null, bool isElite = false)`
 
-**Purpose:** Constructs a new `caravan party` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new caravan party entity and returns it to the caller.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ CaravanPartyComponent.CreateCaravanParty(caravanOwner, spawnSettlement, template
 ### GetMountAndHarnessVisualIdsForPartyIcon
 `public override void GetMountAndHarnessVisualIdsForPartyIcon(PartyBase party, out string mountStringId, out string harnessStringId)`
 
-**Purpose:** Reads and returns the `mount and harness visual ids for party icon` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount and harness visual ids for party icon value held by the this instance.
 
 ```csharp
 // Obtain an instance of CaravanPartyComponent from the subsystem API first
@@ -95,7 +95,7 @@ caravanPartyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountString
 ### TransferCaravanOwnership
 `public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the TransferCaravanOwnership logic.
 
 ```csharp
 // Static call; no instance required
@@ -105,7 +105,7 @@ CaravanPartyComponent.TransferCaravanOwnership(caravan, newOwner, homeSettlement
 ### ChangeHomeSettlement
 `public void ChangeHomeSettlement(Settlement newHomeSettlement)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ChangeHomeSettlement logic.
 
 ```csharp
 // Obtain an instance of CaravanPartyComponent from the subsystem API first

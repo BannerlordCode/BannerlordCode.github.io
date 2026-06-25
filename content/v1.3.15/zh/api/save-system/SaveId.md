@@ -23,7 +23,7 @@ description: "SaveId 的自动生成类参考。"
 ### GetStringId
 `public abstract string GetStringId()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「string id」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 string id 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveId 实例
@@ -34,7 +34,7 @@ var result = saveId.GetStringId();
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveId 实例
@@ -45,7 +45,7 @@ var result = saveId.GetHashCode();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveId 实例
@@ -56,7 +56,7 @@ var result = saveId.Equals(obj);
 ### WriteTo
 `public abstract void WriteTo(IWriter writer)`
 
-**用途 / Purpose:** 将「to」写入目标位置。
+**用途 / Purpose:** **用途 / Purpose:** 将to写入目标位置。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveId 实例
@@ -67,7 +67,7 @@ saveId.WriteTo(writer);
 ### ReadSaveIdFrom
 `public static SaveId ReadSaveIdFrom(IReader reader)`
 
-**用途 / Purpose:** 读取「save id from」的数据或状态。
+**用途 / Purpose:** **用途 / Purpose:** 读取save id from的数据或状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ SaveId.ReadSaveIdFrom(reader);
 ### GetSizeInBytes
 `public abstract int GetSizeInBytes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「size in bytes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 size in bytes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveId 实例

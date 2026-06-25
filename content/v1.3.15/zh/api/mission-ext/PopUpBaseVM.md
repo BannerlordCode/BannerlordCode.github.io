@@ -40,7 +40,7 @@ description: "PopUpBaseVM 的自动生成类参考。"
 ### ExecuteAffirmativeAction
 `public abstract void ExecuteAffirmativeAction()`
 
-**用途 / Purpose:** 执行 「affirmative action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 affirmative action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -51,7 +51,7 @@ popUpBaseVM.ExecuteAffirmativeAction();
 ### ExecuteNegativeAction
 `public abstract void ExecuteNegativeAction()`
 
-**用途 / Purpose:** 执行 「negative action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 negative action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -62,7 +62,7 @@ popUpBaseVM.ExecuteNegativeAction();
 ### OnTick
 `public virtual void OnTick(float dt)`
 
-**用途 / Purpose:** 在 「tick」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 tick 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -73,7 +73,7 @@ popUpBaseVM.OnTick(0);
 ### OnClearData
 `public virtual void OnClearData()`
 
-**用途 / Purpose:** 在 「clear data」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 clear data 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -84,7 +84,7 @@ popUpBaseVM.OnClearData();
 ### ForceRefreshKeyVisuals
 `public void ForceRefreshKeyVisuals()`
 
-**用途 / Purpose:** 处理与 「force refresh key visuals」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceRefreshKeyVisuals 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -95,7 +95,7 @@ popUpBaseVM.ForceRefreshKeyVisuals();
 ### CloseQuery
 `public void CloseQuery()`
 
-**用途 / Purpose:** 关闭「query」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 关闭query对应的资源或界面。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -106,7 +106,7 @@ popUpBaseVM.CloseQuery();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -117,7 +117,7 @@ popUpBaseVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例
@@ -128,7 +128,7 @@ popUpBaseVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PopUpBaseVM 实例

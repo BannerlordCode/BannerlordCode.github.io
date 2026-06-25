@@ -23,7 +23,7 @@ Treat `DefectionModel` as a Model-style extension point: first identify who crea
 ### CanHeroDefectToFaction
 `public abstract bool CanHeroDefectToFaction(Hero hero, Kingdom kingdom)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `hero defect to faction`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for hero defect to faction.
 
 ```csharp
 // Obtain an instance of DefectionModel from the subsystem API first

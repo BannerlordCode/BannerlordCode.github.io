@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.DividableTasks` to place it in th
 ### Prepare
 `public void Prepare(Formation formation, RangedSiegeWeapon weapon)`
 
-**Purpose:** Finishes prerequisite setup for the current object's operation.
+**Purpose:** **Purpose:** Finishes prerequisite setup for the this instance's operation.
 
 ```csharp
 // Obtain an instance of FormationSearchThreatTask from the subsystem API first
@@ -34,7 +34,7 @@ formationSearchThreatTask.Prepare(formation, weapon);
 ### GetResult
 `public bool GetResult(out Agent targetAgent)`
 
-**Purpose:** Reads and returns the `result` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the result value held by the this instance.
 
 ```csharp
 // Obtain an instance of FormationSearchThreatTask from the subsystem API first

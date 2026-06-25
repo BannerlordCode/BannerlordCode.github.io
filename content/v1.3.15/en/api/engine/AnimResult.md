@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine` to place it in the stack, then inspect 
 ### GetEntitialOutTransform
 `public Transformation GetEntitialOutTransform(sbyte boneIndex, Skeleton skeleton)`
 
-**Purpose:** Reads and returns the `entitial out transform` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the entitial out transform value held by the this instance.
 
 ```csharp
 // Obtain an instance of AnimResult from the subsystem API first
@@ -34,7 +34,7 @@ var result = animResult.GetEntitialOutTransform(0, skeleton);
 ### SetOutBoneDisplacement
 `public void SetOutBoneDisplacement(sbyte boneIndex, Vec3 position, Skeleton skeleton)`
 
-**Purpose:** Assigns a new value to `out bone displacement` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to out bone displacement and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AnimResult from the subsystem API first
@@ -45,7 +45,7 @@ animResult.SetOutBoneDisplacement(0, position, skeleton);
 ### SetOutQuat
 `public void SetOutQuat(sbyte boneIndex, Mat3 rotation, Skeleton skeleton)`
 
-**Purpose:** Assigns a new value to `out quat` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to out quat and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of AnimResult from the subsystem API first

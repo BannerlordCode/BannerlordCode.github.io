@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors` t
 ### CompareTo
 `public int CompareTo(SettlementNavigationData otherSettlementNavigationData)`
 
-**Purpose:** Compares the current object with the supplied instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
@@ -34,7 +34,7 @@ var result = aiVisitSettlementBehavior.CompareTo(otherSettlementNavigationData);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of AiVisitSettlementBehavior from the subsystem API first
@@ -45,7 +45,7 @@ aiVisitSettlementBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of AiVisitSettlementBehavior from the subsystem API first

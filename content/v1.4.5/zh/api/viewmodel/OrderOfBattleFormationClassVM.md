@@ -38,7 +38,7 @@ description: "OrderOfBattleFormationClassVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
@@ -49,7 +49,7 @@ orderOfBattleFormationClassVM.RefreshValues();
 ### UpdateTroopCountText
 `public void UpdateTroopCountText()`
 
-**用途 / Purpose:** 重新计算并更新 「troop count text」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 troop count text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
@@ -60,7 +60,7 @@ orderOfBattleFormationClassVM.UpdateTroopCountText();
 ### SetWeightAdjustmentLock
 `public void SetWeightAdjustmentLock(bool isLocked)`
 
-**用途 / Purpose:** 为 「weight adjustment lock」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 weight adjustment lock 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例
@@ -71,7 +71,7 @@ orderOfBattleFormationClassVM.SetWeightAdjustmentLock(false);
 ### UpdateWeightAdjustable
 `public void UpdateWeightAdjustable()`
 
-**用途 / Purpose:** 重新计算并更新 「weight adjustable」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 weight adjustable 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleFormationClassVM 实例

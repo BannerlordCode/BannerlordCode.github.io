@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### UpdateBrushes
 `public override void UpdateBrushes(float dt)`
 
-**Purpose:** Recalculates and stores the latest representation of `brushes`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of brushes.
 
 ```csharp
 // Obtain an instance of BrushListPanel from the subsystem API first
@@ -43,7 +43,7 @@ brushListPanel.UpdateBrushes(0);
 ### SetState
 `public override void SetState(string stateName)`
 
-**Purpose:** Assigns a new value to `state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of BrushListPanel from the subsystem API first
@@ -54,7 +54,7 @@ brushListPanel.SetState("example");
 ### UpdateAnimationPropertiesSubTask
 `public override void UpdateAnimationPropertiesSubTask(float alphaFactor)`
 
-**Purpose:** Recalculates and stores the latest representation of `animation properties sub task`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of animation properties sub task.
 
 ```csharp
 // Obtain an instance of BrushListPanel from the subsystem API first
@@ -65,7 +65,7 @@ brushListPanel.UpdateAnimationPropertiesSubTask(0);
 ### OnBrushChanged
 `public virtual void OnBrushChanged()`
 
-**Purpose:** Invoked when the `brush changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the brush changed event is raised.
 
 ```csharp
 // Obtain an instance of BrushListPanel from the subsystem API first

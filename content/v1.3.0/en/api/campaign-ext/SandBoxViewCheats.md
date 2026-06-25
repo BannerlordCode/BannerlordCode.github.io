@@ -23,7 +23,7 @@ Start from namespace `SandBox.View` to place it in the stack, then inspect its p
 ### KillHero
 `public static string KillHero(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the KillHero logic.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ SandBoxViewCheats.KillHero(strings);
 ### FocusTournament
 `public static string FocusTournament(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusTournament logic.
 
 ```csharp
 // Static call; no instance required
@@ -43,7 +43,7 @@ SandBoxViewCheats.FocusTournament(strings);
 ### MakeClanMercenaryOfKingdom
 `public static string MakeClanMercenaryOfKingdom(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MakeClanMercenaryOfKingdom logic.
 
 ```csharp
 // Static call; no instance required
@@ -53,7 +53,7 @@ SandBoxViewCheats.MakeClanMercenaryOfKingdom(strings);
 ### FocusHostileArmy
 `public static string FocusHostileArmy(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusHostileArmy logic.
 
 ```csharp
 // Static call; no instance required
@@ -63,7 +63,7 @@ SandBoxViewCheats.FocusHostileArmy(strings);
 ### FocusMobileParty
 `public static string FocusMobileParty(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusMobileParty logic.
 
 ```csharp
 // Static call; no instance required
@@ -73,7 +73,7 @@ SandBoxViewCheats.FocusMobileParty(strings);
 ### FocusHero
 `public static string FocusHero(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusHero logic.
 
 ```csharp
 // Static call; no instance required
@@ -83,7 +83,7 @@ SandBoxViewCheats.FocusHero(strings);
 ### FocusInfestedHideout
 `public static string FocusInfestedHideout(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusInfestedHideout logic.
 
 ```csharp
 // Static call; no instance required
@@ -93,7 +93,7 @@ SandBoxViewCheats.FocusInfestedHideout(strings);
 ### FocusIssues
 `public static string FocusIssues(List<string> strings)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the FocusIssues logic.
 
 ```csharp
 // Static call; no instance required

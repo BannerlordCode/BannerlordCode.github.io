@@ -23,7 +23,7 @@ Treat `DefaultPartyImpairmentModel` as a Model-style extension point: first iden
 ### GetSiegeExpectedVulnerabilityTime
 `public override float GetSiegeExpectedVulnerabilityTime()`
 
-**Purpose:** Reads and returns the `siege expected vulnerability time` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege expected vulnerability time value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyImpairmentModel.GetSiegeExpectedVulnerabilityTime();
 ### GetDisorganizedStateDuration
 `public override ExplainedNumber GetDisorganizedStateDuration(MobileParty party)`
 
-**Purpose:** Reads and returns the `disorganized state duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the disorganized state duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyImpairmentModel.GetDisorganizedStateDuration(party);
 ### CanGetDisorganized
 `public override bool CanGetDisorganized(PartyBase party)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `get disorganized`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for get disorganized.
 
 ```csharp
 // Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultPartyImpairmentModel.CanGetDisorganized(party);
 ### GetVulnerabilityStateDuration
 `public override float GetVulnerabilityStateDuration(PartyBase party)`
 
-**Purpose:** Reads and returns the `vulnerability state duration` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the vulnerability state duration value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyImpairmentModel from the subsystem API first

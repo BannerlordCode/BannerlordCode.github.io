@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects` t
 ### OnUpdate
 `public override void OnUpdate(Agent agent, bool newState)`
 
-**Purpose:** Invoked when the `update` event is raised.
+**Purpose:** **Purpose:** Invoked when the update event is raised.
 
 ```csharp
 // Obtain an instance of MountManeuverEffect from the subsystem API first
@@ -34,7 +34,7 @@ mountManeuverEffect.OnUpdate(agent, false);
 ### GetMountManeuver
 `public override float GetMountManeuver()`
 
-**Purpose:** Reads and returns the `mount maneuver` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the mount maneuver value held by the this instance.
 
 ```csharp
 // Obtain an instance of MountManeuverEffect from the subsystem API first

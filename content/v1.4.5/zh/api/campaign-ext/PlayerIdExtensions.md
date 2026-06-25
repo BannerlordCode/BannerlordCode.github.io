@@ -23,7 +23,7 @@ description: "PlayerIdExtensions 的自动生成类参考。"
 ### SupportsPlayerCard
 `public static bool SupportsPlayerCard(this PlayerIdProvidedTypes type)`
 
-**用途 / Purpose:** 处理与 「supports player card」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SupportsPlayerCard 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

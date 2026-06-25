@@ -23,7 +23,7 @@ description: "MissionReinforcementsHelper 的自动生成类参考。"
 ### Compare
 `public int Compare(ReinforcementFormationPriority left, ReinforcementFormationPriority right)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionReinforcementsHelper 实例
@@ -34,7 +34,7 @@ var result = missionReinforcementsHelper.Compare(left, right);
 ### Initialize
 `public void Initialize(Formation formation, uint initTime)`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionReinforcementsHelper 实例
@@ -45,7 +45,7 @@ missionReinforcementsHelper.Initialize(formation, 0);
 ### AddProspectiveTroop
 `public void AddProspectiveTroop(FormationClass troopClass)`
 
-**用途 / Purpose:** 将 「prospective troop」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 prospective troop 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionReinforcementsHelper 实例
@@ -56,7 +56,7 @@ missionReinforcementsHelper.AddProspectiveTroop(troopClass);
 ### IsInitialized
 `public bool IsInitialized(uint initTime)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「initialized」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 initialized 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionReinforcementsHelper 实例
@@ -67,7 +67,7 @@ var result = missionReinforcementsHelper.IsInitialized(0);
 ### GetPriority
 `public ReinforcementFormationPriority GetPriority(FormationClass troopClass)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「priority」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 priority 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionReinforcementsHelper 实例
@@ -78,7 +78,7 @@ var result = missionReinforcementsHelper.GetPriority(troopClass);
 ### OnMissionStart
 `public static void OnMissionStart()`
 
-**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission start 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -88,7 +88,7 @@ MissionReinforcementsHelper.OnMissionStart();
 ### OnMissionEnd
 `public static void OnMissionEnd()`
 
-**用途 / Purpose:** 在 「mission end」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 mission end 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

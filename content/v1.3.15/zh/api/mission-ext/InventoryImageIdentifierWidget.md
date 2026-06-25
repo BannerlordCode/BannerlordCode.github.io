@@ -23,7 +23,7 @@ description: "InventoryImageIdentifierWidget 的自动生成类参考。"
 ### SetRenderRequestedPreviousFrame
 `public void SetRenderRequestedPreviousFrame(bool isRequested)`
 
-**用途 / Purpose:** 为 「render requested previous frame」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 render requested previous frame 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryImageIdentifierWidget 实例

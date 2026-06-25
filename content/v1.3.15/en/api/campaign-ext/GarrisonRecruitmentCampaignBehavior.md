@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.CampaignSystem.CampaignBehaviors` to place it i
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ garrisonRecruitmentCampaignBehavior.RegisterEvents();
 ### GetGarrisonChangeExplainedNumber
 `public ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
 
-**Purpose:** Reads and returns the `garrison change explained number` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the garrison change explained number value held by the this instance.
 
 ```csharp
 // Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ var result = garrisonRecruitmentCampaignBehavior.GetGarrisonChangeExplainedNumbe
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ garrisonRecruitmentCampaignBehavior.SyncData(dataStore);
 ### CompareTo
 `public int CompareTo(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for ordering.
 
 ```csharp
 // Obtain an instance of GarrisonRecruitmentCampaignBehavior from the subsystem API first

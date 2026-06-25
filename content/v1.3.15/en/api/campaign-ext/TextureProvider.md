@@ -29,7 +29,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### SetTargetSize
 `public virtual void SetTargetSize(int width, int height)`
 
-**Purpose:** Assigns a new value to `target size` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target size and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TextureProvider from the subsystem API first
@@ -40,7 +40,7 @@ textureProvider.SetTargetSize(0, 0);
 ### GetTextureForRender
 `public Texture GetTextureForRender(TwoDimensionContext context, string name = null)`
 
-**Purpose:** Reads and returns the `texture for render` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the texture for render value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextureProvider from the subsystem API first
@@ -51,7 +51,7 @@ var result = textureProvider.GetTextureForRender(context, "example");
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TextureProvider from the subsystem API first
@@ -62,7 +62,7 @@ textureProvider.Tick(0);
 ### Clear
 `public virtual void Clear(bool clearNextFrame)`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of TextureProvider from the subsystem API first
@@ -73,7 +73,7 @@ textureProvider.Clear(false);
 ### SetProperty
 `public void SetProperty(string name, object value)`
 
-**Purpose:** Assigns a new value to `property` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to property and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of TextureProvider from the subsystem API first
@@ -84,7 +84,7 @@ textureProvider.SetProperty("example", value);
 ### GetProperty
 `public object GetProperty(string name)`
 
-**Purpose:** Reads and returns the `property` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the property value held by the this instance.
 
 ```csharp
 // Obtain an instance of TextureProvider from the subsystem API first

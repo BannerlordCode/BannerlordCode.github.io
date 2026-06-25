@@ -59,7 +59,7 @@ description: "BannerBuilderVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -70,7 +70,7 @@ bannerBuilderVM.RefreshValues();
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -81,7 +81,7 @@ bannerBuilderVM.ExecuteCancel();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -92,7 +92,7 @@ bannerBuilderVM.ExecuteDone();
 ### ExecuteAddDefaultLayer
 `public void ExecuteAddDefaultLayer()`
 
-**用途 / Purpose:** 执行 「add default layer」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 add default layer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -103,7 +103,7 @@ bannerBuilderVM.ExecuteAddDefaultLayer();
 ### ExecuteDuplicateCurrentLayer
 `public void ExecuteDuplicateCurrentLayer()`
 
-**用途 / Purpose:** 执行 「duplicate current layer」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 duplicate current layer 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -114,7 +114,7 @@ bannerBuilderVM.ExecuteDuplicateCurrentLayer();
 ### ExecuteCopyBannerCode
 `public void ExecuteCopyBannerCode()`
 
-**用途 / Purpose:** 执行 「copy banner code」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 copy banner code 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -125,7 +125,7 @@ bannerBuilderVM.ExecuteCopyBannerCode();
 ### ExecuteReorderWithParameters
 `public void ExecuteReorderWithParameters(BannerBuilderLayerVM layer, int index, string targetTag)`
 
-**用途 / Purpose:** 执行 「reorder with parameters」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reorder with parameters 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -136,7 +136,7 @@ bannerBuilderVM.ExecuteReorderWithParameters(layer, 0, "example");
 ### ExecuteReorderToEndWithParameters
 `public void ExecuteReorderToEndWithParameters(BannerBuilderLayerVM layer, int index, string targetTag)`
 
-**用途 / Purpose:** 执行 「reorder to end with parameters」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reorder to end with parameters 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -147,7 +147,7 @@ bannerBuilderVM.ExecuteReorderToEndWithParameters(layer, 0, "example");
 ### GetBannerCode
 `public string GetBannerCode()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「banner code」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 banner code 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -158,7 +158,7 @@ var result = bannerBuilderVM.GetBannerCode();
 ### SetBannerCode
 `public void SetBannerCode(string v)`
 
-**用途 / Purpose:** 为 「banner code」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 banner code 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -169,7 +169,7 @@ bannerBuilderVM.SetBannerCode("example");
 ### TranslateCurrentLayerWith
 `public void TranslateCurrentLayerWith(Vec2 moveDirection)`
 
-**用途 / Purpose:** 处理与 「translate current layer with」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 TranslateCurrentLayerWith 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -180,7 +180,7 @@ bannerBuilderVM.TranslateCurrentLayerWith(moveDirection);
 ### DeleteCurrentLayer
 `public void DeleteCurrentLayer()`
 
-**用途 / Purpose:** 处理与 「delete current layer」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DeleteCurrentLayer 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -191,7 +191,7 @@ bannerBuilderVM.DeleteCurrentLayer();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -202,7 +202,7 @@ bannerBuilderVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例
@@ -213,7 +213,7 @@ bannerBuilderVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBuilderVM 实例

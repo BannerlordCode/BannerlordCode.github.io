@@ -31,7 +31,7 @@ description: "MissionSiegeEngineMarkerVM 的自动生成类参考。"
 ### InitializeWith
 `public void InitializeWith(List<SiegeWeapon> siegeEngines)`
 
-**用途 / Purpose:** 为 「with」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 with 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineMarkerVM 实例
@@ -42,7 +42,7 @@ missionSiegeEngineMarkerVM.InitializeWith(siegeEngines);
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineMarkerVM 实例
@@ -53,7 +53,7 @@ missionSiegeEngineMarkerVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineMarkerVM 实例
@@ -64,7 +64,7 @@ missionSiegeEngineMarkerVM.OnFinalize();
 ### Compare
 `public int Compare(MissionSiegeEngineMarkerTargetVM x, MissionSiegeEngineMarkerTargetVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionSiegeEngineMarkerVM 实例

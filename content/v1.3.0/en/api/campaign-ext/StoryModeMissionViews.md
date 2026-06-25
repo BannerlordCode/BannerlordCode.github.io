@@ -23,7 +23,7 @@ Start from namespace `StoryMode.View.Missions` to place it in the stack, then in
 ### OpenVillageMission
 `public static MissionView OpenVillageMission(Mission mission)`
 
-**Purpose:** Opens the resource or UI associated with `village mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with village mission.
 
 ```csharp
 // Static call; no instance required
@@ -33,7 +33,7 @@ StoryModeMissionViews.OpenVillageMission(mission);
 ### OpenSneakIntoTheVillaMission
 `public static MissionView OpenSneakIntoTheVillaMission(Mission mission)`
 
-**Purpose:** Opens the resource or UI associated with `sneak into the villa mission`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with sneak into the villa mission.
 
 ```csharp
 // Static call; no instance required

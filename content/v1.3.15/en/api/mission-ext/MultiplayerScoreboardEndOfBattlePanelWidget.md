@@ -31,7 +31,7 @@ Treat `MultiplayerScoreboardEndOfBattlePanelWidget` as a Widget-style extension 
 ### StartAnimation
 `public void StartAnimation()`
 
-**Purpose:** Starts the `animation` flow or state machine.
+**Purpose:** **Purpose:** Starts the animation flow or state machine.
 
 ```csharp
 // Obtain an instance of MultiplayerScoreboardEndOfBattlePanelWidget from the subsystem API first

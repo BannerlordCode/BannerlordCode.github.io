@@ -23,7 +23,7 @@ description: "MBInitialScreenBase 的自动生成类参考。"
 ### DoExitButtonAction
 `public static void DoExitButtonAction()`
 
-**用途 / Purpose:** 处理与 「do exit button action」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoExitButtonAction 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBInitialScreenBase.DoExitButtonAction();
 ### StartedRendering
 `public bool StartedRendering()`
 
-**用途 / Purpose:** 启动「ed rendering」流程或状态机。
+**用途 / Purpose:** **用途 / Purpose:** 启动ed rendering流程或状态机。
 
 ```csharp
 // 先通过子系统 API 拿到 MBInitialScreenBase 实例
@@ -44,7 +44,7 @@ var result = mBInitialScreenBase.StartedRendering();
 ### OnEditModeEnterPress
 `public static void OnEditModeEnterPress()`
 
-**用途 / Purpose:** 在 「edit mode enter press」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 edit mode enter press 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例
@@ -54,7 +54,7 @@ MBInitialScreenBase.OnEditModeEnterPress();
 ### OnEditModeEnterRelease
 `public static void OnEditModeEnterRelease()`
 
-**用途 / Purpose:** 在 「edit mode enter release」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 edit mode enter release 事件触发时调用此回调。
 
 ```csharp
 // 静态调用，不需要实例

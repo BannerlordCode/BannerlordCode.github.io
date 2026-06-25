@@ -34,7 +34,7 @@ description: "MissionState 的自动生成类参考。"
 ### OpenNew
 `public static Mission OpenNew(string missionName, MissionInitializerRecord rec, InitializeMissionBehaviorsDelegate handler, bool addDefaultMissionBehaviors = true, bool needsMemoryCleanup = true)`
 
-**用途 / Purpose:** 打开「new」对应的资源或界面。
+**用途 / Purpose:** **用途 / Purpose:** 打开new对应的资源或界面。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ MissionState.OpenNew("example", rec, handler, false, false);
 ### BeginDelayedDisconnectFromMission
 `public void BeginDelayedDisconnectFromMission()`
 
-**用途 / Purpose:** 处理与 「begin delayed disconnect from mission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginDelayedDisconnectFromMission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionState 实例

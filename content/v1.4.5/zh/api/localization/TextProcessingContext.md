@@ -23,7 +23,7 @@ description: "TextProcessingContext 的自动生成类参考。"
 ### SetFunction
 `public void SetFunction(string functionName, MBTextModel functionBody)`
 
-**用途 / Purpose:** 为 「function」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 function 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextProcessingContext 实例
@@ -34,7 +34,7 @@ textProcessingContext.SetFunction("example", functionBody);
 ### ResetFunctions
 `public void ResetFunctions()`
 
-**用途 / Purpose:** 将 「functions」 重置回默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将 functions 重置回默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TextProcessingContext 实例
@@ -45,7 +45,7 @@ textProcessingContext.ResetFunctions();
 ### GetFunctionBody
 `public MBTextModel GetFunctionBody(string functionName)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「function body」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 function body 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextProcessingContext 实例
@@ -56,7 +56,7 @@ var result = textProcessingContext.GetFunctionBody("example");
 ### GetFunctionParam
 `public TextObject GetFunctionParam(string rawValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「function param」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 function param 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextProcessingContext 实例
@@ -67,7 +67,7 @@ var result = textProcessingContext.GetFunctionParam("example");
 ### GetFunctionParamWithoutEvaluate
 `public TextObject GetFunctionParamWithoutEvaluate(string rawValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「function param without evaluate」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 function param without evaluate 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TextProcessingContext 实例

@@ -42,7 +42,7 @@ Treat `MapNotificationItemWidget` as a Widget-style extension point: first ident
 ### MapNotificationItemWidget
 `public class MapNotificationItemWidget(UIContext context)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the MapNotificationItemWidget logic.
 
 ```csharp
 // Obtain an instance of MapNotificationItemWidget from the subsystem API first

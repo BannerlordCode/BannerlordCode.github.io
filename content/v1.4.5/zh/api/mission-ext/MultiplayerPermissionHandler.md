@@ -23,7 +23,7 @@ description: "MultiplayerPermissionHandler 的自动生成类参考。"
 ### OnUdpNetworkHandlerClose
 `public override void OnUdpNetworkHandlerClose()`
 
-**用途 / Purpose:** 在 「udp network handler close」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 udp network handler close 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPermissionHandler 实例
@@ -34,7 +34,7 @@ multiplayerPermissionHandler.OnUdpNetworkHandlerClose();
 ### OnPlayerDisconnectedFromServer
 `public override void OnPlayerDisconnectedFromServer(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 在 「player disconnected from server」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 player disconnected from server 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPermissionHandler 实例

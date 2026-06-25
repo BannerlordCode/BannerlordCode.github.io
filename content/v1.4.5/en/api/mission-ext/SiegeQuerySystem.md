@@ -38,7 +38,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Expire
 `public void Expire()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Expire logic.
 
 ```csharp
 // Obtain an instance of SiegeQuerySystem from the subsystem API first
@@ -49,7 +49,7 @@ siegeQuerySystem.Expire();
 ### DeterminePositionAssociatedSide
 `public int DeterminePositionAssociatedSide(Vec3 position)`
 
-**Purpose:** Determines the result of `position associated side` based on the current state.
+**Purpose:** **Purpose:** Determines the result of position associated side based on the current state.
 
 ```csharp
 // Obtain an instance of SiegeQuerySystem from the subsystem API first
@@ -60,7 +60,7 @@ var result = siegeQuerySystem.DeterminePositionAssociatedSide(position);
 ### AreSidesRelated
 `public static bool AreSidesRelated(FormationAI.BehaviorSide side, int connectedSides)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AreSidesRelated logic.
 
 ```csharp
 // Static call; no instance required
@@ -70,7 +70,7 @@ SiegeQuerySystem.AreSidesRelated(side, 0);
 ### SideDistance
 `public static int SideDistance(int connectedSides, int side)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the SideDistance logic.
 
 ```csharp
 // Static call; no instance required

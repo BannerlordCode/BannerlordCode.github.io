@@ -19,7 +19,7 @@ EndMercenaryServiceAction 是一组静态方法，用于在战役中以特定原
 public static void EndByDefault(Clan clan)
 ```
 
-**用途 / Purpose:** end by default。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndByDefault 对应的操作。
 
 ### EndByLeavingKingdom
 
@@ -27,7 +27,7 @@ public static void EndByDefault(Clan clan)
 public static void EndByLeavingKingdom(Clan clan)
 ```
 
-**用途 / Purpose:** end by leaving kingdom。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndByLeavingKingdom 对应的操作。
 
 ### EndByBecomingVassal
 
@@ -35,7 +35,7 @@ public static void EndByLeavingKingdom(Clan clan)
 public static void EndByBecomingVassal(Clan clan)
 ```
 
-**用途 / Purpose:** end by becoming vassal。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndByBecomingVassal 对应的操作。
 
 ## 使用示例
 

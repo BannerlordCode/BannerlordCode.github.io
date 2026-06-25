@@ -23,7 +23,7 @@ description: "TwoDimensionView 的自动生成类参考。"
 ### CreateTwoDimension
 `public static TwoDimensionView CreateTwoDimension(string viewName)`
 
-**用途 / Purpose:** 构建一个新的 「two dimension」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 two dimension 实体并返回给调用方。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ TwoDimensionView.CreateTwoDimension("example");
 ### BeginFrame
 `public void BeginFrame()`
 
-**用途 / Purpose:** 处理与 「begin frame」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 BeginFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例
@@ -44,7 +44,7 @@ twoDimensionView.BeginFrame();
 ### EndFrame
 `public void EndFrame()`
 
-**用途 / Purpose:** 处理与 「end frame」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndFrame 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例
@@ -55,7 +55,7 @@ twoDimensionView.EndFrame();
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例
@@ -66,7 +66,7 @@ twoDimensionView.Clear();
 ### CreateMeshFromDescription
 `public void CreateMeshFromDescription(WeakMaterial material, TwoDimensionMeshDrawData meshDrawData)`
 
-**用途 / Purpose:** 构建一个新的 「mesh from description」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 mesh from description 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例
@@ -77,7 +77,7 @@ twoDimensionView.CreateMeshFromDescription(material, meshDrawData);
 ### CreateTextMeshFromCache
 `public bool CreateTextMeshFromCache(Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**用途 / Purpose:** 构建一个新的 「text mesh from cache」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 text mesh from cache 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例
@@ -88,7 +88,7 @@ var result = twoDimensionView.CreateTextMeshFromCache(material, meshDrawData);
 ### CreateTextMeshFromDescription
 `public void CreateTextMeshFromDescription(float vertices, float uvs, uint indices, int indexCount, Material material, TwoDimensionTextMeshDrawData meshDrawData)`
 
-**用途 / Purpose:** 构建一个新的 「text mesh from description」 实体并返回给调用方。
+**用途 / Purpose:** **用途 / Purpose:** 构建一个新的 text mesh from description 实体并返回给调用方。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例
@@ -99,7 +99,7 @@ twoDimensionView.CreateTextMeshFromDescription(0, 0, 0, 0, material, meshDrawDat
 ### GetOrCreateMaterial
 `public WeakMaterial GetOrCreateMaterial(Texture mainTexture, Texture overlayTexture)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「or create material」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 or create material 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionView 实例

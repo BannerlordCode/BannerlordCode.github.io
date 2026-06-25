@@ -23,7 +23,7 @@ Treat `AutoBlockModel` as a Model-style extension point: first identify who crea
 ### GetBlockDirection
 `public abstract Agent.UsageDirection GetBlockDirection(Mission mission)`
 
-**Purpose:** Reads and returns the `block direction` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the block direction value held by the this instance.
 
 ```csharp
 // Obtain an instance of AutoBlockModel from the subsystem API first

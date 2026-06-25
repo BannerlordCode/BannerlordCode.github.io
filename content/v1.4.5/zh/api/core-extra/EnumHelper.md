@@ -23,7 +23,7 @@ description: "EnumHelper 的自动生成类参考。"
 ### Overlaps
 `public static bool Overlaps(sbyte p1, sbyte p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(byte p1, byte p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(short p1, short p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(ushort p1, ushort p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(int p1, int p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(uint p1, uint p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(long p1, long p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ EnumHelper.Overlaps(0, 0);
 ### Overlaps
 `public static bool Overlaps(ulong p1, ulong p2)`
 
-**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Overlaps 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ EnumHelper.Overlaps(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(sbyte p1, sbyte p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(byte p1, byte p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(short p1, short p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(ushort p1, ushort p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(int p1, int p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(uint p1, uint p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(long p1, long p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ EnumHelper.ContainsAll(0, 0);
 ### ContainsAll
 `public static bool ContainsAll(ulong p1, ulong p2)`
 
-**用途 / Purpose:** 判断当前对象是否包含「all」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否包含all。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ EnumHelper.ContainsAll(0, 0);
 ### initProc
 `public static bool initProc(T1 p1, T1 p2)`
 
-**用途 / Purpose:** 处理与 「init proc」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 initProc 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ EnumHelper.initProc(p1, p2);
 ### initAllProc
 `public static bool initAllProc(T1 p1, T1 p2)`
 
-**用途 / Purpose:** 处理与 「init all proc」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 initAllProc 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例

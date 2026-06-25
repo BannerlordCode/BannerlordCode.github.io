@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of TooltipBaseVM from the subsystem API first
@@ -41,7 +41,7 @@ tooltipBaseVM.OnFinalize();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of TooltipBaseVM from the subsystem API first

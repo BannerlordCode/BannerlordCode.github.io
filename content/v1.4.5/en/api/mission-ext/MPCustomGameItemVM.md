@@ -50,7 +50,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### UpdateIsFavorite
 `public void UpdateIsFavorite()`
 
-**Purpose:** Recalculates and stores the latest representation of `is favorite`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of is favorite.
 
 ```csharp
 // Obtain an instance of MPCustomGameItemVM from the subsystem API first
@@ -61,7 +61,7 @@ mPCustomGameItemVM.UpdateIsFavorite();
 ### ExecuteSelect
 `public void ExecuteSelect()`
 
-**Purpose:** Runs the operation or workflow associated with `select`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select.
 
 ```csharp
 // Obtain an instance of MPCustomGameItemVM from the subsystem API first
@@ -72,7 +72,7 @@ mPCustomGameItemVM.ExecuteSelect();
 ### ExecuteFavorite
 `public void ExecuteFavorite()`
 
-**Purpose:** Runs the operation or workflow associated with `favorite`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with favorite.
 
 ```csharp
 // Obtain an instance of MPCustomGameItemVM from the subsystem API first
@@ -83,7 +83,7 @@ mPCustomGameItemVM.ExecuteFavorite();
 ### ExecuteJoin
 `public void ExecuteJoin()`
 
-**Purpose:** Runs the operation or workflow associated with `join`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with join.
 
 ```csharp
 // Obtain an instance of MPCustomGameItemVM from the subsystem API first
@@ -94,7 +94,7 @@ mPCustomGameItemVM.ExecuteJoin();
 ### ExecuteViewHostOptions
 `public void ExecuteViewHostOptions()`
 
-**Purpose:** Runs the operation or workflow associated with `view host options`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with view host options.
 
 ```csharp
 // Obtain an instance of MPCustomGameItemVM from the subsystem API first

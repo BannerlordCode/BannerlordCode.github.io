@@ -32,7 +32,7 @@ description: "FillBarVerticalClipTierColorsWidget 的自动生成类参考。"
 ### FillBarVerticalClipTierColorsWidget
 `public class FillBarVerticalClipTierColorsWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「fill bar vertical clip tier colors widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 FillBarVerticalClipTierColorsWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FillBarVerticalClipTierColorsWidget 实例

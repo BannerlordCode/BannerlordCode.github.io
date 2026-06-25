@@ -29,7 +29,7 @@ Treat `HeirSelectionCalculationModel` as a Model-style extension point: first id
 ### CalculateHeirSelectionPoint
 `public abstract int CalculateHeirSelectionPoint(Hero candidateHeir, Hero deadHero, ref Hero maxSkillHero)`
 
-**Purpose:** Calculates the current value or result of `heir selection point`.
+**Purpose:** **Purpose:** Calculates the current value or result of heir selection point.
 
 ```csharp
 // Obtain an instance of HeirSelectionCalculationModel from the subsystem API first

@@ -23,7 +23,7 @@ description: "FleePosition 的自动生成类参考。"
 ### GetSide
 `public BattleSideEnum GetSide()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「side」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 side 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FleePosition 实例
@@ -34,7 +34,7 @@ var result = fleePosition.GetSide();
 ### GetClosestPointToEscape
 `public Vec3 GetClosestPointToEscape(Vec2 position)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「closest point to escape」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 closest point to escape 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 FleePosition 实例

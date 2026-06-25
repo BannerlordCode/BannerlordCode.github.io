@@ -30,7 +30,7 @@ Treat `SpawnComponent` as a Component-style extension point: first identify who 
 ### OnBehaviorInitialize
 `public override void OnBehaviorInitialize()`
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the behavior initialize event is raised.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -41,7 +41,7 @@ spawnComponent.OnBehaviorInitialize();
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AreAgentsSpawning logic.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -52,7 +52,7 @@ var result = spawnComponent.AreAgentsSpawning();
 ### SetNewSpawnFrameBehavior
 `public void SetNewSpawnFrameBehavior(SpawnFrameBehaviorBase spawnFrameBehavior)`
 
-**Purpose:** Assigns a new value to `new spawn frame behavior` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to new spawn frame behavior and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -63,7 +63,7 @@ spawnComponent.SetNewSpawnFrameBehavior(spawnFrameBehavior);
 ### SetNewSpawningBehavior
 `public void SetNewSpawningBehavior(SpawningBehaviorBase spawningBehavior)`
 
-**Purpose:** Assigns a new value to `new spawning behavior` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to new spawning behavior and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -74,7 +74,7 @@ spawnComponent.SetNewSpawningBehavior(spawningBehavior);
 ### SetSiegeSpawningBehavior
 `public static void SetSiegeSpawningBehavior()`
 
-**Purpose:** Assigns a new value to `siege spawning behavior` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to siege spawning behavior and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -84,7 +84,7 @@ SpawnComponent.SetSiegeSpawningBehavior();
 ### SetFlagDominationSpawningBehavior
 `public static void SetFlagDominationSpawningBehavior()`
 
-**Purpose:** Assigns a new value to `flag domination spawning behavior` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to flag domination spawning behavior and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -94,7 +94,7 @@ SpawnComponent.SetFlagDominationSpawningBehavior();
 ### SetWarmupSpawningBehavior
 `public static void SetWarmupSpawningBehavior()`
 
-**Purpose:** Assigns a new value to `warmup spawning behavior` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to warmup spawning behavior and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -104,7 +104,7 @@ SpawnComponent.SetWarmupSpawningBehavior();
 ### SetSpawningBehaviorForCurrentGameType
 `public static void SetSpawningBehaviorForCurrentGameType(MultiplayerGameType currentGameType)`
 
-**Purpose:** Assigns a new value to `spawning behavior for current game type` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to spawning behavior for current game type and updates the object's internal state.
 
 ```csharp
 // Static call; no instance required
@@ -114,7 +114,7 @@ SpawnComponent.SetSpawningBehaviorForCurrentGameType(currentGameType);
 ### AfterStart
 `public override void AfterStart()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the AfterStart logic.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -125,7 +125,7 @@ spawnComponent.AfterStart();
 ### OnMissionTick
 `public override void OnMissionTick(float dt)`
 
-**Purpose:** Invoked when the `mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission tick event is raised.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -136,7 +136,7 @@ spawnComponent.OnMissionTick(0);
 ### GetSpawnFrame
 `public MatrixFrame GetSpawnFrame(Team team, bool hasMount, bool isInitialSpawn = false)`
 
-**Purpose:** Reads and returns the `spawn frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the spawn frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -147,7 +147,7 @@ var result = spawnComponent.GetSpawnFrame(team, false, false);
 ### SetEarlyAgentVisualsDespawning
 `public void SetEarlyAgentVisualsDespawning(MissionPeer missionPeer, bool canDespawnEarly = true)`
 
-**Purpose:** Assigns a new value to `early agent visuals despawning` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to early agent visuals despawning and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -158,7 +158,7 @@ spawnComponent.SetEarlyAgentVisualsDespawning(missionPeer, false);
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ToggleUpdatingSpawnEquipment logic.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -169,7 +169,7 @@ spawnComponent.ToggleUpdatingSpawnEquipment(false);
 ### AllowEarlyAgentVisualsDespawning
 `public bool AllowEarlyAgentVisualsDespawning(MissionPeer lobbyPeer)`
 
-**Purpose:** Permits `early agent visuals despawning` to be enabled or performed on the current object.
+**Purpose:** **Purpose:** Permits early agent visuals despawning to be enabled or performed on the this instance.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -180,7 +180,7 @@ var result = spawnComponent.AllowEarlyAgentVisualsDespawning(lobbyPeer);
 ### GetMaximumReSpawnPeriodForPeer
 `public int GetMaximumReSpawnPeriodForPeer(MissionPeer lobbyPeer)`
 
-**Purpose:** Reads and returns the `maximum re spawn period for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the maximum re spawn period for peer value held by the this instance.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -191,7 +191,7 @@ var result = spawnComponent.GetMaximumReSpawnPeriodForPeer(lobbyPeer);
 ### OnClearScene
 `public override void OnClearScene()`
 
-**Purpose:** Invoked when the `clear scene` event is raised.
+**Purpose:** **Purpose:** Invoked when the clear scene event is raised.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first
@@ -202,7 +202,7 @@ spawnComponent.OnClearScene();
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of SpawnComponent from the subsystem API first

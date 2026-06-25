@@ -31,7 +31,7 @@ description: "MerchantArmyOfPoachersIssueBehavior 的自动生成类参考。"
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 处理与 「do troops satisfy alternative solution」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoTroopsSatisfyAlternativeSolution 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -42,7 +42,7 @@ var result = merchantArmyOfPoachersIssueBehavior.DoTroopsSatisfyAlternativeSolut
 ### IsTroopTypeNeededByAlternativeSolution
 `public override bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「troop type needed by alternative solution」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 troop type needed by alternative solution 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -53,7 +53,7 @@ var result = merchantArmyOfPoachersIssueBehavior.IsTroopTypeNeededByAlternativeS
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 获取或更新 「alternative solution condition」 的状态。
+**用途 / Purpose:** **用途 / Purpose:** 调用 AlternativeSolutionCondition 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -64,7 +64,7 @@ var result = merchantArmyOfPoachersIssueBehavior.AlternativeSolutionCondition(ex
 ### GetFrequency
 `public override IssueFrequency GetFrequency()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「frequency」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 frequency 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -75,7 +75,7 @@ var result = merchantArmyOfPoachersIssueBehavior.GetFrequency();
 ### IssueStayAliveConditions
 `public override bool IssueStayAliveConditions()`
 
-**用途 / Purpose:** 创建或发起「stay alive conditions」。
+**用途 / Purpose:** **用途 / Purpose:** 创建或发起stay alive conditions。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -86,7 +86,7 @@ var result = merchantArmyOfPoachersIssueBehavior.IssueStayAliveConditions();
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**用途 / Purpose:** 将「events」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将events注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -97,7 +97,7 @@ merchantArmyOfPoachersIssueBehavior.RegisterEvents();
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**用途 / Purpose:** 将「data」同步到相关上下文或系统中。
+**用途 / Purpose:** **用途 / Purpose:** 将data同步到相关上下文或系统中。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例
@@ -108,7 +108,7 @@ merchantArmyOfPoachersIssueBehavior.SyncData(dataStore);
 ### OnCheckForIssue
 `public void OnCheckForIssue(Hero hero)`
 
-**用途 / Purpose:** 在 「check for issue」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 check for issue 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MerchantArmyOfPoachersIssueBehavior 实例

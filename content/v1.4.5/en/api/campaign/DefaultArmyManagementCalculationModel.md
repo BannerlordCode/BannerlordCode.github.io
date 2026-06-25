@@ -23,7 +23,7 @@ Treat `DefaultArmyManagementCalculationModel` as a Model-style extension point: 
 ### DailyBeingAtArmyInfluenceAward
 `public override float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DailyBeingAtArmyInfluenceAward logic.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultArmyManagementCalculationModel.DailyBeingAtArmyInfluenceAwar
 ### CalculatePartyInfluenceCost
 `public override int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
 
-**Purpose:** Calculates the current value or result of `party influence cost`.
+**Purpose:** **Purpose:** Calculates the current value or result of party influence cost.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultArmyManagementCalculationModel.CalculatePartyInfluenceCost(a
 ### CanLordCreateArmy
 `public override bool CanLordCreateArmy(MobileParty mobileParty, out MBList<MobileParty> possibleArmyMembers)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `lord create army`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for lord create army.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultArmyManagementCalculationModel.CanLordCreateArmy(mobileParty
 ### CalculateTotalInfluenceCost
 `public override int CalculateTotalInfluenceCost(Army army, float percentage)`
 
-**Purpose:** Calculates the current value or result of `total influence cost`.
+**Purpose:** **Purpose:** Calculates the current value or result of total influence cost.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultArmyManagementCalculationModel.CalculateTotalInfluenceCost(a
 ### GetPartySizeScore
 `public override float GetPartySizeScore(MobileParty party)`
 
-**Purpose:** Reads and returns the `party size score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party size score value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = defaultArmyManagementCalculationModel.GetPartySizeScore(party);
 ### CalculateDailyCohesionChange
 `public override ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
 
-**Purpose:** Calculates the current value or result of `daily cohesion change`.
+**Purpose:** **Purpose:** Calculates the current value or result of daily cohesion change.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = defaultArmyManagementCalculationModel.CalculateDailyCohesionChange(
 ### CalculateNewCohesion
 `public override int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
 
-**Purpose:** Calculates the current value or result of `new cohesion`.
+**Purpose:** **Purpose:** Calculates the current value or result of new cohesion.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = defaultArmyManagementCalculationModel.CalculateNewCohesion(army, ne
 ### GetCohesionBoostInfluenceCost
 `public override int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
 
-**Purpose:** Reads and returns the `cohesion boost influence cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the cohesion boost influence cost value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = defaultArmyManagementCalculationModel.GetCohesionBoostInfluenceCost
 ### GetPartyRelation
 `public override int GetPartyRelation(Hero hero)`
 
-**Purpose:** Reads and returns the `party relation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the party relation value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = defaultArmyManagementCalculationModel.GetPartyRelation(hero);
 ### CanPlayerCreateArmy
 `public override bool CanPlayerCreateArmy(out TextObject disabledReason)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `player create army`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player create army.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = defaultArmyManagementCalculationModel.CanPlayerCreateArmy(disabledR
 ### CheckPartyEligibility
 `public override bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
 
-**Purpose:** Verifies whether `party eligibility` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether party eligibility holds true for the this instance.
 
 ```csharp
 // Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first

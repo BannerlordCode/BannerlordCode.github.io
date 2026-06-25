@@ -23,7 +23,7 @@ Treat `MissionGauntletAgentLockVisualizerView` as a View-style extension point: 
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletAgentLockVisualizerView from the subsystem API first

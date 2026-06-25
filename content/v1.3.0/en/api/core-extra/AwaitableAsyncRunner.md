@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### RunAsync
 `public abstract Task RunAsync()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the RunAsync logic.
 
 ```csharp
 // Obtain an instance of AwaitableAsyncRunner from the subsystem API first
@@ -34,7 +34,7 @@ var result = awaitableAsyncRunner.RunAsync();
 ### OnTick
 `public abstract void OnTick(float dt)`
 
-**Purpose:** Invoked when the `tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the tick event is raised.
 
 ```csharp
 // Obtain an instance of AwaitableAsyncRunner from the subsystem API first

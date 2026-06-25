@@ -39,7 +39,7 @@ description: "BoardGameBase 的自动生成类参考。"
 ### InitializeUnits
 `public abstract void InitializeUnits()`
 
-**用途 / Purpose:** 为 「units」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 units 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -50,7 +50,7 @@ boardGameBase.InitializeUnits();
 ### InitializeTiles
 `public abstract void InitializeTiles()`
 
-**用途 / Purpose:** 为 「tiles」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 tiles 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -61,7 +61,7 @@ boardGameBase.InitializeTiles();
 ### InitializeSound
 `public abstract void InitializeSound()`
 
-**用途 / Purpose:** 为 「sound」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 sound 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -72,7 +72,7 @@ boardGameBase.InitializeSound();
 ### CalculateValidMoves
 `public abstract List<Move> CalculateValidMoves(PawnBase pawn)`
 
-**用途 / Purpose:** 计算「valid moves」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算valid moves的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -83,7 +83,7 @@ var result = boardGameBase.CalculateValidMoves(pawn);
 ### RollDice
 `public virtual void RollDice()`
 
-**用途 / Purpose:** 处理与 「roll dice」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RollDice 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -94,7 +94,7 @@ boardGameBase.RollDice();
 ### InitializeDiceBoard
 `public virtual void InitializeDiceBoard()`
 
-**用途 / Purpose:** 为 「dice board」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 dice board 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -105,7 +105,7 @@ boardGameBase.InitializeDiceBoard();
 ### Reset
 `public virtual void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -116,7 +116,7 @@ boardGameBase.Reset();
 ### InitializeCapturedUnitsZones
 `public virtual void InitializeCapturedUnitsZones()`
 
-**用途 / Purpose:** 为 「captured units zones」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 captured units zones 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -127,7 +127,7 @@ boardGameBase.InitializeCapturedUnitsZones();
 ### SetPawnCaptured
 `public virtual void SetPawnCaptured(PawnBase pawn, bool fake = false)`
 
-**用途 / Purpose:** 为 「pawn captured」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 pawn captured 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -138,7 +138,7 @@ boardGameBase.SetPawnCaptured(pawn, false);
 ### CalculateAllValidMoves
 `public virtual List<List<Move>> CalculateAllValidMoves(BoardGameSide side)`
 
-**用途 / Purpose:** 计算「all valid moves」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算all valid moves的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -149,7 +149,7 @@ var result = boardGameBase.CalculateAllValidMoves(side);
 ### SetUserRay
 `public void SetUserRay(Vec3 rayBegin, Vec3 rayEnd)`
 
-**用途 / Purpose:** 为 「user ray」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 user ray 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -160,7 +160,7 @@ boardGameBase.SetUserRay(rayBegin, rayEnd);
 ### SetStartingPlayer
 `public void SetStartingPlayer(PlayerTurn player)`
 
-**用途 / Purpose:** 为 「starting player」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 starting player 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -171,7 +171,7 @@ boardGameBase.SetStartingPlayer(player);
 ### SetGameOverInfo
 `public void SetGameOverInfo(GameOverEnum info)`
 
-**用途 / Purpose:** 为 「game over info」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 game over info 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -182,7 +182,7 @@ boardGameBase.SetGameOverInfo(info);
 ### HasMovesAvailable
 `public bool HasMovesAvailable(ref List<List<Move>> moves)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「moves available」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 moves available。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -193,7 +193,7 @@ var result = boardGameBase.HasMovesAvailable(moves);
 ### GetTotalMovesAvailable
 `public int GetTotalMovesAvailable(ref List<List<Move>> moves)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「total moves available」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 total moves available 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -204,7 +204,7 @@ var result = boardGameBase.GetTotalMovesAvailable(moves);
 ### PlayDiceRollSound
 `public void PlayDiceRollSound()`
 
-**用途 / Purpose:** 处理与 「play dice roll sound」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PlayDiceRollSound 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -215,7 +215,7 @@ boardGameBase.PlayDiceRollSound();
 ### GetPlayerOneUnitsAlive
 `public int GetPlayerOneUnitsAlive()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player one units alive」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player one units alive 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -226,7 +226,7 @@ var result = boardGameBase.GetPlayerOneUnitsAlive();
 ### GetPlayerTwoUnitsAlive
 `public int GetPlayerTwoUnitsAlive()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player two units alive」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player two units alive 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -237,7 +237,7 @@ var result = boardGameBase.GetPlayerTwoUnitsAlive();
 ### GetPlayerOneUnitsDead
 `public int GetPlayerOneUnitsDead()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player one units dead」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player one units dead 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -248,7 +248,7 @@ var result = boardGameBase.GetPlayerOneUnitsDead();
 ### GetPlayerTwoUnitsDead
 `public int GetPlayerTwoUnitsDead()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「player two units dead」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 player two units dead 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -259,7 +259,7 @@ var result = boardGameBase.GetPlayerTwoUnitsDead();
 ### Initialize
 `public void Initialize()`
 
-**用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 初始化当前对象所需的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -270,7 +270,7 @@ boardGameBase.Initialize();
 ### Tick
 `public bool Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -281,7 +281,7 @@ var result = boardGameBase.Tick(0);
 ### ForceDice
 `public void ForceDice(int value)`
 
-**用途 / Purpose:** 处理与 「force dice」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ForceDice 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例

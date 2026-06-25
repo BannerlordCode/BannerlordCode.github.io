@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.SceneInformationPopupTypes` to p
 ### GetSceneNotificationCharacters
 `public override SceneNotificationData.SceneNotificationCharacter GetSceneNotificationCharacters()`
 
-**Purpose:** Reads and returns the `scene notification characters` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the scene notification characters value held by the this instance.
 
 ```csharp
 // Obtain an instance of NewBornFemaleHeroSceneNotificationItem from the subsystem API first

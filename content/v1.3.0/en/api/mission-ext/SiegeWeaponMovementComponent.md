@@ -39,7 +39,7 @@ Treat `SiegeWeaponMovementComponent` as a Component-style extension point: first
 ### HighlightPath
 `public void HighlightPath()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the HighlightPath logic.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -50,7 +50,7 @@ siegeWeaponMovementComponent.HighlightPath();
 ### SetupGhostEntity
 `public void SetupGhostEntity()`
 
-**Purpose:** Assigns a new value to `up ghost entity` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to up ghost entity and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -61,7 +61,7 @@ siegeWeaponMovementComponent.SetupGhostEntity();
 ### SetGhostVisibility
 `public void SetGhostVisibility(bool isVisible)`
 
-**Purpose:** Assigns a new value to `ghost visibility` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to ghost visibility and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -72,7 +72,7 @@ siegeWeaponMovementComponent.SetGhostVisibility(false);
 ### OnEditorInit
 `public void OnEditorInit()`
 
-**Purpose:** Invoked when the `editor init` event is raised.
+**Purpose:** **Purpose:** Invoked when the editor init event is raised.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -83,7 +83,7 @@ siegeWeaponMovementComponent.OnEditorInit();
 ### SetDistanceTraveledAsClient
 `public void SetDistanceTraveledAsClient(float distance)`
 
-**Purpose:** Assigns a new value to `distance traveled as client` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to distance traveled as client and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -94,7 +94,7 @@ siegeWeaponMovementComponent.SetDistanceTraveledAsClient(0);
 ### IsOnTickRequired
 `public override bool IsOnTickRequired()`
 
-**Purpose:** Determines whether the current object is in the `on tick required` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the on tick required state or condition.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -105,7 +105,7 @@ var result = siegeWeaponMovementComponent.IsOnTickRequired();
 ### TickParallelManually
 `public void TickParallelManually(float dt)`
 
-**Purpose:** Advances the `parallel manually` state each frame or update cycle.
+**Purpose:** **Purpose:** Advances the parallel manually state each frame or update cycle.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -116,7 +116,7 @@ siegeWeaponMovementComponent.TickParallelManually(0);
 ### GetInitialFrame
 `public MatrixFrame GetInitialFrame()`
 
-**Purpose:** Reads and returns the `initial frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the initial frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -127,7 +127,7 @@ var result = siegeWeaponMovementComponent.GetInitialFrame();
 ### GetTargetFrame
 `public MatrixFrame GetTargetFrame()`
 
-**Purpose:** Reads and returns the `target frame` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the target frame value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -138,7 +138,7 @@ var result = siegeWeaponMovementComponent.GetTargetFrame();
 ### SetDestinationNavMeshIdState
 `public void SetDestinationNavMeshIdState(bool enabled)`
 
-**Purpose:** Assigns a new value to `destination nav mesh id state` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to destination nav mesh id state and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -149,7 +149,7 @@ siegeWeaponMovementComponent.SetDestinationNavMeshIdState(false);
 ### MoveToTargetAsClient
 `public void MoveToTargetAsClient()`
 
-**Purpose:** Moves `to target as client` to a new position or state.
+**Purpose:** **Purpose:** Moves to target as client to a new position or state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -160,7 +160,7 @@ siegeWeaponMovementComponent.MoveToTargetAsClient();
 ### GetTotalDistanceTraveledForPathTracker
 `public float GetTotalDistanceTraveledForPathTracker()`
 
-**Purpose:** Reads and returns the `total distance traveled for path tracker` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the total distance traveled for path tracker value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -171,7 +171,7 @@ var result = siegeWeaponMovementComponent.GetTotalDistanceTraveledForPathTracker
 ### SetTotalDistanceTraveledForPathTracker
 `public void SetTotalDistanceTraveledForPathTracker(float distanceTraveled)`
 
-**Purpose:** Assigns a new value to `total distance traveled for path tracker` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to total distance traveled for path tracker and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -182,7 +182,7 @@ siegeWeaponMovementComponent.SetTotalDistanceTraveledForPathTracker(0);
 ### SetTargetFrameForPathTracker
 `public void SetTargetFrameForPathTracker()`
 
-**Purpose:** Assigns a new value to `target frame for path tracker` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to target frame for path tracker and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SiegeWeaponMovementComponent from the subsystem API first
@@ -193,7 +193,7 @@ siegeWeaponMovementComponent.SetTargetFrameForPathTracker();
 ### FindGroundFrameForWheelsStatic
 `public static MatrixFrame FindGroundFrameForWheelsStatic(ref MatrixFrame frame, float axleLength, float wheelDiameter, WeakGameEntity gameEntity, List<GameEntity> wheels, Scene scene)`
 
-**Purpose:** Looks up the matching `ground frame for wheels static` in the current collection or scope.
+**Purpose:** **Purpose:** Looks up the matching ground frame for wheels static in the current collection or scope.
 
 ```csharp
 // Static call; no instance required

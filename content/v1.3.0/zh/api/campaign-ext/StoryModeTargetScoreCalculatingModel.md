@@ -33,7 +33,7 @@ description: "StoryModeTargetScoreCalculatingModel 的自动生成类参考。"
 ### GetPatrollingFactor
 `public override float GetPatrollingFactor(bool isNavalPatrolling)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「patrolling factor」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 patrolling factor 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeTargetScoreCalculatingModel 实例
@@ -44,7 +44,7 @@ var result = storyModeTargetScoreCalculatingModel.GetPatrollingFactor(false);
 ### CalculatePatrollingScoreForSettlement
 `public override float CalculatePatrollingScoreForSettlement(Settlement settlement, bool isFromPort, MobileParty mobileParty)`
 
-**用途 / Purpose:** 计算「patrolling score for settlement」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算patrolling score for settlement的当前值或结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeTargetScoreCalculatingModel 实例
@@ -55,7 +55,7 @@ var result = storyModeTargetScoreCalculatingModel.CalculatePatrollingScoreForSet
 ### CurrentObjectiveValue
 `public override float CurrentObjectiveValue(MobileParty mobileParty)`
 
-**用途 / Purpose:** 处理与 「current objective value」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 CurrentObjectiveValue 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeTargetScoreCalculatingModel 实例
@@ -66,7 +66,7 @@ var result = storyModeTargetScoreCalculatingModel.CurrentObjectiveValue(mobilePa
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「target score for faction」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 target score for faction 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModeTargetScoreCalculatingModel 实例

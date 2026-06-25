@@ -19,7 +19,7 @@ ChangeOwnerOfWorkshopAction is a set of static methods that trigger "ChangeOwner
 public static void ApplyByBankruptcy(Workshop workshop, Hero newOwner, WorkshopType workshopType, int cost)
 ```
 
-**Purpose:** bankruptcy.
+**Purpose:** **Purpose:** Applies the effect of by bankruptcy to the this instance.
 
 ### ApplyByPlayerBuying
 
@@ -27,7 +27,7 @@ public static void ApplyByBankruptcy(Workshop workshop, Hero newOwner, WorkshopT
 public static void ApplyByPlayerBuying(Workshop workshop)
 ```
 
-**Purpose:** player buying.
+**Purpose:** **Purpose:** Applies the effect of by player buying to the this instance.
 
 ### ApplyByPlayerSelling
 
@@ -35,7 +35,7 @@ public static void ApplyByPlayerBuying(Workshop workshop)
 public static void ApplyByPlayerSelling(Workshop workshop, Hero newOwner, WorkshopType workshopType)
 ```
 
-**Purpose:** player selling.
+**Purpose:** **Purpose:** Applies the effect of by player selling to the this instance.
 
 ### ApplyByDeath
 
@@ -43,7 +43,7 @@ public static void ApplyByPlayerSelling(Workshop workshop, Hero newOwner, Worksh
 public static void ApplyByDeath(Workshop workshop, Hero newOwner)
 ```
 
-**Purpose:** death.
+**Purpose:** **Purpose:** Applies the effect of by death to the this instance.
 
 ### ApplyByWar
 
@@ -51,7 +51,7 @@ public static void ApplyByDeath(Workshop workshop, Hero newOwner)
 public static void ApplyByWar(Workshop workshop, Hero newOwner, WorkshopType workshopType)
 ```
 
-**Purpose:** war.
+**Purpose:** **Purpose:** Applies the effect of by war to the this instance.
 
 ## Usage Example
 

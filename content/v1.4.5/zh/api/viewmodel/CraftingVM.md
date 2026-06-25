@@ -64,7 +64,7 @@ description: "CraftingVM 的自动生成类参考。"
 ### OnItemRefreshedDelegate
 `public delegate void OnItemRefreshedDelegate(bool isItemVisible)`
 
-**用途 / Purpose:** 在 「item refreshed delegate」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 item refreshed delegate 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -75,7 +75,7 @@ craftingVM.OnItemRefreshedDelegate(false);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -86,7 +86,7 @@ craftingVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -97,7 +97,7 @@ craftingVM.OnFinalize();
 ### OnCraftingLogicRefreshed
 `public void OnCraftingLogicRefreshed(Crafting newCraftingLogic)`
 
-**用途 / Purpose:** 在 「crafting logic refreshed」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 crafting logic refreshed 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -108,7 +108,7 @@ craftingVM.OnCraftingLogicRefreshed(newCraftingLogic);
 ### UpdateCraftingHero
 `public void UpdateCraftingHero(CraftingAvailableHeroItemVM newHero)`
 
-**用途 / Purpose:** 重新计算并更新 「crafting hero」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 crafting hero 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -119,7 +119,7 @@ craftingVM.UpdateCraftingHero(newHero);
 ### ExecuteCancel
 `public void ExecuteCancel()`
 
-**用途 / Purpose:** 执行 「cancel」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 cancel 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -130,7 +130,7 @@ craftingVM.ExecuteCancel();
 ### ExecuteMainAction
 `public void ExecuteMainAction()`
 
-**用途 / Purpose:** 执行 「main action」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 main action 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -141,7 +141,7 @@ craftingVM.ExecuteMainAction();
 ### ExecuteResetCamera
 `public void ExecuteResetCamera()`
 
-**用途 / Purpose:** 执行 「reset camera」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset camera 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -152,7 +152,7 @@ craftingVM.ExecuteResetCamera();
 ### SetConfirmInputKey
 `public void SetConfirmInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「confirm input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 confirm input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -163,7 +163,7 @@ craftingVM.SetConfirmInputKey(hotKey);
 ### SetExitInputKey
 `public void SetExitInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「exit input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 exit input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -174,7 +174,7 @@ craftingVM.SetExitInputKey(hotKey);
 ### SetPreviousTabInputKey
 `public void SetPreviousTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「previous tab input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 previous tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -185,7 +185,7 @@ craftingVM.SetPreviousTabInputKey(hotKey);
 ### SetNextTabInputKey
 `public void SetNextTabInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「next tab input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 next tab input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -196,7 +196,7 @@ craftingVM.SetNextTabInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -207,7 +207,7 @@ craftingVM.AddCameraControlInputKey(hotKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameKey gameKey)`
 
-**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -218,7 +218,7 @@ craftingVM.AddCameraControlInputKey(gameKey);
 ### AddCameraControlInputKey
 `public void AddCameraControlInputKey(GameAxisKey gameAxisKey)`
 
-**用途 / Purpose:** 将 「camera control input key」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 camera control input key 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -229,7 +229,7 @@ craftingVM.AddCameraControlInputKey(gameAxisKey);
 ### ExecuteSwitchToCrafting
 `public void ExecuteSwitchToCrafting()`
 
-**用途 / Purpose:** 执行 「switch to crafting」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 switch to crafting 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -240,7 +240,7 @@ craftingVM.ExecuteSwitchToCrafting();
 ### ExecuteSwitchToSmelting
 `public void ExecuteSwitchToSmelting()`
 
-**用途 / Purpose:** 执行 「switch to smelting」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 switch to smelting 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -251,7 +251,7 @@ craftingVM.ExecuteSwitchToSmelting();
 ### ExecuteSwitchToRefinement
 `public void ExecuteSwitchToRefinement()`
 
-**用途 / Purpose:** 执行 「switch to refinement」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 switch to refinement 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例
@@ -262,7 +262,7 @@ craftingVM.ExecuteSwitchToRefinement();
 ### SetCurrentDesignManually
 `public void SetCurrentDesignManually(CraftingTemplate craftingTemplate, (CraftingPiece, int) pieces)`
 
-**用途 / Purpose:** 为 「current design manually」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 current design manually 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingVM 实例

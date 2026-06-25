@@ -39,7 +39,7 @@ description: "CustomBattleCombatant 的自动生成类参考。"
 ### GetTacticsSkillAmount
 `public int GetTacticsSkillAmount()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tactics skill amount」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tactics skill amount 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleCombatant 实例
@@ -50,7 +50,7 @@ var result = customBattleCombatant.GetTacticsSkillAmount();
 ### AddCharacter
 `public void AddCharacter(BasicCharacterObject characterObject, int number)`
 
-**用途 / Purpose:** 将 「character」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 character 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleCombatant 实例
@@ -61,7 +61,7 @@ customBattleCombatant.AddCharacter(characterObject, 0);
 ### SetGeneral
 `public void SetGeneral(BasicCharacterObject generalCharacter)`
 
-**用途 / Purpose:** 为 「general」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 general 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleCombatant 实例

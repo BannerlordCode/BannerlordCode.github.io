@@ -55,7 +55,7 @@ Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then i
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -66,7 +66,7 @@ var result = multiplayerClassDivisions.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -77,7 +77,7 @@ var result = multiplayerClassDivisions.GetHashCode();
 ### GetAllAvailablePerksForListIndex
 `public List<IReadOnlyPerkObject> GetAllAvailablePerksForListIndex(int index, string forcedForGameMode = null)`
 
-**Purpose:** Reads and returns the `all available perks for list index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all available perks for list index value held by the this instance.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -88,7 +88,7 @@ var result = multiplayerClassDivisions.GetAllAvailablePerksForListIndex(0, "exam
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -99,7 +99,7 @@ multiplayerClassDivisions.Deserialize(objectManager, node);
 ### IsTroopCharacter
 `public bool IsTroopCharacter(BasicCharacterObject character)`
 
-**Purpose:** Determines whether the current object is in the `troop character` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the troop character state or condition.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -110,7 +110,7 @@ var result = multiplayerClassDivisions.IsTroopCharacter(character);
 ### Equals
 `public override bool Equals(object obj)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -121,7 +121,7 @@ var result = multiplayerClassDivisions.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of MultiplayerClassDivisions from the subsystem API first
@@ -132,7 +132,7 @@ var result = multiplayerClassDivisions.GetHashCode();
 ### GetMPHeroClasses
 `public static IEnumerable<MPHeroClass> GetMPHeroClasses(BasicCultureObject culture)`
 
-**Purpose:** Reads and returns the `m p hero classes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the m p hero classes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -142,7 +142,7 @@ MultiplayerClassDivisions.GetMPHeroClasses(culture);
 ### GetMPHeroClasses
 `public static MBReadOnlyList<MPHeroClass> GetMPHeroClasses()`
 
-**Purpose:** Reads and returns the `m p hero classes` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the m p hero classes value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -152,7 +152,7 @@ MultiplayerClassDivisions.GetMPHeroClasses();
 ### GetMPHeroClassForCharacter
 `public static MPHeroClass GetMPHeroClassForCharacter(BasicCharacterObject character)`
 
-**Purpose:** Reads and returns the `m p hero class for character` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the m p hero class for character value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -162,7 +162,7 @@ MultiplayerClassDivisions.GetMPHeroClassForCharacter(character);
 ### GetAllPerksForHeroClass
 `public static List<List<IReadOnlyPerkObject>> GetAllPerksForHeroClass(MPHeroClass heroClass, string forcedForGameMode = null)`
 
-**Purpose:** Reads and returns the `all perks for hero class` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the all perks for hero class value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -172,7 +172,7 @@ MultiplayerClassDivisions.GetAllPerksForHeroClass(heroClass, "example");
 ### GetMPHeroClassForPeer
 `public static MPHeroClass GetMPHeroClassForPeer(MissionPeer peer, bool skipTeamCheck = false)`
 
-**Purpose:** Reads and returns the `m p hero class for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the m p hero class for peer value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -182,7 +182,7 @@ MultiplayerClassDivisions.GetMPHeroClassForPeer(peer, false);
 ### GetMPHeroClassForFormation
 `public static TargetIconType GetMPHeroClassForFormation(Formation formation)`
 
-**Purpose:** Reads and returns the `m p hero class for formation` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the m p hero class for formation value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -192,7 +192,7 @@ MultiplayerClassDivisions.GetMPHeroClassForFormation(formation);
 ### GetAvailablePerksForPeer
 `public static List<List<IReadOnlyPerkObject>> GetAvailablePerksForPeer(MissionPeer missionPeer)`
 
-**Purpose:** Reads and returns the `available perks for peer` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available perks for peer value held by the this instance.
 
 ```csharp
 // Static call; no instance required
@@ -202,7 +202,7 @@ MultiplayerClassDivisions.GetAvailablePerksForPeer(missionPeer);
 ### Initialize
 `public static void Initialize()`
 
-**Purpose:** Prepares the resources, state, or bindings the current object needs before use.
+**Purpose:** **Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
 
 ```csharp
 // Static call; no instance required
@@ -212,7 +212,7 @@ MultiplayerClassDivisions.Initialize();
 ### Release
 `public static void Release()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Release logic.
 
 ```csharp
 // Static call; no instance required
@@ -222,7 +222,7 @@ MultiplayerClassDivisions.Release();
 ### GetMinimumTroopCost
 `public static int GetMinimumTroopCost(BasicCultureObject culture = null)`
 
-**Purpose:** Reads and returns the `minimum troop cost` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the minimum troop cost value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails` to plac
 ### WithNewTexture
 `public static TextureCreationInfo WithNewTexture(Texture texture = null)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WithNewTexture logic.
 
 ```csharp
 // Static call; no instance required
@@ -40,7 +40,7 @@ TextureCreationInfo.WithNewTexture(null);
 ### WithExistingTexture
 `public static TextureCreationInfo WithExistingTexture(Texture texture)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the WithExistingTexture logic.
 
 ```csharp
 // Static call; no instance required
@@ -50,7 +50,7 @@ TextureCreationInfo.WithExistingTexture(texture);
 ### Fail
 `public static TextureCreationInfo Fail()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the Fail logic.
 
 ```csharp
 // Static call; no instance required

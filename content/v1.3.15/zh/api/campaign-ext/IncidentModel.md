@@ -23,7 +23,7 @@ description: "IncidentModel 的自动生成类参考。"
 ### GetMinGlobalCooldownTime
 `public abstract CampaignTime GetMinGlobalCooldownTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「min global cooldown time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 min global cooldown time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentModel 实例
@@ -34,7 +34,7 @@ var result = incidentModel.GetMinGlobalCooldownTime();
 ### GetMaxGlobalCooldownTime
 `public abstract CampaignTime GetMaxGlobalCooldownTime()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「max global cooldown time」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 max global cooldown time 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentModel 实例
@@ -45,7 +45,7 @@ var result = incidentModel.GetMaxGlobalCooldownTime();
 ### GetIncidentTriggerGlobalProbability
 `public abstract float GetIncidentTriggerGlobalProbability()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「incident trigger global probability」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 incident trigger global probability 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentModel 实例
@@ -56,7 +56,7 @@ var result = incidentModel.GetIncidentTriggerGlobalProbability();
 ### GetIncidentTriggerProbabilityDuringSiege
 `public abstract float GetIncidentTriggerProbabilityDuringSiege()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during siege」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 incident trigger probability during siege 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentModel 实例
@@ -67,7 +67,7 @@ var result = incidentModel.GetIncidentTriggerProbabilityDuringSiege();
 ### GetIncidentTriggerProbabilityDuringWait
 `public abstract float GetIncidentTriggerProbabilityDuringWait()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「incident trigger probability during wait」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 incident trigger probability during wait 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentModel 实例

@@ -23,7 +23,7 @@ Treat `SiegeEventModel` as a Model-style extension point: first identify who cre
 ### GetSiegeEngineDestructionCasualties
 `public abstract int GetSiegeEngineDestructionCasualties(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType destroyedSiegeEngine)`
 
-**Purpose:** Reads and returns the `siege engine destruction casualties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine destruction casualties value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = siegeEventModel.GetSiegeEngineDestructionCasualties(siegeEvent, sid
 ### GetCasualtyChance
 `public abstract float GetCasualtyChance(MobileParty siegeParty, SiegeEvent siegeEvent, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `casualty chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the casualty chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = siegeEventModel.GetCasualtyChance(siegeParty, siegeEvent, side);
 ### GetColleteralDamageCasualties
 `public abstract int GetColleteralDamageCasualties(SiegeEngineType attackerSiegeEngine, MobileParty attackerParty)`
 
-**Purpose:** Reads and returns the `colleteral damage casualties` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the colleteral damage casualties value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = siegeEventModel.GetColleteralDamageCasualties(attackerSiegeEngine, 
 ### GetSiegeEngineHitChance
 `public abstract float GetSiegeEngineHitChance(SiegeEngineType siegeEngineType, BattleSideEnum battleSide, SiegeBombardTargets target, Town town)`
 
-**Purpose:** Reads and returns the `siege engine hit chance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine hit chance value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = siegeEventModel.GetSiegeEngineHitChance(siegeEngineType, battleSide
 ### GetSiegeEngineMapPrefabName
 `public abstract string GetSiegeEngineMapPrefabName(SiegeEngineType siegeEngineType, int wallLevel, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `siege engine map prefab name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine map prefab name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -78,7 +78,7 @@ var result = siegeEventModel.GetSiegeEngineMapPrefabName(siegeEngineType, 0, sid
 ### GetSiegeEngineMapProjectilePrefabName
 `public abstract string GetSiegeEngineMapProjectilePrefabName(SiegeEngineType siegeEngineType)`
 
-**Purpose:** Reads and returns the `siege engine map projectile prefab name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine map projectile prefab name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -89,7 +89,7 @@ var result = siegeEventModel.GetSiegeEngineMapProjectilePrefabName(siegeEngineTy
 ### GetSiegeEngineMapReloadAnimationName
 `public abstract string GetSiegeEngineMapReloadAnimationName(SiegeEngineType siegeEngineType, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `siege engine map reload animation name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine map reload animation name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -100,7 +100,7 @@ var result = siegeEventModel.GetSiegeEngineMapReloadAnimationName(siegeEngineTyp
 ### GetSiegeEngineMapFireAnimationName
 `public abstract string GetSiegeEngineMapFireAnimationName(SiegeEngineType siegeEngineType, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `siege engine map fire animation name` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine map fire animation name value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -111,7 +111,7 @@ var result = siegeEventModel.GetSiegeEngineMapFireAnimationName(siegeEngineType,
 ### GetSiegeEngineMapProjectileBoneIndex
 `public abstract sbyte GetSiegeEngineMapProjectileBoneIndex(SiegeEngineType siegeEngineType, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `siege engine map projectile bone index` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine map projectile bone index value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -122,7 +122,7 @@ var result = siegeEventModel.GetSiegeEngineMapProjectileBoneIndex(siegeEngineTyp
 ### GetSiegeStrategyScore
 `public abstract float GetSiegeStrategyScore(SiegeEvent siege, BattleSideEnum side, SiegeStrategy strategy)`
 
-**Purpose:** Reads and returns the `siege strategy score` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege strategy score value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -133,7 +133,7 @@ var result = siegeEventModel.GetSiegeStrategyScore(siege, side, strategy);
 ### GetConstructionProgressPerHour
 `public abstract float GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side)`
 
-**Purpose:** Reads and returns the `construction progress per hour` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the construction progress per hour value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -144,7 +144,7 @@ var result = siegeEventModel.GetConstructionProgressPerHour(type, siegeEvent, si
 ### GetEffectiveSiegePartyForSide
 `public abstract MobileParty GetEffectiveSiegePartyForSide(SiegeEvent siegeEvent, BattleSideEnum side)`
 
-**Purpose:** Reads and returns the `effective siege party for side` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the effective siege party for side value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -155,7 +155,7 @@ var result = siegeEventModel.GetEffectiveSiegePartyForSide(siegeEvent, side);
 ### GetAvailableManDayPower
 `public abstract float GetAvailableManDayPower(ISiegeEventSide side)`
 
-**Purpose:** Reads and returns the `available man day power` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available man day power value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -166,7 +166,7 @@ var result = siegeEventModel.GetAvailableManDayPower(side);
 ### GetAvailableAttackerRangedSiegeEngines
 `public abstract IEnumerable<SiegeEngineType> GetAvailableAttackerRangedSiegeEngines(PartyBase party)`
 
-**Purpose:** Reads and returns the `available attacker ranged siege engines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available attacker ranged siege engines value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -177,7 +177,7 @@ var result = siegeEventModel.GetAvailableAttackerRangedSiegeEngines(party);
 ### GetAvailableDefenderSiegeEngines
 `public abstract IEnumerable<SiegeEngineType> GetAvailableDefenderSiegeEngines(PartyBase party)`
 
-**Purpose:** Reads and returns the `available defender siege engines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available defender siege engines value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -188,7 +188,7 @@ var result = siegeEventModel.GetAvailableDefenderSiegeEngines(party);
 ### GetAvailableAttackerRamSiegeEngines
 `public abstract IEnumerable<SiegeEngineType> GetAvailableAttackerRamSiegeEngines(PartyBase party)`
 
-**Purpose:** Reads and returns the `available attacker ram siege engines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available attacker ram siege engines value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -199,7 +199,7 @@ var result = siegeEventModel.GetAvailableAttackerRamSiegeEngines(party);
 ### GetAvailableAttackerTowerSiegeEngines
 `public abstract IEnumerable<SiegeEngineType> GetAvailableAttackerTowerSiegeEngines(PartyBase party)`
 
-**Purpose:** Reads and returns the `available attacker tower siege engines` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the available attacker tower siege engines value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -210,7 +210,7 @@ var result = siegeEventModel.GetAvailableAttackerTowerSiegeEngines(party);
 ### GetPrebuiltSiegeEnginesOfSettlement
 `public abstract IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSettlement(Settlement settlement)`
 
-**Purpose:** Reads and returns the `prebuilt siege engines of settlement` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prebuilt siege engines of settlement value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -221,7 +221,7 @@ var result = siegeEventModel.GetPrebuiltSiegeEnginesOfSettlement(settlement);
 ### GetPrebuiltSiegeEnginesOfSiegeCamp
 `public abstract IEnumerable<SiegeEngineType> GetPrebuiltSiegeEnginesOfSiegeCamp(BesiegerCamp camp)`
 
-**Purpose:** Reads and returns the `prebuilt siege engines of siege camp` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the prebuilt siege engines of siege camp value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -232,7 +232,7 @@ var result = siegeEventModel.GetPrebuiltSiegeEnginesOfSiegeCamp(camp);
 ### GetSiegeEngineHitPoints
 `public abstract float GetSiegeEngineHitPoints(SiegeEvent siegeEvent, SiegeEngineType siegeEngine, BattleSideEnum battleSide)`
 
-**Purpose:** Reads and returns the `siege engine hit points` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine hit points value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -243,7 +243,7 @@ var result = siegeEventModel.GetSiegeEngineHitPoints(siegeEvent, siegeEngine, ba
 ### GetRangedSiegeEngineReloadTime
 `public abstract int GetRangedSiegeEngineReloadTime(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)`
 
-**Purpose:** Reads and returns the `ranged siege engine reload time` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the ranged siege engine reload time value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -254,7 +254,7 @@ var result = siegeEventModel.GetRangedSiegeEngineReloadTime(siegeEvent, side, si
 ### GetSiegeEngineDamage
 `public abstract float GetSiegeEngineDamage(SiegeEvent siegeEvent, BattleSideEnum battleSide, SiegeEngineType siegeEngine, SiegeBombardTargets target)`
 
-**Purpose:** Reads and returns the `siege engine damage` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the siege engine damage value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first
@@ -265,7 +265,7 @@ var result = siegeEventModel.GetSiegeEngineDamage(siegeEvent, battleSide, siegeE
 ### GetPriorityTroopsForSallyOutAmbush
 `public abstract FlattenedTroopRoster GetPriorityTroopsForSallyOutAmbush()`
 
-**Purpose:** Reads and returns the `priority troops for sally out ambush` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the priority troops for sally out ambush value held by the this instance.
 
 ```csharp
 // Obtain an instance of SiegeEventModel from the subsystem API first

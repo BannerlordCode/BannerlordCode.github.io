@@ -30,7 +30,7 @@ description: "SpawnerEntityEditorHelper 的自动生成类参考。"
 ### Permission
 `public struct Permission(PermissionType permission, Axis axis)`
 
-**用途 / Purpose:** 处理与 「permission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Permission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -41,7 +41,7 @@ var result = spawnerEntityEditorHelper.Permission(permission, axis);
 ### GetGhostEntityOrChild
 `public GameEntity GetGhostEntityOrChild(string name)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「ghost entity or child」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 ghost entity or child 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -52,7 +52,7 @@ var result = spawnerEntityEditorHelper.GetGhostEntityOrChild("example");
 ### Tick
 `public void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -63,7 +63,7 @@ spawnerEntityEditorHelper.Tick(0);
 ### GivePermission
 `public void GivePermission(string childName, Permission permission, Action<float> onChangeFunction)`
 
-**用途 / Purpose:** 处理与 「give permission」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 GivePermission 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -74,7 +74,7 @@ spawnerEntityEditorHelper.GivePermission("example", permission, onChangeFunction
 ### ChangeStableChildMatrixFrameAndApply
 `public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)`
 
-**用途 / Purpose:** 处理与 「change stable child matrix frame and apply」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeStableChildMatrixFrameAndApply 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -85,7 +85,7 @@ spawnerEntityEditorHelper.ChangeStableChildMatrixFrameAndApply("example", matrix
 ### GetPrefabName
 `public string GetPrefabName()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「prefab name」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 prefab name 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -96,7 +96,7 @@ var result = spawnerEntityEditorHelper.GetPrefabName();
 ### SetupGhostMovement
 `public void SetupGhostMovement(string pathName)`
 
-**用途 / Purpose:** 为 「up ghost movement」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 up ghost movement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -107,7 +107,7 @@ spawnerEntityEditorHelper.SetupGhostMovement("example");
 ### SetEnableAutoGhostMovement
 `public void SetEnableAutoGhostMovement(bool enableAutoGhostMovement)`
 
-**用途 / Purpose:** 为 「enable auto ghost movement」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 enable auto ghost movement 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例

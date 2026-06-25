@@ -19,7 +19,7 @@ GiveItemAction is a set of static methods that trigger "GiveItem" in the campaig
 public static void ApplyForHeroes(Hero giver, Hero receiver, in ItemRosterElement itemRosterElement)
 ```
 
-**Purpose:** for heroes.
+**Purpose:** **Purpose:** Applies the effect of for heroes to the this instance.
 
 ### ApplyForParties
 
@@ -27,7 +27,7 @@ public static void ApplyForHeroes(Hero giver, Hero receiver, in ItemRosterElemen
 public static void ApplyForParties(PartyBase giverParty, PartyBase receiverParty, in ItemRosterElement itemRosterElement)
 ```
 
-**Purpose:** for parties.
+**Purpose:** **Purpose:** Applies the effect of for parties to the this instance.
 
 ## Usage Example
 

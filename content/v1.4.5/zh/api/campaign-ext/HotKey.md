@@ -30,7 +30,7 @@ description: "HotKey 的自动生成类参考。"
 ### HasModifier
 `public bool HasModifier(Modifiers modifier)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「modifier」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 modifier。
 
 ```csharp
 // 先通过子系统 API 拿到 HotKey 实例
@@ -41,7 +41,7 @@ var result = hotKey.HasModifier(modifier);
 ### HasSameModifiers
 `public bool HasSameModifiers(HotKey other)`
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「same modifiers」。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否已经持有 same modifiers。
 
 ```csharp
 // 先通过子系统 API 拿到 HotKey 实例
@@ -52,7 +52,7 @@ var result = hotKey.HasSameModifiers(other);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 HotKey 实例
@@ -63,7 +63,7 @@ var result = hotKey.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 HotKey 实例
@@ -74,7 +74,7 @@ var result = hotKey.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 HotKey 实例

@@ -65,7 +65,7 @@ description: "RecruitmentVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -76,7 +76,7 @@ recruitmentVM.RefreshValues();
 ### RefreshScreen
 `public void RefreshScreen()`
 
-**用途 / Purpose:** 使 「screen」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 screen 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -87,7 +87,7 @@ recruitmentVM.RefreshScreen();
 ### ExecuteDone
 `public void ExecuteDone()`
 
-**用途 / Purpose:** 执行 「done」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 done 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -98,7 +98,7 @@ recruitmentVM.ExecuteDone();
 ### ExecuteForceQuit
 `public void ExecuteForceQuit()`
 
-**用途 / Purpose:** 执行 「force quit」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 force quit 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -109,7 +109,7 @@ recruitmentVM.ExecuteForceQuit();
 ### ExecuteReset
 `public void ExecuteReset()`
 
-**用途 / Purpose:** 执行 「reset」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -120,7 +120,7 @@ recruitmentVM.ExecuteReset();
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**用途 / Purpose:** 执行 「recruit all」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 recruit all 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -131,7 +131,7 @@ recruitmentVM.ExecuteRecruitAll();
 ### Deactivate
 `public void Deactivate()`
 
-**用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
+**用途 / Purpose:** **用途 / Purpose:** 停用当前对象对应的资源、状态或功能。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -142,7 +142,7 @@ recruitmentVM.Deactivate();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -153,7 +153,7 @@ recruitmentVM.OnFinalize();
 ### SetGetKeyTextFromKeyIDFunc
 `public void SetGetKeyTextFromKeyIDFunc(Func<string, TextObject> getKeyTextFromKeyId)`
 
-**用途 / Purpose:** 为 「get key text from key i d func」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 get key text from key i d func 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -164,7 +164,7 @@ recruitmentVM.SetGetKeyTextFromKeyIDFunc(func<string, getKeyTextFromKeyId);
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「cancel input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 cancel input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -175,7 +175,7 @@ recruitmentVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「done input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 done input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -186,7 +186,7 @@ recruitmentVM.SetDoneInputKey(hotKey);
 ### SetRecruitAllInputKey
 `public void SetRecruitAllInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「recruit all input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 recruit all input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例
@@ -197,7 +197,7 @@ recruitmentVM.SetRecruitAllInputKey(hotKey);
 ### SetResetInputKey
 `public void SetResetInputKey(HotKey hotKey)`
 
-**用途 / Purpose:** 为 「reset input key」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 reset input key 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentVM 实例

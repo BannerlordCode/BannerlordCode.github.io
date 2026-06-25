@@ -39,7 +39,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection` 
 ### DuelArenaProperties
 `public struct DuelArenaProperties(GameEntity flagEntity, int index, TroopType arenaTroopType)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the DuelArenaProperties logic.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -50,7 +50,7 @@ var result = multiplayerDuelVM.DuelArenaProperties(flagEntity, 0, arenaTroopType
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -61,7 +61,7 @@ multiplayerDuelVM.RefreshValues();
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -72,7 +72,7 @@ multiplayerDuelVM.Tick(0);
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -83,7 +83,7 @@ multiplayerDuelVM.OnFinalize();
 ### OnScreenResolutionChanged
 `public void OnScreenResolutionChanged()`
 
-**Purpose:** Invoked when the `screen resolution changed` event is raised.
+**Purpose:** **Purpose:** Invoked when the screen resolution changed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -94,7 +94,7 @@ multiplayerDuelVM.OnScreenResolutionChanged();
 ### OnMainAgentRemoved
 `public void OnMainAgentRemoved()`
 
-**Purpose:** Invoked when the `main agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the main agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -105,7 +105,7 @@ multiplayerDuelVM.OnMainAgentRemoved();
 ### OnMainAgentBuild
 `public void OnMainAgentBuild()`
 
-**Purpose:** Invoked when the `main agent build` event is raised.
+**Purpose:** **Purpose:** Invoked when the main agent build event is raised.
 
 ```csharp
 // Obtain an instance of MultiplayerDuelVM from the subsystem API first
@@ -116,7 +116,7 @@ multiplayerDuelVM.OnMainAgentBuild();
 ### GetAgentDefaultPreferredArenaType
 `public static TroopType GetAgentDefaultPreferredArenaType(Agent agent)`
 
-**Purpose:** Reads and returns the `agent default preferred arena type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the agent default preferred arena type value held by the this instance.
 
 ```csharp
 // Static call; no instance required

@@ -38,7 +38,7 @@ description: "KingdomSettlementSortControllerVM 的自动生成类参考。"
 ### SetSortMode
 `public void SetSortMode(bool isAscending)`
 
-**用途 / Purpose:** 为 「sort mode」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 sort mode 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -49,7 +49,7 @@ kingdomSettlementSortControllerVM.SetSortMode(false);
 ### Compare
 `public abstract int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -60,7 +60,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -71,7 +71,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -82,7 +82,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -93,7 +93,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -104,7 +104,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -115,7 +115,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -126,7 +126,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -137,7 +137,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例
@@ -148,7 +148,7 @@ var result = kingdomSettlementSortControllerVM.Compare(x, y);
 ### Compare
 `public override int Compare(KingdomSettlementItemVM x, KingdomSettlementItemVM y)`
 
-**用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象与另一实例比较大小/顺序。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomSettlementSortControllerVM 实例

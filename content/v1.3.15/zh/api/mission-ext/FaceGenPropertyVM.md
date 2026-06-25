@@ -36,7 +36,7 @@ description: "FaceGenPropertyVM 的自动生成类参考。"
 ### Reset
 `public void Reset()`
 
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
+**用途 / Purpose:** **用途 / Purpose:** 将当前对象重置为默认或初始状态。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenPropertyVM 实例
@@ -47,7 +47,7 @@ faceGenPropertyVM.Reset();
 ### Randomize
 `public void Randomize()`
 
-**用途 / Purpose:** 处理与 「randomize」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Randomize 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenPropertyVM 实例
@@ -58,7 +58,7 @@ faceGenPropertyVM.Randomize();
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenPropertyVM 实例
@@ -69,7 +69,7 @@ faceGenPropertyVM.RefreshValues();
 ### AddCommand
 `public void AddCommand()`
 
-**用途 / Purpose:** 将 「command」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 command 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 FaceGenPropertyVM 实例

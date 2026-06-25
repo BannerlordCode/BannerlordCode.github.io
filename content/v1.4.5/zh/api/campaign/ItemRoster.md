@@ -37,7 +37,7 @@ description: "ItemRoster 的自动生成类参考。"
 ### RosterUpdatedEventDelegate
 `public delegate void RosterUpdatedEventDelegate(ItemRosterElement item, int count)`
 
-**用途 / Purpose:** 处理与 「roster updated event delegate」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RosterUpdatedEventDelegate 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -48,7 +48,7 @@ itemRoster.RosterUpdatedEventDelegate(item, 0);
 ### FindIndexOfItem
 `public int FindIndexOfItem(ItemObject item)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「index of item」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的index of item。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -59,7 +59,7 @@ var result = itemRoster.FindIndexOfItem(item);
 ### FindIndex
 `public int FindIndex(Predicate<ItemObject> predicate)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「index」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的index。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -70,7 +70,7 @@ var result = itemRoster.FindIndex(predicate);
 ### FindIndexFirstAfterXthElement
 `public int FindIndexFirstAfterXthElement(Predicate<ItemObject> predicate, int x)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「index first after xth element」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的index first after xth element。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -81,7 +81,7 @@ var result = itemRoster.FindIndexFirstAfterXthElement(predicate, 0);
 ### FindIndexOfElement
 `public int FindIndexOfElement(EquipmentElement rosterElement)`
 
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「index of element」。
+**用途 / Purpose:** **用途 / Purpose:** 在当前集合/范围内查找满足条件的index of element。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -92,7 +92,7 @@ var result = itemRoster.FindIndexOfElement(rosterElement);
 ### AddToCounts
 `public int AddToCounts(ItemObject item, int number)`
 
-**用途 / Purpose:** 将 「to counts」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 to counts 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -103,7 +103,7 @@ var result = itemRoster.AddToCounts(item, 0);
 ### AddToCounts
 `public int AddToCounts(EquipmentElement rosterElement, int number)`
 
-**用途 / Purpose:** 将 「to counts」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 to counts 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -114,7 +114,7 @@ var result = itemRoster.AddToCounts(rosterElement, 0);
 ### GetElementCopyAtIndex
 `public ItemRosterElement GetElementCopyAtIndex(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「element copy at index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element copy at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -125,7 +125,7 @@ var result = itemRoster.GetElementCopyAtIndex(0);
 ### GetItemAtIndex
 `public ItemObject GetItemAtIndex(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item at index」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item at index 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -136,7 +136,7 @@ var result = itemRoster.GetItemAtIndex(0);
 ### GetElementNumber
 `public int GetElementNumber(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「element number」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -147,7 +147,7 @@ var result = itemRoster.GetElementNumber(0);
 ### GetElementUnitCost
 `public int GetElementUnitCost(int index)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「element unit cost」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 element unit cost 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -158,7 +158,7 @@ var result = itemRoster.GetElementUnitCost(0);
 ### GetItemNumber
 `public int GetItemNumber(ItemObject item)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「item number」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 item number 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -169,7 +169,7 @@ var result = itemRoster.GetItemNumber(item);
 ### Clear
 `public void Clear()`
 
-**用途 / Purpose:** 清空当前对象中的内容。
+**用途 / Purpose:** **用途 / Purpose:** 清空当前对象中的内容。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -180,7 +180,7 @@ itemRoster.Clear();
 ### RostersAreIdentical
 `public static bool RostersAreIdentical(ItemRoster a, ItemRoster b)`
 
-**用途 / Purpose:** 处理与 「rosters are identical」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 RostersAreIdentical 对应的操作。
 
 ```csharp
 // 静态调用，不需要实例
@@ -190,7 +190,7 @@ ItemRoster.RostersAreIdentical(a, b);
 ### GetEnumerator
 `public IEnumerator<ItemRosterElement> GetEnumerator()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「enumerator」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 enumerator 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -201,7 +201,7 @@ var result = itemRoster.GetEnumerator();
 ### SelectRandomIndex
 `public int SelectRandomIndex(Func<ItemRosterElement, float> weightFunction)`
 
-**用途 / Purpose:** 处理与 「select random index」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 SelectRandomIndex 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -212,7 +212,7 @@ var result = itemRoster.SelectRandomIndex(func<ItemRosterElement, 0);
 ### RemoveIf
 `public IEnumerable<ItemRosterElement> RemoveIf(Func<ItemRosterElement, int> match)`
 
-**用途 / Purpose:** 从当前容器或状态中移除 「if」。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除 if。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -223,7 +223,7 @@ var result = itemRoster.RemoveIf(func<ItemRosterElement, 0);
 ### Add
 `public void Add(IEnumerable<ItemRosterElement> rosterElementList)`
 
-**用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -234,7 +234,7 @@ itemRoster.Add(rosterElementList);
 ### Add
 `public void Add(ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 向当前容器或状态添加项。
+**用途 / Purpose:** **用途 / Purpose:** 向当前容器或状态添加项。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -245,7 +245,7 @@ itemRoster.Add(itemRosterElement);
 ### Remove
 `public void Remove(ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 从当前容器或状态中移除项。
+**用途 / Purpose:** **用途 / Purpose:** 从当前容器或状态中移除项。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -256,7 +256,7 @@ itemRoster.Remove(itemRosterElement);
 ### UpdateVersion
 `public void UpdateVersion()`
 
-**用途 / Purpose:** 重新计算并更新 「version」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 version 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -267,7 +267,7 @@ itemRoster.UpdateVersion();
 ### OnLoadStarted
 `public void OnLoadStarted(MetaData metaData)`
 
-**用途 / Purpose:** 在 「load started」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 load started 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -278,7 +278,7 @@ itemRoster.OnLoadStarted(metaData);
 ### CalculateCachedStatsOnLoad
 `public static void CalculateCachedStatsOnLoad()`
 
-**用途 / Purpose:** 计算「cached stats on load」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算cached stats on load的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例

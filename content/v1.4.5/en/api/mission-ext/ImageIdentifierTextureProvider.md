@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.MountAndBlade.GauntletUI.TextureProviders.Image
 ### Tick
 `public override void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of ImageIdentifierTextureProvider from the subsystem API first
@@ -43,7 +43,7 @@ imageIdentifierTextureProvider.Tick(0);
 ### Clear
 `public override void Clear(bool clearNextFrame)`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of ImageIdentifierTextureProvider from the subsystem API first
@@ -54,7 +54,7 @@ imageIdentifierTextureProvider.Clear(false);
 ### CreateImageWithId
 `public void CreateImageWithId(string id, string additionalArgs)`
 
-**Purpose:** Constructs a new `image with id` entity and returns it to the caller.
+**Purpose:** **Purpose:** Constructs a new image with id entity and returns it to the caller.
 
 ```csharp
 // Obtain an instance of ImageIdentifierTextureProvider from the subsystem API first

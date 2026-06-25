@@ -23,7 +23,7 @@ description: "PersuasionAttempt 的自动生成类参考。"
 ### IsSuccesful
 `public bool IsSuccesful()`
 
-**用途 / Purpose:** 判断当前对象是否处于 「succesful」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 succesful 状态或条件。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionAttempt 实例
@@ -34,7 +34,7 @@ var result = persuasionAttempt.IsSuccesful();
 ### Matches
 `public bool Matches(Hero targetHero, int reservationType)`
 
-**用途 / Purpose:** 处理与 「matches」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 Matches 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionAttempt 实例

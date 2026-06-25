@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.Engine.GauntletUI` to place it in the stack, th
 ### Reset
 `public void Reset()`
 
-**Purpose:** Returns the current object to its default or initial condition.
+**Purpose:** **Purpose:** Returns the this instance to its default or initial condition.
 
 ```csharp
 // Obtain an instance of TwoDimensionEnginePlatform from the subsystem API first
@@ -34,7 +34,7 @@ twoDimensionEnginePlatform.Reset();
 ### Equals
 `public bool Equals(TwoDimensionEnginePlatform.MaterialTuple other)`
 
-**Purpose:** Compares the current object with the supplied instance for equality.
+**Purpose:** **Purpose:** Compares the this instance with the supplied instance for equality.
 
 ```csharp
 // Obtain an instance of TwoDimensionEnginePlatform from the subsystem API first
@@ -45,7 +45,7 @@ var result = twoDimensionEnginePlatform.Equals(other);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**Purpose:** Returns a hash code for the current object, used for fast lookup in dictionaries and hash sets.
+**Purpose:** **Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
 
 ```csharp
 // Obtain an instance of TwoDimensionEnginePlatform from the subsystem API first

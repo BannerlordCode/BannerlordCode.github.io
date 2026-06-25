@@ -36,7 +36,7 @@ description: "MultiplayerLobbyArmoryCosmeticObtainPopupWidget 的自动生成类
 ### MultiplayerLobbyArmoryCosmeticObtainPopupWidget
 `public class MultiplayerLobbyArmoryCosmeticObtainPopupWidget(UIContext context)`
 
-**用途 / Purpose:** 处理与 「multiplayer lobby armory cosmetic obtain popup widget」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MultiplayerLobbyArmoryCosmeticObtainPopupWidget 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyArmoryCosmeticObtainPopupWidget 实例

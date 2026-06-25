@@ -29,7 +29,7 @@ description: "Hitter 的自动生成类参考。"
 ### IncreaseDamage
 `public void IncreaseDamage(float amount)`
 
-**用途 / Purpose:** 处理与 「increase damage」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 IncreaseDamage 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Hitter 实例

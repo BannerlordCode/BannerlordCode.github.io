@@ -23,7 +23,7 @@ description: "OnPlatformRequestedMultiplayerJob 的自动生成类参考。"
 ### DoJob
 `public override void DoJob(float dt)`
 
-**用途 / Purpose:** 处理与 「do job」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DoJob 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 OnPlatformRequestedMultiplayerJob 实例

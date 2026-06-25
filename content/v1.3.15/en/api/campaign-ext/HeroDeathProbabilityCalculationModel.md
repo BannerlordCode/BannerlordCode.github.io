@@ -23,7 +23,7 @@ Treat `HeroDeathProbabilityCalculationModel` as a Model-style extension point: f
 ### CalculateHeroDeathProbability
 `public abstract float CalculateHeroDeathProbability(Hero hero)`
 
-**Purpose:** Calculates the current value or result of `hero death probability`.
+**Purpose:** **Purpose:** Calculates the current value or result of hero death probability.
 
 ```csharp
 // Obtain an instance of HeroDeathProbabilityCalculationModel from the subsystem API first

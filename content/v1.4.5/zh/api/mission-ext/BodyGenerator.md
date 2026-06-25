@@ -29,7 +29,7 @@ description: "BodyGenerator 的自动生成类参考。"
 ### InitBodyGenerator
 `public FaceGenerationParams InitBodyGenerator(bool isDressed)`
 
-**用途 / Purpose:** 为 「body generator」 初始化必要的资源、状态或绑定。
+**用途 / Purpose:** **用途 / Purpose:** 为 body generator 初始化必要的资源、状态或绑定。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGenerator 实例
@@ -40,7 +40,7 @@ var result = bodyGenerator.InitBodyGenerator(false);
 ### RefreshFace
 `public void RefreshFace(FaceGenerationParams faceGenerationParams, bool hasEquipment)`
 
-**用途 / Purpose:** 使 「face」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 face 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGenerator 实例
@@ -51,7 +51,7 @@ bodyGenerator.RefreshFace(faceGenerationParams, false);
 ### SaveCurrentCharacter
 `public void SaveCurrentCharacter()`
 
-**用途 / Purpose:** 将 「current character」 写入持久化存储或流中。
+**用途 / Purpose:** **用途 / Purpose:** 将 current character 写入持久化存储或流中。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyGenerator 实例

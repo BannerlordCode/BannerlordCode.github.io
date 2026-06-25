@@ -30,7 +30,7 @@ Treat `AgentController` as a Controller-style extension point: first identify wh
 ### OnInitialize
 `public virtual void OnInitialize()`
 
-**Purpose:** Invoked when the `initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the initialize event is raised.
 
 ```csharp
 // Obtain an instance of AgentController from the subsystem API first

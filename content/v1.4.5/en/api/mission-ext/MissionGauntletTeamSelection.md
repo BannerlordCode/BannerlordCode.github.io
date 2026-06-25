@@ -23,7 +23,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.GauntletUI.Mission` t
 ### OnMissionScreenInitialize
 `public override void OnMissionScreenInitialize()`
 
-**Purpose:** Invoked when the `mission screen initialize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen initialize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTeamSelection from the subsystem API first
@@ -34,7 +34,7 @@ missionGauntletTeamSelection.OnMissionScreenInitialize();
 ### OnMissionScreenFinalize
 `public override void OnMissionScreenFinalize()`
 
-**Purpose:** Invoked when the `mission screen finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTeamSelection from the subsystem API first
@@ -45,7 +45,7 @@ missionGauntletTeamSelection.OnMissionScreenFinalize();
 ### OnEscape
 `public override bool OnEscape()`
 
-**Purpose:** Invoked when the `escape` event is raised.
+**Purpose:** **Purpose:** Invoked when the escape event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTeamSelection from the subsystem API first
@@ -56,7 +56,7 @@ var result = missionGauntletTeamSelection.OnEscape();
 ### OnMissionScreenTick
 `public override void OnMissionScreenTick(float dt)`
 
-**Purpose:** Invoked when the `mission screen tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission screen tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGauntletTeamSelection from the subsystem API first

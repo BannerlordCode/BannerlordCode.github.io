@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.Party.PartyT
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of PartyRecruitTroopVM from the subsystem API first
@@ -42,7 +42,7 @@ partyRecruitTroopVM.RefreshValues();
 ### OnTroopRecruited
 `public void OnTroopRecruited(PartyCharacterVM recruitedCharacter)`
 
-**Purpose:** Invoked when the `troop recruited` event is raised.
+**Purpose:** **Purpose:** Invoked when the troop recruited event is raised.
 
 ```csharp
 // Obtain an instance of PartyRecruitTroopVM from the subsystem API first
@@ -53,7 +53,7 @@ partyRecruitTroopVM.OnTroopRecruited(recruitedCharacter);
 ### OpenPopUp
 `public override void OpenPopUp()`
 
-**Purpose:** Opens the resource or UI associated with `pop up`.
+**Purpose:** **Purpose:** Opens the resource or UI associated with pop up.
 
 ```csharp
 // Obtain an instance of PartyRecruitTroopVM from the subsystem API first
@@ -64,7 +64,7 @@ partyRecruitTroopVM.OpenPopUp();
 ### ExecuteDone
 `public override void ExecuteDone()`
 
-**Purpose:** Runs the operation or workflow associated with `done`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with done.
 
 ```csharp
 // Obtain an instance of PartyRecruitTroopVM from the subsystem API first
@@ -75,7 +75,7 @@ partyRecruitTroopVM.ExecuteDone();
 ### ExecuteCancel
 `public override void ExecuteCancel()`
 
-**Purpose:** Runs the operation or workflow associated with `cancel`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with cancel.
 
 ```csharp
 // Obtain an instance of PartyRecruitTroopVM from the subsystem API first
@@ -86,7 +86,7 @@ partyRecruitTroopVM.ExecuteCancel();
 ### ExecuteRecruitAll
 `public void ExecuteRecruitAll()`
 
-**Purpose:** Runs the operation or workflow associated with `recruit all`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with recruit all.
 
 ```csharp
 // Obtain an instance of PartyRecruitTroopVM from the subsystem API first

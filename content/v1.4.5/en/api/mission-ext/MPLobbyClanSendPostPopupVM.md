@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.L
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
@@ -45,7 +45,7 @@ mPLobbyClanSendPostPopupVM.RefreshValues();
 ### ExecuteOpenPopup
 `public void ExecuteOpenPopup()`
 
-**Purpose:** Runs the operation or workflow associated with `open popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with open popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
@@ -56,7 +56,7 @@ mPLobbyClanSendPostPopupVM.ExecuteOpenPopup();
 ### ExecuteClosePopup
 `public void ExecuteClosePopup()`
 
-**Purpose:** Runs the operation or workflow associated with `close popup`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with close popup.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
@@ -67,7 +67,7 @@ mPLobbyClanSendPostPopupVM.ExecuteClosePopup();
 ### ExecuteSend
 `public void ExecuteSend()`
 
-**Purpose:** Runs the operation or workflow associated with `send`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with send.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
@@ -78,7 +78,7 @@ mPLobbyClanSendPostPopupVM.ExecuteSend();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
@@ -89,7 +89,7 @@ mPLobbyClanSendPostPopupVM.OnFinalize();
 ### SetCancelInputKey
 `public void SetCancelInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `cancel input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to cancel input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first
@@ -100,7 +100,7 @@ mPLobbyClanSendPostPopupVM.SetCancelInputKey(hotKey);
 ### SetDoneInputKey
 `public void SetDoneInputKey(HotKey hotKey)`
 
-**Purpose:** Assigns a new value to `done input key` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to done input key and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of MPLobbyClanSendPostPopupVM from the subsystem API first

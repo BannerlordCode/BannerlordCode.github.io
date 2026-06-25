@@ -23,7 +23,7 @@ description: "DefaultMapDistanceModel 的自动生成类参考。"
 ### RegisterDistanceCache
 `public override void RegisterDistanceCache(MobileParty.NavigationType navigationCapability, INavigationCache cacheToRegister)`
 
-**用途 / Purpose:** 将「distance cache」注册到当前系统，以便后续监听或分发。
+**用途 / Purpose:** **用途 / Purpose:** 将distance cache注册到当前系统，以便后续监听或分发。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -34,7 +34,7 @@ defaultMapDistanceModel.RegisterDistanceCache(navigationCapability, cacheToRegis
 ### GetMaximumDistanceBetweenTwoConnectedSettlements
 `public override float GetMaximumDistanceBetweenTwoConnectedSettlements(MobileParty.NavigationType navigationCapabilities)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「maximum distance between two connected settlements」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 maximum distance between two connected settlements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -45,7 +45,7 @@ var result = defaultMapDistanceModel.GetMaximumDistanceBetweenTwoConnectedSettle
 ### GetLandRatioOfPathBetweenSettlements
 `public override float GetLandRatioOfPathBetweenSettlements(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「land ratio of path between settlements」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 land ratio of path between settlements 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -56,7 +56,7 @@ var result = defaultMapDistanceModel.GetLandRatioOfPathBetweenSettlements(fromSe
 ### GetDistance
 `public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort = false, bool isTargetingPort = false, MobileParty.NavigationType navigationCapability = MobileParty.NavigationType.Default)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -67,7 +67,7 @@ var result = defaultMapDistanceModel.GetDistance(fromSettlement, toSettlement, f
 ### GetDistance
 `public override float GetDistance(Settlement fromSettlement, Settlement toSettlement, bool isFromPort, bool isTargetingPort, MobileParty.NavigationType navigationCapability, out float landRatio)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -78,7 +78,7 @@ var result = defaultMapDistanceModel.GetDistance(fromSettlement, toSettlement, f
 ### GetDistance
 `public override float GetDistance(MobileParty fromMobileParty, Settlement toSettlement, bool isTargetingPort, MobileParty.NavigationType customCapability, out float estimatedLandRatio)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -89,7 +89,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toSettlement, 
 ### GetDistance
 `public override float GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -100,7 +100,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toMobileParty,
 ### GetDistance
 `public override bool GetDistance(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, float maxDistance, out float distance, out float landRatio)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -111,7 +111,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toMobileParty,
 ### GetDistance
 `public override float GetDistance(MobileParty fromMobileParty, in CampaignVec2 toPoint, MobileParty.NavigationType customCapability, out float landRatio)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -122,7 +122,7 @@ var result = defaultMapDistanceModel.GetDistance(fromMobileParty, toPoint, custo
 ### GetDistance
 `public override float GetDistance(Settlement fromSettlement, in CampaignVec2 toPoint, bool isFromPort, MobileParty.NavigationType customCapability)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「distance」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 distance 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -133,7 +133,7 @@ var result = defaultMapDistanceModel.GetDistance(fromSettlement, toPoint, false,
 ### GetPortToGateDistanceForSettlement
 `public override float GetPortToGateDistanceForSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「port to gate distance for settlement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 port to gate distance for settlement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -144,7 +144,7 @@ var result = defaultMapDistanceModel.GetPortToGateDistanceForSettlement(settleme
 ### PathExistBetweenPoints
 `public override bool PathExistBetweenPoints(in CampaignVec2 fromPoint, in CampaignVec2 toPoint, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 处理与 「path exist between points」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 PathExistBetweenPoints 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -155,7 +155,7 @@ var result = defaultMapDistanceModel.PathExistBetweenPoints(fromPoint, toPoint, 
 ### GetNeighborsOfFortification
 `public override MBReadOnlyList<Settlement> GetNeighborsOfFortification(Town town, MobileParty.NavigationType navigationCapabilities)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「neighbors of fortification」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 neighbors of fortification 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例
@@ -166,7 +166,7 @@ var result = defaultMapDistanceModel.GetNeighborsOfFortification(town, navigatio
 ### GetTransitionCostAdjustment
 `public override float GetTransitionCostAdjustment(Settlement settlement1, bool isFromPort, Settlement settlement2, bool isTargetingPort, bool fromIsCurrentlyAtSea, bool toIsCurrentlyAtSea)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「transition cost adjustment」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 transition cost adjustment 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapDistanceModel 实例

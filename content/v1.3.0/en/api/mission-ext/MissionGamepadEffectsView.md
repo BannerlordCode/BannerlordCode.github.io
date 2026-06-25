@@ -23,7 +23,7 @@ Treat `MissionGamepadEffectsView` as a View-style extension point: first identif
 ### OnMissionStateActivated
 `public override void OnMissionStateActivated()`
 
-**Purpose:** Invoked when the `mission state activated` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission state activated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGamepadEffectsView from the subsystem API first
@@ -34,7 +34,7 @@ missionGamepadEffectsView.OnMissionStateActivated();
 ### OnMissionStateDeactivated
 `public override void OnMissionStateDeactivated()`
 
-**Purpose:** Invoked when the `mission state deactivated` event is raised.
+**Purpose:** **Purpose:** Invoked when the mission state deactivated event is raised.
 
 ```csharp
 // Obtain an instance of MissionGamepadEffectsView from the subsystem API first
@@ -45,7 +45,7 @@ missionGamepadEffectsView.OnMissionStateDeactivated();
 ### OnPreMissionTick
 `public override void OnPreMissionTick(float dt)`
 
-**Purpose:** Invoked when the `pre mission tick` event is raised.
+**Purpose:** **Purpose:** Invoked when the pre mission tick event is raised.
 
 ```csharp
 // Obtain an instance of MissionGamepadEffectsView from the subsystem API first
@@ -56,7 +56,7 @@ missionGamepadEffectsView.OnPreMissionTick(0);
 ### OnAgentHit
 `public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
 
-**Purpose:** Invoked when the `agent hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent hit event is raised.
 
 ```csharp
 // Obtain an instance of MissionGamepadEffectsView from the subsystem API first
@@ -67,7 +67,7 @@ missionGamepadEffectsView.OnAgentHit(affectedAgent, affectorAgent, affectorWeapo
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of MissionGamepadEffectsView from the subsystem API first

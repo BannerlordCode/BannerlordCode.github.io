@@ -30,7 +30,7 @@ Start from namespace `TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Obje
 ### Compare
 `public int Compare(MissionObjectiveMarkerVM x, MissionObjectiveMarkerVM y)`
 
-**Purpose:** Compares the current object with another instance for ordering.
+**Purpose:** **Purpose:** Compares the this instance with another instance for ordering.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
@@ -41,7 +41,7 @@ var result = missionObjectiveMarkersVM.Compare(x, y);
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
@@ -52,7 +52,7 @@ missionObjectiveMarkersVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
@@ -63,7 +63,7 @@ missionObjectiveMarkersVM.OnFinalize();
 ### UpdateObjective
 `public void UpdateObjective(MissionObjective objective)`
 
-**Purpose:** Recalculates and stores the latest representation of `objective`.
+**Purpose:** **Purpose:** Recalculates and stores the latest representation of objective.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first
@@ -74,7 +74,7 @@ missionObjectiveMarkersVM.UpdateObjective(objective);
 ### Tick
 `public void Tick(float dt)`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of MissionObjectiveMarkersVM from the subsystem API first

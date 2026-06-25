@@ -33,7 +33,7 @@ description: "Key 的自动生成类参考。"
 ### ChangeKey
 `public void ChangeKey(InputKey key)`
 
-**用途 / Purpose:** 处理与 「change key」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 ChangeKey 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 Key 实例
@@ -44,7 +44,7 @@ key.ChangeKey(key);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 Key 实例
@@ -55,7 +55,7 @@ var result = key.ToString();
 ### Equals
 `public override bool Equals(object obj)`
 
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
+**用途 / Purpose:** **用途 / Purpose:** 比较当前对象与传入实例是否相等。
 
 ```csharp
 // 先通过子系统 API 拿到 Key 实例
@@ -66,7 +66,7 @@ var result = key.Equals(obj);
 ### GetHashCode
 `public override int GetHashCode()`
 
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
 
 ```csharp
 // 先通过子系统 API 拿到 Key 实例
@@ -77,7 +77,7 @@ var result = key.GetHashCode();
 ### IsLeftAnalogInput
 `public static bool IsLeftAnalogInput(InputKey key)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「left analog input」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 left analog input 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ Key.IsLeftAnalogInput(key);
 ### IsLeftBumperOrTriggerInput
 `public static bool IsLeftBumperOrTriggerInput(InputKey key)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「left bumper or trigger input」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 left bumper or trigger input 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -97,7 +97,7 @@ Key.IsLeftBumperOrTriggerInput(key);
 ### IsRightBumperOrTriggerInput
 `public static bool IsRightBumperOrTriggerInput(InputKey key)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「right bumper or trigger input」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 right bumper or trigger input 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -107,7 +107,7 @@ Key.IsRightBumperOrTriggerInput(key);
 ### IsFaceKeyInput
 `public static bool IsFaceKeyInput(InputKey key)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「face key input」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 face key input 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -117,7 +117,7 @@ Key.IsFaceKeyInput(key);
 ### IsRightAnalogInput
 `public static bool IsRightAnalogInput(InputKey key)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「right analog input」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 right analog input 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -127,7 +127,7 @@ Key.IsRightAnalogInput(key);
 ### IsDpadInput
 `public static bool IsDpadInput(InputKey key)`
 
-**用途 / Purpose:** 判断当前对象是否处于 「dpad input」 状态或条件。
+**用途 / Purpose:** **用途 / Purpose:** 判断当前对象是否处于 dpad input 状态或条件。
 
 ```csharp
 // 静态调用，不需要实例
@@ -137,7 +137,7 @@ Key.IsDpadInput(key);
 ### GetInputType
 `public static InputType GetInputType(InputKey key)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「input type」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 input type 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "StringSerializer 的自动生成类参考。"
 ### GetSizeInBytes
 `public int GetSizeInBytes()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「size in bytes」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 size in bytes 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 StringSerializer 实例

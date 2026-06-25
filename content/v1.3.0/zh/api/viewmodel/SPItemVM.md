@@ -50,7 +50,7 @@ description: "SPItemVM 的自动生成类参考。"
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -61,7 +61,7 @@ sPItemVM.RefreshValues();
 ### RefreshWith
 `public void RefreshWith(SPItemVM itemVM, InventoryLogic.InventorySide inventorySide)`
 
-**用途 / Purpose:** 使 「with」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 with 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -72,7 +72,7 @@ sPItemVM.RefreshWith(itemVM, inventorySide);
 ### ExecuteBuySingle
 `public void ExecuteBuySingle()`
 
-**用途 / Purpose:** 执行 「buy single」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 buy single 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -83,7 +83,7 @@ sPItemVM.ExecuteBuySingle();
 ### ExecuteBuy
 `public void ExecuteBuy(int amount)`
 
-**用途 / Purpose:** 执行 「buy」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 buy 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -94,7 +94,7 @@ sPItemVM.ExecuteBuy(0);
 ### ExecuteSellSingle
 `public void ExecuteSellSingle()`
 
-**用途 / Purpose:** 执行 「sell single」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sell single 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -105,7 +105,7 @@ sPItemVM.ExecuteSellSingle();
 ### ExecuteSell
 `public void ExecuteSell(int amount)`
 
-**用途 / Purpose:** 执行 「sell」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sell 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -116,7 +116,7 @@ sPItemVM.ExecuteSell(0);
 ### ExecuteSellItem
 `public void ExecuteSellItem()`
 
-**用途 / Purpose:** 执行 「sell item」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 sell item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -127,7 +127,7 @@ sPItemVM.ExecuteSellItem();
 ### ExecuteConcept
 `public void ExecuteConcept()`
 
-**用途 / Purpose:** 执行 「concept」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 concept 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -138,7 +138,7 @@ sPItemVM.ExecuteConcept();
 ### ExecuteResetTrade
 `public void ExecuteResetTrade()`
 
-**用途 / Purpose:** 执行 「reset trade」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 reset trade 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -149,7 +149,7 @@ sPItemVM.ExecuteResetTrade();
 ### UpdateTradeData
 `public void UpdateTradeData(bool forceUpdateAmounts)`
 
-**用途 / Purpose:** 重新计算并更新 「trade data」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 trade data 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -160,7 +160,7 @@ sPItemVM.UpdateTradeData(false);
 ### ExecuteSlaughterItem
 `public void ExecuteSlaughterItem()`
 
-**用途 / Purpose:** 执行 「slaughter item」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 slaughter item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -171,7 +171,7 @@ sPItemVM.ExecuteSlaughterItem();
 ### ExecuteDonateItem
 `public void ExecuteDonateItem()`
 
-**用途 / Purpose:** 执行 「donate item」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 donate item 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -182,7 +182,7 @@ sPItemVM.ExecuteDonateItem();
 ### ExecuteSetFocused
 `public void ExecuteSetFocused()`
 
-**用途 / Purpose:** 执行 「set focused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set focused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -193,7 +193,7 @@ sPItemVM.ExecuteSetFocused();
 ### ExecuteSetUnfocused
 `public void ExecuteSetUnfocused()`
 
-**用途 / Purpose:** 执行 「set unfocused」 对应的操作或工作流。
+**用途 / Purpose:** **用途 / Purpose:** 执行 set unfocused 对应的操作或工作流。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -204,7 +204,7 @@ sPItemVM.ExecuteSetUnfocused();
 ### UpdateCanBeSlaughtered
 `public void UpdateCanBeSlaughtered()`
 
-**用途 / Purpose:** 重新计算并更新 「can be slaughtered」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 can be slaughtered 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -215,7 +215,7 @@ sPItemVM.UpdateCanBeSlaughtered();
 ### UpdateHintTexts
 `public void UpdateHintTexts()`
 
-**用途 / Purpose:** 重新计算并更新 「hint texts」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 hint texts 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 SPItemVM 实例
@@ -226,7 +226,7 @@ sPItemVM.UpdateHintTexts();
 ### GetProfitTypeFromDiff
 `public static SPItemVM.ProfitTypes GetProfitTypeFromDiff(float averageValue, float currentValue)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「profit type from diff」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 profit type from diff 的结果。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ Treat `EncyclopediaData` as a Data-style extension point: first identify who cre
 ### OnFinalize
 `public void OnFinalize()`
 
-**Purpose:** Invoked when the `finalize` event is raised.
+**Purpose:** **Purpose:** Invoked when the finalize event is raised.
 
 ```csharp
 // Obtain an instance of EncyclopediaData from the subsystem API first
@@ -34,7 +34,7 @@ encyclopediaData.OnFinalize();
 ### CloseEncyclopedia
 `public void CloseEncyclopedia()`
 
-**Purpose:** Closes the resource or UI associated with `encyclopedia`.
+**Purpose:** **Purpose:** Closes the resource or UI associated with encyclopedia.
 
 ```csharp
 // Obtain an instance of EncyclopediaData from the subsystem API first

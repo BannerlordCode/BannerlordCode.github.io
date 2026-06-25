@@ -32,7 +32,7 @@ description: "GameSceneDataManager 的自动生成类参考。"
 ### LoadSPBattleScenes
 `public void LoadSPBattleScenes(string path)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「s p battle scenes」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 s p battle scenes。
 
 ```csharp
 // 先通过子系统 API 拿到 GameSceneDataManager 实例
@@ -43,7 +43,7 @@ gameSceneDataManager.LoadSPBattleScenes("example");
 ### LoadConversationScenes
 `public void LoadConversationScenes(string path)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「conversation scenes」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 conversation scenes。
 
 ```csharp
 // 先通过子系统 API 拿到 GameSceneDataManager 实例
@@ -54,7 +54,7 @@ gameSceneDataManager.LoadConversationScenes("example");
 ### LoadMeetingScenes
 `public void LoadMeetingScenes(string path)`
 
-**用途 / Purpose:** 从持久化存储或流中读取 「meeting scenes」。
+**用途 / Purpose:** **用途 / Purpose:** 从持久化存储或流中读取 meeting scenes。
 
 ```csharp
 // 先通过子系统 API 拿到 GameSceneDataManager 实例

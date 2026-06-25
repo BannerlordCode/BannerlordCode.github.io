@@ -23,7 +23,7 @@ description: "CombatStatCalculator 的自动生成类参考。"
 ### CalculateStrikeMagnitudeForSwing
 `public static float CalculateStrikeMagnitudeForSwing(float swingSpeed, float impactPointAsPercent, float weaponWeight, float weaponLength, float weaponInertia, float weaponCoM, float extraLinearSpeed)`
 
-**用途 / Purpose:** 计算「strike magnitude for swing」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for swing的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CombatStatCalculator.CalculateStrikeMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
 ### CalculateStrikeMagnitudeForThrust
 `public static float CalculateStrikeMagnitudeForThrust(float thrustWeaponSpeed, float weaponWeight, float extraLinearSpeed, bool isThrown)`
 
-**用途 / Purpose:** 计算「strike magnitude for thrust」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算strike magnitude for thrust的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ CombatStatCalculator.CalculateStrikeMagnitudeForThrust(0, 0, 0, false);
 ### CalculateBaseBlowMagnitudeForSwing
 `public static float CalculateBaseBlowMagnitudeForSwing(float angularSpeed, float weaponReach, float weaponWeight, float weaponInertia, float weaponCoM, float impactPoint, float exraLinearSpeed)`
 
-**用途 / Purpose:** 计算「base blow magnitude for swing」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算base blow magnitude for swing的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ CombatStatCalculator.CalculateBaseBlowMagnitudeForSwing(0, 0, 0, 0, 0, 0, 0);
 ### CalculateBaseBlowMagnitudeForThrust
 `public static float CalculateBaseBlowMagnitudeForThrust(float linearSpeed, float weaponWeight, float exraLinearSpeed)`
 
-**用途 / Purpose:** 计算「base blow magnitude for thrust」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算base blow magnitude for thrust的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ CombatStatCalculator.CalculateBaseBlowMagnitudeForThrust(0, 0, 0);
 ### CalculateBaseBlowMagnitudeForPassiveUsage
 `public static float CalculateBaseBlowMagnitudeForPassiveUsage(float weaponWeight, float extraLinearSpeed)`
 
-**用途 / Purpose:** 计算「base blow magnitude for passive usage」的当前值或结果。
+**用途 / Purpose:** **用途 / Purpose:** 计算base blow magnitude for passive usage的当前值或结果。
 
 ```csharp
 // 静态调用，不需要实例

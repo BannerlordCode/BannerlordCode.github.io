@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.Library` to place it in the stack, then inspect
 ### Contains
 `public bool Contains(T item)`
 
-**Purpose:** Indicates whether the current object contains the specified item.
+**Purpose:** **Purpose:** Indicates whether the this instance contains the specified item.
 
 ```csharp
 // Obtain an instance of MBList2D from the subsystem API first
@@ -42,7 +42,7 @@ var result = mBList2D.Contains(item);
 ### Clear
 `public void Clear()`
 
-**Purpose:** Removes all content from the current object.
+**Purpose:** **Purpose:** Removes all content from the this instance.
 
 ```csharp
 // Obtain an instance of MBList2D from the subsystem API first
@@ -53,7 +53,7 @@ mBList2D.Clear();
 ### ResetWithNewCount
 `public void ResetWithNewCount(int newCount1, int newCount2)`
 
-**Purpose:** Returns `with new count` to its default or initial condition.
+**Purpose:** **Purpose:** Returns with new count to its default or initial condition.
 
 ```csharp
 // Obtain an instance of MBList2D from the subsystem API first
@@ -64,7 +64,7 @@ mBList2D.ResetWithNewCount(0, 0);
 ### CopyRowTo
 `public void CopyRowTo(int sourceIndex1, int sourceIndex2, MBList2D<T> destination, int destinationIndex1, int destinationIndex2, int copyCount)`
 
-**Purpose:** Copies the `row to` state of the current object to a target.
+**Purpose:** **Purpose:** Copies the row to state of the this instance to a target.
 
 ```csharp
 // Obtain an instance of MBList2D from the subsystem API first

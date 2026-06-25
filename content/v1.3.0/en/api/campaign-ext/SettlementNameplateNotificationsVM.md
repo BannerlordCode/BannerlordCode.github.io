@@ -30,7 +30,7 @@ Start from namespace `SandBox.ViewModelCollection.Nameplate.NameplateNotificatio
 ### Tick
 `public void Tick()`
 
-**Purpose:** Advances the current object's state by one frame or update cycle.
+**Purpose:** **Purpose:** Advances the this instance's state by one frame or update cycle.
 
 ```csharp
 // Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
@@ -41,7 +41,7 @@ settlementNameplateNotificationsVM.Tick();
 ### RegisterEvents
 `public void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
@@ -52,7 +52,7 @@ settlementNameplateNotificationsVM.RegisterEvents();
 ### UnloadEvents
 `public void UnloadEvents()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the UnloadEvents logic.
 
 ```csharp
 // Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first
@@ -63,7 +63,7 @@ settlementNameplateNotificationsVM.UnloadEvents();
 ### IsValidItemForNotification
 `public bool IsValidItemForNotification(ItemRosterElement item)`
 
-**Purpose:** Determines whether the current object is in the `valid item for notification` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the valid item for notification state or condition.
 
 ```csharp
 // Obtain an instance of SettlementNameplateNotificationsVM from the subsystem API first

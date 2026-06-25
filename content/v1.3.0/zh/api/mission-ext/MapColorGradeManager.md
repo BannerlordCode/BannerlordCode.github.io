@@ -23,7 +23,7 @@ description: "MapColorGradeManager 的自动生成类参考。"
 ### GetTickRequirement
 `public override ScriptComponentBehavior.TickRequirement GetTickRequirement()`
 
-**用途 / Purpose:** 读取并返回当前对象中 「tick requirement」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 MapColorGradeManager 实例
@@ -34,7 +34,7 @@ var result = mapColorGradeManager.GetTickRequirement();
 ### ApplyAtmosphere
 `public void ApplyAtmosphere(bool forceLoadTextures)`
 
-**用途 / Purpose:** 将 「atmosphere」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 atmosphere 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MapColorGradeManager 实例
@@ -45,7 +45,7 @@ mapColorGradeManager.ApplyAtmosphere(false);
 ### ApplyColorGrade
 `public void ApplyColorGrade(float dt)`
 
-**用途 / Purpose:** 将 「color grade」 的效果应用到当前对象。
+**用途 / Purpose:** **用途 / Purpose:** 将 color grade 的效果应用到当前对象。
 
 ```csharp
 // 先通过子系统 API 拿到 MapColorGradeManager 实例

@@ -19,7 +19,7 @@ SetPartyAiAction is a set of static methods that trigger "SetPartyAi" in the cam
 public static void GetActionForVisitingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**Purpose:** get action for visiting settlement.
+**Purpose:** **Purpose:** Reads and returns the action for visiting settlement value held by the this instance.
 
 ### GetActionForPatrollingAroundSettlement
 
@@ -27,7 +27,7 @@ public static void GetActionForVisitingSettlement(MobileParty owner, Settlement 
 public static void GetActionForPatrollingAroundSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**Purpose:** get action for patrolling around settlement.
+**Purpose:** **Purpose:** Reads and returns the action for patrolling around settlement value held by the this instance.
 
 ### GetActionForPatrollingAroundPoint
 
@@ -35,7 +35,7 @@ public static void GetActionForPatrollingAroundSettlement(MobileParty owner, Set
 public static void GetActionForPatrollingAroundPoint(MobileParty owner, CampaignVec2 position, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**Purpose:** get action for patrolling around point.
+**Purpose:** **Purpose:** Reads and returns the action for patrolling around point value held by the this instance.
 
 ### GetActionForRaidingSettlement
 
@@ -43,7 +43,7 @@ public static void GetActionForPatrollingAroundPoint(MobileParty owner, Campaign
 public static void GetActionForRaidingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**Purpose:** get action for raiding settlement.
+**Purpose:** **Purpose:** Reads and returns the action for raiding settlement value held by the this instance.
 
 ### GetActionForBesiegingSettlement
 
@@ -51,7 +51,7 @@ public static void GetActionForRaidingSettlement(MobileParty owner, Settlement s
 public static void GetActionForBesiegingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**Purpose:** get action for besieging settlement.
+**Purpose:** **Purpose:** Reads and returns the action for besieging settlement value held by the this instance.
 
 ### GetActionForEngagingParty
 
@@ -59,7 +59,7 @@ public static void GetActionForBesiegingSettlement(MobileParty owner, Settlement
 public static void GetActionForEngagingParty(MobileParty owner, MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**Purpose:** get action for engaging party.
+**Purpose:** **Purpose:** Reads and returns the action for engaging party value held by the this instance.
 
 ### GetActionForGoingAroundParty
 
@@ -67,7 +67,7 @@ public static void GetActionForEngagingParty(MobileParty owner, MobileParty mobi
 public static void GetActionForGoingAroundParty(MobileParty owner, MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isFromPort)
 ```
 
-**Purpose:** get action for going around party.
+**Purpose:** **Purpose:** Reads and returns the action for going around party value held by the this instance.
 
 ### GetActionForDefendingSettlement
 
@@ -75,7 +75,7 @@ public static void GetActionForGoingAroundParty(MobileParty owner, MobileParty m
 public static void GetActionForDefendingSettlement(MobileParty owner, Settlement settlement, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**Purpose:** get action for defending settlement.
+**Purpose:** **Purpose:** Reads and returns the action for defending settlement value held by the this instance.
 
 ### GetActionForEscortingParty
 
@@ -83,7 +83,7 @@ public static void GetActionForDefendingSettlement(MobileParty owner, Settlement
 public static void GetActionForEscortingParty(MobileParty owner, MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isFromPort, bool isTargetingPort)
 ```
 
-**Purpose:** get action for escorting party.
+**Purpose:** **Purpose:** Reads and returns the action for escorting party value held by the this instance.
 
 ### GetActionForMovingToNearestLand
 
@@ -91,7 +91,7 @@ public static void GetActionForEscortingParty(MobileParty owner, MobileParty mob
 public static void GetActionForMovingToNearestLand(MobileParty owner, Settlement settlement)
 ```
 
-**Purpose:** get action for moving to nearest land.
+**Purpose:** **Purpose:** Reads and returns the action for moving to nearest land value held by the this instance.
 
 ## Usage Example
 

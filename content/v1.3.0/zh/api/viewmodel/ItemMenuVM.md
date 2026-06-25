@@ -43,7 +43,7 @@ description: "ItemMenuVM 的自动生成类参考。"
 ### SetItem
 `public void SetItem(SPItemVM item, int currentEquipmentMode, ItemVM comparedItem = null, BasicCharacterObject character = null, int alternativeUsageIndex = 0)`
 
-**用途 / Purpose:** 为 「item」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 item 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemMenuVM 实例
@@ -54,7 +54,7 @@ itemMenuVM.SetItem(item, 0, null, null, 0);
 ### SetTransactionCost
 `public void SetTransactionCost(int getItemTotalPrice, int maxIndividualPrice)`
 
-**用途 / Purpose:** 为 「transaction cost」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 transaction cost 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemMenuVM 实例

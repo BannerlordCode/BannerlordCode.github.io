@@ -29,7 +29,7 @@ Treat `NativeTelemetryManager` as a Manager-style extension point: first identif
 ### GetTelemetryLevelMask
 `public TelemetryLevelMask GetTelemetryLevelMask()`
 
-**Purpose:** Reads and returns the `telemetry level mask` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the telemetry level mask value held by the this instance.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first
@@ -40,7 +40,7 @@ var result = nativeTelemetryManager.GetTelemetryLevelMask();
 ### StartTelemetryConnection
 `public void StartTelemetryConnection(bool showErrors)`
 
-**Purpose:** Starts the `telemetry connection` flow or state machine.
+**Purpose:** **Purpose:** Starts the telemetry connection flow or state machine.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first
@@ -51,7 +51,7 @@ nativeTelemetryManager.StartTelemetryConnection(false);
 ### StopTelemetryConnection
 `public void StopTelemetryConnection()`
 
-**Purpose:** Stops the `telemetry connection` flow or state machine.
+**Purpose:** **Purpose:** Stops the telemetry connection flow or state machine.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first
@@ -62,7 +62,7 @@ nativeTelemetryManager.StopTelemetryConnection();
 ### BeginTelemetryScopeInternal
 `public void BeginTelemetryScopeInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginTelemetryScopeInternal logic.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first
@@ -73,7 +73,7 @@ nativeTelemetryManager.BeginTelemetryScopeInternal(levelMask, "example");
 ### EndTelemetryScopeInternal
 `public void EndTelemetryScopeInternal()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndTelemetryScopeInternal logic.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first
@@ -84,7 +84,7 @@ nativeTelemetryManager.EndTelemetryScopeInternal();
 ### BeginTelemetryScopeBaseLevelInternal
 `public void BeginTelemetryScopeBaseLevelInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the BeginTelemetryScopeBaseLevelInternal logic.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first
@@ -95,7 +95,7 @@ nativeTelemetryManager.BeginTelemetryScopeBaseLevelInternal(levelMask, "example"
 ### EndTelemetryScopeBaseLevelInternal
 `public void EndTelemetryScopeBaseLevelInternal()`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the EndTelemetryScopeBaseLevelInternal logic.
 
 ```csharp
 // Obtain an instance of NativeTelemetryManager from the subsystem API first

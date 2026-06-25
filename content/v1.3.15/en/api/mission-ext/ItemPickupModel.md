@@ -23,7 +23,7 @@ Treat `ItemPickupModel` as a Model-style extension point: first identify who cre
 ### GetItemScoreForAgent
 `public abstract float GetItemScoreForAgent(SpawnedItemEntity item, Agent agent)`
 
-**Purpose:** Reads and returns the `item score for agent` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the item score for agent value held by the this instance.
 
 ```csharp
 // Obtain an instance of ItemPickupModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = itemPickupModel.GetItemScoreForAgent(item, agent);
 ### IsItemAvailableForAgent
 `public abstract bool IsItemAvailableForAgent(SpawnedItemEntity item, Agent agent, EquipmentIndex slotToPickUp)`
 
-**Purpose:** Determines whether the current object is in the `item available for agent` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the item available for agent state or condition.
 
 ```csharp
 // Obtain an instance of ItemPickupModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = itemPickupModel.IsItemAvailableForAgent(item, agent, slotToPickUp);
 ### IsAgentEquipmentSuitableForPickUpAvailability
 `public abstract bool IsAgentEquipmentSuitableForPickUpAvailability(Agent agent)`
 
-**Purpose:** Determines whether the current object is in the `agent equipment suitable for pick up availability` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the agent equipment suitable for pick up availability state or condition.
 
 ```csharp
 // Obtain an instance of ItemPickupModel from the subsystem API first

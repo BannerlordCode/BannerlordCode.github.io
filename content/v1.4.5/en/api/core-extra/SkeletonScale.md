@@ -34,7 +34,7 @@ Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect it
 ### Deserialize
 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
 
-**Purpose:** Restores the current object from serialized data.
+**Purpose:** **Purpose:** Restores the this instance from serialized data.
 
 ```csharp
 // Obtain an instance of SkeletonScale from the subsystem API first
@@ -45,7 +45,7 @@ skeletonScale.Deserialize(objectManager, node);
 ### SetBoneIndices
 `public void SetBoneIndices(sbyte boneIndices)`
 
-**Purpose:** Assigns a new value to `bone indices` and updates the object's internal state.
+**Purpose:** **Purpose:** Assigns a new value to bone indices and updates the object's internal state.
 
 ```csharp
 // Obtain an instance of SkeletonScale from the subsystem API first

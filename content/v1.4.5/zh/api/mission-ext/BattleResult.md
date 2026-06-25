@@ -33,7 +33,7 @@ description: "BattleResult 的自动生成类参考。"
 ### AddOrUpdatePlayerEntry
 `public void AddOrUpdatePlayerEntry(PlayerId playerId, int teamNo, string gameMode, Guid party, int overriddenInitialPlayTime = -1)`
 
-**用途 / Purpose:** 将 「or update player entry」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 or update player entry 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResult 实例
@@ -44,7 +44,7 @@ battleResult.AddOrUpdatePlayerEntry(playerId, 0, "example", party, 0);
 ### TryGetPlayerEntry
 `public bool TryGetPlayerEntry(PlayerId playerId, out BattlePlayerEntry battlePlayerEntry)`
 
-**用途 / Purpose:** 尝试获取 「get player entry」 的值，通常通过 out 参数返回是否成功。
+**用途 / Purpose:** **用途 / Purpose:** 尝试获取 get player entry 的值，通常通过 out 参数返回是否成功。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResult 实例
@@ -55,7 +55,7 @@ var result = battleResult.TryGetPlayerEntry(playerId, battlePlayerEntry);
 ### HandlePlayerDisconnect
 `public void HandlePlayerDisconnect(PlayerId playerId)`
 
-**用途 / Purpose:** 执行与 「player disconnect」 相关的响应逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 执行与 player disconnect 相关的响应逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResult 实例
@@ -66,7 +66,7 @@ battleResult.HandlePlayerDisconnect(playerId);
 ### DebugPrint
 `public void DebugPrint()`
 
-**用途 / Purpose:** 处理与 「debug print」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 DebugPrint 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResult 实例
@@ -77,7 +77,7 @@ battleResult.DebugPrint();
 ### SetBattleFinished
 `public void SetBattleFinished(int winnerTeamNo, bool isPremadeGame, PremadeGameType premadeGameType)`
 
-**用途 / Purpose:** 为 「battle finished」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 battle finished 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResult 实例
@@ -88,7 +88,7 @@ battleResult.SetBattleFinished(0, false, premadeGameType);
 ### SetBattleCancelled
 `public void SetBattleCancelled()`
 
-**用途 / Purpose:** 为 「battle cancelled」 赋新值，并同步更新对象内部状态。
+**用途 / Purpose:** **用途 / Purpose:** 为 battle cancelled 赋新值，并同步更新对象内部状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleResult 实例

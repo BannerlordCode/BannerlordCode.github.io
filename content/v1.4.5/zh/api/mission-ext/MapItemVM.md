@@ -32,7 +32,7 @@ description: "MapItemVM 的自动生成类参考。"
 ### UpdateSearchedText
 `public void UpdateSearchedText(string searchedText)`
 
-**用途 / Purpose:** 重新计算并更新 「searched text」 的最新表示。
+**用途 / Purpose:** **用途 / Purpose:** 重新计算并更新 searched text 的最新表示。
 
 ```csharp
 // 先通过子系统 API 拿到 MapItemVM 实例

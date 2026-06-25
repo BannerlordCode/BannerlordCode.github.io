@@ -30,7 +30,7 @@ description: "TooltipBaseVM 的自动生成类参考。"
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipBaseVM 实例
@@ -41,7 +41,7 @@ tooltipBaseVM.OnFinalize();
 ### Tick
 `public virtual void Tick(float dt)`
 
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
+**用途 / Purpose:** **用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipBaseVM 实例

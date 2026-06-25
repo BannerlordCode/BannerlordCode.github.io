@@ -32,7 +32,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### RefreshValues
 `public override void RefreshValues()`
 
-**Purpose:** Keeps the display or cache of `values` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of values in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RefinementVM from the subsystem API first
@@ -43,7 +43,7 @@ refinementVM.RefreshValues();
 ### ExecuteSelectedRefinement
 `public void ExecuteSelectedRefinement(Hero currentCraftingHero)`
 
-**Purpose:** Runs the operation or workflow associated with `selected refinement`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with selected refinement.
 
 ```csharp
 // Obtain an instance of RefinementVM from the subsystem API first
@@ -54,7 +54,7 @@ refinementVM.ExecuteSelectedRefinement(currentCraftingHero);
 ### RefreshRefinementActionsList
 `public void RefreshRefinementActionsList(Hero craftingHero)`
 
-**Purpose:** Keeps the display or cache of `refinement actions list` in sync with the underlying state.
+**Purpose:** **Purpose:** Keeps the display or cache of refinement actions list in sync with the underlying state.
 
 ```csharp
 // Obtain an instance of RefinementVM from the subsystem API first

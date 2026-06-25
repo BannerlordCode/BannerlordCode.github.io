@@ -31,7 +31,7 @@ Start from namespace `TaleWorlds.CampaignSystem.ViewModelCollection.WeaponCrafti
 ### ExecuteSelectTier
 `public void ExecuteSelectTier()`
 
-**Purpose:** Runs the operation or workflow associated with `select tier`.
+**Purpose:** **Purpose:** Runs the operation or workflow associated with select tier.
 
 ```csharp
 // Obtain an instance of TierFilterTypeVM from the subsystem API first

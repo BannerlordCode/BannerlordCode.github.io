@@ -31,7 +31,7 @@ Treat `InventoryEquippedItemControlsBrushWidget` as a Widget-style extension poi
 ### ButtonClickEventHandler
 `public delegate void ButtonClickEventHandler(Widget itemWidget)`
 
-**Purpose:** Performs the operation described by this method.
+**Purpose:** **Purpose:** Executes the ButtonClickEventHandler logic.
 
 ```csharp
 // Obtain an instance of InventoryEquippedItemControlsBrushWidget from the subsystem API first
@@ -42,7 +42,7 @@ inventoryEquippedItemControlsBrushWidget.ButtonClickEventHandler(itemWidget);
 ### ShowPanel
 `public void ShowPanel()`
 
-**Purpose:** Displays the UI or element associated with `panel`.
+**Purpose:** **Purpose:** Displays the UI or element associated with panel.
 
 ```csharp
 // Obtain an instance of InventoryEquippedItemControlsBrushWidget from the subsystem API first
@@ -53,7 +53,7 @@ inventoryEquippedItemControlsBrushWidget.ShowPanel();
 ### HidePanel
 `public void HidePanel()`
 
-**Purpose:** Hides the UI or element associated with `panel`.
+**Purpose:** **Purpose:** Hides the UI or element associated with panel.
 
 ```csharp
 // Obtain an instance of InventoryEquippedItemControlsBrushWidget from the subsystem API first

@@ -19,7 +19,7 @@ ChangeRomanticStateAction is a set of static methods that trigger "ChangeRomanti
 public static void Apply(Hero person1, Hero person2, Romance.RomanceLevelEnum toWhat)
 ```
 
-**Purpose:** .
+**Purpose:** **Purpose:** Applies the this instance's effect to its target.
 
 ## Usage Example
 

@@ -32,7 +32,7 @@ description: "MPArmoryCosmeticCategoryBaseVM 的自动生成类参考。"
 ### MPArmoryCosmeticCategoryBaseVM
 `public unsafe MPArmoryCosmeticCategoryBaseVM(CosmeticType cosmeticType)`
 
-**用途 / Purpose:** 处理与 「mp armory cosmetic category base vm」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 MPArmoryCosmeticCategoryBaseVM 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
@@ -43,7 +43,7 @@ var result = mPArmoryCosmeticCategoryBaseVM.MPArmoryCosmeticCategoryBaseVM(cosme
 ### RefreshValues
 `public override void RefreshValues()`
 
-**用途 / Purpose:** 使 「values」 的显示或缓存与底层状态保持一致。
+**用途 / Purpose:** **用途 / Purpose:** 使 values 的显示或缓存与底层状态保持一致。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
@@ -54,7 +54,7 @@ mPArmoryCosmeticCategoryBaseVM.RefreshValues();
 ### OnFinalize
 `public override void OnFinalize()`
 
-**用途 / Purpose:** 在 「finalize」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 finalize 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例
@@ -65,7 +65,7 @@ mPArmoryCosmeticCategoryBaseVM.OnFinalize();
 ### Sort
 `public void Sort(MPArmoryCosmeticsVM.CosmeticItemComparer comparer)`
 
-**用途 / Purpose:** 对当前对象中的内容进行排序。
+**用途 / Purpose:** **用途 / Purpose:** 对当前对象中的内容进行排序。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例

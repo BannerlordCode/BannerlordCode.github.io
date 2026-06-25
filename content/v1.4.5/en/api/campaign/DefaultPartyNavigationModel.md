@@ -23,7 +23,7 @@ Treat `DefaultPartyNavigationModel` as a Model-style extension point: first iden
 ### GetEmbarkDisembarkThresholdDistance
 `public override float GetEmbarkDisembarkThresholdDistance()`
 
-**Purpose:** Reads and returns the `embark disembark threshold distance` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the embark disembark threshold distance value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
@@ -34,7 +34,7 @@ var result = defaultPartyNavigationModel.GetEmbarkDisembarkThresholdDistance();
 ### GetInvalidTerrainTypesForNavigationType
 `public override int GetInvalidTerrainTypesForNavigationType(MobileParty.NavigationType navigationType)`
 
-**Purpose:** Reads and returns the `invalid terrain types for navigation type` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the invalid terrain types for navigation type value held by the this instance.
 
 ```csharp
 // Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
@@ -45,7 +45,7 @@ var result = defaultPartyNavigationModel.GetInvalidTerrainTypesForNavigationType
 ### IsTerrainTypeValidForNavigationType
 `public override bool IsTerrainTypeValidForNavigationType(TerrainType terrainType, MobileParty.NavigationType navigationType)`
 
-**Purpose:** Determines whether the current object is in the `terrain type valid for navigation type` state or condition.
+**Purpose:** **Purpose:** Determines whether the this instance is in the terrain type valid for navigation type state or condition.
 
 ```csharp
 // Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
@@ -56,7 +56,7 @@ var result = defaultPartyNavigationModel.IsTerrainTypeValidForNavigationType(ter
 ### HasNavalNavigationCapability
 `public override bool HasNavalNavigationCapability(MobileParty mobileParty)`
 
-**Purpose:** Determines whether the current object already holds `naval navigation capability`.
+**Purpose:** **Purpose:** Determines whether the this instance already holds naval navigation capability.
 
 ```csharp
 // Obtain an instance of DefaultPartyNavigationModel from the subsystem API first
@@ -67,7 +67,7 @@ var result = defaultPartyNavigationModel.HasNavalNavigationCapability(mobilePart
 ### CanPlayerNavigateToPosition
 `public override bool CanPlayerNavigateToPosition(CampaignVec2 vec2, out MobileParty.NavigationType navigationType)`
 
-**Purpose:** Checks whether the current object meets the preconditions for `player navigate to position`.
+**Purpose:** **Purpose:** Checks whether the this instance meets the preconditions for player navigate to position.
 
 ```csharp
 // Obtain an instance of DefaultPartyNavigationModel from the subsystem API first

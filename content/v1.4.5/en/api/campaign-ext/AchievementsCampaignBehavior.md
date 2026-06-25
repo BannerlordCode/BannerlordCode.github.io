@@ -23,7 +23,7 @@ Start from namespace `StoryMode.GameComponents.CampaignBehaviors` to place it in
 ### OnAgentRemoved
 `public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
 
-**Purpose:** Invoked when the `agent removed` event is raised.
+**Purpose:** **Purpose:** Invoked when the agent removed event is raised.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
@@ -34,7 +34,7 @@ achievementsCampaignBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentS
 ### OnScoreHit
 `public override void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
 
-**Purpose:** Invoked when the `score hit` event is raised.
+**Purpose:** **Purpose:** Invoked when the score hit event is raised.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
@@ -45,7 +45,7 @@ achievementsCampaignBehavior.OnScoreHit(affectedAgent, affectorAgent, attackerWe
 ### SyncData
 `public override void SyncData(IDataStore dataStore)`
 
-**Purpose:** Synchronizes `data` across the relevant contexts or systems.
+**Purpose:** **Purpose:** Synchronizes data across the relevant contexts or systems.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
@@ -56,7 +56,7 @@ achievementsCampaignBehavior.SyncData(dataStore);
 ### RegisterEvents
 `public override void RegisterEvents()`
 
-**Purpose:** Registers `events` with the current system so it can later be observed or dispatched.
+**Purpose:** **Purpose:** Registers events with the current system so it can later be observed or dispatched.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
@@ -67,7 +67,7 @@ achievementsCampaignBehavior.RegisterEvents();
 ### CheckAchievementSystemActivity
 `public bool CheckAchievementSystemActivity(out TextObject reason)`
 
-**Purpose:** Verifies whether `achievement system activity` holds true for the current object.
+**Purpose:** **Purpose:** Verifies whether achievement system activity holds true for the this instance.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
@@ -78,7 +78,7 @@ var result = achievementsCampaignBehavior.CheckAchievementSystemActivity(reason)
 ### OnRadagosDuelWon
 `public void OnRadagosDuelWon()`
 
-**Purpose:** Invoked when the `radagos duel won` event is raised.
+**Purpose:** **Purpose:** Invoked when the radagos duel won event is raised.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first
@@ -89,7 +89,7 @@ achievementsCampaignBehavior.OnRadagosDuelWon();
 ### DeactivateAchievements
 `public void DeactivateAchievements(TextObject reason = null, bool showMessage = true, bool temporarily = false)`
 
-**Purpose:** Deactivates the resource, state, or feature associated with `achievements`.
+**Purpose:** **Purpose:** Deactivates the resource, state, or feature associated with achievements.
 
 ```csharp
 // Obtain an instance of AchievementsCampaignBehavior from the subsystem API first

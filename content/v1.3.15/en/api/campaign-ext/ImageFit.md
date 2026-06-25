@@ -33,7 +33,7 @@ Start from namespace `TaleWorlds.GauntletUI` to place it in the stack, then insp
 ### GetFittedRectangle
 `public ImageFitResult GetFittedRectangle(in Vector2 containerSize, in Vector2 imageSize)`
 
-**Purpose:** Reads and returns the `fitted rectangle` value held by the current object.
+**Purpose:** **Purpose:** Reads and returns the fitted rectangle value held by the this instance.
 
 ```csharp
 // Obtain an instance of ImageFit from the subsystem API first

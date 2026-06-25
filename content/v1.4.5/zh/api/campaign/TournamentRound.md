@@ -31,7 +31,7 @@ description: "TournamentRound 的自动生成类参考。"
 ### OnMatchEnded
 `public void OnMatchEnded()`
 
-**用途 / Purpose:** 在 「match ended」 事件触发时调用此回调。
+**用途 / Purpose:** **用途 / Purpose:** 在 match ended 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRound 实例
@@ -42,7 +42,7 @@ tournamentRound.OnMatchEnded();
 ### EndMatch
 `public void EndMatch()`
 
-**用途 / Purpose:** 处理与 「end match」 相关的逻辑。
+**用途 / Purpose:** **用途 / Purpose:** 调用 EndMatch 对应的操作。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRound 实例
@@ -53,7 +53,7 @@ tournamentRound.EndMatch();
 ### AddParticipant
 `public void AddParticipant(TournamentParticipant participant, bool firstTime = false)`
 
-**用途 / Purpose:** 将 「participant」 添加到当前容器或状态中。
+**用途 / Purpose:** **用途 / Purpose:** 将 participant 添加到当前容器或状态中。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentRound 实例

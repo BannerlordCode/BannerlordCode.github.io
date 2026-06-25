@@ -34,7 +34,7 @@ description: "GameAxisKey 的自动生成类参考。"
 ### GetAxisState
 `public float GetAxisState(bool isKeysAllowed, bool isMouseButtonAllowed, bool isMouseWheelAllowed, bool isControllerAllowed)`
 
-**用途 / Purpose:** 读取并返回当前对象中 「axis state」 的结果。
+**用途 / Purpose:** **用途 / Purpose:** 读取并返回当前对象中 axis state 的结果。
 
 ```csharp
 // 先通过子系统 API 拿到 GameAxisKey 实例
@@ -45,7 +45,7 @@ var result = gameAxisKey.GetAxisState(false, false, false, false);
 ### ToString
 `public override string ToString()`
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+**用途 / Purpose:** **用途 / Purpose:** 返回当前对象的人类可读字符串表示。
 
 ```csharp
 // 先通过子系统 API 拿到 GameAxisKey 实例

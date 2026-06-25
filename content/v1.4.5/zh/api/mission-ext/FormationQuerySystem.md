@@ -30,7 +30,7 @@ description: "FormationQuerySystem 的自动生成类参考。"
 ### EvaluateAllPreliminaryQueryData
 `public void EvaluateAllPreliminaryQueryData()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「evaluate all preliminary query data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -41,7 +41,7 @@ formationQuerySystem.EvaluateAllPreliminaryQueryData();
 ### ForceExpireCavalryUnitRatio
 `public void ForceExpireCavalryUnitRatio()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force expire cavalry unit ratio」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -52,7 +52,7 @@ formationQuerySystem.ForceExpireCavalryUnitRatio();
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「expire」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例
@@ -63,7 +63,7 @@ formationQuerySystem.Expire();
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「expire after unit add remove」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FormationQuerySystem 实例

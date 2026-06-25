@@ -61,7 +61,7 @@ kingdomPoliciesVM.RefreshValues();
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select policy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomPoliciesVM 实例

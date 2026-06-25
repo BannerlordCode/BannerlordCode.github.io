@@ -63,7 +63,7 @@ visualOrder.ExecuteOrder(orderController, executionParameters);
 ### BeforeExecuteOrder
 `public virtual void BeforeExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「execute order」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrder 实例
@@ -74,7 +74,7 @@ visualOrder.BeforeExecuteOrder(orderController, executionParameters);
 ### AfterExecuteOrder
 `public virtual void AfterExecuteOrder(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「execute order」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VisualOrder 实例

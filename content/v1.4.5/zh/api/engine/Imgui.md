@@ -23,7 +23,7 @@ description: "Imgui 的自动生成类参考。"
 ### BeginMainThreadScope
 `public static void BeginMainThreadScope()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin main thread scope」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Imgui.BeginMainThreadScope();
 ### EndMainThreadScope
 `public static void EndMainThreadScope()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end main thread scope」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Imgui.EndMainThreadScope();
 ### PushStyleColor
 `public static void PushStyleColor(ColorStyle style, ref Vec3 color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「push style color」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Imgui.PushStyleColor(style, color);
 ### PopStyleColor
 `public static void PopStyleColor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pop style color」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Imgui.PopStyleColor();
 ### NewFrame
 `public static void NewFrame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「new frame」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Imgui.NewFrame();
 ### Render
 `public static void Render()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ Imgui.Render();
 ### Begin
 `public static void Begin(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ Imgui.Begin("example");
 ### Begin
 `public static void Begin(string text, ref bool is_open)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ Imgui.Begin("example", is_open);
 ### End
 `public static void End()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ Imgui.End();
 ### Text
 `public static void Text(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「text」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ Imgui.Checkbox("example", is_checked);
 ### TreeNode
 `public static bool TreeNode(string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tree node」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ Imgui.TreeNode("example");
 ### TreePop
 `public static void TreePop()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tree pop」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ Imgui.TreePop();
 ### Separator
 `public static void Separator()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「separator」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ Imgui.Separator();
 ### Button
 `public static bool Button(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「button」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ Imgui.Button("example");
 ### PlotLines
 `public static void PlotLines(string name, float values, int valuesCount, int valuesOffset, string overlayText, float minScale, float maxScale, float graphWidth, float graphHeight, int stride)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「plot lines」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ Imgui.PlotLines("example", 0, 0, 0, "example", 0, 0, 0, 0, 0);
 ### ProgressBar
 `public static void ProgressBar(float progress)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「progress bar」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ Imgui.ProgressBar(0);
 ### NewLine
 `public static void NewLine()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「new line」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ Imgui.NewLine();
 ### SameLine
 `public static void SameLine(float posX = 0f, float spacingWidth = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「same line」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ Imgui.SameLine(0, 0);
 ### Combo
 `public static bool Combo(string label, ref int selectedIndex, string items)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「combo」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ Imgui.Combo("example", selectedIndex, "example");
 ### ComboCustomSeperator
 `public static bool ComboCustomSeperator(string label, ref int selectedIndex, string items, char seperator)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「combo custom seperator」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -233,7 +233,7 @@ Imgui.ComboCustomSeperator("example", selectedIndex, "example", seperator);
 ### InputInt
 `public static bool InputInt(string label, ref int value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -243,7 +243,7 @@ Imgui.InputInt("example", value);
 ### SliderFloat
 `public static bool SliderFloat(string label, ref float value, float min, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「slider float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ Imgui.SliderFloat("example", value, 0, 0);
 ### Columns
 `public static void Columns(int count = 1, string id = "", bool border = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「columns」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -263,7 +263,7 @@ Imgui.Columns(0, "example", false);
 ### NextColumn
 `public static void NextColumn()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next column」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -273,7 +273,7 @@ Imgui.NextColumn();
 ### RadioButton
 `public static bool RadioButton(string label, bool active)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「radio button」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -283,7 +283,7 @@ Imgui.RadioButton("example", false);
 ### CollapsingHeader
 `public static bool CollapsingHeader(string label)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collapsing header」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -313,7 +313,7 @@ Imgui.SetTooltip("example");
 ### SmallButton
 `public static bool SmallButton(string label)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「small button」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -323,7 +323,7 @@ Imgui.SmallButton("example");
 ### InputFloat
 `public static bool InputFloat(string label, ref float val, float step, float stepFast, int decimalPrecision = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -333,7 +333,7 @@ Imgui.InputFloat("example", val, 0, 0, 0);
 ### InputText
 `public static bool InputText(string label, ref string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input text」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -343,7 +343,7 @@ Imgui.InputText("example", text);
 ### InputTextMultilineCopyPaste
 `public static bool InputTextMultilineCopyPaste(string label, int textBoxHeight, ref string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input text multiline copy paste」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -353,7 +353,7 @@ Imgui.InputTextMultilineCopyPaste("example", 0, text);
 ### InputFloat2
 `public static bool InputFloat2(string label, ref float val0, ref float val1, int decimalPrecision = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input float2」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -363,7 +363,7 @@ Imgui.InputFloat2("example", val0, val1, 0);
 ### InputFloat3
 `public static bool InputFloat3(string label, ref float val0, ref float val1, ref float val2, int decimalPrecision = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input float3」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -373,7 +373,7 @@ Imgui.InputFloat3("example", val0, val1, val2, 0);
 ### InputFloat4
 `public static bool InputFloat4(string label, ref float val0, ref float val1, ref float val2, ref float val3, int decimalPrecision = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「input float4」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

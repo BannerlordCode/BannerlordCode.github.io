@@ -29,7 +29,7 @@ description: "MultiSelectionElementsWidget 的自动生成类参考。"
 ### MultiSelectionElementsWidget
 `public class MultiSelectionElementsWidget(UIContext context)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「multi selection elements widget」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiSelectionElementsWidget 实例

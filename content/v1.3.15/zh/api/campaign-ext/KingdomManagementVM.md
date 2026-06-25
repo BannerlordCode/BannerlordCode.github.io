@@ -100,7 +100,7 @@ kingdomManagementVM.ExecuteClose();
 ### SelectArmy
 `public void SelectArmy(Army army)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select army」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例
@@ -111,7 +111,7 @@ kingdomManagementVM.SelectArmy(army);
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例
@@ -122,7 +122,7 @@ kingdomManagementVM.SelectSettlement(settlement);
 ### SelectClan
 `public void SelectClan(Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例
@@ -133,7 +133,7 @@ kingdomManagementVM.SelectClan(clan);
 ### SelectPolicy
 `public void SelectPolicy(PolicyObject policy)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select policy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例
@@ -144,7 +144,7 @@ kingdomManagementVM.SelectPolicy(policy);
 ### SelectKingdom
 `public void SelectKingdom(Kingdom kingdom)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select kingdom」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例
@@ -155,7 +155,7 @@ kingdomManagementVM.SelectKingdom(kingdom);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select previous category」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例
@@ -166,7 +166,7 @@ kingdomManagementVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select next category」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManagementVM 实例

@@ -47,4 +47,4 @@ SellPrisonersAction.ApplyForAllPrisoners(sellerParty, buyerParty);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

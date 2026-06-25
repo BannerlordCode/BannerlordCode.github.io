@@ -64,7 +64,7 @@ var result = fleeBehavior.GetAvailability(false);
 ### TargetReached
 `public abstract void TargetReached()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -75,7 +75,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public abstract void GoToTarget()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -108,7 +108,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -141,7 +141,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -152,7 +152,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -185,7 +185,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -196,7 +196,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -229,7 +229,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -240,7 +240,7 @@ fleeBehavior.TargetReached();
 ### GoToTarget
 `public override void GoToTarget()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例
@@ -273,7 +273,7 @@ var result = fleeBehavior.IsGoalAchieved();
 ### TargetReached
 `public override void TargetReached()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「target reached」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FleeBehavior 实例

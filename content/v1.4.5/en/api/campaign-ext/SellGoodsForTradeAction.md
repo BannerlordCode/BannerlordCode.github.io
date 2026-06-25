@@ -31,4 +31,4 @@ SellGoodsForTradeAction.ApplyByVillagerTrade(settlement, villagerParty);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

@@ -56,7 +56,7 @@ stealthAreaUsePoint.OnUseStopped(userAgent, false, 0);
 ### DisableAgentAIs
 `public void DisableAgentAIs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable agent a is」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -89,7 +89,7 @@ var result = stealthAreaUsePoint.IsUsableByAgent(userAgent);
 ### EnableStealthAreaUsePoint
 `public void EnableStealthAreaUsePoint()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable stealth area use point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例
@@ -100,7 +100,7 @@ stealthAreaUsePoint.EnableStealthAreaUsePoint();
 ### DisableStealthAreaUsePoint
 `public void DisableStealthAreaUsePoint()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable stealth area use point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthAreaUsePoint 实例

@@ -111,7 +111,7 @@ battleServer.OnDisconnected();
 ### BeginEndMission
 `public void BeginEndMission()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin end mission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -122,7 +122,7 @@ battleServer.BeginEndMission();
 ### EndMission
 `public void EndMission(BattleResult battleResult, GameLog gameLogs, int gameTime, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end mission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -133,7 +133,7 @@ battleServer.EndMission(battleResult, gameLogs, 0, dictionary<int, 0, dictionary
 ### BattleCancelledForPlayerLeaving
 `public void BattleCancelledForPlayerLeaving(PlayerId leaverID)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「battle cancelled for player leaving」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -144,7 +144,7 @@ battleServer.BattleCancelledForPlayerLeaving(leaverID);
 ### BattleStarted
 `public void BattleStarted(BattleResult battleResult)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「battle started」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -166,7 +166,7 @@ battleServer.UpdateBattleStats(battleResult, dictionary<int, 0);
 ### DoNotAcceptNewPlayers
 `public void DoNotAcceptNewPlayers()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do not accept new players」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -243,7 +243,7 @@ battleServer.HandlePlayerDisconnect(playerId, disconnectType, battleResult);
 ### InformGameServerReady
 `public void InformGameServerReady()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inform game server ready」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例
@@ -276,7 +276,7 @@ battleServer.OnFriendlyKill(0, killer, victim);
 ### AllPlayersConnected
 `public bool AllPlayersConnected()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「all players connected」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleServer 实例

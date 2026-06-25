@@ -143,7 +143,7 @@ sceneView.SetPostfxFromConfig();
 ### WorldPointToScreenPoint
 `public Vec2 WorldPointToScreenPoint(Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「world point to screen point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -154,7 +154,7 @@ var result = sceneView.WorldPointToScreenPoint(position);
 ### ScreenPointToViewportPoint
 `public Vec2 ScreenPointToViewportPoint(Vec2 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「screen point to viewport point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -165,7 +165,7 @@ var result = sceneView.ScreenPointToViewportPoint(position);
 ### ProjectedMousePositionOnGround
 `public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「projected mouse position on ground」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -176,7 +176,7 @@ var result = sceneView.ProjectedMousePositionOnGround(groundPosition, groundNorm
 ### ProjectedMousePositionOnWater
 `public bool ProjectedMousePositionOnWater(out Vec3 waterPosition, bool mouseVisible)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「projected mouse position on water」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -187,7 +187,7 @@ var result = sceneView.ProjectedMousePositionOnWater(waterPosition, false);
 ### TranslateMouse
 `public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「translate mouse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -231,7 +231,7 @@ sceneView.SetSceneUsesContour(false);
 ### DoNotClear
 `public void DoNotClear(bool value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do not clear」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例
@@ -352,7 +352,7 @@ var result = sceneView.GetScene();
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneView 实例

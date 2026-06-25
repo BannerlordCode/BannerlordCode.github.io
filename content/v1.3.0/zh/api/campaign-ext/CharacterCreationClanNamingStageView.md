@@ -62,7 +62,7 @@ var result = characterCreationClanNamingStageView.GetVirtualStageCount();
 ### NextStage
 `public override void NextStage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
@@ -73,7 +73,7 @@ characterCreationClanNamingStageView.NextStage();
 ### PreviousStage
 `public override void PreviousStage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「previous stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例
@@ -95,7 +95,7 @@ characterCreationClanNamingStageView.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public override void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release escape menu movie」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationClanNamingStageView 实例

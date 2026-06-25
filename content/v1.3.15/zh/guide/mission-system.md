@@ -381,18 +381,18 @@ public class MySubModule : MBSubModuleBase
 
 ## 相关 API / Related API
 
-- [Mission API](../api/mission/Mission/)
-- [MissionBehavior API](../api/mission/MissionBehavior/)
-- [Agent API](../api/mission/Agent/)
-- [Formation API](../api/mission/Formation/)
-- [Team API](../api/mission/Team/)
+- [Mission API](../../api/mission/Mission/)
+- [MissionBehavior API](../../api/mission/MissionBehavior/)
+- [Agent API](../../api/mission/Agent/)
+- [Formation API](../../api/mission/Formation/)
+- [Team API](../../api/mission/Team/)
 
 ---
 
 ## 下一节 / Next Section
 
-- [战役系统](campaign-system/) - 学习 Campaign 世界地图玩法
-- [Gauntlet UI](gauntlet-ui/) - 创建自定义界面
+- [战役系统](../campaign-system/) - 学习 Campaign 世界地图玩法
+- [Gauntlet UI](../gauntlet-ui/) - 创建自定义界面
 
 ## 使用示例
 

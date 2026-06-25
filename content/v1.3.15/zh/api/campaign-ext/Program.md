@@ -30,7 +30,7 @@ description: "Program 的自动生成类参考。"
 ### ExitProgram
 `public static void ExitProgram(int exitCode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「exit program」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ Program.ExitProgram(0);
 ### Log
 `public static void Log(string log)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「log」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

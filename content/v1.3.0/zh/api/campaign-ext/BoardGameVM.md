@@ -61,7 +61,7 @@ boardGameVM.Activate();
 ### DiceRoll
 `public void DiceRoll(int roll)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dice roll」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例
@@ -72,7 +72,7 @@ boardGameVM.DiceRoll(0);
 ### SwitchTurns
 `public void SwitchTurns()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch turns」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameVM 实例

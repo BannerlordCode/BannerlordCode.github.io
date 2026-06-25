@@ -45,7 +45,7 @@ missionNameMarkerProvider.Initialize(mission, onSetMarkersDirty);
 ### Destroy
 `public void Destroy(Mission mission)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionNameMarkerProvider 实例

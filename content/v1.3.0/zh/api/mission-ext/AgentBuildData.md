@@ -73,7 +73,7 @@ description: "AgentBuildData 的自动生成类参考。"
 ### Character
 `public AgentBuildData Character(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -84,7 +84,7 @@ var result = agentBuildData.Character(characterObject);
 ### Controller
 `public AgentBuildData Controller(AgentControllerType controller)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「controller」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -95,7 +95,7 @@ var result = agentBuildData.Controller(controller);
 ### Team
 `public AgentBuildData Team(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -117,7 +117,7 @@ var result = agentBuildData.IsReinforcement(false);
 ### SpawnsIntoOwnFormation
 `public AgentBuildData SpawnsIntoOwnFormation(bool spawnIntoOwnFormation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawns into own formation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -128,7 +128,7 @@ var result = agentBuildData.SpawnsIntoOwnFormation(false);
 ### SpawnsUsingOwnTroopClass
 `public AgentBuildData SpawnsUsingOwnTroopClass(bool spawnUsingOwnTroopClass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawns using own troop class」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -139,7 +139,7 @@ var result = agentBuildData.SpawnsUsingOwnTroopClass(false);
 ### MakeUnitStandOutOfFormationDistance
 `public AgentBuildData MakeUnitStandOutOfFormationDistance(float makeUnitStandOutDistance)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make unit stand out of formation distance」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -205,7 +205,7 @@ var result = agentBuildData.Formation(formation);
 ### Monster
 `public AgentBuildData Monster(Monster monster)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「monster」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -216,7 +216,7 @@ var result = agentBuildData.Monster(monster);
 ### VisualsIndex
 `public AgentBuildData VisualsIndex(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「visuals index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -227,7 +227,7 @@ var result = agentBuildData.VisualsIndex(0);
 ### Equipment
 `public AgentBuildData Equipment(Equipment equipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -238,7 +238,7 @@ var result = agentBuildData.Equipment(equipment);
 ### MissionEquipment
 `public AgentBuildData MissionEquipment(MissionEquipment missionEquipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -249,7 +249,7 @@ var result = agentBuildData.MissionEquipment(missionEquipment);
 ### EquipmentSeed
 `public AgentBuildData EquipmentSeed(int seed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equipment seed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -260,7 +260,7 @@ var result = agentBuildData.EquipmentSeed(0);
 ### NoHorses
 `public AgentBuildData NoHorses(bool noHorses)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「no horses」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -271,7 +271,7 @@ var result = agentBuildData.NoHorses(false);
 ### NoWeapons
 `public AgentBuildData NoWeapons(bool noWeapons)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「no weapons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -282,7 +282,7 @@ var result = agentBuildData.NoWeapons(false);
 ### NoArmor
 `public AgentBuildData NoArmor(bool noArmor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「no armor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -293,7 +293,7 @@ var result = agentBuildData.NoArmor(false);
 ### FixedEquipment
 `public AgentBuildData FixedEquipment(bool fixedEquipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fixed equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -304,7 +304,7 @@ var result = agentBuildData.FixedEquipment(false);
 ### CivilianEquipment
 `public AgentBuildData CivilianEquipment(bool civilianEquipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「civilian equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -315,7 +315,7 @@ var result = agentBuildData.CivilianEquipment(false);
 ### ClothingColor1
 `public AgentBuildData ClothingColor1(uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clothing color1」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -326,7 +326,7 @@ var result = agentBuildData.ClothingColor1(0);
 ### ClothingColor2
 `public AgentBuildData ClothingColor2(uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clothing color2」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -337,7 +337,7 @@ var result = agentBuildData.ClothingColor2(0);
 ### MissionPeer
 `public AgentBuildData MissionPeer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission peer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -348,7 +348,7 @@ var result = agentBuildData.MissionPeer(missionPeer);
 ### OwningMissionPeer
 `public AgentBuildData OwningMissionPeer(MissionPeer missionPeer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「owning mission peer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -359,7 +359,7 @@ var result = agentBuildData.OwningMissionPeer(missionPeer);
 ### BodyProperties
 `public AgentBuildData BodyProperties(BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「body properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -370,7 +370,7 @@ var result = agentBuildData.BodyProperties(bodyProperties);
 ### Age
 `public AgentBuildData Age(int age)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「age」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -381,7 +381,7 @@ var result = agentBuildData.Age(0);
 ### TroopOrigin
 `public AgentBuildData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「troop origin」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -403,7 +403,7 @@ var result = agentBuildData.IsFemale(false);
 ### Race
 `public AgentBuildData Race(int race)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「race」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -414,7 +414,7 @@ var result = agentBuildData.Race(0);
 ### MountKey
 `public AgentBuildData MountKey(string mountKey)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mount key」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -425,7 +425,7 @@ var result = agentBuildData.MountKey("example");
 ### Index
 `public AgentBuildData Index(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -436,7 +436,7 @@ var result = agentBuildData.Index(0);
 ### MountIndex
 `public AgentBuildData MountIndex(int mountIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mount index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -447,7 +447,7 @@ var result = agentBuildData.MountIndex(0);
 ### Banner
 `public AgentBuildData Banner(Banner banner)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「banner」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -458,7 +458,7 @@ var result = agentBuildData.Banner(banner);
 ### BannerItem
 `public AgentBuildData BannerItem(ItemObject bannerItem)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「banner item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例
@@ -469,7 +469,7 @@ var result = agentBuildData.BannerItem(bannerItem);
 ### BannerReplacementWeaponItem
 `public AgentBuildData BannerReplacementWeaponItem(ItemObject weaponItem)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「banner replacement weapon item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBuildData 实例

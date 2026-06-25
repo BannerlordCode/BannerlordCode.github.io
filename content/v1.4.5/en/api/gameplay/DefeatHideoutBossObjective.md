@@ -27,4 +27,4 @@ DefeatHideoutBossObjective instance = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

@@ -52,7 +52,7 @@ secondPhase.TriggerConspiracy();
 ### IncreaseConspiracyStrength
 `public void IncreaseConspiracyStrength()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「increase conspiracy strength」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例
@@ -63,7 +63,7 @@ secondPhase.IncreaseConspiracyStrength();
 ### DecreaseConspiracyStrength
 `public void DecreaseConspiracyStrength(float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decrease conspiracy strength」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SecondPhase 实例

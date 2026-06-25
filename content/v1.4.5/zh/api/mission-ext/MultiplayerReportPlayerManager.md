@@ -23,7 +23,7 @@ description: "MultiplayerReportPlayerManager 的自动生成类参考。"
 ### RequestReportPlayer
 `public static void RequestReportPlayer(string gameId, PlayerId playerId, string playerName, bool isRequestedFromMission)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request report player」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

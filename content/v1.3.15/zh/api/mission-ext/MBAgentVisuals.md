@@ -253,7 +253,7 @@ mBAgentVisuals.SetEntity(value);
 ### FillEntityWithBodyMeshesWithoutAgentVisuals
 `public static void FillEntityWithBodyMeshesWithoutAgentVisuals(GameEntity entity, SkinGenerationParams skinParams, BodyProperties bodyProperties, MetaMesh glovesMesh)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill entity with body meshes without agent visuals」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -428,7 +428,7 @@ mBAgentVisuals.ClearVisualComponents(false);
 ### LazyUpdateAgentRendererData
 `public void LazyUpdateAgentRendererData()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「lazy update agent renderer data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentVisuals 实例
@@ -483,7 +483,7 @@ mBAgentVisuals.AddHorseReinsClothMesh(reinMesh, ropeMesh);
 ### BatchLastLodMeshes
 `public void BatchLastLodMeshes()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「batch last lod meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentVisuals 实例
@@ -549,7 +549,7 @@ mBAgentVisuals.ClearWeaponMeshes(index);
 ### MakeVoice
 `public void MakeVoice(int voiceId, Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make voice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentVisuals 实例
@@ -571,7 +571,7 @@ mBAgentVisuals.SetSetupMorphNode(false);
 ### UseScaledWeapons
 `public void UseScaledWeapons(bool value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use scaled weapons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentVisuals 实例
@@ -604,7 +604,7 @@ var result = mBAgentVisuals.GetFacegenScalingMatrix();
 ### ReplaceMeshWithMesh
 `public void ReplaceMeshWithMesh(MetaMesh oldMetaMesh, MetaMesh newMetaMesh, BodyMeshTypes bodyMeshIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「replace mesh with mesh」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBAgentVisuals 实例

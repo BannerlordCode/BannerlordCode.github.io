@@ -31,4 +31,4 @@ ChangeProductionTypeOfWorkshopAction.Apply(workshop, newWorkshopType, false);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

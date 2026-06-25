@@ -56,7 +56,7 @@ encounterGameMenuBehavior.AddCurrentSettlementAsAlreadySneakedIn();
 ### game_menu_captivity_taken_prisoner_cheat_on_consequence
 `public static void game_menu_captivity_taken_prisoner_cheat_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_captivity_taken_prisoner_cheat_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ EncounterGameMenuBehavior.game_menu_captivity_taken_prisoner_cheat_on_consequenc
 ### game_menu_captivity_castle_taken_prisoner_cont_on_condition
 `public static bool game_menu_captivity_castle_taken_prisoner_cont_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「game_menu_captivity_castle_taken_prisoner_cont_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ EncounterGameMenuBehavior.game_menu_captivity_castle_taken_prisoner_cont_on_cond
 ### menu_sneak_into_town_succeeded_continue_on_consequence
 `public static void menu_sneak_into_town_succeeded_continue_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「menu_sneak_into_town_succeeded_continue_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -86,7 +86,7 @@ EncounterGameMenuBehavior.menu_sneak_into_town_succeeded_continue_on_consequence
 ### menu_sneak_into_town_succeeded_continue_on_condition
 `public static bool menu_sneak_into_town_succeeded_continue_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「menu_sneak_into_town_succeeded_continue_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -96,7 +96,7 @@ EncounterGameMenuBehavior.menu_sneak_into_town_succeeded_continue_on_condition(a
 ### game_menu_sneak_into_town_caught_on_init
 `public static void game_menu_sneak_into_town_caught_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_sneak_into_town_caught_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ EncounterGameMenuBehavior.game_menu_sneak_into_town_caught_on_init(args);
 ### mno_sneak_caught_surrender_on_consequence
 `public static void mno_sneak_caught_surrender_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mno_sneak_caught_surrender_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -116,7 +116,7 @@ EncounterGameMenuBehavior.mno_sneak_caught_surrender_on_consequence(args);
 ### mno_sneak_caught_surrender_on_condition
 `public static bool mno_sneak_caught_surrender_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「mno_sneak_caught_surrender_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -126,7 +126,7 @@ EncounterGameMenuBehavior.mno_sneak_caught_surrender_on_condition(args);
 ### game_menu_captivity_taken_prisoner_cheat_on_condition
 `public static bool game_menu_captivity_taken_prisoner_cheat_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「game_menu_captivity_taken_prisoner_cheat_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -136,7 +136,7 @@ EncounterGameMenuBehavior.game_menu_captivity_taken_prisoner_cheat_on_condition(
 ### game_menu_captivity_castle_taken_prisoner_cont_on_consequence
 `public static void game_menu_captivity_castle_taken_prisoner_cont_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_captivity_castle_taken_prisoner_cont_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -146,7 +146,7 @@ EncounterGameMenuBehavior.game_menu_captivity_castle_taken_prisoner_cont_on_cons
 ### game_request_entry_to_castle_approved_continue_on_consequence
 `public static void game_request_entry_to_castle_approved_continue_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_request_entry_to_castle_approved_continue_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -156,7 +156,7 @@ EncounterGameMenuBehavior.game_request_entry_to_castle_approved_continue_on_cons
 ### game_request_entry_to_castle_approved_continue_on_condition
 `public static bool game_request_entry_to_castle_approved_continue_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「game_request_entry_to_castle_approved_continue_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -166,7 +166,7 @@ EncounterGameMenuBehavior.game_request_entry_to_castle_approved_continue_on_cond
 ### game_request_entry_to_castle_rejected_continue_on_consequence
 `public static void game_request_entry_to_castle_rejected_continue_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_request_entry_to_castle_rejected_continue_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -176,7 +176,7 @@ EncounterGameMenuBehavior.game_request_entry_to_castle_rejected_continue_on_cons
 ### menu_castle_entry_denied_on_init
 `public static void menu_castle_entry_denied_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「menu_castle_entry_denied_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -186,7 +186,7 @@ EncounterGameMenuBehavior.menu_castle_entry_denied_on_init(args);
 ### game_menu_castle_menu_sound_on_init
 `public static void game_menu_castle_menu_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_castle_menu_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

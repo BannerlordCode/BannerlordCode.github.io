@@ -71,7 +71,7 @@ var result = siegeTower.GetGateNavMeshId();
 ### CollectGetDifficultNavmeshIDs
 `public List<int> CollectGetDifficultNavmeshIDs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect get difficult navmesh i ds」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
@@ -82,7 +82,7 @@ var result = siegeTower.CollectGetDifficultNavmeshIDs();
 ### CollectGetDifficultNavmeshIDsForAttackers
 `public List<int> CollectGetDifficultNavmeshIDsForAttackers()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect get difficult navmesh i ds for attackers」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
@@ -93,7 +93,7 @@ var result = siegeTower.CollectGetDifficultNavmeshIDsForAttackers();
 ### CollectGetDifficultNavmeshIDsForDefenders
 `public List<int> CollectGetDifficultNavmeshIDsForDefenders()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect get difficult navmesh i ds for defenders」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
@@ -170,7 +170,7 @@ var result = siegeTower.GetTargetValue(weaponPos);
 ### Disable
 `public override void Disable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
@@ -236,7 +236,7 @@ siegeTower.OnDestroyed(destroyedComponent, destroyerAgent, weapon, attackerScrip
 ### HighlightPath
 `public void HighlightPath()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「highlight path」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
@@ -247,7 +247,7 @@ siegeTower.HighlightPath();
 ### SwitchGhostEntityMovementMode
 `public void SwitchGhostEntityMovementMode(bool isGhostEnabled)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「switch ghost entity movement mode」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例
@@ -291,7 +291,7 @@ siegeTower.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synch
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string pathEntityName, string targetWallSegment, string sideTag, int soilNavMeshID1, int soilNavMeshID2, int ditchNavMeshID1, int ditchNavMeshID2, int groundToSoilNavMeshID1, int groundToSoilNavMeshID2, int soilGenericNavMeshID, int groundGenericNavMeshID, Mat3 openStateRotation, string barrierTagToRemove)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign parameters from spawner」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeTower 实例

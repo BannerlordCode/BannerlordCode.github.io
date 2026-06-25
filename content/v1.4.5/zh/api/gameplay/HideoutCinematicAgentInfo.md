@@ -41,4 +41,4 @@ hideoutCinematicAgentInfo.HasReachedTarget(0);
 
 ## 参见
 
-- [本区域目录](../)
+- [本区域目录](../../)

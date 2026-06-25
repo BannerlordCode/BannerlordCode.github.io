@@ -34,7 +34,7 @@ cPUBenchmarkMissionLogic.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CPUBenchmarkMissionLogic 实例
@@ -78,7 +78,7 @@ cPUBenchmarkMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState
 ### CPUBenchmarkMission
 `public static string CPUBenchmarkMission(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cpu benchmark mission」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -88,7 +88,7 @@ CPUBenchmarkMissionLogic.CPUBenchmarkMission(strings);
 ### CPUBenchmark
 `public static string CPUBenchmark(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cpu benchmark」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -98,7 +98,7 @@ CPUBenchmarkMissionLogic.CPUBenchmark(strings);
 ### BenchmarkStateStart
 `public static string BenchmarkStateStart(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「benchmark state start」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -108,7 +108,7 @@ CPUBenchmarkMissionLogic.BenchmarkStateStart(strings);
 ### BenchmarkStateEnd
 `public static string BenchmarkStateEnd(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「benchmark state end」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

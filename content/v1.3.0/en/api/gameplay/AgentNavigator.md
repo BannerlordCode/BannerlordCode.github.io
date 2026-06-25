@@ -274,4 +274,4 @@ agentNavigator.OnStopUsingGameObject();
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

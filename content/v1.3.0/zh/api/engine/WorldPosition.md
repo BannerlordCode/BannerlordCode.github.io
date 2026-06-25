@@ -186,7 +186,7 @@ worldPosition.SetVec2(value);
 ### DistanceSquaredWithLimit
 `public float DistanceSquaredWithLimit(in Vec3 targetPoint, float limitSquared)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「distance squared with limit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WorldPosition 实例

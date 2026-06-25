@@ -23,7 +23,7 @@ description: "MultiplayerBattleColors 的自动生成类参考。"
 ### MultiplayerCultureColorInfo
 `public readonly struct MultiplayerCultureColorInfo(BasicCultureObject culture, bool swapColors)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「multiplayer culture color info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerBattleColors 实例

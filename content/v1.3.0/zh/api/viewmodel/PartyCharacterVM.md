@@ -174,7 +174,7 @@ partyCharacterVM.OnTransferred();
 ### ThrowOnPropertyChanged
 `public void ThrowOnPropertyChanged()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「throw on property changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -240,7 +240,7 @@ partyCharacterVM.ExecuteResetTrade();
 ### Upgrade
 `public void Upgrade(int upgradeIndex, int maxUpgradeCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「upgrade」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -251,7 +251,7 @@ partyCharacterVM.Upgrade(0, 0);
 ### FocusUpgrade
 `public void FocusUpgrade(UpgradeTargetVM upgrade)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「focus upgrade」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例
@@ -262,7 +262,7 @@ partyCharacterVM.FocusUpgrade(upgrade);
 ### RecruitAll
 `public void RecruitAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「recruit all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyCharacterVM 实例

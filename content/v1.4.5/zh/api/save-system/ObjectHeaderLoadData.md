@@ -58,7 +58,7 @@ objectHeaderLoadData.CreateObject();
 ### AdvancedResolveObject
 `public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「advanced resolve object」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectHeaderLoadData 实例
@@ -69,7 +69,7 @@ objectHeaderLoadData.AdvancedResolveObject(metaData, objectLoadData);
 ### ResolveObject
 `public void ResolveObject()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resolve object」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectHeaderLoadData 实例

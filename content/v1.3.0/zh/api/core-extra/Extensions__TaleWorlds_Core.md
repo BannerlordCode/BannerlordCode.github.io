@@ -23,7 +23,7 @@ description: "Extensions 的自动生成类参考。"
 ### ToHexadecimalString
 `public static string ToHexadecimalString(this uint number)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to hexadecimal string」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Extensions.ToHexadecimalString(number);
 ### Description
 `public static string Description(this Enum value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「description」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Extensions.Description(value);
 ### NextFloat
 `public static float NextFloat(this Random random)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

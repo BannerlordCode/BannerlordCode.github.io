@@ -48,7 +48,7 @@ gameTypeSelectionGroupVM.RefreshValues();
 ### RandomizeAll
 `public void RandomizeAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「randomize all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameTypeSelectionGroupVM 实例

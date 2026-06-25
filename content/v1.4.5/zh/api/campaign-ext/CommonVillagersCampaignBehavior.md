@@ -67,7 +67,7 @@ commonVillagersCampaignBehavior.OnSettlementOwnerChanged(settlement, false, newO
 ### conversation_town_or_village_escort_complete_on_condition
 `public bool conversation_town_or_village_escort_complete_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_town_or_village_escort_complete_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例
@@ -78,7 +78,7 @@ var result = commonVillagersCampaignBehavior.conversation_town_or_village_escort
 ### conversation_town_or_village_escort_complete_on_consequence
 `public void conversation_town_or_village_escort_complete_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_town_or_village_escort_complete_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonVillagersCampaignBehavior 实例

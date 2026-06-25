@@ -43,7 +43,7 @@ var result = squareFormation.Clone(formation);
 ### DeepCopyFrom
 `public override void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deep copy from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -54,7 +54,7 @@ squareFormation.DeepCopyFrom(arrangement);
 ### FormFromBorderSideWidth
 `public void FormFromBorderSideWidth(float borderSideWidth)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「form from border side width」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -65,7 +65,7 @@ squareFormation.FormFromBorderSideWidth(0);
 ### FormFromBorderUnitCountPerSide
 `public void FormFromBorderUnitCountPerSide(int unitCountPerSide)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「form from border unit count per side」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -87,7 +87,7 @@ var result = squareFormation.GetUnitsPerSideFromRankCount(0);
 ### FormFromRankCount
 `public void FormFromRankCount(int rankCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「form from rank count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例
@@ -109,7 +109,7 @@ var result = squareFormation.GetLocalDirectionOfUnitOrDefault(unit);
 ### TurnBackwards
 `public override void TurnBackwards()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「turn backwards」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SquareFormation 实例

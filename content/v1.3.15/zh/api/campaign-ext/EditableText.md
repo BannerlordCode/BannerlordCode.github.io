@@ -46,7 +46,7 @@ editableText.SetCursorPosition(0, false);
 ### BlinkCursor
 `public void BlinkCursor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「blink cursor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EditableText 实例
@@ -79,7 +79,7 @@ editableText.ResetSelected();
 ### BeginSelection
 `public void BeginSelection()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin selection」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EditableText 实例
@@ -123,7 +123,7 @@ editableText.Update(0, spriteData, focusPosition, false, false, false, 0);
 ### SelectAll
 `public void SelectAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EditableText 实例

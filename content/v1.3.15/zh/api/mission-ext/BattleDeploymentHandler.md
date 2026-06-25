@@ -34,7 +34,7 @@ battleDeploymentHandler.OnRemoveBehavior();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例
@@ -45,7 +45,7 @@ battleDeploymentHandler.AfterStart();
 ### AutoDeployTeamUsingDeploymentPlan
 `public override void AutoDeployTeamUsingDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto deploy team using deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例
@@ -56,7 +56,7 @@ battleDeploymentHandler.AutoDeployTeamUsingDeploymentPlan(team);
 ### ForceUpdateAllUnits
 `public override void ForceUpdateAllUnits()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force update all units」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleDeploymentHandler 实例

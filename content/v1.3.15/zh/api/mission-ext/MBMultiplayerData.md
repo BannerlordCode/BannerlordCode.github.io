@@ -109,7 +109,7 @@ MBMultiplayerData.UpdateGameServerInfo("example", "example", "example", "example
 ### GameServerInfoReceivedDelegate
 `public delegate void GameServerInfoReceivedDelegate(CustomBattleId id, string gameServer, string gameModule, string gameType, string map, int currentPlayerCount, int maxPlayerCount, string address, int port)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game server info received delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMultiplayerData 实例

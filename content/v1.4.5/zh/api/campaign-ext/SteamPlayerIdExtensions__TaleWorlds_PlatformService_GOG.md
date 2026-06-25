@@ -23,7 +23,7 @@ description: "SteamPlayerIdExtensions 的自动生成类参考。"
 ### ToPlayerId
 `public static PlayerId ToPlayerId(this GalaxyID galaxyID)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to player id」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ SteamPlayerIdExtensions.ToPlayerId(galaxyID);
 ### ToGOGID
 `public static GalaxyID ToGOGID(this PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to gogid」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

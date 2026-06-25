@@ -69,7 +69,7 @@ playerEncounter.OnLoad();
 ### RestartPlayerEncounter
 `public static void RestartPlayerEncounter(PartyBase defenderParty, PartyBase attackerParty, bool forcePlayerOutFromSettlement = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restart player encounter」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -140,7 +140,7 @@ PlayerEncounter.Start();
 ### ProtectPlayerSide
 `public static void ProtectPlayerSide(float hoursToProtect = 1f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「protect player side」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -160,7 +160,7 @@ PlayerEncounter.Finish(false);
 ### EndBattleByCheat
 `public static void EndBattleByCheat(bool playerWon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end battle by cheat」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -180,7 +180,7 @@ PlayerEncounter.Update();
 ### DoMeeting
 `public static void DoMeeting()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do meeting」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -316,7 +316,7 @@ var result = playerEncounter.CheckIfBattleShouldContinueAfterBattleMission();
 ### FinalizeBattle
 `public void FinalizeBattle()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize battle」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerEncounter 实例
@@ -349,7 +349,7 @@ playerEncounter.FindAllNpcPartiesWhoWillJoinEvent(partiesToJoinPlayerSide, parti
 ### EnterSettlement
 `public static void EnterSettlement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enter settlement」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -359,7 +359,7 @@ PlayerEncounter.EnterSettlement();
 ### LeaveBattle
 `public static void LeaveBattle()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「leave battle」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -369,7 +369,7 @@ PlayerEncounter.LeaveBattle();
 ### LeaveSettlement
 `public static void LeaveSettlement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「leave settlement」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -389,7 +389,7 @@ PlayerEncounter.InitSimulation(selectedTroopsForPlayerSide, selectedTroopsForOth
 ### InterruptEncounter
 `public void InterruptEncounter(string encounterInterrupedType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「interrupt encounter」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerEncounter 实例

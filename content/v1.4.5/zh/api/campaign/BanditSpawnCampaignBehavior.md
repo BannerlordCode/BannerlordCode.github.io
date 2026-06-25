@@ -67,7 +67,7 @@ banditSpawnCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
@@ -89,7 +89,7 @@ var result = banditSpawnCampaignBehavior.AddBanditToHideout(hideoutComponent, nu
 ### SpawnBanditsAroundHideoutAtNewGame
 `public void SpawnBanditsAroundHideoutAtNewGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn bandits around hideout at new game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例
@@ -100,7 +100,7 @@ banditSpawnCampaignBehavior.SpawnBanditsAroundHideoutAtNewGame();
 ### SpawnLootersAtNewGame
 `public void SpawnLootersAtNewGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn looters at new game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例

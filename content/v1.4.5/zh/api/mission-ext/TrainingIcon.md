@@ -73,7 +73,7 @@ var result = trainingIcon.GetTrainingSubTypeTag();
 ### DisableIcon
 `public void DisableIcon()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable icon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingIcon 实例
@@ -84,7 +84,7 @@ trainingIcon.DisableIcon();
 ### EnableIcon
 `public void EnableIcon()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable icon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingIcon 实例

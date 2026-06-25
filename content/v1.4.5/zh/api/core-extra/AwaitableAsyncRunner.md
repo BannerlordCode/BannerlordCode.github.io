@@ -23,7 +23,7 @@ description: "AwaitableAsyncRunner 的自动生成类参考。"
 ### RunAsync
 `public abstract Task RunAsync()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run async」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AwaitableAsyncRunner 实例

@@ -37,7 +37,7 @@ description: "TutorialPhase 的自动生成类参考。"
 ### PlayerTalkedWithBrotherForTheFirstTime
 `public void PlayerTalkedWithBrotherForTheFirstTime()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「player talked with brother for the first time」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例
@@ -59,7 +59,7 @@ tutorialPhase.SetLockTutorialVillageEnter(false);
 ### CompleteTutorial
 `public void CompleteTutorial(bool isSkipped)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete tutorial」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialPhase 实例

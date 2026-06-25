@@ -42,7 +42,7 @@ var result = graphicsForm.CompareRecrangles(rect1, rect2);
 ### DecideWindowPosition
 `public DXGI.RECT DecideWindowPosition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide window position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -53,7 +53,7 @@ var result = graphicsForm.DecideWindowPosition();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -64,7 +64,7 @@ graphicsForm.Destroy();
 ### MinimizeWindow
 `public void MinimizeWindow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「minimize window」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -86,7 +86,7 @@ graphicsForm.InitializeGraphicsContext(resourceDepot);
 ### BeginFrame
 `public void BeginFrame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin frame」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -108,7 +108,7 @@ graphicsForm.Update();
 ### MessageLoop
 `public void MessageLoop()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「message loop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -130,7 +130,7 @@ graphicsForm.UpdateInput(false);
 ### PostRender
 `public void PostRender()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「post render」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -185,7 +185,7 @@ var result = graphicsForm.GetMouseDeltaZ();
 ### LeftMouse
 `public bool LeftMouse()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「left mouse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -196,7 +196,7 @@ var result = graphicsForm.LeftMouse();
 ### LeftMouseDown
 `public bool LeftMouseDown()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「left mouse down」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -207,7 +207,7 @@ var result = graphicsForm.LeftMouseDown();
 ### LeftMouseUp
 `public bool LeftMouseUp()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「left mouse up」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -218,7 +218,7 @@ var result = graphicsForm.LeftMouseUp();
 ### RightMouse
 `public bool RightMouse()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「right mouse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -229,7 +229,7 @@ var result = graphicsForm.RightMouse();
 ### RightMouseDown
 `public bool RightMouseDown()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「right mouse down」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -240,7 +240,7 @@ var result = graphicsForm.RightMouseDown();
 ### RightMouseUp
 `public bool RightMouseUp()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「right mouse up」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -251,7 +251,7 @@ var result = graphicsForm.RightMouseUp();
 ### MousePosition
 `public Vector2 MousePosition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mouse position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -262,7 +262,7 @@ var result = graphicsForm.MousePosition();
 ### MouseMove
 `public bool MouseMove()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mouse move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例
@@ -273,7 +273,7 @@ var result = graphicsForm.MouseMove();
 ### FillInputDataFromCurrent
 `public void FillInputDataFromCurrent(InputData inputData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill input data from current」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsForm 实例

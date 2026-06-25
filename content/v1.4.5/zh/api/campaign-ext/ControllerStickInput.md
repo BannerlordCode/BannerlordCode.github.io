@@ -23,7 +23,7 @@ description: "ControllerStickInput 的自动生成类参考。"
 ### ControllerStickInput
 `public struct ControllerStickInput(MovementTypes movementType, bool isLeftStick)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「controller stick input」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ControllerStickInput 实例

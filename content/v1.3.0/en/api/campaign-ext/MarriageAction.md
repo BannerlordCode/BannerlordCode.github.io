@@ -31,4 +31,4 @@ MarriageAction.Apply(firstHero, secondHero, false);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

@@ -101,7 +101,7 @@ gameStateManager.OnTick(0);
 ### PushState
 `public void PushState(GameState gameState, int level = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「push state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -112,7 +112,7 @@ gameStateManager.PushState(gameState, 0);
 ### PopState
 `public void PopState(int level = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「pop state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -123,7 +123,7 @@ gameStateManager.PopState(0);
 ### CleanAndPushState
 `public void CleanAndPushState(GameState gameState, int level = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「clean and push state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例
@@ -134,7 +134,7 @@ gameStateManager.CleanAndPushState(gameState, 0);
 ### CleanStates
 `public void CleanStates(int level = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clean states」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameStateManager 实例

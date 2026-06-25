@@ -33,7 +33,7 @@ TWParallel.InitializeAndSetImplementation(parallelDriver);
 ### For
 `public static void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ TWParallel.For(0, 0, body, 0);
 ### For
 `public static void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize = 16)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ TWParallel.For(0, 0, 0, body, 0);
 ### AssertIsMainThread
 `public static void AssertIsMainThread()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert is main thread」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ TWParallel.IsMainThread();
 ### ParallelForAuxPredicate
 `public delegate void ParallelForAuxPredicate(int localStartIndex, int localEndIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parallel for aux predicate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TWParallel 实例
@@ -84,7 +84,7 @@ tWParallel.ParallelForAuxPredicate(0, 0);
 ### ParallelForWithDtAuxPredicate
 `public delegate void ParallelForWithDtAuxPredicate(int localStartIndex, int localEndIndex, float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parallel for with dt aux predicate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TWParallel 实例

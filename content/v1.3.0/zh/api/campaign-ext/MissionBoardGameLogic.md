@@ -37,7 +37,7 @@ description: "MissionBoardGameLogic 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -81,7 +81,7 @@ missionBoardGameLogic.OnMissionTick(0);
 ### DetectOpposingAgent
 `public void DetectOpposingAgent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「detect opposing agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -103,7 +103,7 @@ var result = missionBoardGameLogic.CheckIfBothSidesAreSitting();
 ### PlayerOneWon
 `public void PlayerOneWon(string message = "str_boardgame_victory_message")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「player one won」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -114,7 +114,7 @@ missionBoardGameLogic.PlayerOneWon("example");
 ### PlayerTwoWon
 `public void PlayerTwoWon(string message = "str_boardgame_defeat_message")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「player two won」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -125,7 +125,7 @@ missionBoardGameLogic.PlayerTwoWon("example");
 ### GameWasDraw
 `public void GameWasDraw(string message = "str_boardgame_draw_message")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game was draw」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -147,7 +147,7 @@ missionBoardGameLogic.SetGameOver(gameOverInfo);
 ### ForfeitGame
 `public void ForfeitGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「forfeit game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -158,7 +158,7 @@ missionBoardGameLogic.ForfeitGame();
 ### AIForfeitGame
 `public void AIForfeitGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai forfeit game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -169,7 +169,7 @@ missionBoardGameLogic.AIForfeitGame();
 ### RollDice
 `public void RollDice()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「roll dice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例
@@ -180,7 +180,7 @@ missionBoardGameLogic.RollDice();
 ### RequiresDiceRolling
 `public bool RequiresDiceRolling()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「requires dice rolling」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBoardGameLogic 实例

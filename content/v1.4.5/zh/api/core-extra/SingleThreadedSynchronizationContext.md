@@ -23,7 +23,7 @@ description: "SingleThreadedSynchronizationContext 的自动生成类参考。"
 ### Invoke
 `public void Invoke()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invoke」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
@@ -34,7 +34,7 @@ singleThreadedSynchronizationContext.Invoke();
 ### Send
 `public override void Send(SendOrPostCallback callback, object state)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例
@@ -45,7 +45,7 @@ singleThreadedSynchronizationContext.Send(callback, state);
 ### Post
 `public override void Post(SendOrPostCallback callback, object state)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「post」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SingleThreadedSynchronizationContext 实例

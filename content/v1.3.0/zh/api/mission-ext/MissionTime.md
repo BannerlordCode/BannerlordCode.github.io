@@ -42,7 +42,7 @@ description: "MissionTime 的自动生成类参考。"
 ### MillisecondsFromNow
 `public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「milliseconds from now」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ MissionTime.MillisecondsFromNow(0);
 ### SecondsFromNow
 `public static MissionTime SecondsFromNow(float valueInSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「seconds from now」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ var result = missionTime.CompareTo(other);
 ### Milliseconds
 `public static MissionTime Milliseconds(float valueInMilliseconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「milliseconds」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -116,7 +116,7 @@ MissionTime.Milliseconds(0);
 ### Seconds
 `public static MissionTime Seconds(float valueInSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「seconds」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -126,7 +126,7 @@ MissionTime.Seconds(0);
 ### Minutes
 `public static MissionTime Minutes(float valueInMinutes)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「minutes」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -136,7 +136,7 @@ MissionTime.Minutes(0);
 ### Hours
 `public static MissionTime Hours(float valueInHours)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hours」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

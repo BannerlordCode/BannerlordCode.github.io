@@ -63,7 +63,7 @@ MBExtensions.FindAllWithCompatibleType(missionObjects, types);
 ### CollectChildrenEntitiesWithTag
 `public static List<GameEntity> CollectChildrenEntitiesWithTag(this GameEntity entity, string tag)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect children entities with tag」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBExtensions.CollectChildrenEntitiesWithTag(entity, "example");
 ### CollectChildrenEntitiesWithTag
 `public static List<WeakGameEntity> CollectChildrenEntitiesWithTag(this WeakGameEntity entity, string tag)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect children entities with tag」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

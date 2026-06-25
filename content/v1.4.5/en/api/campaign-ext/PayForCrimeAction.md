@@ -39,4 +39,4 @@ PayForCrimeAction.GetClearCrimeCost(faction, paymentMethod);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

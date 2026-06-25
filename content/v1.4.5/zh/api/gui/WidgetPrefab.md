@@ -54,7 +54,7 @@ var result = widgetPrefab.Save(prefabExtensionContext);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例
@@ -65,7 +65,7 @@ var result = widgetPrefab.Instantiate(widgetCreationData);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetPrefab 实例

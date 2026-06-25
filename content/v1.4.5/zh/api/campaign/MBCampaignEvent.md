@@ -31,7 +31,7 @@ description: "MBCampaignEvent 的自动生成类参考。"
 ### CampaignEventDelegate
 `public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「campaign event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -53,7 +53,7 @@ mBCampaignEvent.AddHandler(gameEventDelegate);
 ### RunHandlers
 `public void RunHandlers(params object delegateParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run handlers」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例
@@ -86,7 +86,7 @@ mBCampaignEvent.CheckUpdate();
 ### DeletePeriodicEvent
 `public void DeletePeriodicEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete periodic event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBCampaignEvent 实例

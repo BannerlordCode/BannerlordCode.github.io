@@ -67,7 +67,7 @@ mBSubModuleBase.OnNewGameCreated(game, initializerObject);
 ### BeginGameStart
 `public virtual void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin game start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -100,7 +100,7 @@ mBSubModuleBase.RegisterSubModuleObjects(false);
 ### AfterRegisterSubModuleObjects
 `public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「register sub module objects」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例
@@ -144,7 +144,7 @@ mBSubModuleBase.OnAfterGameInitializationFinished(game, starterObject);
 ### DoLoading
 `public virtual bool DoLoading(Game game)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do loading」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSubModuleBase 实例

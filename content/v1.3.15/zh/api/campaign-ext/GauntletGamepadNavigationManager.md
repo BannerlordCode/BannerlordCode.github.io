@@ -124,7 +124,7 @@ var result = gauntletGamepadNavigationManager.Compare(x, y);
 ### GainNavigationAfterFrames
 `public void GainNavigationAfterFrames(int frameCount, Func<bool> predicate = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「gain navigation after frames」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletGamepadNavigationManager 实例
@@ -135,7 +135,7 @@ gauntletGamepadNavigationManager.GainNavigationAfterFrames(0, null);
 ### GainNavigationAfterTime
 `public void GainNavigationAfterTime(float seconds, Func<bool> predicate = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「gain navigation after time」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletGamepadNavigationManager 实例

@@ -23,7 +23,7 @@ description: "VillageEventOptionData 的自动生成类参考。"
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「village event option data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageEventOptionData 实例

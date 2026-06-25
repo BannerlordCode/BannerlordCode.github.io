@@ -62,7 +62,7 @@ logger.CheckForFileSize();
 ### ShutDown
 `public void ShutDown()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shut down」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Logger 实例
@@ -73,7 +73,7 @@ logger.ShutDown();
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo = HTMLDebugCategory.General)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Logger 实例
@@ -84,7 +84,7 @@ logger.Print("example", hTMLDebugCategory.General);
 ### Print
 `public void Print(string log, HTMLDebugCategory debugInfo, bool printOnGlobal)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Logger 实例

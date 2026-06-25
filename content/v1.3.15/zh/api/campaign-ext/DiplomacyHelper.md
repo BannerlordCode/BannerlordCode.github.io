@@ -63,7 +63,7 @@ DiplomacyHelper.GetPrisonersOfWarTakenByFaction(capturerFaction, prisonerFaction
 ### DidMainHeroSwornNotToAttackFaction
 `public static bool DidMainHeroSwornNotToAttackFaction(IFaction faction, out TextObject explanation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「did main hero sworn not to attack faction」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -37,7 +37,7 @@ description: "ItemRoster 的自动生成类参考。"
 ### RosterUpdatedEventDelegate
 `public delegate void RosterUpdatedEventDelegate(ItemRosterElement item, int count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「roster updated event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例
@@ -180,7 +180,7 @@ itemRoster.Clear();
 ### RostersAreIdentical
 `public static bool RostersAreIdentical(ItemRoster a, ItemRoster b)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rosters are identical」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -201,7 +201,7 @@ var result = itemRoster.GetEnumerator();
 ### SelectRandomIndex
 `public int SelectRandomIndex(Func<ItemRosterElement, float> weightFunction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select random index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemRoster 实例

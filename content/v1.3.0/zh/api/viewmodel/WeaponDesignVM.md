@@ -119,7 +119,7 @@ weaponDesignVM.SetPieceNewlyUnlocked(piece);
 ### SelectPrimaryWeaponClass
 `public void SelectPrimaryWeaponClass(CraftingTemplate template)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select primary weapon class」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignVM 实例
@@ -229,7 +229,7 @@ weaponDesignVM.ExecuteRedo();
 ### ChangeModeIfHeroIsUnavailable
 `public void ChangeModeIfHeroIsUnavailable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change mode if hero is unavailable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignVM 实例
@@ -284,7 +284,7 @@ weaponDesignVM.ExecuteChangeScabbardVisibility();
 ### SelectWeapon
 `public void SelectWeapon(ItemObject itemObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignVM 实例
@@ -328,7 +328,7 @@ weaponDesignVM.RefreshItem();
 ### HaveUnlockedAllSelectedPieces
 `public bool HaveUnlockedAllSelectedPieces()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「have unlocked all selected pieces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignVM 实例
@@ -339,7 +339,7 @@ var result = weaponDesignVM.HaveUnlockedAllSelectedPieces();
 ### SwitchToPiece
 `public void SwitchToPiece(WeaponDesignElement usedPiece)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch to piece」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeaponDesignVM 实例

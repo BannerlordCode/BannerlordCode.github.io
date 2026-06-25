@@ -45,7 +45,7 @@ var result = archiveConcurrentSerializer.CreateFolder(parentFolder, folderId, 0)
 ### FinalizeAndGetBinaryDataConcurrent
 `public byte FinalizeAndGetBinaryDataConcurrent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize and get binary data concurrent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ArchiveConcurrentSerializer 实例

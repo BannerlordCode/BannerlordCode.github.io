@@ -23,7 +23,7 @@ description: "MonsterExtensions 的自动生成类参考。"
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, float stepSize, bool hasClippingPlane, bool isFemale)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「fill animation system data」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MonsterExtensions.FillAnimationSystemData(monster, 0, false, false);
 ### FillAnimationSystemData
 `public static AnimationSystemData FillAnimationSystemData(this Monster monster, MBActionSet actionSet, float stepSize, bool hasClippingPlane)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「fill animation system data」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MonsterExtensions.FillAnimationSystemData(monster, actionSet, 0, false);
 ### FillCapsuleData
 `public static AgentCapsuleData FillCapsuleData(this Monster monster)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「fill capsule data」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MonsterExtensions.FillCapsuleData(monster);
 ### FillSpawnData
 `public static AgentSpawnData FillSpawnData(this Monster monster, ItemObject mountItem)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「fill spawn data」 数据。
 
 ```csharp
 // 静态调用，不需要实例

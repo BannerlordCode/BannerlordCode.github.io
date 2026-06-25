@@ -118,7 +118,7 @@ AudioData.CalculateTotalLengthInSamples(0, 0, 0);
 ### DoUpdateMembersBasedOnWaveHeader
 `public bool DoUpdateMembersBasedOnWaveHeader(string fullPathToAudioFile, out string errorMessage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do update members based on wave header」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AudioData 实例
@@ -129,7 +129,7 @@ var result = audioData.DoUpdateMembersBasedOnWaveHeader("example", errorMessage)
 ### SeekChunkInWaveHeader
 `public static bool SeekChunkInWaveHeader(ref BinaryReader reader, string chunk)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「seek chunk in wave header」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

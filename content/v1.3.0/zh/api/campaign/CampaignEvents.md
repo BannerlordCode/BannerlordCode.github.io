@@ -871,7 +871,7 @@ campaignEvents.OnRebellionFinished(settlement, oldOwnerClan);
 ### TownRebelliousStateChanged
 `public override void TownRebelliousStateChanged(Town town, bool rebelliousState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「town rebellious state changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1157,7 +1157,7 @@ campaignEvents.OnGameMenuOpened(args);
 ### AfterGameMenuInitialized
 `public override void AfterGameMenuInitialized(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「game menu initialized」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1168,7 +1168,7 @@ campaignEvents.AfterGameMenuInitialized(args);
 ### BeforeGameMenuOpened
 `public override void BeforeGameMenuOpened(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「game menu opened」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1465,7 +1465,7 @@ campaignEvents.OnMissionStarted(mission);
 ### BeforeMissionOpened
 `public override void BeforeMissionOpened()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「mission opened」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1531,7 +1531,7 @@ campaignEvents.OnSettlementLeft(party, settlement);
 ### WeeklyTick
 `public override void WeeklyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「weekly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1542,7 +1542,7 @@ campaignEvents.WeeklyTick();
 ### DailyTick
 `public override void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1553,7 +1553,7 @@ campaignEvents.DailyTick();
 ### DailyTickParty
 `public override void DailyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1564,7 +1564,7 @@ campaignEvents.DailyTickParty(mobileParty);
 ### DailyTickTown
 `public override void DailyTickTown(Town town)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick town」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1575,7 +1575,7 @@ campaignEvents.DailyTickTown(town);
 ### DailyTickSettlement
 `public override void DailyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1586,7 +1586,7 @@ campaignEvents.DailyTickSettlement(settlement);
 ### DailyTickHero
 `public override void DailyTickHero(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick hero」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1597,7 +1597,7 @@ campaignEvents.DailyTickHero(hero);
 ### DailyTickClan
 `public override void DailyTickClan(Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1608,7 +1608,7 @@ campaignEvents.DailyTickClan(clan);
 ### CollectAvailableTutorials
 `public override void CollectAvailableTutorials(ref List<CampaignTutorial> tutorials)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect available tutorials」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1641,7 +1641,7 @@ campaignEvents.OnBuildingLevelChanged(town, building, 0);
 ### HourlyTick
 `public override void HourlyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1652,7 +1652,7 @@ campaignEvents.HourlyTick();
 ### HourlyTickParty
 `public override void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1663,7 +1663,7 @@ campaignEvents.HourlyTickParty(mobileParty);
 ### HourlyTickSettlement
 `public override void HourlyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1674,7 +1674,7 @@ campaignEvents.HourlyTickSettlement(settlement);
 ### HourlyTickClan
 `public override void HourlyTickClan(Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1762,7 +1762,7 @@ campaignEvents.OnGameLoadFinished();
 ### AiHourlyTick
 `public override void AiHourlyTick(MobileParty party, PartyThinkParams partyThinkParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「ai hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1828,7 +1828,7 @@ campaignEvents.OnMissionEnded(mission);
 ### QuarterDailyPartyTick
 `public override void QuarterDailyPartyTick(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「quarter daily party」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1883,7 +1883,7 @@ campaignEvents.OnGivenBirth(mother, aliveChildren, 0);
 ### MissionTick
 `public override void MissionTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「mission」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1927,7 +1927,7 @@ campaignEvents.OnPartyVisibilityChanged(party);
 ### TrackDetected
 `public override void TrackDetected(Track track)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「track detected」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1938,7 +1938,7 @@ campaignEvents.TrackDetected(track);
 ### TrackLost
 `public override void TrackLost(Track track)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「track lost」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1949,7 +1949,7 @@ campaignEvents.TrackLost(track);
 ### LocationCharactersAreReadyToSpawn
 `public override void LocationCharactersAreReadyToSpawn(Dictionary<string, int> unusedUsablePointCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「location characters are ready to spawn」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -1982,7 +1982,7 @@ campaignEvents.OnPlayerAgentSpawned();
 ### LocationCharactersSimulated
 `public override void LocationCharactersSimulated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「location characters simulated」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2477,7 +2477,7 @@ campaignEvents.OnGameOver();
 ### SiegeCompleted
 `public override void SiegeCompleted(Settlement siegeSettlement, MobileParty attackerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「siege completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2488,7 +2488,7 @@ campaignEvents.SiegeCompleted(siegeSettlement, attackerParty, false, battleType)
 ### AfterSiegeCompleted
 `public override void AfterSiegeCompleted(Settlement siegeSettlement, MobileParty attackerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「siege completed」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2499,7 +2499,7 @@ campaignEvents.AfterSiegeCompleted(siegeSettlement, attackerParty, false, battle
 ### SiegeEngineBuilt
 `public override void SiegeEngineBuilt(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngineType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「siege engine built」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2510,7 +2510,7 @@ campaignEvents.SiegeEngineBuilt(siegeEvent, side, siegeEngineType);
 ### RaidCompleted
 `public override void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「raid completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2521,7 +2521,7 @@ campaignEvents.RaidCompleted(winnerSide, raidEvent);
 ### ForceVolunteersCompleted
 `public override void ForceVolunteersCompleted(BattleSideEnum winnerSide, ForceVolunteersEventComponent forceVolunteersEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「force volunteers completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2532,7 +2532,7 @@ campaignEvents.ForceVolunteersCompleted(winnerSide, forceVolunteersEvent);
 ### ForceSuppliesCompleted
 `public override void ForceSuppliesCompleted(BattleSideEnum winnerSide, ForceSuppliesEventComponent forceSuppliesEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「force supplies completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例
@@ -2576,7 +2576,7 @@ campaignEvents.OnNewItemCrafted(itemObject, overriddenItemModifier, false);
 ### CraftingPartUnlocked
 `public override void CraftingPartUnlocked(CraftingPiece craftingPiece)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「crafting part unlocked」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEvents 实例

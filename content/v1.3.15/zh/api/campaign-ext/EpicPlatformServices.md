@@ -63,7 +63,7 @@ var result = epicPlatformServices.Initialize(additionalFriendListServices);
 ### Terminate
 `public void Terminate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「terminate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例
@@ -85,7 +85,7 @@ epicPlatformServices.Tick(0);
 ### QueryDefinitions
 `public void QueryDefinitions()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「query definitions」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EpicPlatformServices 实例

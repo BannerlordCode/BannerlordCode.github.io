@@ -51,7 +51,7 @@ voiceChatHandler.SetReadyOnPlatform();
 ### ProcessVoiceData
 `public bool ProcessVoiceData()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「process voice data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 VoiceChatHandler 实例
@@ -95,7 +95,7 @@ voiceChatHandler.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 VoiceChatHandler 实例

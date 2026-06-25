@@ -36,7 +36,7 @@ description: "RangedSiegeEngine 的自动生成类参考。"
 ### Hold
 `public void Hold()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hold」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeEngine 实例
@@ -47,7 +47,7 @@ rangedSiegeEngine.Hold();
 ### Reload
 `public void Reload()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeEngine 实例

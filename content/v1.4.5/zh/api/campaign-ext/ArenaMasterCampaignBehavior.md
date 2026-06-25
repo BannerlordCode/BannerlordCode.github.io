@@ -67,7 +67,7 @@ arenaMasterCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### conversation_tournament_soon_on_condition
 `public static bool conversation_tournament_soon_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_tournament_soon_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -77,7 +77,7 @@ ArenaMasterCampaignBehavior.conversation_tournament_soon_on_condition();
 ### conversation_arena_join_tournament_on_consequence
 `public static void conversation_arena_join_tournament_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_arena_join_tournament_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -87,7 +87,7 @@ ArenaMasterCampaignBehavior.conversation_arena_join_tournament_on_consequence();
 ### conversation_arena_join_fight_on_consequence
 `public static void conversation_arena_join_fight_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_arena_join_fight_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

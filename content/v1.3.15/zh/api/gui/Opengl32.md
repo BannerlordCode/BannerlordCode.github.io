@@ -23,7 +23,7 @@ description: "Opengl32 的自动生成类参考。"
 ### DrawArrays
 `public static extern void DrawArrays(BeginMode mode, int first, int count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw arrays」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Opengl32.GetInteger(target, 0);
 ### Scissor
 `public static extern void Scissor(int x, int y, int width, int height)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scissor」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Opengl32.GetString(0);
 ### PixelStore
 `public static extern void PixelStore(Target pname, int param)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pixel store」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Opengl32.PixelStore(pname, 0);
 ### PixelZoom
 `public static extern void PixelZoom(float xfactor, float yfactor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pixel zoom」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ Opengl32.CopyPixels(0, 0, 0, 0, type);
 ### DeleteTextures
 `public static extern void DeleteTextures(int n, int textures)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete textures」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ Opengl32.DeleteTextures(0, 0);
 ### BlendFunc
 `public static extern void BlendFunc(BlendingSourceFactor sfactor, BlendingDestinationFactor dfactor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「blend func」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ Opengl32.BlendFunc(sfactor, dfactor);
 ### Viewport
 `public static extern void Viewport(int x, int y, int width, int height)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「viewport」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ Opengl32.Viewport(0, 0, 0, 0);
 ### MultMatrix
 `public static extern void MultMatrix(float matrix)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mult matrix」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ Opengl32.LoadMatrix(matrix);
 ### ColorMaterial
 `public static extern void ColorMaterial(uint face, uint mode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「color material」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ Opengl32.ColorMaterial(0, 0);
 ### TexCoordPointer
 `public static extern void TexCoordPointer(int size, DataType type, int stride, float vertexData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tex coord pointer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ Opengl32.TexCoordPointer(0, type, 0, 0);
 ### VertexPointer
 `public static extern void VertexPointer(int size, DataType type, int stride, float vertexData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「vertex pointer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ Opengl32.VertexPointer(0, type, 0, 0);
 ### NormalPointer
 `public static extern void NormalPointer(DataType type, int stride, float normalData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「normal pointer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ Opengl32.NormalPointer(type, 0, 0);
 ### DrawElements
 `public static extern void DrawElements(BeginMode mode, int count, DataType type, uint indices)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw elements」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ Opengl32.DrawElements(mode, 0, type, 0);
 ### DisableClientState
 `public static extern void DisableClientState(uint array)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「disable client state」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ Opengl32.DisableClientState(0);
 ### EnableClientState
 `public static extern void EnableClientState(uint array)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「enable client state」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -233,7 +233,7 @@ Opengl32.EnableClientState(0);
 ### Translate
 `public static extern void Translate(float x, float y, float z)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「translate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -243,7 +243,7 @@ Opengl32.Translate(0, 0, 0);
 ### Lightfv
 `public static extern void Lightfv(uint light, uint pname, float parameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lightfv」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ Opengl32.Lightfv(0, 0, 0);
 ### Hint
 `public static extern void Hint(uint target, uint mode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hint」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -263,7 +263,7 @@ Opengl32.Hint(0, 0);
 ### MatrixMode
 `public static extern void MatrixMode(MatrixMode mode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「matrix mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -273,7 +273,7 @@ Opengl32.MatrixMode(mode);
 ### DepthFunc
 `public static extern void DepthFunc(uint mode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「depth func」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -283,7 +283,7 @@ Opengl32.DepthFunc(0);
 ### ShadeModel
 `public static extern void ShadeModel(ShadingModel func)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shade model」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -303,7 +303,7 @@ Opengl32.ClearDepth(0);
 ### PopMatrix
 `public static extern void PopMatrix()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pop matrix」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -313,7 +313,7 @@ Opengl32.PopMatrix();
 ### PushMatrix
 `public static extern void PushMatrix()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「push matrix」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -323,7 +323,7 @@ Opengl32.PushMatrix();
 ### Rotate
 `public static extern void Rotate(double angle, double x, double y, double z)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -333,7 +333,7 @@ Opengl32.Rotate(0, 0, 0, 0);
 ### Rotate
 `public static extern void Rotate(float angle, float x, float y, float z)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -343,7 +343,7 @@ Opengl32.Rotate(0, 0, 0, 0);
 ### Scale
 `public static extern void Scale(double x, double y, double z)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -353,7 +353,7 @@ Opengl32.Scale(0, 0, 0);
 ### Scale
 `public static extern void Scale(float x, float y, float z)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -383,7 +383,7 @@ Opengl32.Clear(mask);
 ### Begin
 `public static extern void Begin(BeginMode mode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -393,7 +393,7 @@ Opengl32.Begin(mode);
 ### End
 `public static extern void End()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -403,7 +403,7 @@ Opengl32.End();
 ### Vertex
 `public static extern void Vertex(int x, int y)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「vertex」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -413,7 +413,7 @@ Opengl32.Vertex(0, 0);
 ### Vertex
 `public static extern void Vertex(float x, float y, float z)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「vertex」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -423,7 +423,7 @@ Opengl32.Vertex(0, 0, 0);
 ### Color
 `public static extern void Color(float red, float green, float blue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「color」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -433,7 +433,7 @@ Opengl32.Color(0, 0, 0);
 ### Color
 `public static extern void Color(float red, float green, float blue, float alpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「color」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -453,7 +453,7 @@ Opengl32.ClearColor(0, 0, 0, 0);
 ### TexImage2D
 `public static extern void TexImage2D(Target target, int level, uint internalformat, int width, int height, int border, PixelFormat format, DataType type, IntPtr pixels)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tex image2d」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -463,7 +463,7 @@ Opengl32.TexImage2D(target, 0, 0, 0, 0, 0, format, type, pixels);
 ### TexImage2D
 `public static extern void TexImage2D(Target target, int level, uint internalformat, int width, int height, int border, PixelFormat format, DataType type, byte pixels)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tex image2d」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -473,7 +473,7 @@ Opengl32.TexImage2D(target, 0, 0, 0, 0, 0, format, type, 0);
 ### GenTextures
 `public static extern void GenTextures(int size, ref int textures)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「gen textures」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -483,7 +483,7 @@ Opengl32.GenTextures(0, textures);
 ### BindTexture
 `public static extern void BindTexture(Target target, int texture)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「bind texture」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -493,7 +493,7 @@ Opengl32.BindTexture(target, 0);
 ### Enable
 `public static extern void Enable(Target cap)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -503,7 +503,7 @@ Opengl32.Enable(cap);
 ### Disable
 `public static extern void Disable(Target cap)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -513,7 +513,7 @@ Opengl32.Disable(cap);
 ### TexCoord
 `public static extern void TexCoord(float s, float t)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tex coord」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -523,7 +523,7 @@ Opengl32.TexCoord(0, 0);
 ### TexParameteri
 `public static extern void TexParameteri(Target target, TextureParameterName pname, int param)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tex parameteri」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -543,7 +543,7 @@ Opengl32.GetError();
 ### Flush
 `public static extern void Flush()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「flush」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -563,7 +563,7 @@ Opengl32.Finish();
 ### wglCreateContext
 `public static extern IntPtr wglCreateContext(IntPtr hdc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「wgl create context」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -573,7 +573,7 @@ Opengl32.wglCreateContext(hdc);
 ### wglMakeCurrent
 `public static extern bool wglMakeCurrent(IntPtr hdc, IntPtr hglrc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wgl make current」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -583,7 +583,7 @@ Opengl32.wglMakeCurrent(hdc, hglrc);
 ### wglGetProcAddress
 `public static extern IntPtr wglGetProcAddress(string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wgl get proc address」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -593,7 +593,7 @@ Opengl32.wglGetProcAddress("example");
 ### wglDeleteContext
 `public static extern bool wglDeleteContext(IntPtr hglrc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「wgl delete context」 数据。
 
 ```csharp
 // 静态调用，不需要实例

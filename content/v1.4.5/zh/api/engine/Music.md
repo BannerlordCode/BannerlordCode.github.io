@@ -43,7 +43,7 @@ Music.LoadClip(0, "example");
 ### UnloadClip
 `public static void UnloadClip(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unload clip」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Music.IsClipLoaded(0);
 ### PlayMusic
 `public static void PlayMusic(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play music」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Music.PlayMusic(0);
 ### PlayDelayed
 `public static void PlayDelayed(int index, int deltaMilliseconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play delayed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ Music.IsMusicPlaying(0);
 ### PauseMusic
 `public static void PauseMusic(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause music」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

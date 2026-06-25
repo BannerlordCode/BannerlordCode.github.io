@@ -72,7 +72,7 @@ customBattleCombatant.SetGeneral(generalCharacter);
 ### KillCharacter
 `public void KillCharacter(BasicCharacterObject character)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleCombatant 实例

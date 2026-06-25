@@ -62,7 +62,7 @@ var result = caravansCampaignBehavior.CreateNewLog(boughtSettlement, 0, itemRost
 ### ReleaseLog
 `public void ReleaseLog(TradeActionLog log)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release log」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -117,7 +117,7 @@ caravansCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### SpawnCaravan
 `public void SpawnCaravan(Hero hero, bool initialSpawn = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn caravan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -128,7 +128,7 @@ caravansCampaignBehavior.SpawnCaravan(hero, false);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例
@@ -139,7 +139,7 @@ caravansCampaignBehavior.DailyTick();
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravansCampaignBehavior 实例

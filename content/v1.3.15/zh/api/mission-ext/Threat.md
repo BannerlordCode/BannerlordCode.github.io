@@ -41,7 +41,7 @@ var result = threat.GetHashCode();
 ### ComputeGlobalTargetingBoundingBoxMinMax
 `public ValueTuple<Vec3, Vec3> ComputeGlobalTargetingBoundingBoxMinMax()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute global targeting bounding box min max」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Threat 实例
@@ -74,7 +74,7 @@ var result = threat.Equals(obj);
 ### DisplayDebugInfo
 `public void DisplayDebugInfo()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「display debug info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 Threat 实例

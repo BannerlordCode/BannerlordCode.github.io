@@ -29,7 +29,7 @@ description: "SpawnPathData 的自动生成类参考。"
 ### Invert
 `public SpawnPathData Invert()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invert」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例
@@ -40,7 +40,7 @@ var result = spawnPathData.Invert();
 ### ClampPathOffset
 `public float ClampPathOffset(float pathOffsetRatio)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp path offset」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnPathData 实例

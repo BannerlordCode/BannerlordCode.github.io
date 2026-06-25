@@ -60,7 +60,7 @@ Debug.SetCrashReportCustomStack("example");
 ### Assert
 `public static void Assert(bool condition, string message, string callerFile = "", string callerMethod = "", int callerLine = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ Debug.Assert(false, "example", "example", "example", 0);
 ### FailedAssert
 `public static void FailedAssert(string message, string callerFile = "", string callerMethod = "", int callerLine = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「failed assert」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -80,7 +80,7 @@ Debug.FailedAssert("example", "example", "example", 0);
 ### SilentAssert
 `public static void SilentAssert(bool condition, string message = "", bool getDump = false, string callerFile = "", string callerMethod = "", int callerLine = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「silent assert」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -110,7 +110,7 @@ Debug.ShowWarning("example");
 ### ReportMemoryBookmark
 `public static void ReportMemoryBookmark(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「report memory bookmark」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -120,7 +120,7 @@ Debug.ReportMemoryBookmark("example");
 ### Print
 `public static void Print(string message, int logLevel = 0, DebugColor color = DebugColor.White, ulong debugFilter = 17592186044416uL)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -140,7 +140,7 @@ Debug.ShowMessageBox("example", "example", 0);
 ### PrintWarning
 `public static void PrintWarning(string warning, ulong debugFilter = 17592186044416uL)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print warning」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -150,7 +150,7 @@ Debug.PrintWarning("example", 0);
 ### PrintError
 `public static void PrintError(string error, string stackTrace = null, ulong debugFilter = 17592186044416uL)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print error」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -160,7 +160,7 @@ Debug.PrintError("example", "example", 0);
 ### DisplayDebugMessage
 `public static void DisplayDebugMessage(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「display debug message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -170,7 +170,7 @@ Debug.DisplayDebugMessage("example");
 ### WatchVariable
 `public static void WatchVariable(string name, object value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「watch variable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -210,7 +210,7 @@ Debug.WriteDebugLineOnScreen("example");
 ### RenderDebugLine
 `public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug line」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -220,7 +220,7 @@ Debug.RenderDebugLine(position, direction, 0, false, 0);
 ### RenderDebugLineWithThickness
 `public static void RenderDebugLineWithThickness(Vec3 position, Vec3 direction, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f, int thickness = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug line with thickness」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -230,7 +230,7 @@ Debug.RenderDebugLineWithThickness(position, direction, 0, false, 0, 0);
 ### RenderDebugSphere
 `public static void RenderDebugSphere(Vec3 position, float radius, uint color = uint.MaxValue, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug sphere」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -240,7 +240,7 @@ Debug.RenderDebugSphere(position, 0, 0, false, 0);
 ### RenderDebugFrame
 `public static void RenderDebugFrame(MatrixFrame frame, float lineLength, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug frame」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -250,7 +250,7 @@ Debug.RenderDebugFrame(frame, 0, 0);
 ### RenderDebugText
 `public static void RenderDebugText(float screenX, float screenY, string text, uint color = uint.MaxValue, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug text」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -260,7 +260,7 @@ Debug.RenderDebugText(0, 0, "example", 0, 0);
 ### RenderDebugRectWithColor
 `public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = uint.MaxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug rect with color」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -270,7 +270,7 @@ Debug.RenderDebugRectWithColor(0, 0, 0, 0, 0);
 ### RenderDebugText3D
 `public static void RenderDebugText3D(Vec3 position, string text, uint color = uint.MaxValue, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug text3d」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -310,7 +310,7 @@ Debug.SetTestModeEnabled(false);
 ### AbortGame
 `public static void AbortGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「abort game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

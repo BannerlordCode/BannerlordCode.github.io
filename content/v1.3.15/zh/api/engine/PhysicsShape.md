@@ -43,7 +43,7 @@ PhysicsShape.AddPreloadQueueWithName("example", scale);
 ### ProcessPreloadQueue
 `public static void ProcessPreloadQueue()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process preload queue」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ PhysicsShape.ProcessPreloadQueue();
 ### UnloadDynamicBodies
 `public static void UnloadDynamicBodies()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unload dynamic bodies」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -74,7 +74,7 @@ var result = physicsShape.CreateCopy();
 ### SphereCount
 `public int SphereCount()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sphere count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PhysicsShape 实例
@@ -129,7 +129,7 @@ var result = physicsShape.GetName();
 ### TriangleMeshCount
 `public int TriangleMeshCount()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「triangle mesh count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PhysicsShape 实例
@@ -140,7 +140,7 @@ var result = physicsShape.TriangleMeshCount();
 ### TriangleCountInTriangleMesh
 `public int TriangleCountInTriangleMesh(int meshIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「triangle count in triangle mesh」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PhysicsShape 实例
@@ -173,7 +173,7 @@ physicsShape.Prepare();
 ### CapsuleCount
 `public int CapsuleCount()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「capsule count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PhysicsShape 实例
@@ -272,7 +272,7 @@ var result = physicsShape.GetBoundingBoxCenter();
 ### Transform
 `public void Transform(ref MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PhysicsShape 实例

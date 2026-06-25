@@ -34,7 +34,7 @@ persuasionTask.AddOptionToTask(option);
 ### BlockAllOptions
 `public void BlockAllOptions()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「block all options」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionTask 实例
@@ -45,7 +45,7 @@ persuasionTask.BlockAllOptions();
 ### UnblockAllOptions
 `public void UnblockAllOptions()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unblock all options」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PersuasionTask 实例

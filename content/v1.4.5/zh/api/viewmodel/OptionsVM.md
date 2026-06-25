@@ -112,7 +112,7 @@ optionsVM.SetConfig(data, 0);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select previous category」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例
@@ -123,7 +123,7 @@ optionsVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select next category」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OptionsVM 实例

@@ -30,7 +30,7 @@ description: "AgentVictoryLogic 的自动生成类参考。"
 ### CheerReactionTimeSettings
 `public struct CheerReactionTimeSettings(float minDuration, float maxDuration)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cheer reaction time settings」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -41,7 +41,7 @@ var result = agentVictoryLogic.CheerReactionTimeSettings(0, 0);
 ### OrderReceived
 `public void OrderReceived()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「order received」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例
@@ -52,7 +52,7 @@ agentVictoryLogic.OrderReceived();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVictoryLogic 实例

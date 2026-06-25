@@ -304,7 +304,7 @@ partyBase.AddToMemberRosterElementAtIndex(0, 0, 0);
 ### WoundMemberRosterElements
 `public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound member roster elements」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例
@@ -315,7 +315,7 @@ partyBase.WoundMemberRosterElements(elementObj, 0);
 ### WoundMemberRosterElementsWithIndex
 `public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound member roster elements with index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyBase 实例

@@ -33,7 +33,7 @@ description: "MissionMainAgentController 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -110,7 +110,7 @@ missionMainAgentController.OnClearScene();
 ### BreakAgentVisualsInvulnerability
 `public void BreakAgentVisualsInvulnerability()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「break agent visuals invulnerability」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -132,7 +132,7 @@ var result = missionMainAgentController.IsThereAgentAction(userAgent, otherAgent
 ### Disable
 `public void Disable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例
@@ -143,7 +143,7 @@ missionMainAgentController.Disable();
 ### Enable
 `public void Enable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentController 实例

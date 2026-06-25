@@ -93,6 +93,6 @@ The summary below is auto-extracted from source by [`tools/class-version-diff.mj
 
 ## See also
 
-- [SDK Overview](sdk-overview/)
-- [Module System](module-system/)
+- [SDK Overview](../sdk-overview/)
+- [Module System](../module-system/)
 - [🔀 Cross-Version Class Comparison (per-class API deltas)](/versions/)

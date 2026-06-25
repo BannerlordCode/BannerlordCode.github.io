@@ -34,7 +34,7 @@ description: "TrainingObjectiveKeyVM 的自动生成类参考。"
 ### MouseAndClickInput
 `public struct MouseAndClickInput(MovementTypes movementType, MouseClickTypes mouseClickType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mouse and click input」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingObjectiveKeyVM 实例
@@ -45,7 +45,7 @@ var result = trainingObjectiveKeyVM.MouseAndClickInput(movementType, mouseClickT
 ### ControllerStickInput
 `public struct ControllerStickInput(MovementTypes movementType, bool isLeftStick)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「controller stick input」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingObjectiveKeyVM 实例

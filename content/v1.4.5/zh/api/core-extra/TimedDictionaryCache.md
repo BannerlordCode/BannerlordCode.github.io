@@ -29,7 +29,7 @@ description: "TimedDictionaryCache 的自动生成类参考。"
 ### PruneExpiredItems
 `public void PruneExpiredItems()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「prune expired items」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例
@@ -84,7 +84,7 @@ var result = timedDictionaryCache.TryGetValue(key, value);
 ### AsReadOnlyDictionary
 `public MBReadOnlyDictionary<TKey, TValue> AsReadOnlyDictionary()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「as read only dictionary」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TimedDictionaryCache 实例

@@ -23,7 +23,7 @@ description: "ModLogger 的自动生成类参考。"
 ### Log
 `public static void Log(string message, int logLevel = 0, DebugColor color = (DebugColor)4)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「log」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ModLogger.Log("example", 0, (DebugColor)4);
 ### Warn
 `public static void Warn(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「warn」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

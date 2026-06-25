@@ -95,7 +95,7 @@ boardGameCampaignBehavior.OnHeroKilled(victim, killer, detail, false);
 ### taverngamehost_player_sitting_now_on_condition
 `public static bool taverngamehost_player_sitting_now_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「taverngamehost_player_sitting_now_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -105,7 +105,7 @@ BoardGameCampaignBehavior.taverngamehost_player_sitting_now_on_condition();
 ### PlayerWonAgainstTavernChampion
 `public void PlayerWonAgainstTavernChampion()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「player won against tavern champion」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameCampaignBehavior 实例

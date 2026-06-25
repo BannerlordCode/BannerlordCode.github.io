@@ -375,7 +375,7 @@ var result = usableMissionObject.IsAgentDefending(agent);
 ### SimulateTick
 `public virtual void SimulateTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「simulate」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMissionObject 实例

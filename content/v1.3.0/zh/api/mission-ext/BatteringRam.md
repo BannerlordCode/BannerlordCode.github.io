@@ -54,7 +54,7 @@ var result = batteringRam.HasCompletedAction();
 ### Disable
 `public override void Disable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -120,7 +120,7 @@ batteringRam.WriteToNetwork();
 ### HighlightPath
 `public void HighlightPath()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「highlight path」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -131,7 +131,7 @@ batteringRam.HighlightPath();
 ### SwitchGhostEntityMovementMode
 `public void SwitchGhostEntityMovementMode(bool isGhostEnabled)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「switch ghost entity movement mode」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例
@@ -208,7 +208,7 @@ batteringRam.SetSpawnedFromSpawner();
 ### AssignParametersFromSpawner
 `public void AssignParametersFromSpawner(string gateTag, string sideTag, int bridgeNavMeshID1, int bridgeNavMeshID2, int ditchNavMeshID1, int ditchNavMeshID2, int groundToBridgeNavMeshID1, int groundToBridgeNavMeshID2, string pathEntityName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign parameters from spawner」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BatteringRam 实例

@@ -95,7 +95,7 @@ mainStoryLine.SetMentorSettlements(imperialMentorSettlement, antiImperialMentorS
 ### CompleteTutorialPhase
 `public void CompleteTutorialPhase(bool isSkipped)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete tutorial phase」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -106,7 +106,7 @@ mainStoryLine.CompleteTutorialPhase(false);
 ### CompleteFirstPhase
 `public void CompleteFirstPhase()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete first phase」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例
@@ -117,7 +117,7 @@ mainStoryLine.CompleteFirstPhase();
 ### CompleteSecondPhase
 `public void CompleteSecondPhase()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete second phase」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MainStoryLine 实例

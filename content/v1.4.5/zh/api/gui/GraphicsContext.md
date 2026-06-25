@@ -54,7 +54,7 @@ graphicsContext.SetActive();
 ### BeginFrame
 `public void BeginFrame(int width, int height)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin frame」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -65,7 +65,7 @@ graphicsContext.BeginFrame(0, 0);
 ### SwapBuffers
 `public void SwapBuffers()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap buffers」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -76,7 +76,7 @@ graphicsContext.SwapBuffers();
 ### RequestContextReactivation
 `public void RequestContextReactivation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request context reactivation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -87,7 +87,7 @@ graphicsContext.RequestContextReactivation();
 ### DestroyContext
 `public void DestroyContext()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「destroy context」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -131,7 +131,7 @@ var result = graphicsContext.GetOrLoadShader("example");
 ### DrawImage
 `public void DrawImage(SimpleMaterial material, in ImageDrawObject drawObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw image」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -142,7 +142,7 @@ graphicsContext.DrawImage(material, drawObject);
 ### DrawText
 `public void DrawText(TextMaterial material, in TextDrawObject drawObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw text」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例
@@ -153,7 +153,7 @@ graphicsContext.DrawText(material, drawObject);
 ### DrawPolygon
 `public void DrawPolygon(PrimitivePolygonMaterial material, in ImageDrawObject drawObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw polygon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GraphicsContext 实例

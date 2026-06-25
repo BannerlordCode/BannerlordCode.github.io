@@ -31,4 +31,4 @@ ChangeRomanticStateAction.Apply(person1, person2, toWhat);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

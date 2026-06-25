@@ -162,7 +162,7 @@ synchedMissionObject.SetAnimationChannelParameterSynched(0, 0);
 ### PauseSkeletonAnimationSynched
 `public void PauseSkeletonAnimationSynched()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause skeleton animation synched」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -173,7 +173,7 @@ synchedMissionObject.PauseSkeletonAnimationSynched();
 ### ResumeSkeletonAnimationSynched
 `public void ResumeSkeletonAnimationSynched()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume skeleton animation synched」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例
@@ -184,7 +184,7 @@ synchedMissionObject.ResumeSkeletonAnimationSynched();
 ### BurstParticlesSynched
 `public void BurstParticlesSynched(bool doChildren = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「burst particles synched」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SynchedMissionObject 实例

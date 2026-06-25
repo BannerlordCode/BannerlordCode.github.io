@@ -67,7 +67,7 @@ missionOrderCallbacks.OnBeforeOrderDelegate();
 ### ToggleOrderPositionVisibilityDelegate
 `public delegate void ToggleOrderPositionVisibilityDelegate(bool value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle order position visibility delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderCallbacks 实例

@@ -162,7 +162,7 @@ var result = viewDataTrackerCampaignBehavior.GetInventoryLocks();
 ### InventorySetSortPreference
 `public void InventorySetSortPreference(int inventoryMode, int sortOption, int sortState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inventory set sort preference」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewDataTrackerCampaignBehavior 实例
@@ -173,7 +173,7 @@ viewDataTrackerCampaignBehavior.InventorySetSortPreference(0, 0, 0);
 ### InventoryGetSortPreference
 `public Tuple<int, int> InventoryGetSortPreference(int inventoryMode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inventory get sort preference」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ViewDataTrackerCampaignBehavior 实例

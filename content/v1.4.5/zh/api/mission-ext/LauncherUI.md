@@ -73,7 +73,7 @@ var result = launcherUI.CheckMouseOverWindowDragArea();
 ### HitTest
 `public bool HitTest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LauncherUI 实例

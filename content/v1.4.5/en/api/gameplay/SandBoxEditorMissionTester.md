@@ -27,4 +27,4 @@ SandBoxEditorMissionTester instance = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

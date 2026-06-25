@@ -71,7 +71,7 @@ SoundEvent.GetEventIdFromString("example");
 ### PlaySound2D
 `public static bool PlaySound2D(int soundCodeId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound2d」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -81,7 +81,7 @@ SoundEvent.PlaySound2D(0);
 ### PlaySound2D
 `public static bool PlaySound2D(string soundName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound2d」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -122,7 +122,7 @@ var result = soundEvent.IsNullSoundEvent();
 ### Play
 `public bool Play()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundEvent 实例
@@ -133,7 +133,7 @@ var result = soundEvent.Play();
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundEvent 实例
@@ -144,7 +144,7 @@ soundEvent.Pause();
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundEvent 实例
@@ -155,7 +155,7 @@ soundEvent.Resume();
 ### PlayExtraEvent
 `public void PlayExtraEvent(string eventName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play extra event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundEvent 实例
@@ -188,7 +188,7 @@ soundEvent.TriggerCue();
 ### PlayInPosition
 `public bool PlayInPosition(Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play in position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundEvent 实例
@@ -265,7 +265,7 @@ soundEvent.SetVelocity(vec);
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundEvent 实例

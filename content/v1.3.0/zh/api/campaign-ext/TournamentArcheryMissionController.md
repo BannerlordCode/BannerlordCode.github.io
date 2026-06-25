@@ -29,7 +29,7 @@ description: "TournamentArcheryMissionController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentArcheryMissionController 实例
@@ -51,7 +51,7 @@ tournamentArcheryMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skip match」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentArcheryMissionController 实例

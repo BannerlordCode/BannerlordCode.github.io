@@ -31,7 +31,7 @@ description: "BaseNetworkComponent 的自动生成类参考。"
 ### WelcomeMessageReceivedDelegate
 `public delegate void WelcomeMessageReceivedDelegate(string messageText)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「welcome message received delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例
@@ -75,7 +75,7 @@ baseNetworkComponent.HandlePlayerDisconnect(networkPeer);
 ### IntermissionCastVote
 `public void IntermissionCastVote(string itemID, int voteCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「intermission cast vote」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseNetworkComponent 实例

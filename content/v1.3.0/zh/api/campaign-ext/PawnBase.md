@@ -84,7 +84,7 @@ pawnBase.MovePawnToGoalPositions(false, 0, false);
 ### EnableCollisionBody
 `public virtual void EnableCollisionBody()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable collision body」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -95,7 +95,7 @@ pawnBase.EnableCollisionBody();
 ### DisableCollisionBody
 `public virtual void DisableCollisionBody()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable collision body」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例
@@ -161,7 +161,7 @@ pawnBase.UpdatePawnPosition();
 ### PlayPawnSelectSound
 `public void PlayPawnSelectSound()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play pawn select sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PawnBase 实例

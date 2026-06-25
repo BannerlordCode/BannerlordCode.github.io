@@ -29,7 +29,7 @@ description: "RevenueFarmingIssueQuest 的自动生成类参考。"
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「revenues are delivered to steward」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssueQuest 实例

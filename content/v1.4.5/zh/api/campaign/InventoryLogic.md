@@ -50,7 +50,7 @@ description: "InventoryLogic 的自动生成类参考。"
 ### AfterResetDelegate
 `public delegate void AfterResetDelegate(InventoryLogic inventoryLogic, bool fromCancel)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「reset delegate」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -61,7 +61,7 @@ inventoryLogic.AfterResetDelegate(inventoryLogic, false);
 ### TotalAmountChangeDelegate
 `public delegate void TotalAmountChangeDelegate(int newTotalAmount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「total amount change delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -72,7 +72,7 @@ inventoryLogic.TotalAmountChangeDelegate(0);
 ### ProcessResultListDelegate
 `public delegate void ProcessResultListDelegate(InventoryLogic inventoryLogic, List<TransferCommandResult> results)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process result list delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -116,7 +116,7 @@ var result = inventoryLogic.IsEqual(partyEquipment);
 ### RecordTransaction
 `public void RecordTransaction(int price, bool isSelling)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「record transaction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -259,7 +259,7 @@ inventoryLogic.SetPlayerAcceptTraderOffer();
 ### DoneLogic
 `public bool DoneLogic()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「done logic」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -456,7 +456,7 @@ InventoryLogic.IsEquipmentSide(side);
 ### SlaughterItem
 `public void SlaughterItem(ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「slaughter item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -467,7 +467,7 @@ inventoryLogic.SlaughterItem(itemRosterElement);
 ### DonateItem
 `public void DonateItem(ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「donate item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例
@@ -478,7 +478,7 @@ inventoryLogic.DonateItem(itemRosterElement);
 ### TransferOne
 `public void TransferOne(ItemRosterElement itemRosterElement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer one」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InventoryLogic 实例

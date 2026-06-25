@@ -205,7 +205,7 @@ var result = hideoutMissionController.GetSpawnHorses(side);
 ### SpawnTroops
 `public void SpawnTroops(List<CommonAreaMarker> areaMarkers, List<PatrolArea> patrolAreas, Dictionary<Agent, HideoutMissionController.UsedObject> defenderAgentObjects, int spawnCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutMissionController 实例
@@ -216,7 +216,7 @@ hideoutMissionController.SpawnTroops(areaMarkers, patrolAreas, dictionary<Agent,
 ### SpawnRemainingTroopsForBossFight
 `public void SpawnRemainingTroopsForBossFight(List<MatrixFrame> spawnFrames, int spawnCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn remaining troops for boss fight」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutMissionController 实例

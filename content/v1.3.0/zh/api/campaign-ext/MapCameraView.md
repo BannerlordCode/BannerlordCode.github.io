@@ -78,7 +78,7 @@ mapCameraView.ResetCamera(false, false);
 ### TeleportCameraToMainParty
 `public virtual void TeleportCameraToMainParty()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「teleport camera to main party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraView 实例
@@ -89,7 +89,7 @@ mapCameraView.TeleportCameraToMainParty();
 ### FastMoveCameraToMainParty
 `public virtual void FastMoveCameraToMainParty()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fast move camera to main party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraView 实例
@@ -100,7 +100,7 @@ mapCameraView.FastMoveCameraToMainParty();
 ### FastMoveCameraToPosition
 `public virtual void FastMoveCameraToPosition(CampaignVec2 target, bool isInMenu)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fast move camera to position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraView 实例
@@ -155,7 +155,7 @@ mapCameraView.StartCameraAnimation(targetPosition, 0);
 ### SiegeEngineClick
 `public virtual void SiegeEngineClick(MatrixFrame siegeEngineFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「siege engine click」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraView 实例

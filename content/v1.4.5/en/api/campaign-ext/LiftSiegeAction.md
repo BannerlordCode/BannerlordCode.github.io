@@ -31,4 +31,4 @@ LiftSiegeAction.GetGameAction(side1Party);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

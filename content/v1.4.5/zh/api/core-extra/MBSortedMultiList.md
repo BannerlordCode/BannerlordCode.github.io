@@ -122,7 +122,7 @@ var result = mBSortedMultiList.Get(0);
 ### FirstIndexOf
 `public int FirstIndexOf(TKey key)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「first index of」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例
@@ -133,7 +133,7 @@ var result = mBSortedMultiList.FirstIndexOf(key);
 ### FirstIndexOf
 `public int FirstIndexOf(TKey key, TValue value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「first index of」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例
@@ -144,7 +144,7 @@ var result = mBSortedMultiList.FirstIndexOf(key, value);
 ### LastIndexOf
 `public int LastIndexOf(TKey key)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「last index of」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例
@@ -155,7 +155,7 @@ var result = mBSortedMultiList.LastIndexOf(key);
 ### LastIndexOf
 `public int LastIndexOf(TKey key, TValue value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「last index of」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例
@@ -166,7 +166,7 @@ var result = mBSortedMultiList.LastIndexOf(key, value);
 ### All
 `public bool All(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例
@@ -177,7 +177,7 @@ var result = mBSortedMultiList.All(predicate<KeyValuePair<TKey, predicate);
 ### Any
 `public bool Any(Predicate<KeyValuePair<TKey, TValue>> predicate)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「any」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例
@@ -342,7 +342,7 @@ mBSortedMultiList.SetDefaultComparer(false);
 ### Reverse
 `public void Reverse()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reverse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBSortedMultiList 实例

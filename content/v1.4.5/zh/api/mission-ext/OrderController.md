@@ -30,7 +30,7 @@ description: "OrderController 的自动生成类参考。"
 ### SelectFormation
 `public void SelectFormation(Formation formation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select formation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -41,7 +41,7 @@ orderController.SelectFormation(formation);
 ### DeselectFormation
 `public void DeselectFormation(Formation formation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deselect formation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -74,7 +74,7 @@ var result = orderController.IsFormationSelectable(formation);
 ### BackupAndDisableGesturesEnabled
 `public bool BackupAndDisableGesturesEnabled()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「backup and disable gestures enabled」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -85,7 +85,7 @@ var result = orderController.BackupAndDisableGesturesEnabled();
 ### RestoreGesturesEnabled
 `public void RestoreGesturesEnabled(bool oldValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restore gestures enabled」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -96,7 +96,7 @@ orderController.RestoreGesturesEnabled(false);
 ### SelectAllFormations
 `public void SelectAllFormations(bool uiFeedback = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select all formations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -173,7 +173,7 @@ orderController.SetOrderWithFormationAndPercentage(orderType, orderFormation, 0)
 ### TransferUnitWithPriorityFunction
 `public void TransferUnitWithPriorityFunction(Formation orderFormation, int number, bool hasShield, bool hasSpear, bool hasThrown, bool isHeavy, bool isRanged, bool isMounted, bool excludeBannerman, List<Agent> excludedAgents)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer unit with priority function」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -184,7 +184,7 @@ orderController.TransferUnitWithPriorityFunction(orderFormation, 0, false, false
 ### RearrangeFormationsAccordingToFilters
 `public void RearrangeFormationsAccordingToFilters(Team team, List<(Formation formation, int troopCount, TroopTraitsMask troopFilter, List<Agent> excludedAgents)> MassTransferData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange formations according to filters」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -298,7 +298,7 @@ OrderController.GetActiveAIControlOrderOf(formation);
 ### SimulateNewOrderWithPositionAndDirection
 `public void SimulateNewOrderWithPositionAndDirection(WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate new order with position and direction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -309,7 +309,7 @@ orderController.SimulateNewOrderWithPositionAndDirection(formationLineBegin, for
 ### SimulateNewFacingOrder
 `public void SimulateNewFacingOrder(Vec2 direction, out List<WorldPosition> simulationAgentFrames)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate new facing order」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -320,7 +320,7 @@ orderController.SimulateNewFacingOrder(direction, simulationAgentFrames);
 ### SimulateNewCustomWidthOrder
 `public void SimulateNewCustomWidthOrder(float width, out List<WorldPosition> simulationAgentFrames)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate new custom width order」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -331,7 +331,7 @@ orderController.SimulateNewCustomWidthOrder(0, simulationAgentFrames);
 ### SimulateNewOrderWithPositionAndDirection
 `public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<WorldPosition> simulationAgentFrames, bool isFormationLayoutVertical = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate new order with position and direction」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -341,7 +341,7 @@ OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<
 ### SimulateNewOrderWithPositionAndDirection
 `public static void SimulateNewOrderWithPositionAndDirection(IEnumerable<Formation> formations, Dictionary<Formation, Formation> simulationFormations, WorldPosition formationLineBegin, WorldPosition formationLineEnd, out List<(Formation, int, float, WorldPosition, Vec2)> formationChanges, out bool isLineShort, bool isFormationLayoutVertical = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate new order with position and direction」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -351,7 +351,7 @@ OrderController.SimulateNewOrderWithPositionAndDirection(formations, dictionary<
 ### SimulateDestinationFrames
 `public void SimulateDestinationFrames(out List<WorldPosition> simulationAgentFrames, float minDistance = 3f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate destination frames」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例
@@ -362,7 +362,7 @@ orderController.SimulateDestinationFrames(simulationAgentFrames, 0);
 ### SortFormationsForHorizontalLayout
 `public static IEnumerable<Formation> SortFormationsForHorizontalLayout(IEnumerable<Formation> formations)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort formations for horizontal layout」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -392,7 +392,7 @@ OrderController.GetOrderFormCustomWidth(formations, orderPosition);
 ### TransferUnits
 `public void TransferUnits(Formation source, Formation target, int count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer units」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderController 实例

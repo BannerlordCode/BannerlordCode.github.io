@@ -86,7 +86,7 @@ sceneLayer.SetPostfxFromConfig();
 ### WorldPointToScreenPoint
 `public Vec2 WorldPointToScreenPoint(Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「world point to screen point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -97,7 +97,7 @@ var result = sceneLayer.WorldPointToScreenPoint(position);
 ### ScreenPointToViewportPoint
 `public Vec2 ScreenPointToViewportPoint(Vec2 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「screen point to viewport point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -108,7 +108,7 @@ var result = sceneLayer.ScreenPointToViewportPoint(position);
 ### ProjectedMousePositionOnGround
 `public bool ProjectedMousePositionOnGround(out Vec3 groundPosition, out Vec3 groundNormal, bool mouseVisible, BodyFlags excludeBodyOwnerFlags, bool checkOccludedSurface)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「projected mouse position on ground」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -119,7 +119,7 @@ var result = sceneLayer.ProjectedMousePositionOnGround(groundPosition, groundNor
 ### TranslateMouse
 `public void TranslateMouse(ref Vec3 worldMouseNear, ref Vec3 worldMouseFar, float maxDistance = -1f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「translate mouse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -185,7 +185,7 @@ sceneLayer.SetFocusedShadowmap(false, center, 0);
 ### DoNotClear
 `public void DoNotClear(bool value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do not clear」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -240,7 +240,7 @@ sceneLayer.ClearRuntimeGPUMemory(false);
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -251,7 +251,7 @@ var result = sceneLayer.HitTest(position);
 ### HitTest
 `public override bool HitTest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例
@@ -262,7 +262,7 @@ var result = sceneLayer.HitTest();
 ### FocusTest
 `public override bool FocusTest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「focus test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneLayer 实例

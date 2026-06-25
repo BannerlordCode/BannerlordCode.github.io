@@ -126,7 +126,7 @@ game.Save(metaData, "example", driver, onSaveCompleted);
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Game 实例
@@ -202,7 +202,7 @@ game.OnGameStart();
 ### DoLoading
 `public bool DoLoading()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do loading」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Game 实例
@@ -257,7 +257,7 @@ game.LoadBasicFiles();
 ### ItemObjectDeserialized
 `public void ItemObjectDeserialized(ItemObject itemObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「item object deserialized」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Game 实例

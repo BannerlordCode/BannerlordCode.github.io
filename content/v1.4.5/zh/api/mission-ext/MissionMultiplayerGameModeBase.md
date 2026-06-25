@@ -108,7 +108,7 @@ var result = missionMultiplayerGameModeBase.CheckForMatchEnd();
 ### UseCultureSelection
 `public virtual bool UseCultureSelection()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use culture selection」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
@@ -119,7 +119,7 @@ var result = missionMultiplayerGameModeBase.UseCultureSelection();
 ### UseRoundController
 `public virtual bool UseRoundController()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use round controller」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
@@ -174,7 +174,7 @@ missionMultiplayerGameModeBase.ClearPeerCounts();
 ### ShouldSpawnVisualsForServer
 `public bool ShouldSpawnVisualsForServer(NetworkCommunicator spawningNetworkPeer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should spawn visuals for server」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例
@@ -240,7 +240,7 @@ var result = missionMultiplayerGameModeBase.GetCurrentGoldForPeer(peer);
 ### ChangeCurrentGoldForPeer
 `public void ChangeCurrentGoldForPeer(MissionPeer peer, int newAmount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change current gold for peer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerGameModeBase 实例

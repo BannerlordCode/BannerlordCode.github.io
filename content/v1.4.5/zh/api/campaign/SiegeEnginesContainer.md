@@ -30,7 +30,7 @@ description: "SiegeEnginesContainer 的自动生成类参考。"
 ### AllSiegeEngines
 `public IEnumerable<SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「all siege engines」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEnginesContainer 实例
@@ -52,7 +52,7 @@ siegeEnginesContainer.AddPrebuiltEngineToReserve(siegeEngine);
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deploy siege engine at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEnginesContainer 实例

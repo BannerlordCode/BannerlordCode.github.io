@@ -56,7 +56,7 @@ banditSpawnCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 BanditSpawnCampaignBehavior 实例

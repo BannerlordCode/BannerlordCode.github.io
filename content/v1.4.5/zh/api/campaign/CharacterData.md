@@ -23,7 +23,7 @@ description: "CharacterData 的自动生成类参考。"
 ### ExportCharacter
 `public static void ExportCharacter(Hero hero, string path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「export character」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ CharacterData.ExportCharacter(hero, "example");
 ### ImportCharacter
 `public static void ImportCharacter(Hero hero, string path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「import character」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

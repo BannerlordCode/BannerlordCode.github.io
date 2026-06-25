@@ -271,7 +271,7 @@ var result = usableMachine.IsDisabledForBattleSideAI(sideEnum);
 ### ShouldAutoLeaveDetachmentWhenDisabled
 `public virtual bool ShouldAutoLeaveDetachmentWhenDisabled(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should auto leave detachment when disabled」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachine 实例
@@ -282,7 +282,7 @@ var result = usableMachine.ShouldAutoLeaveDetachmentWhenDisabled(sideEnum);
 ### AutoAttachUserToFormation
 `public virtual bool AutoAttachUserToFormation(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto attach user to formation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachine 实例
@@ -304,7 +304,7 @@ var result = usableMachine.HasToBeDefendedByUser(sideEnum);
 ### Disable
 `public virtual void Disable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachine 实例

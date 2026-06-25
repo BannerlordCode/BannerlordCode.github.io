@@ -1,369 +1,179 @@
 ---
 title: "Campaign"
-description: "Auto-generated class reference for Campaign."
+description: "The global entry point for the Bannerlord campaign world: time management, object managers, quest/issue systems, behavior manager, and model collection."
 ---
 # Campaign
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class Campaign : GameType`
-**Base:** `GameType`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Campaign : GameType`  
+**Base:** `GameType`  
 **File:** `TaleWorlds.CampaignSystem/Campaign.cs`
 
 ## Overview
 
-`Campaign` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Campaign` is the “world object” of Bannerlord's **campaign map**. It does not control battle scenes directly; instead it holds the runtime state of the entire campaign sandbox:
+
+- Collection entry points for all `Hero`, `Clan`, `Kingdom`, `Settlement`, and `MobileParty` instances.
+- The behavior manager (`CampaignBehaviorManager`) that runs mod logic on daily/hourly ticks.
+- Quest (`QuestManager`) and issue (`IssueManager`) systems.
+- Relation (`CharacterRelationManager`) and faction (`FactionManager`) systems.
+- The model collection (`Models`) that encapsulates battle, economy, relation, and other algorithms.
+
+In short: almost every mod operation on the campaign map starts by grabbing `Campaign.Current`.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `Campaign` as the **campaign-world engine instance**:
 
-## Key Properties
+- Do not `new Campaign()` yourself; the game creates and starts it through `CampaignGameStarter`.
+- Access the single instance via `Campaign.Current`; if it is `null`, you are not on the campaign map (e.g., main menu or custom battle).
+- It is mostly a **coordinator/container**: most “doing” logic lives in `CampaignBehaviorBase` subclasses or `GameModel` subclasses, not directly on `Campaign`.
+- It exposes the current game time through `CampaignTime.Now` (on `CampaignTime`); time is the axis around which the campaign turns.
 
-| Name | Signature |
-|------|-----------|
-| `MapDiagonal` | `public static float MapDiagonal { get; }` |
-| `MapDiagonalSquared` | `public static float MapDiagonalSquared { get; }` |
-| `MapMinimumPosition` | `public static Vec2 MapMinimumPosition { get; }` |
-| `MapMaximumPosition` | `public static Vec2 MapMaximumPosition { get; }` |
-| `MapMaximumHeight` | `public static float MapMaximumHeight { get; }` |
-| `AverageWage` | `public float AverageWage { get; }` |
-| `NewGameVersion` | `public string NewGameVersion { get; }` |
-| `PreviouslyUsedModules` | `public MBReadOnlyList<string> PreviouslyUsedModules { get; }` |
-| `UsedGameVersions` | `public MBReadOnlyList<string> UsedGameVersions { get; }` |
-| `EnabledCheatsBefore` | `public bool EnabledCheatsBefore { get; }` |
-| `PlatformID` | `public string PlatformID { get; }` |
-| `UniqueGameId` | `public string UniqueGameId { get; }` |
-| `SaveHandler` | `public SaveHandler SaveHandler { get; }` |
-| `SupportsSaving` | `public override bool SupportsSaving { get; }` |
-| `CampaignObjectManager` | `public CampaignObjectManager CampaignObjectManager { get; }` |
-| `IsDevelopment` | `public override bool IsDevelopment { get; set; }` |
-| `IsCraftingEnabled` | `public bool IsCraftingEnabled { get; set; }` |
-| `IsBannerEditorEnabled` | `public bool IsBannerEditorEnabled { get; set; }` |
-| `IsFaceGenEnabled` | `public bool IsFaceGenEnabled { get; set; }` |
-| `CampaignBehaviorManager` | `public ICampaignBehaviorManager CampaignBehaviorManager { get; }` |
-| `QuestManager` | `public QuestManager QuestManager { get; }` |
-| `IssueManager` | `public IssueManager IssueManager { get; }` |
-| `FactionManager` | `public FactionManager FactionManager { get; }` |
-| `CharacterRelationManager` | `public CharacterRelationManager CharacterRelationManager { get; }` |
-| `Romance` | `public Romance Romance { get; }` |
-| `PlayerCaptivity` | `public PlayerCaptivity PlayerCaptivity { get; }` |
-| `CampaignMissionManager` | `public CampaignMission.ICampaignMissionManager CampaignMissionManager { get; set; }` |
-| `SkillLevelingManager` | `public ISkillLevelingManager SkillLevelingManager { get; set; }` |
-| `MapSceneCreator` | `public IMapSceneCreator MapSceneCreator { get; set; }` |
-| `IsInventoryAccessibleAtMission` | `public override bool IsInventoryAccessibleAtMission { get; }` |
-| `GameMenuCallbackManager` | `public GameMenuCallbackManager GameMenuCallbackManager { get; }` |
-| `VisualCreator` | `public VisualCreator VisualCreator { get; }` |
-| `MapStateData` | `public MapStateData MapStateData { get; }` |
-| `DefaultPerks` | `public DefaultPerks DefaultPerks { get; }` |
-| `DefaultTraits` | `public DefaultTraits DefaultTraits { get; }` |
-| `DefaultPolicies` | `public DefaultPolicies DefaultPolicies { get; }` |
-| `DefaultBuildingTypes` | `public DefaultBuildingTypes DefaultBuildingTypes { get; }` |
-| `DefaultIssueEffects` | `public DefaultIssueEffects DefaultIssueEffects { get; }` |
-| `DefaultItems` | `public DefaultItems DefaultItems { get; }` |
-| `DefaultFigureheads` | `public DefaultFigureheads DefaultFigureheads { get; }` |
-| `DefaultSiegeStrategies` | `public DefaultSiegeStrategies DefaultSiegeStrategies { get; }` |
-| `DefaultSkillEffects` | `public DefaultSkillEffects DefaultSkillEffects { get; }` |
-| `DefaultVillageTypes` | `public DefaultVillageTypes DefaultVillageTypes { get; }` |
-| `DefaultFeats` | `public DefaultCulturalFeats DefaultFeats { get; }` |
-| `EstimatedMaximumLordPartySpeedExceptPlayer` | `public float EstimatedMaximumLordPartySpeedExceptPlayer { get; set; }` |
-| `EstimatedAverageLordPartySpeed` | `public float EstimatedAverageLordPartySpeed { get; set; }` |
-| `EstimatedAverageCaravanPartySpeed` | `public float EstimatedAverageCaravanPartySpeed { get; set; }` |
-| `EstimatedAverageVillagerPartySpeed` | `public float EstimatedAverageVillagerPartySpeed { get; set; }` |
-| `EstimatedAverageBanditPartySpeed` | `public float EstimatedAverageBanditPartySpeed { get; set; }` |
-| `EstimatedAverageLordPartyNavalSpeed` | `public float EstimatedAverageLordPartyNavalSpeed { get; set; }` |
-| `EstimatedAverageCaravanPartyNavalSpeed` | `public float EstimatedAverageCaravanPartyNavalSpeed { get; set; }` |
-| `EstimatedAverageVillagerPartyNavalSpeed` | `public float EstimatedAverageVillagerPartyNavalSpeed { get; }` |
-| `EstimatedAverageBanditPartyNavalSpeed` | `public float EstimatedAverageBanditPartyNavalSpeed { get; }` |
-| `TimeControlModeLock` | `public bool TimeControlModeLock { get; }` |
-| `TimeControlMode` | `public CampaignTimeControlMode TimeControlMode { get; set; }` |
-| `IsMapTooltipLongForm` | `public bool IsMapTooltipLongForm { get; set; }` |
-| `SpeedUpMultiplier` | `public float SpeedUpMultiplier { get; }` |
-| `CampaignDt` | `public float CampaignDt { get; }` |
-| `TrueSight` | `public bool TrueSight { get; }` |
-| `Current` | `public static Campaign Current { get; }` |
-| `GameMode` | `public CampaignGameMode GameMode { get; }` |
-| `PlayerProgress` | `public float PlayerProgress { get; }` |
-| `GameMenuManager` | `public GameMenuManager GameMenuManager { get; }` |
-| `Models` | `public GameModels Models { get; }` |
-| `SandBoxManager` | `public SandBoxManager SandBoxManager { get; }` |
-| `CampaignGameLoadingType` | `public Campaign.GameLoadingType CampaignGameLoadingType { get; }` |
-| `SiegeEventManager` | `public SiegeEventManager SiegeEventManager { get; set; }` |
-| `MapEventManager` | `public MapEventManager MapEventManager { get; set; }` |
-| `MapMarkerManager` | `public MapMarkerManager MapMarkerManager { get; set; }` |
-| `CurrentMenuContext` | `public MenuContext CurrentMenuContext { get; }` |
-| `IsMainPartyWaiting` | `public bool IsMainPartyWaiting { get; }` |
-| `MapSceneWrapper` | `public IMapScene MapSceneWrapper { get; set; }` |
-| `PlayerEncounter` | `public PlayerEncounter PlayerEncounter { get; }` |
-| `BarterManager` | `public BarterManager BarterManager { get; }` |
-| `IsMainHeroDisguised` | `public bool IsMainHeroDisguised { get; set; }` |
-| `DeadBattleEquipment` | `public Equipment DeadBattleEquipment { get; }` |
-| `DeadCivilianEquipment` | `public Equipment DeadCivilianEquipment { get; }` |
-| `DefaultStealthEquipment` | `public Equipment DefaultStealthEquipment { get; }` |
-| `CurrentTime` | `public static float CurrentTime { get; }` |
-| `CampaignEntityComponents` | `public MBReadOnlyList<CampaignEntityComponent> CampaignEntityComponents { get; }` |
-| `AliveHeroes` | `public MBReadOnlyList<Hero> AliveHeroes { get; }` |
-| `DeadOrDisabledHeroes` | `public MBReadOnlyList<Hero> DeadOrDisabledHeroes { get; }` |
-| `MobileParties` | `public MBReadOnlyList<MobileParty> MobileParties { get; }` |
-| `CaravanParties` | `public MBReadOnlyList<MobileParty> CaravanParties { get; }` |
-| `PatrolParties` | `public MBReadOnlyList<MobileParty> PatrolParties { get; }` |
-| `VillagerParties` | `public MBReadOnlyList<MobileParty> VillagerParties { get; }` |
-| `MilitiaParties` | `public MBReadOnlyList<MobileParty> MilitiaParties { get; }` |
-| `GarrisonParties` | `public MBReadOnlyList<MobileParty> GarrisonParties { get; }` |
-| `CustomParties` | `public MBReadOnlyList<MobileParty> CustomParties { get; }` |
-| `LordParties` | `public MBReadOnlyList<MobileParty> LordParties { get; }` |
-| `BanditParties` | `public MBReadOnlyList<MobileParty> BanditParties { get; }` |
-| `PartiesWithoutPartyComponent` | `public MBReadOnlyList<MobileParty> PartiesWithoutPartyComponent { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `Factions` | `public IEnumerable<IFaction> Factions { get; }` |
-| `Kingdoms` | `public MBReadOnlyList<Kingdom> Kingdoms { get; }` |
-| `Clans` | `public MBReadOnlyList<Clan> Clans { get; }` |
-| `Characters` | `public MBReadOnlyList<CharacterObject> Characters { get; }` |
-| `Workshops` | `public MBReadOnlyList<WorkshopType> Workshops { get; }` |
-| `ItemModifiers` | `public MBReadOnlyList<ItemModifier> ItemModifiers { get; }` |
-| `ItemModifierGroups` | `public MBReadOnlyList<ItemModifierGroup> ItemModifierGroups { get; }` |
-| `Concepts` | `public MBReadOnlyList<Concept> Concepts { get; }` |
-| `MainParty` | `public MobileParty MainParty { get; }` |
-| `CameraFollowParty` | `public PartyBase CameraFollowParty { get; set; }` |
-| `CampaignInformationManager` | `public CampaignInformationManager CampaignInformationManager { get; set; }` |
-| `VisualTrackerManager` | `public VisualTrackerManager VisualTrackerManager { get; set; }` |
-| `LogEntryHistory` | `public LogEntryHistory LogEntryHistory { get; }` |
-| `EncyclopediaManager` | `public EncyclopediaManager EncyclopediaManager { get; }` |
-| `ConversationManager` | `public ConversationManager ConversationManager { get; }` |
-| `IsDay` | `public bool IsDay { get; }` |
-| `IsNight` | `public bool IsNight { get; }` |
-| `IsPartyWindowAccessibleAtMission` | `public override bool IsPartyWindowAccessibleAtMission { get; }` |
-| `PlayerTraitDeveloper` | `public PropertyOwner<PropertyObject> PlayerTraitDeveloper { get; }` |
+## How to Access Campaign
+
+```csharp
+// The typical entry point
+Campaign campaign = Campaign.Current;
+if (campaign == null) return; // not on the campaign map
+
+// Reach managers through Campaign
+Hero mainHero = campaign.MainParty?.LeaderHero; // or Hero.MainHero
+MobileParty mainParty = campaign.MainParty;
+Clan playerClan = Clan.PlayerClan;
+CampaignTime now = CampaignTime.Now;
+```
+
+## Core Properties & Managers
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Campaign.Current` | `Campaign` | Global singleton instance. |
+| `MainParty` | `MobileParty` | Player party; same as `MobileParty.MainParty`. |
+| `CampaignObjectManager` | `CampaignObjectManager` | Manages lifecycle and lookup of `MBObjectBase`-derived objects (heroes, clans, kingdoms, etc.). |
+| `CampaignBehaviorManager` | `ICampaignBehaviorManager` | Manages all `CampaignBehaviorBase` instances; where mods register custom behaviors. |
+| `QuestManager` | `QuestManager` | Tracks active quests. |
+| `IssueManager` | `IssueManager` | Tracks available and ongoing issues. |
+| `FactionManager` | `FactionManager` | Factions (kingdoms, clans, gangs) relations and states. |
+| `CharacterRelationManager` | `CharacterRelationManager` | Personal relations between heroes. |
+| `Models` | `GameModels` | Collection of algorithm models (combat, economy, influence, skill growth, etc.). |
+| `SaveHandler` | `SaveHandler` | Save/load entry point. |
+| `GameStarted` | `bool` | Whether the campaign has started. |
+| `CurrentTickCount` | `int` | Current tick count. |
 
 ## Key Methods
 
-### GetAverageDistanceBetweenClosestTwoTownsWithNavigationType
-`public float GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(MobileParty.NavigationType navigationType)`
-
-**Purpose:** Reads and returns the `average distance between closest two towns with navigation type` value held by the current object.
+### `public static Campaign Current { get; }`
+Global access point. Most campaign mod logic begins with `if (Campaign.Current == null) return;`.
 
 ```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-var result = campaign.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(navigationType);
+public override void RegisterEvents()
+{
+    CampaignEvents.DailyTickPartyEvent.AddNonSerializedListener(this, OnDailyTickParty);
+}
+
+private void OnDailyTickParty(MobileParty party)
+{
+    if (Campaign.Current == null) return;
+    // your daily logic
+}
 ```
 
-### InitializeMainParty
-`public void InitializeMainParty()`
-
-**Purpose:** Prepares the resources, state, or bindings required by `main party`.
+### `public GameModels Models`
+Get the model collection, used to read or replace algorithms such as influence cost, party speed, or skill XP formulas.
 
 ```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.InitializeMainParty();
+// Note: replacing models should usually be done in CampaignGameStarter's OnGameStart/OnGameLoaded.
+Campaign.Current.Models.DiplomacyModel = new MyCustomDiplomacyModel();
 ```
 
-### WaitAsyncTasks
-`public void WaitAsyncTasks()`
-
-**Purpose:** Pauses the current flow until the `async tasks` condition is met.
+### `public CampaignObjectManager CampaignObjectManager`
+Access the object manager to find or iterate objects by id.
 
 ```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.WaitAsyncTasks();
+Hero hero = Campaign.Current.CampaignObjectManager.Find<Hero>("lord_derthert");
+Settlement settlement = Campaign.Current.Settlements.FirstOrDefault(s => s.IsTown);
 ```
 
-### GetSimplifiedTimeControlMode
-`public CampaignTimeControlMode GetSimplifiedTimeControlMode()`
-
-**Purpose:** Reads and returns the `simplified time control mode` value held by the current object.
+### `public override void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
+Campaign-side callback fired before a mission (battle, scene, etc.) starts. Useful for modifying party rosters or adding agents based on campaign state.
 
 ```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-var result = campaign.GetSimplifiedTimeControlMode();
+public class MyCampaignBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnMissionStartedEvent.AddNonSerializedListener(this, OnMissionStarted);
+    }
+
+    private void OnMissionStarted(IMission mission)
+    {
+        // Mission has started; mission-related data is available here.
+    }
+}
 ```
 
-### OnGameOver
-`public void OnGameOver()`
+## Typical Usage Examples
 
-**Purpose:** Invoked when the `game over` event is raised.
+### Example 1: Safe Campaign access helper
 
 ```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.OnGameOver();
+public static class CampaignHelper
+{
+    public static Campaign ActiveCampaign => Campaign.Current;
+
+    public static bool IsCampaignActive => Campaign.Current != null && Campaign.Current.GameStarted;
+}
 ```
 
-### SetTimeSpeed
-`public void SetTimeSpeed(int speed)`
-
-**Purpose:** Assigns a new value to `time speed` and updates the object's internal state.
+### Example 2: Iterate all clans on daily tick and print their gold
 
 ```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.SetTimeSpeed(0);
+private void OnDailyTick()
+{
+    if (Campaign.Current == null) return;
+
+    foreach (Clan clan in Clan.AllClans)
+    {
+        if (clan.IsEliminated) continue;
+        InformationManager.DisplayMessage(new InformationMessage($"{clan.Name}: {clan.Gold} gold"));
+    }
+}
 ```
 
-### LateAITick
-`public static void LateAITick()`
-
-**Purpose:** Performs the operation described by this method.
+### Example 3: Replace a GameModel
 
 ```csharp
-// Static call; no instance required
-Campaign.LateAITick();
+public class MyCampaignBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents() { }
+
+    public override void SyncData(IDataStore dataStore) { }
+
+    protected void OnGameStart(IGameStarter gameStarter)
+    {
+        if (gameStarter is CampaignGameStarter campaignStarter)
+        {
+            campaignStarter.AddModel(new MyPartySpeedModel());
+        }
+    }
+}
 ```
 
-### AddCampaignBehaviorManager
-`public void AddCampaignBehaviorManager(ICampaignBehaviorManager manager)`
+> You can replace `Campaign.Current.Models` members at runtime via reflection, but prefer registering models through `CampaignGameStarter.AddModel`.
 
-**Purpose:** Adds `campaign behavior manager` to the current collection or state.
+## Cross-Version Notes
 
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.AddCampaignBehaviorManager(manager);
-```
-
-### OnDestroy
-`public override void OnDestroy()`
-
-**Purpose:** Invoked when the `destroy` event is raised.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.OnDestroy();
-```
-
-### InitializeSinglePlayerReferences
-`public void InitializeSinglePlayerReferences()`
-
-**Purpose:** Prepares the resources, state, or bindings required by `single player references`.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.InitializeSinglePlayerReferences();
-```
-
-### InitializeGamePlayReferences
-`public void InitializeGamePlayReferences()`
-
-**Purpose:** Prepares the resources, state, or bindings required by `game play references`.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.InitializeGamePlayReferences();
-```
-
-### SetLoadingParameters
-`public void SetLoadingParameters(Campaign.GameLoadingType gameLoadingType)`
-
-**Purpose:** Assigns a new value to `loading parameters` and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.SetLoadingParameters(gameLoadingType);
-```
-
-### AddCampaignEventReceiver
-`public void AddCampaignEventReceiver(CampaignEventReceiver receiver)`
-
-**Purpose:** Adds `campaign event receiver` to the current collection or state.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.AddCampaignEventReceiver(receiver);
-```
-
-### OnMissionIsStarting
-`public override void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
-
-**Purpose:** Invoked when the `mission is starting` event is raised.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.OnMissionIsStarting("example", rec);
-```
-
-### InitializeParameters
-`public override void InitializeParameters()`
-
-**Purpose:** Prepares the resources, state, or bindings required by `parameters`.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.InitializeParameters();
-```
-
-### SetTimeControlModeLock
-`public void SetTimeControlModeLock(bool isLocked)`
-
-**Purpose:** Assigns a new value to `time control mode lock` and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.SetTimeControlModeLock(false);
-```
-
-### OnPlayerCharacterChanged
-`public void OnPlayerCharacterChanged(out bool isMainPartyChanged)`
-
-**Purpose:** Invoked when the `player character changed` event is raised.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.OnPlayerCharacterChanged(isMainPartyChanged);
-```
-
-### SetPlayerFormationPreference
-`public void SetPlayerFormationPreference(CharacterObject character, FormationClass formation)`
-
-**Purpose:** Assigns a new value to `player formation preference` and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.SetPlayerFormationPreference(character, formation);
-```
-
-### OnStateChanged
-`public override void OnStateChanged(GameState oldState)`
-
-**Purpose:** Invoked when the `state changed` event is raised.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.OnStateChanged(oldState);
-```
-
-### UnlockFigurehead
-`public void UnlockFigurehead(Figurehead figurehead)`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of Campaign from the subsystem API first
-Campaign campaign = ...;
-campaign.UnlockFigurehead(figurehead);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Campaign campaign = ...;
-campaign.GetAverageDistanceBetweenClosestTwoTownsWithNavigationType(navigationType);
-```
+- v1.3.0: `Campaign.Current` works the same; the `Models` collection contains fewer model classes.
+- v1.4.5: `Campaign` was split into more sub-managers (e.g., new/separate `CampaignInformationManager`). For cross-version mods, prefer accessing through interface properties rather than reflecting private fields.
 
 ## See Also
 
-- [Area Index](../)
+- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — inject custom logic into the campaign lifecycle
+- [CampaignGameStarter](../../campaign-ext/CampaignGameStarter/) — register models and behaviors at startup
+- [CampaignEvents](../../campaign-ext/CampaignEvents/) — event bus
+- [CampaignTime](../../campaign-ext/CampaignTime/) — campaign time
+- [MobileParty](../MobileParty/) — player/AI parties
+- [Hero](../Hero/) — hero characters
+- [Settlement](../Settlement/) — towns, castles, villages

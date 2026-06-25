@@ -114,7 +114,7 @@ HotKeyManager.RegisterContext(context, false);
 ### ShouldNotifyDocumentVersionDifferent
 `public static bool ShouldNotifyDocumentVersionDifferent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should notify document version different」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -134,7 +134,7 @@ HotKeyManager.Reset();
 ### MarkForSave
 `public static void MarkForSave()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mark for save」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

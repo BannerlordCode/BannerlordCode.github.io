@@ -23,7 +23,7 @@ description: "ShipVisualSlotInfo 的自动生成类参考。"
 ### ShipVisualSlotInfo
 `public struct ShipVisualSlotInfo(string visualSlotId, string visualPieceId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「ship visual slot info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipVisualSlotInfo 实例

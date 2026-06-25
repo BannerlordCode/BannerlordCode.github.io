@@ -41,7 +41,7 @@ gameMenuManager.SetNextMenu("example");
 ### ExitToLast
 `public void ExitToLast()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「exit to last」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuManager 实例
@@ -107,7 +107,7 @@ var result = gameMenuManager.GetMenuOptionIdString(menuContext, 0);
 ### RunConsequencesOfMenuOption
 `public void RunConsequencesOfMenuOption(MenuContext menuContext, int menuItemNumber)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run consequences of menu option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenuManager 实例

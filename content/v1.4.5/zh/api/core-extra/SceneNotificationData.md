@@ -44,7 +44,7 @@ description: "SceneNotificationData 的自动生成类参考。"
 ### SceneNotificationCharacter
 `public readonly struct SceneNotificationCharacter(BasicCharacterObject character, Equipment overriddenEquipment = null, BodyProperties overriddenBodyProperties = default(BodyProperties), bool useCivilianEquipment = false, uint customColor1 = uint.MaxValue, uint customColor2 = uint.MaxValue, bool useHorse = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scene notification character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例
@@ -55,7 +55,7 @@ var result = sceneNotificationData.SceneNotificationCharacter(character, null, d
 ### SceneNotificationShip
 `public readonly struct SceneNotificationShip(string shipPrefabId, List<ShipVisualSlotInfo> shipUpgrades, float shipHitPointRatio, uint sailColor1, uint sailColor2, int shipSeed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scene notification ship」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SceneNotificationData 实例

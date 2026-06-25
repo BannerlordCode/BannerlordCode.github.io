@@ -40,7 +40,7 @@ MBGameManager.StartNewGame(gameLoader);
 ### BeginGameStart
 `public override void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin game start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -95,7 +95,7 @@ mBGameManager.RegisterSubModuleTypes();
 ### AfterRegisterSubModuleObjects
 `public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「register sub module objects」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBGameManager 实例
@@ -194,7 +194,7 @@ mBGameManager.OnGameEnd(game);
 ### EndGame
 `public static async void EndGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -214,14 +214,14 @@ public override void OnMissionFinish(bool isHeroParty)
 ## Related Documentation
 
 - [Debugging Tips](./#debugging-tips)
-- [Save System](save-system-guide/)
-- [Common Patterns](common-patterns/)
+- [Save System](../save-system-guide/)
+- [Common Patterns](../common-patterns/)
 
 ---
 
 ## Next Section
 
-- [Common Patterns](common-patterns/) - Best practices
+- [Common Patterns](../common-patterns/) - Best practices
 - [Getting Started Guide](./) - Return to main guide
 
 ## Usage Example

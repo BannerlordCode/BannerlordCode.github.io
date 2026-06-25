@@ -27,4 +27,4 @@ PlayerAlleyData entry = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

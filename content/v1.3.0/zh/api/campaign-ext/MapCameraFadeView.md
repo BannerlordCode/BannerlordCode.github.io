@@ -33,7 +33,7 @@ description: "MapCameraFadeView 的自动生成类参考。"
 ### BeginFadeOutAndIn
 `public void BeginFadeOutAndIn(float fadeOutTime, float blackTime, float fadeInTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin fade out and in」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraFadeView 实例
@@ -44,7 +44,7 @@ mapCameraFadeView.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public void BeginFadeOut(float fadeOutTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin fade out」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraFadeView 实例
@@ -55,7 +55,7 @@ mapCameraFadeView.BeginFadeOut(0);
 ### BeginFadeIn
 `public void BeginFadeIn(float fadeInTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin fade in」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapCameraFadeView 实例

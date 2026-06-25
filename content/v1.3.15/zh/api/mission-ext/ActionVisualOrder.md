@@ -56,7 +56,7 @@ actionVisualOrder.ExecuteOrder(orderController, executionParameters);
 ### OrderActionDelegate
 `public delegate void OrderActionDelegate(OrderController orderController, VisualOrderExecutionParameters executionParameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「order action delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ActionVisualOrder 实例

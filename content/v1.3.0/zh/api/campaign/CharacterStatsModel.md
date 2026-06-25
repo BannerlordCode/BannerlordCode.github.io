@@ -29,7 +29,7 @@ description: "CharacterStatsModel 的自动生成类参考。"
 ### MaxHitpoints
 `public abstract ExplainedNumber MaxHitpoints(CharacterObject character, bool includeDescriptions = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「max hitpoints」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterStatsModel 实例
@@ -51,7 +51,7 @@ var result = characterStatsModel.GetTier(character);
 ### WoundedHitPointLimit
 `public abstract int WoundedHitPointLimit(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wounded hit point limit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterStatsModel 实例

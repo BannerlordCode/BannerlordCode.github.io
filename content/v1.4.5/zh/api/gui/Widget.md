@@ -324,7 +324,7 @@ widget.UpdateAnimationPropertiesSubTask(0);
 ### Measure
 `public void Measure(Vector2 measureSpec)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「measure」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -368,7 +368,7 @@ widget.AddChildAtIndex(widget, 0);
 ### SwapChildren
 `public void SwapChildren(Widget widget1, Widget widget2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -467,7 +467,7 @@ var result = widget.GetChild(0);
 ### Layout
 `public void Layout(float left, float bottom, float right, float top)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「layout」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例
@@ -577,7 +577,7 @@ var result = widget.GetVisibleSiblingIndex();
 ### Render
 `public void Render(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Widget 实例

@@ -181,7 +181,7 @@ mBMusicManager.DeactivateCurrentMode();
 ### UnpauseMusicManagerSystem
 `public void UnpauseMusicManagerSystem()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unpause music manager system」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMusicManager 实例
@@ -192,7 +192,7 @@ mBMusicManager.UnpauseMusicManagerSystem();
 ### PauseMusicManagerSystem
 `public void PauseMusicManagerSystem()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause music manager system」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMusicManager 实例
@@ -225,7 +225,7 @@ mBMusicManager.StartThemeWithConstantIntensity(theme, false);
 ### ForceStopThemeWithFadeOut
 `public void ForceStopThemeWithFadeOut()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force stop theme with fade out」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMusicManager 实例
@@ -236,7 +236,7 @@ mBMusicManager.ForceStopThemeWithFadeOut();
 ### ChangeCurrentThemeIntensity
 `public void ChangeCurrentThemeIntensity(float deltaIntensity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change current theme intensity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBMusicManager 实例

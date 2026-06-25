@@ -50,7 +50,7 @@ description: "AgentData 的自动生成类参考。"
 ### Character
 `public AgentData Character(BasicCharacterObject characterObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -61,7 +61,7 @@ var result = agentData.Character(characterObject);
 ### Monster
 `public AgentData Monster(Monster monster)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「monster」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -72,7 +72,7 @@ var result = agentData.Monster(monster);
 ### OwnerParty
 `public AgentData OwnerParty(IBattleCombatant owner)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「owner party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -83,7 +83,7 @@ var result = agentData.OwnerParty(owner);
 ### Equipment
 `public AgentData Equipment(Equipment equipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -94,7 +94,7 @@ var result = agentData.Equipment(equipment);
 ### EquipmentSeed
 `public AgentData EquipmentSeed(int seed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equipment seed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -105,7 +105,7 @@ var result = agentData.EquipmentSeed(0);
 ### NoHorses
 `public AgentData NoHorses(bool noHorses)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「no horses」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -116,7 +116,7 @@ var result = agentData.NoHorses(false);
 ### NoWeapons
 `public AgentData NoWeapons(bool noWeapons)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「no weapons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -127,7 +127,7 @@ var result = agentData.NoWeapons(false);
 ### NoArmor
 `public AgentData NoArmor(bool noArmor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「no armor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -138,7 +138,7 @@ var result = agentData.NoArmor(false);
 ### FixedEquipment
 `public AgentData FixedEquipment(bool fixedEquipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fixed equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -149,7 +149,7 @@ var result = agentData.FixedEquipment(false);
 ### CivilianEquipment
 `public AgentData CivilianEquipment(bool civilianEquipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「civilian equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -171,7 +171,7 @@ var result = agentData.SetPrepareImmediately();
 ### ClothingColor1
 `public AgentData ClothingColor1(uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clothing color1」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -182,7 +182,7 @@ var result = agentData.ClothingColor1(0);
 ### ClothingColor2
 `public AgentData ClothingColor2(uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clothing color2」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -193,7 +193,7 @@ var result = agentData.ClothingColor2(0);
 ### BodyProperties
 `public AgentData BodyProperties(BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「body properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -204,7 +204,7 @@ var result = agentData.BodyProperties(bodyProperties);
 ### Age
 `public AgentData Age(int age)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「age」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -215,7 +215,7 @@ var result = agentData.Age(0);
 ### TroopOrigin
 `public AgentData TroopOrigin(IAgentOriginBase troopOrigin)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「troop origin」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -237,7 +237,7 @@ var result = agentData.IsFemale(false);
 ### Race
 `public AgentData Race(int race)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「race」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例
@@ -248,7 +248,7 @@ var result = agentData.Race(0);
 ### MountKey
 `public AgentData MountKey(string mountKey)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mount key」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentData 实例

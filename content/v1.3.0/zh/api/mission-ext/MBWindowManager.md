@@ -23,7 +23,7 @@ description: "MBWindowManager 的自动生成类参考。"
 ### WorldToScreen
 `public static float WorldToScreen(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「world to screen」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBWindowManager.WorldToScreen(camera, worldSpacePosition, screenX, screenY, w);
 ### WorldToScreenInsideUsableArea
 `public static float WorldToScreenInsideUsableArea(Camera camera, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「world to screen inside usable area」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBWindowManager.WorldToScreenInsideUsableArea(camera, worldSpacePosition, screen
 ### WorldToScreenWithFixedZ
 `public static float WorldToScreenWithFixedZ(Camera camera, Vec3 cameraPosition, Vec3 worldSpacePosition, ref float screenX, ref float screenY, ref float w)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「world to screen with fixed z」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MBWindowManager.WorldToScreenWithFixedZ(camera, cameraPosition, worldSpacePositi
 ### ScreenToWorld
 `public static void ScreenToWorld(Camera camera, float screenX, float screenY, float w, ref Vec3 worldSpacePosition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「screen to world」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBWindowManager.GetScreenResolution();
 ### PreDisplay
 `public static void PreDisplay()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pre display」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MBWindowManager.PreDisplay();
 ### DontChangeCursorPos
 `public static void DontChangeCursorPos()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dont change cursor pos」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

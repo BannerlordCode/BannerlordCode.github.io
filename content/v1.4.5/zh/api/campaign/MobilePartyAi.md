@@ -48,7 +48,7 @@ mobilePartyAi.Clear();
 ### CacheAiBehaviorPartyBase
 `public void CacheAiBehaviorPartyBase()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cache ai behavior party base」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -92,7 +92,7 @@ var result = mobilePartyAi.GetNearbyPartyDataWhileDefendingSettlement(targetSett
 ### DisableForHours
 `public void DisableForHours(int hours)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable for hours」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -103,7 +103,7 @@ mobilePartyAi.DisableForHours(0);
 ### DisableAi
 `public void DisableAi()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable ai」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -114,7 +114,7 @@ mobilePartyAi.DisableAi();
 ### EnableAi
 `public void EnableAi()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable ai」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例
@@ -125,7 +125,7 @@ mobilePartyAi.EnableAi();
 ### EnableAgainAtHourIsPast
 `public bool EnableAgainAtHourIsPast()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable again at hour is past」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyAi 实例

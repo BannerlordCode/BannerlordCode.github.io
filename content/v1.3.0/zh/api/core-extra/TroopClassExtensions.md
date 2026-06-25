@@ -63,7 +63,7 @@ TroopClassExtensions.IsMeleeCavalry(troopClass);
 ### DefaultClass
 `public static FormationClass DefaultClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「default class」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ TroopClassExtensions.DefaultClass(troopClass);
 ### AlternativeClass
 `public static FormationClass AlternativeClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「alternative class」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ TroopClassExtensions.AlternativeClass(troopClass);
 ### DismountedClass
 `public static FormationClass DismountedClass(this FormationClass troopClass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dismounted class」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -95,7 +95,7 @@ boardGameKonane.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例
@@ -117,7 +117,7 @@ var result = boardGameKonane.CheckForRemovablePawns(false);
 ### TakeBoardSnapshot
 `public BoardGameKonane.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例
@@ -128,7 +128,7 @@ var result = boardGameKonane.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameKonane.BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例

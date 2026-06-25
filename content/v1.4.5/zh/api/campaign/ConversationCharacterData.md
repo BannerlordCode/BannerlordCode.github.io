@@ -23,7 +23,7 @@ description: "ConversationCharacterData 的自动生成类参考。"
 ### ConversationCharacterData
 `public struct ConversationCharacterData(CharacterObject character, PartyBase party = null, bool noHorse = false, bool noWeapon = false, bool spawnAfterFight = false, bool isCivilianEquipmentRequiredForLeader = false, bool isCivilianEquipmentRequiredForBodyGuardCharacters = false, bool noBodyguards = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「conversation character data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationCharacterData 实例

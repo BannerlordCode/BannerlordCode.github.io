@@ -23,7 +23,7 @@ description: "SiegeWeaponController 的自动生成类参考。"
 ### Select
 `public void Select(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -45,7 +45,7 @@ siegeWeaponController.ClearSelectedWeapons();
 ### Deselect
 `public void Deselect(SiegeWeapon weapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deselect」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例
@@ -56,7 +56,7 @@ siegeWeaponController.Deselect(weapon);
 ### SelectAll
 `public void SelectAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeaponController 实例

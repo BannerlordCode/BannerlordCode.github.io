@@ -154,7 +154,7 @@ besiegerCamp.RemoveDeprecatedMissiles();
 ### BombardHitWalls
 `public void BombardHitWalls(SiegeEngineType attackerEngineType, int wallIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「bombard hit walls」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BesiegerCamp 实例
@@ -176,7 +176,7 @@ besiegerCamp.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetI
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize siege event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BesiegerCamp 实例

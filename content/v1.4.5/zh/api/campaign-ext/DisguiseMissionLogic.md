@@ -87,7 +87,7 @@ var result = disguiseMissionLogic.CanCommonAreaFightBeTriggered();
 ### ContactAlreadySetCommonCondition
 `public bool ContactAlreadySetCommonCondition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「contact already set common condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例
@@ -131,7 +131,7 @@ disguiseMissionLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, bl
 ### SpawnDisguiseMissionAgentInternal
 `public Agent SpawnDisguiseMissionAgentInternal(CharacterObject agentCharacter, Vec3 initialPosition, Vec2 initialDirection, string actionSetId, bool isEnemy = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn disguise mission agent internal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DisguiseMissionLogic 实例

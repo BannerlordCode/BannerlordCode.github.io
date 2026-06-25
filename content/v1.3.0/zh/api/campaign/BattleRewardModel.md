@@ -232,7 +232,7 @@ var result = battleRewardModel.CalculateShipDamageAfterDefeat(ship);
 ### DistributeDefeatedPartyShipsAmongWinners
 `public abstract MBReadOnlyList<KeyValuePair<Ship, MapEventParty>> DistributeDefeatedPartyShipsAmongWinners(MBReadOnlyList<Ship> shipsToLoot, MBReadOnlyList<MapEventParty> winnerParties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「distribute defeated party ships among winners」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleRewardModel 实例

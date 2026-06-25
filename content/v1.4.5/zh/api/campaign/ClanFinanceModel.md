@@ -128,7 +128,7 @@ var result = clanFinanceModel.CalculateOwnerIncomeFromWorkshop(workshop);
 ### RevenueSmoothenFraction
 `public abstract float RevenueSmoothenFraction()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「revenue smoothen fraction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanFinanceModel 实例

@@ -101,7 +101,7 @@ teamAIComponent.ClearTacticOptions();
 ### AssertTeam
 `public void AssertTeam(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAIComponent 实例
@@ -233,7 +233,7 @@ teamAIComponent.OnUnitAddedToFormationForTheFirstTime(formation);
 ### TacticalDecisionDelegate
 `public delegate void TacticalDecisionDelegate(in TacticalDecision decision)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tactical decision delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamAIComponent 实例

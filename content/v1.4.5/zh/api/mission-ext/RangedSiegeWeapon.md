@@ -82,7 +82,7 @@ rangedSiegeWeapon.SetStartAmmo(0);
 ### ChangeProjectileEntityClient
 `public void ChangeProjectileEntityClient(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change projectile entity client」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -137,7 +137,7 @@ var result = rangedSiegeWeapon.GetTickRequirement();
 ### GiveInput
 `public void GiveInput(float inputX, float inputY)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give input」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -148,7 +148,7 @@ rangedSiegeWeapon.GiveInput(0, 0);
 ### GiveExactInput
 `public void GiveExactInput(float targetX, float targetY)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give exact input」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -170,7 +170,7 @@ var result = rangedSiegeWeapon.GetTargetReleaseAngle(target);
 ### AimAtThreat
 `public virtual bool AimAtThreat(Threat threat)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「aim at threat」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -181,7 +181,7 @@ var result = rangedSiegeWeapon.AimAtThreat(threat);
 ### AimAtTarget
 `public bool AimAtTarget(Vec3 target)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「aim at target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -225,7 +225,7 @@ var result = rangedSiegeWeapon.GetEstimatedTargetGlobalPointForAgent(agent);
 ### AimAtRotation
 `public virtual void AimAtRotation(float horizontalRotation, float verticalRotation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「aim at rotation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -236,7 +236,7 @@ rangedSiegeWeapon.AimAtRotation(0, 0);
 ### Shoot
 `public bool Shoot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shoot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -247,7 +247,7 @@ var result = rangedSiegeWeapon.Shoot();
 ### ManualReload
 `public void ManualReload()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「manual reload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -258,7 +258,7 @@ rangedSiegeWeapon.ManualReload();
 ### AiRequestsShoot
 `public void AiRequestsShoot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai requests shoot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -269,7 +269,7 @@ rangedSiegeWeapon.AiRequestsShoot();
 ### AiRequestsManualReload
 `public void AiRequestsManualReload()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai requests manual reload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例
@@ -346,7 +346,7 @@ var result = rangedSiegeWeapon.GetOrder(side);
 ### ProcessTargetValue
 `public abstract float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process target value」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RangedSiegeWeapon 实例

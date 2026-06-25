@@ -43,7 +43,7 @@ var result = equipment.Clone(false);
 ### FillFrom
 `public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Equipment 实例
@@ -292,7 +292,7 @@ Equipment.GetRandomEquipmentElements(character, false, equipmentType, 0);
 ### SwapWeapons
 `public static void SwapWeapons(Equipment equipment, EquipmentIndex index1, EquipmentIndex index2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap weapons」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

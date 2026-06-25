@@ -30,7 +30,7 @@ description: "PropertyChangedWithColorValueEventArgs 的自动生成类参考。
 ### PropertyChangedWithColorValueEventArgs
 `public struct PropertyChangedWithColorValueEventArgs(string propertyName, Color value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「property changed with color value event args」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PropertyChangedWithColorValueEventArgs 实例

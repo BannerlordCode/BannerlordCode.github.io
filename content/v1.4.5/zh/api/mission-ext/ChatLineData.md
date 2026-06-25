@@ -23,7 +23,7 @@ description: "ChatLineData 的自动生成类参考。"
 ### ChatLineData
 `public struct ChatLineData(string text, uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「chat line data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatLineData 实例

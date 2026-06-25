@@ -23,7 +23,7 @@ description: "LobbyCosmeticExtensions 的自动生成类参考。"
 ### ToItemTypeEnum
 `public static ItemTypeEnum ToItemTypeEnum(this MPArmoryCosmeticsVM.ClothingCategory cosmeticCategory)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to item type enum」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

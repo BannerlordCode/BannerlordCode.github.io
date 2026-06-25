@@ -45,7 +45,7 @@ var result = defencePoint.RemoveDefender(defender);
 ### PurgeInactiveDefenders
 `public void PurgeInactiveDefenders()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「purge inactive defenders」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例
@@ -67,7 +67,7 @@ var result = defencePoint.GetVacantPosition(a);
 ### CountOccupiedDefenderPositions
 `public int CountOccupiedDefenderPositions()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「count occupied defender positions」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefencePoint 实例

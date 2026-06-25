@@ -29,7 +29,7 @@ description: "TutorialArea 的自动生成类参考。"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -40,7 +40,7 @@ tutorialArea.AfterMissionStart();
 ### MarkTrainingIcons
 `public void MarkTrainingIcons(bool mark)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mark training icons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -95,7 +95,7 @@ tutorialArea.ActivateTaggedWeapons(0);
 ### EquipWeaponsToPlayer
 `public void EquipWeaponsToPlayer(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip weapons to player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -150,7 +150,7 @@ var result = tutorialArea.GetBreakablesCount(0);
 ### MakeDestructible
 `public void MakeDestructible(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make destructible」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -161,7 +161,7 @@ tutorialArea.MakeDestructible(0);
 ### MarkAllTargets
 `public void MarkAllTargets(int index, bool mark)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mark all targets」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -183,7 +183,7 @@ tutorialArea.ResetMarkingTargetTimers(0);
 ### MakeInDestructible
 `public void MakeInDestructible(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make in destructible」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例
@@ -194,7 +194,7 @@ tutorialArea.MakeInDestructible(0);
 ### AllBreakablesAreBroken
 `public bool AllBreakablesAreBroken(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「all breakables are broken」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TutorialArea 实例

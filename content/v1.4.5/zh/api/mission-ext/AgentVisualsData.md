@@ -58,7 +58,7 @@ description: "AgentVisualsData 的自动生成类参考。"
 ### Equipment
 `public AgentVisualsData Equipment(Equipment equipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -69,7 +69,7 @@ var result = agentVisualsData.Equipment(equipment);
 ### BodyProperties
 `public AgentVisualsData BodyProperties(BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「body properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -80,7 +80,7 @@ var result = agentVisualsData.BodyProperties(bodyProperties);
 ### Frame
 `public AgentVisualsData Frame(MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「frame」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -91,7 +91,7 @@ var result = agentVisualsData.Frame(frame);
 ### ActionSet
 `public AgentVisualsData ActionSet(MBActionSet actionSet)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「action set」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -102,7 +102,7 @@ var result = agentVisualsData.ActionSet(actionSet);
 ### Scene
 `public AgentVisualsData Scene(Scene scene)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scene」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -113,7 +113,7 @@ var result = agentVisualsData.Scene(scene);
 ### Monster
 `public AgentVisualsData Monster(Monster monster)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「monster」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -135,7 +135,7 @@ var result = agentVisualsData.PrepareImmediately(false);
 ### UseScaledWeapons
 `public AgentVisualsData UseScaledWeapons(bool useScaledWeapons)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use scaled weapons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -146,7 +146,7 @@ var result = agentVisualsData.UseScaledWeapons(false);
 ### SkeletonType
 `public AgentVisualsData SkeletonType(SkeletonType skeletonType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skeleton type」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -157,7 +157,7 @@ var result = agentVisualsData.SkeletonType(skeletonType);
 ### UseMorphAnims
 `public AgentVisualsData UseMorphAnims(bool useMorphAnims)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use morph anims」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -168,7 +168,7 @@ var result = agentVisualsData.UseMorphAnims(false);
 ### ClothColor1
 `public AgentVisualsData ClothColor1(uint clothColor1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cloth color1」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -179,7 +179,7 @@ var result = agentVisualsData.ClothColor1(0);
 ### ClothColor2
 `public AgentVisualsData ClothColor2(uint clothColor2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cloth color2」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -190,7 +190,7 @@ var result = agentVisualsData.ClothColor2(0);
 ### Banner
 `public AgentVisualsData Banner(Banner banner)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「banner」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -201,7 +201,7 @@ var result = agentVisualsData.Banner(banner);
 ### Race
 `public AgentVisualsData Race(int race)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「race」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -223,7 +223,7 @@ var result = agentVisualsData.GetCachedWeaponEntity(slotIndex);
 ### CachedWeaponEntity
 `public AgentVisualsData CachedWeaponEntity(EquipmentIndex slotIndex, GameEntity cachedWeaponEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cached weapon entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -234,7 +234,7 @@ var result = agentVisualsData.CachedWeaponEntity(slotIndex, cachedWeaponEntity);
 ### Entity
 `public AgentVisualsData Entity(GameEntity entity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -245,7 +245,7 @@ var result = agentVisualsData.Entity(entity);
 ### UseTranslucency
 `public AgentVisualsData UseTranslucency(bool useTranslucency)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use translucency」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -256,7 +256,7 @@ var result = agentVisualsData.UseTranslucency(false);
 ### UseTesselation
 `public AgentVisualsData UseTesselation(bool useTesselation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use tesselation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -267,7 +267,7 @@ var result = agentVisualsData.UseTesselation(false);
 ### ActionCode
 `public AgentVisualsData ActionCode(in ActionIndexCache actionCode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「action code」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -278,7 +278,7 @@ var result = agentVisualsData.ActionCode(actionCode);
 ### RightWieldedItemIndex
 `public AgentVisualsData RightWieldedItemIndex(int rightWieldedItemIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「right wielded item index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -289,7 +289,7 @@ var result = agentVisualsData.RightWieldedItemIndex(0);
 ### LeftWieldedItemIndex
 `public AgentVisualsData LeftWieldedItemIndex(int leftWieldedItemIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「left wielded item index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -300,7 +300,7 @@ var result = agentVisualsData.LeftWieldedItemIndex(0);
 ### Scale
 `public AgentVisualsData Scale(float scale)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -311,7 +311,7 @@ var result = agentVisualsData.Scale(0);
 ### CharacterObjectStringId
 `public AgentVisualsData CharacterObjectStringId(string characterObjectStringId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「character object string id」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例
@@ -333,7 +333,7 @@ var result = agentVisualsData.HasClippingPlane(false);
 ### MountCreationKey
 `public AgentVisualsData MountCreationKey(string mountCreationKey)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mount creation key」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentVisualsData 实例

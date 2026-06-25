@@ -128,7 +128,7 @@ itemTableau.Initialize();
 ### RotateItem
 `public void RotateItem(bool value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -139,7 +139,7 @@ itemTableau.RotateItem(false);
 ### RotateItemVerticalWithAmount
 `public void RotateItemVerticalWithAmount(float value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate item vertical with amount」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -150,7 +150,7 @@ itemTableau.RotateItemVerticalWithAmount(0);
 ### RotateItemHorizontalWithAmount
 `public void RotateItemHorizontalWithAmount(float value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate item horizontal with amount」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例
@@ -194,7 +194,7 @@ itemTableau.SetInitialPanRotation(0);
 ### Zoom
 `public void Zoom(double value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「zoom」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemTableau 实例

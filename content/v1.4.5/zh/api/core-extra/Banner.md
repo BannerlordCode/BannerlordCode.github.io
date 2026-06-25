@@ -155,7 +155,7 @@ banner.SetIconSize(0);
 ### ChangePrimaryColor
 `public void ChangePrimaryColor(uint mainColor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change primary color」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Banner 实例
@@ -166,7 +166,7 @@ banner.ChangePrimaryColor(0);
 ### ChangeBackgroundColor
 `public void ChangeBackgroundColor(uint primaryColor, uint secondaryColor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change background color」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Banner 实例
@@ -177,7 +177,7 @@ banner.ChangeBackgroundColor(0, 0);
 ### ChangeIconColors
 `public void ChangeIconColors(uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change icon colors」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Banner 实例
@@ -188,7 +188,7 @@ banner.ChangeIconColors(0);
 ### RotateBackgroundToRight
 `public void RotateBackgroundToRight()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate background to right」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Banner 实例
@@ -199,7 +199,7 @@ banner.RotateBackgroundToRight();
 ### RotateBackgroundToLeft
 `public void RotateBackgroundToLeft()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate background to left」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Banner 实例

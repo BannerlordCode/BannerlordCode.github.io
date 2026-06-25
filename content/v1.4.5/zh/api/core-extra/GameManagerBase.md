@@ -145,7 +145,7 @@ gameManagerBase.OnGameEnd(game);
 ### DoLoadingForGameManager
 `public bool DoLoadingForGameManager()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do loading for game manager」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameManagerBase 实例
@@ -189,7 +189,7 @@ gameManagerBase.OnGameStart(game, gameStarter);
 ### BeginGameStart
 `public abstract void BeginGameStart(Game game)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin game start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameManagerBase 实例
@@ -233,7 +233,7 @@ gameManagerBase.RegisterSubModuleObjects(false);
 ### AfterRegisterSubModuleObjects
 `public abstract void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「register sub module objects」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameManagerBase 实例

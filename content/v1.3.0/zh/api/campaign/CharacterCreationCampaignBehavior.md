@@ -78,7 +78,7 @@ characterCreationCampaignBehavior.InitializeData(characterCreationManager);
 ### FaceGenUpdated
 `public void FaceGenUpdated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「face gen updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationCampaignBehavior 实例

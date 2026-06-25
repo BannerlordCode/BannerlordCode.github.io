@@ -83,7 +83,7 @@ var result = boardGameBase.CalculateValidMoves(pawn);
 ### RollDice
 `public virtual void RollDice()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「roll dice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -204,7 +204,7 @@ var result = boardGameBase.GetTotalMovesAvailable(moves);
 ### PlayDiceRollSound
 `public void PlayDiceRollSound()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play dice roll sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例
@@ -281,7 +281,7 @@ var result = boardGameBase.Tick(0);
 ### ForceDice
 `public void ForceDice(int value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force dice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameBase 实例

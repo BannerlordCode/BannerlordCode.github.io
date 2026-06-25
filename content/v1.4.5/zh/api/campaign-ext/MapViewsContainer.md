@@ -56,7 +56,7 @@ var result = mapViewsContainer.Contains(mapView);
 ### Foreach
 `public void Foreach(Action<MapView> action)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「foreach」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -67,7 +67,7 @@ mapViewsContainer.Foreach(action);
 ### ForeachReverse
 `public void ForeachReverse(Action<MapView> action)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「foreach reverse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例
@@ -78,7 +78,7 @@ mapViewsContainer.ForeachReverse(action);
 ### ReturnFirstElementWithCondition
 `public MapView ReturnFirstElementWithCondition(Func<MapView, bool> condition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「return first element with condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapViewsContainer 实例

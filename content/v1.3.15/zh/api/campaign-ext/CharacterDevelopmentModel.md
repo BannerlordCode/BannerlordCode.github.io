@@ -36,7 +36,7 @@ description: "CharacterDevelopmentModel 的自动生成类参考。"
 ### SkillsRequiredForLevel
 `public abstract int SkillsRequiredForLevel(int level)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skills required for level」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterDevelopmentModel 实例

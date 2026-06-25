@@ -33,7 +33,7 @@ MachineId.Initialize();
 ### AsInteger
 `public static int AsInteger()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「as integer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

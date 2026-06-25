@@ -23,7 +23,7 @@ description: "DebugExtensions 的自动生成类参考。"
 ### RenderDebugCircleOnTerrain
 `public static void RenderDebugCircleOnTerrain(Scene scene, MatrixFrame frame, float radius, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug circle on terrain」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ DebugExtensions.RenderDebugCircleOnTerrain(scene, frame, 0, 0, false, false);
 ### RenderDebugArcOnTerrain
 `public static void RenderDebugArcOnTerrain(Scene scene, MatrixFrame frame, float radius, float beginAngle, float endAngle, uint color, bool depthCheck = true, bool isDotted = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug arc on terrain」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ DebugExtensions.RenderDebugArcOnTerrain(scene, frame, 0, 0, 0, 0, false, false);
 ### RenderDebugLineOnTerrain
 `public static void RenderDebugLineOnTerrain(Scene scene, Vec3 position, Vec3 direction, uint color, bool depthCheck = true, float time = 0f, bool isDotted = false, float pointDensity = 1f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug line on terrain」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

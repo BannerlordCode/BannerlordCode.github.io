@@ -115,7 +115,7 @@ skeleton.AddMeshToBone(mesh, 0);
 ### Freeze
 `public void Freeze(bool p)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「freeze」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Skeleton 实例
@@ -170,7 +170,7 @@ skeleton.GetBoneBody(0, data);
 ### SkeletonModelExist
 `public static bool SkeletonModelExist(string skeletonModelName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skeleton model exist」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -180,7 +180,7 @@ Skeleton.SkeletonModelExist("example");
 ### ForceUpdateBoneFrames
 `public void ForceUpdateBoneFrames()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force update bone frames」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Skeleton 实例
@@ -587,7 +587,7 @@ var result = skeleton.GetAnimationIndexAtChannel(0);
 ### EnableScriptDrivenPostIntegrateCallback
 `public void EnableScriptDrivenPostIntegrateCallback()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable script driven post integrate callback」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Skeleton 实例

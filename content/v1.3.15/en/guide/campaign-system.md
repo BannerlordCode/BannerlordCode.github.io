@@ -371,18 +371,18 @@ public class MySaveableData
 
 ## Related API
 
-- [Campaign API](../api/campaign/Campaign/)
-- [MobileParty API](../api/campaign/MobileParty/)
-- [Kingdom API](../api/campaign/Kingdom/)
-- [Clan API](../api/campaign/Clan/)
-- [Settlement API](../api/campaign/Settlement/)
+- [Campaign API](../../api/campaign/Campaign/)
+- [MobileParty API](../../api/campaign/MobileParty/)
+- [Kingdom API](../../api/campaign/Kingdom/)
+- [Clan API](../../api/campaign/Clan/)
+- [Settlement API](../../api/campaign/Settlement/)
 
 ---
 
 ## Next Section
 
-- [Save System](save-system-guide/) - Ensure your data saves correctly
-- [Mission System](mission-system/) - Customize battles
+- [Save System](../save-system-guide/) - Ensure your data saves correctly
+- [Mission System](../mission-system/) - Customize battles
 
 ## Usage Example
 

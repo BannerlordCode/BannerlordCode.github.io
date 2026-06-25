@@ -23,7 +23,7 @@ description: "TournamentJoustingMissionController 的自动生成类参考。"
 ### JoustingEventDelegate
 `public delegate void JoustingEventDelegate(Agent affectedAgent, Agent affectorAgent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「jousting event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -34,7 +34,7 @@ tournamentJoustingMissionController.JoustingEventDelegate(affectedAgent, affecto
 ### JoustingAgentStateChangedEventDelegate
 `public delegate void JoustingAgentStateChangedEventDelegate(Agent agent, JoustingAgentController.JoustingAgentState state)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「jousting agent state changed event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -45,7 +45,7 @@ tournamentJoustingMissionController.JoustingAgentStateChangedEventDelegate(agent
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例
@@ -67,7 +67,7 @@ tournamentJoustingMissionController.StartMatch(match, false);
 ### SkipMatch
 `public void SkipMatch(TournamentMatch match)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skip match」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentJoustingMissionController 实例

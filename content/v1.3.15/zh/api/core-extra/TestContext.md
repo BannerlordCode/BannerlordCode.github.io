@@ -23,7 +23,7 @@ description: "TestContext 的自动生成类参考。"
 ### RunTestAux
 `public void RunTestAux(string commandLine)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run test aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TestContext 实例
@@ -56,7 +56,7 @@ testContext.TickTest(0);
 ### FinalizeContext
 `public void FinalizeContext()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「finalize context」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 TestContext 实例

@@ -78,7 +78,7 @@ siegeWeapon.TickAuxForInit();
 ### ShouldAutoLeaveDetachmentWhenDisabled
 `public override bool ShouldAutoLeaveDetachmentWhenDisabled(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should auto leave detachment when disabled」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -89,7 +89,7 @@ var result = siegeWeapon.ShouldAutoLeaveDetachmentWhenDisabled(sideEnum);
 ### AutoAttachUserToFormation
 `public override bool AutoAttachUserToFormation(BattleSideEnum sideEnum)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto attach user to formation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -166,7 +166,7 @@ var result = siegeWeapon.IsDestructable();
 ### Entity
 `public WeakGameEntity Entity()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例
@@ -177,7 +177,7 @@ var result = siegeWeapon.Entity();
 ### ComputeGlobalPhysicsBoundingBoxMinMax
 `public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute global physics bounding box min max」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeWeapon 实例

@@ -52,4 +52,4 @@ companionDismissCampaignBehavior.RegisterEvents();
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

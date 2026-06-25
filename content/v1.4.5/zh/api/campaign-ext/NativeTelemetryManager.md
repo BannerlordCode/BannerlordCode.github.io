@@ -62,7 +62,7 @@ nativeTelemetryManager.StopTelemetryConnection();
 ### BeginTelemetryScopeInternal
 `public void BeginTelemetryScopeInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin telemetry scope internal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -73,7 +73,7 @@ nativeTelemetryManager.BeginTelemetryScopeInternal(levelMask, "example");
 ### EndTelemetryScopeInternal
 `public void EndTelemetryScopeInternal()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end telemetry scope internal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -84,7 +84,7 @@ nativeTelemetryManager.EndTelemetryScopeInternal();
 ### BeginTelemetryScopeBaseLevelInternal
 `public void BeginTelemetryScopeBaseLevelInternal(TelemetryLevelMask levelMask, string scopeName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin telemetry scope base level internal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例
@@ -95,7 +95,7 @@ nativeTelemetryManager.BeginTelemetryScopeBaseLevelInternal(levelMask, "example"
 ### EndTelemetryScopeBaseLevelInternal
 `public void EndTelemetryScopeBaseLevelInternal()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end telemetry scope base level internal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeTelemetryManager 实例

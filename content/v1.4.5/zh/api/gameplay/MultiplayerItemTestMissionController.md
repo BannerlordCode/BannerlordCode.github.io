@@ -23,7 +23,7 @@ description: "MultiplayerItemTestMissionController 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerItemTestMissionController 实例
@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<MultiplayerItemTestMissionCo
 
 ## 参见
 
-- [本区域目录](../)
+- [本区域目录](../../)

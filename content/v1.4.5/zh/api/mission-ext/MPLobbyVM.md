@@ -173,7 +173,7 @@ var result = mPLobbyVM.HasAnyContextMenuOpen();
 ### ForceCloseContextMenus
 `public void ForceCloseContextMenus()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force close context menus」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -195,7 +195,7 @@ var result = mPLobbyVM.HasNoPopupOpen();
 ### RequestExit
 `public async Task RequestExit()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request exit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例
@@ -206,7 +206,7 @@ var result = mPLobbyVM.RequestExit();
 ### ConnectionStateUpdated
 `public void ConnectionStateUpdated(bool isAuthenticated)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「connection state updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyVM 实例

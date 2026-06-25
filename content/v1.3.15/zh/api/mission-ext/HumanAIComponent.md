@@ -32,7 +32,7 @@ description: "HumanAIComponent 的自动生成类参考。"
 ### OverrideBehaviorParams
 `public void OverrideBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「override behavior params」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -54,7 +54,7 @@ humanAIComponent.SyncBehaviorParamsIfNecessary();
 ### DisablePickUpForAgentIfNeeded
 `public void DisablePickUpForAgentIfNeeded()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable pick up for agent if needed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -208,7 +208,7 @@ var result = humanAIComponent.IsInterestedInGameObject(usableMissionObject);
 ### FollowAgent
 `public void FollowAgent(Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「follow agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -230,7 +230,7 @@ var result = humanAIComponent.GetDesiredSpeedInFormation(false);
 ### AdjustSpeedLimit
 `public void AdjustSpeedLimit(Agent agent, float desiredSpeed, bool limitIsMultiplier)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「adjust speed limit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -241,7 +241,7 @@ humanAIComponent.AdjustSpeedLimit(agent, 0, false);
 ### ParallelUpdateFormationMovement
 `public unsafe void ParallelUpdateFormationMovement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parallel update formation movement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -296,7 +296,7 @@ humanAIComponent.RefreshBehaviorValues(movementOrder, arrangementOrder);
 ### ForceDisablePickUpForAgent
 `public void ForceDisablePickUpForAgent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force disable pick up for agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例
@@ -318,7 +318,7 @@ humanAIComponent.SetScriptedPositionAndDirectionTimed(position, 0, 0);
 ### DisableTimedScriptedMovement
 `public void DisableTimedScriptedMovement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable timed scripted movement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HumanAIComponent 实例

@@ -45,7 +45,7 @@ scriptedMovementComponent.OnTick(0);
 ### ShouldConversationStartWithAgent
 `public bool ShouldConversationStartWithAgent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should conversation start with agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptedMovementComponent 实例

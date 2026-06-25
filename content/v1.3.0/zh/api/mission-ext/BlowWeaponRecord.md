@@ -32,7 +32,7 @@ description: "BlowWeaponRecord 的自动生成类参考。"
 ### FillAsMeleeBlow
 `public void FillAsMeleeBlow(ItemObject item, WeaponComponentData weaponComponentData, int affectorWeaponSlot, sbyte weaponAttachBoneIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill as melee blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BlowWeaponRecord 实例
@@ -43,7 +43,7 @@ blowWeaponRecord.FillAsMeleeBlow(item, weaponComponentData, 0, 0);
 ### FillAsMissileBlow
 `public void FillAsMissileBlow(ItemObject item, WeaponComponentData weaponComponentData, int missileIndex, sbyte weaponAttachBoneIndex, Vec3 startingPosition, Vec3 currentPosition, Vec3 velocity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill as missile blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BlowWeaponRecord 实例

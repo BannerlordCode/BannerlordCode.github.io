@@ -89,7 +89,7 @@ var result = agentApplyDamageModel.ApplyGeneralDamageModifiers(attackInformation
 ### DecideMissileWeaponFlags
 `public abstract void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide missile weapon flags」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -144,7 +144,7 @@ var result = agentApplyDamageModel.CalculatePassiveAttackDamage(attackerCharacte
 ### DecidePassiveAttackCollisionReaction
 `public abstract MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide passive attack collision reaction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -155,7 +155,7 @@ var result = agentApplyDamageModel.DecidePassiveAttackCollisionReaction(attacker
 ### DecideWeaponCollisionReaction
 `public abstract void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide weapon collision reaction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -254,7 +254,7 @@ var result = agentApplyDamageModel.CanWeaponKnockDown(attackerAgent, victimAgent
 ### DecideCrushedThrough
 `public abstract bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsageHit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide crushed through」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -276,7 +276,7 @@ var result = agentApplyDamageModel.CalculateRemainingMomentum(0, b, collisionDat
 ### DecideAgentShrugOffBlow
 `public abstract bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent shrug off blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -287,7 +287,7 @@ var result = agentApplyDamageModel.DecideAgentShrugOffBlow(victimAgent, collisio
 ### DecideAgentDismountedByBlow
 `public abstract bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent dismounted by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -298,7 +298,7 @@ var result = agentApplyDamageModel.DecideAgentDismountedByBlow(attackerAgent, vi
 ### DecideAgentKnockedBackByBlow
 `public abstract bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent knocked back by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -309,7 +309,7 @@ var result = agentApplyDamageModel.DecideAgentKnockedBackByBlow(attackerAgent, v
 ### DecideAgentKnockedDownByBlow
 `public abstract bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent knocked down by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -320,7 +320,7 @@ var result = agentApplyDamageModel.DecideAgentKnockedDownByBlow(attackerAgent, v
 ### DecideMountRearedByBlow
 `public abstract bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide mount reared by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例
@@ -331,7 +331,7 @@ var result = agentApplyDamageModel.DecideMountRearedByBlow(attackerAgent, victim
 ### ShouldMissilePassThroughAfterShieldBreak
 `public abstract bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should missile pass through after shield break」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentApplyDamageModel 实例

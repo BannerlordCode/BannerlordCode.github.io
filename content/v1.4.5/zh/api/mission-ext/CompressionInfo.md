@@ -128,7 +128,7 @@ var result = compressionInfo.GetPrecision();
 ### ClampValueAccordingToLimits
 `public void ClampValueAccordingToLimits(ref float x)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp value according to limits」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CompressionInfo 实例

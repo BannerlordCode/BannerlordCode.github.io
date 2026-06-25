@@ -45,7 +45,7 @@ kingdomManager.CreateKingdom(kingdomName, informalName, culture, founderClan, nu
 ### AbdicateTheThrone
 `public void AbdicateTheThrone(Kingdom kingdom)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「abdicate the throne」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManager 实例
@@ -56,7 +56,7 @@ kingdomManager.AbdicateTheThrone(kingdom);
 ### RaidCompleted
 `public void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「raid completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManager 实例
@@ -67,7 +67,7 @@ kingdomManager.RaidCompleted(winnerSide, raidEvent);
 ### SiegeCompleted
 `public void SiegeCompleted(Settlement settlement, MobileParty capturerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「siege completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManager 实例
@@ -78,7 +78,7 @@ kingdomManager.SiegeCompleted(settlement, capturerParty, false, battleType);
 ### RelinquishSettlementOwnership
 `public void RelinquishSettlementOwnership(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relinquish settlement ownership」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManager 实例
@@ -89,7 +89,7 @@ kingdomManager.RelinquishSettlementOwnership(settlement);
 ### GiftSettlementOwnership
 `public void GiftSettlementOwnership(Settlement settlement, Clan receiverClan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「gift settlement ownership」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomManager 实例

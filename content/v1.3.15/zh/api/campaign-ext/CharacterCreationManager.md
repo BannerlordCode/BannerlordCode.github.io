@@ -55,7 +55,7 @@ characterCreationManager.AddStage(stage);
 ### NextStage
 `public void NextStage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -66,7 +66,7 @@ characterCreationManager.NextStage();
 ### PreviousStage
 `public void PreviousStage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「previous stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -77,7 +77,7 @@ characterCreationManager.PreviousStage();
 ### GoToStage
 `public void GoToStage(int stageIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例
@@ -165,7 +165,7 @@ var result = characterCreationManager.GetNarrativeMenuWithId("example");
 ### DeleteNarrativeMenuWithId
 `public void DeleteNarrativeMenuWithId(string stringId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete narrative menu with id」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationManager 实例

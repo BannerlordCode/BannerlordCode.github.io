@@ -51,7 +51,7 @@ missionCombatantsLogic.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -62,7 +62,7 @@ missionCombatantsLogic.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionCombatantsLogic 实例
@@ -84,7 +84,7 @@ var result = missionCombatantsLogic.GetAllCombatants();
 ### SupportsAllyTeamOnPlayerSide
 `public static bool SupportsAllyTeamOnPlayerSide(IEnumerable<IBattleCombatant> playerSideBattleCombatants, IBattleCombatant playerBattleCombatant, bool isPlayerSergeant, bool isNavalLandHybridMission, out IBattleCombatant allyCombatant)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supports ally team on player side」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

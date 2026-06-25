@@ -27,4 +27,4 @@ ModuleCheckResult instance = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

@@ -216,14 +216,14 @@ public override void OnMissionFinish(bool isHeroParty)
 ## 相关文档 / Related Documentation
 
 - [调试技巧](./#调试技巧)
-- [存档系统](save-system-guide/)
-- [常见模式](common-patterns/)
+- [存档系统](../save-system-guide/)
+- [常见模式](../common-patterns/)
 
 ---
 
 ## 下一节 / Next Section
 
-- [常见模式](common-patterns/) - 最佳实践
+- [常见模式](../common-patterns/) - 最佳实践
 - [入门指南](./) - 返回主指南
 
 ## 使用示例

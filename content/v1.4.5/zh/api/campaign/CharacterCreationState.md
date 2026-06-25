@@ -30,7 +30,7 @@ description: "CharacterCreationState 的自动生成类参考。"
 ### FinalizeCharacterCreationState
 `public void FinalizeCharacterCreationState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「finalize character creation state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationState 实例

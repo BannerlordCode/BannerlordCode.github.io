@@ -83,7 +83,7 @@ var result = decal.GetFactor1();
 ### OverrideRoadBoundaryP0
 `public void OverrideRoadBoundaryP0(Vec2 data)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「override road boundary p0」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例
@@ -94,7 +94,7 @@ decal.OverrideRoadBoundaryP0(data);
 ### OverrideRoadBoundaryP1
 `public void OverrideRoadBoundaryP1(Vec2 data)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「override road boundary p1」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Decal 实例

@@ -45,7 +45,7 @@ var result = interruptingBehaviorGroup.GetScore(false);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force think」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例
@@ -56,7 +56,7 @@ interruptingBehaviorGroup.ForceThink(0);
 ### ConversationTick
 `public override void ConversationTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「conversation」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 InterruptingBehaviorGroup 实例

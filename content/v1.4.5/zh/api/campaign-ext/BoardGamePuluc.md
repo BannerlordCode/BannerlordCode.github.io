@@ -23,7 +23,7 @@ description: "BoardGamePuluc 的自动生成类参考。"
 ### PawnInformation
 `public struct PawnInformation(int x, bool inSpawn, bool topPawn, PawnPuluc.MovementState state, List<PawnPuluc> pawnsBelow, bool captured, Vec3 position, PawnPuluc capturedBy)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pawn information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -34,7 +34,7 @@ var result = boardGamePuluc.PawnInformation(0, false, false, state, pawnsBelow, 
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「board information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -111,7 +111,7 @@ var result = boardGamePuluc.CalculateValidMoves(pawn);
 ### RollDice
 `public override void RollDice()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「roll dice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -122,7 +122,7 @@ boardGamePuluc.RollDice();
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -133,7 +133,7 @@ boardGamePuluc.AIMakeMove(move);
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -144,7 +144,7 @@ var result = boardGamePuluc.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例

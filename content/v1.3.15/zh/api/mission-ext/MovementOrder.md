@@ -168,7 +168,7 @@ movementOrder.ResetPositionCache();
 ### AreOrdersPracticallySame
 `public bool AreOrdersPracticallySame(MovementOrder m1, MovementOrder m2, bool isAIControlled)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「are orders practically same」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MovementOrder 实例
@@ -245,7 +245,7 @@ movementOrder.OnArrangementChanged(formation);
 ### Advance
 `public void Advance(Formation formation, float distance)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「advance」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MovementOrder 实例
@@ -256,7 +256,7 @@ movementOrder.Advance(formation, 0);
 ### FallBack
 `public void FallBack(Formation formation, float distance)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fall back」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MovementOrder 实例

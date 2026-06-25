@@ -32,7 +32,7 @@ description: "ContainerPageControlButtonListWidget 的自动生成类参考。"
 ### ContainerPageControlButtonListWidget
 `public class ContainerPageControlButtonListWidget(UIContext context)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「container page control button list widget」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerPageControlButtonListWidget 实例

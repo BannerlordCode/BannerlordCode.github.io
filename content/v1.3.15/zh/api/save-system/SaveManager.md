@@ -1,101 +1,154 @@
 ---
 title: "SaveManager"
-description: "SaveManager 的自动生成类参考。"
+description: "Bannerlord 存档系统的静态入口：保存、读取、元数据与 SaveableField 的序列化协调者。"
 ---
 # SaveManager
 
-**Namespace:** TaleWorlds.SaveSystem
-**Module:** TaleWorlds.SaveSystem
-**Type:** `public static class SaveManager`
-**Base:** 无
+**Namespace:** TaleWorlds.SaveSystem  
+**Module:** TaleWorlds.SaveSystem  
+**Type:** `public static class SaveManager`  
+**Base:** —  
 **File:** `TaleWorlds.SaveSystem/SaveManager.cs`
 
 ## 概述
 
-`SaveManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+`SaveManager` 是 Bannerlord 存档系统的**顶层静态 API**。它负责把任意 `object`（通常是 `Campaign` 实例或你的自定义数据根对象）序列化成字节流并写入文件，也负责从文件读取并反序列化。
+
+核心职责：
+
+- `Save(...)`：把对象写入持久化存储。
+- `Load(...)` / `LoadMetaData(...)`：读取存档与元数据。
+- `InitializeGlobalDefinitionContext()`：在游戏启动时注册所有 `[SaveableType]` / `[SaveableRootClass]` 定义。
+- `CheckSaveableTypes()`：检查标记了 `[SaveableField]` / `[SaveableProperty]` 的类型是否合规。
+
+对 mod 开发者来说，最常见的接触点并不是直接调用 `SaveManager.Save`——引擎会在主菜单保存/读取时自动调用它。你需要做的是：让你的自定义数据**成为可存档对象**。
 
 ## 心智模型
 
-把 `SaveManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+把 `SaveManager` 看作**“对象 → 二进制存档”的转换器**：
 
-## 主要方法
+- 它是**静态类**，没有实例；所有方法直接通过 `SaveManager.Method()` 调用。
+- 它不关心“这个对象代表什么”，只关心“这个对象及其字段能否被安全序列化”。
+- 你的职责是：在需要跨存档保留的数据上标记 `[SaveableField]`、`[SaveableProperty]` 或 `[SaveableRootClass]`，并确保数据类型简单（基础类型、字符串、枚举、`MBObjectBase` 引用、`List<T>`、`Dictionary<K,V>` 等）。
+- 不要直接覆盖 `Campaign` 的保存流程；而是把 mod 数据挂到 `CampaignBehaviorBase` 的 `SyncData` 或自定义 `SaveableData` 上。
 
-### InitializeGlobalDefinitionContext
-`public static void InitializeGlobalDefinitionContext()`
+## 核心方法
 
-**用途 / Purpose:** 为 「global definition context」 初始化必要的资源、状态或绑定。
+### `public static void InitializeGlobalDefinitionContext()`
+在模块加载阶段调用，扫描并注册所有存档类型。通常由引擎自动完成；mod 开发者很少需要手动调用。
 
 ```csharp
-// 静态调用，不需要实例
+// 一般在 SubModule 初始化时由引擎调用
 SaveManager.InitializeGlobalDefinitionContext();
 ```
 
-### CheckSaveableTypes
-`public static List<Type> CheckSaveableTypes()`
-
-**用途 / Purpose:** 检查「saveable types」在当前对象中是否成立。
+### `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
+把 `target` 序列化并写入。`saveName` 不含扩展名；`driver` 决定写入到哪里（文件系统）。
 
 ```csharp
-// 静态调用，不需要实例
-SaveManager.CheckSaveableTypes();
+var metaData = new MetaData();
+metaData.Add("ModVersion", MySubModule.Version);
+SaveOutput output = SaveManager.Save(
+    Campaign.Current,
+    metaData,
+    "MySave",
+    new FileDriver("MySave"));
+
+if (output.Successful)
+{
+    Console.WriteLine($"Saved {output.BytesWritten} bytes");
+}
 ```
 
-### Save
-`public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
+> 注意：在 mod 里极少需要手动保存整个 `Campaign`。更常见的是让引擎在玩家点击“保存”时调用。
 
-**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+### `public static LoadResult Load(string saveName, ISaveDriver driver)`
+读取指定存档。返回的 `LoadResult` 包含反序列化后的根对象与元数据。
 
 ```csharp
-// 静态调用，不需要实例
-SaveManager.Save(target, metaData, "example", driver);
+LoadResult result = SaveManager.Load("MySave", new FileDriver("MySave"));
+if (result.Successful)
+{
+    Campaign loadedCampaign = (Campaign)result.Root;
+    MetaData meta = result.MetaData;
+}
 ```
 
-### ShouldResolveConflicts
-`public static bool ShouldResolveConflicts()`
-
-**用途 / Purpose:** 执行此方法所描述的操作。
+### `public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
+只读取存档的元数据，不解压完整对象。常用于存档列表显示。
 
 ```csharp
-// 静态调用，不需要实例
-SaveManager.ShouldResolveConflicts();
+MetaData meta = SaveManager.LoadMetaData("MySave", new FileDriver("MySave"));
+string modVersion = meta.GetValue("ModVersion");
 ```
 
-### LoadMetaData
-`public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
-
-**用途 / Purpose:** 从持久化存储或流中读取 「meta data」。
+### `public static List<Type> CheckSaveableTypes()`
+检查所有可存档类型是否满足序列化约束（例如字段类型是否支持）。调试 mod 存档崩溃时有用。
 
 ```csharp
-// 静态调用，不需要实例
-SaveManager.LoadMetaData("example", driver);
+List<Type> badTypes = SaveManager.CheckSaveableTypes();
+foreach (Type t in badTypes)
+{
+    Console.WriteLine($"Saveable type issue: {t.FullName}");
+}
 ```
 
-### Load
-`public static LoadResult Load(string saveName, ISaveDriver driver)`
+## 典型用法示例
 
-**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+### 示例 1：让自定义数据随 Campaign 存档
 
 ```csharp
-// 静态调用，不需要实例
-SaveManager.Load("example", driver);
+public class MyModSaveData
+{
+    [SaveableField(0)]
+    public int PlayerKills;
+
+    [SaveableField(1)]
+    public List<string> DefeatedBossIds = new List<string>();
+}
+
+public class MyCampaignBehavior : CampaignBehaviorBase
+{
+    [SaveableField(0)]
+    private MyModSaveData _data = new MyModSaveData();
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData("MyModData", ref _data);
+    }
+
+    public void RecordKill(string bossId)
+    {
+        _data.PlayerKills++;
+        _data.DefeatedBossIds.Add(bossId);
+    }
+}
 ```
 
-### Load
-`public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`
+> `SyncData` 会在保存时自动把 `_data` 交给 `SaveManager` 序列化；读取时自动还原。
 
-**用途 / Purpose:** 从持久化存储或流中读取当前对象的数据。
+### 示例 2：在行为里安全地访问存档元数据
 
 ```csharp
-// 静态调用，不需要实例
-SaveManager.Load("example", driver, false);
+public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)
+{
+    // 如果你需要确认存档版本，可以通过自定义行为字段保存版本号
+    if (_data == null)
+    {
+        _data = new MyModSaveData();
+    }
+}
 ```
 
-## 使用示例
+## 跨版本提示
 
-```csharp
-var manager = SaveManager.Current;
-```
+- v1.3.0：基础 `SaveableField` 已存在，但 `[SaveableProperty]` 和 `AutoGeneratedSaveManager` 支持较弱。
+- v1.3.15：引入 `AutoGeneratedSaveManager`，可自动为简单类型生成保存契约。
+- v1.4.5：SaveSystem 进一步拆分；保存驱动 (`ISaveDriver`) 接口更稳定，但具体内部二进制格式可能有变化。跨版本 mod 建议不要直接读写二进制，而是依赖 `SyncData` 与 `SaveableData`。
 
 ## 参见
 
-- [本区域目录](../)
+- [AutoGeneratedSaveManager](../AutoGeneratedSaveManager/) — 自动生成保存契约
+- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — `SyncData` 的常用挂载点
+- [Campaign](../../campaign/Campaign/) — 整个战役世界的根对象
+- 存档架构详解：[架构 > 存档系统](../../../architecture/save-system/)

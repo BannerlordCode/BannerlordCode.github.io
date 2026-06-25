@@ -32,7 +32,7 @@ description: "MBRandom 的自动生成类参考。"
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float maxVal)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float ranged」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -42,7 +42,7 @@ MBRandom.RandomFloatRanged(0);
 ### RandomFloatRanged
 `public static float RandomFloatRanged(float minVal, float maxVal)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float ranged」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ MBRandom.RandomFloatRanged(0, 0);
 ### RandomInt
 `public static int RandomInt()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ MBRandom.RandomInt();
 ### RandomInt
 `public static int RandomInt(int maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -72,7 +72,7 @@ MBRandom.RandomInt(0);
 ### RandomInt
 `public static int RandomInt(int minValue, int maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -82,7 +82,7 @@ MBRandom.RandomInt(0, 0);
 ### RoundRandomized
 `public static int RoundRandomized(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「round randomized」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -102,7 +102,7 @@ MBRandom.SetSeed(0, 0);
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -112,7 +112,7 @@ MBRandom.RandomIntWithSeed(0, 0);
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(uint seed, uint seed2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

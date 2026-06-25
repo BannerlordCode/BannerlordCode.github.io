@@ -45,7 +45,7 @@ missionDeploymentPlanningLogic.ClearAll();
 ### MakeDefaultDeploymentPlans
 `public virtual void MakeDefaultDeploymentPlans()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make default deployment plans」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -56,7 +56,7 @@ missionDeploymentPlanningLogic.MakeDefaultDeploymentPlans();
 ### MakeDeploymentPlan
 `public virtual void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetPathOffset = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -67,7 +67,7 @@ missionDeploymentPlanningLogic.MakeDeploymentPlan(team, 0, 0);
 ### RemakeDeploymentPlan
 `public virtual bool RemakeDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「remake deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -144,7 +144,7 @@ var result = missionDeploymentPlanningLogic.GetDeploymentBoundaries(team);
 ### SupportsReinforcements
 `public virtual bool SupportsReinforcements()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supports reinforcements」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -155,7 +155,7 @@ var result = missionDeploymentPlanningLogic.SupportsReinforcements();
 ### SupportsNavmesh
 `public virtual bool SupportsNavmesh()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supports navmesh」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例
@@ -199,7 +199,7 @@ var result = missionDeploymentPlanningLogic.GetClosestDeploymentBoundaryPosition
 ### ProjectPositionToDeploymentBoundaries
 `public virtual void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「project position to deployment boundaries」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionDeploymentPlanningLogic 实例

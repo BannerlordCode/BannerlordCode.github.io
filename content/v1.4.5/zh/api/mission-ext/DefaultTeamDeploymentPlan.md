@@ -41,7 +41,7 @@ defaultTeamDeploymentPlan.SetSpawnWithHorses(false);
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(float spawnPathOffset = 0f, float targetOffset = 0f, FormationSceneSpawnEntry formationSceneSpawnEntries = null, bool isReinforcement = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultTeamDeploymentPlan 实例

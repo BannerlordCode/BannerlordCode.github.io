@@ -45,7 +45,7 @@ var result = characterCreationStageViewBase.GetLayers();
 ### NextStage
 `public abstract void NextStage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
@@ -56,7 +56,7 @@ characterCreationStageViewBase.NextStage();
 ### PreviousStage
 `public abstract void PreviousStage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「previous stage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
@@ -89,7 +89,7 @@ var result = characterCreationStageViewBase.GetVirtualStageCount();
 ### GoToIndex
 `public virtual void GoToIndex(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例
@@ -111,7 +111,7 @@ characterCreationStageViewBase.LoadEscapeMenuMovie();
 ### ReleaseEscapeMenuMovie
 `public abstract void ReleaseEscapeMenuMovie()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release escape menu movie」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterCreationStageViewBase 实例

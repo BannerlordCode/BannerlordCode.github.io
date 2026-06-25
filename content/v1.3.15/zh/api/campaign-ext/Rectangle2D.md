@@ -39,7 +39,7 @@ Rectangle2D.Create();
 ### FillLocalValuesFrom
 `public Rectangle2D FillLocalValuesFrom(in Rectangle2D other)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill local values from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Rectangle2D 实例
@@ -138,7 +138,7 @@ rectangle2D.ValidateVisuals();
 ### DrawBoundingBox
 `public void DrawBoundingBox()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Rectangle2D 实例
@@ -149,7 +149,7 @@ rectangle2D.DrawBoundingBox();
 ### DrawCorners
 `public void DrawCorners()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw corners」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Rectangle2D 实例
@@ -281,7 +281,7 @@ var result = rectangle2D.IsPointInside(point);
 ### TransformScreenPositionToLocal
 `public Vector2 TransformScreenPositionToLocal(in Vector2 screenPosition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform screen position to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Rectangle2D 实例
@@ -292,7 +292,7 @@ var result = rectangle2D.TransformScreenPositionToLocal(screenPosition);
 ### TransformLocalPositionToScreen
 `public Vector2 TransformLocalPositionToScreen(in Vector2 localPosition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform local position to screen」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Rectangle2D 实例
@@ -323,7 +323,7 @@ Rectangle2D.GetBoundingBox(rectangle);
 ### DoRectanglesIntersect
 `public static bool DoRectanglesIntersect(in Rectangle2D rect1, in Rectangle2D rect2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do rectangles intersect」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

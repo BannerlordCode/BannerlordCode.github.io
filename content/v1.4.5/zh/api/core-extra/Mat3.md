@@ -29,7 +29,7 @@ description: "Mat3 的自动生成类参考。"
 ### RotateAboutSide
 `public void RotateAboutSide(float a)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate about side」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -40,7 +40,7 @@ mat3.RotateAboutSide(0);
 ### RotateAboutForward
 `public void RotateAboutForward(float a)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate about forward」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -51,7 +51,7 @@ mat3.RotateAboutForward(0);
 ### RotateAboutUp
 `public void RotateAboutUp(float a)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate about up」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -62,7 +62,7 @@ mat3.RotateAboutUp(0);
 ### RotateAboutAnArbitraryVector
 `public void RotateAboutAnArbitraryVector(in Vec3 v, float a)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate about an arbitrary vector」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -95,7 +95,7 @@ var result = mat3.IsLeftHanded();
 ### NearlyEquals
 `public bool NearlyEquals(in Mat3 rhs, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「nearly equals」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -106,7 +106,7 @@ var result = mat3.NearlyEquals(rhs, 0);
 ### TransformToParent
 `public Vec3 TransformToParent(in Vec3 v)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -117,7 +117,7 @@ var result = mat3.TransformToParent(v);
 ### TransformToParent
 `public Vec2 TransformToParent(in Vec2 v)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -128,7 +128,7 @@ var result = mat3.TransformToParent(v);
 ### TransformToLocal
 `public Vec3 TransformToLocal(in Vec3 v)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -139,7 +139,7 @@ var result = mat3.TransformToLocal(v);
 ### TransformToLocal
 `public Vec2 TransformToLocal(in Vec2 v)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -150,7 +150,7 @@ var result = mat3.TransformToLocal(v);
 ### TransformToParent
 `public Mat3 TransformToParent(in Mat3 m)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -161,7 +161,7 @@ var result = mat3.TransformToParent(m);
 ### TransformToLocal
 `public Mat3 TransformToLocal(in Mat3 m)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -172,7 +172,7 @@ var result = mat3.TransformToLocal(m);
 ### Orthonormalize
 `public void Orthonormalize()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「orthonormalize」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -183,7 +183,7 @@ mat3.Orthonormalize();
 ### OrthonormalizeAccordingToForwardAndKeepUpAsZAxis
 `public void OrthonormalizeAccordingToForwardAndKeepUpAsZAxis()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「orthonormalize according to forward and keep up as z axis」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -205,7 +205,7 @@ var result = mat3.GetUnitRotation(0);
 ### MakeUnit
 `public Vec3 MakeUnit()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -282,7 +282,7 @@ var result = mat3.GetScaleVectorSquared();
 ### ToQuaternion
 `public void ToQuaternion(out Quaternion quat)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to quaternion」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -293,7 +293,7 @@ mat3.ToQuaternion(quat);
 ### ToQuaternion
 `public Quaternion ToQuaternion()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to quaternion」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例
@@ -304,7 +304,7 @@ var result = mat3.ToQuaternion();
 ### Lerp
 `public static Mat3 Lerp(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -314,7 +314,7 @@ Mat3.Lerp(m1, m2, 0);
 ### LerpNonOrthogonal
 `public static Mat3 LerpNonOrthogonal(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp non orthogonal」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -324,7 +324,7 @@ Mat3.LerpNonOrthogonal(m1, m2, 0);
 ### Slerp
 `public static Mat3 Slerp(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「slerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -334,7 +334,7 @@ Mat3.Slerp(m1, m2, 0);
 ### SlerpFPSIndependent
 `public static Mat3 SlerpFPSIndependent(in Mat3 m1, in Mat3 m2, float alpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「slerp fps independent」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -375,7 +375,7 @@ var result = mat3.GetEulerAngles();
 ### Transpose
 `public Mat3 Transpose()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transpose」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mat3 实例

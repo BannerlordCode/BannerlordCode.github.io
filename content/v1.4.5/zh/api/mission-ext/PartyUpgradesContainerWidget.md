@@ -29,7 +29,7 @@ description: "PartyUpgradesContainerWidget 的自动生成类参考。"
 ### PartyUpgradesContainerWidget
 `public class PartyUpgradesContainerWidget(UIContext context)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party upgrades container widget」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyUpgradesContainerWidget 实例

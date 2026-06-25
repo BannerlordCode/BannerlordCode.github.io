@@ -23,7 +23,7 @@ description: "Intersection 的自动生成类参考。"
 ### DoSegmentsIntersect
 `public static bool DoSegmentsIntersect(Vec2 line1Start, Vec2 line1Direction, Vec2 line2Start, Vec2 line2Direction, ref Vec2 intersectionPoint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do segments intersect」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

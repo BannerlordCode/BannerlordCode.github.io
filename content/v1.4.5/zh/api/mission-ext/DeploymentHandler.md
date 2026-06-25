@@ -34,7 +34,7 @@ deploymentHandler.OnBehaviorInitialize();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -45,7 +45,7 @@ deploymentHandler.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -78,7 +78,7 @@ deploymentHandler.OnBattleSideDeployed(side);
 ### AutoDeployTeamUsingDeploymentPlan
 `public abstract void AutoDeployTeamUsingDeploymentPlan(Team playerTeam)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto deploy team using deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -89,7 +89,7 @@ deploymentHandler.AutoDeployTeamUsingDeploymentPlan(playerTeam);
 ### ForceUpdateAllUnits
 `public abstract void ForceUpdateAllUnits()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force update all units」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentHandler 实例
@@ -122,7 +122,7 @@ deploymentHandler.InitializeDeploymentPoints();
 ### OrderController_OnOrderIssued_Aux
 `public static void OrderController_OnOrderIssued_Aux(OrderType orderType, MBReadOnlyList<Formation> appliedFormations, OrderController orderController = null, params object delegateParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「order controller_on order issued_aux」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

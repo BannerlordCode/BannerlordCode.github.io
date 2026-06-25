@@ -63,7 +63,7 @@ MenuHelper.CheckAndOpenNextLocation(args);
 ### DecideMenuState
 `public static void DecideMenuState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「decide menu state」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MenuHelper.DecideMenuState();
 ### EncounterAttackCondition
 `public static bool EncounterAttackCondition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「encounter attack condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MenuHelper.EncounterAttackCondition(args);
 ### EncounterCaptureEnemyCondition
 `public static bool EncounterCaptureEnemyCondition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「encounter capture enemy condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MenuHelper.EncounterCaptureEnemyCondition(args);
 ### EncounterAttackConsequence
 `public static void EncounterAttackConsequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「encounter attack consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ MenuHelper.CheckEnemyAttackableHonorably(args);
 ### EncounterOrderAttackCondition
 `public static bool EncounterOrderAttackCondition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「encounter order attack condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ MenuHelper.EncounterOrderAttackCondition(args);
 ### EncounterOrderAttackConsequence
 `public static void EncounterOrderAttackConsequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「encounter order attack consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ MenuHelper.EncounterOrderAttackConsequence(args);
 ### EncounterCaptureTheEnemyOnConsequence
 `public static void EncounterCaptureTheEnemyOnConsequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「encounter capture the enemy on consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ MenuHelper.EncounterCaptureTheEnemyOnConsequence(args);
 ### EncounterLeaveConsequence
 `public static void EncounterLeaveConsequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「encounter leave consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

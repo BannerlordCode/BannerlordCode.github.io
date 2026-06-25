@@ -29,7 +29,7 @@ description: "VolunteerModel 的自动生成类参考。"
 ### MaximumIndexHeroCanRecruitFromHero
 `public abstract int MaximumIndexHeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int useValueAsRelation = -101)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「maximum index hero can recruit from hero」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VolunteerModel 实例
@@ -40,7 +40,7 @@ var result = volunteerModel.MaximumIndexHeroCanRecruitFromHero(buyerHero, seller
 ### MaximumIndexGarrisonCanRecruitFromHero
 `public abstract int MaximumIndexGarrisonCanRecruitFromHero(Settlement settlement, Hero sellerHero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「maximum index garrison can recruit from hero」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VolunteerModel 实例

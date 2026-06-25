@@ -622,7 +622,7 @@ var result = formation.HasUnitWithConditionLimitedRandom(func<Agent, false, 0, 0
 ### CollectUnitIndices
 `public int CollectUnitIndices()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect unit indices」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -688,7 +688,7 @@ formation.ApplyActionOnEachUnit(action<Agent, action, list);
 ### CountUnitsOnNavMeshIDMod10
 `public int CountUnitsOnNavMeshIDMod10(int navMeshID, bool includeOnlyPositionedUnits)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「count units on nav mesh id mod10」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -853,7 +853,7 @@ var result = formation.Split(0);
 ### TransferUnits
 `public void TransferUnits(Formation target, int unitCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer units」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -864,7 +864,7 @@ formation.TransferUnits(target, 0);
 ### TransferUnitsAux
 `public void TransferUnitsAux(Formation target, int unitCount, bool isPlayerOrder, bool useSelectivePop)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer units aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -875,7 +875,7 @@ formation.TransferUnitsAux(target, 0, false, false);
 ### DebugArrangements
 `public void DebugArrangements()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug arrangements」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -908,7 +908,7 @@ formation.RemoveUnit(unit);
 ### DetachUnit
 `public void DetachUnit(Agent unit, bool isLoose)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「detach unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -919,7 +919,7 @@ formation.DetachUnit(unit, false);
 ### AttachUnit
 `public void AttachUnit(Agent unit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -930,7 +930,7 @@ formation.AttachUnit(unit);
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(Agent firstUnit, Agent secondUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -941,7 +941,7 @@ formation.SwitchUnitLocations(firstUnit, secondUnit);
 ### ForceCalculateCaches
 `public void ForceCalculateCaches()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force calculate caches」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -985,7 +985,7 @@ formation.JoinDetachment(detachment);
 ### FormAttackEntityDetachment
 `public void FormAttackEntityDetachment(GameEntity targetEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「form attack entity detachment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -996,7 +996,7 @@ formation.FormAttackEntityDetachment(targetEntity);
 ### LeaveDetachment
 `public void LeaveDetachment(IDetachment detachment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「leave detachment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -1007,7 +1007,7 @@ formation.LeaveDetachment(detachment);
 ### DisbandAttackEntityDetachment
 `public void DisbandAttackEntityDetachment()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disband attack entity detachment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -1018,7 +1018,7 @@ formation.DisbandAttackEntityDetachment();
 ### Rearrange
 `public void Rearrange(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -1051,7 +1051,7 @@ var result = formation.CalculateFormationDirectionEnforcingFactorForRank(0);
 ### BeginSpawn
 `public void BeginSpawn(int unitCount, bool isMounted)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin spawn」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -1062,7 +1062,7 @@ formation.BeginSpawn(0, false);
 ### EndSpawn
 `public void EndSpawn()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end spawn」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Formation 实例
@@ -1174,7 +1174,7 @@ Formation.GetDefaultRankDepth(0, 0, false);
 ### InfantryInterval
 `public static float InfantryInterval(int unitSpacing)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「infantry interval」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1184,7 +1184,7 @@ Formation.InfantryInterval(0);
 ### CavalryInterval
 `public static float CavalryInterval(int unitSpacing)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cavalry interval」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1194,7 +1194,7 @@ Formation.CavalryInterval(0);
 ### InfantryDistance
 `public static float InfantryDistance(int unitSpacing)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「infantry distance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1204,7 +1204,7 @@ Formation.InfantryDistance(0);
 ### CavalryDistance
 `public static float CavalryDistance(int unitSpacing)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cavalry distance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -63,7 +63,7 @@ battleEndLogic.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingB
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission ended」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -74,7 +74,7 @@ var result = battleEndLogic.MissionEnded(missionResult);
 ### ChangeCanCheckForEndCondition
 `public void ChangeCanCheckForEndCondition(bool canCheckForEndCondition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「change can check for end condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例
@@ -96,7 +96,7 @@ var result = battleEndLogic.TryExit();
 ### EnableEnemyDefenderPullBack
 `public void EnableEnemyDefenderPullBack(int neededTroopNumber)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable enemy defender pull back」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BattleEndLogic 实例

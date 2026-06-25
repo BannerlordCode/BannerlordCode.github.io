@@ -131,7 +131,7 @@ locationComplex.AddPassage(firstLocation, secondLocation);
 ### ChangeLocation
 `public void ChangeLocation(LocationCharacter locationCharacter, Location fromLocation, Location toLocation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change location」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationComplex 实例
@@ -175,7 +175,7 @@ var result = locationComplex.GetListOfLocations();
 ### AgentPassageUsageTick
 `public void AgentPassageUsageTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「agent passage usage」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationComplex 实例

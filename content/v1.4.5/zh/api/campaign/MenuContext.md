@@ -44,7 +44,7 @@ menuContext.Refresh();
 ### SwitchToMenu
 `public void SwitchToMenu(string menuId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch to menu」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -55,7 +55,7 @@ menuContext.SwitchToMenu("example");
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例
@@ -143,7 +143,7 @@ menuContext.OnConsequence(gameMenuOption);
 ### InvokeConsequence
 `public void InvokeConsequence(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invoke consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MenuContext 实例

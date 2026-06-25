@@ -54,7 +54,7 @@ var result = missionMultiplayerSiege.GetMissionType();
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use round controller」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
@@ -65,7 +65,7 @@ var result = missionMultiplayerSiege.UseRoundController();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerSiege 实例
@@ -208,7 +208,7 @@ var result = missionMultiplayerSiege.GetAllContributorsForSideAndClear(objective
 ### IncreaseAmount
 `public void IncreaseAmount(float deltaContribution)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「increase amount」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerSiege 实例

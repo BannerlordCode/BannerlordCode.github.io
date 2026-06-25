@@ -53,7 +53,7 @@ chatBox.OnAfterSave();
 ### SendMessageToAll
 `public void SendMessageToAll(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message to all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatBox 实例
@@ -64,7 +64,7 @@ chatBox.SendMessageToAll("example");
 ### SendMessageToAll
 `public void SendMessageToAll(string message, List<VirtualPlayer> receiverList)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message to all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatBox 实例
@@ -75,7 +75,7 @@ chatBox.SendMessageToAll("example", receiverList);
 ### SendMessageToTeam
 `public void SendMessageToTeam(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message to team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatBox 实例
@@ -86,7 +86,7 @@ chatBox.SendMessageToTeam("example");
 ### SendMessageToTeam
 `public void SendMessageToTeam(string message, List<VirtualPlayer> receiverList)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message to team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatBox 实例
@@ -97,7 +97,7 @@ chatBox.SendMessageToTeam("example", receiverList);
 ### SendMessageToWhisperTarget
 `public void SendMessageToWhisperTarget(string message, string platformName, string whisperTarget)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message to whisper target」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ChatBox 实例
@@ -108,7 +108,7 @@ chatBox.SendMessageToWhisperTarget("example", "example", "example");
 ### ServerSendServerMessageToEveryone
 `public static void ServerSendServerMessageToEveryone(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「server send server message to everyone」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

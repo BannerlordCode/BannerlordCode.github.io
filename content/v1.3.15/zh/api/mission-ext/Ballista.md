@@ -98,7 +98,7 @@ var result = ballista.GetDescriptionText(gameEntity);
 ### ProcessTargetValue
 `public override float ProcessTargetValue(float baseValue, TargetFlags flags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process target value」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Ballista 实例

@@ -32,7 +32,7 @@ description: "PlayerStatsRanked 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int rating, int ratingDeviation, string rank, bool evaluating, int evaluationMatchesPlayedCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsRanked 实例
@@ -43,7 +43,7 @@ playerStatsRanked.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, "example", false, 0
 ### FillWithNewPlayer
 `public virtual void FillWithNewPlayer(PlayerId playerId, string gameType, int defaultRating, int defaultRatingDeviation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill with new player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsRanked 实例

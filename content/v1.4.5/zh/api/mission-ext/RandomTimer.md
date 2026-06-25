@@ -34,7 +34,7 @@ var result = randomTimer.Check(0);
 ### ChangeDuration
 `public void ChangeDuration(float min, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change duration」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RandomTimer 实例

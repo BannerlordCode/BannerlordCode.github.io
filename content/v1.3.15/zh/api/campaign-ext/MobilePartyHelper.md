@@ -23,7 +23,7 @@ description: "MobilePartyHelper 的自动生成类参考。"
 ### SpawnLordParty
 `public static MobileParty SpawnLordParty(Hero hero, Settlement spawnSettlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn lord party」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MobilePartyHelper.SpawnLordParty(hero, spawnSettlement);
 ### SpawnLordParty
 `public static MobileParty SpawnLordParty(Hero hero, CampaignVec2 position, float spawnRadius)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn lord party」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ MobilePartyHelper.GetMaximumXpAmountPartyCanGet(party);
 ### PartyAddSharedXp
 `public static void PartyAddSharedXp(MobileParty party, float xpToDistribute)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party add shared xp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ MobilePartyHelper.PartyAddSharedXp(party, 0);
 ### WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath
 `public static void WoundNumberOfNonHeroTroopsRandomlyWithChanceOfDeath(TroopRoster roster, int numberOfMen, float chanceOfDeathPerUnit, out int deathAmount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound number of non hero troops randomly with chance of death」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ MobilePartyHelper.GetPlayerPrisonersPlayerCanSell();
 ### FillPartyManuallyAfterCreation
 `public static void FillPartyManuallyAfterCreation(MobileParty mobileParty, PartyTemplateObject partyTemplate, int desiredMenCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill party manually after creation」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ MobilePartyHelper.CanPartyAttackWithCurrentMorale(mobileParty);
 ### ResumePartyEscortBehaviorDelegate
 `public delegate void ResumePartyEscortBehaviorDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume party escort behavior delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobilePartyHelper 实例

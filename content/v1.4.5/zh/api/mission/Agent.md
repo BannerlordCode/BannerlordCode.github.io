@@ -115,7 +115,7 @@ description: "Agent 的自动生成类参考。"
 ### IncreaseDamage
 `public void IncreaseDamage(float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「increase damage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -247,7 +247,7 @@ var result = agent.GetWeaponInaccuracy(weaponSlotIndex, 0);
 ### DebugGetHealth
 `public float DebugGetHealth()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug get health」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -434,7 +434,7 @@ agent.StartRagdollAsCorpse();
 ### EndRagdollAsCorpse
 `public void EndRagdollAsCorpse()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end ragdoll as corpse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -1963,7 +1963,7 @@ var result = agent.GetAttachedWeaponBoneIndex(0);
 ### DeleteAttachedWeapon
 `public void DeleteAttachedWeapon(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete attached weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2040,7 +2040,7 @@ agent.SetMortalityState(newState);
 ### ToggleInvulnerable
 `public void ToggleInvulnerable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle invulnerable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2722,7 +2722,7 @@ agent.UpdateSpawnEquipmentAndRefreshVisuals(newSpawnEquipment);
 ### ForceUpdateCachedAndFormationValues
 `public void ForceUpdateCachedAndFormationValues(bool updateOnlyMovement, bool arrangementChangeAllowed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force update cached and formation values」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2755,7 +2755,7 @@ agent.UpdateLastRangedAttackTimeDueToAnAttack(0);
 ### InvalidateTargetAgent
 `public void InvalidateTargetAgent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate target agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2766,7 +2766,7 @@ agent.InvalidateTargetAgent();
 ### InvalidateAIWeaponSelections
 `public void InvalidateAIWeaponSelections()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate ai weapon selections」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2909,7 +2909,7 @@ var result = agent.TrySetFormationFrame(formationPosition, formationDirection);
 ### EnforceShieldUsage
 `public void EnforceShieldUsage(UsageDirection shieldDirection)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enforce shield usage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2920,7 +2920,7 @@ agent.EnforceShieldUsage(shieldDirection);
 ### ObjectHasVacantPosition
 `public bool ObjectHasVacantPosition(UsableMissionObject gameObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「object has vacant position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -2931,7 +2931,7 @@ var result = agent.ObjectHasVacantPosition(gameObject);
 ### InteractingWithAnyGameObject
 `public bool InteractingWithAnyGameObject()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「interacting with any game object」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3096,7 +3096,7 @@ agent.RemoveHitter(peer, false);
 ### Retreat
 `public void Retreat(WorldPosition retreatPos)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「retreat」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3118,7 +3118,7 @@ agent.StopRetreating();
 ### UseGameObject
 `public void UseGameObject(UsableMissionObject usedObject, int preferenceIndex = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use game object」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3184,7 +3184,7 @@ var result = agent.GetRenderCheckEnabled();
 ### ComputeAnimationDisplacement
 `public Vec3 ComputeAnimationDisplacement(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute animation displacement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3217,7 +3217,7 @@ agent.SetIsPhysicsForceClosed(false);
 ### LockAgentReplicationTableDataWithCurrentReliableSequenceNo
 `public void LockAgentReplicationTableDataWithCurrentReliableSequenceNo(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lock agent replication table data with current reliable sequence no」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3228,7 +3228,7 @@ agent.LockAgentReplicationTableDataWithCurrentReliableSequenceNo(peer);
 ### TeleportToPosition
 `public void TeleportToPosition(Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「teleport to position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3239,7 +3239,7 @@ agent.TeleportToPosition(position);
 ### FadeOut
 `public void FadeOut(bool hideInstantly, bool hideMount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fade out」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3250,7 +3250,7 @@ agent.FadeOut(false, false);
 ### FadeIn
 `public void FadeIn()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fade in」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3261,7 +3261,7 @@ agent.FadeIn();
 ### DisableScriptedMovement
 `public void DisableScriptedMovement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable scripted movement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3272,7 +3272,7 @@ agent.DisableScriptedMovement();
 ### DisableScriptedCombatMovement
 `public void DisableScriptedCombatMovement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable scripted combat movement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3283,7 +3283,7 @@ agent.DisableScriptedCombatMovement();
 ### ForceAiBehaviorSelection
 `public void ForceAiBehaviorSelection()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force ai behavior selection」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3316,7 +3316,7 @@ var result = agent.HasPathThroughNavigationFaceIdFromDirection(0, direction);
 ### DisableLookToPointOfInterest
 `public void DisableLookToPointOfInterest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable look to point of interest」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3338,7 +3338,7 @@ var result = agent.AddPrefabComponentToBone("example", 0);
 ### MakeVoice
 `public void MakeVoice(SkinVoiceManager.SkinVoiceType voiceType, SkinVoiceManager.CombatVoiceNetworkPredictionType predictionType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make voice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3349,7 +3349,7 @@ agent.MakeVoice(voiceType, predictionType);
 ### YellAfterDelay
 `public void YellAfterDelay(float delayTimeInSecond)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「yell after delay」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3360,7 +3360,7 @@ agent.YellAfterDelay(0);
 ### WieldNextWeapon
 `public void WieldNextWeapon(HandIndex weaponIndex, WeaponWieldActionType wieldActionType = WeaponWieldActionType.WithAnimation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wield next weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3371,7 +3371,7 @@ agent.WieldNextWeapon(weaponIndex, weaponWieldActionType.WithAnimation);
 ### AttackDirectionToMovementFlag
 `public MovementControlFlag AttackDirectionToMovementFlag(UsageDirection direction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attack direction to movement flag」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3382,7 +3382,7 @@ var result = agent.AttackDirectionToMovementFlag(direction);
 ### DefendDirectionToMovementFlag
 `public MovementControlFlag DefendDirectionToMovementFlag(UsageDirection direction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「defend direction to movement flag」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3393,7 +3393,7 @@ var result = agent.DefendDirectionToMovementFlag(direction);
 ### KickClear
 `public bool KickClear()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kick clear」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3404,7 +3404,7 @@ var result = agent.KickClear();
 ### PlayerAttackDirection
 `public UsageDirection PlayerAttackDirection()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「player attack direction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3481,7 +3481,7 @@ agent.HandleDropWeapon(false, forcedSlotIndexToDropWeaponFrom);
 ### DropItem
 `public void DropItem(EquipmentIndex itemIndex, WeaponClass pickedUpItemType = WeaponClass.Undefined)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「drop item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3492,7 +3492,7 @@ agent.DropItem(itemIndex, weaponClass.Undefined);
 ### EquipItemsFromSpawnEquipment
 `public void EquipItemsFromSpawnEquipment(bool neededBatchedItems, bool prepareImmediately, bool useFaceCache, int faceCacheID)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip items from spawn equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3503,7 +3503,7 @@ agent.EquipItemsFromSpawnEquipment(false, false, false, 0);
 ### WieldInitialWeapons
 `public void WieldInitialWeapons(WeaponWieldActionType wieldActionType = WeaponWieldActionType.InstantAfterPickUp, Equipment.InitialWeaponEquipPreference initialWeaponEquipPreference = TaleWorlds.Core.Equipment.InitialWeaponEquipPreference.Any)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wield initial weapons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3514,7 +3514,7 @@ agent.WieldInitialWeapons(weaponWieldActionType.InstantAfterPickUp, taleWorlds.C
 ### ChangeWeaponHitPoints
 `public void ChangeWeaponHitPoints(EquipmentIndex slotIndex, short hitPoints)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change weapon hit points」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3536,7 +3536,7 @@ var result = agent.HasWeapon();
 ### AttachWeaponToWeapon
 `public void AttachWeaponToWeapon(EquipmentIndex slotIndex, MissionWeapon weapon, GameEntity weaponEntity, ref MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach weapon to weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3547,7 +3547,7 @@ agent.AttachWeaponToWeapon(slotIndex, weapon, weaponEntity, attachLocalFrame);
 ### AttachWeaponToBone
 `public void AttachWeaponToBone(MissionWeapon weapon, GameEntity weaponEntity, sbyte boneIndex, ref MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach weapon to bone」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3558,7 +3558,7 @@ agent.AttachWeaponToBone(weapon, weaponEntity, 0, attachLocalFrame);
 ### RestoreShieldHitPoints
 `public void RestoreShieldHitPoints()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restore shield hit points」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3569,7 +3569,7 @@ agent.RestoreShieldHitPoints();
 ### Die
 `public void Die(Blow b, KillInfo overrideKillInfo = KillInfo.Invalid)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「die」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3580,7 +3580,7 @@ agent.Die(b, killInfo.Invalid);
 ### MakeDead
 `public void MakeDead(bool isKilled, ActionIndexCache actionIndex, int corpsesToFadeIndex = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make dead」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3635,7 +3635,7 @@ agent.Tick(0);
 ### DebugMore
 `public void DebugMore()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug more」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3646,7 +3646,7 @@ agent.DebugMore();
 ### Mount
 `public void Mount(Agent mountAgent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mount」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3657,7 +3657,7 @@ agent.Mount(mountAgent);
 ### EquipWeaponToExtraSlotAndWield
 `public void EquipWeaponToExtraSlotAndWield(ref MissionWeapon weapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip weapon to extra slot and wield」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3679,7 +3679,7 @@ agent.RemoveEquippedWeapon(slotIndex);
 ### EquipWeaponWithNewEntity
 `public void EquipWeaponWithNewEntity(EquipmentIndex slotIndex, ref MissionWeapon weapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip weapon with new entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3690,7 +3690,7 @@ agent.EquipWeaponWithNewEntity(slotIndex, weapon);
 ### EquipWeaponFromSpawnedItemEntity
 `public void EquipWeaponFromSpawnedItemEntity(EquipmentIndex slotIndex, SpawnedItemEntity spawnedItemEntity, bool removeWeapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip weapon from spawned item entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3701,7 +3701,7 @@ agent.EquipWeaponFromSpawnedItemEntity(slotIndex, spawnedItemEntity, false);
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload for rendering」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3723,7 +3723,7 @@ var result = agent.AddSynchedPrefabComponentToBone("example", 0);
 ### WillDropWieldedShield
 `public bool WillDropWieldedShield(SpawnedItemEntity spawnedItem)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「will drop wielded shield」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3734,7 +3734,7 @@ var result = agent.WillDropWieldedShield(spawnedItem);
 ### HadSameTypeOfConsumableOrShieldOnSpawn
 `public bool HadSameTypeOfConsumableOrShieldOnSpawn(WeaponClass weaponClass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「had same type of consumable or shield on spawn」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例
@@ -3877,7 +3877,7 @@ agent.UpdateLocalPositionError();
 ### YellingBehaviour
 `public void YellingBehaviour()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「yelling behaviour」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Agent 实例

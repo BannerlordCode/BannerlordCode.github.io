@@ -118,16 +118,16 @@ MBSubModuleBase
 
 ## Related Documentation
 
-- [Mission System](mission-system/)
-- [Campaign System](campaign-system/)
-- [Architecture Documentation](../architecture/)
+- [Mission System](../mission-system/)
+- [Campaign System](../campaign-system/)
+- [Architecture Documentation](../../architecture/)
 
 ---
 
 ## Next Section
 
-- [Troubleshooting](troubleshooting/) - Solve problems
-- [Common Patterns](common-patterns/) - Best practices
+- [Troubleshooting](../troubleshooting/) - Solve problems
+- [Common Patterns](../common-patterns/) - Best practices
 
 ## Usage Example
 

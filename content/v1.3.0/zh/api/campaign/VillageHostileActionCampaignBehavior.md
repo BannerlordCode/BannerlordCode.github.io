@@ -56,7 +56,7 @@ villageHostileActionCampaignBehavior.AddGameMenus(campaignGameSystemStarter);
 ### hostile_action_village_on_init
 `public static void hostile_action_village_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hostile_action_village_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -66,7 +66,7 @@ VillageHostileActionCampaignBehavior.hostile_action_village_on_init(args);
 ### wait_menu_raiding_village_on_tick
 `public static void wait_menu_raiding_village_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「wait_menu_raiding_village_on_」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ VillageHostileActionCampaignBehavior.wait_menu_raiding_village_on_tick(args, dt)
 ### wait_menu_start_raiding_on_condition
 `public static bool wait_menu_start_raiding_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「wait_menu_start_raiding_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -86,7 +86,7 @@ VillageHostileActionCampaignBehavior.wait_menu_start_raiding_on_condition(args);
 ### wait_menu_end_raiding_on_consequence
 `public static void wait_menu_end_raiding_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wait_menu_end_raiding_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -96,7 +96,7 @@ VillageHostileActionCampaignBehavior.wait_menu_end_raiding_on_consequence(args);
 ### game_menu_village_raid_ended_menu_sound_on_init
 `public static void game_menu_village_raid_ended_menu_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_village_raid_ended_menu_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -106,7 +106,7 @@ VillageHostileActionCampaignBehavior.game_menu_village_raid_ended_menu_sound_on_
 ### game_menu_village_menu_on_init
 `public static void game_menu_village_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_village_menu_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

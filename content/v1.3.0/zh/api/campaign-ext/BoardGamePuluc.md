@@ -95,7 +95,7 @@ var result = boardGamePuluc.CalculateValidMoves(pawn);
 ### RollDice
 `public override void RollDice()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「roll dice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -106,7 +106,7 @@ boardGamePuluc.RollDice();
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -117,7 +117,7 @@ boardGamePuluc.AIMakeMove(move);
 ### TakeBoardSnapshot
 `public BoardGamePuluc.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例
@@ -128,7 +128,7 @@ var result = boardGamePuluc.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGamePuluc.BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGamePuluc 实例

@@ -172,7 +172,7 @@ orderOfBattleVM.OnDeploymentFinalized(false);
 ### SelectFormationItemAtIndex
 `public void SelectFormationItemAtIndex(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select formation item at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -183,7 +183,7 @@ orderOfBattleVM.SelectFormationItemAtIndex(0);
 ### FocusFormationItemAtIndex
 `public void FocusFormationItemAtIndex(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「focus formation item at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例
@@ -194,7 +194,7 @@ orderOfBattleVM.FocusFormationItemAtIndex(0);
 ### DeselectAllFormations
 `public void DeselectAllFormations()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deselect all formations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OrderOfBattleVM 实例

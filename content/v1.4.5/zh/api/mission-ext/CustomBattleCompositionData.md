@@ -23,7 +23,7 @@ description: "CustomBattleCompositionData 的自动生成类参考。"
 ### CustomBattleCompositionData
 `public struct CustomBattleCompositionData(float rangedPercentage, float cavalryPercentage, float rangedCavalryPercentage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「custom battle composition data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleCompositionData 实例

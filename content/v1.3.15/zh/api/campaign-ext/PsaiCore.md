@@ -127,7 +127,7 @@ var result = psaiCore.StopMusic(false, 0);
 ### ReturnToLastBasicMood
 `public PsaiResult ReturnToLastBasicMood(bool immediately)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「return to last basic mood」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -138,7 +138,7 @@ var result = psaiCore.ReturnToLastBasicMood(false);
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, float fadeOutSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to rest」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -149,7 +149,7 @@ var result = psaiCore.GoToRest(false, 0);
 ### GoToRest
 `public PsaiResult GoToRest(bool immediately, float fadeOutSeconds, int restTimeMin, int restTimeMax)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「go to rest」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -160,7 +160,7 @@ var result = psaiCore.GoToRest(false, 0, 0, 0);
 ### HoldCurrentIntensity
 `public PsaiResult HoldCurrentIntensity(bool hold)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hold current intensity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -325,7 +325,7 @@ var result = psaiCore.GetRemainingMillisecondsUntilNextSegmentStart();
 ### MenuModeEnter
 `public PsaiResult MenuModeEnter(int menuThemeId, float menuThemeIntensity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「menu mode enter」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -336,7 +336,7 @@ var result = psaiCore.MenuModeEnter(0, 0);
 ### MenuModeLeave
 `public PsaiResult MenuModeLeave()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「menu mode leave」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -347,7 +347,7 @@ var result = psaiCore.MenuModeLeave();
 ### MenuModeIsActive
 `public bool MenuModeIsActive()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「menu mode is active」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -358,7 +358,7 @@ var result = psaiCore.MenuModeIsActive();
 ### CutSceneIsActive
 `public bool CutSceneIsActive()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cut scene is active」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -369,7 +369,7 @@ var result = psaiCore.CutSceneIsActive();
 ### CutSceneEnter
 `public PsaiResult CutSceneEnter(int themeId, float intensity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cut scene enter」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -380,7 +380,7 @@ var result = psaiCore.CutSceneEnter(0, 0);
 ### CutSceneLeave
 `public PsaiResult CutSceneLeave(bool immediately, bool reset)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cut scene leave」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -391,7 +391,7 @@ var result = psaiCore.CutSceneLeave(false, false);
 ### PlaySegment
 `public PsaiResult PlaySegment(int segmentId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play segment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例
@@ -424,7 +424,7 @@ psaiCore.SetLastBasicMood(0);
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiCore 实例

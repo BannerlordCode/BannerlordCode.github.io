@@ -48,7 +48,7 @@ description: "WeakGameEntity 的自动生成类参考。"
 ### Invalidate
 `public void Invalidate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -510,7 +510,7 @@ weakGameEntity.UpdateVisibilityMask();
 ### CallScriptCallbacks
 `public void CallScriptCallbacks(bool registerScriptComponents)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「call script callbacks」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -807,7 +807,7 @@ weakGameEntity.RefreshMeshesToRenderToHullWater(visualRecord, "example");
 ### DeRegisterWaterMeshMaterials
 `public void DeRegisterWaterMeshMaterials(UIntPtr visualRecord)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「de register water mesh materials」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -829,7 +829,7 @@ weakGameEntity.SetVisualRecordWakeParams(visualRecord, wakeParams);
 ### ChangeResolutionMultiplierOfWaterVisual
 `public void ChangeResolutionMultiplierOfWaterVisual(UIntPtr visualRecord, float multiplier, in Vec3 waterEffectsBB)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change resolution multiplier of water visual」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1038,7 +1038,7 @@ var result = weakGameEntity.RegisterWaterSDFClip(sdfTexture);
 ### DeRegisterWaterSDFClip
 `public void DeRegisterWaterSDFClip(int slot)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「de register water sdf clip」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1060,7 +1060,7 @@ var result = weakGameEntity.GetGlobalFrameImpreciseForFixedTick();
 ### ComputePreciseGlobalFrameForFixedTickSlow
 `public MatrixFrame ComputePreciseGlobalFrameForFixedTickSlow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute precise global frame for fixed tick slow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1203,7 +1203,7 @@ weakGameEntity.ActivateRagdoll();
 ### PauseSkeletonAnimation
 `public void PauseSkeletonAnimation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause skeleton animation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1214,7 +1214,7 @@ weakGameEntity.PauseSkeletonAnimation();
 ### ResumeSkeletonAnimation
 `public void ResumeSkeletonAnimation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume skeleton animation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1335,7 +1335,7 @@ weakGameEntity.RemoveChild(childEntity, false, false, false, 0);
 ### BreakPrefab
 `public void BreakPrefab()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「break prefab」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1533,7 +1533,7 @@ var result = weakGameEntity.CheckPointWithOrientedBoundingBox(point);
 ### PauseParticleSystem
 `public void PauseParticleSystem(bool doChildren)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause particle system」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1544,7 +1544,7 @@ weakGameEntity.PauseParticleSystem(false);
 ### ResumeParticleSystem
 `public void ResumeParticleSystem(bool doChildren)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume particle system」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1555,7 +1555,7 @@ weakGameEntity.ResumeParticleSystem(false);
 ### BurstEntityParticle
 `public void BurstEntityParticle(bool doChildren)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「burst entity particle」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1687,7 +1687,7 @@ weakGameEntity.SetBoundingboxDirty();
 ### ComputeGlobalPhysicsBoundingBoxMinMax
 `public ValueTuple<Vec3, Vec3> ComputeGlobalPhysicsBoundingBoxMinMax()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute global physics bounding box min max」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1698,7 +1698,7 @@ var result = weakGameEntity.ComputeGlobalPhysicsBoundingBoxMinMax();
 ### ComputeGlobalPhysicsBoundingBoxCenter
 `public Vec3 ComputeGlobalPhysicsBoundingBoxCenter()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute global physics bounding box center」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1841,7 +1841,7 @@ weakGameEntity.AddEditDataUserToAllMeshes(false, false);
 ### ReleaseEditDataUserToAllMeshes
 `public void ReleaseEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release edit data user to all meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1874,7 +1874,7 @@ weakGameEntity.GetMeshBendedFrame(worldSpacePosition, output);
 ### ComputeTrajectoryVolume
 `public void ComputeTrajectoryVolume(float missileSpeed, float verticalAngleMaxInDegrees, float verticalAngleMinInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute trajectory volume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1896,7 +1896,7 @@ weakGameEntity.SetAnimTreeChannelParameterForceUpdate(0, 0);
 ### ChangeMetaMeshOrRemoveItIfNotExists
 `public void ChangeMetaMeshOrRemoveItIfNotExists(MetaMesh entityMetaMesh, MetaMesh newMetaMesh)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change meta mesh or remove it if not exists」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1918,7 +1918,7 @@ weakGameEntity.SetUpdateValidtyOnFrameChangedOfFacesWithId(0, false);
 ### AttachNavigationMeshFaces
 `public void AttachNavigationMeshFaces(int faceGroupId, bool isConnected, bool isBlocker = false, bool autoLocalize = false, bool finalizeBlockerConvexHullComputation = false, bool updateEntityFrame = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach navigation mesh faces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -1929,7 +1929,7 @@ weakGameEntity.AttachNavigationMeshFaces(0, false, false, false, false, false);
 ### DetachAllAttachedNavigationMeshFaces
 `public void DetachAllAttachedNavigationMeshFaces()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「detach all attached navigation mesh faces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2028,7 +2028,7 @@ var result = weakGameEntity.IsSelectedOnEditor();
 ### SelectEntityOnEditor
 `public void SelectEntityOnEditor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select entity on editor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2039,7 +2039,7 @@ weakGameEntity.SelectEntityOnEditor();
 ### DeselectEntityOnEditor
 `public void DeselectEntityOnEditor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deselect entity on editor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2094,7 +2094,7 @@ weakGameEntity.SetManualGlobalBoundingBox(boundingBoxStartGlobal, boundingBoxEnd
 ### RayHitEntityWithNormal
 `public bool RayHitEntityWithNormal(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref Vec3 resultNormal, ref float resultLength)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray hit entity with normal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2105,7 +2105,7 @@ var result = weakGameEntity.RayHitEntityWithNormal(rayOrigin, rayDirection, 0, r
 ### RayHitEntity
 `public bool RayHitEntity(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref float resultLength)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray hit entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2149,7 +2149,7 @@ var result = weakGameEntity.GetBoundingBoxLongestHalfDimension();
 ### ComputeBoundingBoxFromLongestHalfDimension
 `public BoundingBox ComputeBoundingBoxFromLongestHalfDimension(float longestHalfDimensionCoefficient)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute bounding box from longest half dimension」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2160,7 +2160,7 @@ var result = weakGameEntity.ComputeBoundingBoxFromLongestHalfDimension(0);
 ### ComputeBoundingBoxIncludeChildren
 `public BoundingBox ComputeBoundingBoxIncludeChildren()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute bounding box include children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2182,7 +2182,7 @@ weakGameEntity.SetManualLocalBoundingBox(boundingBox);
 ### RelaxLocalBoundingBox
 `public void RelaxLocalBoundingBox(in BoundingBox boundingBox)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax local bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2237,7 +2237,7 @@ var result = weakGameEntity.GetHashCode();
 ### CollectChildrenEntitiesWithTag
 `public List<WeakGameEntity> CollectChildrenEntitiesWithTag(string tag)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect children entities with tag」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例
@@ -2248,7 +2248,7 @@ var result = weakGameEntity.CollectChildrenEntitiesWithTag("example");
 ### CollectChildrenEntitiesWithTagAsEnumarable
 `public IEnumerable<WeakGameEntity> CollectChildrenEntitiesWithTagAsEnumarable(string tag)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect children entities with tag as enumarable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WeakGameEntity 实例

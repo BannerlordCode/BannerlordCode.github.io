@@ -23,7 +23,7 @@ description: "MissionTournamentJoustingView 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -67,7 +67,7 @@ missionTournamentJoustingView.ShowMessage(agent, "example", 0, false);
 ### DeleteMessage
 `public void DeleteMessage(string str)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例
@@ -78,7 +78,7 @@ missionTournamentJoustingView.DeleteMessage("example");
 ### DeleteMessage
 `public void DeleteMessage(Agent agent, string str)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionTournamentJoustingView 实例

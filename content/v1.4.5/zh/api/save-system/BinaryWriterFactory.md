@@ -33,7 +33,7 @@ BinaryWriterFactory.GetBinaryWriter();
 ### ReleaseBinaryWriter
 `public static void ReleaseBinaryWriter(BinaryWriter writer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release binary writer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ BinaryWriterFactory.Initialize();
 ### Release
 `public static void Release()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

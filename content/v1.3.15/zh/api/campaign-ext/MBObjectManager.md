@@ -41,7 +41,7 @@ MBObjectManager.Init();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectManager 实例
@@ -107,7 +107,7 @@ mBObjectManager.RemoveTemporaryTypes();
 ### PreAfterLoad
 `public void PreAfterLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pre after load」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectManager 实例
@@ -118,7 +118,7 @@ mBObjectManager.PreAfterLoad();
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「load」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectManager 实例
@@ -173,7 +173,7 @@ mBObjectManager.LoadXML("example", false, "example", false);
 ### MergeElementAttributes
 `public static bool MergeElementAttributes(XElement element1, XElement element2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge element attributes」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ MBObjectManager.MergeElementAttributes(element1, element2);
 ### MergeElements
 `public static void MergeElements(XElement element1, XElement element2, string xsdPath)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge elements」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -233,7 +233,7 @@ MBObjectManager.ApplyXslt("example", baseDocument);
 ### MergeTwoXmls
 `public static XmlDocument MergeTwoXmls(XmlDocument xmlDocument1, XmlDocument xmlDocument2, string xsdPath, bool keepDuplicates)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge two xmls」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -243,7 +243,7 @@ MBObjectManager.MergeTwoXmls(xmlDocument1, xmlDocument2, "example", false);
 ### ToXDocument
 `public static XDocument ToXDocument(XmlDocument xmlDocument)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to x document」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ MBObjectManager.ToXDocument(xmlDocument);
 ### ToXmlDocument
 `public static XmlDocument ToXmlDocument(XDocument xDocument)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to xml document」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -373,7 +373,7 @@ var result = mBObjectManager.ReadObjectReferenceFromXml("example", objectType, n
 ### DebugPrint
 `public void DebugPrint(PrintOutputDelegate printOutput)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug print」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectManager 实例
@@ -406,7 +406,7 @@ mBObjectManager.RemoveHandler(handler);
 ### DebugDump
 `public string DebugDump()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug dump」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectManager 实例
@@ -417,7 +417,7 @@ var result = mBObjectManager.DebugDump();
 ### ReInitialize
 `public void ReInitialize()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「re initialize」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBObjectManager 实例

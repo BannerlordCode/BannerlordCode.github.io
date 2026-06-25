@@ -89,7 +89,7 @@ var result = alleyCampaignBehavior.GetResponseTimeLeftForAttackInDays(alley);
 ### AbandonAlleyFromClanMenu
 `public void AbandonAlleyFromClanMenu(Alley alley)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「abandon alley from clan menu」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -122,7 +122,7 @@ var result = alleyCampaignBehavior.GetAllAssignedClanMembersForOwnedAlleys();
 ### ChangeAlleyMember
 `public void ChangeAlleyMember(Alley alley, Hero newAlleyLead)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change alley member」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AlleyCampaignBehavior 实例
@@ -166,7 +166,7 @@ var result = alleyCampaignBehavior.GetAssignedClanMemberOfAlley(alley);
 ### alley_related_menu_on_init
 `public static void alley_related_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「alley_related_menu_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

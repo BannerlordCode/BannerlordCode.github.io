@@ -155,7 +155,7 @@ clan.SetInitialHomeSettlement(initialHomeSettlement);
 ### ConsiderAndUpdateHomeSettlement
 `public void ConsiderAndUpdateHomeSettlement()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「consider and update home settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Clan 实例
@@ -177,7 +177,7 @@ var result = clan.GetName();
 ### ChangeClanName
 `public void ChangeClanName(TextObject name, TextObject informalName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change clan name」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Clan 实例
@@ -210,7 +210,7 @@ var result = clan.GetStanceWith(other);
 ### ClanLeaveKingdom
 `public void ClanLeaveKingdom(bool giveBackFiefs = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clan leave kingdom」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Clan 实例
@@ -264,7 +264,7 @@ Clan.FindFirst(predicate);
 ### EndMercenaryService
 `public void EndMercenaryService(bool isByLeavingKingdom)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end mercenary service」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Clan 实例

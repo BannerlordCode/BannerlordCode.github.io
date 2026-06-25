@@ -34,7 +34,7 @@ playMusicPoint.StartLoop(trackEvent);
 ### EndLoop
 `public void EndLoop()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end loop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例
@@ -67,7 +67,7 @@ playMusicPoint.OnUseStopped(userAgent, false, 0);
 ### ChangeInstrument
 `public void ChangeInstrument(Tuple<InstrumentData, float> instrument)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change instrument」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayMusicPoint 实例

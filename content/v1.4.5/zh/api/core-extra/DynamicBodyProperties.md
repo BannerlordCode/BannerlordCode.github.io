@@ -23,7 +23,7 @@ description: "DynamicBodyProperties 的自动生成类参考。"
 ### DynamicBodyProperties
 `public struct DynamicBodyProperties(float age, float weight, float build)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dynamic body properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DynamicBodyProperties 实例

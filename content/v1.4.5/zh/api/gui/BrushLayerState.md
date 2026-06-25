@@ -23,7 +23,7 @@ description: "BrushLayerState 的自动生成类参考。"
 ### FillFrom
 `public void FillFrom(IBrushLayerData styleLayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例
@@ -34,7 +34,7 @@ brushLayerState.FillFrom(styleLayer);
 ### LerpFrom
 `public void LerpFrom(BrushLayerState start, IBrushLayerData end, float ratio)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushLayerState 实例

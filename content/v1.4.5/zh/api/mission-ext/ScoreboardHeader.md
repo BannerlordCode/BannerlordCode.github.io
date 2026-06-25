@@ -23,7 +23,7 @@ description: "ScoreboardHeader 的自动生成类参考。"
 ### ScoreboardHeader
 `public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scoreboard header」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ScoreboardHeader 实例

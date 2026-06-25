@@ -31,7 +31,7 @@ description: "CustomBattleTroopSupplier 的自动生成类参考。"
 ### SupplyTroops
 `public IEnumerable<IAgentOriginBase> SupplyTroops(int numberToAllocate)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supply troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例
@@ -42,7 +42,7 @@ var result = customBattleTroopSupplier.SupplyTroops(0);
 ### SupplyOneTroop
 `public IAgentOriginBase SupplyOneTroop()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supply one troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleTroopSupplier 实例

@@ -32,7 +32,7 @@ description: "ContainerSaveData 的自动生成类参考。"
 ### CollectChildren
 `public void CollectChildren()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -153,7 +153,7 @@ containerSaveData.SaveTo(parentFolder, archiveContext);
 ### CollectStrings
 `public void CollectStrings()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect strings」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -164,7 +164,7 @@ containerSaveData.CollectStrings();
 ### CollectStringsInto
 `public void CollectStringsInto(List<string> collection)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect strings into」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -175,7 +175,7 @@ containerSaveData.CollectStringsInto(collection);
 ### CollectStructs
 `public void CollectStructs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect structs」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例
@@ -186,7 +186,7 @@ containerSaveData.CollectStructs();
 ### CollectMembers
 `public void CollectMembers()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect members」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ContainerSaveData 实例

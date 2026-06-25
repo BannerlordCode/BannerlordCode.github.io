@@ -23,7 +23,7 @@ description: "CustomBattleScoreboardVM 的自动生成类参考。"
 ### CustomBattleScoreboardVM
 `public class CustomBattleScoreboardVM(BattleScoreContext scoreboardContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「custom battle scoreboard vm」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -100,7 +100,7 @@ customBattleScoreboardVM.OnExitBattle();
 ### TroopNumberChanged
 `public void TroopNumberChanged(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject character, int number = 0, int numberDead = 0, int numberWounded = 0, int numberRouted = 0, int numberKilled = 0, int numberReadyToUpgrade = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「troop number changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -111,7 +111,7 @@ customBattleScoreboardVM.TroopNumberChanged(side, battleCombatant, character, 0,
 ### HeroSkillIncreased
 `public void HeroSkillIncreased(BattleSideEnum side, IBattleCombatant battleCombatant, BasicCharacterObject heroCharacter, SkillObject upgradedSkill)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hero skill increased」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -122,7 +122,7 @@ customBattleScoreboardVM.HeroSkillIncreased(side, battleCombatant, heroCharacter
 ### BattleResultsReady
 `public void BattleResultsReady()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「battle results ready」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例
@@ -133,7 +133,7 @@ customBattleScoreboardVM.BattleResultsReady();
 ### TroopSideChanged
 `public void TroopSideChanged(BattleSideEnum prevSide, BattleSideEnum newSide, IBattleCombatant battleCombatant, BasicCharacterObject character)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「troop side changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleScoreboardVM 实例

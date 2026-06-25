@@ -50,7 +50,7 @@ locationCharacter.AddBehaviorsDelegate(agent);
 ### AfterAgentCreatedDelegate
 `public delegate void AfterAgentCreatedDelegate(IAgent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「agent created delegate」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LocationCharacter 实例

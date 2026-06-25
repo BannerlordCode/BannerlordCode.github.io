@@ -62,7 +62,7 @@ description: "TeamQuerySystem 的自动生成类参考。"
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「expire」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例
@@ -73,7 +73,7 @@ teamQuerySystem.Expire();
 ### ExpireAfterUnitAddRemove
 `public void ExpireAfterUnitAddRemove()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「expire after unit add remove」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TeamQuerySystem 实例

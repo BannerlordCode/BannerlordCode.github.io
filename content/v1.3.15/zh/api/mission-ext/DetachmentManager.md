@@ -51,7 +51,7 @@ var result = detachmentManager.ContainsDetachment(detachment);
 ### MakeDetachment
 `public void MakeDetachment(IDetachment detachment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make detachment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -62,7 +62,7 @@ detachmentManager.MakeDetachment(detachment);
 ### DestroyDetachment
 `public void DestroyDetachment(IDetachment destroyedDetachment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy detachment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例
@@ -194,7 +194,7 @@ detachmentManager.RemoveAgentAsDefendingToDetachment(agent);
 ### AssertDetachment
 `public void AssertDetachment(Team team, IDetachment detachment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert detachment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DetachmentManager 实例

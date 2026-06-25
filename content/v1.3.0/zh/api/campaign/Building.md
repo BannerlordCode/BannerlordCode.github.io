@@ -55,7 +55,7 @@ var result = building.GetConstructionCost();
 ### LevelUp
 `public void LevelUp()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「level up」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -66,7 +66,7 @@ building.LevelUp();
 ### LevelDown
 `public void LevelDown()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「level down」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例
@@ -77,7 +77,7 @@ building.LevelDown();
 ### HitPointChanged
 `public void HitPointChanged(float change)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「hit point changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 Building 实例

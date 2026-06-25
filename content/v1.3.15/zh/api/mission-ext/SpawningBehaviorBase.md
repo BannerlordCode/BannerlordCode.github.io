@@ -56,7 +56,7 @@ spawningBehaviorBase.OnTick(0);
 ### AreAgentsSpawning
 `public bool AreAgentsSpawning()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「are agents spawning」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -67,7 +67,7 @@ var result = spawningBehaviorBase.AreAgentsSpawning();
 ### RequestStartSpawnSession
 `public virtual void RequestStartSpawnSession()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request start spawn session」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -78,7 +78,7 @@ spawningBehaviorBase.RequestStartSpawnSession();
 ### RequestStopSpawnSession
 `public void RequestStopSpawnSession()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request stop spawn session」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例
@@ -111,7 +111,7 @@ var result = spawningBehaviorBase.CanUpdateSpawnEquipment(missionPeer);
 ### ToggleUpdatingSpawnEquipment
 `public void ToggleUpdatingSpawnEquipment(bool canUpdate)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle updating spawn equipment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawningBehaviorBase 实例

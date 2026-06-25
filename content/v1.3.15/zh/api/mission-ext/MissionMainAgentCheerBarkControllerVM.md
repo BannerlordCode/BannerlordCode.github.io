@@ -44,7 +44,7 @@ missionMainAgentCheerBarkControllerVM.OnFinalize();
 ### SelectItem
 `public void SelectItem(int itemIndex, int subNodeIndex = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentCheerBarkControllerVM 实例

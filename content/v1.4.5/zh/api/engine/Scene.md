@@ -54,7 +54,7 @@ var result = scene.IsMultiplayerScene();
 ### TakePhotoModePicture
 `public string TakePhotoModePicture(bool saveAmbientOcclusionPass, bool savingObjectIdPass, bool saveShadowPass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take photo mode picture」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -153,7 +153,7 @@ var result = scene.GetSceneFilterIndex();
 ### EnableFixedTick
 `public void EnableFixedTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「enable fixed」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -483,7 +483,7 @@ var result = scene.GetWaterStrength();
 ### DeRegisterShipVisual
 `public void DeRegisterShipVisual(UIntPtr visualPointer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「de register ship visual」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -944,7 +944,7 @@ scene.ClearNavMesh();
 ### StallLoadingRenderingsUntilFurtherNotice
 `public void StallLoadingRenderingsUntilFurtherNotice()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「stall loading renderings until further notice」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -966,7 +966,7 @@ var result = scene.GetNavMeshFaceCount();
 ### ResumeLoadingRenderings
 `public void ResumeLoadingRenderings()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume loading renderings」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1670,7 +1670,7 @@ scene.RemoveEntity(entity, 0);
 ### AttachEntity
 `public bool AttachEntity(GameEntity entity, bool showWarnings = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1681,7 +1681,7 @@ var result = scene.AttachEntity(entity, false);
 ### AttachEntity
 `public bool AttachEntity(WeakGameEntity entity, bool showWarnings = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1890,7 +1890,7 @@ scene.GetRootEntities(entities);
 ### SelectEntitiesCollidedWith
 `public int SelectEntitiesCollidedWith(ref Ray ray, Intersection intersectionsOutput, UIntPtr entityIds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select entities collided with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1901,7 +1901,7 @@ var result = scene.SelectEntitiesCollidedWith(ray, intersectionsOutput, entityId
 ### RayCastExcludingTwoEntities
 `public bool RayCastExcludingTwoEntities(BodyFlags flags, in Ray ray, WeakGameEntity entity1, WeakGameEntity entity2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast excluding two entities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1934,7 +1934,7 @@ var result = scene.GenerateContactsWithCapsuleAgainstEntity(capsule, excludeFlag
 ### InvalidateTerrainPhysicsMaterials
 `public void InvalidateTerrainPhysicsMaterials()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate terrain physics materials」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -1989,7 +1989,7 @@ var result = scene.ReadAndCalculateInitialCamera();
 ### OptimizeScene
 `public void OptimizeScene(bool optimizeFlora = true, bool optimizeOro = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「optimize scene」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2022,7 +2022,7 @@ scene.CheckResources(false);
 ### ForceLoadResources
 `public void ForceLoadResources(bool checkInvisibleEntities)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force load resources」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2066,7 +2066,7 @@ scene.ResetDepthOfFieldParams();
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload for rendering」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2121,7 +2121,7 @@ var result = scene.GetGroundHeightAtPosition(position, normal, bodyFlags.CommonC
 ### PauseSceneSounds
 `public void PauseSceneSounds()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause scene sounds」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2132,7 +2132,7 @@ scene.PauseSceneSounds();
 ### ResumeSceneSounds
 `public void ResumeSceneSounds()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume scene sounds」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2154,7 +2154,7 @@ scene.FinishSceneSounds();
 ### BoxCastOnlyForCamera
 `public bool BoxCastOnlyForCamera(Vec3 boxPoints, in Vec3 centerPoint, bool castSupportRay, in Vec3 supportRaycastPoint, in Vec3 dir, float distance, WeakGameEntity ignoredEntity, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.CameraCollisionRayCastExludeFlags | BodyFlags.DontCollideWithCamera)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「box cast only for camera」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2165,7 +2165,7 @@ var result = scene.BoxCastOnlyForCamera(boxPoints, centerPoint, false, supportRa
 ### BoxCast
 `public bool BoxCast(Vec3 boxMin, Vec3 boxMax, bool castSupportRay, Vec3 supportRaycastPoint, Vec3 dir, float distance, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.CameraCollisionRayCastExludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「box cast」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2176,7 +2176,7 @@ var result = scene.BoxCast(boxMin, boxMax, false, supportRaycastPoint, dir, 0, c
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2187,7 +2187,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain fixed physics」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2198,7 +2198,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### FocusRayCastForFixedPhysics
 `public bool FocusRayCastForFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「focus ray cast for fixed physics」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2209,7 +2209,7 @@ var result = scene.FocusRayCastForFixedPhysics(sourcePoint, targetPoint, collisi
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2220,7 +2220,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain fixed physics」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2231,7 +2231,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### RayCastForRamming
 `public bool RayCastForRamming(in Vec3 sourcePoint, in Vec3 targetPoint, WeakGameEntity ignoredEntity, float rayThickness, out float collisionDistance, out Vec3 intersectionPoint, out WeakGameEntity collidedEntity, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags, BodyFlags includeBodyFlags = BodyFlags.None)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for ramming」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2242,7 +2242,7 @@ var result = scene.RayCastForRamming(sourcePoint, targetPoint, ignoredEntity, 0,
 ### RayCastForClosestEntityOrTerrainIgnoreEntity
 `public bool RayCastForClosestEntityOrTerrainIgnoreEntity(in Vec3 sourcePoint, in Vec3 targetPoint, WeakGameEntity ignoredEntity, out float collisionDistance, out GameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain ignore entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2253,7 +2253,7 @@ var result = scene.RayCastForClosestEntityOrTerrainIgnoreEntity(sourcePoint, tar
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2264,7 +2264,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain fixed physics」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2275,7 +2275,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### RayCastForClosestEntityOrTerrainFixedPhysics
 `public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain fixed physics」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2286,7 +2286,7 @@ var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, tar
 ### RayCastForClosestEntityOrTerrain
 `public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest entity or terrain」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2297,7 +2297,7 @@ var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, co
 ### ImportNavigationMeshPrefab
 `public void ImportNavigationMeshPrefab(string navMeshPrefabName, int navMeshGroupShift)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「import navigation mesh prefab」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2308,7 +2308,7 @@ scene.ImportNavigationMeshPrefab("example", 0);
 ### ImportNavigationMeshPrefabWithFrame
 `public void ImportNavigationMeshPrefabWithFrame(string navMeshPrefabName, MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「import navigation mesh prefab with frame」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2341,7 +2341,7 @@ scene.SetNavMeshRegionMap(false);
 ### MarkFacesWithIdAsLadder
 `public void MarkFacesWithIdAsLadder(int faceGroupId, bool isLadder)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mark faces with id as ladder」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2374,7 +2374,7 @@ scene.SetBlockerDirectionForFacesWithId(0, 0);
 ### SwapFaceConnectionsWithID
 `public bool SwapFaceConnectionsWithID(int hubFaceGroupID, int toBeSeparatedFaceGroupId, int toBeMergedFaceGroupId, bool canFail)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap face connections with id」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2385,7 +2385,7 @@ var result = scene.SwapFaceConnectionsWithID(0, 0, 0, false);
 ### MergeFacesWithId
 `public void MergeFacesWithId(int faceGroupId0, int faceGroupId1, int newFaceGroupId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge faces with id」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2396,7 +2396,7 @@ scene.MergeFacesWithId(0, 0, 0);
 ### SeparateFacesWithId
 `public void SeparateFacesWithId(int faceGroupId0, int faceGroupId1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「separate faces with id」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2770,7 +2770,7 @@ var result = scene.GetPathWithName("example");
 ### DeletePathWithName
 `public void DeletePathWithName(string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete path with name」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2913,7 +2913,7 @@ scene.SetPlaySoundEventsAfterReadyToRender(false);
 ### DisableStaticShadows
 `public void DisableStaticShadows(bool value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable static shadows」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -2946,7 +2946,7 @@ scene.SetAtmosphereWithName("example");
 ### FillEntityWithHardBorderPhysicsBarrier
 `public void FillEntityWithHardBorderPhysicsBarrier(GameEntity entity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill entity with hard border physics barrier」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3001,7 +3001,7 @@ scene.WaitWaterRendererCPUSimulation();
 ### EnableInclusiveAsyncPhysx
 `public void EnableInclusiveAsyncPhysx()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable inclusive async physx」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3023,7 +3023,7 @@ scene.EnsureWaterWakeRenderer();
 ### DeleteWaterWakeRenderer
 `public void DeleteWaterWakeRenderer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete water wake renderer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例
@@ -3034,7 +3034,7 @@ scene.DeleteWaterWakeRenderer();
 ### SceneHadWaterWakeRenderer
 `public bool SceneHadWaterWakeRenderer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scene had water wake renderer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Scene 实例

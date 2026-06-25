@@ -23,7 +23,7 @@ description: "Gdi32 的自动生成类参考。"
 ### ChoosePixelFormat
 `public static extern int ChoosePixelFormat(IntPtr hdc, ref PixelFormatDescriptor ppfd)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「choose pixel format」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Gdi32.SetPixelFormat(hdc, 0, ppfd);
 ### SwapBuffers
 `public static extern bool SwapBuffers(IntPtr hdc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap buffers」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ Gdi32.CreateCompatibleDC(hdc);
 ### SelectObject
 `public static extern IntPtr SelectObject(IntPtr hdc, IntPtr h)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select object」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ Gdi32.SelectObject(hdc, h);
 ### DeleteObject
 `public static extern bool DeleteObject(IntPtr ho)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete object」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ Gdi32.DeleteObject(ho);
 ### DeleteDC
 `public static extern bool DeleteDC(IntPtr hdc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete dc」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ Gdi32.CreateCompatibleBitmap(hdc, 0, 0);
 ### StretchDIBits
 `public static extern int StretchDIBits(IntPtr hdc, int xDest, int yDest, int DestWidth, int DestHeight, int xSrc, int ySrc, int SrcWidth, int SrcHeight, byte lpBits, ref BitmapInfo lpbmi, uint iUsage, int rop)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「stretch di bits」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

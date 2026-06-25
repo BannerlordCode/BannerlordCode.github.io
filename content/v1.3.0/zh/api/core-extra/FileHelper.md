@@ -93,7 +93,7 @@ FileHelper.GetError();
 ### FileExists
 `public static bool FileExists(PlatformFilePath path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「file exists」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ FileHelper.GetFileContentString(path);
 ### DeleteFile
 `public static void DeleteFile(PlatformFilePath path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete file」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

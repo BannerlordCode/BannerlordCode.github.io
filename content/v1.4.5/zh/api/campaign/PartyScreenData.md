@@ -76,7 +76,7 @@ partyScreenData.CopyFromScreenData(data);
 ### BindRostersFrom
 `public void BindRostersFrom(TroopRoster rightPartyMemberRoster, TroopRoster rightPartyPrisonerRoster, TroopRoster leftPartyMemberRoster, TroopRoster leftPartyPrisonerRoster, PartyBase rightParty, PartyBase leftParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「bind rosters from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenData 实例

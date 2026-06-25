@@ -92,7 +92,7 @@ MBSaveLoad.GetSaveFileWithName("example");
 ### QuickSaveCurrentGame
 `public static void QuickSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<(SaveResult, string)> onSaveCompleted)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quick save current game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -102,7 +102,7 @@ MBSaveLoad.QuickSaveCurrentGame(campaignMetaData, action<(SaveResult, "example")
 ### AutoSaveCurrentGame
 `public static void AutoSaveCurrentGame(CampaignSaveMetaDataArgs campaignMetaData, Action<(SaveResult, string)> onSaveCompleted)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto save current game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -122,7 +122,7 @@ MBSaveLoad.SaveAsCurrentGame(campaignMetaData, "example", action<(SaveResult, "e
 ### DeleteSaveGame
 `public static bool DeleteSaveGame(string saveName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete save game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -166,7 +166,7 @@ tournamentManager.AddLeaderboardEntry(hero);
 ### DeleteLeaderboardEntry
 `public void DeleteLeaderboardEntry(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete leaderboard entry」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentManager 实例
@@ -177,7 +177,7 @@ tournamentManager.DeleteLeaderboardEntry(hero);
 ### ResolveTournament
 `public void ResolveTournament(TournamentGame tournament, Town town)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resolve tournament」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentManager 实例
@@ -188,7 +188,7 @@ tournamentManager.ResolveTournament(tournament, town);
 ### GivePrizeToWinner
 `public void GivePrizeToWinner(TournamentGame tournament, Hero winner, bool isPlayerParticipated)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give prize to winner」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentManager 实例

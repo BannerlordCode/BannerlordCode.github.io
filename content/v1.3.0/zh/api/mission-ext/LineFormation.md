@@ -66,7 +66,7 @@ var result = lineFormation.Clone(formation);
 ### DeepCopyFrom
 `public virtual void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deep copy from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -385,7 +385,7 @@ var result = lineFormation.GetNeighborUnitOfRightSide(unit);
 ### SwitchUnitLocationsWithUnpositionedUnit
 `public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations with unpositioned unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -396,7 +396,7 @@ lineFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -407,7 +407,7 @@ lineFormation.SwitchUnitLocations(firstUnit, secondUnit);
 ### SwitchUnitLocationsWithBackMostUnit
 `public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations with back most unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -418,7 +418,7 @@ lineFormation.SwitchUnitLocationsWithBackMostUnit(unit);
 ### BeforeFormationFrameChange
 `public void BeforeFormationFrameChange()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「formation frame change」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -429,7 +429,7 @@ lineFormation.BeforeFormationFrameChange();
 ### BatchUnitPositionAvailabilities
 `public void BatchUnitPositionAvailabilities(bool isUpdatingCachedOrderedLocalPositions = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「batch unit position availabilities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -495,7 +495,7 @@ var result = lineFormation.IsTurnBackwardsNecessary(previousPosition, newPositio
 ### TurnBackwards
 `public virtual void TurnBackwards()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「turn backwards」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -517,7 +517,7 @@ var result = lineFormation.GetOccupationWidth(0);
 ### InvalidateCacheOfUnitAux
 `public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate cache of unit aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -539,7 +539,7 @@ var result = lineFormation.CreateNewPosition(0);
 ### RearrangeFrom
 `public virtual void RearrangeFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -550,7 +550,7 @@ lineFormation.RearrangeFrom(arrangement);
 ### RearrangeTo
 `public virtual void RearrangeTo(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange to」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -561,7 +561,7 @@ lineFormation.RearrangeTo(arrangement);
 ### RearrangeTransferUnits
 `public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange transfer units」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -582,7 +582,7 @@ LineFormation.CalculateWidth(0, 0, 0);
 ### FormFromFlankWidth
 `public void FormFromFlankWidth(int unitCountOnLine, bool skipSingleFileChangesForPerformance = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「form from flank width」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -593,7 +593,7 @@ lineFormation.FormFromFlankWidth(0, false);
 ### ReserveMiddleFrontUnitPosition
 `public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve middle front unit position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例
@@ -604,7 +604,7 @@ lineFormation.ReserveMiddleFrontUnitPosition(vanguard);
 ### ReleaseMiddleFrontUnitPosition
 `public void ReleaseMiddleFrontUnitPosition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release middle front unit position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LineFormation 实例

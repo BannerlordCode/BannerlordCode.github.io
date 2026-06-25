@@ -23,7 +23,7 @@ description: "BlendFunction 的自动生成类参考。"
 ### BlendFunction
 `public struct BlendFunction(AlphaFormatFlags op, byte flags, byte alpha, AlphaFormatFlags format)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「blend function」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BlendFunction 实例

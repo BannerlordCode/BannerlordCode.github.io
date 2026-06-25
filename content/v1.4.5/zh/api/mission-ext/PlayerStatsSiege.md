@@ -33,7 +33,7 @@ description: "PlayerStatsSiege 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, int killCount, int deathCount, int assistCount, int winCount, int loseCount, int forfeitCount, int wallsBreached, int siegeEngineKills, int siegeEnginesDestroyed, int objectiveGoldGained, int score)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsSiege 实例
@@ -44,7 +44,7 @@ playerStatsSiege.FillWith(playerId, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill with new player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerStatsSiege 实例

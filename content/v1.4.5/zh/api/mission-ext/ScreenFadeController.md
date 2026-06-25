@@ -42,7 +42,7 @@ ScreenFadeController.RegisterHandler(handler);
 ### BeginFadeOutAndIn
 `public static void BeginFadeOutAndIn(float fadeOutDuration = 0.5f, float blackOutDuration = 0.5f, float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin fade out and in」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ ScreenFadeController.BeginFadeOutAndIn(0, 0, 0);
 ### BeginFadeOut
 `public static void BeginFadeOut(float fadeOutDuration = 0.5f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin fade out」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -62,7 +62,7 @@ ScreenFadeController.BeginFadeOut(0);
 ### BeginFadeIn
 `public static void BeginFadeIn(float fadeInDuration = 0.5f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin fade in」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

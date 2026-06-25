@@ -148,7 +148,7 @@ missionPeer.ResetRequestedKickPollCount();
 ### IncrementRequestedKickPollCount
 `public void IncrementRequestedKickPollCount()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「increment requested kick poll count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionPeer 实例
@@ -170,7 +170,7 @@ var result = missionPeer.GetSelectedPerkIndexWithPerkListIndex(0, 0);
 ### SelectPerk
 `public bool SelectPerk(int perkListIndex, int perkIndex, int enforcedSelectedTroopIndex = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select perk」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionPeer 实例
@@ -324,7 +324,7 @@ missionPeer.OnKillAnotherPeer(victimPeer);
 ### OverrideCultureWithTeamCulture
 `public void OverrideCultureWithTeamCulture()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「override culture with team culture」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionPeer 实例

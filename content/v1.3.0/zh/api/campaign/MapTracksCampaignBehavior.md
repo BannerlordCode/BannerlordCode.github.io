@@ -85,7 +85,7 @@ mapTracksCampaignBehavior.AddMapArrow(pointerName, trackPosition, trackDirection
 ### RequestTrack
 `public Track RequestTrack(MobileParty party, CampaignVec2 trackPosition, Vec2 trackDirection)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request track」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
@@ -96,7 +96,7 @@ var result = mapTracksCampaignBehavior.RequestTrack(party, trackPosition, trackD
 ### RequestMapArrow
 `public Track RequestMapArrow(TextObject pointerName, CampaignVec2 trackPosition, Vec2 trackDirection, float life)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request map arrow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例
@@ -107,7 +107,7 @@ var result = mapTracksCampaignBehavior.RequestMapArrow(pointerName, trackPositio
 ### ReleaseTrack
 `public void ReleaseTrack(Track track)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release track」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapTracksCampaignBehavior 实例

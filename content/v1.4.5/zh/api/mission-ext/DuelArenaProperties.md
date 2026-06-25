@@ -23,7 +23,7 @@ description: "DuelArenaProperties 的自动生成类参考。"
 ### DuelArenaProperties
 `public struct DuelArenaProperties(GameEntity flagEntity, int index, TroopType arenaTroopType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「duel arena properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DuelArenaProperties 实例

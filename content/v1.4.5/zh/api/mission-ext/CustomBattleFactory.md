@@ -43,7 +43,7 @@ CustomBattleFactory.GetProviderCount();
 ### CollectProviders
 `public static List<ICustomBattleProvider> CollectProviders()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect providers」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ CustomBattleFactory.CollectProviders();
 ### CollectNextProvider
 `public static ICustomBattleProvider CollectNextProvider(Type currentProviderType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect next provider」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

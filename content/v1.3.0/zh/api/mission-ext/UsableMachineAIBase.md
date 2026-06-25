@@ -60,7 +60,7 @@ UsableMachineAIBase.GetSuitableAgentForStandingPoint(usableMachine, standingPoin
 ### TeleportUserAgentsToMachine
 `public virtual void TeleportUserAgentsToMachine(List<Agent> agentList)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「teleport user agents to machine」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UsableMachineAIBase 实例

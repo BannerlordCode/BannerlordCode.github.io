@@ -52,7 +52,7 @@ var result = thumbnailCacheManager.GetCachedInventoryTableauScene();
 ### ReturnCachedInventoryTableauScene
 `public void ReturnCachedInventoryTableauScene()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「return cached inventory tableau scene」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCacheManager 实例
@@ -85,7 +85,7 @@ var result = thumbnailCacheManager.GetCachedMapConversationTableauScene();
 ### ReturnCachedMapConversationTableauScene
 `public void ReturnCachedMapConversationTableauScene()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「return cached map conversation tableau scene」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCacheManager 实例
@@ -158,7 +158,7 @@ ThumbnailCacheManager.InitializeSandboxValues();
 ### ReleaseSandboxValues
 `public static void ReleaseSandboxValues()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release sandbox values」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -189,7 +189,7 @@ var result = thumbnailCacheManager.CreateTexture(thumbnailCreationData);
 ### DestroyTexture
 `public bool DestroyTexture(ThumbnailCreationData thumbnailCreationData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy texture」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCacheManager 实例
@@ -200,7 +200,7 @@ var result = thumbnailCacheManager.DestroyTexture(thumbnailCreationData);
 ### ForceClearAllCache
 `public void ForceClearAllCache(bool releaseImmediately)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force clear all cache」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ThumbnailCacheManager 实例

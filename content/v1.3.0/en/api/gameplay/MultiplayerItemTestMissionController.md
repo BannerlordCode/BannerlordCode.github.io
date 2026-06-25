@@ -39,4 +39,4 @@ var controller = Mission.Current.GetMissionBehavior<MultiplayerItemTestMissionCo
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

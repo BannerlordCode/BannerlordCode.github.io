@@ -55,7 +55,7 @@ var result = objectSaveData.GetEntryCount();
 ### CollectMembers
 `public void CollectMembers()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect members」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -66,7 +66,7 @@ objectSaveData.CollectMembers();
 ### CollectStringsInto
 `public void CollectStringsInto(List<string> collection)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect strings into」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -77,7 +77,7 @@ objectSaveData.CollectStringsInto(collection);
 ### CollectStrings
 `public void CollectStrings()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect strings」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例
@@ -88,7 +88,7 @@ objectSaveData.CollectStrings();
 ### CollectStructs
 `public void CollectStructs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect structs」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ObjectSaveData 实例

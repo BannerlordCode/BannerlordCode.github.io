@@ -146,11 +146,22 @@ function isFormulaicPurpose(purpose) {
   return ZH_FORMULAIC_RE.some((re) => re.test(purpose));
 }
 
+const STANDARD_OVERRIDE_METHODS = new Set([
+  'Equals', 'GetHashCode', 'ToString', 'CompareTo', 'Clone', 'GetType',
+  'Finalize', 'MemberwiseClone',
+]);
+
 function isGenericPurpose(purpose, methodName = '') {
   const stripped = purpose
     .replace(/['"`\u2018\u2019\u201c\u201d]/gu, '')
     .replace(/\s+/g, ' ')
     .trim();
+
+  // Standard .NET overrides have well-known, correct descriptions that look
+  // generic but are not placeholders.
+  if (methodName && STANDARD_OVERRIDE_METHODS.has(methodName)) {
+    return false;
+  }
 
   if (isFormulaicPurpose(purpose)) return true;
   if (ZH_VAGUE_RE.test(stripped)) return true;

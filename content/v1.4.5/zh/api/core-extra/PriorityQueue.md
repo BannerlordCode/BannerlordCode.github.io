@@ -23,7 +23,7 @@ description: "PriorityQueue 的自动生成类参考。"
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge queues」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority,
 ### MergeQueues
 `public static PriorityQueue<TPriority, TValue> MergeQueues(PriorityQueue<TPriority, TValue> pq1, PriorityQueue<TPriority, TValue> pq2, IComparer<TPriority> comparer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge queues」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ PriorityQueue.MergeQueues(priorityQueue<TPriority, pq1, priorityQueue<TPriority,
 ### Enqueue
 `public void Enqueue(TPriority priority, TValue value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enqueue」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PriorityQueue 实例
@@ -54,7 +54,7 @@ priorityQueue.Enqueue(priority, value);
 ### Dequeue
 `public KeyValuePair<TPriority, TValue> Dequeue()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dequeue」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PriorityQueue 实例
@@ -65,7 +65,7 @@ var result = priorityQueue.Dequeue();
 ### DequeueValue
 `public TValue DequeueValue()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dequeue value」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PriorityQueue 实例
@@ -76,7 +76,7 @@ var result = priorityQueue.DequeueValue();
 ### Peek
 `public KeyValuePair<TPriority, TValue> Peek()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「peek」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PriorityQueue 实例
@@ -87,7 +87,7 @@ var result = priorityQueue.Peek();
 ### PeekValue
 `public TValue PeekValue()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「peek value」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PriorityQueue 实例

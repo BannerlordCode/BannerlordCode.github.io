@@ -56,7 +56,7 @@ hideoutCampaignBehavior.OnGameLoaded(campaignGameStarter);
 ### HourlyTickSettlement
 `public void HourlyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -89,7 +89,7 @@ var result = hideoutCampaignBehavior.GetInitialHideoutPopulation();
 ### hideout_wait_menu_on_condition
 `public bool hideout_wait_menu_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「hideout_wait_menu_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -100,7 +100,7 @@ var result = hideoutCampaignBehavior.hideout_wait_menu_on_condition(args);
 ### hideout_wait_menu_on_tick
 `public void hideout_wait_menu_on_tick(MenuCallbackArgs args, CampaignTime campaignTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「hideout_wait_menu_on_」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例
@@ -111,7 +111,7 @@ hideoutCampaignBehavior.hideout_wait_menu_on_tick(args, campaignTime);
 ### hideout_wait_menu_on_consequence
 `public void hideout_wait_menu_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hideout_wait_menu_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutCampaignBehavior 实例

@@ -31,7 +31,7 @@ description: "AgentBehaviorGroup 的自动生成类参考。"
 ### DisableScriptedBehavior
 `public void DisableScriptedBehavior()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable scripted behavior」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -42,7 +42,7 @@ agentBehaviorGroup.DisableScriptedBehavior();
 ### DisableAllBehaviors
 `public void DisableAllBehaviors()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable all behaviors」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -75,7 +75,7 @@ agentBehaviorGroup.Tick(0, false);
 ### ConversationTick
 `public virtual void ConversationTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「conversation」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例
@@ -108,7 +108,7 @@ var result = agentBehaviorGroup.GetScore(false);
 ### ForceThink
 `public virtual void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force think」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentBehaviorGroup 实例

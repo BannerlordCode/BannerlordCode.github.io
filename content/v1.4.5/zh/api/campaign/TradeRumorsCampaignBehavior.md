@@ -73,7 +73,7 @@ tradeRumorsCampaignBehavior.AddTradeRumors(newRumors, null);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例
@@ -95,7 +95,7 @@ tradeRumorsCampaignBehavior.OnSettlementEntered(mobileParty, settlement, hero);
 ### DeleteExpiredRumors
 `public void DeleteExpiredRumors()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete expired rumors」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TradeRumorsCampaignBehavior 实例

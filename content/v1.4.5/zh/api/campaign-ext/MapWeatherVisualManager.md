@@ -78,7 +78,7 @@ var result = mapWeatherVisualManager.GetBlizzardPrefabFromPool();
 ### ReleaseRainPrefab
 `public void ReleaseRainPrefab(GameEntity prefab)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release rain prefab」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapWeatherVisualManager 实例
@@ -89,7 +89,7 @@ mapWeatherVisualManager.ReleaseRainPrefab(prefab);
 ### ReleaseBlizzardPrefab
 `public void ReleaseBlizzardPrefab(GameEntity prefab)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release blizzard prefab」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapWeatherVisualManager 实例

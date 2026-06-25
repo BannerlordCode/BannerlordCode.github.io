@@ -450,7 +450,7 @@ GameEntity.CopyFrom(scene, entity, false, false);
 ### Instantiate
 `public static GameEntity Instantiate(Scene scene, string prefabName, bool callScriptCallbacks, bool createPhysics = true, string scriptInclusingTag = "")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -460,7 +460,7 @@ GameEntity.Instantiate(scene, "example", false, false, "example");
 ### CallScriptCallbacks
 `public void CallScriptCallbacks(bool registerScriptComponents)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「call script callbacks」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -471,7 +471,7 @@ gameEntity.CallScriptCallbacks(false);
 ### Instantiate
 `public static GameEntity Instantiate(Scene scene, string prefabName, MatrixFrame frame, bool callScriptCallbacks = true, string scriptInclusingTag = "")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -503,7 +503,7 @@ gameEntity.CreateAndAddScriptComponent("example", false);
 ### PrefabExists
 `public static bool PrefabExists(string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「prefab exists」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -885,7 +885,7 @@ var result = gameEntity.GetGlobalFrameImpreciseForFixedTick();
 ### ComputePreciseGlobalFrameForFixedTickSlow
 `public MatrixFrame ComputePreciseGlobalFrameForFixedTickSlow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute precise global frame for fixed tick slow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1083,7 +1083,7 @@ gameEntity.ActivateRagdoll();
 ### PauseSkeletonAnimation
 `public void PauseSkeletonAnimation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause skeleton animation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1094,7 +1094,7 @@ gameEntity.PauseSkeletonAnimation();
 ### ResumeSkeletonAnimation
 `public void ResumeSkeletonAnimation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume skeleton animation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1215,7 +1215,7 @@ gameEntity.RemoveChild(childEntity, false, false, false, 0);
 ### BreakPrefab
 `public void BreakPrefab()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「break prefab」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1413,7 +1413,7 @@ var result = gameEntity.CheckPointWithOrientedBoundingBox(point);
 ### PauseParticleSystem
 `public void PauseParticleSystem(bool doChildren)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause particle system」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1424,7 +1424,7 @@ gameEntity.PauseParticleSystem(false);
 ### ResumeParticleSystem
 `public void ResumeParticleSystem(bool doChildren)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume particle system」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1435,7 +1435,7 @@ gameEntity.ResumeParticleSystem(false);
 ### BurstEntityParticle
 `public void BurstEntityParticle(bool doChildren)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「burst entity particle」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1677,7 +1677,7 @@ gameEntity.AddEditDataUserToAllMeshes(false, false);
 ### ReleaseEditDataUserToAllMeshes
 `public void ReleaseEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release edit data user to all meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1710,7 +1710,7 @@ gameEntity.GetMeshBendedFrame(worldSpacePosition, output);
 ### ComputeTrajectoryVolume
 `public void ComputeTrajectoryVolume(float missileSpeed, float verticalAngleMaxInDegrees, float verticalAngleMinInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute trajectory volume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1732,7 +1732,7 @@ gameEntity.SetAnimTreeChannelParameterForceUpdate(0, 0);
 ### ChangeMetaMeshOrRemoveItIfNotExists
 `public void ChangeMetaMeshOrRemoveItIfNotExists(MetaMesh entityMetaMesh, MetaMesh newMetaMesh)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change meta mesh or remove it if not exists」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1754,7 +1754,7 @@ gameEntity.SetUpdateValidtyOnFrameChangedOfFacesWithId(0, false);
 ### AttachNavigationMeshFaces
 `public void AttachNavigationMeshFaces(int faceGroupId, bool isConnected, bool isBlocker = false, bool autoLocalize = false, bool finalizeBlockerConvexHullComputation = false, bool updateEntityFrame = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach navigation mesh faces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1765,7 +1765,7 @@ gameEntity.AttachNavigationMeshFaces(0, false, false, false, false, false);
 ### DetachAllAttachedNavigationMeshFaces
 `public void DetachAllAttachedNavigationMeshFaces()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「detach all attached navigation mesh faces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1864,7 +1864,7 @@ var result = gameEntity.IsSelectedOnEditor();
 ### SelectEntityOnEditor
 `public void SelectEntityOnEditor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select entity on editor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1875,7 +1875,7 @@ gameEntity.SelectEntityOnEditor();
 ### DeselectEntityOnEditor
 `public void DeselectEntityOnEditor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deselect entity on editor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1930,7 +1930,7 @@ gameEntity.SetManualGlobalBoundingBox(boundingBoxStartGlobal, boundingBoxEndGlob
 ### RayHitEntity
 `public bool RayHitEntity(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref float resultLength)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray hit entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1941,7 +1941,7 @@ var result = gameEntity.RayHitEntity(rayOrigin, rayDirection, 0, resultLength);
 ### RayHitEntityWithNormal
 `public bool RayHitEntityWithNormal(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref Vec3 resultNormal, ref float resultLength)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray hit entity with normal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1985,7 +1985,7 @@ var result = gameEntity.GetBoundingBoxLongestHalfDimension();
 ### ComputeBoundingBoxFromLongestHalfDimension
 `public BoundingBox ComputeBoundingBoxFromLongestHalfDimension(float longestHalfDimensionCoefficient)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute bounding box from longest half dimension」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -1996,7 +1996,7 @@ var result = gameEntity.ComputeBoundingBoxFromLongestHalfDimension(0);
 ### ComputeBoundingBoxIncludeChildren
 `public BoundingBox ComputeBoundingBoxIncludeChildren()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute bounding box include children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例
@@ -2018,7 +2018,7 @@ gameEntity.SetManualLocalBoundingBox(boundingBox);
 ### RelaxLocalBoundingBox
 `public void RelaxLocalBoundingBox(in BoundingBox boundingBox)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax local bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameEntity 实例

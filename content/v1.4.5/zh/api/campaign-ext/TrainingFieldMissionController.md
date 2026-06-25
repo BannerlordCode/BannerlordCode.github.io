@@ -112,7 +112,7 @@ trainingFieldMissionController.AddSubTask(newSubTask);
 ### RestoreScoreFromSave
 `public void RestoreScoreFromSave(float score)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restore score from save」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldMissionController 实例
@@ -123,7 +123,7 @@ trainingFieldMissionController.RestoreScoreFromSave(0);
 ### DelayedAction
 `public readonly struct DelayedAction(Action order, float delayTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delayed action」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldMissionController 实例
@@ -156,7 +156,7 @@ trainingFieldMissionController.OnCreated();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TrainingFieldMissionController 实例

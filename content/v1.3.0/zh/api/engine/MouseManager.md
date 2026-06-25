@@ -53,7 +53,7 @@ MouseManager.ShowCursor(false);
 ### LockCursorAtCurrentPosition
 `public static void LockCursorAtCurrentPosition(bool lockCursor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lock cursor at current position」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MouseManager.LockCursorAtCurrentPosition(false);
 ### LockCursorAtPosition
 `public static void LockCursorAtPosition(float x, float y)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lock cursor at position」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MouseManager.LockCursorAtPosition(0, 0);
 ### UnlockCursor
 `public static void UnlockCursor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unlock cursor」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

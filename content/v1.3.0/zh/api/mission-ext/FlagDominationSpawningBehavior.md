@@ -56,7 +56,7 @@ flagDominationSpawningBehavior.OnTick(0);
 ### RequestStartSpawnSession
 `public override void RequestStartSpawnSession()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request start spawn session」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagDominationSpawningBehavior 实例

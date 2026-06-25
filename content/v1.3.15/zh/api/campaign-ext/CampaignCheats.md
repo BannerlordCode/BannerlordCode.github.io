@@ -69,7 +69,7 @@ CampaignCheats.GetSeparatedNames(strings, false);
 ### ConcatenateString
 `public static string ConcatenateString(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「concatenate string」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -79,7 +79,7 @@ CampaignCheats.ConcatenateString(strings);
 ### ImportMainHero
 `public static string ImportMainHero(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「import main hero」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -89,7 +89,7 @@ CampaignCheats.ImportMainHero(strings);
 ### ExportMainHero
 `public static string ExportMainHero(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「export main hero」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -139,7 +139,7 @@ CampaignCheats.AddSkillXpToHero(strings);
 ### PrintPlayerTrait
 `public static string PrintPlayerTrait(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print player trait」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -299,7 +299,7 @@ CampaignCheats.AddHeroRelation(strings);
 ### PrintMainPartyPosition
 `public static string PrintMainPartyPosition(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print main party position」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -319,7 +319,7 @@ CampaignCheats.AddCraftingMaterials(strings);
 ### HealMainParty
 `public static string HealMainParty(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「heal main party」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -329,7 +329,7 @@ CampaignCheats.HealMainParty(strings);
 ### DeclareWar
 `public static string DeclareWar(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「declare war」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -349,7 +349,7 @@ CampaignCheats.AddItemToPlayerParty(strings);
 ### DeclarePeace
 `public static string DeclarePeace(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「declare peace」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -419,7 +419,7 @@ CampaignCheats.SetPlayerReputationTrait(strings);
 ### GiveSettlementToPlayer
 `public static string GiveSettlementToPlayer(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give settlement to player」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -429,7 +429,7 @@ CampaignCheats.GiveSettlementToPlayer(strings);
 ### GiveSettlementToKingdom
 `public static string GiveSettlementToKingdom(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give settlement to kingdom」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -449,7 +449,7 @@ CampaignCheats.AddPowerToNotable(strings);
 ### LeadYourFaction
 `public static string LeadYourFaction(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lead your faction」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -459,7 +459,7 @@ CampaignCheats.LeadYourFaction(strings);
 ### PrintHeroesSuitableForMarriage
 `public static string PrintHeroesSuitableForMarriage(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print heroes suitable for marriage」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -469,7 +469,7 @@ CampaignCheats.PrintHeroesSuitableForMarriage(strings);
 ### MarryPlayerWithHero
 `public static string MarryPlayerWithHero(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「marry player with hero」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -479,7 +479,7 @@ CampaignCheats.MarryPlayerWithHero(strings);
 ### MarryHeroWithHero
 `public static string MarryHeroWithHero(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「marry hero with hero」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -519,7 +519,7 @@ CampaignCheats.CreateRandomClan(strings);
 ### LeadKingdom
 `public static string LeadKingdom(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lead kingdom」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -549,7 +549,7 @@ CampaignCheats.JoinKingdomAsMercenary(strings);
 ### MakeTradeAgreement
 `public static string MakeTradeAgreement(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make trade agreement」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -559,7 +559,7 @@ CampaignCheats.MakeTradeAgreement(strings);
 ### PrintCriminalRatings
 `public static string PrintCriminalRatings(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print criminal ratings」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -629,7 +629,7 @@ CampaignCheats.AddAttributePointsCheat(strings);
 ### PrintSettlementsWithTournament
 `public static string PrintSettlementsWithTournament(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print settlements with tournament」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -649,7 +649,7 @@ CampaignCheats.ConvertListToMultiLine(strings);
 ### PrintAllIssues
 `public static string PrintAllIssues(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print all issues」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -659,7 +659,7 @@ CampaignCheats.PrintAllIssues(strings);
 ### GiveWorkshopToPlayer
 `public static string GiveWorkshopToPlayer(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give workshop to player」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -669,7 +669,7 @@ CampaignCheats.GiveWorkshopToPlayer(strings);
 ### MakePregnant
 `public static string MakePregnant(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make pregnant」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -749,7 +749,7 @@ CampaignCheats.CancelQuestCheat(strings);
 ### KickCompanionFromParty
 `public static string KickCompanionFromParty(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kick companion from party」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -769,7 +769,7 @@ CampaignCheats.AddTroopsXp(strings);
 ### PrintGameplayStatistics
 `public static string PrintGameplayStatistics(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print gameplay statistics」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -789,7 +789,7 @@ CampaignCheats.SetAllArmiesAndPartiesVisible(strings);
 ### PrintStrengthOfLordParties
 `public static string PrintStrengthOfLordParties(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print strength of lord parties」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -799,7 +799,7 @@ CampaignCheats.PrintStrengthOfLordParties(strings);
 ### ToggleInformationRestrictions
 `public static string ToggleInformationRestrictions(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle information restrictions」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -809,7 +809,7 @@ CampaignCheats.ToggleInformationRestrictions(strings);
 ### PrintStrengthOfFactions
 `public static string PrintStrengthOfFactions(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print strength of factions」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -859,7 +859,7 @@ CampaignCheats.HideHideouts(strings);
 ### UnlockCraftingPieces
 `public static string UnlockCraftingPieces(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unlock crafting pieces」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

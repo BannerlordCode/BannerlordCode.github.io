@@ -177,7 +177,7 @@ var result = smithingModel.GetEnergyCostForSmelting(item, hero);
 ### ResearchPointsNeedForNewPart
 `public abstract float ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「research points need for new part」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SmithingModel 实例

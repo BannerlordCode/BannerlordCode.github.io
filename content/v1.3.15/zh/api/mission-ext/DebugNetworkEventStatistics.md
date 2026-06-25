@@ -41,7 +41,7 @@ DebugNetworkEventStatistics.OpenExternalMonitor();
 ### ControlActivate
 `public static void ControlActivate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「control activate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ DebugNetworkEventStatistics.ControlActivate();
 ### ControlDeactivate
 `public static void ControlDeactivate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「control deactivate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ DebugNetworkEventStatistics.ControlDeactivate();
 ### ControlJustDump
 `public static void ControlJustDump()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「control just dump」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -71,7 +71,7 @@ DebugNetworkEventStatistics.ControlJustDump();
 ### ControlDumpAll
 `public static void ControlDumpAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「control dump all」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -81,7 +81,7 @@ DebugNetworkEventStatistics.ControlDumpAll();
 ### ControlClear
 `public static void ControlClear()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「control clear」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -111,7 +111,7 @@ DebugNetworkEventStatistics.ClearFpsGraph();
 ### ControlClearAll
 `public static void ControlClearAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「control clear all」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -121,7 +121,7 @@ DebugNetworkEventStatistics.ControlClearAll();
 ### ControlDumpReplicationData
 `public static void ControlDumpReplicationData()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「control dump replication data」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -131,7 +131,7 @@ DebugNetworkEventStatistics.ControlDumpReplicationData();
 ### EndTick
 `public static void EndTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「end」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例

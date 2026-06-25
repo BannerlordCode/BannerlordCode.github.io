@@ -23,7 +23,7 @@ description: "Managed 的自动生成类参考。"
 ### PassManagedInitializeMethodPointerDelegate
 `public delegate void PassManagedInitializeMethodPointerDelegate( Delegate initalizer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass managed initialize method pointer delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Managed 实例
@@ -34,7 +34,7 @@ managed.PassManagedInitializeMethodPointerDelegate(initalizer);
 ### PassManagedCallbackMethodPointersDelegate
 `public delegate void PassManagedCallbackMethodPointersDelegate( Delegate methodDelegate)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass managed callback method pointers delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Managed 实例
@@ -116,7 +116,7 @@ Managed.GetVersionInts(major, minor, revision);
 ### PassInitializationMethodPointersForDotNet
 `public static void PassInitializationMethodPointersForDotNet(Delegate a, Delegate b)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass initialization method pointers for dot net」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

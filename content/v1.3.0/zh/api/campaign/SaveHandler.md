@@ -32,7 +32,7 @@ description: "SaveHandler 的自动生成类参考。"
 ### QuickSaveCurrentGame
 `public void QuickSaveCurrentGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quick save current game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -54,7 +54,7 @@ saveHandler.SaveAs("example");
 ### CampaignTick
 `public void CampaignTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「campaign」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例
@@ -65,7 +65,7 @@ saveHandler.CampaignTick();
 ### SignalAutoSave
 `public void SignalAutoSave()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「signal auto save」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SaveHandler 实例

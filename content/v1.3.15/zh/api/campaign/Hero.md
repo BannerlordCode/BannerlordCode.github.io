@@ -1,808 +1,262 @@
 ---
 title: "Hero"
-description: "Hero 的自动生成类参考。"
+description: "Bannerlord 战役世界的核心角色对象：玩家、领主、同伴、家族成员的数据与行为入口。"
 ---
 # Hero
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner`  
+**Base:** `MBObjectBase`  
 **File:** `TaleWorlds.CampaignSystem/Hero.cs`
 
 ## 概述
 
-`Hero` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Hero` 代表 Bannerlord 战役地图上的**一个具体角色**：玩家自己、各王国领主、流浪者/同伴、家族成员、商队首领等。它连接了三块最重要的战役数据：
+
+- **外观与基础属性**（`CharacterObject`、`BodyProperties`、`Equipment`）
+- **社会身份**（`Clan`、`Kingdom`、`Occupation`、`IsClanLeader`）
+- **当前状态**（`PartyBelongedTo`、`CurrentSettlement`、`Gold`、`HeroState`）
+
+几乎所有战役 mod 都会与 `Hero` 打交道：给玩家加钱、修改关系、让某个领主加入王国、让英雄怀孕或负伤等。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `Hero` 当作**“战役世界里的角色卡片”**，而不是可渲染的 3D 模型：
+
+- `Hero` 本身不处理战斗场景里的动作；进入战斗后，它会生成一个 `Agent` 作为战场化身。
+- 角色卡片是**全局唯一**的：每个 `Hero` 对应一个 `stringId`，可以通过 `Hero.Find(stringId)` 拿到同一实例。
+- 不要自己 `new Hero()`；创建新英雄走 `HeroCreator.CreateHero(...)` 或 `Hero.FindFirst`/`Hero.FindAll` 查询现有英雄。
+- 修改英雄状态通常直接写属性（`Gold`、`Clan` 等）；影响生命值、技能、特性有专门方法（`ChangeHeroGold`、`AddSkillXp`、`SetTraitLevel`）。
+
+## 如何获取 Hero
+
+```csharp
+// 玩家英雄
+Hero main = Hero.MainHero;
+
+// 当前对话对象（酒馆、领主大厅等一对一对话）
+Hero talkTo = Hero.OneToOneConversationHero;
+
+// 按 ID 精确查找
+Hero arwa = Hero.Find("hero_arwa");
+
+// 按条件查找第一个匹配的英雄
+Hero woundedHero = Hero.FindFirst(h => h.IsWounded);
+
+// 遍历所有存活英雄
+foreach (Hero hero in Hero.AllAliveHeroes)
+{
+    if (hero.IsPlayerCompanion)
+    {
+        // ...
+    }
+}
+
+// 从其他对象自然拿到 Hero
+Hero leader = MobileParty.MainParty.LeaderHero;
+Hero governor = Settlement.CurrentSettlement.Governor;
+```
 
 ## 主要属性
 
-| Name | Signature |
-|------|-----------|
-| `StaticBodyProperties` | `public StaticBodyProperties StaticBodyProperties { get; set; }` |
-| `Weight` | `public float Weight { get; set; }` |
-| `Build` | `public float Build { get; set; }` |
-| `BodyProperties` | `public BodyProperties BodyProperties { get; }` |
-| `PassedTimeAtHomeSettlement` | `public float PassedTimeAtHomeSettlement { get; set; }` |
-| `CanHaveRecruits` | `public bool CanHaveRecruits { get; }` |
-| `CharacterObject` | `public CharacterObject CharacterObject { get; }` |
-| `FirstName` | `public TextObject FirstName { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; set; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `IsFemale` | `public bool IsFemale { get; set; }` |
-| `BattleEquipment` | `public Equipment BattleEquipment { get; }` |
-| `CivilianEquipment` | `public Equipment CivilianEquipment { get; }` |
-| `StealthEquipment` | `public Equipment StealthEquipment { get; set; }` |
-| `CaptivityStartTime` | `public CampaignTime CaptivityStartTime { get; }` |
-| `PreferredUpgradeFormation` | `public FormationClass PreferredUpgradeFormation { get; }` |
-| `HeroState` | `public Hero.CharacterStates HeroState { get; }` |
-| `CharacterAttributes` | `public IReadOnlyPropertyOwner<CharacterAttribute> CharacterAttributes { get; set; }` |
-| `IsMinorFactionHero` | `public bool IsMinorFactionHero { get; }` |
-| `Issue` | `public IssueBase Issue { get; }` |
-| `WoundedHealthLimit` | `public int WoundedHealthLimit { get; }` |
-| `IsNoncombatant` | `public bool IsNoncombatant { get; set; }` |
-| `CompanionOf` | `public Clan CompanionOf { get; set; }` |
-| `CompanionsInParty` | `public IEnumerable<Hero> CompanionsInParty { get; }` |
-| `Occupation` | `public Occupation Occupation { get; }` |
-| `Template` | `public CharacterObject Template { get; }` |
-| `IsDead` | `public bool IsDead { get; }` |
-| `IsFugitive` | `public bool IsFugitive { get; }` |
-| `IsPrisoner` | `public bool IsPrisoner { get; }` |
-| `IsReleased` | `public bool IsReleased { get; }` |
-| `IsActive` | `public bool IsActive { get; }` |
-| `IsNotSpawned` | `public bool IsNotSpawned { get; }` |
-| `IsDisabled` | `public bool IsDisabled { get; }` |
-| `IsTraveling` | `public bool IsTraveling { get; }` |
-| `IsAlive` | `public bool IsAlive { get; }` |
-| `DeathMark` | `public KillCharacterAction.KillCharacterActionDetail DeathMark { get; }` |
-| `DeathMarkKillerHero` | `public Hero DeathMarkKillerHero { get; }` |
-| `LastKnownClosestSettlement` | `public Settlement LastKnownClosestSettlement { get; }` |
-| `IsWanderer` | `public bool IsWanderer { get; }` |
-| `IsTemplate` | `public bool IsTemplate { get; }` |
-| `IsWounded` | `public bool IsWounded { get; }` |
-| `IsPlayerCompanion` | `public bool IsPlayerCompanion { get; }` |
-| `IsMerchant` | `public bool IsMerchant { get; }` |
-| `IsPreacher` | `public bool IsPreacher { get; }` |
-| `IsHeadman` | `public bool IsHeadman { get; }` |
-| `IsGangLeader` | `public bool IsGangLeader { get; }` |
-| `IsArtisan` | `public bool IsArtisan { get; }` |
-| `IsRuralNotable` | `public bool IsRuralNotable { get; }` |
-| `IsUrbanNotable` | `public bool IsUrbanNotable { get; }` |
-| `IsSpecial` | `public bool IsSpecial { get; }` |
-| `IsRebel` | `public bool IsRebel { get; }` |
-| `IsCommander` | `public bool IsCommander { get; }` |
-| `IsPartyLeader` | `public bool IsPartyLeader { get; }` |
-| `IsNotable` | `public bool IsNotable { get; }` |
-| `IsLord` | `public bool IsLord { get; }` |
-| `MaxHitPoints` | `public int MaxHitPoints { get; set; }` |
-| `HitPoints` | `public int HitPoints { get; set; }` |
-| `BirthDay` | `public CampaignTime BirthDay { get; }` |
-| `DeathDay` | `public CampaignTime DeathDay { get; }` |
-| `Age` | `public float Age { get; }` |
-| `IsChild` | `public bool IsChild { get; }` |
-| `Power` | `public float Power { get; }` |
-| `ClanBanner` | `public Banner ClanBanner { get; set; }` |
-| `LastExaminedLogEntryID` | `public long LastExaminedLogEntryID { get; set; }` |
-| `Clan` | `public Clan Clan { get; set; }` |
-| `SupporterOf` | `public Clan SupporterOf { get; set; }` |
-| `GovernorOf` | `public Town GovernorOf { get; set; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `OwnedAlleys` | `public List<Alley> OwnedAlleys { get; }` |
-| `IsFactionLeader` | `public bool IsFactionLeader { get; }` |
-| `IsKingdomLeader` | `public bool IsKingdomLeader { get; }` |
-| `IsClanLeader` | `public bool IsClanLeader { get; }` |
-| `OwnedCaravans` | `public List<CaravanPartyComponent> OwnedCaravans { get; }` |
-| `PartyBelongedTo` | `public MobileParty PartyBelongedTo { get; }` |
-| `PartyBelongedToAsPrisoner` | `public PartyBase PartyBelongedToAsPrisoner { get; }` |
-| `StayingInSettlement` | `public Settlement StayingInSettlement { get; set; }` |
-| `IsHumanPlayerCharacter` | `public bool IsHumanPlayerCharacter { get; set; }` |
-| `IsKnownToPlayer` | `public bool IsKnownToPlayer { get; set; }` |
-| `HasMet` | `public bool HasMet { get; }` |
-| `LastMeetingTimeWithPlayer` | `public CampaignTime LastMeetingTimeWithPlayer { get; set; }` |
-| `BornSettlement` | `public Settlement BornSettlement { get; set; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `PowerModifier` | `public float PowerModifier { get; }` |
-| `CurrentSettlement` | `public Settlement CurrentSettlement { get; }` |
-| `Gold` | `public int Gold { get; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `BannerItem` | `public EquipmentElement BannerItem { get; set; }` |
-| `ProbabilityOfDeath` | `public float ProbabilityOfDeath { get; }` |
-| `Father` | `public Hero Father { get; set; }` |
-| `Mother` | `public Hero Mother { get; set; }` |
-| `ExSpouses` | `public MBReadOnlyList<Hero> ExSpouses { get; set; }` |
-| `Spouse` | `public Hero Spouse { get; set; }` |
-| `Children` | `public MBList<Hero> Children { get; }` |
-| `Siblings` | `public IEnumerable<Hero> Siblings { get; }` |
-| `HeroDeveloper` | `public HeroDeveloper HeroDeveloper { get; }` |
-| `OwnedWorkshops` | `public MBReadOnlyList<Workshop> OwnedWorkshops { get; }` |
-| `AllAliveHeroes` | `public static MBReadOnlyList<Hero> AllAliveHeroes { get; }` |
-| `DeadOrDisabledHeroes` | `public static MBReadOnlyList<Hero> DeadOrDisabledHeroes { get; }` |
-| `MainHero` | `public static Hero MainHero { get; }` |
-| `OneToOneConversationHero` | `public static Hero OneToOneConversationHero { get; }` |
-| `IsMainHeroIll` | `public static bool IsMainHeroIll { get; }` |
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| `Name` | `TextObject` | 完整名称（含称号）。 |
+| `FirstName` | `TextObject` | 名。 |
+| `CharacterObject` | `CharacterObject` | 与该英雄绑定的人物模板；持有技能、装备槽、身体属性等。 |
+| `Clan` | `Clan` | 所属家族；玩家家族是 `Clan.PlayerClan`。 |
+| `Kingdom` | `Kingdom` | 所属王国（如果有）。 |
+| `Occupation` | `Occupation` | 职业身份：领主、商贩、流浪者、强盗等。 |
+| `Gold` | `int` | 当前携带金钱。 |
+| `PartyBelongedTo` | `MobileParty` | 该英雄所在部队；玩家部队是 `MobileParty.MainParty`。 |
+| `CurrentSettlement` | `Settlement` | 当前停留的据点（城镇/城堡/村庄），可为 `null`。 |
+| `HomeSettlement` | `Settlement` | 家乡据点。 |
+| `Spouse` | `Hero` | 配偶。 |
+| `ExSpouses` | `List<Hero>` | 前配偶列表。 |
+| `IsDead` / `IsWounded` / `IsPrisoner` / `IsFugitive` | `bool` | 生命状态标志。 |
+| `IsClanLeader` | `bool` | 是否家族首领。 |
+| `IsNoncombatant` | `bool` | 是否不能参战（如儿童、部分 NPC）。 |
+| `CanLeadParty` | `bool` | 是否能统领军团。 |
 
 ## 主要方法
 
-### GetName
-`public override TextObject GetName()`
+### 查询与遍历
 
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetName();
-```
-
-### SetName
-`public void SetName(TextObject fullName, TextObject firstName)`
-
-**用途 / Purpose:** 为 「name」 赋新值，并同步更新对象内部状态。
+#### `public static Hero Find(string stringId)`
+按 `stringId` 获取唯一英雄实例；若不存在返回 `null`。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetName(fullName, firstName);
+Hero derthert = Hero.Find("lord_derthert");
+if (derthert != null && !derthert.IsDead)
+{
+    InformationManager.DisplayMessage(new InformationMessage($"Found {derthert.Name}"));
+}
 ```
 
-### OnIssueCreatedForHero
-`public void OnIssueCreatedForHero(IssueBase issue)`
-
-**用途 / Purpose:** 在 「issue created for hero」 事件触发时调用此回调。
+#### `public static Hero FindFirst(Func<Hero, bool> predicate)`
+返回满足条件的第一个英雄。适合写简单查询。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.OnIssueCreatedForHero(issue);
+Hero richLord = Hero.FindFirst(h => h.IsLord && h.Gold > 100000);
 ```
 
-### OnIssueDeactivatedForHero
-`public void OnIssueDeactivatedForHero()`
-
-**用途 / Purpose:** 在 「issue deactivated for hero」 事件触发时调用此回调。
+#### `public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)`
+返回所有满足条件的英雄。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.OnIssueDeactivatedForHero();
+var playerFactionHeroes = Hero.FindAll(h => h.MapFaction == Hero.MainHero.MapFaction && h.IsAlive);
 ```
 
-### ToString
-`public override string ToString()`
+### 状态与关系
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+#### `public float GetRelation(Hero otherHero)`
+返回与另一英雄的**个人关系**（-100 ~ 100）。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.ToString();
+int relation = Hero.MainHero.GetRelation(Hero.OneToOneConversationHero);
+if (relation < -20)
+{
+    // 关系很差，可能需要贿赂或恐吓
+}
 ```
 
-### UpdateLastKnownClosestSettlement
-`public void UpdateLastKnownClosestSettlement(Settlement settlement)`
-
-**用途 / Purpose:** 重新计算并更新 「last known closest settlement」 的最新表示。
+#### `public void SetPersonalRelation(Hero otherHero, int value)`
+直接设定两人关系值。会影响后续对话、任务、军团加入等判定。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.UpdateLastKnownClosestSettlement(settlement);
+Hero.MainHero.SetPersonalRelation(someLord, 50); // 设为友好
 ```
 
-### SetNewOccupation
-`public void SetNewOccupation(Occupation occupation)`
-
-**用途 / Purpose:** 为 「new occupation」 赋新值，并同步更新对象内部状态。
+#### `public bool CanLeadParty()`
+判断该英雄是否能作为部队领袖（年龄、状态、职业等综合考虑）。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetNewOccupation(occupation);
+Hero companion = Hero.FindFirst(h => h.IsPlayerCompanion && h.CanLeadParty());
+if (companion != null)
+{
+    // 让他带一支新部队或商队
+}
 ```
 
-### SetBirthDay
-`public void SetBirthDay(CampaignTime birthday)`
+### 经济与影响力
 
-**用途 / Purpose:** 为 「birth day」 赋新值，并同步更新对象内部状态。
+#### `public void ChangeHeroGold(int changeAmount)`
+为该英雄增减金钱；可传入负数以扣钱。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetBirthDay(birthday);
+Hero.MainHero.ChangeHeroGold(5000);   // 玩家加 5000
+someLord.ChangeHeroGold(-1000);       // 扣该领主 1000
 ```
 
-### SetDeathDay
-`public void SetDeathDay(CampaignTime deathDay)`
-
-**用途 / Purpose:** 为 「death day」 赋新值，并同步更新对象内部状态。
+#### `public void AddInfluenceWithKingdom(float additionalInfluence)`
+如果英雄有王国，为其增加影响力（ influence ）。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetDeathDay(deathDay);
+Hero.MainHero.AddInfluenceWithKingdom(25f);
 ```
 
-### AddPower
-`public void AddPower(float value)`
+### 技能与特性
 
-**用途 / Purpose:** 将 「power」 添加到当前容器或状态中。
+#### `public int GetSkillValue(SkillObject skill)`
+查询某技能等级。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.AddPower(0);
+int oneHanded = Hero.MainHero.GetSkillValue(DefaultSkills.OneHanded);
 ```
 
-### SetHasMet
-`public void SetHasMet()`
-
-**用途 / Purpose:** 为 「has met」 赋新值，并同步更新对象内部状态。
+#### `public void AddSkillXp(SkillObject skill, float xpAmount)`
+为某技能增加经验。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetHasMet();
+Hero.MainHero.AddSkillXp(DefaultSkills.Riding, 1000f);
 ```
 
-### UpdatePowerModifier
-`public void UpdatePowerModifier()`
-
-**用途 / Purpose:** 重新计算并更新 「power modifier」 的最新表示。
+#### `public void SetSkillValue(SkillObject skill, int value)`
+直接设置技能等级。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.UpdatePowerModifier();
+Hero.MainHero.SetSkillValue(DefaultSkills.Leadership, 200);
 ```
 
-### UpdateHomeSettlement
-`public void UpdateHomeSettlement()`
-
-**用途 / Purpose:** 重新计算并更新 「home settlement」 的最新表示。
+#### `public int GetTraitLevel(TraitObject trait)`
+获取某特性等级（如“仁慈”、“狡诈”）。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.UpdateHomeSettlement();
+int honor = Hero.MainHero.GetTraitLevel(DefaultTraits.Honor);
 ```
 
-### GetSkillValue
-`public int GetSkillValue(SkillObject skill)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「skill value」 的结果。
+#### `public void SetTraitLevel(TraitObject trait, int value)`
+设置特性等级。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetSkillValue(skill);
+Hero.MainHero.SetTraitLevel(DefaultTraits.Mercy, 1);
 ```
 
-### SetSkillValue
-`public void SetSkillValue(SkillObject skill, int value)`
+### 生命周期
 
-**用途 / Purpose:** 为 「skill value」 赋新值，并同步更新对象内部状态。
+#### `public void MakeWounded(Hero killerHero = null, ...)`
+使英雄负伤（不会死亡）。常用于事件、任务。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetSkillValue(skill, 0);
+Hero enemyLord = Hero.FindFirst(h => h.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction));
+enemyLord?.MakeWounded();
 ```
 
-### ClearSkills
-`public void ClearSkills()`
+> 注意：彻底杀死英雄应使用 `KillCharacterAction.ApplyByOldAge(...)` 等专门 Action，而不是 `MakeWounded`。
 
-**用途 / Purpose:** 清空当前对象中的「skills」。
+#### `public void SetImmuneToWound(bool value)`
+设置该英雄是否免疫负伤。
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ClearSkills();
+Hero.MainHero.SetImmuneToWound(true); // 主角不会被打伤
 ```
 
-### AddSkillXp
-`public void AddSkillXp(SkillObject skill, float xpAmount)`
+## 典型用法示例
 
-**用途 / Purpose:** 将 「skill xp」 添加到当前容器或状态中。
+### 示例 1：给所有玩家家族成员加钱
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.AddSkillXp(skill, 0);
+foreach (Hero hero in Clan.PlayerClan.Heroes)
+{
+    if (hero.IsAlive)
+    {
+        hero.ChangeHeroGold(1000);
+    }
+}
 ```
 
-### GetAttributeValue
-`public int GetAttributeValue(CharacterAttribute charAttribute)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「attribute value」 的结果。
+### 示例 2：让当前对话的领主与玩家关系变为 50
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetAttributeValue(charAttribute);
+Hero target = Hero.OneToOneConversationHero;
+if (target != null && target.IsLord)
+{
+    Hero.MainHero.SetPersonalRelation(target, 50);
+}
 ```
 
-### ClearAttributes
-`public void ClearAttributes()`
-
-**用途 / Purpose:** 清空当前对象中的「attributes」。
+### 示例 3：提升主角某项技能一级对应的经验
 
 ```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ClearAttributes();
+SkillObject skill = DefaultSkills.Trade;
+int current = Hero.MainHero.GetSkillValue(skill);
+int nextLevelXp = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForLevel(current + 1);
+int currentXp = Hero.MainHero.HeroDeveloper.GetSkillXpProgress(skill);
+Hero.MainHero.AddSkillXp(skill, Math.Max(0, nextLevelXp - currentXp));
 ```
 
-### SetTraitLevel
-`public void SetTraitLevel(TraitObject trait, int value)`
+## 跨版本提示
 
-**用途 / Purpose:** 为 「trait level」 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetTraitLevel(trait, 0);
-```
-
-### GetTraitLevel
-`public int GetTraitLevel(TraitObject trait)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「trait level」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetTraitLevel(trait);
-```
-
-### ClearTraits
-`public void ClearTraits()`
-
-**用途 / Purpose:** 清空当前对象中的「traits」。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ClearTraits();
-```
-
-### GetPerkValue
-`public bool GetPerkValue(PerkObject perk)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「perk value」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetPerkValue(perk);
-```
-
-### ClearPerks
-`public void ClearPerks()`
-
-**用途 / Purpose:** 清空当前对象中的「perks」。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ClearPerks();
-```
-
-### ChangeState
-`public void ChangeState(Hero.CharacterStates newState)`
-
-**用途 / Purpose:** 执行此方法所描述的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ChangeState(newState);
-```
-
-### IsHealthFull
-`public bool IsHealthFull()`
-
-**用途 / Purpose:** 判断当前对象是否处于 「health full」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.IsHealthFull();
-```
-
-### Heal
-`public void Heal(int healAmount, bool addXp = false)`
-
-**用途 / Purpose:** 执行此方法所描述的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.Heal(0, false);
-```
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**用途 / Purpose:** 从序列化数据还原当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.Deserialize(objectManager, node);
-```
-
-### CanLeadParty
-`public bool CanLeadParty()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「lead party」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanLeadParty();
-```
-
-### SetHeroEncyclopediaTextAndLinks
-`public static TextObject SetHeroEncyclopediaTextAndLinks(Hero o)`
-
-**用途 / Purpose:** 为 「hero encyclopedia text and links」 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 静态调用，不需要实例
-Hero.SetHeroEncyclopediaTextAndLinks(o);
-```
-
-### CanHeroEquipmentBeChanged
-`public bool CanHeroEquipmentBeChanged()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「hero equipment be changed」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanHeroEquipmentBeChanged();
-```
-
-### CanMarry
-`public bool CanMarry()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「marry」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanMarry();
-```
-
-### CanBeGovernorOrHavePartyRole
-`public bool CanBeGovernorOrHavePartyRole()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「be governor or have party role」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanBeGovernorOrHavePartyRole();
-```
-
-### CanDie
-`public bool CanDie(KillCharacterAction.KillCharacterActionDetail causeOfDeath)`
-
-**用途 / Purpose:** 检查当前对象是否满足 「die」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanDie(causeOfDeath);
-```
-
-### CanBecomePrisoner
-`public bool CanBecomePrisoner()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「become prisoner」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanBecomePrisoner();
-```
-
-### CanMoveToSettlement
-`public bool CanMoveToSettlement()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「move to settlement」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanMoveToSettlement();
-```
-
-### CanHaveCampaignIssues
-`public bool CanHaveCampaignIssues()`
-
-**用途 / Purpose:** 检查当前对象是否满足 「have campaign issues」 的前置条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.CanHaveCampaignIssues();
-```
-
-### AddInfluenceWithKingdom
-`public void AddInfluenceWithKingdom(float additionalInfluence)`
-
-**用途 / Purpose:** 将 「influence with kingdom」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.AddInfluenceWithKingdom(0);
-```
-
-### GetRelationWithPlayer
-`public float GetRelationWithPlayer()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「relation with player」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetRelationWithPlayer();
-```
-
-### GetUnmodifiedClanLeaderRelationshipWithPlayer
-`public float GetUnmodifiedClanLeaderRelationshipWithPlayer()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「unmodified clan leader relationship with player」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetUnmodifiedClanLeaderRelationshipWithPlayer();
-```
-
-### SetTextVariables
-`public void SetTextVariables()`
-
-**用途 / Purpose:** 为 「text variables」 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetTextVariables();
-```
-
-### SetPersonalRelation
-`public void SetPersonalRelation(Hero otherHero, int value)`
-
-**用途 / Purpose:** 为 「personal relation」 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.SetPersonalRelation(otherHero, 0);
-```
-
-### GetRelation
-`public int GetRelation(Hero otherHero)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「relation」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetRelation(otherHero);
-```
-
-### GetBaseHeroRelation
-`public int GetBaseHeroRelation(Hero otherHero)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「base hero relation」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetBaseHeroRelation(otherHero);
-```
-
-### IsEnemy
-`public bool IsEnemy(Hero otherHero)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「enemy」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.IsEnemy(otherHero);
-```
-
-### IsFriend
-`public bool IsFriend(Hero otherHero)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「friend」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.IsFriend(otherHero);
-```
-
-### IsNeutral
-`public bool IsNeutral(Hero otherHero)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「neutral」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.IsNeutral(otherHero);
-```
-
-### ModifyHair
-`public void ModifyHair(int hair, int beard, int tattoo)`
-
-**用途 / Purpose:** 执行此方法所描述的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ModifyHair(0, 0, 0);
-```
-
-### AddOwnedWorkshop
-`public void AddOwnedWorkshop(Workshop workshop)`
-
-**用途 / Purpose:** 将 「owned workshop」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.AddOwnedWorkshop(workshop);
-```
-
-### RemoveOwnedWorkshop
-`public void RemoveOwnedWorkshop(Workshop workshop)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 「owned workshop」。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.RemoveOwnedWorkshop(workshop);
-```
-
-### FindFirst
-`public static Hero FindFirst(Func<Hero, bool> predicate)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
-
-```csharp
-// 静态调用，不需要实例
-Hero.FindFirst(func<Hero, false);
-```
-
-### Find
-`public static Hero Find(string stringId)`
-
-**用途 / Purpose:** 在当前集合/范围内查找匹配项。
-
-```csharp
-// 静态调用，不需要实例
-Hero.Find("example");
-```
-
-### FindAll
-`public static IEnumerable<Hero> FindAll(Func<Hero, bool> predicate)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
-
-```csharp
-// 静态调用，不需要实例
-Hero.FindAll(func<Hero, false);
-```
-
-### MakeWounded
-`public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
-
-**用途 / Purpose:** 执行此方法所描述的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.MakeWounded(null, killCharacterAction.KillCharacterActionDetail.None);
-```
-
-### AddDeathMark
-`public void AddDeathMark(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
-
-**用途 / Purpose:** 将 「death mark」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.AddDeathMark(null, killCharacterAction.KillCharacterActionDetail.None);
-```
-
-### GetPositionAsVec3
-`public Vec3 GetPositionAsVec3()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「position as vec3」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetPositionAsVec3();
-```
-
-### GetCampaignPosition
-`public CampaignVec2 GetCampaignPosition()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「campaign position」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetCampaignPosition();
-```
-
-### GetMapPoint
-`public IMapPoint GetMapPoint()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「map point」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-var result = hero.GetMapPoint();
-```
-
-### ResetEquipments
-`public void ResetEquipments()`
-
-**用途 / Purpose:** 将 「equipments」 重置回默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ResetEquipments();
-```
-
-### ChangeHeroGold
-`public void ChangeHeroGold(int changeAmount)`
-
-**用途 / Purpose:** 执行此方法所描述的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.ChangeHeroGold(0);
-```
-
-### CheckInvalidEquipmentsAndReplaceIfNeeded
-`public void CheckInvalidEquipmentsAndReplaceIfNeeded()`
-
-**用途 / Purpose:** 检查「invalid equipments and replace if needed」在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 Hero 实例
-Hero hero = ...;
-hero.CheckInvalidEquipmentsAndReplaceIfNeeded();
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Hero hero = ...;
-hero.GetName();
-```
+- v1.3.0：基础 API 相同，但 `Hero.MainHero` 之前可能写作 `CharacterObject.PlayerCharacter.HeroObject`。
+- v1.4.5：新增/拆分了部分 `HeroDeveloper` 与 `Hero.Skills` 相关访问；写跨版本 mod 时建议优先使用 `Hero.MainHero.HeroDeveloper`。
 
 ## 参见
 
-- [本区域目录](../)
+- [CharacterObject](../CharacterObject/) — 英雄背后的模板数据
+- [Clan](../Clan/) — 家族与英雄归属
+- [Kingdom](../Kingdom/) — 王国与阵营
+- [Settlement](../Settlement/) — 据点与城市
+- [MobileParty](../MobileParty/) — 英雄所在部队
+- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — 每日 tick 里批量操作 Hero
+- [Campaign](../Campaign/) — 访问 `Campaign.Current` 拿到整个世界

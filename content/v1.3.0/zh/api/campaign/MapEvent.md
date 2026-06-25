@@ -69,7 +69,7 @@ description: "MapEvent 的自动生成类参考。"
 ### BeginWait
 `public void BeginWait()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin wait」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -91,7 +91,7 @@ var result = mapEvent.GetMapEventSide(side);
 ### PartiesOnSide
 `public MBReadOnlyList<MapEventParty> PartiesOnSide(BattleSideEnum side)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parties on side」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -146,7 +146,7 @@ mapEvent.FinishBattleAndKeepSiegeEvent();
 ### SimulateBattleSetup
 `public void SimulateBattleSetup(FlattenedTroopRoster priorTroops)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate battle setup」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -157,7 +157,7 @@ mapEvent.SimulateBattleSetup(priorTroops);
 ### SimulateBattleRound
 `public void SimulateBattleRound(int simulationTicksDefender, int simulationTicksAttacker)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate battle round」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -223,7 +223,7 @@ var result = mapEvent.ToString();
 ### FinalizeEvent
 `public void FinalizeEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -289,7 +289,7 @@ mapEvent.RecalculateStrengthOfSides();
 ### DoSurrender
 `public void DoSurrender(BattleSideEnum side)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do surrender」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例
@@ -300,7 +300,7 @@ mapEvent.DoSurrender(side);
 ### EndByRunAway
 `public void EndByRunAway()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end by run away」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEvent 实例

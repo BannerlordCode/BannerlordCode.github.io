@@ -97,7 +97,7 @@ var result = bindingPath.IsRelatedWith(referencePath);
 ### DecrementIfRelatedWith
 `public void DecrementIfRelatedWith(BindingPath path, int startIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decrement if related with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BindingPath 实例
@@ -108,7 +108,7 @@ bindingPath.DecrementIfRelatedWith(path, 0);
 ### Simplify
 `public BindingPath Simplify()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simplify」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BindingPath 实例

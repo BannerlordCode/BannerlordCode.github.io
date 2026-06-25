@@ -147,7 +147,7 @@ var result = kingdomDecision.DetermineInitialCandidates();
 ### NarrowDownCandidates
 `public MBList<DecisionOutcome> NarrowDownCandidates(MBList<DecisionOutcome> initialCandidates, int maxCandidateCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「narrow down candidates」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecision 实例
@@ -191,7 +191,7 @@ var result = kingdomDecision.CanMakeDecision(reason);
 ### ShouldBeCancelled
 `public bool ShouldBeCancelled()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should be cancelled」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecision 实例
@@ -290,7 +290,7 @@ var result = kingdomDecision.GetChosenOutcomeText(chosenOutcome, supportStatus, 
 ### SortDecisionOutcomes
 `public MBList<DecisionOutcome> SortDecisionOutcomes(MBReadOnlyList<DecisionOutcome> possibleOutcomes)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort decision outcomes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomDecision 实例

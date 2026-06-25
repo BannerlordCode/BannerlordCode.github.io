@@ -67,7 +67,7 @@ missionBattleSideSpawnContext.GetTeamFormationsSpawnData(team, teamFormationsSpa
 ### ReserveTroops
 `public void ReserveTroops(int number)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例
@@ -111,7 +111,7 @@ var result = missionBattleSideSpawnContext.GetAllTroops();
 ### SpawnTroops
 `public int SpawnTroops(int number, bool isReinforcement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionBattleSideSpawnContext 实例

@@ -23,7 +23,7 @@ description: "GeneratedPrefabContext 的自动生成类参考。"
 ### CollectPrefabs
 `public void CollectPrefabs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect prefabs」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedPrefabContext 实例
@@ -45,7 +45,7 @@ generatedPrefabContext.AddGeneratedPrefab("example", "example", creator);
 ### InstantiatePrefab
 `public GeneratedPrefabInstantiationResult InstantiatePrefab(UIContext conext, string prefabName, string variantName, Dictionary<string, object> data)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate prefab」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GeneratedPrefabContext 实例

@@ -33,7 +33,7 @@ description: "MissionMultiplayerFlagDomination 的自动生成类参考。"
 ### UseGold
 `public bool UseGold()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use gold」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
@@ -55,7 +55,7 @@ var result = missionMultiplayerFlagDomination.AllowCustomPlayerBanners();
 ### UseRoundController
 `public override bool UseRoundController()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use round controller」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
@@ -88,7 +88,7 @@ missionMultiplayerFlagDomination.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
@@ -187,7 +187,7 @@ var result = missionMultiplayerFlagDomination.CheckForRoundEnd();
 ### UseCultureSelection
 `public override bool UseCultureSelection()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use culture selection」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例
@@ -209,7 +209,7 @@ missionMultiplayerFlagDomination.OnAgentBuild(agent, banner);
 ### ForfeitSpawning
 `public void ForfeitSpawning(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「forfeit spawning」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMultiplayerFlagDomination 实例

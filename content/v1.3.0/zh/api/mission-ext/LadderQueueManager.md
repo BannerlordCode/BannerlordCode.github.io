@@ -84,7 +84,7 @@ var result = ladderQueueManager.GetTickRequirement();
 ### FlushQueueManager
 `public void FlushQueueManager()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「flush queue manager」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LadderQueueManager 实例
@@ -95,7 +95,7 @@ ladderQueueManager.FlushQueueManager();
 ### AssignNeighborQueueManager
 `public void AssignNeighborQueueManager(LadderQueueManager neighborLadderQueueManager)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign neighbor queue manager」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LadderQueueManager 实例

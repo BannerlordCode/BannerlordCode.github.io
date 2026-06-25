@@ -23,7 +23,7 @@ description: "DefaultMapVisibilityModel 的自动生成类参考。"
 ### MaximumSeeingRange
 `public override float MaximumSeeingRange()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「maximum seeing range」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMapVisibilityModel 实例

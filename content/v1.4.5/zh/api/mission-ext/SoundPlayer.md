@@ -34,7 +34,7 @@ soundPlayer.UpdatePlaying();
 ### PlaySound
 `public void PlaySound()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -45,7 +45,7 @@ soundPlayer.PlaySound();
 ### ResumeSound
 `public void ResumeSound()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例
@@ -56,7 +56,7 @@ soundPlayer.ResumeSound();
 ### PauseSound
 `public void PauseSound()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SoundPlayer 实例

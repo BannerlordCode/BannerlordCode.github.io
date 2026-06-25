@@ -69,7 +69,7 @@ clanIncomeVM.RefreshList();
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select workshop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例
@@ -80,7 +80,7 @@ clanIncomeVM.SelectWorkshop(workshop);
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select alley」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanIncomeVM 实例

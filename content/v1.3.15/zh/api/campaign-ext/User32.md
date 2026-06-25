@@ -33,7 +33,7 @@ User32.GetAsyncKeyState(0);
 ### DestroyWindow
 `public static extern bool DestroyWindow(IntPtr hWnd)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ User32.SetParent(child, newParent);
 ### ReleaseDC
 `public static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release dc」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ User32.ReleaseDC(hWnd, hDC);
 ### ScreenToClient
 `public static extern bool ScreenToClient(IntPtr hWnd, ref Point lpPoint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「screen to client」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ User32.GetCursorPos(lpPoint);
 ### ReleaseCapture
 `public static extern bool ReleaseCapture()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release capture」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ User32.CloseWindow(hWnd);
 ### PeekMessage
 `public static extern bool PeekMessage(out NativeMessage lpMsg, IntPtr hWnd, uint wMsgFilterMin, uint wMsgFilterMax, uint wRemoveMsg)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「peek message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ User32.PeekMessage(lpMsg, hWnd, 0, 0, 0);
 ### TranslateMessage
 `public static extern bool TranslateMessage( ref NativeMessage lpMsg)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「translate message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ User32.TranslateMessage(lpMsg);
 ### DispatchMessage
 `public static extern IntPtr DispatchMessage( ref NativeMessage lpMsg)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dispatch message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ User32.UnregisterClass("example", hInstance);
 ### DefWindowProc
 `public static extern IntPtr DefWindowProc(IntPtr hWnd, uint uMsg, IntPtr wParam, IntPtr lParam)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「def window proc」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -323,7 +323,7 @@ User32.GetMessage(lpMsg, hWnd, 0, 0);
 ### SendMessage
 `public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -333,7 +333,7 @@ User32.SendMessage(hWnd, 0, wParam, lParam);
 ### MessageBox
 `public static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「message box」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -343,7 +343,7 @@ User32.MessageBox(hWnd, "example", "example", 0);
 ### EnumDisplayMonitors
 `public static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip, User32.MonitorEnumDelegate lpfnEnum, IntPtr dwData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enum display monitors」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -363,7 +363,7 @@ User32.GetMonitorInfo(hMonitor, lpmi);
 ### MonitorEnumDelegate
 `public delegate bool MonitorEnumDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref User32.RECT lprcMonitor, IntPtr lParam)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「monitor enum delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 User32 实例

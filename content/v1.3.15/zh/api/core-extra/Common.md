@@ -61,7 +61,7 @@ Common.CalculateMD5Hash("example");
 ### ToRoman
 `public static string ToRoman(int number)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to roman」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -101,7 +101,7 @@ Common.SerializeObjectAsJsonString(o);
 ### FromUrlSafeBase64
 `public static byte FromUrlSafeBase64(string base64)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「from url safe base64」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -121,7 +121,7 @@ Common.FindType("example");
 ### MemoryCleanupGC
 `public static void MemoryCleanupGC(bool forceTimer = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「memory cleanup gc」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -131,7 +131,7 @@ Common.MemoryCleanupGC(false);
 ### DynamicInvokeWithLog
 `public static object DynamicInvokeWithLog(this Delegate method, params object args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dynamic invoke with log」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -141,7 +141,7 @@ Common.DynamicInvokeWithLog(method, args);
 ### InvokeWithLog
 `public static object InvokeWithLog(this MethodInfo methodInfo, object obj, params object args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invoke with log」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -151,7 +151,7 @@ Common.InvokeWithLog(methodInfo, obj, args);
 ### InvokeWithLog
 `public static object InvokeWithLog(this ConstructorInfo constructorInfo, params object args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invoke with log」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -161,7 +161,7 @@ Common.InvokeWithLog(constructorInfo, args);
 ### TextContainsSpecialCharacters
 `public static bool TextContainsSpecialCharacters(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「text contains special characters」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

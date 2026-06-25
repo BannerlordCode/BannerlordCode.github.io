@@ -56,7 +56,7 @@ var result = columnFormation.Clone(formation);
 ### DeepCopyFrom
 `public void DeepCopyFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deep copy from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -276,7 +276,7 @@ var result = columnFormation.GetUnitsToPopWithCondition(0, func<IFormationUnit, 
 ### SwitchUnitLocations
 `public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -287,7 +287,7 @@ columnFormation.SwitchUnitLocations(firstUnit, secondUnit);
 ### SwitchUnitLocationsWithUnpositionedUnit
 `public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations with unpositioned unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -298,7 +298,7 @@ columnFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
 ### SwitchUnitLocationsWithBackMostUnit
 `public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch unit locations with back most unit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -375,7 +375,7 @@ var result = columnFormation.CreateNewPosition(0);
 ### InvalidateCacheOfUnitAux
 `public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate cache of unit aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -386,7 +386,7 @@ columnFormation.InvalidateCacheOfUnitAux(roundedLocalPosition);
 ### BeforeFormationFrameChange
 `public void BeforeFormationFrameChange()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「formation frame change」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -430,7 +430,7 @@ var result = columnFormation.IsTurnBackwardsNecessary(previousPosition, newPosit
 ### TurnBackwards
 `public void TurnBackwards()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「turn backwards」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -463,7 +463,7 @@ columnFormation.Reset();
 ### RearrangeFrom
 `public virtual void RearrangeFrom(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -474,7 +474,7 @@ columnFormation.RearrangeFrom(arrangement);
 ### RearrangeTo
 `public virtual void RearrangeTo(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange to」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -485,7 +485,7 @@ columnFormation.RearrangeTo(arrangement);
 ### RearrangeTransferUnits
 `public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange transfer units」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -496,7 +496,7 @@ columnFormation.RearrangeTransferUnits(arrangement);
 ### FormFromWidth
 `public void FormFromWidth(float width)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「form from width」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -529,7 +529,7 @@ var result = columnFormation.GetNeighborUnitOfRightSide(unit);
 ### ReserveMiddleFrontUnitPosition
 `public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve middle front unit position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例
@@ -540,7 +540,7 @@ columnFormation.ReserveMiddleFrontUnitPosition(vanguard);
 ### ReleaseMiddleFrontUnitPosition
 `public void ReleaseMiddleFrontUnitPosition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release middle front unit position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ColumnFormation 实例

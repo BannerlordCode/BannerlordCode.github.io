@@ -36,7 +36,7 @@ description: "MPLobbyClanMemberItemVM 的自动生成类参考。"
 ### MPLobbyClanMemberItemVM
 `public unsafe MPLobbyClanMemberItemVM(ClanPlayer member, bool isOnline, string selectedBadgeID, AnotherPlayerState state, Action<MPLobbyClanMemberItemVM> executeActivate = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mp lobby clan member item vm」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPLobbyClanMemberItemVM 实例

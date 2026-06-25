@@ -43,7 +43,7 @@ bodyGeneratorView.ResetFaceToDefault();
 ### FaceGenShowDebug
 `public static string FaceGenShowDebug(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「face gen show debug」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ BodyGeneratorView.FaceGenShowDebug(strings);
 ### FaceGenUpdateDeformKeys
 `public static string FaceGenUpdateDeformKeys(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「face gen update deform keys」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

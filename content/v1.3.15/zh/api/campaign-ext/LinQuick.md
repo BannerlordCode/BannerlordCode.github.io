@@ -23,7 +23,7 @@ description: "LinQuick 的自动生成类参考。"
 ### AverageQ
 `public static float AverageQ(this float source)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「average q」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ LinQuick.AverageQ(source);
 ### AverageQ
 `public static float AverageQ(this IEnumerable<float> source)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「average q」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ LinQuick.AverageQ(source);
 ### MaxQ
 `public static int MaxQ(this int source)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「max q」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ LinQuick.MaxQ(source);
 ### MaxQ
 `public static int MaxQ(this List<int> source)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「max q」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ LinQuick.MaxQ(source);
 ### MaxQ
 `public static int MaxQ(this IReadOnlyList<int> source)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「max q」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

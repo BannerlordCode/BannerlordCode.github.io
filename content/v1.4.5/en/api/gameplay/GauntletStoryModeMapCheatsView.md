@@ -27,4 +27,4 @@ GauntletStoryModeMapCheatsView view = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

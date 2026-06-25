@@ -23,7 +23,7 @@ description: "DefaultVillageTradeModel 的自动生成类参考。"
 ### TradeBoundDistanceLimitAsDays
 `public override float TradeBoundDistanceLimitAsDays(MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「trade bound distance limit as days」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultVillageTradeModel 实例

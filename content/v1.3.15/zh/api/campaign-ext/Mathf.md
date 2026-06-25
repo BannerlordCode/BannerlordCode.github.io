@@ -23,7 +23,7 @@ description: "Mathf 的自动生成类参考。"
 ### Sqrt
 `public static float Sqrt(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sqrt」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Mathf.Sqrt(0);
 ### Abs
 `public static float Abs(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「abs」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ Mathf.Abs(0);
 ### Floor
 `public static float Floor(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「floor」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ Mathf.Floor(0);
 ### Cos
 `public static float Cos(float radian)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「cos」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ Mathf.Cos(0);
 ### Sin
 `public static float Sin(float radian)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sin」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ Mathf.Sin(0);
 ### Acos
 `public static float Acos(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「acos」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ Mathf.Acos(0);
 ### Atan2
 `public static float Atan2(float y, float x)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「atan2」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ Mathf.Atan2(0, 0);
 ### Clamp
 `public static float Clamp(float value, float min, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ Mathf.Clamp(0, 0, 0);
 ### Clamp
 `public static int Clamp(int value, int min, int max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ Mathf.Clamp(0, 0, 0);
 ### Min
 `public static float Min(float a, float b)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「min」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ Mathf.Min(0, 0);
 ### Max
 `public static float Max(float a, float b)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「max」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ Mathf.IsZero(vector2);
 ### Sign
 `public static float Sign(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sign」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ Mathf.Sign(0);
 ### Ceil
 `public static float Ceil(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ceil」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ Mathf.Ceil(0);
 ### Round
 `public static float Round(float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「round」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ Mathf.Round(0);
 ### Lerp
 `public static float Lerp(float start, float end, float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

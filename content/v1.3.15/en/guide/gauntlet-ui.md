@@ -471,17 +471,17 @@ namespace MyModule.UI
 
 ## Related Documentation
 
-- [GauntletMovie API](../api/gui/GauntletMovie/)
-- [UI / Gauntlet Area](../api/gui/)
-- [ScreenManager API](../api/gui/ScreenManager/)
-- [ViewModel Area](../api/viewmodel/)
+- [GauntletMovie API](../../api/gui/GauntletMovie/)
+- [UI / Gauntlet Area](../../api/gui/)
+- [ScreenManager API](../../api/gui/ScreenManager/)
+- [ViewModel Area](../../api/viewmodel/)
 
 ---
 
 ## Next Section
 
-- [Mission System](mission-system/) - Learn Mission, MissionBehavior
-- [Campaign System](campaign-system/) - Learn about the Campaign game world
+- [Mission System](../mission-system/) - Learn Mission, MissionBehavior
+- [Campaign System](../campaign-system/) - Learn about the Campaign game world
 
 ## Usage Example
 

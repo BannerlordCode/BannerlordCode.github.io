@@ -29,7 +29,7 @@ description: "MessageServiceConnection 的自动生成类参考。"
 ### SendAsync
 `public abstract Task SendAsync(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send async」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例
@@ -95,7 +95,7 @@ var result = messageServiceConnection.ClosedDelegate();
 ### StateChangedDelegate
 `public delegate void StateChangedDelegate(ConnectionState oldState, ConnectionState newState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「state changed delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MessageServiceConnection 实例

@@ -87,4 +87,4 @@ DeclareWarAction.ApplyByKingdomDecision(faction1, faction2);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

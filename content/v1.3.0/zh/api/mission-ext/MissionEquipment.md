@@ -30,7 +30,7 @@ description: "MissionEquipment 的自动生成类参考。"
 ### FillFrom
 `public void FillFrom(MissionEquipment sourceEquipment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -41,7 +41,7 @@ missionEquipment.FillFrom(sourceEquipment);
 ### FillFrom
 `public void FillFrom(Equipment sourceEquipment, Banner banner)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -63,7 +63,7 @@ var result = missionEquipment.GetTotalWeightOfWeapons();
 ### SelectWeaponPickUpSlot
 `public static EquipmentIndex SelectWeaponPickUpSlot(Agent agentPickingUp, MissionWeapon weaponBeingPickedUp, bool isStuckMissile)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select weapon pick up slot」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -204,7 +204,7 @@ missionEquipment.SetConsumedAmmoOfSlot(slotIndex, 0);
 ### AttachWeaponToWeaponInSlot
 `public void AttachWeaponToWeaponInSlot(EquipmentIndex slotIndex, ref MissionWeapon weapon, ref MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach weapon to weapon in slot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -413,7 +413,7 @@ var result = missionEquipment.GetValue(data);
 ### InvalidateOnWeaponSlotUpdated
 `public void InvalidateOnWeaponSlotUpdated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「invalidate on weapon slot updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -424,7 +424,7 @@ missionEquipment.InvalidateOnWeaponSlotUpdated();
 ### InvalidateOnWeaponUsageIndexUpdated
 `public void InvalidateOnWeaponUsageIndexUpdated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「invalidate on weapon usage index updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -435,7 +435,7 @@ missionEquipment.InvalidateOnWeaponUsageIndexUpdated();
 ### InvalidateOnWeaponAmmoUpdated
 `public void InvalidateOnWeaponAmmoUpdated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「invalidate on weapon ammo updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -446,7 +446,7 @@ missionEquipment.InvalidateOnWeaponAmmoUpdated();
 ### InvalidateOnWeaponAmmoAvailabilityChanged
 `public void InvalidateOnWeaponAmmoAvailabilityChanged()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「invalidate on weapon ammo availability changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -457,7 +457,7 @@ missionEquipment.InvalidateOnWeaponAmmoAvailabilityChanged();
 ### InvalidateOnWeaponHitPointsUpdated
 `public void InvalidateOnWeaponHitPointsUpdated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「invalidate on weapon hit points updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例
@@ -468,7 +468,7 @@ missionEquipment.InvalidateOnWeaponHitPointsUpdated();
 ### InvalidateOnWeaponDestroyed
 `public void InvalidateOnWeaponDestroyed()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invalidate on weapon destroyed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionEquipment 实例

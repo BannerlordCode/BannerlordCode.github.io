@@ -52,7 +52,7 @@ openGLTexture.CopyFrom(texture);
 ### Delete
 `public void Delete()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例
@@ -63,7 +63,7 @@ openGLTexture.Delete();
 ### FromFile
 `public static OpenGLTexture FromFile(ResourceDepot resourceDepot, string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「from file」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ OpenGLTexture.FromFile(resourceDepot, "example");
 ### FromFile
 `public static OpenGLTexture FromFile(string fullFilePath)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「from file」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ OpenGLTexture.FromFile("example");
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 OpenGLTexture 实例

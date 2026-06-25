@@ -31,7 +31,7 @@ description: "MissionNameMarkerFactory 的自动生成类参考。"
 ### PushContext
 `public static MissionNameMarkerFactory.INameMarkerProviderContext PushContext(string name, bool addDefaultProviders)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「push context」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -41,7 +41,7 @@ MissionNameMarkerFactory.PushContext("example", false);
 ### PopContext
 `public static void PopContext(string contextId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「pop context」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -51,7 +51,7 @@ MissionNameMarkerFactory.PopContext("example");
 ### PopContext
 `public static void PopContext(MissionNameMarkerFactory.INameMarkerProviderContext context)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「pop context」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -61,7 +61,7 @@ MissionNameMarkerFactory.PopContext(context);
 ### CollectProviders
 `public static List<MissionNameMarkerProvider> CollectProviders()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect providers」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

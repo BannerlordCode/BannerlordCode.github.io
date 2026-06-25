@@ -23,7 +23,7 @@ description: "MessageManager 的自动生成类参考。"
 ### DisplayMessage
 `public static void DisplayMessage(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「display message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MessageManager.DisplayMessage("example");
 ### DisplayMessage
 `public static void DisplayMessage(string message, uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「display message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MessageManager.DisplayMessage("example", 0);
 ### DisplayDebugMessage
 `public static void DisplayDebugMessage(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「display debug message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MessageManager.DisplayDebugMessage("example");
 ### DisplayMultilineMessage
 `public static void DisplayMultilineMessage(string message, uint color)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「display multiline message」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MessageManager.DisplayMultilineMessage("example", 0);
 ### EraseMessageLines
 `public static void EraseMessageLines()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「erase message lines」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -23,7 +23,7 @@ description: "MissionCombatMechanicsHelper 的自动生成类参考。"
 ### DecideAgentShrugOffBlow
 `public static bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent shrug off blow」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MissionCombatMechanicsHelper.DecideAgentShrugOffBlow(victimAgent, collisionData,
 ### DecideAgentDismountedByBlow
 `public static bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent dismounted by blow」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MissionCombatMechanicsHelper.DecideAgentDismountedByBlow(attackerAgent, victimAg
 ### DecideAgentKnockedBackByBlow
 `public static bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent knocked back by blow」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MissionCombatMechanicsHelper.DecideAgentKnockedBackByBlow(attackerAgent, victimA
 ### DecideAgentKnockedDownByBlow
 `public static bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent knocked down by blow」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MissionCombatMechanicsHelper.DecideAgentKnockedDownByBlow(attackerAgent, victimA
 ### DecideMountRearedByBlow
 `public static bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide mount reared by blow」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MissionCombatMechanicsHelper.DecideMountRearedByBlow(attackerAgent, victimAgent,
 ### DecideWeaponCollisionReaction
 `public static void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide weapon collision reaction」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MissionCombatMechanicsHelper.IsCollisionBoneDifferentThanWeaponAttachBone(collis
 ### DecideSweetSpotCollision
 `public static bool DecideSweetSpotCollision(in AttackCollisionData collisionData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide sweet spot collision」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ MissionCombatMechanicsHelper.UpdateMomentumRemaining(momentumRemaining, b, colli
 ### HitWithAnotherBone
 `public static bool HitWithAnotherBone(in AttackCollisionData collisionData, Agent attacker, in MissionWeapon attackerWeapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit with another bone」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

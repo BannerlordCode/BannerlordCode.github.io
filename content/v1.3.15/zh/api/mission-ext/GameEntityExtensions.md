@@ -23,7 +23,7 @@ description: "GameEntityExtensions 的自动生成类参考。"
 ### Instantiate
 `public static GameEntity Instantiate(Scene scene, MissionWeapon weapon, bool showHolsterWithWeapon, bool needBatchedVersion)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ GameEntityExtensions.CreateSkeletonWithActionSet(gameEntity, animationSystemData
 ### FadeOut
 `public static void FadeOut(this GameEntity gameEntity, float interval, bool isRemovingFromScene)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fade out」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ GameEntityExtensions.FadeOut(gameEntity, 0, false);
 ### FadeIn
 `public static void FadeIn(this GameEntity gameEntity, bool resetAlpha = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fade in」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

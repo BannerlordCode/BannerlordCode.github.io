@@ -89,7 +89,7 @@ var result = platformFileHelperPC.GetFileFullPath(filePath);
 ### FileExists
 `public bool FileExists(PlatformFilePath path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「file exists」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformFileHelperPC 实例
@@ -133,7 +133,7 @@ var result = platformFileHelperPC.GetFileContent(path);
 ### DeleteFile
 `public bool DeleteFile(PlatformFilePath path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete file」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformFileHelperPC 实例
@@ -166,7 +166,7 @@ var result = platformFileHelperPC.GetFiles(path, "example", searchOption);
 ### RenameFile
 `public void RenameFile(PlatformFilePath filePath, string newName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rename file」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlatformFileHelperPC 实例

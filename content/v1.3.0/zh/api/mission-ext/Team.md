@@ -135,7 +135,7 @@ Team.GetPlayerTeamFormationClass(mainAgent);
 ### AssignPlayerAsSergeantOfFormation
 `public void AssignPlayerAsSergeantOfFormation(MissionPeer peer, FormationClass formationClass)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign player as sergeant of formation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -201,7 +201,7 @@ team.AddTeamAI(teamAI, false);
 ### DelegateCommandToAI
 `public void DelegateCommandToAI()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delegate command to ai」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -212,7 +212,7 @@ team.DelegateCommandToAI();
 ### RearrangeFormationsAccordingToFilter
 `public void RearrangeFormationsAccordingToFilter( { "formation", "troopCount", "troopFilter", "excludedAgents" })`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange formations according to filter」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例
@@ -465,7 +465,7 @@ var result = team.GetWeightedAverageOfEnemies(basePoint);
 ### DisableDetachmentTicking
 `public void DisableDetachmentTicking()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable detachment ticking」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Team 实例

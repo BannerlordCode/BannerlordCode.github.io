@@ -23,7 +23,7 @@ description: "FollowAgentQuestTask 的自动生成类参考。"
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「mission」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 FollowAgentQuestTask 实例

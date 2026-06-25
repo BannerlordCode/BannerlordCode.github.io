@@ -124,7 +124,7 @@ var result = agentNavigator.IsTargetReached();
 ### HoldAndHideRecentlyUsedMeshes
 `public void HoldAndHideRecentlyUsedMeshes()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hold and hide recently used meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -135,7 +135,7 @@ agentNavigator.HoldAndHideRecentlyUsedMeshes();
 ### RecoverRecentlyUsedMeshes
 `public void RecoverRecentlyUsedMeshes()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「recover recently used meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -223,7 +223,7 @@ agentNavigator.SetCommonArea(alley);
 ### ForceThink
 `public void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force think」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AgentNavigator 实例
@@ -274,4 +274,4 @@ agentNavigator.OnStopUsingGameObject();
 
 ## 参见
 
-- [本区域目录](../)
+- [本区域目录](../../)

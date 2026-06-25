@@ -344,7 +344,7 @@ hero.ClearPerks();
 ### ChangeState
 `public void ChangeState(CharacterStates newState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「change state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 Hero 实例
@@ -366,7 +366,7 @@ var result = hero.IsHealthFull();
 ### Heal
 `public void Heal(int healAmount, bool addXp = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「heal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Hero 实例
@@ -596,7 +596,7 @@ var result = hero.IsNeutral(otherHero);
 ### ModifyHair
 `public void ModifyHair(int hair, int beard, int tattoo)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify hair」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Hero 实例
@@ -659,7 +659,7 @@ Hero.FindAll(func<Hero, false);
 ### MakeWounded
 `public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make wounded」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Hero 实例
@@ -725,7 +725,7 @@ hero.ResetEquipments();
 ### ChangeHeroGold
 `public void ChangeHeroGold(int changeAmount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change hero gold」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Hero 实例

@@ -35,7 +35,7 @@ description: "DeploymentPoint 的自动生成类参考。"
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -112,7 +112,7 @@ var result = deploymentPoint.GetSpawnersForEditor();
 ### Deploy
 `public void Deploy(Type t)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deploy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -123,7 +123,7 @@ deploymentPoint.Deploy(t);
 ### Deploy
 `public void Deploy(SiegeWeapon s)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deploy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -134,7 +134,7 @@ deploymentPoint.Deploy(s);
 ### Disband
 `public ScriptComponentBehavior Disband()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disband」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例
@@ -167,7 +167,7 @@ deploymentPoint.Show();
 ### ToggleWeaponVisibility
 `public void ToggleWeaponVisibility(bool visible, SynchedMissionObject weapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle weapon visibility」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DeploymentPoint 实例

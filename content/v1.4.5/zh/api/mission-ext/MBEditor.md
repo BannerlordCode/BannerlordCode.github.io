@@ -53,7 +53,7 @@ MBEditor.IsEntitySelected(entity);
 ### RenderEditorMesh
 `public static void RenderEditorMesh(MetaMesh mesh, MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render editor mesh」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBEditor.ApplyDeltaToEditorCamera(delta);
 ### EnterEditMode
 `public static void EnterEditMode(SceneView sceneView, MatrixFrame initialCameraFrame, float initialCameraElevation, float initialCameraBearing)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「enter edit mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MBEditor.TickEditMode(0);
 ### LeaveEditMode
 `public static void LeaveEditMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「leave edit mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ MBEditor.LeaveEditMode();
 ### EnterEditMissionMode
 `public static void EnterEditMissionMode(Mission mission)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「enter edit mission mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ MBEditor.EnterEditMissionMode(mission);
 ### LeaveEditMissionMode
 `public static void LeaveEditMissionMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「leave edit mission mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ MBEditor.GetEditorSceneView();
 ### HelpersEnabled
 `public static bool HelpersEnabled()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「helpers enabled」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ MBEditor.HelpersEnabled();
 ### BorderHelpersEnabled
 `public static bool BorderHelpersEnabled()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「border helpers enabled」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ MBEditor.BorderHelpersEnabled();
 ### ZoomToPosition
 `public static void ZoomToPosition(Vec3 pos)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「zoom to position」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -273,7 +273,7 @@ MBEditor.GetAllPrefabsAndChildWithTag("example");
 ### ExitEditMode
 `public static void ExitEditMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「exit edit mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -303,7 +303,7 @@ MBEditor.SetLevelVisibility(levels);
 ### ToggleEnableEditorPhysics
 `public static void ToggleEnableEditorPhysics()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle enable editor physics」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

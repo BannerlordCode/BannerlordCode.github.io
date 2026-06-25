@@ -53,7 +53,7 @@ GameEntityPhysicsExtensions.AddSphereAsBody(gameEntity, sphere, 0, bodyFlags);
 ### PushCapsuleShapeToEntityBody
 `public static void PushCapsuleShapeToEntityBody(this WeakGameEntity gameEntity, Vec3 p1, Vec3 p2, float radius, string physicsMaterialName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「push capsule shape to entity body」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ GameEntityPhysicsExtensions.AddSphereAsBody(gameEntity, sphere, 0, bodyFlags);
 ### PopCapsuleShapeFromEntityBody
 `public static void PopCapsuleShapeFromEntityBody(this WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pop capsule shape from entity body」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -403,7 +403,7 @@ GameEntityPhysicsExtensions.IsDynamicBodyStationaryMT(gameEntity);
 ### ReplacePhysicsBodyWithQuadPhysicsBody
 `public static void ReplacePhysicsBodyWithQuadPhysicsBody(this GameEntity gameEntity, Vec3 vertices, int numberOfVertices, PhysicsMaterial physicsMaterial, BodyFlags bodyFlags, int indices, int numberOfIndices)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「replace physics body with quad physics body」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -413,7 +413,7 @@ GameEntityPhysicsExtensions.ReplacePhysicsBodyWithQuadPhysicsBody(gameEntity, ve
 ### ReplacePhysicsBodyWithQuadPhysicsBody
 `public static void ReplacePhysicsBodyWithQuadPhysicsBody(this WeakGameEntity gameEntity, Vec3 vertices, int numberOfVertices, PhysicsMaterial physicsMaterial, BodyFlags bodyFlags, int indices, int numberOfIndices)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「replace physics body with quad physics body」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -663,7 +663,7 @@ GameEntityPhysicsExtensions.ApplyAccelerationToDynamicBody(gameEntity, accelerat
 ### DisableDynamicBodySimulation
 `public static void DisableDynamicBodySimulation(this GameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable dynamic body simulation」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -673,7 +673,7 @@ GameEntityPhysicsExtensions.DisableDynamicBodySimulation(gameEntity);
 ### DisableDynamicBodySimulation
 `public static void DisableDynamicBodySimulation(this WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable dynamic body simulation」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -683,7 +683,7 @@ GameEntityPhysicsExtensions.DisableDynamicBodySimulation(gameEntity);
 ### DisableDynamicBodySimulationMT
 `public static void DisableDynamicBodySimulationMT(this GameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable dynamic body simulation mt」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -693,7 +693,7 @@ GameEntityPhysicsExtensions.DisableDynamicBodySimulationMT(gameEntity);
 ### DisableDynamicBodySimulationMT
 `public static void DisableDynamicBodySimulationMT(this WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable dynamic body simulation mt」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -763,7 +763,7 @@ GameEntityPhysicsExtensions.SetPhysicsMoveToBatched(gameEntity, false);
 ### EnableDynamicBody
 `public static void EnableDynamicBody(this GameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable dynamic body」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -773,7 +773,7 @@ GameEntityPhysicsExtensions.EnableDynamicBody(gameEntity);
 ### EnableDynamicBody
 `public static void EnableDynamicBody(this WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable dynamic body」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -943,7 +943,7 @@ GameEntityPhysicsExtensions.SetDampingMT(gameEntity, 0, 0);
 ### DisableGravity
 `public static void DisableGravity(this GameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable gravity」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -953,7 +953,7 @@ GameEntityPhysicsExtensions.DisableGravity(gameEntity);
 ### DisableGravity
 `public static void DisableGravity(this WeakGameEntity gameEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable gravity」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

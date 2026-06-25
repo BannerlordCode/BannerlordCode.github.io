@@ -99,7 +99,7 @@ stealthZone.ResetEvents();
 ### DisableAll
 `public void DisableAll()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例
@@ -110,7 +110,7 @@ stealthZone.DisableAll();
 ### StealthZoneEvent
 `public delegate void StealthZoneEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「stealth zone event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StealthZone 实例

@@ -27,4 +27,4 @@ OppositionData entry = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

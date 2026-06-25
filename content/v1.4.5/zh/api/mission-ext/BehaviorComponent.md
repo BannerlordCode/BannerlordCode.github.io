@@ -67,7 +67,7 @@ behaviorComponent.OnAgentRemoved(agent);
 ### RemindSergeantPlayer
 `public void RemindSergeantPlayer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「remind sergeant player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例
@@ -133,7 +133,7 @@ behaviorComponent.OnValidBehaviorSideChanged();
 ### PrecalculateMovementOrder
 `public void PrecalculateMovementOrder()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「precalculate movement order」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BehaviorComponent 实例

@@ -78,7 +78,7 @@ var result = sandboxAgentApplyDamageModel.ApplyGeneralDamageModifiers(attackInfo
 ### DecideCrushedThrough
 `public override bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide crushed through」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -89,7 +89,7 @@ var result = sandboxAgentApplyDamageModel.DecideCrushedThrough(attackerAgent, de
 ### DecideMissileWeaponFlags
 `public override void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide missile weapon flags」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -243,7 +243,7 @@ var result = sandboxAgentApplyDamageModel.CalculatePassiveAttackDamage(attackerC
 ### DecidePassiveAttackCollisionReaction
 `public override MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide passive attack collision reaction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -287,7 +287,7 @@ var result = sandboxAgentApplyDamageModel.GetDamageMultiplierForBodyPart(bodyPar
 ### DecideAgentShrugOffBlow
 `public override bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent shrug off blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -298,7 +298,7 @@ var result = sandboxAgentApplyDamageModel.DecideAgentShrugOffBlow(victimAgent, c
 ### DecideAgentDismountedByBlow
 `public override bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent dismounted by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -309,7 +309,7 @@ var result = sandboxAgentApplyDamageModel.DecideAgentDismountedByBlow(attackerAg
 ### DecideAgentKnockedBackByBlow
 `public override bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent knocked back by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -320,7 +320,7 @@ var result = sandboxAgentApplyDamageModel.DecideAgentKnockedBackByBlow(attackerA
 ### DecideAgentKnockedDownByBlow
 `public override bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide agent knocked down by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -331,7 +331,7 @@ var result = sandboxAgentApplyDamageModel.DecideAgentKnockedDownByBlow(attackerA
 ### DecideMountRearedByBlow
 `public override bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide mount reared by blow」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -342,7 +342,7 @@ var result = sandboxAgentApplyDamageModel.DecideMountRearedByBlow(attackerAgent,
 ### DecideWeaponCollisionReaction
 `public override void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decide weapon collision reaction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例
@@ -353,7 +353,7 @@ sandboxAgentApplyDamageModel.DecideWeaponCollisionReaction(registeredBlow, colli
 ### ShouldMissilePassThroughAfterShieldBreak
 `public override bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should missile pass through after shield break」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandboxAgentApplyDamageModel 实例

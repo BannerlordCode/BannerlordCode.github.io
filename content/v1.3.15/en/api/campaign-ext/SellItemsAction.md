@@ -31,4 +31,4 @@ SellItemsAction.Apply(receiverParty, payerParty, subject, 100, null);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

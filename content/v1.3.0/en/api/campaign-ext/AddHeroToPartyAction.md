@@ -31,4 +31,4 @@ AddHeroToPartyAction.Apply(hero, party, false);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

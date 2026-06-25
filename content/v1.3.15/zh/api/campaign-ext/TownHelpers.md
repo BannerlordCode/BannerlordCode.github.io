@@ -63,7 +63,7 @@ TownHelpers.GetHeroesInSettlement(settlement, null);
 ### RequestAMeetingPartyCondition
 `public static bool RequestAMeetingPartyCondition(MobileParty party)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「request a meeting party condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ TownHelpers.RequestAMeetingPartyCondition(party);
 ### RequestAMeetingHeroWithoutPartyCondition
 `public static bool RequestAMeetingHeroWithoutPartyCondition(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「request a meeting hero without party condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例

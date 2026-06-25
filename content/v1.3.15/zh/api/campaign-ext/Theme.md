@@ -109,7 +109,7 @@ var result = theme.AddGroup(groupToAdd);
 ### DeleteGroup
 `public void DeleteGroup(Group group)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete group」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -175,7 +175,7 @@ var result = theme.GetIndexPositionWithinParentEntity(parentProject);
 ### PropertyDifferencesAffectCompatibilities
 `public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「property differences affect compatibilities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例
@@ -208,7 +208,7 @@ var result = theme.CreatePsaiDotNetVersion();
 ### getTestTheme1
 `public static Theme getTestTheme1()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「get test theme1」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -218,7 +218,7 @@ Theme.getTestTheme1();
 ### getTestTheme2
 `public static Theme getTestTheme2()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「get test theme2」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -239,7 +239,7 @@ var result = theme.Clone();
 ### ShallowCopy
 `public override PsaiMusicEntity ShallowCopy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shallow copy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Theme 实例

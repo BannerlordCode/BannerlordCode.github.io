@@ -94,7 +94,7 @@ GameNetwork.Initialize(handler);
 ### EndMultiplayer
 `public static void EndMultiplayer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end multiplayer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -114,7 +114,7 @@ GameNetwork.StartReplay();
 ### EndReplay
 `public static void EndReplay()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end replay」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -124,7 +124,7 @@ GameNetwork.EndReplay();
 ### PreStartMultiplayerOnServer
 `public static void PreStartMultiplayerOnServer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pre start multiplayer on server」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -184,7 +184,7 @@ GameNetwork.AddNewPlayersOnServer(playerConnectionInfos, false);
 ### ClientFinishedLoading
 `public static void ClientFinishedLoading(NetworkCommunicator networkPeer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「client finished loading」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -194,7 +194,7 @@ GameNetwork.ClientFinishedLoading(networkPeer);
 ### BeginModuleEventAsClient
 `public static void BeginModuleEventAsClient()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin module event as client」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -204,7 +204,7 @@ GameNetwork.BeginModuleEventAsClient();
 ### EndModuleEventAsClient
 `public static void EndModuleEventAsClient()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end module event as client」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -214,7 +214,7 @@ GameNetwork.EndModuleEventAsClient();
 ### BeginModuleEventAsClientUnreliable
 `public static void BeginModuleEventAsClientUnreliable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin module event as client unreliable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -224,7 +224,7 @@ GameNetwork.BeginModuleEventAsClientUnreliable();
 ### EndModuleEventAsClientUnreliable
 `public static void EndModuleEventAsClientUnreliable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end module event as client unreliable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -234,7 +234,7 @@ GameNetwork.EndModuleEventAsClientUnreliable();
 ### BeginModuleEventAsServer
 `public static void BeginModuleEventAsServer(NetworkCommunicator communicator)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin module event as server」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -244,7 +244,7 @@ GameNetwork.BeginModuleEventAsServer(communicator);
 ### BeginModuleEventAsServerUnreliable
 `public static void BeginModuleEventAsServerUnreliable(NetworkCommunicator communicator)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin module event as server unreliable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -254,7 +254,7 @@ GameNetwork.BeginModuleEventAsServerUnreliable(communicator);
 ### BeginModuleEventAsServer
 `public static void BeginModuleEventAsServer(VirtualPlayer peer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin module event as server」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -264,7 +264,7 @@ GameNetwork.BeginModuleEventAsServer(peer);
 ### EndModuleEventAsServer
 `public static void EndModuleEventAsServer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end module event as server」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -274,7 +274,7 @@ GameNetwork.EndModuleEventAsServer();
 ### BeginModuleEventAsServerUnreliable
 `public static void BeginModuleEventAsServerUnreliable(VirtualPlayer peer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin module event as server unreliable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -284,7 +284,7 @@ GameNetwork.BeginModuleEventAsServerUnreliable(peer);
 ### EndModuleEventAsServerUnreliable
 `public static void EndModuleEventAsServerUnreliable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end module event as server unreliable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -294,7 +294,7 @@ GameNetwork.EndModuleEventAsServerUnreliable();
 ### BeginBroadcastModuleEvent
 `public static void BeginBroadcastModuleEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin broadcast module event」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -304,7 +304,7 @@ GameNetwork.BeginBroadcastModuleEvent();
 ### EndBroadcastModuleEvent
 `public static void EndBroadcastModuleEvent(EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end broadcast module event」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -314,7 +314,7 @@ GameNetwork.EndBroadcastModuleEvent(broadcastFlags, null);
 ### ElapsedTimeSinceLastUdpPacketArrived
 `public static double ElapsedTimeSinceLastUdpPacketArrived()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「elapsed time since last udp packet arrived」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -324,7 +324,7 @@ GameNetwork.ElapsedTimeSinceLastUdpPacketArrived();
 ### EndBroadcastModuleEventUnreliable
 `public static void EndBroadcastModuleEventUnreliable(EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end broadcast module event unreliable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -334,7 +334,7 @@ GameNetwork.EndBroadcastModuleEventUnreliable(broadcastFlags, null);
 ### UnSynchronizeEveryone
 `public static void UnSynchronizeEveryone()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「un synchronize everyone」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -404,7 +404,7 @@ GameNetwork.InitializeClientSide("example", 0, 0, 0);
 ### TerminateClientSide
 `public static void TerminateClientSide()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「terminate client side」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -434,7 +434,7 @@ GameNetwork.GetSynchedMissionObjectReadableRecordIndexFromType(type);
 ### DestroyComponent
 `public static void DestroyComponent(UdpNetworkComponent udpNetworkComponent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy component」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -514,7 +514,7 @@ GameNetwork.ResetDebugVariables();
 ### PrintDebugStats
 `public static void PrintDebugStats()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print debug stats」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -544,7 +544,7 @@ GameNetwork.GetDebugUploadsInBits(networkStatisticsStruct, posStatisticsStruct);
 ### PrintReplicationTableStatistics
 `public static void PrintReplicationTableStatistics()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print replication table statistics」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

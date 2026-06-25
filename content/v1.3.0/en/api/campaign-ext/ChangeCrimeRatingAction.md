@@ -31,4 +31,4 @@ ChangeCrimeRatingAction.Apply(faction, 100, false);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

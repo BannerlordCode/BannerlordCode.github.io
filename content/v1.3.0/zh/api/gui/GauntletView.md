@@ -59,7 +59,7 @@ gauntletView.RemoveChild(child);
 ### SwapChildrenAtIndeces
 `public void SwapChildrenAtIndeces(GauntletView child1, GauntletView child2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap children at indeces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletView 实例
@@ -92,7 +92,7 @@ gauntletView.RefreshBindingWithChildren();
 ### ReleaseBindingWithChildren
 `public void ReleaseBindingWithChildren()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release binding with children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletView 实例
@@ -103,7 +103,7 @@ gauntletView.ReleaseBindingWithChildren();
 ### BindData
 `public void BindData(string property, BindingPath path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「bind data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletView 实例

@@ -43,7 +43,7 @@ description: "MapEventSide 的自动生成类参考。"
 ### CountTroops
 `public int CountTroops(Func<FlattenedTroopRosterElement, bool> pred)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「count troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -131,7 +131,7 @@ mapEventSide.CalculateRenownAndInfluenceValues(0);
 ### DistributeRenownAndInfluence
 `public virtual void DistributeRenownAndInfluence(MapEventResultExplainer resultExplainers = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「distribute renown and influence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -196,7 +196,7 @@ MapEventSide.AddHeroDamage(character, 0);
 ### AllocateShips
 `public void AllocateShips()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「allocate ships」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -207,7 +207,7 @@ mapEventSide.AllocateShips();
 ### AllocateSiegeEngines
 `public void AllocateSiegeEngines()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「allocate siege engines」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -218,7 +218,7 @@ mapEventSide.AllocateSiegeEngines();
 ### AllocateTroops
 `public void AllocateTroops(ref List<UniqueTroopDescriptor> troopsList, int number = -1, Func<UniqueTroopDescriptor, MapEventParty, bool> customAllocationConditions = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「allocate troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -350,7 +350,7 @@ mapEventSide.OnShipDamaged(struckShip, siegeEngine, 0);
 ### MakeReadyForSimulation
 `public void MakeReadyForSimulation(FlattenedTroopRoster priorTroops, int sizeOfSide = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make ready for simulation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -361,7 +361,7 @@ mapEventSide.MakeReadyForSimulation(priorTroops, 0);
 ### MakeReadyForMission
 `public void MakeReadyForMission(FlattenedTroopRoster priorTroops)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make ready for mission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -372,7 +372,7 @@ mapEventSide.MakeReadyForMission(priorTroops);
 ### EndSimulation
 `public void EndSimulation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end simulation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -383,7 +383,7 @@ mapEventSide.EndSimulation();
 ### ItemRosterForPlayerLootShare
 `public ItemRoster ItemRosterForPlayerLootShare(PartyBase playerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「item roster for player loot share」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -394,7 +394,7 @@ var result = mapEventSide.ItemRosterForPlayerLootShare(playerParty);
 ### MemberRosterForPlayerLootShare
 `public TroopRoster MemberRosterForPlayerLootShare(PartyBase playerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「member roster for player loot share」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -405,7 +405,7 @@ var result = mapEventSide.MemberRosterForPlayerLootShare(playerParty);
 ### PrisonerRosterForPlayerLootShare
 `public TroopRoster PrisonerRosterForPlayerLootShare(PartyBase playerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「prisoner roster for player loot share」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -427,7 +427,7 @@ mapEventSide.Clear();
 ### SelectRandomSimulationTroop
 `public UniqueTroopDescriptor SelectRandomSimulationTroop()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select random simulation troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -460,7 +460,7 @@ var result = mapEventSide.GetRandomSimulationShip();
 ### Surrender
 `public void Surrender()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「surrender」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例
@@ -471,7 +471,7 @@ mapEventSide.Surrender();
 ### Route
 `public void Route()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「route」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapEventSide 实例

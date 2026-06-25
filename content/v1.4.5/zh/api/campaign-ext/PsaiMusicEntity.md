@@ -106,7 +106,7 @@ var result = psaiMusicEntity.Clone();
 ### ShallowCopy
 `public virtual PsaiMusicEntity ShallowCopy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shallow copy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例
@@ -117,7 +117,7 @@ var result = psaiMusicEntity.ShallowCopy();
 ### PropertyDifferencesAffectCompatibilities
 `public virtual bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「property differences affect compatibilities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiMusicEntity 实例

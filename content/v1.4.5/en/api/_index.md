@@ -15,6 +15,7 @@ description: Complete API reference catalog for Bannerlord SDK
 - [core index](./core/) — Core data types class reference index
 - [core-extra index](./core-extra/) — Core / Library extension class reference index
 - [engine index](./engine/) — Engine class reference index
+- [stub](./gameplay/) — stub
 - [gui index](./gui/) — Gauntlet UI system class reference index
 - [localization index](./localization/) — Localization system class reference index
 - [mission index](./mission/) — Mission / combat system class reference index

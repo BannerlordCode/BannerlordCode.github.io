@@ -31,4 +31,4 @@ ClaimSettlementAction.Apply(claimant, claimedSettlement);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

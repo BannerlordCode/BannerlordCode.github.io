@@ -23,7 +23,7 @@ description: "BaseBattleMissionController 的自动生成类参考。"
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -34,7 +34,7 @@ baseBattleMissionController.EarlyStart();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例
@@ -67,7 +67,7 @@ baseBattleMissionController.OnMissionTick(0);
 ### MissionEnded
 `public override bool MissionEnded(ref MissionResult missionResult)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission ended」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BaseBattleMissionController 实例

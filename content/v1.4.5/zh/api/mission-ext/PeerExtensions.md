@@ -23,7 +23,7 @@ description: "PeerExtensions 的自动生成类参考。"
 ### SendExistingObjects
 `public static void SendExistingObjects(this NetworkCommunicator peer, Mission mission)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send existing objects」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

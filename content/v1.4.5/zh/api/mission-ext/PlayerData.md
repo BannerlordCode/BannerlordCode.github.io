@@ -52,7 +52,7 @@ description: "PlayerData 的自动生成类参考。"
 ### FillWith
 `public void FillWith(PlayerId playerId, PlayerId ownerPlayerId, BodyProperties bodyProperties, bool isFemale, string sigil, int experience, string lastPlayerName, string username, int userId, string lastRegion, string lastGameTypes, DateTime? lastLogin, int playtime, string shownBadgeId, int gold, PlayerStatsBase stats, bool shouldLog, bool isUsingClanSigil)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例
@@ -63,7 +63,7 @@ playerData.FillWith(playerId, ownerPlayerId, bodyProperties, false, "example", 0
 ### FillWithNewPlayer
 `public void FillWithNewPlayer(PlayerId playerId, PlayerId ownerPlayerId, string gameTypes)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill with new player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PlayerData 实例

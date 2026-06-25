@@ -37,7 +37,7 @@ bannerlord-1.4.5/Bannerlord.Source/
 
 ## Navigation
 
-- [v1.4.5 API Catalog](./api/catalog)
+- [v1.4.5 API Catalog](./api/)
 - [v1.3.15 docs (recommended)](../../v1.3.15/en/)
 - [v1.3.0 docs](../../v1.3.0/en/)
 - [中文](../zh/)
@@ -45,7 +45,7 @@ bannerlord-1.4.5/Bannerlord.Source/
 ## How to Use
 
 1. Start here to place the version and module boundaries.
-2. Enter the [API catalog](./api/catalog) to choose the subsystem you need.
+2. Enter the [API catalog](./api/) to choose the subsystem you need.
 3. Jump to [cross-version compare](../../versions/) only when you need migration guidance.
 
 ## Usage Example

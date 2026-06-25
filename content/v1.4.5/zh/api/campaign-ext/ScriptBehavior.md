@@ -23,7 +23,7 @@ description: "ScriptBehavior 的自动生成类参考。"
 ### ScriptBehavior
 `public class ScriptBehavior(AgentBehaviorGroup behaviorGroup)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「script behavior」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例
@@ -34,7 +34,7 @@ var result = scriptBehavior.ScriptBehavior(behaviorGroup);
 ### SelectTargetDelegate
 `public delegate bool SelectTargetDelegate(Agent agent, ref Agent targetAgent, ref UsableMachine targetUsableMachine, ref WorldFrame targetFrame, ref float customTargetReachedRangeThreshold, ref float customTargetReachedRotationThreshold)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select target delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ScriptBehavior 实例

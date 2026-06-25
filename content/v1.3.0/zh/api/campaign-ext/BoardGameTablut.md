@@ -105,7 +105,7 @@ boardGameTablut.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public bool AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -149,7 +149,7 @@ var result = boardGameTablut.GetWinningMoveIfPresent(side);
 ### TakeBoardSnapshot
 `public BoardGameTablut.BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -160,7 +160,7 @@ var result = boardGameTablut.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameTablut.BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例

@@ -208,7 +208,7 @@ missionView.OnDeploymentPlanMade(team, false);
 ### SuspendView
 `public void SuspendView()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「suspend view」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionView 实例
@@ -219,7 +219,7 @@ missionView.SuspendView();
 ### ResumeView
 `public void ResumeView()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume view」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionView 实例

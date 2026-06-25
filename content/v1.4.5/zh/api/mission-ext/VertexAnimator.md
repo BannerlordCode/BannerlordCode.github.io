@@ -54,7 +54,7 @@ var result = vertexAnimator.GetTickRequirement();
 ### PlayOnce
 `public void PlayOnce()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play once」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexAnimator 实例
@@ -65,7 +65,7 @@ vertexAnimator.PlayOnce();
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexAnimator 实例
@@ -76,7 +76,7 @@ vertexAnimator.Pause();
 ### Play
 `public void Play()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexAnimator 实例
@@ -87,7 +87,7 @@ vertexAnimator.Play();
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VertexAnimator 实例

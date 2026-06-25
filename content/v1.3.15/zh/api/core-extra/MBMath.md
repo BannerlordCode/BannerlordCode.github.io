@@ -23,7 +23,7 @@ description: "MBMath 的自动生成类参考。"
 ### ToRadians
 `public static float ToRadians(this float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to radians」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBMath.ToRadians(f);
 ### ToDegrees
 `public static float ToDegrees(this float f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to degrees」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBMath.ToDegrees(f);
 ### ApproximatelyEqualsTo
 `public static bool ApproximatelyEqualsTo(this float f, float comparedValue, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「approximately equals to」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MBMath.ApproximatelyEqualsTo(f, 0, 0);
 ### ApproximatelyEquals
 `public static bool ApproximatelyEquals(float first, float second, float epsilon = 1E-05f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「approximately equals」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBMath.IsValidValue(0);
 ### ClampIndex
 `public static int ClampIndex(int value, int minValue, int maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp index」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MBMath.ClampIndex(0, 0, 0);
 ### ClampInt
 `public static int ClampInt(int value, int minValue, int maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ MBMath.ClampInt(0, 0, 0);
 ### ClampFloat
 `public static float ClampFloat(float value, float minValue, float maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ MBMath.ClampFloat(0, 0, 0);
 ### ClampUnit
 `public static void ClampUnit(ref float value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp unit」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ MBMath.GetNumberOfBitsToRepresentNumber(0);
 ### Lerp
 `public static float Lerp(float valueFrom, float valueTo, float amount, float minimumDifference = 1E-05f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ MBMath.Lerp(0, 0, 0, 0);
 ### LinearExtrapolation
 `public static float LinearExtrapolation(float valueFrom, float valueTo, float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「linear extrapolation」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ MBMath.LinearExtrapolation(0, 0, 0);
 ### Lerp
 `public static Vec3 Lerp(Vec3 vecFrom, Vec3 vecTo, float amount, float minimumDifference)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ MBMath.Lerp(vecFrom, vecTo, 0, 0);
 ### Lerp
 `public static Vec2 Lerp(Vec2 vecFrom, Vec2 vecTo, float amount, float minimumDifference)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ MBMath.Lerp(vecFrom, vecTo, 0, 0);
 ### Map
 `public static float Map(float input, float inputMinimum, float inputMaximum, float outputMinimum, float outputMaximum)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「map」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ MBMath.Map(0, 0, 0, 0, 0);
 ### Lerp
 `public static Mat3 Lerp(ref Mat3 matFrom, ref Mat3 matTo, float amount, float minimumDifference)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ MBMath.Lerp(matFrom, matTo, 0, 0);
 ### LerpRadians
 `public static float LerpRadians(float valueFrom, float valueTo, float amount, float minChange, float maxChange)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp radians」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ MBMath.SplitLerp(0, 0, 0, 0, 0, 0);
 ### InverseLerp
 `public static float InverseLerp(float valueFrom, float valueTo, float value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inverse lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ MBMath.InverseLerp(0, 0, 0);
 ### SmoothStep
 `public static float SmoothStep(float edge0, float edge1, float value)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「smooth step」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -233,7 +233,7 @@ MBMath.SmoothStep(0, 0, 0);
 ### BilinearLerp
 `public static float BilinearLerp(float topLeft, float topRight, float botLeft, float botRight, float x, float y)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「bilinear lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ MBMath.GetSmallestDifferenceBetweenTwoAngles(0, 0);
 ### ClampAngle
 `public static float ClampAngle(float angle, float restrictionCenter, float restrictionRange)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp angle」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -263,7 +263,7 @@ MBMath.ClampAngle(0, 0, 0);
 ### WrapAngle
 `public static float WrapAngle(float angle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wrap angle」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -273,7 +273,7 @@ MBMath.WrapAngle(0);
 ### WrapAngleSafe
 `public static float WrapAngleSafe(float angle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wrap angle safe」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -313,7 +313,7 @@ MBMath.IsBetweenInclusive(0, 0, 0);
 ### ColorFromRGBA
 `public static uint ColorFromRGBA(float red, float green, float blue, float alpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「color from rgba」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -323,7 +323,7 @@ MBMath.ColorFromRGBA(0, 0, 0, 0);
 ### HSBtoRGB
 `public static Color HSBtoRGB(float hue, float saturation, float brightness, float outputAlpha)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hs bto rgb」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -333,7 +333,7 @@ MBMath.HSBtoRGB(0, 0, 0, 0);
 ### RGBtoHSB
 `public static Vec3 RGBtoHSB(Color rgb)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rg bto hsb」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -343,7 +343,7 @@ MBMath.RGBtoHSB(rgb);
 ### GammaCorrectRGB
 `public static Vec3 GammaCorrectRGB(float gamma, Vec3 rgb)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「gamma correct rgb」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -373,7 +373,7 @@ MBMath.GetDistanceSquareOfPointToLineSegment(lineSegmentBegin, lineSegmentEnd, p
 ### ProjectPointOntoLine
 `public static Vec2 ProjectPointOntoLine(Vec2 point, Vec2 lineStart, Vec2 lineEnd)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「project point onto line」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -383,7 +383,7 @@ MBMath.ProjectPointOntoLine(point, lineStart, lineEnd);
 ### ClampToAxisAlignedRectangle
 `public static Vec2 ClampToAxisAlignedRectangle(Vec2 point, Vec2 lineStart, Vec2 lineEnd)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp to axis aligned rectangle」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -403,7 +403,7 @@ MBMath.GetRayPlaneIntersectionPoint(planeNormal, planeCenter, rayOrigin, rayDire
 ### PointLiesAheadOfPlane
 `public static bool PointLiesAheadOfPlane(in Vec3 planeNormal, in Vec3 planeCenter, in Vec3 point)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「point lies ahead of plane」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -443,7 +443,7 @@ MBMath.CheckLineToLineSegmentIntersection(lineOrigin, lineDirection, segmentA, s
 ### IntersectLineSegmentWithTriangle
 `public static bool IntersectLineSegmentWithTriangle(in Vec3 segStart, in Vec3 segEnd, in Vec3 triA, in Vec3 triB, in Vec3 triC)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「intersect line segment with triangle」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -453,7 +453,7 @@ MBMath.IntersectLineSegmentWithTriangle(segStart, segEnd, triA, triB, triC);
 ### IntersectLineSegmentWithBoundingBox
 `public static bool IntersectLineSegmentWithBoundingBox(in Vec3 start, in Vec3 end, in Vec3 min, in Vec3 max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「intersect line segment with bounding box」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -503,7 +503,7 @@ MBMath.CheckPolygonLineSegmentIntersection(polygon, segmentStart, segmentEnd);
 ### IntersectRayWithPolygon
 `public static bool IntersectRayWithPolygon(Vec2 rayOrigin, Vec2 rayDir, MBList<Vec2> polygon, out Vec2 intersectionPoint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「intersect ray with polygon」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -513,7 +513,7 @@ MBMath.IntersectRayWithPolygon(rayOrigin, rayDir, polygon, intersectionPoint);
 ### ToOrdinal
 `public static string ToOrdinal(int number)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to ordinal」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

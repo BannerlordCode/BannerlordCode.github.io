@@ -63,7 +63,7 @@ MBBodyProperties.GetZeroProbabilities(0, 0, 0, tattooZeroProbability);
 ### ProduceNumericKeyWithParams
 `public static void ProduceNumericKeyWithParams(FaceGenerationParams faceGenerationParams, bool earsAreHidden, bool mouthIsHidden, ref BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「produce numeric key with params」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBBodyProperties.ProduceNumericKeyWithParams(faceGenerationParams, false, false,
 ### TransformFaceKeysToDefaultFace
 `public static void TransformFaceKeysToDefaultFace(ref FaceGenerationParams faceGenerationParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform face keys to default face」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ MBBodyProperties.TransformFaceKeysToDefaultFace(faceGenerationParams);
 ### ProduceNumericKeyWithDefaultValues
 `public static void ProduceNumericKeyWithDefaultValues(ref BodyProperties initialBodyProperties, bool earsAreHidden, bool mouthIsHidden, int race, int gender, int age)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「produce numeric key with default values」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ MBBodyProperties.GetFaceGenInstancesLength(0, 0, 0);
 ### EnforceConstraints
 `public static bool EnforceConstraints(ref FaceGenerationParams faceGenerationParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enforce constraints」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ MBBodyProperties.GetMaturityType(0);
 ### FlushFaceCache
 `public static void FlushFaceCache()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「flush face cache」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

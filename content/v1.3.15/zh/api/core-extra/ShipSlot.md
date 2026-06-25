@@ -31,7 +31,7 @@ description: "ShipSlot 的自动生成类参考。"
 ### AfterRegister
 `public override void AfterRegister()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「register」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ShipSlot 实例

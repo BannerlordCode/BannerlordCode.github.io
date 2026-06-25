@@ -58,7 +58,7 @@ texture.GetPixelData(0);
 ### TransformRenderTargetToResource
 `public void TransformRenderTargetToResource(string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform render target to resource」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -111,7 +111,7 @@ Texture.CheckAndGetFromResource("example");
 ### ScaleTextureWithRatio
 `public static void ScaleTextureWithRatio(ref int tableauSizeX, ref int tableauSizeY)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale texture with ratio」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -121,7 +121,7 @@ Texture.ScaleTextureWithRatio(tableauSizeX, tableauSizeY);
 ### PreloadTexture
 `public void PreloadTexture(bool blocking)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload texture」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -132,7 +132,7 @@ texture.PreloadTexture(false);
 ### Release
 `public void Release()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -143,7 +143,7 @@ texture.Release();
 ### ReleaseImmediately
 `public void ReleaseImmediately()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release immediately」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -154,7 +154,7 @@ texture.ReleaseImmediately();
 ### ReleaseAfterNumberOfFrames
 `public void ReleaseAfterNumberOfFrames(int frameCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release after number of frames」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Texture 实例
@@ -227,7 +227,7 @@ Texture.CreateFromMemory(0);
 ### ReleaseGpuMemories
 `public static void ReleaseGpuMemories()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release gpu memories」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

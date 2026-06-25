@@ -45,7 +45,7 @@ villagerCampaignBehavior.SyncData(dataStore);
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerCampaignBehavior 实例
@@ -67,7 +67,7 @@ villagerCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### taking_food_from_villagers_wait_on_condition
 `public bool taking_food_from_villagers_wait_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「taking_food_from_villagers_wait_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerCampaignBehavior 实例
@@ -78,7 +78,7 @@ var result = villagerCampaignBehavior.taking_food_from_villagers_wait_on_conditi
 ### press_into_service_confirm_on_condition
 `public bool press_into_service_confirm_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「press_into_service_confirm_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerCampaignBehavior 实例
@@ -89,7 +89,7 @@ var result = villagerCampaignBehavior.press_into_service_confirm_on_condition(ar
 ### taking_food_from_villagers_wait_on_consequence
 `public void taking_food_from_villagers_wait_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「taking_food_from_villagers_wait_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VillagerCampaignBehavior 实例

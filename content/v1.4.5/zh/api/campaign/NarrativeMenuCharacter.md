@@ -93,7 +93,7 @@ narrativeMenuCharacter.SetLeftHandItem("example");
 ### EquipRightHandItemWithEquipmentIndex
 `public void EquipRightHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip right hand item with equipment index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuCharacter 实例
@@ -104,7 +104,7 @@ narrativeMenuCharacter.EquipRightHandItemWithEquipmentIndex(item);
 ### EquipLeftHandItemWithEquipmentIndex
 `public void EquipLeftHandItemWithEquipmentIndex(EquipmentIndex item)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「equip left hand item with equipment index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuCharacter 实例
@@ -126,7 +126,7 @@ narrativeMenuCharacter.SetSpawnPointEntityId("example");
 ### ChangeAge
 `public void ChangeAge(float age)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change age」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NarrativeMenuCharacter 实例

@@ -52,7 +52,7 @@ siegeDeploymentHandler.OnRemoveBehavior();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
@@ -74,7 +74,7 @@ siegeDeploymentHandler.FinishDeployment();
 ### DeployAllSiegeWeaponsOfPlayer
 `public void DeployAllSiegeWeaponsOfPlayer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deploy all siege weapons of player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
@@ -96,7 +96,7 @@ var result = siegeDeploymentHandler.GetMaxDeployableWeaponCountOfPlayer(weapon);
 ### DeployAllSiegeWeaponsOfAi
 `public void DeployAllSiegeWeaponsOfAi()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deploy all siege weapons of ai」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
@@ -129,7 +129,7 @@ siegeDeploymentHandler.RemoveUnavailableDeploymentPoints(side);
 ### UnHideDeploymentPoints
 `public void UnHideDeploymentPoints(BattleSideEnum side)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「un hide deployment points」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
@@ -151,7 +151,7 @@ var result = siegeDeploymentHandler.GetDeployableWeaponCountOfPlayer(weapon);
 ### AutoDeployTeamUsingTeamAI
 `public void AutoDeployTeamUsingTeamAI(Team team, bool autoAssignDetachments = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto deploy team using team ai」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeDeploymentHandler 实例
@@ -162,7 +162,7 @@ siegeDeploymentHandler.AutoDeployTeamUsingTeamAI(team, false);
 ### AutoAssignDetachmentsForDeployment
 `public void AutoAssignDetachmentsForDeployment(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto assign detachments for deployment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeDeploymentHandler 实例

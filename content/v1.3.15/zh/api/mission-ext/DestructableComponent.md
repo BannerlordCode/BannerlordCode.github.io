@@ -70,7 +70,7 @@ destructableComponent.TriggerOnHit(attackerAgent, 0, impactPosition, impactDirec
 ### BurstHeavyHitParticles
 `public void BurstHeavyHitParticles()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「burst heavy hit particles」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例
@@ -92,7 +92,7 @@ destructableComponent.SetDestructionLevel(0, 0, 0, blowPosition, blowDirection, 
 ### PreDestroy
 `public void PreDestroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pre destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DestructableComponent 实例

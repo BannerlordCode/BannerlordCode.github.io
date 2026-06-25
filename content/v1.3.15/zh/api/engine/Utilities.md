@@ -30,7 +30,7 @@ description: "Utilities 的自动生成类参考。"
 ### ConstructMainThreadJob
 `public static void ConstructMainThreadJob(Delegate function, params object parameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「construct main thread job」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ Utilities.ConstructMainThreadJob(function, parameters);
 ### ConstructMainThreadJob
 `public static void ConstructMainThreadJob(Semaphore semaphore, Delegate function, params object parameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「construct main thread job」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ Utilities.ConstructMainThreadJob(semaphore, function, parameters);
 ### RunJobs
 `public static void RunJobs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run jobs」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ Utilities.WaitJobs();
 ### OutputBenchmarkValuesToPerformanceReporter
 `public static void OutputBenchmarkValuesToPerformanceReporter()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「output benchmark values to performance reporter」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -150,7 +150,7 @@ Utilities.GetNativeMemoryStatistics();
 ### CommandLineArgumentExists
 `public static bool CommandLineArgumentExists(string str)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「command line argument exists」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -170,7 +170,7 @@ Utilities.GetConsoleHostMachine();
 ### ExportNavMeshFaceMarks
 `public static string ExportNavMeshFaceMarks(string file_name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「export nav mesh face marks」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -180,7 +180,7 @@ Utilities.ExportNavMeshFaceMarks("example");
 ### TakeSSFromTop
 `public static string TakeSSFromTop(string file_name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take ss from top」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -200,7 +200,7 @@ Utilities.CheckIfAssetsAndSourcesAreSame();
 ### DisableCoreGame
 `public static void DisableCoreGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable core game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -320,7 +320,7 @@ Utilities.TryGetUniqueIdentifiersForSceneFile("example", identifiers);
 ### PairSceneNameToModuleName
 `public static void PairSceneNameToModuleName(string sceneName, string moduleName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pair scene name to module name」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -390,7 +390,7 @@ Utilities.GenerateTerrainShaderHeaders("example", "example", "example");
 ### CompileTerrainShadersDist
 `public static void CompileTerrainShadersDist(string targetPlatform, string targetConfig, string output_path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compile terrain shaders dist」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -430,7 +430,7 @@ Utilities.SetCreateDumpOnWarnings(false);
 ### ToggleRender
 `public static void ToggleRender()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle render」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -460,7 +460,7 @@ Utilities.CheckShaderCompilation();
 ### CompileAllShaders
 `public static void CompileAllShaders(string targetPlatform)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compile all shaders」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -530,7 +530,7 @@ Utilities.ExecuteCommandLineCommand("example");
 ### QuitGame
 `public static void QuitGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quit game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -540,7 +540,7 @@ Utilities.QuitGame();
 ### ExitProcess
 `public static void ExitProcess(int exitCode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「exit process」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -640,7 +640,7 @@ Utilities.GetRendererFps();
 ### EnableSingleGPUQueryPerFrame
 `public static void EnableSingleGPUQueryPerFrame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable single gpu query per frame」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -660,7 +660,7 @@ Utilities.ClearDecalAtlas(atlasGroup);
 ### FlushManagedObjectsMemory
 `public static void FlushManagedObjectsMemory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「flush managed objects memory」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -680,7 +680,7 @@ Utilities.OnLoadingWindowEnabled();
 ### DebugSetGlobalLoadingWindowState
 `public static void DebugSetGlobalLoadingWindowState(bool newState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「debug set global loading window state」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -700,7 +700,7 @@ Utilities.OnLoadingWindowDisabled();
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable global loading window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -710,7 +710,7 @@ Utilities.DisableGlobalLoadingWindow();
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable global loading window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -720,7 +720,7 @@ Utilities.EnableGlobalLoadingWindow();
 ### EnableGlobalEditDataCacher
 `public static void EnableGlobalEditDataCacher()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable global edit data cacher」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -730,7 +730,7 @@ Utilities.EnableGlobalEditDataCacher();
 ### DoFullBakeAllLevelsAutomated
 `public static void DoFullBakeAllLevelsAutomated(string module, string scene)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do full bake all levels automated」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -750,7 +750,7 @@ Utilities.GetReturnCode();
 ### DisableGlobalEditDataCacher
 `public static void DisableGlobalEditDataCacher()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable global edit data cacher」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -760,7 +760,7 @@ Utilities.DisableGlobalEditDataCacher();
 ### DoFullBakeSingleLevelAutomated
 `public static void DoFullBakeSingleLevelAutomated(string module, string scene)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do full bake single level automated」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -770,7 +770,7 @@ Utilities.DoFullBakeSingleLevelAutomated("example", "example");
 ### DoLightOnlyBakeSingleLevelAutomated
 `public static void DoLightOnlyBakeSingleLevelAutomated(string module, string scene)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do light only bake single level automated」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -780,7 +780,7 @@ Utilities.DoLightOnlyBakeSingleLevelAutomated("example", "example");
 ### DoLightOnlyBakeAllLevelsAutomated
 `public static void DoLightOnlyBakeAllLevelsAutomated(string module, string scene)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do light only bake all levels automated」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -790,7 +790,7 @@ Utilities.DoLightOnlyBakeAllLevelsAutomated("example", "example");
 ### DidAutomatedGIBakeFinished
 `public static bool DidAutomatedGIBakeFinished()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「did automated gi bake finished」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -810,7 +810,7 @@ Utilities.GetSelectedEntities(gameEntities);
 ### DeleteEntitiesInEditorScene
 `public static void DeleteEntitiesInEditorScene(List<GameEntity> gameEntities)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete entities in editor scene」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -830,7 +830,7 @@ Utilities.CreateSelectionInEditor(gameEntities, "example");
 ### SelectEntities
 `public static void SelectEntities(List<GameEntity> gameEntities)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select entities」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -960,7 +960,7 @@ Utilities.AddSceneObjectReport("example", "example", 0);
 ### OutputPerformanceReports
 `public static void OutputPerformanceReports()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「output performance reports」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -970,7 +970,7 @@ Utilities.OutputPerformanceReports();
 ### TakeScreenshot
 `public static void TakeScreenshot(PlatformFilePath path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take screenshot」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -980,7 +980,7 @@ Utilities.TakeScreenshot(path);
 ### TakeScreenshot
 `public static void TakeScreenshot(string path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take screenshot」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1060,7 +1060,7 @@ Utilities.GetCurrentEstimatedGPUMemoryCostMB();
 ### DumpGPUMemoryStatistics
 `public static void DumpGPUMemoryStatistics(string filePath)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dump gpu memory statistics」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1150,7 +1150,7 @@ Utilities.SetWindowTitle("example");
 ### ProcessWindowTitle
 `public static string ProcessWindowTitle(string title)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process window title」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1170,7 +1170,7 @@ Utilities.GetCurrentProcessID();
 ### DoDelayedexit
 `public static void DoDelayedexit(int returnCode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do delayedexit」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1400,7 +1400,7 @@ Utilities.GetApplicationVersionWithBuildNumber();
 ### ParallelFor
 `public static void ParallelFor(int startIndex, int endIndex, long curKey, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parallel for」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1410,7 +1410,7 @@ Utilities.ParallelFor(0, 0, 0, 0);
 ### ParallelForWithoutRenderThread
 `public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parallel for without render thread」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1440,7 +1440,7 @@ Utilities.RegisterMeshForGPUMorph("example");
 ### ParallelForWithDt
 `public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「parallel for with dt」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1490,7 +1490,7 @@ Utilities.SetWatchdogAutoreport(false);
 ### DetachWatchdog
 `public static void DetachWatchdog()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「detach watchdog」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1530,7 +1530,7 @@ Utilities.StartLoadingStuckCheckState(0);
 ### EndLoadingStuckCheckState
 `public static void EndLoadingStuckCheckState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「end loading stuck check state」 的状态。
 
 ```csharp
 // 静态调用，不需要实例

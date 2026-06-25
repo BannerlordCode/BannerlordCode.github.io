@@ -30,7 +30,7 @@ description: "ServiceExceptionModel 的自动生成类参考。"
 ### ToServiceException
 `public ServiceException ToServiceException()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to service exception」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ServiceExceptionModel 实例

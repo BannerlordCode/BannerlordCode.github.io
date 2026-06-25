@@ -1,299 +1,123 @@
 ---
 title: Module System
-description: MBSubModuleBase lifecycle, module loading mechanism, SubModule configuration
+description: MBSubModuleBase lifecycle, module loading, registering Campaign/Mission/ViewModel behaviors, SubModule.xml
 ---
 # Module System
 
-**Namespace**: TaleWorlds.MountAndBlade
-**Depends On**: TaleWorlds.ModuleManager, TaleWorlds.Core
+> The module system answers the first engineering question of any mod: **when does my code run?**  Answer: `MBSubModuleBase` lifecycle hooks + `SubModule.xml` config.
 
-## Overview
+**Namespace**: `TaleWorlds.MountAndBlade`  
+**Depends On**: `TaleWorlds.ModuleManager`, `TaleWorlds.Core`
 
-Bannerlord's module system is the core of the game's architecture. Every mod is a `SubModule` that extends `MBSubModuleBase` to integrate with the game's lifecycle.
+---
 
-## Mental Model
+## ↑ Parent Navigation
 
-Treat `Module System` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+- [🏠 Home](../../)
+- [🏗️ Architecture](./)
+- [⭐ SDK Overview](../sdk-overview/)
+- [📚 API Reference](../../api/)
 
-## MBSubModuleBase Lifecycle
+## 🔀 Sibling Navigation
 
-`MBSubModuleBase` defines complete lifecycle hooks:
+| Page | Solves |
+|------|--------|
+| [SDK Overview](../sdk-overview/) | Full module map |
+| [Save System](../save-system/) | Persisting data |
+| [Version Delta](../version-delta/) | Version differences |
+
+## ↓ Downstream Links
+
+- Campaign entry: [`CampaignBehaviorBase`](../../../../versions/CampaignBehaviorBase/) · [`Campaign`](../../api/campaign/Campaign/)
+- Combat entry: [`MissionBehavior`](../../../../versions/MissionBehavior/) · [`Mission`](../../../../versions/Mission/)
+- UI entry: [`ViewModel`](../../api/core-extra/ViewModel/) · [`GauntletMovie`](../../api/gui/GauntletMovie/)
+- Quest/events: [`QuestBase`](../../../../versions/QuestBase/) · [`IssueBase`](../../../../versions/IssueBase/)
+
+---
+
+## Lifecycle phases
+
+Group `MBSubModuleBase` methods into three phases:
+
+1. **Startup** (once): game launch → `OnSubModuleLoad` → main menu.
+2. **Game session** (each new/load): `OnGameStart` → `InitializeGameStarter` → `OnNewGameCreated` / `OnGameLoaded`.
+3. **Runtime** (per frame): `OnApplicationTick` and mission/campaign hooks.
+
+```
+Game launch
+   │
+   ▼
+OnSubModuleLoad()            ← register Harmony, config, global events
+   │
+   ▼
+OnBeforeInitialModuleScreenSetAsRoot()  ← last hook before main menu
+   │
+   ▼
+        Main menu loop
+        │
+        ▼
+OnGameStart(game, starter)   ← register Campaign / Mission behaviors
+   │
+   ▼
+InitializeGameStarter(game, starter)
+   │
+   ├── OnNewGameCreated()    ← new game init
+   └── OnGameLoaded()        ← save restore
+        │
+        ▼
+OnApplicationTick(dt)        ← per-frame update
+```
+
+---
+
+## Hook guide
+
+| Hook | Typical use | Example |
+|------|-------------|---------|
+| `OnSubModuleLoad` | Load config, Harmony patches, XML hotload | Global behavior mods |
+| `OnGameStart` | Get `CampaignGameStarter`, register behaviors | Campaign/mission logic mods |
+| `OnNewGameCreated` / `OnGameLoaded` | One-off init after behavior registration | Add custom hero attributes |
+| `OnApplicationTick` | Rare; prefer Behavior ticks | Logging, hotkey polling |
+| `OnBeforeMissionBehaviorInitialize` | Inject settings before mission behavior init | Custom combat rules |
+
+---
+
+## Registering behaviors
+
+### CampaignBehavior
 
 ```csharp
-public abstract class MBSubModuleBase
+protected override void OnGameStart(Game game, IGameStarter starter)
 {
-    // === Initialization Phase ===
-    
-    // Called when module loads (all SubModules)
-    protected internal virtual void OnSubModuleLoad() { }
-    
-    // Called when new module loads (DLC/dynamic only)
-    protected internal virtual void OnNewModuleLoad() { }
-    
-    // Register SubModule types
-    protected internal virtual void RegisterSubModuleTypes() { }
-    
-    // === UI Phase ===
-    
-    // Before initial module screen set as root
-    protected internal virtual void OnBeforeInitialModuleScreenSetAsRoot() { }
-    
-    // Initial state
-    public virtual void OnInitialState() { }
-    
-    // === Game Start Phase ===
-    
-    // Before game starts (can disable modules)
-    protected internal virtual void OnBeforeGameStart(
-        MBGameManager mbGameManager, 
-        List<string> disabledModules) { }
-    
-    // Game start
-    protected internal virtual void OnGameStart(
-        Game game, 
-        IGameStarter gameStarterObject) { }
-    
-    // Initialize game starter
-    protected internal virtual void InitializeGameStarter(
-        Game game, 
-        IGameStarter starterObject) { }
-    
-    // === Save Load Phase ===
-    
-    // Game loaded from save
-    public virtual void OnGameLoaded(Game game, object initializerObject) { }
-    
-    // After game loaded
-    public virtual void OnAfterGameLoaded(Game game) { }
-    
-    // New game created
-    public virtual void OnNewGameCreated(Game game, object initializerObject) { }
-    
-    // === Per-Frame Update Phase ===
-    
-    // Every frame
-    protected internal virtual void OnApplicationTick(float dt) { }
-    
-    // After async tick
-    protected internal virtual void AfterAsyncTickTick(float dt) { }
-    
-    // Network tick
-    protected internal virtual void OnNetworkTick(float dt) { }
-    
-    // === Campaign Phase ===
-    
-    // Campaign start
-    public virtual void OnCampaignStart(Game game, object starterObject) { }
-    
-    // Register SubModule objects
-    public virtual void RegisterSubModuleObjects(bool isSavedCampaign) { }
-    
-    // After register
-    public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign) { }
-    
-    // === Mission Phase ===
-    
-    // Before mission behavior initialize
-    public virtual void OnBeforeMissionBehaviorInitialize(Mission mission) { }
-    
-    // Mission behavior initialize
-    public virtual void OnMissionBehaviorInitialize(Mission mission) { }
-    
-    // === Game End Phase ===
-    
-    // Game end
-    public virtual void OnGameEnd(Game game) { }
-    
-    // === Unload Phase ===
-    
-    // SubModule unload
-    protected internal virtual void OnSubModuleUnloaded() { }
-    
-    // === Activate/Deactivate Phase ===
-    
-    // SubModule activated
-    public virtual void OnSubModuleActivated() { }
-    
-    // SubModule deactivated
-    public virtual void OnSubModuleDeactivated() { }
-    
-    // === Config Change ===
-    
-    // Config changed
-    public virtual void OnConfigChanged() { }
-}
-```
-
-## Lifecycle Flowchart
-
-```
-Game Launch
-    │
-    ├─► Module.Initialize()
-    │       │
-    │       ├─► ModuleHelper.InitializeModules()
-    │       │       │
-    │       │       └─► Load all ModuleInfo (from SubModule.xml)
-    │       │
-    │       ├─► LoadSubModules()
-    │       │       │
-    │       │       ├─► Load DLL assemblies
-    │       │       └─► Create MBSubModuleBase instances
-    │       │
-    │       └─► InitializeSubModuleBases()
-    │               │
-    │               └─► Call all SubModule.OnSubModuleLoad()
-    │
-    ├─► SetInitialModuleScreenAsRoot()
-    │       │
-    │       ├─► Call all SubModule.OnBeforeInitialModuleScreenSetAsRoot()
-    │       │
-    │       └─► Show initial screen (Logo → Main Menu)
-    │
-    └─► Enter main loop (Main Loop)
-            │
-            ├─► OnApplicationTick(dt) ← every frame
-            ├─► OnNetworkTick(dt) ← network sync
-            │
-            └─► User selects "Start Game" / "Continue Game"
-                    │
-                    ├─► OnBeforeGameStart() ← can disable modules
-                    │
-                    ├─► OnGameStart()
-                    │       │
-                    │       └─► InitializeGameStarter()
-                    │
-                    ├─► [New Game] OnNewGameCreated()
-                    │       │
-                    │       └─► RegisterSubModuleObjects(false)
-                    │
-                    └─► [Load] OnGameLoaded()
-                            │
-                            └─► RegisterSubModuleObjects(true)
-```
-
-## SubModule Registration Example
-
-```csharp
-// MyMod.cs
-namespace MyMod
-{
-    public class MySubModule : MBSubModuleBase
+    base.OnGameStart(game, starter);
+    if (starter is CampaignGameStarter campaignStarter)
     {
-        protected override void OnSubModuleLoad()
-        {
-            base.OnSubModuleLoad();
-            Debug.Print("MyMod loaded!", 0, Debug.DebugColor.Green, 17592186044416UL);
-        }
-
-        protected override void OnGameStart(
-            Game game, 
-            IGameStarter gameStarterObject)
-        {
-            base.OnGameStart(game, gameStarterObject);
-            // Register custom game logic
-        }
-
-        public override void OnGameLoaded(Game game, object initializerObject)
-        {
-            base.OnGameLoaded(game, initializerObject);
-            // Load save data
-        }
+        campaignStarter.AddBehavior(new MyCampaignBehavior());
     }
 }
 ```
 
-## Module.cs Loading Flow
+Entry: [`CampaignBehaviorBase`](../../../../versions/CampaignBehaviorBase/).
 
-`Module.cs` is the game's central coordinator:
+### MissionBehavior
 
 ```csharp
-// Module initialization (line 229)
-internal void Initialize()
+public override void OnMissionBehaviorInitialize(Mission mission)
 {
-    // 1. Parallel initialization
-    TWParallel.InitializeAndSetImplementation(new NativeParallelDriver());
-    
-    // 2. Set save driver
-    MBSaveLoad.SetSaveDriver(new AsyncFileSaveDriver());
-    
-    // 3. Process command line arguments
-    ProcessApplicationArguments();
-    
-    // 4. Initialize all modules
-    ModuleHelper.InitializeModules(Utilities.GetModulesNames(), null);
-    
-    // 5. Load SubModules
-    LoadSubModules(ModuleHelper.GetModules(null), false);
-    
-    // 6. Find missions
-    FindMissions();
-    
-    // 7. Initialize save system definition context
-    SaveManager.InitializeGlobalDefinitionContext();
-}
-
-// Load SubModules (line 1063)
-private void LoadSubModules(List<ModuleInfo> modules, bool loadNewModules)
-{
-    foreach (ModuleInfo moduleInfo in modules)
-    {
-        // Load XML resource configs
-        XmlResource.GetMbprojxmls(moduleInfo.Id);
-        XmlResource.GetXmlListAndApply(moduleInfo.Id);
-    }
-    
-    foreach (ModuleInfo moduleInfo in modules)
-    {
-        foreach (SubModuleInfo subModuleInfo in moduleInfo.SubModules)
-        {
-            // Check if loadable (platform tags, etc.)
-            if (CheckIfSubmoduleCanBeLoadable(subModuleInfo))
-            {
-                // Load DLL
-                string dllPath = Path.Combine(moduleInfo.FolderPath, "bin", dllName);
-                Assembly assembly = AssemblyLoader.LoadFrom(dllPath);
-                
-                // Create SubModule instance
-                AddSubModule(subModuleInfo, assembly);
-            }
-        }
-    }
+    base.OnMissionBehaviorInitialize(mission);
+    mission.AddMissionBehavior(new MyMissionBehavior());
 }
 ```
 
-## ModuleInfo and Dependency Management
+Entry: [`MissionBehavior`](../../../../versions/MissionBehavior/).
 
-`ModuleInfo` parses SubModule.xml to get module information:
+### ViewModel / Gauntlet UI
 
-```csharp
-public class ModuleInfo
-{
-    public string Id { get; }           // Unique module ID
-    public string Name { get; }          // Display name
-    public ApplicationVersion Version { get; }  // Version
-    public bool IsOfficial { get; }     // Is official module
-    public bool IsNative { get; }       // Is Native module
-    public List<DependedModule> DependedModules { get; }  // Dependencies
-    public List<SubModuleInfo> SubModules { get; }        // SubModules
-}
-```
+Gauntlet UI is loaded via `GauntletMovie` + `ViewModel`. Usually you open a screen with `ScreenManager.PushScreen` or register a layer inside the mod entry point. See [Gauntlet Guide](../../guide/gauntlet-ui/) and [`ViewModel`](../../api/core-extra/ViewModel/).
 
-### Dependency Resolution
+---
 
-```csharp
-// ModuleHelper.GetSortedModules() uses topological sort
-public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
-{
-    List<ModuleInfo> modules = GetModuleInfos(moduleIDs);
-    // Topological sort ensures dependencies load before dependents
-    IList<ModuleInfo> sorted = MBMath.TopologySort(modules, 
-        (module) => GetDependentModulesOf(modules, module));
-    return sorted.ToList();
-}
-```
-
-## SubModule.xml Configuration
+## SubModule.xml — the mod's identity card
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -301,7 +125,13 @@ public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
     <Name value="MyMod" />
     <Id value="MyMod" />
     <Version value="v1.0.0" />
-    <RequiredBaseVersion value="e1.3.15" />
+    <DefaultModule value="true" />
+    <SingleplayerModule value="true" />
+    <MultiplayerModule value="false" />
+    <DependedModules>
+        <DependedModule Id="Native" Optional="false" />
+        <DependedModule Id="SandboxCore" Optional="false" />
+    </DependedModules>
     <SubModules>
         <SubModule>
             <Name value="MyMod" />
@@ -311,46 +141,58 @@ public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
                 <Assembly value="MyMod.dll" />
             </Assemblies>
             <Tags>
-                <!-- Platform tag -->
-                <Tag name="ExclusivePlatform" value="WindowsSteam" />
-                <!-- Or exclude platform -->
-                <Tag name="RejectedPlatform" value="Orbis" />
+                <Tag key="DedicatedServerType" value="none" />
             </Tags>
         </SubModule>
     </SubModules>
-    <DependedModules>
-        <DependedModule Id="Native" IsOptional="false" />
-        <DependedModule Id="SandboxCore" IsOptional="false" />
-    </DependedModules>
 </Module>
 ```
 
-## Official Modules List
+### Key fields
 
-```csharp
-// ModuleHelper.GetOfficialModuleIds()
-{
-    "Native",        // Base engine
-    "Multiplayer",   // Multiplayer mode
-    "SandBoxCore",   // Sandbox core
-    "Sandbox",       // Sandbox mode
-    "CustomBattle",   // Custom battle
-    "StoryMode",     // Story mode
-    "NavalDLC",      // Naval DLC
-    "BirthAndDeath", // Birth and death
-    "FastMode"       // Fast mode
-}
+| Field | Meaning | Debugging tip |
+|-------|---------|---------------|
+| `Id` / `Name` | Unique id and display name | First things to check if a module is missing |
+| `DependedModules` | Dependency sort; missing deps disable the module | Check launcher log |
+| `SubModuleClassType` | Full name of `MBSubModuleBase` subclass | Must match namespace + class exactly |
+| `DLLName` | DLL filename relative to module `bin/` | Verify the DLL was built there |
+| `Tags` | Platform / mode filtering | Wrong `ExclusivePlatform` prevents loading |
+
+---
+
+## Loading flow
+
+```
+Module.Initialize()
+   ├── ModuleHelper.InitializeModules()   ← parse all SubModule.xml
+   ├── LoadSubModules()                   ← load DLLs in topological order
+   │       └── create MBSubModuleBase instances
+   ├── FindMissions()
+   └── SaveManager.InitializeGlobalDefinitionContext()
+   │
+   ▼
+SetInitialModuleScreenAsRoot()
+   └── call OnBeforeInitialModuleScreenSetAsRoot()
 ```
 
-## Key Classes
+**Startup failures**: check `rgl_log.txt` for `Module`/`ModuleHelper` errors. Most are missing dependencies or bad `SubModuleClassType`.
 
-| Class | Responsibility |
-|-------|----------------|
-| `Module` | Game main module, coordinator |
-| `ModuleHelper` | Module lookup, sorting, dependency resolution |
-| `ModuleInfo` | Single module's metadata |
-| `SubModuleInfo` | SubModule configuration info |
-| `MBSubModuleBase` | Base class for all SubModules |
-| `DotNetObject` | Base class for serializable objects |
-| `Managed` | Type registration management |
+---
 
+## Key classes
+
+| Class | Responsibility | Common scenario |
+|-------|----------------|-----------------|
+| `MBSubModuleBase` | Mod lifecycle entry | First step of every mod |
+| `Module` | Central coordinator | Diagnosing startup failures |
+| `ModuleHelper` | Module lookup, topological sort | Understanding load order |
+| `ModuleInfo` | Per-module metadata | Reading dependencies at runtime |
+| `CampaignGameStarter` | Campaign starter | Registering `CampaignBehaviorBase` |
+
+---
+
+## See also
+
+- [SDK Overview](../sdk-overview/)
+- [Save System](../save-system/)
+- [Campaign Guide](../../guide/campaign-system/) · [Mission Guide](../../guide/mission-system/) · [Gauntlet Guide](../../guide/gauntlet-ui/)

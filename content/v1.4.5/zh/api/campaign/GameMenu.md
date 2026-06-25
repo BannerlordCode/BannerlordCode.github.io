@@ -167,7 +167,7 @@ var result = gameMenu.GetLeaveMenuOption(game, menuContext);
 ### RunOnTick
 `public void RunOnTick(MenuContext menuContext, float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「run on」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -178,7 +178,7 @@ gameMenu.RunOnTick(menuContext, 0);
 ### RunWaitMenuCondition
 `public bool RunWaitMenuCondition(MenuContext menuContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「run wait menu condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -189,7 +189,7 @@ var result = gameMenu.RunWaitMenuCondition(menuContext);
 ### RunWaitMenuConsequence
 `public void RunWaitMenuConsequence(MenuContext menuContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run wait menu consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -200,7 +200,7 @@ gameMenu.RunWaitMenuConsequence(menuContext);
 ### RunMenuOptionConsequence
 `public void RunMenuOptionConsequence(MenuContext menuContext, int menuItemNumber)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run menu option consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -222,7 +222,7 @@ gameMenu.StartWait();
 ### EndWait
 `public void EndWait()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end wait」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -233,7 +233,7 @@ gameMenu.EndWait();
 ### RunOnInit
 `public void RunOnInit(Game game, MenuContext menuContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「run on init」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -244,7 +244,7 @@ gameMenu.RunOnInit(game, menuContext);
 ### PreInit
 `public void PreInit(MenuContext menuContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pre init」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -255,7 +255,7 @@ gameMenu.PreInit(menuContext);
 ### AfterInit
 `public void AfterInit(MenuContext menuContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「init」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 GameMenu 实例
@@ -287,7 +287,7 @@ GameMenu.ActivateGameMenu("example");
 ### SwitchToMenu
 `public static void SwitchToMenu(string menuId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch to menu」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -297,7 +297,7 @@ GameMenu.SwitchToMenu("example");
 ### ExitToLast
 `public static void ExitToLast()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「exit to last」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -192,7 +192,7 @@ mapScreen.OnHourlyTick();
 ### BeginParleyWith
 `public void BeginParleyWith(PartyBase party)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin parley with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -225,7 +225,7 @@ mapScreen.GetCursorIntersectionPoint(clippedMouseNear, clippedMouseFar, closestD
 ### FastMoveCameraToPosition
 `public void FastMoveCameraToPosition(CampaignVec2 target)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fast move camera to position」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -390,7 +390,7 @@ var result = mapScreen.GetMouseVisible();
 ### RestartAmbientSounds
 `public void RestartAmbientSounds()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restart ambient sounds」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -401,7 +401,7 @@ mapScreen.RestartAmbientSounds();
 ### PauseAmbientSounds
 `public void PauseAmbientSounds()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause ambient sounds」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -423,7 +423,7 @@ var result = mapScreen.CreatePeriodicUIEvent(triggerPeriod, initialWait);
 ### DeletePeriodicUIEvent
 `public void DeletePeriodicUIEvent(MBCampaignEvent campaignEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete periodic ui event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -544,7 +544,7 @@ var result = mapScreen.IsCameraLockedToPlayerParty();
 ### FastMoveCameraToMainParty
 `public void FastMoveCameraToMainParty()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fast move camera to main party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例
@@ -566,7 +566,7 @@ mapScreen.ResetCamera(false, false);
 ### TeleportCameraToMainParty
 `public void TeleportCameraToMainParty()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「teleport camera to main party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScreen 实例

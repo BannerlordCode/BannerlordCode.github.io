@@ -30,7 +30,7 @@ description: "RecruitmentCampaignBehavior 的自动生成类参考。"
 ### ChangeMercenaryType
 `public void ChangeMercenaryType(CharacterObject troopType, int number)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change mercenary type」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
@@ -41,7 +41,7 @@ recruitmentCampaignBehavior.ChangeMercenaryType(troopType, 0);
 ### ChangeMercenaryCount
 `public void ChangeMercenaryCount(int difference)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change mercenary count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例
@@ -96,7 +96,7 @@ var result = recruitmentCampaignBehavior.GetMercenaryData(town);
 ### HourlyTickParty
 `public void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RecruitmentCampaignBehavior 实例

@@ -226,7 +226,7 @@ bannerBearerLogic.UpdateAgent(agent, false);
 ### SpawnBannerBearer
 `public Agent SpawnBannerBearer(IAgentOriginBase troopOrigin, bool isPlayerSide, Formation formation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, bool forceDismounted, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, bool useTroopClassForSpawn = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn banner bearer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerBearerLogic 实例

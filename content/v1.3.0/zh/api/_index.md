@@ -15,6 +15,7 @@ description: Bannerlord SDK API 完整参考目录
 - [core 目录](./core/) — TaleWorlds.Core 核心数据类型类参考目录
 - [core-extra 目录](./core-extra/) — Core / Library 相关扩展类参考目录
 - [engine 目录](./engine/) — TaleWorlds.Engine 引擎类参考目录
+- [stub](./gameplay/) — stub
 - [gui 目录](./gui/) — Gauntlet UI 系统类参考目录
 - [localization 目录](./localization/) — 本地化系统类参考目录
 - [mission 目录](./mission/) — TaleWorlds.MountAndBlade 战斗系统类参考目录

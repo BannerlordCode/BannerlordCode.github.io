@@ -47,4 +47,4 @@ ChangeRelationAction.ApplyPlayerRelation(gainedRelationWith, 100, false, false);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

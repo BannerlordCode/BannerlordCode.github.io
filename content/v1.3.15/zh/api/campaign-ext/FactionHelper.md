@@ -163,7 +163,7 @@ FactionHelper.SettlementFoodPotentialEffectOnGarrisonSizeConstant(settlement);
 ### OwnerClanEconomyEffectOnGarrisonSizeConstant
 `public static float OwnerClanEconomyEffectOnGarrisonSizeConstant(Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「owner clan economy effect on garrison size constant」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -223,7 +223,7 @@ FactionHelper.FinishAllRelatedHostileActions(kingdom1, kingdom2);
 ### AdjustFactionStancesForClanJoiningKingdom
 `public static void AdjustFactionStancesForClanJoiningKingdom(Clan joiningClan, Kingdom kingdomToJoin)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「adjust faction stances for clan joining kingdom」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -343,7 +343,7 @@ FactionHelper.GetAllyMinorFactions(otherCharacter);
 ### ChooseHeirClanForFiefs
 `public static Clan ChooseHeirClanForFiefs(Clan oldClan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「choose heir clan for fiefs」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

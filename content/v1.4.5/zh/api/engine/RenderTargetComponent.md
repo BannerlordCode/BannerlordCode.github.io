@@ -29,7 +29,7 @@ description: "RenderTargetComponent 的自动生成类参考。"
 ### TextureUpdateEventHandler
 `public delegate void TextureUpdateEventHandler(Texture sender, EventArgs e)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「texture update event handler」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RenderTargetComponent 实例

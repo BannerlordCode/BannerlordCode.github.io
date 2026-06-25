@@ -106,7 +106,7 @@ var result = boardGameMuTorere.FindTileByCoordinate(0);
 ### TakePawnsSnapshot
 `public BoardGameMuTorere.BoardInformation TakePawnsSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take pawns snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -117,7 +117,7 @@ var result = boardGameMuTorere.TakePawnsSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardGameMuTorere.BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -128,7 +128,7 @@ boardGameMuTorere.UndoMove(board);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例

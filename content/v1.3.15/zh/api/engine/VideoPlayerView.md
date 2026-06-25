@@ -33,7 +33,7 @@ VideoPlayerView.CreateVideoPlayerView();
 ### PlayVideo
 `public void PlayVideo(string videoFileName, string soundFileName, float framerate, bool looping)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play video」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlayerView 实例
@@ -66,7 +66,7 @@ var result = videoPlayerView.IsVideoFinished();
 ### FinalizePlayer
 `public void FinalizePlayer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VideoPlayerView 实例

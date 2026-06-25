@@ -30,7 +30,7 @@ description: "MBDebug 的自动生成类参考。"
 ### DisableUI
 `public static string DisableUI(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable ui」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -40,7 +40,7 @@ MBDebug.DisableUI(strings);
 ### AssertMemoryUsage
 `public static void AssertMemoryUsage(int memoryMB)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert memory usage」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ MBDebug.AssertMemoryUsage(0);
 ### AbortGame
 `public static void AbortGame(int ExitCode = 5)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「abort game」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ MBDebug.ShowWarning("example");
 ### ContentWarning
 `public static void ContentWarning(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「content warning」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -80,7 +80,7 @@ MBDebug.ContentWarning("example");
 ### ConditionalContentWarning
 `public static void ConditionalContentWarning(bool condition, string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conditional content warning」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -110,7 +110,7 @@ MBDebug.ShowMessageBox("example", "example", 0);
 ### Assert
 `public static void Assert(bool condition, string message, string callerFile = "", string callerMethod = "", int callerLine = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -120,7 +120,7 @@ MBDebug.Assert(false, "example", "example", "example", 0);
 ### FailedAssert
 `public static void FailedAssert(string message, string callerFile = "", string callerMethod = "", int callerLine = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「failed assert」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -130,7 +130,7 @@ MBDebug.FailedAssert("example", "example", "example", 0);
 ### SilentAssert
 `public static void SilentAssert(bool condition, string message = "", bool getDump = false, string callerFile = "", string callerMethod = "", int callerLine = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「silent assert」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -140,7 +140,7 @@ MBDebug.SilentAssert(false, "example", false, "example", "example", 0);
 ### AssertConditionOrCallerClassName
 `public static void AssertConditionOrCallerClassName(bool condition, string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert condition or caller class name」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -150,7 +150,7 @@ MBDebug.AssertConditionOrCallerClassName(false, "example");
 ### AssertConditionOrCallerClassNameSearchAllCallstack
 `public static void AssertConditionOrCallerClassNameSearchAllCallstack(bool condition, string name)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assert condition or caller class name search all callstack」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -160,7 +160,7 @@ MBDebug.AssertConditionOrCallerClassNameSearchAllCallstack(false, "example");
 ### Print
 `public static void Print(string message, int logLevel = 0, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -170,7 +170,7 @@ MBDebug.Print("example", 0, debug.DebugColor.White, 0);
 ### ConsolePrint
 `public static void ConsolePrint(string message, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「console print」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -190,7 +190,7 @@ MBDebug.WriteDebugLineOnScreen("example");
 ### RenderDebugText
 `public static void RenderDebugText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug text」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -200,7 +200,7 @@ MBDebug.RenderDebugText(0, 0, "example", 0, 0);
 ### RenderText
 `public static void RenderText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render text」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -210,7 +210,7 @@ MBDebug.RenderText(0, 0, "example", 0, 0);
 ### RenderDebugRect
 `public static void RenderDebugRect(float left, float bottom, float right, float top)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug rect」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -220,7 +220,7 @@ MBDebug.RenderDebugRect(0, 0, 0, 0);
 ### RenderDebugRectWithColor
 `public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = 4294967295U)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug rect with color」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -230,7 +230,7 @@ MBDebug.RenderDebugRectWithColor(0, 0, 0, 0, 0);
 ### RenderDebugFrame
 `public static void RenderDebugFrame(MatrixFrame frame, float lineLength, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug frame」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -240,7 +240,7 @@ MBDebug.RenderDebugFrame(frame, 0, 0);
 ### RenderDebugText3D
 `public static void RenderDebugText3D(Vec3 worldPosition, string str, uint color = 4294967295U, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug text3d」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -250,7 +250,7 @@ MBDebug.RenderDebugText3D(worldPosition, "example", 0, 0, 0, 0);
 ### RenderDebugDirectionArrow
 `public static void RenderDebugDirectionArrow(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug direction arrow」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -260,7 +260,7 @@ MBDebug.RenderDebugDirectionArrow(position, direction, 0, false);
 ### RenderDebugLine
 `public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug line」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -270,7 +270,7 @@ MBDebug.RenderDebugLine(position, direction, 0, false, 0);
 ### RenderDebugSphere
 `public static void RenderDebugSphere(Vec3 position, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug sphere」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -280,7 +280,7 @@ MBDebug.RenderDebugSphere(position, 0, 0, false, 0);
 ### RenderDebugCapsule
 `public static void RenderDebugCapsule(Vec3 p0, Vec3 p1, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug capsule」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -290,7 +290,7 @@ MBDebug.RenderDebugCapsule(p0, p1, 0, 0, false, 0);
 ### RenderDebugBoundingBoxOfEntity
 `public static void RenderDebugBoundingBoxOfEntity(GameEntity entity, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug bounding box of entity」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -300,7 +300,7 @@ MBDebug.RenderDebugBoundingBoxOfEntity(entity, frame, 0, false, 0);
 ### RenderDebugBoundingBox
 `public static void RenderDebugBoundingBox(BoundingBox box, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug bounding box」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -320,7 +320,7 @@ MBDebug.ClearRenderObjects();
 ### RenderDebugBoxObject
 `public static void RenderDebugBoxObject(Vec3 min, Vec3 max, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug box object」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -330,7 +330,7 @@ MBDebug.RenderDebugBoxObject(min, max, 0, false, 0);
 ### RenderDebugBoxObject
 `public static void RenderDebugBoxObject(Vec3 min, Vec3 max, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render debug box object」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -340,7 +340,7 @@ MBDebug.RenderDebugBoxObject(min, max, frame, 0, false, 0);
 ### PostWarningLine
 `public static void PostWarningLine(string line)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「post warning line」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -390,7 +390,7 @@ MBDebug.SetDumpGenerationDisabled(false);
 ### EchoCommandWindow
 `public static void EchoCommandWindow(string content)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「echo command window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -410,7 +410,7 @@ MBDebug.ClearConsole(strings);
 ### EchoCommandWindow
 `public static string EchoCommandWindow(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「echo command window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -420,7 +420,7 @@ MBDebug.EchoCommandWindow(strings);
 ### EchoCommandWindowTest
 `public static string EchoCommandWindowTest(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「echo command window test」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

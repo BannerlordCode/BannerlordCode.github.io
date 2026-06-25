@@ -60,8 +60,11 @@ const broken = [];
 for (const l of allLinks) {
   const hrefPath = l.href.split('#')[0];
   if (isSelfLink(hrefPath)) continue;
-  const fromFileDir = posix.dirname(l.from);
-  const t = resolveTarget(fromFileDir, l.href);
+  // Resolve relative to the page route (Zola permalink) rather than the
+  // source file directory. For leaf pages the route includes the leaf
+  // segment, so relative links resolve the same way Zola renders them.
+  const fromRoute = l.route.endsWith(SLASH) ? l.route : posix.dirname(l.route);
+  const t = resolveTarget(fromRoute, l.href);
   if (t===null) continue;
   let found = false;
   // A Zola clean URL can point to either <path>.md (leaf) or <path>/_index.md (section).

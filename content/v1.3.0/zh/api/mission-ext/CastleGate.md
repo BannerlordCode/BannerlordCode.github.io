@@ -71,7 +71,7 @@ castleGate.SetUsableTeam(team);
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例
@@ -236,7 +236,7 @@ var result = castleGate.IsDestructable();
 ### Entity
 `public WeakGameEntity Entity()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CastleGate 实例

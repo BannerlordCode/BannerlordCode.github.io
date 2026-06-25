@@ -38,7 +38,7 @@ description: "KingdomClanSortControllerVM 的自动生成类参考。"
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「sort by current state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 KingdomClanSortControllerVM 实例

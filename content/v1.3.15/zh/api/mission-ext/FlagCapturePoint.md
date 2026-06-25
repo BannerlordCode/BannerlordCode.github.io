@@ -77,7 +77,7 @@ flagCapturePoint.SetMoveFlag(directionTo, 0);
 ### ChangeMovementSpeed
 `public void ChangeMovementSpeed(float speedMultiplier)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change movement speed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FlagCapturePoint 实例

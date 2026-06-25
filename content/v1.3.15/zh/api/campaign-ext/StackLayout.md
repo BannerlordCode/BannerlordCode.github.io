@@ -41,7 +41,7 @@ var result = stackLayout.GetItemDescription(owner, child, 0);
 ### MeasureChildren
 `public Vector2 MeasureChildren(Widget widget, Vector2 measureSpec, SpriteData spriteData, float renderScale)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「measure children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StackLayout 实例

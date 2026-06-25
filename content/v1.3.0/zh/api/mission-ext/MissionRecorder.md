@@ -23,7 +23,7 @@ description: "MissionRecorder 的自动生成类参考。"
 ### RestartRecord
 `public void RestartRecord()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restart record」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRecorder 实例
@@ -34,7 +34,7 @@ missionRecorder.RestartRecord();
 ### ProcessRecordUntilTime
 `public void ProcessRecordUntilTime(float time)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process record until time」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRecorder 实例
@@ -67,7 +67,7 @@ missionRecorder.StartRecording();
 ### RecordCurrentState
 `public void RecordCurrentState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「record current state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRecorder 实例
@@ -78,7 +78,7 @@ missionRecorder.RecordCurrentState();
 ### BackupRecordToFile
 `public void BackupRecordToFile(string fileName, string gameType, string sceneLevels)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「backup record to file」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRecorder 实例
@@ -89,7 +89,7 @@ missionRecorder.BackupRecordToFile("example", "example", "example");
 ### RestoreRecordFromFile
 `public void RestoreRecordFromFile(string fileName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restore record from file」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionRecorder 实例

@@ -29,7 +29,7 @@ description: "MBTextManager 的自动生成类参考。"
 ### LanguageExistsInCurrentConfiguration
 `public static bool LanguageExistsInCurrentConfiguration(string language, bool developmentMode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「language exists in current configuration」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -39,7 +39,7 @@ MBTextManager.LanguageExistsInCurrentConfiguration("example", false);
 ### ChangeLanguage
 `public static bool ChangeLanguage(string language)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change language」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -159,7 +159,7 @@ MBTextManager.ResetFunctions();
 ### ThrowLocalizationError
 `public static void ThrowLocalizationError(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「throw localization error」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -169,7 +169,7 @@ MBTextManager.ThrowLocalizationError("example");
 ### DiscardAnimationTagsAndCheckAnimationTagPositions
 `public static string DiscardAnimationTagsAndCheckAnimationTagPositions(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「discard animation tags and check animation tag positions」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -179,7 +179,7 @@ MBTextManager.DiscardAnimationTagsAndCheckAnimationTagPositions("example");
 ### DiscardAnimationTags
 `public static string DiscardAnimationTags(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「discard animation tags」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

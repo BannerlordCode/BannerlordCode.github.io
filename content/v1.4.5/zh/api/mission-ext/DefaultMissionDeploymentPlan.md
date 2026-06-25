@@ -132,7 +132,7 @@ defaultMissionDeploymentPlan.SetSpawnWithHorses(team, false);
 ### MakeDefaultDeploymentPlans
 `public void MakeDefaultDeploymentPlans()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make default deployment plans」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
@@ -143,7 +143,7 @@ defaultMissionDeploymentPlan.MakeDefaultDeploymentPlans();
 ### MakeDeploymentPlan
 `public void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetOffset = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
@@ -154,7 +154,7 @@ defaultMissionDeploymentPlan.MakeDeploymentPlan(team, 0, 0);
 ### MakeReinforcementDeploymentPlan
 `public void MakeReinforcementDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make reinforcement deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
@@ -165,7 +165,7 @@ defaultMissionDeploymentPlan.MakeReinforcementDeploymentPlan(team);
 ### RemakeDeploymentPlan
 `public bool RemakeDeploymentPlan(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「remake deployment plan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
@@ -198,7 +198,7 @@ var result = defaultMissionDeploymentPlan.GetClosestDeploymentBoundaryPosition(t
 ### SupportsReinforcements
 `public bool SupportsReinforcements()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supports reinforcements」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
@@ -209,7 +209,7 @@ var result = defaultMissionDeploymentPlan.SupportsReinforcements();
 ### SupportsNavmesh
 `public bool SupportsNavmesh(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「supports navmesh」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
@@ -352,7 +352,7 @@ var result = defaultMissionDeploymentPlan.GetDeploymentFrame(team);
 ### ProjectPositionToDeploymentBoundaries
 `public void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition endPosition)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「project position to deployment boundaries」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例

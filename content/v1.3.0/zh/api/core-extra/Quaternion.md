@@ -65,7 +65,7 @@ var result = quaternion.Normalize();
 ### SafeNormalize
 `public float SafeNormalize()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「safe normalize」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -120,7 +120,7 @@ quaternion.SetToRotationZ(0);
 ### Flip
 `public void Flip()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「flip」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -131,7 +131,7 @@ quaternion.Flip();
 ### TransformToParent
 `public Quaternion TransformToParent(Quaternion q)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -142,7 +142,7 @@ var result = quaternion.TransformToParent(q);
 ### TransformToLocal
 `public Quaternion TransformToLocal(Quaternion q)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -153,7 +153,7 @@ var result = quaternion.TransformToLocal(q);
 ### TransformToLocalWithoutNormalize
 `public Quaternion TransformToLocalWithoutNormalize(Quaternion q)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local without normalize」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -164,7 +164,7 @@ var result = quaternion.TransformToLocalWithoutNormalize(q);
 ### Slerp
 `public static Quaternion Slerp(Quaternion from, Quaternion to, float t)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「slerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -174,7 +174,7 @@ Quaternion.Slerp(from, to, 0);
 ### Lerp
 `public static Quaternion Lerp(Quaternion from, Quaternion to, float t)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lerp」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -184,7 +184,7 @@ Quaternion.Lerp(from, to, 0);
 ### Mat3FromQuaternion
 `public static Mat3 Mat3FromQuaternion(Quaternion quat)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mat3from quaternion」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -194,7 +194,7 @@ Quaternion.Mat3FromQuaternion(quat);
 ### QuaternionFromEulerAngles
 `public static Quaternion QuaternionFromEulerAngles(float yaw, float pitch, float roll)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quaternion from euler angles」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -204,7 +204,7 @@ Quaternion.QuaternionFromEulerAngles(0, 0, 0);
 ### QuaternionFromMat3
 `public static Quaternion QuaternionFromMat3(Mat3 m)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quaternion from mat3」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -214,7 +214,7 @@ Quaternion.QuaternionFromMat3(m);
 ### AxisAngleFromQuaternion
 `public static void AxisAngleFromQuaternion(out Vec3 axis, out float angle, Quaternion quat)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「axis angle from quaternion」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -224,7 +224,7 @@ Quaternion.AxisAngleFromQuaternion(axis, angle, quat);
 ### QuaternionFromAxisAngle
 `public static Quaternion QuaternionFromAxisAngle(Vec3 axis, float angle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quaternion from axis angle」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -234,7 +234,7 @@ Quaternion.QuaternionFromAxisAngle(axis, 0);
 ### EulerAngleFromQuaternion
 `public static Vec3 EulerAngleFromQuaternion(Quaternion quat)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「euler angle from quaternion」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -254,7 +254,7 @@ Quaternion.FindShortestArcAsQuaternion(v0, v1);
 ### Dotp4
 `public float Dotp4(Quaternion q2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dotp4」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -265,7 +265,7 @@ var result = quaternion.Dotp4(q2);
 ### ToMat3
 `public Mat3 ToMat3()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to mat3」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -276,7 +276,7 @@ var result = quaternion.ToMat3();
 ### InverseDirection
 `public bool InverseDirection(Quaternion q2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inverse direction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -287,7 +287,7 @@ var result = quaternion.InverseDirection(q2);
 ### Conjugate
 `public Quaternion Conjugate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conjugate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例
@@ -298,7 +298,7 @@ var result = quaternion.Conjugate();
 ### Inverse
 `public Quaternion Inverse()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inverse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Quaternion 实例

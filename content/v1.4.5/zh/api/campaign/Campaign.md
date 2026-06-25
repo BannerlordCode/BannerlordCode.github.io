@@ -168,7 +168,7 @@ campaign.SetTimeSpeed(0);
 ### LateAITick
 `public static void LateAITick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「late ai」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例
@@ -310,7 +310,7 @@ campaign.OnStateChanged(oldState);
 ### UnlockFigurehead
 `public void UnlockFigurehead(Figurehead figurehead)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unlock figurehead」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Campaign 实例

@@ -63,4 +63,4 @@ StartBattleAction.Apply(attackerParty, defenderParty);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

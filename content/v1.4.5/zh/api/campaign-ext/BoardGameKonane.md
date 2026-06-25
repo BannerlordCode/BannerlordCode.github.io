@@ -23,7 +23,7 @@ description: "BoardGameKonane 的自动生成类参考。"
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「board information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例
@@ -34,7 +34,7 @@ var result = boardGameKonane.BoardInformation(pawns, tiles);
 ### PawnInformation
 `public struct PawnInformation(int x, int y, int prevX, int prevY, bool captured, Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pawn information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例
@@ -111,7 +111,7 @@ boardGameKonane.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例
@@ -133,7 +133,7 @@ var result = boardGameKonane.CheckForRemovablePawns(false);
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例
@@ -144,7 +144,7 @@ var result = boardGameKonane.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameKonane 实例

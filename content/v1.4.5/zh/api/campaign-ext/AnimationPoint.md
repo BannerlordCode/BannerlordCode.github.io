@@ -30,7 +30,7 @@ description: "AnimationPoint 的自动生成类参考。"
 ### RequestResync
 `public void RequestResync()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request resync」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimationPoint 实例
@@ -41,7 +41,7 @@ animationPoint.RequestResync();
 ### AfterMissionStart
 `public override void AfterMissionStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「mission start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimationPoint 实例
@@ -118,7 +118,7 @@ animationPoint.OnUseStopped(userAgent, false, 0);
 ### SimulateTick
 `public override void SimulateTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「simulate」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 AnimationPoint 实例

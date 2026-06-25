@@ -49,7 +49,7 @@ Transformation.CreateFromRotation(rotation);
 ### TransformToParent
 `public Vec3 TransformToParent(Vec3 v)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Transformation 实例
@@ -60,7 +60,7 @@ var result = transformation.TransformToParent(v);
 ### TransformToParent
 `public Transformation TransformToParent(Transformation t)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Transformation 实例
@@ -71,7 +71,7 @@ var result = transformation.TransformToParent(t);
 ### TransformToLocal
 `public Vec3 TransformToLocal(Vec3 v)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Transformation 实例
@@ -82,7 +82,7 @@ var result = transformation.TransformToLocal(v);
 ### TransformToLocal
 `public Transformation TransformToLocal(Transformation t)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Transformation 实例
@@ -93,7 +93,7 @@ var result = transformation.TransformToLocal(t);
 ### Rotate
 `public void Rotate(float radian, Vec3 axis)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rotate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Transformation 实例

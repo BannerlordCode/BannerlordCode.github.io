@@ -115,7 +115,7 @@ widgetTemplate.RemoveChild(child);
 ### SwapChildren
 `public void SwapChildren(WidgetTemplate child1, WidgetTemplate child2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap children」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例
@@ -126,7 +126,7 @@ widgetTemplate.SwapChildren(child1, child2);
 ### Instantiate
 `public WidgetInstantiationResult Instantiate(WidgetCreationData widgetCreationData, Dictionary<string, WidgetAttributeTemplate> parameters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「instantiate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WidgetTemplate 实例

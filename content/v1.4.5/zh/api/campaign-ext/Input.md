@@ -237,7 +237,7 @@ Input.GetFirstKeyReleasedInRange(0);
 ### PressKey
 `public static void PressKey(InputKey key)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「press key」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

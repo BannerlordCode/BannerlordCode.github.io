@@ -1,301 +1,123 @@
 ---
 title: 模块系统详解 / Module System
-description: MBSubModuleBase生命周期、模块加载机制、SubModule配置详解
+description: MBSubModuleBase 生命周期、模块加载机制、战役/Mission/ViewModel 注册、SubModule.xml 详解
 ---
 # 模块系统详解 / Module System
 
-## 心智模型
+> 模块系统回答 mod 的第一个工程问题：**我的代码什么时候被执行？**  答案是：`MBSubModuleBase` 生命周期钩子 + `SubModule.xml` 配置。
 
-先把 `模块系统详解` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+**Namespace**: `TaleWorlds.MountAndBlade`  
+**Depends On**: `TaleWorlds.ModuleManager`, `TaleWorlds.Core`
 
-**Namespace**: TaleWorlds.MountAndBlade
-**Depends On**: TaleWorlds.ModuleManager, TaleWorlds.Core
+---
 
-## 概述 / Overview
+## ↑ Parent Navigation
 
-Bannerlord的模块系统是整个游戏架构的核心。每个Mod都是一个`SubModule`，通过继承`MBSubModuleBase`来实现游戏启动时加载、自定义逻辑注册等功能。
+- [🏠 首页 / Home](../../)
+- [🏗️ 架构总览 / Architecture](./)
+- [⭐ SDK 总览](../sdk-overview/)
+- [📚 API 目录](../../api/)
 
-The module system is the core of Bannerlord's architecture. Every mod is a `SubModule` that extends `MBSubModuleBase` to integrate with the game's lifecycle.
+## 🔀 Sibling Navigation
 
-## MBSubModuleBase 生命周期 / Lifecycle
+| 页面 | 解决什么问题 |
+|------|------------|
+| [SDK 总览](../sdk-overview/) | 全部模块地图 |
+| [存档系统](../save-system/) | 自定义数据如何持久化 |
+| [版本差异](../version-delta/) | 不同版本模块差异 |
 
-`MBSubModuleBase` 定义了完整的生命周期钩子：
+## ↓ Child / Downstream Links
+
+- 战役入口：[`CampaignBehaviorBase`](../../../../versions/CampaignBehaviorBase/) · [`Campaign`](../../api/campaign/Campaign/)
+- 战斗入口：[`MissionBehavior`](../../../../versions/MissionBehavior/) · [`Mission*`](../../../../versions/Mission/)
+- UI 入口：[`ViewModel`](../../api/core-extra/ViewModel/) · [`GauntletMovie`](../../api/gui/GauntletMovie/)
+- 其他：[`QuestBase*`](../../../../versions/QuestBase/) · [`IssueBase*`](../../../../versions/IssueBase/)
+
+---
+
+## 生命周期的三个阶段
+
+把 `MBSubModuleBase` 的方法分成三组记忆：
+
+1. **启动阶段**（一次）：游戏启动 → `OnSubModuleLoad` → 主菜单出现。
+2. **游戏阶段**（每次开始新游戏或读档）：`OnGameStart` → `InitializeGameStarter` → `OnNewGameCreated` / `OnGameLoaded`。
+3. **运行时阶段**（每帧）：`OnApplicationTick` → 战斗/战役钩子。
+
+```
+游戏启动
+   │
+   ▼
+OnSubModuleLoad()            ← 注册 Harmony、配置文件、全局事件
+   │
+   ▼
+OnBeforeInitialModuleScreenSetAsRoot()  ← 主菜单出现前最后一次干预
+   │
+   ▼
+        主菜单循环
+        │
+        ▼
+OnGameStart(game, starter)   ← 注册 Campaign / Mission Behavior
+   │
+   ▼
+InitializeGameStarter(game, starter)
+   │
+   ├── OnNewGameCreated()    ← 新游戏初始化
+   └── OnGameLoaded()        ← 读档恢复
+        │
+        ▼
+OnApplicationTick(dt)        ← 每帧更新
+```
+
+---
+
+## 关键钩子：我该怎么用？
+
+| 钩子 | 典型用途 | 示例 |
+|------|---------|------|
+| `OnSubModuleLoad` | 加载配置、Harmony patch、注册自定义 XML hotload | 修改游戏全局行为的 mod |
+| `OnGameStart` | 获取 `CampaignGameStarter`，注册 `CampaignBehavior` 与 `MissionBehavior` | 战役/任务逻辑 mod |
+| `OnNewGameCreated` / `OnGameLoaded` | 在行为注册后做一次性初始化 | 给新建英雄加自定义属性的 mod |
+| `OnApplicationTick` | 罕见；尽量用 Behavior 的 `OnHourlyTick` 等替代 | 日志、快捷键轮询 |
+| `OnBeforeMissionBehaviorInitialize` | 在 Mission 行为初始化前注入设置 | 自定义战斗规则 |
+
+---
+
+## 注册战役、任务与 ViewModel
+
+### 注册 CampaignBehavior
 
 ```csharp
-public abstract class MBSubModuleBase
+protected override void OnGameStart(Game game, IGameStarter starter)
 {
-    // === 初始化阶段 / Initialization Phase ===
-    
-    // 模块加载时调用（所有SubModule都会调用）
-    protected internal virtual void OnSubModuleLoad() { }
-    
-    // 新模块加载时调用（仅DLC/动态加载）
-    protected internal virtual void OnNewModuleLoad() { }
-    
-    // 注册SubModule类型
-    protected internal virtual void RegisterSubModuleTypes() { }
-    
-    // === UI阶段 / UI Phase ===
-    
-    // 初始模块屏幕设为根之前
-    protected internal virtual void OnBeforeInitialModuleScreenSetAsRoot() { }
-    
-    // 初始状态
-    public virtual void OnInitialState() { }
-    
-    // === 游戏开始阶段 / Game Start Phase ===
-    
-    // 游戏开始前（可禁用模块）
-    protected internal virtual void OnBeforeGameStart(
-        MBGameManager mbGameManager, 
-        List<string> disabledModules) { }
-    
-    // 游戏开始
-    protected internal virtual void OnGameStart(
-        Game game, 
-        IGameStarter gameStarterObject) { }
-    
-    // 初始化游戏启动器
-    protected internal virtual void InitializeGameStarter(
-        Game game, 
-        IGameStarter starterObject) { }
-    
-    // === 存档加载阶段 / Save Load Phase ===
-    
-    // 存档加载完成
-    public virtual void OnGameLoaded(Game game, object initializerObject) { }
-    
-    // 存档加载后
-    public virtual void OnAfterGameLoaded(Game game) { }
-    
-    // 新游戏创建
-    public virtual void OnNewGameCreated(Game game, object initializerObject) { }
-    
-    // === 每帧更新阶段 / Per-Frame Update Phase ===
-    
-    // 每帧调用
-    protected internal virtual void OnApplicationTick(float dt) { }
-    
-    // 异步tick之后
-    protected internal virtual void AfterAsyncTickTick(float dt) { }
-    
-    // 网络tick
-    protected internal virtual void OnNetworkTick(float dt) { }
-    
-    // === 战役阶段 / Campaign Phase ===
-    
-    // 战役开始
-    public virtual void OnCampaignStart(Game game, object starterObject) { }
-    
-    // 注册SubModule对象
-    public virtual void RegisterSubModuleObjects(bool isSavedCampaign) { }
-    
-    // 注册完成后
-    public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign) { }
-    
-    // === 任务阶段 / Mission Phase ===
-    
-    // 任务行为初始化前
-    public virtual void OnBeforeMissionBehaviorInitialize(Mission mission) { }
-    
-    // 任务行为初始化
-    public virtual void OnMissionBehaviorInitialize(Mission mission) { }
-    
-    // === 游戏结束阶段 / Game End Phase ===
-    
-    // 游戏结束
-    public virtual void OnGameEnd(Game game) { }
-    
-    // === 卸载阶段 / Unload Phase ===
-    
-    // SubModule卸载
-    protected internal virtual void OnSubModuleUnloaded() { }
-    
-    // === 激活/停用阶段 / Activate/Deactivate Phase ===
-    
-    // SubModule激活
-    public virtual void OnSubModuleActivated() { }
-    
-    // SubModule停用
-    public virtual void OnSubModuleDeactivated() { }
-    
-    // === 配置变更 / Config Change ===
-    
-    // 配置变更
-    public virtual void OnConfigChanged() { }
-}
-```
-
-## 生命周期流程图 / Lifecycle Flowchart
-
-```
-游戏启动 (Game Launch)
-    │
-    ├─► Module.Initialize()
-    │       │
-    │       ├─► ModuleHelper.InitializeModules()
-    │       │       │
-    │       │       └─► 加载所有ModuleInfo (从SubModule.xml)
-    │       │
-    │       ├─► LoadSubModules()
-    │       │       │
-    │       │       ├─► 加载DLL assemblies
-    │       │       └─► 创建MBSubModuleBase实例
-    │       │
-    │       └─► InitializeSubModuleBases()
-    │               │
-    │               └─► 调用所有SubModule.OnSubModuleLoad()
-    │
-    ├─► SetInitialModuleScreenAsRoot()
-    │       │
-    │       ├─► 调用所有SubModule.OnBeforeInitialModuleScreenSetAsRoot()
-    │       │
-    │       └─► 显示初始屏幕 (Logo → 主菜单)
-    │
-    └─► 进入主循环 (Main Loop)
-            │
-            ├─► OnApplicationTick(dt) ← 每帧调用
-            ├─► OnNetworkTick(dt) ← 网络同步
-            │
-            └─► 用户选择 "开始游戏" / "继续游戏"
-                    │
-                    ├─► OnBeforeGameStart() ← 可禁用模块
-                    │
-                    ├─► OnGameStart()
-                    │       │
-                    │       └─► InitializeGameStarter()
-                    │
-                    ├─► [新游戏] OnNewGameCreated()
-                    │       │
-                    │       └─► RegisterSubModuleObjects(false)
-                    │
-                    └─► [读档] OnGameLoaded()
-                            │
-                            └─► RegisterSubModuleObjects(true)
-```
-
-## SubModule 注册示例 / Example
-
-```csharp
-// 我的Mod/MyMod.cs
-namespace MyMod
-{
-    public class MySubModule : MBSubModuleBase
+    base.OnGameStart(game, starter);
+    if (starter is CampaignGameStarter campaignStarter)
     {
-        protected override void OnSubModuleLoad()
-        {
-            base.OnSubModuleLoad();
-            Debug.Print("MyMod loaded!", 0, Debug.DebugColor.Green, 17592186044416UL);
-        }
-
-        protected override void OnGameStart(
-            Game game, 
-            IGameStarter gameStarterObject)
-        {
-            base.OnGameStart(game, gameStarterObject);
-            // 注册自定义游戏逻辑
-        }
-
-        public override void OnGameLoaded(Game game, object initializerObject)
-        {
-            base.OnGameLoaded(game, initializerObject);
-            // 读取存档数据
-        }
+        campaignStarter.AddBehavior(new MyCampaignBehavior());
     }
 }
 ```
 
-## Module.cs 加载流程 / Module Loading Flow
+入口类：[`CampaignBehaviorBase`](../../../../versions/CampaignBehaviorBase/)。
 
-`Module.cs` 是游戏的中央协调器：
+### 注册 MissionBehavior
 
 ```csharp
-// 模块初始化 (line 229)
-internal void Initialize()
+public override void OnMissionBehaviorInitialize(Mission mission)
 {
-    // 1. 并行初始化
-    TWParallel.InitializeAndSetImplementation(new NativeParallelDriver());
-    
-    // 2. 设置存档驱动
-    MBSaveLoad.SetSaveDriver(new AsyncFileSaveDriver());
-    
-    // 3. 处理命令行参数
-    ProcessApplicationArguments();
-    
-    // 4. 初始化所有模块
-    ModuleHelper.InitializeModules(Utilities.GetModulesNames(), null);
-    
-    // 5. 加载SubModules
-    LoadSubModules(ModuleHelper.GetModules(null), false);
-    
-    // 6. 查找任务
-    FindMissions();
-    
-    // 7. 初始化存档系统定义上下文
-    SaveManager.InitializeGlobalDefinitionContext();
-}
-
-// 加载SubModules (line 1063)
-private void LoadSubModules(List<ModuleInfo> modules, bool loadNewModules)
-{
-    foreach (ModuleInfo moduleInfo in modules)
-    {
-        // 加载XML资源配置
-        XmlResource.GetMbprojxmls(moduleInfo.Id);
-        XmlResource.GetXmlListAndApply(moduleInfo.Id);
-    }
-    
-    foreach (ModuleInfo moduleInfo in modules)
-    {
-        foreach (SubModuleInfo subModuleInfo in moduleInfo.SubModules)
-        {
-            // 检查是否可加载 (平台标签等)
-            if (CheckIfSubmoduleCanBeLoadable(subModuleInfo))
-            {
-                // 加载DLL
-                string dllPath = Path.Combine(moduleInfo.FolderPath, "bin", dllName);
-                Assembly assembly = AssemblyLoader.LoadFrom(dllPath);
-                
-                // 创建SubModule实例
-                AddSubModule(subModuleInfo, assembly);
-            }
-        }
-    }
+    base.OnMissionBehaviorInitialize(mission);
+    mission.AddMissionBehavior(new MyMissionBehavior());
 }
 ```
 
-## ModuleInfo 和依赖管理 / Dependency Management
+入口类：[`MissionBehavior`](../../../../versions/MissionBehavior/)。
 
-`ModuleInfo` 解析 SubModule.xml 来获取模块信息：
+### 注册 ViewModel（屏幕顶部 HUD/菜单）
 
-```csharp
-public class ModuleInfo
-{
-    public string Id { get; }           // 模块唯一ID
-    public string Name { get; }         // 显示名称
-    public ApplicationVersion Version { get; }  // 版本
-    public bool IsOfficial { get; }     // 是否官方模块
-    public bool IsNative { get; }       // 是否Native模块
-    public List<DependedModule> DependedModules { get; }  // 依赖列表
-    public List<SubModuleInfo> SubModules { get; }       // SubModule列表
-}
-```
+Gauntlet UI 通过 `GauntletMovie` + `ViewModel` 加载。通常你不需要在 `MBSubModuleBase` 里注册 ViewModel，而是在 `ScreenBase` 子类或 `OnSubModuleLoad` 里用 `ScreenManager.PushScreen` / `GauntletSystem` 打开。详见 [Gauntlet 指南](../../guide/gauntlet-ui/) 与 [`ViewModel`](../../api/core-extra/ViewModel/)。
 
-### 依赖解析 / Dependency Resolution
+---
 
-```csharp
-// ModuleHelper.GetSortedModules() 使用拓扑排序
-public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
-{
-    List<ModuleInfo> modules = GetModuleInfos(moduleIDs);
-    // 拓扑排序确保依赖在被依赖之前加载
-    IList<ModuleInfo> sorted = MBMath.TopologySort(modules, 
-        (module) => GetDependentModulesOf(modules, module));
-    return sorted.ToList();
-}
-```
-
-## SubModule.xml 配置 / Configuration
+## SubModule.xml — mod 的身份证
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -303,7 +125,14 @@ public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
     <Name value="MyMod" />
     <Id value="MyMod" />
     <Version value="v1.0.0" />
-    <RequiredBaseVersion value="e1.3.15" />
+    <DefaultModule value="true" />
+    <SingleplayerModule value="true" />
+    <MultiplayerModule value="false" />
+    <Url value="https://..." />
+    <DependedModules>
+        <DependedModule Id="Native" />
+-                       <DependedModule Id="SandboxCore" Optional="false" />
+    </DependedModules>
     <SubModules>
         <SubModule>
             <Name value="MyMod" />
@@ -313,139 +142,62 @@ public static List<ModuleInfo> GetSortedModules(string[] moduleIDs)
                 <Assembly value="MyMod.dll" />
             </Assemblies>
             <Tags>
-                <!-- 平台标签 -->
-                <Tag name="ExclusivePlatform" value="WindowsSteam" />
-                <!-- 或排除平台 -->
-                <Tag name="RejectedPlatform" value="Orbis" />
+                <Tag key="DedicatedServerType" value="none" />
+                <Tag key="IsNoRenderModeElement" value="false" />
             </Tags>
         </SubModule>
     </SubModules>
-    <DependedModules>
-        <DependedModule Id="Native" IsOptional="false" />
-        <DependedModule Id="SandboxCore" IsOptional="false" />
-    </DependedModules>
 </Module>
 ```
 
-## 官方模块列表 / Official Modules
+### 关键字段
 
-```csharp
-// ModuleHelper.GetOfficialModuleIds()
-{
-    "Native",        // 基础引擎
-    "Multiplayer",   // 多人模式
-    "SandBoxCore",   // 沙盒核心
-    "Sandbox",       // 沙盒模式
-    "CustomBattle",  // 自定义战斗
-    "StoryMode",     // 故事模式
-    "NavalDLC",     // 海军DLC
-    "BirthAndDeath", // 出生与死亡
-    "FastMode"       // 快速模式
-}
-```
-
-## 关键类 / Key Classes
-
-| 类 / Class | 职责 / Responsibility |
-|-----------|----------------------|
-| `Module` | 游戏主模块，协调器 |
-| `ModuleHelper` | 模块查找、排序、依赖解析 |
-| `ModuleInfo` | 单个模块的元数据 |
-| `SubModuleInfo` | SubModule配置信息 |
-| `MBSubModuleBase` | 所有SubModule的基类 |
-| `DotNetObject` | 可序列化对象的基类 |
-| `Managed` | 类型注册管理 |
+| 字段 | 含义 | 调试提示 |
+|------|------|----------|
+| `Id` / `Name` | 模块唯一标识与显示名 | 模块未显示先检查这两个字段 |
+| `DependedModules` | 依赖排序；缺少依赖会导致模块被禁用 | 查看 launcher 日志 |
+| `SubModuleClassType` | 继承 `MBSubModuleBase` 的完整类名 | 大小写/命名空间必须完全一致 |
+| `DLLName` | 相对 `bin/` 的 DLL 名称 | 确认 DLL 已生成到模块 `bin` 目录 |
+| `Tags` | 平台/模式过滤 | 错误的 ExclusivePlatform 会导致 DLL 不加载 |
 
 ---
 
-## MBSubModuleBase Lifecycle
-
-`MBSubModuleBase` defines complete lifecycle hooks:
-
-```csharp
-public abstract class MBSubModuleBase
-{
-    // Called when module is loaded (all SubModules)
-    protected internal virtual void OnSubModuleLoad() { }
-    
-    // Called when new module loads (DLC/dynamic loading only)
-    protected internal virtual void OnNewModuleLoad() { }
-    
-    // Called before initial module screen becomes root
-    protected internal virtual void OnBeforeInitialModuleScreenSetAsRoot() { }
-    
-    // Called before game starts (can disable modules)
-    protected internal virtual void OnBeforeGameStart(
-        MBGameManager mbGameManager, 
-        List<string> disabledModules) { }
-    
-    // Called when game starts
-    protected internal virtual void OnGameStart(
-        Game game, 
-        IGameStarter gameStarterObject) { }
-    
-    // Called every frame
-    protected internal virtual void OnApplicationTick(float dt) { }
-    
-    // Called when game loads from save
-    public virtual void OnGameLoaded(Game game, object initializerObject) { }
-    
-    // Called when game ends
-    public virtual void OnGameEnd(Game game) { }
-    
-    // Called when module unloads
-    protected internal virtual void OnSubModuleUnloaded() { }
-}
-```
-
-## Loading Sequence
+## 加载流程
 
 ```
-Game Launch
-    │
-    ├─► Module.Initialize()
-    │       ├─► ModuleHelper.InitializeModules()
-    │       └─► LoadSubModules() → OnSubModuleLoad()
-    │
-    ├─► SetInitialModuleScreenAsRoot() → OnBeforeInitialModuleScreenSetAsRoot()
-    │
-    └─► Main Loop → OnApplicationTick()
-            │
-            └─► Game Start → OnGameStart()
-                    ├─► [New Game] OnNewGameCreated() → RegisterSubModuleObjects(false)
-                    └─► [Load] OnGameLoaded() → RegisterSubModuleObjects(true)
+Module.Initialize()
+   ├── ModuleHelper.InitializeModules()   ← 解析所有 SubModule.xml
+   ├── LoadSubModules()                   ← 按拓扑排序加载 DLL
+   │       └── 创建 MBSubModuleBase 实例
+   ├── FindMissions()
+   └── SaveManager.InitializeGlobalDefinitionContext()
+   │
+   ▼
+SetInitialModuleScreenAsRoot()
+   └── 调用 OnBeforeInitialModuleScreenSetAsRoot()
 ```
 
-## SubModule Registration Example
+**调试启动失败**：从 `rgl_log.txt` 查看 `Module`/`ModuleHelper` 相关错误，通常是依赖缺失或 `SubModuleClassType` 不匹配。
 
-```csharp
-// MyMod.cs
-namespace MyMod
-{
-    public class MySubModule : MBSubModuleBase
-    {
-        protected override void OnSubModuleLoad()
-        {
-            base.OnSubModuleLoad();
-            Debug.Print("MyMod loaded!");
-        }
+---
 
-        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
-        {
-            base.OnGameStart(game, gameStarterObject);
-            // Register custom game logic
-        }
-    }
-}
-```
+## 关键类速查
 
-## Key Classes
+| 类 | 职责 | 高频场景 |
+|----|------|----------|
+| `MBSubModuleBase` | mod 生命周期入口 | 写任何 mod 的第一步 |
+| `Module` | 中央协调器 | 排查启动失败 |
+| `ModuleHelper` | 模块查找、拓扑排序 | 了解加载顺序 |
+| `ModuleInfo` | 单个模块元数据 | 运行时读取依赖 |
+| `CampaignGameStarter` | 战役启动器 | 注册 `CampaignBehaviorBase` |
+| `CampaignBehaviorBase` | 战役每日逻辑 | [跨版本页](../../../../versions/CampaignBehaviorBase/) |
+| `MissionBehavior` | 战斗逻辑 | [跨版本页](../../../../versions/MissionBehavior/) |
+| `ViewModel` | UI 数据绑定 | [API 目录](../../api/viewmodel/) |
 
-| Class | Responsibility |
-|-------|----------------|
-| `Module` | Central game coordinator |
-| `ModuleHelper` | Module lookup, sorting, dependency resolution |
-| `ModuleInfo` | Single module's metadata |
-| `SubModuleInfo` | SubModule configuration |
-| `MBSubModuleBase` | Base class for all SubModules |
+---
 
+## 参见
+
+- [SDK 总览](../sdk-overview/) — 模块地图
+- [存档系统](../save-system/) — 行为对象的持久化
+- [战役指南](../../guide/campaign-system/) · [任务指南](../../guide/mission-system/) · [Gauntlet 指南](../../guide/gauntlet-ui/)

@@ -23,7 +23,7 @@ description: "SandBoxViewVisualManager 的自动生成类参考。"
 ### VisualTick
 `public static void VisualTick(MapScreen screen, float realDt, float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「visual」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例

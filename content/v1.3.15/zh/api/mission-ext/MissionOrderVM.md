@@ -159,7 +159,7 @@ missionOrderVM.SetFocusedFormations(focusedFormationsCache);
 ### AfterInitialize
 `public void AfterInitialize()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「initialize」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例
@@ -192,7 +192,7 @@ missionOrderVM.OnEscape();
 ### ViewOrders
 `public void ViewOrders()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「view orders」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderVM 实例

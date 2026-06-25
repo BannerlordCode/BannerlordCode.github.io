@@ -31,7 +31,7 @@ description: "MultiplayerLobbyHomeScreenWidget 的自动生成类参考。"
 ### LobbyStateChanged
 `public void LobbyStateChanged(bool isSearchRequested, bool isSearching, bool isMatchmakingEnabled, bool isCustomBattleEnabled, bool isPartyLeader, bool isInParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「lobby state changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyHomeScreenWidget 实例

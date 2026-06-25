@@ -40,7 +40,7 @@ hideoutAmbushMissionController.OnCreated();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
@@ -84,7 +84,7 @@ hideoutAmbushMissionController.SetOverriddenHideoutBossCharacterObject(character
 ### SpawnRemainingTroopsForBossFight
 `public void SpawnRemainingTroopsForBossFight(List<MatrixFrame> spawnFrames)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn remaining troops for boss fight」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutAmbushMissionController 实例
@@ -181,7 +181,7 @@ HideoutAmbushMissionController.StartBossFightBattleMode();
 ### KillAllSentries
 `public static string KillAllSentries(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill all sentries」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

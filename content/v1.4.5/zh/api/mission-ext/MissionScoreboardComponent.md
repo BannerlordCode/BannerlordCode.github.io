@@ -23,7 +23,7 @@ description: "MissionScoreboardComponent 的自动生成类参考。"
 ### ScoreboardHeader
 `public struct ScoreboardHeader(string id, Func<MissionPeer, string> playerGetterFunc, Func<BotData, string> botGetterFunc)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scoreboard header」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardComponent 实例
@@ -155,7 +155,7 @@ var result = missionScoreboardComponent.CalculateAndGetMVPScoreWithPeer();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardComponent 实例
@@ -188,7 +188,7 @@ missionScoreboardComponent.ResetBotScores();
 ### ChangeTeamScore
 `public void ChangeTeamScore(Team team, int scoreChange)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change team score」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardComponent 实例
@@ -309,7 +309,7 @@ missionScoreboardComponent.OnAssignPlayerAsSergeantOfFormation(agent);
 ### BotPropertiesChanged
 `public void BotPropertiesChanged(BattleSideEnum side)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「bot properties changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardComponent 实例
@@ -320,7 +320,7 @@ missionScoreboardComponent.BotPropertiesChanged(side);
 ### PlayerPropertiesChanged
 `public void PlayerPropertiesChanged(NetworkCommunicator player)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「player properties changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardComponent 实例
@@ -331,7 +331,7 @@ missionScoreboardComponent.PlayerPropertiesChanged(player);
 ### PlayerPropertiesChanged
 `public void PlayerPropertiesChanged(MissionPeer player)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「player properties changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScoreboardComponent 实例

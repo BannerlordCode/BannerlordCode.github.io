@@ -60,7 +60,7 @@ v1.3.0 code may need modification for v1.3.15:
 ## Related Documentation
 
 - [Version Differences](./#version-differences)
-- [v1.3.15 Troubleshooting](../../../v1.3.15/en/guide/troubleshooting/)
+- [v1.3.15 Troubleshooting](../../../../v1.3.15/en/guide/troubleshooting/)
 
 ## Usage Example
 

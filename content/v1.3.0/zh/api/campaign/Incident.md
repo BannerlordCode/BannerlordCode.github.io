@@ -90,7 +90,7 @@ var result = incident.GetOptionHint(0);
 ### InvokeOption
 `public List<TextObject> InvokeOption(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invoke option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -101,7 +101,7 @@ var result = incident.InvokeOption(0);
 ### IncidentOptionConditionDelegate
 `public delegate bool IncidentOptionConditionDelegate(TextObject text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「incident option condition delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例
@@ -112,7 +112,7 @@ var result = incident.IncidentOptionConditionDelegate(text);
 ### IncidentOptionConsequenceDelegate
 `public delegate void IncidentOptionConsequenceDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「incident option consequence delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Incident 实例

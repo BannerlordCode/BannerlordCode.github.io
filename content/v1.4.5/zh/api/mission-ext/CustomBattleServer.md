@@ -47,7 +47,7 @@ customBattleServer.SetBadgeComponent(badgeComponent);
 ### Connect
 `public void Connect(ICustomBattleServerSessionHandler handler, string authToken, bool isSinglePlatformServer, string loadedModuleIDs, bool allowsOptionalModules, bool isPlayerHosted)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「connect」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleServer 实例
@@ -102,7 +102,7 @@ customBattleServer.OnPlayerDisconnectedFromLobbyMessage(message);
 ### ResponseCustomGameClientConnection
 `public void ResponseCustomGameClientConnection(PlayerJoinGameResponseDataFromHost playerJoinData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「response custom game client connection」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleServer 实例
@@ -146,7 +146,7 @@ customBattleServer.UpdateCustomGameData("example", "example", 0);
 ### KickPlayer
 `public void KickPlayer(PlayerId id, bool banPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kick player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleServer 实例
@@ -201,7 +201,7 @@ customBattleServer.UpdateGameProperties("example", "example", "example");
 ### BeforeStartingNextBattle
 `public void BeforeStartingNextBattle(GameLog gameLogs)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「starting next battle」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleServer 实例
@@ -212,7 +212,7 @@ customBattleServer.BeforeStartingNextBattle(gameLogs);
 ### BattleStarted
 `public void BattleStarted(Dictionary<PlayerId, int> playerTeams, string cultureTeam1, string cultureTeam2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「battle started」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleServer 实例
@@ -223,7 +223,7 @@ customBattleServer.BattleStarted(dictionary<PlayerId, 0, "example", "example");
 ### BattleFinished
 `public void BattleFinished(BattleResult battleResult, Dictionary<int, int> teamScores, Dictionary<PlayerId, int> playerScores)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「battle finished」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CustomBattleServer 实例

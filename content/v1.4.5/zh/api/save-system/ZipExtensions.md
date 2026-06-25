@@ -23,7 +23,7 @@ description: "ZipExtensions 的自动生成类参考。"
 ### FillFrom
 `public static void FillFrom(this ZipArchiveEntry entry, byte data)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ ZipExtensions.FillFrom(entry, 0);
 ### FillFrom
 `public static void FillFrom(this ZipArchiveEntry entry, TaleWorlds.Library.BinaryWriter writer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

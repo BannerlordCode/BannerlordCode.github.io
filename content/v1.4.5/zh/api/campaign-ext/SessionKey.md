@@ -23,7 +23,7 @@ description: "SessionKey 的自动生成类参考。"
 ### NewGuid
 `public static SessionKey NewGuid()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「new guid」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -44,7 +44,7 @@ var result = sessionKey.ToString();
 ### ToByteArray
 `public byte ToByteArray()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to byte array」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SessionKey 实例

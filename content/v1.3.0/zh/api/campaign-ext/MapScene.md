@@ -139,7 +139,7 @@ mapScene.SetSnowAndRainDataWithDimension(snowRainTexture, 0);
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「load」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScene 实例
@@ -150,7 +150,7 @@ mapScene.AfterLoad();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScene 实例
@@ -161,7 +161,7 @@ mapScene.Destroy();
 ### DisableUnwalkableNavigationMeshes
 `public void DisableUnwalkableNavigationMeshes()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable unwalkable navigation meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScene 实例
@@ -183,7 +183,7 @@ var result = mapScene.GetFaceIndex(vec2);
 ### AreFacesOnSameIsland
 `public bool AreFacesOnSameIsland(PathFaceRecord startingFace, PathFaceRecord endFace, MobileParty.NavigationType navigationType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「are faces on same island」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapScene 实例

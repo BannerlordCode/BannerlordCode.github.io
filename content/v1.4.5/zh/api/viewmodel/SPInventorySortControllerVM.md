@@ -104,7 +104,7 @@ var result = sPInventorySortControllerVM.Compare(x, y);
 ### SortByOption
 `public void SortByOption(InventoryItemSortOption sortOption, InventoryItemSortState sortState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort by option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -115,7 +115,7 @@ sPInventorySortControllerVM.SortByOption(sortOption, sortState);
 ### SortByDefaultState
 `public void SortByDefaultState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「sort by default state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例
@@ -126,7 +126,7 @@ sPInventorySortControllerVM.SortByDefaultState();
 ### SortByCurrentState
 `public void SortByCurrentState()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「sort by current state」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 SPInventorySortControllerVM 实例

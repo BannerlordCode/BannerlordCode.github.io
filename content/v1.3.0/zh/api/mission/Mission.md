@@ -186,7 +186,7 @@ mission.SetMissionCombatType(missionCombatType);
 ### ConversationCharacterChanged
 `public void ConversationCharacterChanged()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「conversation character changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -274,7 +274,7 @@ var result = mission.IsPositionOnAnyBlockerNavMeshFace(position);
 ### RayCastForClosestAgent
 `public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -285,7 +285,7 @@ var result = mission.RayCastForClosestAgent(sourcePoint, targetPoint, 0, 0, coll
 ### RayCastForClosestAgentsLimbs
 `public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for closest agents limbs」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -296,7 +296,7 @@ var result = mission.RayCastForClosestAgentsLimbs(sourcePoint, targetPoint, 0, 0
 ### RayCastForGivenAgentsLimbs
 `public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ray cast for given agents limbs」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -384,7 +384,7 @@ mission.TickAgentsAndTeamsAsync(0);
 ### MakeSound
 `public void MakeSound(int soundIndex, Vec3 position, bool soundCanBePredicted, bool isReliable, int relatedAgent1, int relatedAgent2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -395,7 +395,7 @@ mission.MakeSound(0, position, false, false, 0, 0);
 ### MakeSound
 `public void MakeSound(int soundIndex, Vec3 position, bool soundCanBePredicted, bool isReliable, int relatedAgent1, int relatedAgent2, ref SoundEventParameter parameter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -406,7 +406,7 @@ mission.MakeSound(0, position, false, false, 0, 0, parameter);
 ### MakeSoundOnlyOnRelatedPeer
 `public void MakeSoundOnlyOnRelatedPeer(int soundIndex, Vec3 position, int relatedAgent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make sound only on related peer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -943,7 +943,7 @@ var result = mission.GetStraightPathToTarget(targetPosition, startingPosition, 0
 ### SkipForwardMissionReplay
 `public void SkipForwardMissionReplay(float startTime, float endTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skip forward mission replay」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1151,7 +1151,7 @@ mission.AddFleePosition(fleePosition);
 ### RetreatMission
 `public void RetreatMission()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「retreat mission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1162,7 +1162,7 @@ mission.RetreatMission();
 ### SurrenderMission
 `public void SurrenderMission()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「surrender mission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1173,7 +1173,7 @@ mission.SurrenderMission();
 ### SpawnAttachedWeaponOnCorpse
 `public void SpawnAttachedWeaponOnCorpse(Agent agent, int attachedWeaponIndex, int forcedSpawnIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn attached weapon on corpse」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1228,7 +1228,7 @@ mission.OnObjectDisabled(destructionComponent);
 ### SpawnWeaponAsDropFromMissile
 `public MissionObjectId SpawnWeaponAsDropFromMissile(int missileIndex, MissionObject attachedMissionObject, in MatrixFrame attachLocalFrame, Mission.WeaponSpawnFlags spawnFlags, in Vec3 velocity, in Vec3 angularVelocity, int forcedSpawnIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn weapon as drop from missile」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1239,7 +1239,7 @@ var result = mission.SpawnWeaponAsDropFromMissile(0, attachedMissionObject, atta
 ### SpawnWeaponAsDropFromAgentAux
 `public void SpawnWeaponAsDropFromAgentAux(Agent agent, EquipmentIndex equipmentIndex, ref Vec3 globalVelocity, ref Vec3 globalAngularVelocity, Mission.WeaponSpawnFlags spawnFlags, int forcedSpawnIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn weapon as drop from agent aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1250,7 +1250,7 @@ mission.SpawnWeaponAsDropFromAgentAux(agent, equipmentIndex, globalVelocity, glo
 ### SpawnAttachedWeaponOnSpawnedWeapon
 `public void SpawnAttachedWeaponOnSpawnedWeapon(SpawnedItemEntity spawnedWeapon, int attachmentIndex, int forcedSpawnIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn attached weapon on spawned weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1261,7 +1261,7 @@ mission.SpawnAttachedWeaponOnSpawnedWeapon(spawnedWeapon, 0, 0);
 ### SpawnWeaponWithNewEntity
 `public GameEntity SpawnWeaponWithNewEntity(ref MissionWeapon weapon, Mission.WeaponSpawnFlags spawnFlags, MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn weapon with new entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1272,7 +1272,7 @@ var result = mission.SpawnWeaponWithNewEntity(weapon, spawnFlags, frame);
 ### SpawnWeaponWithNewEntityAux
 `public GameEntity SpawnWeaponWithNewEntityAux(MissionWeapon weapon, Mission.WeaponSpawnFlags spawnFlags, MatrixFrame frame, int forcedSpawnIndex, MissionObject attachedMissionObject, bool hasLifeTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn weapon with new entity aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1283,7 +1283,7 @@ var result = mission.SpawnWeaponWithNewEntityAux(weapon, spawnFlags, frame, 0, a
 ### AttachWeaponWithNewEntityToSpawnedWeapon
 `public void AttachWeaponWithNewEntityToSpawnedWeapon(MissionWeapon weapon, SpawnedItemEntity spawnedItem, MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach weapon with new entity to spawned weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1316,7 +1316,7 @@ mission.OnEquipItemsFromSpawnEquipment(agent, creationType);
 ### MakeEnemiesFleeCheat
 `public static string MakeEnemiesFleeCheat(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make enemies flee cheat」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1326,7 +1326,7 @@ Mission.MakeEnemiesFleeCheat(strings);
 ### MakeTeamFleeCheat
 `public static string MakeTeamFleeCheat(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「make team flee cheat」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1368,7 +1368,7 @@ mission.TickAgentsAndTeamsImp(0);
 ### EnableSpeedAdjustmentCommand
 `public static string EnableSpeedAdjustmentCommand(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable speed adjustment command」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -1422,7 +1422,7 @@ mission.RemoveSpawnedItemsAndMissiles();
 ### AfterStart
 `public void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1576,7 +1576,7 @@ var result = mission.GetFormationSpawnClass(team, formationClass, false);
 ### SpawnAgent
 `public Agent SpawnAgent(AgentBuildData agentBuildData, bool spawnFromAgentVisuals = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1609,7 +1609,7 @@ mission.SetFormationPositioningFromDeploymentPlan(formation);
 ### SpawnMonster
 `public Agent SpawnMonster(ItemRosterElement rosterElement, ItemRosterElement harnessRosterElement, in Vec3 initialPosition, in Vec2 initialDirection, int forcedAgentIndex = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn monster」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1620,7 +1620,7 @@ var result = mission.SpawnMonster(rosterElement, harnessRosterElement, initialPo
 ### SpawnMonster
 `public Agent SpawnMonster(EquipmentElement equipmentElement, EquipmentElement harnessRosterElement, in Vec3 initialPosition, in Vec2 initialDirection, int forcedAgentIndex = -1)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn monster」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1631,7 +1631,7 @@ var result = mission.SpawnMonster(equipmentElement, harnessRosterElement, initia
 ### SpawnTroop
 `public Agent SpawnTroop(IAgentOriginBase troopOrigin, bool isPlayerSide, bool hasFormation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, bool forceDismounted, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, ItemObject bannerItem = null, FormationClass formationIndex = FormationClass.NumberOfAllFormations, bool useTroopClassForSpawn = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1642,7 +1642,7 @@ var result = mission.SpawnTroop(troopOrigin, false, false, false, false, 0, 0, f
 ### ReplaceBotWithPlayer
 `public Agent ReplaceBotWithPlayer(Agent botAgent, MissionPeer missionPeer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「replace bot with player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1664,7 +1664,7 @@ mission.OnAgentInteraction(requesterAgent, targetAgent, 0);
 ### EndMission
 `public void EndMission()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end mission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -1928,7 +1928,7 @@ var result = mission.OnMissionObjectRemoved(missionObject, 0);
 ### AgentLookingAtAgent
 `public bool AgentLookingAtAgent(Agent agent1, Agent agent2)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「agent looking at agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -2075,7 +2075,7 @@ mission.HandleMissileCollisionReaction(0, collisionReaction, attachLocalFrame, f
 ### KillAgentsOnEntity
 `public void KillAgentsOnEntity(GameEntity entity, Agent destroyerAgent, bool burnAgents)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill agents on entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -2086,7 +2086,7 @@ mission.KillAgentsOnEntity(entity, destroyerAgent, false);
 ### KillAgentCheat
 `public void KillAgentCheat(Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill agent cheat」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -2097,7 +2097,7 @@ mission.KillAgentCheat(agent);
 ### KillCheats
 `public bool KillCheats(bool killAll, bool killEnemy, bool killHorse, bool killYourself)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill cheats」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例
@@ -2416,7 +2416,7 @@ mission.TriggerOnItemPickUpEvent(agent, spawnedItemEntity);
 ### KillNAllies
 `public static string KillNAllies(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill n allies」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2426,7 +2426,7 @@ Mission.KillNAllies(strings);
 ### KillAllAllies
 `public static string KillAllAllies(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill all allies」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2436,7 +2436,7 @@ Mission.KillAllAllies(strings);
 ### ToggleDisableDying
 `public static string ToggleDisableDying(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle disable dying」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2446,7 +2446,7 @@ Mission.ToggleDisableDying(strings);
 ### ToggleDisableDyingTeam
 `public static string ToggleDisableDyingTeam(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle disable dying team」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2456,7 +2456,7 @@ Mission.ToggleDisableDyingTeam(strings);
 ### KillAgent
 `public static string KillAgent(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill agent」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2466,7 +2466,7 @@ Mission.KillAgent(strings);
 ### IncreaseBatteringRamSpeeds
 `public static string IncreaseBatteringRamSpeeds(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「increase battering ram speeds」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2476,7 +2476,7 @@ Mission.IncreaseBatteringRamSpeeds(strings);
 ### IncreaseSiegeTowerSpeed
 `public static string IncreaseSiegeTowerSpeed(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「increase siege tower speed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -2711,7 +2711,7 @@ mission.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angu
 ### PassThroughEntity
 `public void PassThroughEntity(GameEntity entity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass through entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mission 实例

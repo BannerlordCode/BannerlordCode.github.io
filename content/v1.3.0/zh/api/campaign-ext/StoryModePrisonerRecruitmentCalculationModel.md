@@ -78,7 +78,7 @@ var result = storyModePrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(
 ### ShouldPartyRecruitPrisoners
 `public override bool ShouldPartyRecruitPrisoners(PartyBase party)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should party recruit prisoners」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StoryModePrisonerRecruitmentCalculationModel 实例

@@ -51,7 +51,7 @@ multiplayerTeamSelectComponent.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -73,7 +73,7 @@ multiplayerTeamSelectComponent.OnRemoveBehavior();
 ### SelectTeam
 `public void SelectTeam()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -106,7 +106,7 @@ var result = multiplayerTeamSelectComponent.GetDisabledTeams();
 ### ChangeTeamServer
 `public void ChangeTeamServer(NetworkCommunicator networkPeer, Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change team server」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -117,7 +117,7 @@ multiplayerTeamSelectComponent.ChangeTeamServer(networkPeer, team);
 ### ChangeTeam
 `public void ChangeTeam(Team team)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -150,7 +150,7 @@ var result = multiplayerTeamSelectComponent.GetFriendsForTeam(team);
 ### BalanceTeams
 `public void BalanceTeams()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「balance teams」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例
@@ -161,7 +161,7 @@ multiplayerTeamSelectComponent.BalanceTeams();
 ### AutoAssignTeam
 `public void AutoAssignTeam(NetworkCommunicator peer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「auto assign team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerTeamSelectComponent 实例

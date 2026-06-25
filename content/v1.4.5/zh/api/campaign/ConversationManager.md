@@ -61,7 +61,7 @@ conversationManager.StartNew(0, false);
 ### ProcessSentence
 `public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process sentence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -138,7 +138,7 @@ var result = conversationManager.GetStateIndex("example");
 ### DisableSentenceSort
 `public void DisableSentenceSort()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable sentence sort」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -149,7 +149,7 @@ conversationManager.DisableSentenceSort();
 ### EnableSentenceSort
 `public void EnableSentenceSort()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable sentence sort」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -193,7 +193,7 @@ var result = conversationManager.IsAgentInConversation(agent);
 ### BeginConversation
 `public void BeginConversation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin conversation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -204,7 +204,7 @@ conversationManager.BeginConversation();
 ### EndConversation
 `public void EndConversation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end conversation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -215,7 +215,7 @@ conversationManager.EndConversation();
 ### DoOption
 `public void DoOption(int optionIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -226,7 +226,7 @@ conversationManager.DoOption(0);
 ### DoOption
 `public void DoOption(string optionID)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -237,7 +237,7 @@ conversationManager.DoOption("example");
 ### DoConversationContinuedCallback
 `public void DoConversationContinuedCallback()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do conversation continued callback」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -248,7 +248,7 @@ conversationManager.DoConversationContinuedCallback();
 ### DoOptionContinue
 `public void DoOptionContinue()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do option continue」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -259,7 +259,7 @@ conversationManager.DoOptionContinue();
 ### ContinueConversation
 `public void ContinueConversation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「continue conversation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ConversationManager 实例
@@ -423,7 +423,7 @@ ConversationManager.StartPersuasion(0, 0, 0, 0, 0, 0, persuasionDifficulty.Mediu
 ### EndPersuasion
 `public static void EndPersuasion()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end persuasion」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -433,7 +433,7 @@ ConversationManager.EndPersuasion();
 ### PersuasionCommitProgress
 `public static void PersuasionCommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「persuasion commit progress」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

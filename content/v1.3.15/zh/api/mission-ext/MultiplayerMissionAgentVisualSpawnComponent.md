@@ -23,7 +23,7 @@ description: "MultiplayerMissionAgentVisualSpawnComponent 的自动生成类参�
 ### SpawnAgentVisualsForPeer
 `public void SpawnAgentVisualsForPeer(MissionPeer missionPeer, AgentBuildData buildData, int selectedEquipmentSetIndex = -1, bool isBot = false, int totalTroopCount = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn agent visuals for peer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例
@@ -78,7 +78,7 @@ var result = multiplayerMissionAgentVisualSpawnComponent.GetSpawnPointFrameForPl
 ### FreeSpawnPointFromPlayer
 `public void FreeSpawnPointFromPlayer(VirtualPlayer player)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「free spawn point from player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerMissionAgentVisualSpawnComponent 实例

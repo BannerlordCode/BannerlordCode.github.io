@@ -27,4 +27,4 @@ NameplateSize instance = ...;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

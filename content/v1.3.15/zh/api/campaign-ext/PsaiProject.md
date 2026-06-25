@@ -74,7 +74,7 @@ psaiProject.SaveAsXmlFile("example");
 ### Report
 `public void Report(bool reportGroups, bool reportSegments)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「report」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -96,7 +96,7 @@ var result = psaiProject.ConvertProjectFile_From_Legacy_To_0_9_12("example");
 ### ReconstructReferencesAfterXmlDeserialization
 `public void ReconstructReferencesAfterXmlDeserialization()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reconstruct references after xml deserialization」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -107,7 +107,7 @@ psaiProject.ReconstructReferencesAfterXmlDeserialization();
 ### MergeProjects
 `public void MergeProjects(PsaiProject project)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge projects」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -118,7 +118,7 @@ psaiProject.MergeProjects(project);
 ### ReconstructIds
 `public void ReconstructIds(string path)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reconstruct ids」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -129,7 +129,7 @@ psaiProject.ReconstructIds("example");
 ### DebugCheckProjectIntegrity
 `public void DebugCheckProjectIntegrity()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug check project integrity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -217,7 +217,7 @@ psaiProject.AddPsaiMusicEntity(entity, 0);
 ### DeleteMusicEntity
 `public void DeleteMusicEntity(PsaiMusicEntity entity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete music entity」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例
@@ -294,7 +294,7 @@ var result = psaiProject.CheckIfSnippetIsManualBridgeSnippetToAnyGroup(snippet, 
 ### DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities
 `public void DoUpdateAllParentThemeIdsAndGroupsOfChildPsaiEntities()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do update all parent theme ids and groups of child psai entities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PsaiProject 实例

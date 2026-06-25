@@ -45,7 +45,7 @@ clothSimulatorComponent.SetForcedWind(windVector, false);
 ### DisableForcedWind
 `public void DisableForcedWind()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable forced wind」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例
@@ -78,7 +78,7 @@ clothSimulatorComponent.SetResetRequired();
 ### DisableMorphAnimation
 `public void DisableMorphAnimation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable morph animation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClothSimulatorComponent 实例

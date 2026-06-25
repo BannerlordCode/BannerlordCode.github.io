@@ -32,7 +32,7 @@ description: "MPArmoryCosmeticCategoryBaseVM 的自动生成类参考。"
 ### MPArmoryCosmeticCategoryBaseVM
 `public unsafe MPArmoryCosmeticCategoryBaseVM(CosmeticType cosmeticType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mp armory cosmetic category base vm」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticCategoryBaseVM 实例

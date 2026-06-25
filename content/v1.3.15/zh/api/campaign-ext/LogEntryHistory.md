@@ -29,7 +29,7 @@ description: "LogEntryHistory 的自动生成类参考。"
 ### DeleteOutdatedLogs
 `public void DeleteOutdatedLogs()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete outdated logs」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LogEntryHistory 实例

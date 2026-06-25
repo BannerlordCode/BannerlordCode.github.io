@@ -35,7 +35,7 @@ description: "GauntletOrderUIHandler 的自动生成类参考。"
 ### SelectFormationAtIndex
 `public virtual void SelectFormationAtIndex(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select formation at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletOrderUIHandler 实例
@@ -46,7 +46,7 @@ gauntletOrderUIHandler.SelectFormationAtIndex(0);
 ### DeselectFormationAtIndex
 `public virtual void DeselectFormationAtIndex(int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deselect formation at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletOrderUIHandler 实例

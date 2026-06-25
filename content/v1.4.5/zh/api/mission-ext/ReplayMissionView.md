@@ -45,7 +45,7 @@ replayMissionView.OnPreMissionTick(0);
 ### OverrideInput
 `public void OverrideInput(bool isOverridden)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「override input」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -67,7 +67,7 @@ replayMissionView.ResetReplay();
 ### Rewind
 `public void Rewind(float time)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rewind」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -78,7 +78,7 @@ replayMissionView.Rewind(0);
 ### FastForward
 `public void FastForward(float time)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fast forward」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -89,7 +89,7 @@ replayMissionView.FastForward(0);
 ### Pause
 `public void Pause()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pause」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例
@@ -100,7 +100,7 @@ replayMissionView.Pause();
 ### Resume
 `public void Resume()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ReplayMissionView 实例

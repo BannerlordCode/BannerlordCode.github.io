@@ -53,7 +53,7 @@ ClientApplicationConfiguration.SetDefaultConfigurationCategory("example");
 ### FillFrom
 `public void FillFrom(string configurationName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientApplicationConfiguration 实例
@@ -64,7 +64,7 @@ clientApplicationConfiguration.FillFrom("example");
 ### FillFrom
 `public void FillFrom(string configurationCategory, string configurationName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClientApplicationConfiguration 实例

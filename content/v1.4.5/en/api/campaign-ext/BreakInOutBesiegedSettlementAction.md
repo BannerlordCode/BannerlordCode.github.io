@@ -39,4 +39,4 @@ BreakInOutBesiegedSettlementAction.ApplyBreakIn(casualties, armyCasualtiesCount,
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

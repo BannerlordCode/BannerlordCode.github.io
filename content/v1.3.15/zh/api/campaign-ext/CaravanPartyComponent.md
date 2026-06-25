@@ -90,7 +90,7 @@ caravanPartyComponent.GetMountAndHarnessVisualIdsForPartyIcon(party, mountString
 ### TransferCaravanOwnership
 `public static void TransferCaravanOwnership(MobileParty caravan, Hero newOwner, Settlement homeSettlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer caravan ownership」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -100,7 +100,7 @@ CaravanPartyComponent.TransferCaravanOwnership(caravan, newOwner, homeSettlement
 ### ChangeHomeSettlement
 `public void ChangeHomeSettlement(Settlement newHomeSettlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change home settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CaravanPartyComponent 实例

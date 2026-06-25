@@ -43,7 +43,7 @@ HeroHelper.GetClosestSettlement(hero);
 ### LordWillConspireWithLord
 `public static bool LordWillConspireWithLord(Hero lord, Hero otherLord, bool suggestingBetrayal)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lord will conspire with lord」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ HeroHelper.LordWillConspireWithLord(lord, otherLord, false);
 ### UnderPlayerCommand
 `public static bool UnderPlayerCommand(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「under player command」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ HeroHelper.GetOccupiedEventReasonText(hero);
 ### OrderHeroesOnPlayerSideByPriority
 `public static List<string> OrderHeroesOnPlayerSideByPriority(bool includeArmyLeader = false, bool includePlayerCompanions = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「order heroes on player side by priority」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ HeroHelper.OrderHeroesOnPlayerSideByPriority(false, false);
 ### WillLordAttack
 `public static bool WillLordAttack()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「will lord attack」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ HeroHelper.SetPlayerSalutation();
 ### SpawnHeroForTheFirstTime
 `public static void SpawnHeroForTheFirstTime(Hero hero, Settlement spawnSettlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn hero for the first time」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ HeroHelper.SpawnHeroForTheFirstTime(hero, spawnSettlement);
 ### DefaultRelation
 `public static int DefaultRelation(Hero hero, Hero otherHero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「default relation」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ HeroHelper.IsCompanionInPlayerParty(hero);
 ### NPCPoliticalDifferencesWithNPC
 `public static bool NPCPoliticalDifferencesWithNPC(Hero firstNPC, Hero secondNPC)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「npc political differences with npc」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ HeroHelper.NPCPoliticalDifferencesWithNPC(firstNPC, secondNPC);
 ### NPCPersonalityClashWithNPC
 `public static int NPCPersonalityClashWithNPC(Hero firstNPC, Hero secondNPC)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「npc personality clash with npc」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ HeroHelper.NPCPersonalityClashWithNPC(firstNPC, secondNPC);
 ### TraitHarmony
 `public static int TraitHarmony(Hero considerer, TraitObject trait, Hero consideree, bool sensitive)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「trait harmony」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ HeroHelper.SetPropertiesToTextObject(settlement, textObject, "example");
 ### HeroCanRecruitFromHero
 `public static bool HeroCanRecruitFromHero(Hero buyerHero, Hero sellerHero, int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hero can recruit from hero」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -74,7 +74,7 @@ var result = questItemSortControllerVM.Compare(first, second);
 ### SortByOption
 `public void SortByOption(QuestItemSortOption sortOption)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort by option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestItemSortControllerVM 实例

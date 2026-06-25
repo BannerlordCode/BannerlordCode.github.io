@@ -53,7 +53,7 @@ description: "MissionAgentSpawnLogic 的自动生成类参考。"
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentSpawnLogic 实例
@@ -306,7 +306,7 @@ missionAgentSpawnLogic.GetTeamFormationsSpawnData("team", });
 ### ReserveTroops
 `public void ReserveTroops(int number)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentSpawnLogic 实例
@@ -350,7 +350,7 @@ var result = missionAgentSpawnLogic.GetAllTroops();
 ### SpawnTroops
 `public int SpawnTroops(int number, bool isReinforcement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentSpawnLogic 实例

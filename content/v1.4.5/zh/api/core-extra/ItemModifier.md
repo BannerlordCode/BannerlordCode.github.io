@@ -87,7 +87,7 @@ var result = itemModifier.GetHashCode();
 ### ModifyDamage
 `public int ModifyDamage(int baseDamage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify damage」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -98,7 +98,7 @@ var result = itemModifier.ModifyDamage(0);
 ### ModifySpeed
 `public int ModifySpeed(int baseSpeed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify speed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -109,7 +109,7 @@ var result = itemModifier.ModifySpeed(0);
 ### ModifyMountSpeed
 `public int ModifyMountSpeed(int baseSpeed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify mount speed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -120,7 +120,7 @@ var result = itemModifier.ModifyMountSpeed(0);
 ### ModifyMountManeuver
 `public int ModifyMountManeuver(int baseManeuver)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify mount maneuver」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -131,7 +131,7 @@ var result = itemModifier.ModifyMountManeuver(0);
 ### ModifyMountCharge
 `public int ModifyMountCharge(int baseCharge)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify mount charge」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -142,7 +142,7 @@ var result = itemModifier.ModifyMountCharge(0);
 ### ModifyMountHitPoints
 `public int ModifyMountHitPoints(int baseCharge)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify mount hit points」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -153,7 +153,7 @@ var result = itemModifier.ModifyMountHitPoints(0);
 ### ModifyMissileSpeed
 `public int ModifyMissileSpeed(int baseSpeed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify missile speed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -164,7 +164,7 @@ var result = itemModifier.ModifyMissileSpeed(0);
 ### ModifyArmor
 `public int ModifyArmor(int armorValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify armor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -175,7 +175,7 @@ var result = itemModifier.ModifyArmor(0);
 ### ModifyHitPoints
 `public short ModifyHitPoints(short baseHitPoints)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify hit points」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例
@@ -186,7 +186,7 @@ var result = itemModifier.ModifyHitPoints(0);
 ### ModifyStackCount
 `public short ModifyStackCount(short baseStackCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「modify stack count」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ItemModifier 实例

@@ -143,7 +143,7 @@ PartyScreenHelper.OpenScreenAsDonatePrisoners();
 ### DonatePrisonerTransferableDelegate
 `public static bool DonatePrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「donate prisoner transferable delegate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ PartyScreenHelper.OpenScreenAsManagePrisoners();
 ### TroopTransferableDelegate
 `public static bool TroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase leftOwnerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「troop transferable delegate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ PartyScreenHelper.TroopTransferableDelegate(character, type, side, leftOwnerPart
 ### ClanManageTroopAndPrisonerTransferableDelegate
 `public static bool ClanManageTroopAndPrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clan manage troop and prisoner transferable delegate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ PartyScreenHelper.ClanManageTroopAndPrisonerTransferableDelegate(character, type
 ### ClanManageTroopTransferableDelegate
 `public static bool ClanManageTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clan manage troop transferable delegate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ PartyScreenHelper.ClanManageTroopTransferableDelegate(character, type, side, lef
 ### DonateModeTroopTransferableDelegate
 `public static bool DonateModeTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「donate mode troop transferable delegate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

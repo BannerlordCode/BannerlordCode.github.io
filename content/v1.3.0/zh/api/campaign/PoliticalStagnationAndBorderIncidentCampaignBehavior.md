@@ -45,7 +45,7 @@ politicalStagnationAndBorderIncidentCampaignBehavior.SyncData(dataStore);
 ### HourlyTickSettlement
 `public void HourlyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PoliticalStagnationAndBorderIncidentCampaignBehavior 实例
@@ -56,7 +56,7 @@ politicalStagnationAndBorderIncidentCampaignBehavior.HourlyTickSettlement(settle
 ### DailyTick
 `public void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 PoliticalStagnationAndBorderIncidentCampaignBehavior 实例

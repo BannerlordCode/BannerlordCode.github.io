@@ -128,16 +128,16 @@ entity.SetMeshWithMaterial("my_mesh", "my_material");
 
 ## Related Documentation
 
-- [XML Reference](../xml-reference/)
-- [MBObjectManager API](../api/campaign-ext/MBObjectManager/)
-- [Engine Utilities](../api/engine/Utilities/)
+- [XML Reference](../../xml-reference/)
+- [MBObjectManager API](../../api/campaign-ext/MBObjectManager/)
+- [Engine Utilities](../../api/engine/Utilities/)
 
 ---
 
 ## Next Section
 
-- [Localization](localization/) - Multi-language support
-- [Common Patterns](common-patterns/) - Best practices
+- [Localization](../localization/) - Multi-language support
+- [Common Patterns](../common-patterns/) - Best practices
 
 ## Usage Example
 

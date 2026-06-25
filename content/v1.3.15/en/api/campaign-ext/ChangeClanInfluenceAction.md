@@ -31,4 +31,4 @@ ChangeClanInfluenceAction.Apply(clan, 100);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

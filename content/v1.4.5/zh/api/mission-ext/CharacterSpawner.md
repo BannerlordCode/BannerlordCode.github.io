@@ -52,7 +52,7 @@ characterSpawner.SetClothColors(0, 0);
 ### SpawnCharacter
 `public void SpawnCharacter()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CharacterSpawner 实例

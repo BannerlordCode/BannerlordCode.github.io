@@ -45,7 +45,7 @@ description: "CampaignObjectManager 的自动生成类参考。"
 ### PreAfterLoad
 `public void PreAfterLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pre after load」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignObjectManager 实例
@@ -56,7 +56,7 @@ campaignObjectManager.PreAfterLoad();
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「load」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignObjectManager 实例

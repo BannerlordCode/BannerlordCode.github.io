@@ -31,4 +31,4 @@ DisableHeroAction.Apply(hero);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

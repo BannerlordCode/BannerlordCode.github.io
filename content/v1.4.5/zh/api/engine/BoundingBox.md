@@ -29,7 +29,7 @@ description: "BoundingBox 的自动生成类参考。"
 ### RelaxMinMaxWithPoint
 `public void RelaxMinMaxWithPoint(in Vec3 point)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax min max with point」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -40,7 +40,7 @@ boundingBox.RelaxMinMaxWithPoint(point);
 ### RelaxMinMaxWithPointAndRadius
 `public void RelaxMinMaxWithPointAndRadius(in Vec3 point, float radius)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax min max with point and radius」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -84,7 +84,7 @@ var result = boundingBox.GetTransformedTipPointsToChild(childFrame);
 ### RelaxWithBoundingBox
 `public void RelaxWithBoundingBox(BoundingBox modifiedBoundingBox)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax with bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -95,7 +95,7 @@ boundingBox.RelaxWithBoundingBox(modifiedBoundingBox);
 ### RelaxWithArbitraryBoundingBox
 `public void RelaxWithArbitraryBoundingBox(BoundingBox otherBoundingBox, MatrixFrame otherGlobalFrame, MatrixFrame globalFrameOfThisBoundingBox)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax with arbitrary bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -106,7 +106,7 @@ boundingBox.RelaxWithArbitraryBoundingBox(otherBoundingBox, otherGlobalFrame, gl
 ### RelaxWithChildBoundingBox
 `public void RelaxWithChildBoundingBox(BoundingBox childBoundingBox, MatrixFrame childFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「relax with child bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -117,7 +117,7 @@ boundingBox.RelaxWithChildBoundingBox(childBoundingBox, childFrame);
 ### BeginRelaxation
 `public void BeginRelaxation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin relaxation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -128,7 +128,7 @@ boundingBox.BeginRelaxation();
 ### ArrangeWithAnotherBoundingBox
 `public static bool ArrangeWithAnotherBoundingBox(ref BoundingBox boundingBox, BoundingBox otherBoundingBox, float changeAmount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「arrange with another bounding box」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -138,7 +138,7 @@ BoundingBox.ArrangeWithAnotherBoundingBox(boundingBox, otherBoundingBox, 0);
 ### PointInsideBox
 `public bool PointInsideBox(Vec3 point, float epsilon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「point inside box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例
@@ -159,7 +159,7 @@ BoundingBox.GetLongestHalfDimensionOfBoundingBox(boundingBox);
 ### RenderBoundingBox
 `public void RenderBoundingBox()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render bounding box」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoundingBox 实例

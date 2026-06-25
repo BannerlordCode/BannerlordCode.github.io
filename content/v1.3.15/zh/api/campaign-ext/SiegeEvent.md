@@ -156,7 +156,7 @@ siegeEvent.OnBeforeSiegeEventEnd(winnerSide, battleType);
 ### FinalizeSiegeEvent
 `public void FinalizeSiegeEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize siege event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -189,7 +189,7 @@ siegeEvent.SetPositionAfterMapChange(newPosition);
 ### DoSiegeAction
 `public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do siege action」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -200,7 +200,7 @@ siegeEvent.DoSiegeAction(siegeEventSide, siegeAction, siegeEngineType, 0, 0);
 ### AdvanceStrategy
 `public void AdvanceStrategy(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「advance strategy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -211,7 +211,7 @@ siegeEvent.AdvanceStrategy(siegeEventSide);
 ### BreakSiegeEngine
 `public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「break siege engine」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -277,7 +277,7 @@ var result = siegeEvent.ToString();
 ### ConstructionTick
 `public void ConstructionTick(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「construction」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -288,7 +288,7 @@ siegeEvent.ConstructionTick(siegeEventSide);
 ### BombardTick
 `public void BombardTick(ISiegeEventSide siegeEventSide)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「bombard」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -310,7 +310,7 @@ siegeEvent.FindAttackableRangedEngineWithHighestPriority(siegeEventSide, 0, targ
 ### Hold
 `public void Hold()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hold」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -321,7 +321,7 @@ siegeEvent.Hold();
 ### Reload
 `public void Reload()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -387,7 +387,7 @@ siegeEvent.SetRangedSiegeEngine(rangedSiegeEngine);
 ### AllSiegeEngines
 `public IEnumerable<SiegeEvent.SiegeEngineConstructionProgress> AllSiegeEngines()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「all siege engines」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例
@@ -409,7 +409,7 @@ siegeEvent.AddPrebuiltEngineToReserve(siegeEngine);
 ### DeploySiegeEngineAtIndex
 `public void DeploySiegeEngineAtIndex(SiegeEvent.SiegeEngineConstructionProgress siegeEngine, int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deploy siege engine at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeEvent 实例

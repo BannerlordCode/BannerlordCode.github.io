@@ -54,7 +54,7 @@ factoredNumber.AddFactor(0);
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「limit min」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例
@@ -65,7 +65,7 @@ factoredNumber.LimitMin(0);
 ### LimitMax
 `public void LimitMax(float maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「limit max」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例
@@ -76,7 +76,7 @@ factoredNumber.LimitMax(0);
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 FactoredNumber 实例

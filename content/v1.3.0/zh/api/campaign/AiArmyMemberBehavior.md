@@ -45,7 +45,7 @@ aiArmyMemberBehavior.SyncData(dataStore);
 ### AiHourlyTick
 `public void AiHourlyTick(MobileParty mobileParty, PartyThinkParams p)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「ai hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 AiArmyMemberBehavior 实例

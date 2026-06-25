@@ -116,7 +116,7 @@ uIContext.Update(0);
 ### LateUpdate
 `public void LateUpdate(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「late update」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -127,7 +127,7 @@ uIContext.LateUpdate(0);
 ### RenderTick
 `public void RenderTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「render」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -160,7 +160,7 @@ uIContext.OnOnScreenKeyboardCanceled();
 ### HitTest
 `public bool HitTest(Widget root, Vector2 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -171,7 +171,7 @@ var result = uIContext.HitTest(root, position);
 ### HitTest
 `public bool HitTest(Widget root)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -182,7 +182,7 @@ var result = uIContext.HitTest(root);
 ### FocusTest
 `public bool FocusTest(Widget root)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「focus test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -237,7 +237,7 @@ uIContext.OnMovieReleased("example");
 ### DrawWidgetDebugInfo
 `public void DrawWidgetDebugInfo()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「draw widget debug info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例
@@ -248,7 +248,7 @@ uIContext.DrawWidgetDebugInfo();
 ### DebugDraw
 `public void DebugDraw()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「debug draw」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 UIContext 实例

@@ -107,7 +107,7 @@ var result = segment.AddCompatibleSnippet(snippet, 0);
 ### PropertyDifferencesAffectCompatibilities
 `public override bool PropertyDifferencesAffectCompatibilities(PsaiMusicEntity otherEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「property differences affect compatibilities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Segment 实例

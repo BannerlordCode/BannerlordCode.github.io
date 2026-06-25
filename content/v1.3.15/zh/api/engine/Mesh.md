@@ -307,7 +307,7 @@ var result = mesh.GetFaceCornerCount();
 ### ComputeNormals
 `public void ComputeNormals()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute normals」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -318,7 +318,7 @@ mesh.ComputeNormals();
 ### ComputeTangents
 `public void ComputeTangents()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute tangents」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -472,7 +472,7 @@ mesh.AddTriangleWithVertexColors(p1, p2, p3, uv1, uv2, uv3, 0, 0, 0, lockHandle)
 ### HintIndicesDynamic
 `public void HintIndicesDynamic()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hint indices dynamic」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -483,7 +483,7 @@ mesh.HintIndicesDynamic();
 ### HintVerticesDynamic
 `public void HintVerticesDynamic()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hint vertices dynamic」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -527,7 +527,7 @@ var result = mesh.GetEditDataFaceCornerVertexColor(0);
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload for rendering」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -549,7 +549,7 @@ mesh.SetContourColor(color, false, false);
 ### DisableContour
 `public void DisableContour()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable contour」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -582,7 +582,7 @@ mesh.AddEditDataUser();
 ### ReleaseEditDataUser
 `public void ReleaseEditDataUser()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release edit data user」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -604,7 +604,7 @@ mesh.SetEditDataPolicy(policy);
 ### LockEditDataWrite
 `public UIntPtr LockEditDataWrite()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「lock edit data write」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例
@@ -615,7 +615,7 @@ var result = mesh.LockEditDataWrite();
 ### UnlockEditDataWrite
 `public void UnlockEditDataWrite(UIntPtr handle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unlock edit data write」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Mesh 实例

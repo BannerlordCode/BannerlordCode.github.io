@@ -47,7 +47,7 @@ canvasObject.Update(0);
 ### BeginMeasure
 `public void BeginMeasure(bool fixedWidth, bool fixedHeight, float width, float height)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin measure」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -58,7 +58,7 @@ canvasObject.BeginMeasure(false, false, 0, 0);
 ### DoMeasure
 `public void DoMeasure()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do measure」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -69,7 +69,7 @@ canvasObject.DoMeasure();
 ### DoLayout
 `public void DoLayout()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do layout」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例
@@ -91,7 +91,7 @@ var result = canvasObject.GetMarginSize();
 ### DoRender
 `public void DoRender(Vector2 globalPosition, TwoDimensionDrawContext drawContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do render」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CanvasObject 实例

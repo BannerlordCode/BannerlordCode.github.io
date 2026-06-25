@@ -60,7 +60,7 @@ workshop.InitializeWorkshop(owner, type);
 ### ChangeOwnerOfWorkshop
 `public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change owner of workshop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -71,7 +71,7 @@ workshop.ChangeOwnerOfWorkshop(newOwner, type, 0);
 ### ChangeWorkshopProduction
 `public void ChangeWorkshopProduction(WorkshopType newWorkshopType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change workshop production」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例
@@ -115,7 +115,7 @@ workshop.SetProgress(0, 0);
 ### ChangeGold
 `public void ChangeGold(int goldChange)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change gold」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Workshop 实例

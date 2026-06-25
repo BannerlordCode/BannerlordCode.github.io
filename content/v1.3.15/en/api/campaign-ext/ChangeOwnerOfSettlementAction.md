@@ -87,4 +87,4 @@ ChangeOwnerOfSettlementAction.ApplyByDefault(hero, settlement);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

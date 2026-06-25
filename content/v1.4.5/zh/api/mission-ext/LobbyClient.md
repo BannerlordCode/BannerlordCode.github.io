@@ -66,7 +66,7 @@ description: "LobbyClient 的自动生成类参考。"
 ### Logout
 `public void Logout(TextObject logOutReason)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「logout」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -99,7 +99,7 @@ var result = lobbyClient.GetCustomGameServerList();
 ### QuitFromCustomGame
 `public void QuitFromCustomGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quit from custom game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -110,7 +110,7 @@ lobbyClient.QuitFromCustomGame();
 ### QuitFromMatchmakerGame
 `public void QuitFromMatchmakerGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quit from matchmaker game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -121,7 +121,7 @@ lobbyClient.QuitFromMatchmakerGame();
 ### RequestJoinCustomGame
 `public async Task<bool> RequestJoinCustomGame(CustomBattleId serverId, string password, bool isJoinAsAdmin = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request join custom game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -132,7 +132,7 @@ var result = lobbyClient.RequestJoinCustomGame(serverId, "example", false);
 ### RequestJoinPlayerParty
 `public async Task<bool> RequestJoinPlayerParty(PlayerId targetPlayer, bool inviteRequest)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request join player party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -176,7 +176,7 @@ var result = lobbyClient.FindCustomGame("example", false, "example");
 ### Connect
 `public async Task<LobbyClientConnectResult> Connect(ILobbyClientSessionHandler lobbyClientSessionHandler, ILoginAccessProvider lobbyClientLoginAccessProvider, string overridenUserName, bool hasUserGeneratedContentPrivilege, PlatformInitParams initParams, Func<Task<bool>> preLoginTask)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「connect」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -187,7 +187,7 @@ var result = lobbyClient.Connect(lobbyClientSessionHandler, lobbyClientLoginAcce
 ### KickPlayer
 `public void KickPlayer(PlayerId id, bool banPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kick player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -198,7 +198,7 @@ lobbyClient.KickPlayer(id, false);
 ### ChangeRegion
 `public void ChangeRegion(string region)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change region」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -209,7 +209,7 @@ lobbyClient.ChangeRegion("example");
 ### ChangeGameTypes
 `public void ChangeGameTypes(string gameTypes)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change game types」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -264,7 +264,7 @@ lobbyClient.RemoveLobbyClientHandler();
 ### SendWhisper
 `public void SendWhisper(string playerName, string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send whisper」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -275,7 +275,7 @@ lobbyClient.SendWhisper("example", "example");
 ### FleeBattle
 `public void FleeBattle()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「flee battle」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -286,7 +286,7 @@ lobbyClient.FleeBattle();
 ### SendPartyMessage
 `public void SendPartyMessage(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send party message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -297,7 +297,7 @@ lobbyClient.SendPartyMessage("example");
 ### RejoinBattle
 `public void RejoinBattle()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rejoin battle」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -319,7 +319,7 @@ lobbyClient.OnBattleResultsSeen();
 ### AcceptClanInvitation
 `public void AcceptClanInvitation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「accept clan invitation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -330,7 +330,7 @@ lobbyClient.AcceptClanInvitation();
 ### DeclineClanInvitation
 `public void DeclineClanInvitation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decline clan invitation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -341,7 +341,7 @@ lobbyClient.DeclineClanInvitation();
 ### MarkNotificationAsRead
 `public void MarkNotificationAsRead(int notificationID)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mark notification as read」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -352,7 +352,7 @@ lobbyClient.MarkNotificationAsRead(0);
 ### AcceptClanCreationRequest
 `public void AcceptClanCreationRequest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「accept clan creation request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -363,7 +363,7 @@ lobbyClient.AcceptClanCreationRequest();
 ### DeclineClanCreationRequest
 `public void DeclineClanCreationRequest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decline clan creation request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -374,7 +374,7 @@ lobbyClient.DeclineClanCreationRequest();
 ### PromoteToClanLeader
 `public void PromoteToClanLeader(PlayerId playerId, bool dontUseNameForUnknownPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「promote to clan leader」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -385,7 +385,7 @@ lobbyClient.PromoteToClanLeader(playerId, false);
 ### KickFromClan
 `public void KickFromClan(PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kick from clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -396,7 +396,7 @@ lobbyClient.KickFromClan(playerId);
 ### ClanNameExists
 `public async Task<CheckClanParameterValidResult> ClanNameExists(string clanName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clan name exists」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -407,7 +407,7 @@ var result = lobbyClient.ClanNameExists("example");
 ### ClanTagExists
 `public async Task<CheckClanParameterValidResult> ClanTagExists(string clanTag)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clan tag exists」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -429,7 +429,7 @@ var result = lobbyClient.GetClanHomeInfo();
 ### AssignAsClanOfficer
 `public void AssignAsClanOfficer(PlayerId playerId, bool dontUseNameForUnknownPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign as clan officer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -473,7 +473,7 @@ var result = lobbyClient.GetPlayerClanInfo(playerId);
 ### SendClanMessage
 `public void SendClanMessage(string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send clan message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -539,7 +539,7 @@ lobbyClient.AddClanAnnouncement("example");
 ### EditClanAnnouncement
 `public void EditClanAnnouncement(int announcementId, string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「edit clan announcement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -561,7 +561,7 @@ lobbyClient.RemoveClanAnnouncement(0);
 ### ChangeClanFaction
 `public void ChangeClanFaction(string faction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change clan faction」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -572,7 +572,7 @@ lobbyClient.ChangeClanFaction("example");
 ### ChangeClanSigil
 `public void ChangeClanSigil(string sigil)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change clan sigil」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -583,7 +583,7 @@ lobbyClient.ChangeClanSigil("example");
 ### DestroyClan
 `public void DestroyClan()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -594,7 +594,7 @@ lobbyClient.DestroyClan();
 ### InviteToClan
 `public void InviteToClan(PlayerId invitedPlayerId, bool dontUseNameForUnknownPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invite to clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -627,7 +627,7 @@ lobbyClient.CancelCreatingPremadeGame();
 ### RequestToJoinPremadeGame
 `public void RequestToJoinPremadeGame(Guid gameId, string password)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request to join premade game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -638,7 +638,7 @@ lobbyClient.RequestToJoinPremadeGame(gameId, "example");
 ### AcceptJoinPremadeGameRequest
 `public void AcceptJoinPremadeGameRequest(Guid partyId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「accept join premade game request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -649,7 +649,7 @@ lobbyClient.AcceptJoinPremadeGameRequest(partyId);
 ### DeclineJoinPremadeGameRequest
 `public void DeclineJoinPremadeGameRequest(Guid partyId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decline join premade game request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -660,7 +660,7 @@ lobbyClient.DeclineJoinPremadeGameRequest(partyId);
 ### InviteToParty
 `public void InviteToParty(PlayerId playerId, bool dontUseNameForUnknownPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invite to party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -671,7 +671,7 @@ lobbyClient.InviteToParty(playerId, false);
 ### DisbandParty
 `public void DisbandParty()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disband party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -682,7 +682,7 @@ lobbyClient.DisbandParty();
 ### KickPlayerFromParty
 `public void KickPlayerFromParty(PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kick player from party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -704,7 +704,7 @@ lobbyClient.OnPlayerNameUpdated("example");
 ### ToggleUseClanSigil
 `public void ToggleUseClanSigil(bool isUsed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle use clan sigil」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -715,7 +715,7 @@ lobbyClient.ToggleUseClanSigil(false);
 ### PromotePlayerToPartyLeader
 `public void PromotePlayerToPartyLeader(PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「promote player to party leader」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -726,7 +726,7 @@ lobbyClient.PromotePlayerToPartyLeader(playerId);
 ### ChangeSigil
 `public void ChangeSigil(string sigilId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change sigil」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -737,7 +737,7 @@ lobbyClient.ChangeSigil("example");
 ### InviteToPlatformSession
 `public async Task<bool> InviteToPlatformSession(PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invite to platform session」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -748,7 +748,7 @@ var result = lobbyClient.InviteToPlatformSession(playerId);
 ### EndCustomGame
 `public async void EndCustomGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end custom game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -781,7 +781,7 @@ lobbyClient.UpdateCustomGameData("example", "example", 0);
 ### ResponseCustomGameClientConnection
 `public void ResponseCustomGameClientConnection(PlayerJoinGameResponseDataFromHost playerJoinData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「response custom game client connection」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -792,7 +792,7 @@ lobbyClient.ResponseCustomGameClientConnection(playerJoinData);
 ### AcceptPartyInvitation
 `public void AcceptPartyInvitation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「accept party invitation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -803,7 +803,7 @@ lobbyClient.AcceptPartyInvitation();
 ### DeclinePartyInvitation
 `public void DeclinePartyInvitation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decline party invitation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -814,7 +814,7 @@ lobbyClient.DeclinePartyInvitation();
 ### AcceptPartyJoinRequest
 `public void AcceptPartyJoinRequest(PlayerId playerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「accept party join request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -825,7 +825,7 @@ lobbyClient.AcceptPartyJoinRequest(playerId);
 ### DeclinePartyJoinRequest
 `public void DeclinePartyJoinRequest(PlayerId playerId, PartyJoinDeclineReason reason)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「decline party join request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -957,7 +957,7 @@ var result = lobbyClient.GetRankedLeaderboard("example", 0, 0);
 ### SendCreateClanMessage
 `public void SendCreateClanMessage(string clanName, string clanTag, string clanFaction, string clanSigil)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send create clan message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -1001,7 +1001,7 @@ lobbyClient.RemoveFriend(friendId);
 ### RespondToFriendRequest
 `public void RespondToFriendRequest(PlayerId playerId, bool dontUseNameForUnknownPlayer, bool isAccepted, bool isBlocked = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「respond to friend request」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -1012,7 +1012,7 @@ lobbyClient.RespondToFriendRequest(playerId, false, false, false);
 ### ReportPlayer
 `public void ReportPlayer(string gameId, PlayerId player, string playerName, PlayerReportType type, string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「report player」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -1023,7 +1023,7 @@ lobbyClient.ReportPlayer("example", player, "example", type, "example");
 ### ChangeUsername
 `public void ChangeUsername(string username)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change username」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -1144,7 +1144,7 @@ var result = lobbyClient.GetPingToServer("example");
 ### SendPSPlayerJoinedToPlayerSessionMessage
 `public async Task<bool> SendPSPlayerJoinedToPlayerSessionMessage(ulong inviterPlayerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send ps player joined to player session message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例
@@ -1155,7 +1155,7 @@ var result = lobbyClient.SendPSPlayerJoinedToPlayerSessionMessage(0);
 ### SendPlatformPlayerJoinedToPlayerSessionMessage
 `public async Task<bool> SendPlatformPlayerJoinedToPlayerSessionMessage(PlayerId inviterPlayerId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send platform player joined to player session message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyClient 实例

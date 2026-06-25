@@ -23,7 +23,7 @@ description: "BannerlordTableauManager 的自动生成类参考。"
 ### RequestCharacterTableauSetupDelegate
 `public delegate void RequestCharacterTableauSetupDelegate(int characterCodeId, Scene scene, GameEntity poseEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request character tableau setup delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BannerlordTableauManager 实例
@@ -34,7 +34,7 @@ bannerlordTableauManager.RequestCharacterTableauSetupDelegate(0, scene, poseEnti
 ### RequestCharacterTableauRender
 `public static void RequestCharacterTableauRender(int characterCodeId, string path, GameEntity poseEntity, Camera cameraObject, int tableauType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request character tableau render」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

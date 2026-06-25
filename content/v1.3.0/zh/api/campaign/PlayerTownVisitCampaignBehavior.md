@@ -45,7 +45,7 @@ playerTownVisitCampaignBehavior.SyncData(dataStore);
 ### wait_menu_prisoner_wait_on_init
 `public static void wait_menu_prisoner_wait_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wait_menu_prisoner_wait_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -55,7 +55,7 @@ PlayerTownVisitCampaignBehavior.wait_menu_prisoner_wait_on_init(args);
 ### wait_menu_prisoner_settlement_wait_ui_on_init
 `public static void wait_menu_prisoner_settlement_wait_ui_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wait_menu_prisoner_settlement_wait_ui_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ PlayerTownVisitCampaignBehavior.wait_menu_prisoner_settlement_wait_ui_on_init(ar
 ### wait_menu_prisoner_wait_on_condition
 `public static bool wait_menu_prisoner_wait_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「wait_menu_prisoner_wait_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -75,7 +75,7 @@ PlayerTownVisitCampaignBehavior.wait_menu_prisoner_wait_on_condition(args);
 ### wait_menu_prisoner_wait_on_tick
 `public static void wait_menu_prisoner_wait_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「wait_menu_prisoner_wait_on_」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例
@@ -85,7 +85,7 @@ PlayerTownVisitCampaignBehavior.wait_menu_prisoner_wait_on_tick(args, dt);
 ### wait_menu_settlement_wait_on_tick
 `public static void wait_menu_settlement_wait_on_tick(MenuCallbackArgs args, CampaignTime dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「wait_menu_settlement_wait_on_」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例
@@ -95,7 +95,7 @@ PlayerTownVisitCampaignBehavior.wait_menu_settlement_wait_on_tick(args, dt);
 ### game_menu_town_manage_town_on_condition
 `public static bool game_menu_town_manage_town_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「game_menu_town_manage_town_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -105,7 +105,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_manage_town_on_condition(args);
 ### game_menu_town_manage_town_cheat_on_condition
 `public static bool game_menu_town_manage_town_cheat_on_condition(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「game_menu_town_manage_town_cheat_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -115,7 +115,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_manage_town_cheat_on_condition(ar
 ### settlement_player_unconscious_continue_on_consequence
 `public static void settlement_player_unconscious_continue_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「settlement_player_unconscious_continue_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -125,7 +125,7 @@ PlayerTownVisitCampaignBehavior.settlement_player_unconscious_continue_on_conseq
 ### game_menu_town_menu_on_init
 `public static void game_menu_town_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -135,7 +135,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_on_init(args);
 ### game_menu_town_menu_arena_on_init
 `public static void game_menu_town_menu_arena_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_arena_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -145,7 +145,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_arena_on_init(args);
 ### game_menu_village_menu_on_init
 `public static void game_menu_village_menu_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_village_menu_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -155,7 +155,7 @@ PlayerTownVisitCampaignBehavior.game_menu_village_menu_on_init(args);
 ### game_menu_town_menu_keep_on_init
 `public static void game_menu_town_menu_keep_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_keep_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -165,7 +165,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_keep_on_init(args);
 ### game_menu_ui_town_manage_town_on_consequence
 `public static void game_menu_ui_town_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_ui_town_manage_town_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -175,7 +175,7 @@ PlayerTownVisitCampaignBehavior.game_menu_ui_town_manage_town_on_consequence(arg
 ### game_menu_ui_town_castle_manage_town_on_consequence
 `public static void game_menu_ui_town_castle_manage_town_on_consequence(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_ui_town_castle_manage_town_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -185,7 +185,7 @@ PlayerTownVisitCampaignBehavior.game_menu_ui_town_castle_manage_town_on_conseque
 ### game_menu_town_menu_backstreet_sound_on_init
 `public static void game_menu_town_menu_backstreet_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_backstreet_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -195,7 +195,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_backstreet_sound_on_init(arg
 ### game_menu_town_menu_keep_sound_on_init
 `public static void game_menu_town_menu_keep_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_keep_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -205,7 +205,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_keep_sound_on_init(args);
 ### game_menu_town_menu_sound_on_init
 `public static void game_menu_town_menu_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -215,7 +215,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_sound_on_init(args);
 ### game_menu_town_menu_enter_sound_on_init
 `public static void game_menu_town_menu_enter_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_town_menu_enter_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -225,7 +225,7 @@ PlayerTownVisitCampaignBehavior.game_menu_town_menu_enter_sound_on_init(args);
 ### game_menu_village_menu_sound_on_init
 `public static void game_menu_village_menu_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_village_menu_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -235,7 +235,7 @@ PlayerTownVisitCampaignBehavior.game_menu_village_menu_sound_on_init(args);
 ### game_menu_village__enter_menu_sound_on_init
 `public static void game_menu_village__enter_menu_sound_on_init(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「game_menu_village__enter_menu_sound_on_init」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

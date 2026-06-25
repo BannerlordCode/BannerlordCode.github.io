@@ -78,7 +78,7 @@ ScreenManager.OnConstrainStateChanged(false);
 ### ScreenTypeExistsAtList
 `public static bool ScreenTypeExistsAtList(ScreenBase screen)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「screen type exists at list」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -128,7 +128,7 @@ ScreenManager.Tick(0);
 ### LateTick
 `public static void LateTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「late」 状态的周期性更新。
 
 ```csharp
 // 静态调用，不需要实例
@@ -178,7 +178,7 @@ ScreenManager.OnGameWindowFocusChange(false);
 ### ReplaceTopScreen
 `public static void ReplaceTopScreen(ScreenBase screen)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「replace top screen」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -208,7 +208,7 @@ ScreenManager.SetAndActivateRootScreen(screen);
 ### CleanAndPushScreen
 `public static void CleanAndPushScreen(ScreenBase screen)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clean and push screen」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -248,7 +248,7 @@ ScreenManager.ApplyCustomBattleLayout(args);
 ### PushScreen
 `public static void PushScreen(ScreenBase screen)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「push screen」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -258,7 +258,7 @@ ScreenManager.PushScreen(screen);
 ### PopScreen
 `public static void PopScreen()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pop screen」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -268,7 +268,7 @@ ScreenManager.PopScreen();
 ### CleanScreens
 `public static void CleanScreens()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clean screens」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -288,7 +288,7 @@ ScreenManager.Update(lastKeysPressed);
 ### EarlyUpdate
 `public static void EarlyUpdate(Vec2 usableArea)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「early update」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

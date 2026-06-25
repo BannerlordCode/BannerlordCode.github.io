@@ -78,7 +78,7 @@ var result = spawnedItemEntity.GetTickRequirement();
 ### AttachWeaponToWeapon
 `public void AttachWeaponToWeapon(MissionWeapon attachedWeapon, ref MatrixFrame attachLocalFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach weapon to weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnedItemEntity 实例
@@ -188,7 +188,7 @@ spawnedItemEntity.StopPhysicsAndSetFrameForClient(frame, parent);
 ### ConsumeWeaponAmount
 `public void ConsumeWeaponAmount(short consumedAmount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「consume weapon amount」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnedItemEntity 实例
@@ -210,7 +210,7 @@ var result = spawnedItemEntity.GetDescriptionText(gameEntity);
 ### RequestDeletionOnNextTick
 `public void RequestDeletionOnNextTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「request deletion on next」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnedItemEntity 实例

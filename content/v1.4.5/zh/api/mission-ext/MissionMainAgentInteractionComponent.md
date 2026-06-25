@@ -30,7 +30,7 @@ description: "MissionMainAgentInteractionComponent 的自动生成类参考。"
 ### MissionFocusGainedEventDelegate
 `public delegate void MissionFocusGainedEventDelegate(Agent agent, IFocusable focusableObject, bool isInteractable)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission focus gained event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -41,7 +41,7 @@ missionMainAgentInteractionComponent.MissionFocusGainedEventDelegate(agent, focu
 ### MissionFocusLostEventDelegate
 `public delegate void MissionFocusLostEventDelegate(Agent agent, IFocusable focusableObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission focus lost event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -52,7 +52,7 @@ missionMainAgentInteractionComponent.MissionFocusLostEventDelegate(agent, focusa
 ### MissionFocusHealthChangeDelegate
 `public delegate void MissionFocusHealthChangeDelegate(IFocusable focusable, float healthPercentage, bool hideHealthbarWhenFull)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission focus health change delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -96,7 +96,7 @@ missionMainAgentInteractionComponent.OnClearScene();
 ### FocusTick
 `public void FocusTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「focus」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -107,7 +107,7 @@ missionMainAgentInteractionComponent.FocusTick();
 ### FocusStateCheckTick
 `public void FocusStateCheckTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「focus state check」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例
@@ -118,7 +118,7 @@ missionMainAgentInteractionComponent.FocusStateCheckTick();
 ### FocusedItemHealthTick
 `public void FocusedItemHealthTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「focused item health」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionMainAgentInteractionComponent 实例

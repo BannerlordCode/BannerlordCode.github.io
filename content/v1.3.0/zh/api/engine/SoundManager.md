@@ -133,7 +133,7 @@ SoundManager.AddSoundClientWithId(0);
 ### DeleteSoundClientWithId
 `public static void DeleteSoundClientWithId(ulong clientId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete sound client with id」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ SoundManager.CreateVoiceEvent();
 ### DestroyVoiceEvent
 `public static void DestroyVoiceEvent(int id)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy voice event」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ SoundManager.DestroyVoiceEvent(0);
 ### FinalizeVoicePlayEvent
 `public static void FinalizeVoicePlayEvent()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize voice play event」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -313,7 +313,7 @@ SoundManager.RemoveXBOXRemoteUser(0);
 ### ProcessDataToBeReceived
 `public static void ProcessDataToBeReceived(ulong senderDeviceID, byte data, uint dataSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process data to be received」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -323,7 +323,7 @@ SoundManager.ProcessDataToBeReceived(0, 0, 0);
 ### ProcessDataToBeSent
 `public static void ProcessDataToBeSent(ref int numData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process data to be sent」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -373,7 +373,7 @@ SoundManager.ClearDataToBeSent();
 ### CompressData
 `public static void CompressData(int clientID, byte buffer, int length, byte compressedBuffer, out int compressedBufferLength)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「compress data」 数据。
 
 ```csharp
 // 静态调用，不需要实例
@@ -383,7 +383,7 @@ SoundManager.CompressData(0, 0, 0, 0, compressedBufferLength);
 ### DecompressData
 `public static void DecompressData(int clientID, byte compressedBuffer, int compressedBufferLength, byte decompressedBuffer, out int decompressedBufferLength)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「decompress data」 数据。
 
 ```csharp
 // 静态调用，不需要实例

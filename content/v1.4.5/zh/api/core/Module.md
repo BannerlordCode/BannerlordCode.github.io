@@ -37,7 +37,7 @@ description: "Module 的自动生成类参考。"
 ### CollectSubModules
 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect sub modules」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Module 实例
@@ -133,7 +133,7 @@ module.AddInitialStateOption(initialStateOption);
 ### OverrideInitialStateOption
 `public void OverrideInitialStateOption(string id, InitialStateOption newInitialStateOption)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「override initial state option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Module 实例
@@ -254,7 +254,7 @@ var result = module.StartMultiplayerGame("example", "example");
 ### ShutDownWithDelay
 `public async void ShutDownWithDelay(string reason, int seconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shut down with delay」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Module 实例
@@ -265,7 +265,7 @@ module.ShutDownWithDelay("example", 0);
 ### DeactiveModule
 `public void DeactiveModule(string moduleId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「deactive module」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Module 实例

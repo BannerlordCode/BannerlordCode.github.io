@@ -23,7 +23,7 @@ description: "RansomValueCalculationModel 的自动生成类参考。"
 ### PrisonerRansomValue
 `public abstract int PrisonerRansomValue(CharacterObject prisoner, Hero sellerHero = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「prisoner ransom value」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RansomValueCalculationModel 实例

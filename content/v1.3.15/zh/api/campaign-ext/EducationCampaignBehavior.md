@@ -118,7 +118,7 @@ educationCampaignBehavior.OnConsequence(child);
 ### EducationOptionConditionDelegate
 `public delegate bool EducationOptionConditionDelegate(EducationCampaignBehavior.EducationOption option, List<EducationCampaignBehavior.EducationOption> previousOptions)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「education option condition delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCampaignBehavior 实例
@@ -129,7 +129,7 @@ var result = educationCampaignBehavior.EducationOptionConditionDelegate(option, 
 ### EducationOptionConsequenceDelegate
 `public delegate bool EducationOptionConsequenceDelegate(EducationCampaignBehavior.EducationOption option)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「education option consequence delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCampaignBehavior 实例
@@ -173,7 +173,7 @@ var result = educationCampaignBehavior.GetPage(previousOptionKeys);
 ### StringIdToEducationOption
 `public List<EducationCampaignBehavior.EducationOption> StringIdToEducationOption(List<string> previousOptionKeys)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「string id to education option」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCampaignBehavior 实例
@@ -272,7 +272,7 @@ var result = educationCampaignBehavior.GetAvailableOptions(previousEducationOpti
 ### EducationPageConditionDelegate
 `public delegate bool EducationPageConditionDelegate(EducationCampaignBehavior.EducationPage page, List<EducationCampaignBehavior.EducationOption> previousOptions)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「education page condition delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCampaignBehavior 实例

@@ -96,7 +96,7 @@ clanManagementVM.RefreshValues();
 ### SelectHero
 `public void SelectHero(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select hero」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -107,7 +107,7 @@ clanManagementVM.SelectHero(hero);
 ### SelectParty
 `public void SelectParty(PartyBase party)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -118,7 +118,7 @@ clanManagementVM.SelectParty(party);
 ### SelectSettlement
 `public void SelectSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -129,7 +129,7 @@ clanManagementVM.SelectSettlement(settlement);
 ### SelectWorkshop
 `public void SelectWorkshop(Workshop workshop)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select workshop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -140,7 +140,7 @@ clanManagementVM.SelectWorkshop(workshop);
 ### SelectAlley
 `public void SelectAlley(Alley alley)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select alley」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -151,7 +151,7 @@ clanManagementVM.SelectAlley(alley);
 ### SelectPreviousCategory
 `public void SelectPreviousCategory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select previous category」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例
@@ -162,7 +162,7 @@ clanManagementVM.SelectPreviousCategory();
 ### SelectNextCategory
 `public void SelectNextCategory()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select next category」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ClanManagementVM 实例

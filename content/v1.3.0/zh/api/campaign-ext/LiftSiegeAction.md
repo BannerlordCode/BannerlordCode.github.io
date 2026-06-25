@@ -31,4 +31,4 @@ LiftSiegeAction.GetGameAction(side1Party);
 ## 参见
 
 - [本区域目录](../)
-- [战役系统](../campaign/)
+- [战役系统](../../campaign/)

@@ -66,7 +66,7 @@ var result = tournamentBehavior.GetAllPossibleParticipants();
 ### DeleteTournamentSetsExcept
 `public static void DeleteTournamentSetsExcept(GameEntity selectedSetEntity)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete tournament sets except」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -76,7 +76,7 @@ TournamentBehavior.DeleteTournamentSetsExcept(selectedSetEntity);
 ### DeleteAllTournamentSets
 `public static void DeleteAllTournamentSets()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「delete all tournament sets」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -86,7 +86,7 @@ TournamentBehavior.DeleteAllTournamentSets();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentBehavior 实例
@@ -119,7 +119,7 @@ tournamentBehavior.StartMatch();
 ### SkipMatch
 `public void SkipMatch(bool isLeave = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skip match」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentBehavior 实例
@@ -130,7 +130,7 @@ tournamentBehavior.SkipMatch(false);
 ### EndTournamentViaLeave
 `public void EndTournamentViaLeave()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end tournament via leave」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentBehavior 实例
@@ -152,7 +152,7 @@ var result = tournamentBehavior.OnEndMissionRequest(canPlayerLeave);
 ### PlaceABet
 `public void PlaceABet(int bet)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「place a bet」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TournamentBehavior 实例

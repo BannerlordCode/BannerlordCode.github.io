@@ -45,7 +45,7 @@ statsAndAchievementsStoreListener.OnUserStatsAndAchievementsStoreSuccess();
 ### UserStatsAndAchievementsStored
 `public delegate void UserStatsAndAchievementsStored(bool success, IStatsAndAchievementsStoreListener.FailureReason? failureReason)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「user stats and achievements stored」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 StatsAndAchievementsStoreListener 实例

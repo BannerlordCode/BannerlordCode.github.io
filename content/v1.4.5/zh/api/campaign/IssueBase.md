@@ -83,7 +83,7 @@ var result = issueBase.GetBaseAlternativeSolutionDurationInDays();
 ### AlternativeSolutionCondition
 `public virtual bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「alternative solution condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -94,7 +94,7 @@ var result = issueBase.AlternativeSolutionCondition(explanation);
 ### AlternativeSolutionStartConsequence
 `public virtual void AlternativeSolutionStartConsequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「alternative solution start consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -105,7 +105,7 @@ issueBase.AlternativeSolutionStartConsequence();
 ### DoTroopsSatisfyAlternativeSolution
 `public virtual bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do troops satisfy alternative solution」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -127,7 +127,7 @@ var result = issueBase.IsTroopTypeNeededByAlternativeSolution(character);
 ### LordSolutionCondition
 `public virtual bool LordSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「lord solution condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -358,7 +358,7 @@ issueBase.IssueFinalized();
 ### CompleteIssueWithQuest
 `public void CompleteIssueWithQuest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with quest」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -369,7 +369,7 @@ issueBase.CompleteIssueWithQuest();
 ### CompleteIssueWithTimedOut
 `public void CompleteIssueWithTimedOut()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with timed out」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -380,7 +380,7 @@ issueBase.CompleteIssueWithTimedOut();
 ### CompleteIssueWithStayAliveConditionsFailed
 `public void CompleteIssueWithStayAliveConditionsFailed()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with stay alive conditions failed」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -391,7 +391,7 @@ issueBase.CompleteIssueWithStayAliveConditionsFailed();
 ### CompleteIssueWithBetrayal
 `public void CompleteIssueWithBetrayal()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with betrayal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -402,7 +402,7 @@ issueBase.CompleteIssueWithBetrayal();
 ### CompleteIssueWithFail
 `public void CompleteIssueWithFail(TextObject log = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with fail」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -413,7 +413,7 @@ issueBase.CompleteIssueWithFail(null);
 ### CompleteIssueWithCancel
 `public void CompleteIssueWithCancel(TextObject log = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with cancel」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -424,7 +424,7 @@ issueBase.CompleteIssueWithCancel(null);
 ### CompleteIssueWithAiLord
 `public void CompleteIssueWithAiLord(Hero issueSolver)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with ai lord」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -446,7 +446,7 @@ issueBase.StartIssueWithLordSolution();
 ### CompleteIssueWithAlternativeSolution
 `public void CompleteIssueWithAlternativeSolution()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with alternative solution」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -457,7 +457,7 @@ issueBase.CompleteIssueWithAlternativeSolution();
 ### CompleteIssueWithLordSolutionWithRefuseCounterOffer
 `public void CompleteIssueWithLordSolutionWithRefuseCounterOffer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with lord solution with refuse counter offer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -468,7 +468,7 @@ issueBase.CompleteIssueWithLordSolutionWithRefuseCounterOffer();
 ### CompleteIssueWithLordSolutionWithAcceptCounterOffer
 `public void CompleteIssueWithLordSolutionWithAcceptCounterOffer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete issue with lord solution with accept counter offer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例
@@ -512,7 +512,7 @@ issueBase.AddTrackedObject(o);
 ### ToggleTrackedObjects
 `public void ToggleTrackedObjects(bool enableTrack)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle tracked objects」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueBase 实例

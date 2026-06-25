@@ -34,7 +34,7 @@ description: "TwoDimensionContext 的自动生成类参考。"
 ### PlaySound
 `public void PlaySound(string soundName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -67,7 +67,7 @@ twoDimensionContext.StopAndRemoveSoundEvent("example");
 ### PlaySoundEvent
 `public void PlaySoundEvent(string soundName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound event」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -78,7 +78,7 @@ twoDimensionContext.PlaySoundEvent("example");
 ### DrawImage
 `public void DrawImage(SimpleMaterial material, in ImageDrawObject drawObject2D, int layer = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw image」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -89,7 +89,7 @@ twoDimensionContext.DrawImage(material, drawObject2D, 0);
 ### DrawText
 `public void DrawText(TextMaterial material, in TextDrawObject drawObject2D, int layer = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw text」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -100,7 +100,7 @@ twoDimensionContext.DrawText(material, drawObject2D, 0);
 ### BeginDebugPanel
 `public void BeginDebugPanel(string panelTitle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin debug panel」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -111,7 +111,7 @@ twoDimensionContext.BeginDebugPanel("example");
 ### EndDebugPanel
 `public void EndDebugPanel()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end debug panel」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -122,7 +122,7 @@ twoDimensionContext.EndDebugPanel();
 ### DrawDebugText
 `public void DrawDebugText(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw debug text」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -133,7 +133,7 @@ twoDimensionContext.DrawDebugText("example");
 ### DrawDebugTreeNode
 `public bool DrawDebugTreeNode(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw debug tree node」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -144,7 +144,7 @@ var result = twoDimensionContext.DrawDebugTreeNode("example");
 ### PopDebugTreeNode
 `public void PopDebugTreeNode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pop debug tree node」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例
@@ -155,7 +155,7 @@ twoDimensionContext.PopDebugTreeNode();
 ### DrawCheckbox
 `public void DrawCheckbox(string label, ref bool isChecked)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw checkbox」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionContext 实例

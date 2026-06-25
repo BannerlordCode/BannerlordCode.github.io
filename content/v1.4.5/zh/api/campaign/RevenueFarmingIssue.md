@@ -53,7 +53,7 @@ var result = revenueFarmingIssue.IssueStayAliveConditions();
 ### RevenuesAreDeliveredToSteward
 `public void RevenuesAreDeliveredToSteward()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「revenues are delivered to steward」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssue 实例
@@ -119,7 +119,7 @@ var result = revenueFarmingIssue.GetIsCompleted();
 ### VillageEventOptionData
 `public struct VillageEventOptionData(string text, GameMenuOption.OnConditionDelegate onCondition, GameMenuOption.OnConsequenceDelegate onConsequence, bool isLeave = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「village event option data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 RevenueFarmingIssue 实例

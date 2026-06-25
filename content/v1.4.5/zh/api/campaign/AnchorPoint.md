@@ -35,7 +35,7 @@ description: "AnchorPoint 的自动生成类参考。"
 ### CallFleet
 `public void CallFleet(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「call fleet」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AnchorPoint 实例

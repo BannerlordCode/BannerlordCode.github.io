@@ -23,7 +23,7 @@ description: "MatrixExtensions 的自动生成类参考。"
 ### ToMatrix4x4
 `public static Matrix4x4 ToMatrix4x4(this MatrixFrame matrixFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to matrix4x4」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MatrixExtensions.ToMatrix4x4(matrixFrame);
 ### ToMatrixFrame
 `public static MatrixFrame ToMatrixFrame(this Matrix4x4 matrix)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to matrix frame」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MatrixExtensions.ToMatrixFrame(matrix);
 ### AreAllComponentsValid
 `public static bool AreAllComponentsValid(this Matrix4x4 matrix)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「are all components valid」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MatrixExtensions.AreAllComponentsValid(matrix);
 ### AreAllComponentsValid
 `public static bool AreAllComponentsValid(this MatrixFrame matrix)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「are all components valid」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ layeredWindowController.SetSize(0, 0);
 ### PostRender
 `public void PostRender()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「post render」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LayeredWindowController 实例

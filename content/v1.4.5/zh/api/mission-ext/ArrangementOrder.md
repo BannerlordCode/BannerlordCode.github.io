@@ -76,7 +76,7 @@ arrangementOrder.OnApply(formation);
 ### SoftUpdate
 `public void SoftUpdate(Formation formation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「soft update」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ArrangementOrder 实例
@@ -108,7 +108,7 @@ var result = arrangementOrder.GetUnitSpacing();
 ### Rearrange
 `public void Rearrange(Formation formation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ArrangementOrder 实例
@@ -119,7 +119,7 @@ arrangementOrder.Rearrange(formation);
 ### RearrangeAux
 `public void RearrangeAux(Formation formation, bool isDirectly)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rearrange aux」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ArrangementOrder 实例
@@ -130,7 +130,7 @@ arrangementOrder.RearrangeAux(formation, false);
 ### TransposeLineFormation
 `public static void TransposeLineFormation(Formation formation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transpose line formation」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

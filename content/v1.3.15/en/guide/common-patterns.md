@@ -202,15 +202,15 @@ C:\Users\<username>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 ## Related Documentation
 
 - [Debugging Tips](./#debugging-tips)
-- [API Reference](../api/)
-- [Architecture Documentation](../architecture/)
+- [API Reference](../../api/)
+- [Architecture Documentation](../../architecture/)
 
 ---
 
 ## Next Section
 
-- [Game Systems Overview](game-systems-overview/) - Learn what can be customized
-- [Troubleshooting](troubleshooting/) - Solve problems
+- [Game Systems Overview](../game-systems-overview/) - Learn what can be customized
+- [Troubleshooting](../troubleshooting/) - Solve problems
 
 ## Usage Example
 

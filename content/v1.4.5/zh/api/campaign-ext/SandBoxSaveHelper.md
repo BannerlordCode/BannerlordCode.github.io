@@ -23,7 +23,7 @@ description: "SandBoxSaveHelper 的自动生成类参考。"
 ### ModuleCheckResult
 `public readonly struct ModuleCheckResult(string moduleId, ModuleCheckResultType type)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「module check result」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SandBoxSaveHelper 实例

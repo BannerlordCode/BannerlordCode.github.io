@@ -30,7 +30,7 @@ description: "SpawnerEntityEditorHelper 的自动生成类参考。"
 ### Permission
 `public struct Permission(PermissionType permission, Axis axis)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「permission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -63,7 +63,7 @@ spawnerEntityEditorHelper.Tick(0);
 ### GivePermission
 `public void GivePermission(string childName, Permission permission, Action<float> onChangeFunction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「give permission」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例
@@ -74,7 +74,7 @@ spawnerEntityEditorHelper.GivePermission("example", permission, onChangeFunction
 ### ChangeStableChildMatrixFrameAndApply
 `public void ChangeStableChildMatrixFrameAndApply(string childName, MatrixFrame matrixFrame, bool updateTriad = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change stable child matrix frame and apply」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpawnerEntityEditorHelper 实例

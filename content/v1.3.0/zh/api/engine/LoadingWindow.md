@@ -40,7 +40,7 @@ LoadingWindow.Initialize();
 ### Destroy
 `public static void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -50,7 +50,7 @@ LoadingWindow.Destroy();
 ### DisableGlobalLoadingWindow
 `public static void DisableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable global loading window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -60,7 +60,7 @@ LoadingWindow.DisableGlobalLoadingWindow();
 ### EnableGlobalLoadingWindow
 `public static void EnableGlobalLoadingWindow()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable global loading window」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -53,7 +53,7 @@ PlatformServices.Initialize(additionalFriendListServices);
 ### Terminate
 `public static void Terminate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「terminate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ PlatformServices.Terminate();
 ### ConnectionStateChanged
 `public static void ConnectionStateChanged(bool isAuthenticated)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「connection state changed」 事件并执行相关处理。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ PlatformServices.ConnectionStateChanged(false);
 ### MultiplayerGameStateChanged
 `public static void MultiplayerGameStateChanged(bool isPlaying)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「multiplayer game state changed」 事件并执行相关处理。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ PlatformServices.MultiplayerGameStateChanged(false);
 ### LobbyClientStateChanged
 `public static void LobbyClientStateChanged(bool atLobby, bool isPartyLeaderOrSolo)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「lobby client state changed」 事件并执行相关处理。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ PlatformServices.LobbyClientStateChanged(false, false);
 ### FireOnSessionInvitationAccepted
 `public static void FireOnSessionInvitationAccepted(SessionInvitationType sessionInvitationType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fire on session invitation accepted」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ PlatformServices.FireOnSessionInvitationAccepted(sessionInvitationType);
 ### FireOnPlatformRequestedMultiplayer
 `public static void FireOnPlatformRequestedMultiplayer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fire on platform requested multiplayer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ PlatformServices.SetIsPlatformRequestedContinueGame(false);
 ### FilterString
 `public static async Task<string> FilterString(string content, string defaultContent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「filter string」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

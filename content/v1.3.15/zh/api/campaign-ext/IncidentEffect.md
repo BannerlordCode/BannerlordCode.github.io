@@ -23,7 +23,7 @@ description: "IncidentEffect 的自动生成类参考。"
 ### Condition
 `public bool Condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentEffect 实例
@@ -34,7 +34,7 @@ var result = incidentEffect.Condition();
 ### Consequence
 `public List<TextObject> Consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentEffect 实例
@@ -56,7 +56,7 @@ var result = incidentEffect.GetHint();
 ### WithChance
 `public IncidentEffect WithChance(float chance)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「with chance」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentEffect 实例
@@ -67,7 +67,7 @@ var result = incidentEffect.WithChance(0);
 ### WithCustomInformation
 `public IncidentEffect WithCustomInformation(Func<List<TextObject>> customInformation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「with custom information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentEffect 实例
@@ -78,7 +78,7 @@ var result = incidentEffect.WithCustomInformation(customInformation);
 ### WithHint
 `public IncidentEffect WithHint(Func<IncidentEffect, List<TextObject>> hint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「with hint」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IncidentEffect 实例
@@ -89,7 +89,7 @@ var result = incidentEffect.WithHint(func<IncidentEffect, hint);
 ### GoldChange
 `public static IncidentEffect GoldChange(Func<int> amountGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「gold change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -99,7 +99,7 @@ IncidentEffect.GoldChange(amountGetter);
 ### TraitChange
 `public static IncidentEffect TraitChange(TraitObject trait, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「trait change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -119,7 +119,7 @@ IncidentEffect.BuildingLevelChange(buildingGetter, amountGetter);
 ### SiegeProgressChange
 `public static IncidentEffect SiegeProgressChange(Func<float> amountGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「siege progress change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -129,7 +129,7 @@ IncidentEffect.SiegeProgressChange(amountGetter);
 ### WorkshopProfitabilityChange
 `public static IncidentEffect WorkshopProfitabilityChange(Func<Workshop> workshopGetter, float percentage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「workshop profitability change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -139,7 +139,7 @@ IncidentEffect.WorkshopProfitabilityChange(workshopGetter, 0);
 ### SkillChange
 `public static IncidentEffect SkillChange(SkillObject skill, float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「skill change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -149,7 +149,7 @@ IncidentEffect.SkillChange(skill, 0);
 ### MoraleChange
 `public static IncidentEffect MoraleChange(float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「morale change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -159,7 +159,7 @@ IncidentEffect.MoraleChange(0);
 ### HealthChance
 `public static IncidentEffect HealthChance(int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「health chance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -169,7 +169,7 @@ IncidentEffect.HealthChance(0);
 ### RenownChange
 `public static IncidentEffect RenownChange(float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「renown change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -179,7 +179,7 @@ IncidentEffect.RenownChange(0);
 ### CrimeRatingChange
 `public static IncidentEffect CrimeRatingChange(Func<IFaction> factionGetter, float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「crime rating change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -189,7 +189,7 @@ IncidentEffect.CrimeRatingChange(factionGetter, 0);
 ### InfluenceChange
 `public static IncidentEffect InfluenceChange(float amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「influence change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -209,7 +209,7 @@ IncidentEffect.SettlementRelationChange(settlementGetter, 0);
 ### TownBoundVillageRelationChange
 `public static IncidentEffect TownBoundVillageRelationChange(Func<Town> townGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「town bound village relation change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -219,7 +219,7 @@ IncidentEffect.TownBoundVillageRelationChange(townGetter, 0);
 ### TownBoundVillageHearthChange
 `public static IncidentEffect TownBoundVillageHearthChange(Func<Town> townGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「town bound village hearth change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -229,7 +229,7 @@ IncidentEffect.TownBoundVillageHearthChange(townGetter, 0);
 ### VillageHearthChange
 `public static IncidentEffect VillageHearthChange(Func<Village> villageGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「village hearth change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -239,7 +239,7 @@ IncidentEffect.VillageHearthChange(villageGetter, 0);
 ### TownSecurityChange
 `public static IncidentEffect TownSecurityChange(Func<Town> townGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「town security change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -249,7 +249,7 @@ IncidentEffect.TownSecurityChange(townGetter, 0);
 ### HeroRelationChange
 `public static IncidentEffect HeroRelationChange(Func<Hero> heroGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hero relation change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -259,7 +259,7 @@ IncidentEffect.HeroRelationChange(heroGetter, 0);
 ### TownProsperityChange
 `public static IncidentEffect TownProsperityChange(Func<Town> townGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「town prosperity change」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -279,7 +279,7 @@ IncidentEffect.SettlementMilitiaChange(settlementGetter, 0);
 ### InfestNearbyHideout
 `public static IncidentEffect InfestNearbyHideout(Func<Settlement> settlementGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「infest nearby hideout」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -289,7 +289,7 @@ IncidentEffect.InfestNearbyHideout(settlementGetter);
 ### WoundTroopsRandomly
 `public static IncidentEffect WoundTroopsRandomly(float percentage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troops randomly」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -299,7 +299,7 @@ IncidentEffect.WoundTroopsRandomly(0);
 ### WoundTroopsRandomly
 `public static IncidentEffect WoundTroopsRandomly(Func<TroopRosterElement, bool> predicate, Func<int> amountGetter, bool specifyUnitTypeOnHint = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troops randomly」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -309,7 +309,7 @@ IncidentEffect.WoundTroopsRandomly(func<TroopRosterElement, false, amountGetter,
 ### WoundTroopsRandomlyWithChanceOfDeath
 `public static IncidentEffect WoundTroopsRandomlyWithChanceOfDeath(float percentage, float chanceOfDeathPerUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troops randomly with chance of death」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -319,7 +319,7 @@ IncidentEffect.WoundTroopsRandomlyWithChanceOfDeath(0, 0);
 ### BreachSiegeWall
 `public static IncidentEffect BreachSiegeWall(int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「breach siege wall」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -329,7 +329,7 @@ IncidentEffect.BreachSiegeWall(0);
 ### WoundTroopsRandomly
 `public static IncidentEffect WoundTroopsRandomly(int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troops randomly」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -339,7 +339,7 @@ IncidentEffect.WoundTroopsRandomly(0);
 ### WoundTroopsRandomlyWithChanceOfDeath
 `public static IncidentEffect WoundTroopsRandomlyWithChanceOfDeath(int amount, float chanceOfDeathPerUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troops randomly with chance of death」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -349,7 +349,7 @@ IncidentEffect.WoundTroopsRandomlyWithChanceOfDeath(0, 0);
 ### WoundTroop
 `public static IncidentEffect WoundTroop(Func<CharacterObject> characterGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troop」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -359,7 +359,7 @@ IncidentEffect.WoundTroop(characterGetter, 0);
 ### WoundTroopsRandomlyByChance
 `public static IncidentEffect WoundTroopsRandomlyByChance(float chancePerUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troops randomly by chance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -369,7 +369,7 @@ IncidentEffect.WoundTroopsRandomlyByChance(0);
 ### KillTroopsRandomlyOrderedByTier
 `public static IncidentEffect KillTroopsRandomlyOrderedByTier(Func<TroopRosterElement, bool> predicate, Func<int> amountGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill troops randomly ordered by tier」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -379,7 +379,7 @@ IncidentEffect.KillTroopsRandomlyOrderedByTier(func<TroopRosterElement, false, a
 ### KillTroopsRandomly
 `public static IncidentEffect KillTroopsRandomly(Func<TroopRosterElement, bool> predicate, Func<int> amountGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill troops randomly」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -389,7 +389,7 @@ IncidentEffect.KillTroopsRandomly(func<TroopRosterElement, false, amountGetter);
 ### KillTroopsRandomlyByChance
 `public static IncidentEffect KillTroopsRandomlyByChance(float chancePerUnit)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill troops randomly by chance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -399,7 +399,7 @@ IncidentEffect.KillTroopsRandomlyByChance(0);
 ### KillTroop
 `public static IncidentEffect KillTroop(Func<CharacterObject> characterGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「kill troop」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -409,7 +409,7 @@ IncidentEffect.KillTroop(characterGetter, 0);
 ### ChangeTroopAmount
 `public static IncidentEffect ChangeTroopAmount(Func<CharacterObject> characterGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change troop amount」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -419,7 +419,7 @@ IncidentEffect.ChangeTroopAmount(characterGetter, 0);
 ### UpgradeTroop
 `public static IncidentEffect UpgradeTroop(Func<CharacterObject> characterGetter, Func<CharacterObject, bool> upgradePredicate, int amount, Func<long> incidentSeedGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「upgrade troop」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -429,7 +429,7 @@ IncidentEffect.UpgradeTroop(characterGetter, func<CharacterObject, false, 0, inc
 ### UpgradeTroop
 `public static IncidentEffect UpgradeTroop(Func<CharacterObject> characterGetter, Func<CharacterObject> upgradedCharacterGetter, int amount, Func<long> incidentSeedGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「upgrade troop」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -449,7 +449,7 @@ IncidentEffect.RemovePrisonersRandomlyWithPredicate(func<TroopRosterElement, fal
 ### ChangeItemsAmount
 `public static IncidentEffect ChangeItemsAmount(Func<List<ItemObject>> itemsGetter, int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change items amount」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -459,7 +459,7 @@ IncidentEffect.ChangeItemsAmount(itemsGetter, 0);
 ### ChangeItemAmount
 `public static IncidentEffect ChangeItemAmount(Func<ItemObject> itemGetter, Func<int> amountGetter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change item amount」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -469,7 +469,7 @@ IncidentEffect.ChangeItemAmount(itemGetter, amountGetter);
 ### PartyExperienceChance
 `public static IncidentEffect PartyExperienceChance(int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party experience chance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -479,7 +479,7 @@ IncidentEffect.PartyExperienceChance(0);
 ### DisorganizeParty
 `public static IncidentEffect DisorganizeParty()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disorganize party」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -489,7 +489,7 @@ IncidentEffect.DisorganizeParty();
 ### HealTroopsRandomly
 `public static IncidentEffect HealTroopsRandomly(int amount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「heal troops randomly」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -499,7 +499,7 @@ IncidentEffect.HealTroopsRandomly(0);
 ### DemoteTroopsRandomlyWithPredicate
 `public static IncidentEffect DemoteTroopsRandomlyWithPredicate(Func<TroopRosterElement, bool> predicate, Func<CharacterObject, bool> demotionPredicate, int amount, bool specifyUnitTypeOnHint = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「demote troops randomly with predicate」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -509,7 +509,7 @@ IncidentEffect.DemoteTroopsRandomlyWithPredicate(func<TroopRosterElement, false,
 ### Group
 `public static IncidentEffect Group(params IncidentEffect effects)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「group」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -519,7 +519,7 @@ IncidentEffect.Group(effects);
 ### Select
 `public static IncidentEffect Select(IncidentEffect effectOne, IncidentEffect effectTwo, float chanceOfFirstOne)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -529,7 +529,7 @@ IncidentEffect.Select(effectOne, effectTwo, 0);
 ### Custom
 `public static IncidentEffect Custom(Func<bool> condition, Func<List<TextObject>> consequence, Func<IncidentEffect, List<TextObject>> hint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「custom」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

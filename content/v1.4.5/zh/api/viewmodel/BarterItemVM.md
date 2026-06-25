@@ -41,7 +41,7 @@ description: "BarterItemVM 的自动生成类参考。"
 ### BarterTransferEventDelegate
 `public delegate void BarterTransferEventDelegate(BarterItemVM itemVM, bool transferAll)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「barter transfer event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterItemVM 实例

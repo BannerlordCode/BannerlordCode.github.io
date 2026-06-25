@@ -164,7 +164,7 @@ multiplayerIntermissionVotingManager.HandlePlayerDisconnect(playerID);
 ### SelectRandomCultures
 `public void SelectRandomCultures(MultiplayerOptions.MultiplayerOptionsAccessMode accessMode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select random cultures」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -186,7 +186,7 @@ var result = multiplayerIntermissionVotingManager.IsPeerVotedForItem(peer, "exam
 ### SortVotesAndPickBest
 `public void SortVotesAndPickBest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort votes and pick best」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -197,7 +197,7 @@ multiplayerIntermissionVotingManager.SortVotesAndPickBest();
 ### MapItemAddedDelegate
 `public delegate void MapItemAddedDelegate(string mapId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「map item added delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -208,7 +208,7 @@ multiplayerIntermissionVotingManager.MapItemAddedDelegate("example");
 ### CultureItemAddedDelegate
 `public delegate void CultureItemAddedDelegate(string cultureId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「culture item added delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -219,7 +219,7 @@ multiplayerIntermissionVotingManager.CultureItemAddedDelegate("example");
 ### MapItemVoteCountChangedDelegate
 `public delegate void MapItemVoteCountChangedDelegate(int mapItemIndex, int voteCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「map item vote count changed delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例
@@ -230,7 +230,7 @@ multiplayerIntermissionVotingManager.MapItemVoteCountChangedDelegate(0, 0);
 ### CultureItemVoteCountChangedDelegate
 `public delegate void CultureItemVoteCountChangedDelegate(int cultureItemIndex, int voteCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「culture item vote count changed delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerIntermissionVotingManager 实例

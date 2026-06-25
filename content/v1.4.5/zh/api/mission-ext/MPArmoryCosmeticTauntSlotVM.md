@@ -47,7 +47,7 @@ mPArmoryCosmeticTauntSlotVM.OnFinalize();
 ### AssignTauntItem
 `public void AssignTauntItem(MPArmoryCosmeticTauntItemVM tauntItem, bool isSwapping = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign taunt item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPArmoryCosmeticTauntSlotVM 实例

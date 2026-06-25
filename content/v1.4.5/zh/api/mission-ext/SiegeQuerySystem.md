@@ -38,7 +38,7 @@ description: "SiegeQuerySystem 的自动生成类参考。"
 ### Expire
 `public void Expire()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「expire」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SiegeQuerySystem 实例
@@ -60,7 +60,7 @@ var result = siegeQuerySystem.DeterminePositionAssociatedSide(position);
 ### AreSidesRelated
 `public static bool AreSidesRelated(FormationAI.BehaviorSide side, int connectedSides)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「are sides related」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -70,7 +70,7 @@ SiegeQuerySystem.AreSidesRelated(side, 0);
 ### SideDistance
 `public static int SideDistance(int connectedSides, int side)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「side distance」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

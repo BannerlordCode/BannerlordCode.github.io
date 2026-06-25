@@ -29,7 +29,7 @@ description: "MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget 的自动生�
 ### MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget
 `public class MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget(UIContext context)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「multiplayer lobby armory cosmetic tier visual brush widget」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerLobbyArmoryCosmeticTierVisualBrushWidget 实例

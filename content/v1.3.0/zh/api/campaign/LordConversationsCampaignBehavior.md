@@ -67,7 +67,7 @@ var result = lordConversationsCampaignBehavior.GetLiegeTitle();
 ### UsesLordConversations
 `public bool UsesLordConversations(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「uses lord conversations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -100,7 +100,7 @@ lordConversationsCampaignBehavior.SyncData(dataStore);
 ### conversation_player_marriage_list_options_on_consequence
 `public static void conversation_player_marriage_list_options_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_marriage_list_options_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -110,7 +110,7 @@ LordConversationsCampaignBehavior.conversation_player_marriage_list_options_on_c
 ### conversation_player_marriage_select_on_condition
 `public bool conversation_player_marriage_select_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_marriage_select_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -121,7 +121,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_marriage_sele
 ### conversation_player_marriage_on_consequence
 `public void conversation_player_marriage_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_marriage_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -132,7 +132,7 @@ lordConversationsCampaignBehavior.conversation_player_marriage_on_consequence();
 ### conversation_player_marriage_on_refusal_consequence
 `public void conversation_player_marriage_on_refusal_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_marriage_on_refusal_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -143,7 +143,7 @@ lordConversationsCampaignBehavior.conversation_player_marriage_on_refusal_conseq
 ### conversation_player_children_marriage_on_condition
 `public bool conversation_player_children_marriage_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_children_marriage_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -154,7 +154,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_children_marr
 ### conversation_player_children_marriage_list_options_on_consequence
 `public void conversation_player_children_marriage_list_options_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_children_marriage_list_options_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -165,7 +165,7 @@ lordConversationsCampaignBehavior.conversation_player_children_marriage_list_opt
 ### conversation_player_children_marriage_select_on_condition
 `public bool conversation_player_children_marriage_select_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_children_marriage_select_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -176,7 +176,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_children_marr
 ### conversation_player_children_marriage_on_consequence
 `public void conversation_player_children_marriage_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_children_marriage_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -187,7 +187,7 @@ lordConversationsCampaignBehavior.conversation_player_children_marriage_on_conse
 ### conversation_player_children_marriage_on_refusal_consequence
 `public void conversation_player_children_marriage_on_refusal_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_children_marriage_on_refusal_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -198,7 +198,7 @@ lordConversationsCampaignBehavior.conversation_player_children_marriage_on_refus
 ### conversation_wanderer_generic_introduction_on_condition
 `public bool conversation_wanderer_generic_introduction_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_wanderer_generic_introduction_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -209,7 +209,7 @@ var result = lordConversationsCampaignBehavior.conversation_wanderer_generic_int
 ### conversation_lord_active_mission_response_cont_on_condition
 `public bool conversation_lord_active_mission_response_cont_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_active_mission_response_cont_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -220,7 +220,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_active_mission_
 ### conversation_mission_in_progress_on_condition
 `public bool conversation_mission_in_progress_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_mission_in_progress_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -231,7 +231,7 @@ var result = lordConversationsCampaignBehavior.conversation_mission_in_progress_
 ### conversation_lord_active_mission_response_failed_on_condition
 `public bool conversation_lord_active_mission_response_failed_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_active_mission_response_failed_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -242,7 +242,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_active_mission_
 ### conversation_lord_active_mission_response_failed_on_consequence
 `public void conversation_lord_active_mission_response_failed_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_active_mission_response_failed_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -253,7 +253,7 @@ lordConversationsCampaignBehavior.conversation_lord_active_mission_response_fail
 ### conversation_lord_is_threated_neutral_on_condition
 `public bool conversation_lord_is_threated_neutral_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_is_threated_neutral_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -264,7 +264,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_is_threated_neu
 ### conversation_player_can_attack_hero_on_condition
 `public bool conversation_player_can_attack_hero_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_can_attack_hero_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -275,7 +275,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_can_attack_he
 ### barter_peace_offer_reject_on_condition
 `public bool barter_peace_offer_reject_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「barter_peace_offer_reject_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -286,7 +286,7 @@ var result = lordConversationsCampaignBehavior.barter_peace_offer_reject_on_cond
 ### barter_offer_reject_on_condition
 `public bool barter_offer_reject_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「barter_offer_reject_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -297,7 +297,7 @@ var result = lordConversationsCampaignBehavior.barter_offer_reject_on_condition(
 ### barter_offer_accept_peace_on_condition
 `public bool barter_offer_accept_peace_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「barter_offer_accept_peace_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -308,7 +308,7 @@ var result = lordConversationsCampaignBehavior.barter_offer_accept_peace_on_cond
 ### barter_offer_accept_let_go_on_condition
 `public bool barter_offer_accept_let_go_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「barter_offer_accept_let_go_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -319,7 +319,7 @@ var result = lordConversationsCampaignBehavior.barter_offer_accept_let_go_on_con
 ### barter_offer_accept_on_condition
 `public bool barter_offer_accept_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「barter_offer_accept_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -330,7 +330,7 @@ var result = lordConversationsCampaignBehavior.barter_offer_accept_on_condition(
 ### conversation_player_is_leaving_faction_on_condition
 `public bool conversation_player_is_leaving_faction_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_leaving_faction_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -341,7 +341,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_leaving_fa
 ### conversation_player_is_offering_mercenary_on_condition
 `public bool conversation_player_is_offering_mercenary_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_offering_mercenary_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -352,7 +352,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_offering_m
 ### conversation_player_is_offering_mercenary_on_clickable_condition
 `public bool conversation_player_is_offering_mercenary_on_clickable_condition(out TextObject hintText)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_offering_mercenary_on_clickable_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -363,7 +363,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_offering_m
 ### conversation_player_is_offering_vassalage_on_condition
 `public bool conversation_player_is_offering_vassalage_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_offering_vassalage_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -374,7 +374,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_offering_v
 ### conversation_player_is_offering_vassalage_on_clickable_condition
 `public bool conversation_player_is_offering_vassalage_on_clickable_condition(out TextObject hintText)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_offering_vassalage_on_clickable_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -385,7 +385,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_offering_v
 ### conversation_player_is_offering_vassalage_while_at_mercenary_service_on_condition
 `public bool conversation_player_is_offering_vassalage_while_at_mercenary_service_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_offering_vassalage_while_at_mercenary_service_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -396,7 +396,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_offering_v
 ### conversation_player_is_asking_service_while_in_faction_on_condition
 `public bool conversation_player_is_asking_service_while_in_faction_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_asking_service_while_in_faction_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -407,7 +407,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_asking_ser
 ### conversation_player_is_offering_vassalage_to_lord_on_condition
 `public bool conversation_player_is_offering_vassalage_to_lord_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_offering_vassalage_to_lord_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -418,7 +418,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_offering_v
 ### lord_ask_enter_service_vassalage_talking_with_king_on_condition
 `public bool lord_ask_enter_service_vassalage_talking_with_king_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「lord_ask_enter_service_vassalage_talking_with_king_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -429,7 +429,7 @@ var result = lordConversationsCampaignBehavior.lord_ask_enter_service_vassalage_
 ### conversation_lord_ask_recruit_mercenary_response_on_condition
 `public bool conversation_lord_ask_recruit_mercenary_response_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_ask_recruit_mercenary_response_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -440,7 +440,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_ask_recruit_mer
 ### conversation_player_want_to_fire_mercenary_on_condition
 `public bool conversation_player_want_to_fire_mercenary_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_fire_mercenary_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -451,7 +451,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_fire_
 ### conversation_player_want_to_hire_mercenary_on_condition
 `public bool conversation_player_want_to_hire_mercenary_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_hire_mercenary_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -462,7 +462,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_hire_
 ### conversation_player_want_to_fire_mercenary_there_is_debt_on_condition
 `public bool conversation_player_want_to_fire_mercenary_there_is_debt_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_fire_mercenary_there_is_debt_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -473,7 +473,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_fire_
 ### conversation_player_want_to_fire_mercenary_no_debt_on_condition
 `public bool conversation_player_want_to_fire_mercenary_no_debt_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_fire_mercenary_no_debt_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -484,7 +484,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_fire_
 ### conversation_player_want_to_fire_mercenary_with_paying_debt_on_condition
 `public bool conversation_player_want_to_fire_mercenary_with_paying_debt_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_fire_mercenary_with_paying_debt_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -495,7 +495,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_fire_
 ### conversation_mercenary_response_on_condition_reject
 `public bool conversation_mercenary_response_on_condition_reject()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_mercenary_response_on_condition_reject」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -506,7 +506,7 @@ var result = lordConversationsCampaignBehavior.conversation_mercenary_response_o
 ### conversation_mercenary_response_on_condition_reject_because_of_financial_reasons
 `public bool conversation_mercenary_response_on_condition_reject_because_of_financial_reasons()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_mercenary_response_on_condition_reject_because_of_financial_reasons」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -517,7 +517,7 @@ var result = lordConversationsCampaignBehavior.conversation_mercenary_response_o
 ### conversation_mercenary_response_not_leader_on_condition
 `public bool conversation_mercenary_response_not_leader_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_mercenary_response_not_leader_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -528,7 +528,7 @@ var result = lordConversationsCampaignBehavior.conversation_mercenary_response_n
 ### conversation_mercenary_response_on_condition
 `public bool conversation_mercenary_response_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_mercenary_response_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -539,7 +539,7 @@ var result = lordConversationsCampaignBehavior.conversation_mercenary_response_o
 ### conversation_player_want_to_join_faction_as_mercenary_or_vassal_on_condition
 `public bool conversation_player_want_to_join_faction_as_mercenary_or_vassal_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_join_faction_as_mercenary_or_vassal_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -550,7 +550,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_join_
 ### conversation_player_want_to_end_service_as_mercenary_on_condition
 `public bool conversation_player_want_to_end_service_as_mercenary_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_want_to_end_service_as_mercenary_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -561,7 +561,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_want_to_end_s
 ### conversation_player_want_to_end_service_as_mercenary_on_consequence
 `public void conversation_player_want_to_end_service_as_mercenary_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_want_to_end_service_as_mercenary_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -572,7 +572,7 @@ lordConversationsCampaignBehavior.conversation_player_want_to_end_service_as_mer
 ### player_ask_to_join_players_party_on_condition
 `public static bool player_ask_to_join_players_party_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「player_ask_to_join_players_party_on_condition」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -582,7 +582,7 @@ LordConversationsCampaignBehavior.player_ask_to_join_players_party_on_condition(
 ### conversation_mercenary_player_accepts_lord_answer_on_consequence
 `public void conversation_mercenary_player_accepts_lord_answer_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_mercenary_player_accepts_lord_answer_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -593,7 +593,7 @@ lordConversationsCampaignBehavior.conversation_mercenary_player_accepts_lord_ans
 ### conversation_player_has_question_on_condition
 `public bool conversation_player_has_question_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_has_question_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -604,7 +604,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_has_question_
 ### conversation_hero_main_options_discussions
 `public bool conversation_hero_main_options_discussions()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_hero_main_options_discussions」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -615,7 +615,7 @@ var result = lordConversationsCampaignBehavior.conversation_hero_main_options_di
 ### conversation_lord_talk_politics_during_siege_parley_on_condition
 `public bool conversation_lord_talk_politics_during_siege_parley_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_talk_politics_during_siege_parley_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -626,7 +626,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_talk_politics_d
 ### conversation_player_is_asking_pardon_on_condition
 `public bool conversation_player_is_asking_pardon_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_asking_pardon_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -637,7 +637,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_asking_par
 ### conversation_player_is_asking_peace_on_condition
 `public bool conversation_player_is_asking_peace_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_asking_peace_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -648,7 +648,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_asking_pea
 ### conversation_player_is_leaving_neutral_or_friendly_on_condition
 `public bool conversation_player_is_leaving_neutral_or_friendly_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_leaving_neutral_or_friendly_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -659,7 +659,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_leaving_ne
 ### conversation_player_is_leaving_enemy_on_condition
 `public bool conversation_player_is_leaving_enemy_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_leaving_enemy_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -670,7 +670,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_leaving_en
 ### conversation_player_is_leaving_enemy_prisoner_on_condition
 `public bool conversation_player_is_leaving_enemy_prisoner_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_leaving_enemy_prisoner_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -681,7 +681,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_is_leaving_en
 ### conversation_cheat_lord_diagnostics_on_condition
 `public bool conversation_cheat_lord_diagnostics_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_cheat_lord_diagnostics_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -692,7 +692,7 @@ var result = lordConversationsCampaignBehavior.conversation_cheat_lord_diagnosti
 ### conversation_cheat_other_lords_on_condition
 `public bool conversation_cheat_other_lords_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_cheat_other_lords_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -703,7 +703,7 @@ var result = lordConversationsCampaignBehavior.conversation_cheat_other_lords_on
 ### conversation_player_dont_attack_we_surrender_on_condition
 `public bool conversation_player_dont_attack_we_surrender_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_dont_attack_we_surrender_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -714,7 +714,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_dont_attack_w
 ### conversation_cheat_faction_enmities_on_condition
 `public bool conversation_cheat_faction_enmities_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_cheat_faction_enmities_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -736,7 +736,7 @@ var result = lordConversationsCampaignBehavior.GetReasonForEnmity(lord1, lord2, 
 ### conversation_cheat_reputation_on_condition
 `public bool conversation_cheat_reputation_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_cheat_reputation_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -747,7 +747,7 @@ var result = lordConversationsCampaignBehavior.conversation_cheat_reputation_on_
 ### conversation_lord_leave_on_condition
 `public bool conversation_lord_leave_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_leave_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -758,7 +758,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_leave_on_condit
 ### conversation_lord_leave_on_consequence
 `public void conversation_lord_leave_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_leave_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -769,7 +769,7 @@ lordConversationsCampaignBehavior.conversation_lord_leave_on_consequence();
 ### conversation_capture_defeated_lord_on_condition
 `public bool conversation_capture_defeated_lord_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_capture_defeated_lord_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -780,7 +780,7 @@ var result = lordConversationsCampaignBehavior.conversation_capture_defeated_lor
 ### conversation_liberate_known_hero_on_condition
 `public bool conversation_liberate_known_hero_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_liberate_known_hero_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -791,7 +791,7 @@ var result = lordConversationsCampaignBehavior.conversation_liberate_known_hero_
 ### conversation_liberate_unmet_hero_on_condition
 `public bool conversation_liberate_unmet_hero_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_liberate_unmet_hero_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -802,7 +802,7 @@ var result = lordConversationsCampaignBehavior.conversation_liberate_unmet_hero_
 ### conversation_reprisoner_hero_decision_on_condition
 `public bool conversation_reprisoner_hero_decision_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_reprisoner_hero_decision_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -813,7 +813,7 @@ var result = lordConversationsCampaignBehavior.conversation_reprisoner_hero_deci
 ### conversation_player_liberates_prisoner_on_consequence
 `public void conversation_player_liberates_prisoner_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_liberates_prisoner_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -824,7 +824,7 @@ lordConversationsCampaignBehavior.conversation_player_liberates_prisoner_on_cons
 ### conversation_player_fails_to_release_prisoner_on_consequence
 `public void conversation_player_fails_to_release_prisoner_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_fails_to_release_prisoner_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -835,7 +835,7 @@ lordConversationsCampaignBehavior.conversation_player_fails_to_release_prisoner_
 ### conversation_ally_thanks_meet_after_helping_in_battle_on_condition
 `public bool conversation_ally_thanks_meet_after_helping_in_battle_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_ally_thanks_meet_after_helping_in_battle_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -846,7 +846,7 @@ var result = lordConversationsCampaignBehavior.conversation_ally_thanks_meet_aft
 ### conversation_ally_thanks_after_helping_in_battle_on_condition
 `public bool conversation_ally_thanks_after_helping_in_battle_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_ally_thanks_after_helping_in_battle_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -857,7 +857,7 @@ var result = lordConversationsCampaignBehavior.conversation_ally_thanks_after_he
 ### conversation_talk_lord_defeat_to_lord_capture_on_consequence
 `public void conversation_talk_lord_defeat_to_lord_capture_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_talk_lord_defeat_to_lord_capture_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -868,7 +868,7 @@ lordConversationsCampaignBehavior.conversation_talk_lord_defeat_to_lord_capture_
 ### conversation_talk_lord_defeat_to_lord_capture_and_kill_on_consequence
 `public void conversation_talk_lord_defeat_to_lord_capture_and_kill_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_talk_lord_defeat_to_lord_capture_and_kill_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -879,7 +879,7 @@ lordConversationsCampaignBehavior.conversation_talk_lord_defeat_to_lord_capture_
 ### conversation_talk_lord_release_noncombatant_on_condition
 `public bool conversation_talk_lord_release_noncombatant_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_talk_lord_release_noncombatant_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -890,7 +890,7 @@ var result = lordConversationsCampaignBehavior.conversation_talk_lord_release_no
 ### conversation_talk_lord_release_combatant_on_condition
 `public bool conversation_talk_lord_release_combatant_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_talk_lord_release_combatant_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -901,7 +901,7 @@ var result = lordConversationsCampaignBehavior.conversation_talk_lord_release_co
 ### conversation_player_ask_ruling_philosophy_on_condition
 `public bool conversation_player_ask_ruling_philosophy_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_ask_ruling_philosophy_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -912,7 +912,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_ask_ruling_ph
 ### conversation_player_has_long_ruling_philosophy_on_condition
 `public bool conversation_player_has_long_ruling_philosophy_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_has_long_ruling_philosophy_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -923,7 +923,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_has_long_ruli
 ### conversation_talk_lord_defeat_to_lord_release_on_consequence
 `public static void conversation_talk_lord_defeat_to_lord_release_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_talk_lord_defeat_to_lord_release_on_consequence」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -933,7 +933,7 @@ LordConversationsCampaignBehavior.conversation_talk_lord_defeat_to_lord_release_
 ### conversation_talk_lord_freed_to_lord_capture_on_consequence
 `public void conversation_talk_lord_freed_to_lord_capture_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_talk_lord_freed_to_lord_capture_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -944,7 +944,7 @@ lordConversationsCampaignBehavior.conversation_talk_lord_freed_to_lord_capture_o
 ### conversation_talk_lord_freed_to_lord_release_on_consequence
 `public void conversation_talk_lord_freed_to_lord_release_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_talk_lord_freed_to_lord_release_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -955,7 +955,7 @@ lordConversationsCampaignBehavior.conversation_talk_lord_freed_to_lord_release_o
 ### conversation_lord_request_mission_ask_on_condition
 `public bool conversation_lord_request_mission_ask_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_request_mission_ask_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -966,7 +966,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_request_mission
 ### conversation_lord_mercenary_service_verify_accept_on_consequence
 `public void conversation_lord_mercenary_service_verify_accept_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_mercenary_service_verify_accept_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -977,7 +977,7 @@ lordConversationsCampaignBehavior.conversation_lord_mercenary_service_verify_acc
 ### conversation_lord_mercenary_elaborate_castle_answer_faction_owner_to_women_on_condition
 `public bool conversation_lord_mercenary_elaborate_castle_answer_faction_owner_to_women_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_mercenary_elaborate_castle_answer_faction_owner_to_women_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -988,7 +988,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_mercenary_elabo
 ### conversation_lord_mercenary_elaborate_castle_answer_to_women_on_condition
 `public bool conversation_lord_mercenary_elaborate_castle_answer_to_women_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_mercenary_elaborate_castle_answer_to_women_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -999,7 +999,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_mercenary_elabo
 ### conversation_lord_mercenary_elaborate_castle_answer_faction_owner_on_condition
 `public bool conversation_lord_mercenary_elaborate_castle_answer_faction_owner_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_mercenary_elaborate_castle_answer_faction_owner_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1010,7 +1010,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_mercenary_elabo
 ### conversation_lord_mercenary_elaborate_banner_answer_faction_owner_on_condition
 `public bool conversation_lord_mercenary_elaborate_banner_answer_faction_owner_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_mercenary_elaborate_banner_answer_faction_owner_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1021,7 +1021,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_mercenary_elabo
 ### conversation_lord_mission_destroy_bandit_lair_start_on_condition
 `public bool conversation_lord_mission_destroy_bandit_lair_start_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_mission_destroy_bandit_lair_start_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1032,7 +1032,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_mission_destroy
 ### conversation_convince_options_bribe_on_condition
 `public bool conversation_convince_options_bribe_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_convince_options_bribe_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1043,7 +1043,7 @@ var result = lordConversationsCampaignBehavior.conversation_convince_options_bri
 ### conversation_convince_options_friendship_on_condition
 `public bool conversation_convince_options_friendship_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_convince_options_friendship_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1054,7 +1054,7 @@ var result = lordConversationsCampaignBehavior.conversation_convince_options_fri
 ### conversation_convince_bribe_verify_on_condition
 `public bool conversation_convince_bribe_verify_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_convince_bribe_verify_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1065,7 +1065,7 @@ var result = lordConversationsCampaignBehavior.conversation_convince_bribe_verif
 ### conversation_convince_bribe_player_accept_on_consequence
 `public void conversation_convince_bribe_player_accept_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_convince_bribe_player_accept_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1076,7 +1076,7 @@ lordConversationsCampaignBehavior.conversation_convince_bribe_player_accept_on_c
 ### conversation_convince_friendship_verify_go_on_on_condition
 `public bool conversation_convince_friendship_verify_go_on_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_convince_friendship_verify_go_on_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1087,7 +1087,7 @@ var result = lordConversationsCampaignBehavior.conversation_convince_friendship_
 ### conversation_convince_friendship_verify_go_on_on_consequence
 `public void conversation_convince_friendship_verify_go_on_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_convince_friendship_verify_go_on_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1098,7 +1098,7 @@ lordConversationsCampaignBehavior.conversation_convince_friendship_verify_go_on_
 ### conversation_convince_friendship_lord_response_no_on_condition
 `public bool conversation_convince_friendship_lord_response_no_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_convince_friendship_lord_response_no_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1109,7 +1109,7 @@ var result = lordConversationsCampaignBehavior.conversation_convince_friendship_
 ### conversation_convince_friendship_lord_response_angry_on_condition
 `public bool conversation_convince_friendship_lord_response_angry_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_convince_friendship_lord_response_angry_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1120,7 +1120,7 @@ var result = lordConversationsCampaignBehavior.conversation_convince_friendship_
 ### conversation_lord_generic_mission_accept_on_consequence
 `public void conversation_lord_generic_mission_accept_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_generic_mission_accept_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1131,7 +1131,7 @@ lordConversationsCampaignBehavior.conversation_lord_generic_mission_accept_on_co
 ### conversation_lord_generic_mission_reject_on_consequence
 `public void conversation_lord_generic_mission_reject_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_generic_mission_reject_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1142,7 +1142,7 @@ lordConversationsCampaignBehavior.conversation_lord_generic_mission_reject_on_co
 ### conversation_lord_tell_mission_no_quest_on_condition
 `public bool conversation_lord_tell_mission_no_quest_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_mission_no_quest_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1153,7 +1153,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_mission_no
 ### conversation_player_threats_lord_verify_on_consequence
 `public void conversation_player_threats_lord_verify_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_threats_lord_verify_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1164,7 +1164,7 @@ lordConversationsCampaignBehavior.conversation_player_threats_lord_verify_on_con
 ### conversation_player_threats_lord_verify_on_condition
 `public bool conversation_player_threats_lord_verify_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_threats_lord_verify_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1175,7 +1175,7 @@ var result = lordConversationsCampaignBehavior.conversation_player_threats_lord_
 ### conversation_lord_attack_verify_cancel_on_consequence
 `public void conversation_lord_attack_verify_cancel_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_attack_verify_cancel_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1186,7 +1186,7 @@ lordConversationsCampaignBehavior.conversation_lord_attack_verify_cancel_on_cons
 ### conversation_lord_tell_objective_reconsider_on_condition
 `public bool conversation_lord_tell_objective_reconsider_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_reconsider_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1197,7 +1197,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_besiege_on_condition
 `public bool conversation_lord_tell_objective_besiege_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_besiege_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1208,7 +1208,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_defence_village_on_condition
 `public bool conversation_lord_tell_objective_defence_village_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_defence_village_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1219,7 +1219,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_defence_town_on_condition
 `public bool conversation_lord_tell_objective_defence_town_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_defence_town_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1230,7 +1230,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_patrolling_on_condition
 `public bool conversation_lord_tell_objective_patrolling_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_patrolling_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1241,7 +1241,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_waiting_for_siege_on_condition
 `public bool conversation_lord_tell_objective_waiting_for_siege_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_waiting_for_siege_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1252,7 +1252,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_waiting_for_defence_on_condition
 `public bool conversation_lord_tell_objective_waiting_for_defence_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_waiting_for_defence_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1263,7 +1263,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_raiding_on_condition
 `public bool conversation_lord_tell_objective_raiding_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_raiding_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1274,7 +1274,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_waiting_for_raid_on_condition
 `public bool conversation_lord_tell_objective_waiting_for_raid_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_waiting_for_raid_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1285,7 +1285,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_objective_gathering_on_condition
 `public bool conversation_lord_tell_objective_gathering_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_tell_objective_gathering_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1296,7 +1296,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_tell_objective_
 ### conversation_lord_tell_gathering_player_joined_on_consequence
 `public void conversation_lord_tell_gathering_player_joined_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_tell_gathering_player_joined_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1307,7 +1307,7 @@ lordConversationsCampaignBehavior.conversation_lord_tell_gathering_player_joined
 ### conversation_lord_ask_pardon_answer_bad_relation_on_condition
 `public bool conversation_lord_ask_pardon_answer_bad_relation_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_ask_pardon_answer_bad_relation_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1318,7 +1318,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_ask_pardon_answ
 ### conversation_lord_ask_pardon_answer_low_right_to_rule_on_condition
 `public bool conversation_lord_ask_pardon_answer_low_right_to_rule_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_ask_pardon_answer_low_right_to_rule_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1329,7 +1329,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_ask_pardon_answ
 ### conversation_lord_ask_pardon_answer_no_advantage_on_condition
 `public bool conversation_lord_ask_pardon_answer_no_advantage_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_ask_pardon_answer_no_advantage_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1340,7 +1340,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_ask_pardon_answ
 ### conversation_lord_ask_pardon_answer_not_accepted_on_condition
 `public bool conversation_lord_ask_pardon_answer_not_accepted_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_ask_pardon_answer_not_accepted_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1351,7 +1351,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_ask_pardon_answ
 ### conversation_lord_ask_pardon_answer_accepted_on_condition
 `public bool conversation_lord_ask_pardon_answer_accepted_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_ask_pardon_answer_accepted_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1362,7 +1362,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_ask_pardon_answ
 ### conversation_lord_give_oath_1_player_answer_1_on_condition
 `public bool conversation_lord_give_oath_1_player_answer_1_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_give_oath_1_player_answer_1_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1373,7 +1373,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_give_oath_1_pla
 ### conversation_set_oath_phrases_on_condition
 `public bool conversation_set_oath_phrases_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_set_oath_phrases_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1384,7 +1384,7 @@ var result = lordConversationsCampaignBehavior.conversation_set_oath_phrases_on_
 ### conversation_vassalage_offer_player_is_already_vassal_on_condition
 `public bool conversation_vassalage_offer_player_is_already_vassal_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_vassalage_offer_player_is_already_vassal_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1395,7 +1395,7 @@ var result = lordConversationsCampaignBehavior.conversation_vassalage_offer_play
 ### conversation_vassalage_offer_player_has_low_relation_on_condition
 `public bool conversation_vassalage_offer_player_has_low_relation_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_vassalage_offer_player_has_low_relation_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1406,7 +1406,7 @@ var result = lordConversationsCampaignBehavior.conversation_vassalage_offer_play
 ### conversation_mercenary_service_offer_rejected_on_condition
 `public bool conversation_mercenary_service_offer_rejected_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_mercenary_service_offer_rejected_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1417,7 +1417,7 @@ var result = lordConversationsCampaignBehavior.conversation_mercenary_service_of
 ### conversation_mercenary_service_offer_accepted_on_condition
 `public bool conversation_mercenary_service_offer_accepted_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_mercenary_service_offer_accepted_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1428,7 +1428,7 @@ var result = lordConversationsCampaignBehavior.conversation_mercenary_service_of
 ### conversation_vassalage_offer_accepted_on_condition
 `public bool conversation_vassalage_offer_accepted_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_vassalage_offer_accepted_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1439,7 +1439,7 @@ var result = lordConversationsCampaignBehavior.conversation_vassalage_offer_acce
 ### conversation_liege_states_obligations_to_vassal_on_condition
 `public bool conversation_liege_states_obligations_to_vassal_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_liege_states_obligations_to_vassal_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1450,7 +1450,7 @@ var result = lordConversationsCampaignBehavior.conversation_liege_states_obligat
 ### conversation_player_is_accepted_as_a_vassal_on_consequence
 `public void conversation_player_is_accepted_as_a_vassal_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_is_accepted_as_a_vassal_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1461,7 +1461,7 @@ lordConversationsCampaignBehavior.conversation_player_is_accepted_as_a_vassal_on
 ### conversation_player_leave_faction_accepted_on_consequence
 `public void conversation_player_leave_faction_accepted_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_leave_faction_accepted_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1472,7 +1472,7 @@ lordConversationsCampaignBehavior.conversation_player_leave_faction_accepted_on_
 ### conversation_player_leave_faction_accepted_on_leave
 `public void conversation_player_leave_faction_accepted_on_leave()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_player_leave_faction_accepted_on_leave」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1483,7 +1483,7 @@ lordConversationsCampaignBehavior.conversation_player_leave_faction_accepted_on_
 ### conversation_lord_talk_ask_location_2_on_condition
 `public bool conversation_lord_talk_ask_location_2_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_talk_ask_location_2_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例
@@ -1494,7 +1494,7 @@ var result = lordConversationsCampaignBehavior.conversation_lord_talk_ask_locati
 ### conversation_lord_talk_ask_location_2_on_consequence
 `public void conversation_lord_talk_ask_location_2_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_talk_ask_location_2_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordConversationsCampaignBehavior 实例

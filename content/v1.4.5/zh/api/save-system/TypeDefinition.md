@@ -42,7 +42,7 @@ var result = typeDefinition.CheckIfRequiresAdvancedResolving(originalObject);
 ### ResolveObject
 `public object ResolveObject(object originalObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「resolve object」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -53,7 +53,7 @@ var result = typeDefinition.ResolveObject(originalObject);
 ### AdvancedResolveObject
 `public object AdvancedResolveObject(object originalObject, MetaData metaData, ObjectLoadData objectLoadData)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「advanced resolve object」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -64,7 +64,7 @@ var result = typeDefinition.AdvancedResolveObject(originalObject, metaData, obje
 ### CollectInitializationCallbacks
 `public void CollectInitializationCallbacks()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect initialization callbacks」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -75,7 +75,7 @@ typeDefinition.CollectInitializationCallbacks();
 ### CollectProperties
 `public void CollectProperties()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例
@@ -86,7 +86,7 @@ typeDefinition.CollectProperties();
 ### CollectFields
 `public void CollectFields()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect fields」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TypeDefinition 实例

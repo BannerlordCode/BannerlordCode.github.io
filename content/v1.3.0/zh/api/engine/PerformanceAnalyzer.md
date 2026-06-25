@@ -34,7 +34,7 @@ performanceAnalyzer.Start("example");
 ### End
 `public void End()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例
@@ -45,7 +45,7 @@ performanceAnalyzer.End();
 ### FinalizeAndWrite
 `public void FinalizeAndWrite(string filePath)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize and write」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PerformanceAnalyzer 实例

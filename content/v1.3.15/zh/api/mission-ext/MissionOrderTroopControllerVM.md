@@ -136,7 +136,7 @@ missionOrderTroopControllerVM.SetTroopActiveOrders(item);
 ### SelectAllFormations
 `public virtual void SelectAllFormations(bool uiFeedback = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select all formations」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例
@@ -246,7 +246,7 @@ missionOrderTroopControllerVM.OnTroopOrderIssued(selectedFormations, orderItem);
 ### IntervalUpdate
 `public void IntervalUpdate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「interval update」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderTroopControllerVM 实例

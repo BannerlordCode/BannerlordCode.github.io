@@ -67,7 +67,7 @@ var result = twoDimensionDrawContext.CreateTextMaterial();
 ### PushScissor
 `public void PushScissor(in Rectangle2D newScissorRectangle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「push scissor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -78,7 +78,7 @@ twoDimensionDrawContext.PushScissor(newScissorRectangle);
 ### PopScissor
 `public void PopScissor()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pop scissor」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -122,7 +122,7 @@ twoDimensionDrawContext.ClearCircualMask();
 ### DrawTo
 `public void DrawTo(TwoDimensionContext twoDimensionContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw to」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -133,7 +133,7 @@ twoDimensionDrawContext.DrawTo(twoDimensionContext);
 ### DrawSprite
 `public void DrawSprite(Sprite sprite, SimpleMaterial material, in Rectangle2D rectangle, float scale)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw sprite」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -144,7 +144,7 @@ twoDimensionDrawContext.DrawSprite(sprite, material, rectangle, 0);
 ### Draw
 `public void Draw(SimpleMaterial material, in ImageDrawObject drawObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -155,7 +155,7 @@ twoDimensionDrawContext.Draw(material, drawObject);
 ### Draw
 `public void Draw(TextMaterial material, in TextDrawObject drawObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例
@@ -166,7 +166,7 @@ twoDimensionDrawContext.Draw(material, drawObject);
 ### Draw
 `public void Draw(Text text, TextMaterial materialOriginal, in Rectangle2D parentRectangle, in Rectangle2D rectangle)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TwoDimensionDrawContext 实例

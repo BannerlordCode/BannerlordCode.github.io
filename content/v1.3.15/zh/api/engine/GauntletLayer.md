@@ -74,7 +74,7 @@ var result = gauntletLayer.LoadMovie("example", dataSource);
 ### ReleaseMovie
 `public void ReleaseMovie(GauntletMovieIdentifier identifier)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release movie」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -85,7 +85,7 @@ gauntletLayer.ReleaseMovie(identifier);
 ### ProcessEvents
 `public override void ProcessEvents()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process events」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -96,7 +96,7 @@ gauntletLayer.ProcessEvents();
 ### HitTest
 `public override bool HitTest(Vector2 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -107,7 +107,7 @@ var result = gauntletLayer.HitTest(position);
 ### HitTest
 `public override bool HitTest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hit test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -118,7 +118,7 @@ var result = gauntletLayer.HitTest();
 ### FocusTest
 `public override bool FocusTest()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「focus test」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例
@@ -184,7 +184,7 @@ var result = gauntletLayer.GetIsAvailableForGamepadNavigation();
 ### DrawDebugInfo
 `public override void DrawDebugInfo()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「draw debug info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 GauntletLayer 实例

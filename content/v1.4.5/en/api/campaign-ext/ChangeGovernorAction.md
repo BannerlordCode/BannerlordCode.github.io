@@ -47,4 +47,4 @@ ChangeGovernorAction.Apply(fortification, governor);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

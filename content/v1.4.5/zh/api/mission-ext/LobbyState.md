@@ -111,7 +111,7 @@ var result = lobbyState.TryLogin("example", "example");
 ### HostGame
 `public void HostGame()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「host game」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyState 实例
@@ -155,7 +155,7 @@ var result = lobbyState.ShowFeedback(inquiryData);
 ### DismissFeedback
 `public void DismissFeedback(string messageId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「dismiss feedback」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LobbyState 实例

@@ -53,7 +53,7 @@ defaultBattleMissionAgentSpawnLogic.OnBehaviorInitialize();
 ### AfterStart
 `public override void AfterStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultBattleMissionAgentSpawnLogic 实例
@@ -262,7 +262,7 @@ defaultBattleMissionAgentSpawnLogic.AddPhaseChangeAction(side, onPhaseChanged);
 ### ComputeDeploymentBaseOffsets
 `public static void ComputeDeploymentBaseOffsets(SpawnPathData sideSpawnPathData, float baseDeploymentOffset, out float deployingSideBaseOffset, out float opposingSideBaseOffset)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute deployment base offsets」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -272,7 +272,7 @@ DefaultBattleMissionAgentSpawnLogic.ComputeDeploymentBaseOffsets(sideSpawnPathDa
 ### ComputeTeamDeploymentOffsets
 `public static void ComputeTeamDeploymentOffsets(SpawnPathData spawnPathData, float deploymentBaseOffset, float interTeamGapOffset, float teamOffsetRanges, out float teamDeployOffsets)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute team deployment offsets」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ mBFastRandom.SetSeed(0, 0);
 ### Next
 `public int Next()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -45,7 +45,7 @@ var result = mBFastRandom.Next();
 ### Next
 `public int Next(int maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -56,7 +56,7 @@ var result = mBFastRandom.Next(0);
 ### Next
 `public int Next(int minValue, int maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -67,7 +67,7 @@ var result = mBFastRandom.Next(0, 0);
 ### NextDouble
 `public double NextDouble()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next double」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -78,7 +78,7 @@ var result = mBFastRandom.NextDouble();
 ### NextFloat
 `public float NextFloat()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next float」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例
@@ -89,7 +89,7 @@ var result = mBFastRandom.NextFloat();
 ### NextBytes
 `public void NextBytes(byte buffer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「next bytes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandom 实例

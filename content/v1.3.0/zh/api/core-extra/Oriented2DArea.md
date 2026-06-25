@@ -70,7 +70,7 @@ oriented2DArea.SetDimensions(dimensions);
 ### Overlaps
 `public bool Overlaps(in Oriented2DArea otherArea, float clearanceMargin)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「overlaps」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例
@@ -81,7 +81,7 @@ var result = oriented2DArea.Overlaps(otherArea, 0);
 ### Intersects
 `public bool Intersects(in LineSegment2D line, float clearanceMargin)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「intersects」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Oriented2DArea 实例

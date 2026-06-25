@@ -41,7 +41,7 @@ loadingWindowHandler.Initialize();
 ### Enable
 `public void Enable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例
@@ -52,7 +52,7 @@ loadingWindowHandler.Enable();
 ### Disable
 `public void Disable()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「disable」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例
@@ -63,7 +63,7 @@ loadingWindowHandler.Disable();
 ### Destroy
 `public void Destroy()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「destroy」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LoadingWindowHandler 实例

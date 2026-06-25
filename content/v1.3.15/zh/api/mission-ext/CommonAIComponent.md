@@ -67,7 +67,7 @@ commonAIComponent.OnTick(0);
 ### Panic
 `public void Panic()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「panic」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例
@@ -78,7 +78,7 @@ commonAIComponent.Panic();
 ### Retreat
 `public void Retreat(bool useCachingSystem = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「retreat」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CommonAIComponent 实例

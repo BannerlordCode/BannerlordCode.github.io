@@ -72,7 +72,7 @@ explainedNumber.AddFromExplainedNumber(explainedNumber, baseText);
 ### SubtractFromExplainedNumber
 `public void SubtractFromExplainedNumber(ExplainedNumber explainedNumber, TextObject baseText)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「subtract from explained number」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ExplainedNumber 实例
@@ -105,7 +105,7 @@ explainedNumber.AddFactor(0, null);
 ### LimitMin
 `public void LimitMin(float minValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「limit min」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ExplainedNumber 实例
@@ -116,7 +116,7 @@ explainedNumber.LimitMin(0);
 ### LimitMax
 `public void LimitMax(float maxValue, TextObject description = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「limit max」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ExplainedNumber 实例
@@ -127,7 +127,7 @@ explainedNumber.LimitMax(0, null);
 ### Clamp
 `public void Clamp(float minValue, float maxValue)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ExplainedNumber 实例

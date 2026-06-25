@@ -83,7 +83,7 @@ ModHelpers.GetTempFileStream();
 ### ExtractZipToTempDirectory
 `public static string ExtractZipToTempDirectory(string sourceZipFilePath)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「extract zip to temp directory」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ ModHelpers.ExtractZipToTempDirectory("example");
 ### DownloadToTempFile
 `public static async Task<string> DownloadToTempFile(HttpClient httpClient, string url, IProgress<ProgressUpdate> progress = null, CancellationToken cancellationToken = default(CancellationToken))`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「download to temp file」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

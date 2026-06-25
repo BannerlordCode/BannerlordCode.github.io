@@ -130,7 +130,7 @@ var result = craftingCampaignBehavior.GetMaxHeroCraftingStamina(hero);
 ### DoRefinement
 `public void DoRefinement(Hero hero, Crafting.RefiningFormula refineFormula)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do refinement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -141,7 +141,7 @@ craftingCampaignBehavior.DoRefinement(hero, refineFormula);
 ### DoSmelting
 `public void DoSmelting(Hero currentCraftingHero, EquipmentElement equipmentElement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do smelting」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例
@@ -229,7 +229,7 @@ craftingCampaignBehavior.GetOrderResult(craftingOrder, craftedItem, isSucceed, o
 ### CompleteOrder
 `public void CompleteOrder(Town town, CraftingOrder craftingOrder, ItemObject craftedItem, Hero completerHero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete order」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CraftingCampaignBehavior 实例

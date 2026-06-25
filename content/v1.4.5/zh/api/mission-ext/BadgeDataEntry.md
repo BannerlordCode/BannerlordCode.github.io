@@ -32,7 +32,7 @@ description: "BadgeDataEntry 的自动生成类参考。"
 ### ToList
 `public static List<BadgeDataEntry> ToList(Dictionary<(PlayerId, string, string), int> dictionary)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to list」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

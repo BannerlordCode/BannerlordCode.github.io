@@ -67,7 +67,7 @@ var result = workshopsCampaignBehavior.GetWarehouseItemRosterWeight(settlement);
 ### TransferWarehouseToPlayerParty
 `public void TransferWarehouseToPlayerParty(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transfer warehouse to player party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WorkshopsCampaignBehavior 实例

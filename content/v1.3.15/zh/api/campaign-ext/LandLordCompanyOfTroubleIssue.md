@@ -50,7 +50,7 @@ landLordCompanyOfTroubleIssue.RegisterEvents();
 ### company_of_trouble_menu_game_menu_on_init_background
 `public static void company_of_trouble_menu_game_menu_on_init_background(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「company_of_trouble_menu_game_menu_on_init_background」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

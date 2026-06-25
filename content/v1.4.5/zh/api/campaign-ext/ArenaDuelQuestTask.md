@@ -23,7 +23,7 @@ description: "ArenaDuelQuestTask 的自动生成类参考。"
 ### AfterStart
 `public void AfterStart(IMission mission)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「start」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelQuestTask 实例
@@ -56,7 +56,7 @@ arenaDuelQuestTask.OnGameMenuOpened(args);
 ### MissionTick
 `public void MissionTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「mission」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 ArenaDuelQuestTask 实例

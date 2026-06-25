@@ -39,4 +39,4 @@ var manager = MapAudioManager.Current;
 
 ## 参见
 
-- [本区域目录](../)
+- [本区域目录](../../)

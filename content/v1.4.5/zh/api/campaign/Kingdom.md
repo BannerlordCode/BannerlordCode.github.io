@@ -120,7 +120,7 @@ kingdom.InitializeKingdom(name, informalName, culture, banner, 0, 0, initialHome
 ### ChangeKingdomName
 `public void ChangeKingdomName(TextObject name, TextObject informalName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change kingdom name」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Kingdom 实例
@@ -351,7 +351,7 @@ kingdom.CalculateMidSettlement();
 ### ReactivateKingdom
 `public void ReactivateKingdom()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reactivate kingdom」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Kingdom 实例

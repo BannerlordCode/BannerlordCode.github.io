@@ -164,7 +164,7 @@ missionOrderDeploymentControllerVM.ExecuteDeployPlayerSide();
 ### FinalizeDeployment
 `public void FinalizeDeployment()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize deployment」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionOrderDeploymentControllerVM 实例

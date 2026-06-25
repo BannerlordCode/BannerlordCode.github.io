@@ -53,7 +53,7 @@ windowsFramework.RegisterMessageCommunicator(communicator);
 ### UnRegisterMessageCommunicator
 `public void UnRegisterMessageCommunicator(IMessageCommunicator communicator)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「un register message communicator」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 WindowsFramework 实例

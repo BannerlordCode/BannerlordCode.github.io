@@ -269,7 +269,7 @@ mobileParty.CancelNavigationTransition();
 ### ChangeIsCurrentlyAtSeaCheat
 `public void ChangeIsCurrentlyAtSeaCheat()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change is currently at sea cheat」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -357,7 +357,7 @@ var result = mobileParty.ToString();
 ### ChangePartyLeader
 `public void ChangePartyLeader(Hero newLeader)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change party leader」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -565,7 +565,7 @@ mobileParty.SetPartyUsedByQuest(false);
 ### IgnoreForHours
 `public void IgnoreForHours(float hours)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ignore for hours」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -576,7 +576,7 @@ mobileParty.IgnoreForHours(0);
 ### IgnoreByOtherPartiesTill
 `public void IgnoreByOtherPartiesTill(CampaignTime time)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ignore by other parties till」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例
@@ -958,7 +958,7 @@ MobileParty.UpdateLocator(party);
 ### ComputeIsWaiting
 `public bool ComputeIsWaiting()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute is waiting」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MobileParty 实例

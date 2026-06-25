@@ -23,7 +23,7 @@ description: "PartyBaseHelper 的自动生成类参考。"
 ### SortRoster
 `public static void SortRoster(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort roster」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ PartyBaseHelper.GetCaptainOfTroop(affectorParty, affectorCharacter);
 ### PrintRosterContents
 `public static string PrintRosterContents(TroopRoster roster)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print roster contents」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ PartyBaseHelper.PrintRosterContents(roster);
 ### PrintSummarisedItemRoster
 `public static TextObject PrintSummarisedItemRoster(ItemRoster items)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print summarised item roster」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ PartyBaseHelper.PrintSummarisedItemRoster(items);
 ### PrintRegularTroopCategories
 `public static TextObject PrintRegularTroopCategories(TroopRoster roster)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「print regular troop categories」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

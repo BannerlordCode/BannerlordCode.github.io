@@ -42,7 +42,7 @@ description: "Crafting 的自动生成类参考。"
 ### FillWeapon
 `public static void FillWeapon(ItemObject item, WeaponDescription weaponDescription, WeaponFlags weaponFlags, bool isAlternative, out WeaponComponentData filledWeapon)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill weapon」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -95,7 +95,7 @@ var result = crafting.GetRandomPieceOfType(pieceType, false);
 ### SwitchToCraftedItem
 `public void SwitchToCraftedItem(ItemObject item)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch to crafted item」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -106,7 +106,7 @@ crafting.SwitchToCraftedItem(item);
 ### Randomize
 `public void Randomize()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「randomize」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -117,7 +117,7 @@ crafting.Randomize();
 ### SwitchToPiece
 `public void SwitchToPiece(WeaponDesignElement piece)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「switch to piece」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -128,7 +128,7 @@ crafting.SwitchToPiece(piece);
 ### ScaleThePiece
 `public void ScaleThePiece(CraftingPiece.PieceTypes scalingPieceType, int percentage)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale the piece」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -139,7 +139,7 @@ crafting.ScaleThePiece(scalingPieceType, 0);
 ### ReIndex
 `public void ReIndex(bool enforceReCreation = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「re index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -150,7 +150,7 @@ crafting.ReIndex(false);
 ### Undo
 `public bool Undo()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例
@@ -161,7 +161,7 @@ var result = crafting.Undo();
 ### Redo
 `public bool Redo()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「redo」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Crafting 实例

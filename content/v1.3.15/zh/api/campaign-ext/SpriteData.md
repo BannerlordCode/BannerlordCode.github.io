@@ -43,7 +43,7 @@ var result = spriteData.GetSprite("example");
 ### SpriteExists
 `public bool SpriteExists(string spriteName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sprite exists」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteData 实例
@@ -65,7 +65,7 @@ spriteData.Load(resourceDepot);
 ### Reload
 `public void Reload(ResourceDepot resourceDepot, ITwoDimensionResourceContext resourceContext)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteData 实例

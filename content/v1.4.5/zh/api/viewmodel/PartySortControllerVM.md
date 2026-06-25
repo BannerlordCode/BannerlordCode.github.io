@@ -31,7 +31,7 @@ description: "PartySortControllerVM 的自动生成类参考。"
 ### SelectSortType
 `public void SelectSortType(PartyScreenLogic.TroopSortType sortType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select sort type」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartySortControllerVM 实例
@@ -42,7 +42,7 @@ partySortControllerVM.SelectSortType(sortType);
 ### SortWith
 `public void SortWith(PartyScreenLogic.TroopSortType sortType, bool isAscending)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort with」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartySortControllerVM 实例

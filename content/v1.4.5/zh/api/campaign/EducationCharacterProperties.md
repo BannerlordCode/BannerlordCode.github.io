@@ -23,7 +23,7 @@ description: "EducationCharacterProperties 的自动生成类参考。"
 ### EducationCharacterProperties
 `public struct EducationCharacterProperties(CharacterObject character, Equipment equipment, string actionId, string prefabId, bool useOffHand)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「education character properties」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 EducationCharacterProperties 实例

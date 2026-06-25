@@ -23,7 +23,7 @@ description: "MBDotNet 的自动生成类参考。"
 ### WotsMainDotNet
 `public static extern int WotsMainDotNet(string args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wots main dot net」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBDotNet.WotsMainDotNet("example");
 ### PassControllerMethods
 `public static extern void PassControllerMethods(Delegate currentDomainInitializer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass controller methods」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBDotNet.PassControllerMethods(currentDomainInitializer);
 ### PassManagedInitializeMethodPointerDotNet
 `public static extern void PassManagedInitializeMethodPointerDotNet( Delegate initalizer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass managed initialize method pointer dot net」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MBDotNet.PassManagedInitializeMethodPointerDotNet(initalizer);
 ### PassManagedEngineCallbackMethodPointersDotNet
 `public static extern void PassManagedEngineCallbackMethodPointersDotNet( Delegate methodDelegate)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pass managed engine callback method pointers dot net」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -73,7 +73,7 @@ issueManager.DeactivateIssue(issue);
 ### ChangeIssueOwner
 `public void ChangeIssueOwner(IssueBase issue, Hero newOwner)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change issue owner」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueManager 实例
@@ -106,7 +106,7 @@ var result = issueManager.CheckForIssues(issueOwner);
 ### DailyTick
 `public override void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueManager 实例
@@ -117,7 +117,7 @@ issueManager.DailyTick();
 ### HourlyTick
 `public override void HourlyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueManager 实例
@@ -260,7 +260,7 @@ issueManager.OnSettlementOwnerChanged(settlement, false, newOwner, oldOwner, cap
 ### ToggleAllIssueTracks
 `public void ToggleAllIssueTracks(bool enableTrack)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle all issue tracks」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 IssueManager 实例
@@ -392,7 +392,7 @@ issueManager.IsSettlementBusy(settlement, asker, priority);
 ### FillIssueCountsPerSettlement
 `public static void FillIssueCountsPerSettlement(Dictionary<Settlement, int> issueCountPerSettlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill issue counts per settlement」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -422,7 +422,7 @@ IssueManager.GetIssueOfQuest(quest);
 ### FillIssueCountsPerClan
 `public static void FillIssueCountsPerClan(Dictionary<Clan, int> issueCountPerClan, IEnumerable<Clan> clans)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill issue counts per clan」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

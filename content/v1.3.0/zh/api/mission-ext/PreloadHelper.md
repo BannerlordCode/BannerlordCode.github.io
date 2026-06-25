@@ -23,7 +23,7 @@ description: "PreloadHelper 的自动生成类参考。"
 ### PreloadCharacters
 `public void PreloadCharacters(List<BasicCharacterObject> characters)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload characters」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -45,7 +45,7 @@ preloadHelper.WaitForMeshesToBeLoaded();
 ### PreloadEquipments
 `public void PreloadEquipments(List<Equipment> equipments)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload equipments」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例
@@ -56,7 +56,7 @@ preloadHelper.PreloadEquipments(equipments);
 ### PreloadItems
 `public void PreloadItems(List<ItemObject> items)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload items」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PreloadHelper 实例

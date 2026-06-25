@@ -51,7 +51,7 @@ var result = boardGameAIBase.CalculateMovementStageMove();
 ### WantsToForfeit
 `public virtual bool WantsToForfeit()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wants to forfeit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例
@@ -95,7 +95,7 @@ boardGameAIBase.SetDifficulty(difficulty);
 ### HowLongDidAIThinkAboutMove
 `public float HowLongDidAIThinkAboutMove()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「how long did ai think about move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameAIBase 实例

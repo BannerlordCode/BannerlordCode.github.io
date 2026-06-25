@@ -33,7 +33,7 @@ description: "GameData 的自动生成类参考。"
 ### Inspect
 `public void Inspect()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「inspect」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GameData 实例

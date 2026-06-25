@@ -23,7 +23,7 @@ description: "RandomOwnerExtensions 的自动生成类参考。"
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ RandomOwnerExtensions.RandomIntWithSeed(obj, 0);
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ RandomOwnerExtensions.RandomIntWithSeed(obj, 0, 0);
 ### RandomIntWithSeed
 `public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int min, int max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ RandomOwnerExtensions.RandomIntWithSeed(obj, 0, 0, 0);
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ RandomOwnerExtensions.RandomFloatWithSeed(obj, 0);
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ RandomOwnerExtensions.RandomFloatWithSeed(obj, 0, 0);
 ### RandomFloatWithSeed
 `public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float min, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float with seed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -83,7 +83,7 @@ RandomOwnerExtensions.RandomFloatWithSeed(obj, 0, 0, 0);
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -93,7 +93,7 @@ RandomOwnerExtensions.RandomInt(obj);
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj, int max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -103,7 +103,7 @@ RandomOwnerExtensions.RandomInt(obj, 0);
 ### RandomInt
 `public static int RandomInt(this IRandomOwner obj, int min, int max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random int」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ RandomOwnerExtensions.RandomInt(obj, 0, 0);
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ RandomOwnerExtensions.RandomFloat(obj);
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ RandomOwnerExtensions.RandomFloat(obj, 0);
 ### RandomFloat
 `public static float RandomFloat(this IRandomOwner obj, float min, float max)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「random float」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

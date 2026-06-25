@@ -23,7 +23,7 @@ description: "DefaultParallelDriver 的自动生成类参考。"
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
@@ -34,7 +34,7 @@ defaultParallelDriver.For(0, 0, body, 0);
 ### ForWithoutRenderThread
 `public void ForWithoutRenderThread(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for without render thread」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例
@@ -45,7 +45,7 @@ defaultParallelDriver.ForWithoutRenderThread(0, 0, body, 0);
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate body, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultParallelDriver 实例

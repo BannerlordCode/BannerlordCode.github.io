@@ -133,7 +133,7 @@ dedicatedCustomServerClientHelperSubModule.OnMultiplayerGameStart(game, _);
 ### DownloadMapFromHost
 `public async Task DownloadMapFromHost(string hostAddress, string mapName, bool replaceExisting = false, IProgress<ProgressUpdate> progress = null, CancellationToken cancellationToken = default(CancellationToken))`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「download map from host」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DedicatedCustomServerClientHelperSubModule 实例
@@ -155,7 +155,7 @@ var result = dedicatedCustomServerClientHelperSubModule.GetMapListFromHost("exam
 ### DownloadMapCommand
 `public static string DownloadMapCommand(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「download map command」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

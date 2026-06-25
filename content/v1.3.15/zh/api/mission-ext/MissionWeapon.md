@@ -410,7 +410,7 @@ var result = missionWeapon.GetRangedUsageIndex();
 ### Consume
 `public MissionWeapon Consume(short count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「consume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -421,7 +421,7 @@ var result = missionWeapon.Consume(0);
 ### ConsumeAmmo
 `public void ConsumeAmmo(short count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「consume ammo」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -443,7 +443,7 @@ missionWeapon.SetAmmo(ammoWeapon);
 ### ReloadAmmo
 `public void ReloadAmmo(MissionWeapon ammoWeapon, short reloadPhase)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reload ammo」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例
@@ -454,7 +454,7 @@ missionWeapon.ReloadAmmo(ammoWeapon, 0);
 ### AttachWeapon
 `public void AttachWeapon(MissionWeapon attachedWeapon, ref MatrixFrame attachFrame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「attach weapon」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionWeapon 实例

@@ -64,7 +64,7 @@ description: "PartyScreenLogic 的自动生成类参考。"
 ### PresentationUpdate
 `public delegate void PresentationUpdate(PartyCommand command)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「presentation update」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -75,7 +75,7 @@ partyScreenLogic.PresentationUpdate(command);
 ### PartyGoldDelegate
 `public delegate void PartyGoldDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party gold delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -86,7 +86,7 @@ partyScreenLogic.PartyGoldDelegate();
 ### PartyMoraleDelegate
 `public delegate void PartyMoraleDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party morale delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -97,7 +97,7 @@ partyScreenLogic.PartyMoraleDelegate();
 ### PartyInfluenceDelegate
 `public delegate void PartyInfluenceDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party influence delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -108,7 +108,7 @@ partyScreenLogic.PartyInfluenceDelegate();
 ### PartyHorseDelegate
 `public delegate void PartyHorseDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「party horse delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -119,7 +119,7 @@ partyScreenLogic.PartyHorseDelegate();
 ### AfterResetDelegate
 `public delegate void AfterResetDelegate(PartyScreenLogic partyScreenLogic, bool fromCancel)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「reset delegate」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -130,7 +130,7 @@ partyScreenLogic.AfterResetDelegate(partyScreenLogic, false);
 ### FillForTransferTroop
 `public void FillForTransferTroop(PartyRosterSide fromSide, TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for transfer troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -141,7 +141,7 @@ partyScreenLogic.FillForTransferTroop(fromSide, type, character, 0, 0, 0);
 ### FillForShiftTroop
 `public void FillForShiftTroop(PartyRosterSide side, TroopType type, CharacterObject character, int targetIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for shift troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -152,7 +152,7 @@ partyScreenLogic.FillForShiftTroop(side, type, character, 0);
 ### FillForTransferTroopToLeaderSlot
 `public void FillForTransferTroopToLeaderSlot(PartyRosterSide side, TroopType type, CharacterObject character, int totalNumber, int woundedNumber, int targetIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for transfer troop to leader slot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -163,7 +163,7 @@ partyScreenLogic.FillForTransferTroopToLeaderSlot(side, type, character, 0, 0, 0
 ### FillForTransferPartyLeaderTroop
 `public void FillForTransferPartyLeaderTroop(PartyRosterSide side, TroopType type, CharacterObject character, int totalNumber)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for transfer party leader troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -174,7 +174,7 @@ partyScreenLogic.FillForTransferPartyLeaderTroop(side, type, character, 0);
 ### FillForUpgradeTroop
 `public void FillForUpgradeTroop(PartyRosterSide side, TroopType type, CharacterObject character, int number, int upgradeTargetType, int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for upgrade troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -185,7 +185,7 @@ partyScreenLogic.FillForUpgradeTroop(side, type, character, 0, 0, 0);
 ### FillForRecruitTroop
 `public void FillForRecruitTroop(PartyRosterSide side, TroopType type, CharacterObject character, int number, int index)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for recruit troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -196,7 +196,7 @@ partyScreenLogic.FillForRecruitTroop(side, type, character, 0, 0);
 ### FillForExecuteTroop
 `public void FillForExecuteTroop(PartyRosterSide side, TroopType type, CharacterObject character)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for execute troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -207,7 +207,7 @@ partyScreenLogic.FillForExecuteTroop(side, type, character);
 ### FillForTransferAllTroops
 `public void FillForTransferAllTroops(PartyRosterSide side, TroopType type)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for transfer all troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -218,7 +218,7 @@ partyScreenLogic.FillForTransferAllTroops(side, type);
 ### FillForSortTroops
 `public void FillForSortTroops(PartyRosterSide side, TroopSortType sortType, bool isAscending)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fill for sort troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -339,7 +339,7 @@ var result = partyScreenLogic.IsCancelActive();
 ### DoneLogic
 `public bool DoneLogic(bool isForced)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「done logic」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例
@@ -526,7 +526,7 @@ var result = partyScreenLogic.IsThereAnyChanges();
 ### HaveRightSideGainedTroops
 `public bool HaveRightSideGainedTroops()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「have right side gained troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 PartyScreenLogic 实例

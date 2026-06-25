@@ -45,7 +45,7 @@ questBase.StartQuest();
 ### CompleteQuestWithSuccess
 `public void CompleteQuestWithSuccess()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete quest with success」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -56,7 +56,7 @@ questBase.CompleteQuestWithSuccess();
 ### CompleteQuestWithTimeOut
 `public void CompleteQuestWithTimeOut(TextObject timeOutLog = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete quest with time out」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -67,7 +67,7 @@ questBase.CompleteQuestWithTimeOut(null);
 ### CompleteQuestWithFail
 `public void CompleteQuestWithFail(TextObject cancelLog = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete quest with fail」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -78,7 +78,7 @@ questBase.CompleteQuestWithFail(null);
 ### CompleteQuestWithBetrayal
 `public void CompleteQuestWithBetrayal(TextObject betrayLog = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete quest with betrayal」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -89,7 +89,7 @@ questBase.CompleteQuestWithBetrayal(null);
 ### CompleteQuestWithCancel
 `public void CompleteQuestWithCancel(TextObject cancelLog = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「complete quest with cancel」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -232,7 +232,7 @@ var result = questBase.IsTracked(o);
 ### ToggleTrackedObjects
 `public void ToggleTrackedObjects()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle tracked objects」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -265,7 +265,7 @@ questBase.AddGameMenuOption("example", "example", optionText, condition, consequ
 ### ChangeQuestDueTime
 `public void ChangeQuestDueTime(CampaignTime questDueTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change quest due time」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例
@@ -298,7 +298,7 @@ questBase.OnCanceled();
 ### QuestPreconditions
 `public virtual bool QuestPreconditions()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quest preconditions」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestBase 实例

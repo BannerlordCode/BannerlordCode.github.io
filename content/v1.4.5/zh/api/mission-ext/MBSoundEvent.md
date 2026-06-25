@@ -23,7 +23,7 @@ description: "MBSoundEvent 的自动生成类参考。"
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, in Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBSoundEvent.PlaySound(0, position);
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBSoundEvent.PlaySound(0, position);
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -53,7 +53,7 @@ MBSoundEvent.PlaySound(0, parameter, position);
 ### PlaySound
 `public static bool PlaySound(string soundPath, ref SoundEventParameter parameter, Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ MBSoundEvent.PlaySound("example", parameter, position);
 ### PlaySound
 `public static bool PlaySound(int soundCodeId, ref SoundEventParameter parameter, in Vec3 position)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play sound」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -73,7 +73,7 @@ MBSoundEvent.PlaySound(0, parameter, position);
 ### PlayEventFromSoundBuffer
 `public static void PlayEventFromSoundBuffer(string eventId, byte soundData, Scene scene, bool is3d, bool isBlocking)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「play event from sound buffer」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

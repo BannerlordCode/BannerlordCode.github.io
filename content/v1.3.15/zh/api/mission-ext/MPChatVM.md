@@ -62,7 +62,7 @@ mPChatVM.RefreshValues();
 ### ToggleIncludeCombatLog
 `public void ToggleIncludeCombatLog()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle include combat log」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatVM 实例
@@ -139,7 +139,7 @@ mPChatVM.OnFinalize();
 ### SendMessageToChannel
 `public void SendMessageToChannel(ChatChannelType channel, string message)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send message to channel」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatVM 实例
@@ -227,7 +227,7 @@ var result = mPChatVM.IsChatAllowedByOptions();
 ### TypeToChannelAll
 `public void TypeToChannelAll(bool startTyping = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「type to channel all」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatVM 实例
@@ -238,7 +238,7 @@ mPChatVM.TypeToChannelAll(false);
 ### TypeToChannelTeam
 `public void TypeToChannelTeam(bool startTyping = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「type to channel team」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatVM 实例
@@ -293,7 +293,7 @@ mPChatVM.StopTyping(false);
 ### SendCurrentlyTypedMessage
 `public void SendCurrentlyTypedMessage()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「send currently typed message」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MPChatVM 实例

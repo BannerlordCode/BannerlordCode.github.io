@@ -42,7 +42,7 @@ var result = timer.Check(0);
 ### ElapsedTime
 `public float ElapsedTime()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「elapsed time」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例
@@ -75,7 +75,7 @@ timer.Reset(0, 0);
 ### AdjustStartTime
 `public void AdjustStartTime(float deltaTime)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「adjust start time」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Timer 实例

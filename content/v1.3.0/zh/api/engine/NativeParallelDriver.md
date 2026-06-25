@@ -23,7 +23,7 @@ description: "NativeParallelDriver 的自动生成类参考。"
 ### For
 `public void For(int fromInclusive, int toExclusive, TWParallel.ParallelForAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeParallelDriver 实例
@@ -34,7 +34,7 @@ nativeParallelDriver.For(0, 0, loopBody, 0);
 ### For
 `public void For(int fromInclusive, int toExclusive, float deltaTime, TWParallel.ParallelForWithDtAuxPredicate loopBody, int grainSize)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「for」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 NativeParallelDriver 实例

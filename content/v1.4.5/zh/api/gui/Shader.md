@@ -33,7 +33,7 @@ Shader.CreateShader(graphicsContext, "example", "example");
 ### CompileShaders
 `public static int CompileShaders(string vertexShaderCode, string fragmentShaderCode)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compile shaders」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -65,7 +65,7 @@ shader.SetColor("example", color);
 ### Use
 `public void Use()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Shader 实例

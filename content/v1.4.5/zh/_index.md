@@ -37,7 +37,7 @@ bannerlord-1.4.5/Bannerlord.Source/
 
 ## 导航
 
-- [v1.4.5 API 目录](./api/catalog)
+- [v1.4.5 API 目录](./api/)
 - [v1.3.15 文档（推荐）](../../v1.3.15/zh/)
 - [v1.3.0 文档](../../v1.3.0/zh/)
 - [English](../en/)
@@ -45,7 +45,7 @@ bannerlord-1.4.5/Bannerlord.Source/
 ## 使用方式
 
 1. 先从本页确认版本和模块边界。
-2. 再进入 [API 目录](./api/catalog) 选择具体子系统。
+2. 再进入 [API 目录](./api/) 选择具体子系统。
 3. 若要比较迁移差异，再跳到 [跨版本类对比](../../versions/)。
 
 ## 使用示例

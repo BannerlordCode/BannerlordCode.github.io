@@ -68,7 +68,7 @@ TroopRoster.CalculateCachedStatsOnLoad();
 ### ToFlattenedRoster
 `public FlattenedTroopRoster ToFlattenedRoster()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「to flattened roster」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -134,7 +134,7 @@ var result = troopRoster.RemoveNumberOfNonHeroTroopsRandomly(0);
 ### WoundNumberOfNonHeroTroopsRandomly
 `public void WoundNumberOfNonHeroTroopsRandomly(int numberOfMen)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound number of non hero troops randomly」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -145,7 +145,7 @@ troopRoster.WoundNumberOfNonHeroTroopsRandomly(0);
 ### SwapTroopsAtIndices
 `public void SwapTroopsAtIndices(int firstIndex, int secondIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「swap troops at indices」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -156,7 +156,7 @@ troopRoster.SwapTroopsAtIndices(0, 0);
 ### ShiftTroopToIndex
 `public void ShiftTroopToIndex(int troopIndex, int targetIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「shift troop to index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -343,7 +343,7 @@ var result = troopRoster.Equals(obj);
 ### RostersAreIdentical
 `public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rosters are identical」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -408,7 +408,7 @@ troopRoster.RemoveTroop(troop, 0, default(UniqueTroopDescriptor), 0);
 ### WoundTroop
 `public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor))`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「wound troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例
@@ -419,7 +419,7 @@ troopRoster.WoundTroop(troop, 0, default(UniqueTroopDescriptor));
 ### Sum
 `public int Sum(Func<TroopRosterElement, int> selector)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sum」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TroopRoster 实例

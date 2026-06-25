@@ -98,7 +98,7 @@ heroDeveloper.InitializeHeroDeveloper();
 ### DevelopCharacterStats
 `public void DevelopCharacterStats()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「develop character stats」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -120,7 +120,7 @@ var result = heroDeveloper.GetTotalSkillPoints();
 ### ChangeSkillLevel
 `public void ChangeSkillLevel(SkillObject skill, int changeAmount, bool shouldNotify = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change skill level」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例
@@ -318,7 +318,7 @@ heroDeveloper.InitializeSkillXp(skill);
 ### AfterLoad
 `public void AfterLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「load」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 HeroDeveloper 实例

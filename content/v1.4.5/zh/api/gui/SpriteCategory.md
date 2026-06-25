@@ -58,7 +58,7 @@ spriteCategory.Load(resourceContext, resourceDepot);
 ### Unload
 `public void Unload()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「unload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -69,7 +69,7 @@ spriteCategory.Unload();
 ### Reload
 `public void Reload(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, SpriteCategory newCategoryInfo)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reload」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -91,7 +91,7 @@ spriteCategory.InitializePartialLoad();
 ### ReleasePartialLoad
 `public void ReleasePartialLoad()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release partial load」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -102,7 +102,7 @@ spriteCategory.ReleasePartialLoad();
 ### PartialLoadAtIndex
 `public void PartialLoadAtIndex(ITwoDimensionResourceContext resourceContext, ResourceDepot resourceDepot, int sheetIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「partial load at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -113,7 +113,7 @@ spriteCategory.PartialLoadAtIndex(resourceContext, resourceDepot, 0);
 ### PartialUnloadAtIndex
 `public void PartialUnloadAtIndex(int sheetIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「partial unload at index」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例
@@ -124,7 +124,7 @@ spriteCategory.PartialUnloadAtIndex(0);
 ### SortList
 `public void SortList()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「sort list」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 SpriteCategory 实例

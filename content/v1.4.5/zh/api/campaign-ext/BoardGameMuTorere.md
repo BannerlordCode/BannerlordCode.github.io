@@ -23,7 +23,7 @@ description: "BoardGameMuTorere 的自动生成类参考。"
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns, ref TileBaseInformation tiles)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「board information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -34,7 +34,7 @@ var result = boardGameMuTorere.BoardInformation(pawns, tiles);
 ### PawnInformation
 `public struct PawnInformation(int x)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pawn information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -122,7 +122,7 @@ var result = boardGameMuTorere.FindTileByCoordinate(0);
 ### TakePawnsSnapshot
 `public BoardInformation TakePawnsSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take pawns snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -133,7 +133,7 @@ var result = boardGameMuTorere.TakePawnsSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例
@@ -144,7 +144,7 @@ boardGameMuTorere.UndoMove(board);
 ### AIMakeMove
 `public void AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameMuTorere 实例

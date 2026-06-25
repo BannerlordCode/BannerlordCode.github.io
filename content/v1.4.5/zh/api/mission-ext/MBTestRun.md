@@ -23,7 +23,7 @@ description: "MBTestRun 的自动生成类参考。"
 ### EnterEditMode
 `public static bool EnterEditMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「enter edit mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ MBTestRun.EnterEditMode();
 ### NewScene
 `public static bool NewScene()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「new scene」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ MBTestRun.NewScene();
 ### LeaveEditMode
 `public static bool LeaveEditMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「leave edit mode」 的状态。
 
 ```csharp
 // 静态调用，不需要实例

@@ -30,7 +30,7 @@ description: "BarterManager 的自动生成类参考。"
 ### BeginPlayerBarter
 `public void BeginPlayerBarter(BarterData args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「begin player barter」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterManager 实例
@@ -206,7 +206,7 @@ var result = barterManager.InitializeSafePassageBarterContext(barterable, args, 
 ### BarterContextInitializer
 `public delegate bool BarterContextInitializer(Barterable barterable, BarterData args, object obj = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「barter context initializer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterManager 实例
@@ -217,7 +217,7 @@ var result = barterManager.BarterContextInitializer(barterable, args, null);
 ### BarterCloseEventDelegate
 `public delegate void BarterCloseEventDelegate()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「barter close event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterManager 实例
@@ -228,7 +228,7 @@ barterManager.BarterCloseEventDelegate();
 ### BarterBeginEventDelegate
 `public delegate void BarterBeginEventDelegate(BarterData args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「barter begin event delegate」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BarterManager 实例

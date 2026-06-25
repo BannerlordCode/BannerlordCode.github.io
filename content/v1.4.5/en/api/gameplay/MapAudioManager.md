@@ -39,4 +39,4 @@ var manager = MapAudioManager.Current;
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

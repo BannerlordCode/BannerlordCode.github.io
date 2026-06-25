@@ -54,7 +54,7 @@ var result = brushRenderer.IsUpdateNeeded();
 ### Render
 `public void Render(TwoDimensionDrawContext drawContext, in Rectangle2D rect, float scale, float contextAlpha, Vector2 overlayOffset = default(Vector2), Vector2 overlaySize = default(Vector2))`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「render」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushRenderer 实例
@@ -76,7 +76,7 @@ var result = brushRenderer.CreateTextMaterial(drawContext);
 ### RestartAnimation
 `public void RestartAnimation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「restart animation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BrushRenderer 实例

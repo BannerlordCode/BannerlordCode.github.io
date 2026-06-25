@@ -67,7 +67,7 @@ lordDefectionCampaignBehavior.ClearPersuasion();
 ### conversation_lord_player_has_failed_in_defection_on_condition
 `public bool conversation_lord_player_has_failed_in_defection_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_player_has_failed_in_defection_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -78,7 +78,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_player_has_failed_i
 ### conversation_lord_recruit_check_if_reservations_met_on_condition
 `public bool conversation_lord_recruit_check_if_reservations_met_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_recruit_check_if_reservations_met_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -89,7 +89,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_recruit_check_if_re
 ### conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition
 `public bool conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_check_if_ready_to_join_faction_without_barter_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -100,7 +100,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_check_if_ready_to_j
 ### conversation_lord_defect_to_clan_without_barter_on_consequence
 `public void conversation_lord_defect_to_clan_without_barter_on_consequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「conversation_lord_defect_to_clan_without_barter_on_consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -111,7 +111,7 @@ lordDefectionCampaignBehavior.conversation_lord_defect_to_clan_without_barter_on
 ### conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition
 `public bool conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_check_if_ready_to_join_faction_with_barter_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -122,7 +122,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_check_if_ready_to_j
 ### conversation_player_is_asking_to_recruit_enemy_on_condition
 `public bool conversation_player_is_asking_to_recruit_enemy_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_asking_to_recruit_enemy_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -133,7 +133,7 @@ var result = lordDefectionCampaignBehavior.conversation_player_is_asking_to_recr
 ### conversation_player_is_asking_to_recruit_neutral_on_condition
 `public bool conversation_player_is_asking_to_recruit_neutral_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_player_is_asking_to_recruit_neutral_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -144,7 +144,7 @@ var result = lordDefectionCampaignBehavior.conversation_player_is_asking_to_recr
 ### conversation_lord_from_ruling_clan_on_condition
 `public bool conversation_lord_from_ruling_clan_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_from_ruling_clan_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例
@@ -155,7 +155,7 @@ var result = lordDefectionCampaignBehavior.conversation_lord_from_ruling_clan_on
 ### conversation_lord_redirects_to_clan_leader_on_condition
 `public bool conversation_lord_redirects_to_clan_leader_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_lord_redirects_to_clan_leader_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 LordDefectionCampaignBehavior 实例

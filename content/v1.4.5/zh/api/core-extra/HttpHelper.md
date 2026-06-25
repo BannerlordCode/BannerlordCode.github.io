@@ -23,7 +23,7 @@ description: "HttpHelper 的自动生成类参考。"
 ### DownloadStringTaskAsync
 `public static Task<string> DownloadStringTaskAsync(string url)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「download string task async」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ HttpHelper.DownloadStringTaskAsync("example");
 ### DownloadDataTaskAsync
 `public static Task<byte > DownloadDataTaskAsync(string url)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「download data task async」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ HttpHelper.DownloadDataTaskAsync("example");
 ### PostStringAsync
 `public static Task<string> PostStringAsync(string url, string postData, string mediaType = "application/json")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「post string async」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

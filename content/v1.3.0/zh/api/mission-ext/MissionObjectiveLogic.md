@@ -29,7 +29,7 @@ description: "MissionObjectiveLogic 的自动生成类参考。"
 ### EnqueueObjective
 `public void EnqueueObjective(MissionObjective objective)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「enqueue objective」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionObjectiveLogic 实例

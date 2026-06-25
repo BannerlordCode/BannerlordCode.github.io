@@ -103,4 +103,4 @@ SetPartyAiAction.GetActionForVisitingSettlement(owner, settlement, navigationTyp
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

@@ -51,7 +51,7 @@ mBFastRandomSelector.Reset();
 ### Pack
 `public void Pack()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pack」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例
@@ -62,7 +62,7 @@ mBFastRandomSelector.Pack();
 ### SelectRandom
 `public bool SelectRandom(out T selection, Predicate<T> conditions = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「select random」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MBFastRandomSelector 实例

@@ -55,7 +55,7 @@ multiplayerScoreboardAnimatedFillBarWidget.Reset();
 ### FullFillFinishedHandler
 `public delegate void FullFillFinishedHandler()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「full fill finished handler」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerScoreboardAnimatedFillBarWidget 实例

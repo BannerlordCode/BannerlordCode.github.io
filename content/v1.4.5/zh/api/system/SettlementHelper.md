@@ -203,7 +203,7 @@ SettlementHelper.FindRandomHideout(func<Settlement, false);
 ### TakeEnemyVillagersOutsideSettlements
 `public static void TakeEnemyVillagersOutsideSettlements(Settlement settlementWhichChangedFaction)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take enemy villagers outside settlements」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -253,7 +253,7 @@ SettlementHelper.IsGarrisonStarving(settlement);
 ### SpawnNotablesIfNeeded
 `public static void SpawnNotablesIfNeeded(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn notables if needed」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

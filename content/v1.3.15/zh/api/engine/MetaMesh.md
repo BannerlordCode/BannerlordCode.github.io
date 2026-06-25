@@ -292,7 +292,7 @@ metaMesh.AddMaterialShaderFlag("example");
 ### MergeMultiMeshes
 `public void MergeMultiMeshes(MetaMesh metaMesh)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「merge multi meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -303,7 +303,7 @@ metaMesh.MergeMultiMeshes(metaMesh);
 ### AssignClothBodyFrom
 `public void AssignClothBodyFrom(MetaMesh metaMesh)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign cloth body from」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -314,7 +314,7 @@ metaMesh.AssignClothBodyFrom(metaMesh);
 ### BatchMultiMeshes
 `public void BatchMultiMeshes(MetaMesh metaMesh)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「batch multi meshes」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -336,7 +336,7 @@ var result = metaMesh.HasClothData();
 ### BatchMultiMeshesMultiple
 `public void BatchMultiMeshesMultiple(List<MetaMesh> metaMeshes)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「batch multi meshes multiple」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -534,7 +534,7 @@ metaMesh.SetBillboarding(billboard);
 ### UseHeadBoneFaceGenScaling
 `public void UseHeadBoneFaceGenScaling(Skeleton skeleton, sbyte headLookDirectionBoneIndex, MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「use head bone face gen scaling」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -545,7 +545,7 @@ metaMesh.UseHeadBoneFaceGenScaling(skeleton, 0, frame);
 ### DrawTextWithDefaultFont
 `public void DrawTextWithDefaultFont(string text, Vec2 textPositionMin, Vec2 textPositionMax, Vec2 size, uint color, TextFlags flags)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「draw text with default font」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -556,7 +556,7 @@ metaMesh.DrawTextWithDefaultFont("example", textPositionMin, textPositionMax, si
 ### PreloadForRendering
 `public void PreloadForRendering()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload for rendering」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -578,7 +578,7 @@ var result = metaMesh.CheckResources();
 ### PreloadShaders
 `public void PreloadShaders(bool useTableau, bool useTeamColor)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「preload shaders」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -611,7 +611,7 @@ metaMesh.AddEditDataUser();
 ### ReleaseEditDataUser
 `public void ReleaseEditDataUser()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「release edit data user」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例
@@ -633,7 +633,7 @@ metaMesh.SetEditDataPolicy(policy);
 ### Fit
 `public MatrixFrame Fit()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fit」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MetaMesh 实例

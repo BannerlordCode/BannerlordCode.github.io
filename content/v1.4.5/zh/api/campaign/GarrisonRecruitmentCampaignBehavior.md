@@ -23,7 +23,7 @@ description: "GarrisonRecruitmentCampaignBehavior 的自动生成类参考。"
 ### VolunteerTroop
 `public struct VolunteerTroop(Hero ownerNotable, int notableVolunteerArrayIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「volunteer troop」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 GarrisonRecruitmentCampaignBehavior 实例

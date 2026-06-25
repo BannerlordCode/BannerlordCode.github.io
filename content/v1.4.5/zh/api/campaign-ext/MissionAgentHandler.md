@@ -41,7 +41,7 @@ var result = missionAgentHandler.HasPassages();
 ### EarlyStart
 `public override void EarlyStart()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「early start」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -96,7 +96,7 @@ missionAgentHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, kil
 ### DetectMissingEntities
 `public void DetectMissingEntities()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「detect missing entities」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -118,7 +118,7 @@ var result = missionAgentHandler.FindUnusedUsablePointCount();
 ### SpawnLocationCharacters
 `public void SpawnLocationCharacters(string overridenTagValue = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn location characters」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -129,7 +129,7 @@ missionAgentHandler.SpawnLocationCharacters("example");
 ### SpawnDefaultLocationCharacter
 `public Agent SpawnDefaultLocationCharacter(LocationCharacter locationCharacter, bool simulateAgentAfterSpawn = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn default location character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -140,7 +140,7 @@ var result = missionAgentHandler.SpawnDefaultLocationCharacter(locationCharacter
 ### SimulateAgent
 `public void SimulateAgent(Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「simulate agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -151,7 +151,7 @@ missionAgentHandler.SimulateAgent(agent);
 ### FadeoutExitingLocationCharacter
 `public void FadeoutExitingLocationCharacter(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「fadeout exiting location character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -162,7 +162,7 @@ missionAgentHandler.FadeoutExitingLocationCharacter(locationCharacter);
 ### SpawnEnteringLocationCharacter
 `public void SpawnEnteringLocationCharacter(LocationCharacter locationCharacter, Location fromLocation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn entering location character」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -206,7 +206,7 @@ var result = missionAgentHandler.GetAllUsablePointsWithTag("example");
 ### SpawnWanderingAgent
 `public Agent SpawnWanderingAgent(LocationCharacter locationCharacter)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn wandering agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -217,7 +217,7 @@ var result = missionAgentHandler.SpawnWanderingAgent(locationCharacter);
 ### SpawnWanderingAgentWithDelay
 `public void SpawnWanderingAgentWithDelay(LocationCharacter locationCharacter, MatrixFrame matrixFrame, GameEntity spawnEntity, bool noHorses = true, bool hasTorch = false, float delay = 3f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn wandering agent with delay」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -228,7 +228,7 @@ missionAgentHandler.SpawnWanderingAgentWithDelay(locationCharacter, matrixFrame,
 ### SpawnWanderingAgentWithInitialFrame
 `public Agent SpawnWanderingAgentWithInitialFrame(LocationCharacter locationCharacter, MatrixFrame spawnPointFrame, WeakGameEntity spawnEntity, bool noHorses = true, bool hasTorch = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn wandering agent with initial frame」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例
@@ -282,7 +282,7 @@ var result = missionAgentHandler.FindAllUnusedPoints(agent, "example");
 ### TeleportTargetAgentNearReferenceAgent
 `public void TeleportTargetAgentNearReferenceAgent(Agent referenceAgent, Agent teleportAgent, bool teleportFollowers, bool teleportOpposite)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「teleport target agent near reference agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionAgentHandler 实例

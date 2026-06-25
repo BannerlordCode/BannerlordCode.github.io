@@ -23,7 +23,7 @@ description: "Theme 的自动生成类参考。"
 ### ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities
 `public static bool ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(ThemeInterruptionBehavior interruptionBehavior)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「theme interruption behavior requires evaluation of segment compatibilities」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -33,7 +33,7 @@ Theme.ThemeInterruptionBehaviorRequiresEvaluationOfSegmentCompatibilities(interr
 ### ThemeTypeToString
 `public static string ThemeTypeToString(ThemeType themeType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「theme type to string」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

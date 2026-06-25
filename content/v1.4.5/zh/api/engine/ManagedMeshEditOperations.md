@@ -33,7 +33,7 @@ ManagedMeshEditOperations.Create(meshToEdit);
 ### Weld
 `public void Weld()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「weld」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -154,7 +154,7 @@ managedMeshEditOperations.AddRectWithZUp(originBegin, originEnd, uvBegin, uvEnd,
 ### InvertFacesWindingOrder
 `public void InvertFacesWindingOrder()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「invert faces winding order」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -165,7 +165,7 @@ managedMeshEditOperations.InvertFacesWindingOrder();
 ### ScaleVertices
 `public void ScaleVertices(float newScale)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale vertices」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -187,7 +187,7 @@ managedMeshEditOperations.MoveVerticesAlongNormal(0);
 ### ScaleVertices
 `public void ScaleVertices(Vec3 newScale, bool keepUvX = false, float maxUvSize = 1f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「scale vertices」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -198,7 +198,7 @@ managedMeshEditOperations.ScaleVertices(newScale, false, 0);
 ### TranslateVertices
 `public void TranslateVertices(Vec3 newOrigin)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「translate vertices」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -220,7 +220,7 @@ managedMeshEditOperations.AddMeshAux(mesh, frame, 0, color, false, false, false,
 ### ComputeTangents
 `public int ComputeTangents(bool checkFixedNormals)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute tangents」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -242,7 +242,7 @@ managedMeshEditOperations.GenerateGrid(numEdges, edgeScale);
 ### RescaleMesh2d
 `public void RescaleMesh2d(Vec2 scaleSizeMin, Vec2 scaleSizeMax)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rescale mesh2d」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -253,7 +253,7 @@ managedMeshEditOperations.RescaleMesh2d(scaleSizeMin, scaleSizeMax);
 ### RescaleMesh2dRepeatX
 `public void RescaleMesh2dRepeatX(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rescale mesh2d repeat x」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -264,7 +264,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatX(scaleSizeMin, scaleSizeMax, 0, 0)
 ### RescaleMesh2dRepeatY
 `public void RescaleMesh2dRepeatY(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rescale mesh2d repeat y」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -275,7 +275,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatY(scaleSizeMin, scaleSizeMax, 0, 0)
 ### RescaleMesh2dRepeatXWithTiling
 `public void RescaleMesh2dRepeatXWithTiling(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0, float xyRatio = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rescale mesh2d repeat x with tiling」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -286,7 +286,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatXWithTiling(scaleSizeMin, scaleSize
 ### RescaleMesh2dRepeatYWithTiling
 `public void RescaleMesh2dRepeatYWithTiling(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float frameThickness = 0f, int frameSide = 0, float xyRatio = 0f)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rescale mesh2d repeat y with tiling」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -297,7 +297,7 @@ managedMeshEditOperations.RescaleMesh2dRepeatYWithTiling(scaleSizeMin, scaleSize
 ### RescaleMesh2dWithoutChangingUV
 `public void RescaleMesh2dWithoutChangingUV(Vec2 scaleSizeMin, Vec2 scaleSizeMax, float remaining)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「rescale mesh2d without changing uv」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -319,7 +319,7 @@ managedMeshEditOperations.AddLine(start, end, color, 0);
 ### ComputeCornerNormals
 `public void ComputeCornerNormals(bool checkFixedNormals = false, bool smoothCornerNormals = true)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「compute corner normals」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -330,7 +330,7 @@ managedMeshEditOperations.ComputeCornerNormals(false, false);
 ### ComputeCornerNormalsWithSmoothingData
 `public void ComputeCornerNormalsWithSmoothingData()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「compute corner normals with smoothing data」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -440,7 +440,7 @@ managedMeshEditOperations.SetCornerUV(0, newUV, 0);
 ### ReserveVertices
 `public void ReserveVertices(int count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve vertices」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -451,7 +451,7 @@ managedMeshEditOperations.ReserveVertices(0);
 ### ReserveFaceCorners
 `public void ReserveFaceCorners(int count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve face corners」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -462,7 +462,7 @@ managedMeshEditOperations.ReserveFaceCorners(0);
 ### ReserveFaces
 `public void ReserveFaces(int count)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「reserve faces」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -484,7 +484,7 @@ var result = managedMeshEditOperations.RemoveDuplicatedCorners();
 ### TransformVerticesToParent
 `public void TransformVerticesToParent(MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform vertices to parent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -495,7 +495,7 @@ managedMeshEditOperations.TransformVerticesToParent(frame);
 ### TransformVerticesToLocal
 `public void TransformVerticesToLocal(MatrixFrame frame)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「transform vertices to local」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例
@@ -638,7 +638,7 @@ managedMeshEditOperations.RemoveFace(0);
 ### FinalizeEditing
 `public void FinalizeEditing()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「finalize editing」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ManagedMeshEditOperations 实例

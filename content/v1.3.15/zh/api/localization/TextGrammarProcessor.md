@@ -23,7 +23,7 @@ description: "TextGrammarProcessor 的自动生成类参考。"
 ### Process
 `public static string Process(MBTextModel dataRepresentation, TextProcessingContext textContext, TextObject parent = null)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

@@ -34,7 +34,7 @@ soundtrack.Clear();
 ### getThemeById
 `public Theme getThemeById(int id)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「get theme by id」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -56,7 +56,7 @@ var result = soundtrack.GetSegmentById(0);
 ### getSoundtrackInfo
 `public SoundtrackInfo getSoundtrackInfo()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「get soundtrack info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -67,7 +67,7 @@ var result = soundtrack.getSoundtrackInfo();
 ### getThemeInfo
 `public ThemeInfo getThemeInfo(int themeId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「get theme info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例
@@ -78,7 +78,7 @@ var result = soundtrack.getThemeInfo(0);
 ### getSegmentInfo
 `public SegmentInfo getSegmentInfo(int snippetId)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或维护 「get segment info」 数据。
 
 ```csharp
 // 先通过子系统 API 拿到 Soundtrack 实例

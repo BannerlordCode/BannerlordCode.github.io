@@ -42,7 +42,7 @@ description: "BodyProperties 的自动生成类参考。"
 ### FromXmlNode
 `public static bool FromXmlNode(XmlNode node, out BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「from xml node」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -52,7 +52,7 @@ BodyProperties.FromXmlNode(node, bodyProperties);
 ### FromString
 `public static bool FromString(string keyValue, out BodyProperties bodyProperties)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「from string」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -105,7 +105,7 @@ var result = bodyProperties.GetHashCode();
 ### ClampForMultiplayer
 `public BodyProperties ClampForMultiplayer()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp for multiplayer」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BodyProperties 实例

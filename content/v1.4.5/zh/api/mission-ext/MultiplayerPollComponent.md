@@ -100,7 +100,7 @@ var result = multiplayerPollComponent.ApplyVote(peer, false);
 ### GotEnoughAcceptVotesToEnd
 `public bool GotEnoughAcceptVotesToEnd()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「got enough accept votes to end」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollComponent 实例
@@ -155,7 +155,7 @@ multiplayerPollComponent.OnMissionTick(0);
 ### Vote
 `public void Vote(bool accepted)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「vote」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollComponent 实例
@@ -166,7 +166,7 @@ multiplayerPollComponent.Vote(false);
 ### RequestKickPlayerPoll
 `public void RequestKickPlayerPoll(NetworkCommunicator peer, bool banPlayer)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「request kick player poll」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MultiplayerPollComponent 实例

@@ -167,7 +167,7 @@ ftdnNative_object_array::vftable
 
 ## 关键函数 / Key Functions
 
-更多导出函数、启动入口和托管回调注册流程见 [导出与托管桥接](exports-and-bridge/)。
+更多导出函数、启动入口和托管回调注册流程见 [导出与托管桥接](../exports-and-bridge/)。
 
 ### pass_managed_library_callback_method_pointers
 

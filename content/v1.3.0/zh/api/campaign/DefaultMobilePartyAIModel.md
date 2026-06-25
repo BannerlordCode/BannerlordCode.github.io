@@ -37,7 +37,7 @@ description: "DefaultMobilePartyAIModel 的自动生成类参考。"
 ### ShouldConsiderAttacking
 `public override bool ShouldConsiderAttacking(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should consider attacking」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
@@ -48,7 +48,7 @@ var result = defaultMobilePartyAIModel.ShouldConsiderAttacking(party, targetPart
 ### ShouldConsiderAvoiding
 `public override bool ShouldConsiderAvoiding(MobileParty party, MobileParty targetParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should consider avoiding」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例
@@ -70,7 +70,7 @@ var result = defaultMobilePartyAIModel.GetPatrolRadius(mobileParty, patrolPoint)
 ### ShouldPartyCheckInitiativeBehavior
 `public override bool ShouldPartyCheckInitiativeBehavior(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「should party check initiative behavior」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 DefaultMobilePartyAIModel 实例

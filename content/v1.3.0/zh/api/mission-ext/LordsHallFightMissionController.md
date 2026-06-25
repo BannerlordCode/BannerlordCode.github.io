@@ -178,7 +178,7 @@ var result = lordsHallFightMissionController.GetSpawnHorses(side);
 ### SpawnTroops
 `public void SpawnTroops(Dictionary<int, Dictionary<int, LordsHallFightMissionController.AreaData>> areaMarkerDictionary, int spawnCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsHallFightMissionController 实例
@@ -189,7 +189,7 @@ lordsHallFightMissionController.SpawnTroops(dictionary<int, dictionary<int, area
 ### SpawnTroops
 `public void SpawnTroops(int spawnCount, bool isReinforcement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「spawn troops」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsHallFightMissionController 实例
@@ -255,7 +255,7 @@ var result = lordsHallFightMissionController.FindAgentMachine(agent);
 ### AssignAgent
 `public void AssignAgent(Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「assign agent」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 LordsHallFightMissionController 实例

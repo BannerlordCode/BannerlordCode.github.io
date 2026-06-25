@@ -377,18 +377,18 @@ public class MySubModule : MBSubModuleBase
 
 ## Related API
 
-- [Mission API](../api/mission/Mission/)
-- [MissionBehavior API](../api/mission/MissionBehavior/)
-- [Agent API](../api/mission/Agent/)
-- [Formation API](../api/mission/Formation/)
-- [Team API](../api/mission/Team/)
+- [Mission API](../../api/mission/Mission/)
+- [MissionBehavior API](../../api/mission/MissionBehavior/)
+- [Agent API](../../api/mission/Agent/)
+- [Formation API](../../api/mission/Formation/)
+- [Team API](../../api/mission/Team/)
 
 ---
 
 ## Next Section
 
-- [Campaign System](campaign-system/) - Learn Campaign world map gameplay
-- [Gauntlet UI](gauntlet-ui/) - Create custom interfaces
+- [Campaign System](../campaign-system/) - Learn Campaign world map gameplay
+- [Gauntlet UI](../gauntlet-ui/) - Create custom interfaces
 
 ## Usage Example
 

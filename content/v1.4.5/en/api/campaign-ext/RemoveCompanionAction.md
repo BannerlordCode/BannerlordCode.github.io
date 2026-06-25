@@ -55,4 +55,4 @@ RemoveCompanionAction.ApplyByFire(clan, companion);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

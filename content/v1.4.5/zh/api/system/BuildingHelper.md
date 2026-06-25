@@ -33,7 +33,7 @@ BuildingHelper.CheckIfBuildingIsComplete(building);
 ### ChangeDefaultBuilding
 `public static void ChangeDefaultBuilding(Building newDefault, Town town)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change default building」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -43,7 +43,7 @@ BuildingHelper.ChangeDefaultBuilding(newDefault, town);
 ### ChangeCurrentBuildingQueue
 `public static void ChangeCurrentBuildingQueue(List<Building> buildings, Town town)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change current building queue」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

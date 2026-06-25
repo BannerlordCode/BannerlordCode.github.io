@@ -34,7 +34,7 @@ var result = rESTClient.Get("example", list<KeyValuePair<string, "example");
 ### Post
 `public async Task Post(string service, List<KeyValuePair<string, string>> headers, string payLoad, string contentType = "application/json")`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「post」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 RESTClient 实例

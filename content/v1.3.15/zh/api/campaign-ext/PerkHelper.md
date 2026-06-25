@@ -33,7 +33,7 @@ PerkHelper.GetCaptainPerksForTroopUsages(troopUsageFlags);
 ### PlayerHasAnyItemDonationPerk
 `public static bool PlayerHasAnyItemDonationPerk()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「player has any item donation perk」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ PerkHelper.GetGovernorEngineeringSkillEffectForHero(governor);
 ### AvailablePerkCountOfHero
 `public static int AvailablePerkCountOfHero(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「available perk count of hero」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

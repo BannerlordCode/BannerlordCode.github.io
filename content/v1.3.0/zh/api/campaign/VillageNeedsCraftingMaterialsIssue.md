@@ -79,7 +79,7 @@ var result = villageNeedsCraftingMaterialsIssue.GetAlternativeSolutionSkill(hero
 ### AlternativeSolutionCondition
 `public override bool AlternativeSolutionCondition(out TextObject explanation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「alternative solution condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsCraftingMaterialsIssue 实例
@@ -90,7 +90,7 @@ var result = villageNeedsCraftingMaterialsIssue.AlternativeSolutionCondition(exp
 ### DoTroopsSatisfyAlternativeSolution
 `public override bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「do troops satisfy alternative solution」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsCraftingMaterialsIssue 实例
@@ -112,7 +112,7 @@ var result = villageNeedsCraftingMaterialsIssue.GetFrequency();
 ### AlternativeSolutionStartConsequence
 `public override void AlternativeSolutionStartConsequence()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「alternative solution start consequence」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 VillageNeedsCraftingMaterialsIssue 实例

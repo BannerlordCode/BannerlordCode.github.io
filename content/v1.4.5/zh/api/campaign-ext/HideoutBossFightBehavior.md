@@ -106,7 +106,7 @@ var result = hideoutBossFightBehavior.IsWorldPointInsideCameraVolume(worldPoint)
 ### ClampWorldPointToCameraVolume
 `public bool ClampWorldPointToCameraVolume(in Vec3 worldPoint, out Vec3 clampedPoint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「clamp world point to camera volume」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 HideoutBossFightBehavior 实例

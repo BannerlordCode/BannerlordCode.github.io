@@ -41,4 +41,4 @@ hideoutCinematicAgentInfo.HasReachedTarget(0);
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

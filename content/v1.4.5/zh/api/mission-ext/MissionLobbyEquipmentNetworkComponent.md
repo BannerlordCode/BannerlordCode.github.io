@@ -56,7 +56,7 @@ missionLobbyEquipmentNetworkComponent.OnBehaviorInitialize();
 ### PerkUpdated
 `public void PerkUpdated(int perkList, int perkIndex)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「perk updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -67,7 +67,7 @@ missionLobbyEquipmentNetworkComponent.PerkUpdated(0, 0);
 ### EquipmentUpdated
 `public void EquipmentUpdated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「equipment updated」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例
@@ -78,7 +78,7 @@ missionLobbyEquipmentNetworkComponent.EquipmentUpdated();
 ### ToggleLoadout
 `public void ToggleLoadout(bool isActive)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle loadout」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionLobbyEquipmentNetworkComponent 实例

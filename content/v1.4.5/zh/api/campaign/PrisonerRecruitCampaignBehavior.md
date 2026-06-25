@@ -56,7 +56,7 @@ prisonerRecruitCampaignBehavior.OnSessionLaunched(campaignGameStarter);
 ### conversation_prisoner_recruit_on_condition
 `public bool conversation_prisoner_recruit_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_prisoner_recruit_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例
@@ -67,7 +67,7 @@ var result = prisonerRecruitCampaignBehavior.conversation_prisoner_recruit_on_co
 ### conversation_prisoner_recruit_no_on_condition
 `public bool conversation_prisoner_recruit_no_on_condition()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「conversation_prisoner_recruit_no_on_condition」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 PrisonerRecruitCampaignBehavior 实例

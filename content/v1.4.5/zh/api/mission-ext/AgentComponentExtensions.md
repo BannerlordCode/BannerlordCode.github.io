@@ -43,7 +43,7 @@ AgentComponentExtensions.SetMorale(agent, 0);
 ### ChangeMorale
 `public static void ChangeMorale(this Agent agent, float delta)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「change morale」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -63,7 +63,7 @@ AgentComponentExtensions.IsRetreating(agent, false);
 ### Retreat
 `public static void Retreat(this Agent agent, bool useCachingSystem = false)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「retreat」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -113,7 +113,7 @@ AgentComponentExtensions.SetAIBehaviorValues(agent, behavior, 0, 0, 0, 0, 0);
 ### AIMoveToGameObjectEnable
 `public static void AIMoveToGameObjectEnable(this Agent agent, UsableMissionObject usedObject, IDetachment detachment, Agent.AIScriptedFrameFlags scriptedFrameFlags = Agent.AIScriptedFrameFlags.NoAttack)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai move to game object enable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -123,7 +123,7 @@ AgentComponentExtensions.AIMoveToGameObjectEnable(agent, usedObject, detachment,
 ### AIMoveToGameObjectDisable
 `public static void AIMoveToGameObjectDisable(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai move to game object disable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -133,7 +133,7 @@ AgentComponentExtensions.AIMoveToGameObjectDisable(agent);
 ### AIMoveToGameObjectIsEnabled
 `public static bool AIMoveToGameObjectIsEnabled(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai move to game object is enabled」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -143,7 +143,7 @@ AgentComponentExtensions.AIMoveToGameObjectIsEnabled(agent);
 ### AIDefendGameObjectEnable
 `public static void AIDefendGameObjectEnable(this Agent agent, UsableMissionObject usedObject, IDetachment detachment)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai defend game object enable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -153,7 +153,7 @@ AgentComponentExtensions.AIDefendGameObjectEnable(agent, usedObject, detachment)
 ### AIDefendGameObjectDisable
 `public static void AIDefendGameObjectDisable(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai defend game object disable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -163,7 +163,7 @@ AgentComponentExtensions.AIDefendGameObjectDisable(agent);
 ### AIDefendGameObjectIsEnabled
 `public static bool AIDefendGameObjectIsEnabled(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai defend game object is enabled」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -173,7 +173,7 @@ AgentComponentExtensions.AIDefendGameObjectIsEnabled(agent);
 ### AIInterestedInAnyGameObject
 `public static bool AIInterestedInAnyGameObject(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai interested in any game object」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -183,7 +183,7 @@ AgentComponentExtensions.AIInterestedInAnyGameObject(agent);
 ### AIInterestedInGameObject
 `public static bool AIInterestedInGameObject(this Agent agent, UsableMissionObject usableMissionObject)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai interested in game object」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -193,7 +193,7 @@ AgentComponentExtensions.AIInterestedInGameObject(agent, usableMissionObject);
 ### AIUseGameObjectEnable
 `public static void AIUseGameObjectEnable(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai use game object enable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -203,7 +203,7 @@ AgentComponentExtensions.AIUseGameObjectEnable(agent);
 ### AIUseGameObjectDisable
 `public static void AIUseGameObjectDisable(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai use game object disable」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -213,7 +213,7 @@ AgentComponentExtensions.AIUseGameObjectDisable(agent);
 ### AIUseGameObjectIsEnabled
 `public static bool AIUseGameObjectIsEnabled(this Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai use game object is enabled」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

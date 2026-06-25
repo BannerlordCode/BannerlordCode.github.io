@@ -39,4 +39,4 @@ GiveItemAction.ApplyForHeroes(giver, receiver, itemRosterElement);
 ## See Also
 
 - [Area Index](../)
-- [Campaign System](../campaign/)
+- [Campaign System](../../campaign/)

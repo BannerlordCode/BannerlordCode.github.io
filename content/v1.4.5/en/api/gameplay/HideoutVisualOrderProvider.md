@@ -52,4 +52,4 @@ hideoutVisualOrderProvider.IsAvailable();
 
 ## See Also
 
-- [Area Index](../)
+- [Area Index](../../)

@@ -23,7 +23,7 @@ description: "TooltipRegistry 的自动生成类参考。"
 ### TooltipRegistry
 `public struct TooltipRegistry(Type tooltipType, object onRefreshData, string movieName)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「tooltip registry」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 TooltipRegistry 实例

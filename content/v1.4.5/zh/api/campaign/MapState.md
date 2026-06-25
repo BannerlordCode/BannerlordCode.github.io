@@ -98,7 +98,7 @@ mapState.OnMainPartyEncounter();
 ### ProcessTravel
 `public void ProcessTravel(CampaignVec2 moveTargetPoint)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「process travel」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -142,7 +142,7 @@ mapState.OnMapConversationOver();
 ### EnterMenuMode
 `public void EnterMenuMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「enter menu mode」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -153,7 +153,7 @@ mapState.EnterMenuMode();
 ### ExitMenuMode
 `public void ExitMenuMode()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 获取或更新 「exit menu mode」 的状态。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例
@@ -175,7 +175,7 @@ mapState.StartBattleSimulation();
 ### EndBattleSimulation
 `public void EndBattleSimulation()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「end battle simulation」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MapState 实例

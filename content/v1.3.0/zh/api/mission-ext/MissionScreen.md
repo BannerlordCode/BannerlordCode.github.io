@@ -162,7 +162,7 @@ missionScreen.OnMainAgentWeaponChanged();
 ### ToggleFixedMissionCamera
 `public static string ToggleFixedMissionCamera(List<string> strings)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「toggle fixed mission camera」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -235,7 +235,7 @@ missionScreen.AddMissionView(missionView);
 ### ScreenPointToWorldRay
 `public void ScreenPointToWorldRay(Vec2 screenPoint, out Vec3 rayBegin, out Vec3 rayEnd)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「screen point to world ray」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScreen 实例
@@ -279,7 +279,7 @@ missionScreen.CancelQuickPositionOrder();
 ### MissionStartedRendering
 `public bool MissionStartedRendering()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「mission started rendering」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScreen 实例
@@ -389,7 +389,7 @@ missionScreen.UnregisterView(missionView);
 ### TeleportMainAgentToCameraFocusForCheat
 `public virtual void TeleportMainAgentToCameraFocusForCheat()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「teleport main agent to camera focus for cheat」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 MissionScreen 实例

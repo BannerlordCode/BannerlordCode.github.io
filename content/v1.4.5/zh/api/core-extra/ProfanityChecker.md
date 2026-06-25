@@ -45,7 +45,7 @@ var result = profanityChecker.ContainsProfanity("example", checkType);
 ### CensorText
 `public string CensorText(string text)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「censor text」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 ProfanityChecker 实例

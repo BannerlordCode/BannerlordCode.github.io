@@ -117,7 +117,7 @@ var result = alarmedBehaviorGroup.GetClosestAlarmSource(distanceSquared);
 ### AlarmAgent
 `public static void AlarmAgent(Agent agent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「alarm agent」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -138,7 +138,7 @@ alarmedBehaviorGroup.OnAgentRemoved(agent);
 ### ForceThink
 `public override void ForceThink(float inSeconds)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「force think」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 AlarmedBehaviorGroup 实例

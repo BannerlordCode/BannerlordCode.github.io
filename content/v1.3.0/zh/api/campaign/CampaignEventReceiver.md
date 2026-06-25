@@ -617,7 +617,7 @@ campaignEventReceiver.OnRebellionFinished(settlement, oldOwnerClan);
 ### TownRebelliousStateChanged
 `public virtual void TownRebelliousStateChanged(Town town, bool rebelliousState)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「town rebellious state changed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1112,7 +1112,7 @@ campaignEventReceiver.OnCommonAreaStateChanged(alley, oldState, newState);
 ### BeforeMissionOpened
 `public virtual void BeforeMissionOpened()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「mission opened」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1343,7 +1343,7 @@ campaignEventReceiver.OnPlayerArmyLeaderChangedBehavior();
 ### MissionTick
 `public virtual void MissionTick(float dt)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「mission」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1420,7 +1420,7 @@ campaignEventReceiver.TickPartialHourlyAi(party);
 ### QuarterDailyPartyTick
 `public virtual void QuarterDailyPartyTick(MobileParty party)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「quarter daily party」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1431,7 +1431,7 @@ campaignEventReceiver.QuarterDailyPartyTick(party);
 ### AiHourlyTick
 `public virtual void AiHourlyTick(MobileParty party, PartyThinkParams partyThinkParams)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「ai hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1442,7 +1442,7 @@ campaignEventReceiver.AiHourlyTick(party, partyThinkParams);
 ### HourlyTick
 `public virtual void HourlyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1453,7 +1453,7 @@ campaignEventReceiver.HourlyTick();
 ### HourlyTickParty
 `public virtual void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1464,7 +1464,7 @@ campaignEventReceiver.HourlyTickParty(mobileParty);
 ### HourlyTickSettlement
 `public virtual void HourlyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1475,7 +1475,7 @@ campaignEventReceiver.HourlyTickSettlement(settlement);
 ### HourlyTickClan
 `public virtual void HourlyTickClan(Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1486,7 +1486,7 @@ campaignEventReceiver.HourlyTickClan(clan);
 ### DailyTick
 `public virtual void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1497,7 +1497,7 @@ campaignEventReceiver.DailyTick();
 ### DailyTickParty
 `public virtual void DailyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1508,7 +1508,7 @@ campaignEventReceiver.DailyTickParty(mobileParty);
 ### DailyTickTown
 `public virtual void DailyTickTown(Town town)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick town」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1519,7 +1519,7 @@ campaignEventReceiver.DailyTickTown(town);
 ### DailyTickSettlement
 `public virtual void DailyTickSettlement(Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick settlement」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1530,7 +1530,7 @@ campaignEventReceiver.DailyTickSettlement(settlement);
 ### DailyTickClan
 `public virtual void DailyTickClan(Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick clan」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1552,7 +1552,7 @@ campaignEventReceiver.OnPlayerBodyPropertiesChanged();
 ### WeeklyTick
 `public virtual void WeeklyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「weekly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1563,7 +1563,7 @@ campaignEventReceiver.WeeklyTick();
 ### CollectAvailableTutorials
 `public virtual void CollectAvailableTutorials(ref List<CampaignTutorial> tutorials)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「collect available tutorials」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1574,7 +1574,7 @@ campaignEventReceiver.CollectAvailableTutorials(tutorials);
 ### DailyTickHero
 `public virtual void DailyTickHero(Hero hero)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「daily tick hero」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1607,7 +1607,7 @@ campaignEventReceiver.OnBuildingLevelChanged(town, building, 0);
 ### BeforeGameMenuOpened
 `public virtual void BeforeGameMenuOpened(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「game menu opened」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1618,7 +1618,7 @@ campaignEventReceiver.BeforeGameMenuOpened(args);
 ### AfterGameMenuInitialized
 `public virtual void AfterGameMenuInitialized(MenuCallbackArgs args)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「game menu initialized」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1662,7 +1662,7 @@ campaignEventReceiver.OnCompanionRemoved(companion, detail);
 ### TrackDetected
 `public virtual void TrackDetected(Track track)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「track detected」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1673,7 +1673,7 @@ campaignEventReceiver.TrackDetected(track);
 ### TrackLost
 `public virtual void TrackLost(Track track)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「track lost」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1684,7 +1684,7 @@ campaignEventReceiver.TrackLost(track);
 ### LocationCharactersAreReadyToSpawn
 `public virtual void LocationCharactersAreReadyToSpawn(Dictionary<string, int> unusedUsablePointCount)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「location characters are ready to spawn」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -1695,7 +1695,7 @@ campaignEventReceiver.LocationCharactersAreReadyToSpawn(dictionary<string, 0);
 ### LocationCharactersSimulated
 `public virtual void LocationCharactersSimulated()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「location characters simulated」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2168,7 +2168,7 @@ campaignEventReceiver.OnPartyConsumedFood(party);
 ### SiegeCompleted
 `public virtual void SiegeCompleted(Settlement siegeSettlement, MobileParty attackerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「siege completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2179,7 +2179,7 @@ campaignEventReceiver.SiegeCompleted(siegeSettlement, attackerParty, false, batt
 ### AfterSiegeCompleted
 `public virtual void AfterSiegeCompleted(Settlement siegeSettlement, MobileParty attackerParty, bool isWin, MapEvent.BattleTypes battleType)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 在 「siege completed」 事件触发时调用此回调。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2190,7 +2190,7 @@ campaignEventReceiver.AfterSiegeCompleted(siegeSettlement, attackerParty, false,
 ### SiegeEngineBuilt
 `public virtual void SiegeEngineBuilt(SiegeEvent siegeEvent, BattleSideEnum side, SiegeEngineType siegeEngine)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「siege engine built」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2201,7 +2201,7 @@ campaignEventReceiver.SiegeEngineBuilt(siegeEvent, side, siegeEngine);
 ### RaidCompleted
 `public virtual void RaidCompleted(BattleSideEnum winnerSide, RaidEventComponent raidEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「raid completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2212,7 +2212,7 @@ campaignEventReceiver.RaidCompleted(winnerSide, raidEvent);
 ### ForceSuppliesCompleted
 `public virtual void ForceSuppliesCompleted(BattleSideEnum winnerSide, ForceSuppliesEventComponent forceSuppliesEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「force supplies completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2223,7 +2223,7 @@ campaignEventReceiver.ForceSuppliesCompleted(winnerSide, forceSuppliesEvent);
 ### ForceVolunteersCompleted
 `public virtual void ForceVolunteersCompleted(BattleSideEnum winnerSide, ForceVolunteersEventComponent forceVolunteersEvent)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 响应 「force volunteers completed」 事件并执行相关处理。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例
@@ -2344,7 +2344,7 @@ campaignEventReceiver.OnWorkshopTypeChanged(workshop);
 ### CraftingPartUnlocked
 `public virtual void CraftingPartUnlocked(CraftingPiece craftingPiece)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「crafting part unlocked」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 CampaignEventReceiver 实例

@@ -85,7 +85,7 @@ questManager.OnSessionStart(campaignGameStarter);
 ### HourlyTick
 `public override void HourlyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「hourly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestManager 实例
@@ -96,7 +96,7 @@ questManager.HourlyTick();
 ### HourlyTickParty
 `public override void HourlyTickParty(MobileParty mobileParty)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「hourly tick party」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestManager 实例
@@ -107,7 +107,7 @@ questManager.HourlyTickParty(mobileParty);
 ### DailyTick
 `public override void DailyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「daily」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestManager 实例
@@ -118,7 +118,7 @@ questManager.DailyTick();
 ### WeeklyTick
 `public override void WeeklyTick()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 推进 「weekly」 状态的周期性更新。
 
 ```csharp
 // 先通过子系统 API 拿到 QuestManager 实例
@@ -305,7 +305,7 @@ var result = questManager.GetQuestGiverQuests(hero);
 ### QuestExistInSettlementNotables
 `public static bool QuestExistInSettlementNotables(QuestBase questBase, Settlement settlement)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quest exist in settlement notables」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例
@@ -315,7 +315,7 @@ QuestManager.QuestExistInSettlementNotables(questBase, settlement);
 ### QuestExistInClan
 `public static bool QuestExistInClan(QuestBase questBase, Clan clan)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「quest exist in clan」 相关的逻辑。
 
 ```csharp
 // 静态调用，不需要实例

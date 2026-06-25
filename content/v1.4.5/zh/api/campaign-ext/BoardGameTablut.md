@@ -23,7 +23,7 @@ description: "BoardGameTablut 的自动生成类参考。"
 ### PawnInformation
 `public struct PawnInformation(int x, int y, bool captured)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「pawn information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -34,7 +34,7 @@ var result = boardGameTablut.PawnInformation(0, 0, false);
 ### BoardInformation
 `public struct BoardInformation(ref PawnInformation pawns)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「board information」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -121,7 +121,7 @@ boardGameTablut.SetPawnCaptured(pawn, false);
 ### AIMakeMove
 `public bool AIMakeMove(Move move)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「ai make move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -165,7 +165,7 @@ var result = boardGameTablut.GetWinningMoveIfPresent(side);
 ### TakeBoardSnapshot
 `public BoardInformation TakeBoardSnapshot()`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「take board snapshot」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例
@@ -176,7 +176,7 @@ var result = boardGameTablut.TakeBoardSnapshot();
 ### UndoMove
 `public void UndoMove(ref BoardInformation board)`
 
-**用途 / Purpose:** 执行此方法所描述的操作。
+**用途 / Purpose:** 处理与 「undo move」 相关的逻辑。
 
 ```csharp
 // 先通过子系统 API 拿到 BoardGameTablut 实例

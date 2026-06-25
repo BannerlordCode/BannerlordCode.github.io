@@ -128,6 +128,17 @@ Settlement nearby = Settlement.FindNextLocatable(ref data);
 ### `public void OnPartyInteraction(MobileParty engagingParty)`
 当一支部队与该据点交互时触发。
 
+```csharp
+public override void OnPartyInteraction(MobileParty engagingParty)
+{
+    base.OnPartyInteraction(engagingParty);
+    if (engagingParty == MobileParty.MainParty)
+    {
+        InformationManager.DisplayMessage(new InformationMessage("部队抵达据点。"));
+    }
+}
+```
+
 ## 典型用法示例
 
 ### 示例 1：给玩家所有城镇加繁荣度

@@ -68,6 +68,18 @@ myKingdom.InitializeKingdom(
 ### `public void InitializeKingdom(...)`
 初始化王国名称、文化、旗帜、颜色和初始据点。
 
+```csharp
+myKingdom.InitializeKingdom(
+    new CultureObject("aserai"),
+    new Banner("11.116...."),
+    0xFFAA0000,
+    0xFF00AA00,
+    startingSettlement,
+    new TextObject("Encyclopedia text"),
+    new TextObject("My Kingdom"),
+    new TextObject("High King"));
+```
+
 ### `public bool IsAtWarWith(IFaction other)` / `public bool IsAllyWith(Kingdom other)`
 判断战争/同盟关系。
 

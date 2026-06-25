@@ -68,6 +68,18 @@ myKingdom.InitializeKingdom(
 ### `public void InitializeKingdom(...)`
 Initialize the kingdom's name, culture, banner, colors, and starting settlement.
 
+```csharp
+myKingdom.InitializeKingdom(
+    new CultureObject("aserai"),
+    new Banner("11.116...."),
+    0xFFAA0000,
+    0xFF00AA00,
+    startingSettlement,
+    new TextObject("Encyclopedia text"),
+    new TextObject("My Kingdom"),
+    new TextObject("High King"));
+```
+
 ### `public bool IsAtWarWith(IFaction other)` / `public bool IsAllyWith(Kingdom other)`
 Check war/ally status.
 

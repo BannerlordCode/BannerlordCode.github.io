@@ -128,6 +128,17 @@ Settlement nearby = Settlement.FindNextLocatable(ref data);
 ### `public void OnPartyInteraction(MobileParty engagingParty)`
 Triggered when a party interacts with this settlement.
 
+```csharp
+public override void OnPartyInteraction(MobileParty engagingParty)
+{
+    base.OnPartyInteraction(engagingParty);
+    if (engagingParty == MobileParty.MainParty)
+    {
+        InformationManager.DisplayMessage(new InformationMessage("Party arrived at settlement."));
+    }
+}
+```
+
 ## Typical Usage Examples
 
 ### Example 1: Boost prosperity in all player-owned towns

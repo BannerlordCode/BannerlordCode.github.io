@@ -64,6 +64,14 @@ MissionObject missionObject = mission.GetMissionBehavior<MyMissionBehavior>();
 ### `public static Mission Current { get; }`
 全局访问点。在 `MissionBehavior` 里通常开头就判断 `Mission.Current != null`。
 
+```csharp
+Mission mission = Mission.Current;
+if (mission != null && mission.MainAgent != null)
+{
+    mission.MainAgent.Health += 10f;
+}
+```
+
 ### `public T GetMissionBehavior<T>() where T : MissionBehavior`
 按类型获取附加在当前 Mission 上的 `MissionBehavior` 实例。
 

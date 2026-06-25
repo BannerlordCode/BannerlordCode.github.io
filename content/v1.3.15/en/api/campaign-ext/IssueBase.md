@@ -87,11 +87,28 @@ else
 ### `public virtual bool LordSolutionCondition(out TextObject explanation)`
 Check whether the lord solution is available.
 
+```csharp
+bool available = issue.LordSolutionCondition(out TextObject reason);
+if (!available)
+{
+    InformationManager.DisplayMessage(new InformationMessage(reason.ToString()));
+}
+```
+
 ### `public void CompleteIssueWithQuest()` / `CompleteIssueWithAlternativeSolution()` / `CompleteIssueWithLordSolutionWithAcceptCounterOffer()`
 Complete the issue through different solutions.
 
+```csharp
+// Resolve the issue by creating its associated quest.
+issue.CompleteIssueWithQuest();
+```
+
 ### `public void CompleteIssueWithTimedOut()` / `CompleteIssueWithFail(TextObject log)` / `CompleteIssueWithCancel(TextObject log)`
 End the issue by timeout/failure/cancellation.
+
+```csharp
+issue.CompleteIssueWithFail(new TextObject("The request could not be fulfilled."));
+```
 
 ### `public void AddLog(JournalLog log)`
 Add an entry to the visible issue log.
@@ -102,6 +119,13 @@ issue.AddLog(new JournalLog(CampaignTime.Now, new TextObject("A rumor was heard"
 
 ### `public abstract IssueFrequency GetFrequency()` / `public abstract bool IssueStayAliveConditions()`
 Control spawn frequency and survival conditions.
+
+```csharp
+public override IssueFrequency GetFrequency() => IssueFrequency.VeryCommmon;
+
+public override bool IssueStayAliveConditions() => 
+    IssueOwner.IsAlive && !QuestBase.CurrentQuestCheck; // keep issue alive while valid
+```
 
 ## Typical Usage Example
 

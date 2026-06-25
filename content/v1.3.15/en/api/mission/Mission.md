@@ -64,6 +64,14 @@ MissionObject missionObject = mission.GetMissionBehavior<MyMissionBehavior>();
 ### `public static Mission Current { get; }`
 Global access point. Inside a `MissionBehavior`, the first check is usually `Mission.Current != null`.
 
+```csharp
+Mission mission = Mission.Current;
+if (mission != null && mission.MainAgent != null)
+{
+    mission.MainAgent.Health += 10f;
+}
+```
+
 ### `public T GetMissionBehavior<T>() where T : MissionBehavior`
 Get a `MissionBehavior` attached to the current Mission by type.
 

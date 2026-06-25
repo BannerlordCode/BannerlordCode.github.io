@@ -1,413 +1,168 @@
 ---
 title: "QuestBase"
-description: "QuestBase 的自动生成类参考。"
+description: "战役任务系统的基类：创建、推进、完成和追踪自定义任务。"
 ---
 # QuestBase
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class QuestBase : MBObjectBase`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public abstract class QuestBase : MBObjectBase`  
+**Base:** `MBObjectBase`  
 **File:** `TaleWorlds.CampaignSystem/QuestBase.cs`
 
 ## 概述
 
-`QuestBase` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`QuestBase` 是 Bannerlord 战役任务系统的**核心基类**。继承它并实现几个关键成员，就可以把自定义任务挂进游戏：它会显示在任务日志里，有截止期限、可选追踪、阶段性日志，并随存档自动保存。
+
+主要生命周期：
+
+1. 创建：在 `CampaignBehaviorBase` 或 `IssueBase` 中 `new MyQuest(...)`。
+2. 启动：调用 `StartQuest()`，任务进入日志。
+3. 推进：通过 `AddLog` / `AddDiscreteLog` 更新日志，用任务条件自行检查完成。
+4. 完成：调用 `CompleteQuestWithSuccess()` / `Fail()` / `Cancel()` / `TimeOut()`。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `QuestBase` 当作**“一个带有时限和日志的状态机”**：
 
-## 主要属性
+- 任务本身必须继承 `QuestBase`。
+- 每个任务实例都关联一个 `QuestGiver`（通常是 `Hero`）。
+- 日志条目（`JournalLog`）是玩家看到的内容；阶段性目标用 `AddDiscreteLog` 显示进度条。
+- 任务的真正逻辑大部分写在 `CampaignBehaviorBase` 的事件监听里，或直接覆盖 `OnDailyTick`?
+- 任务状态默认会自动保存；需要持久化的字段标记 `[SaveableField]`。
 
-| Name | Signature |
-|------|-----------|
-| `QuestDueTime` | `public CampaignTime QuestDueTime { get; set; }` |
-| `TaskList` | `public MBReadOnlyList<QuestTaskBase> TaskList { get; }` |
-| `JournalEntries` | `public MBReadOnlyList<JournalLog> JournalEntries { get; }` |
-| `IsTrackEnabled` | `public bool IsTrackEnabled { get; }` |
-| `IsOngoing` | `public bool IsOngoing { get; }` |
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `IsThereDiscussDialogFlow` | `public bool IsThereDiscussDialogFlow { get; }` |
-| `QuestGiver` | `public Hero QuestGiver { get; }` |
-| `Title` | `public abstract TextObject Title { get; set; }` |
-| `IsRemainingTimeHidden` | `public abstract bool IsRemainingTimeHidden { get; set; }` |
-| `RelationshipChangeWithQuestGiver` | `public virtual int RelationshipChangeWithQuestGiver { get; set; }` |
-| `IsSpecialQuest` | `public bool IsSpecialQuest { get; }` |
-| `SpecialQuestType` | `public virtual string SpecialQuestType { get; }` |
+## 核心抽象/虚成员
+
+| 成员 | 说明 |
+|------|------|
+| `Title` （抽象） | 任务标题。 |
+| `IsRemainingTimeHidden` （抽象） | 是否隐藏剩余时间。 |
+| `QuestGiver` | 任务发布者。 |
+| `QuestDueTime` | 截止时间。 |
+| `RewardGold` / `RewardXP` | 奖励金币/经验。 |
+| `IsOngoing` / `IsFinalized` | 是否进行中 / 已结束。 |
+| `RelationshipChangeWithQuestGiver` | 完成后与发布者的关系变化。 |
+| `OnFailed()` / `OnCanceled()` / `OnSucceeded()`（？） | 失败/取消/成功回调。 |
+| `QuestPreconditions()` | 检查任务前置条件。 |
 
 ## 主要方法
 
-### StartQuest
-`public void StartQuest()`
-
-**用途 / Purpose:** 启动「quest」流程或状态机。
+### `public void StartQuest()`
+将任务加入任务日志并启动。
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.StartQuest();
+var quest = new MyRescueQuest(questGiver);
+quest.StartQuest();
 ```
 
-### CompleteQuestWithSuccess
-`public void CompleteQuestWithSuccess()`
-
-**用途 / Purpose:** 处理与 「complete quest with success」 相关的逻辑。
+### `public void CompleteQuestWithSuccess()` / `CompleteQuestWithFail(TextObject cancelLog)` / `CompleteQuestWithTimeOut(TextObject timeOutLog)` / `CompleteQuestWithCancel(TextObject cancelLog)`
+以不同状态结束任务。
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.CompleteQuestWithSuccess();
+if (AllHostagesRescued())
+{
+    CompleteQuestWithSuccess();
+}
+else if (quest.QuestDueTime.IsPast)
+{
+    CompleteQuestWithTimeOut(new TextObject("The deadline has passed."));
+}
 ```
 
-### CompleteQuestWithTimeOut
-`public void CompleteQuestWithTimeOut(TextObject timeOutLog = null)`
-
-**用途 / Purpose:** 处理与 「complete quest with time out」 相关的逻辑。
+### `public JournalLog AddLog(TextObject text, bool hideInformation = false)` / `AddDiscreteLog(...)` / `AddTwoWayContinuousLog(...)`
+添加任务日志条目。
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.CompleteQuestWithTimeOut(null);
+AddDiscreteLog(
+    new TextObject("Hostages rescued"),
+    new TextObject("Rescue"),
+    rescuedCount,
+    totalHostages);
 ```
 
-### CompleteQuestWithFail
-`public void CompleteQuestWithFail(TextObject cancelLog = null)`
-
-**用途 / Purpose:** 处理与 「complete quest with fail」 相关的逻辑。
+### `public void AddTrackedObject(ITrackableCampaignObject trackedObject)` / `RemoveTrackedObject(...)` / `IsTracked(...)`
+在战役地图上高亮追踪某个对象。
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.CompleteQuestWithFail(null);
+AddTrackedObject(targetSettlement);
 ```
 
-### CompleteQuestWithBetrayal
-`public void CompleteQuestWithBetrayal(TextObject betrayLog = null)`
-
-**用途 / Purpose:** 处理与 「complete quest with betrayal」 相关的逻辑。
+### `public void AddGameMenu(...)` / `AddGameMenuOption(...)`
+为任务动态添加大地图菜单项。
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.CompleteQuestWithBetrayal(null);
+AddGameMenuOption(
+    "town",
+    "my_quest_option",
+    new TextObject("Ask about the bandits"),
+    OnCondition,
+    OnConsequence);
 ```
 
-### CompleteQuestWithCancel
-`public void CompleteQuestWithCancel(TextObject cancelLog = null)`
-
-**用途 / Purpose:** 处理与 「complete quest with cancel」 相关的逻辑。
+### `public void ChangeQuestDueTime(CampaignTime questDueTime)`
+更改截止时间。
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.CompleteQuestWithCancel(null);
+ChangeQuestDueTime(CampaignTime.Now + CampaignTime.Days(3));
 ```
 
-### InitializeQuestOnLoadWithQuestManager
-`public void InitializeQuestOnLoadWithQuestManager()`
-
-**用途 / Purpose:** 为 「quest on load with quest manager」 初始化必要的资源、状态或绑定。
+## 典型用法示例
 
 ```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.InitializeQuestOnLoadWithQuestManager();
+public class RescueHostageQuest : QuestBase
+{
+    [SaveableField(0)]
+    private Hero _hostage;
+
+    [SaveableField(1)]
+    private int _rescuedCount;
+
+    public override TextObject Title => new TextObject("Rescue the Hostage");
+
+    public override bool IsRemainingTimeHidden => false;
+
+    public RescueHostageQuest(Hero questGiver, Hero hostage)
+        : base("rescue_hostage_quest", questGiver, CampaignTime.DaysFromNow(7))
+    {
+        _hostage = hostage;
+    }
+
+    protected override void OnStartQuest()
+    {
+        base.OnStartQuest();
+        AddDiscreteLog(
+            new TextObject("Find and rescue {HOSTAGE}"),
+            new TextObject("Rescue"),
+            0, 1,
+            null,
+            false);
+    }
+
+    protected override void OnFinalize()
+    {
+        if (_hostage.IsAlive && _hostage.CurrentSettlement != null)
+        {
+            CompleteQuestWithSuccess();
+        }
+        else
+        {
+            CompleteQuestWithFail(new TextObject("The hostage did not survive."));
+        }
+    }
+}
 ```
 
-### AddLog
-`public JournalLog AddLog(TextObject text, bool hideInformation = false)`
+> 实际事件触发（如进入据点、击败部队）通常在 `CampaignBehaviorBase.RegisterEvents()` 中订阅，然后调用任务实例方法。
 
-**用途 / Purpose:** 将 「log」 添加到当前容器或状态中。
+## 跨版本提示
 
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.AddLog(text, false);
-```
-
-### AddDiscreteLog
-`public JournalLog AddDiscreteLog(TextObject text, TextObject taskName, int currentProgress, int targetProgress, TextObject shortText = null, bool hideInformation = false)`
-
-**用途 / Purpose:** 将 「discrete log」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.AddDiscreteLog(text, taskName, 0, 0, null, false);
-```
-
-### AddTwoWayContinuousLog
-`public JournalLog AddTwoWayContinuousLog(TextObject text, TextObject taskName, int currentProgress, int range, bool hideInformation = false)`
-
-**用途 / Purpose:** 将 「two way continuous log」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.AddTwoWayContinuousLog(text, taskName, 0, 0, false);
-```
-
-### IsLocationTrackedByQuest
-`public virtual GameMenuOption.IssueQuestFlags IsLocationTrackedByQuest(Location location)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「location tracked by quest」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.IsLocationTrackedByQuest(location);
-```
-
-### GetCurrentProgress
-`public virtual int GetCurrentProgress()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「current progress」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.GetCurrentProgress();
-```
-
-### GetMaxProgress
-`public virtual int GetMaxProgress()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「max progress」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.GetMaxProgress();
-```
-
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.ToString();
-```
-
-### GetPrefabName
-`public virtual string GetPrefabName()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「prefab name」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.GetPrefabName();
-```
-
-### AddTrackedObject
-`public void AddTrackedObject(ITrackableCampaignObject trackedObject)`
-
-**用途 / Purpose:** 将 「tracked object」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.AddTrackedObject(trackedObject);
-```
-
-### RemoveTrackedObject
-`public void RemoveTrackedObject(ITrackableCampaignObject trackedObject)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 「tracked object」。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.RemoveTrackedObject(trackedObject);
-```
-
-### IsTracked
-`public bool IsTracked(ITrackableCampaignObject o)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「tracked」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.IsTracked(o);
-```
-
-### ToggleTrackedObjects
-`public void ToggleTrackedObjects()`
-
-**用途 / Purpose:** 处理与 「toggle tracked objects」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.ToggleTrackedObjects();
-```
-
-### AddGameMenu
-`public void AddGameMenu(string menuId, TextObject menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, GameMenu.MenuFlags menuFlags = GameMenu.MenuFlags.None)`
-
-**用途 / Purpose:** 将 「game menu」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.AddGameMenu("example", menuText, initDelegate, gameMenu.MenuOverlayType.None, gameMenu.MenuFlags.None);
-```
-
-### AddGameMenuOption
-`public void AddGameMenuOption(string menuId, string optionId, TextObject optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool Isleave = false, int index = -1)`
-
-**用途 / Purpose:** 将 「game menu option」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.AddGameMenuOption("example", "example", optionText, condition, consequence, false, 0);
-```
-
-### ChangeQuestDueTime
-`public void ChangeQuestDueTime(CampaignTime questDueTime)`
-
-**用途 / Purpose:** 处理与 「change quest due time」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.ChangeQuestDueTime(questDueTime);
-```
-
-### OnFailed
-`public virtual void OnFailed()`
-
-**用途 / Purpose:** 在 「failed」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnFailed();
-```
-
-### OnCanceled
-`public virtual void OnCanceled()`
-
-**用途 / Purpose:** 在 「canceled」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnCanceled();
-```
-
-### QuestPreconditions
-`public virtual bool QuestPreconditions()`
-
-**用途 / Purpose:** 处理与 「quest preconditions」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-var result = questBase.QuestPreconditions();
-```
-
-### OnHeroCanHaveCampaignIssuesInfoIsRequested
-`public virtual void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can have campaign issues info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
-```
-
-### OnHeroCanMarryInfoIsRequested
-`public virtual void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can marry info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanMarryInfoIsRequested(hero, result);
-```
-
-### OnHeroCanLeadPartyInfoIsRequested
-`public virtual void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can lead party info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanLeadPartyInfoIsRequested(hero, result);
-```
-
-### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
-`public virtual void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can have party role or be governor info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
-```
-
-### OnHeroCanDieInfoIsRequested
-`public virtual void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can die info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
-```
-
-### OnHeroCanBecomePrisonerInfoIsRequested
-`public virtual void OnHeroCanBecomePrisonerInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can become prisoner info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanBecomePrisonerInfoIsRequested(hero, result);
-```
-
-### OnHeroCanBeSelectedInInventoryInfoIsRequested
-`public virtual void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can be selected in inventory info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
-```
-
-### OnHeroCanMoveToSettlementInfoIsRequested
-`public virtual void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
-
-**用途 / Purpose:** 在 「hero can move to settlement info is requested」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 QuestBase 实例
-QuestBase questBase = ...;
-questBase.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
-```
-
-## 使用示例
-
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-QuestBase instance = ...;
-```
+- v1.3.0 / v1.3.15 / v1.4.5 的 `QuestBase` 结构基本不变，但部分回调签名可能有 `in`/`ref` 微调。
+- v1.4.5 对自定义 `QuestTaskBase` 和任务追踪对象提供了更多内建支持。
 
 ## 参见
 
-- [本区域目录](../)
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — 创建和管理任务的常见挂钩
+- [IssueBase](../IssueBase/) — 任务前置的“问题/委托”对象
+- [Hero](../../campaign/Hero/) — 任务发布者与目标
+- [Settlement](../../campaign/Settlement/) — 任务地点
+- [MobileParty](../../campaign/MobileParty/) — 追踪部队相关目标

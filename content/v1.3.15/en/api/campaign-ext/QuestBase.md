@@ -1,413 +1,168 @@
 ---
 title: "QuestBase"
-description: "Auto-generated class reference for QuestBase."
+description: "Base class for campaign quests: create, advance, complete, and track custom quests."
 ---
 # QuestBase
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class QuestBase : MBObjectBase`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public abstract class QuestBase : MBObjectBase`  
+**Base:** `MBObjectBase`  
 **File:** `TaleWorlds.CampaignSystem/QuestBase.cs`
 
 ## Overview
 
-`QuestBase` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`QuestBase` is the **core base class** of Bannerlord's campaign quest system. Inherit from it, implement a few key members, and your custom quest appears in the quest log with a due date, optional tracking, stage logs, and automatic save/load support.
+
+Main lifecycle:
+
+1. Create: `new MyQuest(...)` inside a `CampaignBehaviorBase` or `IssueBase`.
+2. Start: call `StartQuest()` to add it to the log.
+3. Advance: update the log with `AddLog` / `AddDiscreteLog`, and check completion yourself.
+4. Finish: call `CompleteQuestWithSuccess()` / `Fail()` / `Cancel()` / `TimeOut()`.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `QuestBase` as a **timed state machine with a journal**:
 
-## Key Properties
+- The quest itself must inherit `QuestBase`.
+- Each quest instance is tied to a `QuestGiver` (usually a `Hero`).
+- Journal logs (`JournalLog`) are what the player sees; stage objectives use `AddDiscreteLog` to show progress.
+- Most quest logic lives in event listeners inside a `CampaignBehaviorBase`, or in virtual overrides.
+- Quest state is auto-saved; fields that need persistence should be marked `[SaveableField]`.
 
-| Name | Signature |
-|------|-----------|
-| `QuestDueTime` | `public CampaignTime QuestDueTime { get; set; }` |
-| `TaskList` | `public MBReadOnlyList<QuestTaskBase> TaskList { get; }` |
-| `JournalEntries` | `public MBReadOnlyList<JournalLog> JournalEntries { get; }` |
-| `IsTrackEnabled` | `public bool IsTrackEnabled { get; }` |
-| `IsOngoing` | `public bool IsOngoing { get; }` |
-| `IsFinalized` | `public bool IsFinalized { get; }` |
-| `IsThereDiscussDialogFlow` | `public bool IsThereDiscussDialogFlow { get; }` |
-| `QuestGiver` | `public Hero QuestGiver { get; }` |
-| `Title` | `public abstract TextObject Title { get; set; }` |
-| `IsRemainingTimeHidden` | `public abstract bool IsRemainingTimeHidden { get; set; }` |
-| `RelationshipChangeWithQuestGiver` | `public virtual int RelationshipChangeWithQuestGiver { get; set; }` |
-| `IsSpecialQuest` | `public bool IsSpecialQuest { get; }` |
-| `SpecialQuestType` | `public virtual string SpecialQuestType { get; }` |
+## Core Abstract/Virtual Members
+
+| Member | Description |
+|--------|-------------|
+| `Title` (abstract) | Quest title. |
+| `IsRemainingTimeHidden` (abstract) | Hide remaining time or not. |
+| `QuestGiver` | Quest giver. |
+| `QuestDueTime` | Due date. |
+| `RewardGold` / `RewardXP` | Gold/XP rewards. |
+| `IsOngoing` / `IsFinalized` | Whether the quest is running / finished. |
+| `RelationshipChangeWithQuestGiver` | Relation change with giver on completion. |
+| `OnFailed()` / `OnCanceled()` | Failure/cancel callbacks. |
+| `QuestPreconditions()` | Check quest preconditions. |
 
 ## Key Methods
 
-### StartQuest
-`public void StartQuest()`
-
-**Purpose:** Starts the `quest` flow or state machine.
+### `public void StartQuest()`
+Add the quest to the log and start it.
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.StartQuest();
+var quest = new MyRescueQuest(questGiver);
+quest.StartQuest();
 ```
 
-### CompleteQuestWithSuccess
-`public void CompleteQuestWithSuccess()`
-
-**Purpose:** Performs the operation described by this method.
+### `public void CompleteQuestWithSuccess()` / `CompleteQuestWithFail(TextObject cancelLog)` / `CompleteQuestWithTimeOut(TextObject timeOutLog)` / `CompleteQuestWithCancel(TextObject cancelLog)`
+End the quest in different states.
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.CompleteQuestWithSuccess();
+if (AllHostagesRescued())
+{
+    CompleteQuestWithSuccess();
+}
+else if (quest.QuestDueTime.IsPast)
+{
+    CompleteQuestWithTimeOut(new TextObject("The deadline has passed."));
+}
 ```
 
-### CompleteQuestWithTimeOut
-`public void CompleteQuestWithTimeOut(TextObject timeOutLog = null)`
-
-**Purpose:** Performs the operation described by this method.
+### `public JournalLog AddLog(TextObject text, bool hideInformation = false)` / `AddDiscreteLog(...)` / `AddTwoWayContinuousLog(...)`
+Add journal entries.
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.CompleteQuestWithTimeOut(null);
+AddDiscreteLog(
+    new TextObject("Hostages rescued"),
+    new TextObject("Rescue"),
+    rescuedCount,
+    totalHostages);
 ```
 
-### CompleteQuestWithFail
-`public void CompleteQuestWithFail(TextObject cancelLog = null)`
-
-**Purpose:** Performs the operation described by this method.
+### `public void AddTrackedObject(ITrackableCampaignObject trackedObject)` / `RemoveTrackedObject(...)` / `IsTracked(...)`
+Highlight an object on the campaign map.
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.CompleteQuestWithFail(null);
+AddTrackedObject(targetSettlement);
 ```
 
-### CompleteQuestWithBetrayal
-`public void CompleteQuestWithBetrayal(TextObject betrayLog = null)`
-
-**Purpose:** Performs the operation described by this method.
+### `public void AddGameMenu(...)` / `AddGameMenuOption(...)`
+Add dynamic campaign-map menu options for the quest.
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.CompleteQuestWithBetrayal(null);
+AddGameMenuOption(
+    "town",
+    "my_quest_option",
+    new TextObject("Ask about the bandits"),
+    OnCondition,
+    OnConsequence);
 ```
 
-### CompleteQuestWithCancel
-`public void CompleteQuestWithCancel(TextObject cancelLog = null)`
-
-**Purpose:** Performs the operation described by this method.
+### `public void ChangeQuestDueTime(CampaignTime questDueTime)`
+Change the quest deadline.
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.CompleteQuestWithCancel(null);
+ChangeQuestDueTime(CampaignTime.Now + CampaignTime.Days(3));
 ```
 
-### InitializeQuestOnLoadWithQuestManager
-`public void InitializeQuestOnLoadWithQuestManager()`
-
-**Purpose:** Prepares the resources, state, or bindings required by `quest on load with quest manager`.
+## Typical Usage Example
 
 ```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.InitializeQuestOnLoadWithQuestManager();
+public class RescueHostageQuest : QuestBase
+{
+    [SaveableField(0)]
+    private Hero _hostage;
+
+    [SaveableField(1)]
+    private int _rescuedCount;
+
+    public override TextObject Title => new TextObject("Rescue the Hostage");
+
+    public override bool IsRemainingTimeHidden => false;
+
+    public RescueHostageQuest(Hero questGiver, Hero hostage)
+        : base("rescue_hostage_quest", questGiver, CampaignTime.DaysFromNow(7))
+    {
+        _hostage = hostage;
+    }
+
+    protected override void OnStartQuest()
+    {
+        base.OnStartQuest();
+        AddDiscreteLog(
+            new TextObject("Find and rescue {HOSTAGE}"),
+            new TextObject("Rescue"),
+            0, 1,
+            null,
+            false);
+    }
+
+    protected override void OnFinalize()
+    {
+        if (_hostage.IsAlive && _hostage.CurrentSettlement != null)
+        {
+            CompleteQuestWithSuccess();
+        }
+        else
+        {
+            CompleteQuestWithFail(new TextObject("The hostage did not survive."));
+        }
+    }
+}
 ```
 
-### AddLog
-`public JournalLog AddLog(TextObject text, bool hideInformation = false)`
+> Actual event triggers (entering a settlement, defeating a party, etc.) are usually subscribed in `CampaignBehaviorBase.RegisterEvents()`, which then calls methods on the quest instance.
 
-**Purpose:** Adds `log` to the current collection or state.
+## Cross-Version Notes
 
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.AddLog(text, false);
-```
-
-### AddDiscreteLog
-`public JournalLog AddDiscreteLog(TextObject text, TextObject taskName, int currentProgress, int targetProgress, TextObject shortText = null, bool hideInformation = false)`
-
-**Purpose:** Adds `discrete log` to the current collection or state.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.AddDiscreteLog(text, taskName, 0, 0, null, false);
-```
-
-### AddTwoWayContinuousLog
-`public JournalLog AddTwoWayContinuousLog(TextObject text, TextObject taskName, int currentProgress, int range, bool hideInformation = false)`
-
-**Purpose:** Adds `two way continuous log` to the current collection or state.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.AddTwoWayContinuousLog(text, taskName, 0, 0, false);
-```
-
-### IsLocationTrackedByQuest
-`public virtual GameMenuOption.IssueQuestFlags IsLocationTrackedByQuest(Location location)`
-
-**Purpose:** Determines whether the current object is in the `location tracked by quest` state or condition.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.IsLocationTrackedByQuest(location);
-```
-
-### GetCurrentProgress
-`public virtual int GetCurrentProgress()`
-
-**Purpose:** Reads and returns the `current progress` value held by the current object.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.GetCurrentProgress();
-```
-
-### GetMaxProgress
-`public virtual int GetMaxProgress()`
-
-**Purpose:** Reads and returns the `max progress` value held by the current object.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.GetMaxProgress();
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the current object.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.ToString();
-```
-
-### GetPrefabName
-`public virtual string GetPrefabName()`
-
-**Purpose:** Reads and returns the `prefab name` value held by the current object.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.GetPrefabName();
-```
-
-### AddTrackedObject
-`public void AddTrackedObject(ITrackableCampaignObject trackedObject)`
-
-**Purpose:** Adds `tracked object` to the current collection or state.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.AddTrackedObject(trackedObject);
-```
-
-### RemoveTrackedObject
-`public void RemoveTrackedObject(ITrackableCampaignObject trackedObject)`
-
-**Purpose:** Removes `tracked object` from the current collection or state.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.RemoveTrackedObject(trackedObject);
-```
-
-### IsTracked
-`public bool IsTracked(ITrackableCampaignObject o)`
-
-**Purpose:** Determines whether the current object is in the `tracked` state or condition.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.IsTracked(o);
-```
-
-### ToggleTrackedObjects
-`public void ToggleTrackedObjects()`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.ToggleTrackedObjects();
-```
-
-### AddGameMenu
-`public void AddGameMenu(string menuId, TextObject menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = GameMenu.MenuOverlayType.None, GameMenu.MenuFlags menuFlags = GameMenu.MenuFlags.None)`
-
-**Purpose:** Adds `game menu` to the current collection or state.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.AddGameMenu("example", menuText, initDelegate, gameMenu.MenuOverlayType.None, gameMenu.MenuFlags.None);
-```
-
-### AddGameMenuOption
-`public void AddGameMenuOption(string menuId, string optionId, TextObject optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool Isleave = false, int index = -1)`
-
-**Purpose:** Adds `game menu option` to the current collection or state.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.AddGameMenuOption("example", "example", optionText, condition, consequence, false, 0);
-```
-
-### ChangeQuestDueTime
-`public void ChangeQuestDueTime(CampaignTime questDueTime)`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.ChangeQuestDueTime(questDueTime);
-```
-
-### OnFailed
-`public virtual void OnFailed()`
-
-**Purpose:** Invoked when the `failed` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnFailed();
-```
-
-### OnCanceled
-`public virtual void OnCanceled()`
-
-**Purpose:** Invoked when the `canceled` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnCanceled();
-```
-
-### QuestPreconditions
-`public virtual bool QuestPreconditions()`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-var result = questBase.QuestPreconditions();
-```
-
-### OnHeroCanHaveCampaignIssuesInfoIsRequested
-`public virtual void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can have campaign issues info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
-```
-
-### OnHeroCanMarryInfoIsRequested
-`public virtual void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can marry info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanMarryInfoIsRequested(hero, result);
-```
-
-### OnHeroCanLeadPartyInfoIsRequested
-`public virtual void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can lead party info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanLeadPartyInfoIsRequested(hero, result);
-```
-
-### OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested
-`public virtual void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can have party role or be governor info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
-```
-
-### OnHeroCanDieInfoIsRequested
-`public virtual void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)`
-
-**Purpose:** Invoked when the `hero can die info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
-```
-
-### OnHeroCanBecomePrisonerInfoIsRequested
-`public virtual void OnHeroCanBecomePrisonerInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can become prisoner info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanBecomePrisonerInfoIsRequested(hero, result);
-```
-
-### OnHeroCanBeSelectedInInventoryInfoIsRequested
-`public virtual void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can be selected in inventory info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
-```
-
-### OnHeroCanMoveToSettlementInfoIsRequested
-`public virtual void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)`
-
-**Purpose:** Invoked when the `hero can move to settlement info is requested` event is raised.
-
-```csharp
-// Obtain an instance of QuestBase from the subsystem API first
-QuestBase questBase = ...;
-questBase.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-QuestBase instance = ...;
-```
+- v1.3.0 / v1.3.15 / v1.4.5 `QuestBase` structure is mostly unchanged, but some callback signatures may have `in`/`ref` adjustments.
+- v1.4.5 adds more built-in support for custom `QuestTaskBase` and tracked objects.
 
 ## See Also
 
-- [Area Index](../)
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — common hook to create and manage quests
+- [IssueBase](../IssueBase/) — the "issue/contract" object that often starts a quest
+- [Hero](../../campaign/Hero/) — quest giver and targets
+- [Settlement](../../campaign/Settlement/) — quest locations
+- [MobileParty](../../campaign/MobileParty/) — tracking party-based objectives

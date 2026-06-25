@@ -1,634 +1,161 @@
 ---
 title: "MissionBehavior"
-description: "Auto-generated class reference for MissionBehavior."
+description: "Base class for Mission/scene behaviors: listen for combat events, agent lifecycle, tick, weapon interactions, and more."
 ---
 # MissionBehavior
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MissionBehavior : IMissionBehavior`
-**Base:** `IMissionBehavior`
+**Namespace:** TaleWorlds.MountAndBlade  
+**Module:** TaleWorlds.MountAndBlade  
+**Type:** `public abstract class MissionBehavior`  
+**Base:** —  
 **File:** `TaleWorlds.MountAndBlade/MissionBehavior.cs`
 
 ## Overview
 
-`MissionBehavior` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MissionBehavior` is the most important extension point for Bannerlord combat/scene systems. It is created each time you enter a `Mission` (battle, town scene, campaign encounter, etc.) and lives as long as the current scene.
+
+By inheriting from it, you can:
+
+- Listen for agent creation, damage, death, flee, mount, dismount, etc.
+- Run logic every frame or on a fixed timestep.
+- React to Mission start/end/mode changes.
+- Interact with scene objects (`UsableMissionObject`), missiles, melee/ranged hits.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `MissionBehavior` as a **temporary plugin for the current scene**:
 
-## Key Properties
+- Created when entering the scene, either by the engine or by your registration, and destroyed when the scene ends.
+- Unlike `CampaignBehaviorBase`, which persists across the campaign map, a `MissionBehavior` only exists for one Mission.
+- It is not created automatically; register it in `MBSubModuleBase.OnGameStart` via `MissionGameStarter.AddBehavior(...)`.
+- Multiple `MissionBehavior`s can run in one scene, each handling different logic.
 
-| Name | Signature |
-|------|-----------|
-| `Mission` | `public Mission Mission { get; set; }` |
-| `DebugInput` | `public IInputContext DebugInput { get; }` |
-| `BehaviorType` | `public abstract MissionBehaviorType BehaviorType { get; }` |
-
-## Key Methods
-
-### OnAfterMissionCreated
-`public virtual void OnAfterMissionCreated()`
-
-**Purpose:** Invoked when the `after mission created` event is raised.
+## How to Register
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAfterMissionCreated();
+protected override void OnGameStart(Game game, IGameStarter starterObject)
+{
+    base.OnGameStart(game, starterObject);
+    if (starterObject is CampaignGameStarter campaignStarter)
+    {
+        campaignStarter.AddBehavior(new MyCampaignBehavior());
+    }
+    if (starterObject is MissionGameStarter missionStarter)
+    {
+        missionStarter.AddBehavior(new MyMissionBehavior());
+    }
+}
 ```
 
-### OnBehaviorInitialize
-`public virtual void OnBehaviorInitialize()`
+## Core Lifecycle Methods
 
-**Purpose:** Invoked when the `behavior initialize` event is raised.
+| Method | Description |
+|--------|-------------|
+| `OnBehaviorInitialize()` | Behavior initialization. |
+| `OnCreated()` | Behavior was created. |
+| `EarlyStart()` | Early in Mission start. |
+| `AfterStart()` | After Mission start completes. |
+| `OnMissionTick(float dt)` | Every frame. |
+| `OnFixedMissionTick(float fixedDt)` | Fixed-timestep update. |
+| `OnEndMissionInternal()` | Mission is about to end. |
+| `OnRemoveBehavior()` | Behavior is being removed. |
+
+## Main Event Hooks
+
+### Agent-related
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnBehaviorInitialize();
+public override void OnAgentCreated(Agent agent)
+{
+    // agent just created (may not be fully spawned yet)
+}
+
+public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+{
+    if (affectorAgent == Mission.Current?.MainAgent)
+    {
+        InformationManager.DisplayMessage(new InformationMessage($"Killed {affectedAgent.Name}"));
+    }
+}
+
+public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)
+{
+    // agent was hit
+}
 ```
 
-### OnCreated
-`public virtual void OnCreated()`
-
-**Purpose:** Invoked when the `created` event is raised.
+### Mission mode changes
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnCreated();
+public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)
+{
+    if (Mission.Current.Mode == MissionMode.Battle)
+    {
+        // entered battle mode
+    }
+}
 ```
 
-### EarlyStart
-`public virtual void EarlyStart()`
-
-**Purpose:** Performs the operation described by this method.
+### Object interaction
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.EarlyStart();
+public override void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)
+{
+    // player/AI used a scene object (door, ladder, etc.)
+}
 ```
 
-### AfterStart
-`public virtual void AfterStart()`
+## Typical Usage Examples
 
-**Purpose:** Performs the operation described by this method.
+### Example 1: Track player kills
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.AfterStart();
+public class PlayerKillTrackerBehavior : MissionBehavior
+{
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+    {
+        if (affectorAgent?.IsMainAgent ?? false)
+        {
+            int count = GetCurrentKillCount() + 1;
+            InformationManager.DisplayMessage(new InformationMessage($"Kill #{count}"));
+            SetCurrentKillCount(count);
+        }
+    }
+}
 ```
 
-### OnMissileHit
-`public virtual void OnMissileHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
-
-**Purpose:** Invoked when the `missile hit` event is raised.
+### Example 2: Slowly heal the player during a Mission
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissileHit(attacker, victim, false, collisionData);
+public override void OnMissionTick(float dt)
+{
+    Agent main = Mission.Current?.MainAgent;
+    if (main != null && main.IsActive() && main.Health < main.HealthLimit)
+    {
+        main.Health = Math.Min(main.Health + 2f * dt, main.HealthLimit);
+    }
+}
 ```
 
-### OnMeleeHit
-`public virtual void OnMeleeHit(Agent attacker, Agent victim, bool isCanceled, AttackCollisionData collisionData)`
+## `BehaviorType`
 
-**Purpose:** Invoked when the `melee hit` event is raised.
+Override `BehaviorType` to decide the behavior category: `Other`, `Logic`, `Battle`, etc. The category affects call order and whether the engine auto-enables it.
 
 ```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMeleeHit(attacker, victim, false, collisionData);
+public override MissionBehaviorType BehaviorType => MissionBehaviorType.Logic;
 ```
 
-### OnMissileCollisionReaction
-`public virtual void OnMissileCollisionReaction(Mission.MissileCollisionReaction collisionReaction, Agent attackerAgent, Agent attachedAgent, sbyte attachedBoneIndex)`
+## Cross-Version Notes
 
-**Purpose:** Invoked when the `missile collision reaction` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissileCollisionReaction(collisionReaction, attackerAgent, attachedAgent, 0);
-```
-
-### OnMissionScreenPreLoad
-`public virtual void OnMissionScreenPreLoad()`
-
-**Purpose:** Invoked when the `mission screen pre load` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissionScreenPreLoad();
-```
-
-### OnAgentCreated
-`public virtual void OnAgentCreated(Agent agent)`
-
-**Purpose:** Invoked when the `agent created` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentCreated(agent);
-```
-
-### OnAgentBuild
-`public virtual void OnAgentBuild(Agent agent, Banner banner)`
-
-**Purpose:** Invoked when the `agent build` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentBuild(agent, banner);
-```
-
-### OnAgentTeamChanged
-`public virtual void OnAgentTeamChanged(Team prevTeam, Team newTeam, Agent agent)`
-
-**Purpose:** Invoked when the `agent team changed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentTeamChanged(prevTeam, newTeam, agent);
-```
-
-### OnAgentControllerSetToPlayer
-`public virtual void OnAgentControllerSetToPlayer(Agent agent)`
-
-**Purpose:** Invoked when the `agent controller set to player` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentControllerSetToPlayer(agent);
-```
-
-### OnAgentHit
-`public virtual void OnAgentHit(Agent affectedAgent, Agent affectorAgent, in MissionWeapon affectorWeapon, in Blow blow, in AttackCollisionData attackCollisionData)`
-
-**Purpose:** Invoked when the `agent hit` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentHit(affectedAgent, affectorAgent, affectorWeapon, blow, attackCollisionData);
-```
-
-### OnScoreHit
-`public virtual void OnScoreHit(Agent affectedAgent, Agent affectorAgent, WeaponComponentData attackerWeapon, bool isBlocked, bool isSiegeEngineHit, in Blow blow, in AttackCollisionData collisionData, float damagedHp, float hitDistance, float shotDifficulty)`
-
-**Purpose:** Invoked when the `score hit` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnScoreHit(affectedAgent, affectorAgent, attackerWeapon, false, false, blow, collisionData, 0, 0, 0);
-```
-
-### OnEarlyAgentRemoved
-`public virtual void OnEarlyAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
-
-**Purpose:** Invoked when the `early agent removed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnEarlyAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
-```
-
-### OnAgentRemoved
-`public virtual void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)`
-
-**Purpose:** Invoked when the `agent removed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
-```
-
-### OnAgentDeleted
-`public virtual void OnAgentDeleted(Agent affectedAgent)`
-
-**Purpose:** Invoked when the `agent deleted` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentDeleted(affectedAgent);
-```
-
-### OnAgentFleeing
-`public virtual void OnAgentFleeing(Agent affectedAgent)`
-
-**Purpose:** Invoked when the `agent fleeing` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentFleeing(affectedAgent);
-```
-
-### OnAgentPanicked
-`public virtual void OnAgentPanicked(Agent affectedAgent)`
-
-**Purpose:** Invoked when the `agent panicked` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentPanicked(affectedAgent);
-```
-
-### OnFocusGained
-`public virtual void OnFocusGained(Agent agent, IFocusable focusableObject, bool isInteractable)`
-
-**Purpose:** Invoked when the `focus gained` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnFocusGained(agent, focusableObject, false);
-```
-
-### OnFocusLost
-`public virtual void OnFocusLost(Agent agent, IFocusable focusableObject)`
-
-**Purpose:** Invoked when the `focus lost` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnFocusLost(agent, focusableObject);
-```
-
-### OnAddTeam
-`public virtual void OnAddTeam(Team team)`
-
-**Purpose:** Invoked when the `add team` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAddTeam(team);
-```
-
-### AfterAddTeam
-`public virtual void AfterAddTeam(Team team)`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.AfterAddTeam(team);
-```
-
-### OnAgentInteraction
-`public virtual void OnAgentInteraction(Agent userAgent, Agent agent, sbyte agentBoneIndex)`
-
-**Purpose:** Invoked when the `agent interaction` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentInteraction(userAgent, agent, 0);
-```
-
-### OnClearScene
-`public virtual void OnClearScene()`
-
-**Purpose:** Invoked when the `clear scene` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnClearScene();
-```
-
-### OnEndMissionInternal
-`public virtual void OnEndMissionInternal()`
-
-**Purpose:** Invoked when the `end mission internal` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnEndMissionInternal();
-```
-
-### OnRemoveBehavior
-`public virtual void OnRemoveBehavior()`
-
-**Purpose:** Invoked when the `remove behavior` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnRemoveBehavior();
-```
-
-### OnFixedMissionTick
-`public virtual void OnFixedMissionTick(float fixedDt)`
-
-**Purpose:** Invoked when the `fixed mission tick` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnFixedMissionTick(0);
-```
-
-### OnPreMissionTick
-`public virtual void OnPreMissionTick(float dt)`
-
-**Purpose:** Invoked when the `pre mission tick` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnPreMissionTick(0);
-```
-
-### OnPreDisplayMissionTick
-`public virtual void OnPreDisplayMissionTick(float dt)`
-
-**Purpose:** Invoked when the `pre display mission tick` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnPreDisplayMissionTick(0);
-```
-
-### OnMissionTick
-`public virtual void OnMissionTick(float dt)`
-
-**Purpose:** Invoked when the `mission tick` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissionTick(0);
-```
-
-### OnAgentMount
-`public virtual void OnAgentMount(Agent agent)`
-
-**Purpose:** Invoked when the `agent mount` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentMount(agent);
-```
-
-### OnAgentDismount
-`public virtual void OnAgentDismount(Agent agent)`
-
-**Purpose:** Invoked when the `agent dismount` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentDismount(agent);
-```
-
-### IsThereAgentAction
-`public virtual bool IsThereAgentAction(Agent userAgent, Agent otherAgent)`
-
-**Purpose:** Determines whether the current object is in the `there agent action` state or condition.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-var result = missionBehavior.IsThereAgentAction(userAgent, otherAgent);
-```
-
-### OnEntityRemoved
-`public virtual void OnEntityRemoved(GameEntity entity)`
-
-**Purpose:** Invoked when the `entity removed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnEntityRemoved(entity);
-```
-
-### OnObjectUsed
-`public virtual void OnObjectUsed(Agent userAgent, UsableMissionObject usedObject)`
-
-**Purpose:** Invoked when the `object used` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnObjectUsed(userAgent, usedObject);
-```
-
-### OnObjectStoppedBeingUsed
-`public virtual void OnObjectStoppedBeingUsed(Agent userAgent, UsableMissionObject usedObject)`
-
-**Purpose:** Invoked when the `object stopped being used` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnObjectStoppedBeingUsed(userAgent, usedObject);
-```
-
-### OnRenderingStarted
-`public virtual void OnRenderingStarted()`
-
-**Purpose:** Invoked when the `rendering started` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnRenderingStarted();
-```
-
-### OnMissionStateActivated
-`public virtual void OnMissionStateActivated()`
-
-**Purpose:** Invoked when the `mission state activated` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissionStateActivated();
-```
-
-### OnMissionStateFinalized
-`public virtual void OnMissionStateFinalized()`
-
-**Purpose:** Invoked when the `mission state finalized` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissionStateFinalized();
-```
-
-### OnMissionStateDeactivated
-`public virtual void OnMissionStateDeactivated()`
-
-**Purpose:** Invoked when the `mission state deactivated` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissionStateDeactivated();
-```
-
-### GetCompassTargets
-`public virtual List<CompassItemUpdateParams> GetCompassTargets()`
-
-**Purpose:** Reads and returns the `compass targets` value held by the current object.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-var result = missionBehavior.GetCompassTargets();
-```
-
-### OnAssignPlayerAsSergeantOfFormation
-`public virtual void OnAssignPlayerAsSergeantOfFormation(Agent agent)`
-
-**Purpose:** Invoked when the `assign player as sergeant of formation` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAssignPlayerAsSergeantOfFormation(agent);
-```
-
-### OnDeploymentFinished
-`public virtual void OnDeploymentFinished()`
-
-**Purpose:** Invoked when the `deployment finished` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnDeploymentFinished();
-```
-
-### OnAfterDeploymentFinished
-`public virtual void OnAfterDeploymentFinished()`
-
-**Purpose:** Invoked when the `after deployment finished` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAfterDeploymentFinished();
-```
-
-### OnTeamDeployed
-`public virtual void OnTeamDeployed(Team team)`
-
-**Purpose:** Invoked when the `team deployed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnTeamDeployed(team);
-```
-
-### OnBattleSideDeployed
-`public virtual void OnBattleSideDeployed(BattleSideEnum side)`
-
-**Purpose:** Invoked when the `battle side deployed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnBattleSideDeployed(side);
-```
-
-### OnAgentAlarmedStateChanged
-`public virtual void OnAgentAlarmedStateChanged(Agent agent, Agent.AIStateFlag flag)`
-
-**Purpose:** Invoked when the `agent alarmed state changed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentAlarmedStateChanged(agent, flag);
-```
-
-### OnMissionModeChange
-`public virtual void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
-
-**Purpose:** Invoked when the `mission mode change` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissionModeChange(oldMissionMode, false);
-```
-
-### OnRegisterBlow
-`public virtual void OnRegisterBlow(Agent attacker, Agent victim, WeakGameEntity realHitEntity, Blow b, ref AttackCollisionData collisionData, in MissionWeapon attackerWeapon)`
-
-**Purpose:** Invoked when the `register blow` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnRegisterBlow(attacker, victim, realHitEntity, b, collisionData, attackerWeapon);
-```
-
-### OnAgentShootMissile
-`public virtual void OnAgentShootMissile(Agent shooterAgent, EquipmentIndex weaponIndex, Vec3 position, Vec3 velocity, Mat3 orientation, bool hasRigidBody, int forcedMissileIndex)`
-
-**Purpose:** Invoked when the `agent shoot missile` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnAgentShootMissile(shooterAgent, weaponIndex, position, velocity, orientation, false, 0);
-```
-
-### OnMissileRemoved
-`public virtual void OnMissileRemoved(int MissileIndex)`
-
-**Purpose:** Invoked when the `missile removed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnMissileRemoved(0);
-```
-
-### OnTutorialCompleted
-`public virtual void OnTutorialCompleted(string completedTutorialIdentifier)`
-
-**Purpose:** Invoked when the `tutorial completed` event is raised.
-
-```csharp
-// Obtain an instance of MissionBehavior from the subsystem API first
-MissionBehavior missionBehavior = ...;
-missionBehavior.OnTutorialCompleted("example");
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-MissionBehavior instance = ...;
-```
+- v1.3.0 / v1.3.15 / v1.4.5 core API is the same; event signatures may add `in`/`ref` parameters.
+- v1.4.5 is stricter about `MissionBehavior` creation/destruction order; avoid accessing `Mission.Current` in the constructor.
 
 ## See Also
 
-- [Area Index](../)
+- [Mission](../Mission/) — the scene the behavior lives in
+- [Agent](../Agent/) — entities in the scene
+- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — campaign-level counterpart
+- [MissionLogic](../../mission-ext/MissionLogic/) — another Mission logic extension
+- [MissionObject](../../mission-ext/MissionObject/) — scene interactables

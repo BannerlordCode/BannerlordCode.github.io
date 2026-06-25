@@ -1,432 +1,124 @@
 ---
 title: "Clan"
-description: "Clan 的自动生成类参考。"
+description: "氏族/家族：一组英雄、部队和据点的拥有者，也是王国最基本的组成单位。"
 ---
 # Clan
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class Clan : MBObjectBase, IFaction`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Clan : IFaction`  
+**Base:** —  
 **File:** `TaleWorlds.CampaignSystem/Clan.cs`
 
 ## 概述
 
-`Clan` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Clan` 是 Bannerlord 中**氏族/家族**的对象化表示。一个氏族拥有一组 `Hero`、若干 `MobileParty`、零个或多个 `Settlement`（城镇/城堡/村庄），并通常隶属于一个 `Kingdom`。它是游戏社会结构的中间层：个人（Hero）→ 氏族（Clan）→ 王国（Kingdom）。
+
+主要作用：
+
+- 管理氏族的声望、影响力、金币、文化与外交关系。
+- 追踪氏族成员（`Heroes` / `Lords` / `Companions`）。
+- 持有 `PlayerClan` 这个玩家氏族的全局入口。
+- 判断氏族类型：贵族、强盗、佣兵、小派系、游牧、叛军等。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `Clan` 看作**“拥有资产和人口的家族公司”**：
 
-## 主要属性
+- 单个 `Hero` 可以属于一个 `Clan`，氏族首领就是公司的 CEO。
+- 氏族拥有据点和军队，这些是它的资产。
+- 在任务脚本中，最常见的判断就是 `someHero.Clan == Clan.PlayerClan` 或 `settlement.OwnerClan`。
+- 创建新的氏族一般通过 `Clan.CreateClan(...)` 或克隆相关 API。
 
-| Name | Signature |
-|------|-----------|
-| `Name` | `public TextObject Name { get; }` |
-| `InformalName` | `public TextObject InformalName { get; }` |
-| `Culture` | `public CultureObject Culture { get; set; }` |
-| `LastFactionChangeTime` | `public CampaignTime LastFactionChangeTime { get; set; }` |
-| `DefaultPartyTemplate` | `public PartyTemplateObject DefaultPartyTemplate { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; set; }` |
-| `AutoRecruitmentExpenses` | `public int AutoRecruitmentExpenses { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `IsNoble` | `public bool IsNoble { get; set; }` |
-| `IsEliminated` | `public bool IsEliminated { get; }` |
-| `MinorFactionCharacterTemplates` | `public IList<CharacterObject> MinorFactionCharacterTemplates { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `Kingdom` | `public Kingdom Kingdom { get; set; }` |
-| `DungeonPrisonersOfClan` | `public IEnumerable<CharacterObject> DungeonPrisonersOfClan { get; }` |
-| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
-| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `SupporterNotables` | `public MBReadOnlyList<Hero> SupporterNotables { get; }` |
-| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
-| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
-| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
-| `Companions` | `public MBReadOnlyList<Hero> Companions { get; }` |
-| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; set; }` |
-| `Influence` | `public float Influence { get; set; }` |
-| `InfluenceChangeExplained` | `public ExplainedNumber InfluenceChangeExplained { get; }` |
-| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
-| `MercenaryAwardMultiplier` | `public int MercenaryAwardMultiplier { get; }` |
-| `IsMapFaction` | `public bool IsMapFaction { get; }` |
-| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
-| `IsRebelClan` | `public bool IsRebelClan { get; }` |
-| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
-| `IsOutlaw` | `public bool IsOutlaw { get; }` |
-| `IsNomad` | `public bool IsNomad { get; }` |
-| `IsMafia` | `public bool IsMafia { get; }` |
-| `IsClanTypeMercenary` | `public bool IsClanTypeMercenary { get; }` |
-| `IsSect` | `public bool IsSect { get; }` |
-| `IsUnderMercenaryService` | `public bool IsUnderMercenaryService { get; }` |
-| `ShouldStayInKingdomUntil` | `public CampaignTime ShouldStayInKingdomUntil { get; set; }` |
-| `Color` | `public uint Color { get; set; }` |
-| `Color2` | `public uint Color2 { get; set; }` |
-| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; set; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; set; }` |
-| `PlayerClan` | `public static Clan PlayerClan { get; }` |
-| `Leader` | `public Hero Leader { get; }` |
-| `Gold` | `public int Gold { get; }` |
-| `Banner` | `public Banner Banner { get; set; }` |
-| `ClanOriginalBanner` | `public Banner ClanOriginalBanner { get; }` |
-| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
-| `IsClan` | `public bool IsClan { get; set; }` |
-| `Renown` | `public float Renown { get; set; }` |
-| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
-| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
-| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
-| `Tier` | `public int Tier { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; set; }` |
-| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `TributeWallet` | `public int TributeWallet { get; }` |
-| `HomeSettlement` | `public Settlement HomeSettlement { get; }` |
-| `DebtToKingdom` | `public int DebtToKingdom { get; set; }` |
-| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
-| `RenownRequirementForNextTier` | `public int RenownRequirementForNextTier { get; }` |
-| `CompanionLimit` | `public int CompanionLimit { get; }` |
-| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
-| `CommanderLimit` | `public int CommanderLimit { get; }` |
-| `All` | `public static MBReadOnlyList<Clan> All { get; }` |
-| `NonBanditFactions` | `public static IEnumerable<Clan> NonBanditFactions { get; }` |
-| `BanditFactions` | `public static IEnumerable<Clan> BanditFactions { get; }` |
+## 核心属性
+
+| 属性 | 说明 |
+|------|------|
+| `PlayerClan` | 玩家所在氏族。 |
+| `All` | 所有氏族。 |
+| `NonBanditFactions` / `BanditFactions` | 非强盗 / 强盗群体。 |
+| `Name` / `InformalName` | 氏族名称。 |
+| `Culture` | 氏族文化。 |
+| `Renown` | 声望。 |
+| `Heroes` | 氏族内所有英雄。 |
+| `Lords` / `Companions` | 领主 / 同伴。 |
+| `Settlements` | 氏族拥有的据点。 |
+| `Leader` | 氏族首领。 |
+| `Kingdom` | 所属王国。 |
+| `IsNoble` / `IsMinorFaction` / `IsOutlaw` / `IsBanditFaction` / `IsRebelClan` / `IsUnderMercenaryService` | 氏族类型。 |
+| `Color` / `Color2` | 氏族颜色。 |
 
 ## 主要方法
 
-### UpdateFactionsAtWarWith
-`public void UpdateFactionsAtWarWith()`
-
-**用途 / Purpose:** 重新计算并更新 「factions at war with」 的最新表示。
+### `public static Clan CreateClan(string stringID)`
+创建一个新氏族。
 
 ```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.UpdateFactionsAtWarWith();
+Clan myClan = Clan.CreateClan("my_mod_clan");
+myClan.Name = new TextObject("{=my_clan_name}My Custom Clan");
+myClan.Culture = CultureObject.GetCulture("empire");
 ```
 
-### UpdateCurrentStrength
-`public void UpdateCurrentStrength()`
-
-**用途 / Purpose:** 重新计算并更新 「current strength」 的最新表示。
+### `public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)`
+把一名同伴提升为领主并创建独立氏族。
 
 ```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.UpdateCurrentStrength();
+Clan newClan = Clan.CreateCompanionToLordClan(myCompanion, grantSettlement, clanName, 1);
 ```
 
-### IsAtWarWith
-`public bool IsAtWarWith(IFaction other)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「at war with」 状态或条件。
+### `public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)`
+为据点创建叛军氏族。
 
 ```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.IsAtWarWith(other);
+Clan rebels = Clan.CreateSettlementRebelClan(revoltTarget, rebellionLeader);
 ```
 
-### CreateClan
-`public static Clan CreateClan(string stringID)`
-
-**用途 / Purpose:** 构建一个新的 「clan」 实体并返回给调用方。
+### `public static Clan FindFirst(Predicate<Clan> predicate)`
+按条件查找氏族。
 
 ```csharp
-// 静态调用，不需要实例
-Clan.CreateClan("example");
+Clan enemy = Clan.FindFirst(c => c.IsAtWarWith(Clan.PlayerClan));
 ```
 
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+## 典型用法示例
 
-**用途 / Purpose:** 从序列化数据还原当前对象。
+### 示例 1：给玩家氏族加声望
 
 ```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.Deserialize(objectManager, node);
+Clan.PlayerClan.Renown += 100f;
 ```
 
-### GetRelationWithClan
-`public int GetRelationWithClan(Clan other)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「relation with clan」 的结果。
+### 示例 2：把一座城封给某英雄的新氏族
 
 ```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetRelationWithClan(other);
+Settlement castle = Settlement.Find("castle_A1");
+Clan newClan = Clan.CreateCompanionToLordClan(promotedHero, castle, new TextObject("New Banner"), 1);
+castle.OwnerClan = newClan;
 ```
 
-### SetLeader
-`public void SetLeader(Hero leader)`
-
-**用途 / Purpose:** 为 「leader」 赋新值，并同步更新对象内部状态。
+### 示例 3：遍历敌对氏族的所有领主
 
 ```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.SetLeader(leader);
+foreach (Clan clan in Clan.All)
+{
+    if (clan.IsAtWarWith(Clan.PlayerClan))
+    {
+        foreach (Hero lord in clan.Lords)
+        {
+            // ...
+        }
+    }
+}
 ```
 
-### SetInitialHomeSettlement
-`public void SetInitialHomeSettlement(Settlement initialHomeSettlement)`
+## 跨版本提示
 
-**用途 / Purpose:** 为 「initial home settlement」 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.SetInitialHomeSettlement(initialHomeSettlement);
-```
-
-### ConsiderAndUpdateHomeSettlement
-`public void ConsiderAndUpdateHomeSettlement()`
-
-**用途 / Purpose:** 处理与 「consider and update home settlement」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ConsiderAndUpdateHomeSettlement();
-```
-
-### GetName
-`public override TextObject GetName()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetName();
-```
-
-### ChangeClanName
-`public void ChangeClanName(TextObject name, TextObject informalName)`
-
-**用途 / Purpose:** 处理与 「change clan name」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ChangeClanName(name, informalName);
-```
-
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.ToString();
-```
-
-### GetStanceWith
-`public StanceLink GetStanceWith(IFaction other)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「stance with」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetStanceWith(other);
-```
-
-### ClanLeaveKingdom
-`public void ClanLeaveKingdom(bool giveBackFiefs = false)`
-
-**用途 / Purpose:** 处理与 「clan leave kingdom」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ClanLeaveKingdom(false);
-```
-
-### CalculateTotalSettlementBaseValue
-`public float CalculateTotalSettlementBaseValue()`
-
-**用途 / Purpose:** 计算「total settlement base value」的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.CalculateTotalSettlementBaseValue();
-```
-
-### StartMercenaryService
-`public void StartMercenaryService()`
-
-**用途 / Purpose:** 启动「mercenary service」流程或状态机。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.StartMercenaryService();
-```
-
-### ResetPlayerHomeAndFactionMidSettlement
-`public void ResetPlayerHomeAndFactionMidSettlement()`
-
-**用途 / Purpose:** 将 「player home and faction mid settlement」 重置回默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ResetPlayerHomeAndFactionMidSettlement();
-```
-
-### FindFirst
-`public static Clan FindFirst(Predicate<Clan> predicate)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「first」。
-
-```csharp
-// 静态调用，不需要实例
-Clan.FindFirst(predicate);
-```
-
-### EndMercenaryService
-`public void EndMercenaryService(bool isByLeavingKingdom)`
-
-**用途 / Purpose:** 处理与 「end mercenary service」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.EndMercenaryService(false);
-```
-
-### FindAll
-`public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`
-
-**用途 / Purpose:** 在当前集合/范围内查找满足条件的「all」。
-
-```csharp
-// 静态调用，不需要实例
-Clan.FindAll(predicate);
-```
-
-### CalculateTotalSettlementValueForFaction
-`public float CalculateTotalSettlementValueForFaction(Kingdom kingdom)`
-
-**用途 / Purpose:** 计算「total settlement value for faction」的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.CalculateTotalSettlementValueForFaction(kingdom);
-```
-
-### OnHeroChangedState
-`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
-
-**用途 / Purpose:** 在 「hero changed state」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.OnHeroChangedState(hero, oldState);
-```
-
-### AddRenown
-`public void AddRenown(float value, bool shouldNotify = true)`
-
-**用途 / Purpose:** 将 「renown」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.AddRenown(0, false);
-```
-
-### ResetClanRenown
-`public void ResetClanRenown()`
-
-**用途 / Purpose:** 将 「clan renown」 重置回默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.ResetClanRenown();
-```
-
-### OnSupportedByClan
-`public void OnSupportedByClan(Clan supporterClan)`
-
-**用途 / Purpose:** 在 「supported by clan」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.OnSupportedByClan(supporterClan);
-```
-
-### CreateSettlementRebelClan
-`public static Clan CreateSettlementRebelClan(Settlement settlement, Hero owner, int iconMeshId = -1)`
-
-**用途 / Purpose:** 构建一个新的 「settlement rebel clan」 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-Clan.CreateSettlementRebelClan(settlement, owner, 0);
-```
-
-### CalculateMidSettlement
-`public void CalculateMidSettlement()`
-
-**用途 / Purpose:** 计算「mid settlement」的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.CalculateMidSettlement();
-```
-
-### CreateCompanionToLordClan
-`public static Clan CreateCompanionToLordClan(Hero hero, Settlement settlement, TextObject clanName, int newClanIconId)`
-
-**用途 / Purpose:** 构建一个新的 「companion to lord clan」 实体并返回给调用方。
-
-```csharp
-// 静态调用，不需要实例
-Clan.CreateCompanionToLordClan(hero, settlement, clanName, 0);
-```
-
-### GetHeirApparents
-`public Dictionary<Hero, int> GetHeirApparents()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「heir apparents」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-var result = clan.GetHeirApparents();
-```
-
-### UpdateBannerColor
-`public void UpdateBannerColor(uint backgroundColor, uint iconColor)`
-
-**用途 / Purpose:** 重新计算并更新 「banner color」 的最新表示。
-
-```csharp
-// 先通过子系统 API 拿到 Clan 实例
-Clan clan = ...;
-clan.UpdateBannerColor(0, 0);
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Clan clan = ...;
-clan.UpdateFactionsAtWarWith();
-```
+- v1.3.0 / v1.3.15 / v1.4.5 的氏族 API 基本稳定。
+- v1.4.5 对强盗氏族和小派系做了更细分类（`IsMafia`、`IsSect`、`IsNomad`）。
 
 ## 参见
 
-- [本区域目录](../)
+- [Kingdom](../Kingdom/) — 氏族所属的王国
+- [Hero](../Hero/) — 氏族成员
+- [Settlement](../Settlement/) — 氏族资产
+- [MobileParty](../MobileParty/) — 氏族的部队

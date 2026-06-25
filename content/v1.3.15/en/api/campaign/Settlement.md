@@ -1,515 +1,172 @@
 ---
 title: "Settlement"
-description: "Auto-generated class reference for Settlement."
+description: "Fixed locations on the campaign map: towns, castles, villages, hideouts."
 ---
 # Settlement
 
-**Namespace:** TaleWorlds.CampaignSystem.Settlements
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class Settlement : MBObjectBase, ILocatable<Settlement>, IMapPoint, ITrackableCampaignObject, ITrackableBase, ISiegeEventSide, IRandomOwner, ISettlementDataHolder`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem.Settlements  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Settlement : PartyBase, ILocatable`  
+**Base:** `PartyBase`  
 **File:** `TaleWorlds.CampaignSystem/Settlements/Settlement.cs`
 
 ## Overview
 
-`Settlement` lives in `TaleWorlds.CampaignSystem.Settlements` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Settlement` is the unified abstraction for **every fixed location on Bannerlord's campaign map**: towns, castles, villages, hideouts, and war machines. It is a static geographical entity and also a `PartyBase` (garrison, militia, item stash).
+
+Key roles:
+
+- Represents a fixed map location: position, name, component (`Town`/`Village`/`Castle`/`Hideout`), and owner (`Clan`/`Kingdom`).
+- Manages garrison, militia, prisoners, granary, and stash.
+- Provides siege state, prosperity, security, loyalty, and other metrics (mostly on the matching `SettlementComponent`).
+- Serves as the target for `MobileParty` movement, trade, and quests.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.Settlements` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `Settlement` as the **gateway object for a location**:
 
-## Key Properties
+- First get the settlement, then decide what it is: `settlement.IsTown`, `settlement.IsCastle`, `settlement.IsVillage`, `settlement.IsHideout`.
+- Concrete data lives in `SettlementComponent`: `settlement.SettlementComponent` can be cast to `Town`, `Village`, `Castle`, or `Hideout`.
+- `Settlement.Party` is the garrison, `MilitiaPartyComponent` is the militia.
+- Player's current location: `Settlement.CurrentSettlement`.
 
-| Name | Signature |
-|------|-----------|
-| `Party` | `public PartyBase Party { get; }` |
-| `NumberOfLordPartiesAt` | `public int NumberOfLordPartiesAt { get; set; }` |
-| `BribePaid` | `public int BribePaid { get; set; }` |
-| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; set; }` |
-| `IsActive` | `public bool IsActive { get; set; }` |
-| `Owner` | `public Hero Owner { get; }` |
-| `Banner` | `public Banner Banner { get; }` |
-| `IsVisible` | `public bool IsVisible { get; set; }` |
-| `IsInspected` | `public bool IsInspected { get; set; }` |
-| `WallSectionCount` | `public int WallSectionCount { get; set; }` |
-| `NearbyLandThreatIntensity` | `public float NearbyLandThreatIntensity { get; set; }` |
-| `NearbyNavalThreatIntensity` | `public float NearbyNavalThreatIntensity { get; set; }` |
-| `NearbyLandAllyIntensity` | `public float NearbyLandAllyIntensity { get; set; }` |
-| `NearbyNavalAllyIntensity` | `public float NearbyNavalAllyIntensity { get; set; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `GetPosition2D` | `public Vec2 GetPosition2D { get; }` |
-| `Militia` | `public float Militia { get; }` |
-| `SettlementWallSectionHitPointsRatioList` | `public MBReadOnlyList<float> SettlementWallSectionHitPointsRatioList { get; }` |
-| `SettlementTotalWallHitPoints` | `public float SettlementTotalWallHitPoints { get; }` |
-| `MaxHitPointsOfOneWallSection` | `public float MaxHitPointsOfOneWallSection { get; }` |
-| `SettlementHitPoints` | `public float SettlementHitPoints { get; set; }` |
-| `MaxWallHitPoints` | `public float MaxWallHitPoints { get; }` |
-| `Parties` | `public MBReadOnlyList<MobileParty> Parties { get; }` |
-| `PatrolParty` | `public PatrolPartyComponent PatrolParty { get; }` |
-| `HeroesWithoutParty` | `public MBReadOnlyList<Hero> HeroesWithoutParty { get; }` |
-| `Notables` | `public MBReadOnlyList<Hero> Notables { get; }` |
-| `SettlementComponent` | `public SettlementComponent SettlementComponent { get; }` |
-| `GatePosition` | `public CampaignVec2 GatePosition { get; }` |
-| `PortPosition` | `public CampaignVec2 PortPosition { get; }` |
-| `CurrentNavigationFace` | `public PathFaceRecord CurrentNavigationFace { get; }` |
-| `Position` | `public CampaignVec2 Position { get; }` |
-| `HasPort` | `public bool HasPort { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
-| `GarrisonWagePaymentLimit` | `public int GarrisonWagePaymentLimit { get; }` |
-| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
-| `BoundVillages` | `public MBReadOnlyList<Village> BoundVillages { get; set; }` |
-| `LastAttackerParty` | `public MobileParty LastAttackerParty { get; set; }` |
-| `LastThreatTime` | `public CampaignTime LastThreatTime { get; }` |
-| `SiegeEngines` | `public SiegeEvent.SiegeEnginesContainer SiegeEngines { get; }` |
-| `SiegeEngineMissiles` | `public MBReadOnlyList<SiegeEvent.SiegeEngineMissile> SiegeEngineMissiles { get; }` |
-| `BattleSide` | `public BattleSideEnum BattleSide { get; }` |
-| `NumberOfTroopsKilledOnSide` | `public int NumberOfTroopsKilledOnSide { get; }` |
-| `SiegeStrategy` | `public SiegeStrategy SiegeStrategy { get; }` |
-| `Alleys` | `public List<Alley> Alleys { get; }` |
-| `IsTown` | `public bool IsTown { get; }` |
-| `IsCastle` | `public bool IsCastle { get; }` |
-| `IsFortification` | `public bool IsFortification { get; }` |
-| `IsVillage` | `public bool IsVillage { get; }` |
-| `IsHideout` | `public bool IsHideout { get; }` |
-| `IsStarving` | `public bool IsStarving { get; }` |
-| `IsRaided` | `public bool IsRaided { get; }` |
-| `InRebelliousState` | `public bool InRebelliousState { get; }` |
-| `IsUnderRaid` | `public bool IsUnderRaid { get; }` |
-| `IsUnderSiege` | `public bool IsUnderSiege { get; }` |
-| `LocationComplex` | `public LocationComplex LocationComplex { get; }` |
-| `CurrentSettlement` | `public static Settlement CurrentSettlement { get; }` |
-| `All` | `public static MBReadOnlyList<Settlement> All { get; }` |
-| `GetFirst` | `public static Settlement GetFirst { get; }` |
-| `CurrentSiegeState` | `public Settlement.SiegeState CurrentSiegeState { get; }` |
-| `OwnerClan` | `public Clan OwnerClan { get; }` |
+## How to Obtain a Settlement
+
+```csharp
+Settlement current = Settlement.CurrentSettlement;
+
+Settlement town = Settlement.Find("town_A7"); // example Khuzait town
+
+Settlement richTown = Settlement.FindFirst(s => s.IsTown && s.Town.Prosperity > 6000f);
+
+foreach (Settlement s in Settlement.All)
+{
+    if (s.OwnerClan == Clan.PlayerClan)
+    {
+        // player-owned settlement
+    }
+}
+```
+
+## Core Properties
+
+| Property | Description |
+|----------|-------------|
+| `All` | All settlements. |
+| `CurrentSettlement` | Settlement the player is currently in. |
+| `SettlementComponent` | Underlying component (`Town`/`Castle`/`Village`/`Hideout`). |
+| `OwnerClan` / `MapFaction` | Owning clan / faction. |
+| `Party` | Garrison `PartyBase`. |
+| `GarrisonWagePaymentLimit` | Garrison wage cap. |
+| `GatePosition` / `PortPosition` | Gate / port positions. |
+| `HasPort` | Has a port. |
+| `IsUnderSiege` / `CurrentSiegeState` | Siege state. |
+| `SiegeEvent` | Current siege event. |
+| `Stash` | Player stash in this settlement (if any). |
+| `Alleys` | List of alleys. |
+| `IsTown` / `IsCastle` / `IsVillage` / `IsHideout` | Settlement-type checks. |
 
 ## Key Methods
 
-### SetWallSectionHitPointsRatioAtIndex
-`public void SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)`
-
-**Purpose:** Assigns a new value to `wall section hit points ratio at index` and updates the object's internal state.
+### `public static Settlement Find(string idString)`
+Find a settlement by string ID.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.SetWallSectionHitPointsRatioAtIndex(0, 0);
+Settlement khuzaitTown = Settlement.Find("town_A7");
 ```
 
-### GetPositionAsVec3
-`public Vec3 GetPositionAsVec3()`
-
-**Purpose:** Reads and returns the `position as vec3` value held by the current object.
+### `public static Settlement FindFirst(Func<Settlement, bool> predicate)`
+Find the first settlement matching a condition.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetPositionAsVec3();
+Settlement firstPlayerSettlement = Settlement.FindFirst(s => s.OwnerClan == Clan.PlayerClan);
 ```
 
-### SetGarrisonWagePaymentLimit
-`public void SetGarrisonWagePaymentLimit(int limit)`
-
-**Purpose:** Assigns a new value to `garrison wage payment limit` and updates the object's internal state.
+### `public void AddGarrisonParty()`
+Spawn or reinforce the garrison for this settlement.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.SetGarrisonWagePaymentLimit(0);
+mySettlement.AddGarrisonParty();
 ```
 
-### GetInvolvedPartiesForEventType
-`public IEnumerable<PartyBase> GetInvolvedPartiesForEventType(MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
-
-**Purpose:** Reads and returns the `involved parties for event type` value held by the current object.
+### `public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)`
+Compute the settlement's value to a hero or faction.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetInvolvedPartiesForEventType(mapEvent.BattleTypes.Siege);
+float value = enemyTown.GetValue(Hero.MainHero);
 ```
 
-### GetNextInvolvedPartyForEventType
-`public PartyBase GetNextInvolvedPartyForEventType(ref int partyIndex, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
-
-**Purpose:** Reads and returns the `next involved party for event type` value held by the current object.
+### `public bool IsSettlementBusy(object asker)` / `IsSettlementBusy(object asker, int limitingPriority)`
+Check whether the settlement is currently busy with another task or scene.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetNextInvolvedPartyForEventType(partyIndex, mapEvent.BattleTypes.Siege);
+bool busy = town.IsSettlementBusy(this);
 ```
 
-### HasInvolvedPartyForEventType
-`public bool HasInvolvedPartyForEventType(PartyBase party, MapEvent.BattleTypes mapEventType = MapEvent.BattleTypes.Siege)`
-
-**Purpose:** Determines whether the current object already holds `involved party for event type`.
+### `public void SetNextSiegeState()` / `public void ResetSiegeState()`
+Advance / reset the siege phase.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.HasInvolvedPartyForEventType(party, mapEvent.BattleTypes.Siege);
+if (town.IsUnderSiege) town.SetNextSiegeState();
 ```
 
-### IsUnderRebellionAttack
-`public bool IsUnderRebellionAttack()`
-
-**Purpose:** Determines whether the current object is in the `under rebellion attack` state or condition.
+### `public void SetSiegeStrategy(SiegeStrategy strategy)`
+Set the siege strategy.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.IsUnderRebellionAttack();
+town.SetSiegeStrategy(DefaultSiegeStrategies.PrepareCrossbows);
 ```
 
-### GetSettlementValueForEnemyHero
-`public float GetSettlementValueForEnemyHero(Hero hero)`
-
-**Purpose:** Reads and returns the `settlement value for enemy hero` value held by the current object.
+### `public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
+Query settlements within a radius.
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetSettlementValueForEnemyHero(hero);
+var data = Settlement.StartFindingLocatablesAroundPosition(center, 50f);
+Settlement nearby = Settlement.FindNextLocatable(ref data);
 ```
 
-### IsSettlementBusy
-`public bool IsSettlementBusy(object asker)`
+### `public void OnPartyInteraction(MobileParty engagingParty)`
+Triggered when a party interacts with this settlement.
 
-**Purpose:** Determines whether the current object is in the `settlement busy` state or condition.
+## Typical Usage Examples
+
+### Example 1: Boost prosperity in all player-owned towns
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.IsSettlementBusy(asker);
+foreach (Settlement s in Settlement.All)
+{
+    if (s.IsTown && s.OwnerClan == Clan.PlayerClan)
+    {
+        s.Town.Prosperity += 1000f;
+    }
+}
 ```
 
-### IsSettlementBusy
-`public bool IsSettlementBusy(object asker, int limitingPriority)`
-
-**Purpose:** Determines whether the current object is in the `settlement busy` state or condition.
+### Example 2: Teleport the player party to a town gate
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.IsSettlementBusy(asker, 0);
+Settlement target = Settlement.Find("town_A7");
+MobileParty.MainParty.SetMoveGoToSettlement(target, NavigationType.Default, false);
+MobileParty.MainParty.Position2D = target.GatePosition;
 ```
 
-### GetSettlementBusynessPriority
-`public int GetSettlementBusynessPriority(object asker)`
-
-**Purpose:** Reads and returns the `settlement busyness priority` value held by the current object.
+### Example 3: Check whether a village belongs to an enemy kingdom
 
 ```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetSettlementBusynessPriority(asker);
+bool IsEnemyVillage(Settlement settlement) =>
+    settlement.IsVillage && settlement.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction);
 ```
 
-### GetValue
-`public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)`
-
-**Purpose:** Reads and returns the `value` value held by the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetValue(null, false);
-```
-
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Reads and returns the `name` value held by the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetName();
-```
-
-### GetSettlementValueForFaction
-`public float GetSettlementValueForFaction(IFaction faction)`
-
-**Purpose:** Reads and returns the `settlement value for faction` value held by the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetSettlementValueForFaction(faction);
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.ToString();
-```
-
-### OnPartyInteraction
-`public void OnPartyInteraction(MobileParty engagingParty)`
-
-**Purpose:** Invoked when the `party interaction` event is raised.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.OnPartyInteraction(engagingParty);
-```
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Restores the current object from serialized data.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.Deserialize(objectManager, node);
-```
-
-### OnFinishLoadState
-`public void OnFinishLoadState()`
-
-**Purpose:** Invoked when the `finish load state` event is raised.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.OnFinishLoadState();
-```
-
-### OnGameCreated
-`public void OnGameCreated()`
-
-**Purpose:** Invoked when the `game created` event is raised.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.OnGameCreated();
-```
-
-### OnSessionStart
-`public void OnSessionStart()`
-
-**Purpose:** Invoked when the `session start` event is raised.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.OnSessionStart();
-```
-
-### CheckPositionsForMapChangeAndUpdateIfNeeded
-`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
-
-**Purpose:** Verifies whether `positions for map change and update if needed` holds true for the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.CheckPositionsForMapChangeAndUpdateIfNeeded();
-```
-
-### Find
-`public static Settlement Find(string idString)`
-
-**Purpose:** Finds the matching entry in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Settlement.Find("example");
-```
-
-### FindFirst
-`public static Settlement FindFirst(Func<Settlement, bool> predicate)`
-
-**Purpose:** Looks up the matching `first` in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Settlement.FindFirst(func<Settlement, false);
-```
-
-### FindAll
-`public static IEnumerable<Settlement> FindAll(Func<Settlement, bool> predicate)`
-
-**Purpose:** Looks up the matching `all` in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Settlement.FindAll(func<Settlement, false);
-```
-
-### StartFindingLocatablesAroundPosition
-`public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)`
-
-**Purpose:** Starts the `finding locatables around position` flow or state machine.
-
-```csharp
-// Static call; no instance required
-Settlement.StartFindingLocatablesAroundPosition(position, 0);
-```
-
-### FindNextLocatable
-`public static Settlement FindNextLocatable(ref LocatableSearchData<Settlement> data)`
-
-**Purpose:** Looks up the matching `next locatable` in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-Settlement.FindNextLocatable(data);
-```
-
-### OnPlayerEncounterFinish
-`public void OnPlayerEncounterFinish()`
-
-**Purpose:** Invoked when the `player encounter finish` event is raised.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.OnPlayerEncounterFinish();
-```
-
-### GetPosition
-`public Vec3 GetPosition()`
-
-**Purpose:** Reads and returns the `position` value held by the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-var result = settlement.GetPosition();
-```
-
-### SetNextSiegeState
-`public void SetNextSiegeState()`
-
-**Purpose:** Assigns a new value to `next siege state` and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.SetNextSiegeState();
-```
-
-### ResetSiegeState
-`public void ResetSiegeState()`
-
-**Purpose:** Returns `siege state` to its default or initial condition.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.ResetSiegeState();
-```
-
-### AddGarrisonParty
-`public void AddGarrisonParty()`
-
-**Purpose:** Adds `garrison party` to the current collection or state.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.AddGarrisonParty();
-```
-
-### SetSiegeStrategy
-`public void SetSiegeStrategy(SiegeStrategy strategy)`
-
-**Purpose:** Assigns a new value to `siege strategy` and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.SetSiegeStrategy(strategy);
-```
-
-### InitializeSiegeEventSide
-`public void InitializeSiegeEventSide()`
-
-**Purpose:** Prepares the resources, state, or bindings required by `siege event side`.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.InitializeSiegeEventSide();
-```
-
-### OnTroopsKilledOnSide
-`public void OnTroopsKilledOnSide(int killCount)`
-
-**Purpose:** Invoked when the `troops killed on side` event is raised.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.OnTroopsKilledOnSide(0);
-```
-
-### AddSiegeEngineMissile
-`public void AddSiegeEngineMissile(SiegeEvent.SiegeEngineMissile missile)`
-
-**Purpose:** Adds `siege engine missile` to the current collection or state.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.AddSiegeEngineMissile(missile);
-```
-
-### RemoveDeprecatedMissiles
-`public void RemoveDeprecatedMissiles()`
-
-**Purpose:** Removes `deprecated missiles` from the current collection or state.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.RemoveDeprecatedMissiles();
-```
-
-### GetAttackTarget
-`public void GetAttackTarget(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngine, int siegeEngineSlot, out SiegeBombardTargets targetType, out int targetIndex)`
-
-**Purpose:** Reads and returns the `attack target` value held by the current object.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.GetAttackTarget(siegeEventSide, siegeEngine, 0, targetType, targetIndex);
-```
-
-### FinalizeSiegeEvent
-`public void FinalizeSiegeEvent()`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of Settlement from the subsystem API first
-Settlement settlement = ...;
-settlement.FinalizeSiegeEvent();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Settlement settlement = ...;
-settlement.SetWallSectionHitPointsRatioAtIndex(0, 0);
-```
+## Cross-Version Notes
+
+- v1.3.0 / v1.3.15 / v1.4.5 `Settlement` core lookup and properties are stable.
+- v1.4.5 adds more naval/port properties (`HasPort`, `PortPosition`).
+- Economy/loyalty field names may vary slightly across versions.
 
 ## See Also
 
-- [Area Index](../)
+- [Town](../../campaign-ext/Town/) / [Village](../Village/) / [Castle](../../campaign-ext/CastleEncounter/) — concrete settlement components
+- [MobileParty](../MobileParty/) — moving parties that enter settlements
+- [Clan](../Clan/) — settlement owner
+- [SiegeEvent](../../campaign-ext/SiegeEvent/) — siege logic
+- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — listen for settlement events

@@ -1,412 +1,155 @@
 ---
 title: "Kingdom"
-description: "Kingdom 的自动生成类参考。"
+description: "王国：多个氏族组成的最高级政治实体，管理战争、政策、军团和外交。"
 ---
 # Kingdom
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class Kingdom : MBObjectBase, IFaction`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Kingdom : IFaction`  
+**Base:** —  
 **File:** `TaleWorlds.CampaignSystem/Kingdom.cs`
 
 ## 概述
 
-`Kingdom` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Kingdom` 是 Bannerlord 中**由多个 `Clan` 组成的最高政治实体**。它管理战争与和平状态、外交立场、王国政策、军团创建、以及整个王国的战略决策。每个王国有一个文化、一套颜色、一面旗帜和一个（可选的）统治者。
+
+主要作用：
+
+- 聚合所有 `Clan`，形成阵营关系。
+- 判断战争/和平：`IsAtWarWith`、`IsAllyWith`。
+- 创建军团（`CreateArmy`）。
+- 管理王国决议（`KingdomDecision`）和政策（`PolicyObject`）。
+- 追踪王国的总兵力、定居点、颜色与旗帜。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `Kingdom` 看作**“多个氏族组成的政治联盟”**：
 
-## 主要属性
+- 单个 `Hero` 属于 `Clan`，氏族属于 `Kingdom`。
+- 战争与和平是在王国/氏族之间发生的；单独的英雄不会外交宣战。
+- 王国政策会影响所有氏族的行为和经济。
+- 军团是战役地图上临时召集的多支部队，用于攻城或决战。
 
-| Name | Signature |
-|------|-----------|
-| `Name` | `public TextObject Name { get; }` |
-| `InformalName` | `public TextObject InformalName { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `EncyclopediaTitle` | `public TextObject EncyclopediaTitle { get; }` |
-| `EncyclopediaRulerTitle` | `public TextObject EncyclopediaRulerTitle { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
-| `UnresolvedDecisions` | `public MBReadOnlyList<KingdomDecision> UnresolvedDecisions { get; }` |
-| `Culture` | `public CultureObject Culture { get; }` |
-| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
-| `IsMapFaction` | `public bool IsMapFaction { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; }` |
-| `Color` | `public uint Color { get; }` |
-| `Color2` | `public uint Color2 { get; }` |
-| `PrimaryBannerColor` | `public uint PrimaryBannerColor { get; }` |
-| `SecondaryBannerColor` | `public uint SecondaryBannerColor { get; }` |
-| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
-| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
-| `AlliedKingdoms` | `public MBReadOnlyList<Kingdom> AlliedKingdoms { get; }` |
-| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
-| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
-| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
-| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
-| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; }` |
-| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
-| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; }` |
-| `Leader` | `public Hero Leader { get; set; }` |
-| `Banner` | `public Banner Banner { get; set; }` |
-| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
-| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
-| `IsRebelClan` | `public bool IsRebelClan { get; }` |
-| `IsClan` | `public bool IsClan { get; }` |
-| `IsOutlaw` | `public bool IsOutlaw { get; }` |
-| `Clans` | `public MBReadOnlyList<Clan> Clans { get; set; }` |
-| `RulingClan` | `public Clan RulingClan { get; }` |
-| `LastArmyCreationDay` | `public int LastArmyCreationDay { get; }` |
-| `Armies` | `public MBReadOnlyList<Army> Armies { get; }` |
-| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
-| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; }` |
-| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
-| `ActivePolicies` | `public IList<PolicyObject> ActivePolicies { get; }` |
-| `All` | `public static MBReadOnlyList<Kingdom> All { get; }` |
-| `LastKingdomDecisionConclusionDate` | `public CampaignTime LastKingdomDecisionConclusionDate { get; }` |
-| `IsEliminated` | `public bool IsEliminated { get; set; }` |
-| `LastMercenaryOfferTime` | `public CampaignTime LastMercenaryOfferTime { get; set; }` |
-| `MapFaction` | `public IFaction MapFaction { get; set; }` |
-| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `AllParties` | `public IEnumerable<MobileParty> AllParties { get; }` |
-| `MercenaryWallet` | `public int MercenaryWallet { get; set; }` |
-| `TributeWallet` | `public int TributeWallet { get; set; }` |
-| `KingdomBudgetWallet` | `public int KingdomBudgetWallet { get; set; }` |
-| `CallToWarWallet` | `public int CallToWarWallet { get; set; }` |
+## 核心属性
+
+| 属性 | 说明 |
+|------|------|
+| `All` | 所有王国。 |
+| `Name` / `InformalName` | 王国名称。 |
+| `Culture` | 王国文化。 |
+| `Ruler` | 当前统治者。 |
+| `Clans` | 王国下属氏族。 |
+| `Settlements` | 王国所有据点。 |
+| `Armies` | 当前军团列表。 |
+| `Banner` | 王国旗帜。 |
+| `Color` / `Color2` | 王国主副色。 |
+| `MercenaryWallet` | 佣兵资金。 |
 
 ## 主要方法
 
-### GetName
-`public override TextObject GetName()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「name」 的结果。
+### `public static Kingdom CreateKingdom(string stringID)`
+创建一个新王国。
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.GetName();
+Kingdom myKingdom = Kingdom.CreateKingdom("my_mod_kingdom");
+myKingdom.InitializeKingdom(
+    new TextObject("My Kingdom"),
+    new TextObject("My Folk"),
+    CultureObject.GetCulture("empire"),
+    myBanner,
+    0xFF0000U, 0xFFFFFFU,
+    startingSettlement,
+    new TextObject("Encyclopedia text"),
+    new TextObject("My Kingdom"),
+    new TextObject("High King"));
 ```
 
-### ToString
-`public override string ToString()`
+### `public void InitializeKingdom(...)`
+初始化王国名称、文化、旗帜、颜色和初始据点。
 
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+### `public bool IsAtWarWith(IFaction other)` / `public bool IsAllyWith(Kingdom other)`
+判断战争/同盟关系。
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.ToString();
+if (enemyKingdom.IsAtWarWith(Clan.PlayerClan))
+{
+    // 与玩家开战
+}
 ```
 
-### UpdateFactionsAtWarWith
-`public void UpdateFactionsAtWarWith()`
-
-**用途 / Purpose:** 重新计算并更新 「factions at war with」 的最新表示。
+### `public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, ...)`
+创建一支军团。
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.UpdateFactionsAtWarWith();
+myKingdom.CreateArmy(myRuler, targetCastle, Army.ArmyTypes.Besieger);
 ```
 
-### UpdateAlliedKingdoms
-`public void UpdateAlliedKingdoms()`
-
-**用途 / Purpose:** 重新计算并更新 「allied kingdoms」 的最新表示。
+### `public void AddPolicy(PolicyObject policy)` / `RemovePolicy(PolicyObject policy)` / `HasPolicy(PolicyObject policy)`
+管理王国政策。
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.UpdateAlliedKingdoms();
+if (!myKingdom.HasPolicy(DefaultPolicies.Citizenship))
+{
+    myKingdom.AddPolicy(DefaultPolicies.Citizenship);
+}
 ```
 
-### CreateKingdom
-`public static Kingdom CreateKingdom(string stringID)`
-
-**用途 / Purpose:** 构建一个新的 「kingdom」 实体并返回给调用方。
+### `public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
+向王国提交一个王国决议（如宣战、和平、放逐）。
 
 ```csharp
-// 静态调用，不需要实例
-Kingdom.CreateKingdom("example");
+var warDecision = new DeclareWarDecision(myKingdom, enemyKingdom);
+myKingdom.AddDecision(warDecision);
 ```
 
-### InitializeKingdom
-`public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)`
-
-**用途 / Purpose:** 为 「kingdom」 初始化必要的资源、状态或绑定。
+### `public StanceLink GetStanceWith(IFaction other)`
+获取与另一阵营的立场链接（战争/和平/中立信息）。
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.InitializeKingdom(name, informalName, culture, banner, 0, 0, initialHomeSettlement, encyclopediaText, encyclopediaTitle, encyclopediaRulerTitle);
+StanceLink stance = myKingdom.GetStanceWith(enemyClan);
+bool atWar = stance.IsAtWar;
 ```
 
-### ChangeKingdomName
-`public void ChangeKingdomName(TextObject name, TextObject informalName)`
+## 典型用法示例
 
-**用途 / Purpose:** 处理与 「change kingdom name」 相关的逻辑。
+### 示例 1：强制两个王国和平
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.ChangeKingdomName(name, informalName);
+Kingdom a = Kingdom.FindFirst(k => k.StringId == "empire");
+Kingdom b = Kingdom.FindFirst(k => k.StringId == "sturgia");
+if (a != null && b != null && a.IsAtWarWith(b))
+{
+    a.SetStance(b, 0f, true); // 和平
+}
 ```
 
-### OnHeroChangedState
-`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
-
-**用途 / Purpose:** 在 「hero changed state」 事件触发时调用此回调。
+### 示例 2：给玩家王国所有氏族发工资
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnHeroChangedState(hero, oldState);
+foreach (Clan clan in Clan.PlayerClan.Kingdom.Clans)
+{
+    clan.Leader.Gold += 10000;
+}
 ```
 
-### IsAllyWith
-`public bool IsAllyWith(Kingdom other)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「ally with」 状态或条件。
+### 示例 3：检查一个定居点属于敌国
 
 ```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.IsAllyWith(other);
+bool IsEnemySettlement(Settlement s) =>
+    s.OwnerClan.Kingdom != null && s.OwnerClan.Kingdom.IsAtWarWith(Clan.PlayerClan.Kingdom);
 ```
 
-### HasCalledToWar
-`public bool HasCalledToWar(Kingdom other)`
+## 跨版本提示
 
-**用途 / Purpose:** 判断当前对象是否已经持有 「called to war」。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.HasCalledToWar(other);
-```
-
-### IsAtWarWith
-`public bool IsAtWarWith(IFaction other)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「at war with」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.IsAtWarWith(other);
-```
-
-### IsAtConstantWarWith
-`public bool IsAtConstantWarWith(IFaction other)`
-
-**用途 / Purpose:** 判断当前对象是否处于 「at constant war with」 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.IsAtConstantWarWith(other);
-```
-
-### GetStanceWith
-`public StanceLink GetStanceWith(IFaction other)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「stance with」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.GetStanceWith(other);
-```
-
-### CreateArmy
-`public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
-
-**用途 / Purpose:** 构建一个新的 「army」 实体并返回给调用方。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.CreateArmy(armyLeader, targetSettlement, selectedArmyType, null);
-```
-
-### AddDecision
-`public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
-
-**用途 / Purpose:** 将 「decision」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.AddDecision(kingdomDecision, false);
-```
-
-### RemoveDecision
-`public void RemoveDecision(KingdomDecision kingdomDecision)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 「decision」。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.RemoveDecision(kingdomDecision);
-```
-
-### OnKingdomDecisionConcluded
-`public void OnKingdomDecisionConcluded()`
-
-**用途 / Purpose:** 在 「kingdom decision concluded」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnKingdomDecisionConcluded();
-```
-
-### AddPolicy
-`public void AddPolicy(PolicyObject policy)`
-
-**用途 / Purpose:** 将 「policy」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.AddPolicy(policy);
-```
-
-### RemovePolicy
-`public void RemovePolicy(PolicyObject policy)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 「policy」。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.RemovePolicy(policy);
-```
-
-### HasPolicy
-`public bool HasPolicy(PolicyObject policy)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 「policy」。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-var result = kingdom.HasPolicy(policy);
-```
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**用途 / Purpose:** 从序列化数据还原当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.Deserialize(objectManager, node);
-```
-
-### OnFortificationAdded
-`public void OnFortificationAdded(Town fortification)`
-
-**用途 / Purpose:** 在 「fortification added」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnFortificationAdded(fortification);
-```
-
-### OnFortificationRemoved
-`public void OnFortificationRemoved(Town fortification)`
-
-**用途 / Purpose:** 在 「fortification removed」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnFortificationRemoved(fortification);
-```
-
-### OnHeroAdded
-`public void OnHeroAdded(Hero hero)`
-
-**用途 / Purpose:** 在 「hero added」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnHeroAdded(hero);
-```
-
-### OnHeroRemoved
-`public void OnHeroRemoved(Hero hero)`
-
-**用途 / Purpose:** 在 「hero removed」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnHeroRemoved(hero);
-```
-
-### OnWarPartyAdded
-`public void OnWarPartyAdded(WarPartyComponent warPartyComponent)`
-
-**用途 / Purpose:** 在 「war party added」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnWarPartyAdded(warPartyComponent);
-```
-
-### OnWarPartyRemoved
-`public void OnWarPartyRemoved(WarPartyComponent warPartyComponent)`
-
-**用途 / Purpose:** 在 「war party removed」 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.OnWarPartyRemoved(warPartyComponent);
-```
-
-### CalculateMidSettlement
-`public void CalculateMidSettlement()`
-
-**用途 / Purpose:** 计算「mid settlement」的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.CalculateMidSettlement();
-```
-
-### ReactivateKingdom
-`public void ReactivateKingdom()`
-
-**用途 / Purpose:** 处理与 「reactivate kingdom」 相关的逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 Kingdom 实例
-Kingdom kingdom = ...;
-kingdom.ReactivateKingdom();
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Kingdom kingdom = ...;
-kingdom.GetName();
-```
+- v1.3.0 / v1.3.15 / v1.4.5 的王国 API 一致。
+- v1.4.5 对王国决议和外交 AI 做了扩展，新增了更多 `KingdomDecision` 子类。
 
 ## 参见
 
-- [本区域目录](../)
+- [Clan](../Clan/) — 王国的组成单元
+- [Hero](../Hero/) — 氏族成员与统治者
+- [Settlement](../Settlement/) — 王国资产
+- [Army](../../campaign-ext/Army/) — 王国军团
+- [PolicyObject](../../campaign-ext/PolicyObject/) — 王国政策
+- [KingdomDecision](../../campaign-ext/KingdomDecision/) — 王国决议机制

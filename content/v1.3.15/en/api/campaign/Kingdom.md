@@ -1,412 +1,155 @@
 ---
 title: "Kingdom"
-description: "Auto-generated class reference for Kingdom."
+description: "A kingdom: the highest political entity made up of clans, managing war, policy, armies, and diplomacy."
 ---
 # Kingdom
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class Kingdom : MBObjectBase, IFaction`
-**Base:** `MBObjectBase`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Kingdom : IFaction`  
+**Base:** —  
 **File:** `TaleWorlds.CampaignSystem/Kingdom.cs`
 
 ## Overview
 
-`Kingdom` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Kingdom` is the **highest political entity in Bannerlord**, made up of multiple `Clan`s. It manages war/peace status, diplomatic stances, kingdom policies, army creation, and strategic kingdom decisions. Each kingdom has a culture, colors, a banner, and a (possibly empty) ruler.
+
+Key roles:
+
+- Aggregate all `Clan`s into faction relations.
+- Determine war/peace: `IsAtWarWith`, `IsAllyWith`.
+- Create armies (`CreateArmy`).
+- Manage kingdom decisions (`KingdomDecision`) and policies (`PolicyObject`).
+- Track total kingdom strength, settlements, colors, and banner.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `Kingdom` as a **political alliance of clans**:
 
-## Key Properties
+- A single `Hero` belongs to a `Clan`, and a clan belongs to a `Kingdom`.
+- War and peace happen between kingdoms/clans; individual heroes don't declare war.
+- Kingdom policies affect all clans' behavior and economy.
+- Armies are temporary groups of parties gathered on the campaign map for sieges or decisive battles.
 
-| Name | Signature |
-|------|-----------|
-| `Name` | `public TextObject Name { get; }` |
-| `InformalName` | `public TextObject InformalName { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `EncyclopediaTitle` | `public TextObject EncyclopediaTitle { get; }` |
-| `EncyclopediaRulerTitle` | `public TextObject EncyclopediaRulerTitle { get; }` |
-| `EncyclopediaLink` | `public string EncyclopediaLink { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; }` |
-| `UnresolvedDecisions` | `public MBReadOnlyList<KingdomDecision> UnresolvedDecisions { get; }` |
-| `Culture` | `public CultureObject Culture { get; }` |
-| `InitialHomeSettlement` | `public Settlement InitialHomeSettlement { get; }` |
-| `IsMapFaction` | `public bool IsMapFaction { get; }` |
-| `HasNavalNavigationCapability` | `public bool HasNavalNavigationCapability { get; }` |
-| `Color` | `public uint Color { get; }` |
-| `Color2` | `public uint Color2 { get; }` |
-| `PrimaryBannerColor` | `public uint PrimaryBannerColor { get; }` |
-| `SecondaryBannerColor` | `public uint SecondaryBannerColor { get; }` |
-| `MainHeroCrimeRating` | `public float MainHeroCrimeRating { get; set; }` |
-| `FactionsAtWarWith` | `public MBReadOnlyList<IFaction> FactionsAtWarWith { get; }` |
-| `AlliedKingdoms` | `public MBReadOnlyList<Kingdom> AlliedKingdoms { get; }` |
-| `Fiefs` | `public MBReadOnlyList<Town> Fiefs { get; }` |
-| `Villages` | `public MBReadOnlyList<Village> Villages { get; }` |
-| `Settlements` | `public MBReadOnlyList<Settlement> Settlements { get; }` |
-| `Heroes` | `public MBReadOnlyList<Hero> Heroes { get; }` |
-| `AliveLords` | `public MBReadOnlyList<Hero> AliveLords { get; }` |
-| `DeadLords` | `public MBReadOnlyList<Hero> DeadLords { get; }` |
-| `WarPartyComponents` | `public MBReadOnlyList<WarPartyComponent> WarPartyComponents { get; }` |
-| `DailyCrimeRatingChange` | `public float DailyCrimeRatingChange { get; }` |
-| `DailyCrimeRatingChangeExplained` | `public ExplainedNumber DailyCrimeRatingChangeExplained { get; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; }` |
-| `Leader` | `public Hero Leader { get; set; }` |
-| `Banner` | `public Banner Banner { get; set; }` |
-| `IsBanditFaction` | `public bool IsBanditFaction { get; }` |
-| `IsMinorFaction` | `public bool IsMinorFaction { get; }` |
-| `IsRebelClan` | `public bool IsRebelClan { get; }` |
-| `IsClan` | `public bool IsClan { get; }` |
-| `IsOutlaw` | `public bool IsOutlaw { get; }` |
-| `Clans` | `public MBReadOnlyList<Clan> Clans { get; set; }` |
-| `RulingClan` | `public Clan RulingClan { get; }` |
-| `LastArmyCreationDay` | `public int LastArmyCreationDay { get; }` |
-| `Armies` | `public MBReadOnlyList<Army> Armies { get; }` |
-| `CurrentTotalStrength` | `public float CurrentTotalStrength { get; }` |
-| `FactionMidSettlement` | `public Settlement FactionMidSettlement { get; }` |
-| `DistanceToClosestNonAllyFortification` | `public float DistanceToClosestNonAllyFortification { get; }` |
-| `ActivePolicies` | `public IList<PolicyObject> ActivePolicies { get; }` |
-| `All` | `public static MBReadOnlyList<Kingdom> All { get; }` |
-| `LastKingdomDecisionConclusionDate` | `public CampaignTime LastKingdomDecisionConclusionDate { get; }` |
-| `IsEliminated` | `public bool IsEliminated { get; set; }` |
-| `LastMercenaryOfferTime` | `public CampaignTime LastMercenaryOfferTime { get; set; }` |
-| `MapFaction` | `public IFaction MapFaction { get; set; }` |
-| `NotAttackableByPlayerUntilTime` | `public CampaignTime NotAttackableByPlayerUntilTime { get; set; }` |
-| `Aggressiveness` | `public float Aggressiveness { get; set; }` |
-| `AllParties` | `public IEnumerable<MobileParty> AllParties { get; }` |
-| `MercenaryWallet` | `public int MercenaryWallet { get; set; }` |
-| `TributeWallet` | `public int TributeWallet { get; set; }` |
-| `KingdomBudgetWallet` | `public int KingdomBudgetWallet { get; set; }` |
-| `CallToWarWallet` | `public int CallToWarWallet { get; set; }` |
+## Core Properties
+
+| Property | Description |
+|----------|-------------|
+| `All` | All kingdoms. |
+| `Name` / `InformalName` | Kingdom name. |
+| `Culture` | Kingdom culture. |
+| `Ruler` | Current ruler. |
+| `Clans` | Clans in the kingdom. |
+| `Settlements` | Kingdom settlements. |
+| `Armies` | Current armies. |
+| `Banner` | Kingdom banner. |
+| `Color` / `Color2` | Primary/secondary colors. |
+| `MercenaryWallet` | Mercenary funds. |
 
 ## Key Methods
 
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Reads and returns the `name` value held by the current object.
+### `public static Kingdom CreateKingdom(string stringID)`
+Create a new kingdom.
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.GetName();
+Kingdom myKingdom = Kingdom.CreateKingdom("my_mod_kingdom");
+myKingdom.InitializeKingdom(
+    new TextObject("My Kingdom"),
+    new TextObject("My Folk"),
+    CultureObject.GetCulture("empire"),
+    myBanner,
+    0xFF0000U, 0xFFFFFFU,
+    startingSettlement,
+    new TextObject("Encyclopedia text"),
+    new TextObject("My Kingdom"),
+    new TextObject("High King"));
 ```
 
-### ToString
-`public override string ToString()`
+### `public void InitializeKingdom(...)`
+Initialize the kingdom's name, culture, banner, colors, and starting settlement.
 
-**Purpose:** Returns a human-readable string representation of the current object.
+### `public bool IsAtWarWith(IFaction other)` / `public bool IsAllyWith(Kingdom other)`
+Check war/ally status.
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.ToString();
+if (enemyKingdom.IsAtWarWith(Clan.PlayerClan))
+{
+    // at war with player
+}
 ```
 
-### UpdateFactionsAtWarWith
-`public void UpdateFactionsAtWarWith()`
-
-**Purpose:** Recalculates and stores the latest representation of `factions at war with`.
+### `public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, ...)`
+Create an army.
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.UpdateFactionsAtWarWith();
+myKingdom.CreateArmy(myRuler, targetCastle, Army.ArmyTypes.Besieger);
 ```
 
-### UpdateAlliedKingdoms
-`public void UpdateAlliedKingdoms()`
-
-**Purpose:** Recalculates and stores the latest representation of `allied kingdoms`.
+### `public void AddPolicy(PolicyObject policy)` / `RemovePolicy(PolicyObject policy)` / `HasPolicy(PolicyObject policy)`
+Manage kingdom policies.
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.UpdateAlliedKingdoms();
+if (!myKingdom.HasPolicy(DefaultPolicies.Citizenship))
+{
+    myKingdom.AddPolicy(DefaultPolicies.Citizenship);
+}
 ```
 
-### CreateKingdom
-`public static Kingdom CreateKingdom(string stringID)`
-
-**Purpose:** Constructs a new `kingdom` entity and returns it to the caller.
+### `public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
+Submit a kingdom decision (e.g., war, peace, expulsion).
 
 ```csharp
-// Static call; no instance required
-Kingdom.CreateKingdom("example");
+var warDecision = new DeclareWarDecision(myKingdom, enemyKingdom);
+myKingdom.AddDecision(warDecision);
 ```
 
-### InitializeKingdom
-`public void InitializeKingdom(TextObject name, TextObject informalName, CultureObject culture, Banner banner, uint kingdomColor1, uint kingdomColor2, Settlement initialHomeSettlement, TextObject encyclopediaText, TextObject encyclopediaTitle, TextObject encyclopediaRulerTitle)`
-
-**Purpose:** Prepares the resources, state, or bindings required by `kingdom`.
+### `public StanceLink GetStanceWith(IFaction other)`
+Get the stance link with another faction (war/peace/neutral info).
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.InitializeKingdom(name, informalName, culture, banner, 0, 0, initialHomeSettlement, encyclopediaText, encyclopediaTitle, encyclopediaRulerTitle);
+StanceLink stance = myKingdom.GetStanceWith(enemyClan);
+bool atWar = stance.IsAtWar;
 ```
 
-### ChangeKingdomName
-`public void ChangeKingdomName(TextObject name, TextObject informalName)`
+## Typical Usage Examples
 
-**Purpose:** Performs the operation described by this method.
+### Example 1: Force two kingdoms to make peace
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.ChangeKingdomName(name, informalName);
+Kingdom a = Kingdom.FindFirst(k => k.StringId == "empire");
+Kingdom b = Kingdom.FindFirst(k => k.StringId == "sturgia");
+if (a != null && b != null && a.IsAtWarWith(b))
+{
+    a.SetStance(b, 0f, true); // peace
+}
 ```
 
-### OnHeroChangedState
-`public void OnHeroChangedState(Hero hero, Hero.CharacterStates oldState)`
-
-**Purpose:** Invoked when the `hero changed state` event is raised.
+### Example 2: Give all clans of the player kingdom gold
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnHeroChangedState(hero, oldState);
+foreach (Clan clan in Clan.PlayerClan.Kingdom.Clans)
+{
+    clan.Leader.Gold += 10000;
+}
 ```
 
-### IsAllyWith
-`public bool IsAllyWith(Kingdom other)`
-
-**Purpose:** Determines whether the current object is in the `ally with` state or condition.
+### Example 3: Check if a settlement belongs to an enemy kingdom
 
 ```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.IsAllyWith(other);
+bool IsEnemySettlement(Settlement s) =>
+    s.OwnerClan.Kingdom != null && s.OwnerClan.Kingdom.IsAtWarWith(Clan.PlayerClan.Kingdom);
 ```
 
-### HasCalledToWar
-`public bool HasCalledToWar(Kingdom other)`
+## Cross-Version Notes
 
-**Purpose:** Determines whether the current object already holds `called to war`.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.HasCalledToWar(other);
-```
-
-### IsAtWarWith
-`public bool IsAtWarWith(IFaction other)`
-
-**Purpose:** Determines whether the current object is in the `at war with` state or condition.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.IsAtWarWith(other);
-```
-
-### IsAtConstantWarWith
-`public bool IsAtConstantWarWith(IFaction other)`
-
-**Purpose:** Determines whether the current object is in the `at constant war with` state or condition.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.IsAtConstantWarWith(other);
-```
-
-### GetStanceWith
-`public StanceLink GetStanceWith(IFaction other)`
-
-**Purpose:** Reads and returns the `stance with` value held by the current object.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.GetStanceWith(other);
-```
-
-### CreateArmy
-`public void CreateArmy(Hero armyLeader, Settlement targetSettlement, Army.ArmyTypes selectedArmyType, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
-
-**Purpose:** Constructs a new `army` entity and returns it to the caller.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.CreateArmy(armyLeader, targetSettlement, selectedArmyType, null);
-```
-
-### AddDecision
-`public void AddDecision(KingdomDecision kingdomDecision, bool ignoreInfluenceCost = false)`
-
-**Purpose:** Adds `decision` to the current collection or state.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.AddDecision(kingdomDecision, false);
-```
-
-### RemoveDecision
-`public void RemoveDecision(KingdomDecision kingdomDecision)`
-
-**Purpose:** Removes `decision` from the current collection or state.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.RemoveDecision(kingdomDecision);
-```
-
-### OnKingdomDecisionConcluded
-`public void OnKingdomDecisionConcluded()`
-
-**Purpose:** Invoked when the `kingdom decision concluded` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnKingdomDecisionConcluded();
-```
-
-### AddPolicy
-`public void AddPolicy(PolicyObject policy)`
-
-**Purpose:** Adds `policy` to the current collection or state.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.AddPolicy(policy);
-```
-
-### RemovePolicy
-`public void RemovePolicy(PolicyObject policy)`
-
-**Purpose:** Removes `policy` from the current collection or state.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.RemovePolicy(policy);
-```
-
-### HasPolicy
-`public bool HasPolicy(PolicyObject policy)`
-
-**Purpose:** Determines whether the current object already holds `policy`.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-var result = kingdom.HasPolicy(policy);
-```
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Restores the current object from serialized data.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.Deserialize(objectManager, node);
-```
-
-### OnFortificationAdded
-`public void OnFortificationAdded(Town fortification)`
-
-**Purpose:** Invoked when the `fortification added` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnFortificationAdded(fortification);
-```
-
-### OnFortificationRemoved
-`public void OnFortificationRemoved(Town fortification)`
-
-**Purpose:** Invoked when the `fortification removed` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnFortificationRemoved(fortification);
-```
-
-### OnHeroAdded
-`public void OnHeroAdded(Hero hero)`
-
-**Purpose:** Invoked when the `hero added` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnHeroAdded(hero);
-```
-
-### OnHeroRemoved
-`public void OnHeroRemoved(Hero hero)`
-
-**Purpose:** Invoked when the `hero removed` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnHeroRemoved(hero);
-```
-
-### OnWarPartyAdded
-`public void OnWarPartyAdded(WarPartyComponent warPartyComponent)`
-
-**Purpose:** Invoked when the `war party added` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnWarPartyAdded(warPartyComponent);
-```
-
-### OnWarPartyRemoved
-`public void OnWarPartyRemoved(WarPartyComponent warPartyComponent)`
-
-**Purpose:** Invoked when the `war party removed` event is raised.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.OnWarPartyRemoved(warPartyComponent);
-```
-
-### CalculateMidSettlement
-`public void CalculateMidSettlement()`
-
-**Purpose:** Calculates the current value or result of `mid settlement`.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.CalculateMidSettlement();
-```
-
-### ReactivateKingdom
-`public void ReactivateKingdom()`
-
-**Purpose:** Performs the operation described by this method.
-
-```csharp
-// Obtain an instance of Kingdom from the subsystem API first
-Kingdom kingdom = ...;
-kingdom.ReactivateKingdom();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Kingdom kingdom = ...;
-kingdom.GetName();
-```
+- v1.3.0 / v1.3.15 / v1.4.5 kingdom API is consistent.
+- v1.4.5 expands kingdom decisions and diplomatic AI with more `KingdomDecision` subclasses.
 
 ## See Also
 
-- [Area Index](../)
+- [Clan](../Clan/) — building block of a kingdom
+- [Hero](../Hero/) — clan members and rulers
+- [Settlement](../Settlement/) — kingdom assets
+- [Army](../../campaign-ext/Army/) — kingdom armies
+- [PolicyObject](../../campaign-ext/PolicyObject/) — kingdom policies
+- [KingdomDecision](../../campaign-ext/KingdomDecision/) — kingdom decision mechanics

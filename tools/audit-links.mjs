@@ -1,7 +1,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, dirname, normalize, sep } from 'path';
 
-const root = process.cwd();
+const root = join(process.cwd(), 'content');
 const SLASH = '/';
 function walk(dir, acc=[]) {
   for (const e of readdirSync(dir)) {
@@ -13,7 +13,8 @@ function walk(dir, acc=[]) {
   return acc;
 }
 const reSep = new RegExp(sep === '\\' ? '\\\\' : sep, 'g');
-const files = walk(root).map(f => f.replace(root+sep,'').replace(reSep, SLASH));
+const allFiles = walk(root);
+const files = allFiles.map(f => f.replace(root+sep,'').replace(reSep, SLASH));
 
 const linkRe = /\[([^\]]*)\]\(([^)\s]+)\)/g;
 const allLinks = [];
@@ -43,10 +44,10 @@ for (const l of allLinks) {
   if (t===null) continue;
   let found = false;
   if (l.href.split('#')[0].endsWith('/')) {
-    // trailing-slash link: VitePress requires <dir>/index.md
-    found = existsSync(t + SLASH + 'index.md') || existsSync(t.replace(/\/+$/,'') + SLASH + 'index.md');
+    // trailing-slash link: Zola sections use <dir>/_index.md
+    found = existsSync(t + SLASH + '_index.md') || existsSync(t.replace(/\/+$/,'') + SLASH + '_index.md');
   } else {
-    const cands = [t, t+'.md', t+SLASH+'index.md'];
+    const cands = [t, t+'.md', t+SLASH+'_index.md'];
     const seen = new Set();
     for (const c of cands) { if (seen.has(c)) continue; seen.add(c); if (existsSync(c)) { found=true; break; } }
   }

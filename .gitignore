@@ -1,4 +1,7 @@
-node_modules
-docs/.vitepress/dist/
-tmp/
-.playwright-mcp/
+﻿public/
+node_modules/
+.DS_Store
+Thumbs.db
+.omo/
+.zola/
+

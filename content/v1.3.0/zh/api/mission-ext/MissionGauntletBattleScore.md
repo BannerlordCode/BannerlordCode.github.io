@@ -1,0 +1,89 @@
+---
+title: "MissionGauntletBattleScore"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MissionGauntletBattleScore`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.3.0](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# MissionGauntletBattleScore
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MissionGauntletBattleScore : MissionView`
+**Base:** `MissionView`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI/Mission/Singleplayer/MissionGauntletBattleScore.cs`
+
+## 概述
+
+`MissionGauntletBattleScore` 位于 `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.MountAndBlade.GauntletUI.Mission.Singleplayer` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `DataSource` | `public ScoreboardBaseVM DataSource { get; }` |
+
+## 主要方法
+
+### OnMissionScreenInitialize
+`public override void OnMissionScreenInitialize()`
+
+**用途 / Purpose:** 当 `mission screen initialize` 事件触发时调用此方法。
+
+### OnMissionScreenFinalize
+`public override void OnMissionScreenFinalize()`
+
+**用途 / Purpose:** 当 `mission screen finalize` 事件触发时调用此方法。
+
+### OnEscape
+`public override bool OnEscape()`
+
+**用途 / Purpose:** 当 `escape` 事件触发时调用此方法。
+
+### EarlyStart
+`public override void EarlyStart()`
+
+**用途 / Purpose:** 处理 `early start` 相关逻辑。
+
+### OnMissionScreenTick
+`public override void OnMissionScreenTick(float dt)`
+
+**用途 / Purpose:** 当 `mission screen tick` 事件触发时调用此方法。
+
+### OnDeploymentFinished
+`public override void OnDeploymentFinished()`
+
+**用途 / Purpose:** 当 `deployment finished` 事件触发时调用此方法。
+
+### OnPhotoModeActivated
+`public override void OnPhotoModeActivated()`
+
+**用途 / Purpose:** 当 `photo mode activated` 事件触发时调用此方法。
+
+### OnPhotoModeDeactivated
+`public override void OnPhotoModeDeactivated()`
+
+**用途 / Purpose:** 当 `photo mode deactivated` 事件触发时调用此方法。
+
+### ForceScoreboardToggle
+`public static string ForceScoreboardToggle(List<string> args)`
+
+**用途 / Purpose:** 处理 `force scoreboard toggle` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var value = new MissionGauntletBattleScore();
+value.OnMissionScreenInitialize();
+```
+
+## 参见
+
+- [完整类目录](../catalog)

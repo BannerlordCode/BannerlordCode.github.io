@@ -1,0 +1,382 @@
+---
+title: 核心 Core 类目录 / Class Catalog
+extra:
+  sidebar: auto
+---
+# 核心 Core 类目录
+
+## 心智模型
+
+先把 `核心 Core 类目录` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
+
+本页列出 1.3.0 源码中该领域全部公开类型，按命名空间分组。共 **313** 个类型，其中 **301** 个已有深度文档页（带链接）。由 `tools/gen-class-catalog.mjs` 从源码自动生成。
+
+> 图例：C=class S=struct I=interface E=enum。带 🔗 的已有深度文档页。
+
+## TaleWorlds.Core (260)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ActionSetCode](/v1.3.15/zh/api/core-extra/ActionSetCode) | 🔗 |
+| E | [AgentAttackType](/v1.3.15/zh/api/core-extra/AgentAttackType) | 🔗 |
+| E | [AgentControllerType](/v1.3.15/zh/api/core-extra/AgentControllerType) | 🔗 |
+| C | [AgentData](/v1.3.15/zh/api/core-extra/AgentData) | 🔗 |
+| E | [AgentFlag](/v1.3.15/zh/api/core-extra/AgentFlag) | 🔗 |
+| E | [AgentMovementMode](/v1.3.15/zh/api/core-extra/AgentMovementMode) | 🔗 |
+| C | [AgentOriginUtilities](/v1.3.15/zh/api/core-extra/AgentOriginUtilities) | 🔗 |
+| S | [AgentSaveData](/v1.3.15/zh/api/core-extra/AgentSaveData) | 🔗 |
+| E | [AgentState](/v1.3.15/zh/api/core-extra/AgentState) | 🔗 |
+| C | ArmorComponent | — |
+| E | [ArmorMaterialTypes](/v1.3.15/zh/api/core-extra/ArmorMaterialTypes) | 🔗 |
+| C | [AtmosphereState](/v1.3.15/zh/api/core-extra/AtmosphereState) | 🔗 |
+| C | [Banner](/v1.3.15/zh/api/core-extra/Banner) | 🔗 |
+| S | [BannerColor](/v1.3.15/zh/api/core-extra/BannerColor) | 🔗 |
+| C | [BannerComponent](/v1.3.15/zh/api/core-extra/BannerComponent) | 🔗 |
+| C | [BannerData](/v1.3.15/zh/api/core-extra/BannerData) | 🔗 |
+| C | [BannerEffect](/v1.3.15/zh/api/core-extra/BannerEffect) | 🔗 |
+| C | [BannerExtensions](/v1.3.15/zh/api/core-extra/BannerExtensions) | 🔗 |
+| S | [BannerIconData](/v1.3.15/zh/api/core-extra/BannerIconData) | 🔗 |
+| C | [BannerIconGroup](/v1.3.15/zh/api/core-extra/BannerIconGroup) | 🔗 |
+| C | [BannerManager](/v1.3.15/zh/api/core-extra/BannerManager) | 🔗 |
+| C | [BasicCharacterObject](/v1.3.15/zh/api/core-extra/BasicCharacterObject) | 🔗 |
+| C | [BasicCultureObject](/v1.3.15/zh/api/core-extra/BasicCultureObject) | 🔗 |
+| C | [BasicGameModels](/v1.3.15/zh/api/core-extra/BasicGameModels) | 🔗 |
+| E | [BattleSideEnum](/v1.3.15/zh/api/core-extra/BattleSideEnum) | 🔗 |
+| C | [BattleSideEnumExtensions](/v1.3.15/zh/api/core-extra/BattleSideEnumExtensions) | 🔗 |
+| E | [BattleState](/v1.3.15/zh/api/core-extra/BattleState) | 🔗 |
+| E | [BeardCoverTypes](/v1.3.15/zh/api/core-extra/BeardCoverTypes) | 🔗 |
+| C | [BladeData](/v1.3.15/zh/api/core-extra/BladeData) | 🔗 |
+| E | [BodyDeformTypes](/v1.3.15/zh/api/core-extra/BodyDeformTypes) | 🔗 |
+| E | [BodyMeshMaturityType](/v1.3.15/zh/api/core-extra/BodyMeshMaturityType) | 🔗 |
+| E | [BodyMeshTypes](/v1.3.15/zh/api/core-extra/BodyMeshTypes) | 🔗 |
+| S | [BodyProperties](/v1.3.15/zh/api/core-extra/BodyProperties) | 🔗 |
+| C | [BodyPropertiesJsonConverter](/v1.3.15/zh/api/core-extra/BodyPropertiesJsonConverter) | 🔗 |
+| C | [CharacterAttribute](/v1.3.15/zh/api/core-extra/CharacterAttribute) | 🔗 |
+| C | [CharacterCode](/v1.3.15/zh/api/core-extra/CharacterCode) | 🔗 |
+| S | [ChoiceTag](/v1.3.15/zh/api/core-extra/ChoiceTag) | 🔗 |
+| C | [CombatStatCalculator](/v1.3.15/zh/api/core-extra/CombatStatCalculator) | 🔗 |
+| C | [Crafting](/v1.3.15/zh/api/core-extra/Crafting) | 🔗 |
+| E | [CraftingMaterials](/v1.3.15/zh/api/core-extra/CraftingMaterials) | 🔗 |
+| C | [CraftingPiece](/v1.3.15/zh/api/core-extra/CraftingPiece) | 🔗 |
+| S | [CraftingStatData](/v1.3.15/zh/api/core-extra/CraftingStatData) | 🔗 |
+| E | [CraftingStatTypes](/v1.3.15/zh/api/core-extra/CraftingStatTypes) | 🔗 |
+| C | [CraftingTemplate](/v1.3.15/zh/api/core-extra/CraftingTemplate) | 🔗 |
+| E | [DamageTypes](/v1.3.15/zh/api/core-extra/DamageTypes) | 🔗 |
+| C | [DefaultBannerEffects](/v1.3.15/zh/api/core-extra/DefaultBannerEffects) | 🔗 |
+| C | [DefaultCharacterAttributes](/v1.3.15/zh/api/core-extra/DefaultCharacterAttributes) | 🔗 |
+| C | [DefaultItemCategories](/v1.3.15/zh/api/core-extra/DefaultItemCategories) | 🔗 |
+| C | [DefaultItemCategorySelector](/v1.3.15/zh/api/core-extra/DefaultItemCategorySelector) | 🔗 |
+| C | [DefaultItemValueModel](/v1.3.15/zh/api/core-extra/DefaultItemValueModel) | 🔗 |
+| C | [DefaultRidingModel](/v1.3.15/zh/api/core-extra/DefaultRidingModel) | 🔗 |
+| C | [DefaultSiegeEngineTypes](/v1.3.15/zh/api/core-extra/DefaultSiegeEngineTypes) | 🔗 |
+| C | [DefaultSkills](/v1.3.15/zh/api/core-extra/DefaultSkills) | 🔗 |
+| E | [DeploymentFormationClass](/v1.3.15/zh/api/core-extra/DeploymentFormationClass) | 🔗 |
+| E | [DrivenProperty](/v1.3.15/zh/api/core-extra/DrivenProperty) | 🔗 |
+| C | [DummyCommunicator](/v1.3.15/zh/api/core-extra/DummyCommunicator) | 🔗 |
+| S | [DynamicBodyProperties](/v1.3.15/zh/api/core-extra/DynamicBodyProperties) | 🔗 |
+| E | [EffectIncrementType](/v1.3.15/zh/api/core-extra/EffectIncrementType) | 🔗 |
+| C | [EntitySystem](/v1.3.15/zh/api/core-extra/EntitySystem) | 🔗 |
+| C | Equipment | — |
+| S | [EquipmentElement](/v1.3.15/zh/api/core-extra/EquipmentElement) | 🔗 |
+| E | [EquipmentFlags](/v1.3.15/zh/api/core-extra/EquipmentFlags) | 🔗 |
+| E | [EquipmentIndex](/v1.3.15/zh/api/core-extra/EquipmentIndex) | 🔗 |
+| E | [EquipmentType](/v1.3.15/zh/api/core-extra/EquipmentType) | 🔗 |
+| C | [Extensions](/v1.3.15/zh/api/core-extra/Extensions) | 🔗 |
+| C | [FaceGen](/v1.3.15/zh/api/core-extra/FaceGen) | 🔗 |
+| E | [FaceGeneratorStage](/v1.3.15/zh/api/core-extra/FaceGeneratorStage) | 🔗 |
+| C | [FaceGenHistory](/v1.3.15/zh/api/core-extra/FaceGenHistory) | 🔗 |
+| C | [FilePaths](/v1.3.15/zh/api/core-extra/FilePaths) | 🔗 |
+| E | [ForestDensity](/v1.3.15/zh/api/core-extra/ForestDensity) | 🔗 |
+| E | [FormationClass](/v1.3.15/zh/api/core-extra/FormationClass) | 🔗 |
+| C | [FormationClassExtensions](/v1.3.15/zh/api/core-extra/FormationClassExtensions) | 🔗 |
+| E | [FormationFilterType](/v1.3.15/zh/api/core-extra/FormationFilterType) | 🔗 |
+| E | [FormationPositionPreference](/v1.3.15/zh/api/core-extra/FormationPositionPreference) | 🔗 |
+| C | Game | — |
+| C | [GameHandler](/v1.3.15/zh/api/core-extra/GameHandler) | 🔗 |
+| C | [GameManagerBase](/v1.3.15/zh/api/core-extra/GameManagerBase) | 🔗 |
+| C | [GameManagerComponent](/v1.3.15/zh/api/core-extra/GameManagerComponent) | 🔗 |
+| E | [GameManagerLoadingSteps](/v1.3.15/zh/api/core-extra/GameManagerLoadingSteps) | 🔗 |
+| C | [GameModel](/v1.3.15/zh/api/core-extra/GameModel) | 🔗 |
+| C | [GameModelsManager](/v1.3.15/zh/api/core-extra/GameModelsManager) | 🔗 |
+| C | [GameState](/v1.3.15/zh/api/core-extra/GameState) | 🔗 |
+| C | [GameStateManager](/v1.3.15/zh/api/core-extra/GameStateManager) | 🔗 |
+| E | [GameStateManagerType](/v1.3.15/zh/api/core-extra/GameStateManagerType) | 🔗 |
+| C | [GameText](/v1.3.15/zh/api/core-extra/GameText) | 🔗 |
+| C | [GameTextHelper](/v1.3.15/zh/api/core-extra/GameTextHelper) | 🔗 |
+| C | [GameTextManager](/v1.3.15/zh/api/core-extra/GameTextManager) | 🔗 |
+| C | [GameTexts](/v1.3.15/zh/api/core-extra/GameTexts) | 🔗 |
+| S | [GameTextVariation](/v1.3.15/zh/api/core-extra/GameTextVariation) | 🔗 |
+| C | [GameType](/v1.3.15/zh/api/core-extra/GameType) | 🔗 |
+| E | [GameTypeLoadingStates](/v1.3.15/zh/api/core-extra/GameTypeLoadingStates) | 🔗 |
+| E | [HairCoverTypes](/v1.3.15/zh/api/core-extra/HairCoverTypes) | 🔗 |
+| C | HorseComponent | — |
+| E | [HorseHarnessCoverTypes](/v1.3.15/zh/api/core-extra/HorseHarnessCoverTypes) | 🔗 |
+| E | [HorseTailCoverTypes](/v1.3.15/zh/api/core-extra/HorseTailCoverTypes) | 🔗 |
+| E | [HumanBone](/v1.3.15/zh/api/core-extra/HumanBone) | 🔗 |
+| C | [HyperlinkTexts](/v1.3.15/zh/api/core-extra/HyperlinkTexts) | 🔗 |
+| I | [IAgent](/v1.3.15/zh/api/core-extra/IAgent) | 🔗 |
+| I | [IAgentOriginBase](/v1.3.15/zh/api/core-extra/IAgentOriginBase) | 🔗 |
+| I | [IBannerVisual](/v1.3.15/zh/api/core-extra/IBannerVisual) | 🔗 |
+| I | [IBannerVisualCreator](/v1.3.15/zh/api/core-extra/IBannerVisualCreator) | 🔗 |
+| I | [IBattleCombatant](/v1.3.15/zh/api/core-extra/IBattleCombatant) | 🔗 |
+| I | [IBattleObserver](/v1.3.15/zh/api/core-extra/IBattleObserver) | 🔗 |
+| I | [ICameraModeLogic](/v1.3.15/zh/api/core-extra/ICameraModeLogic) | 🔗 |
+| I | [ICharacterData](/v1.3.15/zh/api/core-extra/ICharacterData) | 🔗 |
+| I | [ICommunicator](/v1.3.15/zh/api/core-extra/ICommunicator) | 🔗 |
+| I | [IEntityComponent](/v1.3.15/zh/api/core-extra/IEntityComponent) | 🔗 |
+| I | [IFaceGen](/v1.3.15/zh/api/core-extra/IFaceGen) | 🔗 |
+| I | [IFaceGeneratorCustomFilter](/v1.3.15/zh/api/core-extra/IFaceGeneratorCustomFilter) | 🔗 |
+| I | [IGameStarter](/v1.3.15/zh/api/core-extra/IGameStarter) | 🔗 |
+| I | [IGameStateListener](/v1.3.15/zh/api/core-extra/IGameStateListener) | 🔗 |
+| I | [IGameStateManagerListener](/v1.3.15/zh/api/core-extra/IGameStateManagerListener) | 🔗 |
+| I | [IGameStateManagerOwner](/v1.3.15/zh/api/core-extra/IGameStateManagerOwner) | 🔗 |
+| I | [IInformationDataHolder](/v1.3.15/zh/api/core-extra/IInformationDataHolder) | 🔗 |
+| I | [IManagedParametersInitializer](/v1.3.15/zh/api/core-extra/IManagedParametersInitializer) | 🔗 |
+| I | [IMission](/v1.3.15/zh/api/core-extra/IMission) | 🔗 |
+| I | [IMissionSiegeWeapon](/v1.3.15/zh/api/core-extra/IMissionSiegeWeapon) | 🔗 |
+| I | [IMissionTeam](/v1.3.15/zh/api/core-extra/IMissionTeam) | 🔗 |
+| I | [IMissionTroopSupplier](/v1.3.15/zh/api/core-extra/IMissionTroopSupplier) | 🔗 |
+| I | [IMonsterMissionData](/v1.3.15/zh/api/core-extra/IMonsterMissionData) | 🔗 |
+| I | [IMonsterMissionDataCreator](/v1.3.15/zh/api/core-extra/IMonsterMissionDataCreator) | 🔗 |
+| S | [IndexEntry](/v1.3.15/zh/api/core-extra/IndexEntry) | 🔗 |
+| I | [INetworkCommunication](/v1.3.15/zh/api/core-extra/INetworkCommunication) | 🔗 |
+| C | [InformationData](/v1.3.15/zh/api/core-extra/InformationData) | 🔗 |
+| E | [InitialWeaponEquipPreference](/v1.3.15/zh/api/core-extra/InitialWeaponEquipPreference) | 🔗 |
+| C | [InquiryElement](/v1.3.15/zh/api/core-extra/InquiryElement) | 🔗 |
+| I | [IReadOnlyPropertyOwner](/v1.3.15/zh/api/core-extra/IReadOnlyPropertyOwner) | 🔗 |
+| I | [IReadOnlyPropertyOwnerF](/v1.3.15/zh/api/core-extra/IReadOnlyPropertyOwnerF) | 🔗 |
+| I | [ISceneNotificationContextProvider](/v1.3.15/zh/api/core-extra/ISceneNotificationContextProvider) | 🔗 |
+| I | [IShipOrigin](/v1.3.15/zh/api/core-extra/IShipOrigin) | 🔗 |
+| C | [ItemCategory](/v1.3.15/zh/api/core-extra/ItemCategory) | 🔗 |
+| C | [ItemCategorySelector](/v1.3.15/zh/api/core-extra/ItemCategorySelector) | 🔗 |
+| C | [ItemComponent](/v1.3.15/zh/api/core-extra/ItemComponent) | 🔗 |
+| E | [ItemFlags](/v1.3.15/zh/api/core-extra/ItemFlags) | 🔗 |
+| C | ItemModifier | — |
+| C | [ItemModifierGroup](/v1.3.15/zh/api/core-extra/ItemModifierGroup) | 🔗 |
+| C | ItemObject | — |
+| E | [ItemQuality](/v1.3.15/zh/api/core-extra/ItemQuality) | 🔗 |
+| S | [ItemRosterElement](/v1.3.15/zh/api/core-extra/ItemRosterElement) | 🔗 |
+| E | [ItemTiers](/v1.3.15/zh/api/core-extra/ItemTiers) | 🔗 |
+| E | [ItemTypeEnum](/v1.3.15/zh/api/core-extra/ItemTypeEnum) | 🔗 |
+| E | [ItemUsageSetFlags](/v1.3.15/zh/api/core-extra/ItemUsageSetFlags) | 🔗 |
+| C | [ItemValueModel](/v1.3.15/zh/api/core-extra/ItemValueModel) | 🔗 |
+| I | [ITrackableBase](/v1.3.15/zh/api/core-extra/ITrackableBase) | 🔗 |
+| E | [JobType](/v1.3.15/zh/api/core-extra/JobType) | 🔗 |
+| S | [LinearFrictionTerm](/v1.3.15/zh/api/core-extra/LinearFrictionTerm) | 🔗 |
+| C | ManagedParameters | — |
+| E | ManagedParametersEnum | — |
+| S | [MaterialProperty](/v1.3.15/zh/api/core-extra/MaterialProperty) | 🔗 |
+| C | [MBBodyProperty](/v1.3.15/zh/api/core-extra/MBBodyProperty) | 🔗 |
+| C | [MBCharacterSkills](/v1.3.15/zh/api/core-extra/MBCharacterSkills) | 🔗 |
+| C | [MBEquipmentRoster](/v1.3.15/zh/api/core-extra/MBEquipmentRoster) | 🔗 |
+| C | [MBException](/v1.3.15/zh/api/core-extra/MBException) | 🔗 |
+| C | [MBFastRandom](/v1.3.15/zh/api/core-extra/MBFastRandom) | 🔗 |
+| C | [MBFastRandomSelector](/v1.3.15/zh/api/core-extra/MBFastRandomSelector) | 🔗 |
+| C | [MBGameModel](/v1.3.15/zh/api/core-extra/MBGameModel) | 🔗 |
+| C | [MBHaltonColorGenerator](/v1.3.15/zh/api/core-extra/MBHaltonColorGenerator) | 🔗 |
+| C | [MBIllegalValueException](/v1.3.15/zh/api/core-extra/MBIllegalValueException) | 🔗 |
+| C | [MBInformationManager](/v1.3.15/zh/api/core-extra/MBInformationManager) | 🔗 |
+| C | [MBInvalidParameterException](/v1.3.15/zh/api/core-extra/MBInvalidParameterException) | 🔗 |
+| C | [MBMethodNameNotFoundException](/v1.3.15/zh/api/core-extra/MBMethodNameNotFoundException) | 🔗 |
+| C | [MBMisuseException](/v1.3.15/zh/api/core-extra/MBMisuseException) | 🔗 |
+| C | [MBNetwork](/v1.3.15/zh/api/core-extra/MBNetwork) | 🔗 |
+| C | [MBNetworkBitException](/v1.3.15/zh/api/core-extra/MBNetworkBitException) | 🔗 |
+| C | [MBNotFoundException](/v1.3.15/zh/api/core-extra/MBNotFoundException) | 🔗 |
+| C | [MBNotNullParameterException](/v1.3.15/zh/api/core-extra/MBNotNullParameterException) | 🔗 |
+| C | [MBNullParameterException](/v1.3.15/zh/api/core-extra/MBNullParameterException) | 🔗 |
+| C | [MBObjectManagerExtensions](/v1.3.15/zh/api/core-extra/MBObjectManagerExtensions) | 🔗 |
+| C | [MBOutOfRangeException](/v1.3.15/zh/api/core-extra/MBOutOfRangeException) | 🔗 |
+| C | [MBPerlin](/v1.3.15/zh/api/core-extra/MBPerlin) | 🔗 |
+| C | [MBRandom](/v1.3.15/zh/api/core-extra/MBRandom) | 🔗 |
+| C | [MBSaveLoad](/v1.3.15/zh/api/core-extra/MBSaveLoad) | 🔗 |
+| C | [MBTypeMismatchException](/v1.3.15/zh/api/core-extra/MBTypeMismatchException) | 🔗 |
+| C | [MBUnderFlowException](/v1.3.15/zh/api/core-extra/MBUnderFlowException) | 🔗 |
+| C | [MBUnknownTypeException](/v1.3.15/zh/api/core-extra/MBUnknownTypeException) | 🔗 |
+| C | MetaDataExtensions | — |
+| S | [MissionInitializerRecord](/v1.3.15/zh/api/core-extra/MissionInitializerRecord) | 🔗 |
+| E | [MissionMode](/v1.3.15/zh/api/core-extra/MissionMode) | 🔗 |
+| C | [MissionResult](/v1.3.15/zh/api/core-extra/MissionResult) | 🔗 |
+| C | [MissionShipObject](/v1.3.15/zh/api/core-extra/MissionShipObject) | 🔗 |
+| C | [MissionSiegeWeapon](/v1.3.15/zh/api/core-extra/MissionSiegeWeapon) | 🔗 |
+| E | [ModuleCheckResultType](/v1.3.15/zh/api/core-extra/ModuleCheckResultType) | 🔗 |
+| C | [Monster](/v1.3.15/zh/api/core-extra/Monster) | 🔗 |
+| C | [MountCreationKey](/v1.3.15/zh/api/core-extra/MountCreationKey) | 🔗 |
+| C | [MultiSelectionInquiryData](/v1.3.15/zh/api/core-extra/MultiSelectionInquiryData) | 🔗 |
+| S | [NotificationSceneProperties](/v1.3.15/zh/api/core-extra/NotificationSceneProperties) | 🔗 |
+| C | [PeerComponent](/v1.3.15/zh/api/core-extra/PeerComponent) | 🔗 |
+| S | [PieceData](/v1.3.15/zh/api/core-extra/PieceData) | 🔗 |
+| E | [PieceTypes](/v1.3.15/zh/api/core-extra/PieceTypes) | 🔗 |
+| C | [PlayerGameState](/v1.3.15/zh/api/core-extra/PlayerGameState) | 🔗 |
+| E | [Property](/v1.3.15/zh/api/core-extra/Property) | 🔗 |
+| C | [PropertyObject](/v1.3.15/zh/api/core-extra/PropertyObject) | 🔗 |
+| C | [PropertyOwner](/v1.3.15/zh/api/core-extra/PropertyOwner) | 🔗 |
+| C | [PropertyOwnerF](/v1.3.15/zh/api/core-extra/PropertyOwnerF) | 🔗 |
+| C | [RefiningFormula](/v1.3.15/zh/api/core-extra/RefiningFormula) | 🔗 |
+| E | [RelevantContextType](/v1.3.15/zh/api/core-extra/RelevantContextType) | 🔗 |
+| C | [ResetAllTutorialsEvent](/v1.3.15/zh/api/core-extra/ResetAllTutorialsEvent) | 🔗 |
+| C | [RidingModel](/v1.3.15/zh/api/core-extra/RidingModel) | 🔗 |
+| C | [SaddleComponent](/v1.3.15/zh/api/core-extra/SaddleComponent) | 🔗 |
+| E | [SailType](/v1.3.15/zh/api/core-extra/SailType) | 🔗 |
+| C | [SaveableCoreTypeDefiner](/v1.3.15/zh/api/core-extra/SaveableCoreTypeDefiner) | 🔗 |
+| C | [SceneNotificationData](/v1.3.15/zh/api/core-extra/SceneNotificationData) | 🔗 |
+| C | [ShipHull](/v1.3.15/zh/api/core-extra/ShipHull) | 🔗 |
+| C | [ShipPhysicsReference](/v1.3.15/zh/api/core-extra/ShipPhysicsReference) | 🔗 |
+| C | [ShipSail](/v1.3.15/zh/api/core-extra/ShipSail) | 🔗 |
+| C | [ShipSlot](/v1.3.15/zh/api/core-extra/ShipSlot) | 🔗 |
+| E | [ShipType](/v1.3.15/zh/api/core-extra/ShipType) | 🔗 |
+| C | [ShipUpgradePiece](/v1.3.15/zh/api/core-extra/ShipUpgradePiece) | 🔗 |
+| S | [ShipVisualSlotInfo](/v1.3.15/zh/api/core-extra/ShipVisualSlotInfo) | 🔗 |
+| C | [SiegeEngineType](/v1.3.15/zh/api/core-extra/SiegeEngineType) | 🔗 |
+| C | [SkeletonScale](/v1.3.15/zh/api/core-extra/SkeletonScale) | 🔗 |
+| C | [SkillObject](/v1.3.15/zh/api/core-extra/SkillObject) | 🔗 |
+| E | [SkillType](/v1.3.15/zh/api/core-extra/SkillType) | 🔗 |
+| E | [SkinMask](/v1.3.15/zh/api/core-extra/SkinMask) | 🔗 |
+| E | [SpectatorCameraTypes](/v1.3.15/zh/api/core-extra/SpectatorCameraTypes) | 🔗 |
+| C | [StackArray](/v1.3.15/zh/api/core-extra/StackArray) | 🔗 |
+| S | [StackArray10FloatFloatTuple](/v1.3.15/zh/api/core-extra/StackArray10FloatFloatTuple) | 🔗 |
+| S | [StackArray2Bool](/v1.3.15/zh/api/core-extra/StackArray2Bool) | 🔗 |
+| S | [StackArray32Bool](/v1.3.15/zh/api/core-extra/StackArray32Bool) | 🔗 |
+| S | [StackArray3Bool](/v1.3.15/zh/api/core-extra/StackArray3Bool) | 🔗 |
+| S | [StackArray3Float](/v1.3.15/zh/api/core-extra/StackArray3Float) | 🔗 |
+| S | [StackArray3Int](/v1.3.15/zh/api/core-extra/StackArray3Int) | 🔗 |
+| S | [StackArray4Bool](/v1.3.15/zh/api/core-extra/StackArray4Bool) | 🔗 |
+| S | [StackArray4Int](/v1.3.15/zh/api/core-extra/StackArray4Int) | 🔗 |
+| S | [StackArray5Bool](/v1.3.15/zh/api/core-extra/StackArray5Bool) | 🔗 |
+| S | [StackArray5Float](/v1.3.15/zh/api/core-extra/StackArray5Float) | 🔗 |
+| S | [StackArray6Bool](/v1.3.15/zh/api/core-extra/StackArray6Bool) | 🔗 |
+| S | [StackArray7Bool](/v1.3.15/zh/api/core-extra/StackArray7Bool) | 🔗 |
+| S | [StackArray8Bool](/v1.3.15/zh/api/core-extra/StackArray8Bool) | 🔗 |
+| S | [StackArray8Int](/v1.3.15/zh/api/core-extra/StackArray8Int) | 🔗 |
+| E | [State](/v1.3.15/zh/api/core-extra/State) | 🔗 |
+| S | [StaticBodyProperties](/v1.3.15/zh/api/core-extra/StaticBodyProperties) | 🔗 |
+| E | [StrikeType](/v1.3.15/zh/api/core-extra/StrikeType) | 🔗 |
+| E | [TeamSideEnum](/v1.3.15/zh/api/core-extra/TeamSideEnum) | 🔗 |
+| C | [TeamSideEnumExtensions](/v1.3.15/zh/api/core-extra/TeamSideEnumExtensions) | 🔗 |
+| E | [TerrainType](/v1.3.15/zh/api/core-extra/TerrainType) | 🔗 |
+| C | [Timer](/v1.3.15/zh/api/core-extra/Timer) | 🔗 |
+| C | [TradeItemComponent](/v1.3.15/zh/api/core-extra/TradeItemComponent) | 🔗 |
+| C | [TroopClassExtensions](/v1.3.15/zh/api/core-extra/TroopClassExtensions) | 🔗 |
+| E | [TroopTraitsMask](/v1.3.15/zh/api/core-extra/TroopTraitsMask) | 🔗 |
+| C | [TroopTraitsMaskExtensions](/v1.3.15/zh/api/core-extra/TroopTraitsMaskExtensions) | 🔗 |
+| E | [TroopType](/v1.3.15/zh/api/core-extra/TroopType) | 🔗 |
+| E | [TroopUsageFlags](/v1.3.15/zh/api/core-extra/TroopUsageFlags) | 🔗 |
+| C | [TutorialContextChangedEvent](/v1.3.15/zh/api/core-extra/TutorialContextChangedEvent) | 🔗 |
+| E | [TutorialContexts](/v1.3.15/zh/api/core-extra/TutorialContexts) | 🔗 |
+| E | [UnderwearTypes](/v1.3.15/zh/api/core-extra/UnderwearTypes) | 🔗 |
+| S | [UniqueTroopDescriptor](/v1.3.15/zh/api/core-extra/UniqueTroopDescriptor) | 🔗 |
+| E | [UnitSpawnPrioritizations](/v1.3.15/zh/api/core-extra/UnitSpawnPrioritizations) | 🔗 |
+| C | [VirtualPlayer](/v1.3.15/zh/api/core-extra/VirtualPlayer) | 🔗 |
+| C | [WaitForGameState](/v1.3.15/zh/api/core-extra/WaitForGameState) | 🔗 |
+| E | [WeaponClass](/v1.3.15/zh/api/core-extra/WeaponClass) | 🔗 |
+| C | WeaponComponent | — |
+| C | [WeaponComponentData](/v1.3.15/zh/api/core-extra/WeaponComponentData) | 🔗 |
+| C | [WeaponComponentDataExtensions](/v1.3.15/zh/api/core-extra/WeaponComponentDataExtensions) | 🔗 |
+| C | [WeaponDescription](/v1.3.15/zh/api/core-extra/WeaponDescription) | 🔗 |
+| C | [WeaponDesign](/v1.3.15/zh/api/core-extra/WeaponDesign) | 🔗 |
+| C | [WeaponDesignElement](/v1.3.15/zh/api/core-extra/WeaponDesignElement) | 🔗 |
+| E | [WeaponFlags](/v1.3.15/zh/api/core-extra/WeaponFlags) | 🔗 |
+| E | [WeaponTiers](/v1.3.15/zh/api/core-extra/WeaponTiers) | 🔗 |
+| C | [XmlHelper](/v1.3.15/zh/api/core-extra/XmlHelper) | 🔗 |
+
+## TaleWorlds.Core.ImageIdentifiers (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerImageIdentifier](/v1.3.15/zh/api/core-extra/BannerImageIdentifier) | 🔗 |
+| C | [CharacterImageIdentifier](/v1.3.15/zh/api/core-extra/CharacterImageIdentifier) | 🔗 |
+| C | [CraftingPieceImageIdentifier](/v1.3.15/zh/api/core-extra/CraftingPieceImageIdentifier) | 🔗 |
+| C | [EmptyImageIdentifier](/v1.3.15/zh/api/core-extra/EmptyImageIdentifier) | 🔗 |
+| C | [ImageIdentifier](/v1.3.15/zh/api/core-extra/ImageIdentifier) | 🔗 |
+| C | [ItemImageIdentifier](/v1.3.15/zh/api/core-extra/ItemImageIdentifier) | 🔗 |
+| C | [PlayerAvatarImageIdentifier](/v1.3.15/zh/api/core-extra/PlayerAvatarImageIdentifier) | 🔗 |
+
+## TaleWorlds.Core.SaveCompability (1)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [CharacterSkillsResolver](/v1.3.15/zh/api/core-extra/CharacterSkillsResolver) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection (9)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BattleResultVM](/v1.3.15/zh/api/core-extra/BattleResultVM) | 🔗 |
+| C | [CharacterEquipmentItemVM](/v1.3.15/zh/api/core-extra/CharacterEquipmentItemVM) | 🔗 |
+| C | CharacterViewModel | — |
+| C | [CharacterWithActionViewModel](/v1.3.15/zh/api/core-extra/CharacterWithActionViewModel) | 🔗 |
+| C | [CraftingItemViewModel](/v1.3.15/zh/api/core-extra/CraftingItemViewModel) | 🔗 |
+| C | [ItemCollectionElementViewModel](/v1.3.15/zh/api/core-extra/ItemCollectionElementViewModel) | 🔗 |
+| C | [ItemVM](/v1.3.15/zh/api/core-extra/ItemVM) | 🔗 |
+| C | [PowerLevelComparer](/v1.3.15/zh/api/core-extra/PowerLevelComparer) | 🔗 |
+| E | [StanceTypes](/v1.3.15/zh/api/core-extra/StanceTypes) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.BannerEditor (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerColorVM](/v1.3.15/zh/api/core-extra/BannerColorVM) | 🔗 |
+| C | [BannerIconVM](/v1.3.15/zh/api/core-extra/BannerIconVM) | 🔗 |
+| C | [BannerViewModel](/v1.3.15/zh/api/core-extra/BannerViewModel) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.Generic (8)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BindingListFloatItem](/v1.3.15/zh/api/core-extra/BindingListFloatItem) | 🔗 |
+| C | [BindingListStringItem](/v1.3.15/zh/api/core-extra/BindingListStringItem) | 🔗 |
+| C | [BoolItemWithActionVM](/v1.3.15/zh/api/core-extra/BoolItemWithActionVM) | 🔗 |
+| C | [StringItemWithActionVM](/v1.3.15/zh/api/core-extra/StringItemWithActionVM) | 🔗 |
+| C | [StringItemWithEnabledAndHintVM](/v1.3.15/zh/api/core-extra/StringItemWithEnabledAndHintVM) | 🔗 |
+| C | [StringItemWithHintVM](/v1.3.15/zh/api/core-extra/StringItemWithHintVM) | 🔗 |
+| C | [StringPairItemVM](/v1.3.15/zh/api/core-extra/StringPairItemVM) | 🔗 |
+| C | [StringPairItemWithActionVM](/v1.3.15/zh/api/core-extra/StringPairItemWithActionVM) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.ImageIdentifiers (7)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BannerImageIdentifierVM](/v1.3.15/zh/api/core-extra/BannerImageIdentifierVM) | 🔗 |
+| C | [CharacterImageIdentifierVM](/v1.3.15/zh/api/core-extra/CharacterImageIdentifierVM) | 🔗 |
+| C | [CraftingPieceImageIdentifierVM](/v1.3.15/zh/api/core-extra/CraftingPieceImageIdentifierVM) | 🔗 |
+| C | [GenericImageIdentifierVM](/v1.3.15/zh/api/core-extra/GenericImageIdentifierVM) | 🔗 |
+| C | [ImageIdentifierVM](/v1.3.15/zh/api/core-extra/ImageIdentifierVM) | 🔗 |
+| C | [ItemImageIdentifierVM](/v1.3.15/zh/api/core-extra/ItemImageIdentifierVM) | 🔗 |
+| C | [PlayerAvatarImageIdentifierVM](/v1.3.15/zh/api/core-extra/PlayerAvatarImageIdentifierVM) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.Information (11)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [BasicTooltipViewModel](/v1.3.15/zh/api/core-extra/BasicTooltipViewModel) | 🔗 |
+| C | [GameNotificationItemVM](/v1.3.15/zh/api/core-extra/GameNotificationItemVM) | 🔗 |
+| C | [GameNotificationVM](/v1.3.15/zh/api/core-extra/GameNotificationVM) | 🔗 |
+| C | HintViewModel | — |
+| C | [HintVM](/v1.3.15/zh/api/core-extra/HintVM) | 🔗 |
+| C | [InquiryElementVM](/v1.3.15/zh/api/core-extra/InquiryElementVM) | 🔗 |
+| C | [PropertyBasedTooltipVM](/v1.3.15/zh/api/core-extra/PropertyBasedTooltipVM) | 🔗 |
+| C | [SceneNotificationVM](/v1.3.15/zh/api/core-extra/SceneNotificationVM) | 🔗 |
+| E | [TooltipMode](/v1.3.15/zh/api/core-extra/TooltipMode) | 🔗 |
+| C | [TooltipProperty](/v1.3.15/zh/api/core-extra/TooltipProperty) | 🔗 |
+| E | [TooltipPropertyFlags](/v1.3.15/zh/api/core-extra/TooltipPropertyFlags) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip (3)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [RundownLineVM](/v1.3.15/zh/api/core-extra/RundownLineVM) | 🔗 |
+| C | [RundownTooltipVM](/v1.3.15/zh/api/core-extra/RundownTooltipVM) | 🔗 |
+| E | [ValueCategorization](/v1.3.15/zh/api/core-extra/ValueCategorization) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.Selector (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [SelectorItemVM](/v1.3.15/zh/api/core-extra/SelectorItemVM) | 🔗 |
+| C | [SelectorVM](/v1.3.15/zh/api/core-extra/SelectorVM) | 🔗 |
+
+## TaleWorlds.Core.ViewModelCollection.Tutorial (2)
+
+| | 名称 Name | 文档 Doc |
+|---|---|---|
+| C | [ElementNotificationVM](/v1.3.15/zh/api/core-extra/ElementNotificationVM) | 🔗 |
+| C | [TutorialNotificationElementChangeEvent](/v1.3.15/zh/api/core-extra/TutorialNotificationElementChangeEvent) | 🔗 |

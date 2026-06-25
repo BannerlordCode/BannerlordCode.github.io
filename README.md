@@ -9,9 +9,9 @@
 
 **https://bannerlordcode.github.io/**
 
-支持中文和英文文档，支持 v1.3.15 和 v1.3.0 两个版本。
+支持中文和英文文档，覆盖 v1.3.15、v1.3.0 与 v1.4.5 三个版本。
 
-Supports Chinese and English documentation, with v1.3.15 and v1.3.0 versions.
+Supports Chinese and English documentation, covering v1.3.15, v1.3.0, and v1.4.5.
 
 ## 版本信息 / Version Info
 
@@ -62,13 +62,8 @@ Supports Chinese and English documentation, with v1.3.15 and v1.3.0 versions.
 
 ### 前置要求 / Prerequisites
 
-- Bun >= 1.0.0
-
-### 安装依赖 / Install Dependencies
-
-```bash
-bun install
-```
+- [Zola](https://www.getzola.org/) >= 0.19.0
+- Bun >= 1.0.0（仅运行辅助脚本 / only for helper scripts）
 
 ### 开发模式 / Development Mode
 
@@ -84,7 +79,7 @@ bun run docs:dev
 bun run docs:build
 ```
 
-构建产物位于 `docs/.vitepress/dist/`。
+构建产物位于 `public/`。
 
 ### 预览 / Preview
 
@@ -96,9 +91,8 @@ bun run docs:preview
 
 ```
 BannerlordCode.github.io/
-├── docs/                      # 文档源文件
-│   ├── index.md              # 首页
-│   ├── public/               # VitePress 静态资源
+├── content/                  # Zola 文档源文件
+│   ├── _index.md            # 首页
 │   ├── v1.3.15/             # v1.3.15 文档
 │   │   ├── zh/              # 中文
 │   │   │   └── native-1.3.15-src/  # Native DLL 反编译源码参考
@@ -108,13 +102,22 @@ BannerlordCode.github.io/
 │   │   ├── zh/
 │   │   └── en/
 │   ├── v1.4.5/              # v1.4.5 文档（模块清单 + 源码布局）
-│   ├── versions/            # 🔀 跨版本类对比（源码自动生成）
-│   └── .vitepress/          # VitePress 配置
-│       └── config.js        # 导航、侧边栏配置
+│   └── versions/            # 🔀 跨版本类对比（源码自动生成）
+├── static/                   # Zola 静态资源
+├── templates/                # Zola Tera 模板
+│   ├── base.html
+│   ├── page.html
+│   ├── section.html
+│   ├── index.html
+│   ├── partials/
+│   └── shortcodes/
+├── config.toml               # Zola 站点配置
 └── tools/                    # 审计/构建辅助
-    ├── audit-links.mjs             # 断链检查
-    ├── class-version-diff.mjs      # 跨版本类 API 差异提取
-    └── gen-version-pages.mjs       # 重新生成 versions/ 页面
+    ├── fast-migrate.mjs      # 迁移脚本
+    ├── convert-containers.mjs # 旧容器语法转换
+    ├── audit-links.mjs       # 断链检查
+    ├── class-version-diff.mjs # 跨版本类 API 差异提取
+    └── gen-version-pages.mjs  # 重新生成 versions/ 页面
 ```
 
 ## 部署 / Deployment
@@ -131,14 +134,15 @@ BannerlordCode.github.io/
 
 ### 添加文档
 
-1. 在对应版本目录下创建 `.md` 文件
-2. 在 `docs/.vitepress/config.js` 中添加侧边栏链接
-3. 提交 PR
+1. 在 `content/` 下对应版本目录中创建 `.md` 文件
+2. 若该文件是目录索引，请使用 `_index.md`
+3. 在 `templates/partials/sidebar.html` 或相应模板数据中更新导航（如需要）
+4. 提交 PR
 
 ### 规范 / Guidelines
 
 - 中英文双语文档
-- 使用 VitePress frontmatter (title, description)
+- 使用 Zola frontmatter (title, description)
 - 链接使用相对路径，不带尾随斜杠
 - 代码示例使用 ```csharp
 

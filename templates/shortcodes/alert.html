@@ -1,0 +1,11 @@
+{%- if type == "details" -%}
+<details class="alert alert-details">
+  {%- if title -%}<summary>{{ title }}</summary>{%- endif -%}
+  {{ body | markdown | safe }}
+</details>
+{%- else -%}
+<div class="alert alert-{{ type | default(value='info') }}">
+  {%- if title -%}<p class="alert-title">{{ title }}</p>{%- endif -%}
+  {{ body | markdown | safe }}
+</div>
+{%- endif -%}

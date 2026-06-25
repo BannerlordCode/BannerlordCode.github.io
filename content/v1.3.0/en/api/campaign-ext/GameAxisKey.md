@@ -1,0 +1,59 @@
+---
+title: "GameAxisKey"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `GameAxisKey`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.0](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# GameAxisKey
+
+**Namespace:** TaleWorlds.InputSystem
+**Module:** TaleWorlds.InputSystem
+**Type:** `public class GameAxisKey`
+**Base:** none
+**File:** `TaleWorlds.InputSystem/GameAxisKey.cs`
+
+## Overview
+
+`GameAxisKey` lives in `TaleWorlds.InputSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.InputSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Id` | `public string Id { get; }` |
+| `AxisKey` | `public Key AxisKey { get; }` |
+| `DefaultAxisKey` | `public Key DefaultAxisKey { get; }` |
+| `PositiveKey` | `public GameKey PositiveKey { get; }` |
+| `NegativeKey` | `public GameKey NegativeKey { get; }` |
+| `Type` | `public GameAxisKey.AxisType Type { get; }` |
+
+## Key Methods
+
+### GetAxisState
+`public float GetAxisState(bool isKeysAllowed, bool isMouseButtonAllowed, bool isMouseWheelAllowed, bool isControllerAllowed)`
+
+**Purpose:** Gets the current value of `axis state`.
+
+### ToString
+`public override string ToString()`
+
+**Purpose:** Handles logic related to `to string`.
+
+## Usage Example
+
+```csharp
+var value = new GameAxisKey();
+value.GetAxisState(false, false, false, false);
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

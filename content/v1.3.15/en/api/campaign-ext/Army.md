@@ -1,236 +1,156 @@
 ---
 title: "Army"
-description: "Auto-generated class reference for Army."
+description: "A temporary kingdom army formed from lord parties for sieges or decisive battles."
 ---
 # Army
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class Army : ITrackableCampaignObject, ITrackableBase`
-**Base:** `ITrackableCampaignObject`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public class Army : ILootable`  
+**Base:** —  
 **File:** `TaleWorlds.CampaignSystem/Army.cs`
 
 ## Overview
 
-`Army` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Army` represents a **temporary army summoned by a kingdom** during a campaign. An army consists of a `LeaderParty` (the summoning party) plus several attached parties, all sharing an objective—usually a siege or a decisive battle.
+
+Core responsibilities:
+
+- Manage cohesion, morale, and total strength.
+- Provide gather/dismiss/add-member APIs.
+- Determine formation positions of member parties on the map.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `Army` as a **temporary train assembled by lords**:
 
-## Key Properties
+- The locomotive is the `LeaderParty` (army leader).
+- Each car is a `MobileParty` that has joined.
+- The train has a fuel gauge—cohesion. When cohesion runs out or the objective is complete, the train disbands.
+- The locomotive decides direction and the cars follow; each car can still fight or retreat independently.
 
-| Name | Signature |
-|------|-----------|
-| `GatheringPositionMaxDistanceToTheSettlement` | `public float GatheringPositionMaxDistanceToTheSettlement { get; }` |
-| `GatheringPositionMinDistanceToTheSettlement` | `public float GatheringPositionMinDistanceToTheSettlement { get; }` |
-| `Parties` | `public MBReadOnlyList<MobileParty> Parties { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `ArmyType` | `public Army.ArmyTypes ArmyType { get; set; }` |
-| `ArmyOwner` | `public Hero ArmyOwner { get; set; }` |
-| `Cohesion` | `public float Cohesion { get; set; }` |
-| `DailyCohesionChange` | `public float DailyCohesionChange { get; }` |
-| `DailyCohesionChangeExplanation` | `public ExplainedNumber DailyCohesionChangeExplanation { get; }` |
-| `CohesionThresholdForDispersion` | `public int CohesionThresholdForDispersion { get; }` |
-| `Morale` | `public float Morale { get; }` |
-| `LeaderParty` | `public MobileParty LeaderParty { get; }` |
-| `LeaderPartyAndAttachedPartiesCount` | `public int LeaderPartyAndAttachedPartiesCount { get; }` |
-| `EstimatedStrength` | `public float EstimatedStrength { get; }` |
-| `Kingdom` | `public Kingdom Kingdom { get; set; }` |
-| `AiBehaviorObject` | `public IMapPoint AiBehaviorObject { get; set; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `TotalHealthyMembers` | `public int TotalHealthyMembers { get; }` |
-| `TotalManCount` | `public int TotalManCount { get; }` |
-| `TotalRegularCount` | `public int TotalRegularCount { get; }` |
-| `IsReady` | `public bool IsReady { get; }` |
-| `IsArmyInGatheringState` | `public bool IsArmyInGatheringState { get; }` |
+## How to Obtain an Army
+
+```csharp
+// iterate active armies
+foreach (Army army in Army.Armies)
+{
+    if (army.Kingdom == Clan.PlayerClan.Kingdom)
+    {
+        // player-kingdom army
+    }
+}
+
+// create from a kingdom
+Kingdom myKingdom = Clan.PlayerClan.Kingdom;
+myKingdom.CreateArmy(myRuler, targetSettlement, Army.ArmyTypes.Besieger);
+```
+
+## Core Properties
+
+| Property | Description |
+|----------|-------------|
+| `Armies` | All active armies. |
+| `LeaderParty` | Leader party. |
+| `ArmyOwner` | Army leader hero. |
+| `Kingdom` | Owning kingdom. |
+| `ArmyType` | Army type: `Besieger`, `Raider`, `Defender`, `Patrolling`, etc. |
+| `Cohesion` | Cohesion; low cohesion causes parties to leave. |
+| `Morale` | Morale. |
+| `Name` | Army name. |
 
 ## Key Methods
 
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the current object.
+### `public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
+Gather parties at the target settlement and start the army action.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.ToString();
+List<MobileParty> participants = ...;
+army.Gather(enemyTown, participants);
 ```
 
-### CalculateCurrentStrength
-`public float CalculateCurrentStrength()`
-
-**Purpose:** Calculates the current value or result of `current strength`.
+### `public void AddPartyToMergedParties(MobileParty mobileParty)`
+Add a party to the army.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.CalculateCurrentStrength();
+army.AddPartyToMergedParties(allyParty);
 ```
 
-### GetCustomStrength
-`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
-
-**Purpose:** Reads and returns the `custom strength` value held by the current object.
+### `public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
+Check whether a party belongs to the army.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.GetCustomStrength(side, context);
+bool isMember = army.DoesLeaderPartyAndAttachedPartiesContain(myParty);
 ```
 
-### UpdateName
-`public void UpdateName()`
-
-**Purpose:** Recalculates and stores the latest representation of `name`.
+### `public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
+Spend influence to increase cohesion.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.UpdateName();
+army.BoostCohesionWithInfluence(10f, 50);
 ```
 
-### DoesLeaderPartyAndAttachedPartiesContain
-`public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
-
-**Purpose:** Returns a boolean answer to whether `leader party and attached parties contain` is true for the current object.
+### `public void RecalculateArmyMorale()`
+Recalculate army morale.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.DoesLeaderPartyAndAttachedPartiesContain(party);
-```
-
-### BoostCohesionWithInfluence
-`public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
-
-**Purpose:** Increases the value or strength of `cohesion with influence`.
-
-```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.BoostCohesionWithInfluence(0, 0);
-```
-
-### RecalculateArmyMorale
-`public void RecalculateArmyMorale()`
-
-**Purpose:** Recalculates `army morale` to reflect the latest state.
-
-```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
 army.RecalculateArmyMorale();
 ```
 
-### GetNotificationText
-`public TextObject GetNotificationText()`
-
-**Purpose:** Reads and returns the `notification text` value held by the current object.
+### `public void FinishArmyObjective()`
+Complete the objective and disband the army.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.GetNotificationText();
+if (army.ArmyObjective == ArmyObjective.BesiegeTown && targetTown.IsUnderSiege == false)
+{
+    army.FinishArmyObjective();
+}
 ```
 
-### GetLongTermBehaviorText
-`public TextObject GetLongTermBehaviorText(bool setWithLink = false)`
-
-**Purpose:** Reads and returns the `long term behavior text` value held by the current object.
+### `public float CalculateCurrentStrength()` / `public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
+Compute current/custom battle strength.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.GetLongTermBehaviorText(false);
+float power = army.CalculateCurrentStrength();
 ```
 
-### Gather
-`public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
-
-**Purpose:** Collects or aggregates the content related to the current object.
+### `public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
+Get a party's relative position in the army formation.
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.Gather(initialHostileSettlement, null);
+Vec2 pos = army.GetRelativePositionForParty(party, army.LeaderParty.Bearing);
 ```
 
-### IsWaitingForArmyMembers
-`public bool IsWaitingForArmyMembers()`
+## Typical Usage Examples
 
-**Purpose:** Determines whether the current object is in the `waiting for army members` state or condition.
+### Example 1: Force disband all player-kingdom armies
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.IsWaitingForArmyMembers();
+foreach (Army army in Army.Armies.ToList())
+{
+    if (army.Kingdom == Clan.PlayerClan.Kingdom)
+    {
+        army.FinishArmyObjective();
+    }
+}
 ```
 
-### FinishArmyObjective
-`public void FinishArmyObjective()`
-
-**Purpose:** Concludes the `army objective` flow and performs any cleanup.
+### Example 2: Create a besieging army
 
 ```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.FinishArmyObjective();
+Settlement target = Settlement.Find("town_A7");
+Kingdom kingdom = Clan.PlayerClan.Kingdom;
+kingdom.CreateArmy(Hero.MainHero, target, Army.ArmyTypes.Besieger);
 ```
 
-### GetRelativePositionForParty
-`public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
+## Cross-Version Notes
 
-**Purpose:** Reads and returns the `relative position for party` value held by the current object.
-
-```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-var result = army.GetRelativePositionForParty(mobileParty, armyFacing);
-```
-
-### AddPartyToMergedParties
-`public void AddPartyToMergedParties(MobileParty mobileParty)`
-
-**Purpose:** Adds `party to merged parties` to the current collection or state.
-
-```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.AddPartyToMergedParties(mobileParty);
-```
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**Purpose:** Assigns a new value to `position after map change` and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.SetPositionAfterMapChange(newPosition);
-```
-
-### CheckPositionsForMapChangeAndUpdateIfNeeded
-`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
-
-**Purpose:** Verifies whether `positions for map change and update if needed` holds true for the current object.
-
-```csharp
-// Obtain an instance of Army from the subsystem API first
-Army army = ...;
-army.CheckPositionsForMapChangeAndUpdateIfNeeded();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Army army = ...;
-army.ToString();
-```
+- v1.3.0 / v1.3.15 / v1.4.5 army API is consistent; core flow is `Kingdom.CreateArmy`, `Gather`, `FinishArmyObjective`.
+- v1.4.5 adds more AI condition checks, but the create/dismiss flow is unchanged.
 
 ## See Also
 
-- [Area Index](../)
+- [Kingdom](../../campaign/Kingdom/) — the kingdom that creates armies
+- [MobileParty](../../campaign/MobileParty/) — army members
+- [Settlement](../../campaign/Settlement/) — army target
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — listen for army events

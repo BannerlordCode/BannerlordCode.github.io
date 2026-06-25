@@ -1,236 +1,157 @@
 ---
 title: "Army"
-description: "Army 的自动生成类参考。"
+description: "王国召集的临时军团：由领主部队组成，用于攻城或决战。"
 ---
 # Army
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class Army : ITrackableCampaignObject, ITrackableBase`
-**Base:** `ITrackableCampaignObject`
-**File:** `TaleWorlds.CampaignSystem/Army.cs`
+**Namespace：** TaleWorlds.CampaignSystem  
+**Module：** TaleWorlds.CampaignSystem  
+**类型：** `public class Army : ILootable`  
+**基类：** —  
+**文件：** `TaleWorlds.CampaignSystem/Army.cs`
 
 ## 概述
 
-`Army` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Army` 代表战役中 **王国临时召集的军团**。一个军团由一支 `LeaderParty`（发起者部队）和多支依附部队组成，它们共享一个目标，通常是攻城或摧毁敌军主力。
+
+核心职责：
+
+- 管理军团凝聚力（Cohesion）、士气（Morale）和总兵力。
+- 提供召集（`Gather`）、解散（`FinishArmyObjective`）、添加成员（`AddPartyToMergedParties`）等 API。
+- 决定军团在地图上的阵型与相对位置。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+把 `Army` 想象成 **“一辆由领主临时拼装的列车”**：
 
-## 主要属性
+- 车头是 `LeaderParty`（军团长）。
+- 每节车厢是一支加入的 `MobileParty`。
+- 列车有燃油表——凝聚力（Cohesion）。凝聚力耗尽或目标完成后列车解散。
+- 车头决定方向，所有车厢跟随；但每节车厢仍可独立战斗或撤退。
 
-| Name | Signature |
-|------|-----------|
-| `GatheringPositionMaxDistanceToTheSettlement` | `public float GatheringPositionMaxDistanceToTheSettlement { get; }` |
-| `GatheringPositionMinDistanceToTheSettlement` | `public float GatheringPositionMinDistanceToTheSettlement { get; }` |
-| `Parties` | `public MBReadOnlyList<MobileParty> Parties { get; }` |
-| `EncyclopediaLinkWithName` | `public TextObject EncyclopediaLinkWithName { get; set; }` |
-| `ArmyType` | `public Army.ArmyTypes ArmyType { get; set; }` |
-| `ArmyOwner` | `public Hero ArmyOwner { get; set; }` |
-| `Cohesion` | `public float Cohesion { get; set; }` |
-| `DailyCohesionChange` | `public float DailyCohesionChange { get; }` |
-| `DailyCohesionChangeExplanation` | `public ExplainedNumber DailyCohesionChangeExplanation { get; }` |
-| `CohesionThresholdForDispersion` | `public int CohesionThresholdForDispersion { get; }` |
-| `Morale` | `public float Morale { get; }` |
-| `LeaderParty` | `public MobileParty LeaderParty { get; }` |
-| `LeaderPartyAndAttachedPartiesCount` | `public int LeaderPartyAndAttachedPartiesCount { get; }` |
-| `EstimatedStrength` | `public float EstimatedStrength { get; }` |
-| `Kingdom` | `public Kingdom Kingdom { get; set; }` |
-| `AiBehaviorObject` | `public IMapPoint AiBehaviorObject { get; set; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `TotalHealthyMembers` | `public int TotalHealthyMembers { get; }` |
-| `TotalManCount` | `public int TotalManCount { get; }` |
-| `TotalRegularCount` | `public int TotalRegularCount { get; }` |
-| `IsReady` | `public bool IsReady { get; }` |
-| `IsArmyInGatheringState` | `public bool IsArmyInGatheringState { get; }` |
+## 如何获取 Army
+
+```csharp
+// 遍历所有活跃军团
+foreach (Army army in Army.Armies)
+{
+    if (army.Kingdom == Clan.PlayerClan.Kingdom)
+    {
+        // 玩家王国军团
+    }
+}
+
+// 从王国创建
+Kingdom myKingdom = Clan.PlayerClan.Kingdom;
+myKingdom.CreateArmy(myRuler, targetSettlement, Army.ArmyTypes.Besieger);
+```
+
+## 核心属性
+
+| 属性 | 说明 |
+|------|------|
+| `Armies` | 所有活跃军团。 |
+| `LeaderParty` | 军团长部队。 |
+| `ArmyOwner` | 军团长英雄。 |
+| `Kingdom` | 所属王国。 |
+| `ArmyType` | 军团类型：`Besieger`、`Raider`、`Defender`、`Patrolling` 等。 |
+| `Cohesion` | 凝聚力；过低会导致部队离队。 |
+| `Morale` | 士气。 |
+| `Name` | 军团名称。 |
 
 ## 主要方法
 
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
+### `public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
+召集部队到目标据点，开始军团行动。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.ToString();
+List<MobileParty> participants = ...;
+army.Gather(enemyTown, participants);
 ```
 
-### CalculateCurrentStrength
-`public float CalculateCurrentStrength()`
-
-**用途 / Purpose:** 计算「current strength」的当前值或结果。
+### `public void AddPartyToMergedParties(MobileParty mobileParty)`
+将一支部队加入军团。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.CalculateCurrentStrength();
+army.AddPartyToMergedParties(allyParty);
 ```
 
-### GetCustomStrength
-`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「custom strength」 的结果。
+### `public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
+判断某部队是否属于该军团。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.GetCustomStrength(side, context);
+bool isMember = army.DoesLeaderPartyAndAttachedPartiesContain(myParty);
 ```
 
-### UpdateName
-`public void UpdateName()`
-
-**用途 / Purpose:** 重新计算并更新 「name」 的最新表示。
+### `public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
+花费影响力提升凝聚力。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.UpdateName();
+army.BoostCohesionWithInfluence(10f, 50);
 ```
 
-### DoesLeaderPartyAndAttachedPartiesContain
-`public bool DoesLeaderPartyAndAttachedPartiesContain(MobileParty party)`
-
-**用途 / Purpose:** 返回「leader party and attached parties contain」对当前对象是否成立的布尔结果。
+### `public void RecalculateArmyMorale()`
+重新计算军团士气。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.DoesLeaderPartyAndAttachedPartiesContain(party);
-```
-
-### BoostCohesionWithInfluence
-`public void BoostCohesionWithInfluence(float cohesionToGain, int cost)`
-
-**用途 / Purpose:** 提升「cohesion with influence」的数值或强度。
-
-```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.BoostCohesionWithInfluence(0, 0);
-```
-
-### RecalculateArmyMorale
-`public void RecalculateArmyMorale()`
-
-**用途 / Purpose:** 重新计算「army morale」以反映最新状态。
-
-```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
 army.RecalculateArmyMorale();
 ```
 
-### GetNotificationText
-`public TextObject GetNotificationText()`
-
-**用途 / Purpose:** 读取并返回当前对象中 「notification text」 的结果。
+### `public void FinishArmyObjective()`
+完成目标并解散军团。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.GetNotificationText();
+if (army.ArmyObjective == ArmyObjective.BesiegeTown && targetTown.IsUnderSiege == false)
+{
+    army.FinishArmyObjective();
+}
 ```
 
-### GetLongTermBehaviorText
-`public TextObject GetLongTermBehaviorText(bool setWithLink = false)`
-
-**用途 / Purpose:** 读取并返回当前对象中 「long term behavior text」 的结果。
+### `public float CalculateCurrentStrength()` /
+`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
+计算军团当前/自定义场景战力。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.GetLongTermBehaviorText(false);
+float power = army.CalculateCurrentStrength();
 ```
 
-### Gather
-`public void Gather(Settlement initialHostileSettlement, MBReadOnlyList<MobileParty> partiesToCallToArmy = null)`
-
-**用途 / Purpose:** 收集或汇总当前对象相关的内容。
+### `public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
+获取某部队在军团阵型中的相对位置。
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.Gather(initialHostileSettlement, null);
+Vec2 pos = army.GetRelativePositionForParty(party, army.LeaderParty.Bearing);
 ```
 
-### IsWaitingForArmyMembers
-`public bool IsWaitingForArmyMembers()`
+## 典型用法示例
 
-**用途 / Purpose:** 判断当前对象是否处于 「waiting for army members」 状态或条件。
+### 示例 1：强制解散所有玩家王国军团
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.IsWaitingForArmyMembers();
+foreach (Army army in Army.Armies.ToList())
+{
+    if (army.Kingdom == Clan.PlayerClan.Kingdom)
+    {
+        army.FinishArmyObjective();
+    }
+}
 ```
 
-### FinishArmyObjective
-`public void FinishArmyObjective()`
-
-**用途 / Purpose:** 结束「army objective」流程并执行必要的收尾工作。
+### 示例 2：创建攻城军团
 
 ```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.FinishArmyObjective();
+Settlement target = Settlement.Find("town_A7");
+Kingdom kingdom = Clan.PlayerClan.Kingdom;
+kingdom.CreateArmy(Hero.MainHero, target, Army.ArmyTypes.Besieger);
 ```
 
-### GetRelativePositionForParty
-`public Vec2 GetRelativePositionForParty(MobileParty mobileParty, Vec2 armyFacing)`
+## 跨版本提示
 
-**用途 / Purpose:** 读取并返回当前对象中 「relative position for party」 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-var result = army.GetRelativePositionForParty(mobileParty, armyFacing);
-```
-
-### AddPartyToMergedParties
-`public void AddPartyToMergedParties(MobileParty mobileParty)`
-
-**用途 / Purpose:** 将 「party to merged parties」 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.AddPartyToMergedParties(mobileParty);
-```
-
-### SetPositionAfterMapChange
-`public void SetPositionAfterMapChange(CampaignVec2 newPosition)`
-
-**用途 / Purpose:** 为 「position after map change」 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.SetPositionAfterMapChange(newPosition);
-```
-
-### CheckPositionsForMapChangeAndUpdateIfNeeded
-`public void CheckPositionsForMapChangeAndUpdateIfNeeded()`
-
-**用途 / Purpose:** 检查「positions for map change and update if needed」在当前对象中是否成立。
-
-```csharp
-// 先通过子系统 API 拿到 Army 实例
-Army army = ...;
-army.CheckPositionsForMapChangeAndUpdateIfNeeded();
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Army army = ...;
-army.ToString();
-```
+- v1.3.0 / v1.3.15 / v1.4.5 军团 API 一致，核心就是 `Kingdom.CreateArmy`、`Gather`、`FinishArmyObjective`。
+- v1.4.5 新增了一些军团AI条件判断，但创建/解散流程没变。
 
 ## 参见
 
-- [本区域目录](../)
+- [Kingdom](../../campaign/Kingdom/) — 创建军团的王国
+- [MobileParty](../../campaign/MobileParty/) — 军团成员
+- [Settlement](../../campaign/Settlement/) — 军团目标据点
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — 监听军团事件

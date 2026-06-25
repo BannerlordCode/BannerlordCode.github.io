@@ -1,0 +1,42 @@
+---
+title: "NavigationPermissionItem"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `NavigationPermissionItem`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# NavigationPermissionItem
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public struct NavigationPermissionItem`
+**Base:** none
+**File:** `TaleWorlds.CampaignSystem/NavigationPermissionItem.cs`
+
+## Overview
+
+`NavigationPermissionItem` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `IsAuthorized` | `public bool IsAuthorized { get; }` |
+| `ReasonString` | `public TextObject ReasonString { get; }` |
+
+## Usage Example
+
+```csharp
+var value = new NavigationPermissionItem();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

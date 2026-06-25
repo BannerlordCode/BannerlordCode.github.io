@@ -1,0 +1,53 @@
+---
+title: "CampaignBattleResult"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `CampaignBattleResult`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# CampaignBattleResult
+
+**Namespace:** TaleWorlds.CampaignSystem.Encounters
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class CampaignBattleResult`
+**Area:** campaign-ext
+
+## Overview
+
+`CampaignBattleResult` lives in `TaleWorlds.CampaignSystem.Encounters`, and its public surface shows that it acts as a formal extension or data entry point for this subsystem.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.CampaignSystem.Encounters` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `PlayerVictory` | `public bool PlayerVictory { get; }` |
+| `PlayerDefeat` | `public bool PlayerDefeat { get; }` |
+| `EnemyPulledBack` | `public bool EnemyPulledBack { get; }` |
+| `EnemyRetreated` | `public bool EnemyRetreated { get; }` |
+| `BattleResolved` | `public bool BattleResolved { get; }` |
+
+## Key Methods
+
+### GetResult
+`public static CampaignBattleResult GetResult(BattleState winnerSide, bool enemyRetreated = false)`
+
+**Purpose:** Gets the current value of `result`.
+
+## Usage Example
+
+```csharp
+// Prepare the required context, then call the static entry point directly
+CampaignBattleResult.GetResult(winnerSide, false);
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)
+- [Area catalog](../catalog-campaign)

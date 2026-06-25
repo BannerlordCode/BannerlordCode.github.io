@@ -1,0 +1,47 @@
+---
+title: "MultiplayerBattleSpawnModel"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MultiplayerBattleSpawnModel`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# MultiplayerBattleSpawnModel
+
+**Namespace:** TaleWorlds.MountAndBlade
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MultiplayerBattleSpawnModel : BattleSpawnModel`
+**Base:** `BattleSpawnModel`
+**File:** `TaleWorlds.MountAndBlade/MultiplayerBattleSpawnModel.cs`
+
+## 概述
+
+`MultiplayerBattleSpawnModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+
+## 心智模型
+
+把 `MultiplayerBattleSpawnModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### GetInitialSpawnAssignments
+`public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 获取 `initial spawn assignments` 的当前值。
+
+### GetReinforcementAssignments
+`public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
+
+**用途 / Purpose:** 获取 `reinforcement assignments` 的当前值。
+
+## 使用示例
+
+```csharp
+Game.Current.ReplaceModel<MultiplayerBattleSpawnModel>(new MyMultiplayerBattleSpawnModel());
+```
+
+## 参见
+
+- [完整类目录](../catalog)

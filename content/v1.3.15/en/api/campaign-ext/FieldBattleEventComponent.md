@@ -1,0 +1,53 @@
+---
+title: "FieldBattleEventComponent"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `FieldBattleEventComponent`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# FieldBattleEventComponent
+
+**Namespace:** TaleWorlds.CampaignSystem.MapEvents
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class FieldBattleEventComponent : MapEventComponent`
+**Base:** `MapEventComponent`
+**File:** `TaleWorlds.CampaignSystem/MapEvents/FieldBattleEventComponent.cs`
+
+## Overview
+
+`FieldBattleEventComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+
+## Mental Model
+
+Treat `FieldBattleEventComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `SimulationContext` | `public override MapEvent.PowerCalculationContext SimulationContext { get; }` |
+
+## Key Methods
+
+### CreateFieldBattleEvent
+`public static FieldBattleEventComponent CreateFieldBattleEvent(PartyBase attackerParty, PartyBase defenderParty)`
+
+**Purpose:** Creates a new `field battle event` instance or object.
+
+### CreateComponentForOldSaves
+`public static FieldBattleEventComponent CreateComponentForOldSaves(MapEvent mapEvent)`
+
+**Purpose:** Creates a new `component for old saves` instance or object.
+
+## Usage Example
+
+```csharp
+var component = agent.GetComponent<FieldBattleEventComponent>();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

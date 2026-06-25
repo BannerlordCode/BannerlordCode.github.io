@@ -1,0 +1,45 @@
+---
+title: "BoolStateChangerWidget"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `BoolStateChangerWidget`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# BoolStateChangerWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class BoolStateChangerWidget : BrushWidget`
+**Base:** `BrushWidget`
+**File:** `TaleWorlds.MountAndBlade.GauntletUI.Widgets/BoolStateChangerWidget.cs`
+
+## Overview
+
+`BoolStateChangerWidget` is a Gauntlet UI widget — a UI element used in Gauntlet XML/.prefab or created in code. Subclass Widget to build custom UI elements; access instances via the widget tree.
+
+## Mental Model
+
+Treat `BoolStateChangerWidget` as a Widget-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `BooleanCheck` | `public bool BooleanCheck { get; set; }` |
+| `TrueState` | `public string TrueState { get; set; }` |
+| `FalseState` | `public string FalseState { get; set; }` |
+| `TargetWidget` | `public Widget TargetWidget { get; set; }` |
+| `IncludeChildren` | `public bool IncludeChildren { get; set; }` |
+
+## Usage Example
+
+```csharp
+var widget = new BoolStateChangerWidget(context);
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

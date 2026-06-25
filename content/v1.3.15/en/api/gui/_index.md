@@ -1,0 +1,21 @@
+---
+title: GUI / GUI 界面系统
+description: TaleWorlds.Gauntlet UI system / UI system
+---
+# GUI / GUI 界面系统
+
+## Mental Model
+
+Treat `GUI` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+
+v1.3.15 GUI module documentation.
+
+界面系统模块文档。
+
+## Files / 文件
+
+| File / 文件 | Description / 描述 |
+|------------|-------------------|
+| [GauntletMovie.md](./GauntletMovie) | UI movie class |
+| [GauntletSystem.md](./GauntletSystem) | UI system class |
+| [ScreenManager.md](./ScreenManager) | Screen manager |

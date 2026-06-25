@@ -1,0 +1,70 @@
+---
+title: "ObjectHeaderLoadData"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `ObjectHeaderLoadData`
+- [← 本领域 / 返回 save-system](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.3.15](../../)
+- [⭐ SDK 总览](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# ObjectHeaderLoadData
+
+**命名空间:** TaleWorlds.SaveSystem.Load
+**模块:** TaleWorlds.SaveSystem
+**类型:** `public class ObjectHeaderLoadData`
+**领域:** save-system
+
+## 概述
+
+`ObjectHeaderLoadData` 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。
+
+## 心智模型
+
+把 `ObjectHeaderLoadData` 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `Id` | `public int Id { get; }` |
+| `LoadedObject` | `public object LoadedObject { get; }` |
+| `Target` | `public object Target { get; }` |
+| `PropertyCount` | `public short PropertyCount { get; }` |
+| `ChildStructCount` | `public short ChildStructCount { get; }` |
+| `TypeDefinition` | `public TypeDefinition TypeDefinition { get; }` |
+| `Context` | `public LoadContext Context { get; }` |
+| `SaveId` | `public SaveId SaveId { get; }` |
+
+## 主要方法
+
+### InitialieReaders
+`public void InitialieReaders(SaveEntryFolder saveEntryFolder)`
+
+**用途 / Purpose:** 初始化 `ialie readers` 的状态、资源或绑定。
+
+### CreateObject
+`public void CreateObject()`
+
+**用途 / Purpose:** 创建一个 `object` 实例或对象。
+
+### AdvancedResolveObject
+`public void AdvancedResolveObject(MetaData metaData, ObjectLoadData objectLoadData)`
+
+**用途 / Purpose:** 处理 `advanced resolve object` 相关逻辑。
+
+### ResolveObject
+`public void ResolveObject()`
+
+**用途 / Purpose:** 处理 `resolve object` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var value = new ObjectHeaderLoadData();
+```
+
+## 参见
+
+- [完整类目录](../catalog)
+- [本领域目录](../catalog-save)

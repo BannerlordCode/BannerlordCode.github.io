@@ -1,0 +1,105 @@
+---
+title: "ArmyManagementCalculationModel"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `ArmyManagementCalculationModel`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.3.15](../../)
+- [⭐ SDK Overview](../../architecture/sdk-overview)
+<!-- END BREADCRUMB -->
+# ArmyManagementCalculationModel
+
+**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public abstract class ArmyManagementCalculationModel : MBGameModel<ArmyManagementCalculationModel>`
+**Base:** `MBGameModel<ArmyManagementCalculationModel>`
+**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/ArmyManagementCalculationModel.cs`
+
+## Overview
+
+`ArmyManagementCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+
+## Mental Model
+
+Treat `ArmyManagementCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `AIMobilePartySizeRatioToCallToArmy` | `public abstract float AIMobilePartySizeRatioToCallToArmy { get; }` |
+| `PlayerMobilePartySizeRatioToCallToArmy` | `public abstract float PlayerMobilePartySizeRatioToCallToArmy { get; }` |
+| `MinimumNeededFoodInDaysToCallToArmy` | `public abstract float MinimumNeededFoodInDaysToCallToArmy { get; }` |
+| `MaximumDistanceToCallToArmy` | `public abstract float MaximumDistanceToCallToArmy { get; }` |
+| `InfluenceValuePerGold` | `public abstract int InfluenceValuePerGold { get; }` |
+| `AverageCallToArmyCost` | `public abstract int AverageCallToArmyCost { get; }` |
+| `CohesionThresholdForDispersion` | `public abstract int CohesionThresholdForDispersion { get; }` |
+| `MaximumWaitTime` | `public abstract float MaximumWaitTime { get; }` |
+
+## Key Methods
+
+### CanPlayerCreateArmy
+`public abstract bool CanPlayerCreateArmy(out TextObject disabledReason)`
+
+**Purpose:** Checks whether the current object can `player create army`.
+
+### CalculatePartyInfluenceCost
+`public abstract int CalculatePartyInfluenceCost(MobileParty armyLeaderParty, MobileParty party)`
+
+**Purpose:** Handles logic related to `calculate party influence cost`.
+
+### DailyBeingAtArmyInfluenceAward
+`public abstract float DailyBeingAtArmyInfluenceAward(MobileParty armyMemberParty)`
+
+**Purpose:** Handles logic related to `daily being at army influence award`.
+
+### GetMobilePartiesToCallToArmy
+`public abstract List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)`
+
+**Purpose:** Gets the current value of `mobile parties to call to army`.
+
+### CalculateTotalInfluenceCost
+`public abstract int CalculateTotalInfluenceCost(Army army, float percentage)`
+
+**Purpose:** Handles logic related to `calculate total influence cost`.
+
+### GetPartySizeScore
+`public abstract float GetPartySizeScore(MobileParty party)`
+
+**Purpose:** Gets the current value of `party size score`.
+
+### CheckPartyEligibility
+`public abstract bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
+
+**Purpose:** Handles logic related to `check party eligibility`.
+
+### GetPartyRelation
+`public abstract int GetPartyRelation(Hero hero)`
+
+**Purpose:** Gets the current value of `party relation`.
+
+### CalculateDailyCohesionChange
+`public abstract ExplainedNumber CalculateDailyCohesionChange(Army army, bool includeDescriptions = false)`
+
+**Purpose:** Handles logic related to `calculate daily cohesion change`.
+
+### CalculateNewCohesion
+`public abstract int CalculateNewCohesion(Army army, PartyBase newParty, int calculatedCohesion, int sign)`
+
+**Purpose:** Handles logic related to `calculate new cohesion`.
+
+### GetCohesionBoostInfluenceCost
+`public abstract int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
+
+**Purpose:** Gets the current value of `cohesion boost influence cost`.
+
+## Usage Example
+
+```csharp
+var implementation = new CustomArmyManagementCalculationModel();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

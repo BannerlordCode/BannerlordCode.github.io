@@ -1,0 +1,42 @@
+---
+title: "MultiplayerAdminMessageItemWidget"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `MultiplayerAdminMessageItemWidget`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# MultiplayerAdminMessageItemWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class MultiplayerAdminMessageItemWidget : Widget`
+**Base:** `Widget`
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.AdminMessage/MultiplayerAdminMessageItemWidget.cs`
+
+## 概述
+
+`MultiplayerAdminMessageItemWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
+
+## 心智模型
+
+把 `MultiplayerAdminMessageItemWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要方法
+
+### Remove
+`public void Remove()`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `remove`。
+
+## 使用示例
+
+```csharp
+var widget = new MultiplayerAdminMessageItemWidget(context);
+```
+
+## 参见
+
+- [完整类目录](../catalog)

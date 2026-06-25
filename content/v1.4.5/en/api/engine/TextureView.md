@@ -1,0 +1,47 @@
+---
+title: "TextureView"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `TextureView`
+- [← Area / Back to engine](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# TextureView
+
+**Namespace:** TaleWorlds.Engine
+**Module:** TaleWorlds.Engine
+**Type:** `public sealed class TextureView : View`
+**Base:** `View`
+**File:** `Bannerlord.Source/bin/TaleWorlds.Engine/TaleWorlds.Engine/TextureView.cs`
+
+## Overview
+
+`TextureView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `TextureView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Methods
+
+### CreateTextureView
+`public static TextureView CreateTextureView()`
+
+**Purpose:** Creates a new `texture view` instance or object.
+
+### SetTexture
+`public void SetTexture(Texture texture)`
+
+**Purpose:** Sets the value or state of `texture`.
+
+## Usage Example
+
+```csharp
+var view = new TextureView();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

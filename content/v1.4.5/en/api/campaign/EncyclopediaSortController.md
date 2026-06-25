@@ -1,0 +1,42 @@
+---
+title: "EncyclopediaSortController"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `EncyclopediaSortController`
+- [← Area / Back to campaign](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# EncyclopediaSortController
+
+**Namespace:** TaleWorlds.CampaignSystem.Encyclopedia
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class EncyclopediaSortController`
+**Base:** none
+**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Encyclopedia/EncyclopediaSortController.cs`
+
+## Overview
+
+`EncyclopediaSortController` is a controller whose job is less about storing data and more about driving the subsystem into its next state after receiving input.
+
+## Mental Model
+
+Treat `EncyclopediaSortController` as a Controller-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `Name` | `public TextObject Name { get; }` |
+| `Comparer` | `public EncyclopediaListItemComparerBase Comparer { get; }` |
+
+## Usage Example
+
+```csharp
+var controller = Mission.Current.GetMissionBehavior<EncyclopediaSortController>();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

@@ -1,0 +1,51 @@
+---
+title: "OrderSiegeMachineItemButtonWidget"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `OrderSiegeMachineItemButtonWidget`
+- [← 本领域 / 返回 mission-ext](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# OrderSiegeMachineItemButtonWidget
+
+**Namespace:** TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class OrderSiegeMachineItemButtonWidget`
+**Base:** 无
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade.GauntletUI.Widgets/TaleWorlds.MountAndBlade.GauntletUI.Widgets.Order/OrderSiegeMachineItemButtonWidget.cs`
+
+## 概述
+
+`OrderSiegeMachineItemButtonWidget` 是一个 Gauntlet UI 控件——在 Gauntlet XML/.prefab 中使用或代码创建的 UI 元素。继承 Widget 可构建自定义控件；实例经控件树访问。
+
+## 心智模型
+
+把 `OrderSiegeMachineItemButtonWidget` 当作一个 Widget 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+
+## 主要属性
+
+| Name | Signature |
+|------|-----------|
+| `RemainingCount` | `public int RemainingCount { get; set; }` |
+| `RemainingCountWidget` | `public TextWidget RemainingCountWidget { get; set; }` |
+| `MachineClass` | `public string MachineClass { get; set; }` |
+| `MachineIconWidget` | `public Widget MachineIconWidget { get; set; }` |
+
+## 主要方法
+
+### OrderSiegeMachineItemButtonWidget
+`public class OrderSiegeMachineItemButtonWidget(UIContext context)`
+
+**用途 / Purpose:** 处理 `order siege machine item button widget` 相关逻辑。
+
+## 使用示例
+
+```csharp
+var widget = new OrderSiegeMachineItemButtonWidget(context);
+```
+
+## 参见
+
+- [完整类目录](../catalog)

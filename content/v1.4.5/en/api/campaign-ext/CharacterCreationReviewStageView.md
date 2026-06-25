@@ -1,0 +1,83 @@
+---
+title: "CharacterCreationReviewStageView"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `CharacterCreationReviewStageView`
+- [← Area / Back to campaign-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# CharacterCreationReviewStageView
+
+**Namespace:** SandBox.GauntletUI.CharacterCreation
+**Module:** SandBox.GauntletUI
+**Type:** `public class CharacterCreationReviewStageView : CharacterCreationStageViewBase`
+**Base:** `CharacterCreationStageViewBase`
+**File:** `Bannerlord.Source/Modules.SandBox/SandBox.GauntletUI/SandBox.GauntletUI.CharacterCreation/CharacterCreationReviewStageView.cs`
+
+## Overview
+
+`CharacterCreationReviewStageView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+
+## Mental Model
+
+Treat `CharacterCreationReviewStageView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+
+## Key Properties
+
+| Name | Signature |
+|------|-----------|
+| `CharacterLayer` | `public SceneLayer CharacterLayer { get; }` |
+
+## Key Methods
+
+### SetGenericScene
+`public override void SetGenericScene(Scene scene)`
+
+**Purpose:** Sets the value or state of `generic scene`.
+
+### Tick
+`public override void Tick(float dt)`
+
+**Purpose:** Handles logic related to `tick`.
+
+### NextStage
+`public override void NextStage()`
+
+**Purpose:** Handles logic related to `next stage`.
+
+### GetVirtualStageCount
+`public override int GetVirtualStageCount()`
+
+**Purpose:** Gets the current value of `virtual stage count`.
+
+### PreviousStage
+`public override void PreviousStage()`
+
+**Purpose:** Handles logic related to `previous stage`.
+
+### GetLayers
+`public override IEnumerable<ScreenLayer> GetLayers()`
+
+**Purpose:** Gets the current value of `layers`.
+
+### LoadEscapeMenuMovie
+`public override void LoadEscapeMenuMovie()`
+
+**Purpose:** Loads `escape menu movie` data.
+
+### ReleaseEscapeMenuMovie
+`public override void ReleaseEscapeMenuMovie()`
+
+**Purpose:** Handles logic related to `release escape menu movie`.
+
+## Usage Example
+
+```csharp
+var view = new CharacterCreationReviewStageView();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

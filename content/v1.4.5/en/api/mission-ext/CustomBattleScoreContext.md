@@ -1,0 +1,48 @@
+---
+title: "CustomBattleScoreContext"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `CustomBattleScoreContext`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# CustomBattleScoreContext
+
+**Namespace:** TaleWorlds.MountAndBlade.Missions.BattleScore
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class CustomBattleScoreContext : BattleScoreContext`
+**Base:** `BattleScoreContext`
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions.BattleScore/CustomBattleScoreContext.cs`
+
+## Overview
+
+`CustomBattleScoreContext` lives in `TaleWorlds.MountAndBlade.Missions.BattleScore` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Missions.BattleScore` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Key Methods
+
+### GetAttackerBanner
+`public override Banner GetAttackerBanner()`
+
+**Purpose:** Gets the current value of `attacker banner`.
+
+### GetDefenderBanner
+`public override Banner GetDefenderBanner()`
+
+**Purpose:** Gets the current value of `defender banner`.
+
+## Usage Example
+
+```csharp
+var value = new CustomBattleScoreContext();
+value.GetAttackerBanner();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

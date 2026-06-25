@@ -1,0 +1,35 @@
+---
+title: "AgentReadOnlyList"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `AgentReadOnlyList`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# AgentReadOnlyList
+
+**Namespace:** TaleWorlds.MountAndBlade.Missions
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `public class AgentReadOnlyList : MBReadOnlyList<Agent>`
+**Base:** `MBReadOnlyList<Agent>`
+**File:** `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Missions/AgentReadOnlyList.cs`
+
+## Overview
+
+`AgentReadOnlyList` lives in `TaleWorlds.MountAndBlade.Missions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.Missions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+var example = new AgentReadOnlyList();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

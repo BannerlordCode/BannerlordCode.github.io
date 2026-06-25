@@ -1,0 +1,35 @@
+---
+title: "CustomBattlePlayerSide"
+---
+<!-- BEGIN BREADCRUMB -->
+**Home** → **API Index** → **Area** → `CustomBattlePlayerSide`
+- [← Area / Back to mission-ext](./)
+- [↑ API Index](../)
+- [🏠 Home v1.4.5](../../)
+- [⭐ Version Architecture](../../architecture/)
+<!-- END BREADCRUMB -->
+# CustomBattlePlayerSide
+
+**Namespace:** TaleWorlds.MountAndBlade.CustomBattle.CustomBattle
+**Module:** TaleWorlds.MountAndBlade
+**Type:** `class`
+**Base:** none
+**File:** `Bannerlord.Source/Modules.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle/TaleWorlds.MountAndBlade.CustomBattle.CustomBattle/CustomBattlePlayerSide.cs`
+
+## Overview
+
+`CustomBattlePlayerSide` lives in `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+
+## Mental Model
+
+Start from namespace `TaleWorlds.MountAndBlade.CustomBattle.CustomBattle` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+
+## Usage Example
+
+```csharp
+var value = new CustomBattlePlayerSide();
+```
+
+## See Also
+
+- [Complete Class Catalog](../catalog)

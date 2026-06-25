@@ -1,0 +1,97 @@
+---
+title: "RandomOwnerExtensions"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `RandomOwnerExtensions`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# RandomOwnerExtensions
+
+**Namespace:** TaleWorlds.CampaignSystem
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class RandomOwnerExtensions`
+**Base:** 无
+**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/RandomOwnerExtensions.cs`
+
+## 概述
+
+`RandomOwnerExtensions` 位于 `TaleWorlds.CampaignSystem`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要方法
+
+### RandomIntWithSeed
+`public static int RandomIntWithSeed(this IRandomOwner obj, uint seed)`
+
+**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+
+### RandomIntWithSeed
+`public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int max)`
+
+**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+
+### RandomIntWithSeed
+`public static int RandomIntWithSeed(this IRandomOwner obj, uint seed, int min, int max)`
+
+**用途 / Purpose:** 处理 `random int with seed` 相关逻辑。
+
+### RandomFloatWithSeed
+`public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed)`
+
+**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+
+### RandomFloatWithSeed
+`public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float max)`
+
+**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+
+### RandomFloatWithSeed
+`public static float RandomFloatWithSeed(this IRandomOwner obj, uint seed, float min, float max)`
+
+**用途 / Purpose:** 处理 `random float with seed` 相关逻辑。
+
+### RandomInt
+`public static int RandomInt(this IRandomOwner obj)`
+
+**用途 / Purpose:** 处理 `random int` 相关逻辑。
+
+### RandomInt
+`public static int RandomInt(this IRandomOwner obj, int max)`
+
+**用途 / Purpose:** 处理 `random int` 相关逻辑。
+
+### RandomInt
+`public static int RandomInt(this IRandomOwner obj, int min, int max)`
+
+**用途 / Purpose:** 处理 `random int` 相关逻辑。
+
+### RandomFloat
+`public static float RandomFloat(this IRandomOwner obj)`
+
+**用途 / Purpose:** 处理 `random float` 相关逻辑。
+
+### RandomFloat
+`public static float RandomFloat(this IRandomOwner obj, float max)`
+
+**用途 / Purpose:** 处理 `random float` 相关逻辑。
+
+### RandomFloat
+`public static float RandomFloat(this IRandomOwner obj, float min, float max)`
+
+**用途 / Purpose:** 处理 `random float` 相关逻辑。
+
+## 使用示例
+
+```csharp
+RandomOwnerExtensions.RandomIntWithSeed(obj, 0);
+```
+
+## 参见
+
+- [完整类目录](../catalog)

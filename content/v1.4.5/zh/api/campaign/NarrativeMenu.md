@@ -1,0 +1,53 @@
+---
+title: "NarrativeMenu"
+---
+<!-- BEGIN BREADCRUMB -->
+**首页** → **API 目录** → **本领域** → `NarrativeMenu`
+- [← 本领域 / 返回 campaign](./)
+- [↑ API 目录](../)
+- [🏠 首页 v1.4.5](../../)
+- [⭐ 版本架构](../../architecture/)
+<!-- END BREADCRUMB -->
+# NarrativeMenu
+
+**Namespace:** TaleWorlds.CampaignSystem.CharacterCreationContent
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class NarrativeMenu`
+**Base:** 无
+**File:** `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CharacterCreationContent/NarrativeMenu.cs`
+
+## 概述
+
+`NarrativeMenu` 位于 `TaleWorlds.CampaignSystem.CharacterCreationContent`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+
+## 心智模型
+
+先从命名空间 `TaleWorlds.CampaignSystem.CharacterCreationContent` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+
+## 主要方法
+
+### GetNarrativeMenuCharacterArgsDelegate
+`public delegate List<NarrativeMenuCharacterArgs> GetNarrativeMenuCharacterArgsDelegate(CultureObject culture, string occupationType, CharacterCreationManager characterCreationManager)`
+
+**用途 / Purpose:** 获取 `narrative menu character args delegate` 的当前值。
+
+### AddNarrativeMenuOption
+`public void AddNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
+
+**用途 / Purpose:** 向当前集合/状态中添加 `narrative menu option`。
+
+### RemoveNarrativeMenuOption
+`public void RemoveNarrativeMenuOption(NarrativeMenuOption narrativeMenuOption)`
+
+**用途 / Purpose:** 从当前集合/状态中移除 `narrative menu option`。
+
+## 使用示例
+
+```csharp
+var value = new NarrativeMenu();
+value.GetNarrativeMenuCharacterArgsDelegate(culture, "example", characterCreationManager);
+```
+
+## 参见
+
+- [完整类目录](../catalog)

@@ -5,3 +5,8 @@ Thumbs.db
 .omo/
 .zola/
 
+.playwright-mcp/
+.vitepress/
+tmp/
+.sisyphus/
+.omo/

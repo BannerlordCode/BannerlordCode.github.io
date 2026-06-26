@@ -1,5 +1,10 @@
+{# Tree-structured sidebar for the Bannerlord Modding Wiki.
+   Reads data/section-tree.json (fast JSON) instead of get_section() to keep
+   the Zola build times acceptable with 35k+ pages.
+#}
 {%- macro render_nav(current_url, lang) -%}
   {%- set nav = load_data(path="data/navigation.json") -%}
+  {%- set tree = load_data(path="data/section-tree.json") -%}
 
   {%- set_global mapped_url = "/" -%}
   {%- set_global matched_len = 1 -%}
@@ -60,17 +65,89 @@
                 {%- endif -%}
               {%- endfor -%}
 
-              {%- if sub_routes | length > 0 -%}
+              {%- set sec_title = node.label[lang] -%}
+              {%- set sec_pages = 0 -%}
+              {%- set sec_subs = [] -%}
+              {%- if tree.byRoute[route_key] is defined -%}
+                {%- set sec = tree.byRoute[route_key] -%}
+                {%- if sec.title is defined -%}{%- set sec_title = sec.title -%}{%- endif -%}
+                {%- if sec.pages is defined -%}{%- set sec_pages = sec.pages -%}{%- endif -%}
+                {%- if sec.subsections is defined -%}{%- set sec_subs = sec.subsections -%}{%- endif -%}
+              {%- endif -%}
+              {%- set has_children = sub_routes | length > 0 or sec_subs | length > 0 or sec_pages > 0 -%}
+
+              {%- if has_children -%}
                 {%- set sub_open = not node.collapsed or (mapped_url is starting_with(route_key)) -%}
                 <details class="group" {% if sub_open %}open{% endif %}>
                   <summary>{{ node.label[lang] }}</summary>
                   <div class="group-items">
                     <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">
-                      {%- if lang == 'zh' %}概述{% else %}Index{% endif -%}
+                      {%- if lang == 'zh' %}目录{% else %}Index{% endif -%}
                     </a>
+                    {%- if sec_pages > 0 -%}
+                      <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">
+                        {%- if lang == 'zh' %}全部 {{ sec_pages }} 个页面{% else %}All {{ sec_pages }} pages{% endif -%}
+                      </a>
+                    {%- endif -%}
                     {%- for child_key in sub_routes -%}
                       {%- set child = nav.routes[child_key] -%}
                       <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child.label[lang] }}</a>
+                    {%- endfor -%}
+
+                    {%- for sub_key in sec_subs -%}
+                      {%- set sub_title = sub_key -%}
+                      {%- set sub_pages = 0 -%}
+                      {%- set sub_subs = [] -%}
+                      {%- if tree.byRoute[sub_key] is defined -%}
+                        {%- set sub_sec = tree.byRoute[sub_key] -%}
+                        {%- if sub_sec.title is defined -%}{%- set sub_title = sub_sec.title -%}{%- endif -%}
+                        {%- if sub_sec.pages is defined -%}{%- set sub_pages = sub_sec.pages -%}{%- endif -%}
+                        {%- if sub_sec.subsections is defined -%}{%- set sub_subs = sub_sec.subsections -%}{%- endif -%}
+                      {%- endif -%}
+                      <details class="group" {% if mapped_url is starting_with(sub_key) %}open{% endif %}>
+                        <summary>{{ sub_title }}</summary>
+                        <div class="group-items">
+                          <a href="{{ sub_key | safe }}">
+                            {%- if lang == 'zh' %}目录{% else %}Index{% endif -%}
+                          </a>
+                          {%- if sub_pages > 0 -%}
+                            <a href="{{ sub_key | safe }}">
+                              {%- if lang == 'zh' %}全部 {{ sub_pages }} 个页面{% else %}All {{ sub_pages }} pages{% endif -%}
+                            </a>
+                          {%- endif -%}
+                          {%- for sub2_key in sub_subs -%}
+                            {%- set sub2_title = sub2_key -%}
+                            {%- set sub2_pages = 0 -%}
+                            {%- set sub2_subs = [] -%}
+                            {%- if tree.byRoute[sub2_key] is defined -%}
+                              {%- set sub2_sec = tree.byRoute[sub2_key] -%}
+                              {%- if sub2_sec.title is defined -%}{%- set sub2_title = sub2_sec.title -%}{%- endif -%}
+                              {%- if sub2_sec.pages is defined -%}{%- set sub2_pages = sub2_sec.pages -%}{%- endif -%}
+                              {%- if sub2_sec.subsections is defined -%}{%- set sub2_subs = sub2_sec.subsections -%}{%- endif -%}
+                            {%- endif -%}
+                            <details class="group" {% if mapped_url is starting_with(sub2_key) %}open{% endif %}>
+                              <summary>{{ sub2_title }}</summary>
+                              <div class="group-items">
+                                <a href="{{ sub2_key | safe }}">
+                                  {%- if lang == 'zh' %}目录{% else %}Index{% endif -%}
+                                </a>
+                                {%- if sub2_pages > 0 -%}
+                                  <a href="{{ sub2_key | safe }}">
+                                    {%- if lang == 'zh' %}全部 {{ sub2_pages }} 个页面{% else %}All {{ sub2_pages }} pages{% endif -%}
+                                  </a>
+                                {%- endif -%}
+                                {%- for sub3_key in sub2_subs -%}
+                                  {%- set sub3_title = sub3_key -%}
+                                  {%- if tree.byRoute[sub3_key] is defined and tree.byRoute[sub3_key].title is defined -%}
+                                    {%- set sub3_title = tree.byRoute[sub3_key].title -%}
+                                  {%- endif -%}
+                                  <a href="{{ sub3_key | safe }}">{{ sub3_title }}</a>
+                                {%- endfor -%}
+                              </div>
+                            </details>
+                          {%- endfor -%}
+                        </div>
+                      </details>
                     {%- endfor -%}
                   </div>
                 </details>

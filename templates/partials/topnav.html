@@ -1,10 +1,22 @@
 {%- set nav = load_data(path="data/navigation.json") -%}
+{%- set alt_map = load_data(path="data/relkey_map.json") -%}
 {%- set current_url = page.path | default(value=section.path) | default(value="/") -%}
 {%- set path_parts = current_url | split(pat="/") -%}
 {%- set current_version = path_parts | nth(n=1) | default(value="") -%}
 {%- if not (nav.meta.versions is containing(current_version)) -%}
   {%- set current_version = "v1.3.15" -%}
 {%- endif -%}
+{%- set current_lang = path_parts | nth(n=2) | default(value=lang) -%}
+{%- if not (nav.meta.languages is containing(current_lang)) -%}
+  {%- set current_lang = lang -%}
+{%- endif -%}
+{%- set version_lang_prefix = '/' ~ current_version ~ '/' ~ current_lang ~ '/' -%}
+{%- if current_url is starting_with(version_lang_prefix) -%}
+  {%- set current_relkey = current_url | replace(from=version_lang_prefix, to='') | trim_start_matches(pat='/') -%}
+{%- else -%}
+  {%- set current_relkey = '' -%}
+{%- endif -%}
+{%- set item = page | default(value=section) -%}
 
 <nav class="top-nav">
   <a class="brand" href="{{ get_url(path='@/_index.md') }}">
@@ -118,12 +130,16 @@
         {%- for version in nav.meta.versions %}
           {%- for lang_code in nav.meta.languages %}
             {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
-            {%- if nav.routes[route_key] is defined %}
-              <a href="{{ get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/_index.md') }}"
-                 class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
-                {{ nav.routes[route_key].label[lang] | default(value=version ~ ' ' ~ lang_code) }}
-              </a>
-            {%- endif %}
+            {%- set target_rel = alt_map[current_relkey] -%}
+            {%- if target_rel and target_rel[version] and target_rel[version][lang_code] -%}
+              {%- set target_url = target_rel[version][lang_code] -%}
+            {%- else -%}
+              {%- set target_url = get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/_index.md') -%}
+            {%- endif -%}
+            <a href="{{ target_url | safe }}"
+               class="{%- if current_url is starting_with(route_key) %}active{% endif %}">
+              {{ nav.routes[route_key].label[lang] | default(value=version ~ ' ' ~ lang_code) }}
+            </a>
           {%- endfor %}
         {%- endfor %}
       </div>
@@ -132,13 +148,12 @@
     <details class="dropdown">
       <summary>语言 Language</summary>
       <div class="dropdown-menu">
-        {%- for lang_code in nav.meta.languages %}
-          {%- set route_key = "/" ~ current_version ~ "/" ~ lang_code ~ "/" -%}
-          <a href="{{ get_url(path='@/' ~ current_version ~ '/' ~ lang_code ~ '/_index.md') }}"
-             class="{%- if current_url is starting_with(route_key) or lang == lang_code %}active{% endif %}">
-            {% if lang_code == 'zh' %}中文{% else %}English{% endif %}
+        {% for tr in item.translations %}
+          <a href="{{ tr.permalink }}"
+             class="{% if tr.lang == current_lang %}active{% endif %}">
+            {% if tr.lang == 'zh' %}中文{% else %}English{% endif %}
           </a>
-        {%- endfor %}
+        {% endfor %}
       </div>
     </details>
   </div>

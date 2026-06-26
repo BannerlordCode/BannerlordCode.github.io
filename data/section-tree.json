@@ -1,77 +1,37 @@
 {
   "sections": {},
   "byRoute": {
-    "/v1.3.0/en/api/campaign/": {
-      "title": "campaign index",
+    "/": {
+      "title": "Bannerlord Modding Wiki",
       "weight": null,
       "pages": 0,
-      "subsections": []
+      "subsections": [
+        "/v1.3.0/",
+        "/v1.3.15/",
+        "/v1.4.5/",
+        "/versions/"
+      ]
     },
-    "/v1.3.0/en/api/campaign-ext/": {
-      "title": "campaign-ext index",
+    "/v1.3.0/": {
+      "title": "Bannerlord v1.3.0 文档 / Bannerlord v1.3.0 Documentation",
       "weight": null,
       "pages": 0,
-      "subsections": []
+      "subsections": [
+        "/v1.3.0/en/",
+        "/v1.3.0/zh/"
+      ]
     },
-    "/v1.3.0/en/api/core/": {
-      "title": "core index",
+    "/v1.3.0/en/": {
+      "title": "Bannerlord v1.3.0 Documentation / Bannerlord v1.3.0 Documentation",
       "weight": null,
       "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/core-extra/": {
-      "title": "core-extra index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/engine/": {
-      "title": "engine index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/gameplay/": {
-      "title": "stub",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/gui/": {
-      "title": "gui index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/localization/": {
-      "title": "localization index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/mission/": {
-      "title": "mission index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/mission-ext/": {
-      "title": "mission-ext index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/system/": {
-      "title": "system index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/en/api/viewmodel/": {
-      "title": "viewmodel index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
+      "subsections": [
+        "/v1.3.0/en/api/",
+        "/v1.3.0/en/architecture/",
+        "/v1.3.0/en/guide/",
+        "/v1.3.0/en/native/",
+        "/v1.3.0/en/xml-reference/"
+      ]
     },
     "/v1.3.0/en/api/": {
       "title": "API Reference",
@@ -92,16 +52,88 @@
         "/v1.3.0/en/api/viewmodel/"
       ]
     },
+    "/v1.3.0/en/api/campaign/": {
+      "title": "campaign index",
+      "weight": null,
+      "pages": 1355,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/": {
+      "title": "campaign-ext index",
+      "weight": null,
+      "pages": 1216,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core/": {
+      "title": "core index",
+      "weight": null,
+      "pages": 2,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/": {
+      "title": "core-extra index",
+      "weight": null,
+      "pages": 520,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/engine/": {
+      "title": "engine index",
+      "weight": null,
+      "pages": 204,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gameplay/": {
+      "title": "stub",
+      "weight": null,
+      "pages": 15,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/": {
+      "title": "gui index",
+      "weight": null,
+      "pages": 181,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/localization/": {
+      "title": "localization index",
+      "weight": null,
+      "pages": 54,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission/": {
+      "title": "mission index",
+      "weight": null,
+      "pages": 52,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/": {
+      "title": "mission-ext index",
+      "weight": null,
+      "pages": 1103,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/system/": {
+      "title": "system index",
+      "weight": null,
+      "pages": 45,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/": {
+      "title": "viewmodel index",
+      "weight": null,
+      "pages": 433,
+      "subsections": []
+    },
     "/v1.3.0/en/architecture/": {
       "title": "Architecture (v1.3.0)",
       "weight": null,
-      "pages": 0,
+      "pages": 1,
       "subsections": []
     },
     "/v1.3.0/en/guide/": {
       "title": "Getting Started Guide",
       "weight": null,
-      "pages": 0,
+      "pages": 5,
       "subsections": []
     },
     "/v1.3.0/en/native/": {
@@ -116,89 +148,17 @@
       "pages": 0,
       "subsections": []
     },
-    "/v1.3.0/en/": {
-      "title": "Bannerlord v1.3.0 Documentation / Bannerlord v1.3.0 Documentation",
+    "/v1.3.0/zh/": {
+      "title": "Bannerlord v1.3.0 文档 / Bannerlord v1.3.0 Documentation",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.3.0/en/api/",
-        "/v1.3.0/en/architecture/",
-        "/v1.3.0/en/guide/",
-        "/v1.3.0/en/native/",
-        "/v1.3.0/en/xml-reference/"
+        "/v1.3.0/zh/api/",
+        "/v1.3.0/zh/architecture/",
+        "/v1.3.0/zh/guide/",
+        "/v1.3.0/zh/native/",
+        "/v1.3.0/zh/xml-reference/"
       ]
-    },
-    "/v1.3.0/zh/api/campaign/": {
-      "title": "campaign 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/campaign-ext/": {
-      "title": "campaign-ext 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/core/": {
-      "title": "core 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/core-extra/": {
-      "title": "core-extra 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/engine/": {
-      "title": "engine 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/gameplay/": {
-      "title": "stub",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/gui/": {
-      "title": "gui 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/localization/": {
-      "title": "localization 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/mission/": {
-      "title": "mission 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/mission-ext/": {
-      "title": "mission-ext 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/system/": {
-      "title": "system 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.0/zh/api/viewmodel/": {
-      "title": "viewmodel 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
     },
     "/v1.3.0/zh/api/": {
       "title": "API 参考",
@@ -219,16 +179,88 @@
         "/v1.3.0/zh/api/viewmodel/"
       ]
     },
+    "/v1.3.0/zh/api/campaign/": {
+      "title": "campaign 目录",
+      "weight": null,
+      "pages": 1355,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/": {
+      "title": "campaign-ext 目录",
+      "weight": null,
+      "pages": 1216,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core/": {
+      "title": "core 目录",
+      "weight": null,
+      "pages": 2,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/": {
+      "title": "core-extra 目录",
+      "weight": null,
+      "pages": 520,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/engine/": {
+      "title": "engine 目录",
+      "weight": null,
+      "pages": 204,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gameplay/": {
+      "title": "stub",
+      "weight": null,
+      "pages": 15,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/": {
+      "title": "gui 目录",
+      "weight": null,
+      "pages": 181,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/localization/": {
+      "title": "localization 目录",
+      "weight": null,
+      "pages": 54,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission/": {
+      "title": "mission 目录",
+      "weight": null,
+      "pages": 52,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/": {
+      "title": "mission-ext 目录",
+      "weight": null,
+      "pages": 1103,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/system/": {
+      "title": "system 目录",
+      "weight": null,
+      "pages": 45,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/": {
+      "title": "viewmodel 目录",
+      "weight": null,
+      "pages": 433,
+      "subsections": []
+    },
     "/v1.3.0/zh/architecture/": {
       "title": "架构 / Architecture (v1.3.0)",
       "weight": null,
-      "pages": 0,
+      "pages": 1,
       "subsections": []
     },
     "/v1.3.0/zh/guide/": {
       "title": "入门指南 / Getting Started Guide",
       "weight": null,
-      "pages": 0,
+      "pages": 5,
       "subsections": []
     },
     "/v1.3.0/zh/native/": {
@@ -243,98 +275,27 @@
       "pages": 0,
       "subsections": []
     },
-    "/v1.3.0/zh/": {
-      "title": "Bannerlord v1.3.0 文档 / Bannerlord v1.3.0 Documentation",
+    "/v1.3.15/": {
+      "title": "Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.3.0/zh/api/",
-        "/v1.3.0/zh/architecture/",
-        "/v1.3.0/zh/guide/",
-        "/v1.3.0/zh/native/",
-        "/v1.3.0/zh/xml-reference/"
+        "/v1.3.15/en/",
+        "/v1.3.15/zh/"
       ]
     },
-    "/v1.3.0/": {
-      "title": "Bannerlord v1.3.0 文档 / Bannerlord v1.3.0 Documentation",
+    "/v1.3.15/en/": {
+      "title": "Bannerlord v1.3.15 Documentation / Bannerlord v1.3.15 Documentation",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.3.0/en/",
-        "/v1.3.0/zh/"
+        "/v1.3.15/en/api/",
+        "/v1.3.15/en/architecture/",
+        "/v1.3.15/en/guide/",
+        "/v1.3.15/en/native-1.3.15-src/",
+        "/v1.3.15/en/native/",
+        "/v1.3.15/en/xml-reference/"
       ]
-    },
-    "/v1.3.15/en/api/campaign/": {
-      "title": "campaign index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/campaign-ext/": {
-      "title": "campaign-ext index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/core/": {
-      "title": "core index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/core-extra/": {
-      "title": "core-extra index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/engine/": {
-      "title": "engine index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/gui/": {
-      "title": "gui index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/localization/": {
-      "title": "localization index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/mission/": {
-      "title": "mission index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/mission-ext/": {
-      "title": "mission-ext index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/save-system/": {
-      "title": "save-system index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/system/": {
-      "title": "system index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/en/api/viewmodel/": {
-      "title": "viewmodel index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
     },
     "/v1.3.15/en/api/": {
       "title": "API Reference",
@@ -355,120 +316,120 @@
         "/v1.3.15/en/api/viewmodel/"
       ]
     },
+    "/v1.3.15/en/api/campaign/": {
+      "title": "campaign index",
+      "weight": null,
+      "pages": 50,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/": {
+      "title": "campaign-ext index",
+      "weight": null,
+      "pages": 2834,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/core/": {
+      "title": "core index",
+      "weight": null,
+      "pages": 3,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/core-extra/": {
+      "title": "core-extra index",
+      "weight": null,
+      "pages": 527,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/engine/": {
+      "title": "engine index",
+      "weight": null,
+      "pages": 204,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/gui/": {
+      "title": "gui index",
+      "weight": null,
+      "pages": 56,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/localization/": {
+      "title": "localization index",
+      "weight": null,
+      "pages": 52,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/mission/": {
+      "title": "mission index",
+      "weight": null,
+      "pages": 58,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/mission-ext/": {
+      "title": "mission-ext index",
+      "weight": null,
+      "pages": 1633,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/save-system/": {
+      "title": "save-system index",
+      "weight": null,
+      "pages": 108,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/system/": {
+      "title": "system index",
+      "weight": null,
+      "pages": 25,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/viewmodel/": {
+      "title": "viewmodel index",
+      "weight": null,
+      "pages": 42,
+      "subsections": []
+    },
     "/v1.3.15/en/architecture/": {
       "title": "Architecture",
       "weight": null,
-      "pages": 0,
+      "pages": 4,
       "subsections": []
     },
     "/v1.3.15/en/guide/": {
       "title": "Getting Started Guide",
       "weight": null,
-      "pages": 0,
+      "pages": 9,
       "subsections": []
     },
     "/v1.3.15/en/native/": {
       "title": "Native Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 7,
       "subsections": []
     },
     "/v1.3.15/en/native-1.3.15-src/": {
       "title": "Native 1.3.15 Source Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 12,
       "subsections": []
     },
     "/v1.3.15/en/xml-reference/": {
       "title": "XML Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 1,
       "subsections": []
     },
-    "/v1.3.15/en/": {
-      "title": "Bannerlord v1.3.15 Documentation / Bannerlord v1.3.15 Documentation",
+    "/v1.3.15/zh/": {
+      "title": "Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.3.15/en/api/",
-        "/v1.3.15/en/architecture/",
-        "/v1.3.15/en/guide/",
-        "/v1.3.15/en/native-1.3.15-src/",
-        "/v1.3.15/en/native/",
-        "/v1.3.15/en/xml-reference/"
+        "/v1.3.15/zh/api/",
+        "/v1.3.15/zh/architecture/",
+        "/v1.3.15/zh/guide/",
+        "/v1.3.15/zh/native-1.3.15-src/",
+        "/v1.3.15/zh/native/",
+        "/v1.3.15/zh/xml-reference/"
       ]
-    },
-    "/v1.3.15/zh/api/campaign/": {
-      "title": "campaign 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/campaign-ext/": {
-      "title": "campaign-ext 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/core/": {
-      "title": "core 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/core-extra/": {
-      "title": "core-extra 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/engine/": {
-      "title": "engine 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/gui/": {
-      "title": "gui 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/localization/": {
-      "title": "localization 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/mission/": {
-      "title": "mission 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/mission-ext/": {
-      "title": "mission-ext 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/save-system/": {
-      "title": "save-system 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/system/": {
-      "title": "system 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.3.15/zh/api/viewmodel/": {
-      "title": "viewmodel 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
     },
     "/v1.3.15/zh/api/": {
       "title": "API 参考",
@@ -489,135 +450,125 @@
         "/v1.3.15/zh/api/viewmodel/"
       ]
     },
+    "/v1.3.15/zh/api/campaign/": {
+      "title": "campaign 目录",
+      "weight": null,
+      "pages": 50,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/": {
+      "title": "campaign-ext 目录",
+      "weight": null,
+      "pages": 2834,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/core/": {
+      "title": "core 目录",
+      "weight": null,
+      "pages": 3,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/core-extra/": {
+      "title": "core-extra 目录",
+      "weight": null,
+      "pages": 527,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/engine/": {
+      "title": "engine 目录",
+      "weight": null,
+      "pages": 204,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/gui/": {
+      "title": "gui 目录",
+      "weight": null,
+      "pages": 56,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/localization/": {
+      "title": "localization 目录",
+      "weight": null,
+      "pages": 52,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/mission/": {
+      "title": "mission 目录",
+      "weight": null,
+      "pages": 58,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/mission-ext/": {
+      "title": "mission-ext 目录",
+      "weight": null,
+      "pages": 1633,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/save-system/": {
+      "title": "save-system 目录",
+      "weight": null,
+      "pages": 108,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/system/": {
+      "title": "system 目录",
+      "weight": null,
+      "pages": 25,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/viewmodel/": {
+      "title": "viewmodel 目录",
+      "weight": null,
+      "pages": 42,
+      "subsections": []
+    },
     "/v1.3.15/zh/architecture/": {
       "title": "架构总览 / Architecture",
       "weight": null,
-      "pages": 0,
+      "pages": 4,
       "subsections": []
     },
     "/v1.3.15/zh/guide/": {
       "title": "入门指南 / Getting Started Guide",
       "weight": null,
-      "pages": 0,
+      "pages": 9,
       "subsections": []
     },
     "/v1.3.15/zh/native/": {
       "title": "原生接口 / Native Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 7,
       "subsections": []
     },
     "/v1.3.15/zh/native-1.3.15-src/": {
       "title": "Native 1.3.15 源码参考 / Native 1.3.15 Source Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 12,
       "subsections": []
     },
     "/v1.3.15/zh/xml-reference/": {
       "title": "XML 参考 / XML Reference",
       "weight": null,
-      "pages": 0,
+      "pages": 1,
       "subsections": []
     },
-    "/v1.3.15/zh/": {
-      "title": "Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation",
+    "/v1.4.5/": {
+      "title": "Bannerlord v1.4.5",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.3.15/zh/api/",
-        "/v1.3.15/zh/architecture/",
-        "/v1.3.15/zh/guide/",
-        "/v1.3.15/zh/native-1.3.15-src/",
-        "/v1.3.15/zh/native/",
-        "/v1.3.15/zh/xml-reference/"
+        "/v1.4.5/en/",
+        "/v1.4.5/zh/"
       ]
     },
-    "/v1.3.15/": {
-      "title": "Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation",
+    "/v1.4.5/en/": {
+      "title": "Bannerlord v1.4.5",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.3.15/en/",
-        "/v1.3.15/zh/"
+        "/v1.4.5/en/api/",
+        "/v1.4.5/en/architecture/"
       ]
-    },
-    "/v1.4.5/en/api/campaign/": {
-      "title": "campaign index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/campaign-ext/": {
-      "title": "campaign-ext index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/core/": {
-      "title": "core index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/core-extra/": {
-      "title": "core-extra index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/engine/": {
-      "title": "engine index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/gameplay/": {
-      "title": "stub",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/gui/": {
-      "title": "gui index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/localization/": {
-      "title": "localization index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/mission/": {
-      "title": "mission index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/mission-ext/": {
-      "title": "mission-ext index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/save-system/": {
-      "title": "save-system index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/system/": {
-      "title": "system index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/en/api/viewmodel/": {
-      "title": "viewmodel index",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
     },
     "/v1.4.5/en/api/": {
       "title": "API Reference",
@@ -639,98 +590,98 @@
         "/v1.4.5/en/api/viewmodel/"
       ]
     },
+    "/v1.4.5/en/api/campaign/": {
+      "title": "campaign index",
+      "weight": null,
+      "pages": 1360,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/campaign-ext/": {
+      "title": "campaign-ext index",
+      "weight": null,
+      "pages": 1631,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/core/": {
+      "title": "core index",
+      "weight": null,
+      "pages": 2,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/core-extra/": {
+      "title": "core-extra index",
+      "weight": null,
+      "pages": 530,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/engine/": {
+      "title": "engine index",
+      "weight": null,
+      "pages": 202,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/gameplay/": {
+      "title": "stub",
+      "weight": null,
+      "pages": 18,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/gui/": {
+      "title": "gui index",
+      "weight": null,
+      "pages": 321,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/localization/": {
+      "title": "localization index",
+      "weight": null,
+      "pages": 54,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/mission/": {
+      "title": "mission index",
+      "weight": null,
+      "pages": 74,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/mission-ext/": {
+      "title": "mission-ext index",
+      "weight": null,
+      "pages": 2139,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/save-system/": {
+      "title": "save-system index",
+      "weight": null,
+      "pages": 108,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/system/": {
+      "title": "system index",
+      "weight": null,
+      "pages": 68,
+      "subsections": []
+    },
+    "/v1.4.5/en/api/viewmodel/": {
+      "title": "viewmodel index",
+      "weight": null,
+      "pages": 600,
+      "subsections": []
+    },
     "/v1.4.5/en/architecture/": {
       "title": "v1.4.5 Architecture",
       "weight": null,
       "pages": 0,
       "subsections": []
     },
-    "/v1.4.5/en/": {
+    "/v1.4.5/zh/": {
       "title": "Bannerlord v1.4.5",
       "weight": null,
       "pages": 0,
       "subsections": [
-        "/v1.4.5/en/api/",
-        "/v1.4.5/en/architecture/"
+        "/v1.4.5/zh/api/",
+        "/v1.4.5/zh/architecture/"
       ]
-    },
-    "/v1.4.5/zh/api/campaign/": {
-      "title": "campaign 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/campaign-ext/": {
-      "title": "campaign-ext 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/core/": {
-      "title": "core 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/core-extra/": {
-      "title": "core-extra 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/engine/": {
-      "title": "engine 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/gameplay/": {
-      "title": "stub",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/gui/": {
-      "title": "gui 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/localization/": {
-      "title": "localization 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/mission/": {
-      "title": "mission 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/mission-ext/": {
-      "title": "mission-ext 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/save-system/": {
-      "title": "save-system 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/system/": {
-      "title": "system 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
-    },
-    "/v1.4.5/zh/api/viewmodel/": {
-      "title": "viewmodel 目录",
-      "weight": null,
-      "pages": 0,
-      "subsections": []
     },
     "/v1.4.5/zh/api/": {
       "title": "API 参考",
@@ -752,46 +703,95 @@
         "/v1.4.5/zh/api/viewmodel/"
       ]
     },
+    "/v1.4.5/zh/api/campaign/": {
+      "title": "campaign 目录",
+      "weight": null,
+      "pages": 1360,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/campaign-ext/": {
+      "title": "campaign-ext 目录",
+      "weight": null,
+      "pages": 1631,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/core/": {
+      "title": "core 目录",
+      "weight": null,
+      "pages": 2,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/core-extra/": {
+      "title": "core-extra 目录",
+      "weight": null,
+      "pages": 530,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/engine/": {
+      "title": "engine 目录",
+      "weight": null,
+      "pages": 202,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/gameplay/": {
+      "title": "stub",
+      "weight": null,
+      "pages": 18,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/gui/": {
+      "title": "gui 目录",
+      "weight": null,
+      "pages": 321,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/localization/": {
+      "title": "localization 目录",
+      "weight": null,
+      "pages": 54,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/mission/": {
+      "title": "mission 目录",
+      "weight": null,
+      "pages": 74,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/mission-ext/": {
+      "title": "mission-ext 目录",
+      "weight": null,
+      "pages": 2139,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/save-system/": {
+      "title": "save-system 目录",
+      "weight": null,
+      "pages": 108,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/system/": {
+      "title": "system 目录",
+      "weight": null,
+      "pages": 68,
+      "subsections": []
+    },
+    "/v1.4.5/zh/api/viewmodel/": {
+      "title": "viewmodel 目录",
+      "weight": null,
+      "pages": 600,
+      "subsections": []
+    },
     "/v1.4.5/zh/architecture/": {
       "title": "v1.4.5 架构总览 / Architecture",
       "weight": null,
       "pages": 0,
       "subsections": []
     },
-    "/v1.4.5/zh/": {
-      "title": "Bannerlord v1.4.5",
-      "weight": null,
-      "pages": 0,
-      "subsections": [
-        "/v1.4.5/zh/api/",
-        "/v1.4.5/zh/architecture/"
-      ]
-    },
-    "/v1.4.5/": {
-      "title": "Bannerlord v1.4.5",
-      "weight": null,
-      "pages": 0,
-      "subsections": [
-        "/v1.4.5/en/",
-        "/v1.4.5/zh/"
-      ]
-    },
     "/versions/": {
       "title": "跨版本类对比 / Cross-Version Class Comparison",
       "weight": null,
-      "pages": 0,
+      "pages": 18,
       "subsections": []
-    },
-    "/": {
-      "title": "Bannerlord Modding Wiki",
-      "weight": null,
-      "pages": 0,
-      "subsections": [
-        "/v1.3.0/",
-        "/v1.3.15/",
-        "/v1.4.5/",
-        "/versions/"
-      ]
     }
   }
 }

@@ -1,23 +1,6 @@
 {%- import "macros/sidebar.html" as sidebar -%}
 {%- set current_url = page.permalink | default(value=section.permalink) -%}
-{%- set raw_path = page.path | default(value=section.path) -%}
-
+{%- set lang = page.lang | default(value=section.lang) | default(value=config.default_language) -%}
 <aside class="sidebar">
-  {%- if raw_path is starting_with('v1.3.15/zh') or raw_path is starting_with('/v1.3.15/zh') %}
-    {{ sidebar::v1315_zh_sidebar(current_url=current_url) }}
-  {%- elif raw_path is starting_with('v1.3.15/en') or raw_path is starting_with('/v1.3.15/en') %}
-    {{ sidebar::v1315_en_sidebar(current_url=current_url) }}
-  {%- elif raw_path is starting_with('v1.3.0/zh') or raw_path is starting_with('/v1.3.0/zh') %}
-    {{ sidebar::render_tree(section=get_section(path='v1.3.0/zh/_index.md'), current_url=current_url, depth=0) }}
-  {%- elif raw_path is starting_with('v1.3.0/en') or raw_path is starting_with('/v1.3.0/en') %}
-    {{ sidebar::render_tree(section=get_section(path='v1.3.0/en/_index.md'), current_url=current_url, depth=0) }}
-  {%- elif raw_path is starting_with('v1.4.5/zh') or raw_path is starting_with('/v1.4.5/zh') %}
-    {{ sidebar::render_tree(section=get_section(path='v1.4.5/zh/_index.md'), current_url=current_url, depth=0) }}
-  {%- elif raw_path is starting_with('v1.4.5/en') or raw_path is starting_with('/v1.4.5/en') %}
-    {{ sidebar::render_tree(section=get_section(path='v1.4.5/en/_index.md'), current_url=current_url, depth=0) }}
-  {%- elif raw_path == 'versions' or raw_path == '/versions' or raw_path is starting_with('versions/') or raw_path is starting_with('/versions/') %}
-    {{ sidebar::render_tree(section=get_section(path='versions/_index.md'), current_url=current_url, depth=0) }}
-  {%- else %}
-    {{ sidebar::render_tree(section=get_section(path='_index.md'), current_url=current_url, depth=0) }}
-  {%- endif %}
+  {{ sidebar::render_nav(current_url=current_url, lang=lang) }}
 </aside>

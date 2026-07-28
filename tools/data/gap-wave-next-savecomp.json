@@ -1,0 +1,59 @@
+{
+  "count": 9,
+  "types": [
+    {
+      "typeName": "ArmyDispersionReasonEnumResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ArmyDispersionReasonEnumResolver.md"
+    },
+    {
+      "typeName": "BattleTypeEnumResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BattleTypeEnumResolver.md"
+    },
+    {
+      "typeName": "CharacterAttributesResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterAttributesResolver.md"
+    },
+    {
+      "typeName": "CharacterPerksResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterPerksResolver.md"
+    },
+    {
+      "typeName": "CharacterTraitsResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterTraitsResolver.md"
+    },
+    {
+      "typeName": "EndCaptivityDetailEnumResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EndCaptivityDetailEnumResolver.md"
+    },
+    {
+      "typeName": "HeroDeveloperResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroDeveloperResolver.md"
+    },
+    {
+      "typeName": "HeroTraitDeveloperResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroTraitDeveloperResolver.md"
+    },
+    {
+      "typeName": "CharacterSkillsResolver",
+      "namespace": "TaleWorlds.Core.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CharacterSkillsResolver.md"
+    }
+  ]
+}

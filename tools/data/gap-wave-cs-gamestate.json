@@ -1,0 +1,107 @@
+{
+  "count": 17,
+  "types": [
+    {
+      "typeName": "BannerEditorState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BannerEditorState.md"
+    },
+    {
+      "typeName": "BarberState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BarberState.md"
+    },
+    {
+      "typeName": "CharacterDeveloperState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterDeveloperState.md"
+    },
+    {
+      "typeName": "ClanState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanState.md"
+    },
+    {
+      "typeName": "CraftingState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CraftingState.md"
+    },
+    {
+      "typeName": "EducationState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EducationState.md"
+    },
+    {
+      "typeName": "GameOverReason",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameOverReason.md"
+    },
+    {
+      "typeName": "GameOverState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameOverState.md"
+    },
+    {
+      "typeName": "InventoryState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryState.md"
+    },
+    {
+      "typeName": "KingdomState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomState.md"
+    },
+    {
+      "typeName": "MapState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapState.md"
+    },
+    {
+      "typeName": "MenuContextState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign/MenuContextState.md"
+    },
+    {
+      "typeName": "PartyState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyState.md"
+    },
+    {
+      "typeName": "PortScreenModes",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PortScreenModes.md"
+    },
+    {
+      "typeName": "PortState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PortState.md"
+    },
+    {
+      "typeName": "QuestsState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/QuestsState.md"
+    },
+    {
+      "typeName": "TutorialState",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TutorialState.md"
+    }
+  ]
+}

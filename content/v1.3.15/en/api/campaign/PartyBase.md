@@ -1,380 +1,290 @@
 ---
 title: "PartyBase"
-description: "Auto-generated class reference for PartyBase."
+description: "Shared campaign party identity and rosters: MobileParty and settlement garrisons share Member/Prison/Item Roster. Not a Mission Team."
 ---
+
 # PartyBase
 
-**Namespace:** TaleWorlds.CampaignSystem.Party
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`
-**Base:** `IBattleCombatant`
+**Namespace:** TaleWorlds.CampaignSystem.Party  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`  
+**Base:** `IBattleCombatant` (plus `IRandomOwner`, `IInteractablePoint`)  
 **File:** `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
 
 ## Overview
 
-`PartyBase` lives in `TaleWorlds.CampaignSystem.Party` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`PartyBase` is the campaign layer's **sealed data core for one party identity**: troop rosters, prisoners, inventory, map-event side, food, and strength estimates all hang here.
+
+It has exactly two host shapes (chosen at construction):
+
+| Shape | Construction | Flag | Position / name source |
+|-------|--------------|------|------------------------|
+| Mobile party | `new PartyBase(MobileParty)` | `IsMobile` | `MobileParty.Position` / `Name` |
+| Settlement garrison, etc. | `new PartyBase(Settlement)` | `IsSettlement` | `Settlement.Position` / `Name` |
+
+**`MobileParty` is not a subclass of `PartyBase`.** In source, `MobileParty` holds a `Party` property: `Party = new PartyBase(this)`. `Settlement` likewise holds its own `Party`. When APIs say "party" they often mean `PartyBase`, the shared handle for "a map-side combatant blob of people".
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.Party` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `Position` | `public CampaignVec2 Position { get; }` |
-| `IsVisible` | `public bool IsVisible { get; }` |
-| `IsActive` | `public bool IsActive { get; }` |
-| `SiegeEvent` | `public SiegeEvent SiegeEvent { get; }` |
-| `Settlement` | `public Settlement Settlement { get; }` |
-| `MobileParty` | `public MobileParty MobileParty { get; }` |
-| `IsSettlement` | `public bool IsSettlement { get; }` |
-| `IsMobile` | `public bool IsMobile { get; }` |
-| `MemberRoster` | `public TroopRoster MemberRoster { get; }` |
-| `PrisonRoster` | `public TroopRoster PrisonRoster { get; }` |
-| `ItemRoster` | `public ItemRoster ItemRoster { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `DaysStarving` | `public float DaysStarving { get; }` |
-| `RemainingFoodPercentage` | `public int RemainingFoodPercentage { get; set; }` |
-| `IsStarving` | `public bool IsStarving { get; }` |
-| `Id` | `public string Id { get; }` |
-| `HealingRateForMemberRegulars` | `public float HealingRateForMemberRegulars { get; }` |
-| `HealingRateForMemberRegularsExplained` | `public ExplainedNumber HealingRateForMemberRegularsExplained { get; }` |
-| `HealingRateForMemberHeroes` | `public float HealingRateForMemberHeroes { get; }` |
-| `HealingRateForMemberHeroesExplained` | `public ExplainedNumber HealingRateForMemberHeroesExplained { get; }` |
-| `Owner` | `public Hero Owner { get; }` |
-| `LeaderHero` | `public Hero LeaderHero { get; }` |
-| `MainParty` | `public static PartyBase MainParty { get; }` |
-| `LevelMaskIsDirty` | `public bool LevelMaskIsDirty { get; }` |
-| `Index` | `public int Index { get; }` |
-| `IsValid` | `public bool IsValid { get; }` |
-| `MapFaction` | `public IFaction MapFaction { get; }` |
-| `RandomValue` | `public int RandomValue { get; }` |
-| `Culture` | `public CultureObject Culture { get; }` |
-| `PrimaryColorPair` | `public Tuple<uint, uint> PrimaryColorPair { get; }` |
-| `CustomName` | `public TextObject CustomName { get; }` |
-| `CustomBanner` | `public Banner CustomBanner { get; }` |
-| `Banner` | `public Banner Banner { get; }` |
-| `MapEvent` | `public MapEvent MapEvent { get; }` |
-| `MapEventSide` | `public MapEventSide MapEventSide { get; set; }` |
-| `Side` | `public BattleSideEnum Side { get; }` |
-| `OpponentSide` | `public BattleSideEnum OpponentSide { get; }` |
-| `PartySizeLimit` | `public int PartySizeLimit { get; }` |
-| `PrisonerSizeLimit` | `public int PrisonerSizeLimit { get; }` |
-| `PartySizeLimitExplainer` | `public ExplainedNumber PartySizeLimitExplainer { get; }` |
-| `PrisonerSizeLimitExplainer` | `public ExplainedNumber PrisonerSizeLimitExplainer { get; }` |
-| `NumberOfHealthyMembers` | `public int NumberOfHealthyMembers { get; }` |
-| `NumberOfRegularMembers` | `public int NumberOfRegularMembers { get; }` |
-| `NumberOfWoundedTotalMembers` | `public int NumberOfWoundedTotalMembers { get; }` |
-| `NumberOfAllMembers` | `public int NumberOfAllMembers { get; }` |
-| `NumberOfPrisoners` | `public int NumberOfPrisoners { get; }` |
-| `NumberOfMounts` | `public int NumberOfMounts { get; }` |
-| `NumberOfPackAnimals` | `public int NumberOfPackAnimals { get; }` |
-| `PrisonerHeroes` | `public IEnumerable<CharacterObject> PrisonerHeroes { get; }` |
-| `NumberOfMenWithHorse` | `public int NumberOfMenWithHorse { get; }` |
-| `NumberOfMenWithoutHorse` | `public int NumberOfMenWithoutHorse { get; }` |
-| `EstimatedStrength` | `public float EstimatedStrength { get; }` |
-| `Ships` | `public MBReadOnlyList<Ship> Ships { get; }` |
-| `FlagShip` | `public Ship FlagShip { get; }` |
-| `BasicCulture` | `public BasicCultureObject BasicCulture { get; }` |
-| `General` | `public BasicCharacterObject General { get; }` |
-| `IsVisualDirty` | `public bool IsVisualDirty { get; }` |
-
-## Key Methods
-
-### OnVisibilityChanged
-`public void OnVisibilityChanged(bool value)`
-
-**Purpose:** Invoked when the visibility changed event is raised.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.OnVisibilityChanged(false);
+```
+Hero ──PartyBelongedTo──► MobileParty ──.Party──► PartyBase (IsMobile)
+                                              │
+Settlement ──────────────────────────.Party──► PartyBase (IsSettlement)
+                                              │
+                                    MemberRoster / PrisonRoster / ItemRoster
+                                    MapEventSide / EstimatedStrength / Owner
 ```
 
-### OnConsumedFood
-`public void OnConsumedFood()`
+| Dimension | Meaning |
+|-----------|---------|
+| Lifetime | Created with `MobileParty` / `Settlement`; saveable (many `[SaveableProperty]` / `[SaveableField]`) |
+| Who creates | Host ctor does `new PartyBase(this)`; `Index` from `Campaign.Current.GeneratePartyId` |
+| Layer | Campaign (map), **not** Mission `Team` |
+| Player entry | `PartyBase.MainParty` → `Campaign.Current.MainParty.Party` |
 
-**Purpose:** Invoked when the consumed food event is raised.
+### When to use
 
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.OnConsumedFood();
-```
+- Change troops / prisoners / goods: `MemberRoster`, `PrisonRoster`, `ItemRoster`, or `AddMember` / `AddPrisoner`
+- Uniform handling of "mobile party + garrison": take `PartyBase`, then branch on `IsMobile` / `IsSettlement`
+- Read strength, size limits, starvation, map-event side: `EstimatedStrength`, `PartySizeLimit`, `MapEvent`
+- From a `Hero` to rosters: `hero.PartyBelongedTo.Party` or `PartyBase.MainParty`
 
-### SetCustomOwner
-`public void SetCustomOwner(Hero customOwner)`
+### When not to use
 
-**Purpose:** Assigns a new value to custom owner and updates the object's internal state.
+| Don't | Do instead |
+|-------|------------|
+| Treat `PartyBase` as a Mission `Team` | In battle use [Team](../../mission/Team) / [Agent](../../mission/Agent) |
+| Assume `MobileParty : PartyBase` | Use `mobileParty.Party` for the `PartyBase` |
+| Touch `MainParty` with no campaign context | Guard `Campaign.Current != null` first |
+| Hard-edit rosters when full side effects matter, bypassing official Actions | Capture / free / kill heroes via `TakePrisonerAction` and related Actions |
+| Bulk-edit many Parties inside Mission callbacks and expect instant consistency | Change during battle settlement write-back; see [crash boundaries](../../../architecture/crash-boundaries) |
+| Free-standing `new PartyBase` | Must hang on a real `MobileParty` / `Settlement` |
 
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.SetCustomOwner(customOwner);
-```
+## Dependencies
 
-### IsPartyUnderPlayerCommand
-`public static bool IsPartyUnderPlayerCommand(PartyBase party)`
+| Direction | Type | Relationship |
+|-----------|------|--------------|
+| Upstream host | [MobileParty](../MobileParty) | `MobileParty` property; `IsMobile` |
+| Upstream host | [Settlement](../Settlement) | `Settlement` property; `IsSettlement` |
+| Characters | [Hero](../Hero) | `Owner`, `LeaderHero`; `Hero.PartyBelongedTo.Party` |
+| Rosters | TroopRoster / ItemRoster | Members, prisoners, items (same-module Roster types) |
+| Map events | MapEvent / MapEventSide | `MapEvent`, `MapEventSide`, `Side` |
+| Models | PartySizeLimitModel, PartyHealingModel, MilitaryPowerModel | Size caps, healing, strength |
+| Events | `CampaignEventDispatcher.OnPartyVisibilityChanged` | Visibility changes |
+| Contrast | [Team](../../mission/Team) | Mission-only combat side; not saved |
 
-**Purpose:** Determines whether the this instance is in the party under player command state or condition.
+## Risks and crash boundaries
 
-```csharp
-// Static call; no instance required
-PartyBase.IsPartyUnderPlayerCommand(party);
-```
+1. **`MainParty` can be null:** when `Campaign.Current == null` (main menu / loading) it returns `null`.
+2. **`LeaderHero`:** implemented as `MobileParty?.LeaderHero`. **Settlement parties are often null**; garrison logic must not assume a leader hero.
+3. **`MapEventSide` setter:** removes from old side, joins new side, and syncs `AttachedParties`. Careless sets can trip "Double MapEvent" asserts.
+4. **Save fields:** Rosters, food, ships, custom owner, etc. are serializable. Changing SaveIds or hand-tearing Roster structure risks bad saves. See [crash boundaries §1](../../../architecture/crash-boundaries).
+5. **Cached fields:** `PartySizeLimit`, `EstimatedStrength`, and similar depend on `VersionNo`. Reading after roster edits refreshes; custom caches must invalidate themselves.
+6. **Hero prisoner consistency:** source `AfterLoad` has heavy fixups for "PrisonRoster vs `PartyBelongedToAsPrisoner` mismatch". Hard-editing prisoners easily corrupts saves; prefer Actions.
+7. **Do not mix with `Team` storage:** `PartyBase` spans saves; `Team`/`Agent` live for one Mission only.
 
-### SetLevelMaskIsDirty
-`public void SetLevelMaskIsDirty()`
-
-**Purpose:** Assigns a new value to level mask is dirty and updates the object's internal state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.SetLevelMaskIsDirty();
-```
-
-### OnLevelMaskUpdated
-`public void OnLevelMaskUpdated()`
-
-**Purpose:** Invoked when the level mask updated event is raised.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.OnLevelMaskUpdated();
-```
-
-### SetCustomName
-`public void SetCustomName(TextObject name)`
-
-**Purpose:** Assigns a new value to custom name and updates the object's internal state.
+## How to acquire
 
 ```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.SetCustomName(name);
+// Player
+PartyBase main = PartyBase.MainParty;
+// Equivalent:
+// PartyBase main = Campaign.Current?.MainParty?.Party;
+
+// From a mobile party
+MobileParty party = MobileParty.MainParty;
+PartyBase pb = party.Party;
+
+// From a hero
+Hero hero = Hero.MainHero;
+PartyBase heroParty = hero.PartyBelongedTo?.Party;
+
+// From settlement garrison
+Settlement town = Settlement.CurrentSettlement;
+PartyBase garrison = town?.Party;
+
+// Uniform handling
+void Inspect(PartyBase p)
+{
+    if (p == null || !p.IsValid)
+    {
+        return;
+    }
+
+    if (p.IsMobile)
+    {
+        MobileParty mp = p.MobileParty;
+        InformationManager.DisplayMessage(new InformationMessage($"Mobile: {mp.Name}"));
+    }
+    else if (p.IsSettlement)
+    {
+        Settlement s = p.Settlement;
+        InformationManager.DisplayMessage(new InformationMessage($"Settlement: {s.Name}"));
+    }
+}
 ```
 
-### SetCustomBanner
-`public void SetCustomBanner(Banner banner)`
+## Key members
 
-**Purpose:** Assigns a new value to custom banner and updates the object's internal state.
+### Identity and host
+
+| Member | Purpose and timing |
+|--------|--------------------|
+| `IsMobile` / `IsSettlement` | Host shape; mutually exclusive (one side null at construction) |
+| `MobileParty` / `Settlement` | Host references |
+| `Id` | `MobileParty.StringId` or `Settlement.StringId` |
+| `Index` / `IsValid` | In-campaign party number; valid when `Index >= 0` |
+| `Name` | Forwards host name |
+| `MainParty` | Static; player `PartyBase` |
+| `MapFaction` / `Culture` / `Banner` | Faction look and culture (null-safe where needed) |
+| `Owner` | `_customOwner` first, else `MobileParty.Owner` or `Settlement.Owner` |
+| `LeaderHero` | Mobile parties only |
+| `SetCustomOwner` / `SetCustomName` / `SetCustomBanner` | Override display and owner (caravans, etc.) |
+
+### Rosters and counts
+
+| Member | Purpose and timing |
+|--------|--------------------|
+| `MemberRoster` | Soldiers and accompanying heroes |
+| `PrisonRoster` | Prisoners |
+| `ItemRoster` | Goods, horses, food items, etc. |
+| `AddMember` / `AddMembers` | Add troops; underlying `TroopRoster.AddToCounts` |
+| `AddPrisoner` / `AddPrisoners` | Add prisoners |
+| `WoundMemberRosterElements` | Raise wounded counts |
+| `NumberOfHealthyMembers` / `NumberOfAllMembers` / `NumberOfPrisoners` | Fast stats |
+| `PartySizeLimit` / `PrisonerSizeLimit` | Cached via `PartySizeLimitModel` |
+| `NumberOfMenWithHorse` | Mounted count, recomputed on roster version |
+| `GetNumberOfHealthyMenOfTier` | Healthy men by troop tier |
+
+### Map, events, and strength
+
+| Member | Purpose and timing |
+|--------|--------------------|
+| `Position` / `IsVisible` / `IsActive` | Forward host |
+| `MapEvent` / `MapEventSide` / `Side` / `OpponentSide` | Current map battle affiliation |
+| `SiegeEvent` | Siege event forward |
+| `EstimatedStrength` / `CalculateCurrentStrength` / `GetCustomStrength` | Military power (Models) |
+| `IsStarving` / `RemainingFoodPercentage` / `DaysStarving` | Food state |
+| `HealingRateForMemberRegulars` / `...Heroes` | Healing models |
+| `IsPartyUnderPlayerCommand` | Via `EncounterModel`, whether player commands |
+| `UpdateVisibilityAndInspected` | Fog of war / inspected state |
+| `SetVisualAsDirty` / `IsVisualDirty` | Map icon refresh |
+
+## Real examples
+
+### Example 1: Add recruits to the player party
 
 ```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.SetCustomBanner(banner);
+if (Campaign.Current == null)
+{
+    return;
+}
+
+PartyBase main = PartyBase.MainParty;
+if (main == null)
+{
+    return;
+}
+
+CharacterObject recruit = MBObjectManager.Instance.GetObject<CharacterObject>("imperial_recruit");
+if (recruit == null)
+{
+    return;
+}
+
+int before = main.NumberOfAllMembers;
+main.AddMember(recruit, 5);
+int after = main.NumberOfAllMembers;
+
+InformationManager.DisplayMessage(
+    new InformationMessage($"Troops {before} → {after} (cap {main.PartySizeLimit})"));
 ```
 
-### GetNumberOfHealthyMenOfTier
-`public int GetNumberOfHealthyMenOfTier(int tier)`
-
-**Purpose:** Reads and returns the number of healthy men of tier value held by the this instance.
+### Example 2: From Hero to PartyBase, leader and strength
 
 ```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.GetNumberOfHealthyMenOfTier(0);
+Hero lord = Hero.FindFirst(h => h.IsLord && h.IsAlive && h.PartyBelongedTo != null);
+if (lord == null)
+{
+    return;
+}
+
+PartyBase party = lord.PartyBelongedTo.Party;
+Hero leader = party.LeaderHero; // usually the party leader
+float strength = party.EstimatedStrength;
+
+InformationManager.DisplayMessage(
+    new InformationMessage($"{party.Name}: leader {leader?.Name}, estimated strength {strength:0}"));
 ```
 
-### CalculateCurrentStrength
-`public float CalculateCurrentStrength()`
-
-**Purpose:** Calculates the current value or result of current strength.
+### Example 3: Walk parties the player can command
 
 ```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.CalculateCurrentStrength();
+if (Campaign.Current == null)
+{
+    return;
+}
+
+foreach (MobileParty mp in MobileParty.All)
+{
+    if (!mp.IsActive)
+    {
+        continue;
+    }
+
+    PartyBase pb = mp.Party;
+    if (PartyBase.IsPartyUnderPlayerCommand(pb))
+    {
+        int men = pb.NumberOfHealthyMembers;
+        // supply logic against pb.ItemRoster / MemberRoster here
+        _ = men;
+    }
+}
 ```
 
-### GetCustomStrength
-`public float GetCustomStrength(BattleSideEnum side, MapEvent.PowerCalculationContext context)`
-
-**Purpose:** Reads and returns the custom strength value held by the this instance.
+### Example 4: Settlement party (garrison) vs mobile party
 
 ```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.GetCustomStrength(side, context);
+void LogPartyHost(PartyBase party)
+{
+    if (party.IsMobile)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($"Mobile {party.MobileParty.StringId}, members {party.NumberOfAllMembers}"));
+    }
+    else if (party.IsSettlement)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($"Settlement {party.Settlement.Name}, garrison roster {party.NumberOfAllMembers}"));
+    }
+}
 ```
 
-### GetShipsVersion
-`public int GetShipsVersion()`
+## Cross-version notes
 
-**Purpose:** Reads and returns the ships version value held by the this instance.
+- `PartyBase` as the shared Mobile/Settlement core is stable across 1.3.x–1.4.5.
+- 1.4.x adds/strengthens navy: `Ships`, `FlagShip`, `GetShipsVersion`; old saves get empty ship lists on `OnLoad`.
+- `AfterLoad` includes multi-version prisoner and caravan-owner fixups. Prefer official paths when upgrading saves; do not parallel a hand-rolled prisoner state machine.
 
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.GetShipsVersion();
-```
+## ↑ Parent Navigation
 
-### GetNumberOfMenWith
-`public int GetNumberOfMenWith(TraitObject trait)`
+- [Campaign API index](./)
+- [API root](../)
+- [Crash and save boundaries](../../../architecture/crash-boundaries)
 
-**Purpose:** Reads and returns the number of men with value held by the this instance.
+## 🔀 Sibling Navigation
 
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.GetNumberOfMenWith(trait);
-```
+| Page | Relationship |
+|------|--------------|
+| [MobileParty](../MobileParty) | Mobile host; `.Party` → this type |
+| [Settlement](../Settlement) | Settlement host; garrison Party |
+| [Hero](../Hero) | `PartyBelongedTo` / Owner / Leader |
+| [Clan](../Clan) | Clan and party affiliation (campaign) |
+| [Campaign](../Campaign) | `MainParty`, GeneratePartyId |
 
-### AddPrisoner
-`public int AddPrisoner(CharacterObject element, int numberToAdd)`
+## See also
 
-**Purpose:** Adds prisoner to the current collection or state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.AddPrisoner(element, 0);
-```
-
-### AddMember
-`public int AddMember(CharacterObject element, int numberToAdd, int numberToAddWounded = 0)`
-
-**Purpose:** Adds member to the current collection or state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.AddMember(element, 0, 0);
-```
-
-### AddPrisoners
-`public void AddPrisoners(TroopRoster roster)`
-
-**Purpose:** Adds prisoners to the current collection or state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.AddPrisoners(roster);
-```
-
-### AddMembers
-`public void AddMembers(TroopRoster roster)`
-
-**Purpose:** Adds members to the current collection or state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.AddMembers(roster);
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.ToString();
-```
-
-### AddElementToMemberRoster
-`public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
-
-**Purpose:** Adds element to member roster to the current collection or state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-var result = partyBase.AddElementToMemberRoster(element, 0, false);
-```
-
-### AddToMemberRosterElementAtIndex
-`public void AddToMemberRosterElementAtIndex(int index, int numberToAdd, int woundedCount = 0)`
-
-**Purpose:** Adds to member roster element at index to the current collection or state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.AddToMemberRosterElementAtIndex(0, 0, 0);
-```
-
-### WoundMemberRosterElements
-`public void WoundMemberRosterElements(CharacterObject elementObj, int numberToWound)`
-
-**Purpose:** Executes the WoundMemberRosterElements logic.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.WoundMemberRosterElements(elementObj, 0);
-```
-
-### WoundMemberRosterElementsWithIndex
-`public void WoundMemberRosterElementsWithIndex(int elementIndex, int numberToWound)`
-
-**Purpose:** Executes the WoundMemberRosterElementsWithIndex logic.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.WoundMemberRosterElementsWithIndex(0, 0);
-```
-
-### UpdateVisibilityAndInspected
-`public void UpdateVisibilityAndInspected(CampaignVec2 fromPosition, float mainPartySeeingRange = 0f)`
-
-**Purpose:** Recalculates and stores the latest representation of visibility and inspected.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.UpdateVisibilityAndInspected(fromPosition, 0);
-```
-
-### SetAsCameraFollowParty
-`public void SetAsCameraFollowParty()`
-
-**Purpose:** Assigns a new value to as camera follow party and updates the object's internal state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.SetAsCameraFollowParty();
-```
-
-### SetVisualAsDirty
-`public void SetVisualAsDirty()`
-
-**Purpose:** Assigns a new value to visual as dirty and updates the object's internal state.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.SetVisualAsDirty();
-```
-
-### OnVisualsUpdated
-`public void OnVisualsUpdated()`
-
-**Purpose:** Invoked when the visuals updated event is raised.
-
-```csharp
-// Obtain an instance of PartyBase from the subsystem API first
-PartyBase partyBase = ...;
-partyBase.OnVisualsUpdated();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-PartyBase partyBase = ...;
-partyBase.OnVisibilityChanged(false);
-```
-
-## See Also
-
-- [Area Index](../)
+- [Team](../../mission/Team) — Mission combat side (do not confuse)
+- [Save system](../../../architecture/save-system) — Saveable field discipline
+- [Campaign guide](../../../guide/campaign-system)
+- [SDK overview](../../../architecture/sdk-overview)

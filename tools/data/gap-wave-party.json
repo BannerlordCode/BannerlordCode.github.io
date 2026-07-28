@@ -1,0 +1,197 @@
+{
+  "count": 32,
+  "types": [
+    {
+      "typeName": "AiBehavior",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AiBehavior.md"
+    },
+    {
+      "typeName": "CachedPartyVariables",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign/CachedPartyVariables.md"
+    },
+    {
+      "typeName": "FleeingData",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FleeingData.md"
+    },
+    {
+      "typeName": "MobilePartyAi",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MobilePartyAi.md"
+    },
+    {
+      "typeName": "MoveModeType",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MoveModeType.md"
+    },
+    {
+      "typeName": "NavigationType",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NavigationType.md"
+    },
+    {
+      "typeName": "PartyCommand",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyCommand.md"
+    },
+    {
+      "typeName": "PartyCommandCode",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyCommandCode.md"
+    },
+    {
+      "typeName": "PartyObjective",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyObjective.md"
+    },
+    {
+      "typeName": "PartyRosterSide",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyRosterSide.md"
+    },
+    {
+      "typeName": "PartyScreenData",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyScreenData.md"
+    },
+    {
+      "typeName": "PartyScreenLogic",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyScreenLogic.md"
+    },
+    {
+      "typeName": "PartyScreenLogicInitializationData",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyScreenLogicInitializationData.md"
+    },
+    {
+      "typeName": "PartyTemplateObject",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyTemplateObject.md"
+    },
+    {
+      "typeName": "PartyTemplateStack",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyTemplateStack.md"
+    },
+    {
+      "typeName": "ShipTemplateStack",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ShipTemplateStack.md"
+    },
+    {
+      "typeName": "TransferState",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferState.md"
+    },
+    {
+      "typeName": "TroopComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TroopComparer.md"
+    },
+    {
+      "typeName": "TroopSortType",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TroopSortType.md"
+    },
+    {
+      "typeName": "TroopTradeDifference",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TroopTradeDifference.md"
+    },
+    {
+      "typeName": "TroopType",
+      "namespace": "TaleWorlds.CampaignSystem.Party",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TroopType.md"
+    },
+    {
+      "typeName": "BanditPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BanditPartyComponent.md"
+    },
+    {
+      "typeName": "CaravanPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CaravanPartyComponent.md"
+    },
+    {
+      "typeName": "CustomPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CustomPartyComponent.md"
+    },
+    {
+      "typeName": "GarrisonPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GarrisonPartyComponent.md"
+    },
+    {
+      "typeName": "InitializationArgs",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InitializationArgs.md"
+    },
+    {
+      "typeName": "LordPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LordPartyComponent.md"
+    },
+    {
+      "typeName": "MilitiaPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MilitiaPartyComponent.md"
+    },
+    {
+      "typeName": "PartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyComponent.md"
+    },
+    {
+      "typeName": "PatrolPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PatrolPartyComponent.md"
+    },
+    {
+      "typeName": "VillagerPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VillagerPartyComponent.md"
+    },
+    {
+      "typeName": "WarPartyComponent",
+      "namespace": "TaleWorlds.CampaignSystem.Party.PartyComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WarPartyComponent.md"
+    }
+  ]
+}

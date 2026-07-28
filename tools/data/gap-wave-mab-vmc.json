@@ -1,0 +1,941 @@
+{
+  "count": 156,
+  "types": [
+    {
+      "typeName": "BoundaryCrossingVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BoundaryCrossingVM.md"
+    },
+    {
+      "typeName": "FullScreenNoticeVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FullScreenNoticeVM.md"
+    },
+    {
+      "typeName": "GameVersionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GameVersionVM.md"
+    },
+    {
+      "typeName": "IMissionScreen",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/IMissionScreen.md"
+    },
+    {
+      "typeName": "MissionAgentStatusVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentStatusVM.md"
+    },
+    {
+      "typeName": "MissionLeaveVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionLeaveVM.md"
+    },
+    {
+      "typeName": "PhotoModeValueOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/PhotoModeValueOptionVM.md"
+    },
+    {
+      "typeName": "PhotoModeVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/PhotoModeVM.md"
+    },
+    {
+      "typeName": "BannerBuilderCategoryVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBuilderCategoryVM.md"
+    },
+    {
+      "typeName": "BannerBuilderColorItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBuilderColorItemVM.md"
+    },
+    {
+      "typeName": "BannerBuilderColorSelectionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBuilderColorSelectionVM.md"
+    },
+    {
+      "typeName": "BannerBuilderItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBuilderItemVM.md"
+    },
+    {
+      "typeName": "BannerBuilderLayerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBuilderLayerVM.md"
+    },
+    {
+      "typeName": "BannerBuilderVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.BannerBuilder",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBuilderVM.md"
+    },
+    {
+      "typeName": "CreditsItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Credits",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CreditsItemVM.md"
+    },
+    {
+      "typeName": "CreditsVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Credits",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CreditsVM.md"
+    },
+    {
+      "typeName": "EscapeMenuItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/EscapeMenuItemVM.md"
+    },
+    {
+      "typeName": "EscapeMenuVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/EscapeMenuVM.md"
+    },
+    {
+      "typeName": "GameTipsVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.EscapeMenu",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GameTipsVM.md"
+    },
+    {
+      "typeName": "FacegenListItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FacegenListItemVM.md"
+    },
+    {
+      "typeName": "FaceGenPropertyVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FaceGenPropertyVM.md"
+    },
+    {
+      "typeName": "FaceGenTabs",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FaceGenTabs.md"
+    },
+    {
+      "typeName": "FaceGenVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FaceGenVM.md"
+    },
+    {
+      "typeName": "GenderBasedSelectedValue",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GenderBasedSelectedValue.md"
+    },
+    {
+      "typeName": "Presets",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.FaceGenerator",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Presets.md"
+    },
+    {
+      "typeName": "ActionOptionDataVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ActionOptionDataVM.md"
+    },
+    {
+      "typeName": "BooleanOptionDataVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BooleanOptionDataVM.md"
+    },
+    {
+      "typeName": "BrightnessOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BrightnessOptionVM.md"
+    },
+    {
+      "typeName": "ExposureOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ExposureOptionVM.md"
+    },
+    {
+      "typeName": "GenericOptionDataVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GenericOptionDataVM.md"
+    },
+    {
+      "typeName": "GroupedOptionCategoryVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GroupedOptionCategoryVM.md"
+    },
+    {
+      "typeName": "KeyOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/KeyOptionVM.md"
+    },
+    {
+      "typeName": "MPOptionsVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MPOptionsVM.md"
+    },
+    {
+      "typeName": "NumericOptionDataVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NumericOptionDataVM.md"
+    },
+    {
+      "typeName": "OptionGroupVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionGroupVM.md"
+    },
+    {
+      "typeName": "OptionsDataType",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionsDataType.md"
+    },
+    {
+      "typeName": "OptionsMode",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionsMode.md"
+    },
+    {
+      "typeName": "OptionsVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionsVM.md"
+    },
+    {
+      "typeName": "StringOptionDataVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/StringOptionDataVM.md"
+    },
+    {
+      "typeName": "AuxiliaryKeyGroupVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AuxiliaryKeyGroupVM.md"
+    },
+    {
+      "typeName": "AuxiliaryKeyOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.AuxiliaryKeys",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AuxiliaryKeyOptionVM.md"
+    },
+    {
+      "typeName": "GameKeyGroupVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GameKeyGroupVM.md"
+    },
+    {
+      "typeName": "GameKeyOptionCategoryVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GameKeyOptionCategoryVM.md"
+    },
+    {
+      "typeName": "GameKeyOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GameKeys",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GameKeyOptionVM.md"
+    },
+    {
+      "typeName": "GamepadOptionCategoryVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GamepadOptionCategoryVM.md"
+    },
+    {
+      "typeName": "GamepadOptionKeyItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions.GamepadOptions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GamepadOptionKeyItemVM.md"
+    },
+    {
+      "typeName": "CheerBarkNodeItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CheerBarkNodeItemVM.md"
+    },
+    {
+      "typeName": "ControllerEquippedItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ControllerEquippedItemVM.md"
+    },
+    {
+      "typeName": "CrosshairVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CrosshairVM.md"
+    },
+    {
+      "typeName": "EquipmentActionItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/EquipmentActionItemVM.md"
+    },
+    {
+      "typeName": "ItemGroup",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemGroup.md"
+    },
+    {
+      "typeName": "LockStates",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LockStates.md"
+    },
+    {
+      "typeName": "MissionAgentLockItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentLockItemVM.md"
+    },
+    {
+      "typeName": "MissionAgentLockVisualizerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentLockVisualizerVM.md"
+    },
+    {
+      "typeName": "MissionAgentTakenDamageItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentTakenDamageItemVM.md"
+    },
+    {
+      "typeName": "MissionAgentTakenDamageVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentTakenDamageVM.md"
+    },
+    {
+      "typeName": "MissionMainAgentCheerBarkControllerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionMainAgentCheerBarkControllerVM.md"
+    },
+    {
+      "typeName": "MissionMainAgentControllerEquipDropVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionMainAgentControllerEquipDropVM.md"
+    },
+    {
+      "typeName": "MissionMainAgentEquipmentControllerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionMainAgentEquipmentControllerVM.md"
+    },
+    {
+      "typeName": "MissionSpectatorControlVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionSpectatorControlVM.md"
+    },
+    {
+      "typeName": "ReloadPhaseItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ReloadPhaseItemVM.md"
+    },
+    {
+      "typeName": "CompassMarkerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CompassMarkerVM.md"
+    },
+    {
+      "typeName": "CompassTargetVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.Compass",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CompassTargetVM.md"
+    },
+    {
+      "typeName": "MissionAgentDamageFeedItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentDamageFeedItemVM.md"
+    },
+    {
+      "typeName": "MissionAgentDamageFeedVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.DamageFeed",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionAgentDamageFeedVM.md"
+    },
+    {
+      "typeName": "FormationMarkerDistanceComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FormationMarkerDistanceComparer.md"
+    },
+    {
+      "typeName": "MissionFormationMarkerTargetVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionFormationMarkerTargetVM.md"
+    },
+    {
+      "typeName": "MissionFormationMarkerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionFormationMarkerVM.md"
+    },
+    {
+      "typeName": "MissionSiegeEngineMarkerTargetVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionSiegeEngineMarkerTargetVM.md"
+    },
+    {
+      "typeName": "MissionSiegeEngineMarkerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionSiegeEngineMarkerVM.md"
+    },
+    {
+      "typeName": "SiegeEngineMarkerDistanceComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SiegeEngineMarkerDistanceComparer.md"
+    },
+    {
+      "typeName": "TeamTypes",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.FormationMarker",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/TeamTypes.md"
+    },
+    {
+      "typeName": "SPKillFeedVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPKillFeedVM.md"
+    },
+    {
+      "typeName": "SPGeneralKillNotificationItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPGeneralKillNotificationItemVM.md"
+    },
+    {
+      "typeName": "SPGeneralKillNotificationVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.General",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPGeneralKillNotificationVM.md"
+    },
+    {
+      "typeName": "SPPersonalKillNotificationItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPPersonalKillNotificationItemVM.md"
+    },
+    {
+      "typeName": "SPPersonalKillNotificationVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.KillFeed.Personal",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPPersonalKillNotificationVM.md"
+    },
+    {
+      "typeName": "MissionMainAgentWalkModeControllerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionMainAgentWalkModeControllerVM.md"
+    },
+    {
+      "typeName": "WalkModeItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.HUD.WalkMode",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/WalkModeItemVM.md"
+    },
+    {
+      "typeName": "InitialMenuOptionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/InitialMenuOptionVM.md"
+    },
+    {
+      "typeName": "InitialMenuVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.InitialMenu",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/InitialMenuVM.md"
+    },
+    {
+      "typeName": "MultiSelectionQueryPopUpVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiSelectionQueryPopUpVM.md"
+    },
+    {
+      "typeName": "PopUpBaseVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/PopUpBaseVM.md"
+    },
+    {
+      "typeName": "SingleQueryPopUpVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SingleQueryPopUpVM.md"
+    },
+    {
+      "typeName": "TextQueryPopUpVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Inquiries",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/TextQueryPopUpVM.md"
+    },
+    {
+      "typeName": "AgentInteractionInterfaceVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AgentInteractionInterfaceVM.md"
+    },
+    {
+      "typeName": "MissionGenericInteractionItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionGenericInteractionItemVM.md"
+    },
+    {
+      "typeName": "MissionHintInteractionItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/MissionHintInteractionItemVM.md"
+    },
+    {
+      "typeName": "MissionInteractionItemBaseVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionInteractionItemBaseVM.md"
+    },
+    {
+      "typeName": "MissionPrimaryInteractionItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Interaction.InteractionItems",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionPrimaryInteractionItemVM.md"
+    },
+    {
+      "typeName": "MissionObjectiveMarkersVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionObjectiveMarkersVM.md"
+    },
+    {
+      "typeName": "MissionObjectiveMarkerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionObjectiveMarkerVM.md"
+    },
+    {
+      "typeName": "MissionObjectiveVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Missions.Objective",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionObjectiveVM.md"
+    },
+    {
+      "typeName": "MPChatLineVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MPChatLineVM.md"
+    },
+    {
+      "typeName": "MPChatVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Multiplayer",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MPChatVM.md"
+    },
+    {
+      "typeName": "ClassConfiguration",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ClassConfiguration.md"
+    },
+    {
+      "typeName": "CursorStates",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CursorStates.md"
+    },
+    {
+      "typeName": "DeploymentSiegeMachineVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DeploymentSiegeMachineVM.md"
+    },
+    {
+      "typeName": "FormationConfiguration",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FormationConfiguration.md"
+    },
+    {
+      "typeName": "MissionOrderCallbacks",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionOrderCallbacks.md"
+    },
+    {
+      "typeName": "MissionOrderDeploymentControllerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionOrderDeploymentControllerVM.md"
+    },
+    {
+      "typeName": "MissionOrderTroopControllerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionOrderTroopControllerVM.md"
+    },
+    {
+      "typeName": "MissionOrderVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionOrderVM.md"
+    },
+    {
+      "typeName": "OrderItemBaseVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderItemBaseVM.md"
+    },
+    {
+      "typeName": "OrderItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderItemVM.md"
+    },
+    {
+      "typeName": "OrderSetVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderSetVM.md"
+    },
+    {
+      "typeName": "OrderSiegeMachineVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderSiegeMachineVM.md"
+    },
+    {
+      "typeName": "OrderSubjectVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderSubjectVM.md"
+    },
+    {
+      "typeName": "OrderTargets",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderTargets.md"
+    },
+    {
+      "typeName": "OrderTroopItemFilterVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderTroopItemFilterVM.md"
+    },
+    {
+      "typeName": "OrderTroopItemFormationClassVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderTroopItemFormationClassVM.md"
+    },
+    {
+      "typeName": "OrderTroopItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderTroopItemVM.md"
+    },
+    {
+      "typeName": "TroopItemFormationIndexComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/TroopItemFormationIndexComparer.md"
+    },
+    {
+      "typeName": "ActionVisualOrder",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ActionVisualOrder.md"
+    },
+    {
+      "typeName": "OrderState",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderState.md"
+    },
+    {
+      "typeName": "ReturnVisualOrder",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ReturnVisualOrder.md"
+    },
+    {
+      "typeName": "TransferTroopsVisualOrder",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/TransferTroopsVisualOrder.md"
+    },
+    {
+      "typeName": "VisualOrder",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/VisualOrder.md"
+    },
+    {
+      "typeName": "VisualOrderExecutionParameters",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/VisualOrderExecutionParameters.md"
+    },
+    {
+      "typeName": "VisualOrderFactory",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/VisualOrderFactory.md"
+    },
+    {
+      "typeName": "VisualOrderProvider",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/VisualOrderProvider.md"
+    },
+    {
+      "typeName": "VisualOrderSet",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/VisualOrderSet.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationClassChangedEvent",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationClassChangedEvent.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationClassSelectorItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationClassSelectorItemVM.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationClassVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationClassVM.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationFilterSelectorItemComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationFilterSelectorItemComparer.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationFilterSelectorItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationFilterSelectorItemVM.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationItemVM.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationWeightChangedEvent",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationWeightChangedEvent.md"
+    },
+    {
+      "typeName": "OrderOfBattleHeroAssignedToFormationEvent",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleHeroAssignedToFormationEvent.md"
+    },
+    {
+      "typeName": "OrderOfBattleHeroItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleHeroItemVM.md"
+    },
+    {
+      "typeName": "OrderOfBattleUIHelper",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/OrderOfBattleUIHelper.md"
+    },
+    {
+      "typeName": "OrderOfBattleVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleVM.md"
+    },
+    {
+      "typeName": "ProfileSelectionVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.ProfileSelection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ProfileSelectionVM.md"
+    },
+    {
+      "typeName": "BattleResultType",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/BattleResultType.md"
+    },
+    {
+      "typeName": "Categories",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Categories.md"
+    },
+    {
+      "typeName": "CustomBattleScoreboardVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CustomBattleScoreboardVM.md"
+    },
+    {
+      "typeName": "ItemDeadComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemDeadComparer.md"
+    },
+    {
+      "typeName": "ItemKillComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemKillComparer.md"
+    },
+    {
+      "typeName": "ItemMemberComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemMemberComparer.md"
+    },
+    {
+      "typeName": "ItemRemainingComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemRemainingComparer.md"
+    },
+    {
+      "typeName": "ItemRoutedComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemRoutedComparer.md"
+    },
+    {
+      "typeName": "ItemUpgradeComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemUpgradeComparer.md"
+    },
+    {
+      "typeName": "ItemWoundedComparer",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemWoundedComparer.md"
+    },
+    {
+      "typeName": "MouseState",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/MouseState.md"
+    },
+    {
+      "typeName": "ScoreboardBaseVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScoreboardBaseVM.md"
+    },
+    {
+      "typeName": "ScoreboardHotkeys",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScoreboardHotkeys.md"
+    },
+    {
+      "typeName": "ScoreboardUnitItemComparerBase",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScoreboardUnitItemComparerBase.md"
+    },
+    {
+      "typeName": "SPScoreboardPartyVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardPartyVM.md"
+    },
+    {
+      "typeName": "SPScoreboardShipVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardShipVM.md"
+    },
+    {
+      "typeName": "SPScoreboardSideVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardSideVM.md"
+    },
+    {
+      "typeName": "SPScoreboardSkillItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardSkillItemVM.md"
+    },
+    {
+      "typeName": "SPScoreboardSortControllerVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardSortControllerVM.md"
+    },
+    {
+      "typeName": "SPScoreboardStatsVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardStatsVM.md"
+    },
+    {
+      "typeName": "SPScoreboardUnitVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SPScoreboardUnitVM.md"
+    },
+    {
+      "typeName": "VideoPlaybackVM",
+      "namespace": "TaleWorlds.MountAndBlade.ViewModelCollection.VideoPlayback",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/VideoPlaybackVM.md"
+    }
+  ]
+}

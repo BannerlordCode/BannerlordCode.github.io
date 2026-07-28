@@ -1,0 +1,89 @@
+{
+  "count": 14,
+  "types": [
+    {
+      "typeName": "ChangeKingdomActionDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ChangeKingdomActionDetail.md"
+    },
+    {
+      "typeName": "ChangeOwnerOfSettlementDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ChangeOwnerOfSettlementDetail.md"
+    },
+    {
+      "typeName": "ChangeRelationDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ChangeRelationDetail.md"
+    },
+    {
+      "typeName": "DeclareWarDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DeclareWarDetail.md"
+    },
+    {
+      "typeName": "EndCaptivityDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EndCaptivityDetail.md"
+    },
+    {
+      "typeName": "EndMercenaryServiceActionDetails",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EndMercenaryServiceActionDetails.md"
+    },
+    {
+      "typeName": "KillCharacterActionDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KillCharacterActionDetail.md"
+    },
+    {
+      "typeName": "MakePeaceDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MakePeaceDetail.md"
+    },
+    {
+      "typeName": "RemoveCompanionDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RemoveCompanionDetail.md"
+    },
+    {
+      "typeName": "ShipDestroyDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ShipDestroyDetail.md"
+    },
+    {
+      "typeName": "ShipOwnerChangeDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ShipOwnerChangeDetail.md"
+    },
+    {
+      "typeName": "SiegeAftermath",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeAftermath.md"
+    },
+    {
+      "typeName": "StartMercenaryServiceActionDetails",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StartMercenaryServiceActionDetails.md"
+    },
+    {
+      "typeName": "TeleportationDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TeleportationDetail.md"
+    }
+  ]
+}

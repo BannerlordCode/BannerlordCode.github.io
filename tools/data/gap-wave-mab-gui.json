@@ -1,0 +1,329 @@
+{
+  "count": 54,
+  "types": [
+    {
+      "typeName": "ComparisonTypes",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ComparisonTypes.md"
+    },
+    {
+      "typeName": "ContainerDirections",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ContainerDirections.md"
+    },
+    {
+      "typeName": "DebugValueUpdateSlider",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DebugValueUpdateSlider.md"
+    },
+    {
+      "typeName": "DemoTypes",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DemoTypes.md"
+    },
+    {
+      "typeName": "Dimensions",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Dimensions.md"
+    },
+    {
+      "typeName": "DiscreteScrollablePanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DiscreteScrollablePanel.md"
+    },
+    {
+      "typeName": "DoubleTabControlListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DoubleTabControlListPanel.md"
+    },
+    {
+      "typeName": "EncyclopediaTroopScrollablePanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/EncyclopediaTroopScrollablePanel.md"
+    },
+    {
+      "typeName": "NavigatableListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NavigatableListPanel.md"
+    },
+    {
+      "typeName": "NavigationForcedScopeCollectionTargeter",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NavigationForcedScopeCollectionTargeter.md"
+    },
+    {
+      "typeName": "NavigationScopeTargeter",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NavigationScopeTargeter.md"
+    },
+    {
+      "typeName": "NavigationTargetSwitcher",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NavigationTargetSwitcher.md"
+    },
+    {
+      "typeName": "PaginatedScrollablePanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/PaginatedScrollablePanel.md"
+    },
+    {
+      "typeName": "ParallaxMovementDirection",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ParallaxMovementDirection.md"
+    },
+    {
+      "typeName": "ScrollMovementType",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScrollMovementType.md"
+    },
+    {
+      "typeName": "VisualState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/VisualState__TaleWorlds_MountAndBlade_GauntletUI_Widgets.md"
+    },
+    {
+      "typeName": "WatchTypes",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/WatchTypes__TaleWorlds_MountAndBlade_GauntletUI_Widgets.md"
+    },
+    {
+      "typeName": "CharacterCreationStageSelectionBarListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CharacterCreationStageSelectionBarListPanel.md"
+    },
+    {
+      "typeName": "AnimState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimState.md"
+    },
+    {
+      "typeName": "SkillPointsContainerListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SkillPointsContainerListPanel.md"
+    },
+    {
+      "typeName": "ChatCollapsableListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ChatCollapsableListPanel.md"
+    },
+    {
+      "typeName": "ChatMultiLineElement",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Chat",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ChatMultiLineElement.md"
+    },
+    {
+      "typeName": "CraftedWeaponDesignResultListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Crafting",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CraftedWeaponDesignResultListPanel.md"
+    },
+    {
+      "typeName": "TooltipPropertyFlags",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Information",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/TooltipPropertyFlags__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Information.md"
+    },
+    {
+      "typeName": "InventoryAlternativeUsageContainer",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/InventoryAlternativeUsageContainer.md"
+    },
+    {
+      "typeName": "InventoryListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/InventoryListPanel.md"
+    },
+    {
+      "typeName": "DecisionSupportStrengthListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DecisionSupportStrengthListPanel.md"
+    },
+    {
+      "typeName": "KingdomTabControlListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Kingdom",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/KingdomTabControlListPanel.md"
+    },
+    {
+      "typeName": "AnimState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.MapBar",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimState__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Map_MapBar.md"
+    },
+    {
+      "typeName": "AnimState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Map.Siege",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimState__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Map_Siege.md"
+    },
+    {
+      "typeName": "AnimState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Menu.TownManagement",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimState__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Menu_TownManagement.md"
+    },
+    {
+      "typeName": "FormationMarkerListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FormationMarkerListPanel.md"
+    },
+    {
+      "typeName": "MissionMarkerType",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionMarkerType.md"
+    },
+    {
+      "typeName": "MultiplayerMissionMarkerListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.FlagMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerMissionMarkerListPanel.md"
+    },
+    {
+      "typeName": "AlwaysVisibleNameMarkerListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AlwaysVisibleNameMarkerListPanel.md"
+    },
+    {
+      "typeName": "DuelTargetMarkerListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DuelTargetMarkerListPanel.md"
+    },
+    {
+      "typeName": "MarkerRect",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MarkerRect.md"
+    },
+    {
+      "typeName": "NameMarkerListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.NameMarker",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NameMarkerListPanel.md"
+    },
+    {
+      "typeName": "OrderOfBattleFormationItemListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.OrderOfBattle",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleFormationItemListPanel.md"
+    },
+    {
+      "typeName": "MultiplayerClassLoadoutItemTabListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.ClassLoadout",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerClassLoadoutItemTabListPanel.md"
+    },
+    {
+      "typeName": "MultiplayerLobbyGameTypeCardListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Lobby",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerLobbyGameTypeCardListPanel.md"
+    },
+    {
+      "typeName": "MultiplayerScoreboardStatsListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Multiplayer.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerScoreboardStatsListPanel.md"
+    },
+    {
+      "typeName": "TutorialAnimState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/TutorialAnimState.md"
+    },
+    {
+      "typeName": "NameplateNotificationListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Nameplate.Notifications",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NameplateNotificationListPanel.md"
+    },
+    {
+      "typeName": "OptionsKeyItemListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionsKeyItemListPanel.md"
+    },
+    {
+      "typeName": "OptionsGamepadOptionItemListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options.Gamepad",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionsGamepadOptionItemListPanel.md"
+    },
+    {
+      "typeName": "ScoreboardGainedSkillsListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScoreboardGainedSkillsListPanel.md"
+    },
+    {
+      "typeName": "ScoreboardSideMoraleListPanel",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Scoreboard",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScoreboardSideMoraleListPanel.md"
+    },
+    {
+      "typeName": "AnimState",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimState__TaleWorlds_MountAndBlade_GauntletUI_Widgets_Tutorial.md"
+    },
+    {
+      "typeName": "AnimTypes",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimTypes.md"
+    },
+    {
+      "typeName": "HighlightElementToggledEvent",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/HighlightElementToggledEvent.md"
+    },
+    {
+      "typeName": "InputTypes",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/InputTypes.md"
+    },
+    {
+      "typeName": "MovementTypes",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MovementTypes.md"
+    },
+    {
+      "typeName": "StickAnimStage",
+      "namespace": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Tutorial",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/StickAnimStage.md"
+    }
+  ]
+}

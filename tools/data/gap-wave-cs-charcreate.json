@@ -1,0 +1,101 @@
+{
+  "count": 16,
+  "types": [
+    {
+      "typeName": "CharacterCreationBannerEditorStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationBannerEditorStage.md"
+    },
+    {
+      "typeName": "CharacterCreationClanNamingStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationClanNamingStage.md"
+    },
+    {
+      "typeName": "CharacterCreationContent",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationContent.md"
+    },
+    {
+      "typeName": "CharacterCreationCultureStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationCultureStage.md"
+    },
+    {
+      "typeName": "CharacterCreationFaceGeneratorStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationFaceGeneratorStage.md"
+    },
+    {
+      "typeName": "CharacterCreationNarrativeStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationNarrativeStage.md"
+    },
+    {
+      "typeName": "CharacterCreationOptionsStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationOptionsStage.md"
+    },
+    {
+      "typeName": "CharacterCreationReviewStage",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationReviewStage.md"
+    },
+    {
+      "typeName": "CharacterCreationStageBase",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationStageBase.md"
+    },
+    {
+      "typeName": "CharacterCreationState",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationState.md"
+    },
+    {
+      "typeName": "ICharacterCreationStageListener",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICharacterCreationStageListener.md"
+    },
+    {
+      "typeName": "NarrativeMenu",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NarrativeMenu.md"
+    },
+    {
+      "typeName": "NarrativeMenuCharacter",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NarrativeMenuCharacter.md"
+    },
+    {
+      "typeName": "NarrativeMenuCharacterArgs",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign/NarrativeMenuCharacterArgs.md"
+    },
+    {
+      "typeName": "NarrativeMenuOption",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NarrativeMenuOption.md"
+    },
+    {
+      "typeName": "NarrativeMenuOptionArgs",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NarrativeMenuOptionArgs.md"
+    }
+  ]
+}

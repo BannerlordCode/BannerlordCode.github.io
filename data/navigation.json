@@ -11,7 +11,7 @@
       "zh",
       "en"
     ],
-    "generated": "2026-06-25T02:05:02.810Z"
+    "generated": "2026-07-26T09:19:14.905Z"
   },
   "groups": {
     "start": {
@@ -144,6 +144,83 @@
       "collapsed": false,
       "order": 1,
       "parent": "/v1.3.15/zh/",
+      "children": [
+        "/v1.3.15/zh/architecture/doc-contract/",
+        "/v1.3.15/zh/architecture/sdk-overview/",
+        "/v1.3.15/zh/architecture/module-system/",
+        "/v1.3.15/zh/architecture/save-system/",
+        "/v1.3.15/zh/architecture/version-delta/",
+        "/v1.3.15/zh/architecture/native-interop/",
+        "/v1.3.15/zh/architecture/developer-roadmap/",
+        "/v1.3.15/zh/architecture/crash-boundaries/",
+        "/v1.3.15/zh/architecture/noise-policy/",
+        "/v1.3.15/zh/architecture/sandbox-native-policy/"
+      ]
+    },
+    "/v1.3.15/zh/architecture/doc-contract/": {
+      "label": {
+        "zh": "文档契约",
+        "en": "Doc Contract"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/sdk-overview/": {
+      "label": {
+        "zh": "SDK 总览",
+        "en": "SDK Overview"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/module-system/": {
+      "label": {
+        "zh": "模块系统",
+        "en": "Module System"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/save-system/": {
+      "label": {
+        "zh": "存档系统",
+        "en": "Save System"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 3,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/version-delta/": {
+      "label": {
+        "zh": "版本差异",
+        "en": "Version Delta"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 4,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/native-interop/": {
+      "label": {
+        "zh": "托管/原生互操作",
+        "en": "Managed-Native Interop"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 5,
+      "parent": "/v1.3.15/zh/architecture/",
       "children": []
     },
     "/v1.3.15/zh/api/": {
@@ -166,7 +243,8 @@
         "/v1.3.15/zh/api/save-system/",
         "/v1.3.15/zh/api/viewmodel/",
         "/v1.3.15/zh/api/localization/",
-        "/v1.3.15/zh/api/engine/"
+        "/v1.3.15/zh/api/engine/",
+        "/v1.3.15/zh/api/system/"
       ]
     },
     "/v1.3.15/zh/api/core/": {
@@ -213,7 +291,6 @@
       "parent": "/v1.3.15/zh/api/",
       "children": []
     },
-
     "/v1.3.15/zh/api/campaign/": {
       "label": {
         "zh": "Campaign 战役系统",
@@ -235,8 +312,29 @@
       "order": 6,
       "parent": "/v1.3.15/zh/api/",
       "children": [
-        "/v1.3.15/zh/api/campaign-ext/actions-index/"
+        "/v1.3.15/zh/api/campaign-ext/actions/",
+        "/v1.3.15/zh/api/campaign-ext/actions-index/",
+        "/v1.3.15/zh/api/campaign-ext/models/",
+        "/v1.3.15/zh/api/campaign-ext/issues/",
+        "/v1.3.15/zh/api/campaign-ext/quests/",
+        "/v1.3.15/zh/api/campaign-ext/behaviors/",
+        "/v1.3.15/zh/api/campaign-ext/dialogs/",
+        "/v1.3.15/zh/api/campaign-ext/party/",
+        "/v1.3.15/zh/api/campaign-ext/settlements/",
+        "/v1.3.15/zh/api/campaign-ext/mapevents/",
+        "/v1.3.15/zh/api/campaign-ext/gamemenus/"
       ]
+    },
+    "/v1.3.15/zh/api/campaign-ext/actions/": {
+      "label": {
+        "zh": "Actions 家族手册",
+        "en": "Actions Family Handbook"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 6,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
     },
     "/v1.3.15/zh/api/campaign-ext/actions-index/": {
       "label": {
@@ -246,6 +344,17 @@
       "group": "api",
       "collapsed": false,
       "order": 7,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/models/": {
+      "label": {
+        "zh": "Models 公式家族",
+        "en": "Models Family Handbook"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 8,
       "parent": "/v1.3.15/zh/api/campaign-ext/",
       "children": []
     },
@@ -301,6 +410,17 @@
       "group": "api",
       "collapsed": true,
       "order": 11,
+      "parent": "/v1.3.15/zh/api/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/system/": {
+      "label": {
+        "zh": "System 系统层",
+        "en": "System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
       "parent": "/v1.3.15/zh/api/",
       "children": []
     },
@@ -375,6 +495,83 @@
       "collapsed": false,
       "order": 1,
       "parent": "/v1.3.15/en/",
+      "children": [
+        "/v1.3.15/en/architecture/doc-contract/",
+        "/v1.3.15/en/architecture/sdk-overview/",
+        "/v1.3.15/en/architecture/module-system/",
+        "/v1.3.15/en/architecture/save-system/",
+        "/v1.3.15/en/architecture/version-delta/",
+        "/v1.3.15/en/architecture/native-interop/",
+        "/v1.3.15/en/architecture/developer-roadmap/",
+        "/v1.3.15/en/architecture/crash-boundaries/",
+        "/v1.3.15/en/architecture/noise-policy/",
+        "/v1.3.15/en/architecture/sandbox-native-policy/"
+      ]
+    },
+    "/v1.3.15/en/architecture/doc-contract/": {
+      "label": {
+        "zh": "文档契约",
+        "en": "Doc Contract"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/sdk-overview/": {
+      "label": {
+        "zh": "SDK 总览",
+        "en": "SDK Overview"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 1,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/module-system/": {
+      "label": {
+        "zh": "模块系统",
+        "en": "Module System"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 2,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/save-system/": {
+      "label": {
+        "zh": "存档系统",
+        "en": "Save System"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 3,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/version-delta/": {
+      "label": {
+        "zh": "版本差异",
+        "en": "Version Delta"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 4,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/native-interop/": {
+      "label": {
+        "zh": "托管/原生互操作",
+        "en": "Managed-Native Interop"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 5,
+      "parent": "/v1.3.15/en/architecture/",
       "children": []
     },
     "/v1.3.15/en/api/": {
@@ -397,7 +594,8 @@
         "/v1.3.15/en/api/save-system/",
         "/v1.3.15/en/api/viewmodel/",
         "/v1.3.15/en/api/localization/",
-        "/v1.3.15/en/api/engine/"
+        "/v1.3.15/en/api/engine/",
+        "/v1.3.15/en/api/system/"
       ]
     },
     "/v1.3.15/en/api/core/": {
@@ -444,7 +642,6 @@
       "parent": "/v1.3.15/en/api/",
       "children": []
     },
-
     "/v1.3.15/en/api/campaign/": {
       "label": {
         "zh": "Campaign 战役系统",
@@ -466,8 +663,29 @@
       "order": 6,
       "parent": "/v1.3.15/en/api/",
       "children": [
-        "/v1.3.15/en/api/campaign-ext/actions-index/"
+        "/v1.3.15/en/api/campaign-ext/actions/",
+        "/v1.3.15/en/api/campaign-ext/actions-index/",
+        "/v1.3.15/en/api/campaign-ext/models/",
+        "/v1.3.15/en/api/campaign-ext/issues/",
+        "/v1.3.15/en/api/campaign-ext/quests/",
+        "/v1.3.15/en/api/campaign-ext/behaviors/",
+        "/v1.3.15/en/api/campaign-ext/dialogs/",
+        "/v1.3.15/en/api/campaign-ext/party/",
+        "/v1.3.15/en/api/campaign-ext/settlements/",
+        "/v1.3.15/en/api/campaign-ext/mapevents/",
+        "/v1.3.15/en/api/campaign-ext/gamemenus/"
       ]
+    },
+    "/v1.3.15/en/api/campaign-ext/actions/": {
+      "label": {
+        "zh": "Actions 家族手册",
+        "en": "Actions Family Handbook"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 6,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
     },
     "/v1.3.15/en/api/campaign-ext/actions-index/": {
       "label": {
@@ -477,6 +695,17 @@
       "group": "api",
       "collapsed": false,
       "order": 7,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/models/": {
+      "label": {
+        "zh": "Models 公式家族",
+        "en": "Models Family Handbook"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 8,
       "parent": "/v1.3.15/en/api/campaign-ext/",
       "children": []
     },
@@ -532,6 +761,17 @@
       "group": "api",
       "collapsed": true,
       "order": 11,
+      "parent": "/v1.3.15/en/api/",
+      "children": []
+    },
+    "/v1.3.15/en/api/system/": {
+      "label": {
+        "zh": "System 系统层",
+        "en": "System"
+      },
+      "group": "api",
+      "collapsed": true,
+      "order": 12,
       "parent": "/v1.3.15/en/api/",
       "children": []
     },
@@ -1040,8 +1280,11 @@
       "order": 0,
       "parent": "/v1.4.5/",
       "children": [
+        "/v1.4.5/zh/guide/",
         "/v1.4.5/zh/architecture/",
-        "/v1.4.5/zh/api/"
+        "/v1.4.5/zh/api/",
+        "/v1.4.5/zh/native/",
+        "/v1.4.5/zh/xml-reference/"
       ]
     },
     "/v1.4.5/zh/architecture/": {
@@ -1233,8 +1476,11 @@
       "order": 1,
       "parent": "/v1.4.5/",
       "children": [
+        "/v1.4.5/en/guide/",
         "/v1.4.5/en/architecture/",
-        "/v1.4.5/en/api/"
+        "/v1.4.5/en/api/",
+        "/v1.4.5/en/native/",
+        "/v1.4.5/en/xml-reference/"
       ]
     },
     "/v1.4.5/en/architecture/": {
@@ -1425,6 +1671,336 @@
       "collapsed": false,
       "order": 0,
       "parent": "/",
+      "children": []
+    },
+    "/v1.4.5/zh/guide/": {
+      "label": {
+        "zh": "入门指南",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/zh/",
+      "children": []
+    },
+    "/v1.4.5/zh/native/": {
+      "label": {
+        "zh": "原生接口",
+        "en": "Native Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.5/zh/",
+      "children": []
+    },
+    "/v1.4.5/zh/xml-reference/": {
+      "label": {
+        "zh": "XML 参考",
+        "en": "XML Reference"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/zh/",
+      "children": []
+    },
+    "/v1.4.5/en/guide/": {
+      "label": {
+        "zh": "Getting Started Guide",
+        "en": "Getting Started Guide"
+      },
+      "group": "guide",
+      "collapsed": false,
+      "order": 0,
+      "parent": "/v1.4.5/en/",
+      "children": []
+    },
+    "/v1.4.5/en/native/": {
+      "label": {
+        "zh": "Native Reference",
+        "en": "Native Reference"
+      },
+      "group": "native",
+      "collapsed": true,
+      "order": 3,
+      "parent": "/v1.4.5/en/",
+      "children": []
+    },
+    "/v1.4.5/en/xml-reference/": {
+      "label": {
+        "zh": "XML Reference",
+        "en": "XML Reference"
+      },
+      "group": "xml",
+      "collapsed": true,
+      "order": 5,
+      "parent": "/v1.4.5/en/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/developer-roadmap/": {
+      "label": {
+        "zh": "开发者任务路线图",
+        "en": "Developer Roadmap"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 20,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/crash-boundaries/": {
+      "label": {
+        "zh": "崩溃与存档边界",
+        "en": "Crash Boundaries"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 21,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/noise-policy/": {
+      "label": {
+        "zh": "噪声与非业务类型政策",
+        "en": "Noise Policy"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 22,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/architecture/sandbox-native-policy/": {
+      "label": {
+        "zh": "SandBox/StoryMode/Native 阅读政策",
+        "en": "SandBox/StoryMode/Native Policy"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 23,
+      "parent": "/v1.3.15/zh/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/developer-roadmap/": {
+      "label": {
+        "zh": "开发者任务路线图",
+        "en": "Developer Roadmap"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 20,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/crash-boundaries/": {
+      "label": {
+        "zh": "崩溃与存档边界",
+        "en": "Crash Boundaries"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 21,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/noise-policy/": {
+      "label": {
+        "zh": "噪声与非业务类型政策",
+        "en": "Noise Policy"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 22,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/en/architecture/sandbox-native-policy/": {
+      "label": {
+        "zh": "SandBox/StoryMode/Native 阅读政策",
+        "en": "SandBox/StoryMode/Native Policy"
+      },
+      "group": "architecture",
+      "collapsed": false,
+      "order": 23,
+      "parent": "/v1.3.15/en/architecture/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/issues/": {
+      "label": {
+        "zh": "Issues 委托家族",
+        "en": "Issues Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 9,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/quests/": {
+      "label": {
+        "zh": "Quests 任务家族",
+        "en": "Quests Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 10,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/behaviors/": {
+      "label": {
+        "zh": "Behaviors 行为家族",
+        "en": "Behaviors Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 11,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/issues/": {
+      "label": {
+        "zh": "Issues 委托家族",
+        "en": "Issues Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 9,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/quests/": {
+      "label": {
+        "zh": "Quests 任务家族",
+        "en": "Quests Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 10,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/behaviors/": {
+      "label": {
+        "zh": "Behaviors 行为家族",
+        "en": "Behaviors Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 11,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/dialogs/": {
+      "label": {
+        "zh": "Dialogs 对话家族",
+        "en": "Dialogs Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 12,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/party/": {
+      "label": {
+        "zh": "Party 部队家族",
+        "en": "Party Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 13,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/settlements/": {
+      "label": {
+        "zh": "Settlements 据点家族",
+        "en": "Settlements Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 14,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/mapevents/": {
+      "label": {
+        "zh": "MapEvents 地图事件",
+        "en": "MapEvents Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 15,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/gamemenus/": {
+      "label": {
+        "zh": "GameMenus 菜单家族",
+        "en": "GameMenus Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 16,
+      "parent": "/v1.3.15/zh/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/dialogs/": {
+      "label": {
+        "zh": "Dialogs 对话家族",
+        "en": "Dialogs Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 12,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/party/": {
+      "label": {
+        "zh": "Party 部队家族",
+        "en": "Party Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 13,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/settlements/": {
+      "label": {
+        "zh": "Settlements 据点家族",
+        "en": "Settlements Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 14,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/mapevents/": {
+      "label": {
+        "zh": "MapEvents 地图事件",
+        "en": "MapEvents Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 15,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
+      "children": []
+    },
+    "/v1.3.15/en/api/campaign-ext/gamemenus/": {
+      "label": {
+        "zh": "GameMenus 菜单家族",
+        "en": "GameMenus Family"
+      },
+      "group": "api",
+      "collapsed": false,
+      "order": 16,
+      "parent": "/v1.3.15/en/api/campaign-ext/",
       "children": []
     }
   }

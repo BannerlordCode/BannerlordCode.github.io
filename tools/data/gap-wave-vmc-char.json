@@ -1,0 +1,167 @@
+{
+  "count": 27,
+  "types": [
+    {
+      "typeName": "CharacterCreationClanNamingStageVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationClanNamingStageVM.md"
+    },
+    {
+      "typeName": "CharacterCreationCultureFeatVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationCultureFeatVM.md"
+    },
+    {
+      "typeName": "CharacterCreationCultureStageVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationCultureStageVM.md"
+    },
+    {
+      "typeName": "CharacterCreationCultureVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationCultureVM.md"
+    },
+    {
+      "typeName": "CharacterCreationGainedAttributeItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationGainedAttributeItemVM.md"
+    },
+    {
+      "typeName": "CharacterCreationGainedPropertiesVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationGainedPropertiesVM.md"
+    },
+    {
+      "typeName": "CharacterCreationGainedSkillItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationGainedSkillItemVM.md"
+    },
+    {
+      "typeName": "CharacterCreationGainGroupItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationGainGroupItemVM.md"
+    },
+    {
+      "typeName": "CharacterCreationNarrativeStageVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationNarrativeStageVM.md"
+    },
+    {
+      "typeName": "CharacterCreationOptionVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationOptionVM.md"
+    },
+    {
+      "typeName": "CharacterCreationReviewStageItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationReviewStageItemVM.md"
+    },
+    {
+      "typeName": "CharacterCreationReviewStageVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationReviewStageVM.md"
+    },
+    {
+      "typeName": "CharacterCreationStageBaseVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationStageBaseVM.md"
+    },
+    {
+      "typeName": "CharacterCreationOptionsStageVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterCreation.OptionsStage",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterCreationOptionsStageVM.md"
+    },
+    {
+      "typeName": "AttributeBoundSkillItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AttributeBoundSkillItemVM.md"
+    },
+    {
+      "typeName": "CharacterAttributeItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterAttributeItemVM.md"
+    },
+    {
+      "typeName": "CharacterDeveloperHeroItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterDeveloperHeroItemVM.md"
+    },
+    {
+      "typeName": "CharacterDeveloperVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterDeveloperVM.md"
+    },
+    {
+      "typeName": "FocusAddedByPlayerEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FocusAddedByPlayerEvent.md"
+    },
+    {
+      "typeName": "PerkAlternativeType",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkAlternativeType.md"
+    },
+    {
+      "typeName": "PerkStates",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkStates.md"
+    },
+    {
+      "typeName": "PerkVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkVM.md"
+    },
+    {
+      "typeName": "SkillVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SkillVM.md"
+    },
+    {
+      "typeName": "PerkSelectedByPlayerEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkSelectedByPlayerEvent.md"
+    },
+    {
+      "typeName": "PerkSelectionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkSelectionItemVM.md"
+    },
+    {
+      "typeName": "PerkSelectionToggleEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkSelectionToggleEvent.md"
+    },
+    {
+      "typeName": "PerkSelectionVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper.PerkSelection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PerkSelectionVM.md"
+    }
+  ]
+}

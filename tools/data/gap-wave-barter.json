@@ -1,0 +1,117 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "BarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "BarterResult",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "DefaultsBarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "FiefBarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "GoldBarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "ItemBarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "OtherBarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem",
+    "name": "PrisonerBarterGroup",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "Barterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "BarterSide",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "DeclareWarBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "FiefBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "GoldBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "ItemBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "JoinKingdomAsClanBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "LeaveKingdomAsClanBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "MarriageBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "MercenaryJoinKingdomBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "NoAttackBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "PeaceBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "SafePassageBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "SetPrisonerFreeBarterable",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.BarterSystem.Barterables",
+    "name": "TransferPrisonerBarterable",
+    "kind": "class"
+  }
+]

@@ -1,0 +1,677 @@
+{
+  "count": 112,
+  "types": [
+    {
+      "typeName": "BitmapFontCharacter",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BitmapFontCharacter.md"
+    },
+    {
+      "typeName": "EditableText",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EditableText.md"
+    },
+    {
+      "typeName": "Font",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Font.md"
+    },
+    {
+      "typeName": "FontStyle",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FontStyle.md"
+    },
+    {
+      "typeName": "IDrawObject",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IDrawObject.md"
+    },
+    {
+      "typeName": "ILanguage",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ILanguage.md"
+    },
+    {
+      "typeName": "ImageDrawObject",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ImageDrawObject.md"
+    },
+    {
+      "typeName": "IText",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IText.md"
+    },
+    {
+      "typeName": "ITwoDimensionPlatform",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ITwoDimensionPlatform.md"
+    },
+    {
+      "typeName": "ITwoDimensionResourceContext",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ITwoDimensionResourceContext.md"
+    },
+    {
+      "typeName": "MaterialPool",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MaterialPool.md"
+    },
+    {
+      "typeName": "Mathf",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Mathf.md"
+    },
+    {
+      "typeName": "MeshTopology",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MeshTopology.md"
+    },
+    {
+      "typeName": "PrimitivePolygonMaterial",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PrimitivePolygonMaterial.md"
+    },
+    {
+      "typeName": "Quad",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Quad.md"
+    },
+    {
+      "typeName": "Rectangle2D",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Rectangle2D.md"
+    },
+    {
+      "typeName": "RichText",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichText.md"
+    },
+    {
+      "typeName": "RichTextLinkGroup",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextLinkGroup.md"
+    },
+    {
+      "typeName": "RichTextParser",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextParser.md"
+    },
+    {
+      "typeName": "RichTextPart",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextPart.md"
+    },
+    {
+      "typeName": "RichTextPartType",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextPartType.md"
+    },
+    {
+      "typeName": "RichTextTag",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextTag.md"
+    },
+    {
+      "typeName": "RichTextTagParser",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextTagParser.md"
+    },
+    {
+      "typeName": "RichTextTagType",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RichTextTagType.md"
+    },
+    {
+      "typeName": "ScissorTestInfo",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ScissorTestInfo.md"
+    },
+    {
+      "typeName": "SimpleMaterial",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SimpleMaterial.md"
+    },
+    {
+      "typeName": "SimpleRectangle",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SimpleRectangle.md"
+    },
+    {
+      "typeName": "Sprite",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Sprite.md"
+    },
+    {
+      "typeName": "SpriteCategory",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SpriteCategory.md"
+    },
+    {
+      "typeName": "SpriteGeneric",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SpriteGeneric.md"
+    },
+    {
+      "typeName": "SpriteNinePatchParameters",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SpriteNinePatchParameters.md"
+    },
+    {
+      "typeName": "SpritePart",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SpritePart.md"
+    },
+    {
+      "typeName": "SpriteSizeComparer",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/SpriteSizeComparer.md"
+    },
+    {
+      "typeName": "StyleFontContainer",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StyleFontContainer.md"
+    },
+    {
+      "typeName": "Text",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Text.md"
+    },
+    {
+      "typeName": "TextDrawObject",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextDrawObject.md"
+    },
+    {
+      "typeName": "TextHorizontalAlignment",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextHorizontalAlignment.md"
+    },
+    {
+      "typeName": "TextLineOutput",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextLineOutput.md"
+    },
+    {
+      "typeName": "TextMaterial",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextMaterial.md"
+    },
+    {
+      "typeName": "TextMeshGenerator",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextMeshGenerator.md"
+    },
+    {
+      "typeName": "TextOutput",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextOutput.md"
+    },
+    {
+      "typeName": "TextParser",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextParser.md"
+    },
+    {
+      "typeName": "TextPart",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextPart.md"
+    },
+    {
+      "typeName": "TextToken",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextToken.md"
+    },
+    {
+      "typeName": "TextTokenOutput",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextTokenOutput.md"
+    },
+    {
+      "typeName": "TextVerticalAlignment",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextVerticalAlignment.md"
+    },
+    {
+      "typeName": "TokenType",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/TokenType.md"
+    },
+    {
+      "typeName": "TwoDimensionContext",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TwoDimensionContext.md"
+    },
+    {
+      "typeName": "TwoDimensionContextObject",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TwoDimensionContextObject.md"
+    },
+    {
+      "typeName": "TwoDimensionDrawContext",
+      "namespace": "TaleWorlds.TwoDimension",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TwoDimensionDrawContext.md"
+    },
+    {
+      "typeName": "TextHelper",
+      "namespace": "TaleWorlds.TwoDimension.BitmapFont",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextHelper.md"
+    },
+    {
+      "typeName": "FrameworkDomain",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FrameworkDomain.md"
+    },
+    {
+      "typeName": "GraphicsContext",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GraphicsContext.md"
+    },
+    {
+      "typeName": "GraphicsForm",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GraphicsForm.md"
+    },
+    {
+      "typeName": "IMessageCommunicator",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMessageCommunicator.md"
+    },
+    {
+      "typeName": "OpenGLTexture",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/OpenGLTexture.md"
+    },
+    {
+      "typeName": "TwoDimensionPlatform",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TwoDimensionPlatform.md"
+    },
+    {
+      "typeName": "VertexArrayObject",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VertexArrayObject.md"
+    },
+    {
+      "typeName": "WindowsForm",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowsForm.md"
+    },
+    {
+      "typeName": "WindowsFramework",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowsFramework.md"
+    },
+    {
+      "typeName": "WindowsFrameworkThreadConfig",
+      "namespace": "TaleWorlds.TwoDimension.Standalone",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowsFrameworkThreadConfig.md"
+    },
+    {
+      "typeName": "AutoPinner",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/AutoPinner.md"
+    },
+    {
+      "typeName": "ArrayType",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/ArrayType.md"
+    },
+    {
+      "typeName": "AttribueMask",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/AttribueMask.md"
+    },
+    {
+      "typeName": "BeginMode",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/BeginMode.md"
+    },
+    {
+      "typeName": "BlendingDestinationFactor",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/BlendingDestinationFactor.md"
+    },
+    {
+      "typeName": "BlendingSourceFactor",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/BlendingSourceFactor.md"
+    },
+    {
+      "typeName": "BufferBindingTarget",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BufferBindingTarget.md"
+    },
+    {
+      "typeName": "ContextParameter",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ContextParameter.md"
+    },
+    {
+      "typeName": "DataType",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/DataType.md"
+    },
+    {
+      "typeName": "HintMode",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/HintMode.md"
+    },
+    {
+      "typeName": "MatrixMode",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/MatrixMode.md"
+    },
+    {
+      "typeName": "Opengl32",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/Opengl32.md"
+    },
+    {
+      "typeName": "Opengl32ARB",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/Opengl32ARB.md"
+    },
+    {
+      "typeName": "PixelFormat",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/PixelFormat.md"
+    },
+    {
+      "typeName": "ShaderType",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ShaderType.md"
+    },
+    {
+      "typeName": "TextureInternalFormat",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextureInternalFormat.md"
+    },
+    {
+      "typeName": "TextureMagFilter",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextureMagFilter.md"
+    },
+    {
+      "typeName": "TextureParameterName",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextureParameterName.md"
+    },
+    {
+      "typeName": "TextureUnit",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextureUnit.md"
+    },
+    {
+      "typeName": "TextureWrapParameter",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.OpenGL",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/TextureWrapParameter.md"
+    },
+    {
+      "typeName": "AlphaFormatFlags",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlphaFormatFlags.md"
+    },
+    {
+      "typeName": "BitmapInfo",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BitmapInfo.md"
+    },
+    {
+      "typeName": "BitmapInfoHeader",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BitmapInfoHeader.md"
+    },
+    {
+      "typeName": "BlendFunction",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BlendFunction.md"
+    },
+    {
+      "typeName": "BlurBehindConstraints",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BlurBehindConstraints.md"
+    },
+    {
+      "typeName": "D3D_DRIVER_TYPE",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/D3D_DRIVER_TYPE.md"
+    },
+    {
+      "typeName": "D3D11",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/D3D11.md"
+    },
+    {
+      "typeName": "Dwmapi",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/Dwmapi.md"
+    },
+    {
+      "typeName": "DwmBlurBehind",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/DwmBlurBehind.md"
+    },
+    {
+      "typeName": "DXGI",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DXGI.md"
+    },
+    {
+      "typeName": "DXGI_ADAPTER_DESC",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DXGI_ADAPTER_DESC.md"
+    },
+    {
+      "typeName": "DXGI_OUTPUT_DESC",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DXGI_OUTPUT_DESC.md"
+    },
+    {
+      "typeName": "Gdi32",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/Gdi32.md"
+    },
+    {
+      "typeName": "GeoTypeId",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GeoTypeId.md"
+    },
+    {
+      "typeName": "IDXGIAdapter",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IDXGIAdapter.md"
+    },
+    {
+      "typeName": "IDXGIFactory",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IDXGIFactory.md"
+    },
+    {
+      "typeName": "IDXGIOutput",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IDXGIOutput.md"
+    },
+    {
+      "typeName": "Kernel32",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Kernel32.md"
+    },
+    {
+      "typeName": "MONITORINFOEX",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MONITORINFOEX.md"
+    },
+    {
+      "typeName": "NativeMessage",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NativeMessage.md"
+    },
+    {
+      "typeName": "PixelFormatDescriptor",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/PixelFormatDescriptor.md"
+    },
+    {
+      "typeName": "PixelFormatDescriptorFlags",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/PixelFormatDescriptorFlags.md"
+    },
+    {
+      "typeName": "PixelFormatDescriptorLayerTypes",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/PixelFormatDescriptorLayerTypes.md"
+    },
+    {
+      "typeName": "PixelFormatDescriptorPixelTypes",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/PixelFormatDescriptorPixelTypes.md"
+    },
+    {
+      "typeName": "Point",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Point.md"
+    },
+    {
+      "typeName": "RECT",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RECT.md"
+    },
+    {
+      "typeName": "User32",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/User32.md"
+    },
+    {
+      "typeName": "WindowClass",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowClass.md"
+    },
+    {
+      "typeName": "WindowMessage",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowMessage.md"
+    },
+    {
+      "typeName": "WindowShowStyle",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowShowStyle.md"
+    },
+    {
+      "typeName": "WindowStyle",
+      "namespace": "TaleWorlds.TwoDimension.Standalone.Native.Windows",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WindowStyle.md"
+    }
+  ]
+}

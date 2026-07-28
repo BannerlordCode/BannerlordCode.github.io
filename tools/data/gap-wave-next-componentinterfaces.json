@@ -1,0 +1,53 @@
+{
+  "count": 8,
+  "types": [
+    {
+      "typeName": "BribeCalculationModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BribeCalculationModel.md"
+    },
+    {
+      "typeName": "CampaignShipParametersModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignShipParametersModel.md"
+    },
+    {
+      "typeName": "MobilePartyMoraleModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MobilePartyMoraleModel.md"
+    },
+    {
+      "typeName": "SettlementMenuOverlayModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementMenuOverlayModel.md"
+    },
+    {
+      "typeName": "SettlementMilitiaModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementMilitiaModel.md"
+    },
+    {
+      "typeName": "SettlementProsperityModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementProsperityModel.md"
+    },
+    {
+      "typeName": "SettlementSecurityModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementSecurityModel.md"
+    },
+    {
+      "typeName": "ArrangementPosition",
+      "namespace": "TaleWorlds.MountAndBlade.ComponentInterfaces",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ArrangementPosition.md"
+    }
+  ]
+}

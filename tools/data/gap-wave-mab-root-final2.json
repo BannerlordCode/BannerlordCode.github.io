@@ -1,0 +1,17 @@
+{
+  "count": 2,
+  "types": [
+    {
+      "typeName": "Module",
+      "namespace": "TaleWorlds.MountAndBlade",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core/Module.md"
+    },
+    {
+      "typeName": "Type",
+      "namespace": "TaleWorlds.MountAndBlade",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Type__TaleWorlds_MountAndBlade.md"
+    }
+  ]
+}

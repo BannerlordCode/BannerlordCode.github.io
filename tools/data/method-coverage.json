@@ -1,0 +1,60 @@
+{
+  "summary": [
+    {
+      "ver": "1.3.0",
+      "lang": "en",
+      "types": 5201,
+      "sourceMethods": 29347,
+      "documentedSections": 29503,
+      "missingCount": 0,
+      "coveragePct": 100.53
+    },
+    {
+      "ver": "1.3.0",
+      "lang": "zh",
+      "types": 5201,
+      "sourceMethods": 29347,
+      "documentedSections": 30004,
+      "missingCount": 0,
+      "coveragePct": 102.24
+    },
+    {
+      "ver": "1.3.15",
+      "lang": "en",
+      "types": 5623,
+      "sourceMethods": 28836,
+      "documentedSections": 28500,
+      "missingCount": 0,
+      "coveragePct": 98.83
+    },
+    {
+      "ver": "1.3.15",
+      "lang": "zh",
+      "types": 5623,
+      "sourceMethods": 28836,
+      "documentedSections": 28977,
+      "missingCount": 0,
+      "coveragePct": 100.49
+    },
+    {
+      "ver": "1.4.5",
+      "lang": "en",
+      "types": 7144,
+      "sourceMethods": 36002,
+      "documentedSections": 35951,
+      "missingCount": 0,
+      "coveragePct": 99.86
+    },
+    {
+      "ver": "1.4.5",
+      "lang": "zh",
+      "types": 7144,
+      "sourceMethods": 36002,
+      "documentedSections": 36490,
+      "missingCount": 0,
+      "coveragePct": 101.36
+    }
+  ],
+  "missing": [],
+  "generatedAt": "2026-06-26T23:00:17.690Z"
+}

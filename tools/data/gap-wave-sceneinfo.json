@@ -1,0 +1,132 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "AntiEmpireConspiracyBeginsSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "BecomeKingSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "ClanMemberPeaceDeathSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "ClanMemberWarDeathSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "DeathOldAgeSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "DeclareDragonBannerSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "EmpireConspiracyBeginsSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "EmpireConspiracySupportsSceneNotificationItemBase",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "FindingFirstBannerPieceSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "FindingSecondBannerPieceSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "FindingThirdBannerPieceSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "HeirComingOfAgeFemaleSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "HeirComingOfAgeSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "JoinKingdomSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "KingdomCreatedSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "KingdomDestroyedSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "MainHeroBattleDeathNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "MainHeroBattleVictoryDeathNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "MarriageSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "NavalDeathSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "NewBornFemaleHeroSceneAlternateNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "NewBornFemaleHeroSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "NewBornSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "PledgeAllegianceSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "ProEmpireConspiracyBeginsSceneNotificationItem",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.SceneInformationPopupTypes",
+    "name": "SupportedFactionDefeatedSceneNotificationItem",
+    "kind": "class"
+  }
+]

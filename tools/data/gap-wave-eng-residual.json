@@ -1,0 +1,233 @@
+{
+  "count": 38,
+  "types": [
+    {
+      "typeName": "CapsuleData",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/CapsuleData.md"
+    },
+    {
+      "typeName": "ClothSimulatorComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ClothSimulatorComponent.md"
+    },
+    {
+      "typeName": "CompositeComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/CompositeComponent.md"
+    },
+    {
+      "typeName": "EngineController",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineController.md"
+    },
+    {
+      "typeName": "EngineScreenManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineScreenManager.md"
+    },
+    {
+      "typeName": "FtlCapsuleData",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/FtlCapsuleData.md"
+    },
+    {
+      "typeName": "GameEntityComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/GameEntityComponent.md"
+    },
+    {
+      "typeName": "IClothSimulatorComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IClothSimulatorComponent.md"
+    },
+    {
+      "typeName": "ICompositeComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ICompositeComponent.md"
+    },
+    {
+      "typeName": "IGameEntityComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IGameEntityComponent.md"
+    },
+    {
+      "typeName": "ILoadingWindowManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ILoadingWindowManager.md"
+    },
+    {
+      "typeName": "IMouseManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IMouseManager.md"
+    },
+    {
+      "typeName": "ISceneView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ISceneView.md"
+    },
+    {
+      "typeName": "IScriptComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IScriptComponent.md"
+    },
+    {
+      "typeName": "ISoundManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ISoundManager.md"
+    },
+    {
+      "typeName": "ITableauView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ITableauView.md"
+    },
+    {
+      "typeName": "ITextureView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ITextureView.md"
+    },
+    {
+      "typeName": "IThumbnailCreatorView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IThumbnailCreatorView.md"
+    },
+    {
+      "typeName": "ITwoDimensionView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ITwoDimensionView.md"
+    },
+    {
+      "typeName": "IVideoPlayerView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IVideoPlayerView.md"
+    },
+    {
+      "typeName": "IView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IView.md"
+    },
+    {
+      "typeName": "JobManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/JobManager.md"
+    },
+    {
+      "typeName": "ManagedScriptComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ManagedScriptComponent.md"
+    },
+    {
+      "typeName": "MouseManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/MouseManager.md"
+    },
+    {
+      "typeName": "NativeScriptComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/NativeScriptComponent.md"
+    },
+    {
+      "typeName": "ParticleSystemManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ParticleSystemManager.md"
+    },
+    {
+      "typeName": "RenderTargetComponent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/RenderTargetComponent.md"
+    },
+    {
+      "typeName": "SceneInitializationData",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/SceneInitializationData.md"
+    },
+    {
+      "typeName": "SceneView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/SceneView.md"
+    },
+    {
+      "typeName": "SoundManager",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/SoundManager.md"
+    },
+    {
+      "typeName": "SphereData",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/SphereData.md"
+    },
+    {
+      "typeName": "TableauView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/TableauView.md"
+    },
+    {
+      "typeName": "TextureView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/TextureView.md"
+    },
+    {
+      "typeName": "ThumbnailCreatorView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ThumbnailCreatorView.md"
+    },
+    {
+      "typeName": "TwoDimensionMeshDrawData",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/TwoDimensionMeshDrawData.md"
+    },
+    {
+      "typeName": "TwoDimensionTextMeshDrawData",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/TwoDimensionTextMeshDrawData.md"
+    },
+    {
+      "typeName": "TwoDimensionView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/TwoDimensionView.md"
+    },
+    {
+      "typeName": "VideoPlayerView",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/VideoPlayerView.md"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "AreaState",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "DefaultVillageTypes",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "IMarketData",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "ISpottable",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "ProsperityLevel",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "RetirementSettlementComponent",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "SellLog",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "SettlementArea",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "SettlementComponent",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "SiegeState",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "TownMarketData",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "VillageMarketData",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "VillageStates",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements",
+    "name": "VillageType",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Buildings",
+    "name": "BuildingEffectEnum",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Buildings",
+    "name": "BuildingEffectIncrementType",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Buildings",
+    "name": "DefaultBuildingTypes",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Buildings",
+    "name": "EffectInfo",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Locations",
+    "name": "AccompanyingCharacter",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Locations",
+    "name": "CharacterRelations",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Locations",
+    "name": "LocationCharacter",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Locations",
+    "name": "LocationComplex",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Locations",
+    "name": "LocationComplexTemplate",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Workshops",
+    "name": "Production",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Settlements.Workshops",
+    "name": "WorkshopType",
+    "kind": "class"
+  }
+]

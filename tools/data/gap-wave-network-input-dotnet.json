@@ -1,0 +1,491 @@
+{
+  "count": 81,
+  "types": [
+    {
+      "typeName": "CallbackDebugTool",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CallbackDebugTool.md"
+    },
+    {
+      "typeName": "CustomParameter",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/CustomParameter.md"
+    },
+    {
+      "typeName": "DefineAsEngineStruct",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefineAsEngineStruct.md"
+    },
+    {
+      "typeName": "DotNetObject",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DotNetObject.md"
+    },
+    {
+      "typeName": "EditableScriptComponentVariable",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EditableScriptComponentVariable.md"
+    },
+    {
+      "typeName": "EngineBaseClass",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EngineBaseClass.md"
+    },
+    {
+      "typeName": "EngineClass",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EngineClass.md"
+    },
+    {
+      "typeName": "EngineClassTypeDefinition",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/system/EngineClassTypeDefinition.md"
+    },
+    {
+      "typeName": "EngineStackArray",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/EngineStackArray.md"
+    },
+    {
+      "typeName": "EngineStruct",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EngineStruct.md"
+    },
+    {
+      "typeName": "ILibrarySizeChecker",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/ILibrarySizeChecker.md"
+    },
+    {
+      "typeName": "IManaged",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/IManaged.md"
+    },
+    {
+      "typeName": "INativeArray",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/INativeArray.md"
+    },
+    {
+      "typeName": "INativeObjectArray",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/INativeObjectArray.md"
+    },
+    {
+      "typeName": "INativeString",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/INativeString.md"
+    },
+    {
+      "typeName": "INativeStringHelper",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/INativeStringHelper.md"
+    },
+    {
+      "typeName": "ITelemetry",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/ITelemetry.md"
+    },
+    {
+      "typeName": "LibraryApplicationInterface",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/LibraryApplicationInterface.md"
+    },
+    {
+      "typeName": "LibraryCallback",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LibraryCallback.md"
+    },
+    {
+      "typeName": "LibraryInterfaceBase",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/LibraryInterfaceBase.md"
+    },
+    {
+      "typeName": "ManagedDelegate",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ManagedDelegate.md"
+    },
+    {
+      "typeName": "ManagedFromNativeCallback",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ManagedFromNativeCallback.md"
+    },
+    {
+      "typeName": "ManagedObject",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ManagedObject.md"
+    },
+    {
+      "typeName": "ManagedObjectKeeper",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/ManagedObjectKeeper.md"
+    },
+    {
+      "typeName": "ManagedObjectOwner",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/ManagedObjectOwner.md"
+    },
+    {
+      "typeName": "ManagedToUnmanagedScopedCallCounter",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ManagedToUnmanagedScopedCallCounter.md"
+    },
+    {
+      "typeName": "NativeArray",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NativeArray.md"
+    },
+    {
+      "typeName": "NativeArrayEnumerator",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NativeArrayEnumerator.md"
+    },
+    {
+      "typeName": "NativeObjectArray",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NativeObjectArray.md"
+    },
+    {
+      "typeName": "NativeObjectKeeper",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/NativeObjectKeeper.md"
+    },
+    {
+      "typeName": "NativeObjectPointer",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/system/NativeObjectPointer.md"
+    },
+    {
+      "typeName": "NativeString",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NativeString.md"
+    },
+    {
+      "typeName": "NativeStringHelper",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/NativeStringHelper.md"
+    },
+    {
+      "typeName": "ScriptComponentParams",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ScriptComponentParams.md"
+    },
+    {
+      "typeName": "StackArray40Int",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StackArray40Int.md"
+    },
+    {
+      "typeName": "WeakNativeObjectReference",
+      "namespace": "TaleWorlds.DotNet",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WeakNativeObjectReference.md"
+    },
+    {
+      "typeName": "AxisType",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AxisType.md"
+    },
+    {
+      "typeName": "ControllerTypes",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ControllerTypes.md"
+    },
+    {
+      "typeName": "EmptyInputContext",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EmptyInputContext.md"
+    },
+    {
+      "typeName": "EmptyInputManager",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/EmptyInputManager.md"
+    },
+    {
+      "typeName": "GameAxisKey",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameAxisKey.md"
+    },
+    {
+      "typeName": "GameKeyContext",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameKeyContext.md"
+    },
+    {
+      "typeName": "GameKeyContextType",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameKeyContextType.md"
+    },
+    {
+      "typeName": "HotKey",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HotKey.md"
+    },
+    {
+      "typeName": "IInputContext",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IInputContext.md"
+    },
+    {
+      "typeName": "Input",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Input.md"
+    },
+    {
+      "typeName": "InputContext",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InputContext.md"
+    },
+    {
+      "typeName": "InputKey",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InputKey.md"
+    },
+    {
+      "typeName": "InputState",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InputState.md"
+    },
+    {
+      "typeName": "Key",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Key.md"
+    },
+    {
+      "typeName": "Modifiers",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Modifiers.md"
+    },
+    {
+      "typeName": "VirtualKeyCode",
+      "namespace": "TaleWorlds.InputSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VirtualKeyCode.md"
+    },
+    {
+      "typeName": "Authorize",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Authorize.md"
+    },
+    {
+      "typeName": "ClientsideSession",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClientsideSession.md"
+    },
+    {
+      "typeName": "ConnectionState",
+      "namespace": "TaleWorlds.Network",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ConnectionState.md"
+    },
+    {
+      "typeName": "Coroutine",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Coroutine.md"
+    },
+    {
+      "typeName": "CoroutineState",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CoroutineState.md"
+    },
+    {
+      "typeName": "IMessageProxyClient",
+      "namespace": "TaleWorlds.Network",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMessageProxyClient.md"
+    },
+    {
+      "typeName": "IncomingServerSessionMessage",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IncomingServerSessionMessage.md"
+    },
+    {
+      "typeName": "INetworkMessageReader",
+      "namespace": "TaleWorlds.Network",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INetworkMessageReader.md"
+    },
+    {
+      "typeName": "INetworkMessageWriter",
+      "namespace": "TaleWorlds.Network",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INetworkMessageWriter.md"
+    },
+    {
+      "typeName": "INetworkSerializable",
+      "namespace": "TaleWorlds.Network",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INetworkSerializable.md"
+    },
+    {
+      "typeName": "JsonSocketMessage",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/JsonSocketMessage.md"
+    },
+    {
+      "typeName": "MessageBuffer",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageBuffer.md"
+    },
+    {
+      "typeName": "MessageContract",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageContract.md"
+    },
+    {
+      "typeName": "MessageContractCreator",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageContractCreator.md"
+    },
+    {
+      "typeName": "MessageInfo",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageInfo.md"
+    },
+    {
+      "typeName": "MessageProxy",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageProxy.md"
+    },
+    {
+      "typeName": "MessageServiceConnection",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageServiceConnection.md"
+    },
+    {
+      "typeName": "MessageTypes",
+      "namespace": "TaleWorlds.Network",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MessageTypes.md"
+    },
+    {
+      "typeName": "NetworkMessage",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NetworkMessage.md"
+    },
+    {
+      "typeName": "NetworkSession",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NetworkSession.md"
+    },
+    {
+      "typeName": "PostBoxId",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PostBoxId.md"
+    },
+    {
+      "typeName": "RESTClient",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RESTClient.md"
+    },
+    {
+      "typeName": "ServersideSession",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ServersideSession.md"
+    },
+    {
+      "typeName": "TcpSocket",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TcpSocket.md"
+    },
+    {
+      "typeName": "TcpStatus",
+      "namespace": "TaleWorlds.Network",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TcpStatus.md"
+    },
+    {
+      "typeName": "ThreadType",
+      "namespace": "TaleWorlds.Network",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ThreadType.md"
+    },
+    {
+      "typeName": "WaitForSpecialCase",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WaitForSpecialCase.md"
+    },
+    {
+      "typeName": "WaitForTicks",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WaitForTicks.md"
+    },
+    {
+      "typeName": "WebSocketMessage",
+      "namespace": "TaleWorlds.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WebSocketMessage.md"
+    }
+  ]
+}

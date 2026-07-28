@@ -1,0 +1,53 @@
+{
+  "count": 8,
+  "types": [
+    {
+      "typeName": "FakeInventoryListener",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FakeInventoryListener.md"
+    },
+    {
+      "typeName": "InventoryListener",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryListener.md"
+    },
+    {
+      "typeName": "InventorySide",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventorySide.md"
+    },
+    {
+      "typeName": "InventoryTransferItemEvent",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryTransferItemEvent.md"
+    },
+    {
+      "typeName": "IPlayerTradeBehavior",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IPlayerTradeBehavior.md"
+    },
+    {
+      "typeName": "TransferCommand",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferCommand.md"
+    },
+    {
+      "typeName": "TransferCommandResult",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferCommandResult.md"
+    },
+    {
+      "typeName": "TransferType",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferType.md"
+    }
+  ]
+}

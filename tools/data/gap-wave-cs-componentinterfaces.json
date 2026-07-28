@@ -1,0 +1,101 @@
+{
+  "count": 16,
+  "types": [
+    {
+      "typeName": "AccessDetails",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AccessDetails.md"
+    },
+    {
+      "typeName": "AccessLevel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AccessLevel.md"
+    },
+    {
+      "typeName": "AccessLimitationReason",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AccessLimitationReason.md"
+    },
+    {
+      "typeName": "AccessMethod",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AccessMethod.md"
+    },
+    {
+      "typeName": "DiplomacyStance",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DiplomacyStance.md"
+    },
+    {
+      "typeName": "HeroLocationDetail",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroLocationDetail.md"
+    },
+    {
+      "typeName": "INavigationCache",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INavigationCache.md"
+    },
+    {
+      "typeName": "LimitedAccessSolution",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LimitedAccessSolution.md"
+    },
+    {
+      "typeName": "MissionTypeEnum",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MissionTypeEnum.md"
+    },
+    {
+      "typeName": "PaymentMethod",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PaymentMethod.md"
+    },
+    {
+      "typeName": "PreliminaryActionObligation",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PreliminaryActionObligation.md"
+    },
+    {
+      "typeName": "PreliminaryActionType",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PreliminaryActionType.md"
+    },
+    {
+      "typeName": "SettlementAction",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementAction.md"
+    },
+    {
+      "typeName": "SiegeAction",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeAction.md"
+    },
+    {
+      "typeName": "WeatherEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WeatherEvent.md"
+    },
+    {
+      "typeName": "WeatherEventEffectOnTerrain",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WeatherEventEffectOnTerrain.md"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "count": 19,
+  "types": [
+    {
+      "typeName": "CraftingOrder",
+      "namespace": "TaleWorlds.CampaignSystem.CraftingSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CraftingOrder.md"
+    },
+    {
+      "typeName": "AlleyMemberAvailabilityDetail",
+      "namespace": "TaleWorlds.CampaignSystem.GameComponents",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyMemberAvailabilityDetail.md"
+    },
+    {
+      "typeName": "AssetIncomeType",
+      "namespace": "TaleWorlds.CampaignSystem.GameComponents",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AssetIncomeType.md"
+    },
+    {
+      "typeName": "ICustomSystemManager",
+      "namespace": "TaleWorlds.CampaignSystem.Handlers",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICustomSystemManager.md"
+    },
+    {
+      "typeName": "Incident",
+      "namespace": "TaleWorlds.CampaignSystem.Incidents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Incident.md"
+    },
+    {
+      "typeName": "IncidentEffect",
+      "namespace": "TaleWorlds.CampaignSystem.Incidents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IncidentEffect.md"
+    },
+    {
+      "typeName": "CapacityData",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CapacityData.md"
+    },
+    {
+      "typeName": "LocatableSearchData",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LocatableSearchData.md"
+    },
+    {
+      "typeName": "MapMarkerManager",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapMarkerManager.md"
+    },
+    {
+      "typeName": "MapPatchData",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapPatchData.md"
+    },
+    {
+      "typeName": "ITournamentManager",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ITournamentManager.md"
+    },
+    {
+      "typeName": "TournamentManager",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentManager.md"
+    },
+    {
+      "typeName": "PartyGroupTroopSupplier",
+      "namespace": "TaleWorlds.CampaignSystem.TroopSuppliers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyGroupTroopSupplier.md"
+    },
+    {
+      "typeName": "CreateItemTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CreateItemTask.md"
+    },
+    {
+      "typeName": "GetItemTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GetItemTask.md"
+    },
+    {
+      "typeName": "ItemVisibility",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemVisibility.md"
+    },
+    {
+      "typeName": "ToolDebugManager",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission/ToolDebugManager.md"
+    },
+    {
+      "typeName": "ToolTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ToolTask.md"
+    },
+    {
+      "typeName": "UpdateItemTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/UpdateItemTask.md"
+    }
+  ]
+}

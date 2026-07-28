@@ -1,263 +1,254 @@
 ---
 title: "MBGameManager"
-description: "Auto-generated class reference for MBGameManager."
+description: "MountAndBlade session bootstrap abstract class: StartNewGame / EndGame, and broadcast of load stages to every MBSubModuleBase."
 ---
+
 # MBGameManager
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MBGameManager : GameManagerBase`
-**Base:** `GameManagerBase`
-**File:** `TaleWorlds.MountAndBlade/MBGameManager.cs`
+**Namespace:** TaleWorlds.MountAndBlade  
+**Module:** TaleWorlds.MountAndBlade  
+**Type:** `public abstract class MBGameManager : GameManagerBase`  
+**Base:** `GameManagerBase`  
+**File:** `TaleWorlds.MountAndBlade/MBGameManager.cs`  
+**Authority source:** 1.4.5 (same semantics as 1.3.15)
 
 ## Overview
 
-`MBGameManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+`MBGameManager` is the MountAndBlade-layer **session bootstrapper** for one campaign run, custom battle, or load flow. It extends `GameManagerBase`. Concrete mode subclasses (campaign loader, editor, multiplayer, and so on) implement it. When the engine starts a new game or load, it creates one subclass instance and drives:
+
+1. Push `GameLoadingState`
+2. Create / bind [Game](../../core-extra/Game)
+3. Call every [MBSubModuleBase](../../core/MBSubModuleBase) hook in a fixed order
+4. On session end, clear Mission state and run `OnGameEnd`
+
+For **most mods**, you do **not** subclass `MBGameManager`. You respond in your own `MBSubModuleBase` to the callbacks this class forwards (`OnGameStart`, `RegisterSubModuleTypes`, and so on). Only custom game modes or tool loaders subclass `MBGameManager` and call `StartNewGame(loader)`.
 
 ## Mental Model
 
-Treat `MBGameManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `IsEnding` | `public bool IsEnding { get; }` |
-| `Current` | `public new static MBGameManager Current { get; set; }` |
-| `IsLoaded` | `public bool IsLoaded { get; set; }` |
-| `ApplicationTime` | `public override float ApplicationTime { get; }` |
-| `CheatMode` | `public override bool CheatMode { get; }` |
-| `IsDevelopmentMode` | `public override bool IsDevelopmentMode { get; }` |
-| `IsEditModeOn` | `public override bool IsEditModeOn { get; }` |
-| `UnitSpawnPrioritization` | `public override UnitSpawnPrioritizations UnitSpawnPrioritization { get; }` |
-
-## Key Methods
-
-### StartNewGame
-`public static void StartNewGame(MBGameManager gameLoader)`
-
-**Purpose:** Starts the new game flow or state machine.
-
-```csharp
-// Static call; no instance required
-MBGameManager.StartNewGame(gameLoader);
+```
+Main menu / load UI
+    │  MBGameManager.StartNewGame(concreteLoader)
+    ▼
+Module.OnBeforeGameStart(loader)     ← each SubModule.OnBeforeGameStart
+GameLoadingState pushed
+    │  loader drives load steps
+    ▼
+Game created and initialized
+    │  BeginGameStart → Register* → Initialize* → OnGameStart → …
+    ▼  (each step foreach Module.CollectSubModules())
+Running: Game.Current + MBGameManager.Current
+    │  EndGame() / return to menu
+    ▼
+End Mission → CleanStates → OnGameEnd → clear session
 ```
 
-### BeginGameStart
-`public override void BeginGameStart(Game game)`
+**Three roles. Do not mix them:**
 
-**Purpose:** Executes the BeginGameStart logic.
+| Type | Role |
+|------|------|
+| `MBSubModuleBase` | **Your mod entry**; register Behavior / Model / types |
+| `MBGameManager` | **Session bootstrap**; broadcasts stages to all SubModules |
+| `Game` | **Session singleton container**; ObjectManager, GameType, state machine |
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.BeginGameStart(game);
-```
+`MBGameManager.Current` is `(MBGameManager)GameManagerBase.Current`, the active loader. With no session bootstrap it may be null.
 
-### OnNewCampaignStart
-`public override void OnNewCampaignStart(Game game, object starterObject)`
+**When to use**
 
-**Purpose:** Invoked when the new campaign start event is raised.
+- Understanding why your `OnGameStart` runs at a given time
+- Custom game mode: implement a subclass + `StartNewGame(thisLoader)`
+- Diagnosing load order / registration timing vs other mods
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnNewCampaignStart(game, starterObject);
-```
+**When not to use**
 
-### InitializeSubModuleGameObjects
-`public override void InitializeSubModuleGameObjects(Game game)`
+- Ordinary content mods that `new` or replace `Current`
+- Calling `EndGame()` from a Behavior as if it were "close a menu" (too heavy; tears down the whole session)
+- Putting business logic in a custom `MBGameManager` subclass (keep it in SubModule / Behavior)
 
-**Purpose:** Prepares the resources, state, or bindings required by sub module game objects.
+## Dependencies
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.InitializeSubModuleGameObjects(game);
-```
+| Direction | Type / system | Relationship |
+|-----------|---------------|--------------|
+| Base | [GameManagerBase](../../core-extra/GameManagerBase) | Abstract session manager API |
+| Broadcast targets | [MBSubModuleBase](../../core/MBSubModuleBase) | Each load stage `foreach CollectSubModules()` |
+| Session | [Game](../../core-extra/Game) | Session passed into `BeginGameStart` / `OnGameStart` / … |
+| Module host | `Module.CurrentModule` | Collects SubModules; `OnBeforeGameStart` / `OnGameEnd` |
+| State machine | `GameStateManager` / `GameLoadingState` | `StartNewGame` pushes load state |
+| Mission | [Mission](../../mission/Mission) | `EndGame` ends the current Mission and pops state |
+| Objects | [MBObjectBase](../../campaign-ext/MBObjectBase) / ObjectManager | Registered during `RegisterSubModuleTypes/Objects` |
+| Platform | `SessionInvitationType` and related | Invitation / platform multiplayer can call `EndGame` |
 
-### RegisterSubModuleObjects
-`public override void RegisterSubModuleObjects(bool isSavedCampaign)`
+## Load stages and SubModule hooks (required reading for mods)
 
-**Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
+These methods are **overridden** on `MBGameManager`. The body walks SubModules and calls matching hooks (names match the SubModule side):
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.RegisterSubModuleObjects(false);
-```
+| GameManager stage | Typical SubModule hook | What mods do here |
+|-------------------|------------------------|-------------------|
+| Before `StartNewGame` | `OnBeforeGameStart` | Check disabled modules, compatibility |
+| `BeginGameStart` | `BeginGameStart` | Session just starting |
+| `RegisterSubModuleTypes` | `RegisterSubModuleTypes` | `MBObjectManager.RegisterType` |
+| `RegisterSubModuleObjects` | `RegisterSubModuleObjects` | Register object instances (load vs new) |
+| `AfterRegisterSubModuleObjects` | `AfterRegisterSubModuleObjects` | Patches after full registration |
+| `InitializeGameStarter` | `InitializeGameStarter` | Early starter config |
+| `OnGameStart` | `OnGameStart` | **AddBehavior / AddModel** (most common) |
+| `OnNewGameCreated` | `OnNewGameCreated` | New save only |
+| `OnGameLoaded` / `OnAfterGameLoaded` | same names | Fixups after load |
+| `OnNewCampaignStart` | `OnCampaignStart` | Campaign fully starting |
+| `InitializeSubModuleGameObjects` | same name | Game-object level init |
+| `OnGameInitializationFinished` / `OnAfter…` | same names | Init tail; engine post-work (skeleton scale, etc.) also here |
+| `OnLoadFinished` | — | This class sets `IsLoaded = true` |
+| `OnGameEnd` | `OnGameEnd` + `Module.OnGameEnd` | Cleanup; also `MissionGameModels.Clear()` |
 
-### RegisterSubModuleTypes
-`public override void RegisterSubModuleTypes()`
+**Key point:** you override methods on `MBSubModuleBase`, not on `MBGameManager` (unless you are writing a loader).
 
-**Purpose:** Registers sub module types with the current system so it can later be observed or dispatched.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.RegisterSubModuleTypes();
-```
+| Risk | Outcome | Mitigation |
+|------|---------|------------|
+| Touch `Campaign.Current` / unregistered objects at the wrong stage | NRE, missing objects | Stick to the stage table; look up objects only after Register |
+| Ordinary mod calls `EndGame()` | Whole session exits; Mission forced down | Only for leave-session / platform switch; daily logic uses menu / state pop |
+| Concurrent `EndGame` | Second `CheckAndSetEnding` returns false | Rely on the lock; do not assume every call runs full cleanup |
+| Treat session as ready while `!IsLoaded` | Half-initialized state | Wait until after `OnLoadFinished` / `OnGameStart` |
+| Custom loader skips `base` / stages | Other mods' hooks never fire | Keep engine-expected stage order |
+| Cache `Game.Current` after `OnGameEnd` | Dangling refs | Clear static / singleton caches on end |
+| Mix with `MBSubModuleBase` lifetime | Assume campaign exists in SubModuleLoad | `OnSubModuleLoad` ≠ having a `Game`; campaign logic goes in `OnGameStart` |
 
-### AfterRegisterSubModuleObjects
-`public override void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
+## Key members
 
-**Purpose:** Executes the AfterRegisterSubModuleObjects logic.
+### Static entry points
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.AfterRegisterSubModuleObjects(false);
-```
+| Member | Purpose and timing |
+|--------|--------------------|
+| `static void StartNewGame(MBGameManager gameLoader)` | Main entry: `OnBeforeGameStart` → create `GameLoadingState` → `CleanAndPushState`. |
+| `static async void EndGame()` | Wait for `IsLoaded`, `CheckAndSetEnding`, end Mission or `CleanStates`. |
+| `static MBGameManager Current` | Current loader (cast from `GameManagerBase.Current`). |
 
-### InitializeGameStarter
-`public override void InitializeGameStarter(Game game, IGameStarter starterObject)`
+### State
 
-**Purpose:** Prepares the resources, state, or bindings required by game starter.
+| Member | Purpose |
+|--------|---------|
+| `bool IsEnding` | Whether end flow has started. |
+| `bool IsLoaded` | True after `OnLoadFinished`. |
+| `bool CheckAndSetEnding()` | Thread-safe first mark of ending; returns false if already ending. |
+| `ApplicationTime` / `CheatMode` / `IsDevelopmentMode` / `IsEditModeOn` | Bridge native config and editor state. |
+| `UnitSpawnPrioritization` | From `BannerlordConfig`. |
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.InitializeGameStarter(game, starterObject);
-```
+### Stage broadcasts (see table above)
 
-### OnGameInitializationFinished
-`public override void OnGameInitializationFinished(Game game)`
+`BeginGameStart`, `RegisterSubModuleTypes`, `RegisterSubModuleObjects`, `AfterRegisterSubModuleObjects`, `InitializeGameStarter`, `InitializeSubModuleGameObjects`, `OnGameStart`, `OnNewGameCreated`, `OnGameLoaded`, `OnAfterGameLoaded`, `OnNewCampaignStart`, `OnGameInitializationFinished`, `OnAfterGameInitializationFinished`, `OnGameEnd`, `OnLoadFinished`.
 
-**Purpose:** Invoked when the game initialization finished event is raised.
+`OnGameStart` also sets `MonsterMissionDataCreator`, `AddGameModelsManager<MissionGameModels>`, and binds `Monster` skeleton queries.
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnGameInitializationFinished(game);
-```
+### Platform
 
-### OnAfterGameInitializationFinished
-`public override void OnAfterGameInitializationFinished(Game game, object initializerObject)`
+| Member | Purpose |
+|--------|---------|
+| `OnSessionInvitationAccepted` | Calls `EndGame()` when type is not None. |
+| `OnPlatformRequestedMultiplayer` | Calls `EndGame()`. |
 
-**Purpose:** Invoked when the after game initialization finished event is raised.
+## Real examples
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnAfterGameInitializationFinished(game, initializerObject);
-```
-
-### OnGameLoaded
-`public override void OnGameLoaded(Game game, object initializerObject)`
-
-**Purpose:** Invoked when the game loaded event is raised.
-
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnGameLoaded(game, initializerObject);
-```
-
-### OnAfterGameLoaded
-`public override void OnAfterGameLoaded(Game game)`
-
-**Purpose:** Invoked when the after game loaded event is raised.
+### Example 1: Ordinary mod, SubModule only (recommended path)
 
 ```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnAfterGameLoaded(game);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyModSubModule : MBSubModuleBase
+{
+    // Called via MBGameManager.OnGameStart → walk SubModules
+    protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        base.OnGameStart(game, gameStarterObject);
+
+        if (game.GameType is Campaign)
+        {
+            gameStarterObject.AddBehavior(new MyCampaignBehavior());
+            gameStarterObject.AddModel(new MyCombatModel());
+        }
+    }
+
+    // Broadcast from MBGameManager.RegisterSubModuleTypes
+    protected override void RegisterSubModuleTypes()
+    {
+        base.RegisterSubModuleTypes();
+        // MBObjectManager.Instance.RegisterType<...>(...);
+    }
+}
 ```
 
-### OnNewGameCreated
-`public override void OnNewGameCreated(Game game, object initializerObject)`
-
-**Purpose:** Invoked when the new game created event is raised.
+### Example 2: Understanding the StartNewGame call chain (engine-side pattern)
 
 ```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnNewGameCreated(game, initializerObject);
+using TaleWorlds.MountAndBlade;
+
+// Engine / custom mode entry (mods almost never write this directly)
+// Pass the loader for "this session", not your SubModule
+void LaunchCampaign(MBGameManager campaignLoader)
+{
+    MBGameManager.StartNewGame(campaignLoader);
+    // Internally:
+    // Module.CurrentModule.OnBeforeGameStart(campaignLoader);
+    // var state = GameStateManager.Current.CreateState<GameLoadingState>();
+    // state.SetLoadingParameters(campaignLoader);
+    // GameStateManager.Current.CleanAndPushState(state);
+}
 ```
 
-### OnGameStart
-`public override void OnGameStart(Game game, IGameStarter gameStarter)`
-
-**Purpose:** Invoked when the game start event is raised.
+### Example 3: Safe query of current load state
 
 ```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnGameStart(game, gameStarter);
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static bool IsCampaignSessionReady()
+{
+    if (Game.Current == null)
+        return false;
+
+    MBGameManager mgr = MBGameManager.Current;
+    if (mgr == null || mgr.IsEnding || !mgr.IsLoaded)
+        return false;
+
+    return Game.Current.GameType is Campaign;
+}
 ```
 
-### OnGameEnd
-`public override void OnGameEnd(Game game)`
-
-**Purpose:** Invoked when the game end event is raised.
+### Example 4: Do not do this (anti-patterns)
 
 ```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnGameEnd(game);
+// BAD: end the whole session from everyday Behavior code
+// MBGameManager.EndGame();
+
+// BAD: assume Campaign.Current exists in OnSubModuleLoad
+// var c = Campaign.Current.MainParty; // usually no session yet
 ```
 
-### EndGame
-`public static void EndGame()`
+## Cross-version notes
 
-**Purpose:** Executes the EndGame logic.
+- **1.3.x / 1.4.5:** `StartNewGame(MBGameManager)` + stage broadcast model is stable.
+- `EndGame` is `async void` and polls Mission end with `Task.Delay`; platform invite paths call it directly.
+- Concrete campaign loader type names live in SandBox / boot modules. Content mods bind **SubModule hooks** and need not depend on specific Loader type names.
 
-```csharp
-// Static call; no instance required
-MBGameManager.EndGame();
-```
+## ↑ Parent Navigation
 
-### OnLoadFinished
-`public override void OnLoadFinished()`
+- [mission-ext index](./) — module for this page
+- [SDK overview](../../../architecture/sdk-overview)
+- [Module system](../../../architecture/module-system) — full SubModule lifecycle map
 
-**Purpose:** Invoked when the load finished event is raised.
+## ↔ Sibling Navigation
 
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnLoadFinished();
-```
+| Page | Relationship |
+|------|--------------|
+| [MBSubModuleBase](../../core/MBSubModuleBase) | Mod entry that this class broadcasts to |
+| [Game](../../core-extra/Game) | Session singleton |
+| [GameManagerBase](../../core-extra/GameManagerBase) | Abstract base |
+| [Mission](../../mission/Mission) | `EndGame` ends the current mission |
+| [MBObjectBase](../../campaign-ext/MBObjectBase) | Root of type/object registration stages |
+| [Campaign](../../campaign/Campaign) | Campaign `GameType` |
+| [SaveManager](../../save-system/SaveManager) | Load session and save |
 
-### CheckAndSetEnding
-`public bool CheckAndSetEnding()`
+## See also
 
-**Purpose:** Verifies whether and set ending holds true for the this instance.
-
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-var result = mBGameManager.CheckAndSetEnding();
-```
-
-### OnSessionInvitationAccepted
-`public virtual void OnSessionInvitationAccepted(SessionInvitationType targetGameType)`
-
-**Purpose:** Invoked when the session invitation accepted event is raised.
-
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnSessionInvitationAccepted(targetGameType);
-```
-
-### OnPlatformRequestedMultiplayer
-`public virtual void OnPlatformRequestedMultiplayer()`
-
-**Purpose:** Invoked when the platform requested multiplayer event is raised.
-
-```csharp
-// Obtain an instance of MBGameManager from the subsystem API first
-MBGameManager mBGameManager = ...;
-mBGameManager.OnPlatformRequestedMultiplayer();
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-MBGameManager instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Doc contract](../../../architecture/doc-contract)
+- [Save system](../../../architecture/save-system)

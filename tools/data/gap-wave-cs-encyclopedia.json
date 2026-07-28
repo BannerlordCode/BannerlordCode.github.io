@@ -1,0 +1,131 @@
+{
+  "count": 21,
+  "types": [
+    {
+      "typeName": "EncyclopediaFilterGroup",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaFilterGroup.md"
+    },
+    {
+      "typeName": "EncyclopediaFilterItem",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaFilterItem.md"
+    },
+    {
+      "typeName": "EncyclopediaListItem",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListItem.md"
+    },
+    {
+      "typeName": "EncyclopediaListItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListItemComparerBase.md"
+    },
+    {
+      "typeName": "EncyclopediaListItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/EncyclopediaListItemNameComparer.md"
+    },
+    {
+      "typeName": "EncyclopediaModel",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/EncyclopediaModel.md"
+    },
+    {
+      "typeName": "EncyclopediaModelBase",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaModelBase.md"
+    },
+    {
+      "typeName": "EncyclopediaPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaClanPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaClanPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaConceptPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaConceptPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaFactionPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaFactionPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaHeroPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaHeroPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaSettlementPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaSettlementPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaShipPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaShipPage.md"
+    },
+    {
+      "typeName": "DefaultEncyclopediaUnitPage",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncyclopediaUnitPage.md"
+    },
+    {
+      "typeName": "EncyclopediaListClanComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListClanComparer.md"
+    },
+    {
+      "typeName": "EncyclopediaListHeroComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListHeroComparer.md"
+    },
+    {
+      "typeName": "EncyclopediaListKingdomComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListKingdomComparer.md"
+    },
+    {
+      "typeName": "EncyclopediaListSettlementComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListSettlementComparer.md"
+    },
+    {
+      "typeName": "EncyclopediaListShipComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListShipComparer.md"
+    },
+    {
+      "typeName": "EncyclopediaListUnitComparer",
+      "namespace": "TaleWorlds.CampaignSystem.Encyclopedia.Pages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncyclopediaListUnitComparer.md"
+    }
+  ]
+}

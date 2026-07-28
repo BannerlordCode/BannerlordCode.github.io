@@ -1,0 +1,143 @@
+{
+  "count": 23,
+  "types": [
+    {
+      "typeName": "bin",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/bin.md"
+    },
+    {
+      "typeName": "CachedDataAttribute",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CachedDataAttribute.md"
+    },
+    {
+      "typeName": "ConfigurationManager",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ConfigurationManager.md"
+    },
+    {
+      "typeName": "DiamondDebugManager",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DiamondDebugManager.md"
+    },
+    {
+      "typeName": "EnumHelper",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EnumHelper.md"
+    },
+    {
+      "typeName": "FileHelper",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FileHelper.md"
+    },
+    {
+      "typeName": "HTMLDebugData",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HTMLDebugData.md"
+    },
+    {
+      "typeName": "HttpHelper",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HttpHelper.md"
+    },
+    {
+      "typeName": "IConfigurationManager",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IConfigurationManager.md"
+    },
+    {
+      "typeName": "IDebugManager",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IDebugManager.md"
+    },
+    {
+      "typeName": "InquiryData",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InquiryData.md"
+    },
+    {
+      "typeName": "IPlatformFileHelper",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IPlatformFileHelper.md"
+    },
+    {
+      "typeName": "ITelemetryManager",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ITelemetryManager.md"
+    },
+    {
+      "typeName": "IViewModel",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IViewModel.md"
+    },
+    {
+      "typeName": "PinnedArrayData",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PinnedArrayData.md"
+    },
+    {
+      "typeName": "SingleThreadedSynchronizationContextManager",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SingleThreadedSynchronizationContextManager.md"
+    },
+    {
+      "typeName": "SRTHelper",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SRTHelper.md"
+    },
+    {
+      "typeName": "TextInquiryData",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TextInquiryData.md"
+    },
+    {
+      "typeName": "TWException",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TWException.md"
+    },
+    {
+      "typeName": "TWXmlLoadException",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TWXmlLoadException.md"
+    },
+    {
+      "typeName": "UiStringHelper",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/UiStringHelper.md"
+    },
+    {
+      "typeName": "VirtualDirectoryAttribute",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/VirtualDirectoryAttribute.md"
+    },
+    {
+      "typeName": "VirtualFileAttribute",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/VirtualFileAttribute.md"
+    }
+  ]
+}

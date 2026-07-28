@@ -1,0 +1,599 @@
+{
+  "count": 99,
+  "types": [
+    {
+      "typeName": "SiegeWeaponAutoDeployer",
+      "namespace": "TaleWorlds.MountAndBlade.AI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SiegeWeaponAutoDeployer.md"
+    },
+    {
+      "typeName": "ScriptedMovementComponent",
+      "namespace": "TaleWorlds.MountAndBlade.AI.AgentComponents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ScriptedMovementComponent.md"
+    },
+    {
+      "typeName": "ArrangementPosition",
+      "namespace": "TaleWorlds.MountAndBlade.ComponentInterfaces",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ArrangementPosition.md"
+    },
+    {
+      "typeName": "FindMostDangerousThreat",
+      "namespace": "TaleWorlds.MountAndBlade.DividableTasks",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FindMostDangerousThreat.md"
+    },
+    {
+      "typeName": "FormationSearchThreatTask",
+      "namespace": "TaleWorlds.MountAndBlade.DividableTasks",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FormationSearchThreatTask.md"
+    },
+    {
+      "typeName": "OrderOfBattleHotKeyCategory",
+      "namespace": "TaleWorlds.MountAndBlade.GameKeyCategory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OrderOfBattleHotKeyCategory.md"
+    },
+    {
+      "typeName": "PhotoModeHotKeyCategory",
+      "namespace": "TaleWorlds.MountAndBlade.GameKeyCategory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/PhotoModeHotKeyCategory.md"
+    },
+    {
+      "typeName": "Program",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Program__TaleWorlds_MountAndBlade_Launcher.md"
+    },
+    {
+      "typeName": "Buttons",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Buttons.md"
+    },
+    {
+      "typeName": "DependentVersionMissmatchItem",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DependentVersionMissmatchItem.md"
+    },
+    {
+      "typeName": "DLLResult",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DLLResult.md"
+    },
+    {
+      "typeName": "Icon",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Icon.md"
+    },
+    {
+      "typeName": "LauncherConfirmStartVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherConfirmStartVM.md"
+    },
+    {
+      "typeName": "LauncherHintVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherHintVM.md"
+    },
+    {
+      "typeName": "LauncherInformationVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherInformationVM.md"
+    },
+    {
+      "typeName": "LauncherModsVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherModsVM.md"
+    },
+    {
+      "typeName": "LauncherModuleVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherModuleVM.md"
+    },
+    {
+      "typeName": "LauncherNewsItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherNewsItemVM.md"
+    },
+    {
+      "typeName": "LauncherNewsVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherNewsVM.md"
+    },
+    {
+      "typeName": "LauncherOnlineImageTextureProvider",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherOnlineImageTextureProvider.md"
+    },
+    {
+      "typeName": "LauncherPlatform",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherPlatform.md"
+    },
+    {
+      "typeName": "LauncherPlatformType",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherPlatformType.md"
+    },
+    {
+      "typeName": "LauncherSubModule",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherSubModule.md"
+    },
+    {
+      "typeName": "LauncherUI",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherUI.md"
+    },
+    {
+      "typeName": "LauncherVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherVM.md"
+    },
+    {
+      "typeName": "NativeMessageBox",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NativeMessageBox.md"
+    },
+    {
+      "typeName": "Program",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Program__TaleWorlds_MountAndBlade_Launcher_Library.md"
+    },
+    {
+      "typeName": "Result",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Result.md"
+    },
+    {
+      "typeName": "StandaloneUIDomain",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/StandaloneUIDomain.md"
+    },
+    {
+      "typeName": "ImageSizePolicies",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ImageSizePolicies__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets.md"
+    },
+    {
+      "typeName": "DLLCheckDataCollection",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library.UserDatas",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DLLCheckDataCollection.md"
+    },
+    {
+      "typeName": "SteamLauncherModuleExtension",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Steam",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SteamLauncherModuleExtension.md"
+    },
+    {
+      "typeName": "DuelMissionRepresentative",
+      "namespace": "TaleWorlds.MountAndBlade.MissionRepresentatives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DuelMissionRepresentative.md"
+    },
+    {
+      "typeName": "FFAMissionRepresentative",
+      "namespace": "TaleWorlds.MountAndBlade.MissionRepresentatives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FFAMissionRepresentative.md"
+    },
+    {
+      "typeName": "FlagDominationMissionRepresentative",
+      "namespace": "TaleWorlds.MountAndBlade.MissionRepresentatives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FlagDominationMissionRepresentative.md"
+    },
+    {
+      "typeName": "SiegeMissionRepresentative",
+      "namespace": "TaleWorlds.MountAndBlade.MissionRepresentatives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SiegeMissionRepresentative.md"
+    },
+    {
+      "typeName": "TeamDeathmatchMissionRepresentative",
+      "namespace": "TaleWorlds.MountAndBlade.MissionRepresentatives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/TeamDeathmatchMissionRepresentative.md"
+    },
+    {
+      "typeName": "AgentList",
+      "namespace": "TaleWorlds.MountAndBlade.Missions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AgentList.md"
+    },
+    {
+      "typeName": "AgentReadOnlyList",
+      "namespace": "TaleWorlds.MountAndBlade.Missions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AgentReadOnlyList.md"
+    },
+    {
+      "typeName": "MissionHint",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Hints",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionHint.md"
+    },
+    {
+      "typeName": "MultiplayerBattleColors",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Multiplayer",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission/MultiplayerBattleColors.md"
+    },
+    {
+      "typeName": "MultiplayerCultureColorInfo",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Multiplayer",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission/MultiplayerCultureColorInfo.md"
+    },
+    {
+      "typeName": "GenericMissionObjective",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission/GenericMissionObjective.md"
+    },
+    {
+      "typeName": "GenericMissionObjectiveBuilder",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GenericMissionObjectiveBuilder.md"
+    },
+    {
+      "typeName": "GenericMissionObjectiveTarget",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission/GenericMissionObjectiveTarget.md"
+    },
+    {
+      "typeName": "GenericMissionObjectiveTargetBuilder",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GenericMissionObjectiveTargetBuilder.md"
+    },
+    {
+      "typeName": "MissionObjective",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionObjective.md"
+    },
+    {
+      "typeName": "MissionObjectiveProgressInfo",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionObjectiveProgressInfo.md"
+    },
+    {
+      "typeName": "MissionObjectiveTarget",
+      "namespace": "TaleWorlds.MountAndBlade.Missions.Objectives",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MissionObjectiveTarget.md"
+    },
+    {
+      "typeName": "DebugNetworkEventStatistics",
+      "namespace": "TaleWorlds.MountAndBlade.Network",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DebugNetworkEventStatistics.md"
+    },
+    {
+      "typeName": "PerkAssemblyCollection",
+      "namespace": "TaleWorlds.MountAndBlade.Network.Gameplay.Perks",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission/PerkAssemblyCollection.md"
+    },
+    {
+      "typeName": "BannerBearerCondition",
+      "namespace": "TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Conditions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BannerBearerCondition.md"
+    },
+    {
+      "typeName": "CreatePlayer",
+      "namespace": "TaleWorlds.MountAndBlade.Network.Messages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CreatePlayer.md"
+    },
+    {
+      "typeName": "DeletePlayer",
+      "namespace": "TaleWorlds.MountAndBlade.Network.Messages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DeletePlayer.md"
+    },
+    {
+      "typeName": "GameNetworkMessage",
+      "namespace": "TaleWorlds.MountAndBlade.Network.Messages",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GameNetworkMessage.md"
+    },
+    {
+      "typeName": "AnimalSpawnSettings",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AnimalSpawnSettings.md"
+    },
+    {
+      "typeName": "AreaMarker",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AreaMarker.md"
+    },
+    {
+      "typeName": "FightAreaMarker",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FightAreaMarker.md"
+    },
+    {
+      "typeName": "FlagCapturePoint",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FlagCapturePoint.md"
+    },
+    {
+      "typeName": "GenericMissionEvent",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GenericMissionEvent.md"
+    },
+    {
+      "typeName": "GenericMissionEventScript",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GenericMissionEventScript.md"
+    },
+    {
+      "typeName": "ShipVisual",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ShipVisual.md"
+    },
+    {
+      "typeName": "StealthBox",
+      "namespace": "TaleWorlds.MountAndBlade.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/StealthBox.md"
+    },
+    {
+      "typeName": "BallistaSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BallistaSpawner.md"
+    },
+    {
+      "typeName": "BatteringRamSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/BatteringRamSpawner.md"
+    },
+    {
+      "typeName": "FireTrebuchet",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/FireTrebuchet.md"
+    },
+    {
+      "typeName": "ISpawnable",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ISpawnable.md"
+    },
+    {
+      "typeName": "MangonelSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MangonelSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerBallistaSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerBallistaSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerBatteringRamSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerBatteringRamSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerFireBallistaSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerFireBallistaSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerFireMangonelSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerFireMangonelSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerFireTrebuchetSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerFireTrebuchetSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerMangonelSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerMangonelSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerSiegeTowerSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerSiegeTowerSpawner.md"
+    },
+    {
+      "typeName": "MultiplayerTrebuchetSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/MultiplayerTrebuchetSpawner.md"
+    },
+    {
+      "typeName": "SiegeLadderSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SiegeLadderSpawner.md"
+    },
+    {
+      "typeName": "SiegeTowerSpawner",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SiegeTowerSpawner.md"
+    },
+    {
+      "typeName": "SpawnerBase",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SpawnerBase.md"
+    },
+    {
+      "typeName": "SpawnerPermissionField",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SpawnerPermissionField.md"
+    },
+    {
+      "typeName": "AmmoBarrelBase",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Usables",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AmmoBarrelBase.md"
+    },
+    {
+      "typeName": "ArrowBarrel",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Usables",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ArrowBarrel.md"
+    },
+    {
+      "typeName": "ClimbingMachine",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Usables",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ClimbingMachine.md"
+    },
+    {
+      "typeName": "EventTriggeringUsableMachine",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Usables",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/EventTriggeringUsableMachine.md"
+    },
+    {
+      "typeName": "JavelinBarrel",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Usables",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/JavelinBarrel.md"
+    },
+    {
+      "typeName": "SiegeMachineStonePile",
+      "namespace": "TaleWorlds.MountAndBlade.Objects.Usables",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SiegeMachineStonePile.md"
+    },
+    {
+      "typeName": "OptionCategory",
+      "namespace": "TaleWorlds.MountAndBlade.Options",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionCategory.md"
+    },
+    {
+      "typeName": "OptionGroup",
+      "namespace": "TaleWorlds.MountAndBlade.Options",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/OptionGroup.md"
+    },
+    {
+      "typeName": "NavigationMeshDeactivator",
+      "namespace": "TaleWorlds.MountAndBlade.Source.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NavigationMeshDeactivator.md"
+    },
+    {
+      "typeName": "SceneLeveler",
+      "namespace": "TaleWorlds.MountAndBlade.Source.Objects",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SceneLeveler.md"
+    },
+    {
+      "typeName": "AgentPathNavMeshChecker",
+      "namespace": "TaleWorlds.MountAndBlade.Source.Objects.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/AgentPathNavMeshChecker.md"
+    },
+    {
+      "typeName": "Direction",
+      "namespace": "TaleWorlds.MountAndBlade.Source.Objects.Siege",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Direction.md"
+    },
+    {
+      "typeName": "CreateItemTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/CreateItemTask.md"
+    },
+    {
+      "typeName": "GetItemTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/GetItemTask.md"
+    },
+    {
+      "typeName": "ItemVisibility",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ItemVisibility.md"
+    },
+    {
+      "typeName": "Program",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Program.md"
+    },
+    {
+      "typeName": "ToolDebugManager",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission/ToolDebugManager.md"
+    },
+    {
+      "typeName": "ToolTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ToolTask.md"
+    },
+    {
+      "typeName": "UpdateItemTask",
+      "namespace": "TaleWorlds.MountAndBlade.SteamWorkshop",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/UpdateItemTask.md"
+    }
+  ]
+}

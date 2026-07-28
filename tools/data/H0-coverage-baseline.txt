@@ -1,0 +1,72 @@
+H0-D / H0-E coverage baseline
+Date: 2026-07-26
+Workspace: BannerlordCode.github.io
+
+## H0-D: handwritten-coverage.mjs
+
+Command:
+  node tools/handwritten-coverage.mjs
+
+Scan root:
+  content/v1.3.15/zh/api
+
+Counts by status:
+  totalFiles:          5695
+  stub:                5565
+  deep_pass:             19
+  family_entry_pass:     99
+  noise:                 12
+  missing:                0
+
+deep_pass << total: 19 / 5695
+
+deep_pass paths (all):
+  content/v1.3.15/zh/api/campaign/Campaign.md
+  content/v1.3.15/zh/api/campaign/Clan.md
+  content/v1.3.15/zh/api/campaign/Hero.md
+  content/v1.3.15/zh/api/campaign/Kingdom.md
+  content/v1.3.15/zh/api/campaign/MobileParty.md
+  content/v1.3.15/zh/api/campaign/Settlement.md
+  content/v1.3.15/zh/api/campaign-ext/Army.md
+  content/v1.3.15/zh/api/campaign-ext/CampaignBehaviorBase.md
+  content/v1.3.15/zh/api/campaign-ext/IssueBase.md
+  content/v1.3.15/zh/api/campaign-ext/QuestBase.md
+  content/v1.3.15/zh/api/core/ItemObject.md
+  content/v1.3.15/zh/api/core/MBSubModuleBase.md
+  content/v1.3.15/zh/api/core-extra/Game.md
+  content/v1.3.15/zh/api/core-extra/ViewModel.md
+  content/v1.3.15/zh/api/mission/Agent.md
+  content/v1.3.15/zh/api/mission/Mission.md
+  content/v1.3.15/zh/api/mission/MissionBehavior.md
+  content/v1.3.15/zh/api/save-system/SaveableTypeDefiner.md
+  content/v1.3.15/zh/api/save-system/SaveManager.md
+
+Artifacts:
+  tools/data/handwritten-coverage.json
+  tools/data/s-tier.json  (L0–L2 + L3 critical Actions; names only)
+
+## H0-E: audit-doc-quality.mjs CLASS_MENTAL_MODEL_BOILERPLATE
+
+New blockers (category: boilerplate-class-content) for:
+  - 阅读时先通过属性了解状态
+  - Read properties first to understand state
+  - Read properties for state and methods for actions
+  - 是 TaleWorlds.\S+ 下的公开类型 / 中的公开类型
+  - is a public type (in|under) TaleWorlds.\S+
+
+CLI:
+  node tools/audit-doc-quality.mjs [root] [--verbose] [--scope <path-prefix>]
+  # examples:
+  node tools/audit-doc-quality.mjs content --scope v1.3.15/zh/api
+  node tools/audit-doc-quality.mjs content/v1.3.15/zh/api
+  node tools/audit-doc-quality.mjs content/v1.3.15/zh/api/save-system/SaveManager.md
+
+QA evidence:
+  SaveManager.md  → Blockers: 0, exit 0
+  Hero.md         → Blockers: 0, exit 0
+  Team.md (stub)  → Blockers: 2 (both new mental/overview patterns), exit 1
+  --scope v1.3.15/zh/api/mission → 62 files, 89 blockers (stubs flagged)
+  --scope v1.3.15/zh/api/save-system → stubs flagged; gold SaveManager not false-positive
+
+MUST NOT: content page rewrites, commit
+)

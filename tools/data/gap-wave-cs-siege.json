@@ -1,0 +1,77 @@
+{
+  "count": 12,
+  "types": [
+    {
+      "typeName": "BesiegerCamp",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BesiegerCamp.md"
+    },
+    {
+      "typeName": "DefaultSiegeStrategies",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultSiegeStrategies.md"
+    },
+    {
+      "typeName": "ISiegeEventSide",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISiegeEventSide.md"
+    },
+    {
+      "typeName": "ISiegeEventVisual",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISiegeEventVisual.md"
+    },
+    {
+      "typeName": "PlayerSiege",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PlayerSiege.md"
+    },
+    {
+      "typeName": "RangedSiegeEngine",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RangedSiegeEngine.md"
+    },
+    {
+      "typeName": "RemovedSiegeEngine",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RemovedSiegeEngine.md"
+    },
+    {
+      "typeName": "SiegeBombardTargets",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeBombardTargets.md"
+    },
+    {
+      "typeName": "SiegeEngineConstructionProgress",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeEngineConstructionProgress.md"
+    },
+    {
+      "typeName": "SiegeEngineMissile",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeEngineMissile.md"
+    },
+    {
+      "typeName": "SiegeEnginesContainer",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeEnginesContainer.md"
+    },
+    {
+      "typeName": "SiegeStrategy",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeStrategy.md"
+    }
+  ]
+}

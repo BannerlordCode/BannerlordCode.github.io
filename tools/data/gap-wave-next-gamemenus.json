@@ -1,0 +1,53 @@
+{
+  "count": 8,
+  "types": [
+    {
+      "typeName": "EventType",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EventType.md"
+    },
+    {
+      "typeName": "GameMenuEventHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameMenuEventHandler.md"
+    },
+    {
+      "typeName": "GameMenuInitializationHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameMenuInitializationHandler.md"
+    },
+    {
+      "typeName": "MenuAndOptionType",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MenuAndOptionType.md"
+    },
+    {
+      "typeName": "MenuFlags",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MenuFlags.md"
+    },
+    {
+      "typeName": "MenuOverlayType",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MenuOverlayType.md"
+    },
+    {
+      "typeName": "DefaultEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncounter.md"
+    },
+    {
+      "typeName": "PlayerTownVisit",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PlayerTownVisit.md"
+    }
+  ]
+}

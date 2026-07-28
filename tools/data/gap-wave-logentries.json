@@ -1,0 +1,282 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ArmyCreationLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ArmyDispersionLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "BattleStartedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "BesiegeSettlementLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ChangeAlleyOwnerLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ChangeRomanticStateLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ChangeSettlementOwnerLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "CharacterBecameFugitiveLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "CharacterBornLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "CharacterInsultedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "CharacterKilledLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "CharacterMarriedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ChatNotificationType",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ChildbirthLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ClanChangeKingdomLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ClanDestroyedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ClanLeaderChangedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "CommonAreaFightLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "DeclareWarLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "DefeatCharacterLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "DestroyMobilePartyLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "EndAllianceLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "EndCallToWarAgreementLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "EndCaptivityLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "GatherArmyLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "IChatNotification",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "IEncyclopediaLog",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "ImportanceEnum",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "IssueQuestLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "IssueQuestStartLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "IWarLog",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "JournalLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "KingdomDecisionAddedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "KingdomDecisionConcludedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "KingdomDestroyedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "LogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "LogEntryHistory",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "MakePeaceLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "MercenaryClanChangedKingdomLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "OverruleInfluenceLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PlayerAttackAlleyLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PlayerBattleEndedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PlayerCharacterChangedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PlayerMeetLordLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PlayerReputationChangesLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PlayerRetiredLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "PregnancyLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "RebellionStartedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "SettlementClaimedLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "SiegeAftermathLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "StartAllianceLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "StartCallToWarAgreementLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "TakePrisonerLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "TournamentWonLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "TradeAgreementLogEntry",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.LogEntries",
+    "name": "VillageStateChangedLogEntry",
+    "kind": "class"
+  }
+]

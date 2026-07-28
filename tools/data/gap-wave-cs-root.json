@@ -1,0 +1,515 @@
+{
+  "count": 85,
+  "types": [
+    {
+      "typeName": "ActionNotes",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ActionNotes.md"
+    },
+    {
+      "typeName": "ArmyDispersionReason",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ArmyDispersionReason.md"
+    },
+    {
+      "typeName": "ArmyTypes",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ArmyTypes.md"
+    },
+    {
+      "typeName": "AtmosphereGrid",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AtmosphereGrid.md"
+    },
+    {
+      "typeName": "BattleSimulation",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BattleSimulation.md"
+    },
+    {
+      "typeName": "BoardGameType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BoardGameType.md"
+    },
+    {
+      "typeName": "CampaignBehaviorDataStore",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/CampaignBehaviorDataStore.md"
+    },
+    {
+      "typeName": "CampaignCheats",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignCheats.md"
+    },
+    {
+      "typeName": "CampaignEventDispatcher",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignEventDispatcher.md"
+    },
+    {
+      "typeName": "CampaignGameMode",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignGameMode.md"
+    },
+    {
+      "typeName": "CampaignObjectBase",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignObjectBase.md"
+    },
+    {
+      "typeName": "CampaignOptions",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignOptions.md"
+    },
+    {
+      "typeName": "CampaignTickCacheDataStore",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignTickCacheDataStore.md"
+    },
+    {
+      "typeName": "CampaignTimeControlMode",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignTimeControlMode.md"
+    },
+    {
+      "typeName": "CampaignTutorial",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignTutorial.md"
+    },
+    {
+      "typeName": "CampaignVec2",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignVec2.md"
+    },
+    {
+      "typeName": "CharacterRestrictionFlags",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterRestrictionFlags.md"
+    },
+    {
+      "typeName": "CharacterStates",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterStates.md"
+    },
+    {
+      "typeName": "Concept",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Concept.md"
+    },
+    {
+      "typeName": "ConversationContext",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ConversationContext.md"
+    },
+    {
+      "typeName": "CultureTrait",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CultureTrait.md"
+    },
+    {
+      "typeName": "DefaultItems",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultItems.md"
+    },
+    {
+      "typeName": "DefaultPolicies",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultPolicies.md"
+    },
+    {
+      "typeName": "DefaultSkillEffects",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultSkillEffects.md"
+    },
+    {
+      "typeName": "DialogFlowContext",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/DialogFlowContext.md"
+    },
+    {
+      "typeName": "DialogFlowLine",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/DialogFlowLine.md"
+    },
+    {
+      "typeName": "Difficulty",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Difficulty.md"
+    },
+    {
+      "typeName": "EventHandlerRec",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/EventHandlerRec.md"
+    },
+    {
+      "typeName": "ExplanationLine",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign/ExplanationLine.md"
+    },
+    {
+      "typeName": "FinishStates",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FinishStates.md"
+    },
+    {
+      "typeName": "GameAccelerationMode",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameAccelerationMode.md"
+    },
+    {
+      "typeName": "GameLoadingType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameLoadingType.md"
+    },
+    {
+      "typeName": "HeroCreator",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroCreator.md"
+    },
+    {
+      "typeName": "HeroGetsBusyReasons",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroGetsBusyReasons.md"
+    },
+    {
+      "typeName": "HeroRelations",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/HeroRelations.md"
+    },
+    {
+      "typeName": "ICampaignBehavior",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICampaignBehavior.md"
+    },
+    {
+      "typeName": "ICampaignMission",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICampaignMission.md"
+    },
+    {
+      "typeName": "IMainHeroVisualSupplier",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMainHeroVisualSupplier.md"
+    },
+    {
+      "typeName": "IMapEventVisualCreator",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapEventVisualCreator.md"
+    },
+    {
+      "typeName": "IMbEvent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMbEvent.md"
+    },
+    {
+      "typeName": "IMbEventBase",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMbEventBase.md"
+    },
+    {
+      "typeName": "INavigationElement",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INavigationElement.md"
+    },
+    {
+      "typeName": "IRandomOwner",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IRandomOwner.md"
+    },
+    {
+      "typeName": "ITrackableCampaignObject",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ITrackableCampaignObject.md"
+    },
+    {
+      "typeName": "IViewDataTracker",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IViewDataTracker.md"
+    },
+    {
+      "typeName": "JournalLog",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/JournalLog.md"
+    },
+    {
+      "typeName": "LogType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LogType.md"
+    },
+    {
+      "typeName": "ManagedParameters",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ManagedParameters.md"
+    },
+    {
+      "typeName": "ManagedParametersEnum",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ManagedParametersEnum.md"
+    },
+    {
+      "typeName": "MapNavigationExtensions",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapNavigationExtensions.md"
+    },
+    {
+      "typeName": "MapNavigationItemType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapNavigationItemType.md"
+    },
+    {
+      "typeName": "MapTimeTracker",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/MapTimeTracker.md"
+    },
+    {
+      "typeName": "MBCampaignEvent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MBCampaignEvent.md"
+    },
+    {
+      "typeName": "MbEvent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MbEvent.md"
+    },
+    {
+      "typeName": "NameGenerator",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NameGenerator.md"
+    },
+    {
+      "typeName": "NavigationPermissionItem",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NavigationPermissionItem.md"
+    },
+    {
+      "typeName": "NoticeType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NoticeType.md"
+    },
+    {
+      "typeName": "OperationType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/OperationType.md"
+    },
+    {
+      "typeName": "PartyRestFlags",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyRestFlags.md"
+    },
+    {
+      "typeName": "PartyRole",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyRole.md"
+    },
+    {
+      "typeName": "PartyThinkParams",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyThinkParams.md"
+    },
+    {
+      "typeName": "PartyTypeEnum",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyTypeEnum.md"
+    },
+    {
+      "typeName": "PeriodicTicker",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/PeriodicTicker.md"
+    },
+    {
+      "typeName": "PlayerCaptivity",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PlayerCaptivity.md"
+    },
+    {
+      "typeName": "PolicyObject",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PolicyObject.md"
+    },
+    {
+      "typeName": "QuestCompleteDetails",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/QuestCompleteDetails.md"
+    },
+    {
+      "typeName": "QuestStates",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign/QuestStates.md"
+    },
+    {
+      "typeName": "RandomOwnerExtensions",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RandomOwnerExtensions.md"
+    },
+    {
+      "typeName": "ReferenceIMBEvent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ReferenceIMBEvent.md"
+    },
+    {
+      "typeName": "ReferenceMBEvent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ReferenceMBEvent.md"
+    },
+    {
+      "typeName": "RomanceLevelEnum",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RomanceLevelEnum.md"
+    },
+    {
+      "typeName": "RomanticState",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RomanticState.md"
+    },
+    {
+      "typeName": "SandBoxMission",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SandBoxMission.md"
+    },
+    {
+      "typeName": "SaveableCampaignTypeDefiner",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SaveableCampaignTypeDefiner.md"
+    },
+    {
+      "typeName": "SaveMode",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SaveMode.md"
+    },
+    {
+      "typeName": "Seasons",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Seasons.md"
+    },
+    {
+      "typeName": "SettlementBusynessPriority",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementBusynessPriority.md"
+    },
+    {
+      "typeName": "SkillEffect",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SkillEffect.md"
+    },
+    {
+      "typeName": "StanceLink",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StanceLink.md"
+    },
+    {
+      "typeName": "StanceType",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign/StanceType.md"
+    },
+    {
+      "typeName": "Track",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Track.md"
+    },
+    {
+      "typeName": "TrackedObject",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TrackedObject.md"
+    },
+    {
+      "typeName": "TradeRumor",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TradeRumor.md"
+    },
+    {
+      "typeName": "TroopUpgradeTracker",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TroopUpgradeTracker.md"
+    },
+    {
+      "typeName": "VisualCreator",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualCreator.md"
+    }
+  ]
+}

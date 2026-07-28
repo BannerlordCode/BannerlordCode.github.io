@@ -1,0 +1,643 @@
+{
+  "generatedAt": "2026-07-26T19:28:03.925Z",
+  "summary": {
+    "ok": 62,
+    "slop": 0,
+    "thin": 0,
+    "miss": 0
+  },
+  "results": [
+    {
+      "name": "MBSubModuleBase",
+      "path": "content/v1.3.15/en/api/core/MBSubModuleBase.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9890,
+      "hasMental": true
+    },
+    {
+      "name": "Game",
+      "path": "content/v1.3.15/en/api/core-extra/Game.md",
+      "status": "OK",
+      "hits": [],
+      "len": 6405,
+      "hasMental": true
+    },
+    {
+      "name": "MBGameManager",
+      "path": "content/v1.3.15/en/api/mission-ext/MBGameManager.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11436,
+      "hasMental": true
+    },
+    {
+      "name": "MBObjectBase",
+      "path": "content/v1.3.15/en/api/campaign-ext/MBObjectBase.md",
+      "status": "OK",
+      "hits": [],
+      "len": 10280,
+      "hasMental": true
+    },
+    {
+      "name": "MBObjectManager",
+      "path": "content/v1.3.15/en/api/campaign-ext/MBObjectManager.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14487,
+      "hasMental": true
+    },
+    {
+      "name": "TextObject",
+      "path": "content/v1.3.15/en/api/localization/TextObject.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12211,
+      "hasMental": true
+    },
+    {
+      "name": "InformationManager",
+      "path": "content/v1.3.15/en/api/core-extra/InformationManager.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9775,
+      "hasMental": true
+    },
+    {
+      "name": "CampaignTime",
+      "path": "content/v1.3.15/en/api/campaign-ext/CampaignTime.md",
+      "status": "OK",
+      "hits": [],
+      "len": 10174,
+      "hasMental": true
+    },
+    {
+      "name": "IDataStore",
+      "path": "content/v1.3.15/en/api/campaign-ext/IDataStore.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11711,
+      "hasMental": true
+    },
+    {
+      "name": "SaveableTypeDefiner",
+      "path": "content/v1.3.15/en/api/save-system/SaveableTypeDefiner.md",
+      "status": "OK",
+      "hits": [],
+      "len": 6713,
+      "hasMental": true
+    },
+    {
+      "name": "SaveableField",
+      "path": "content/v1.3.15/en/api/save-system/SaveableFieldAttribute.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12923,
+      "hasMental": true,
+      "aliasOf": "SaveableFieldAttribute"
+    },
+    {
+      "name": "SaveableProperty",
+      "path": "content/v1.3.15/en/api/save-system/SaveablePropertyAttribute.md",
+      "status": "OK",
+      "hits": [],
+      "len": 17772,
+      "hasMental": true,
+      "aliasOf": "SaveablePropertyAttribute"
+    },
+    {
+      "name": "ViewModel",
+      "path": "content/v1.3.15/en/api/core-extra/ViewModel.md",
+      "status": "OK",
+      "hits": [],
+      "len": 6994,
+      "hasMental": true
+    },
+    {
+      "name": "ScreenBase",
+      "path": "content/v1.3.15/en/api/campaign-ext/ScreenBase.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13437,
+      "hasMental": true
+    },
+    {
+      "name": "ScreenManager",
+      "path": "content/v1.3.15/en/api/gui/ScreenManager.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13321,
+      "hasMental": true
+    },
+    {
+      "name": "GauntletLayer",
+      "path": "content/v1.3.15/en/api/engine/GauntletLayer.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11579,
+      "hasMental": true
+    },
+    {
+      "name": "SaveManager",
+      "path": "content/v1.3.15/en/api/save-system/SaveManager.md",
+      "status": "OK",
+      "hits": [],
+      "len": 5982,
+      "hasMental": true
+    },
+    {
+      "name": "Campaign",
+      "path": "content/v1.3.15/en/api/campaign/Campaign.md",
+      "status": "OK",
+      "hits": [],
+      "len": 7299,
+      "hasMental": true
+    },
+    {
+      "name": "CampaignEvents",
+      "path": "content/v1.3.15/en/api/campaign-ext/CampaignEvents.md",
+      "status": "OK",
+      "hits": [],
+      "len": 22006,
+      "hasMental": true
+    },
+    {
+      "name": "CampaignEventReceiver",
+      "path": "content/v1.3.15/en/api/campaign-ext/CampaignEventReceiver.md",
+      "status": "OK",
+      "hits": [],
+      "len": 22932,
+      "hasMental": true
+    },
+    {
+      "name": "CampaignBehaviorBase",
+      "path": "content/v1.3.15/en/api/campaign/CampaignBehaviorBase.md",
+      "status": "OK",
+      "hits": [],
+      "len": 10545,
+      "hasMental": true
+    },
+    {
+      "name": "CampaignGameStarter",
+      "path": "content/v1.3.15/en/api/campaign-ext/CampaignGameStarter.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14349,
+      "hasMental": true
+    },
+    {
+      "name": "GameModels",
+      "path": "content/v1.3.15/en/api/campaign-ext/GameModels.md",
+      "status": "OK",
+      "hits": [],
+      "len": 15337,
+      "hasMental": true
+    },
+    {
+      "name": "Mission",
+      "path": "content/v1.3.15/en/api/mission/Mission.md",
+      "status": "OK",
+      "hits": [],
+      "len": 6328,
+      "hasMental": true
+    },
+    {
+      "name": "MissionBehavior",
+      "path": "content/v1.3.15/en/api/mission/MissionBehavior.md",
+      "status": "OK",
+      "hits": [],
+      "len": 5411,
+      "hasMental": true
+    },
+    {
+      "name": "MissionLogic",
+      "path": "content/v1.3.15/en/api/mission-ext/MissionLogic.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11858,
+      "hasMental": true
+    },
+    {
+      "name": "Agent",
+      "path": "content/v1.3.15/en/api/mission/Agent.md",
+      "status": "OK",
+      "hits": [],
+      "len": 5784,
+      "hasMental": true
+    },
+    {
+      "name": "Team",
+      "path": "content/v1.3.15/en/api/mission/Team.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11121,
+      "hasMental": true
+    },
+    {
+      "name": "Formation",
+      "path": "content/v1.3.15/en/api/mission/Formation.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13028,
+      "hasMental": true
+    },
+    {
+      "name": "Hero",
+      "path": "content/v1.3.15/en/api/campaign/Hero.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14290,
+      "hasMental": true
+    },
+    {
+      "name": "CharacterObject",
+      "path": "content/v1.3.15/en/api/campaign/CharacterObject.md",
+      "status": "OK",
+      "hits": [],
+      "len": 15347,
+      "hasMental": true
+    },
+    {
+      "name": "Clan",
+      "path": "content/v1.3.15/en/api/campaign/Clan.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12566,
+      "hasMental": true
+    },
+    {
+      "name": "Kingdom",
+      "path": "content/v1.3.15/en/api/campaign/Kingdom.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11058,
+      "hasMental": true
+    },
+    {
+      "name": "Settlement",
+      "path": "content/v1.3.15/en/api/campaign/Settlement.md",
+      "status": "OK",
+      "hits": [],
+      "len": 6276,
+      "hasMental": true
+    },
+    {
+      "name": "Town",
+      "path": "content/v1.3.15/en/api/campaign-ext/Town.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12030,
+      "hasMental": true
+    },
+    {
+      "name": "Village",
+      "path": "content/v1.3.15/en/api/campaign/Village.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9026,
+      "hasMental": true
+    },
+    {
+      "name": "MobileParty",
+      "path": "content/v1.3.15/en/api/campaign/MobileParty.md",
+      "status": "OK",
+      "hits": [],
+      "len": 7366,
+      "hasMental": true
+    },
+    {
+      "name": "PartyBase",
+      "path": "content/v1.3.15/en/api/campaign/PartyBase.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11618,
+      "hasMental": true
+    },
+    {
+      "name": "Army",
+      "path": "content/v1.3.15/en/api/campaign-ext/Army.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9710,
+      "hasMental": true
+    },
+    {
+      "name": "MapEvent",
+      "path": "content/v1.3.15/en/api/campaign-ext/MapEvent.md",
+      "status": "OK",
+      "hits": [],
+      "len": 21011,
+      "hasMental": true
+    },
+    {
+      "name": "SiegeEvent",
+      "path": "content/v1.3.15/en/api/campaign-ext/SiegeEvent.md",
+      "status": "OK",
+      "hits": [],
+      "len": 18225,
+      "hasMental": true
+    },
+    {
+      "name": "TroopRoster",
+      "path": "content/v1.3.15/en/api/campaign-ext/TroopRoster.md",
+      "status": "OK",
+      "hits": [],
+      "len": 10727,
+      "hasMental": true
+    },
+    {
+      "name": "ItemRoster",
+      "path": "content/v1.3.15/en/api/campaign-ext/ItemRoster.md",
+      "status": "OK",
+      "hits": [],
+      "len": 8861,
+      "hasMental": true
+    },
+    {
+      "name": "Equipment",
+      "path": "content/v1.3.15/en/api/core-extra/Equipment.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14345,
+      "hasMental": true
+    },
+    {
+      "name": "ItemObject",
+      "path": "content/v1.3.15/en/api/core/ItemObject.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9427,
+      "hasMental": true
+    },
+    {
+      "name": "SkillObject",
+      "path": "content/v1.3.15/en/api/core-extra/SkillObject.md",
+      "status": "OK",
+      "hits": [],
+      "len": 7291,
+      "hasMental": true
+    },
+    {
+      "name": "CultureObject",
+      "path": "content/v1.3.15/en/api/campaign-ext/CultureObject.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14666,
+      "hasMental": true
+    },
+    {
+      "name": "Banner",
+      "path": "content/v1.3.15/en/api/core-extra/Banner.md",
+      "status": "OK",
+      "hits": [],
+      "len": 16636,
+      "hasMental": true
+    },
+    {
+      "name": "Workshop",
+      "path": "content/v1.3.15/en/api/campaign/Workshop.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12632,
+      "hasMental": true
+    },
+    {
+      "name": "KillCharacterAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/KillCharacterAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 8659,
+      "hasMental": true
+    },
+    {
+      "name": "ChangeRelationAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/ChangeRelationAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13635,
+      "hasMental": true
+    },
+    {
+      "name": "ChangeKingdomAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/ChangeKingdomAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 15737,
+      "hasMental": true
+    },
+    {
+      "name": "DeclareWarAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/DeclareWarAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11967,
+      "hasMental": true
+    },
+    {
+      "name": "MakePeaceAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/MakePeaceAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11903,
+      "hasMental": true
+    },
+    {
+      "name": "GiveGoldAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/GiveGoldAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 7905,
+      "hasMental": true
+    },
+    {
+      "name": "AddHeroToPartyAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/AddHeroToPartyAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9260,
+      "hasMental": true
+    },
+    {
+      "name": "DestroyPartyAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/DestroyPartyAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9056,
+      "hasMental": true
+    },
+    {
+      "name": "EnterSettlementAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/EnterSettlementAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 10175,
+      "hasMental": true
+    },
+    {
+      "name": "TakePrisonerAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/TakePrisonerAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 8441,
+      "hasMental": true
+    },
+    {
+      "name": "MarriageAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/MarriageAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12445,
+      "hasMental": true
+    },
+    {
+      "name": "ChangeOwnerOfSettlementAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14077,
+      "hasMental": true
+    },
+    {
+      "name": "StartBattleAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/StartBattleAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13776,
+      "hasMental": true
+    }
+  ],
+  "l3_actions": [
+    {
+      "name": "KillCharacterAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/KillCharacterAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 8659,
+      "hasMental": true
+    },
+    {
+      "name": "ChangeRelationAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/ChangeRelationAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13635,
+      "hasMental": true
+    },
+    {
+      "name": "ChangeKingdomAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/ChangeKingdomAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 15737,
+      "hasMental": true
+    },
+    {
+      "name": "DeclareWarAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/DeclareWarAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11967,
+      "hasMental": true
+    },
+    {
+      "name": "MakePeaceAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/MakePeaceAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 11903,
+      "hasMental": true
+    },
+    {
+      "name": "GiveGoldAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/GiveGoldAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 7905,
+      "hasMental": true
+    },
+    {
+      "name": "AddHeroToPartyAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/AddHeroToPartyAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9260,
+      "hasMental": true
+    },
+    {
+      "name": "DestroyPartyAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/DestroyPartyAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 9056,
+      "hasMental": true
+    },
+    {
+      "name": "EnterSettlementAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/EnterSettlementAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 10175,
+      "hasMental": true
+    },
+    {
+      "name": "TakePrisonerAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/TakePrisonerAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 8441,
+      "hasMental": true
+    },
+    {
+      "name": "MarriageAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/MarriageAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12445,
+      "hasMental": true
+    },
+    {
+      "name": "ChangeOwnerOfSettlementAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/ChangeOwnerOfSettlementAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 14077,
+      "hasMental": true
+    },
+    {
+      "name": "StartBattleAction",
+      "path": "content/v1.3.15/en/api/campaign-ext/StartBattleAction.md",
+      "status": "OK",
+      "hits": [],
+      "len": 13776,
+      "hasMental": true
+    }
+  ],
+  "saveable": [
+    {
+      "name": "SaveableTypeDefiner",
+      "path": "content/v1.3.15/en/api/save-system/SaveableTypeDefiner.md",
+      "status": "OK",
+      "hits": [],
+      "len": 6713,
+      "hasMental": true
+    },
+    {
+      "name": "SaveableField",
+      "path": "content/v1.3.15/en/api/save-system/SaveableFieldAttribute.md",
+      "status": "OK",
+      "hits": [],
+      "len": 12923,
+      "hasMental": true,
+      "aliasOf": "SaveableFieldAttribute"
+    },
+    {
+      "name": "SaveableProperty",
+      "path": "content/v1.3.15/en/api/save-system/SaveablePropertyAttribute.md",
+      "status": "OK",
+      "hits": [],
+      "len": 17772,
+      "hasMental": true,
+      "aliasOf": "SaveablePropertyAttribute"
+    }
+  ]
+}

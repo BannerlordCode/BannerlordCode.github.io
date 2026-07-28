@@ -1,236 +1,89 @@
 ---
 title: "ItemObject"
-description: "Auto-generated class reference for ItemObject."
+description: "ItemObject (Core) navigation anchor: full handwritten guide lives at core/ItemObject; this page is not a signature wall."
 ---
 # ItemObject
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
-**Type:** `public sealed class ItemObject : MBObjectBase`
-**Base:** `MBObjectBase`
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public class ItemObject : MBObjectBase`  
+**Base:** `MBObjectBase`  
 **File:** `TaleWorlds.Core/ItemObject.cs`
 
-## Overview
+## One-line job
 
-`ItemObject` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+Item **type blueprint** (not a backpack stack). This page is a path anchor in the `core-extra` tree. Full mental model, dependencies, risks, and real examples live on the core page.
 
-## Mental Model
+## Full documentation (read this)
 
-Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+→ **[core / ItemObject (full handwritten page)](../../core/ItemObject)**
 
-## Key Properties
+That page covers:
 
-| Name | Signature |
-|------|-----------|
-| `ItemComponent` | `public ItemComponent ItemComponent { get; }` |
-| `MultiMeshName` | `public string MultiMeshName { get; }` |
-| `HolsterMeshName` | `public string HolsterMeshName { get; }` |
-| `HolsterWithWeaponMeshName` | `public string HolsterWithWeaponMeshName { get; }` |
-| `ItemHolsters` | `public string ItemHolsters { get; }` |
-| `HolsterPositionShift` | `public Vec3 HolsterPositionShift { get; }` |
-| `HasLowerHolsterPriority` | `public bool HasLowerHolsterPriority { get; }` |
-| `FlyingMeshName` | `public string FlyingMeshName { get; }` |
-| `BodyName` | `public string BodyName { get; }` |
-| `SkeletonName` | `public string SkeletonName { get; }` |
-| `StaticAnimationName` | `public string StaticAnimationName { get; }` |
-| `HolsterBodyName` | `public string HolsterBodyName { get; }` |
-| `CollisionBodyName` | `public string CollisionBodyName { get; }` |
-| `RecalculateBody` | `public bool RecalculateBody { get; }` |
-| `PrefabName` | `public string PrefabName { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `ItemFlags` | `public ItemFlags ItemFlags { get; }` |
-| `ItemCategory` | `public ItemCategory ItemCategory { get; }` |
-| `Value` | `public int Value { get; }` |
-| `Effectiveness` | `public float Effectiveness { get; }` |
-| `Weight` | `public float Weight { get; }` |
-| `Difficulty` | `public int Difficulty { get; }` |
-| `Appearance` | `public float Appearance { get; }` |
-| `IsUsingTableau` | `public bool IsUsingTableau { get; }` |
-| `IsUsingTeamColor` | `public bool IsUsingTeamColor { get; }` |
-| `DoesNotHideChest` | `public bool DoesNotHideChest { get; }` |
-| `IsCivilian` | `public bool IsCivilian { get; }` |
-| `IsStealthItem` | `public bool IsStealthItem { get; }` |
-| `UsingFacegenScaling` | `public bool UsingFacegenScaling { get; }` |
-| `ArmBandMeshName` | `public string ArmBandMeshName { get; }` |
-| `IsFood` | `public bool IsFood { get; }` |
-| `IsUniqueItem` | `public bool IsUniqueItem { get; }` |
-| `ScaleFactor` | `public float ScaleFactor { get; }` |
-| `Culture` | `public BasicCultureObject Culture { get; }` |
-| `MultiplayerItem` | `public bool MultiplayerItem { get; }` |
-| `NotMerchandise` | `public bool NotMerchandise { get; }` |
-| `IsCraftedByPlayer` | `public bool IsCraftedByPlayer { get; }` |
-| `LodAtlasIndex` | `public int LodAtlasIndex { get; }` |
-| `IsTransferable` | `public bool IsTransferable { get; }` |
-| `Tierf` | `public float Tierf { get; }` |
-| `IsCraftedWeapon` | `public bool IsCraftedWeapon { get; }` |
-| `Tier` | `public ItemObject.ItemTiers Tier { get; }` |
-| `WeaponDesign` | `public WeaponDesign WeaponDesign { get; }` |
-| `PrimaryWeapon` | `public WeaponComponentData PrimaryWeapon { get; }` |
-| `WeaponComponent` | `public WeaponComponent WeaponComponent { get; }` |
-| `HasWeaponComponent` | `public bool HasWeaponComponent { get; }` |
-| `HorseComponent` | `public HorseComponent HorseComponent { get; }` |
-| `HasHorseComponent` | `public bool HasHorseComponent { get; }` |
-| `ArmorComponent` | `public ArmorComponent ArmorComponent { get; }` |
-| `HasArmorComponent` | `public bool HasArmorComponent { get; }` |
-| `BannerComponent` | `public BannerComponent BannerComponent { get; }` |
-| `HasBannerComponent` | `public bool HasBannerComponent { get; }` |
-| `SaddleComponent` | `public SaddleComponent SaddleComponent { get; }` |
-| `HasSaddleComponent` | `public bool HasSaddleComponent { get; }` |
-| `FoodComponent` | `public TradeItemComponent FoodComponent { get; }` |
-| `HasFoodComponent` | `public bool HasFoodComponent { get; }` |
-| `Weapons` | `public MBReadOnlyList<WeaponComponentData> Weapons { get; }` |
-| `ItemType` | `public ItemObject.ItemTypeEnum ItemType { get; }` |
-| `IsMountable` | `public bool IsMountable { get; }` |
-| `IsTradeGood` | `public bool IsTradeGood { get; }` |
-| `IsBannerItem` | `public bool IsBannerItem { get; }` |
-| `IsAnimal` | `public bool IsAnimal { get; }` |
-| `RelevantSkill` | `public SkillObject RelevantSkill { get; }` |
+- Blueprint vs `ItemRoster` / `EquipmentElement` mental model  
+- When to use / when not to mutate global templates  
+- Dependencies on `MobileParty`, `MBObjectManager`, and component systems  
+- Shared `Value` edits, unregistered ids, bad-save risks  
+- Real `csharp` examples: `GetObject`, give grain, ammo type  
 
-## Key Methods
-
-### InitializeTradeGood
-`public static ItemObject InitializeTradeGood(ItemObject item, TextObject name, string meshName, ItemCategory category, int value, float weight, ItemObject.ItemTypeEnum itemType, bool isFood = false)`
-
-**Purpose:** Prepares the resources, state, or bindings required by trade good.
+## 30-second cheat sheet
 
 ```csharp
-// Static call; no instance required
-ItemObject.InitializeTradeGood(item, name, "example", category, 0, 0, itemType, false);
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+ItemObject grain = MBObjectManager.Instance.GetObject<ItemObject>("grain");
+if (grain != null && MobileParty.MainParty != null)
+{
+    MobileParty.MainParty.ItemRoster.AddToCounts(grain, 50);
+}
 ```
 
-### InitAsPlayerCraftedItem
-`public static void InitAsPlayerCraftedItem(ref ItemObject itemObject)`
+| Task | Entry |
+|------|-------|
+| Resolve by id | `MBObjectManager.Instance.GetObject<ItemObject>(id)` |
+| Change count | `party.ItemRoster.AddToCounts(item, delta)` |
+| Food / trade good | `item.IsFood` / `item.IsTradeGood` |
+| Weapon component | `item.HasWeaponComponent` → `PrimaryWeapon` |
 
-**Purpose:** Prepares the resources, state, or bindings required by as player crafted item.
+## Mental model (summary)
 
-```csharp
-// Static call; no instance required
-ItemObject.InitAsPlayerCraftedItem(itemObject);
-```
+`ItemObject` is the runtime object for an XML item definition. "50 grain" on a party is a roster count; a sword on a hero is an `EquipmentElement`. Do not treat the template as instance inventory.
 
-### GetHashCode
-`public override int GetHashCode()`
+### When to use / when not
 
-**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+- **Use:** look up blueprints, read `Value` / `Weight` / `ItemType`, add or remove on a Roster.  
+- **Don't:** rewrite global `grain.Value` for a one-off player effect; `new ItemObject()` without registration into the save graph.
 
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-var result = itemObject.GetHashCode();
-```
+## Dependencies
 
-### SetItemFlagsForCosmetics
-`public void SetItemFlagsForCosmetics(ItemFlags newFlags)`
+| Direction | Link |
+|-----------|------|
+| Full guide | [ItemObject (core)](../../core/ItemObject) |
+| Downstream stock | [MobileParty](../../campaign/MobileParty) |
+| Equipment side | [Hero](../../campaign/Hero), [CharacterObject](../../campaign/CharacterObject) |
+| Register and find | `MBObjectManager` (see core page and [crash boundaries](../../../architecture/crash-boundaries)) |
 
-**Purpose:** Assigns a new value to item flags for cosmetics and updates the object's internal state.
+## Risks (summary)
 
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-itemObject.SetItemFlagsForCosmetics(newFlags);
-```
+Polluting shared templates, unregistered StringId, dereferencing null `GetObject` → economy chaos / lost items on load / NRE. Full table: [core page risks](../../core/ItemObject#risks-and-crash-boundaries).
 
-### DetermineItemCategoryForItem
-`public void DetermineItemCategoryForItem()`
+## ↑ Parent Navigation
 
-**Purpose:** Determines the result of item category for item based on the current state.
+- [core-extra section](./)
+- [API section](../)
+- [SDK overview](../../../architecture/sdk-overview)
 
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-itemObject.DetermineItemCategoryForItem();
-```
+## Sibling Navigation
 
-### GetCraftedItemObjectFromHashedCode
-`public static ItemObject GetCraftedItemObjectFromHashedCode(string hashedCode)`
+| Page | Relation |
+|------|----------|
+| [ItemObject (core full page)](../../core/ItemObject) | Body for this anchor |
+| [MobileParty](../../campaign/MobileParty) | Item bags |
+| [PartyBase](../../campaign/PartyBase) | Roster holder |
 
-**Purpose:** Reads and returns the crafted item object from hashed code value held by the this instance.
+## See also
 
-```csharp
-// Static call; no instance required
-ItemObject.GetCraftedItemObjectFromHashedCode("example");
-```
-
-### AddWeapon
-`public void AddWeapon(WeaponComponentData weapon, ItemModifierGroup itemModifierGroup)`
-
-**Purpose:** Adds weapon to the current collection or state.
-
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-itemObject.AddWeapon(weapon, itemModifierGroup);
-```
-
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Restores the this instance from serialized data.
-
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-itemObject.Deserialize(objectManager, node);
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-var result = itemObject.ToString();
-```
-
-### GetItemFromWeaponKind
-`public static ItemObject GetItemFromWeaponKind(int weaponKind)`
-
-**Purpose:** Reads and returns the item from weapon kind value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ItemObject.GetItemFromWeaponKind(0);
-```
-
-### GetAmmoTypeForItemType
-`public static ItemObject.ItemTypeEnum GetAmmoTypeForItemType(ItemObject.ItemTypeEnum itemType)`
-
-**Purpose:** Reads and returns the ammo type for item type value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ItemObject.GetAmmoTypeForItemType(itemType);
-```
-
-### GetAirFrictionConstant
-`public static float GetAirFrictionConstant(WeaponClass weaponClass, WeaponFlags weaponFlags)`
-
-**Purpose:** Reads and returns the air friction constant value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ItemObject.GetAirFrictionConstant(weaponClass, weaponFlags);
-```
-
-### GetWeaponWithUsageIndex
-`public WeaponComponentData GetWeaponWithUsageIndex(int usageIndex)`
-
-**Purpose:** Reads and returns the weapon with usage index value held by the this instance.
-
-```csharp
-// Obtain an instance of ItemObject from the subsystem API first
-ItemObject itemObject = ...;
-var result = itemObject.GetWeaponWithUsageIndex(0);
-```
-
-## Usage Example
-
-```csharp
-ItemObject.InitializeTradeGood(item, name, "example", category, 0, 0, itemType, false);
-```
-
-## See Also
-
-- [Area Index](../)
+- [core/ItemObject](../../core/ItemObject): **only full handwritten body**
+- [Asset pipeline](../../../guide/asset-pipeline)

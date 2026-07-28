@@ -1,0 +1,197 @@
+{
+  "count": 32,
+  "types": [
+    {
+      "typeName": "AIDifficulty",
+      "namespace": "Helpers",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AIDifficulty.md"
+    },
+    {
+      "typeName": "BoardGameState",
+      "namespace": "Helpers",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BoardGameState.md"
+    },
+    {
+      "typeName": "InventoryCategoryType",
+      "namespace": "Helpers",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryCategoryType.md"
+    },
+    {
+      "typeName": "InventoryItemType",
+      "namespace": "Helpers",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryItemType.md"
+    },
+    {
+      "typeName": "InventoryMode",
+      "namespace": "Helpers",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryMode.md"
+    },
+    {
+      "typeName": "PartyScreenMode",
+      "namespace": "Helpers",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyScreenMode.md"
+    },
+    {
+      "typeName": "StringHelpers",
+      "namespace": "Helpers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StringHelpers.md"
+    },
+    {
+      "typeName": "TownHelpers",
+      "namespace": "Helpers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TownHelpers.md"
+    },
+    {
+      "typeName": "MultiplayerItemTestMissionController",
+      "namespace": "SandBox",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MultiplayerItemTestMissionController.md"
+    },
+    {
+      "typeName": "Error",
+      "namespace": "TaleWorlds.LinQuick",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/Error.md"
+    },
+    {
+      "typeName": "LinQuick",
+      "namespace": "TaleWorlds.LinQuick",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LinQuick.md"
+    },
+    {
+      "typeName": "DependedModule",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DependedModule.md"
+    },
+    {
+      "typeName": "IPlatformModuleExtension",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IPlatformModuleExtension.md"
+    },
+    {
+      "typeName": "ModuleCategory",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ModuleCategory.md"
+    },
+    {
+      "typeName": "ModuleInfo",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ModuleInfo.md"
+    },
+    {
+      "typeName": "ModuleType",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ModuleType.md"
+    },
+    {
+      "typeName": "SubModuleInfo",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SubModuleInfo.md"
+    },
+    {
+      "typeName": "SubModuleTags",
+      "namespace": "TaleWorlds.ModuleManager",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SubModuleTags.md"
+    },
+    {
+      "typeName": "IObjectTypeRecord",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/system/IObjectTypeRecord.md"
+    },
+    {
+      "typeName": "MBGUID",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MBGUID.md"
+    },
+    {
+      "typeName": "MBGUIDBasicTypeSerializer",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/MBGUIDBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "MbObjectXmlInformation",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MbObjectXmlInformation.md"
+    },
+    {
+      "typeName": "ObjectTypeRecord",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/ObjectTypeRecord.md"
+    },
+    {
+      "typeName": "SaveableObjectSystemTypeDefiner",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SaveableObjectSystemTypeDefiner.md"
+    },
+    {
+      "typeName": "XmlResource",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/XmlResource.md"
+    },
+    {
+      "typeName": "XsdElement",
+      "namespace": "TaleWorlds.ObjectSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/XsdElement.md"
+    },
+    {
+      "typeName": "CursorType",
+      "namespace": "TaleWorlds.ScreenSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CursorType.md"
+    },
+    {
+      "typeName": "GlobalLayer",
+      "namespace": "TaleWorlds.ScreenSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GlobalLayer.md"
+    },
+    {
+      "typeName": "InputRestrictions",
+      "namespace": "TaleWorlds.ScreenSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InputRestrictions.md"
+    },
+    {
+      "typeName": "IScreenManagerEngineConnection",
+      "namespace": "TaleWorlds.ScreenSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IScreenManagerEngineConnection.md"
+    },
+    {
+      "typeName": "ScreenLayer",
+      "namespace": "TaleWorlds.ScreenSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ScreenLayer.md"
+    },
+    {
+      "typeName": "MBDotNet",
+      "namespace": "TaleWorlds.Starter.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/system/MBDotNet.md"
+    }
+  ]
+}

@@ -1,0 +1,713 @@
+{
+  "count": 118,
+  "types": [
+    {
+      "typeName": "AlignmentAxis",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlignmentAxis.md"
+    },
+    {
+      "typeName": "AnimationInterpolation",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AnimationInterpolation.md"
+    },
+    {
+      "typeName": "AudioProperty",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AudioProperty.md"
+    },
+    {
+      "typeName": "BrushAnimation",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushAnimation.md"
+    },
+    {
+      "typeName": "BrushAnimationKeyFrame",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushAnimationKeyFrame.md"
+    },
+    {
+      "typeName": "BrushAnimationProperty",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushAnimationProperty.md"
+    },
+    {
+      "typeName": "BrushAnimationPropertyType",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushAnimationPropertyType.md"
+    },
+    {
+      "typeName": "BrushFactory",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushFactory.md"
+    },
+    {
+      "typeName": "BrushLayer",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushLayer.md"
+    },
+    {
+      "typeName": "BrushLayerAnimation",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushLayerAnimation.md"
+    },
+    {
+      "typeName": "BrushLayerSizePolicy",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushLayerSizePolicy.md"
+    },
+    {
+      "typeName": "BrushLayerState",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushLayerState.md"
+    },
+    {
+      "typeName": "BrushListPanel",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushListPanel.md"
+    },
+    {
+      "typeName": "BrushOverlayMethod",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushOverlayMethod.md"
+    },
+    {
+      "typeName": "BrushRenderer",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushRenderer.md"
+    },
+    {
+      "typeName": "BrushRendererAnimationState",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushRendererAnimationState.md"
+    },
+    {
+      "typeName": "BrushState",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BrushState.md"
+    },
+    {
+      "typeName": "ContainerItemDescription",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ContainerItemDescription.md"
+    },
+    {
+      "typeName": "ContainerType",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ContainerType.md"
+    },
+    {
+      "typeName": "FontFactory",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FontFactory.md"
+    },
+    {
+      "typeName": "Function",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Function.md"
+    },
+    {
+      "typeName": "GauntletEvent",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/GauntletEvent.md"
+    },
+    {
+      "typeName": "GauntletExtensions",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GauntletExtensions.md"
+    },
+    {
+      "typeName": "GuiEventResult",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GuiEventResult.md"
+    },
+    {
+      "typeName": "GuiEventType",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GuiEventType.md"
+    },
+    {
+      "typeName": "HorizontalAlignment",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HorizontalAlignment.md"
+    },
+    {
+      "typeName": "IBrushAnimationState",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IBrushAnimationState.md"
+    },
+    {
+      "typeName": "IDataSource",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IDataSource.md"
+    },
+    {
+      "typeName": "IDropContainer",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IDropContainer.md"
+    },
+    {
+      "typeName": "ImageFit",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ImageFit.md"
+    },
+    {
+      "typeName": "ImageFitResult",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/ImageFitResult.md"
+    },
+    {
+      "typeName": "ImageFitTypes",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ImageFitTypes.md"
+    },
+    {
+      "typeName": "ImageHorizontalAlignments",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ImageHorizontalAlignments.md"
+    },
+    {
+      "typeName": "ImageVerticalAlignments",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ImageVerticalAlignments.md"
+    },
+    {
+      "typeName": "Language",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Language.md"
+    },
+    {
+      "typeName": "MouseCursors",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MouseCursors.md"
+    },
+    {
+      "typeName": "PropertyOwnerObject",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PropertyOwnerObject.md"
+    },
+    {
+      "typeName": "ResourceTextureProvider",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ResourceTextureProvider.md"
+    },
+    {
+      "typeName": "SizePolicy",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SizePolicy.md"
+    },
+    {
+      "typeName": "SoundProperties",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SoundProperties.md"
+    },
+    {
+      "typeName": "Style",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Style.md"
+    },
+    {
+      "typeName": "StyleAnimationMode",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StyleAnimationMode.md"
+    },
+    {
+      "typeName": "StyleLayer",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StyleLayer.md"
+    },
+    {
+      "typeName": "TextureProvider",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextureProvider.md"
+    },
+    {
+      "typeName": "TextureProviderFactory",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextureProviderFactory.md"
+    },
+    {
+      "typeName": "UpdateAction",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/UpdateAction.md"
+    },
+    {
+      "typeName": "ValueType",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ValueType.md"
+    },
+    {
+      "typeName": "VerticalAlignment",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VerticalAlignment.md"
+    },
+    {
+      "typeName": "VisualDefinition",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualDefinition.md"
+    },
+    {
+      "typeName": "VisualStateAnimationState",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualStateAnimationState.md"
+    },
+    {
+      "typeName": "WidgetContainer",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/WidgetContainer.md"
+    },
+    {
+      "typeName": "WidgetInfo",
+      "namespace": "TaleWorlds.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetInfo.md"
+    },
+    {
+      "typeName": "AutoScrollParameters",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AutoScrollParameters.md"
+    },
+    {
+      "typeName": "BasicContainer",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BasicContainer.md"
+    },
+    {
+      "typeName": "ButtonType",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ButtonType.md"
+    },
+    {
+      "typeName": "Container",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Container.md"
+    },
+    {
+      "typeName": "CursorMovementDirection",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/CursorMovementDirection.md"
+    },
+    {
+      "typeName": "KeyboardAction",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/gui/KeyboardAction.md"
+    },
+    {
+      "typeName": "SpriteFromTexture",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/SpriteFromTexture.md"
+    },
+    {
+      "typeName": "TabControl",
+      "namespace": "TaleWorlds.GauntletUI.BaseTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TabControl.md"
+    },
+    {
+      "typeName": "GeneratedGauntletMovie",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GeneratedGauntletMovie.md"
+    },
+    {
+      "typeName": "IGauntletMovie",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IGauntletMovie.md"
+    },
+    {
+      "typeName": "IGeneratedGauntletMovieRoot",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IGeneratedGauntletMovieRoot.md"
+    },
+    {
+      "typeName": "ItemTemplateUsage",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemTemplateUsage.md"
+    },
+    {
+      "typeName": "PrefabDatabindingExtension",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PrefabDatabindingExtension.md"
+    },
+    {
+      "typeName": "ViewBindCommandInfo",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/ViewBindCommandInfo.md"
+    },
+    {
+      "typeName": "ViewBindDataInfo",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/ViewBindDataInfo.md"
+    },
+    {
+      "typeName": "WidgetAttributeKeyTypeCommand",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyTypeCommand.md"
+    },
+    {
+      "typeName": "WidgetAttributeKeyTypeCommandParameter",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyTypeCommandParameter.md"
+    },
+    {
+      "typeName": "WidgetAttributeKeyTypeDataSource",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyTypeDataSource.md"
+    },
+    {
+      "typeName": "WidgetAttributeValueTypeBinding",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeValueTypeBinding.md"
+    },
+    {
+      "typeName": "WidgetAttributeValueTypeBindingPath",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeValueTypeBindingPath.md"
+    },
+    {
+      "typeName": "WidgetInstantiationResultDatabindingExtension",
+      "namespace": "TaleWorlds.GauntletUI.Data",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetInstantiationResultDatabindingExtension.md"
+    },
+    {
+      "typeName": "DelayedStateChanger",
+      "namespace": "TaleWorlds.GauntletUI.ExtraWidgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DelayedStateChanger.md"
+    },
+    {
+      "typeName": "SmoothDecreaseIndicatorFillBar",
+      "namespace": "TaleWorlds.GauntletUI.ExtraWidgets",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SmoothDecreaseIndicatorFillBar.md"
+    },
+    {
+      "typeName": "TooltipPositioningType",
+      "namespace": "TaleWorlds.GauntletUI.ExtraWidgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TooltipPositioningType.md"
+    },
+    {
+      "typeName": "GamepadNavigationForcedScopeCollection",
+      "namespace": "TaleWorlds.GauntletUI.GamepadNavigation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GamepadNavigationForcedScopeCollection.md"
+    },
+    {
+      "typeName": "GamepadNavigationHelper",
+      "namespace": "TaleWorlds.GauntletUI.GamepadNavigation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/GamepadNavigationHelper.md"
+    },
+    {
+      "typeName": "GamepadNavigationScopeCollection",
+      "namespace": "TaleWorlds.GauntletUI.GamepadNavigation",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/gui/GamepadNavigationScopeCollection.md"
+    },
+    {
+      "typeName": "GamepadNavigationTypes",
+      "namespace": "TaleWorlds.GauntletUI.GamepadNavigation",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GamepadNavigationTypes.md"
+    },
+    {
+      "typeName": "GauntletInputContext",
+      "namespace": "TaleWorlds.GauntletUI.GauntletInput",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GauntletInputContext.md"
+    },
+    {
+      "typeName": "IReadonlyInputContext",
+      "namespace": "TaleWorlds.GauntletUI.GauntletInput",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IReadonlyInputContext.md"
+    },
+    {
+      "typeName": "DefaultLayout",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultLayout.md"
+    },
+    {
+      "typeName": "DragCarrierLayout",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DragCarrierLayout.md"
+    },
+    {
+      "typeName": "GridDirection",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GridDirection.md"
+    },
+    {
+      "typeName": "GridHorizontalLayoutMethod",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GridHorizontalLayoutMethod.md"
+    },
+    {
+      "typeName": "GridLayout",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GridLayout.md"
+    },
+    {
+      "typeName": "GridVerticalLayoutMethod",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GridVerticalLayoutMethod.md"
+    },
+    {
+      "typeName": "ILayout",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ILayout.md"
+    },
+    {
+      "typeName": "LayoutBox",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/LayoutBox.md"
+    },
+    {
+      "typeName": "LayoutMethod",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LayoutMethod.md"
+    },
+    {
+      "typeName": "StackLayout",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StackLayout.md"
+    },
+    {
+      "typeName": "TextLayout",
+      "namespace": "TaleWorlds.GauntletUI.Layout",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextLayout.md"
+    },
+    {
+      "typeName": "ConstantDefinition",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ConstantDefinition.md"
+    },
+    {
+      "typeName": "ConstantDefinitionType",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ConstantDefinitionType.md"
+    },
+    {
+      "typeName": "CustomWidgetType",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CustomWidgetType.md"
+    },
+    {
+      "typeName": "GeneratedPrefabContext",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GeneratedPrefabContext.md"
+    },
+    {
+      "typeName": "GeneratedPrefabInstantiationResult",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GeneratedPrefabInstantiationResult.md"
+    },
+    {
+      "typeName": "IGeneratedUIPrefabCreator",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IGeneratedUIPrefabCreator.md"
+    },
+    {
+      "typeName": "PrefabExtension",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PrefabExtension.md"
+    },
+    {
+      "typeName": "PrefabExtensionContext",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PrefabExtensionContext.md"
+    },
+    {
+      "typeName": "VisualDefinitionTemplate",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualDefinitionTemplate.md"
+    },
+    {
+      "typeName": "VisualStateTemplate",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualStateTemplate.md"
+    },
+    {
+      "typeName": "WidgetAttributeContext",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeContext.md"
+    },
+    {
+      "typeName": "WidgetAttributeKeyType",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyType.md"
+    },
+    {
+      "typeName": "WidgetAttributeKeyTypeId",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyTypeId.md"
+    },
+    {
+      "typeName": "WidgetAttributeKeyTypeParameter",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyTypeParameter.md"
+    },
+    {
+      "typeName": "WidgetAttributeTemplate",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeTemplate.md"
+    },
+    {
+      "typeName": "WidgetAttributeValueType",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeValueType.md"
+    },
+    {
+      "typeName": "WidgetAttributeValueTypeConstant",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeValueTypeConstant.md"
+    },
+    {
+      "typeName": "WidgetAttributeValueTypeDefault",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeValueTypeDefault.md"
+    },
+    {
+      "typeName": "WidgetAttributeValueTypeParameter",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetAttributeValueTypeParameter.md"
+    },
+    {
+      "typeName": "WidgetExtensions",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetExtensions.md"
+    },
+    {
+      "typeName": "WidgetFactory",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetFactory.md"
+    },
+    {
+      "typeName": "WidgetInstantiationResult",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetInstantiationResult.md"
+    },
+    {
+      "typeName": "WidgetInstantiationResultExtensionData",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/gui/WidgetInstantiationResultExtensionData.md"
+    },
+    {
+      "typeName": "WidgetPrefab",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetPrefab.md"
+    },
+    {
+      "typeName": "WidgetTemplate",
+      "namespace": "TaleWorlds.GauntletUI.PrefabSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WidgetTemplate.md"
+    }
+  ]
+}

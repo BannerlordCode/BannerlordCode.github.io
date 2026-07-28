@@ -1,0 +1,42 @@
+[
+  {
+    "ns": "Helpers",
+    "name": "AIDifficulty",
+    "kind": "enum"
+  },
+  {
+    "ns": "Helpers",
+    "name": "BoardGameState",
+    "kind": "enum"
+  },
+  {
+    "ns": "Helpers",
+    "name": "InventoryCategoryType",
+    "kind": "enum"
+  },
+  {
+    "ns": "Helpers",
+    "name": "InventoryItemType",
+    "kind": "enum"
+  },
+  {
+    "ns": "Helpers",
+    "name": "InventoryMode",
+    "kind": "enum"
+  },
+  {
+    "ns": "Helpers",
+    "name": "PartyScreenMode",
+    "kind": "enum"
+  },
+  {
+    "ns": "Helpers",
+    "name": "StringHelpers",
+    "kind": "class"
+  },
+  {
+    "ns": "Helpers",
+    "name": "TownHelpers",
+    "kind": "class"
+  }
+]

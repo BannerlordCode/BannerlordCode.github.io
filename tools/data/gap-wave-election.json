@@ -1,0 +1,142 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "AcceptCallToWarAgreementDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "AcceptCallToWarAgreementDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "ClanAsDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "DecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "DeclareWarDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "DeclareWarDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "ExpelClanDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "ExpelClanFromKingdomDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "KingdomDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "KingdomElection",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "KingdomPolicyDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "KingSelectionDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "KingSelectionKingdomDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "MakePeaceDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "MakePeaceKingdomDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "PolicyDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "ProposeCallToWarAgreementDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "ProposeCallToWarAgreementDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "SettlementClaimantDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "SettlementClaimantPreliminaryDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "SettlementClaimantPreliminaryOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "StartAllianceDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "StartAllianceDecisionOutcome",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "Supporter",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "SupportStatus",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "SupportWeights",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "TradeAgreementDecision",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Election",
+    "name": "TradeAgreementDecisionOutcome",
+    "kind": "class"
+  }
+]

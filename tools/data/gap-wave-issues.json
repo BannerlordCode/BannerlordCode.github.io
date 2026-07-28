@@ -1,0 +1,437 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "AlternativeSolutionScaleFlag",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ArmyNeedsSuppliesIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ArmyNeedsSuppliesIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ArtisanCantSellProductsAtAFairPriceIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ArtisanOverpricedGoodsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ArtisanOverpricedGoodsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "BettingFraudIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "BettingFraudIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "CapturedByBountyHuntersIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "CapturedByBountyHuntersIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "CaravanAmbushIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "CaravanAmbushIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "EscortMerchantCaravanIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "EscortMerchantCaravanIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ExtortionByDesertersIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ExtortionByDesertersIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ExtortionByDesertersQuestState",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsRecruitsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsSpecialWeaponsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsSpecialWeaponsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsToOffloadStolenGoodsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsWeaponsIssueQuest",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsWeaponsIssueQuestBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "GangLeaderNeedsWeaponsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "HeadmanNeedsGrainIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "HeadmanNeedsGrainIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "HeadmanNeedsToDeliverAHerdIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "HeadmanNeedsToDeliverAHerdIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "HeadmanVillageNeedsDraughtAnimalsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "IssueFrequency",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "IssueState",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "IssueUpdateDetails",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LadysKnightOutIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LadysKnightOutIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordCompanyOfTroubleIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordCompanyOfTroubleIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandlordNeedsAccessToVillageCommonsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandlordNeedsAccessToVillageCommonsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordNeedsManualLaborersIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordNeedsManualLaborersIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordNeedsManualLaborersIssueQuest",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordTheArtOfTheTradeIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandlordTrainingForRetainersIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LandlordTrainingForRetainersIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LesserNobleRevoltIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LesserNobleRevoltIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordNeedsGarrisonTroopsIssueQuestBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordNeedsGarrisonTroopsIssueQuestTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordNeedsHorsesIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordNeedsHorsesIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordNeedsHorsesIssueQuest",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordsNeedsTutorIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordsNeedsTutorIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordWantsRivalCapturedIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "LordWantsRivalCapturedIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "MerchantArmyOfPoachersIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "MerchantArmyOfPoachersIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "MerchantNeedsHelpWithOutlawsIssueQuestBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "MerchantNeedsHelpWithOutlawsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "NearbyBanditBaseIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "NearbyBanditBaseIssueQuest",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "NearbyBanditBaseIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "PreconditionFlags",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "QuestSettlement",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "RaidAnEnemyTerritoryIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "RaidAnEnemyTerritoryIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "RevenueFarmingIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "RevenueFarmingIssueBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "RevenueVillage",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ScoutEnemyGarrisonsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "ScoutEnemyGarrisonsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "SmugglersIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "SmugglersIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "TheConquestOfSettlementIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "TheConquestOfSettlementIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "VillageEvent",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "VillageEventOptionData",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "VillageNeedsCraftingMaterialsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "VillageNeedsCraftingMaterialsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "VillageNeedsToolsIssueBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues",
+    "name": "VillageNeedsToolsIssueTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Issues.IssueQuestTasks",
+    "name": "TalkToNpcQuestTask",
+    "kind": "class"
+  }
+]

@@ -1,0 +1,687 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "Alliance",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "AllianceCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "AllianceCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "BackstoryCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "BanditInteractionsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "BanditInteractionsCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "BanditSpawnCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "BannerCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CallToWarAgreement",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CampaignBattleRecoveryBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CampaignFactionManagerBehaviour",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CaravanConversationsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CaravansCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CharacterCreationCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CompanionGrievanceBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CompanionGrievanceBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CompanionRolesCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CraftingCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "CraftingOrderSlots",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "DesertersCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "DiscardItemsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "DisorganizedStateCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "EducationCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "EducationCharacterProperties",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "EmissarySystemCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "FindingItemOnMapBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "GarrisonRecruitmentCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "GarrisonTroopsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "Grievance",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "GrievanceType",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "HeroCraftingRecord",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "HeroKnownInformationCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IAlleyCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IAllianceCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "ICaptivityCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "ICraftingCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IDisbandPartyCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IFacegenCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IGarrisonRecruitmentBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IHideoutCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IMapTracksCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IMarriageOfferCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IncidentTrigger",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IncidentType",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "InitialChildGenerationCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IParleyCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IPatrolPartiesCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IRetrainOutlawPartyMembersCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IStatisticsCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "ITeleportationCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "ITradeAgreementsCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "ITradeRumorCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IVassalAndMercenaryOfferCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "IWorkshopWarehouseCampaignBehavior",
+    "kind": "interface"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "LordDefectionCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "MapTracksCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "MapWeatherCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "MarriageOfferCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "MilitiasCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "MobilePartyTrainingBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "NotableHelperCharacterCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "NotableSupportersCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "NPCEquipmentsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "Number",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "ParleyCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PartiesBuyFoodCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PartiesBuyHorseCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PartiesSellLootCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PartyDiplomaticHandlerCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PartyRolesCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PartyUpgraderCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PatrolPartiesCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PeaceOfferCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PerkResetCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PlayerTrackCompanionBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PlayerVariablesBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "Pregnancy",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PregnancyCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PrisonerCaptureCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PrisonerRecruitCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "PrisonerReleaseCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RansomOfferCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RebellionsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RecruitingDetail",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RecruitmentCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RecruitPrisonersCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RetrainOutlawPartyMembersBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "RomanticPreference",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "SallyOutsCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "SiegeAftermathCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "SiegeAmbushCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TeleportationCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TownSecurityCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TradeActionLog",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TradeActionLogPool",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TradeAgreement",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TradeAgreementsCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TradeGoodType",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TradeSkillCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "TributesCampaignBehaviour",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "VillagerCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "VillageTradeBoundCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "VolunteerTroop",
+    "kind": "struct"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "WorkshopsCampaignBehaviorTypeDefiner",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors",
+    "name": "WorkshopsCharactersCampaignBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiArmyMemberBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiEngagePartyBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiLandBanditPatrollingBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiMilitaryBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AIMoveToNearestLandBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiPartyThinkBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiPatrollingBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors",
+    "name": "AiVisitSettlementBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "DiplomaticBartersBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "FiefBarterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "GoldBarterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "ItemBarterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "LiftSiegeBarterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "SetPrisonerFreeBarterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors",
+    "name": "TransferPrisonerBarterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentCharacterBornBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentChildbirthBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnChangeRomanticStateBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnChangeSettlementOwnerBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnChangeVillageStateBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnCharacterKilledBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnClanDestroyedBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnClanLeaderChangedBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnDeclareWarBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnDefeatCharacterBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnDestroyMobilePartyBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnEndPlayerBattleBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnKingdomDestroyedBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnLeaveFactionBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnMakePeaceBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentOnPlayerMeetLordBehavior",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors",
+    "name": "CommentPregnancyBehavior",
+    "kind": "class"
+  }
+]

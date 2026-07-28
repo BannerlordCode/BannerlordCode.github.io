@@ -1,0 +1,281 @@
+{
+  "count": 46,
+  "types": [
+    {
+      "typeName": "DateRange",
+      "namespace": "TaleWorlds.Localization",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/DateRange.md"
+    },
+    {
+      "typeName": "SaveableLocalizationTypeDefiner",
+      "namespace": "TaleWorlds.Localization",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SaveableLocalizationTypeDefiner.md"
+    },
+    {
+      "typeName": "VoiceObject",
+      "namespace": "TaleWorlds.Localization",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/VoiceObject.md"
+    },
+    {
+      "typeName": "ArithmeticExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ArithmeticExpression.md"
+    },
+    {
+      "typeName": "ArithmeticOperation",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/localization/ArithmeticOperation.md"
+    },
+    {
+      "typeName": "ArrayReference",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ArrayReference.md"
+    },
+    {
+      "typeName": "BooleanOperation",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/localization/BooleanOperation.md"
+    },
+    {
+      "typeName": "ComparisonExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ComparisonExpression.md"
+    },
+    {
+      "typeName": "ComparisonOperation",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/localization/ComparisonOperation.md"
+    },
+    {
+      "typeName": "ConditionExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ConditionExpression.md"
+    },
+    {
+      "typeName": "FieldExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/FieldExpression.md"
+    },
+    {
+      "typeName": "FunctionCall",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/FunctionCall.md"
+    },
+    {
+      "typeName": "LangaugeMarkerExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/LangaugeMarkerExpression.md"
+    },
+    {
+      "typeName": "MarkerOccuranceTextExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/MarkerOccuranceTextExpression.md"
+    },
+    {
+      "typeName": "MultiStatement",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/MultiStatement.md"
+    },
+    {
+      "typeName": "NumeralExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/NumeralExpression.md"
+    },
+    {
+      "typeName": "ParameterWithAttributeExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ParameterWithAttributeExpression.md"
+    },
+    {
+      "typeName": "ParanthesisExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ParanthesisExpression.md"
+    },
+    {
+      "typeName": "QualifiedIdentifierExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/QualifiedIdentifierExpression.md"
+    },
+    {
+      "typeName": "SelectionExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SelectionExpression.md"
+    },
+    {
+      "typeName": "SimpleExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SimpleExpression.md"
+    },
+    {
+      "typeName": "SimpleNumberExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SimpleNumberExpression.md"
+    },
+    {
+      "typeName": "SimpleText",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SimpleText.md"
+    },
+    {
+      "typeName": "SimpleToken",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SimpleToken.md"
+    },
+    {
+      "typeName": "StartsWithExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/StartsWithExpression.md"
+    },
+    {
+      "typeName": "TextExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/TextExpression.md"
+    },
+    {
+      "typeName": "TextIdExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/TextIdExpression.md"
+    },
+    {
+      "typeName": "VariableExpression",
+      "namespace": "TaleWorlds.Localization.Expressions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/VariableExpression.md"
+    },
+    {
+      "typeName": "CaseInsensitiveComparer",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/CaseInsensitiveComparer.md"
+    },
+    {
+      "typeName": "DefaultTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/DefaultTextProcessor.md"
+    },
+    {
+      "typeName": "LanguageSpecificTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/LanguageSpecificTextProcessor.md"
+    },
+    {
+      "typeName": "MBTextParser",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/MBTextParser.md"
+    },
+    {
+      "typeName": "MBTextToken",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/MBTextToken.md"
+    },
+    {
+      "typeName": "TextGrammarProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/TextGrammarProcessor.md"
+    },
+    {
+      "typeName": "TextProcessingContext",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/TextProcessingContext.md"
+    },
+    {
+      "typeName": "TokenDefinition",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/TokenDefinition.md"
+    },
+    {
+      "typeName": "Tokenizer",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/Tokenizer.md"
+    },
+    {
+      "typeName": "TokenType",
+      "namespace": "TaleWorlds.Localization.TextProcessor",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TokenType.md"
+    },
+    {
+      "typeName": "EnglishTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/EnglishTextProcessor.md"
+    },
+    {
+      "typeName": "FrenchTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/FrenchTextProcessor.md"
+    },
+    {
+      "typeName": "GermanTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/GermanTextProcessor.md"
+    },
+    {
+      "typeName": "ItalianTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/ItalianTextProcessor.md"
+    },
+    {
+      "typeName": "PolishTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/PolishTextProcessor.md"
+    },
+    {
+      "typeName": "RussianTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/RussianTextProcessor.md"
+    },
+    {
+      "typeName": "SpanishTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/SpanishTextProcessor.md"
+    },
+    {
+      "typeName": "TurkishTextProcessor",
+      "namespace": "TaleWorlds.Localization.TextProcessor.LanguageProcessors",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/localization/TurkishTextProcessor.md"
+    }
+  ]
+}

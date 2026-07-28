@@ -1,0 +1,413 @@
+{
+  "count": 68,
+  "types": [
+    {
+      "typeName": "KingdomCategoryVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomCategoryVM.md"
+    },
+    {
+      "typeName": "KingdomGiftFiefPopupVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomGiftFiefPopupVM.md"
+    },
+    {
+      "typeName": "KingdomItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomItemVM.md"
+    },
+    {
+      "typeName": "KingdomManagementVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomManagementVM.md"
+    },
+    {
+      "typeName": "LeaveKingdomPermissionEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LeaveKingdomPermissionEvent.md"
+    },
+    {
+      "typeName": "ItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies.md"
+    },
+    {
+      "typeName": "ItemDistanceComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemDistanceComparer.md"
+    },
+    {
+      "typeName": "ItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies.md"
+    },
+    {
+      "typeName": "ItemOwnerComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemOwnerComparer.md"
+    },
+    {
+      "typeName": "ItemPartiesComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemPartiesComparer.md"
+    },
+    {
+      "typeName": "ItemStrengthComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemStrengthComparer.md"
+    },
+    {
+      "typeName": "KingdomArmyItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomArmyItemVM.md"
+    },
+    {
+      "typeName": "KingdomArmyPartyItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomArmyPartyItemVM.md"
+    },
+    {
+      "typeName": "KingdomArmySortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomArmySortControllerVM.md"
+    },
+    {
+      "typeName": "KingdomArmyVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomArmyVM.md"
+    },
+    {
+      "typeName": "KingdomSettlementVillageItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Armies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomSettlementVillageItemVM.md"
+    },
+    {
+      "typeName": "ItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans.md"
+    },
+    {
+      "typeName": "ItemFiefsComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemFiefsComparer.md"
+    },
+    {
+      "typeName": "ItemInfluenceComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemInfluenceComparer.md"
+    },
+    {
+      "typeName": "ItemMembersComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemMembersComparer.md"
+    },
+    {
+      "typeName": "ItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans.md"
+    },
+    {
+      "typeName": "ItemTypeComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemTypeComparer.md"
+    },
+    {
+      "typeName": "KingdomClanFiefItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomClanFiefItemVM.md"
+    },
+    {
+      "typeName": "KingdomClanItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomClanItemVM.md"
+    },
+    {
+      "typeName": "KingdomClanSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomClanSortControllerVM.md"
+    },
+    {
+      "typeName": "KingdomClanVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomClanVM.md"
+    },
+    {
+      "typeName": "DecisionOptionVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DecisionOptionVM.md"
+    },
+    {
+      "typeName": "DecisionSupporterVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DecisionSupporterVM.md"
+    },
+    {
+      "typeName": "KingdomDecisionsVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomDecisionsVM.md"
+    },
+    {
+      "typeName": "PlayerSelectedAKingdomDecisionOptionEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PlayerSelectedAKingdomDecisionOptionEvent.md"
+    },
+    {
+      "typeName": "AcceptingCallToWarAgreementDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AcceptingCallToWarAgreementDecisionItemVM.md"
+    },
+    {
+      "typeName": "DecisionItemBaseVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DecisionItemBaseVM.md"
+    },
+    {
+      "typeName": "DecisionTypes",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/DecisionTypes.md"
+    },
+    {
+      "typeName": "DeclareWarDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DeclareWarDecisionItemVM.md"
+    },
+    {
+      "typeName": "ExpelClanDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ExpelClanDecisionItemVM.md"
+    },
+    {
+      "typeName": "KingdomPolicyDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomPolicyDecisionItemVM.md"
+    },
+    {
+      "typeName": "KingSelectionDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingSelectionDecisionItemVM.md"
+    },
+    {
+      "typeName": "MakePeaceDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MakePeaceDecisionItemVM.md"
+    },
+    {
+      "typeName": "PolicyDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PolicyDecisionItemVM.md"
+    },
+    {
+      "typeName": "ProposeCallToWarAgreementDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ProposeCallToWarAgreementDecisionItemVM.md"
+    },
+    {
+      "typeName": "SettlementDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementDecisionItemVM.md"
+    },
+    {
+      "typeName": "StartAllianceDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StartAllianceDecisionItemVM.md"
+    },
+    {
+      "typeName": "TradeAgreementDecisionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Decisions.ItemTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TradeAgreementDecisionItemVM.md"
+    },
+    {
+      "typeName": "ItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Diplomacy.md"
+    },
+    {
+      "typeName": "ItemScoreComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemScoreComparer.md"
+    },
+    {
+      "typeName": "KingdomDiplomacyFactionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomDiplomacyFactionItemVM.md"
+    },
+    {
+      "typeName": "KingdomDiplomacyItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomDiplomacyItemVM.md"
+    },
+    {
+      "typeName": "KingdomDiplomacyProposalActionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomDiplomacyProposalActionItemVM.md"
+    },
+    {
+      "typeName": "KingdomDiplomacyVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomDiplomacyVM.md"
+    },
+    {
+      "typeName": "KingdomTruceItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomTruceItemVM.md"
+    },
+    {
+      "typeName": "KingdomWarComparableStatVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomWarComparableStatVM.md"
+    },
+    {
+      "typeName": "KingdomWarItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomWarItemVM.md"
+    },
+    {
+      "typeName": "KingdomWarLogItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomWarLogItemVM.md"
+    },
+    {
+      "typeName": "KingdomWarSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Diplomacy",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomWarSortControllerVM.md"
+    },
+    {
+      "typeName": "KingdomPoliciesVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Policies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomPoliciesVM.md"
+    },
+    {
+      "typeName": "KingdomPolicyItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Policies",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomPolicyItemVM.md"
+    },
+    {
+      "typeName": "ItemClanComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemClanComparer.md"
+    },
+    {
+      "typeName": "ItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements.md"
+    },
+    {
+      "typeName": "ItemFoodComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemFoodComparer.md"
+    },
+    {
+      "typeName": "ItemGarrisonComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemGarrisonComparer.md"
+    },
+    {
+      "typeName": "ItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements.md"
+    },
+    {
+      "typeName": "ItemOwnerComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemOwnerComparer.md"
+    },
+    {
+      "typeName": "ItemProsperityComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemProsperityComparer.md"
+    },
+    {
+      "typeName": "ItemTypeComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements.md"
+    },
+    {
+      "typeName": "ItemVillagesComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemVillagesComparer.md"
+    },
+    {
+      "typeName": "KingdomSettlementItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomSettlementItemVM.md"
+    },
+    {
+      "typeName": "KingdomSettlementSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomSettlementSortControllerVM.md"
+    },
+    {
+      "typeName": "KingdomSettlementVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Settlements",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomSettlementVM.md"
+    }
+  ]
+}

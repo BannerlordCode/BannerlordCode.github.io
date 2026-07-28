@@ -1,0 +1,887 @@
+{
+  "count": 147,
+  "types": [
+    {
+      "typeName": "AnimResult",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/AnimResult.md"
+    },
+    {
+      "typeName": "ApplicationHealthChecker",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ApplicationHealthChecker.md"
+    },
+    {
+      "typeName": "ApplicationInterfaceBase",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ApplicationInterfaceBase.md"
+    },
+    {
+      "typeName": "AsyncTask",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/AsyncTask.md"
+    },
+    {
+      "typeName": "BillboardType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/BillboardType.md"
+    },
+    {
+      "typeName": "BodyFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/BodyFlags.md"
+    },
+    {
+      "typeName": "BoundingBox",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/BoundingBox.md"
+    },
+    {
+      "typeName": "Camera",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Camera.md"
+    },
+    {
+      "typeName": "ColorStyle",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ColorStyle.md"
+    },
+    {
+      "typeName": "ComponentType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ComponentType.md"
+    },
+    {
+      "typeName": "CrashInformation",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/CrashInformation.md"
+    },
+    {
+      "typeName": "CrashInformationCollector",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/CrashInformationCollector.md"
+    },
+    {
+      "typeName": "CrashInformationProvider",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/CrashInformationProvider.md"
+    },
+    {
+      "typeName": "Decal",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Decal.md"
+    },
+    {
+      "typeName": "DecalAtlasGroup",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/DecalAtlasGroup.md"
+    },
+    {
+      "typeName": "EditDataPolicy",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/EditDataPolicy.md"
+    },
+    {
+      "typeName": "EditorVisibleScriptComponentVariable",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EditorVisibleScriptComponentVariable.md"
+    },
+    {
+      "typeName": "EngineApplicationInterface",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineApplicationInterface.md"
+    },
+    {
+      "typeName": "EngineCallback",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineCallback.md"
+    },
+    {
+      "typeName": "EngineExtensions",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineExtensions.md"
+    },
+    {
+      "typeName": "EngineFilePaths",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineFilePaths.md"
+    },
+    {
+      "typeName": "EngineManaged",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineManaged.md"
+    },
+    {
+      "typeName": "EngineRenderDisplayMode",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineRenderDisplayMode.md"
+    },
+    {
+      "typeName": "EntityFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/EntityFlags.md"
+    },
+    {
+      "typeName": "EntityVisibilityFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/EntityVisibilityFlags.md"
+    },
+    {
+      "typeName": "Face",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/Face.md"
+    },
+    {
+      "typeName": "FaceCorner",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/FaceCorner.md"
+    },
+    {
+      "typeName": "FloaterVolumeDynamicUpAxis",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/FloaterVolumeDynamicUpAxis.md"
+    },
+    {
+      "typeName": "ForceMode",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ForceMode.md"
+    },
+    {
+      "typeName": "GameEntityPhysicsExtensions",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/GameEntityPhysicsExtensions.md"
+    },
+    {
+      "typeName": "GameEntityWithWorldPosition",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/GameEntityWithWorldPosition.md"
+    },
+    {
+      "typeName": "HasTableauCache",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/HasTableauCache.md"
+    },
+    {
+      "typeName": "Highlights",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Highlights.md"
+    },
+    {
+      "typeName": "IAsyncTask",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IAsyncTask.md"
+    },
+    {
+      "typeName": "IBodyPart",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IBodyPart.md"
+    },
+    {
+      "typeName": "ICamera",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ICamera.md"
+    },
+    {
+      "typeName": "IConfig",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IConfig.md"
+    },
+    {
+      "typeName": "IDebug",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IDebug.md"
+    },
+    {
+      "typeName": "IDecal",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IDecal.md"
+    },
+    {
+      "typeName": "IEngineSizeChecker",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IEngineSizeChecker.md"
+    },
+    {
+      "typeName": "IGameEntity",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IGameEntity.md"
+    },
+    {
+      "typeName": "IHighlights",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IHighlights.md"
+    },
+    {
+      "typeName": "IImgui",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IImgui.md"
+    },
+    {
+      "typeName": "IInput",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IInput.md"
+    },
+    {
+      "typeName": "ILight",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ILight.md"
+    },
+    {
+      "typeName": "IManagedMeshEditOperations",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IManagedMeshEditOperations.md"
+    },
+    {
+      "typeName": "IMaterial",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IMaterial.md"
+    },
+    {
+      "typeName": "IMesh",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IMesh.md"
+    },
+    {
+      "typeName": "IMeshBuilder",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IMeshBuilder.md"
+    },
+    {
+      "typeName": "IMetaMesh",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IMetaMesh.md"
+    },
+    {
+      "typeName": "Imgui",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Imgui.md"
+    },
+    {
+      "typeName": "IMusic",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IMusic.md"
+    },
+    {
+      "typeName": "InputLayout",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/InputLayout.md"
+    },
+    {
+      "typeName": "Intersection",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/Intersection.md"
+    },
+    {
+      "typeName": "IntersectionDetails",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/IntersectionDetails.md"
+    },
+    {
+      "typeName": "IntersectionType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/IntersectionType.md"
+    },
+    {
+      "typeName": "IParticleSystem",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IParticleSystem.md"
+    },
+    {
+      "typeName": "IPath",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IPath.md"
+    },
+    {
+      "typeName": "IPhysicsMaterial",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IPhysicsMaterial.md"
+    },
+    {
+      "typeName": "IPhysicsShape",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IPhysicsShape.md"
+    },
+    {
+      "typeName": "IScene",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IScene.md"
+    },
+    {
+      "typeName": "IScreen",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IScreen.md"
+    },
+    {
+      "typeName": "IShader",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IShader.md"
+    },
+    {
+      "typeName": "ISkeleton",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ISkeleton.md"
+    },
+    {
+      "typeName": "ISoundEvent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ISoundEvent.md"
+    },
+    {
+      "typeName": "ITexture",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ITexture.md"
+    },
+    {
+      "typeName": "ITime",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/ITime.md"
+    },
+    {
+      "typeName": "IUtil",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/engine/IUtil.md"
+    },
+    {
+      "typeName": "Job",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Job.md"
+    },
+    {
+      "typeName": "Light",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Light.md"
+    },
+    {
+      "typeName": "LoadingWindow",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/LoadingWindow.md"
+    },
+    {
+      "typeName": "MainThreadPerformanceQuery",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/MainThreadPerformanceQuery.md"
+    },
+    {
+      "typeName": "ManagedExtensions",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ManagedExtensions.md"
+    },
+    {
+      "typeName": "ManagedMeshEditOperations",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ManagedMeshEditOperations.md"
+    },
+    {
+      "typeName": "ManagedScriptHolder",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ManagedScriptHolder.md"
+    },
+    {
+      "typeName": "Material",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Material.md"
+    },
+    {
+      "typeName": "MaterialFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/MaterialFlags.md"
+    },
+    {
+      "typeName": "MBAlphaBlendMode",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/MBAlphaBlendMode.md"
+    },
+    {
+      "typeName": "MBDebug",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/MBDebug.md"
+    },
+    {
+      "typeName": "MBMeshCullingMode",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/MBMeshCullingMode.md"
+    },
+    {
+      "typeName": "MBMouseButtonState",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/MBMouseButtonState.md"
+    },
+    {
+      "typeName": "MBTextureType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/MBTextureType.md"
+    },
+    {
+      "typeName": "Mesh",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Mesh.md"
+    },
+    {
+      "typeName": "MeshBuilder",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/MeshBuilder.md"
+    },
+    {
+      "typeName": "MessageBoxTypeFlag",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/MessageBoxTypeFlag.md"
+    },
+    {
+      "typeName": "MessageManagerBase",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/MessageManagerBase.md"
+    },
+    {
+      "typeName": "MetaMesh",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/MetaMesh.md"
+    },
+    {
+      "typeName": "Mobility",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/Mobility.md"
+    },
+    {
+      "typeName": "Music",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Music.md"
+    },
+    {
+      "typeName": "NativeConfig",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/NativeConfig.md"
+    },
+    {
+      "typeName": "NativeParallelDriver",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/NativeParallelDriver.md"
+    },
+    {
+      "typeName": "ParticleSystem",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ParticleSystem.md"
+    },
+    {
+      "typeName": "Path",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Path.md"
+    },
+    {
+      "typeName": "PerformanceAnalyzer",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/PerformanceAnalyzer.md"
+    },
+    {
+      "typeName": "PhysicsContact",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsContact.md"
+    },
+    {
+      "typeName": "PhysicsContactInfo",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsContactInfo.md"
+    },
+    {
+      "typeName": "PhysicsContactPair",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsContactPair.md"
+    },
+    {
+      "typeName": "PhysicsEventType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsEventType.md"
+    },
+    {
+      "typeName": "PhysicsJoint",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsJoint.md"
+    },
+    {
+      "typeName": "PhysicsMaterial",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsMaterial.md"
+    },
+    {
+      "typeName": "PhysicsMaterialFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsMaterialFlags.md"
+    },
+    {
+      "typeName": "PhysicsShape",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/PhysicsShape.md"
+    },
+    {
+      "typeName": "PostfxConfig",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/PostfxConfig.md"
+    },
+    {
+      "typeName": "RagdollState",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/RagdollState.md"
+    },
+    {
+      "typeName": "Resource",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Resource.md"
+    },
+    {
+      "typeName": "RglScriptFieldType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/RglScriptFieldType.md"
+    },
+    {
+      "typeName": "SceneProblemChecker",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/SceneProblemChecker.md"
+    },
+    {
+      "typeName": "ScreenManagerEngineConnection",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ScreenManagerEngineConnection.md"
+    },
+    {
+      "typeName": "ScriptComponentBehavior",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/ScriptComponentBehavior.md"
+    },
+    {
+      "typeName": "ScriptComponentFieldHolder",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/ScriptComponentFieldHolder.md"
+    },
+    {
+      "typeName": "Shader",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Shader.md"
+    },
+    {
+      "typeName": "ShadowType",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ShadowType.md"
+    },
+    {
+      "typeName": "Significance",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/Significance.md"
+    },
+    {
+      "typeName": "SimpleButton",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/SimpleButton.md"
+    },
+    {
+      "typeName": "Skeleton",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Skeleton.md"
+    },
+    {
+      "typeName": "SoundEvent",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/SoundEvent.md"
+    },
+    {
+      "typeName": "SoundEventParameter",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/SoundEventParameter.md"
+    },
+    {
+      "typeName": "TextFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/TextFlags.md"
+    },
+    {
+      "typeName": "Texture",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Texture.md"
+    },
+    {
+      "typeName": "TextureSaveFormat",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/TextureSaveFormat.md"
+    },
+    {
+      "typeName": "ThumbnailRenderRequest",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/ThumbnailRenderRequest.md"
+    },
+    {
+      "typeName": "TickRequirement",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/TickRequirement.md"
+    },
+    {
+      "typeName": "Time",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Time.md"
+    },
+    {
+      "typeName": "TransformedBoundingBoxPointsContainer",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/TransformedBoundingBoxPointsContainer.md"
+    },
+    {
+      "typeName": "UpgradeLevelMask",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/UpgradeLevelMask.md"
+    },
+    {
+      "typeName": "Utilities",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Utilities.md"
+    },
+    {
+      "typeName": "ViewRenderOptions",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ViewRenderOptions.md"
+    },
+    {
+      "typeName": "VisibilityMaskFlags",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/VisibilityMaskFlags.md"
+    },
+    {
+      "typeName": "VolumeDataForSubmergeComputation",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/VolumeDataForSubmergeComputation.md"
+    },
+    {
+      "typeName": "WeakGameEntity",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/WeakGameEntity.md"
+    },
+    {
+      "typeName": "WeakMaterial",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/WeakMaterial.md"
+    },
+    {
+      "typeName": "WorldFrame",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/WorldFrame.md"
+    },
+    {
+      "typeName": "WorldPosition",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/engine/WorldPosition.md"
+    },
+    {
+      "typeName": "WorldPositionEnforcedCache",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/WorldPositionEnforcedCache.md"
+    },
+    {
+      "typeName": "ZValidityState",
+      "namespace": "TaleWorlds.Engine",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ZValidityState.md"
+    },
+    {
+      "typeName": "EngineTexture",
+      "namespace": "TaleWorlds.Engine.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/EngineTexture.md"
+    },
+    {
+      "typeName": "Extensions",
+      "namespace": "TaleWorlds.Engine.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/Extensions__TaleWorlds_Engine_GauntletUI.md"
+    },
+    {
+      "typeName": "GauntletMovieIdentifier",
+      "namespace": "TaleWorlds.Engine.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/GauntletMovieIdentifier.md"
+    },
+    {
+      "typeName": "TwoDimensionEnginePlatform",
+      "namespace": "TaleWorlds.Engine.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/TwoDimensionEnginePlatform.md"
+    },
+    {
+      "typeName": "TwoDimensionEngineResourceContext",
+      "namespace": "TaleWorlds.Engine.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/TwoDimensionEngineResourceContext.md"
+    },
+    {
+      "typeName": "UIConfig",
+      "namespace": "TaleWorlds.Engine.GauntletUI",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/UIConfig.md"
+    },
+    {
+      "typeName": "CheatsHotKeyCategory",
+      "namespace": "TaleWorlds.Engine.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/CheatsHotKeyCategory.md"
+    },
+    {
+      "typeName": "DebugHotKeyCategory",
+      "namespace": "TaleWorlds.Engine.InputSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/DebugHotKeyCategory.md"
+    },
+    {
+      "typeName": "ConfigQuality",
+      "namespace": "TaleWorlds.Engine.Options",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/ConfigQuality.md"
+    },
+    {
+      "typeName": "NativeOptions",
+      "namespace": "TaleWorlds.Engine.Options",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/NativeOptions.md"
+    },
+    {
+      "typeName": "NativeOptionsType",
+      "namespace": "TaleWorlds.Engine.Options",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/engine/NativeOptionsType.md"
+    },
+    {
+      "typeName": "SceneLayer",
+      "namespace": "TaleWorlds.Engine.Screens",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/engine/SceneLayer.md"
+    }
+  ]
+}

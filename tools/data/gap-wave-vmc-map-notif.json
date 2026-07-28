@@ -1,0 +1,173 @@
+{
+  "count": 28,
+  "types": [
+    {
+      "typeName": "AcceptCallToWarOfferNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AcceptCallToWarOfferNotificationItemVM.md"
+    },
+    {
+      "typeName": "AlleyLeaderDiedMapNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyLeaderDiedMapNotificationItemVM.md"
+    },
+    {
+      "typeName": "AlleyUnderAttackMapNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyUnderAttackMapNotificationItemVM.md"
+    },
+    {
+      "typeName": "AllianceOfferNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AllianceOfferNotificationItemVM.md"
+    },
+    {
+      "typeName": "ArmyCreationNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ArmyCreationNotificationItemVM.md"
+    },
+    {
+      "typeName": "ArmyDispersionItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ArmyDispersionItemVM.md"
+    },
+    {
+      "typeName": "DeathNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DeathNotificationItemVM.md"
+    },
+    {
+      "typeName": "EducationNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EducationNotificationItemVM.md"
+    },
+    {
+      "typeName": "HeirComeOfAgeNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeirComeOfAgeNotificationItemVM.md"
+    },
+    {
+      "typeName": "KingdomDestroyedNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomDestroyedNotificationItemVM.md"
+    },
+    {
+      "typeName": "KingdomVoteNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomVoteNotificationItemVM.md"
+    },
+    {
+      "typeName": "MarriageNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MarriageNotificationItemVM.md"
+    },
+    {
+      "typeName": "MarriageOfferNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MarriageOfferNotificationItemVM.md"
+    },
+    {
+      "typeName": "MercenaryOfferMapNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MercenaryOfferMapNotificationItemVM.md"
+    },
+    {
+      "typeName": "NewBornNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/NewBornNotificationItemVM.md"
+    },
+    {
+      "typeName": "PartyLeaderChangeNotificationVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyLeaderChangeNotificationVM.md"
+    },
+    {
+      "typeName": "PeaceNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PeaceNotificationItemVM.md"
+    },
+    {
+      "typeName": "PeaceOfferNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PeaceOfferNotificationItemVM.md"
+    },
+    {
+      "typeName": "ProposeCallToWarOfferNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ProposeCallToWarOfferNotificationItemVM.md"
+    },
+    {
+      "typeName": "QuestNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/QuestNotificationItemVM.md"
+    },
+    {
+      "typeName": "RansomNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RansomNotificationItemVM.md"
+    },
+    {
+      "typeName": "RebellionNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RebellionNotificationItemVM.md"
+    },
+    {
+      "typeName": "SettlementOwnerChangedNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementOwnerChangedNotificationItemVM.md"
+    },
+    {
+      "typeName": "SettlementUnderSiegeMapNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementUnderSiegeMapNotificationItemVM.md"
+    },
+    {
+      "typeName": "TraitChangedNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TraitChangedNotificationItemVM.md"
+    },
+    {
+      "typeName": "TributeFinishedMapNotificationVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TributeFinishedMapNotificationVM.md"
+    },
+    {
+      "typeName": "VassalOfferMapNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VassalOfferMapNotificationItemVM.md"
+    },
+    {
+      "typeName": "WarNotificationItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WarNotificationItemVM.md"
+    }
+  ]
+}

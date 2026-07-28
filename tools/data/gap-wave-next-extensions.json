@@ -1,0 +1,59 @@
+{
+  "count": 9,
+  "types": [
+    {
+      "typeName": "Attributes",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Attributes.md"
+    },
+    {
+      "typeName": "ItemCategories",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemCategories.md"
+    },
+    {
+      "typeName": "ItemObjectExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemObjectExtensions.md"
+    },
+    {
+      "typeName": "Items",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Items.md"
+    },
+    {
+      "typeName": "MBEquipmentRosterExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MBEquipmentRosterExtensions.md"
+    },
+    {
+      "typeName": "MetaDataExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MetaDataExtensions.md"
+    },
+    {
+      "typeName": "SiegeEngineTypes",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeEngineTypes.md"
+    },
+    {
+      "typeName": "Skills",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Skills.md"
+    },
+    {
+      "typeName": "TextObjectExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextObjectExtensions.md"
+    }
+  ]
+}

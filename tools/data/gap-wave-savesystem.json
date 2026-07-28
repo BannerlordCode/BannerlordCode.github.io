@@ -1,0 +1,467 @@
+{
+  "count": 77,
+  "types": [
+    {
+      "typeName": "ArchiveConcurrentSerializer",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ArchiveConcurrentSerializer.md"
+    },
+    {
+      "typeName": "ArchiveDeserializer",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ArchiveDeserializer.md"
+    },
+    {
+      "typeName": "ArchiveSerializer",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ArchiveSerializer.md"
+    },
+    {
+      "typeName": "AsyncFileSaveDriver",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/AsyncFileSaveDriver.md"
+    },
+    {
+      "typeName": "BinaryWriterFactory",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/BinaryWriterFactory.md"
+    },
+    {
+      "typeName": "ContainerType",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ContainerType.md"
+    },
+    {
+      "typeName": "EntryId",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/save-system/EntryId.md"
+    },
+    {
+      "typeName": "FileDriver",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/FileDriver.md"
+    },
+    {
+      "typeName": "FolderId",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/save-system/FolderId.md"
+    },
+    {
+      "typeName": "IArchiveContext",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/IArchiveContext.md"
+    },
+    {
+      "typeName": "InMemDriver",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/InMemDriver.md"
+    },
+    {
+      "typeName": "ISaveDriver",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ISaveDriver.md"
+    },
+    {
+      "typeName": "ISavedStruct",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ISavedStruct.md"
+    },
+    {
+      "typeName": "LateLoadInitializationCallback",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LateLoadInitializationCallback.md"
+    },
+    {
+      "typeName": "LegacyGameDataDeserializer",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LegacyGameDataDeserializer.md"
+    },
+    {
+      "typeName": "LoadInitializationCallback",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LoadInitializationCallback.md"
+    },
+    {
+      "typeName": "SaveableBasicTypeDefiner",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveableBasicTypeDefiner.md"
+    },
+    {
+      "typeName": "SavedMemberType",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SavedMemberType.md"
+    },
+    {
+      "typeName": "SaveEntry",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveEntry.md"
+    },
+    {
+      "typeName": "SaveEntryExtension",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveEntryExtension.md"
+    },
+    {
+      "typeName": "SaveEntryFolder",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveEntryFolder.md"
+    },
+    {
+      "typeName": "SaveFolderExtension",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveFolderExtension.md"
+    },
+    {
+      "typeName": "SaveGameFileInfo",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveGameFileInfo.md"
+    },
+    {
+      "typeName": "TypeExtensions",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/TypeExtensions.md"
+    },
+    {
+      "typeName": "ZipExtensions",
+      "namespace": "TaleWorlds.SaveSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ZipExtensions.md"
+    },
+    {
+      "typeName": "BasicTypeDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/BasicTypeDefinition.md"
+    },
+    {
+      "typeName": "BoolBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/BoolBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "ByteBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ByteBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "ColorBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ColorBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "ContainerDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ContainerDefinition.md"
+    },
+    {
+      "typeName": "ContainerSaveId",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ContainerSaveId.md"
+    },
+    {
+      "typeName": "CustomField",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/CustomField.md"
+    },
+    {
+      "typeName": "DefinitionContext",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/DefinitionContext.md"
+    },
+    {
+      "typeName": "DoubleBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/DoubleBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "EnumDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/EnumDefinition.md"
+    },
+    {
+      "typeName": "FieldDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/FieldDefinition.md"
+    },
+    {
+      "typeName": "FloatBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/FloatBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "GenericSaveId",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/GenericSaveId.md"
+    },
+    {
+      "typeName": "GenericTypeDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/GenericTypeDefinition.md"
+    },
+    {
+      "typeName": "IBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/IBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "IntBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/IntBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "InterfaceDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/InterfaceDefinition.md"
+    },
+    {
+      "typeName": "LongBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LongBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "Mat2BasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/Mat2BasicTypeSerializer.md"
+    },
+    {
+      "typeName": "Mat3BasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/Mat3BasicTypeSerializer.md"
+    },
+    {
+      "typeName": "MatrixFrameBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/MatrixFrameBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "MemberDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/MemberDefinition.md"
+    },
+    {
+      "typeName": "MemberTypeId",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/save-system/MemberTypeId.md"
+    },
+    {
+      "typeName": "PropertyDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/PropertyDefinition.md"
+    },
+    {
+      "typeName": "QuaternionBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/QuaternionBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "SaveCodeGenerationContext",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveCodeGenerationContext.md"
+    },
+    {
+      "typeName": "SaveCodeGenerationContextAssembly",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveCodeGenerationContextAssembly.md"
+    },
+    {
+      "typeName": "SaveId",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveId.md"
+    },
+    {
+      "typeName": "SbyteBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SbyteBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "ShortBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ShortBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "StringSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/StringSerializer.md"
+    },
+    {
+      "typeName": "StructDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/StructDefinition.md"
+    },
+    {
+      "typeName": "TypeDefinition",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/TypeDefinition.md"
+    },
+    {
+      "typeName": "TypeDefinitionBase",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/TypeDefinitionBase.md"
+    },
+    {
+      "typeName": "TypeSaveId",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/TypeSaveId.md"
+    },
+    {
+      "typeName": "UintBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/UintBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "UlongBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/UlongBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "UshortBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/UshortBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "Vec2BasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/Vec2BasicTypeSerializer.md"
+    },
+    {
+      "typeName": "Vec2iBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/Vec2iBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "Vec3BasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/Vec3BasicTypeSerializer.md"
+    },
+    {
+      "typeName": "Vec3iBasicTypeSerializer",
+      "namespace": "TaleWorlds.SaveSystem.Definition",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/Vec3iBasicTypeSerializer.md"
+    },
+    {
+      "typeName": "LoadCallbackInitializator",
+      "namespace": "TaleWorlds.SaveSystem.Load",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LoadCallbackInitializator.md"
+    },
+    {
+      "typeName": "LoadError",
+      "namespace": "TaleWorlds.SaveSystem.Load",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LoadError.md"
+    },
+    {
+      "typeName": "LoadResult",
+      "namespace": "TaleWorlds.SaveSystem.Load",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LoadResult.md"
+    },
+    {
+      "typeName": "IConflictResolver",
+      "namespace": "TaleWorlds.SaveSystem.Resolvers",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/IConflictResolver.md"
+    },
+    {
+      "typeName": "IObjectResolver",
+      "namespace": "TaleWorlds.SaveSystem.Resolvers",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/IObjectResolver.md"
+    },
+    {
+      "typeName": "ISaveContext",
+      "namespace": "TaleWorlds.SaveSystem.Save",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/save-system/ISaveContext.md"
+    },
+    {
+      "typeName": "LegacySaveContext",
+      "namespace": "TaleWorlds.SaveSystem.Save",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/LegacySaveContext.md"
+    },
+    {
+      "typeName": "SaveError",
+      "namespace": "TaleWorlds.SaveSystem.Save",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveError.md"
+    },
+    {
+      "typeName": "SaveOutput",
+      "namespace": "TaleWorlds.SaveSystem.Save",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveOutput.md"
+    },
+    {
+      "typeName": "SaveStatistics",
+      "namespace": "TaleWorlds.SaveSystem.Save",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/save-system/SaveStatistics.md"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "AdditionType",
+    "kind": "enum"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Athletics",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Bow",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Charm",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Crafting",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Crossbow",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "DefaultCulturalFeats",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "DefaultPerks",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "DefaultTraits",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Engineering",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "FeatObject",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "HeroDeveloper",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Leadership",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Medicine",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "OneHanded",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "PerkObject",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Polearm",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Riding",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Roguery",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Scouting",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Steward",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Tactics",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Throwing",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "Trade",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "TraitObject",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.CharacterDevelopment",
+    "name": "TwoHanded",
+    "kind": "class"
+  }
+]

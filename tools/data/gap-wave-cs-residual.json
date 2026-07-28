@@ -1,0 +1,881 @@
+{
+  "count": 146,
+  "types": [
+    {
+      "typeName": "AIBehaviorData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AIBehaviorData.md"
+    },
+    {
+      "typeName": "BattleResultPartyData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BattleResultPartyData.md"
+    },
+    {
+      "typeName": "CampaignData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignData.md"
+    },
+    {
+      "typeName": "CampaignEntityComponent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignEntityComponent.md"
+    },
+    {
+      "typeName": "CampaignObjectManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignObjectManager.md"
+    },
+    {
+      "typeName": "CampaignPeriodicEventManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignPeriodicEventManager.md"
+    },
+    {
+      "typeName": "CharacterData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterData.md"
+    },
+    {
+      "typeName": "CharacterRelationManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterRelationManager.md"
+    },
+    {
+      "typeName": "ConversationSceneData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ConversationSceneData.md"
+    },
+    {
+      "typeName": "EncounterManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncounterManager.md"
+    },
+    {
+      "typeName": "FactionManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FactionManager.md"
+    },
+    {
+      "typeName": "GameSceneDataManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameSceneDataManager.md"
+    },
+    {
+      "typeName": "IAgentBehaviorManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IAgentBehaviorManager.md"
+    },
+    {
+      "typeName": "ICampaignBehaviorManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICampaignBehaviorManager.md"
+    },
+    {
+      "typeName": "ICampaignMissionManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICampaignMissionManager.md"
+    },
+    {
+      "typeName": "INavigationHandler",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INavigationHandler.md"
+    },
+    {
+      "typeName": "ISandBoxMissionManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISandBoxMissionManager.md"
+    },
+    {
+      "typeName": "ISaveManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISaveManager.md"
+    },
+    {
+      "typeName": "KingdomManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomManager.md"
+    },
+    {
+      "typeName": "MeetingSceneData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MeetingSceneData.md"
+    },
+    {
+      "typeName": "PropertyObjectData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PropertyObjectData.md"
+    },
+    {
+      "typeName": "SandBoxManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SandBoxManager.md"
+    },
+    {
+      "typeName": "SaveHandler",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SaveHandler.md"
+    },
+    {
+      "typeName": "SingleplayerBattleSceneData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SingleplayerBattleSceneData.md"
+    },
+    {
+      "typeName": "SkillObjectData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SkillObjectData.md"
+    },
+    {
+      "typeName": "VisualTrackerManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualTrackerManager.md"
+    },
+    {
+      "typeName": "ChangeKingdomActionDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ChangeKingdomActionDetail.md"
+    },
+    {
+      "typeName": "ChangeOwnerOfSettlementDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ChangeOwnerOfSettlementDetail.md"
+    },
+    {
+      "typeName": "ChangeRelationDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ChangeRelationDetail.md"
+    },
+    {
+      "typeName": "DeclareWarDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DeclareWarDetail.md"
+    },
+    {
+      "typeName": "EndCaptivityDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EndCaptivityDetail.md"
+    },
+    {
+      "typeName": "EndMercenaryServiceActionDetails",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EndMercenaryServiceActionDetails.md"
+    },
+    {
+      "typeName": "KillCharacterActionDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KillCharacterActionDetail.md"
+    },
+    {
+      "typeName": "MakePeaceDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MakePeaceDetail.md"
+    },
+    {
+      "typeName": "RemoveCompanionDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RemoveCompanionDetail.md"
+    },
+    {
+      "typeName": "ShipDestroyDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ShipDestroyDetail.md"
+    },
+    {
+      "typeName": "ShipOwnerChangeDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ShipOwnerChangeDetail.md"
+    },
+    {
+      "typeName": "SiegeAftermath",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeAftermath.md"
+    },
+    {
+      "typeName": "StartMercenaryServiceActionDetails",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/StartMercenaryServiceActionDetails.md"
+    },
+    {
+      "typeName": "TeleportationDetail",
+      "namespace": "TaleWorlds.CampaignSystem.Actions",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TeleportationDetail.md"
+    },
+    {
+      "typeName": "PartyAgentOrigin",
+      "namespace": "TaleWorlds.CampaignSystem.AgentOrigins",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyAgentOrigin.md"
+    },
+    {
+      "typeName": "PartyGroupAgentOrigin",
+      "namespace": "TaleWorlds.CampaignSystem.AgentOrigins",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyGroupAgentOrigin.md"
+    },
+    {
+      "typeName": "SimpleAgentOrigin",
+      "namespace": "TaleWorlds.CampaignSystem.AgentOrigins",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SimpleAgentOrigin.md"
+    },
+    {
+      "typeName": "ICharacterCreationContentHandler",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICharacterCreationContentHandler.md"
+    },
+    {
+      "typeName": "ICharacterCreationStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.CharacterCreationContent",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICharacterCreationStateHandler.md"
+    },
+    {
+      "typeName": "BribeCalculationModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BribeCalculationModel.md"
+    },
+    {
+      "typeName": "CampaignShipParametersModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignShipParametersModel.md"
+    },
+    {
+      "typeName": "MobilePartyMoraleModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MobilePartyMoraleModel.md"
+    },
+    {
+      "typeName": "SettlementMenuOverlayModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementMenuOverlayModel.md"
+    },
+    {
+      "typeName": "SettlementMilitiaModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementMilitiaModel.md"
+    },
+    {
+      "typeName": "SettlementProsperityModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementProsperityModel.md"
+    },
+    {
+      "typeName": "SettlementSecurityModel",
+      "namespace": "TaleWorlds.CampaignSystem.ComponentInterfaces",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SettlementSecurityModel.md"
+    },
+    {
+      "typeName": "CraftingOrder",
+      "namespace": "TaleWorlds.CampaignSystem.CraftingSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CraftingOrder.md"
+    },
+    {
+      "typeName": "CampaignBattleResult",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignBattleResult.md"
+    },
+    {
+      "typeName": "CastleEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CastleEncounter.md"
+    },
+    {
+      "typeName": "HideoutEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HideoutEncounter.md"
+    },
+    {
+      "typeName": "LocationEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LocationEncounter.md"
+    },
+    {
+      "typeName": "PlayerEncounterState",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PlayerEncounterState.md"
+    },
+    {
+      "typeName": "RetirementEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RetirementEncounter.md"
+    },
+    {
+      "typeName": "TownEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TownEncounter.md"
+    },
+    {
+      "typeName": "VillageEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.Encounters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VillageEncounter.md"
+    },
+    {
+      "typeName": "Attributes",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Attributes.md"
+    },
+    {
+      "typeName": "ItemCategories",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemCategories.md"
+    },
+    {
+      "typeName": "ItemObjectExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemObjectExtensions.md"
+    },
+    {
+      "typeName": "Items",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Items.md"
+    },
+    {
+      "typeName": "MBEquipmentRosterExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MBEquipmentRosterExtensions.md"
+    },
+    {
+      "typeName": "MetaDataExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MetaDataExtensions.md"
+    },
+    {
+      "typeName": "SiegeEngineTypes",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeEngineTypes.md"
+    },
+    {
+      "typeName": "Skills",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Skills.md"
+    },
+    {
+      "typeName": "TextObjectExtensions",
+      "namespace": "TaleWorlds.CampaignSystem.Extensions",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TextObjectExtensions.md"
+    },
+    {
+      "typeName": "AlleyMemberAvailabilityDetail",
+      "namespace": "TaleWorlds.CampaignSystem.GameComponents",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyMemberAvailabilityDetail.md"
+    },
+    {
+      "typeName": "AssetIncomeType",
+      "namespace": "TaleWorlds.CampaignSystem.GameComponents",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AssetIncomeType.md"
+    },
+    {
+      "typeName": "EventType",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EventType.md"
+    },
+    {
+      "typeName": "GameMenuEventHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameMenuEventHandler.md"
+    },
+    {
+      "typeName": "GameMenuInitializationHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameMenuInitializationHandler.md"
+    },
+    {
+      "typeName": "MenuAndOptionType",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MenuAndOptionType.md"
+    },
+    {
+      "typeName": "MenuFlags",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MenuFlags.md"
+    },
+    {
+      "typeName": "MenuOverlayType",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MenuOverlayType.md"
+    },
+    {
+      "typeName": "DefaultEncounter",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultEncounter.md"
+    },
+    {
+      "typeName": "PlayerTownVisit",
+      "namespace": "TaleWorlds.CampaignSystem.GameMenus.GameMenuInitializationHandlers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PlayerTownVisit.md"
+    },
+    {
+      "typeName": "IBannerEditorStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IBannerEditorStateHandler.md"
+    },
+    {
+      "typeName": "ICharacterDeveloperStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICharacterDeveloperStateHandler.md"
+    },
+    {
+      "typeName": "IClanStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IClanStateHandler.md"
+    },
+    {
+      "typeName": "ICraftingStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICraftingStateHandler.md"
+    },
+    {
+      "typeName": "IEducationStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IEducationStateHandler.md"
+    },
+    {
+      "typeName": "IGameOverStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IGameOverStateHandler.md"
+    },
+    {
+      "typeName": "IInventoryStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IInventoryStateHandler.md"
+    },
+    {
+      "typeName": "IKingdomStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IKingdomStateHandler.md"
+    },
+    {
+      "typeName": "IMapStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapStateHandler.md"
+    },
+    {
+      "typeName": "IMenuContextHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMenuContextHandler.md"
+    },
+    {
+      "typeName": "IPartyScreenLogicHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IPartyScreenLogicHandler.md"
+    },
+    {
+      "typeName": "IPartyScreenPrisonHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IPartyScreenPrisonHandler.md"
+    },
+    {
+      "typeName": "IPartyScreenTroopHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IPartyScreenTroopHandler.md"
+    },
+    {
+      "typeName": "IQuestsStateHandler",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IQuestsStateHandler.md"
+    },
+    {
+      "typeName": "MapStateData",
+      "namespace": "TaleWorlds.CampaignSystem.GameState",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapStateData.md"
+    },
+    {
+      "typeName": "ICustomSystemManager",
+      "namespace": "TaleWorlds.CampaignSystem.Handlers",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICustomSystemManager.md"
+    },
+    {
+      "typeName": "Incident",
+      "namespace": "TaleWorlds.CampaignSystem.Incidents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Incident.md"
+    },
+    {
+      "typeName": "IncidentEffect",
+      "namespace": "TaleWorlds.CampaignSystem.Incidents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IncidentEffect.md"
+    },
+    {
+      "typeName": "FakeInventoryListener",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FakeInventoryListener.md"
+    },
+    {
+      "typeName": "InventoryListener",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryListener.md"
+    },
+    {
+      "typeName": "InventorySide",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventorySide.md"
+    },
+    {
+      "typeName": "InventoryTransferItemEvent",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/InventoryTransferItemEvent.md"
+    },
+    {
+      "typeName": "IPlayerTradeBehavior",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IPlayerTradeBehavior.md"
+    },
+    {
+      "typeName": "TransferCommand",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferCommand.md"
+    },
+    {
+      "typeName": "TransferCommandResult",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferCommandResult.md"
+    },
+    {
+      "typeName": "TransferType",
+      "namespace": "TaleWorlds.CampaignSystem.Inventory",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TransferType.md"
+    },
+    {
+      "typeName": "IInteractablePoint",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IInteractablePoint.md"
+    },
+    {
+      "typeName": "ILocatable",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign/ILocatable.md"
+    },
+    {
+      "typeName": "IMapPoint",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapPoint.md"
+    },
+    {
+      "typeName": "IMapScene",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapScene.md"
+    },
+    {
+      "typeName": "IMapSceneCreator",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapSceneCreator.md"
+    },
+    {
+      "typeName": "LocatorGrid",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/LocatorGrid.md"
+    },
+    {
+      "typeName": "MapMarker",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapMarker.md"
+    },
+    {
+      "typeName": "WeatherNode",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WeatherNode.md"
+    },
+    {
+      "typeName": "ISettlementDataHolder",
+      "namespace": "TaleWorlds.CampaignSystem.Map.DistanceCache",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISettlementDataHolder.md"
+    },
+    {
+      "typeName": "NavigationCacheElement",
+      "namespace": "TaleWorlds.CampaignSystem.Map.DistanceCache",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign/NavigationCacheElement.md"
+    },
+    {
+      "typeName": "SandBoxNavigationCache",
+      "namespace": "TaleWorlds.CampaignSystem.Map.DistanceCache",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SandBoxNavigationCache.md"
+    },
+    {
+      "typeName": "HideoutEventComponent",
+      "namespace": "TaleWorlds.CampaignSystem.MapEvents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HideoutEventComponent.md"
+    },
+    {
+      "typeName": "IMapEventVisual",
+      "namespace": "TaleWorlds.CampaignSystem.MapEvents",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapEventVisual.md"
+    },
+    {
+      "typeName": "PowerCalculationContext",
+      "namespace": "TaleWorlds.CampaignSystem.MapEvents",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PowerCalculationContext.md"
+    },
+    {
+      "typeName": "AnchorPoint",
+      "namespace": "TaleWorlds.CampaignSystem.Naval",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AnchorPoint.md"
+    },
+    {
+      "typeName": "DefaultFigureheads",
+      "namespace": "TaleWorlds.CampaignSystem.Naval",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/DefaultFigureheads.md"
+    },
+    {
+      "typeName": "Figurehead",
+      "namespace": "TaleWorlds.CampaignSystem.Naval",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Figurehead.md"
+    },
+    {
+      "typeName": "Ship",
+      "namespace": "TaleWorlds.CampaignSystem.Naval",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/Ship.md"
+    },
+    {
+      "typeName": "FlattenedTroopRosterElement",
+      "namespace": "TaleWorlds.CampaignSystem.Roster",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FlattenedTroopRosterElement.md"
+    },
+    {
+      "typeName": "RosterTroopState",
+      "namespace": "TaleWorlds.CampaignSystem.Roster",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/RosterTroopState.md"
+    },
+    {
+      "typeName": "TroopRosterElement",
+      "namespace": "TaleWorlds.CampaignSystem.Roster",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TroopRosterElement.md"
+    },
+    {
+      "typeName": "ArmyDispersionReasonEnumResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ArmyDispersionReasonEnumResolver.md"
+    },
+    {
+      "typeName": "BattleTypeEnumResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BattleTypeEnumResolver.md"
+    },
+    {
+      "typeName": "CharacterAttributesResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterAttributesResolver.md"
+    },
+    {
+      "typeName": "CharacterPerksResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterPerksResolver.md"
+    },
+    {
+      "typeName": "CharacterTraitsResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterTraitsResolver.md"
+    },
+    {
+      "typeName": "EndCaptivityDetailEnumResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EndCaptivityDetailEnumResolver.md"
+    },
+    {
+      "typeName": "HeroDeveloperResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroDeveloperResolver.md"
+    },
+    {
+      "typeName": "HeroTraitDeveloperResolver",
+      "namespace": "TaleWorlds.CampaignSystem.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HeroTraitDeveloperResolver.md"
+    },
+    {
+      "typeName": "SiegeEventManager",
+      "namespace": "TaleWorlds.CampaignSystem.Siege",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SiegeEventManager.md"
+    },
+    {
+      "typeName": "FightTournamentGame",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FightTournamentGame.md"
+    },
+    {
+      "typeName": "MatchState",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MatchState.md"
+    },
+    {
+      "typeName": "QualificationMode",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/QualificationMode.md"
+    },
+    {
+      "typeName": "TournamentCampaignBehavior",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentCampaignBehavior.md"
+    },
+    {
+      "typeName": "TournamentGame",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentGame.md"
+    },
+    {
+      "typeName": "TournamentMatch",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentMatch.md"
+    },
+    {
+      "typeName": "TournamentParticipant",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentParticipant.md"
+    },
+    {
+      "typeName": "TournamentRound",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentRound.md"
+    },
+    {
+      "typeName": "TournamentTeam",
+      "namespace": "TaleWorlds.CampaignSystem.TournamentGames",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TournamentTeam.md"
+    },
+    {
+      "typeName": "PartyGroupTroopSupplier",
+      "namespace": "TaleWorlds.CampaignSystem.TroopSuppliers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PartyGroupTroopSupplier.md"
+    }
+  ]
+}

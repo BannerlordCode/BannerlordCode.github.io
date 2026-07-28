@@ -1,0 +1,282 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "AcceptCallToWarOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "AlleyLeaderDiedMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "AlleyUnderAttackMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "AllianceOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "ArmyCreationMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "ArmyDispersionMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "ChildBornMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "DeathMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "EducationMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "HeirComeOfAgeMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "KingdomDecisionMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "KingdomDestroyedMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "MarriageMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "MarriageOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "MercenaryOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "PartyLeaderChangeNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "PeaceMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "PeaceOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "ProposeCallToWarOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "RansomOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "SettlementOwnerChangedMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "SettlementRebellionMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "SettlementUnderSiegeMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "TraitChangedMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "TributeFinishedMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "VassalOfferMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.MapNotificationTypes",
+    "name": "WarMapNotification",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "AcceptCallToWarOfferNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "AlleyLeaderDiedMapNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "AlleyUnderAttackMapNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "AllianceOfferNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "ArmyCreationNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "ArmyDispersionItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "DeathNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "EducationNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "HeirComeOfAgeNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "KingdomDestroyedNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "KingdomVoteNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "MapNotificationItemBaseVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "MarriageNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "MarriageOfferNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "MercenaryOfferMapNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "NewBornNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "PartyLeaderChangeNotificationVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "PeaceNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "PeaceOfferNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "ProposeCallToWarOfferNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "QuestNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "RansomNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "RebellionNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "SettlementOwnerChangedNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "SettlementUnderSiegeMapNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "TraitChangedNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "TributeFinishedMapNotificationVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "VassalOfferMapNotificationItemVM",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.ViewModelCollection.Map.MapNotificationTypes",
+    "name": "WarNotificationItemVM",
+    "kind": "class"
+  }
+]

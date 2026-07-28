@@ -1,0 +1,347 @@
+{
+  "count": 57,
+  "types": [
+    {
+      "typeName": "CardSelectionItemSpriteType",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CardSelectionItemSpriteType.md"
+    },
+    {
+      "typeName": "ClanCardSelectionInfo",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ClanCardSelectionInfo.md"
+    },
+    {
+      "typeName": "ClanCardSelectionItemInfo",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ClanCardSelectionItemInfo.md"
+    },
+    {
+      "typeName": "ClanCardSelectionItemPropertyInfo",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ClanCardSelectionItemPropertyInfo.md"
+    },
+    {
+      "typeName": "ClanCardSelectionPopupItemPropertyVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanCardSelectionPopupItemPropertyVM.md"
+    },
+    {
+      "typeName": "ClanCardSelectionPopupItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanCardSelectionPopupItemVM.md"
+    },
+    {
+      "typeName": "ClanCardSelectionPopupVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanCardSelectionPopupVM.md"
+    },
+    {
+      "typeName": "ClanFinanceExpenseItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceExpenseItemVM.md"
+    },
+    {
+      "typeName": "ClanFinanceIncomeItemBaseVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceIncomeItemBaseVM.md"
+    },
+    {
+      "typeName": "ClanLordItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanLordItemVM.md"
+    },
+    {
+      "typeName": "ClanLordStatusItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanLordStatusItemVM.md"
+    },
+    {
+      "typeName": "ClanManagementVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanManagementVM.md"
+    },
+    {
+      "typeName": "ClanPartyBehaviorSelectorVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanPartyBehaviorSelectorVM.md"
+    },
+    {
+      "typeName": "ClanPartyItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanPartyItemVM.md"
+    },
+    {
+      "typeName": "ClanPartyMemberItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanPartyMemberItemVM.md"
+    },
+    {
+      "typeName": "ClanPartyType",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanPartyType.md"
+    },
+    {
+      "typeName": "ClanRoleAssignedThroughClanScreenEvent",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanRoleAssignedThroughClanScreenEvent.md"
+    },
+    {
+      "typeName": "ClanRoleItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanRoleItemVM.md"
+    },
+    {
+      "typeName": "ClanRoleMemberItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanRoleMemberItemVM.md"
+    },
+    {
+      "typeName": "ClanSettlementItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanSettlementItemVM.md"
+    },
+    {
+      "typeName": "IncomeTypes",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IncomeTypes.md"
+    },
+    {
+      "typeName": "LordStatus",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/LordStatus.md"
+    },
+    {
+      "typeName": "TaxType",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/TaxType.md"
+    },
+    {
+      "typeName": "AlleyItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyItemComparerBase.md"
+    },
+    {
+      "typeName": "AlleyItemIncomeComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyItemIncomeComparer.md"
+    },
+    {
+      "typeName": "AlleyItemLocationComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyItemLocationComparer.md"
+    },
+    {
+      "typeName": "AlleyItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AlleyItemNameComparer.md"
+    },
+    {
+      "typeName": "ClanFiefsSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFiefsSortControllerVM.md"
+    },
+    {
+      "typeName": "ClanFiefsVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFiefsVM.md"
+    },
+    {
+      "typeName": "ClanIncomeSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanIncomeSortControllerVM.md"
+    },
+    {
+      "typeName": "ClanIncomeVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanIncomeVM.md"
+    },
+    {
+      "typeName": "ClanMembersSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanMembersSortControllerVM.md"
+    },
+    {
+      "typeName": "ClanMembersVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanMembersVM.md"
+    },
+    {
+      "typeName": "ClanPartiesSortControllerVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanPartiesSortControllerVM.md"
+    },
+    {
+      "typeName": "ClanPartiesVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanPartiesVM.md"
+    },
+    {
+      "typeName": "ItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemComparerBase.md"
+    },
+    {
+      "typeName": "ItemGovernorComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemGovernorComparer.md"
+    },
+    {
+      "typeName": "ItemLocationComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemLocationComparer.md"
+    },
+    {
+      "typeName": "ItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemNameComparer.md"
+    },
+    {
+      "typeName": "ItemProfitComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemProfitComparer.md"
+    },
+    {
+      "typeName": "ItemShipCountComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/ItemShipCountComparer.md"
+    },
+    {
+      "typeName": "ItemSizeComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ItemSizeComparer.md"
+    },
+    {
+      "typeName": "SupporterItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SupporterItemComparerBase.md"
+    },
+    {
+      "typeName": "SupporterItemIncomeComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SupporterItemIncomeComparer.md"
+    },
+    {
+      "typeName": "SupporterItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SupporterItemNameComparer.md"
+    },
+    {
+      "typeName": "WorkshopItemComparerBase",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WorkshopItemComparerBase.md"
+    },
+    {
+      "typeName": "WorkshopItemIncomeComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WorkshopItemIncomeComparer.md"
+    },
+    {
+      "typeName": "WorkshopItemLocationComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WorkshopItemLocationComparer.md"
+    },
+    {
+      "typeName": "WorkshopItemNameComparer",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WorkshopItemNameComparer.md"
+    },
+    {
+      "typeName": "ClanFinanceAlleyItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceAlleyItemVM.md"
+    },
+    {
+      "typeName": "ClanFinanceCommonAreaItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceCommonAreaItemVM.md"
+    },
+    {
+      "typeName": "ClanFinanceMercenaryItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceMercenaryItemVM.md"
+    },
+    {
+      "typeName": "ClanFinanceTownItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceTownItemVM.md"
+    },
+    {
+      "typeName": "ClanFinanceWorkshopItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanFinanceWorkshopItemVM.md"
+    },
+    {
+      "typeName": "WorkshopPercentageSelectorItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WorkshopPercentageSelectorItemVM.md"
+    },
+    {
+      "typeName": "ClanSupporterGroupVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanSupporterGroupVM.md"
+    },
+    {
+      "typeName": "ClanSupporterItemVM",
+      "namespace": "TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ClanSupporterItemVM.md"
+    }
+  ]
+}

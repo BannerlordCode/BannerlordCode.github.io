@@ -83,6 +83,20 @@
       "en": "/v1.4.5/en/api/campaign/Campaign/"
     }
   },
+  "api/campaign/CampaignBehaviorBase/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/CampaignBehaviorBase/",
+      "en": "/v1.3.15/en/api/campaign/CampaignBehaviorBase/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/CampaignBehaviorBase/",
+      "en": "/v1.3.0/en/api/campaign/CampaignBehaviorBase/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/CampaignBehaviorBase/",
+      "en": "/v1.4.5/en/api/campaign/CampaignBehaviorBase/"
+    }
+  },
   "api/campaign/CampaignBehaviorDataStore/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign/CampaignBehaviorDataStore/",
@@ -95,6 +109,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/CampaignBehaviorDataStore/",
       "en": "/v1.4.5/en/api/campaign/CampaignBehaviorDataStore/"
+    }
+  },
+  "api/campaign/campaignbehaviors/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/campaignbehaviors/",
+      "en": "/v1.3.15/en/api/campaign/campaignbehaviors/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/campaignbehaviors/",
+      "en": "/v1.3.0/en/api/campaign/campaignbehaviors/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/campaignbehaviors/",
+      "en": "/v1.4.5/en/api/campaign/campaignbehaviors/"
     }
   },
   "api/campaign/CharacterObject/": {
@@ -377,6 +405,20 @@
       "en": "/v1.4.5/en/api/campaign/IssueBase/"
     }
   },
+  "api/campaign/issues/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/issues/",
+      "en": "/v1.3.15/en/api/campaign/issues/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/issues/",
+      "en": "/v1.3.0/en/api/campaign/issues/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/issues/",
+      "en": "/v1.4.5/en/api/campaign/issues/"
+    }
+  },
   "api/campaign/IssueState/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign/IssueState/",
@@ -431,6 +473,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/LocatorGrid/",
       "en": "/v1.4.5/en/api/campaign/LocatorGrid/"
+    }
+  },
+  "api/campaign/map/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/map/",
+      "en": "/v1.3.15/en/api/campaign/map/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/map/",
+      "en": "/v1.3.0/en/api/campaign/map/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/map/",
+      "en": "/v1.4.5/en/api/campaign/map/"
     }
   },
   "api/campaign/MapTimeTracker/": {
@@ -503,6 +559,20 @@
       "en": "/v1.4.5/en/api/campaign/NavigationCacheElement/"
     }
   },
+  "api/campaign/party/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/party/",
+      "en": "/v1.3.15/en/api/campaign/party/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/party/",
+      "en": "/v1.3.0/en/api/campaign/party/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/party/",
+      "en": "/v1.4.5/en/api/campaign/party/"
+    }
+  },
   "api/campaign/PartyBase/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign/PartyBase/",
@@ -573,6 +643,20 @@
       "en": "/v1.4.5/en/api/campaign/QuestStates/"
     }
   },
+  "api/campaign/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/root/",
+      "en": "/v1.3.15/en/api/campaign/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/root/",
+      "en": "/v1.3.0/en/api/campaign/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/root/",
+      "en": "/v1.4.5/en/api/campaign/root/"
+    }
+  },
   "api/campaign/Settlement/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign/Settlement/",
@@ -585,6 +669,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/Settlement/",
       "en": "/v1.4.5/en/api/campaign/Settlement/"
+    }
+  },
+  "api/campaign/settlements/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign/settlements/",
+      "en": "/v1.3.15/en/api/campaign/settlements/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/settlements/",
+      "en": "/v1.3.0/en/api/campaign/settlements/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/settlements/",
+      "en": "/v1.4.5/en/api/campaign/settlements/"
     }
   },
   "api/campaign/StanceType/": {
@@ -899,6 +997,20 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/ActionNotes/",
       "en": "/v1.3.15/en/api/campaign-ext/ActionNotes/"
+    }
+  },
+  "api/campaign-ext/actions/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/actions/",
+      "en": "/v1.3.15/en/api/campaign-ext/actions/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/actions/",
+      "en": "/v1.3.0/en/api/campaign-ext/actions/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/actions/",
+      "en": "/v1.4.5/en/api/campaign-ext/actions/"
     }
   },
   "api/campaign-ext/actions-index/": {
@@ -1233,6 +1345,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/AgeModel/",
       "en": "/v1.3.15/en/api/campaign-ext/AgeModel/"
+    }
+  },
+  "api/campaign-ext/agentorigins/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/agentorigins/",
+      "en": "/v1.3.15/en/api/campaign-ext/agentorigins/"
     }
   },
   "api/campaign-ext/AgentSetFormation/": {
@@ -2275,6 +2393,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/BarterSide/"
     }
   },
+  "api/campaign-ext/bartersystem/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/bartersystem/",
+      "en": "/v1.3.15/en/api/campaign-ext/bartersystem/"
+    }
+  },
   "api/campaign-ext/BarterVM/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/BarterVM/",
@@ -2495,6 +2619,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/BecomeKingSceneNotificationItem/",
       "en": "/v1.3.15/en/api/campaign-ext/BecomeKingSceneNotificationItem/"
+    }
+  },
+  "api/campaign-ext/behaviors/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/behaviors/",
+      "en": "/v1.3.15/en/api/campaign-ext/behaviors/"
     }
   },
   "api/campaign-ext/BeHostileAction/": {
@@ -2953,6 +3083,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/CampaignBehaviorManager/",
       "en": "/v1.3.15/en/api/campaign-ext/CampaignBehaviorManager/"
+    }
+  },
+  "api/campaign-ext/campaignbehaviors/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/campaignbehaviors/",
+      "en": "/v1.3.15/en/api/campaign-ext/campaignbehaviors/"
     }
   },
   "api/campaign-ext/CampaignCheats/": {
@@ -3805,6 +3941,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/CharacterCreationClanNamingStageVM/"
     }
   },
+  "api/campaign-ext/charactercreationcontent/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/charactercreationcontent/",
+      "en": "/v1.3.15/en/api/campaign-ext/charactercreationcontent/"
+    }
+  },
   "api/campaign-ext/CharacterCreationContent/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/CharacterCreationContent/",
@@ -3959,6 +4101,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/CharacterDeveloperVM/",
       "en": "/v1.3.15/en/api/campaign-ext/CharacterDeveloperVM/"
+    }
+  },
+  "api/campaign-ext/characterdevelopment/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/characterdevelopment/",
+      "en": "/v1.3.15/en/api/campaign-ext/characterdevelopment/"
     }
   },
   "api/campaign-ext/CharacterDevelopmentCampaignBehavior/": {
@@ -4845,6 +4993,12 @@
       "en": "/v1.4.5/en/api/campaign-ext/CompatibilityType/"
     }
   },
+  "api/campaign-ext/componentinterfaces/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/componentinterfaces/",
+      "en": "/v1.3.15/en/api/campaign-ext/componentinterfaces/"
+    }
+  },
   "api/campaign-ext/Concept/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/Concept/",
@@ -4947,6 +5101,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign-ext/ControllerTypes/",
       "en": "/v1.4.5/en/api/campaign-ext/ControllerTypes/"
+    }
+  },
+  "api/campaign-ext/conversation/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/conversation/",
+      "en": "/v1.3.15/en/api/campaign-ext/conversation/"
     }
   },
   "api/campaign-ext/ConversationAggressivePartyItemVM/": {
@@ -6813,6 +6973,11 @@
       "en": "/v1.3.15/en/api/campaign-ext/DialogLineFlags/"
     }
   },
+  "api/campaign-ext/dialogs/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/dialogs/"
+    }
+  },
   "api/campaign-ext/DiamondClientApplication/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/DiamondClientApplication/",
@@ -7265,6 +7430,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/EffectInfo/"
     }
   },
+  "api/campaign-ext/election/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/election/",
+      "en": "/v1.3.15/en/api/campaign-ext/election/"
+    }
+  },
   "api/campaign-ext/EmbarkDisembarkData/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/EmbarkDisembarkData/",
@@ -7359,6 +7530,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/EncounterModel/"
     }
   },
+  "api/campaign-ext/encounters/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/encounters/",
+      "en": "/v1.3.15/en/api/campaign-ext/encounters/"
+    }
+  },
   "api/campaign-ext/EncryptedAppTicketListener/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/EncryptedAppTicketListener/",
@@ -7367,6 +7544,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign-ext/EncryptedAppTicketListener/",
       "en": "/v1.4.5/en/api/campaign-ext/EncryptedAppTicketListener/"
+    }
+  },
+  "api/campaign-ext/encyclopedia/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/encyclopedia/",
+      "en": "/v1.3.15/en/api/campaign-ext/encyclopedia/"
     }
   },
   "api/campaign-ext/EncyclopediaClanPageVM/": {
@@ -8065,6 +8248,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/ExplainedNumber/"
     }
   },
+  "api/campaign-ext/extensions/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/extensions/",
+      "en": "/v1.3.15/en/api/campaign-ext/extensions/"
+    }
+  },
   "api/campaign-ext/Extensions__TaleWorlds_ModuleManager/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/Extensions__TaleWorlds_ModuleManager/",
@@ -8621,6 +8810,12 @@
       "en": "/v1.4.5/en/api/campaign-ext/GameAxisKey/"
     }
   },
+  "api/campaign-ext/gamecomponents/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/gamecomponents/",
+      "en": "/v1.3.15/en/api/campaign-ext/gamecomponents/"
+    }
+  },
   "api/campaign-ext/GameKey/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/GameKey/",
@@ -8747,6 +8942,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/GameMenuPlunderItemVM/"
     }
   },
+  "api/campaign-ext/gamemenus/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/gamemenus/",
+      "en": "/v1.3.15/en/api/campaign-ext/gamemenus/"
+    }
+  },
   "api/campaign-ext/GameMenuTroopSelectionVM/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/GameMenuTroopSelectionVM/",
@@ -8799,6 +9000,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/GameSceneDataManager/",
       "en": "/v1.3.15/en/api/campaign-ext/GameSceneDataManager/"
+    }
+  },
+  "api/campaign-ext/gamestate/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/gamestate/",
+      "en": "/v1.3.15/en/api/campaign-ext/gamestate/"
     }
   },
   "api/campaign-ext/GangLeaderNeedsRecruitsIssue/": {
@@ -9551,6 +9758,20 @@
       "en": "/v1.4.5/en/api/campaign-ext/GiveItemAction/"
     }
   },
+  "api/campaign-ext/global/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/global/",
+      "en": "/v1.3.15/en/api/campaign-ext/global/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/global/",
+      "en": "/v1.3.0/en/api/campaign-ext/global/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/global/",
+      "en": "/v1.4.5/en/api/campaign-ext/global/"
+    }
+  },
   "api/campaign-ext/GlobalLayer/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/GlobalLayer/",
@@ -9917,6 +10138,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/HeirSelectionPopupVM/",
       "en": "/v1.3.15/en/api/campaign-ext/HeirSelectionPopupVM/"
+    }
+  },
+  "api/campaign-ext/helpers/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/helpers/",
+      "en": "/v1.3.15/en/api/campaign-ext/helpers/"
     }
   },
   "api/campaign-ext/HeroAgeComparer/": {
@@ -11127,6 +11354,12 @@
       "en": "/v1.4.5/en/api/campaign-ext/IntermissionVote/"
     }
   },
+  "api/campaign-ext/inventory/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/inventory/",
+      "en": "/v1.3.15/en/api/campaign-ext/inventory/"
+    }
+  },
   "api/campaign-ext/InventoryCapacityModel/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/InventoryCapacityModel/",
@@ -11513,6 +11746,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/IssueQuestStartLogEntry/",
       "en": "/v1.3.15/en/api/campaign-ext/IssueQuestStartLogEntry/"
+    }
+  },
+  "api/campaign-ext/issues/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/issues/",
+      "en": "/v1.3.15/en/api/campaign-ext/issues/"
     }
   },
   "api/campaign-ext/IssuesCampaignBehavior/": {
@@ -12733,6 +12972,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/LocationModel/"
     }
   },
+  "api/campaign-ext/logentries/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/logentries/",
+      "en": "/v1.3.15/en/api/campaign-ext/logentries/"
+    }
+  },
   "api/campaign-ext/LogEntry/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/LogEntry/",
@@ -13165,6 +13410,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/ManagementItemComparer/"
     }
   },
+  "api/campaign-ext/map/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/map/",
+      "en": "/v1.3.15/en/api/campaign-ext/map/"
+    }
+  },
   "api/campaign-ext/MapBarShortcuts/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/MapBarShortcuts/",
@@ -13231,6 +13482,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/MapEventResultExplainer/"
     }
   },
+  "api/campaign-ext/mapevents/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/mapevents/",
+      "en": "/v1.3.15/en/api/campaign-ext/mapevents/"
+    }
+  },
   "api/campaign-ext/MapEventSide/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/MapEventSide/",
@@ -13295,6 +13552,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/MapNotificationItemBaseVM/",
       "en": "/v1.3.15/en/api/campaign-ext/MapNotificationItemBaseVM/"
+    }
+  },
+  "api/campaign-ext/mapnotificationtypes/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/mapnotificationtypes/",
+      "en": "/v1.3.15/en/api/campaign-ext/mapnotificationtypes/"
     }
   },
   "api/campaign-ext/MapNotificationVM/": {
@@ -13871,6 +14134,16 @@
       "en": "/v1.4.5/en/api/campaign-ext/MessageProxy/"
     }
   },
+  "api/campaign-ext/messages/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/messages/",
+      "en": "/v1.3.15/en/api/campaign-ext/messages/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/messages/",
+      "en": "/v1.4.5/en/api/campaign-ext/messages/"
+    }
+  },
   "api/campaign-ext/MessageServiceConnection/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/MessageServiceConnection/",
@@ -14027,6 +14300,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/MobilePartyTrainingBehavior/",
       "en": "/v1.3.15/en/api/campaign-ext/MobilePartyTrainingBehavior/"
+    }
+  },
+  "api/campaign-ext/models/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/models/",
+      "en": "/v1.3.15/en/api/campaign-ext/models/"
     }
   },
   "api/campaign-ext/Modifiers/": {
@@ -14361,6 +14640,12 @@
       "en": "/v1.4.5/en/api/campaign-ext/NativeTelemetryManager/"
     }
   },
+  "api/campaign-ext/naval/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/naval/",
+      "en": "/v1.3.15/en/api/campaign-ext/naval/"
+    }
+  },
   "api/campaign-ext/NavalDeathSceneNotificationItem/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/NavalDeathSceneNotificationItem/",
@@ -14423,6 +14708,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign-ext/NetworkMessage/",
       "en": "/v1.4.5/en/api/campaign-ext/NetworkMessage/"
+    }
+  },
+  "api/campaign-ext/networkmessages/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/networkmessages/",
+      "en": "/v1.3.15/en/api/campaign-ext/networkmessages/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/networkmessages/",
+      "en": "/v1.3.0/en/api/campaign-ext/networkmessages/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/networkmessages/",
+      "en": "/v1.4.5/en/api/campaign-ext/networkmessages/"
     }
   },
   "api/campaign-ext/NetworkSession/": {
@@ -14769,6 +15068,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/PartiesSellPrisonerCampaignBehavior/",
       "en": "/v1.3.15/en/api/campaign-ext/PartiesSellPrisonerCampaignBehavior/"
+    }
+  },
+  "api/campaign-ext/party/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/party/",
+      "en": "/v1.3.15/en/api/campaign-ext/party/"
     }
   },
   "api/campaign-ext/PartyAddedToArmyByPlayerEvent/": {
@@ -16355,6 +16660,16 @@
       "en": "/v1.4.5/en/api/campaign-ext/PSAccessObject/"
     }
   },
+  "api/campaign-ext/psai/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/psai/",
+      "en": "/v1.3.15/en/api/campaign-ext/psai/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/psai/",
+      "en": "/v1.4.5/en/api/campaign-ext/psai/"
+    }
+  },
   "api/campaign-ext/PsaiCore/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/PsaiCore/",
@@ -16525,6 +16840,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/QuestNotificationItemVM/",
       "en": "/v1.3.15/en/api/campaign-ext/QuestNotificationItemVM/"
+    }
+  },
+  "api/campaign-ext/quests/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/quests/",
+      "en": "/v1.3.15/en/api/campaign-ext/quests/"
     }
   },
   "api/campaign-ext/QuestSettlement/": {
@@ -17583,6 +17904,22 @@
       "en": "/v1.3.15/en/api/campaign-ext/RomanticState/"
     }
   },
+  "api/campaign-ext/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/root/",
+      "en": "/v1.3.15/en/api/campaign-ext/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/root/",
+      "en": "/v1.3.0/en/api/campaign-ext/root/"
+    }
+  },
+  "api/campaign-ext/roster/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/roster/",
+      "en": "/v1.3.15/en/api/campaign-ext/roster/"
+    }
+  },
   "api/campaign-ext/RosterTroopState/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/RosterTroopState/",
@@ -17691,6 +18028,12 @@
       "en": "/v1.4.5/en/api/campaign-ext/SaveableObjectSystemTypeDefiner/"
     }
   },
+  "api/campaign-ext/savecompability/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/savecompability/",
+      "en": "/v1.3.15/en/api/campaign-ext/savecompability/"
+    }
+  },
   "api/campaign-ext/SaveHandler/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/SaveHandler/",
@@ -17701,6 +18044,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/SaveMode/",
       "en": "/v1.3.15/en/api/campaign-ext/SaveMode/"
+    }
+  },
+  "api/campaign-ext/sceneinformationpopuptypes/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/sceneinformationpopuptypes/",
+      "en": "/v1.3.15/en/api/campaign-ext/sceneinformationpopuptypes/"
     }
   },
   "api/campaign-ext/SceneModel/": {
@@ -18943,6 +19292,12 @@
       "en": "/v1.3.15/en/api/campaign-ext/SettlementRebellionMapNotification/"
     }
   },
+  "api/campaign-ext/settlements/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/settlements/",
+      "en": "/v1.3.15/en/api/campaign-ext/settlements/"
+    }
+  },
   "api/campaign-ext/SettlementSecurityModel/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/SettlementSecurityModel/",
@@ -19147,6 +19502,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/SiblingIndexVisibilityWidget/",
       "en": "/v1.3.15/en/api/campaign-ext/SiblingIndexVisibilityWidget/"
+    }
+  },
+  "api/campaign-ext/siege/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/siege/",
+      "en": "/v1.3.15/en/api/campaign-ext/siege/"
     }
   },
   "api/campaign-ext/SiegeAction/": {
@@ -20207,6 +20568,20 @@
       "en": "/v1.3.15/en/api/campaign-ext/TakePrisonerLogEntry/"
     }
   },
+  "api/campaign-ext/taleworlds/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/taleworlds/",
+      "en": "/v1.3.15/en/api/campaign-ext/taleworlds/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/taleworlds/",
+      "en": "/v1.3.0/en/api/campaign-ext/taleworlds/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/taleworlds/",
+      "en": "/v1.4.5/en/api/campaign-ext/taleworlds/"
+    }
+  },
   "api/campaign-ext/TalkToNpcQuestTask/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/TalkToNpcQuestTask/",
@@ -20919,6 +21294,12 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/TournamentGame/",
       "en": "/v1.3.15/en/api/campaign-ext/TournamentGame/"
+    }
+  },
+  "api/campaign-ext/tournamentgames/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/tournamentgames/",
+      "en": "/v1.3.15/en/api/campaign-ext/tournamentgames/"
     }
   },
   "api/campaign-ext/TournamentLeaderboardEntryItemVM/": {
@@ -21697,6 +22078,16 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/campaign-ext/ViewDataTrackerCampaignBehavior/",
       "en": "/v1.3.15/en/api/campaign-ext/ViewDataTrackerCampaignBehavior/"
+    }
+  },
+  "api/campaign-ext/viewmodelcollection/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/campaign-ext/viewmodelcollection/",
+      "en": "/v1.3.15/en/api/campaign-ext/viewmodelcollection/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/viewmodelcollection/",
+      "en": "/v1.4.5/en/api/campaign-ext/viewmodelcollection/"
     }
   },
   "api/campaign-ext/VillageEncounter/": {
@@ -23591,6 +23982,20 @@
       "en": "/v1.4.5/en/api/core-extra/CodeBlock/"
     }
   },
+  "api/core-extra/codegeneration/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/codegeneration/",
+      "en": "/v1.3.15/en/api/core-extra/codegeneration/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/codegeneration/",
+      "en": "/v1.3.0/en/api/core-extra/codegeneration/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/codegeneration/",
+      "en": "/v1.4.5/en/api/core-extra/codegeneration/"
+    }
+  },
   "api/core-extra/CodeGenerationContext/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/core-extra/CodeGenerationContext/",
@@ -24451,6 +24856,20 @@
       "en": "/v1.4.5/en/api/core-extra/EventManager/"
     }
   },
+  "api/core-extra/eventsystem/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/eventsystem/",
+      "en": "/v1.3.15/en/api/core-extra/eventsystem/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/eventsystem/",
+      "en": "/v1.3.0/en/api/core-extra/eventsystem/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/eventsystem/",
+      "en": "/v1.4.5/en/api/core-extra/eventsystem/"
+    }
+  },
   "api/core-extra/Extensions/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/core-extra/Extensions/",
@@ -24941,6 +25360,20 @@
       "en": "/v1.4.5/en/api/core-extra/GenericImageIdentifierVM/"
     }
   },
+  "api/core-extra/graph/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/graph/",
+      "en": "/v1.3.15/en/api/core-extra/graph/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/graph/",
+      "en": "/v1.3.0/en/api/core-extra/graph/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/graph/",
+      "en": "/v1.4.5/en/api/core-extra/graph/"
+    }
+  },
   "api/core-extra/GraphLinePointVM/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/core-extra/GraphLinePointVM/",
@@ -25079,6 +25512,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/core-extra/HTMLDebugData/",
       "en": "/v1.4.5/en/api/core-extra/HTMLDebugData/"
+    }
+  },
+  "api/core-extra/http/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/http/",
+      "en": "/v1.3.15/en/api/core-extra/http/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/http/",
+      "en": "/v1.3.0/en/api/core-extra/http/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/http/",
+      "en": "/v1.4.5/en/api/core-extra/http/"
     }
   },
   "api/core-extra/HttpDriverManager/": {
@@ -25499,6 +25946,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/core-extra/ImageIdentifier/",
       "en": "/v1.4.5/en/api/core-extra/ImageIdentifier/"
+    }
+  },
+  "api/core-extra/imageidentifiers/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/imageidentifiers/",
+      "en": "/v1.3.15/en/api/core-extra/imageidentifiers/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/imageidentifiers/",
+      "en": "/v1.3.0/en/api/core-extra/imageidentifiers/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/imageidentifiers/",
+      "en": "/v1.4.5/en/api/core-extra/imageidentifiers/"
     }
   },
   "api/core-extra/ImageIdentifierVM/": {
@@ -27239,6 +27700,20 @@
       "en": "/v1.4.5/en/api/core-extra/NewsItem/"
     }
   },
+  "api/core-extra/newsmanager/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/newsmanager/",
+      "en": "/v1.3.15/en/api/core-extra/newsmanager/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/newsmanager/",
+      "en": "/v1.3.0/en/api/core-extra/newsmanager/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/newsmanager/",
+      "en": "/v1.4.5/en/api/core-extra/newsmanager/"
+    }
+  },
   "api/core-extra/NewsManager/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/core-extra/NewsManager/",
@@ -28013,6 +28488,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/core-extra/RidingModel/",
       "en": "/v1.4.5/en/api/core-extra/RidingModel/"
+    }
+  },
+  "api/core-extra/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/root/",
+      "en": "/v1.3.15/en/api/core-extra/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/root/",
+      "en": "/v1.3.0/en/api/core-extra/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/root/",
+      "en": "/v1.4.5/en/api/core-extra/root/"
     }
   },
   "api/core-extra/RundownLineVM/": {
@@ -29619,6 +30108,20 @@
       "en": "/v1.4.5/en/api/core-extra/ViewModel/"
     }
   },
+  "api/core-extra/viewmodelcollection/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/core-extra/viewmodelcollection/",
+      "en": "/v1.3.15/en/api/core-extra/viewmodelcollection/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/core-extra/viewmodelcollection/",
+      "en": "/v1.3.0/en/api/core-extra/viewmodelcollection/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/core-extra/viewmodelcollection/",
+      "en": "/v1.4.5/en/api/core-extra/viewmodelcollection/"
+    }
+  },
   "api/core-extra/VirtualDirectoryAttribute/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/core-extra/VirtualDirectoryAttribute/",
@@ -30517,6 +31020,20 @@
       "en": "/v1.4.5/en/api/engine/GauntletMovieIdentifier/"
     }
   },
+  "api/engine/gauntletui/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/engine/gauntletui/",
+      "en": "/v1.3.15/en/api/engine/gauntletui/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/engine/gauntletui/",
+      "en": "/v1.3.0/en/api/engine/gauntletui/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/engine/gauntletui/",
+      "en": "/v1.4.5/en/api/engine/gauntletui/"
+    }
+  },
   "api/engine/HasTableauCache/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/engine/HasTableauCache/",
@@ -30907,6 +31424,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/engine/InputLayout/",
       "en": "/v1.4.5/en/api/engine/InputLayout/"
+    }
+  },
+  "api/engine/inputsystem/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/engine/inputsystem/",
+      "en": "/v1.3.15/en/api/engine/inputsystem/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/engine/inputsystem/",
+      "en": "/v1.3.0/en/api/engine/inputsystem/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/engine/inputsystem/",
+      "en": "/v1.4.5/en/api/engine/inputsystem/"
     }
   },
   "api/engine/Intersection/": {
@@ -31755,6 +32286,20 @@
       "en": "/v1.4.5/en/api/engine/NativeSelectionOptionData/"
     }
   },
+  "api/engine/options/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/engine/options/",
+      "en": "/v1.3.15/en/api/engine/options/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/engine/options/",
+      "en": "/v1.3.0/en/api/engine/options/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/engine/options/",
+      "en": "/v1.4.5/en/api/engine/options/"
+    }
+  },
   "api/engine/ParticleSystem/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/engine/ParticleSystem/",
@@ -31991,6 +32536,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/engine/RglScriptFieldType/",
       "en": "/v1.4.5/en/api/engine/RglScriptFieldType/"
+    }
+  },
+  "api/engine/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/engine/root/",
+      "en": "/v1.3.15/en/api/engine/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/engine/root/",
+      "en": "/v1.3.0/en/api/engine/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/engine/root/",
+      "en": "/v1.4.5/en/api/engine/root/"
     }
   },
   "api/engine/Scene/": {
@@ -32747,6 +33306,20 @@
       "en": "/v1.4.5/en/api/gui/AutoPinner/"
     }
   },
+  "api/gui/basetypes/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/gui/basetypes/",
+      "en": "/v1.3.15/en/api/gui/basetypes/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/basetypes/",
+      "en": "/v1.3.0/en/api/gui/basetypes/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/basetypes/",
+      "en": "/v1.4.5/en/api/gui/basetypes/"
+    }
+  },
   "api/gui/BeginMode/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/gui/BeginMode/",
@@ -32789,6 +33362,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/gui/CursorMovementDirection/",
       "en": "/v1.4.5/en/api/gui/CursorMovementDirection/"
+    }
+  },
+  "api/gui/data/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/gui/data/",
+      "en": "/v1.3.15/en/api/gui/data/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/data/",
+      "en": "/v1.3.0/en/api/gui/data/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/data/",
+      "en": "/v1.4.5/en/api/gui/data/"
     }
   },
   "api/gui/DataType/": {
@@ -33063,6 +33650,20 @@
       "en": "/v1.4.5/en/api/gui/PixelFormatDescriptorPixelTypes/"
     }
   },
+  "api/gui/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/gui/root/",
+      "en": "/v1.3.15/en/api/gui/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/root/",
+      "en": "/v1.3.0/en/api/gui/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/root/",
+      "en": "/v1.4.5/en/api/gui/root/"
+    }
+  },
   "api/gui/ScreenManager/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/gui/ScreenManager/",
@@ -33129,6 +33730,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/gui/SpriteSizeComparer/",
       "en": "/v1.4.5/en/api/gui/SpriteSizeComparer/"
+    }
+  },
+  "api/gui/standalone/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/gui/standalone/",
+      "en": "/v1.3.15/en/api/gui/standalone/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/standalone/",
+      "en": "/v1.4.5/en/api/gui/standalone/"
     }
   },
   "api/gui/Target/": {
@@ -33513,6 +34124,20 @@
       "en": "/v1.4.5/en/api/localization/EnglishTextProcessor/"
     }
   },
+  "api/localization/expressions/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/localization/expressions/",
+      "en": "/v1.3.15/en/api/localization/expressions/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/localization/expressions/",
+      "en": "/v1.3.0/en/api/localization/expressions/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/localization/expressions/",
+      "en": "/v1.4.5/en/api/localization/expressions/"
+    }
+  },
   "api/localization/FieldExpression/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/localization/FieldExpression/",
@@ -33821,6 +34446,20 @@
       "en": "/v1.4.5/en/api/localization/QualifiedIdentifierExpression/"
     }
   },
+  "api/localization/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/localization/root/",
+      "en": "/v1.3.15/en/api/localization/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/localization/root/",
+      "en": "/v1.3.0/en/api/localization/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/localization/root/",
+      "en": "/v1.4.5/en/api/localization/root/"
+    }
+  },
   "api/localization/RussianTextProcessor/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/localization/RussianTextProcessor/",
@@ -34017,6 +34656,20 @@
       "en": "/v1.4.5/en/api/localization/TextProcessingContext/"
     }
   },
+  "api/localization/textprocessor/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/localization/textprocessor/",
+      "en": "/v1.3.15/en/api/localization/textprocessor/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/localization/textprocessor/",
+      "en": "/v1.3.0/en/api/localization/textprocessor/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/localization/textprocessor/",
+      "en": "/v1.4.5/en/api/localization/textprocessor/"
+    }
+  },
   "api/localization/TokenDefinition/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/localization/TokenDefinition/",
@@ -34153,6 +34806,11 @@
       "en": "/v1.4.5/en/api/mission/AgentHelper/"
     }
   },
+  "api/mission/behaviors/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission/behaviors/"
+    }
+  },
   "api/mission/DefineGameNetworkMessageType/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission/DefineGameNetworkMessageType/",
@@ -34179,6 +34837,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission/DefineSynchedMissionObjectType/",
       "en": "/v1.4.5/en/api/mission/DefineSynchedMissionObjectType/"
+    }
+  },
+  "api/mission/diamond/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission/diamond/",
+      "en": "/v1.3.15/en/api/mission/diamond/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission/diamond/",
+      "en": "/v1.4.5/en/api/mission/diamond/"
     }
   },
   "api/mission/DropExtraWeaponOnStopUsageComponent/": {
@@ -34717,6 +35385,16 @@
       "en": "/v1.4.5/en/api/mission/MissionBehavior/"
     }
   },
+  "api/mission/missions/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission/missions/",
+      "en": "/v1.3.15/en/api/mission/missions/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission/missions/",
+      "en": "/v1.4.5/en/api/mission/missions/"
+    }
+  },
   "api/mission/MultiplayerBattleColors/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission/MultiplayerBattleColors/",
@@ -34813,6 +35491,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission/ProximityMapSearchStructInternal/",
       "en": "/v1.4.5/en/api/mission/ProximityMapSearchStructInternal/"
+    }
+  },
+  "api/mission/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission/root/",
+      "en": "/v1.3.15/en/api/mission/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission/root/",
+      "en": "/v1.3.0/en/api/mission/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission/root/",
+      "en": "/v1.4.5/en/api/mission/root/"
     }
   },
   "api/mission/ScriptingInterfaceBase/": {
@@ -38873,6 +39565,20 @@
       "en": "/v1.4.5/en/api/mission-ext/CompassWidget/"
     }
   },
+  "api/mission-ext/componentinterfaces/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/componentinterfaces/",
+      "en": "/v1.3.15/en/api/mission-ext/componentinterfaces/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/componentinterfaces/",
+      "en": "/v1.3.0/en/api/mission-ext/componentinterfaces/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/componentinterfaces/",
+      "en": "/v1.4.5/en/api/mission-ext/componentinterfaces/"
+    }
+  },
   "api/mission-ext/CompressionBasic/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/CompressionBasic/",
@@ -40441,6 +41147,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/DevelopmentRingVisualButtonWidget/",
       "en": "/v1.4.5/en/api/mission-ext/DevelopmentRingVisualButtonWidget/"
+    }
+  },
+  "api/mission-ext/diamond/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/diamond/",
+      "en": "/v1.3.15/en/api/mission-ext/diamond/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/diamond/",
+      "en": "/v1.4.5/en/api/mission-ext/diamond/"
     }
   },
   "api/mission-ext/Dimensions/": {
@@ -42037,6 +42753,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/GatherArmyTupleButtonWidget/",
       "en": "/v1.4.5/en/api/mission-ext/GatherArmyTupleButtonWidget/"
+    }
+  },
+  "api/mission-ext/gauntletui/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/gauntletui/",
+      "en": "/v1.3.15/en/api/mission-ext/gauntletui/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/gauntletui/",
+      "en": "/v1.3.0/en/api/mission-ext/gauntletui/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/gauntletui/",
+      "en": "/v1.4.5/en/api/mission-ext/gauntletui/"
     }
   },
   "api/mission-ext/GenderBasedSelectedValue/": {
@@ -43819,6 +44549,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/LaneStateEnum/",
       "en": "/v1.4.5/en/api/mission-ext/LaneStateEnum/"
+    }
+  },
+  "api/mission-ext/launcher/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/launcher/",
+      "en": "/v1.3.15/en/api/mission-ext/launcher/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/launcher/",
+      "en": "/v1.4.5/en/api/mission-ext/launcher/"
     }
   },
   "api/mission-ext/LauncherBoolBrushWidget/": {
@@ -46145,6 +46885,34 @@
       "en": "/v1.4.5/en/api/mission-ext/MissionRepresentativeBase/"
     }
   },
+  "api/mission-ext/missionrepresentatives/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/missionrepresentatives/",
+      "en": "/v1.3.15/en/api/mission-ext/missionrepresentatives/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/missionrepresentatives/",
+      "en": "/v1.3.0/en/api/mission-ext/missionrepresentatives/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/missionrepresentatives/",
+      "en": "/v1.4.5/en/api/mission-ext/missionrepresentatives/"
+    }
+  },
+  "api/mission-ext/missions/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/missions/",
+      "en": "/v1.3.15/en/api/mission-ext/missions/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/missions/",
+      "en": "/v1.3.0/en/api/mission-ext/missions/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/missions/",
+      "en": "/v1.4.5/en/api/mission-ext/missions/"
+    }
+  },
   "api/mission-ext/MissionScoreboardComponent/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/MissionScoreboardComponent/",
@@ -46253,6 +47021,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/MissionSiegeWeaponsController/",
       "en": "/v1.4.5/en/api/mission-ext/MissionSiegeWeaponsController/"
+    }
+  },
+  "api/mission-ext/missionspawnhandlers/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/missionspawnhandlers/",
+      "en": "/v1.3.15/en/api/mission-ext/missionspawnhandlers/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/missionspawnhandlers/",
+      "en": "/v1.3.0/en/api/mission-ext/missionspawnhandlers/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/missionspawnhandlers/",
+      "en": "/v1.4.5/en/api/mission-ext/missionspawnhandlers/"
     }
   },
   "api/mission-ext/MissionSpawnSettings/": {
@@ -48359,6 +49141,20 @@
       "en": "/v1.4.5/en/api/mission-ext/NavigationTargetSwitcher/"
     }
   },
+  "api/mission-ext/network/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/network/",
+      "en": "/v1.3.15/en/api/mission-ext/network/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/network/",
+      "en": "/v1.3.0/en/api/mission-ext/network/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/network/",
+      "en": "/v1.4.5/en/api/mission-ext/network/"
+    }
+  },
   "api/mission-ext/NetworkCommunication/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/NetworkCommunication/",
@@ -48499,6 +49295,20 @@
       "en": "/v1.4.5/en/api/mission-ext/ObjectiveMarkerWidget/"
     }
   },
+  "api/mission-ext/objects/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/objects/",
+      "en": "/v1.3.15/en/api/mission-ext/objects/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/objects/",
+      "en": "/v1.3.0/en/api/mission-ext/objects/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/objects/",
+      "en": "/v1.4.5/en/api/mission-ext/objects/"
+    }
+  },
   "api/mission-ext/OptionCategory/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/OptionCategory/",
@@ -48531,6 +49341,20 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/OptionGroupVM/",
       "en": "/v1.3.15/en/api/mission-ext/OptionGroupVM/"
+    }
+  },
+  "api/mission-ext/options/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/options/",
+      "en": "/v1.3.15/en/api/mission-ext/options/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/options/",
+      "en": "/v1.3.0/en/api/mission-ext/options/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/options/",
+      "en": "/v1.4.5/en/api/mission-ext/options/"
     }
   },
   "api/mission-ext/OptionsBrightnessImageSliderWidget/": {
@@ -50455,6 +51279,20 @@
       "en": "/v1.4.5/en/api/mission-ext/RoadStart/"
     }
   },
+  "api/mission-ext/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/root/",
+      "en": "/v1.3.15/en/api/mission-ext/root/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/root/",
+      "en": "/v1.3.0/en/api/mission-ext/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/root/",
+      "en": "/v1.4.5/en/api/mission-ext/root/"
+    }
+  },
   "api/mission-ext/RoundEndReason/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/RoundEndReason/",
@@ -51599,6 +52437,20 @@
       "en": "/v1.4.5/en/api/mission-ext/SoundPlayer/"
     }
   },
+  "api/mission-ext/source/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/source/",
+      "en": "/v1.3.15/en/api/mission-ext/source/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/source/",
+      "en": "/v1.3.0/en/api/mission-ext/source/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/source/",
+      "en": "/v1.4.5/en/api/mission-ext/source/"
+    }
+  },
   "api/mission-ext/SpawnComponent/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/SpawnComponent/",
@@ -52005,6 +52857,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/SteamLauncherModuleExtension/",
       "en": "/v1.4.5/en/api/mission-ext/SteamLauncherModuleExtension/"
+    }
+  },
+  "api/mission-ext/steamworkshop/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/steamworkshop/",
+      "en": "/v1.3.15/en/api/mission-ext/steamworkshop/"
     }
   },
   "api/mission-ext/StickAnimStage/": {
@@ -53519,6 +54377,20 @@
       "en": "/v1.4.5/en/api/mission-ext/ViewMethod/"
     }
   },
+  "api/mission-ext/viewmodelcollection/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/mission-ext/viewmodelcollection/",
+      "en": "/v1.3.15/en/api/mission-ext/viewmodelcollection/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/viewmodelcollection/",
+      "en": "/v1.3.0/en/api/mission-ext/viewmodelcollection/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/viewmodelcollection/",
+      "en": "/v1.4.5/en/api/mission-ext/viewmodelcollection/"
+    }
+  },
   "api/mission-ext/VillageTypeVisualIconBrushWidget/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/mission-ext/VillageTypeVisualIconBrushWidget/",
@@ -54085,6 +54957,16 @@
       "en": "/v1.4.5/en/api/save-system/CustomField/"
     }
   },
+  "api/save-system/definition/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/save-system/definition/",
+      "en": "/v1.3.15/en/api/save-system/definition/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/save-system/definition/",
+      "en": "/v1.4.5/en/api/save-system/definition/"
+    }
+  },
   "api/save-system/DefinitionContext/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/save-system/DefinitionContext/",
@@ -54385,6 +55267,16 @@
       "en": "/v1.4.5/en/api/save-system/LegacySaveContext/"
     }
   },
+  "api/save-system/load/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/save-system/load/",
+      "en": "/v1.3.15/en/api/save-system/load/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/save-system/load/",
+      "en": "/v1.4.5/en/api/save-system/load/"
+    }
+  },
   "api/save-system/LoadCallbackInitializator/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/save-system/LoadCallbackInitializator/",
@@ -54609,6 +55501,36 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/save-system/QuaternionBasicTypeSerializer/",
       "en": "/v1.4.5/en/api/save-system/QuaternionBasicTypeSerializer/"
+    }
+  },
+  "api/save-system/resolvers/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/save-system/resolvers/",
+      "en": "/v1.3.15/en/api/save-system/resolvers/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/save-system/resolvers/",
+      "en": "/v1.4.5/en/api/save-system/resolvers/"
+    }
+  },
+  "api/save-system/root/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/save-system/root/",
+      "en": "/v1.3.15/en/api/save-system/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/save-system/root/",
+      "en": "/v1.4.5/en/api/save-system/root/"
+    }
+  },
+  "api/save-system/save/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/save-system/save/",
+      "en": "/v1.3.15/en/api/save-system/save/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/save-system/save/",
+      "en": "/v1.4.5/en/api/save-system/save/"
     }
   },
   "api/save-system/SaveableBasicTypeDefiner/": {
@@ -55327,6 +56249,20 @@
       "en": "/v1.4.5/en/api/viewmodel/ClanCardSelectionItemPropertyInfo/"
     }
   },
+  "api/viewmodel/clanmanagement/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/viewmodel/clanmanagement/",
+      "en": "/v1.3.15/en/api/viewmodel/clanmanagement/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/clanmanagement/",
+      "en": "/v1.3.0/en/api/viewmodel/clanmanagement/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/clanmanagement/",
+      "en": "/v1.4.5/en/api/viewmodel/clanmanagement/"
+    }
+  },
   "api/viewmodel/DecisionTypes/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/viewmodel/DecisionTypes/",
@@ -55353,6 +56289,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/DescriptionType/",
       "en": "/v1.4.5/en/api/viewmodel/DescriptionType/"
+    }
+  },
+  "api/viewmodel/gamemenu/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/viewmodel/gamemenu/",
+      "en": "/v1.3.15/en/api/viewmodel/gamemenu/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/gamemenu/",
+      "en": "/v1.3.0/en/api/viewmodel/gamemenu/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/gamemenu/",
+      "en": "/v1.4.5/en/api/viewmodel/gamemenu/"
     }
   },
   "api/viewmodel/GameMenuItemCreationData/": {
@@ -55383,6 +56333,20 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/InputKeyItemVM/",
       "en": "/v1.4.5/en/api/viewmodel/InputKeyItemVM/"
+    }
+  },
+  "api/viewmodel/inventory/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/viewmodel/inventory/",
+      "en": "/v1.3.15/en/api/viewmodel/inventory/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/inventory/",
+      "en": "/v1.3.0/en/api/viewmodel/inventory/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/inventory/",
+      "en": "/v1.4.5/en/api/viewmodel/inventory/"
     }
   },
   "api/viewmodel/IssueQuestFlags/": {
@@ -55725,6 +56689,20 @@
       "en": "/v1.4.5/en/api/viewmodel/JournalLogIndex/"
     }
   },
+  "api/viewmodel/kingdommanagement/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/viewmodel/kingdommanagement/",
+      "en": "/v1.3.15/en/api/viewmodel/kingdommanagement/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/kingdommanagement/",
+      "en": "/v1.3.0/en/api/viewmodel/kingdommanagement/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/kingdommanagement/",
+      "en": "/v1.4.5/en/api/viewmodel/kingdommanagement/"
+    }
+  },
   "api/viewmodel/MenuOverlayContextList/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/viewmodel/MenuOverlayContextList/",
@@ -55789,6 +56767,20 @@
       "en": "/v1.4.5/en/api/viewmodel/VisualOrderExecutionParameters/"
     }
   },
+  "api/viewmodel/weaponcrafting/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/api/viewmodel/weaponcrafting/",
+      "en": "/v1.3.15/en/api/viewmodel/weaponcrafting/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/weaponcrafting/",
+      "en": "/v1.3.0/en/api/viewmodel/weaponcrafting/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/weaponcrafting/",
+      "en": "/v1.4.5/en/api/viewmodel/weaponcrafting/"
+    }
+  },
   "api/viewmodel/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/api/viewmodel/",
@@ -55817,10 +56809,62 @@
       "en": "/v1.4.5/en/api/"
     }
   },
+  "architecture/crash-boundaries/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/architecture/crash-boundaries/",
+      "en": "/v1.3.15/en/architecture/crash-boundaries/"
+    }
+  },
+  "architecture/developer-roadmap/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/architecture/developer-roadmap/",
+      "en": "/v1.3.15/en/architecture/developer-roadmap/"
+    }
+  },
+  "architecture/doc-contract/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/architecture/doc-contract/",
+      "en": "/v1.3.15/en/architecture/doc-contract/"
+    }
+  },
   "architecture/module-system/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/architecture/module-system/",
       "en": "/v1.3.15/en/architecture/module-system/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/architecture/module-system/",
+      "en": "/v1.3.0/en/architecture/module-system/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/architecture/module-system/",
+      "en": "/v1.4.5/en/architecture/module-system/"
+    }
+  },
+  "architecture/native-interop/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/architecture/native-interop/",
+      "en": "/v1.3.15/en/architecture/native-interop/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/architecture/native-interop/",
+      "en": "/v1.3.0/en/architecture/native-interop/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/architecture/native-interop/",
+      "en": "/v1.4.5/en/architecture/native-interop/"
+    }
+  },
+  "architecture/noise-policy/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/architecture/noise-policy/",
+      "en": "/v1.3.15/en/architecture/noise-policy/"
+    }
+  },
+  "architecture/sandbox-native-policy/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/architecture/sandbox-native-policy/",
+      "en": "/v1.3.15/en/architecture/sandbox-native-policy/"
     }
   },
   "architecture/save-system/": {
@@ -55831,18 +56875,38 @@
     "v1.3.0": {
       "zh": "/v1.3.0/zh/architecture/save-system/",
       "en": "/v1.3.0/en/architecture/save-system/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/architecture/save-system/",
+      "en": "/v1.4.5/en/architecture/save-system/"
     }
   },
   "architecture/sdk-overview/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/architecture/sdk-overview/",
       "en": "/v1.3.15/en/architecture/sdk-overview/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/architecture/sdk-overview/",
+      "en": "/v1.3.0/en/architecture/sdk-overview/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/architecture/sdk-overview/",
+      "en": "/v1.4.5/en/architecture/sdk-overview/"
     }
   },
   "architecture/version-delta/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/architecture/version-delta/",
       "en": "/v1.3.15/en/architecture/version-delta/"
+    },
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/architecture/version-delta/",
+      "en": "/v1.3.0/en/architecture/version-delta/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/architecture/version-delta/",
+      "en": "/v1.4.5/en/architecture/version-delta/"
     }
   },
   "architecture/": {
@@ -55863,54 +56927,110 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/asset-pipeline/",
       "en": "/v1.3.15/en/guide/asset-pipeline/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/asset-pipeline/",
+      "en": "/v1.4.5/en/guide/asset-pipeline/"
     }
   },
   "guide/campaign-system/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/campaign-system/",
       "en": "/v1.3.15/en/guide/campaign-system/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/campaign-system/",
+      "en": "/v1.4.5/en/guide/campaign-system/"
     }
   },
   "guide/common-patterns/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/common-patterns/",
       "en": "/v1.3.15/en/guide/common-patterns/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/common-patterns/",
+      "en": "/v1.4.5/en/guide/common-patterns/"
     }
   },
   "guide/game-systems-overview/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/game-systems-overview/",
       "en": "/v1.3.15/en/guide/game-systems-overview/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/game-systems-overview/",
+      "en": "/v1.4.5/en/guide/game-systems-overview/"
     }
   },
   "guide/gauntlet-ui/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/gauntlet-ui/",
       "en": "/v1.3.15/en/guide/gauntlet-ui/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/gauntlet-ui/",
+      "en": "/v1.4.5/en/guide/gauntlet-ui/"
     }
   },
   "guide/localization/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/localization/",
       "en": "/v1.3.15/en/guide/localization/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/localization/",
+      "en": "/v1.4.5/en/guide/localization/"
     }
   },
   "guide/mission-system/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/mission-system/",
       "en": "/v1.3.15/en/guide/mission-system/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/mission-system/",
+      "en": "/v1.4.5/en/guide/mission-system/"
+    }
+  },
+  "guide/mod-workflow/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/guide/mod-workflow/",
+      "en": "/v1.3.15/en/guide/mod-workflow/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/mod-workflow/",
+      "en": "/v1.4.5/en/guide/mod-workflow/"
+    }
+  },
+  "guide/modder-journey/": {
+    "v1.3.15": {
+      "zh": "/v1.3.15/zh/guide/modder-journey/",
+      "en": "/v1.3.15/en/guide/modder-journey/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/modder-journey/",
+      "en": "/v1.4.5/en/guide/modder-journey/"
     }
   },
   "guide/save-system-guide/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/save-system-guide/",
       "en": "/v1.3.15/en/guide/save-system-guide/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/save-system-guide/",
+      "en": "/v1.4.5/en/guide/save-system-guide/"
     }
   },
   "guide/troubleshooting/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/guide/troubleshooting/",
       "en": "/v1.3.15/en/guide/troubleshooting/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/troubleshooting/",
+      "en": "/v1.4.5/en/guide/troubleshooting/"
     }
   },
   "guide/": {
@@ -55921,48 +57041,80 @@
     "v1.3.0": {
       "zh": "/v1.3.0/zh/guide/",
       "en": "/v1.3.0/en/guide/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/guide/",
+      "en": "/v1.4.5/en/guide/"
     }
   },
   "native/EngineMethod/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/EngineMethod/",
       "en": "/v1.3.15/en/native/EngineMethod/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/EngineMethod/",
+      "en": "/v1.4.5/en/native/EngineMethod/"
     }
   },
   "native/IManaged/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/IManaged/",
       "en": "/v1.3.15/en/native/IManaged/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/IManaged/",
+      "en": "/v1.4.5/en/native/IManaged/"
     }
   },
   "native/INativeArray/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/INativeArray/",
       "en": "/v1.3.15/en/native/INativeArray/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/INativeArray/",
+      "en": "/v1.4.5/en/native/INativeArray/"
     }
   },
   "native/INativeObjectArray/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/INativeObjectArray/",
       "en": "/v1.3.15/en/native/INativeObjectArray/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/INativeObjectArray/",
+      "en": "/v1.4.5/en/native/INativeObjectArray/"
     }
   },
   "native/INativeString/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/INativeString/",
       "en": "/v1.3.15/en/native/INativeString/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/INativeString/",
+      "en": "/v1.4.5/en/native/INativeString/"
     }
   },
   "native/LibraryApplicationInterface/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/LibraryApplicationInterface/",
       "en": "/v1.3.15/en/native/LibraryApplicationInterface/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/LibraryApplicationInterface/",
+      "en": "/v1.4.5/en/native/LibraryApplicationInterface/"
     }
   },
   "native/NativeObject/": {
     "v1.3.15": {
       "zh": "/v1.3.15/zh/native/NativeObject/",
       "en": "/v1.3.15/en/native/NativeObject/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/NativeObject/",
+      "en": "/v1.4.5/en/native/NativeObject/"
     }
   },
   "native/": {
@@ -55973,6 +57125,10 @@
     "v1.3.0": {
       "zh": "/v1.3.0/zh/native/",
       "en": "/v1.3.0/en/native/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native/",
+      "en": "/v1.4.5/en/native/"
     }
   },
   "native-1.3.15-src/animation/": {
@@ -56057,6 +57213,10 @@
     "v1.3.15": {
       "zh": "/v1.3.15/zh/xml-reference/bugs/",
       "en": "/v1.3.15/en/xml-reference/bugs/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/xml-reference/bugs/",
+      "en": "/v1.4.5/en/xml-reference/bugs/"
     }
   },
   "xml-reference/": {
@@ -56067,6 +57227,10 @@
     "v1.3.0": {
       "zh": "/v1.3.0/zh/xml-reference/",
       "en": "/v1.3.0/en/xml-reference/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/xml-reference/",
+      "en": "/v1.4.5/en/xml-reference/"
     }
   },
   "_index/": {
@@ -56191,6 +57355,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/AgeModel/",
       "en": "/v1.4.5/en/api/campaign/AgeModel/"
+    }
+  },
+  "api/campaign/agentorigins/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/agentorigins/",
+      "en": "/v1.3.0/en/api/campaign/agentorigins/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/agentorigins/",
+      "en": "/v1.4.5/en/api/campaign/agentorigins/"
     }
   },
   "api/campaign/AgingCampaignBehavior/": {
@@ -56913,6 +58087,16 @@
       "en": "/v1.4.5/en/api/campaign/BarterSide/"
     }
   },
+  "api/campaign/bartersystem/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/bartersystem/",
+      "en": "/v1.3.0/en/api/campaign/bartersystem/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/bartersystem/",
+      "en": "/v1.4.5/en/api/campaign/bartersystem/"
+    }
+  },
   "api/campaign/BattanianTag/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/BattanianTag/",
@@ -57241,16 +58425,6 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/CampaignBattleResult/",
       "en": "/v1.4.5/en/api/campaign/CampaignBattleResult/"
-    }
-  },
-  "api/campaign/CampaignBehaviorBase/": {
-    "v1.3.0": {
-      "zh": "/v1.3.0/zh/api/campaign/CampaignBehaviorBase/",
-      "en": "/v1.3.0/en/api/campaign/CampaignBehaviorBase/"
-    },
-    "v1.4.5": {
-      "zh": "/v1.4.5/zh/api/campaign/CampaignBehaviorBase/",
-      "en": "/v1.4.5/en/api/campaign/CampaignBehaviorBase/"
     }
   },
   "api/campaign/CampaignBehaviorManager/": {
@@ -57803,6 +58977,16 @@
       "en": "/v1.4.5/en/api/campaign/CharacterCreationClanNamingStage/"
     }
   },
+  "api/campaign/charactercreationcontent/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/charactercreationcontent/",
+      "en": "/v1.3.0/en/api/campaign/charactercreationcontent/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/charactercreationcontent/",
+      "en": "/v1.4.5/en/api/campaign/charactercreationcontent/"
+    }
+  },
   "api/campaign/CharacterCreationContent/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/CharacterCreationContent/",
@@ -57913,6 +59097,16 @@
       "en": "/v1.4.5/en/api/campaign/CharacterDeveloperState/"
     }
   },
+  "api/campaign/characterdevelopment/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/characterdevelopment/",
+      "en": "/v1.3.0/en/api/campaign/characterdevelopment/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/characterdevelopment/",
+      "en": "/v1.4.5/en/api/campaign/characterdevelopment/"
+    }
+  },
   "api/campaign/CharacterDevelopmentCampaignBehavior/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/CharacterDevelopmentCampaignBehavior/",
@@ -58011,6 +59205,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/CharacterRestrictionFlags/",
       "en": "/v1.4.5/en/api/campaign/CharacterRestrictionFlags/"
+    }
+  },
+  "api/campaign/characters/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/characters/",
+      "en": "/v1.3.0/en/api/campaign/characters/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/characters/",
+      "en": "/v1.4.5/en/api/campaign/characters/"
     }
   },
   "api/campaign/CharacterStates/": {
@@ -58463,6 +59667,16 @@
       "en": "/v1.4.5/en/api/campaign/CompanionsCampaignBehavior/"
     }
   },
+  "api/campaign/componentinterfaces/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/componentinterfaces/",
+      "en": "/v1.3.0/en/api/campaign/componentinterfaces/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/componentinterfaces/",
+      "en": "/v1.4.5/en/api/campaign/componentinterfaces/"
+    }
+  },
   "api/campaign/Concept/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/Concept/",
@@ -58471,6 +59685,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/Concept/",
       "en": "/v1.4.5/en/api/campaign/Concept/"
+    }
+  },
+  "api/campaign/conversation/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/conversation/",
+      "en": "/v1.3.0/en/api/campaign/conversation/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/conversation/",
+      "en": "/v1.4.5/en/api/campaign/conversation/"
     }
   },
   "api/campaign/ConversationAnimationManager/": {
@@ -60543,6 +61767,16 @@
       "en": "/v1.4.5/en/api/campaign/EffectInfo/"
     }
   },
+  "api/campaign/election/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/election/",
+      "en": "/v1.3.0/en/api/campaign/election/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/election/",
+      "en": "/v1.4.5/en/api/campaign/election/"
+    }
+  },
   "api/campaign/EmissaryModel/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/EmissaryModel/",
@@ -60631,6 +61865,26 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/EncounterModel/",
       "en": "/v1.4.5/en/api/campaign/EncounterModel/"
+    }
+  },
+  "api/campaign/encounters/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/encounters/",
+      "en": "/v1.3.0/en/api/campaign/encounters/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/encounters/",
+      "en": "/v1.4.5/en/api/campaign/encounters/"
+    }
+  },
+  "api/campaign/encyclopedia/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/encyclopedia/",
+      "en": "/v1.3.0/en/api/campaign/encyclopedia/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/encyclopedia/",
+      "en": "/v1.4.5/en/api/campaign/encyclopedia/"
     }
   },
   "api/campaign/EncyclopediaFilterGroup/": {
@@ -60923,6 +62177,16 @@
       "en": "/v1.4.5/en/api/campaign/ExplainedNumber/"
     }
   },
+  "api/campaign/extensions/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/extensions/",
+      "en": "/v1.3.0/en/api/campaign/extensions/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/extensions/",
+      "en": "/v1.4.5/en/api/campaign/extensions/"
+    }
+  },
   "api/campaign/ExtortionByDesertersIssue/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/ExtortionByDesertersIssue/",
@@ -61213,6 +62477,16 @@
       "en": "/v1.4.5/en/api/campaign/FriendlyRelationshipTag/"
     }
   },
+  "api/campaign/gamecomponents/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/gamecomponents/",
+      "en": "/v1.3.0/en/api/campaign/gamecomponents/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/gamecomponents/",
+      "en": "/v1.4.5/en/api/campaign/gamecomponents/"
+    }
+  },
   "api/campaign/GameLoadingType/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/GameLoadingType/",
@@ -61283,6 +62557,16 @@
       "en": "/v1.4.5/en/api/campaign/GameMenuOption/"
     }
   },
+  "api/campaign/gamemenus/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/gamemenus/",
+      "en": "/v1.3.0/en/api/campaign/gamemenus/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/gamemenus/",
+      "en": "/v1.4.5/en/api/campaign/gamemenus/"
+    }
+  },
   "api/campaign/GameModels/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/GameModels/",
@@ -61321,6 +62605,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/GameSceneDataManager/",
       "en": "/v1.4.5/en/api/campaign/GameSceneDataManager/"
+    }
+  },
+  "api/campaign/gamestate/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/gamestate/",
+      "en": "/v1.3.0/en/api/campaign/gamestate/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/gamestate/",
+      "en": "/v1.4.5/en/api/campaign/gamestate/"
     }
   },
   "api/campaign/GangLeaderNeedsRecruitsIssue/": {
@@ -61831,6 +63125,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/HeroDeveloperResolver/",
       "en": "/v1.4.5/en/api/campaign/HeroDeveloperResolver/"
+    }
+  },
+  "api/campaign/heroes/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/heroes/",
+      "en": "/v1.3.0/en/api/campaign/heroes/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/heroes/",
+      "en": "/v1.4.5/en/api/campaign/heroes/"
     }
   },
   "api/campaign/HeroExecutionSceneNotificationData/": {
@@ -62611,6 +63915,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/INonReadyObjectHandler/",
       "en": "/v1.4.5/en/api/campaign/INonReadyObjectHandler/"
+    }
+  },
+  "api/campaign/inventory/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/inventory/",
+      "en": "/v1.3.0/en/api/campaign/inventory/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/inventory/",
+      "en": "/v1.4.5/en/api/campaign/inventory/"
     }
   },
   "api/campaign/InventoryCapacityModel/": {
@@ -63763,6 +65077,16 @@
       "en": "/v1.4.5/en/api/campaign/LocationModel/"
     }
   },
+  "api/campaign/logentries/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/logentries/",
+      "en": "/v1.3.0/en/api/campaign/logentries/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/logentries/",
+      "en": "/v1.4.5/en/api/campaign/logentries/"
+    }
+  },
   "api/campaign/LogEntry/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/LogEntry/",
@@ -64139,6 +65463,16 @@
       "en": "/v1.3.0/en/api/campaign/MapEventResultExplainer/"
     }
   },
+  "api/campaign/mapevents/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/mapevents/",
+      "en": "/v1.3.0/en/api/campaign/mapevents/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/mapevents/",
+      "en": "/v1.4.5/en/api/campaign/mapevents/"
+    }
+  },
   "api/campaign/MapEventSide/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/MapEventSide/",
@@ -64197,6 +65531,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/MapNavigationItemType/",
       "en": "/v1.4.5/en/api/campaign/MapNavigationItemType/"
+    }
+  },
+  "api/campaign/mapnotificationtypes/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/mapnotificationtypes/",
+      "en": "/v1.3.0/en/api/campaign/mapnotificationtypes/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/mapnotificationtypes/",
+      "en": "/v1.4.5/en/api/campaign/mapnotificationtypes/"
     }
   },
   "api/campaign/MapPatchData/": {
@@ -64759,6 +66103,16 @@
       "en": "/v1.4.5/en/api/campaign/NarrativeMenuOptionArgs/"
     }
   },
+  "api/campaign/naval/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/naval/",
+      "en": "/v1.3.0/en/api/campaign/naval/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/naval/",
+      "en": "/v1.4.5/en/api/campaign/naval/"
+    }
+  },
   "api/campaign/NavigationCache/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/NavigationCache/",
@@ -65167,6 +66521,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/ParleyCampaignBehavior/",
       "en": "/v1.4.5/en/api/campaign/ParleyCampaignBehavior/"
+    }
+  },
+  "api/campaign/parties/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/parties/",
+      "en": "/v1.3.0/en/api/campaign/parties/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/parties/",
+      "en": "/v1.4.5/en/api/campaign/parties/"
     }
   },
   "api/campaign/PartiesBuyFoodCampaignBehavior/": {
@@ -66499,6 +67863,16 @@
       "en": "/v1.4.5/en/api/campaign/QuestManager/"
     }
   },
+  "api/campaign/quests/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/quests/",
+      "en": "/v1.3.0/en/api/campaign/quests/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/quests/",
+      "en": "/v1.4.5/en/api/campaign/quests/"
+    }
+  },
   "api/campaign/QuestSettlement/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/QuestSettlement/",
@@ -66919,6 +68293,16 @@
       "en": "/v1.4.5/en/api/campaign/RomanticState/"
     }
   },
+  "api/campaign/roster/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/roster/",
+      "en": "/v1.3.0/en/api/campaign/roster/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/roster/",
+      "en": "/v1.4.5/en/api/campaign/roster/"
+    }
+  },
   "api/campaign/RosterTroopState/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/RosterTroopState/",
@@ -66989,6 +68373,16 @@
       "en": "/v1.4.5/en/api/campaign/SaveableCampaignTypeDefiner/"
     }
   },
+  "api/campaign/savecompability/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/savecompability/",
+      "en": "/v1.3.0/en/api/campaign/savecompability/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/savecompability/",
+      "en": "/v1.4.5/en/api/campaign/savecompability/"
+    }
+  },
   "api/campaign/SaveHandler/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign/SaveHandler/",
@@ -67007,6 +68401,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/SaveMode/",
       "en": "/v1.4.5/en/api/campaign/SaveMode/"
+    }
+  },
+  "api/campaign/sceneinformationpopuptypes/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/sceneinformationpopuptypes/",
+      "en": "/v1.3.0/en/api/campaign/sceneinformationpopuptypes/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/sceneinformationpopuptypes/",
+      "en": "/v1.4.5/en/api/campaign/sceneinformationpopuptypes/"
     }
   },
   "api/campaign/SceneModel/": {
@@ -67407,6 +68811,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/ShipTemplateStack/",
       "en": "/v1.4.5/en/api/campaign/ShipTemplateStack/"
+    }
+  },
+  "api/campaign/siege/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/siege/",
+      "en": "/v1.3.0/en/api/campaign/siege/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/siege/",
+      "en": "/v1.4.5/en/api/campaign/siege/"
     }
   },
   "api/campaign/SiegeAction/": {
@@ -67977,6 +69391,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign/TournamentGame/",
       "en": "/v1.4.5/en/api/campaign/TournamentGame/"
+    }
+  },
+  "api/campaign/tournamentgames/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign/tournamentgames/",
+      "en": "/v1.3.0/en/api/campaign/tournamentgames/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign/tournamentgames/",
+      "en": "/v1.4.5/en/api/campaign/tournamentgames/"
     }
   },
   "api/campaign/TournamentManager/": {
@@ -74909,6 +76333,16 @@
       "en": "/v1.4.5/en/api/campaign-ext/SabotageMissionController/"
     }
   },
+  "api/campaign-ext/sandbox/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/sandbox/",
+      "en": "/v1.3.0/en/api/campaign-ext/sandbox/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/sandbox/",
+      "en": "/v1.4.5/en/api/campaign-ext/sandbox/"
+    }
+  },
   "api/campaign-ext/SandboxAgentApplyDamageModel/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/campaign-ext/SandboxAgentApplyDamageModel/",
@@ -76017,6 +77451,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/campaign-ext/StealthZone/",
       "en": "/v1.4.5/en/api/campaign-ext/StealthZone/"
+    }
+  },
+  "api/campaign-ext/storymode/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/campaign-ext/storymode/",
+      "en": "/v1.3.0/en/api/campaign-ext/storymode/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/campaign-ext/storymode/",
+      "en": "/v1.4.5/en/api/campaign-ext/storymode/"
     }
   },
   "api/campaign-ext/StoryModeAgentDecideKilledOrUnconsciousModel/": {
@@ -77431,6 +78875,16 @@
       "en": "/v1.4.5/en/api/gameplay/PlayerAlleyData/"
     }
   },
+  "api/gameplay/sandbox/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gameplay/sandbox/",
+      "en": "/v1.3.0/en/api/gameplay/sandbox/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gameplay/sandbox/",
+      "en": "/v1.4.5/en/api/gameplay/sandbox/"
+    }
+  },
   "api/gameplay/SandBoxEditorMissionTester/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/gameplay/SandBoxEditorMissionTester/",
@@ -77449,6 +78903,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/gameplay/SnareTheWealthyQuestChoice/",
       "en": "/v1.4.5/en/api/gameplay/SnareTheWealthyQuestChoice/"
+    }
+  },
+  "api/gameplay/storymode/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gameplay/storymode/",
+      "en": "/v1.3.0/en/api/gameplay/storymode/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gameplay/storymode/",
+      "en": "/v1.4.5/en/api/gameplay/storymode/"
     }
   },
   "api/gameplay/": {
@@ -77887,6 +79351,16 @@
       "en": "/v1.4.5/en/api/gui/EventManager/"
     }
   },
+  "api/gui/extrawidgets/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/extrawidgets/",
+      "en": "/v1.3.0/en/api/gui/extrawidgets/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/extrawidgets/",
+      "en": "/v1.4.5/en/api/gui/extrawidgets/"
+    }
+  },
   "api/gui/FillBar/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/gui/FillBar/",
@@ -77975,6 +79449,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/gui/Function/",
       "en": "/v1.4.5/en/api/gui/Function/"
+    }
+  },
+  "api/gui/gamepadnavigation/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/gamepadnavigation/",
+      "en": "/v1.3.0/en/api/gui/gamepadnavigation/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/gamepadnavigation/",
+      "en": "/v1.4.5/en/api/gui/gamepadnavigation/"
     }
   },
   "api/gui/GamepadNavigationForcedScopeCollection/": {
@@ -78367,6 +79851,16 @@
       "en": "/v1.4.5/en/api/gui/Language/"
     }
   },
+  "api/gui/layout/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/layout/",
+      "en": "/v1.3.0/en/api/gui/layout/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/layout/",
+      "en": "/v1.4.5/en/api/gui/layout/"
+    }
+  },
   "api/gui/LayoutMethod/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/gui/LayoutMethod/",
@@ -78455,6 +79949,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/gui/PrefabExtensionContext/",
       "en": "/v1.4.5/en/api/gui/PrefabExtensionContext/"
+    }
+  },
+  "api/gui/prefabsystem/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/gui/prefabsystem/",
+      "en": "/v1.3.0/en/api/gui/prefabsystem/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/gui/prefabsystem/",
+      "en": "/v1.4.5/en/api/gui/prefabsystem/"
     }
   },
   "api/gui/PropertyOwnerObject/": {
@@ -81613,6 +83117,16 @@
       "en": "/v1.4.5/en/api/mission-ext/VideoPlaybackScreen/"
     }
   },
+  "api/mission-ext/view/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/mission-ext/view/",
+      "en": "/v1.3.0/en/api/mission-ext/view/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/view/",
+      "en": "/v1.4.5/en/api/mission-ext/view/"
+    }
+  },
   "api/mission-ext/ViewCreator/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/mission-ext/ViewCreator/",
@@ -82223,6 +83737,16 @@
       "en": "/v1.4.5/en/api/viewmodel/ArmyDispersionItemVM/"
     }
   },
+  "api/viewmodel/armymanagement/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/armymanagement/",
+      "en": "/v1.3.0/en/api/viewmodel/armymanagement/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/armymanagement/",
+      "en": "/v1.4.5/en/api/viewmodel/armymanagement/"
+    }
+  },
   "api/viewmodel/ArmyManagementBoostEventVM/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/viewmodel/ArmyManagementBoostEventVM/",
@@ -82473,6 +83997,16 @@
       "en": "/v1.4.5/en/api/viewmodel/CharacterAttributeItemVM/"
     }
   },
+  "api/viewmodel/charactercreation/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/charactercreation/",
+      "en": "/v1.3.0/en/api/viewmodel/charactercreation/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/charactercreation/",
+      "en": "/v1.4.5/en/api/viewmodel/charactercreation/"
+    }
+  },
   "api/viewmodel/CharacterCreationClanNamingStageVM/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/viewmodel/CharacterCreationClanNamingStageVM/",
@@ -82611,6 +84145,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/CharacterCreationStageBaseVM/",
       "en": "/v1.4.5/en/api/viewmodel/CharacterCreationStageBaseVM/"
+    }
+  },
+  "api/viewmodel/characterdeveloper/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/characterdeveloper/",
+      "en": "/v1.3.0/en/api/viewmodel/characterdeveloper/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/characterdeveloper/",
+      "en": "/v1.4.5/en/api/viewmodel/characterdeveloper/"
     }
   },
   "api/viewmodel/CharacterDeveloperHeroItemVM/": {
@@ -82943,6 +84487,16 @@
       "en": "/v1.4.5/en/api/viewmodel/ClanSupporterItemVM/"
     }
   },
+  "api/viewmodel/conversation/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/conversation/",
+      "en": "/v1.3.0/en/api/viewmodel/conversation/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/conversation/",
+      "en": "/v1.4.5/en/api/viewmodel/conversation/"
+    }
+  },
   "api/viewmodel/ConversationAggressivePartyItemVM/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/viewmodel/ConversationAggressivePartyItemVM/",
@@ -83223,6 +84777,16 @@
       "en": "/v1.4.5/en/api/viewmodel/DescriptionType__TaleWorlds_CampaignSystem_ViewModelCollection_Encyclopedia/"
     }
   },
+  "api/viewmodel/education/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/education/",
+      "en": "/v1.3.0/en/api/viewmodel/education/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/education/",
+      "en": "/v1.4.5/en/api/viewmodel/education/"
+    }
+  },
   "api/viewmodel/EducationGainedAttributeItemVM/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/viewmodel/EducationGainedAttributeItemVM/",
@@ -83321,6 +84885,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/EncounterMenuOverlayVM/",
       "en": "/v1.4.5/en/api/viewmodel/EncounterMenuOverlayVM/"
+    }
+  },
+  "api/viewmodel/encyclopedia/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/encyclopedia/",
+      "en": "/v1.3.0/en/api/viewmodel/encyclopedia/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/encyclopedia/",
+      "en": "/v1.4.5/en/api/viewmodel/encyclopedia/"
     }
   },
   "api/viewmodel/EncyclopediaClanPageVM/": {
@@ -84683,6 +86257,16 @@
       "en": "/v1.4.5/en/api/viewmodel/ManagementItemComparer/"
     }
   },
+  "api/viewmodel/map/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/map/",
+      "en": "/v1.3.0/en/api/viewmodel/map/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/map/",
+      "en": "/v1.4.5/en/api/viewmodel/map/"
+    }
+  },
   "api/viewmodel/MapBarShortcuts/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/viewmodel/MapBarShortcuts/",
@@ -84941,6 +86525,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/OverlayType/",
       "en": "/v1.4.5/en/api/viewmodel/OverlayType/"
+    }
+  },
+  "api/viewmodel/party/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/party/",
+      "en": "/v1.3.0/en/api/viewmodel/party/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/party/",
+      "en": "/v1.4.5/en/api/viewmodel/party/"
     }
   },
   "api/viewmodel/PartyAddedToArmyByPlayerEvent/": {
@@ -85363,6 +86957,16 @@
       "en": "/v1.4.5/en/api/viewmodel/QuestNotificationItemVM/"
     }
   },
+  "api/viewmodel/quests/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/quests/",
+      "en": "/v1.3.0/en/api/viewmodel/quests/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/quests/",
+      "en": "/v1.4.5/en/api/viewmodel/quests/"
+    }
+  },
   "api/viewmodel/QuestStageTaskVM/": {
     "v1.3.0": {
       "zh": "/v1.3.0/zh/api/viewmodel/QuestStageTaskVM/",
@@ -85471,6 +87075,16 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/RefinementVM/",
       "en": "/v1.4.5/en/api/viewmodel/RefinementVM/"
+    }
+  },
+  "api/viewmodel/root/": {
+    "v1.3.0": {
+      "zh": "/v1.3.0/zh/api/viewmodel/root/",
+      "en": "/v1.3.0/en/api/viewmodel/root/"
+    },
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/root/",
+      "en": "/v1.4.5/en/api/viewmodel/root/"
     }
   },
   "api/viewmodel/SelectableFiefItemPropertyVM/": {
@@ -87179,6 +88793,12 @@
       "en": "/v1.4.5/en/api/mission/ModLogger/"
     }
   },
+  "api/mission/multiplayer/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission/multiplayer/",
+      "en": "/v1.4.5/en/api/mission/multiplayer/"
+    }
+  },
   "api/mission/NetworkStatusReplicationComponent/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission/NetworkStatusReplicationComponent/",
@@ -87413,6 +89033,12 @@
       "en": "/v1.4.5/en/api/mission-ext/CPUBenchmarkMissionSpawnHandler/"
     }
   },
+  "api/mission-ext/custombattle/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/custombattle/",
+      "en": "/v1.4.5/en/api/mission-ext/custombattle/"
+    }
+  },
   "api/mission-ext/CustomBattleBannerEffects/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/CustomBattleBannerEffects/",
@@ -87597,6 +89223,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/DCSHelperVM/",
       "en": "/v1.4.5/en/api/mission-ext/DCSHelperVM/"
+    }
+  },
+  "api/mission-ext/dedicatedcustomserver/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/dedicatedcustomserver/",
+      "en": "/v1.4.5/en/api/mission-ext/dedicatedcustomserver/"
     }
   },
   "api/mission-ext/DedicatedCustomServerClientHelperSubModule/": {
@@ -89111,6 +90743,12 @@
       "en": "/v1.4.5/en/api/mission-ext/MPVoicePlayerVM/"
     }
   },
+  "api/mission-ext/multiplayer/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/mission-ext/multiplayer/",
+      "en": "/v1.4.5/en/api/mission-ext/multiplayer/"
+    }
+  },
   "api/mission-ext/MultiplayerAchievementComponent/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/mission-ext/MultiplayerAchievementComponent/",
@@ -89837,6 +91475,12 @@
       "en": "/v1.4.5/en/api/viewmodel/AuxiliaryKeyOptionVM/"
     }
   },
+  "api/viewmodel/bannerbuilder/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/bannerbuilder/",
+      "en": "/v1.4.5/en/api/viewmodel/bannerbuilder/"
+    }
+  },
   "api/viewmodel/BannerBuilderCategoryVM/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/BannerBuilderCategoryVM/",
@@ -89987,6 +91631,12 @@
       "en": "/v1.4.5/en/api/viewmodel/EquipmentActionItemVM/"
     }
   },
+  "api/viewmodel/escapemenu/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/escapemenu/",
+      "en": "/v1.4.5/en/api/viewmodel/escapemenu/"
+    }
+  },
   "api/viewmodel/EscapeMenuItemVM/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/EscapeMenuItemVM/",
@@ -90003,6 +91653,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/ExposureOptionVM/",
       "en": "/v1.4.5/en/api/viewmodel/ExposureOptionVM/"
+    }
+  },
+  "api/viewmodel/facegenerator/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/facegenerator/",
+      "en": "/v1.4.5/en/api/viewmodel/facegenerator/"
     }
   },
   "api/viewmodel/FacegenListItemVM/": {
@@ -90065,6 +91721,12 @@
       "en": "/v1.4.5/en/api/viewmodel/GameKeyOptionVM/"
     }
   },
+  "api/viewmodel/gameoptions/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/gameoptions/",
+      "en": "/v1.4.5/en/api/viewmodel/gameoptions/"
+    }
+  },
   "api/viewmodel/GamepadOptionCategoryVM/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/GamepadOptionCategoryVM/",
@@ -90113,6 +91775,12 @@
       "en": "/v1.4.5/en/api/viewmodel/HeroAgeComparer/"
     }
   },
+  "api/viewmodel/hud/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/hud/",
+      "en": "/v1.4.5/en/api/viewmodel/hud/"
+    }
+  },
   "api/viewmodel/IInteractionInterfaceHandler/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/IInteractionInterfaceHandler/",
@@ -90147,6 +91815,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/InputKeyItemVM__TaleWorlds_CampaignSystem_ViewModelCollection_Input/",
       "en": "/v1.4.5/en/api/viewmodel/InputKeyItemVM__TaleWorlds_CampaignSystem_ViewModelCollection_Input/"
+    }
+  },
+  "api/viewmodel/inquiries/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/inquiries/",
+      "en": "/v1.4.5/en/api/viewmodel/inquiries/"
     }
   },
   "api/viewmodel/ItemDeadComparer/": {
@@ -90353,6 +92027,12 @@
       "en": "/v1.4.5/en/api/viewmodel/MissionPrimaryInteractionItemVM/"
     }
   },
+  "api/viewmodel/missions/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/missions/",
+      "en": "/v1.4.5/en/api/viewmodel/missions/"
+    }
+  },
   "api/viewmodel/MissionSiegeEngineMarkerTargetVM/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/MissionSiegeEngineMarkerTargetVM/",
@@ -90425,6 +92105,12 @@
       "en": "/v1.4.5/en/api/viewmodel/OptionsVM/"
     }
   },
+  "api/viewmodel/order/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/order/",
+      "en": "/v1.4.5/en/api/viewmodel/order/"
+    }
+  },
   "api/viewmodel/OrderItemBaseVM/": {
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/OrderItemBaseVM/",
@@ -90435,6 +92121,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/OrderItemVM/",
       "en": "/v1.4.5/en/api/viewmodel/OrderItemVM/"
+    }
+  },
+  "api/viewmodel/orderofbattle/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/orderofbattle/",
+      "en": "/v1.4.5/en/api/viewmodel/orderofbattle/"
     }
   },
   "api/viewmodel/OrderOfBattleFormationClassChangedEvent/": {
@@ -90591,6 +92283,12 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/ReturnVisualOrder/",
       "en": "/v1.4.5/en/api/viewmodel/ReturnVisualOrder/"
+    }
+  },
+  "api/viewmodel/scoreboard/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/api/viewmodel/scoreboard/",
+      "en": "/v1.4.5/en/api/viewmodel/scoreboard/"
     }
   },
   "api/viewmodel/ScoreboardBaseVM/": {
@@ -90765,6 +92463,96 @@
     "v1.4.5": {
       "zh": "/v1.4.5/zh/api/viewmodel/WalkModeItemVM/",
       "en": "/v1.4.5/en/api/viewmodel/WalkModeItemVM/"
+    }
+  },
+  "native-1.4.5-src/animation/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/animation/",
+      "en": "/v1.4.5/en/native-1.4.5-src/animation/"
+    }
+  },
+  "native-1.4.5-src/asset-pipeline/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/asset-pipeline/",
+      "en": "/v1.4.5/en/native-1.4.5-src/asset-pipeline/"
+    }
+  },
+  "native-1.4.5-src/audio/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/audio/",
+      "en": "/v1.4.5/en/native-1.4.5-src/audio/"
+    }
+  },
+  "native-1.4.5-src/COMPLETE-FUNCTIONS/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/COMPLETE-FUNCTIONS/",
+      "en": "/v1.4.5/en/native-1.4.5-src/COMPLETE-FUNCTIONS/"
+    }
+  },
+  "native-1.4.5-src/COMPLETE-TYPES/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/COMPLETE-TYPES/",
+      "en": "/v1.4.5/en/native-1.4.5-src/COMPLETE-TYPES/"
+    }
+  },
+  "native-1.4.5-src/engine-core/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/engine-core/",
+      "en": "/v1.4.5/en/native-1.4.5-src/engine-core/"
+    }
+  },
+  "native-1.4.5-src/exports-and-bridge/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/exports-and-bridge/",
+      "en": "/v1.4.5/en/native-1.4.5-src/exports-and-bridge/"
+    }
+  },
+  "native-1.4.5-src/media-codec-ui/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/media-codec-ui/",
+      "en": "/v1.4.5/en/native-1.4.5-src/media-codec-ui/"
+    }
+  },
+  "native-1.4.5-src/mission/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/mission/",
+      "en": "/v1.4.5/en/native-1.4.5-src/mission/"
+    }
+  },
+  "native-1.4.5-src/network/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/network/",
+      "en": "/v1.4.5/en/native-1.4.5-src/network/"
+    }
+  },
+  "native-1.4.5-src/physics/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/physics/",
+      "en": "/v1.4.5/en/native-1.4.5-src/physics/"
+    }
+  },
+  "native-1.4.5-src/rendering/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/rendering/",
+      "en": "/v1.4.5/en/native-1.4.5-src/rendering/"
+    }
+  },
+  "native-1.4.5-src/scene/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/scene/",
+      "en": "/v1.4.5/en/native-1.4.5-src/scene/"
+    }
+  },
+  "native-1.4.5-src/utilities/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/utilities/",
+      "en": "/v1.4.5/en/native-1.4.5-src/utilities/"
+    }
+  },
+  "native-1.4.5-src/": {
+    "v1.4.5": {
+      "zh": "/v1.4.5/zh/native-1.4.5-src/",
+      "en": "/v1.4.5/en/native-1.4.5-src/"
     }
   }
 }

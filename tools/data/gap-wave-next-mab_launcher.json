@@ -1,0 +1,155 @@
+{
+  "count": 25,
+  "types": [
+    {
+      "typeName": "Program",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Program__TaleWorlds_MountAndBlade_Launcher.md"
+    },
+    {
+      "typeName": "Buttons",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Buttons.md"
+    },
+    {
+      "typeName": "DependentVersionMissmatchItem",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DependentVersionMissmatchItem.md"
+    },
+    {
+      "typeName": "DLLResult",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DLLResult.md"
+    },
+    {
+      "typeName": "Icon",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Icon.md"
+    },
+    {
+      "typeName": "LauncherConfirmStartVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherConfirmStartVM.md"
+    },
+    {
+      "typeName": "LauncherHintVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherHintVM.md"
+    },
+    {
+      "typeName": "LauncherInformationVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherInformationVM.md"
+    },
+    {
+      "typeName": "LauncherModsVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherModsVM.md"
+    },
+    {
+      "typeName": "LauncherModuleVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherModuleVM.md"
+    },
+    {
+      "typeName": "LauncherNewsItemVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherNewsItemVM.md"
+    },
+    {
+      "typeName": "LauncherNewsVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherNewsVM.md"
+    },
+    {
+      "typeName": "LauncherOnlineImageTextureProvider",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherOnlineImageTextureProvider.md"
+    },
+    {
+      "typeName": "LauncherPlatform",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherPlatform.md"
+    },
+    {
+      "typeName": "LauncherPlatformType",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherPlatformType.md"
+    },
+    {
+      "typeName": "LauncherSubModule",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherSubModule.md"
+    },
+    {
+      "typeName": "LauncherUI",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherUI.md"
+    },
+    {
+      "typeName": "LauncherVM",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/LauncherVM.md"
+    },
+    {
+      "typeName": "NativeMessageBox",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/NativeMessageBox.md"
+    },
+    {
+      "typeName": "Program",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Program__TaleWorlds_MountAndBlade_Launcher_Library.md"
+    },
+    {
+      "typeName": "Result",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/Result.md"
+    },
+    {
+      "typeName": "StandaloneUIDomain",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/StandaloneUIDomain.md"
+    },
+    {
+      "typeName": "ImageSizePolicies",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library.CustomWidgets",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/ImageSizePolicies__TaleWorlds_MountAndBlade_Launcher_Library_CustomWidgets.md"
+    },
+    {
+      "typeName": "DLLCheckDataCollection",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Library.UserDatas",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/DLLCheckDataCollection.md"
+    },
+    {
+      "typeName": "SteamLauncherModuleExtension",
+      "namespace": "TaleWorlds.MountAndBlade.Launcher.Steam",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/mission-ext/SteamLauncherModuleExtension.md"
+    }
+  ]
+}

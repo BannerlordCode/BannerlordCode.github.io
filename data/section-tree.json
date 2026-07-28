@@ -319,7 +319,7 @@
     "/v1.3.15/en/api/campaign/": {
       "title": "campaign index",
       "weight": null,
-      "pages": 50,
+      "pages": 51,
       "subsections": []
     },
     "/v1.3.15/en/api/campaign-ext/": {
@@ -391,13 +391,13 @@
     "/v1.3.15/en/architecture/": {
       "title": "Architecture",
       "weight": null,
-      "pages": 4,
+      "pages": 5,
       "subsections": []
     },
     "/v1.3.15/en/guide/": {
       "title": "Getting Started Guide",
       "weight": null,
-      "pages": 9,
+      "pages": 11,
       "subsections": []
     },
     "/v1.3.15/en/native/": {
@@ -453,7 +453,7 @@
     "/v1.3.15/zh/api/campaign/": {
       "title": "campaign 目录",
       "weight": null,
-      "pages": 50,
+      "pages": 51,
       "subsections": []
     },
     "/v1.3.15/zh/api/campaign-ext/": {
@@ -525,13 +525,13 @@
     "/v1.3.15/zh/architecture/": {
       "title": "架构总览 / Architecture",
       "weight": null,
-      "pages": 4,
+      "pages": 5,
       "subsections": []
     },
     "/v1.3.15/zh/guide/": {
       "title": "入门指南 / Getting Started Guide",
       "weight": null,
-      "pages": 9,
+      "pages": 11,
       "subsections": []
     },
     "/v1.3.15/zh/native/": {
@@ -567,7 +567,10 @@
       "pages": 0,
       "subsections": [
         "/v1.4.5/en/api/",
-        "/v1.4.5/en/architecture/"
+        "/v1.4.5/en/architecture/",
+        "/v1.4.5/en/guide/",
+        "/v1.4.5/en/native/",
+        "/v1.4.5/en/xml-reference/"
       ]
     },
     "/v1.4.5/en/api/": {
@@ -671,7 +674,25 @@
     "/v1.4.5/en/architecture/": {
       "title": "v1.4.5 Architecture",
       "weight": null,
-      "pages": 0,
+      "pages": 5,
+      "subsections": []
+    },
+    "/v1.4.5/en/guide/": {
+      "title": "Getting Started Guide",
+      "weight": null,
+      "pages": 11,
+      "subsections": []
+    },
+    "/v1.4.5/en/native/": {
+      "title": "Native Reference",
+      "weight": null,
+      "pages": 7,
+      "subsections": []
+    },
+    "/v1.4.5/en/xml-reference/": {
+      "title": "XML Reference",
+      "weight": null,
+      "pages": 1,
       "subsections": []
     },
     "/v1.4.5/zh/": {
@@ -680,7 +701,10 @@
       "pages": 0,
       "subsections": [
         "/v1.4.5/zh/api/",
-        "/v1.4.5/zh/architecture/"
+        "/v1.4.5/zh/architecture/",
+        "/v1.4.5/zh/guide/",
+        "/v1.4.5/zh/native/",
+        "/v1.4.5/zh/xml-reference/"
       ]
     },
     "/v1.4.5/zh/api/": {
@@ -784,11 +808,29 @@
     "/v1.4.5/zh/architecture/": {
       "title": "v1.4.5 架构总览 / Architecture",
       "weight": null,
-      "pages": 0,
+      "pages": 5,
+      "subsections": []
+    },
+    "/v1.4.5/zh/guide/": {
+      "title": "入门指南 / Getting Started Guide",
+      "weight": null,
+      "pages": 11,
+      "subsections": []
+    },
+    "/v1.4.5/zh/native/": {
+      "title": "原生接口 / Native Reference",
+      "weight": null,
+      "pages": 7,
+      "subsections": []
+    },
+    "/v1.4.5/zh/xml-reference/": {
+      "title": "XML 参考 / XML Reference",
+      "weight": null,
+      "pages": 1,
       "subsections": []
     },
     "/versions/": {
-      "title": "跨版本类对比 / Cross-Version Class Comparison",
+      "title": "璺ㄧ増鏈被瀵规瘮 / Cross-Version Class Comparison",
       "weight": null,
       "pages": 18,
       "subsections": []

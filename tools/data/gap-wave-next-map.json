@@ -1,0 +1,89 @@
+{
+  "count": 14,
+  "types": [
+    {
+      "typeName": "IInteractablePoint",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IInteractablePoint.md"
+    },
+    {
+      "typeName": "ILocatable",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign/ILocatable.md"
+    },
+    {
+      "typeName": "IMapPoint",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapPoint.md"
+    },
+    {
+      "typeName": "IMapScene",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapScene.md"
+    },
+    {
+      "typeName": "IMapSceneCreator",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapSceneCreator.md"
+    },
+    {
+      "typeName": "LocatorGrid",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign/LocatorGrid.md"
+    },
+    {
+      "typeName": "MapMarker",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MapMarker.md"
+    },
+    {
+      "typeName": "WeatherNode",
+      "namespace": "TaleWorlds.CampaignSystem.Map",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/WeatherNode.md"
+    },
+    {
+      "typeName": "ISettlementDataHolder",
+      "namespace": "TaleWorlds.CampaignSystem.Map.DistanceCache",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISettlementDataHolder.md"
+    },
+    {
+      "typeName": "NavigationCacheElement",
+      "namespace": "TaleWorlds.CampaignSystem.Map.DistanceCache",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign/NavigationCacheElement.md"
+    },
+    {
+      "typeName": "SandBoxNavigationCache",
+      "namespace": "TaleWorlds.CampaignSystem.Map.DistanceCache",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SandBoxNavigationCache.md"
+    },
+    {
+      "typeName": "HideoutEventComponent",
+      "namespace": "TaleWorlds.CampaignSystem.MapEvents",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/HideoutEventComponent.md"
+    },
+    {
+      "typeName": "IMapEventVisual",
+      "namespace": "TaleWorlds.CampaignSystem.MapEvents",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IMapEventVisual.md"
+    },
+    {
+      "typeName": "PowerCalculationContext",
+      "namespace": "TaleWorlds.CampaignSystem.MapEvents",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PowerCalculationContext.md"
+    }
+  ]
+}

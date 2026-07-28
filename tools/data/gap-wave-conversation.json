@@ -1,0 +1,332 @@
+[
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "AlliedLordTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "AmoralTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "AnyNotableTypeTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "AttackingTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "AttractedToPlayerTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "CalculatingTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "CautiousTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "CombatantTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "DeviousTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "EngagedToPlayerTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "GenerosityTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "HighRegisterTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "ImpoliteTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "ImpulsiveTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "LowRegisterTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NoConflictTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NonCombatantTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NonviolentProfessionTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NpcIsFemaleTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NPCIsInSeaTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NpcIsLiegeTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "NpcIsMaleTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "OldTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "OutlawSympathyTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PersonaCurtTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PersonaEarnestTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PersonaSoftspokenTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsAffiliatedTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsAtSeaTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsBrotherTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsDaughterTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsFamousTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsFatherTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsFemaleTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsKinTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsKnownButNotFamousTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsMaleTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsMotherTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsNobleTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PlayerIsSisterTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "PreacherNotableTypeTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "RogueSkillsTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "RomanticallyInvolvedTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "SexistTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "TribalRegisterTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "UncharitableTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "UnderCommandTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "UngratefulTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "ValorTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaCurtLowerTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaCurtTribalTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaCurtUpperTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaEarnestLowerTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaEarnestTribalTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaEarnestUpperTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaIronicLowerTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaIronicTribalTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaIronicUpperTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaSoftspokenLowerTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaSoftspokenTribalTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "VoiceGroupPersonaSoftspokenUpperTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "WandererTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.CampaignSystem.Conversation.Tags",
+    "name": "WaryTag",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation",
+    "name": "ConversationOptionListPanel",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Conversation",
+    "name": "PersuasionResultChanceContainerListPanel",
+    "kind": "class"
+  },
+  {
+    "ns": "TaleWorlds.MountAndBlade.GauntletUI.Widgets.Mission.Conversation",
+    "name": "PersuasionChanceVisualListPanel",
+    "kind": "class"
+  }
+]

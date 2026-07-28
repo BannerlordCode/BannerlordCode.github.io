@@ -1,0 +1,161 @@
+{
+  "count": 26,
+  "types": [
+    {
+      "typeName": "AIBehaviorData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/AIBehaviorData.md"
+    },
+    {
+      "typeName": "BattleResultPartyData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/BattleResultPartyData.md"
+    },
+    {
+      "typeName": "CampaignData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignData.md"
+    },
+    {
+      "typeName": "CampaignEntityComponent",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignEntityComponent.md"
+    },
+    {
+      "typeName": "CampaignObjectManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignObjectManager.md"
+    },
+    {
+      "typeName": "CampaignPeriodicEventManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CampaignPeriodicEventManager.md"
+    },
+    {
+      "typeName": "CharacterData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterData.md"
+    },
+    {
+      "typeName": "CharacterRelationManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/CharacterRelationManager.md"
+    },
+    {
+      "typeName": "ConversationSceneData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ConversationSceneData.md"
+    },
+    {
+      "typeName": "EncounterManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/EncounterManager.md"
+    },
+    {
+      "typeName": "FactionManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/FactionManager.md"
+    },
+    {
+      "typeName": "GameSceneDataManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/GameSceneDataManager.md"
+    },
+    {
+      "typeName": "IAgentBehaviorManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/IAgentBehaviorManager.md"
+    },
+    {
+      "typeName": "ICampaignBehaviorManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICampaignBehaviorManager.md"
+    },
+    {
+      "typeName": "ICampaignMissionManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ICampaignMissionManager.md"
+    },
+    {
+      "typeName": "INavigationHandler",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/INavigationHandler.md"
+    },
+    {
+      "typeName": "ISandBoxMissionManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISandBoxMissionManager.md"
+    },
+    {
+      "typeName": "ISaveManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/ISaveManager.md"
+    },
+    {
+      "typeName": "KingdomManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/KingdomManager.md"
+    },
+    {
+      "typeName": "MeetingSceneData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/MeetingSceneData.md"
+    },
+    {
+      "typeName": "PropertyObjectData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/PropertyObjectData.md"
+    },
+    {
+      "typeName": "SandBoxManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SandBoxManager.md"
+    },
+    {
+      "typeName": "SaveHandler",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SaveHandler.md"
+    },
+    {
+      "typeName": "SingleplayerBattleSceneData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SingleplayerBattleSceneData.md"
+    },
+    {
+      "typeName": "SkillObjectData",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/SkillObjectData.md"
+    },
+    {
+      "typeName": "VisualTrackerManager",
+      "namespace": "TaleWorlds.CampaignSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/campaign-ext/VisualTrackerManager.md"
+    }
+  ]
+}

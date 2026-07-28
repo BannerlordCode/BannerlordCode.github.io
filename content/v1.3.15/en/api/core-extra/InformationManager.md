@@ -1,178 +1,242 @@
 ---
 title: "InformationManager"
-description: "Auto-generated class reference for InformationManager."
+description: "Static facade for player-facing messages, confirm dialogs, and tooltips: DisplayMessage / ShowInquiry. Not a log or debug sink."
 ---
+
 # InformationManager
 
-**Namespace:** TaleWorlds.Library
-**Module:** TaleWorlds.Library
-**Type:** `public static class InformationManager`
-**Base:** none
-**File:** `TaleWorlds.Library/InformationManager.cs`
+**Namespace:** TaleWorlds.Library  
+**Module:** TaleWorlds.Library  
+**Type:** `public static class InformationManager`  
+**Base:** —  
+**File:** `TaleWorlds.Library/InformationManager.cs`  
+**Authority source:** 1.4.5 (semantics match 1.3.15)
 
 ## Overview
 
-`InformationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+`InformationManager` is Bannerlord's static facade for **player-visible** feedback: screen float text, system notifications, modal confirms (`Inquiry`), text-input dialogs (`TextInquiry`), and hover tooltips.
+
+It does **not** render UI itself. Public methods only raise internal `event`s / `Func`s. The real Gauntlet layer in View assemblies subscribes and draws. So:
+
+- With UI subscribers: the player sees the message
+- Without subscribers (pure tests, too-early lifecycle): the call is a no-op. No throw, and **no** log file write
+
+**It is not:**
+
+| Misuse | Correct alternative |
+|--------|---------------------|
+| Dev logs / crash diagnostics | `Debug.Print`, your own file log, Harmony debugging |
+| Campaign map notification strip (clickable MapNotification) | `Campaign.Current` notification system / the matching MapNotification type |
+| In-mission kill feed / chat | Mission / multiplayer-specific VM paths |
 
 ## Mental Model
 
-Treat `InformationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `RegisteredTypes` | `public static IReadOnlyDictionary<Type, InformationManager.TooltipRegistry> RegisteredTypes { get; }` |
-
-## Key Methods
-
-### IsAnyInquiryActive
-`public static bool IsAnyInquiryActive()`
-
-**Purpose:** Determines whether the this instance is in the any inquiry active state or condition.
-
-```csharp
-// Static call; no instance required
-InformationManager.IsAnyInquiryActive();
+```
+Mod / logic layer
+    │  InformationManager.DisplayMessage / ShowInquiry / ...
+    ▼
+Static event bus (Library, no render state)
+    │  DisplayMessageInternal / OnShowInquiry / ...
+    ▼
+View / Gauntlet subscribers (actual popups and float text)
 ```
 
-### DisplayMessage
-`public static void DisplayMessage(InformationMessage message)`
+Three levels of player feedback, pick by how interruptive they are:
 
-**Purpose:** Executes the DisplayMessage logic.
+| Level | API | Scene |
+|-------|-----|-------|
+| Light | `DisplayMessage` | "Gained 50 denars", "Cannot do that". Does not block input |
+| Medium | `AddSystemNotification` | Short system notification string |
+| Heavy | `ShowInquiry` / `ShowTextInquiry` | Must confirm/cancel or type text; can pause game logic |
 
-```csharp
-// Static call; no instance required
-InformationManager.DisplayMessage(message);
-```
+**When to use**
 
-### HideAllMessages
-`public static void HideAllMessages()`
+- Behavior / VM / SubModule needs the **player to see feedback right now**
+- Confirm before a dangerous action (disband, abandon quest, overwrite-style prompts)
+- Register custom tooltip types (`RegisterTooltip`)
 
-**Purpose:** Hides the UI or element associated with all messages.
+**When not to use**
 
-```csharp
-// Static call; no instance required
-InformationManager.HideAllMessages();
-```
+- High-frequency every-frame output (spam)
+- As assert / logging
+- Expecting messages after `Clear()` or after View unload
+- Need a durable, clickable map event → Map Notification, not `DisplayMessage`
 
-### ClearAllMessages
-`public static void ClearAllMessages()`
+## Dependencies
 
-**Purpose:** Removes all all messages from the this instance.
+| Direction | Type / system | Relationship |
+|-----------|---------------|--------------|
+| Payload | [InformationMessage](../InformationMessage) | `DisplayMessage` arg: text, color, sound, category |
+| Payload | [InquiryData](../InquiryData) | Confirm title/body/button callbacks |
+| Payload | `TextInquiryData` | Inquiry with text input |
+| Downstream | Gauntlet Information / Inquiry UI | Subscribes to `*Internal` / `OnShow*` events |
+| Parallel | Campaign MapNotification | Map-side durable notifications; different API |
+| Callers | [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase), ViewModel, [MBSubModuleBase](../../core/MBSubModuleBase) | Most common trigger points |
+| Tooltip | `TooltipBaseVM` + `RegisterTooltip<TRegistered, TTooltip>` | Type → refresh delegate + movie name |
 
-```csharp
-// Static call; no instance required
-InformationManager.ClearAllMessages();
-```
+## Risks and crash boundaries
 
-### AddSystemNotification
-`public static void AddSystemNotification(string message)`
+| Risk | Consequence | Mitigation |
+|------|-------------|------------|
+| Treat this as a logger | Player spam; no diagnostic value in release | Logs go through `Debug` / your own channel |
+| Nested `ShowInquiry` from a callback without queue discipline | Stacked dialogs, broken state | Finish work in the callback first; `HideInquiry` if needed; check `IsAnyInquiryActive()` |
+| `pauseGameActiveState: true` at the wrong time | Map/mission logic paused; feels frozen | Only for modal confirms; cancel path must restore |
+| Affirmative/Negative `Action` captures large objects | Leaks or stale refs after load | Callbacks should only touch stable singletons (`Hero.MainHero`, etc.) or weak holds |
+| Rely on visibility in headless / too-early stages | Silent no-op; logic ran, player saw nothing | Critical confirms must not depend on UI alone; decouple logic from display |
+| Call display after engine `Clear()` | Events nulled; no effect | Engine lifecycle only; mods should not casually `Clear` |
+| Tooltip registration type clashes | Later registration overwrites or movie not found | Unique registration types; `UnregisterTooltip` on unload |
 
-**Purpose:** Adds system notification to the current collection or state.
+## Key members
 
-```csharp
-// Static call; no instance required
-InformationManager.AddSystemNotification("example");
-```
+### Messages
 
-### ShowTooltip
-`public static void ShowTooltip(Type type, params object args)`
+| Member | Purpose and timing |
+|--------|--------------------|
+| `DisplayMessage(InformationMessage message)` | Screen info bar. Most common. |
+| `HideAllMessages()` | Hide currently visible messages (does not roll back logic). |
+| `ClearAllMessages()` | Clear message queue/display. |
+| `AddSystemNotification(string message)` | System notification string. |
 
-**Purpose:** Displays the UI or element associated with tooltip.
+### Inquiries
 
-```csharp
-// Static call; no instance required
-InformationManager.ShowTooltip(type, args);
-```
+| Member | Purpose and timing |
+|--------|--------------------|
+| `ShowInquiry(InquiryData, pauseGameActiveState = false, prioritize = false)` | Yes/no (or single-button) modal. |
+| `ShowTextInquiry(TextInquiryData, ...)` | Modal with text input. |
+| `HideInquiry()` | Close the current inquiry. |
+| `IsAnyInquiryActive()` | Whether an inquiry is already up (internal Func may be null → false). |
 
-### HideTooltip
-`public static void HideTooltip()`
+### Tooltips
 
-**Purpose:** Hides the UI or element associated with tooltip.
+| Member | Purpose and timing |
+|--------|--------------------|
+| `ShowTooltip(Type type, params object[] args)` | Show hover tip by registered type. |
+| `HideTooltip()` | Hide. |
+| `GetIsAnyTooltipActive()` / `GetIsAnyTooltipActiveAndExtended()` | Query tooltip state. |
+| `RegisterTooltip<TRegistered, TTooltip>(...)` | Register type → VM refresh + Gauntlet movie. |
+| `UnregisterTooltip<TRegistered>()` | Unregister. |
+| `RegisteredTypes` | Read-only registry. |
 
-```csharp
-// Static call; no instance required
-InformationManager.HideTooltip();
-```
+### Lifecycle
 
-### ShowInquiry
-`public static void ShowInquiry(InquiryData data, bool pauseGameActiveState = false, bool prioritize = false)`
+| Member | Purpose |
+|--------|---------|
+| `Clear()` | Detach all events and delegates; engine calls this on session/module teardown. |
 
-**Purpose:** Displays the UI or element associated with inquiry.
+Public events (`DisplayMessageInternal`, `OnShowInquiry`, …) are for the **View layer**. Gameplay mods should **call methods**, not attach their own render handlers.
 
-```csharp
-// Static call; no instance required
-InformationManager.ShowInquiry(data, false, false);
-```
+## Real examples
 
-### ShowTextInquiry
-`public static void ShowTextInquiry(TextInquiryData textData, bool pauseGameActiveState = false, bool prioritize = false)`
-
-**Purpose:** Displays the UI or element associated with text inquiry.
-
-```csharp
-// Static call; no instance required
-InformationManager.ShowTextInquiry(textData, false, false);
-```
-
-### HideInquiry
-`public static void HideInquiry()`
-
-**Purpose:** Hides the UI or element associated with inquiry.
-
-```csharp
-// Static call; no instance required
-InformationManager.HideInquiry();
-```
-
-### GetIsAnyTooltipActive
-`public static bool GetIsAnyTooltipActive()`
-
-**Purpose:** Reads and returns the is any tooltip active value held by the this instance.
+### Example 1: Light player feedback
 
 ```csharp
-// Static call; no instance required
-InformationManager.GetIsAnyTooltipActive();
+using TaleWorlds.Library;
+
+// Default white text
+InformationManager.DisplayMessage(
+    new InformationMessage("Recruited 5 troops."));
+
+// With color (green-ish success, red-ish failure; match your project Color conventions)
+InformationManager.DisplayMessage(
+    new InformationMessage("Not enough gold.", new Color(1f, 0.2f, 0.2f)));
+
+// Category (some UI filters by Category)
+InformationManager.DisplayMessage(
+    new InformationMessage("Inventory full.", new Color(1f, 0.8f, 0.2f), "Inventory"));
 ```
 
-### GetIsAnyTooltipActiveAndExtended
-`public static bool GetIsAnyTooltipActiveAndExtended()`
-
-**Purpose:** Reads and returns the is any tooltip active and extended value held by the this instance.
+### Example 2: Confirm dialog (Campaign / any logic layer)
 
 ```csharp
-// Static call; no instance required
-InformationManager.GetIsAnyTooltipActiveAndExtended();
+using System;
+using TaleWorlds.Library;
+
+public static void ConfirmDisbandParty(Action onConfirm)
+{
+    if (InformationManager.IsAnyInquiryActive())
+        return; // avoid stacked dialogs
+
+    var data = new InquiryData(
+        titleText: "Disband party",
+        text: "Disband the current party? This cannot be undone.",
+        isAffirmativeOptionShown: true,
+        isNegativeOptionShown: true,
+        affirmativeText: "Confirm",
+        negativeText: "Cancel",
+        affirmativeAction: () => onConfirm?.Invoke(),
+        negativeAction: () => { /* close only */ });
+
+    // pauseGameActiveState: true only when the map needs a pause
+    InformationManager.ShowInquiry(data, pauseGameActiveState: true, prioritize: false);
+}
 ```
 
-### Clear
-`public static void Clear()`
-
-**Purpose:** Removes all content from the this instance.
+### Example 3: Feedback from a CampaignBehavior
 
 ```csharp
-// Static call; no instance required
-InformationManager.Clear();
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
+
+public class MyRewardBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.HeroPrisonerReleased.AddNonSerializedListener(this, OnReleased);
+    }
+
+    public override void SyncData(IDataStore dataStore) { }
+
+    private void OnReleased(
+        Hero prisoner,
+        PartyBase party,
+        IFaction capturer,
+        EndCaptivityDetail detail,
+        bool showNotification)
+    {
+        if (prisoner != Hero.MainHero)
+            return;
+
+        InformationManager.DisplayMessage(
+            new InformationMessage($"{prisoner.Name} is free again."));
+        InformationManager.AddSystemNotification("You left captivity.");
+    }
+}
 ```
 
-### IsAnyTooltipActiveDelegate
-`public delegate void IsAnyTooltipActiveDelegate(out bool isAnyTooltipActive, out bool isAnyTooltipExtended)`
-
-**Purpose:** Determines whether the this instance is in the any tooltip active delegate state or condition.
+### Example 4: Register a custom tooltip (UI mod)
 
 ```csharp
-// Obtain an instance of InformationManager from the subsystem API first
-InformationManager informationManager = ...;
-informationManager.IsAnyTooltipActiveDelegate(isAnyTooltipActive, isAnyTooltipExtended);
+using TaleWorlds.Library;
+// TTooltip must inherit TooltipBaseVM; movieName maps to a Gauntlet XML
+// InformationManager.RegisterTooltip<MyHoverTarget, MyTooltipVM>(
+//     onRefreshData: (vm, args) => vm.UpdateFrom(args),
+//     movieName: "MyTooltipMovie");
 ```
 
-## Usage Example
+## Cross-version notes
 
-```csharp
-var manager = InformationManager.Current;
-```
+- **1.3.x / 1.4.5:** `DisplayMessage` / `ShowInquiry` / tooltip registration APIs are stable.
+- In 1.4.5, `TooltipRegistry` is a struct with a primary constructor; gameplay code still only uses `RegisterTooltip`.
+- Map notifications, encyclopedia, and quest log each have their own channel. Don't dump every "tell the player" into `DisplayMessage`.
 
-## See Also
+## ↑ Parent Navigation
 
-- [Area Index](../)
+- [core-extra index](./) — module for this page
+- [SDK overview](../../../architecture/sdk-overview)
+- [Game](../Game) — session context
+
+## ↔ Sibling Navigation
+
+| Page | Relationship |
+|------|--------------|
+| [InformationMessage](../InformationMessage) | Float-text payload |
+| [InquiryData](../InquiryData) | Confirm payload |
+| [Game](../Game) | Current session |
+| [MBSubModuleBase](../../core/MBSubModuleBase) | Startup-time prompts |
+| [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) | Campaign logic feedback |
+| [CampaignTime](../../campaign-ext/CampaignTime) | Often paired with "due soon" reminders |
+
+## See also
+
+- [Doc contract](../../../architecture/doc-contract)
+- [Module system](../../../architecture/module-system)

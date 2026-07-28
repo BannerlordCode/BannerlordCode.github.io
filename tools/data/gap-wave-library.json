@@ -1,0 +1,1049 @@
+{
+  "count": 174,
+  "types": [
+    {
+      "typeName": "AmbientInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AmbientInformation.md"
+    },
+    {
+      "typeName": "ApplicationPlatform",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ApplicationPlatform.md"
+    },
+    {
+      "typeName": "ApplicationVersion",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ApplicationVersion.md"
+    },
+    {
+      "typeName": "ApplicationVersionJsonConverter",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ApplicationVersionJsonConverter.md"
+    },
+    {
+      "typeName": "ApplicationVersionType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ApplicationVersionType.md"
+    },
+    {
+      "typeName": "AreaInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AreaInformation.md"
+    },
+    {
+      "typeName": "AssemblyLoader",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AssemblyLoader.md"
+    },
+    {
+      "typeName": "AsyncRunner",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AsyncRunner.md"
+    },
+    {
+      "typeName": "AtmosphereInfo",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AtmosphereInfo.md"
+    },
+    {
+      "typeName": "AwaitableAsyncRunner",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AwaitableAsyncRunner.md"
+    },
+    {
+      "typeName": "AzureDiscovery",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AzureDiscovery.md"
+    },
+    {
+      "typeName": "BasePath",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BasePath.md"
+    },
+    {
+      "typeName": "bin",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/bin.md"
+    },
+    {
+      "typeName": "BinaryReader",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BinaryReader.md"
+    },
+    {
+      "typeName": "BinaryWriter",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BinaryWriter.md"
+    },
+    {
+      "typeName": "BindingPath",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BindingPath.md"
+    },
+    {
+      "typeName": "ClientProfiles",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ClientProfiles.md"
+    },
+    {
+      "typeName": "Color",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Color.md"
+    },
+    {
+      "typeName": "ColorExtensions",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ColorExtensions.md"
+    },
+    {
+      "typeName": "Colors",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Colors.md"
+    },
+    {
+      "typeName": "CommandLineArgumentFunction",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CommandLineArgumentFunction.md"
+    },
+    {
+      "typeName": "CommandLineFunctionality",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CommandLineFunctionality.md"
+    },
+    {
+      "typeName": "Common",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Common.md"
+    },
+    {
+      "typeName": "ComparerType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ComparerType.md"
+    },
+    {
+      "typeName": "Corners",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Corners.md"
+    },
+    {
+      "typeName": "CubicBezier",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CubicBezier.md"
+    },
+    {
+      "typeName": "DataSourceProperty",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DataSourceProperty.md"
+    },
+    {
+      "typeName": "Debug",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Debug.md"
+    },
+    {
+      "typeName": "DebugColor",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DebugColor.md"
+    },
+    {
+      "typeName": "DebugSystemFilter",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DebugSystemFilter.md"
+    },
+    {
+      "typeName": "DebugUserFilter",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DebugUserFilter.md"
+    },
+    {
+      "typeName": "DefaultParallelDriver",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DefaultParallelDriver.md"
+    },
+    {
+      "typeName": "DiamondDebugCategory",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DiamondDebugCategory.md"
+    },
+    {
+      "typeName": "EngineMethod",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EngineMethod.md"
+    },
+    {
+      "typeName": "EngineType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EngineType.md"
+    },
+    {
+      "typeName": "Extensions",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Extensions.md"
+    },
+    {
+      "typeName": "FileHelperExtensions",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FileHelperExtensions.md"
+    },
+    {
+      "typeName": "FogInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FogInformation.md"
+    },
+    {
+      "typeName": "GCHandleFactory",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GCHandleFactory.md"
+    },
+    {
+      "typeName": "GenericComparer",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GenericComparer.md"
+    },
+    {
+      "typeName": "HTMLDebugCategory",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HTMLDebugCategory.md"
+    },
+    {
+      "typeName": "ICache",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ICache.md"
+    },
+    {
+      "typeName": "InformationMessage",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InformationMessage.md"
+    },
+    {
+      "typeName": "InputType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InputType.md"
+    },
+    {
+      "typeName": "InputUsageMask",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InputUsageMask.md"
+    },
+    {
+      "typeName": "IParallelDriver",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IParallelDriver.md"
+    },
+    {
+      "typeName": "IReader",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IReader.md"
+    },
+    {
+      "typeName": "ISerializableObject",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ISerializableObject.md"
+    },
+    {
+      "typeName": "ITask",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ITask.md"
+    },
+    {
+      "typeName": "IViewModelGetterInterface",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IViewModelGetterInterface.md"
+    },
+    {
+      "typeName": "IViewModelSetterInterface",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IViewModelSetterInterface.md"
+    },
+    {
+      "typeName": "IWriter",
+      "namespace": "TaleWorlds.Library",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IWriter.md"
+    },
+    {
+      "typeName": "LineSegment2D",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/LineSegment2D.md"
+    },
+    {
+      "typeName": "ListChangedEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ListChangedEventArgs.md"
+    },
+    {
+      "typeName": "ListChangedType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ListChangedType.md"
+    },
+    {
+      "typeName": "Logger",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Logger.md"
+    },
+    {
+      "typeName": "MachineId",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MachineId.md"
+    },
+    {
+      "typeName": "ManagedArray",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ManagedArray.md"
+    },
+    {
+      "typeName": "ManagedDllFolder",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ManagedDllFolder.md"
+    },
+    {
+      "typeName": "Mat2",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Mat2.md"
+    },
+    {
+      "typeName": "Mat3",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Mat3.md"
+    },
+    {
+      "typeName": "MathF",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MathF.md"
+    },
+    {
+      "typeName": "MatrixFrame",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MatrixFrame.md"
+    },
+    {
+      "typeName": "MBArrayList",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBArrayList.md"
+    },
+    {
+      "typeName": "MBBindingList",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBBindingList.md"
+    },
+    {
+      "typeName": "MBList",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBList.md"
+    },
+    {
+      "typeName": "MBList2D",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBList2D.md"
+    },
+    {
+      "typeName": "MBMath",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBMath.md"
+    },
+    {
+      "typeName": "MBQueue",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBQueue.md"
+    },
+    {
+      "typeName": "MBReadOnlyDictionary",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBReadOnlyDictionary.md"
+    },
+    {
+      "typeName": "MBReadOnlyList",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBReadOnlyList.md"
+    },
+    {
+      "typeName": "MBReadOnlyQueue",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBReadOnlyQueue.md"
+    },
+    {
+      "typeName": "MBSortedMultiList",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBSortedMultiList.md"
+    },
+    {
+      "typeName": "MBStringBuilder",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBStringBuilder.md"
+    },
+    {
+      "typeName": "MBUtil",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBUtil.md"
+    },
+    {
+      "typeName": "MBWorkspace",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBWorkspace.md"
+    },
+    {
+      "typeName": "NauticalInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NauticalInformation.md"
+    },
+    {
+      "typeName": "NavigationPath",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NavigationPath.md"
+    },
+    {
+      "typeName": "ObjectInstanceTracker",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ObjectInstanceTracker.md"
+    },
+    {
+      "typeName": "Oriented2DArea",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Oriented2DArea.md"
+    },
+    {
+      "typeName": "ParameterContainer",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ParameterContainer.md"
+    },
+    {
+      "typeName": "ParameterFile",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ParameterFile.md"
+    },
+    {
+      "typeName": "ParameterLoader",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ParameterLoader.md"
+    },
+    {
+      "typeName": "Parameters",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Parameters.md"
+    },
+    {
+      "typeName": "PathFaceRecord",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PathFaceRecord.md"
+    },
+    {
+      "typeName": "PathFinder",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PathFinder.md"
+    },
+    {
+      "typeName": "PerformanceTestBlock",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PerformanceTestBlock.md"
+    },
+    {
+      "typeName": "Platform",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Platform.md"
+    },
+    {
+      "typeName": "PlatformDirectoryPath",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlatformDirectoryPath.md"
+    },
+    {
+      "typeName": "PlatformFileHelperPC",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlatformFileHelperPC.md"
+    },
+    {
+      "typeName": "PlatformFilePath",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlatformFilePath.md"
+    },
+    {
+      "typeName": "PlatformFileType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlatformFileType.md"
+    },
+    {
+      "typeName": "PlatformInitParams",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlatformInitParams.md"
+    },
+    {
+      "typeName": "PostProcessInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PostProcessInformation.md"
+    },
+    {
+      "typeName": "PriorityQueue",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PriorityQueue.md"
+    },
+    {
+      "typeName": "ProfanityChechkerType",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ProfanityChechkerType.md"
+    },
+    {
+      "typeName": "ProfanityChecker",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ProfanityChecker.md"
+    },
+    {
+      "typeName": "PropertyChangedWithBoolValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithBoolValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithColorValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithColorValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithDoubleValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithDoubleValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithFloatValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithFloatValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithIntValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithIntValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithUIntValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithUIntValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithValueEventArgs.md"
+    },
+    {
+      "typeName": "PropertyChangedWithVec2ValueEventArgs",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyChangedWithVec2ValueEventArgs.md"
+    },
+    {
+      "typeName": "Quaternion",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Quaternion.md"
+    },
+    {
+      "typeName": "RainInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/RainInformation.md"
+    },
+    {
+      "typeName": "Ray",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Ray.md"
+    },
+    {
+      "typeName": "ResourceDepot",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ResourceDepot.md"
+    },
+    {
+      "typeName": "ResourceDepotFile",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ResourceDepotFile.md"
+    },
+    {
+      "typeName": "ResourceDepotLocation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ResourceDepotLocation.md"
+    },
+    {
+      "typeName": "Runtime",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Runtime.md"
+    },
+    {
+      "typeName": "SaveResult",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SaveResult.md"
+    },
+    {
+      "typeName": "SaveResultWithMessage",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SaveResultWithMessage.md"
+    },
+    {
+      "typeName": "ScopedTimer",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ScopedTimer.md"
+    },
+    {
+      "typeName": "SerialTask",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SerialTask.md"
+    },
+    {
+      "typeName": "SingleThreadedSynchronizationContext",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SingleThreadedSynchronizationContext.md"
+    },
+    {
+      "typeName": "SkyInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SkyInformation.md"
+    },
+    {
+      "typeName": "SnowInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SnowInformation.md"
+    },
+    {
+      "typeName": "SrtParser",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SrtParser.md"
+    },
+    {
+      "typeName": "StackArray8Vec3",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray8Vec3.md"
+    },
+    {
+      "typeName": "StreamHelpers",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StreamHelpers.md"
+    },
+    {
+      "typeName": "StringReader",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringReader.md"
+    },
+    {
+      "typeName": "StringWriter",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringWriter.md"
+    },
+    {
+      "typeName": "SubtitleItem",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SubtitleItem.md"
+    },
+    {
+      "typeName": "SunInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SunInformation.md"
+    },
+    {
+      "typeName": "TelemetryLevelMask",
+      "namespace": "TaleWorlds.Library",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TelemetryLevelMask.md"
+    },
+    {
+      "typeName": "TestCommonBase",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TestCommonBase.md"
+    },
+    {
+      "typeName": "TestContext",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TestContext.md"
+    },
+    {
+      "typeName": "TimedDictionaryCache",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TimedDictionaryCache.md"
+    },
+    {
+      "typeName": "TimeInformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TimeInformation.md"
+    },
+    {
+      "typeName": "TooltipBaseVM",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TooltipBaseVM.md"
+    },
+    {
+      "typeName": "TooltipRegistry",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TooltipRegistry.md"
+    },
+    {
+      "typeName": "Transformation",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Transformation.md"
+    },
+    {
+      "typeName": "TWParallel",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TWParallel.md"
+    },
+    {
+      "typeName": "TWSharedMutex",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TWSharedMutex.md"
+    },
+    {
+      "typeName": "TWSharedMutexReadLock",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TWSharedMutexReadLock.md"
+    },
+    {
+      "typeName": "TWSharedMutexWriteLock",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TWSharedMutexWriteLock.md"
+    },
+    {
+      "typeName": "UniqueSceneId",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/UniqueSceneId.md"
+    },
+    {
+      "typeName": "Vec2",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Vec2.md"
+    },
+    {
+      "typeName": "Vec2i",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Vec2i.md"
+    },
+    {
+      "typeName": "Vec3",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Vec3.md"
+    },
+    {
+      "typeName": "Vec3i",
+      "namespace": "TaleWorlds.Library",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Vec3i.md"
+    },
+    {
+      "typeName": "VirtualFolders",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/VirtualFolders.md"
+    },
+    {
+      "typeName": "Watchdog",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Watchdog.md"
+    },
+    {
+      "typeName": "Win64_Shipping_Client",
+      "namespace": "TaleWorlds.Library",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Win64_Shipping_Client.md"
+    },
+    {
+      "typeName": "ClassCode",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ClassCode.md"
+    },
+    {
+      "typeName": "ClassCodeAccessModifier",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ClassCodeAccessModifier.md"
+    },
+    {
+      "typeName": "CodeBlock",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CodeBlock.md"
+    },
+    {
+      "typeName": "CodeGenerationContext",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CodeGenerationContext.md"
+    },
+    {
+      "typeName": "CodeGenerationFile",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CodeGenerationFile.md"
+    },
+    {
+      "typeName": "CommentSection",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CommentSection.md"
+    },
+    {
+      "typeName": "ConstructorCode",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ConstructorCode.md"
+    },
+    {
+      "typeName": "MethodCode",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MethodCode.md"
+    },
+    {
+      "typeName": "MethodCodeAccessModifier",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MethodCodeAccessModifier.md"
+    },
+    {
+      "typeName": "MethodCodePolymorphismInfo",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MethodCodePolymorphismInfo.md"
+    },
+    {
+      "typeName": "NamespaceCode",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NamespaceCode.md"
+    },
+    {
+      "typeName": "VariableCode",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/VariableCode.md"
+    },
+    {
+      "typeName": "VariableCodeAccessModifier",
+      "namespace": "TaleWorlds.Library.CodeGeneration",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/VariableCodeAccessModifier.md"
+    },
+    {
+      "typeName": "DictionaryByType",
+      "namespace": "TaleWorlds.Library.EventSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DictionaryByType.md"
+    },
+    {
+      "typeName": "EventBase",
+      "namespace": "TaleWorlds.Library.EventSystem",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EventBase.md"
+    },
+    {
+      "typeName": "GraphLinePointVM",
+      "namespace": "TaleWorlds.Library.Graph",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GraphLinePointVM.md"
+    },
+    {
+      "typeName": "GraphLineVM",
+      "namespace": "TaleWorlds.Library.Graph",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GraphLineVM.md"
+    },
+    {
+      "typeName": "GraphVM",
+      "namespace": "TaleWorlds.Library.Graph",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GraphVM.md"
+    },
+    {
+      "typeName": "DotNetHttpDriver",
+      "namespace": "TaleWorlds.Library.Http",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DotNetHttpDriver.md"
+    },
+    {
+      "typeName": "HttpGetRequest",
+      "namespace": "TaleWorlds.Library.Http",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HttpGetRequest.md"
+    },
+    {
+      "typeName": "HttpPostRequest",
+      "namespace": "TaleWorlds.Library.Http",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HttpPostRequest.md"
+    },
+    {
+      "typeName": "HttpRequestTaskState",
+      "namespace": "TaleWorlds.Library.Http",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HttpRequestTaskState.md"
+    },
+    {
+      "typeName": "IHttpDriver",
+      "namespace": "TaleWorlds.Library.Http",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IHttpDriver.md"
+    },
+    {
+      "typeName": "IHttpRequestTask",
+      "namespace": "TaleWorlds.Library.Http",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IHttpRequestTask.md"
+    },
+    {
+      "typeName": "TooltipTriggerVM",
+      "namespace": "TaleWorlds.Library.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TooltipTriggerVM.md"
+    },
+    {
+      "typeName": "NewsItem",
+      "namespace": "TaleWorlds.Library.NewsManager",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NewsItem.md"
+    },
+    {
+      "typeName": "NewsType",
+      "namespace": "TaleWorlds.Library.NewsManager",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NewsType.md"
+    },
+    {
+      "typeName": "NewsTypes",
+      "namespace": "TaleWorlds.Library.NewsManager",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NewsTypes.md"
+    }
+  ]
+}

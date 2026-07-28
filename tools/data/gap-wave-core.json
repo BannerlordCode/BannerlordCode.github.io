@@ -1,0 +1,1481 @@
+{
+  "count": 246,
+  "types": [
+    {
+      "typeName": "ActionSetCode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ActionSetCode.md"
+    },
+    {
+      "typeName": "AgentAttackType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AgentAttackType.md"
+    },
+    {
+      "typeName": "AgentControllerType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AgentControllerType.md"
+    },
+    {
+      "typeName": "AgentFlag",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AgentFlag.md"
+    },
+    {
+      "typeName": "AgentMovementMode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AgentMovementMode.md"
+    },
+    {
+      "typeName": "AgentOriginUtilities",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AgentOriginUtilities.md"
+    },
+    {
+      "typeName": "AgentState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AgentState.md"
+    },
+    {
+      "typeName": "ArmorMaterialTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ArmorMaterialTypes.md"
+    },
+    {
+      "typeName": "AtmosphereState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/AtmosphereState.md"
+    },
+    {
+      "typeName": "BannerColor",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerColor.md"
+    },
+    {
+      "typeName": "BannerEffect",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerEffect.md"
+    },
+    {
+      "typeName": "BannerExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerExtensions.md"
+    },
+    {
+      "typeName": "BannerIconGroup",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerIconGroup.md"
+    },
+    {
+      "typeName": "BasicCharacterObject",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BasicCharacterObject.md"
+    },
+    {
+      "typeName": "BasicCultureObject",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BasicCultureObject.md"
+    },
+    {
+      "typeName": "BasicGameModels",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BasicGameModels.md"
+    },
+    {
+      "typeName": "BattleSideEnum",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BattleSideEnum.md"
+    },
+    {
+      "typeName": "BattleSideEnumExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BattleSideEnumExtensions.md"
+    },
+    {
+      "typeName": "BattleState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BattleState.md"
+    },
+    {
+      "typeName": "BeardCoverTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BeardCoverTypes.md"
+    },
+    {
+      "typeName": "BodyDeformTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BodyDeformTypes.md"
+    },
+    {
+      "typeName": "BodyMeshMaturityType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BodyMeshMaturityType.md"
+    },
+    {
+      "typeName": "BodyProperties",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BodyProperties.md"
+    },
+    {
+      "typeName": "BodyPropertiesJsonConverter",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BodyPropertiesJsonConverter.md"
+    },
+    {
+      "typeName": "CampaignSaveMetaDataArgs",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CampaignSaveMetaDataArgs.md"
+    },
+    {
+      "typeName": "CharacterCode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CharacterCode.md"
+    },
+    {
+      "typeName": "ChoiceTag",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ChoiceTag.md"
+    },
+    {
+      "typeName": "CombatStatCalculator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CombatStatCalculator.md"
+    },
+    {
+      "typeName": "CraftingMaterials",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CraftingMaterials.md"
+    },
+    {
+      "typeName": "CraftingPiece",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CraftingPiece.md"
+    },
+    {
+      "typeName": "CraftingStatTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CraftingStatTypes.md"
+    },
+    {
+      "typeName": "CraftingTemplate",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CraftingTemplate.md"
+    },
+    {
+      "typeName": "DamageTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DamageTypes.md"
+    },
+    {
+      "typeName": "DefaultBannerEffects",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DefaultBannerEffects.md"
+    },
+    {
+      "typeName": "DefaultCharacterAttributes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DefaultCharacterAttributes.md"
+    },
+    {
+      "typeName": "DefaultItemCategories",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DefaultItemCategories.md"
+    },
+    {
+      "typeName": "DefaultItemCategorySelector",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DefaultItemCategorySelector.md"
+    },
+    {
+      "typeName": "DefaultSiegeEngineTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DefaultSiegeEngineTypes.md"
+    },
+    {
+      "typeName": "DeploymentFormationClass",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DeploymentFormationClass.md"
+    },
+    {
+      "typeName": "DialogNotificationHandle",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DialogNotificationHandle.md"
+    },
+    {
+      "typeName": "DrivenProperty",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DrivenProperty.md"
+    },
+    {
+      "typeName": "DummyCommunicator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DummyCommunicator.md"
+    },
+    {
+      "typeName": "DynamicBodyProperties",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/DynamicBodyProperties.md"
+    },
+    {
+      "typeName": "EffectIncrementType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EffectIncrementType.md"
+    },
+    {
+      "typeName": "EntitySystem",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EntitySystem.md"
+    },
+    {
+      "typeName": "EquipmentElement",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EquipmentElement.md"
+    },
+    {
+      "typeName": "EquipmentFlags",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EquipmentFlags.md"
+    },
+    {
+      "typeName": "EquipmentIndex",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EquipmentIndex.md"
+    },
+    {
+      "typeName": "EquipmentType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EquipmentType.md"
+    },
+    {
+      "typeName": "Extensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Extensions.md"
+    },
+    {
+      "typeName": "FaceGeneratorStage",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FaceGeneratorStage.md"
+    },
+    {
+      "typeName": "FaceGenHistory",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FaceGenHistory.md"
+    },
+    {
+      "typeName": "FilePaths",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FilePaths.md"
+    },
+    {
+      "typeName": "ForestDensity",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ForestDensity.md"
+    },
+    {
+      "typeName": "FormationClass",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FormationClass.md"
+    },
+    {
+      "typeName": "FormationClassExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FormationClassExtensions.md"
+    },
+    {
+      "typeName": "FormationFilterType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FormationFilterType.md"
+    },
+    {
+      "typeName": "FormationPositionPreference",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/FormationPositionPreference.md"
+    },
+    {
+      "typeName": "GameManagerBase",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameManagerBase.md"
+    },
+    {
+      "typeName": "GameManagerLoadingSteps",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameManagerLoadingSteps.md"
+    },
+    {
+      "typeName": "GameStateManagerType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameStateManagerType.md"
+    },
+    {
+      "typeName": "GameText",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameText.md"
+    },
+    {
+      "typeName": "GameTexts",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameTexts.md"
+    },
+    {
+      "typeName": "GameTextVariation",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameTextVariation.md"
+    },
+    {
+      "typeName": "GameTypeLoadingStates",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameTypeLoadingStates.md"
+    },
+    {
+      "typeName": "HairCoverTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HairCoverTypes.md"
+    },
+    {
+      "typeName": "HorseHarnessCoverTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HorseHarnessCoverTypes.md"
+    },
+    {
+      "typeName": "HorseTailCoverTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HorseTailCoverTypes.md"
+    },
+    {
+      "typeName": "HumanBone",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HumanBone.md"
+    },
+    {
+      "typeName": "HyperlinkTexts",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/HyperlinkTexts.md"
+    },
+    {
+      "typeName": "IAgent",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IAgent.md"
+    },
+    {
+      "typeName": "IAgentOriginBase",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IAgentOriginBase.md"
+    },
+    {
+      "typeName": "IBannerVisual",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IBannerVisual.md"
+    },
+    {
+      "typeName": "IBannerVisualCreator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IBannerVisualCreator.md"
+    },
+    {
+      "typeName": "IBattleCombatant",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IBattleCombatant.md"
+    },
+    {
+      "typeName": "IBattleObserver",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IBattleObserver.md"
+    },
+    {
+      "typeName": "ICommunicator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ICommunicator.md"
+    },
+    {
+      "typeName": "IFaceGen",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IFaceGen.md"
+    },
+    {
+      "typeName": "IFaceGeneratorCustomFilter",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IFaceGeneratorCustomFilter.md"
+    },
+    {
+      "typeName": "IGameStarter",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IGameStarter.md"
+    },
+    {
+      "typeName": "IGameStateListener",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IGameStateListener.md"
+    },
+    {
+      "typeName": "IGameStateManagerListener",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IGameStateManagerListener.md"
+    },
+    {
+      "typeName": "IGameStateManagerOwner",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IGameStateManagerOwner.md"
+    },
+    {
+      "typeName": "IInformationDataHolder",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IInformationDataHolder.md"
+    },
+    {
+      "typeName": "IManagedParametersInitializer",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IManagedParametersInitializer.md"
+    },
+    {
+      "typeName": "IMission",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IMission.md"
+    },
+    {
+      "typeName": "IMissionSiegeWeapon",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IMissionSiegeWeapon.md"
+    },
+    {
+      "typeName": "IMissionTeam",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IMissionTeam.md"
+    },
+    {
+      "typeName": "IMissionTroopSupplier",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IMissionTroopSupplier.md"
+    },
+    {
+      "typeName": "IMonsterMissionDataCreator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IMonsterMissionDataCreator.md"
+    },
+    {
+      "typeName": "IndexEntry",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IndexEntry.md"
+    },
+    {
+      "typeName": "INetworkCommunication",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/INetworkCommunication.md"
+    },
+    {
+      "typeName": "InitialWeaponEquipPreference",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InitialWeaponEquipPreference.md"
+    },
+    {
+      "typeName": "InquiryElement",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InquiryElement.md"
+    },
+    {
+      "typeName": "IReadOnlyPropertyOwner",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IReadOnlyPropertyOwner.md"
+    },
+    {
+      "typeName": "IReadOnlyPropertyOwnerF",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IReadOnlyPropertyOwnerF.md"
+    },
+    {
+      "typeName": "ISceneNotificationContextProvider",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ISceneNotificationContextProvider.md"
+    },
+    {
+      "typeName": "IShipOrigin",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/IShipOrigin.md"
+    },
+    {
+      "typeName": "ItemCategory",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemCategory.md"
+    },
+    {
+      "typeName": "ItemCategorySelector",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemCategorySelector.md"
+    },
+    {
+      "typeName": "ItemFlags",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemFlags.md"
+    },
+    {
+      "typeName": "ItemModifier",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemModifier.md"
+    },
+    {
+      "typeName": "ItemModifierGroup",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemModifierGroup.md"
+    },
+    {
+      "typeName": "ItemQuality",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemQuality.md"
+    },
+    {
+      "typeName": "ItemTiers",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemTiers.md"
+    },
+    {
+      "typeName": "ItemTypeEnum",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemTypeEnum.md"
+    },
+    {
+      "typeName": "ItemUsageSetFlags",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemUsageSetFlags.md"
+    },
+    {
+      "typeName": "ITrackableBase",
+      "namespace": "TaleWorlds.Core",
+      "kind": "interface",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ITrackableBase.md"
+    },
+    {
+      "typeName": "JobType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/JobType.md"
+    },
+    {
+      "typeName": "LinearFrictionTerm",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/LinearFrictionTerm.md"
+    },
+    {
+      "typeName": "MaterialProperty",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MaterialProperty.md"
+    },
+    {
+      "typeName": "MBBodyProperty",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBBodyProperty.md"
+    },
+    {
+      "typeName": "MBCharacterSkills",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBCharacterSkills.md"
+    },
+    {
+      "typeName": "MBEquipmentRoster",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBEquipmentRoster.md"
+    },
+    {
+      "typeName": "MBFastRandom",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBFastRandom.md"
+    },
+    {
+      "typeName": "MBFastRandomSelector",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBFastRandomSelector.md"
+    },
+    {
+      "typeName": "MBHaltonColorGenerator",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBHaltonColorGenerator.md"
+    },
+    {
+      "typeName": "MBNetwork",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBNetwork.md"
+    },
+    {
+      "typeName": "MBObjectManagerExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBObjectManagerExtensions.md"
+    },
+    {
+      "typeName": "MBPerlin",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBPerlin.md"
+    },
+    {
+      "typeName": "MBRandom",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBRandom.md"
+    },
+    {
+      "typeName": "MBSaveLoad",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MBSaveLoad.md"
+    },
+    {
+      "typeName": "MetaDataExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MetaDataExtensions__TaleWorlds_Core.md"
+    },
+    {
+      "typeName": "MissionInitializerRecord",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MissionInitializerRecord.md"
+    },
+    {
+      "typeName": "MissionMode",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MissionMode.md"
+    },
+    {
+      "typeName": "MissionShipObject",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MissionShipObject.md"
+    },
+    {
+      "typeName": "MissionSiegeWeapon",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MissionSiegeWeapon.md"
+    },
+    {
+      "typeName": "ModuleCheckResultType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ModuleCheckResultType.md"
+    },
+    {
+      "typeName": "Monster",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Monster.md"
+    },
+    {
+      "typeName": "MountCreationKey",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/MountCreationKey.md"
+    },
+    {
+      "typeName": "NotificationPriority",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NotificationPriority.md"
+    },
+    {
+      "typeName": "NotificationSceneProperties",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NotificationSceneProperties.md"
+    },
+    {
+      "typeName": "NotificationStatus",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/NotificationStatus.md"
+    },
+    {
+      "typeName": "PieceTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PieceTypes.md"
+    },
+    {
+      "typeName": "PlayerGameState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlayerGameState.md"
+    },
+    {
+      "typeName": "Property",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Property.md"
+    },
+    {
+      "typeName": "PropertyObject",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyObject.md"
+    },
+    {
+      "typeName": "PropertyOwner",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyOwner.md"
+    },
+    {
+      "typeName": "PropertyOwnerF",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyOwnerF.md"
+    },
+    {
+      "typeName": "RefiningFormula",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/RefiningFormula.md"
+    },
+    {
+      "typeName": "RelevantContextType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/RelevantContextType.md"
+    },
+    {
+      "typeName": "ResetAllTutorialsEvent",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ResetAllTutorialsEvent.md"
+    },
+    {
+      "typeName": "SailType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SailType.md"
+    },
+    {
+      "typeName": "SaveableCoreTypeDefiner",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SaveableCoreTypeDefiner.md"
+    },
+    {
+      "typeName": "SceneNotificationCharacter",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SceneNotificationCharacter.md"
+    },
+    {
+      "typeName": "SceneNotificationShip",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SceneNotificationShip.md"
+    },
+    {
+      "typeName": "ShipHull",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipHull.md"
+    },
+    {
+      "typeName": "ShipPhysicsReference",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipPhysicsReference.md"
+    },
+    {
+      "typeName": "ShipSail",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipSail.md"
+    },
+    {
+      "typeName": "ShipSlot",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipSlot.md"
+    },
+    {
+      "typeName": "ShipSlotAndPieceName",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipSlotAndPieceName.md"
+    },
+    {
+      "typeName": "ShipType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipType.md"
+    },
+    {
+      "typeName": "ShipUpgradePiece",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipUpgradePiece.md"
+    },
+    {
+      "typeName": "ShipVisualSlotInfo",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ShipVisualSlotInfo.md"
+    },
+    {
+      "typeName": "SiegeEngineType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SiegeEngineType.md"
+    },
+    {
+      "typeName": "SkeletonScale",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SkeletonScale.md"
+    },
+    {
+      "typeName": "SkillType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SkillType.md"
+    },
+    {
+      "typeName": "SkinMask",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SkinMask.md"
+    },
+    {
+      "typeName": "SpectatorCameraTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SpectatorCameraTypes.md"
+    },
+    {
+      "typeName": "StackArray",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray.md"
+    },
+    {
+      "typeName": "StackArray10FloatFloatTuple",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray10FloatFloatTuple.md"
+    },
+    {
+      "typeName": "StackArray2Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray2Bool.md"
+    },
+    {
+      "typeName": "StackArray32Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray32Bool.md"
+    },
+    {
+      "typeName": "StackArray3Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray3Bool.md"
+    },
+    {
+      "typeName": "StackArray3Float",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray3Float.md"
+    },
+    {
+      "typeName": "StackArray3Int",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray3Int.md"
+    },
+    {
+      "typeName": "StackArray4Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray4Bool.md"
+    },
+    {
+      "typeName": "StackArray4Int",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray4Int.md"
+    },
+    {
+      "typeName": "StackArray5Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray5Bool.md"
+    },
+    {
+      "typeName": "StackArray5Float",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray5Float.md"
+    },
+    {
+      "typeName": "StackArray6Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray6Bool.md"
+    },
+    {
+      "typeName": "StackArray7Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray7Bool.md"
+    },
+    {
+      "typeName": "StackArray8Bool",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray8Bool.md"
+    },
+    {
+      "typeName": "StackArray8Int",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StackArray8Int.md"
+    },
+    {
+      "typeName": "StaticBodyProperties",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StaticBodyProperties.md"
+    },
+    {
+      "typeName": "StrikeType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StrikeType.md"
+    },
+    {
+      "typeName": "TauntUsage",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TauntUsage.md"
+    },
+    {
+      "typeName": "TauntUsageFlag",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TauntUsageFlag.md"
+    },
+    {
+      "typeName": "TauntUsageSet",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TauntUsageSet.md"
+    },
+    {
+      "typeName": "TeamSideEnum",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TeamSideEnum.md"
+    },
+    {
+      "typeName": "TeamSideEnumExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TeamSideEnumExtensions.md"
+    },
+    {
+      "typeName": "TerrainType",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TerrainType.md"
+    },
+    {
+      "typeName": "Timer",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/Timer.md"
+    },
+    {
+      "typeName": "TroopClassExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TroopClassExtensions.md"
+    },
+    {
+      "typeName": "TroopTraitsMask",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TroopTraitsMask.md"
+    },
+    {
+      "typeName": "TroopTraitsMaskExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TroopTraitsMaskExtensions.md"
+    },
+    {
+      "typeName": "TroopUsageFlags",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TroopUsageFlags.md"
+    },
+    {
+      "typeName": "TutorialContextChangedEvent",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TutorialContextChangedEvent.md"
+    },
+    {
+      "typeName": "TutorialContexts",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TutorialContexts.md"
+    },
+    {
+      "typeName": "UnderwearTypes",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/UnderwearTypes.md"
+    },
+    {
+      "typeName": "UndoRedoKey",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/UndoRedoKey.md"
+    },
+    {
+      "typeName": "UniqueTroopDescriptor",
+      "namespace": "TaleWorlds.Core",
+      "kind": "struct",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/UniqueTroopDescriptor.md"
+    },
+    {
+      "typeName": "UnitSpawnPrioritizations",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/UnitSpawnPrioritizations.md"
+    },
+    {
+      "typeName": "VirtualPlayer",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/VirtualPlayer.md"
+    },
+    {
+      "typeName": "WaitForGameState",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WaitForGameState.md"
+    },
+    {
+      "typeName": "WeaponClass",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponClass.md"
+    },
+    {
+      "typeName": "WeaponComponentDataExtensions",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponComponentDataExtensions.md"
+    },
+    {
+      "typeName": "WeaponDescription",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponDescription.md"
+    },
+    {
+      "typeName": "WeaponDesign",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponDesign.md"
+    },
+    {
+      "typeName": "WeaponDesignElement",
+      "namespace": "TaleWorlds.Core",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponDesignElement.md"
+    },
+    {
+      "typeName": "WeaponFlags",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponFlags.md"
+    },
+    {
+      "typeName": "WeaponTiers",
+      "namespace": "TaleWorlds.Core",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/WeaponTiers.md"
+    },
+    {
+      "typeName": "BannerImageIdentifier",
+      "namespace": "TaleWorlds.Core.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerImageIdentifier.md"
+    },
+    {
+      "typeName": "CharacterImageIdentifier",
+      "namespace": "TaleWorlds.Core.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CharacterImageIdentifier.md"
+    },
+    {
+      "typeName": "CraftingPieceImageIdentifier",
+      "namespace": "TaleWorlds.Core.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CraftingPieceImageIdentifier.md"
+    },
+    {
+      "typeName": "EmptyImageIdentifier",
+      "namespace": "TaleWorlds.Core.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/EmptyImageIdentifier.md"
+    },
+    {
+      "typeName": "ItemImageIdentifier",
+      "namespace": "TaleWorlds.Core.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemImageIdentifier.md"
+    },
+    {
+      "typeName": "PlayerAvatarImageIdentifier",
+      "namespace": "TaleWorlds.Core.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlayerAvatarImageIdentifier.md"
+    },
+    {
+      "typeName": "CharacterSkillsResolver",
+      "namespace": "TaleWorlds.Core.SaveCompability",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CharacterSkillsResolver.md"
+    },
+    {
+      "typeName": "BattleResultVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BattleResultVM.md"
+    },
+    {
+      "typeName": "CharacterEquipmentItemVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CharacterEquipmentItemVM.md"
+    },
+    {
+      "typeName": "CharacterViewModel",
+      "namespace": "TaleWorlds.Core.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/CharacterViewModel.md"
+    },
+    {
+      "typeName": "PowerLevelComparer",
+      "namespace": "TaleWorlds.Core.ViewModelCollection",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PowerLevelComparer.md"
+    },
+    {
+      "typeName": "StanceTypes",
+      "namespace": "TaleWorlds.Core.ViewModelCollection",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StanceTypes.md"
+    },
+    {
+      "typeName": "BannerColorVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.BannerEditor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerColorVM.md"
+    },
+    {
+      "typeName": "BannerIconVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.BannerEditor",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerIconVM.md"
+    },
+    {
+      "typeName": "BindingListFloatItem",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BindingListFloatItem.md"
+    },
+    {
+      "typeName": "BindingListStringItem",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BindingListStringItem.md"
+    },
+    {
+      "typeName": "BoolItemWithActionVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BoolItemWithActionVM.md"
+    },
+    {
+      "typeName": "StringItemWithActionVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringItemWithActionVM.md"
+    },
+    {
+      "typeName": "StringItemWithEnabledAndHintVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringItemWithEnabledAndHintVM.md"
+    },
+    {
+      "typeName": "StringItemWithHintVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringItemWithHintVM.md"
+    },
+    {
+      "typeName": "StringPairItemVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringPairItemVM.md"
+    },
+    {
+      "typeName": "StringPairItemWithActionVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Generic",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/StringPairItemWithActionVM.md"
+    },
+    {
+      "typeName": "BannerImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/BannerImageIdentifierVM.md"
+    },
+    {
+      "typeName": "CharacterImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CharacterImageIdentifierVM.md"
+    },
+    {
+      "typeName": "CraftingPieceImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/CraftingPieceImageIdentifierVM.md"
+    },
+    {
+      "typeName": "GenericImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GenericImageIdentifierVM.md"
+    },
+    {
+      "typeName": "ImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ImageIdentifierVM.md"
+    },
+    {
+      "typeName": "ItemImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ItemImageIdentifierVM.md"
+    },
+    {
+      "typeName": "PlayerAvatarImageIdentifierVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.ImageIdentifiers",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PlayerAvatarImageIdentifierVM.md"
+    },
+    {
+      "typeName": "GameNotificationItemVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameNotificationItemVM.md"
+    },
+    {
+      "typeName": "GameNotificationVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/GameNotificationVM.md"
+    },
+    {
+      "typeName": "HintViewModel",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/viewmodel/HintViewModel.md"
+    },
+    {
+      "typeName": "InquiryElementVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/InquiryElementVM.md"
+    },
+    {
+      "typeName": "PropertyBasedTooltipVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/PropertyBasedTooltipVM.md"
+    },
+    {
+      "typeName": "SceneNotificationVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SceneNotificationVM.md"
+    },
+    {
+      "typeName": "TooltipMode",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TooltipMode.md"
+    },
+    {
+      "typeName": "TooltipProperty",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TooltipProperty.md"
+    },
+    {
+      "typeName": "RundownLineVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/RundownLineVM.md"
+    },
+    {
+      "typeName": "RundownTooltipVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/RundownTooltipVM.md"
+    },
+    {
+      "typeName": "ValueCategorization",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip",
+      "kind": "enum",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ValueCategorization.md"
+    },
+    {
+      "typeName": "SelectorItemVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Selector",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SelectorItemVM.md"
+    },
+    {
+      "typeName": "SelectorVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Selector",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/SelectorVM.md"
+    },
+    {
+      "typeName": "ElementNotificationVM",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Tutorial",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/ElementNotificationVM.md"
+    },
+    {
+      "typeName": "TutorialNotificationElementChangeEvent",
+      "namespace": "TaleWorlds.Core.ViewModelCollection.Tutorial",
+      "kind": "class",
+      "pagePath": "content/v1.3.15/zh/api/core-extra/TutorialNotificationElementChangeEvent.md"
+    }
+  ]
+}

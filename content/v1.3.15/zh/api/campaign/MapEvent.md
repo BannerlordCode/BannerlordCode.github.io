@@ -12,7 +12,7 @@ description: "战役地图上一次敌对遭遇的运行时载体：持有攻防
 
 ## 概述
 
-`MapEvent` 是战役地图上**一次正在进行的敌对遭遇**的对象化表示。当两个（或两组）`MobileParty`/`PartyBase` 在地图上相遇并开战后，引擎就创建一个 `MapEvent`，把参战各方归入「攻方（`AttackerSide`）」与「守方（`DefenderSide`）」两个 [`MapEventSide`](../campaign-ext/MapEventSide/)，然后在每个战役 tick 里用 [`CombatSimulationModel`](../core/) 模拟战斗，直到分出胜负或一方撤退，最后完成战利品、俘虏、声望、影响力与据点（如攻城）的结算。
+`MapEvent` 是战役地图上**一次正在进行的敌对遭遇**的对象化表示。当两个（或两组）`MobileParty`/`PartyBase` 在地图上相遇并开战后，引擎就创建一个 `MapEvent`，把参战各方归入「攻方（`AttackerSide`）」与「守方（`DefenderSide`）」两个 [`MapEventSide`](../../campaign-ext/MapEventSide/)，然后在每个战役 tick 里用 [`CombatSimulationModel`](../../core/) 模拟战斗，直到分出胜负或一方撤退，最后完成战利品、俘虏、声望、影响力与据点（如攻城）的结算。
 
 它**不是**战斗场景本身：真正的战场是一个 `Mission`，`MapEvent` 始终活在战役（Campaign/Map）层。两者通过 `BattleObserver`（`IBattleObserver`）桥接——战场把每回合的伤亡回报给 `MapEvent`，由它落地到名册与英雄状态。
 
@@ -29,7 +29,7 @@ description: "战役地图上一次敌对遭遇的运行时载体：持有攻防
 
 ### 生命周期（由引擎驱动，不要手动重放）
 
-1. **创建**：引擎内部 `new MapEvent()` 后调用 `Initialize(attacker, defender, component, battleType)`。攻城/出城/封锁类由 [`MapEventManager`](../core/) 的 `StartSiegeMapEvent` / `StartSallyOutMapEvent` / `StartSiegeOutsideMapEvent` / `StartBlockadeBattleMapEvent` 启动；玩家遭遇到的野战/劫掠/据点则由 [`PlayerEncounter.StartBattle()`](../campaign-ext/PlayerEncounter/) 经 `StartBattleInternal` 创建。创建后 `State = Wait`，并触发 `OnMapEventStarted`。
+1. **创建**：引擎内部 `new MapEvent()` 后调用 `Initialize(attacker, defender, component, battleType)`。攻城/出城/封锁类由 [`MapEventManager`](../../core/) 的 `StartSiegeMapEvent` / `StartSallyOutMapEvent` / `StartSiegeOutsideMapEvent` / `StartBlockadeBattleMapEvent` 启动；玩家遭遇到的野战/劫掠/据点则由 [`PlayerEncounter.StartBattle()`](../../campaign-ext/PlayerEncounter/) 经 `StartBattleInternal` 创建。创建后 `State = Wait`，并触发 `OnMapEventStarted`。
 2. **双方入场**：各方通过 `party.MapEventSide = ...` 被归入某一侧（`AddInvolvedPartyInternal`），`AttackerSide` / `DefenderSide` 的 `Parties` 列表随之增长；据点内驻军、附近友军也会被拉入。
 3. **模拟推进**：每个战役 tick，`MapEventManager.Tick()` 遍历活动事件调用 `Update()`——在非玩家事件和劫掠事件上做战斗模拟（`SimulateBattleSessionForMapEvent`），根据兵力归零 / 士气崩溃 / 撤退判定 `BattleState`，决出胜负后 `OnBattleWon` 计算战果。
 4. **结算与收尾**：分出胜负、外交停战或撤退后进入 `FinalizeEvent()`，`State` 置为 `WaitingRemoval`，触发 `OnMapEventEnded`，完成战利品/俘虏/船只分配、英雄阵亡（`KillCharacterAction`）、败方解体（`DestroyPartyAction`）、攻城完成（`SiegeCompleted` / `AfterSiegeCompleted`）。
@@ -38,7 +38,7 @@ description: "战役地图上一次敌对遭遇的运行时载体：持有攻防
 ### 谁创建 / 谁持有
 
 - **创建者**：仅引擎（`MapEventManager` + `PlayerEncounter`），构造函数 `internal`，**mod 不能 `new MapEvent()`**。
-- **持有者**：`Campaign.Current.MapEventManager` 用 `MBList<MapEvent>` 持有所有活动事件；同时 `MapEvent` 继承自 `MBObjectBase`，因此也登记在 [`MBObjectManager`](../campaign-ext/MBObjectManager/) 的对象系统中，可被存档序列化。玩家那一场还会被 `PlayerEncounter.Current` 引用。
+- **持有者**：`Campaign.Current.MapEventManager` 用 `MBList<MapEvent>` 持有所有活动事件；同时 `MapEvent` 继承自 `MBObjectBase`，因此也登记在 [`MBObjectManager`](../../campaign-ext/MBObjectManager/) 的对象系统中，可被存档序列化。玩家那一场还会被 `PlayerEncounter.Current` 引用。
 
 ### 所在层
 
@@ -47,7 +47,7 @@ description: "战役地图上一次敌对遭遇的运行时载体：持有攻防
 ## 何时用 / 何时不要用
 
 **应当用 `MapEvent` 的场景**
-- 通过 [`CampaignEvents`](../campaign-ext/CampaignEvents/) 订阅 `OnMapEventStarted` / `OnMapEventEnded` / `OnPartyAddedToMapEvent` 等，在遭遇生命周期里读取或响应（统计、提示、条件触发任务）。
+- 通过 [`CampaignEvents`](../../campaign-ext/CampaignEvents/) 订阅 `OnMapEventStarted` / `OnMapEventEnded` / `OnPartyAddedToMapEvent` 等，在遭遇生命周期里读取或响应（统计、提示、条件触发任务）。
 - 在合法时机（玩家手动决策、菜单逻辑）读取 `MapEvent.PlayerMapEvent` / `MobileParty.MapEvent` 的状态：双方兵力、战力、胜负、据点、是否海战等。
 - 由引擎托管的「结束」操作：`MapEventManager.FinalizePlayerMapEvent()`（玩家事件，内部顺带 `PlayerEncounter.Finish()`）、`MapEvent.DoSurrender(side)`、`MapEvent.SetOverrideWinner(...)`（用于任务脚本强制结果）。
 
@@ -55,21 +55,21 @@ description: "战役地图上一次敌对遭遇的运行时载体：持有攻防
 - 不要自己 `new MapEvent()` 或调用 `internal Initialize(...)`——事件必须由引擎按标准流程建立，否则 `MapEventManager` 不会登记它、模拟与收尾都不会跑。
 - 不要直接改写 `_sides`、`AttackerSide`/`DefenderSide` 的 `Parties`，或手动给 `party.MapEventSide` 赋值来「拉人入伙」。让引擎通过 `PartyBase.MapEventSide` 的标准路径管理；强行改会破坏模拟与战利品归属。
 - 不要在事件已 `IsFinalized`（进入 `WaitingRemoval`）后还访问两侧的具体 `MapEventParty`——见下方风险段。
-- 想「发起一场战斗」应走 [`PlayerEncounter`](../campaign-ext/PlayerEncounter/) 与遭遇模型，而不是构造 `MapEvent`。
+- 想「发起一场战斗」应走 [`PlayerEncounter`](../../campaign-ext/PlayerEncounter/) 与遭遇模型，而不是构造 `MapEvent`。
 
 ## 依赖图
 
 - **上游（创建/提供数据）**
-  - [`MobileParty`](./MobileParty/) / [`PartyBase`](./PartyBase/)：事件的参战主体，通过 `MapEventSide.Parties` 聚合。
-  - [`PlayerEncounter`](../campaign-ext/PlayerEncounter/)：驱动玩家遭遇的创建与结束。
-  - [`MapEventManager`](../core/)（战役系统内部）：登记、tick、移除所有活动事件。
-  - [`MBObjectManager`](../campaign-ext/MBObjectManager/)：作为 `MBObjectBase` 的注册与存档容器。
+  - [`MobileParty`](../MobileParty/) / [`PartyBase`](../PartyBase/)：事件的参战主体，通过 `MapEventSide.Parties` 聚合。
+  - [`PlayerEncounter`](../../campaign-ext/PlayerEncounter/)：驱动玩家遭遇的创建与结束。
+  - [`MapEventManager`](../../core/)（战役系统内部）：登记、tick、移除所有活动事件。
+  - [`MBObjectManager`](../../campaign-ext/MBObjectManager/)：作为 `MBObjectBase` 的注册与存档容器。
 - **下游（被驱动 / 结果落点）**
-  - [`MapEventSide`](../campaign-ext/MapEventSide/)：攻防两侧的具体阵营数据与模拟。
-  - [`SiegeEvent`](../campaign-ext/SiegeEvent/)：攻城类事件的父级抽象，`MapEventSettlement.SiegeEvent` 在收尾时联动。
-  - 据点结算：被劫掠的 [`Settlement`](./Settlement/) 村庄、被攻破的城镇。
+  - [`MapEventSide`](../../campaign-ext/MapEventSide/)：攻防两侧的具体阵营数据与模拟。
+  - [`SiegeEvent`](../../campaign-ext/SiegeEvent/)：攻城类事件的父级抽象，`MapEventSettlement.SiegeEvent` 在收尾时联动。
+  - 据点结算：被劫掠的 [`Settlement`](../Settlement/) 村庄、被攻破的城镇。
   - 各类 `*Action`：`KillCharacterAction`、`TakePrisonerAction`、`DestroyPartyAction`、`ChangeShipOwnerAction`、`EndCaptivityAction`、`LeaveSettlementAction`——在结算阶段被调用。
-- **相关 Events（[`CampaignEvents`](../campaign-ext/CampaignEvents/) 家族）**
+- **相关 Events（[`CampaignEvents`](../../campaign-ext/CampaignEvents/) 家族）**
   - `OnMapEventStarted(MapEvent, PartyBase, PartyBase)`、`OnMapEventEnded(MapEvent)`
   - `OnPartyAddedToMapEvent(PartyBase)`、`OnNearbyPartyAddedToPlayerMapEvent(MobileParty)`
   - `OnCollectLootItems(PartyBase, ItemRoster)`、`OnLootDistributedToParty(PartyBase, PartyBase, ItemRoster)`、`OnPlayerPartyKnockedOrKilledTroop(CharacterObject)`
@@ -215,15 +215,15 @@ foreach (MapEvent mapEvent in Campaign.Current.MapEventManager.MapEvents)
 - ↑ 父级：[战役枢纽 Campaign](../Campaign/)
 - ↑ 模块索引：[api 索引](../)
 - ↔ 同级 / 相关类型
-  - [MapEventSide](../campaign-ext/MapEventSide/) — 攻防两侧的具体阵营数据
-  - [SiegeEvent](../campaign-ext/SiegeEvent/) — 攻城类事件的父级抽象
-  - [PlayerEncounter](../campaign-ext/PlayerEncounter/) — 玩家遭遇的创建与结束
-  - [EncounterManager](../campaign-ext/EncounterManager/) — 遭遇与地图事件调度
-  - [CampaignEvents](../campaign-ext/CampaignEvents/) — 地图事件相关事件家族
+  - [MapEventSide](../../campaign-ext/MapEventSide/) — 攻防两侧的具体阵营数据
+  - [SiegeEvent](../../campaign-ext/SiegeEvent/) — 攻城类事件的父级抽象
+  - [PlayerEncounter](../../campaign-ext/PlayerEncounter/) — 玩家遭遇的创建与结束
+  - [EncounterManager](../../campaign-ext/EncounterManager/) — 遭遇与地图事件调度
+  - [CampaignEvents](../../campaign-ext/CampaignEvents/) — 地图事件相关事件家族
 - 同桶类型
-  - [MobileParty](./MobileParty/) — 参战主体（机动部队）
-  - [PartyBase](./PartyBase/) — 参战主体（含驻军/据点方）
-  - [Settlement](./Settlement/) — 被劫掠/被攻的据点
-  - [Hero](./Hero/) — 参战英雄与阵亡结算落点
+  - [MobileParty](../MobileParty/) — 参战主体（机动部队）
+  - [PartyBase](../PartyBase/) — 参战主体（含驻军/据点方）
+  - [Settlement](../Settlement/) — 被劫掠/被攻的据点
+  - [Hero](../Hero/) — 参战英雄与阵亡结算落点
 - 基础设施
-  - [MBObjectManager](../campaign-ext/MBObjectManager/) — `MapEvent` 作为 `MBObjectBase` 的注册与存档容器
+  - [MBObjectManager](../../campaign-ext/MBObjectManager/) — `MapEvent` 作为 `MBObjectBase` 的注册与存档容器

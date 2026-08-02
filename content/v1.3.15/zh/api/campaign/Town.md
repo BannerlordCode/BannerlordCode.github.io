@@ -43,20 +43,20 @@ description: "据点（城镇/城堡）的核心运行时对象：承载建筑�
 ## 依赖图（可点击）
 
 - **上游（持有 / 创建 / 归属）**
-  - [Settlement](./Settlement/) — parent；`Town` 作为 `Settlement.Town` 字段存在，多数状态（如 `Militia`、`FoodStocks` 的上限）经由 `Settlement`/`SettlementComponent` 暴露。
-  - [Clan](./Clan/) — `OwnerClan`（当前拥有家族）、`LastCapturedBy`（上一次被谁攻占）。
-  - [Hero](./Hero/) — `Governor`（总督，双向关联 `Hero.GovernorOf`）。
-  - [MBObjectManager](../campaign-ext/MBObjectManager/) — 据点 XML 反序列化时创建 `Town` 实例并接入存档。
+  - [Settlement](../Settlement/) — parent；`Town` 作为 `Settlement.Town` 字段存在，多数状态（如 `Militia`、`FoodStocks` 的上限）经由 `Settlement`/`SettlementComponent` 暴露。
+  - [Clan](../Clan/) — `OwnerClan`（当前拥有家族）、`LastCapturedBy`（上一次被谁攻占）。
+  - [Hero](../Hero/) — `Governor`（总督，双向关联 `Hero.GovernorOf`）。
+  - [MBObjectManager](../../campaign-ext/MBObjectManager/) — 据点 XML 反序列化时创建 `Town` 实例并接入存档。
 - **下游（Town 持有 / 驱动）**
-  - [Workshop](./Workshop/) — `Workshops`（`Workshop[]`，工坊数组）。
-  - [Village](./Village/) — `Villages`（绑定村庄）、`TradeBoundVillages`（贸易绑定村庄）。
+  - [Workshop](../Workshop/) — `Workshops`（`Workshop[]`，工坊数组）。
+  - [Village](../Village/) — `Villages`（绑定村庄）、`TradeBoundVillages`（贸易绑定村庄）。
   - `Building` — `Buildings` / `BuildingsInProgress`（建筑列表；`Building` 类型本身见 Settlement 建筑系统，本页仅描述 `Town` 对它的持有方式）。
   - `TownMarketData` — `MarketData`（市场定价与价格因子）。
 - **相关事件 / Action（位于 `CampaignEvents` / `TaleWorlds.CampaignSystem.Actions`）**
   - `DailyTickTownEvent` — 每个据点 `DailyTick` 结束后广播（订阅例见下文）。
   - `OnSettlementOwnerChangedEvent` — `OwnerClan` 经 Action 改变时广播。
   - `ChangeOwnerOfSettlementAction`、`ChangeOwnerOfWorkshopAction`、`ChangeProductionTypeOfWorkshopAction`、`InitializeWorkshopAction` — 合法的归属/工坊变更入口。
-- **相关 Model（`Campaign.Current.Models.*`，统一入口见 [Campaign](./Campaign/)）**
+- **相关 Model（`Campaign.Current.Models.*`，统一入口见 [Campaign](../Campaign/)）**
   - `SettlementProsperityModel`、`SettlementLoyaltyModel`、`SettlementSecurityModel`、`SettlementFoodModel`、`SettlementMilitiaModel`、`BuildingConstructionModel`、`SettlementGarrisonModel`、`WorkshopModel`。
 
 ## 风险（可能导致崩溃 / 坏档）
@@ -300,7 +300,7 @@ if (target != null && target.Town != null)
 
 ## 参见
 
-- ↑ 父级：[Settlement](./Settlement/) — `Town` 挂在 `Settlement.Town` 下，是其 parent 组件
-- ↔ 同级 / 相关：[Clan](./Clan/)（OwnerClan）、[Hero](./Hero/)（Governor）、[Workshop](./Workshop/)（工坊）、[Village](./Village/)（绑定村庄）
-- 相关行为与模型入口：[Campaign](./Campaign/) — `Campaign.Current.Models` 与各 `SettlementXxxModel`、`CampaignEvents`
-- 创建与反序列化：[MBObjectManager](../campaign-ext/MBObjectManager/) — `Town` 实例由据点 XML 经它生成
+- ↑ 父级：[Settlement](../Settlement/) — `Town` 挂在 `Settlement.Town` 下，是其 parent 组件
+- ↔ 同级 / 相关：[Clan](../Clan/)（OwnerClan）、[Hero](../Hero/)（Governor）、[Workshop](../Workshop/)（工坊）、[Village](../Village/)（绑定村庄）
+- 相关行为与模型入口：[Campaign](../Campaign/) — `Campaign.Current.Models` 与各 `SettlementXxxModel`、`CampaignEvents`
+- 创建与反序列化：[MBObjectManager](../../campaign-ext/MBObjectManager/) — `Town` 实例由据点 XML 经它生成

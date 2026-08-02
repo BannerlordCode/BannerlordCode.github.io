@@ -220,31 +220,31 @@ if (prisoner != null && prisoners.Contains(prisoner))
 
 **上游（TroopRoster 依赖）**
 
-- [CharacterObject](../campaign/CharacterObject/) —— 每个条目的兵种模板（技能、装备、阶层）。
-- [Hero](../campaign/Hero/) —— 英雄是特殊的 `CharacterObject`，以条目形式存放在名册中。
-- [PartyBase](../campaign/PartyBase/) —— `OwnerParty`；持有 `MemberRoster` 与 `PrisonRoster`，并接收增删回调。
-- [TroopRosterElement](./TroopRosterElement/) —— 单条「兵种→数量/伤员/经验」记录（值类型）。
-- [UniqueTroopDescriptor](../core-extra/UniqueTroopDescriptor/) —— `RemoveTroop` / `WoundTroop` 用于标识具体英雄个体。
+- [CharacterObject](../../campaign/CharacterObject/) —— 每个条目的兵种模板（技能、装备、阶层）。
+- [Hero](../../campaign/Hero/) —— 英雄是特殊的 `CharacterObject`，以条目形式存放在名册中。
+- [PartyBase](../../campaign/PartyBase/) —— `OwnerParty`；持有 `MemberRoster` 与 `PrisonRoster`，并接收增删回调。
+- [TroopRosterElement](../TroopRosterElement/) —— 单条「兵种→数量/伤员/经验」记录（值类型）。
+- [UniqueTroopDescriptor](../../core-extra/UniqueTroopDescriptor/) —— `RemoveTroop` / `WoundTroop` 用于标识具体英雄个体。
 
 **下游（依赖 TroopRoster）**
 
-- [PartyBase](../campaign/PartyBase/) 的 `EstimatedStrength` —— 由名册经 `PartyStrengthModel` 计算战力。
-- [PartyWageModel](./PartyWageModel/) —— 由名册算工资（`MobileParty.TotalWage`）。
-- [PartySizeLimitModel](./PartySizeLimitModel/) —— 队伍人数上限基于名册。
-- [PartyHealingModel](./PartyHealingModel/) —— 伤员恢复回写 `WoundTroop` / 缓存。
-- [PartyTroopUpgradeModel](./PartyTroopUpgradeModel/) + [PartyUpgraderCampaignBehavior](./PartyUpgraderCampaignBehavior/) —— 读取经验完成升级。
+- [PartyBase](../../campaign/PartyBase/) 的 `EstimatedStrength` —— 由名册经 `PartyStrengthModel` 计算战力。
+- [PartyWageModel](../PartyWageModel/) —— 由名册算工资（`MobileParty.TotalWage`）。
+- [PartySizeLimitModel](../PartySizeLimitModel/) —— 队伍人数上限基于名册。
+- [PartyHealingModel](../PartyHealingModel/) —— 伤员恢复回写 `WoundTroop` / 缓存。
+- [PartyTroopUpgradeModel](../PartyTroopUpgradeModel/) + [PartyUpgraderCampaignBehavior](../PartyUpgraderCampaignBehavior/) —— 读取经验完成升级。
 - 战斗/遭遇（`PlayerEncounter.CurrentBattleSimulation`）—— 影响 `RemoveTroop` 的 `removeDepleted` 行为。
 
 **相关 Action（优先用它们改英雄/囚犯）**
 
-- [AddHeroToPartyAction](./AddHeroToPartyAction/) —— 把英雄加入部队（正确触发回调）。
-- [TakePrisonerAction](./TakePrisonerAction/) —— 抓俘入 `PrisonRoster`。
-- [RecruitPrisonersCampaignBehavior](./RecruitPrisonersCampaignBehavior/) —— 囚犯招募。
+- [AddHeroToPartyAction](../AddHeroToPartyAction/) —— 把英雄加入部队（正确触发回调）。
+- [TakePrisonerAction](../TakePrisonerAction/) —— 抓俘入 `PrisonRoster`。
+- [RecruitPrisonersCampaignBehavior](../RecruitPrisonersCampaignBehavior/) —— 囚犯招募。
 
 **同级（Sibling）**
 
-- [ItemRoster](./ItemRoster/) —— 「物品版名册」，结构与 TroopRoster 平行。
-- [FlattenedTroopRoster](./FlattenedTroopRoster/) —— 名册的扁平化单兵视图。
+- [ItemRoster](../ItemRoster/) —— 「物品版名册」，结构与 TroopRoster 平行。
+- [FlattenedTroopRoster](../FlattenedTroopRoster/) —— 名册的扁平化单兵视图。
 
 ## 风险段（可能导致崩溃 / 坏档）
 
@@ -272,7 +272,7 @@ if (prisoner != null && prisoners.Contains(prisoner))
 ## 参见
 
 - ↑ 父级：[campaign-ext 索引](../)
-- ↔ 同级：[ItemRoster](./ItemRoster/) · [TroopRosterElement](./TroopRosterElement/) · [FlattenedTroopRoster](./FlattenedTroopRoster/)
-- 上游枢纽：[PartyBase](../campaign/PartyBase/) · [CharacterObject](../campaign/CharacterObject/) · [Hero](../campaign/Hero/) · [MobileParty](../campaign/MobileParty/)
-- 相关模型/行为：[PartySizeLimitModel](./PartySizeLimitModel/) · [PartyWageModel](./PartyWageModel/) · [PartyHealingModel](./PartyHealingModel/) · [PartyTroopUpgradeModel](./PartyTroopUpgradeModel/) · [PartyUpgraderCampaignBehavior](./PartyUpgraderCampaignBehavior/)
-- 相关 Action：[AddHeroToPartyAction](./AddHeroToPartyAction/) · [TakePrisonerAction](./TakePrisonerAction/) · [RecruitPrisonersCampaignBehavior](./RecruitPrisonersCampaignBehavior/)
+- ↔ 同级：[ItemRoster](../ItemRoster/) · [TroopRosterElement](../TroopRosterElement/) · [FlattenedTroopRoster](../FlattenedTroopRoster/)
+- 上游枢纽：[PartyBase](../../campaign/PartyBase/) · [CharacterObject](../../campaign/CharacterObject/) · [Hero](../../campaign/Hero/) · [MobileParty](../../campaign/MobileParty/)
+- 相关模型/行为：[PartySizeLimitModel](../PartySizeLimitModel/) · [PartyWageModel](../PartyWageModel/) · [PartyHealingModel](../PartyHealingModel/) · [PartyTroopUpgradeModel](../PartyTroopUpgradeModel/) · [PartyUpgraderCampaignBehavior](../PartyUpgraderCampaignBehavior/)
+- 相关 Action：[AddHeroToPartyAction](../AddHeroToPartyAction/) · [TakePrisonerAction](../TakePrisonerAction/) · [RecruitPrisonersCampaignBehavior](../RecruitPrisonersCampaignBehavior/)

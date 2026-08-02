@@ -121,11 +121,11 @@ ItemRoster loot = PlayerEncounter.Current.RosterToReceiveLootItems;
 ## 依赖图
 
 - **上游（谁构造 / 谁提供元素）**
-  - [PartyBase](../campaign/PartyBase/) — `ItemRoster` 的真实持有者（`ItemRoster { get; private set; }`）。
-  - [MobileParty](../campaign/MobileParty/) / [Settlement](../campaign/Settlement/) — 二者 `ItemRoster` 都委托给 `Party.ItemRoster`；`Settlement` 另有独立的 `Stash`。
-  - [ItemObject](../core/ItemObject/) — 列表里每个元素的物品本体（`EquipmentElement.Item`）。
-  - [EquipmentElement](../core-extra/EquipmentElement/) / [ItemModifier](../core-extra/ItemModifier/) — 元素 = 物品 + 可选附魔。
-  - [DefaultItems](./DefaultItems/) — 读档时未就绪物品被替换为 `Trash` 的来源。
+  - [PartyBase](../../campaign/PartyBase/) — `ItemRoster` 的真实持有者（`ItemRoster { get; private set; }`）。
+  - [MobileParty](../../campaign/MobileParty/) / [Settlement](../../campaign/Settlement/) — 二者 `ItemRoster` 都委托给 `Party.ItemRoster`；`Settlement` 另有独立的 `Stash`。
+  - [ItemObject](../../core-extra/ItemObject/) — 列表里每个元素的物品本体（`EquipmentElement.Item`）。
+  - [EquipmentElement](../../core-extra/EquipmentElement/) / [ItemModifier](../../core-extra/ItemModifier/) — 元素 = 物品 + 可选附魔。
+  - [DefaultItems](../DefaultItems/) — 读档时未就绪物品被替换为 `Trash` 的来源。
 - **下游（谁消费这份数据）**
   - 贸易 AI（`PartiesSellLootCampaignBehavior`、`SellItemsAction`）、粮食消耗（`FoodConsumptionBehavior`）、战利品分配（`OnCollectLootsItemsEvent` / `OnLootDistributedToPartyEvent`）、商店买卖。
   - 部队规模与工资：`./PartySizeLimitModel/`、`./PartyWageModel/`（按携带物品/人员推算上限与工资）。
@@ -133,9 +133,9 @@ ItemRoster loot = PlayerEncounter.Current.RosterToReceiveLootItems;
 - **相关事件（CampaignEvents）**
   - `./CampaignEvents/` 的 `ItemsLooted`、`OnItemSoldEvent`、`HeroOrPartyGaveItem`、`OnItemsDiscardedByPlayerEvent`、`OnCollectLootsItemsEvent`、`OnLootDistributedToPartyEvent`、`OnItemsRefinedEvent`、`PlayerInventoryExchangeEvent` —— 都在物品进出 roster 时广播。
 - **相关类型 / 操作**
-  - [TroopRoster](./TroopRoster/) — 同属 `Roster` 家族，但管的是人员而非物品。
-  - [GiveItemAction](./GiveItemAction/) / [SellItemsAction](./SellItemsAction/) — 跨主体转移/出售物品的**正确入口**。
-  - [InventoryLogic](./InventoryLogic/) — 玩家背包 UI 背后的逻辑，内部在两边 roster 间搬运 `ItemRosterElement`。
+  - [TroopRoster](../TroopRoster/) — 同属 `Roster` 家族，但管的是人员而非物品。
+  - [GiveItemAction](../GiveItemAction/) / [SellItemsAction](../SellItemsAction/) — 跨主体转移/出售物品的**正确入口**。
+  - [InventoryLogic](../InventoryLogic/) — 玩家背包 UI 背后的逻辑，内部在两边 roster 间搬运 `ItemRosterElement`。
 
 ## 风险与崩溃边界（必读）
 
@@ -207,17 +207,17 @@ int remaining = giver.ItemRoster.GetItemNumber(sword);
 ## 参见
 
 - [↑ 战役 API 索引](../../)
-- [↑ Campaign](../campaign/Campaign/) — 战役世界枢纽
-- [↔ TroopRoster](./TroopRoster/) — 同族，管人员而非物品
-- [↔ DefaultItems](./DefaultItems/) — 读档时未就绪物品回退到的 Trash
-- [↔ GiveItemAction](./GiveItemAction/) — 跨主体给物品的正确入口
-- [↔ SellItemsAction](./SellItemsAction/) — 出售物品的正确入口
-- [↔ CampaignEvents](./CampaignEvents/) — 物品进出 roster 时广播的事件
-- [↔ PartySizeLimitModel](./PartySizeLimitModel/) / [PartyWageModel](./PartyWageModel/) — 由携带量推算规模/工资
-- [↔ SettlementFoodModel](./SettlementFoodModel/) — 粮食消耗相关
-- [↔ InventoryLogic](./InventoryLogic/) — 玩家背包 UI 背后的搬运逻辑
-- [上游 PartyBase](../campaign/PartyBase/) — `ItemRoster` 的真实持有者
-- [上游 Settlement](../campaign/Settlement/) — `ItemRoster` 与 `Stash`
-- [上游 MobileParty](../campaign/MobileParty/) — 部队物品栏
-- [上游 ItemObject](../core/ItemObject/) — 列表元素的物品本体
-- [上游 EquipmentElement](../core-extra/EquipmentElement/) / [ItemModifier](../core-extra/ItemModifier/) — 元素 = 物品 + 可选附魔
+- [↑ Campaign](../../campaign/Campaign/) — 战役世界枢纽
+- [↔ TroopRoster](../TroopRoster/) — 同族，管人员而非物品
+- [↔ DefaultItems](../DefaultItems/) — 读档时未就绪物品回退到的 Trash
+- [↔ GiveItemAction](../GiveItemAction/) — 跨主体给物品的正确入口
+- [↔ SellItemsAction](../SellItemsAction/) — 出售物品的正确入口
+- [↔ CampaignEvents](../CampaignEvents/) — 物品进出 roster 时广播的事件
+- [↔ PartySizeLimitModel](../PartySizeLimitModel/) / [PartyWageModel](../PartyWageModel/) — 由携带量推算规模/工资
+- [↔ SettlementFoodModel](../SettlementFoodModel/) — 粮食消耗相关
+- [↔ InventoryLogic](../InventoryLogic/) — 玩家背包 UI 背后的搬运逻辑
+- [上游 PartyBase](../../campaign/PartyBase/) — `ItemRoster` 的真实持有者
+- [上游 Settlement](../../campaign/Settlement/) — `ItemRoster` 与 `Stash`
+- [上游 MobileParty](../../campaign/MobileParty/) — 部队物品栏
+- [上游 ItemObject](../../core-extra/ItemObject/) — 列表元素的物品本体
+- [上游 EquipmentElement](../../core-extra/EquipmentElement/) / [ItemModifier](../../core-extra/ItemModifier/) — 元素 = 物品 + 可选附魔

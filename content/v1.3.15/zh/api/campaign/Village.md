@@ -69,9 +69,9 @@ description: "村庄组件：挂在 Settlement 上，记录村庄归属哪个城
    (BecomeNormal/BeingRaided/Looted)            IncreaseSettlementHealthAction
 ```
 
-- **上游（它依赖谁）：**[Settlement](./Settlement/)（持有组件，`settlement.Village`）、[Town](../campaign-ext/Town/)（`Bound` 通常是 Town，其 `Town` 组件负责登记 trade-bound）、[VillageType](../campaign-ext/VillageType/)（决定生产列表）、[MBObjectManager](../campaign-ext/MBObjectManager/)（反序列化时 `ReadObjectReferenceFromXml` 重建引用）。
-- **下游（谁消费它）：**[SettlementProsperityModel](../campaign-ext/SettlementProsperityModel/)（`HearthChange`）、[VillageProductionCalculatorModel](../campaign-ext/VillageProductionCalculatorModel/)（`GetWarehouseCapacity`、产出）、[SettlementMilitiaModel](../campaign-ext/SettlementMilitiaModel/)（`MilitiaChange`）、[VillageMarketData](../campaign-ext/VillageMarketData/)（库存/市场）、[VillagerPartyComponent](../campaign-ext/VillagerPartyComponent/)（村民商队）。
-- **相关事件 / Action / Behavior：** `CampaignEventDispatcher.OnVillageBecomeNormal / OnVillageBeingRaided / OnVillageLooted`；[ChangeVillageStateAction](../campaign-ext/ChangeVillageStateAction/) 与 `IncreaseSettlementHealthAction`；`VillageGoodProductionCampaignBehavior`、`VillageHealCampaignBehavior`、`VillageHostileActionCampaignBehavior`、`VillageTradeBoundCampaignBehavior`、`VillagerCampaignBehavior`。
+- **上游（它依赖谁）：**[Settlement](../Settlement/)（持有组件，`settlement.Village`）、[Town](../../campaign-ext/Town/)（`Bound` 通常是 Town，其 `Town` 组件负责登记 trade-bound）、[VillageType](../../campaign-ext/VillageType/)（决定生产列表）、[MBObjectManager](../../campaign-ext/MBObjectManager/)（反序列化时 `ReadObjectReferenceFromXml` 重建引用）。
+- **下游（谁消费它）：**[SettlementProsperityModel](../../campaign-ext/SettlementProsperityModel/)（`HearthChange`）、[VillageProductionCalculatorModel](../../campaign-ext/VillageProductionCalculatorModel/)（`GetWarehouseCapacity`、产出）、[SettlementMilitiaModel](../../campaign-ext/SettlementMilitiaModel/)（`MilitiaChange`）、[VillageMarketData](../../campaign-ext/VillageMarketData/)（库存/市场）、[VillagerPartyComponent](../../campaign-ext/VillagerPartyComponent/)（村民商队）。
+- **相关事件 / Action / Behavior：** `CampaignEventDispatcher.OnVillageBecomeNormal / OnVillageBeingRaided / OnVillageLooted`；[ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) 与 `IncreaseSettlementHealthAction`；`VillageGoodProductionCampaignBehavior`、`VillageHealCampaignBehavior`、`VillageHostileActionCampaignBehavior`、`VillageTradeBoundCampaignBehavior`、`VillagerCampaignBehavior`。
 - **存档点：** `[SaveableField]`/`[SaveableProperty]`（`Hearth`、`TradeTaxAccumulated`、`_villageState`、`_bound`、`_marketData`）、`[CachedData]`（`VillagerPartyComponent`）。
 
 ## 风险与崩溃边界（必读）
@@ -175,12 +175,12 @@ if (target != null && target.Village != null)
 
 ## 参见
 
-- [Settlement](./Settlement/) — 持有 Village 组件的父据点（↑ Parent）
-- [Town](../campaign-ext/Town/) — Bound 通常指向的城镇组件（↔ Sibling 同级组件）
-- [VillageType](../campaign-ext/VillageType/) — 决定村庄生产列表的上游类型
-- [Clan](./Clan/) — 村庄归属城镇背后的家族
-- [Campaign](./Campaign/) — `Campaign.Current.AllVillages` 与全局状态入口
-- [MBObjectManager](../campaign-ext/MBObjectManager/) — 反序列化时重建 Bound/VillageType 引用
-- [ChangeVillageStateAction](../campaign-ext/ChangeVillageStateAction/) — 切换村庄状态的正规 Action
-- [SettlementProsperityModel](../campaign-ext/SettlementProsperityModel/) — 炉火变化量的来源模型
-- [VillageProductionCalculatorModel](../campaign-ext/VillageProductionCalculatorModel/) — 产出与仓库容量模型
+- [Settlement](../Settlement/) — 持有 Village 组件的父据点（↑ Parent）
+- [Town](../../campaign-ext/Town/) — Bound 通常指向的城镇组件（↔ Sibling 同级组件）
+- [VillageType](../../campaign-ext/VillageType/) — 决定村庄生产列表的上游类型
+- [Clan](../Clan/) — 村庄归属城镇背后的家族
+- [Campaign](../Campaign/) — `Campaign.Current.AllVillages` 与全局状态入口
+- [MBObjectManager](../../campaign-ext/MBObjectManager/) — 反序列化时重建 Bound/VillageType 引用
+- [ChangeVillageStateAction](../../campaign-ext/ChangeVillageStateAction/) — 切换村庄状态的正规 Action
+- [SettlementProsperityModel](../../campaign-ext/SettlementProsperityModel/) — 炉火变化量的来源模型
+- [VillageProductionCalculatorModel](../../campaign-ext/VillageProductionCalculatorModel/) — 产出与仓库容量模型

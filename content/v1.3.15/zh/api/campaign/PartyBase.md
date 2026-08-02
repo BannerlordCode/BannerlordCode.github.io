@@ -59,31 +59,31 @@ description: "战役世界里「部队」的统一句柄：既包裹移动中的
 
 **上游（它依赖谁）**
 
-- [MobileParty](./MobileParty/) — `IsMobile` 形态时的本体，`MobileParty.Party` 返回它。
-- [Settlement](./Settlement/) — `IsSettlement` 形态时的本体（守军），`Settlement.Party` 返回它。
-- [PartyComponent](../campaign-ext/PartyComponent/) — `MobileParty` 持有的组件基类（守军用 `SettlementPartyComponent`）；决定部队的「类型」与行为。
-- [TroopRoster](../campaign-ext/TroopRoster/) / [ItemRoster](../campaign-ext/ItemRoster/) — 实际存成员、俘虏、物品的数据容器。
-- [Campaign](./Campaign/) — `Campaign.Current` 提供 `Models`、`GeneratePartyId`、`CameraFollowParty`。
+- [MobileParty](../MobileParty/) — `IsMobile` 形态时的本体，`MobileParty.Party` 返回它。
+- [Settlement](../Settlement/) — `IsSettlement` 形态时的本体（守军），`Settlement.Party` 返回它。
+- [PartyComponent](../../campaign-ext/PartyComponent/) — `MobileParty` 持有的组件基类（守军用 `SettlementPartyComponent`）；决定部队的「类型」与行为。
+- [TroopRoster](../../campaign-ext/TroopRoster/) / [ItemRoster](../../campaign-ext/ItemRoster/) — 实际存成员、俘虏、物品的数据容器。
+- [Campaign](../Campaign/) — `Campaign.Current` 提供 `Models`、`GeneratePartyId`、`CameraFollowParty`。
 
 **下游 / 消费者**
 
-- [MapEvent](../campaign-ext/MapEvent/) — 战斗事件把参战双方收纳进 `MapEventSide`，并反向挂到 `PartyBase.MapEventSide`。
+- [MapEvent](../../campaign-ext/MapEvent/) — 战斗事件把参战双方收纳进 `MapEventSide`，并反向挂到 `PartyBase.MapEventSide`。
 - 遭遇/可见性/兵力 系统（见下方相关 Models）。
 
 **相关 Models（点击即真实页）**
 
-- [PartySizeLimitModel](../campaign-ext/PartySizeLimitModel/) — `PartySizeLimit` / `PrisonerSizeLimit` 的计算来源。
-- [PartyWageModel](../campaign-ext/PartyWageModel/) — 部队工资（由 `MobileParty` 汇总，规划人力成本时参考）。
-- [PartyHealingModel](../campaign-ext/PartyHealingModel/) — `HealingRateForMember*` 的计算来源。
-- [MilitaryPowerModel](../campaign-ext/MilitaryPowerModel/) — `EstimatedStrength` / `CalculateCurrentStrength` / `GetCustomStrength` 的算力来源。
-- [EncounterModel](../campaign-ext/EncounterModel/) — `IsPartyUnderPlayerCommand` 与遭遇距离判定。
-- [MapVisibilityModel](../campaign-ext/MapVisibilityModel/) — `UpdateVisibilityAndInspected` 中的可见性计算。
+- [PartySizeLimitModel](../../campaign-ext/PartySizeLimitModel/) — `PartySizeLimit` / `PrisonerSizeLimit` 的计算来源。
+- [PartyWageModel](../../campaign-ext/PartyWageModel/) — 部队工资（由 `MobileParty` 汇总，规划人力成本时参考）。
+- [PartyHealingModel](../../campaign-ext/PartyHealingModel/) — `HealingRateForMember*` 的计算来源。
+- [MilitaryPowerModel](../../campaign-ext/MilitaryPowerModel/) — `EstimatedStrength` / `CalculateCurrentStrength` / `GetCustomStrength` 的算力来源。
+- [EncounterModel](../../campaign-ext/EncounterModel/) — `IsPartyUnderPlayerCommand` 与遭遇距离判定。
+- [MapVisibilityModel](../../campaign-ext/MapVisibilityModel/) — `UpdateVisibilityAndInspected` 中的可见性计算。
 
 **相关 Actions（改名册/英雄的正确入口）**
 
-- [AddHeroToPartyAction](../campaign-ext/AddHeroToPartyAction/) — 把英雄加入某部队（触发英雄状态）。
-- [TakePrisonerAction](../campaign-ext/TakePrisonerAction/) — 把英雄收为俘虏。
-- [TransferPrisonerAction](../campaign-ext/TransferPrisonerAction/) — 转移俘虏。
+- [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction/) — 把英雄加入某部队（触发英雄状态）。
+- [TakePrisonerAction](../../campaign-ext/TakePrisonerAction/) — 把英雄收为俘虏。
+- [TransferPrisonerAction](../../campaign-ext/TransferPrisonerAction/) — 转移俘虏。
 
 ## 风险段（崩溃 / 坏档）
 
@@ -242,13 +242,13 @@ foreach (MobileParty mp in MobileParty.All)
 
 ## 参见
 
-- ↑ 父级：[Campaign](./Campaign/) — 战役枢纽，`Campaign.Current` 提供 Models 与 `GeneratePartyId`
+- ↑ 父级：[Campaign](../Campaign/) — 战役枢纽，`Campaign.Current` 提供 Models 与 `GeneratePartyId`
 - ↑ 区域索引：[本区域目录](../)
-- ↔ 同级（形态本体）：[MobileParty](./MobileParty/) · [Settlement](./Settlement/)
-- ↔ 同层数据：[CharacterObject](./CharacterObject/) — 名册里的角色模板
-- 相关组件：[PartyComponent](../campaign-ext/PartyComponent/)
-- 相关名册：[TroopRoster](../campaign-ext/TroopRoster/) · [ItemRoster](../campaign-ext/ItemRoster/)
-- 相关事件：[MapEvent](../campaign-ext/MapEvent/)
-- 相关模型：[PartySizeLimitModel](../campaign-ext/PartySizeLimitModel/) · [PartyWageModel](../campaign-ext/PartyWageModel/) · [PartyHealingModel](../campaign-ext/PartyHealingModel/) · [MilitaryPowerModel](../campaign-ext/MilitaryPowerModel/) · [EncounterModel](../campaign-ext/EncounterModel/) · [MapVisibilityModel](../campaign-ext/MapVisibilityModel/)
-- 相关行动：[AddHeroToPartyAction](../campaign-ext/AddHeroToPartyAction/) · [TakePrisonerAction](../campaign-ext/TakePrisonerAction/) · [TransferPrisonerAction](../campaign-ext/TransferPrisonerAction/)
-- 对象管理：[MBObjectManager](../campaign-ext/MBObjectManager/)
+- ↔ 同级（形态本体）：[MobileParty](../MobileParty/) · [Settlement](../Settlement/)
+- ↔ 同层数据：[CharacterObject](../CharacterObject/) — 名册里的角色模板
+- 相关组件：[PartyComponent](../../campaign-ext/PartyComponent/)
+- 相关名册：[TroopRoster](../../campaign-ext/TroopRoster/) · [ItemRoster](../../campaign-ext/ItemRoster/)
+- 相关事件：[MapEvent](../../campaign-ext/MapEvent/)
+- 相关模型：[PartySizeLimitModel](../../campaign-ext/PartySizeLimitModel/) · [PartyWageModel](../../campaign-ext/PartyWageModel/) · [PartyHealingModel](../../campaign-ext/PartyHealingModel/) · [MilitaryPowerModel](../../campaign-ext/MilitaryPowerModel/) · [EncounterModel](../../campaign-ext/EncounterModel/) · [MapVisibilityModel](../../campaign-ext/MapVisibilityModel/)
+- 相关行动：[AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction/) · [TakePrisonerAction](../../campaign-ext/TakePrisonerAction/) · [TransferPrisonerAction](../../campaign-ext/TransferPrisonerAction/)
+- 对象管理：[MBObjectManager](../../campaign-ext/MBObjectManager/)

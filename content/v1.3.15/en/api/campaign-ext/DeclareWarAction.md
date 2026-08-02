@@ -69,7 +69,7 @@ Detail feeds logs, AI, quests, Comment Behaviors. **Wrong Detail = wrong narrati
 | **Chain callers** | [ChangeKingdomAction](../ChangeKingdomAction) (rebellion leave), [BeHostileAction](../BeHostileAction), `KingdomManager` founding, `DeclareWarDecision`, `DeclareWarBarterable` | Stock real entries |
 | **Symmetric face** | [MakePeaceAction](../MakePeaceAction) | End war |
 | **Save** | War stance enters save graph | Mid-load spam declare → half-baked diplomacy save |
-| **Parent** | [Actions family](../actions/) | Shared contract |
+| **Parent** | [Actions family](../actions-index) | Shared contract |
 
 ## Risks / crash-save boundaries
 
@@ -216,7 +216,7 @@ DeclareWarAction.ApplyByDefault(kingdomA, kingdomB);
 
 ## ↑ Parent Navigation
 
-- [Actions — campaign world-change family](../actions/) — **parent of this page**  
+- [Actions — campaign world-change family](../actions-index) — **parent of this page**
 - [campaign-ext area](./)  
 - [API index](../)  
 - [Crash and save boundaries §2](../../../architecture/crash-boundaries)  

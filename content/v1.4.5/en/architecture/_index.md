@@ -1,45 +1,56 @@
 ---
-title: v1.4.5 Architecture
-description: Module structure and developer entry points for Bannerlord v1.4.5
+title: "Architecture — v1.4.5"
+description: "Layered architecture of the Bannerlord modding SDK: Foundation, Campaign, Mission, UI, Save. How the layers relate and where a mod should start."
 ---
-# v1.4.5 Architecture
+# Architecture (v1.4.5)
 
-## Mental Model
+Bannerlord's runtime is a stack of layers. A mod almost never touches all of them — pick the layer that matches what you are building, then follow the dependency arrows.
 
-Treat `v1.4.5 Architecture` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+## ↑ Parent Navigation
 
-The key change in this version is not only API churn, but that the **source structure becomes visible again**: `SandBox`, `StoryMode`, `Multiplayer`, and `CustomBattle` are back as readable source modules. That means the recommended reading path starts from module boundaries, not only from DLL names.
+- [Version home](../)
+- [Roadmap](./roadmap)
+- [Crash boundaries](./crash-boundary)
+- [Doc contract](./doc-contract)
 
-## Entry Tree
+## The layers
 
-- [🏠 v1.4.5 Home](../)
-- [🗂️ API Index](../api/)
-- [📋 Complete Class Catalog](../api/)
-- [🔀 Cross-Version Compare](../../../versions/)
-- [⭐ Canonical v1.3.15 SDK Overview](../../../v1.3.15/en/architecture/sdk-overview)
+| Layer | What lives here | Entry you usually touch |
+|-------|-----------------|--------------------------|
+| **Foundation** (`api/core`, `api/engine`) | `MBSubModuleBase`, `Game`, `MBObjectBase`/`MBObjectManager`, `MBGameManager`, `TextObject`, save primitives | Derive `MBSubModuleBase`; read `Game.Current` |
+| **Campaign** (`api/campaign`) | `Campaign`, `Hero`, `Clan`, `Kingdom`, `Settlement`, `MobileParty`, `*Action`, `*Model`, `CampaignBehaviorBase`, `CampaignEvents` | Add a `CampaignBehaviorBase`; use `*Action.Apply` to change the world |
+| **Mission** (`api/mission`) | `Mission`, `Agent`, `Team`, `Formation`, `MissionBehavior`, `MissionLogic` | Add a `MissionBehavior` for combat/battle logic |
+| **UI** (`api/viewmodel`, `api/gui`) | `ViewModel`, `GauntletLayer`, `ScreenBase` | Bind a `ViewModel` to a Gauntlet layer |
+| **Save** (`api/save-system`) | `SaveManager`, `SaveableTypeDefiner`, `[SaveableField]` | Register custom saveable data in `SyncData` |
 
-## Module Mental Model
+## Dependency direction (mostly one-way)
 
-- `Modules.SandBox` / `Modules.StoryMode`: the main entry points for campaign and gameplay logic.
-- `Modules.Multiplayer` / `Modules.CustomBattle`: mode-specific logic, often paired with dedicated View / VM / UI layers.
-- `Modules.Native`: the bridge layer for GauntletUI, View, and Platform.PC concerns.
-- `bin/`: still the source of core `TaleWorlds.*` assemblies, but best read alongside the source modules.
+```
+SubModule → Game → Campaign → (Actions / Models / Behaviors) → Entities
+                     ↘ Mission → (MissionBehavior / Agent / Team)
+                Campaign/Game → SaveManager (persistence)
+                UI (ViewModel) reads Campaign/Mission state
+```
 
-## Suggested Reading Order
+- **Downward** calls are normal. **Upward** calls (an Entity reaching into `Campaign`, a `Campaign` calling `Mission` directly outside a battle) are the usual source of bugs and save corruption.
+- **World mutation must go through `*Action.Apply`** (or a registered `CampaignBehavior`), never by writing entity fields directly from a tick or event handler. See [crash boundaries](./crash-boundary).
 
-1. Start here and at the [v1.4.5 home page](../) to place the modules.
-2. Enter the [API index](../api/) to choose the subsystem you care about.
-3. Use class-page breadcrumbs to move back to the area, API, and version roots.
-4. Use [cross-version compare](../../../versions/) only when you need migration guidance.
+## Where to start (by intent)
 
-<!-- BEGIN SECTION INDEX -->
+- "Run code when the game starts / add a system" → `MBSubModuleBase` → `CampaignBehaviorBase`
+- "Change the world (kill, pay, declare war)" → the matching `*Action` (e.g. `KillCharacterAction`)
+- "Read/compute something each tick" → a `*Model` or a `CampaignBehaviorBase`
+- "Battle/combat logic" → `MissionBehavior`
+- "A UI panel" → `ViewModel` + `GauntletLayer`
+- "Persist custom data" → `SaveableTypeDefiner` + `SyncData`
 
-## Parent Navigation
+See [roadmap](./roadmap) for the full wave plan and [crash boundaries](./crash-boundary) before you ship.
 
-- [Version Home](../)
+## See also
 
-## Child Pages
-
-_No child pages yet._
-
-<!-- END SECTION INDEX -->
+- [Roadmap](./roadmap)
+- [Crash boundaries](./crash-boundary)
+- [Doc contract](./doc-contract)
+- [MBSubModuleBase](../api/core/MBSubModuleBase)
+- [Campaign](../api/campaign/Campaign)
+- [Mission](../api/mission/Mission)

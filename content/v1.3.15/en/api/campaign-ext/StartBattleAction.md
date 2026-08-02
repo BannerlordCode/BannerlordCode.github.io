@@ -92,7 +92,7 @@ When defender **already has** a MapEvent: inherit from `IsFieldBattle` / `IsRaid
 | **Downstream events** | [`CampaignEvents`](../CampaignEvents)`.BattleStarted` | dispatcher `OnStartBattle`; also watch `MapEventStarted` etc. |
 | **Stock call sites** | `EncounterManager`: `Apply` (contact), `ApplyStartRaid`, `ApplyStartAssaultAgainstWalls` | Map encounter main path |
 | **Aftermath chain** | [`TakePrisonerAction`](../TakePrisonerAction), [`DestroyPartyAction`](../DestroyPartyAction), [`KillCharacterAction`](../KillCharacterAction), [`ChangeOwnerOfSettlementAction`](../ChangeOwnerOfSettlementAction) | Settlement and ownership |
-| **Parent** | [Actions family](../actions/) | |
+| **Parent** | [Actions family](../actions-index) | |
 
 ## Risks / crash-save boundaries
 
@@ -258,7 +258,7 @@ StartBattleAction.Apply(attacker.Party, defender.Party);
 
 ## ↑ Parent Navigation
 
-- [Actions — campaign world-change family](../actions/) — **parent of this page**  
+- [Actions — campaign world-change family](../actions-index) — **parent of this page**
 - [campaign-ext area](./)  
 - [API index](../)  
 - [Crash and save boundaries §2](../../../architecture/crash-boundaries)  

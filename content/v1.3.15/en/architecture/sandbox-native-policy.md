@@ -45,8 +45,8 @@ Native (IMB* / EngineMethod)  ← only reach indirectly via managed wrappers
 |--------------|---------------|-------------|
 | Add a custom Issue | Inherit [`IssueBase`](../../api/campaign/IssueBase) + `IssueManager` pattern; study one SandBox Issue's structure | Copy-paste entire SandBox Issue namespaces as a "library" |
 | Add quest log | [`QuestBase`](../../api/campaign-ext/QuestBase) | Directly edit StoryMode quest classes |
-| Change balance formulas | [`GameModels`](../../api/campaign-ext/GameModels) / [Models family](../../api/campaign-ext/models/) | Treat a local constant in one SandBox call site as sole truth |
-| Change world state | [`*Action.Apply`](../../api/campaign-ext/actions/) | Copy "mutate fields casually" habits from SandBox Behaviors |
+| Change balance formulas | [`GameModels`](../../api/campaign-ext/GameModels) / [Campaign API](../../api/campaign-ext/) | Treat a local constant in one SandBox call site as sole truth |
+| Change world state | [`*Action.Apply`](../../api/campaign-ext/actions-index) | Copy "mutate fields casually" habits from SandBox Behaviors |
 | Touch scene / camera | `Mission` / `Scene` / Engine managed API | Direct P/Invoke Native |
 | Learn dialog / menu | [`DialogFlow`](../../api/campaign-ext/DialogFlow) · [`GameMenu`](../../api/campaign-ext/GameMenu) + SandBox samples | Treat Gauntlet prefabs as C# API |
 
@@ -130,5 +130,5 @@ See [native-interop](../native-interop). Summary:
 ## See also
 
 - [QuestBase](../../api/campaign-ext/QuestBase) · [IssueBase](../../api/campaign/IssueBase)  
-- [Actions family](../../api/campaign-ext/actions/) · [Models family](../../api/campaign-ext/models/)  
+- [Actions family](../../api/campaign-ext/actions-index) · [Campaign API](../../api/campaign-ext/)
 - [CampaignEvents](../../api/campaign-ext/CampaignEvents) · [CampaignEventReceiver](../../api/campaign-ext/CampaignEventReceiver)  

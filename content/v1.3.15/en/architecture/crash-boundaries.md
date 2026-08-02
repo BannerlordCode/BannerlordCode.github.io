@@ -109,7 +109,7 @@ Ownership and state transitions in the campaign world go through `TaleWorlds.Cam
 
 ### Related docs
 
-- [Actions index](../../api/campaign-ext/actions/)  
+- [Actions index](../../api/campaign-ext/actions-index)
 - [`GiveGoldAction`](../../api/campaign-ext/GiveGoldAction) · [`KillCharacterAction`](../../api/campaign-ext/KillCharacterAction) · [`ChangeKingdomAction`](../../api/campaign-ext/ChangeKingdomAction)  
 - [`Hero`](../../api/campaign/Hero) · [Campaign guide](../../guide/campaign-system) · [Common patterns](../../guide/common-patterns)  
 - [Roadmap §2](../developer-roadmap)

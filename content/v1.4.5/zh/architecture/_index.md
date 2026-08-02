@@ -1,45 +1,56 @@
 ---
-title: v1.4.5 架构总览 / Architecture
-description: Bannerlord v1.4.5 的模块结构与开发者入口
+title: "架构 — v1.4.5"
+description: "Bannerlord 模组 SDK 的分层架构：基础、战役、任务、UI、存档。各层如何关联，模组应从哪里入手。"
 ---
-# v1.4.5 架构总览 / Architecture
+# 架构（v1.4.5）
 
-## 心智模型
+Bannerlord 的运行时是一摞分层。一个模组几乎不会同时触及所有层——先选与你目标匹配的那一层，再顺着依赖箭头往下走。
 
-先把 `v1.4.5 架构总览` 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。
-
-这一版的重点不是 API 名字变化，而是 **源码结构重新变得可见**：`SandBox`、`StoryMode`、`Multiplayer`、`CustomBattle` 等玩法模块重新以源码形式出现，因此阅读路径应当从“模块边界”进入，而不是只从 DLL 名字进入。
-
-## 入口树 / Entry Tree
-
-- [🏠 v1.4.5 首页](../)
-- [🗂️ API 目录](../api/)
-- [📋 完整类目录](../api/)
-- [🔀 跨版本类对比](../../../versions/)
-- [⭐ v1.3.15 规范版 SDK 总览](../../../v1.3.15/zh/architecture/sdk-overview)
-
-## 模块心智模型
-
-- `Modules.SandBox` / `Modules.StoryMode`：战役和玩法逻辑的主要入口。
-- `Modules.Multiplayer` / `Modules.CustomBattle`：模式特化逻辑，常带独立 View / VM / UI 层。
-- `Modules.Native`：GauntletUI/View/Platform.PC 等桥接层。
-- `bin/`：仍然是核心 `TaleWorlds.*` 程序集来源，但应与源码模块对照阅读。
-
-## 建议阅读顺序
-
-1. 先看本页和 [v1.4.5 首页](../) 建立模块边界。
-2. 进入 [API 目录](../api/) 找到当前子系统。
-3. 通过类页 breadcrumb 返回 area / api / version 入口。
-4. 若要评估迁移成本，再看 [跨版本类对比](../../../versions/)。
-
-<!-- BEGIN SECTION INDEX -->
-
-## ↑ 上级导航
+## ↑ 父级导航
 
 - [版本首页](../)
+- [路线图](./roadmap)
+- [崩溃边界](./crash-boundary)
+- [文档契约](./doc-contract)
 
-## ↓ 子页面目录
+## 各层
 
-_暂无子页面。_
+| 层 | 包含什么 | 通常接触的入口 |
+|----|----------|----------------|
+| **基础**（Foundation，`api/core`、`api/engine`） | `MBSubModuleBase`、`Game`、`MBObjectBase`/`MBObjectManager`、`MBGameManager`、`TextObject`、存档原语 | 继承 `MBSubModuleBase`；读 `Game.Current` |
+| **战役**（Campaign，`api/campaign`） | `Campaign`、`Hero`、`Clan`、`Kingdom`、`Settlement`、`MobileParty`、`*Action`、`*Model`、`CampaignBehaviorBase`、`CampaignEvents` | 加一个 `CampaignBehaviorBase`；用 `*Action.Apply` 改变世界 |
+| **任务**（Mission，`api/mission`） | `Mission`、`Agent`、`Team`、`Formation`、`MissionBehavior`、`MissionLogic` | 加一个 `MissionBehavior` 写战斗逻辑 |
+| **UI**（`api/viewmodel`、`api/gui`） | `ViewModel`、`GauntletLayer`、`ScreenBase` | 把 `ViewModel` 绑到 Gauntlet 层 |
+| **存档**（Save，`api/save-system`） | `SaveManager`、`SaveableTypeDefiner`、`[SaveableField]` | 在 `SyncData` 里注册自定义可存档数据 |
 
-<!-- END SECTION INDEX -->
+## 依赖方向（基本单向）
+
+```
+SubModule → Game → Campaign → (Actions / Models / Behaviors) → Entities
+                     ↘ Mission → (MissionBehavior / Agent / Team)
+                Campaign/Game → SaveManager（持久化）
+                UI（ViewModel）读取 Campaign/Mission 状态
+```
+
+- **向下**调用是正常的。**向上**调用（实体反向够 `Campaign`、在战斗外 `Campaign` 直接调 `Mission`）是 bug 与坏档的常见根源。
+- **世界变更必须走 `*Action.Apply`**（或已注册的 `CampaignBehavior`），绝不要在 tick 或事件处理器里直接写实体字段。见[崩溃边界](./crash-boundary)。
+
+## 按意图从哪里入手
+
+- 「游戏启动时跑代码 / 加系统」→ `MBSubModuleBase` → `CampaignBehaviorBase`
+- 「改变世界（杀人、给钱、宣战）」→ 对应的 `*Action`（如 `KillCharacterAction`）
+- 「每 tick 读/算点东西」→ `*Model` 或 `CampaignBehaviorBase`
+- 「战斗逻辑」→ `MissionBehavior`
+- 「UI 面板」→ `ViewModel` + `GauntletLayer`
+- 「持久化自定义数据」→ `SaveableTypeDefiner` + `SyncData`
+
+看[路线图](./roadmap)了解完整波次，发布前先读[崩溃边界](./crash-boundary)。
+
+## 参见
+
+- [路线图](./roadmap)
+- [崩溃边界](./crash-boundary)
+- [文档契约](./doc-contract)
+- [MBSubModuleBase](../api/core/MBSubModuleBase)
+- [Campaign](../api/campaign/Campaign)
+- [Mission](../api/mission/Mission)

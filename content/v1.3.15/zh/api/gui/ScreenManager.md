@@ -60,13 +60,13 @@ description: "Bannerlord 界面（GUI）层的静态门面：持有屏幕栈、�
 ## 依赖图
 
 - **上游（创建 / 驱动 / 注入）：**
-  - [EngineScreenManager](../engine/EngineScreenManager/) — 引擎每帧回调进入 `ScreenManager` 的入口（`internal`，mod 不直接用）。
-  - `IScreenManagerEngineConnection` / `ScreenManagerEngineConnection`（位于 [EngineScreenManager](../engine/EngineScreenManager/) 同体系）——被 `Initialize(...)` 注入，提供光标/分辨率/调试面板后端。
-  - [ScreenBase](../campaign-ext/ScreenBase/) —— 被压入栈的单元；`ScreenManager` 持有并驱动它。
+  - [EngineScreenManager](../../engine/EngineScreenManager) — 引擎每帧回调进入 `ScreenManager` 的入口（`internal`，mod 不直接用）。
+  - `IScreenManagerEngineConnection` / `ScreenManagerEngineConnection`（位于 [EngineScreenManager](../../engine/EngineScreenManager) 同体系）——被 `Initialize(...)` 注入，提供光标/分辨率/调试面板后端。
+  - [ScreenBase](../../campaign-ext/ScreenBase) —— 被压入栈的单元；`ScreenManager` 持有并驱动它。
 - **下游（被它驱动 / 由你在其上叠加）：**
-  - [ScreenLayer](../campaign-ext/ScreenLayer/) —— 屏与全局层中的可输入/可渲染层，`SortedLayers` 由它们构成。
-  - [GauntletLayer](../engine/GauntletLayer/) —— 承载 Gauntlet UI（XAML + ViewModel）的具体 `ScreenLayer`，通常通过 `TopScreen.AddLayer(...)` 叠加。
-  - [ViewModel](../core-extra/ViewModel/) —— Gauntlet UI 的数据绑定源，挂在某块 `GauntletLayer` 上。
+  - [ScreenLayer](../../campaign-ext/ScreenLayer) —— 屏与全局层中的可输入/可渲染层，`SortedLayers` 由它们构成。
+  - [GauntletLayer](../../engine/GauntletLayer) —— 承载 Gauntlet UI（XAML + ViewModel）的具体 `ScreenLayer`，通常通过 `TopScreen.AddLayer(...)` 叠加。
+  - [ViewModel](../../core-extra/ViewModel) —— Gauntlet UI 的数据绑定源，挂在某块 `GauntletLayer` 上。
 
 ## 成员说明
 
@@ -272,7 +272,7 @@ ScreenManager.OnPopScreen += screen =>
 ### 示例 1：在当前屏上叠加一个 Gauntlet UI 层（最常见的 UI 注入）
 
 ```csharp
-// 假设 myViewModel 是某个 ViewModel 实例（见 [ViewModel](../core-extra/ViewModel/)）
+// 假设 myViewModel 是某个 ViewModel 实例
 GauntletLayer gauntletLayer = new GauntletLayer(0, "GauntletUI", false);
 gauntletLayer.LoadMovie("MyPanel", myViewModel);
 
@@ -297,11 +297,11 @@ ScreenManager.PopScreen();
 
 ## 导航
 
-- ↑ 上级：[gui 目录](./_index.md) · [API 参考](../)
+- ↑ 上级：[gui 目录](../) · [API 参考](../../)
 - ↔ 同级 / 相关：
-  - [ScreenBase](../campaign-ext/ScreenBase/) — 被压入栈的屏幕/游戏状态单元
-  - [ScreenLayer](../campaign-ext/ScreenLayer/) — 屏与全局层中的可输入/可渲染层
-  - [EngineScreenManager](../engine/EngineScreenManager/) — 引擎桥（含 `ScreenManagerEngineConnection` 底层连接），mod 不直接用
-  - [GauntletLayer](../engine/GauntletLayer/) — 承载 Gauntlet UI 的 `ScreenLayer`
-  - [ViewModel](../core-extra/ViewModel/) — Gauntlet UI 的数据绑定源
+  - [ScreenBase](../../campaign-ext/ScreenBase) — 被压入栈的屏幕/游戏状态单元
+  - [ScreenLayer](../../campaign-ext/ScreenLayer) — 屏与全局层中的可输入/可渲染层
+  - [EngineScreenManager](../../engine/EngineScreenManager) — 引擎桥（含 `ScreenManagerEngineConnection` 底层连接），mod 不直接用
+  - [GauntletLayer](../../engine/GauntletLayer) — 承载 Gauntlet UI 的 `ScreenLayer`
+  - [ViewModel](../../core-extra/ViewModel) — Gauntlet UI 的数据绑定源
 - 跨版本：核心屏幕栈 API 在 1.3.15 与 1.4.5 形状一致；1.4.5 额外为 `PushScreen` / `PopScreen` / `CleanScreens` / `CleanAndPushScreen` 增加了主线程 `FailedAssert` 守卫（1.3.15 无断言但同样是主线程专用）。1.4.5 移除了 1.3.15 公开过的 `IsWindowFocused` 属性。

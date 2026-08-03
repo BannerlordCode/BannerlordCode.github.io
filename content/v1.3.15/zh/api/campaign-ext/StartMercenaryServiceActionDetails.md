@@ -155,6 +155,8 @@ v1.3.15 与已核对的 v1.4.5 核心程序集都只有 `ApplyByDefault`，`Appl
 
 ## 导航
 
-- ↑ Parent：[StartMercenaryServiceAction](../StartMercenaryServiceAction) · [战役扩展 API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册氏族雇佣状态；开始事件不会在读档时重放，模组合同缓存应由 Behavior 的 `SyncData` 恢复。
+- ↑ Parent：[StartMercenaryServiceAction](../StartMercenaryServiceAction) · [战役扩展 API](../)
 - ↔ Sibling：[ChangeKingdomAction](../ChangeKingdomAction) · [EndMercenaryServiceAction](../EndMercenaryServiceAction)
+- ↓ Children：无独立子页；该枚举由 [StartMercenaryServiceAction](../StartMercenaryServiceAction) 持有
 - Related：[Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [CampaignEvents](../CampaignEvents)

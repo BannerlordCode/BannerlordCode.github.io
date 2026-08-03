@@ -65,7 +65,7 @@ ApplyByBattle(victim, killer, battleContext, agentOrigin)
 | 政治级联 | [`ChangeClanLeaderAction`](../ChangeClanLeaderAction)、`ChangeRulingClanAction` 和 [`DestroyClanAction`](../DestroyClanAction) 处理领袖、统治氏族及无继承人的氏族。 |
 | 部队级联 | [`DisbandArmyAction`](../DisbandArmyAction)、`DisbandPartyAction`、`DestroyPartyAction` 与 [`EndCaptivityAction`](../EndCaptivityAction) 清理军团、地图部队和囚禁 roster。 |
 | 事件与任务 | [`CampaignEvents`](../CampaignEvents) 的 `BeforeHeroKilledEvent`/`HeroKilledEvent` 把本枚举交给任务、评论、关系、总督、工坊和 UI Behavior。 |
-| 存档 | `Hero.DeathMark` 是 `SaveableProperty(400)`，凶手是 `SaveableProperty(401)`；1.4.5 的 `SaveableCampaignTypeDefiner` 以枚举定义 ID `2058` 注册本类型。 |
+| 存档 | [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner) 注册本枚举；`Hero.DeathMark` 是 `SaveableProperty(400)`，凶手是 `SaveableProperty(401)`，1.4.5 的定义 ID 为 `2058`。 |
 
 ## 风险、坏档与生命周期
 
@@ -104,10 +104,11 @@ if (victim != null)
 
 ## 版本注记
 
-v1.3.15 与 v1.4.5 都在 `TaleWorlds.CampaignSystem` 中定义相同九个值、相同公开入口，并保留 `DeathMark` 延迟结算及主要死亡级联。1.4.5 源码显示相同的事件相对顺序；跨版本模组仍不应序列化裸整数，因为新增或重排枚举值会让旧存档把死亡原因解释成另一种语义。
+v1.3.15 与 v1.4.5 都在 `TaleWorlds.CampaignSystem` 中定义相同九个值、相同公开入口，并保留 `DeathMark` 延迟结算及主要死亡级联。1.4.5 的主角疾病流程实际由 `AgingCampaignBehavior` 调用 `ApplyByOldAge`，不是把 `ApplyByPlayerIllness` 当作通用疾病入口。源码显示相同的事件相对顺序；跨版本模组仍不应序列化裸整数，因为新增或重排枚举值会让旧存档把死亡原因解释成另一种语义。
 
 ## 导航
 
-- ↑ Parent：[战役扩展 API](./)
-- ↔ Sibling：[KillCharacterAction](../KillCharacterAction) · [DestroyClanAction](../DestroyClanAction)
-- Related：[Hero](../../campaign/Hero) · [CampaignEvents](../CampaignEvents) · [ChangeClanLeaderAction](../ChangeClanLeaderAction) · [EndCaptivityAction](../EndCaptivityAction)
+ - ↑ Parent：[战役扩展 API](../)
+ - ↔ Sibling：[KillCharacterAction](../KillCharacterAction) · [DestroyClanAction](../DestroyClanAction)
+ - ↓ Children：无独立子页；该枚举由 [KillCharacterAction](../KillCharacterAction) 持有
+ - Related：[Hero](../../campaign/Hero) · [CampaignEvents](../CampaignEvents) · [ChangeClanLeaderAction](../ChangeClanLeaderAction) · [EndCaptivityAction](../EndCaptivityAction)

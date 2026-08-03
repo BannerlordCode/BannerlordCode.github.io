@@ -108,11 +108,11 @@ Check `victim.IsAlive` and `victim.DeathMark` after the call. A future caller ca
 
 ## Version Note
 
-The v1.3.15 and v1.4.5 routes expose the same nine values, named wrappers, `DeathMark` deferral, and major event ordering. The 1.4.5 source confirms enum registration ID `2058` and the current delayed-death behavior. Do not serialize a bare enum integer in mod data: a later version can add or reorder values while preserving the named contract.
+The v1.3.15 and v1.4.5 routes expose the same nine values, named wrappers, `DeathMark` deferral, and major event ordering. In 1.4.5, the main-character illness path in `AgingCampaignBehavior` actually calls `ApplyByOldAge`; do not treat `ApplyByPlayerIllness` as a general illness entry point. The source confirms enum registration ID `2058` and the current delayed-death behavior. Do not serialize a bare enum integer in mod data: a later version can add or reorder values while preserving the named contract.
 
 ## Navigation
 
-- ↑ Parent: [Campaign-Ext API](./)
+- ↑ Parent: [Campaign-Ext API](../)
 - ↔ Siblings: [KillCharacterAction](../KillCharacterAction) · [EndCaptivityAction](../EndCaptivityAction) · [DestroyClanAction](../DestroyClanAction)
 - ↓ Children: no separate child page; the enum is owned by [KillCharacterAction](../KillCharacterAction)
-- Related: [Hero](../../campaign/Hero/) · [CampaignEvents](../CampaignEvents/) · [CharacterKilledLogEntry](../CharacterKilledLogEntry/) · [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/)
+- Related: [Hero](../../campaign/Hero) · [CampaignEvents](../CampaignEvents) · [CharacterKilledLogEntry](../CharacterKilledLogEntry) · [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/)

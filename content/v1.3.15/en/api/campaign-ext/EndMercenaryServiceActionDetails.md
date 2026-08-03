@@ -124,7 +124,7 @@ The v1.3.15 and v1.4.5 routes expose the same three enum values, three public en
 
 ## Navigation
 
-- ↑ Parent: [Campaign-Ext API](./)
+- ↑ Parent: [Campaign-Ext API](../)
 - ↔ Siblings: [EndMercenaryServiceAction](../EndMercenaryServiceAction) · [StartMercenaryServiceAction](../StartMercenaryServiceAction)
 - ↓ Children: no separate child page; the enum is owned by [EndMercenaryServiceAction](../EndMercenaryServiceAction)
 - Related: [ChangeKingdomAction](../ChangeKingdomAction) · [Clan](../../campaign/Clan) · [CampaignEvents](../CampaignEvents)

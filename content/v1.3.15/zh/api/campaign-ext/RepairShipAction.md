@@ -97,6 +97,8 @@ v1.3.15 与 v1.4.5 的三个公开入口、付费船主条件、满耐久/80% �
 
 - 上游：[Ship](../Ship/) 从 [PartyBase](../../campaign/PartyBase/) 或 [MobileParty](../../campaign/MobileParty/) 的 `Ships` 集合取得；[Settlement](../../campaign/Settlement/) 提供调用者验证过的修理港口。
 - 下游：[ShipCostModel](../ShipCostModel/) 决定价格，[GiveGoldAction](../GiveGoldAction/) 执行转账，[SkillLevelingManager](../SkillLevelingManager/) 接收修复差值，[CampaignEvents](../CampaignEvents/) 暴露修船通知。
-- Parent（父级）：[campaign-ext API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册 `Ship` 的保存字段；修船事件不会在读档时重放，生命值和所有权应由 Action 一起提交。
+- Parent（父级）：[campaign-ext API](../)
 - Sibling（同级）：[Ship](../Ship/) · [ShipCostModel](../ShipCostModel/) · [GiveGoldAction](../GiveGoldAction/)
+- Children（子项）：无独立子页；三个公开修理入口的副作用已在本页成员章节说明
 - Related（相关）：[Settlement](../../campaign/Settlement/) · [PartyBase](../../campaign/PartyBase/) · [CampaignEvents](../CampaignEvents/)

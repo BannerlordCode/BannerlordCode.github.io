@@ -107,6 +107,8 @@ public static void SellAllPlayerPrisonersFromTownMenu()
 
 ## 导航
 
-- ↑ Parent：[战役扩展 API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册受影响的 roster、英雄和金币状态；本次交易事件不会在读档时重放。
+- ↑ Parent：[战役扩展 API](../)
 - ↔ Sibling：[EndCaptivityAction](../EndCaptivityAction) · [TransferPrisonerAction](../TransferPrisonerAction) · [GiveGoldAction](../GiveGoldAction)
+- ↓ Children：无独立子页；三个公开入口的全量/选定囚徒分支已在本页成员章节说明
 - Related：[PartyBase](../../campaign/PartyBase) · [TroopRoster](../TroopRoster) · [CampaignEvents](../CampaignEvents) · [RansomValueCalculationModel](../RansomValueCalculationModel)

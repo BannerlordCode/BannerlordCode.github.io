@@ -107,6 +107,8 @@ The public signatures and flow on this page are for v1.3.15. The inspected v1.4.
 
 ## Navigation
 
-- Parent: [Campaign extension API](./)
+- Save boundary: [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner/) registers affected roster, hero, and gold state; the transaction event is not replayed after loading.
+- Parent: [Campaign extension API](../)
 - Sibling: [EndCaptivityAction](../EndCaptivityAction) · [TransferPrisonerAction](../TransferPrisonerAction) · [GiveGoldAction](../GiveGoldAction)
+- Children: no separate child page; the three public prisoner-sale branches are documented above
 - Related: [PartyBase](../../campaign/PartyBase) · [TroopRoster](../TroopRoster) · [CampaignEvents](../CampaignEvents) · [RansomValueCalculationModel](../RansomValueCalculationModel)

@@ -56,6 +56,7 @@ DeclareWarAction.ApplyBy*(faction1, faction2)
 | 核心状态 | [`FactionManager`](../FactionManager) 持有双方 `StanceLink` 并刷新战争势力缓存；[`Kingdom`](../../campaign/Kingdom) 还可能改变 `PoliticalStagnation`。 |
 | 下游事件 | [`CampaignEvents`](../CampaignEvents) 的 `WarDeclared` 将枚举传给 AI、任务和外交 Behavior。`AllianceCampaignBehavior` 会结束交战双方已有联盟，并按原因选择责任英雄。 |
 | 反向操作 | 停战应走 [`MakePeaceAction`](../MakePeaceAction)，不能直接把 stance 改回中立。 |
+| 存档边界 | [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner) | 战争姿态及相关战役状态会保存；原因事件不会在读档时为非序列化监听器重放。 |
 
 ## 风险、存档与生命周期
 
@@ -103,6 +104,7 @@ v1.3.15 与 v1.4.5 的枚举名称、数值顺序、八个公开原因入口和 
 
 ## 导航
 
-- ↑ Parent：[战役扩展 API](./)
-- ↔ Sibling：[DeclareWarAction](../DeclareWarAction) · [MakePeaceAction](../MakePeaceAction)
-- Related：[FactionManager](../FactionManager) · [CampaignEvents](../CampaignEvents) · [ChangeKingdomAction](../ChangeKingdomAction) · [Kingdom](../../campaign/Kingdom)
+ - ↑ Parent：[战役扩展 API](../)
+ - ↔ Sibling：[DeclareWarAction](../DeclareWarAction) · [MakePeaceAction](../MakePeaceAction)
+ - ↓ Children：无独立子页；该枚举由 [DeclareWarAction](../DeclareWarAction) 持有并传入下游事件
+ - Related：[FactionManager](../FactionManager) · [CampaignEvents](../CampaignEvents) · [ChangeKingdomAction](../ChangeKingdomAction) · [Kingdom](../../campaign/Kingdom)

@@ -122,6 +122,8 @@ In v1.3.15, `GetActionForRaidingSettlement` has the signature `(MobileParty, Set
 
 ## Navigation
 
-- Parent: [Campaign extension API](./)
+- Save boundary: [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner/) registers persistent `MobileParty` state; AI events and short-term targets are not replayed as history after loading.
+- Parent: [Campaign extension API](../)
 - Sibling: [AiBehavior](../AiBehavior) · [Army](../Army) · [DisbandArmyAction](../DisbandArmyAction)
+- Children: no separate child page; the navigation query entries are documented above
 - Related: [MobileParty](../../campaign/MobileParty) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents)

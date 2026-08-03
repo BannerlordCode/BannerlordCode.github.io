@@ -52,6 +52,7 @@ description: "区分雇佣关系因普通结束、离开王国或转为封臣而
 | 配对入口 | [`StartMercenaryServiceAction`](../StartMercenaryServiceAction) 设置 `Clan.Kingdom`、奖励倍率、雇佣标记及玩家续约时间，再派发开始事件。 |
 | 核心对象 | [`Clan`](../../campaign/Clan) 持久化 `Kingdom`、`IsUnderMercenaryService`、债务和雇佣奖励等状态。结束 Action 只触及其中的雇佣标记。 |
 | 下游事件 | [`CampaignEvents`](../CampaignEvents) 的 `OnMercenaryServiceEndedEvent` 传递氏族和本枚举，适合 Behavior 清理自己的合同缓存。 |
+| 存档边界 | [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner) | 氏族状态会保存；结束事件是运行时通知，读档不会重放历史原因。 |
 
 ## 风险、存档与生命周期
 
@@ -87,6 +88,7 @@ v1.3.15 与 v1.4.5 都在 `TaleWorlds.CampaignSystem` 中定义相同三个枚�
 
 ## 导航
 
-- ↑ Parent：[战役扩展 API](./)
-- ↔ Sibling：[EndMercenaryServiceAction](../EndMercenaryServiceAction) · [StartMercenaryServiceAction](../StartMercenaryServiceAction)
-- Related：[ChangeKingdomAction](../ChangeKingdomAction) · [Clan](../../campaign/Clan) · [CampaignEvents](../CampaignEvents)
+ - ↑ Parent：[战役扩展 API](../)
+ - ↔ Sibling：[EndMercenaryServiceAction](../EndMercenaryServiceAction) · [StartMercenaryServiceAction](../StartMercenaryServiceAction)
+ - ↓ Children：无独立子页；该枚举由 [EndMercenaryServiceAction](../EndMercenaryServiceAction) 持有
+ - Related：[ChangeKingdomAction](../ChangeKingdomAction) · [Clan](../../campaign/Clan) · [CampaignEvents](../CampaignEvents)

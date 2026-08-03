@@ -97,6 +97,8 @@ v1.3.15 与 v1.4.5 的四个枚举值、四个公开入口和核心级联一致�
 
 - 上游：[RemoveCompanionAction](../RemoveCompanionAction/)、[KillCharacterAction](../KillCharacterAction/) 和 [CompanionRolesCampaignBehavior](../CompanionRolesCampaignBehavior/) 选择原因并建立完整移除事务。
 - 下游：[CampaignEvents](../CampaignEvents/) 把原因送给监听者；[EndCaptivityAction](../EndCaptivityAction/)、[ChangeGovernorAction](../ChangeGovernorAction/)、[DestroyPartyAction](../DestroyPartyAction/) 与 [DisbandPartyAction](../DisbandPartyAction/) 承担状态级联。
-- Parent（父级）：[campaign-ext API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册相关英雄、氏族和队伍状态；`CompanionRemoved` 原因事件不会在读档时重放。
+- Parent（父级）：[campaign-ext API](../)
 - Sibling（同级）：[RemoveCompanionAction](../RemoveCompanionAction/) · [ChangeGovernorAction](../ChangeGovernorAction/)
+- Children（子项）：无独立子页；该枚举由 [RemoveCompanionAction](../RemoveCompanionAction/) 持有
 - Related（相关）：[Hero](../../campaign/Hero/) · [Clan](../../campaign/Clan/) · [CampaignEvents](../CampaignEvents/)

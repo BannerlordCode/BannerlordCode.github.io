@@ -82,6 +82,8 @@ public ExplainedNumber ExplainDailyWage(MobileParty party)
 That is the same source path as `MobileParty.TotalWageExplained`. The return value is a preview; the daily finance behavior later applies payment and shortage rules.
 
 ```csharp
+using System;
+
 public int GetRecruitmentPrice(CharacterObject troop, Hero buyer)
 {
     ExplainedNumber cost = Campaign.Current.Models.PartyWageModel
@@ -106,7 +108,7 @@ Do not use `GetTotalWage` as a replacement for `GiveGoldAction`: it has no owner
 2. **Daily double charge:** payment is applied by campaign finance code; logging or deducting inside `GetTotalWage` charges twice.
 3. **Desertion feedback:** the desertion model reads wages; changing wages based on a desertion side effect can oscillate across ticks.
 4. **Null buyer:** ransom and AI valuation intentionally pass a null `Hero`; support that contract.
-5. **Version drift:** v1.4.5 adds naval/perk inputs; preserve unknown default factors by delegation.
+5. **Version drift:** both v1.3.15 and v1.4.5 include sea/perk conditions, while surrounding party state and cache paths can change; preserve unknown default factors by delegation.
 
 ## Navigation
 

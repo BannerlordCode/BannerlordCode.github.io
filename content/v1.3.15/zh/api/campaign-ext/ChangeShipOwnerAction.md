@@ -56,6 +56,7 @@ ApplyBy* (newOwner, ship)
 | 交易模型 | [`ShipCostModel`](../ShipCostModel) 决定交易价，[`GiveGoldAction`](../GiveGoldAction) 承担实际收支，不能用直接写金币代替。 |
 | 下游事件 | [`CampaignEvents`](../CampaignEvents) 的 `OnShipOwnerChangedEvent` 接收舰船、旧所有者和 `ShipOwnerChangeDetail`。1.4.5 的 `AiPatrollingBehavior` 用它重新检查失去舰船的部队。 |
 | 相关清理 | 舰船应被删除而不是转交时，使用 `DestroyShipAction`；部队随后要销毁时，再由对应部队 Action 处理。 |
+| 存档边界 | [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner) | `Ship._owner` 是可持久化状态；所有权事件不会在读档时为非序列化监听器重放。 |
 
 ## 风险、存档与生命周期
 
@@ -93,6 +94,7 @@ v1.3.15 与 v1.4.5 都位于 `TaleWorlds.CampaignSystem`，保留相同五个入
 
 ## 导航
 
-- ↑ Parent：[战役扩展 API](./)
-- ↔ Sibling：[DestroyShipAction](../DestroyShipAction) · [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
-- Related：[Ship](../Ship) · [ShipCostModel](../ShipCostModel) · [CampaignEvents](../CampaignEvents) · [MobileParty](../../campaign/MobileParty)
+ - ↑ Parent：[战役扩展 API](../)
+ - ↔ Sibling：[DestroyShipAction](../DestroyShipAction) · [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
+ - ↓ Children：[ShipOwnerChangeDetail](../ShipOwnerChangeDetail)
+ - Related：[Ship](../Ship) · [ShipCostModel](../ShipCostModel) · [CampaignEvents](../CampaignEvents) · [MobileParty](../../campaign/MobileParty)

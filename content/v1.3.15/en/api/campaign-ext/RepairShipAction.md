@@ -50,7 +50,7 @@ The private `ApplyInternal(Ship, float, Settlement)` is the synchronous commit p
 
 ## Dependencies and call-site evidence
 
-The upstream state is a [Ship](./Ship) acquired from a [PartyBase](../campaign/PartyBase) or [MobileParty](../campaign/MobileParty), plus a validated [Settlement](../campaign/Settlement) for the paid entry. The price comes from [ShipCostModel](./ShipCostModel); payment uses `GiveGoldAction`, skill progression is notified through `SkillLevelingManager`, and [CampaignEvents](./CampaignEvents) exposes `OnShipRepairedEvent`.
+The upstream state is a [Ship](../Ship) acquired from a [PartyBase](../../campaign/PartyBase) or [MobileParty](../../campaign/MobileParty), plus a validated [Settlement](../../campaign/Settlement) for the paid entry. The price comes from [ShipCostModel](../ShipCostModel); payment uses `GiveGoldAction`, skill progression is notified through `SkillLevelingManager`, and [CampaignEvents](../CampaignEvents) exposes `OnShipRepairedEvent`.
 
 The 1.4.5 source tree contains the class declaration and its three public wrappers, but no class-external direct call to `RepairShipAction`. That absence matters: a mod must supply the port or AI workflow and must not invent an official repair menu call site. The verified behavior of the wrappers is still source-backed: `Apply` and `ApplyForFree` target full durability, while `ApplyForBanditShip` has the 80 percent guard.
 
@@ -69,7 +69,7 @@ The 1.4.5 source tree contains the class declaration and its three public wrappe
 | `ApplyForFree(ship)` | No payment; targets `MaxHitPoints` | Calls the skill hook, updates hit points, and dispatches with a null port |
 | `ApplyForBanditShip(ship)` | Only below 80 percent; targets 80 percent | No-op at or above the threshold, so no skill hook or event is sent in that case |
 
-All actual repairs call `SkillLevelingManager.OnShipRepaired(ship, delta)`, assign `ship.HitPoints`, and then call `CampaignEventDispatcher.OnShipRepaired(ship, repairPort)`. The Action does not change `Ship.Owner`; ownership remains the responsibility of [ChangeShipOwnerAction](./ChangeShipOwnerAction).
+All actual repairs call `SkillLevelingManager.OnShipRepaired(ship, delta)`, assign `ship.HitPoints`, and then call `CampaignEventDispatcher.OnShipRepaired(ship, repairPort)`. The Action does not change `Ship.Owner`; ownership remains the responsibility of [ChangeShipOwnerAction](../ChangeShipOwnerAction).
 
 ## Risks and save boundaries
 
@@ -121,8 +121,8 @@ The three public entries, owner condition for paid repair, full/80 percent targe
 
 ## Navigation
 
-- Parent: [campaign-ext API](./)
-- Siblings: [RaftStateChangeAction](./RaftStateChangeAction) · [RemoveCompanionDetail](./RemoveCompanionDetail) · [ChangeShipOwnerAction](./ChangeShipOwnerAction)
+- Save boundary: [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner/) registers affected `Ship` fields; the repair event is not replayed on load, so owner and hit points should be committed through the Action.
+- Parent: [campaign-ext API](../)
+- Siblings: [RaftStateChangeAction](../RaftStateChangeAction) · [RemoveCompanionDetail](../RemoveCompanionDetail) · [ChangeShipOwnerAction](../ChangeShipOwnerAction)
 - Children: [Apply](#apply) · [ApplyForFree](#applyforfree) · [ApplyForBanditShip](#applyforbanditship)
-- Related: [Ship](./Ship) · [ShipCostModel](./ShipCostModel) · [MobileParty](../campaign/MobileParty) · [Settlement](../campaign/Settlement) · [CampaignEvents](./CampaignEvents)
-
+- Related: [Ship](../Ship) · [ShipCostModel](../ShipCostModel) · [MobileParty](../../campaign/MobileParty) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents)

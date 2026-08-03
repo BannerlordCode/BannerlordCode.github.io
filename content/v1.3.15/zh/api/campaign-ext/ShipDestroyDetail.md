@@ -136,6 +136,8 @@ v1.3.15 与已核对的 v1.4.5 核心程序集都把该枚举嵌套在 `DestroyS
 
 ## 导航
 
-- ↑ Parent：[DestroyShipAction](../DestroyShipAction) · [战役扩展 API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册受影响的 `Ship` 与队伍状态；销毁事件本身不会在读档时重放。
+- ↑ Parent：[DestroyShipAction](../DestroyShipAction) · [战役扩展 API](../)
 - ↔ Sibling：[Ship](../Ship) · [SetPartyAiAction](../SetPartyAiAction)
+- ↓ Children：无独立子页；该枚举由 [DestroyShipAction](../DestroyShipAction) 持有
 - Related：[PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents) · [ChangeShipOwnerAction](../ChangeShipOwnerAction)

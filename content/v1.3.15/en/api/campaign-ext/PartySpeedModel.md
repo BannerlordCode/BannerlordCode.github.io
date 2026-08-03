@@ -143,7 +143,7 @@ The decorator preserves vanilla factors and only adds a bounded factor. If the d
 
 ## Cross-version notes
 
-The two-stage base/final contract and `Campaign.Current.Models.PartySpeedCalculatingModel` access path are stable in v1.3.0 and v1.3.15. v1.4.5 adds naval/sea factors in the default implementation; preserve unknown factors by delegating to the installed vanilla model rather than copying a formula from an older version.
+The two-stage base/final contract and `Campaign.Current.Models.PartySpeedCalculatingModel` access path are stable in v1.3.0 and v1.3.15. Both v1.3.15 and v1.4.5 include `IsCurrentlyAtSea` conditions; v1.4.5 differs more visibly in ship state, wind, and sea-related cache invalidation around the model. Preserve unknown factors by delegating to the installed vanilla model rather than copying an older formula.
 
 ## Navigation
 

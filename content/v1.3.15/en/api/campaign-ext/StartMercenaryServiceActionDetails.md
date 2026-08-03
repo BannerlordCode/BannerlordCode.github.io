@@ -155,6 +155,8 @@ Both v1.3.15 and the inspected v1.4.5 core assembly contain only `ApplyByDefault
 
 ## Navigation
 
-- Parent: [StartMercenaryServiceAction](../StartMercenaryServiceAction) · [Campaign extension API](./)
+- Save boundary: [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner/) registers clan mercenary state; the start event is not replayed after loading, so mod-owned contract caches belong in Behavior `SyncData`.
+- Parent: [StartMercenaryServiceAction](../StartMercenaryServiceAction) · [Campaign extension API](../)
 - Sibling: [ChangeKingdomAction](../ChangeKingdomAction) · [EndMercenaryServiceAction](../EndMercenaryServiceAction)
+- Children: no separate child page; the enum is owned by [StartMercenaryServiceAction](../StartMercenaryServiceAction)
 - Related: [Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [CampaignEvents](../CampaignEvents)

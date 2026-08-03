@@ -122,6 +122,8 @@ v1.3.15 的 `GetActionForRaidingSettlement` 签名为 `(MobileParty, Settlement,
 
 ## 导航
 
-- ↑ Parent：[战役扩展 API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册 `MobileParty` 的持久状态；AI 事件与短期目标不会作为历史事件在读档时重放。
+- ↑ Parent：[战役扩展 API](../)
 - ↔ Sibling：[AiBehavior](../AiBehavior) · [Army](../Army) · [DisbandArmyAction](../DisbandArmyAction)
+- ↓ Children：无独立子页；各导航目标的查询入口已在本页成员章节说明
 - Related：[MobileParty](../../campaign/MobileParty) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents)

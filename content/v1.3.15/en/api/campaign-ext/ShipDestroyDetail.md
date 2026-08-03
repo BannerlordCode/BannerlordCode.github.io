@@ -136,6 +136,8 @@ Both v1.3.15 and the inspected v1.4.5 core assembly nest this enum in `DestroySh
 
 ## Navigation
 
-- Parent: [DestroyShipAction](../DestroyShipAction) · [Campaign extension API](./)
+- Save boundary: [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner/) registers affected `Ship` and party state; the destruction event is not replayed after loading.
+- Parent: [DestroyShipAction](../DestroyShipAction) · [Campaign extension API](../)
 - Sibling: [Ship](../Ship) · [SetPartyAiAction](../SetPartyAiAction)
+- Children: no separate child page; the enum is owned by [DestroyShipAction](../DestroyShipAction)
 - Related: [PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents) · [ChangeShipOwnerAction](../ChangeShipOwnerAction)

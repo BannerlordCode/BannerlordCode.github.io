@@ -100,6 +100,7 @@ v1.3.15 与 v1.4.5 的公开入口、支付分支顺序和主要副作用一致�
 
 - 上游：官方 [CrimeCampaignBehavior](../CrimeCampaignBehavior/) 从 [Settlement](../../campaign/Settlement/) 的 `MapFaction` 取得目标阵营，并在菜单条件中先报价。
 - 下游：[CrimeModel](../CrimeModel/) 决定价格和犯罪阈值；[GiveGoldAction](../GiveGoldAction/)、[ChangeClanInfluenceAction](../ChangeClanInfluenceAction/)、[KillCharacterAction](../KillCharacterAction/) 与 [ChangeCrimeRatingAction](../ChangeCrimeRatingAction/) 承担实际状态和事件级联。
-- Parent（父级）：[campaign-ext API](./)
+- Parent（父级）：[campaign-ext API](../)
+- Children（子项）：无独立子页；`GetClearCrimeCost` 与 `Apply` 的调用时机已在本页成员章节说明
 - Sibling（同级）：[CrimeModel](../CrimeModel/) · [ChangeCrimeRatingAction](../ChangeCrimeRatingAction/)
 - Related（相关）：[Hero](../../campaign/Hero/) · [Clan](../../campaign/Clan/) · [CampaignEvents](../CampaignEvents/)

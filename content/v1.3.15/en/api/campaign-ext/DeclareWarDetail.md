@@ -122,7 +122,7 @@ The v1.3.15 and v1.4.5 routes expose the same eight enum values, named wrappers,
 
 ## Navigation
 
-- ↑ Parent: [Campaign-Ext API](./)
+- ↑ Parent: [Campaign-Ext API](../)
 - ↔ Siblings: [DeclareWarAction](../DeclareWarAction) · [MakePeaceAction](../MakePeaceAction)
 - ↓ Children: no separate child page; the enum is owned by [DeclareWarAction](../DeclareWarAction)
 - Related: [FactionManager](../FactionManager) · [CampaignEvents](../CampaignEvents) · [ChangeKingdomAction](../ChangeKingdomAction) · [Kingdom](../../campaign/Kingdom)

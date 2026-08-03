@@ -104,6 +104,8 @@ v1.3.15 与 v1.4.5 保持相同的两个公开入口和同一状态级联。1.4.
 
 - 上游：[MapEvent](../../campaign/MapEvent/) 与玩家遭遇结算决定何时失去船只；[MobileParty](../../campaign/MobileParty/) 的导航转换负责停用。
 - 下游：[EndCaptivityAction](../EndCaptivityAction/) 处理英雄俘虏逃脱，[CampaignEvents](../CampaignEvents/) 暴露木筏状态变化通知；[Army](../Army/) 和队伍 AI 是同步修改对象。
-- Parent（父级）：[campaign-ext API](./)
+- 存档边界：[SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) 注册 `MobileParty` 的可保存状态；木筏标志会跨读档保留，但事件和清理关系不会自动重放。
+- Parent（父级）：[campaign-ext API](../)
 - Sibling（同级）：[EndCaptivityAction](../EndCaptivityAction/) · [CampaignEvents](../CampaignEvents/)
+- Children（子项）：无独立子页；两个公开入口的级联已在本页成员章节说明
 - Related（相关）：[MobileParty](../../campaign/MobileParty/) · [MapEvent](../../campaign/MapEvent/) · [PartyBase](../../campaign/PartyBase/)

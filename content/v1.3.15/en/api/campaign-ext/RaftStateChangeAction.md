@@ -49,9 +49,9 @@ The private `ApplyInternal(MobileParty, bool)` performs both transitions synchro
 
 ## Dependencies and call sites
 
-The upstream object is a live [MobileParty](../campaign/MobileParty). In the 1.4.5 source, `PlayerEncounter` activates the main party and eligible defeated parties after naval encounter resolution; `MobileParty.FinishNavigationTransitionInternal` deactivates the party once its navigation position is updated. The Action calls [EndCaptivityAction](./EndCaptivityAction) for every hero found in the prisoner roster, then publishes [CampaignEvents](./CampaignEvents)' `OnMobilePartyRaftStateChangedEvent` for [CampaignBehaviorBase](./CampaignBehaviorBase) listeners.
+The upstream object is a live [MobileParty](../../campaign/MobileParty). In the 1.4.5 source, `PlayerEncounter` activates the main party and eligible defeated parties after naval encounter resolution; `MobileParty.FinishNavigationTransitionInternal` deactivates the party once its navigation position is updated. The Action calls [EndCaptivityAction](../EndCaptivityAction) for every hero found in the prisoner roster, then publishes [CampaignEvents](../CampaignEvents)' `OnMobilePartyRaftStateChangedEvent` for [CampaignBehaviorBase](../CampaignBehaviorBase) listeners.
 
-The party's [PartyBase](../campaign/PartyBase) and AI are mutated as part of the same transaction. Treat the saved `MobileParty` raft flag and the campaign event as downstream state, not as substitutes for the transition.
+The party's [PartyBase](../../campaign/PartyBase) and AI are mutated as part of the same transaction. Treat the saved `MobileParty` raft flag and the campaign event as downstream state, not as substitutes for the transition.
 
 ## State cascade
 
@@ -107,8 +107,8 @@ The v1.3.15 and v1.4.5 public entries and state cascade are equivalent. The 1.4.
 
 ## Navigation
 
-- Parent: [campaign-ext API](./)
-- Siblings: [EndCaptivityAction](./EndCaptivityAction) · [RepairShipAction](./RepairShipAction) · [RemoveCompanionDetail](./RemoveCompanionDetail)
+- Save boundary: [`SaveableTypeDefiner`](../../save-system/SaveableTypeDefiner/) registers persistent `MobileParty` state; the raft flag survives loading but the event and cleared relationships are not replayed.
+- Parent: [campaign-ext API](../)
+- Siblings: [EndCaptivityAction](../EndCaptivityAction) · [RepairShipAction](../RepairShipAction) · [RemoveCompanionDetail](../RemoveCompanionDetail)
 - Children: [ActivateRaftStateForParty](#activateraftstateforparty) · [DeactivateRaftStateForParty](#deactivateraftstateforparty)
-- Related: [MobileParty](../campaign/MobileParty) · [PartyBase](../campaign/PartyBase) · [CampaignEvents](./CampaignEvents) · [CampaignBehaviorBase](./CampaignBehaviorBase)
-
+- Related: [MobileParty](../../campaign/MobileParty) · [PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase)

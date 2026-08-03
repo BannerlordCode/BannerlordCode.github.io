@@ -1,98 +1,89 @@
 ---
 title: "ChangeKingdomAction"
-description: "Auto-generated campaign action reference for ChangeKingdomAction."
+description: "The official entry point for clan join, leave, defection, rebellion, mercenary conversion, and kingdom-destruction transitions."
 ---
+
 # ChangeKingdomAction
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions
-**Module:** TaleWorlds.CampaignSystem
-**Type:** static class
-**File:** `TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class ChangeKingdomAction`  
+**Base:** none  
+**Source:** `TaleWorlds.CampaignSystem/Actions/ChangeKingdomAction.cs`
 
-ChangeKingdomAction is a set of static methods that trigger "ChangeKingdom" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
+## Overview
 
-## Methods
+`ChangeKingdomAction` moves a `Clan` into, out of, or against a `Kingdom`. Public methods encode `ChangeKingdomActionDetail`; private `ApplyInternal` then coordinates diplomacy, fiefs/mercenary state, party visuals, and events.
 
-### ApplyByJoinToKingdom
+## Mental Model
 
-```csharp
-public static void ApplyByJoinToKingdom(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
+This is not `clan.Kingdom = newKingdom`. Select the cause first: ordinary join, defection join, kingdom creation, mercenary join/leave, kingdom destruction, or rebellion. The Action selects the correct diplomacy and cleanup branch. `ApplyByLeaveWithRebellionAgainstKingdom` can chain into [DeclareWarAction](../DeclareWarAction), so callers must not declare the same war again.
+
+## When to use
+
+- Use it at the execution point of a Kingdom decision, rebellion, mercenary contract, or kingdom-destruction flow.
+- Use [ChangeRelationAction](../ChangeRelationAction) for a hero relation and [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction) for a settlement owner.
+- Do not call another transition from an event observer that is already reacting to this Clan.
+
+## Dependencies
+
+```mermaid
+graph TD
+    CLAN[Clan] --> ACTION[ChangeKingdomAction.ApplyBy*]
+    ACTION --> KINGDOM[Kingdom / IFaction]
+    ACTION --> WAR[DeclareWarAction]
+    ACTION --> PARTY[LordParty / banner / visuals]
+    ACTION --> EVENTS[CampaignEvents / logs]
 ```
 
-**Purpose:** Applies the effect of by join to kingdom to the this instance.
+- Upstream: [Clan](../../campaign/Clan), [Kingdom](../../campaign/Kingdom), and Kingdom decisions provide cause and target.
+- Downstream: war stance, mercenary state, party banners, events, and logs change with the branch.
+- Related: [Campaign](../../campaign/Campaign), [DeclareWarAction](../DeclareWarAction), and [MakePeaceAction](../MakePeaceAction).
 
-### ApplyByJoinToKingdomByDefection
+## Risks
 
-```csharp
-public static void ApplyByJoinToKingdomByDefection(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), bool showNotification = true)
-```
+1. New-kingdom and rebellion paths can declare war automatically; a second war call duplicates events and logs.
+2. A Clan with a war party in a MapEvent may be delayed or rejected by the source; do not force migration during combat.
+3. Leaving a kingdom recomputes fiefs, contracts, and party banners. Clearing fields directly breaks save references.
+4. `shouldStayInKingdomUntil` and mercenary awards affect later AI; do not replace an existing contract with a default casually.
 
-**Purpose:** Applies the effect of by join to kingdom by defection to the this instance.
+## Key entry points
 
-### ApplyByCreateKingdom
+| Method | Cause |
+| --- | --- |
+| `ApplyByJoinToKingdom(Clan, Kingdom, CampaignTime, bool)` | Ordinary join |
+| `ApplyByJoinToKingdomByDefection(Clan, Kingdom, Kingdom, CampaignTime, bool)` | Defection join |
+| `ApplyByCreateKingdom(Clan, Kingdom, bool)` | New kingdom |
+| `ApplyByLeaveKingdom(Clan, bool)` | Normal leave |
+| `ApplyByLeaveWithRebellionAgainstKingdom(Clan, bool)` | Leave and rebel |
+| `ApplyByJoinFactionAsMercenary` / `ApplyByLeaveKingdomAsMercenary` | Mercenary contract |
+| `ApplyByLeaveByKingdomDestruction` / `ApplyByLeaveKingdomByClanDestruction` | Destructive cleanup |
 
-```csharp
-public static void ApplyByCreateKingdom(Clan clan, Kingdom newKingdom, bool showNotification = true)
-```
-
-**Purpose:** Applies the effect of by create kingdom to the this instance.
-
-### ApplyByLeaveByKingdomDestruction
-
-```csharp
-public static void ApplyByLeaveByKingdomDestruction(Clan clan, bool showNotification = true)
-```
-
-**Purpose:** Applies the effect of by leave by kingdom destruction to the this instance.
-
-### ApplyByLeaveKingdom
+## Real example
 
 ```csharp
-public static void ApplyByLeaveKingdom(Clan clan, bool showNotification = true)
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public static class RebellionScript
+{
+    public static bool StartRebellion(Clan clan)
+    {
+        if (Campaign.Current == null || clan == null || clan.Kingdom == null)
+            return false;
+        if (clan.IsEliminated || clan.IsUnderMercenaryService)
+            return false;
+
+        ChangeKingdomAction.ApplyByLeaveWithRebellionAgainstKingdom(clan, showNotification: true);
+        return clan.Kingdom == null;
+    }
+}
 ```
 
-**Purpose:** Applies the effect of by leave kingdom to the this instance.
+The Action owns the diplomatic consequences; the caller only chooses the entry point during a safe decision or map phase.
 
-### ApplyByLeaveWithRebellionAgainstKingdom
+## Navigation
 
-```csharp
-public static void ApplyByLeaveWithRebellionAgainstKingdom(Clan clan, bool showNotification = true)
-```
-
-**Purpose:** Applies the effect of by leave with rebellion against kingdom to the this instance.
-
-### ApplyByJoinFactionAsMercenary
-
-```csharp
-public static void ApplyByJoinFactionAsMercenary(Clan clan, Kingdom newKingdom, CampaignTime shouldStayInKingdomUntil = default(CampaignTime), int awardMultiplier = 50, bool showNotification = true)
-```
-
-**Purpose:** Applies the effect of by join faction as mercenary to the this instance.
-
-### ApplyByLeaveKingdomAsMercenary
-
-```csharp
-public static void ApplyByLeaveKingdomAsMercenary(Clan mercenaryClan, bool showNotification = true)
-```
-
-**Purpose:** Applies the effect of by leave kingdom as mercenary to the this instance.
-
-### ApplyByLeaveKingdomByClanDestruction
-
-```csharp
-public static void ApplyByLeaveKingdomByClanDestruction(Clan clan, bool showNotification = true)
-```
-
-**Purpose:** Applies the effect of by leave kingdom by clan destruction to the this instance.
-
-## Usage Example
-
-```csharp
-// Trigger this action from a mod
-ChangeKingdomAction.ApplyByJoinToKingdom(clan, newKingdom, default(CampaignTime), false);
-```
-
-## See Also
-
-- [Area Index](../)
-- [Campaign System](../../campaign/)
+- Parent: [Actions index](./)
+- Siblings: [DeclareWarAction](../DeclareWarAction) · [MakePeaceAction](../MakePeaceAction) · [ChangeRelationAction](../ChangeRelationAction)
+- Related: [Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Campaign](../../campaign/Campaign)

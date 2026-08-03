@@ -27,7 +27,7 @@ It is the common root of every game object that is *registered, name-lookupable,
 
 **Upstream (who creates / manages it)**
 
-- [MBObjectManager](../campaign-ext/MBObjectManager) —— registration and name lookup of module objects (`GetObject<T>(string)`, `GetObjectTypeList<T>()`)
+- [MBObjectManager](../../campaign-ext/MBObjectManager) —— registration and name lookup of module objects (`GetObject<T>(string)`, `GetObjectTypeList<T>()`)
 - `MBGUID` —— the identity structure behind `Id` (TypeId + SubId), used to restore cross-save references
 - SaveSystem / `SaveableProperty` —— field persistence (`[SaveableProperty(1/2/3)]`)
 - `TaleWorlds.Localization.TextObject` —— the return type of `GetName()`
@@ -35,9 +35,9 @@ It is the common root of every game object that is *registered, name-lookupable,
 
 **Downstream (its subclasses)**
 
-- [ItemObject](../core-extra/ItemObject) —— items (module level)
-- [Game](../core-extra/Game) —— the top-level game object
-- [Hero](../campaign/Hero) —— heroes (campaign level, managed by `CampaignObjectManager`)
+- [ItemObject](../../core-extra/ItemObject) —— items (module level)
+- [Game](../../core-extra/Game) —— the top-level game object
+- [Hero](../../campaign/Hero) —— heroes (campaign level, managed by `CampaignObjectManager`)
 - `CharacterObject` —— character templates (module level)
 
 **Lifecycle hooks / events**
@@ -110,13 +110,13 @@ if (sword != null && sword.IsReady)
 ## Navigation
 
 - ↑ Parent: [Core module index](./)
-- ↔ Sibling: [MBSubModuleBase](MBSubModuleBase), [Game](../core-extra/Game)
-- Downstream / related: [ItemObject](../core-extra/ItemObject), [Hero](../campaign/Hero)
-- Upstream hub: [MBObjectManager](../campaign-ext/MBObjectManager)
-- Architecture: [Doc contract](../../architecture/doc-contract), [Architecture home](../../architecture/)
+- ↔ Sibling: [MBSubModuleBase](../MBSubModuleBase), [Game](../../core-extra/Game)
+- Downstream / related: [ItemObject](../../core-extra/ItemObject), [Hero](../../campaign/Hero)
+- Upstream hub: [MBObjectManager](../../campaign-ext/MBObjectManager)
+- Architecture: [Doc contract](../../../architecture/doc-contract), [Architecture home](../../../architecture/)
 
 ## See Also
 
-- Upstream hub: [MBObjectManager](../campaign-ext/MBObjectManager) —— object registration and name lookup
-- Downstream / related: [ItemObject](../core-extra/ItemObject), [Hero](../campaign/Hero)
-- Architecture constraints: [Doc contract](../../architecture/doc-contract), [Architecture home](../../architecture/)
+- Upstream hub: [MBObjectManager](../../campaign-ext/MBObjectManager) —— object registration and name lookup
+- Downstream / related: [ItemObject](../../core-extra/ItemObject), [Hero](../../campaign/Hero)
+- Architecture constraints: [Doc contract](../../../architecture/doc-contract), [Architecture home](../../../architecture/)

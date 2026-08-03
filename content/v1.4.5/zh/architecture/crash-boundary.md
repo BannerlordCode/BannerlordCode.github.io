@@ -9,8 +9,8 @@ description: "导致 Bannerlord 模组坏档或崩溃的八类失败模式：存
 ## ↑ 父级导航
 
 - [架构索引](./)
-- [路线图](./roadmap)
-- [文档契约](./doc-contract)
+- [路线图](.././roadmap)
+- [文档契约](.././doc-contract)
 
 ## 1. 存档图：SaveId、SyncData 与 SaveableField、加载顺序
 
@@ -63,7 +63,7 @@ description: "导致 Bannerlord 模组坏档或崩溃的八类失败模式：存
 ## 参见
 
 - [架构索引](./)
-- [MBSubModuleBase](../api/core/MBSubModuleBase)
-- [Campaign](../api/campaign/Campaign)
-- [Mission](../api/mission/Mission)
-- [SaveManager](../api/save-system/SaveManager)
+- [MBSubModuleBase](../../api/core/MBSubModuleBase)
+- [Campaign](../../api/campaign/Campaign)
+- [Mission](../../api/mission/Mission)
+- [SaveManager](../../api/save-system/SaveManager)

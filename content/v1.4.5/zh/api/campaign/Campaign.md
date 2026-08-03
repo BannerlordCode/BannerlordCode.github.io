@@ -47,13 +47,13 @@ graph TD
 ```
 
 - **上游（谁创建它 / 它继承谁）**
-  - [MBSubModuleBase](../core/MBSubModuleBase.md) — 模块加载入口，`GameManager` 经它启动战役。
+  - [MBSubModuleBase](../../core/MBSubModuleBase) — 模块加载入口，`GameManager` 经它启动战役。
   - `GameType`（基类，TaleWorlds.Core）— `Campaign` 通过 `GameType` 的加载状态机 `DoLoadingForGameType` 完成初始化。
 - **下游（它持有 / 驱动的世界实体）**
-  - [Hero](Hero.md) — 经 `AliveHeroes` / `DeadOrDisabledHeroes`。
-  - [Settlement](Settlement.md) — 经 `Settlements`。
-  - [MobileParty](MobileParty.md) — 经 `MobileParties` 及各分类集合（`LordParties` / `CaravanParties` / `BanditParties` 等）。
-  - [Clan](Clan.md) / `Kingdom` — 经 `Clans` / `Kingdoms`。
+  - [Hero](../Hero) — 经 `AliveHeroes` / `DeadOrDisabledHeroes`。
+  - [Settlement](../Settlement) — 经 `Settlements`。
+  - [MobileParty](../MobileParty) — 经 `MobileParties` 及各分类集合（`LordParties` / `CaravanParties` / `BanditParties` 等）。
+  - [Clan](../Clan) / `Kingdom` — 经 `Clans` / `Kingdoms`。
 - **事件与行为**
   - `CampaignEvents` — 静态事件总线（`DailyTickEvent`、`HourlyTickEvent`、`DailyTickHeroEvent` 等），Behavior 在 `RegisterEvents()` 里订阅。
   - `CampaignEventDispatcher` — 内部派发器，`Campaign` 在 `OnInitialize` 把它初始化为 `new CampaignEventDispatcher(...)` 并把 `CampaignEvents` / `IssueManager` / `QuestManager` 注册为接收器。
@@ -63,7 +63,7 @@ graph TD
   - `IMapScene`（`MapSceneWrapper`）— 大地图场景包装，提供寻路网格与边界（`LoadMapScene`）。
   - `MapEventManager` / `SiegeEventManager` / `MapMarkerManager` — 地图战斗、围城、标记管理。
 - **存档点**
-  - `SaveHandler` / `SupportsSaving`（仅 `CampaignGameMode.Campaign`）— 由 [SaveManager](../save-system/SaveManager) 体系序列化；`OnGameOver` 在铁人模式触发 `QuickSaveCurrentGame`。
+  - `SaveHandler` / `SupportsSaving`（仅 `CampaignGameMode.Campaign`）— 由 [SaveManager](../../save-system/SaveManager) 体系序列化；`OnGameOver` 在铁人模式触发 `QuickSaveCurrentGame`。
 
 ## 风险
 
@@ -159,12 +159,12 @@ float dist = Campaign.Current.Models.MapDistanceModel.GetDistance(
 
 ## 导航
 
-- ↑ 上级：[模块索引](./) · [MBSubModuleBase（生命周期入口）](../core/MBSubModuleBase.md)
-- ↔ 同级：[Hero](Hero.md) · [Settlement](Settlement.md) · [MobileParty](MobileParty.md) · [Clan](Clan.md)
-- 相关：[Mission（战斗层）](../mission/Mission.md) · [SaveManager（存档体系）](../save-system/SaveManager) · [文档契约](../../architecture/doc-contract) · [崩溃边界](../../architecture/crash-boundary)
+- ↑ 上级：[模块索引](./) · [MBSubModuleBase（生命周期入口）](../../core/MBSubModuleBase)
+- ↔ 同级：[Hero](../Hero) · [Settlement](../Settlement) · [MobileParty](../MobileParty) · [Clan](../Clan)
+- 相关：[Mission（战斗层）](../../mission/Mission) · [SaveManager（存档体系）](../../save-system/SaveManager) · [文档契约](../../../architecture/doc-contract) · [崩溃边界](../../../architecture/crash-boundary)
 
 ## 参见
 
-- 上游枢纽：[MBSubModuleBase](../core/MBSubModuleBase.md) — 模块与 Behavior 生命周期的入口，理解 `Campaign` 何时被拉起。
-- 下游 / 相关：[Hero](Hero.md) 与 [Settlement](Settlement.md) — `Campaign` 持有的核心世界实体，二者状态变更都必须经 Action / Behavior。
-- 规范：[文档契约](../../architecture/doc-contract) 与 [崩溃边界](../../architecture/crash-boundary) — 写世界状态与存档时的硬性约束。
+- 上游枢纽：[MBSubModuleBase](../../core/MBSubModuleBase) — 模块与 Behavior 生命周期的入口，理解 `Campaign` 何时被拉起。
+- 下游 / 相关：[Hero](../Hero) 与 [Settlement](../Settlement) — `Campaign` 持有的核心世界实体，二者状态变更都必须经 Action / Behavior。
+- 规范：[文档契约](../../../architecture/doc-contract) 与 [崩溃边界](../../../architecture/crash-boundary) — 写世界状态与存档时的硬性约束。

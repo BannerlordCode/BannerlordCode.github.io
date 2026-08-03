@@ -1,90 +1,82 @@
 ---
 title: "DeclareWarAction"
-description: "DeclareWarAction 的自动生成战役动作参考。"
+description: "派系正式宣战的官方入口：写入战争状态、政治停滞、副作用视觉刷新和 OnWarDeclared 事件。"
 ---
+
 # DeclareWarAction
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions
-**Module:** TaleWorlds.CampaignSystem
-**Type:** static class
-**File:** `TaleWorlds.CampaignSystem/Actions/DeclareWarAction.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class DeclareWarAction`  
+**Base:** 无  
+**源文件：** `TaleWorlds.CampaignSystem/Actions/DeclareWarAction.cs`
 
-DeclareWarAction 是一组静态方法，用于在战役中以特定原因触发"DeclareWar"。modder通过调用其 `Apply*` 方法改变游戏状态（每种原因一个重载）。
+## 概述
 
-## 方法
+`DeclareWarAction` 让两个 `IFaction` 正式进入战争状态。不同 `ApplyBy*` 将 Kingdom 决策、玩家敌对、叛乱、罪行、建国、王位主张或召集参战写入 `DeclareWarDetail`，私有内部路径再调用 `FactionManager.DeclareWar`、更新视觉并发布 `OnWarDeclared`。
 
-### ApplyByKingdomDecision
+## 心智模型
 
-```csharp
-public static void ApplyByKingdomDecision(IFaction faction1, IFaction faction2)
+“关系下降”不等于“战争”。行为或 KingdomDecision 决定原因，`DeclareWarAction.ApplyBy*` 执行外交状态跳转；`MakePeaceAction` 是对称的结束入口。不要直接修改 `StanceLink` 或只调用 `FactionManager.DeclareWar`，否则会缺少政治停滞、地图图标和事件副作用。
+
+## 何时用 / 不用
+
+- 用 `ApplyByKingdomDecision`、`ApplyByRebellion`、`ApplyByPlayerHostility` 等与真实原因匹配的方法。
+- 不用来处理个人关系（[ChangeRelationAction](../ChangeRelationAction)）或 Mission 内的近战；后者不是地图外交。
+- 调用前确认双方非空、尚未交战且 Campaign 已完成加载。
+
+## 依赖关系
+
+```mermaid
+graph TD
+    FACTION[IFaction / Kingdom / Clan] --> ACTION[DeclareWarAction.ApplyBy*]
+    ACTION --> STANCE[FactionManager / StanceLink]
+    ACTION --> VISUAL[Settlement / Party visual dirty]
+    ACTION --> EVENTS[CampaignEvents.OnWarDeclared]
+    ACTION -. symmetric .-> PEACE[MakePeaceAction]
 ```
 
-**用途 / Purpose:** 将 by kingdom decision 的效果应用到当前对象。
+- 上游：[Kingdom](../../campaign/Kingdom)、[Clan](../../campaign/Clan) 或决定系统提供派系和原因。
+- 下游：Campaign 的战争关系、AI、任务、地图视觉和 `CampaignEvents` 监听器。
+- 相关：[MakePeaceAction](../MakePeaceAction)、[ChangeKingdomAction](../ChangeKingdomAction)、[CampaignEvents](../CampaignEvents)。
 
-### ApplyByDefault
+## 风险
 
-```csharp
-public static void ApplyByDefault(IFaction faction1, IFaction faction2)
-```
+1. 直接改派系关系会漏掉 `OnWarDeclared`、政治停滞和图标刷新。
+2. 选择错误的 `ApplyBy*` 会让日志/AI 误判战争原因，即使战争状态已经成立。
+3. 在读档、主角尚未加入派系或 MapEvent 正在结算时宣战，可能让 AI/存档处于半完成状态。
+4. 已经交战的双方重复调用没有收益，却可能触发重复监听器。
 
-**用途 / Purpose:** 将 by default 的效果应用到当前对象。
+## 关键入口
 
-### ApplyByPlayerHostility
+`ApplyByKingdomDecision`、`ApplyByDefault`、`ApplyByPlayerHostility`、`ApplyByRebellion`、`ApplyByCrimeRatingChange`、`ApplyByKingdomCreation`、`ApplyByClaimOnThrone`、`ApplyByCallToWarAgreement` 均为 `ApplyBy*(IFaction faction1, IFaction faction2)`；mod 只调用公开层，不能反射调用 `ApplyInternal`。
 
-```csharp
-public static void ApplyByPlayerHostility(IFaction faction1, IFaction faction2)
-```
-
-**用途 / Purpose:** 将 by player hostility 的效果应用到当前对象。
-
-### ApplyByRebellion
+## 真实示例
 
 ```csharp
-public static void ApplyByRebellion(IFaction faction1, IFaction faction2)
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public static class WarScript
+{
+    public static bool DeclareFromDecision(Kingdom target)
+    {
+        if (Campaign.Current == null || Hero.MainHero?.MapFaction == null || target == null)
+            return false;
+        IFaction player = Hero.MainHero.MapFaction;
+        if (player == target || player.IsAtWarWith(target))
+            return false;
+
+        DeclareWarAction.ApplyByKingdomDecision(player, target);
+        return player.IsAtWarWith(target);
+    }
+}
 ```
 
-**用途 / Purpose:** 将 by rebellion 的效果应用到当前对象。
+玩家主动攻击达到敌对阈值时应使用 `ApplyByPlayerHostility`，叛乱由 `ChangeKingdomAction` 选择 `ApplyByRebellion`，不要把所有来源都标为 Default。
 
-### ApplyByCrimeRatingChange
+## 导航
 
-```csharp
-public static void ApplyByCrimeRatingChange(IFaction faction1, IFaction faction2)
-```
-
-**用途 / Purpose:** 将 by crime rating change 的效果应用到当前对象。
-
-### ApplyByKingdomCreation
-
-```csharp
-public static void ApplyByKingdomCreation(IFaction faction1, IFaction faction2)
-```
-
-**用途 / Purpose:** 将 by kingdom creation 的效果应用到当前对象。
-
-### ApplyByClaimOnThrone
-
-```csharp
-public static void ApplyByClaimOnThrone(IFaction faction1, IFaction faction2)
-```
-
-**用途 / Purpose:** 将 by claim on throne 的效果应用到当前对象。
-
-### ApplyByCallToWarAgreement
-
-```csharp
-public static void ApplyByCallToWarAgreement(IFaction faction1, IFaction faction2)
-```
-
-**用途 / Purpose:** 将 by call to war agreement 的效果应用到当前对象。
-
-## 使用示例
-
-```csharp
-// 在 mod 中触发一次该动作
-DeclareWarAction.ApplyByKingdomDecision(faction1, faction2);
-```
-
-## 参见
-
-- [本区域目录](../)
-- [战役系统](../../campaign/)
+- ↑ 父级：[Actions 目录](./)
+- ↔ 同级：[MakePeaceAction](../MakePeaceAction) · [ChangeKingdomAction](../ChangeKingdomAction) · [ChangeRelationAction](../ChangeRelationAction)
+- 相关：[Kingdom](../../campaign/Kingdom) · [Clan](../../campaign/Clan) · [CampaignEvents](../CampaignEvents)

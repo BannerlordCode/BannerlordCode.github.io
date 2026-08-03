@@ -15,30 +15,30 @@ Chinese is primary where a matching page exists. This English page is the author
 ## ↑ Parent Navigation
 
 - [Architecture index](./)
-- [Roadmap](./roadmap)
-- [Crash boundaries](./crash-boundary)
+- [Roadmap](.././roadmap)
+- [Crash boundaries](.././crash-boundary)
 - [Version home](../)
 
 ## 🔀 Sibling Navigation
 
 | Page | Role |
 |------|------|
-| [Roadmap](./roadmap) | Wave plan H0→H10 and task-based discovery |
-| [Crash boundaries](./crash-boundary) | Save / world-change / event-timing / Agent-lifecycle failure modes |
-| [Module system](../api/core/MBSubModuleBase) | SubModule / Behavior lifecycle entry |
-| [Save system](../api/save-system/SaveManager) | SaveManager and saveable data |
-| [Campaign](../api/campaign/Campaign) | Campaign hub |
-| [Mission](../api/mission/Mission) | Mission hub |
+| [Roadmap](.././roadmap) | Wave plan H0→H10 and task-based discovery |
+| [Crash boundaries](.././crash-boundary) | Save / world-change / event-timing / Agent-lifecycle failure modes |
+| [Module system](../../api/core/MBSubModuleBase) | SubModule / Behavior lifecycle entry |
+| [Save system](../../api/save-system/SaveManager) | SaveManager and saveable data |
+| [Campaign](../../api/campaign/Campaign) | Campaign hub |
+| [Mission](../../api/mission/Mission) | Mission hub |
 
 ## Gold reference pages (quality floor)
 
 | Gold | Path |
 |------|------|
-| SaveManager | [../api/save-system/SaveManager](../api/save-system/SaveManager) |
-| Hero | [../api/campaign/Hero](../api/campaign/Hero) |
-| Campaign | [../api/campaign/Campaign](../api/campaign/Campaign) |
-| Mission | [../api/mission/Mission](../api/mission/Mission) |
-| MBSubModuleBase | [../api/core/MBSubModuleBase](../api/core/MBSubModuleBase) |
+| SaveManager | [../api/save-system/SaveManager](../../api/save-system/SaveManager) |
+| Hero | [../api/campaign/Hero](../../api/campaign/Hero) |
+| Campaign | [../api/campaign/Campaign](../../api/campaign/Campaign) |
+| Mission | [../api/mission/Mission](../../api/mission/Mission) |
+| MBSubModuleBase | [../api/core/MBSubModuleBase](../../api/core/MBSubModuleBase) |
 
 ---
 

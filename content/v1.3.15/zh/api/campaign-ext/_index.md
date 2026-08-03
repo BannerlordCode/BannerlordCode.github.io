@@ -2,6 +2,38 @@
 title: "campaign-ext 目录"
 description: 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目录
 ---
+## 模块心智模型
+
+campaign-ext 是战役系统的「管道层」：它不定义「世界是什么」——那是 `campaign` 桶里 `Campaign`/`Hero`/`Settlement` 等核心类型的事——而是提供让这个世界转起来的底层机制：对象注册、时间推进、行为/模型装配、屏幕流、事件总线、存档落盘、名册容器。把它想成地基下的水管与电线：核心类型在台面上，campaign-ext 让它们通电通水。
+
+这一层有六条主干管道。**对象注册表**（`MBObjectManager`/`MBObjectBase`）把所有带 `StringId` 的数据对象集中分桶登记、按 `MBGUID` 定位——没有它，核心类型既无法被创建，也无法在跨存档后恢复引用。**时间轴**（`CampaignTime`）支撑战役里一切「第几年第几月」的推进与 tick 调度。**装配入口**（`CampaignGameStarter`/`GameModels`）是新档/读档那一刻的登记表：行为（`CampaignBehaviorBase`）与计算模型经此进入战役，`GameModels` 随后成为运行时只读的「公式手册」。**事件总线**（`CampaignEvents`/`CampaignEventReceiver`）把 `*Action` 对世界状态的修改翻译成广播，让行为能「当 X 发生时」反应而不必轮询。**屏幕与存档**（`ScreenBase`/`IDataStore`）分管 UI 流与单行为私有状态的落盘/还原。**名册容器**（`TroopRoster`/`ItemRoster`）则以兵种/物品为键承载部队成员、囚犯与物资。
+
+理解这一点是调 bug 的关键：当你在 `campaign` 桶看到 `Campaign`/`Hero`/`Settlement` 这些「有血有肉」的类型，它们脚下站的正是本桶这套管道。遇到「对象查不到」「读档后引用悬空」「行为没订阅上事件」「模型为 null」时，根因几乎都在 campaign-ext，而非核心类型本身。
+
+## 核心入口类型
+
+下面是在 campaign-ext 里最该先认识的十几个入口类型（同桶内链接）：
+
+- [MBObjectManager](./MBObjectManager) — 全局对象注册中心：登记/创建/查找/注销所有 `MBObjectBase` 派生类型。
+- [MBObjectBase](./MBObjectBase) — 一切登记对象的基类，`StringId` / `MBGUID` / `IsReady` 的来处。
+- [CampaignTime](./CampaignTime) — 战役时间轴，tick 与日历推进的基础。
+- [CampaignGameStarter](./CampaignGameStarter) — 新档/读档时的「登记表」，用来 `AddBehavior` / `AddModel` 与登记菜单对话。
+- [GameModels](./GameModels) — 战役所有计算模型（速度、外交、财政…）的运行时容器，只读「公式手册」。
+- [CampaignEvents](./CampaignEvents) — 中央发布/订阅事件总线，约 200 个世界变更通知。
+- [CampaignEventReceiver](./CampaignEventReceiver) — 事件 `OnXxx` 虚方法基类，接收器重写入口。
+- [CultureObject](./CultureObject) — 文化定义对象，兵种/命名/旗帜等的基础数据。
+- [SiegeEvent](./SiegeEvent) — 围城进程对象，围城生命周期的状态机。
+- [TroopRoster](./TroopRoster) — 部队成员/囚犯名册，以兵种为键的兵员容器。
+- [ItemRoster](./ItemRoster) — 物品名册，物资/库存与赠送的载体。
+- [IDataStore](./IDataStore) — `SyncData` 里的临时存档托盘，按行为分桶持久化状态。
+- [ScreenBase](./ScreenBase) — 屏幕（UI）基类，管理战役层界面流程。
+
+## 与其他模块的关系
+
+campaign-ext 是「管道」，上接核心战役类型、下连存档与基础类型。核心的 `Campaign`、`Hero`、`Settlement`、`MobileParty` 等并不在本桶，而在 [../campaign/](../campaign/) 索引（即 `zh/api/campaign/`）。这些核心类型在启动时通过 `MBObjectManager` 登记自身、通过 `CampaignGameStarter` 挂上行为、通过 `CampaignEvents` 对外广播——也就是说，campaign-ext 是被核心类型「消费」的基础设施。
+
+往下看，存档真正落盘靠 [../save-system/](../save-system/)（如 `SaveableField` 契约与 `SaveManager`），`IDataStore` 只是行为层面向它的窗口；而名册里引用的兵种与物品装备又来自 [../core-extra/](../core-extra/)，尤其是 [../core-extra/Equipment/](../core-extra/Equipment/)（装备元素）与 [../core-extra/SkillObject/](../core-extra/SkillObject/)（技能定义）。若要搞清楚「对象跨档为何失效」「模块注册顺序为何致坏档」这类崩溃，请回到架构总览 [../../architecture/crash-boundaries/](../../architecture/crash-boundaries/) 与模块加载秩序 [../../architecture/module-system/](../../architecture/module-system/)。
+
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航

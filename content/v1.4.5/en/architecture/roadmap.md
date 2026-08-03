@@ -9,8 +9,8 @@ A task-oriented map of the documentation. Find what you want to build, follow th
 ## ↑ Parent Navigation
 
 - [Architecture index](./)
-- [Crash boundaries](./crash-boundary)
-- [Doc contract](./doc-contract)
+- [Crash boundaries](.././crash-boundary)
+- [Doc contract](.././doc-contract)
 
 ## The rebuild waves (H0–H10)
 
@@ -36,10 +36,10 @@ A task-oriented map of the documentation. Find what you want to build, follow th
 - Battle/combat logic → `Mission` + `MissionBehavior` (H2/H7)
 - UI panel → `ViewModel` + `GauntletLayer` (H7)
 - Persist custom data → `SaveableTypeDefiner` + `SyncData` (H0/H2)
-- Crash/save safety → [crash boundaries](./crash-boundary)
+- Crash/save safety → [crash boundaries](.././crash-boundary)
 
 ## See also
 
 - [Architecture index](./)
-- [Crash boundaries](./crash-boundary)
-- [Doc contract](./doc-contract)
+- [Crash boundaries](.././crash-boundary)
+- [Doc contract](.././doc-contract)

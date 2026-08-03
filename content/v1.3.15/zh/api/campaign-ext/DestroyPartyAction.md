@@ -1,42 +1,74 @@
 ---
 title: "DestroyPartyAction"
-description: "DestroyPartyAction 的自动生成战役动作参考。"
+description: "移除移动部队并发布摧毁或解散事件的战役 Action。"
 ---
+
 # DestroyPartyAction
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions
-**Module:** TaleWorlds.CampaignSystem
-**Type:** static class
-**File:** `TaleWorlds.CampaignSystem/Actions/DestroyPartyAction.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class DestroyPartyAction`  
+**源文件：** `TaleWorlds.CampaignSystem/Actions/DestroyPartyAction.cs`
 
-DestroyPartyAction 是一组静态方法，用于在战役中以特定原因触发"DestroyParty"。modder通过调用其 `Apply*` 方法改变游戏状态（每种原因一个重载）。
+## 概述
 
-## 方法
+`DestroyPartyAction` 负责移动部队的终止迁移：通知部队和地图交互物被摧毁，然后调用 `RemoveParty`。它还提供主动解散入口，先离开据点并发布 `OnPartyDisbanded`，再执行同一套移除逻辑。
 
-### Apply
+## 心智模型
 
-```csharp
-public static void Apply(PartyBase destroyerParty, MobileParty destroyedParty)
+这是终态 Action，不是清空名册的工具。普通 `Apply` 检查主部队保护、发布 `OnMobilePartyDestroyed` 与 `OnMapInteractableDestroyed`，最后移除部队；`ApplyForDisbanding` 适合有意解散的部队，会先离开当前据点并发布解散事件。调用后不要继续持有该部队引用。
+
+## 何时用 / 不用
+
+- 战斗或战役规则已经确定部队应被摧毁时使用 `Apply`。
+- 主动解散且部队可能仍在据点中时使用 `ApplyForDisbanding`。
+- 不能用于 `MobileParty.MainParty`，也不要在普通代码直接调用 `RemoveParty`。
+
+## 依赖关系
+
+```mermaid
+graph TD
+    DESTROYER[PartyBase] --> ACTION[DestroyPartyAction]
+    TARGET[MobileParty] --> ACTION
+    ACTION --> EVENTS[CampaignEvents]
+    ACTION --> REMOVE[MobileParty.RemoveParty]
 ```
 
-**用途 / Purpose:** 将当前对象的效果应用到目标。
+- 上游：[MobileParty](../../campaign/MobileParty) 与可选的 [PartyBase](../../campaign/PartyBase) 描述目标和摧毁者。
+- 下游：`OnMobilePartyDestroyed`、`OnMapInteractableDestroyed`、解散事件以及 [CampaignEvents](../CampaignEvents) 监听器会清理相关系统。
 
-### ApplyForDisbanding
+## 风险
+
+1. 对非活动部队调用会触发断言，说明上游生命周期已经错误。
+2. 部队仍在据点时直接 `Apply` 会跳过显式离开和解散事件顺序。
+3. 监听器可能立刻移除任务、地图标记或商队，返回后不要再读取旧状态。
+
+## 关键入口
+
+| 方法 | 用途 |
+| --- | --- |
+| `Apply(PartyBase destroyerParty, MobileParty destroyedParty)` | 遭遇后的终止摧毁 |
+| `ApplyForDisbanding(MobileParty disbandedParty, Settlement relatedSettlement)` | 带据点清理的主动解散 |
+
+## 真实示例
 
 ```csharp
-public static void ApplyForDisbanding(MobileParty disbandedParty, Settlement relatedSettlement)
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public static void RemoveCaravan(MobileParty caravan)
+{
+    if (Campaign.Current == null || caravan == null || caravan == MobileParty.MainParty || !caravan.IsActive)
+        return;
+
+    DestroyPartyAction.Apply(null, caravan);
+}
 ```
 
-**用途 / Purpose:** 将 for disbanding 的效果应用到当前对象。
+计划性解散应传入相关据点并调用 `ApplyForDisbanding`，以保持离开据点和事件边界一致。
 
-## 使用示例
+## 导航
 
-```csharp
-// 在 mod 中触发一次该动作
-DestroyPartyAction.Apply(destroyerParty, destroyedParty);
-```
-
-## 参见
-
-- [本区域目录](../)
-- [战役系统](../../campaign/)
+- 父级：[Campaign Action 目录](./)
+- 同级：[AddHeroToPartyAction](../AddHeroToPartyAction) · [EnterSettlementAction](../EnterSettlementAction) · [KillCharacterAction](../KillCharacterAction)
+- 相关：[MobileParty](../../campaign/MobileParty) · [PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents)

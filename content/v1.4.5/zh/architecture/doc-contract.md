@@ -15,30 +15,30 @@ description: "BannerlordCode v1.4.5 文档的最高写作与审查约束：H1–
 ## ↑ 父级导航
 
 - [架构索引](./)
-- [路线图](./roadmap)
-- [崩溃边界](./crash-boundary)
+- [路线图](.././roadmap)
+- [崩溃边界](.././crash-boundary)
 - [版本首页](../)
 
 ## 🔀 同级导航
 
 | 页面 | 角色 |
 |------|------|
-| [路线图](./roadmap) | H0→H10 波次与按任务发现路径 |
-| [崩溃边界](./crash-boundary) | 存档/世界变更/事件时机/Agent 生命周期 失败模式 |
-| [模块系统](../api/core/MBSubModuleBase) | SubModule / Behavior 生命周期入口 |
-| [存档系统](../api/save-system/SaveManager) | SaveManager 与可存档数据 |
-| [战役](../api/campaign/Campaign) | Campaign 枢纽 |
-| [任务](../api/mission/Mission) | Mission 枢纽 |
+| [路线图](.././roadmap) | H0→H10 波次与按任务发现路径 |
+| [崩溃边界](.././crash-boundary) | 存档/世界变更/事件时机/Agent 生命周期 失败模式 |
+| [模块系统](../../api/core/MBSubModuleBase) | SubModule / Behavior 生命周期入口 |
+| [存档系统](../../api/save-system/SaveManager) | SaveManager 与可存档数据 |
+| [战役](../../api/campaign/Campaign) | Campaign 枢纽 |
+| [任务](../../api/mission/Mission) | Mission 枢纽 |
 
 ## 金标准参考页（质量下限）
 
 | 金标准 | 路径 |
 |--------|------|
-| SaveManager | [../api/save-system/SaveManager](../api/save-system/SaveManager) |
-| Hero | [../api/campaign/Hero](../api/campaign/Hero) |
-| Campaign | [../api/campaign/Campaign](../api/campaign/Campaign) |
-| Mission | [../api/mission/Mission](../api/mission/Mission) |
-| MBSubModuleBase | [../api/core/MBSubModuleBase](../api/core/MBSubModuleBase) |
+| SaveManager | [../api/save-system/SaveManager](../../api/save-system/SaveManager) |
+| Hero | [../api/campaign/Hero](../../api/campaign/Hero) |
+| Campaign | [../api/campaign/Campaign](../../api/campaign/Campaign) |
+| Mission | [../api/mission/Mission](../../api/mission/Mission) |
+| MBSubModuleBase | [../api/core/MBSubModuleBase](../../api/core/MBSubModuleBase) |
 
 ---
 

@@ -9,8 +9,8 @@ The single biggest source of "my mod corrupts saves / crashes randomly" bugs. Ea
 ## ↑ Parent Navigation
 
 - [Architecture index](./)
-- [Roadmap](./roadmap)
-- [Doc contract](./doc-contract)
+- [Roadmap](.././roadmap)
+- [Doc contract](.././doc-contract)
 
 ## 1. Save graph: SaveId, SyncData vs SaveableField, load order
 
@@ -63,7 +63,7 @@ The single biggest source of "my mod corrupts saves / crashes randomly" bugs. Ea
 ## See also
 
 - [Architecture index](./)
-- [MBSubModuleBase](../api/core/MBSubModuleBase)
-- [Campaign](../api/campaign/Campaign)
-- [Mission](../api/mission/Mission)
-- [SaveManager](../api/save-system/SaveManager)
+- [MBSubModuleBase](../../api/core/MBSubModuleBase)
+- [Campaign](../../api/campaign/Campaign)
+- [Mission](../../api/mission/Mission)
+- [SaveManager](../../api/save-system/SaveManager)

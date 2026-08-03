@@ -140,7 +140,7 @@ logic?.RegisterCapture();
 
 ### 继承自 MissionBehavior 的关键钩子（同样可用）
 
-`MissionLogic` 完全继承 `MissionBehavior` 的事件体系，常用：`OnAgentRemoved`、`OnAgentCreated`、`OnAgentHit`、`OnAddTeam`、`OnMissionTick`、`OnMissionModeChange`。详细事件列表见 [MissionBehavior](../mission/MissionBehavior/)。
+`MissionLogic` 完全继承 `MissionBehavior` 的事件体系，常用：`OnAgentRemoved`、`OnAgentCreated`、`OnAgentHit`、`OnAddTeam`、`OnMissionTick`、`OnMissionModeChange`。详细事件列表见 [MissionBehavior](../../mission/MissionBehavior/)。
 
 ## 何时用 / 何时不要用
 
@@ -153,27 +153,27 @@ logic?.RegisterCapture();
 **不要用 `MissionLogic` 当（改用正确替代）：**
 - 你需要一个**Gauntlet/UI 面板** → 用 `MissionView` / `MissionGauntletScreen`，把 UI 留在视图层，`MissionLogic` 只负责数据。
 - 你只是想**监听 Agent 事件做记录/统计**，且完全不涉及胜负裁决 → 普通 `MissionBehavior`（`BehaviorType.Other`）足够，不必进 `MissionLogics` 列表。
-- 你想**跨多场 Mission 长期存在**（如战役级追踪）→ 这是 `CampaignBehaviorBase` 的活，见 [CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase/)。`MissionLogic` 只活在一场 Mission 内。
+- 你想**跨多场 Mission 长期存在**（如战役级追踪）→ 这是 `CampaignBehaviorBase` 的活，见 [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/)。`MissionLogic` 只活在一场 Mission 内。
 - 你直接 `new MissionLogic()` 当普通对象用 → 它的 `Mission` 为 `null`，必须经由 `AddMissionBehavior` 注册。
 
 ## 依赖图（可点击）
 
 **上游（谁创建/驱动它）**
-- [Mission](../mission/Mission/) — 持有并轮询 `MissionLogics`，在 `AfterStart`/`CheckMissionEnded`/`EndMissionInternal` 中调用其钩子。
-- [MissionBehavior](../mission/MissionBehavior/) — 直接基类，提供全部事件与 Tick 钩子。
-- `MBSubModuleBase` / `MissionGameStarter` — 注册入口（见 [MBSubModuleBase](../core/MBSubModuleBase/)）。
+- [Mission](../../mission/Mission/) — 持有并轮询 `MissionLogics`，在 `AfterStart`/`CheckMissionEnded`/`EndMissionInternal` 中调用其钩子。
+- [MissionBehavior](../../mission/MissionBehavior/) — 直接基类，提供全部事件与 Tick 钩子。
+- `MBSubModuleBase` / `MissionGameStarter` — 注册入口（见 [MBSubModuleBase](../../core/MBSubModuleBase/)）。
 
 **下游（它操作/查询的对象）**
-- [Agent](../mission/Agent/) — 通过 `Mission.Agents` 读取/操控单位。
-- [Team](../mission/Team/) / [Formation](../mission/Formation/) — 阵营与编队状态。
+- [Agent](../../mission/Agent/) — 通过 `Mission.Agents` 读取/操控单位。
+- [Team](../../mission/Team/) / [Formation](../../mission/Formation/) — 阵营与编队状态。
 - `MissionResult`（引擎类型，无独立页）— `MissionEnded` 写入的结果对象。
-- [MissionObject](./MissionObject/) — 场景交互物，可监听其事件。
+- [MissionObject](.././MissionObject/) — 场景交互物，可监听其事件。
 
 **相关 Events · Models · 存档**
 - 事件钩子：`OnAgentRemoved`、`OnAddTeam`、`OnMissionModeChange` 等（继承自 `MissionBehavior`）。
 - 结果展示：`ShowBattleResults` 通常配合 `MissionResult` 与战斗结算 UI。
 - 装备：`GetExtraEquipmentElementsForCharacter` 与 `MissionGameModels` 的装备/角色生成模型协作。
-- 存档：`MissionLogic` 本身**不入战役存档**；若需保存跨场进度，必须把状态写进战役层（[Campaign](../campaign/Campaign/) 或 `CampaignBehaviorBase`），不要指望 logic 实例被持久化。
+- 存档：`MissionLogic` 本身**不入战役存档**；若需保存跨场进度，必须把状态写进战役层（[Campaign](../../campaign/Campaign/) 或 `CampaignBehaviorBase`），不要指望 logic 实例被持久化。
 
 ## 风险（可能导致崩溃 / 坏档的用法）
 
@@ -292,5 +292,5 @@ public class EliteGearLogic : MissionLogic
 ## 参见
 
 - ↑ 父级：[Mission 桶索引](../)
-- ↔ 同级：[Mission](../mission/Mission/) · [MissionBehavior](../mission/MissionBehavior/) · [Agent](../mission/Agent/) · [Team](../mission/Team/) · [Formation](../mission/Formation/)
-- 相关类：[MissionObject](./MissionObject/) · [MissionObjective](./MissionObjective/) · [MBSubModuleBase](../core/MBSubModuleBase/) · [CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase/)
+- ↔ 同级：[Mission](../../mission/Mission/) · [MissionBehavior](../../mission/MissionBehavior/) · [Agent](../../mission/Agent/) · [Team](../../mission/Team/) · [Formation](../../mission/Formation/)
+- 相关类：[MissionObject](.././MissionObject/) · [MissionObjective](.././MissionObjective/) · [MBSubModuleBase](../../core/MBSubModuleBase/) · [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/)

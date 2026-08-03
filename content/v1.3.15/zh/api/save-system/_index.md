@@ -2,6 +2,36 @@
 title: "save-system 目录"
 description: TaleWorlds.SaveSystem 存档系统类参考目录
 ---
+
+## 模块心智模型
+
+一句话：`save-system` 是整局战役「活过一次存读档」的唯一保证——它把内存里的对象图扁平成二进制 blob 再原样拼回，而 `LocalSaveId` 就是你和旧存档之间不可违背的契约。
+
+`TaleWorlds.SaveSystem` 负责的是 Bannerlord 的全部持久化：它不关心你存了什么，只关心「谁要存、怎么找到它、用什么键写回来」。核心机制是**基于特性的显式标注**——一个字段或属性会不会进存档，不看可见性、不看类型，只看有没有 `[SaveableField]` / `[SaveableProperty]`。启动时 `SaveManager.InitializeGlobalDefinitionContext()` 调用 `DefinitionContext.FillWithCurrentTypes()`，用反射扫描所有带 `[SaveableField]`/`[SaveableProperty]` 的成员，为每个成员算出稳定键 `MemberTypeId = (TypeLevel << 8) + LocalSaveId`。写档时 `SaveContext` 遍历整张对象图逐个写出，读档时 `LoadContext` 再按 `LocalSaveId` 把字节送回当前字段。
+
+这是整个游戏**崩溃与坏档风险最高的区域**。绑定靠的是那串数字 `LocalSaveId`，而不是字段名或声明顺序——改 id、复用 id、或跨层级撞 id，都会让旧存档的字节被写进错误的字段，轻则静默错位，重则类型不匹配直接崩溃。`SaveManager.Save/Load` 用 `ISaveDriver` 落盘（`.sav`，内部 zip），任何抛异常都被包成 `SaveOutput`/`LoadResult` 失败返回；而 `ShouldResolveConflicts()` 在读档期为真，正是冲突解析器（`IConflictResolver`）接管旧成员映射的窗口。
+
+## 核心入口类型
+
+- [SaveManager](./SaveManager) — 存 / 读档的静态统一入口，`Save`/`Load`/`CheckSaveableTypes`/`InitializeGlobalDefinitionContext`。
+- [SaveableFieldAttribute](./SaveableFieldAttribute) — 贴在字段上，用 `LocalSaveId` 声明该字段参与序列化（已知 deep_pass 重点）。
+- [SaveablePropertyAttribute](./SaveablePropertyAttribute) — 贴在属性上的等价标记，规则与字段对称。
+- [SaveableRootClassAttribute](./SaveableRootClassAttribute) — 标记存档图的根对象（如 `CampaignBehavior`）。
+- [SaveableTypeDefiner](./SaveableTypeDefiner) — 注册可存档类型、定义 `IConflictResolver` 做版本迁移。
+- [DefinitionContext](./DefinitionContext) — 启动时反射收集全部类型 / 字段定义并发现错误。
+- [MetaData](./MetaData) — 存档元数据，携带 `ApplicationVersion` 供跨版本判定。
+- [SaveContext](./SaveContext) — 写档上下文，遍历对象图产出 `SaveData`。
+- [LoadContext](./LoadContext) — 读档上下文，按 `LocalSaveId` 还原对象图。
+- [SaveOutput](./SaveOutput) — 写档结果（成功 / 失败 / 续传）。
+- [LoadResult](./LoadResult) — 读档结果，含根对象与延迟初始化回调。
+- [GameData](./GameData) — 序列化过程的对象图数据容器。
+
+## 与其他模块的关系
+
+存档系统本身只做「对象图 ↔ 二进制」的搬运，真正的可存档实例由上层模块持有。`campaign-ext` 的 [IDataStore](../campaign-ext/IDataStore/)（及其同步机制 `SyncData`）正是战役行为把运行时状态登记进存档图的典型通道——你写的 `CampaignBehavior` 字段，只有从某个已注册根对象可达，才会被 `SaveManager` 遍历到；这条边界是多数「mod 状态没存上」问题的根源。
+
+想理解整条链路与防坏档规范，见 [存档系统架构](../../architecture/save-system/)（定义收集、驱动、版本迁移的全貌），以及 [崩溃边界](../../architecture/crash-boundaries/) 中关于存档损坏模式（id 冲突、类型漂移、半截写盘）的剖析——它们与上面 `LocalSaveId` 契约的约束直接对应。
+
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航

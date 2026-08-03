@@ -2,6 +2,36 @@
 title: "mission-ext 目录"
 description: 战斗扩展类（MissionBehavior/AgentComponent 等）参考目录
 ---
+
+## 模块心智模型
+
+`mission-ext` 是战斗系统之上的**扩展层**：它不定义战斗本身,而是提供一套可组合的"插件"基类(MissionBehavior / AgentComponent)与大量战斗逻辑辅助类型,让模组作者在不改动底层 Mission 引擎的前提下,挂接、定制、重写一次战斗的各个环节。
+
+战场由 `mission` 桶里的核心类型(Mission、Agent、Team、Formation)驱动,但每一场具体战斗"该干什么"——胜负判定、刷兵、计分、伤害模型、AI 决策——几乎都由本桶的类型以组合方式注入。`MissionBehavior` 是挂在 Mission 上的行为基类,拥有 `OnMissionStart`、`OnAgentHit`、`OnTick` 等生命周期钩子;`MissionLogic` 正是 `MissionBehavior` 的子类(标记 `BehaviorType.Logic`),是绝大多数玩法逻辑(如战斗结算、撤退、投降)的入口。而 `AgentComponent` 则是挂在单个 Agent 上的轻量扩展点,让每个单位携带自己的状态与 Tick 逻辑(装备、士气、骑乘等),与 Mission 级行为互补。
+
+理解本桶的关键是"分层组合":核心引擎只管仿真,modder 通过往 Mission 里塞一组 MissionBehavior、往 Agent 上挂一组 AgentComponent 来拼出一场战斗。这也意味着行为之间的执行顺序、生命周期时机(如 `OnAfterMissionCreated` 与 `AfterStart` 的差异)是排查问题的首要线索。
+
+## 核心入口类型
+
+- [AgentComponent](./AgentComponent) — 挂在单个 Agent 上的可扩展点,承载每单位自己的状态与 Tick 逻辑。
+- [MissionLogic](./MissionLogic) — 战斗级玩法逻辑的基类(MissionBehavior 子类),胜负/撤退/投降的常用入口。
+- [AgentBuildData](./AgentBuildData) — 描述一个 Agent 如何被构建(角色、装备、队伍、骨骼等)的数据结构。
+- [AgentSpawnData](./AgentSpawnData) — 控制 Agent 生成参数(初始位置、阵营、数量)的辅助类型。
+- [AgentController](./AgentController) — 决定 Agent 由谁控制(AI / 玩家 / 网络)的控制器抽象。
+- [AgentStatCalculateModel](./AgentStatCalculateModel) — 计算 Agent 属性与有效数值的模型基类,是平衡改装的常用挂点。
+- [AgentApplyDamageModel](./AgentApplyDamageModel) — 伤害施加模型,集中了命中、护甲、减免的计算口径。
+- [AgentDecideKilledOrUnconsciousModel](./AgentDecideKilledOrUnconsciousModel) — 决定 Agent 是被击杀还是被击晕的模型,控制战斗致死逻辑。
+- [MissionScoreboardComponent](./MissionScoreboardComponent) — 战斗计分板,汇总双方战损与战况数据。
+- [MissionSpawnSettings](./MissionSpawnSettings) — 战场生成相关的整体设置集合。
+- [MissionCombatMechanicsHelper](./MissionCombatMechanicsHelper) — 封装近战/远程战斗判定细节的辅助器。
+- [AgentDrivenProperties](./AgentDrivenProperties) — Agent 运行时驱动属性(移速、攻速等)的结构化载体。
+
+## 与其他模块的关系
+
+本桶建立在 `mission` 桶之上:核心的 [Mission](../mission/Mission/)、[Agent](../mission/Agent/)、[Team](../mission/Team/)、[Formation](../mission/Formation/) 才是战斗仿真的本体,`mission-ext` 的各类行为只是在这些核心对象上做"外挂"与"改写"。任何对战斗的扩展都应先确认要改的是核心状态还是行为逻辑——前者归 `mission`,后者才在本桶。
+
+在稳定运行层面,这些行为派生类大多运行在引擎托管边界内,错误的生命周期钩子或跨线程访问可能触发崩溃;相关约束与边界划分详见 [崩溃边界](../../architecture/crash-boundaries/)。
+
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航

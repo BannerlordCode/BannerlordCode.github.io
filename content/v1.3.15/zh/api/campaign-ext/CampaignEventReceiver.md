@@ -61,23 +61,23 @@ KillCharacterAction.Apply(...)                        // 某处触发世界状�
 
 **上游（谁调用这些 On\*）：**
 
-- [CampaignEventDispatcher](./CampaignEventDispatcher/) —— 真正的分发器，`Campaign` 通过它广播每个事件。
-- [Campaign](../campaign/Campaign/) —— 持有 `CampaignEventDispatcher` 与 `CampaignEvents`，在 tick / 加载 / 战斗中驱动事件。
-- 各类 `*Action`（如 [KillCharacterAction](./KillCharacterAction/)、[ChangeOwnerOfSettlementAction](./ChangeOwnerOfSettlementAction/)、[ChangeRelationAction](./ChangeRelationAction/)）—— 世界状态变更时由它们触发对应的 `On*`。
+- [CampaignEventDispatcher](../CampaignEventDispatcher/) —— 真正的分发器，`Campaign` 通过它广播每个事件。
+- [Campaign](../../campaign/Campaign/) —— 持有 `CampaignEventDispatcher` 与 `CampaignEvents`，在 tick / 加载 / 战斗中驱动事件。
+- 各类 `*Action`（如 [KillCharacterAction](../KillCharacterAction/)、[ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction/)、[ChangeRelationAction](../ChangeRelationAction/)）—— 世界状态变更时由它们触发对应的 `On*`。
 
 **下游（接收事件并反应）：**
 
-- [CampaignEvents](./CampaignEvents/) —— 总线实现，把 `On*` 转发给订阅了 `IMbEvent` 的监听器。
-- 你自己的 [CampaignBehaviorBase](./CampaignBehaviorBase/) 子类（通过 `RegisterEvents` 订阅，而非继承本类）。
+- [CampaignEvents](../CampaignEvents/) —— 总线实现，把 `On*` 转发给订阅了 `IMbEvent` 的监听器。
+- 你自己的 [CampaignBehaviorBase](../CampaignBehaviorBase/) 子类（通过 `RegisterEvents` 订阅，而非继承本类）。
 - `IssueManager` / `QuestManager` —— 默认就在 `_eventReceivers` 里的两个内置接收者。
 
 **相关 Events / Behaviors / Actions / Models / 存档点：**
 
-- 事件总线静态入口： [CampaignEvents](./CampaignEvents/)（所有 `...Event` 静态属性）。
-- 行为契约： [ICampaignBehavior](./ICampaignBehavior/)、[CampaignBehaviorBase](./CampaignBehaviorBase/)。
-- 状态变更应走的 Action： [KillCharacterAction](./KillCharacterAction/)、[ChangeOwnerOfSettlementAction](./ChangeOwnerOfSettlementAction/)、[ChangeRelationAction](./ChangeRelationAction/)、[ChangeKingdomAction](./ChangeKingdomAction/)、[MakePeaceAction](./MakePeaceAction/)、[DeclareWarAction](./DeclareWarAction/)、[AddCompanionAction](./AddCompanionAction/)、[RemoveCompanionAction](./RemoveCompanionAction/)、[TeleportHeroAction](./TeleportHeroAction/)、[SiegeAftermathAction](./SiegeAftermathAction/)。
-- 涉及的领域对象： [Hero](../campaign/Hero/)、[Settlement](../campaign/Settlement/)、[Clan](../campaign/Clan/)、[Kingdom](../campaign/Kingdom/)、[MobileParty](../campaign/MobileParty/)、[IssueBase](./IssueBase/)。
-- 存档生命周期： [SaveManager](../save-system/SaveManager/)（`OnBeforeSave` / `OnSaveStarted` / `OnSaveOver` / `OnGameLoaded` 都是本类的钩子）。
+- 事件总线静态入口： [CampaignEvents](../CampaignEvents/)（所有 `...Event` 静态属性）。
+- 行为契约： [ICampaignBehavior](../ICampaignBehavior/)、[CampaignBehaviorBase](../CampaignBehaviorBase/)。
+- 状态变更应走的 Action： [KillCharacterAction](../KillCharacterAction/)、[ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction/)、[ChangeRelationAction](../ChangeRelationAction/)、[ChangeKingdomAction](../ChangeKingdomAction/)、[MakePeaceAction](../MakePeaceAction/)、[DeclareWarAction](../DeclareWarAction/)、[AddCompanionAction](../AddCompanionAction/)、[RemoveCompanionAction](../RemoveCompanionAction/)、[TeleportHeroAction](../TeleportHeroAction/)、[SiegeAftermathAction](../SiegeAftermathAction/)。
+- 涉及的领域对象： [Hero](../../campaign/Hero/)、[Settlement](../../campaign/Settlement/)、[Clan](../../campaign/Clan/)、[Kingdom](../../campaign/Kingdom/)、[MobileParty](../../campaign/MobileParty/)、[IssueBase](../IssueBase/)。
+- 存档生命周期： [SaveManager](../../save-system/SaveManager/)（`OnBeforeSave` / `OnSaveStarted` / `OnSaveOver` / `OnGameLoaded` 都是本类的钩子）。
 
 ## 风险段（事件处理的三大坑）
 
@@ -250,19 +250,19 @@ public override void RegisterEvents()
 
 - **v1.3.15：** 本类在 `TaleWorlds.CampaignSystem/CampaignEventReceiver.cs`，公开 `On*` 钩子数量与 1.4.5 基本一致（1.4.5 相对 1.3.15 仅少了 `OnHeroActivated`、`CollectMetadataEntries` 两个钩子，其余命名/签名基本对齐）。订阅机制同样是 `CampaignEvents.<事件>Event.AddNonSerializedListener`。
 - **v1.4.5（本页权威来源）：** `CampaignEvents` 用静态属性（如 `HeroKilledEvent`、`OnSettlementOwnerChangedEvent`、`OnClanChangedKingdomEvent`）暴露 `IMbEvent<...>`；分发器 `CampaignEventDispatcher` 的 `_eventReceivers` 默认仍是 `[CampaignEvents, IssueManager, QuestManager]`。新增了 `OnAllianceStarted/Ended`、`OnCallToWarAgreementStarted/Ended`、`OnShipCreated`、`OnMercenaryServiceStarted`、`OnHeirSelectionOver` 等钩子，用于外交/船只/继承系统。
-- 无论哪个版本：**模组开发者都不要继承或实例化 `CampaignEventReceiver`**，统一用 [CampaignBehaviorBase](./CampaignBehaviorBase/) + [CampaignEvents](./CampaignEvents/) 订阅。
+- 无论哪个版本：**模组开发者都不要继承或实例化 `CampaignEventReceiver`**，统一用 [CampaignBehaviorBase](../CampaignBehaviorBase/) + [CampaignEvents](../CampaignEvents/) 订阅。
 
 ## 参见
 
 - ↑ 父级（本桶索引）：[campaign-ext 索引](../)
 - ↔ 同级：
-  - [CampaignEvents](./CampaignEvents/) —— 事件总线，订阅入口都在这里
-  - [CampaignEventDispatcher](./CampaignEventDispatcher/) —— 真正广播事件的 dispatcher
-  - [CampaignBehaviorBase](./CampaignBehaviorBase/) —— 模组开发者应继承的基类（在 `RegisterEvents` 里订阅）
-  - [ICampaignBehavior](./ICampaignBehavior/) —— 行为契约
+  - [CampaignEvents](../CampaignEvents/) —— 事件总线，订阅入口都在这里
+  - [CampaignEventDispatcher](../CampaignEventDispatcher/) —— 真正广播事件的 dispatcher
+  - [CampaignBehaviorBase](../CampaignBehaviorBase/) —— 模组开发者应继承的基类（在 `RegisterEvents` 里订阅）
+  - [ICampaignBehavior](../ICampaignBehavior/) —— 行为契约
 - 相关类 / 上游：
-  - [Campaign](../campaign/Campaign/) —— 持有 dispatcher 与 events，驱动 tick
-  - [Hero](../campaign/Hero/)、[Settlement](../campaign/Settlement/)、[Clan](../campaign/Clan/)、[Kingdom](../campaign/Kingdom/)、[MobileParty](../campaign/MobileParty/)、[IssueBase](./IssueBase/)
-  - 改变世界状态应走的 Action：[KillCharacterAction](./KillCharacterAction/)、[ChangeOwnerOfSettlementAction](./ChangeOwnerOfSettlementAction/)、[ChangeRelationAction](./ChangeRelationAction/)、[ChangeKingdomAction](./ChangeKingdomAction/)、[MakePeaceAction](./MakePeaceAction/)、[DeclareWarAction](./DeclareWarAction/)
-  - 模块生命周期：[MBSubModuleBase](../core/MBSubModuleBase/)
-  - 存档：[SaveManager](../save-system/SaveManager/)
+  - [Campaign](../../campaign/Campaign/) —— 持有 dispatcher 与 events，驱动 tick
+  - [Hero](../../campaign/Hero/)、[Settlement](../../campaign/Settlement/)、[Clan](../../campaign/Clan/)、[Kingdom](../../campaign/Kingdom/)、[MobileParty](../../campaign/MobileParty/)、[IssueBase](../IssueBase/)
+  - 改变世界状态应走的 Action：[KillCharacterAction](../KillCharacterAction/)、[ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction/)、[ChangeRelationAction](../ChangeRelationAction/)、[ChangeKingdomAction](../ChangeKingdomAction/)、[MakePeaceAction](../MakePeaceAction/)、[DeclareWarAction](../DeclareWarAction/)
+  - 模块生命周期：[MBSubModuleBase](../../core/MBSubModuleBase/)
+  - 存档：[SaveManager](../../save-system/SaveManager/)

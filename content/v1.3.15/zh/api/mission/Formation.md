@@ -21,7 +21,7 @@ description: "Mission 中一支队伍（Team）按兵种划分的战术编队：
 把 `Formation` 想成 **“队伍里按兵种分组的、可被统一下令的小队”**：
 
 - **生命周期**：随 `Mission` 一起存在。`Team` 构造时为其每个兵种创建一个 `Formation`（`new Formation(team, index)`，`Formation.cs:605`），`Mission` 结束时随 `Team` 一起销毁。
-- **谁创建 / 持有**：`Team` 拥有并持有（`Team.FormationsIncludingSpecialAndEmpty` / `Team.FormationsIncludingEmpty`，均为 `MBList<Formation>`）。编队本身不负责创建单位，单位由刷兵系统（见 [FormationSpawnData](./FormationSpawnData/)）经 `Team.AddAgentToTeam` → `Formation.AddUnit` 分配进来。
+- **谁创建 / 持有**：`Team` 拥有并持有（`Team.FormationsIncludingSpecialAndEmpty` / `Team.FormationsIncludingEmpty`，均为 `MBList<Formation>`）。编队本身不负责创建单位，单位由刷兵系统（见 [FormationSpawnData](.././FormationSpawnData/)）经 `Team.AddAgentToTeam` → `Formation.AddUnit` 分配进来。
 - **所在层**：纯运行时战斗层（`TaleWorlds.MountAndBlade`），不参与战役存档。它读 `Mission.Current`、`Mission.Current.Mode`、`Mission.Current.IsFormationUnitPositionAvailableMT` 等运行时状态——**脱离了 Mission 上下文，`Formation` 等于零**。
 - **如何驱动**：命令以“Order 对象”形式写入（`MovementOrder`、`ArrangementOrder`、`FormOrder`、`RidingOrder`、`FiringOrder`、`FacingOrder`），再由 `Formation.Tick` 每帧把这些 Order 翻译成对每个 `Agent` 的底层设置（`agent.SetRidingOrder` / `agent.SetFiringOrder` / `agent.SetTargetFormationIndex` 等）。
 
@@ -86,16 +86,16 @@ foreach (Formation f in playerTeam.FormationsIncludingEmpty) { /* ... */ }
 ## 依赖图（可点击）
 
 - **上游（创建 / 拥有 / 驱动）**
-  - [Team](./Team/) — 创建并持有所有编队；`GetFormation`、`FormationsIncludingSpecialAndEmpty`。
-  - [Mission](./Mission/) — 提供 `Mission.Current`、运行 `Formation.Tick`、决定 `Mode`（部署/战斗）。
-  - [OrderController](../mission-ext/OrderController/) — `Team.MasterOrderController` / `PlayerOrderController` 实际执行 `Split` / `TransferUnits` / 玩家下令。
+  - [Team](.././Team/) — 创建并持有所有编队；`GetFormation`、`FormationsIncludingSpecialAndEmpty`。
+  - [Mission](.././Mission/) — 提供 `Mission.Current`、运行 `Formation.Tick`、决定 `Mode`（部署/战斗）。
+  - [OrderController](../../mission-ext/OrderController/) — `Team.MasterOrderController` / `PlayerOrderController` 实际执行 `Split` / `TransferUnits` / 玩家下令。
 - **下游（被指挥 / 被查询）**
-  - [Agent](./Agent/) — 编队内的单位；编队通过 `AddUnit` 纳入，并通过 `agent.SetTargetFormationIndex` / `SetRidingOrder` / `SetFiringOrder` 下发命令。
+  - [Agent](.././Agent/) — 编队内的单位；编队通过 `AddUnit` 纳入，并通过 `agent.SetTargetFormationIndex` / `SetRidingOrder` / `SetFiringOrder` 下发命令。
   - `FormationQuerySystem`（`QuerySystem`）— 每编队的态势缓存（敌我距离、兵种比例、平均位置）。
   - `FormationAI`（`AI`）— 该编队的 AI 行为（由 `Team.TeamAI` 驱动）。
 - **相关 Events**
   - 编队自身：`OnUnitAdded` / `OnUnitRemoved` / `OnUnitAttached` / `OnUnitCountChanged` / `OnUnitSpacingChanged` / `OnTick` / `OnWidthChanged` / `OnBeforeMovementOrderApplied` / `OnAfterArrangementOrderApplied`。
-  - 队伍层：[Team](./Team/) 的 `OnFormationsChanged`、`OnOrderIssued`；[OrderController](../mission-ext/OrderController/) 的 `OnOrderIssued`。
+  - 队伍层：[Team](.././Team/) 的 `OnFormationsChanged`、`OnOrderIssued`；[OrderController](../../mission-ext/OrderController/) 的 `OnOrderIssued`。
 - **相关 Behaviors / Models**
   - `BehaviorGeneral`、`BehaviorCharge`、`TeamAIGeneral` 等战斗 AI 会读写编队 Order。
   - `BattleBannerBearersModel`（在 `TransferUnits` 中用于搬运旗手）、`AgentStatCalculateModel`（按 Order 攻防性刷新 `DrivenProperty`）。
@@ -168,12 +168,12 @@ formation.SetMovementOrder(MovementOrder.MovementOrderFollowEntity(someGameEntit
 formation.SetMovementOrder(MovementOrder.MovementOrderAttackEntity(someGameEntity, surroundEntity: true));
 ```
 
-可用的静态工厂/只读实例（`MovementOrder`，位于 [mission-ext](../mission-ext/MovementOrder/)）：`MovementOrderCharge`、`MovementOrderStop`、`MovementOrderRetreat`、`MovementOrderAdvance`、`MovementOrderFallBack`（均为只读实例），以及 `MovementOrderMove(WorldPosition)`、`MovementOrderChargeToTarget(Formation)`、`MovementOrderFollow(Agent)`、`MovementOrderFollowEntity(GameEntity)`、`MovementOrderAttackEntity(GameEntity, bool)`。
+可用的静态工厂/只读实例（`MovementOrder`，位于 [mission-ext](../../mission-ext/MovementOrder/)）：`MovementOrderCharge`、`MovementOrderStop`、`MovementOrderRetreat`、`MovementOrderAdvance`、`MovementOrderFallBack`（均为只读实例），以及 `MovementOrderMove(WorldPosition)`、`MovementOrderChargeToTarget(Formation)`、`MovementOrderFollow(Agent)`、`MovementOrderFollowEntity(GameEntity)`、`MovementOrderAttackEntity(GameEntity, bool)`。
 
 > 没有 `Formation.MoveTo(...)` / `Formation.Charge()` 这种直接方法——必须经由 `MovementOrder` + `SetMovementOrder`。
 
 ### `public void SetArrangementOrder(ArrangementOrder order)`
-设置阵型：线 `ArrangementOrderLine`、纵列 `ArrangementOrderColumn`、圆 `ArrangementOrderCircle`、方阵 `ArrangementOrderSquare`、盾墙 `ArrangementOrderShieldWall`、散兵 `ArrangementOrderScatter`、松散 `ArrangementOrderLoose`、楔形 `ArrangementOrderSkein`。**副作用**：切换会重算 `Width`/防御系数、使 `QuerySystem` 失效并 `ForceCalculateCaches`。详见 [ArrangementOrder](../mission-ext/ArrangementOrder/)。
+设置阵型：线 `ArrangementOrderLine`、纵列 `ArrangementOrderColumn`、圆 `ArrangementOrderCircle`、方阵 `ArrangementOrderSquare`、盾墙 `ArrangementOrderShieldWall`、散兵 `ArrangementOrderScatter`、松散 `ArrangementOrderLoose`、楔形 `ArrangementOrderSkein`。**副作用**：切换会重算 `Width`/防御系数、使 `QuerySystem` 失效并 `ForceCalculateCaches`。详见 [ArrangementOrder](../../mission-ext/ArrangementOrder/)。
 
 ```csharp
 formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderLine);
@@ -309,15 +309,15 @@ public override void OnMissionTick(float dt)
 
 - 本页以 `bannerlord-1.4.5` 源码为准核对；`1.3.15` 的 `Team.GetFormation` / `FormationsIncludingSpecialAndEmpty` / `MovementOrder.MovementOrderMove` / `MovementOrder.MovementOrderCharge` 等 API 一致，可直接套用。
 - `1.3.15` 中 `MovementOrder` 同样提供 `MovementOrderCharge` 等静态只读实例与 `MovementOrderMove(WorldPosition)` 工厂，命名与 1.4.5 相同。
-- 各 Order 子类型（`ArrangementOrder`/`FormOrder`/`RidingOrder`/`FiringOrder`/`FacingOrder`）的静态工厂形态在 1.3.15→1.4.5 间保持稳定，详见各自的 [mission-ext](../mission-ext/MovementOrder/) 页面。
+- 各 Order 子类型（`ArrangementOrder`/`FormOrder`/`RidingOrder`/`FiringOrder`/`FacingOrder`）的静态工厂形态在 1.3.15→1.4.5 间保持稳定，详见各自的 [mission-ext](../../mission-ext/MovementOrder/) 页面。
 
 ## 参见
 
-- [↑ Mission](./Mission/) — Formation 所在场景与驱动者
-- [↔ Team](./Team/) — 拥有并创建所有编队
-- [↔ Agent](./Agent/) — 编队内的单位
-- [↔ MissionBehavior](./MissionBehavior/) — 在战斗中读取/下发编队指令的回调入口
-- [↔ FormationSpawnData](./FormationSpawnData/) — 单位如何被刷入编队
-- [相关 OrderController](../mission-ext/OrderController/) — 实际执行 Split/Transfer/玩家下令
-- [相关 MovementOrder](../mission-ext/MovementOrder/) — 移动/冲锋指令工厂
-- [相关 ArrangementOrder](../mission-ext/ArrangementOrder/) — 阵型指令
+- [↑ Mission](.././Mission/) — Formation 所在场景与驱动者
+- [↔ Team](.././Team/) — 拥有并创建所有编队
+- [↔ Agent](.././Agent/) — 编队内的单位
+- [↔ MissionBehavior](.././MissionBehavior/) — 在战斗中读取/下发编队指令的回调入口
+- [↔ FormationSpawnData](.././FormationSpawnData/) — 单位如何被刷入编队
+- [相关 OrderController](../../mission-ext/OrderController/) — 实际执行 Split/Transfer/玩家下令
+- [相关 MovementOrder](../../mission-ext/MovementOrder/) — 移动/冲锋指令工厂
+- [相关 ArrangementOrder](../../mission-ext/ArrangementOrder/) — 阵型指令

@@ -63,7 +63,7 @@ description: "战场推演与战斗模拟的运行时容器：由 MissionState �
             MissionBehaviors   Agents          Teams        MissionLogics
             (List<Behavior>)  (AgentReadOnlyList) (TeamCollection) (List<MissionLogic>)
                   │               │               │              │
-                  ├──► [MissionBehavior](./MissionBehavior)   (规则/监听)
+                  ├──► [MissionBehavior](.././MissionBehavior)   (规则/监听)
                   ├──► Agent (./Agent)            ├──► Team
                   └──► Formation (./Formation)    └──► Team 内部 Formation
                   ▼
@@ -73,7 +73,7 @@ description: "战场推演与战斗模拟的运行时容器：由 MissionState �
 ```
 
 - 上游 / 创建：`MissionState`（`: GameState`）、`CampaignMission`（静态打开入口）、`MissionInitializerRecord`。
-- 集合依赖（运行时持有）：[`MissionBehavior`](./MissionBehavior)、[`Agent`](./Agent)、`Team`、`Formation`（[`Formation`](./Formation)）、`MissionLogic`、`MissionObject`。
+- 集合依赖（运行时持有）：[`MissionBehavior`](.././MissionBehavior)、[`Agent`](.././Agent)、`Team`、`Formation`（[`Formation`](.././Formation)）、`MissionLogic`、`MissionObject`。
 - 结果 / 状态：`MissionState.Current.CurrentMission`、`MissionResult`、`State` 枚举（`NewlyCreated`/`Initializing`/`Continuing`/`EndingNextFrame`/`Over`）。
 - 周边：`Scene`（原生场景）、`Screen`（Gauntlet UI 叠加层）、存档系统（**不**直接序列化 `Mission` 实例，见风险）。
 
@@ -220,8 +220,8 @@ public class KillTrackingBehavior : MissionLogic
 ## 参见（See Also）
 
 - ↑ 父级（模块索引）：[Mission 模块首页](./)
-- ↔ 同级：[MissionBehavior](./MissionBehavior) · [Agent](./Agent) · [Formation](./Formation)
-- 上游枢纽：[Campaign](../campaign/Campaign)（决定开什么战斗）· [MBSubModuleBase](../core/MBSubModuleBase)（行为注册入口）
-- 规范：[Doc Contract](../../architecture/doc-contract)（手写文档与崩溃边界总约束）
+- ↔ 同级：[MissionBehavior](.././MissionBehavior) · [Agent](.././Agent) · [Formation](.././Formation)
+- 上游枢纽：[Campaign](../../campaign/Campaign)（决定开什么战斗）· [MBSubModuleBase](../../core/MBSubModuleBase)（行为注册入口）
+- 规范：[Doc Contract](../../../architecture/doc-contract)（手写文档与崩溃边界总约束）
 
 > 说明：`Team`、`MissionState`、`MissionResult`、`Screen`、存档系统在本周期尚未建独立页面，故此处不指向缺失文件；其真实类型名与关系已在上文“依赖关系 / 风险”中说明。

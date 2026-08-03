@@ -87,25 +87,25 @@ Team t = Mission.GetTeamFromTeamIndex(agent.TeamIndex);
 ## 依赖图（可点击）
 
 **上游（创建 / 持有）**
-- [Mission](./Mission/) — 全局场景，持有 `Teams` 集合并在每帧 `Team.Tick`
-- [TeamCollection](../mission-ext/TeamCollection/) — `Mission.Teams` 的具体类型，提供 `Add(BattleSideEnum)` 创建入口
-- [MBTeam](../mission-ext/MBTeam/) — 原生（C++）侧队伍，Team 的 `MBTeam` 字段是其托管包装
+- [Mission](.././Mission/) — 全局场景，持有 `Teams` 集合并在每帧 `Team.Tick`
+- [TeamCollection](../../mission-ext/TeamCollection/) — `Mission.Teams` 的具体类型，提供 `Add(BattleSideEnum)` 创建入口
+- [MBTeam](../../mission-ext/MBTeam/) — 原生（C++）侧队伍，Team 的 `MBTeam` 字段是其托管包装
 
 **下游 / 持有**
-- [Agent](./Agent/) — 通过 `agent.Team` 归属；`ActiveAgents` / `TeamAgents` 反向列出成员
-- [Formation](./Formation/) — 每队 10 个，按 `FormationClass` 索引
-- [OrderController](../mission-ext/OrderController/) — `MasterOrderController` / `PlayerOrderController` / 惰性创建
-- [TeamAIComponent](../mission-ext/TeamAIComponent/) — 战术 AI 挂载点（`TeamAI`）
-- [TeamQuerySystem](../mission-ext/TeamQuerySystem/) — 聚合查询（战力、位置）
-- [Banner](../core-extra/Banner/) — 队伍旗帜；`Color` / `Color2` 为 `uint` ARGB
-- [BattleSideEnum](../core-extra/BattleSideEnum/) / [TeamSideEnum](../core-extra/TeamSideEnum/) / [FormationClass](../core-extra/FormationClass/) — 阵营/身份/编队枚举
+- [Agent](.././Agent/) — 通过 `agent.Team` 归属；`ActiveAgents` / `TeamAgents` 反向列出成员
+- [Formation](.././Formation/) — 每队 10 个，按 `FormationClass` 索引
+- [OrderController](../../mission-ext/OrderController/) — `MasterOrderController` / `PlayerOrderController` / 惰性创建
+- [TeamAIComponent](../../mission-ext/TeamAIComponent/) — 战术 AI 挂载点（`TeamAI`）
+- [TeamQuerySystem](../../mission-ext/TeamQuerySystem/) — 聚合查询（战力、位置）
+- [Banner](../../core-extra/Banner/) — 队伍旗帜；`Color` / `Color2` 为 `uint` ARGB
+- [BattleSideEnum](../../core-extra/BattleSideEnum/) / [TeamSideEnum](../../core-extra/TeamSideEnum/) / [FormationClass](../../core-extra/FormationClass/) — 阵营/身份/编队枚举
 
 **相关 Events · Behaviors · Models**
-- `MissionBehavior.OnAddTeam` / `AfterAddTeam`（在 [MissionBehavior](./MissionBehavior/) 中重写）——队伍被加入时回调
+- `MissionBehavior.OnAddTeam` / `AfterAddTeam`（在 [MissionBehavior](.././MissionBehavior/) 中重写）——队伍被加入时回调
 - 本类事件：`OnFormationsChanged`、`OnOrderIssued`、`OnFormationAIActiveBehaviorChanged`、`OnFormationsChangedInDeployment`
-- [TacticComponent](../mission-ext/TacticComponent/) — 经 `AddTacticOption` 注册到 `TeamAI`
-- [MissionObject](../mission-ext/MissionObject/) — 旗帜、据点等通过 `Side` 与队伍关联
-- [MissionState](../mission-ext/MissionState/) — 任务进行中才允许写阵营关系
+- [TacticComponent](../../mission-ext/TacticComponent/) — 经 `AddTacticOption` 注册到 `TeamAI`
+- [MissionObject](../../mission-ext/MissionObject/) — 旗帜、据点等通过 `Side` 与队伍关联
+- [MissionState](../../mission-ext/MissionState/) — 任务进行中才允许写阵营关系
 
 ## 风险段（可能导致崩溃 / 坏档）
 
@@ -244,5 +244,5 @@ if (playerTeam != null && playerTeam.IsPlayerGeneral)
 ## 参见
 
 - ↑ 父级：[任务 API 索引](../)
-- ↔ 同级：[Mission](./Mission/) · [Agent](./Agent/) · [Formation](./Formation/) · [MissionBehavior](./MissionBehavior/) · [MissionObjective](../mission-ext/MissionObjective/) · [TacticOption](./TacticOption/)
-- 相关类（跨桶）：[TeamCollection](../mission-ext/TeamCollection/) · [MBTeam](../mission-ext/MBTeam/) · [TeamAIComponent](../mission-ext/TeamAIComponent/) · [TeamQuerySystem](../mission-ext/TeamQuerySystem/) · [OrderController](../mission-ext/OrderController/) · [TacticComponent](../mission-ext/TacticComponent/) · [MissionObject](../mission-ext/MissionObject/) · [Banner](../core-extra/Banner/) · [BattleSideEnum](../core-extra/BattleSideEnum/) · [TeamSideEnum](../core-extra/TeamSideEnum/) · [FormationClass](../core-extra/FormationClass/)
+- ↔ 同级：[Mission](.././Mission/) · [Agent](.././Agent/) · [Formation](.././Formation/) · [MissionBehavior](.././MissionBehavior/) · [MissionObjective](../../mission-ext/MissionObjective/) · [TacticOption](.././TacticOption/)
+- 相关类（跨桶）：[TeamCollection](../../mission-ext/TeamCollection/) · [MBTeam](../../mission-ext/MBTeam/) · [TeamAIComponent](../../mission-ext/TeamAIComponent/) · [TeamQuerySystem](../../mission-ext/TeamQuerySystem/) · [OrderController](../../mission-ext/OrderController/) · [TacticComponent](../../mission-ext/TacticComponent/) · [MissionObject](../../mission-ext/MissionObject/) · [Banner](../../core-extra/Banner/) · [BattleSideEnum](../../core-extra/BattleSideEnum/) · [TeamSideEnum](../../core-extra/TeamSideEnum/) · [FormationClass](../../core-extra/FormationClass/)

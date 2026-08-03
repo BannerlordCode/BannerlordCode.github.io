@@ -9,8 +9,8 @@ description: "v1.4.5 文档的按任务地图：找到你想做的东西，顺�
 ## ↑ 父级导航
 
 - [架构索引](./)
-- [崩溃边界](./crash-boundary)
-- [文档契约](./doc-contract)
+- [崩溃边界](.././crash-boundary)
+- [文档契约](.././doc-contract)
 
 ## 重建波次（H0–H10）
 
@@ -36,10 +36,10 @@ description: "v1.4.5 文档的按任务地图：找到你想做的东西，顺�
 - 战斗逻辑 → `Mission` + `MissionBehavior`（H2/H7）
 - UI 面板 → `ViewModel` + `GauntletLayer`（H7）
 - 持久化自定义数据 → `SaveableTypeDefiner` + `SyncData`（H0/H2）
-- 防崩/防坏档 → [崩溃边界](./crash-boundary)
+- 防崩/防坏档 → [崩溃边界](.././crash-boundary)
 
 ## 参见
 
 - [架构索引](./)
-- [崩溃边界](./crash-boundary)
-- [文档契约](./doc-contract)
+- [崩溃边界](.././crash-boundary)
+- [文档契约](.././doc-contract)

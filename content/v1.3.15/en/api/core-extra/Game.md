@@ -1,277 +1,126 @@
 ---
 title: "Game"
-description: "Auto-generated class reference for Game."
+description: "The root object for one Bannerlord runtime session, connecting GameType, MBObjectManager, GameStateManager, models, events, and save lifetime."
 ---
+
 # Game
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
-**Type:** `public sealed class Game : IGameStateManagerOwner`
-**Base:** `IGameStateManagerOwner`
-**File:** `TaleWorlds.Core/Game.cs`
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public sealed class Game : IGameStateManagerOwner` (`[SaveableRootClass(5000)]`)  
+**Base:** `IGameStateManagerOwner`  
+**Source:** `TaleWorlds.Core/Game.cs`
 
-## Overview
+## Responsibility
 
-`Game` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Game` is the root container for one session from creation through destruction. It owns the current mode, object registry, state machine, text/model services, event manager, and player troop, and exposes the active session through `Game.Current`.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`Game` is not the `Campaign` and not a battle `Mission`. A campaign is a `GameType` implementation; a Mission is reached through the `GameStateManager` state stack. Treat `Game` as the session boundary: put cross-screen services here, campaign rules in [Campaign](../../campaign/Campaign), and battle behavior in [Mission](../../mission/Mission).
 
-## Key Properties
+### Lifetime
 
-| Name | Signature |
-|------|-----------|
-| `CurrentState` | `public Game.State CurrentState { get; }` |
-| `MonsterMissionDataCreator` | `public IMonsterMissionDataCreator MonsterMissionDataCreator { get; set; }` |
-| `DefaultMonster` | `public Monster DefaultMonster { get; }` |
-| `GameType` | `public GameType GameType { get; }` |
-| `DefaultSiegeEngineTypes` | `public DefaultSiegeEngineTypes DefaultSiegeEngineTypes { get; }` |
-| `ObjectManager` | `public MBObjectManager ObjectManager { get; }` |
-| `PlayerTroop` | `public BasicCharacterObject PlayerTroop { get; }` |
-| `BasicModels` | `public BasicGameModels BasicModels { get; }` |
-| `GameManager` | `public GameManagerBase GameManager { get; }` |
-| `GameTextManager` | `public GameTextManager GameTextManager { get; }` |
-| `GameStateManager` | `public GameStateManager GameStateManager { get; }` |
-| `CheatMode` | `public bool CheatMode { get; }` |
-| `IsDevelopmentMode` | `public bool IsDevelopmentMode { get; }` |
-| `IsEditModeOn` | `public bool IsEditModeOn { get; }` |
-| `UnitSpawnPrioritization` | `public UnitSpawnPrioritizations UnitSpawnPrioritization { get; }` |
-| `ApplicationTime` | `public float ApplicationTime { get; set; }` |
-| `Current` | `public static Game Current { get; set; }` |
-| `BannerVisualCreator` | `public IBannerVisualCreator BannerVisualCreator { get; set; }` |
-| `NextUniqueTroopSeed` | `public int NextUniqueTroopSeed { get; }` |
-| `DefaultCharacterAttributes` | `public DefaultCharacterAttributes DefaultCharacterAttributes { get; }` |
-| `DefaultSkills` | `public DefaultSkills DefaultSkills { get; }` |
-| `DefaultBannerEffects` | `public DefaultBannerEffects DefaultBannerEffects { get; }` |
-| `DefaultItemCategories` | `public DefaultItemCategories DefaultItemCategories { get; }` |
-| `EventManager` | `public EventManager EventManager { get; }` |
+1. `Game.CreateGame(GameType, GameManagerBase)` initializes [MBObjectManager](../../campaign-ext/MBObjectManager), registers types, and sets `Game.Current` in the constructor.
+2. `Game.LoadSaveGame(LoadResult, GameManagerBase)` restores the save root, registers types again, calls `ReInitialize`, and enters the loading flow.
+3. `Initialize()` creates text and model services; `CreateGameManager()` creates the `GameStateManager`.
+4. The internal `OnTick(float)` drives the state manager, `GameHandler` components, and `AfterTick`. Mods should attach through behaviors/events instead of trying to own this loop.
+5. `Destroy()` notifies handlers, managers, and the game type, destroys object/event services, and finally clears `Game.Current`.
 
-## Key Methods
+## When to use it
 
-### CreateBannerVisual
-`public IBannerVisual CreateBannerVisual(Banner banner)`
+- **Use it** from lifecycle callbacks that receive `Game game` to read `GameType`, `ObjectManager`, `GameStateManager`, `PlayerTroop`, or model services; to attach a `GameHandler`; or to use `Game.Current.EventManager` for a session-wide event.
+- **Do not use it** from static module construction, after `Destroy()`, or before the session exists. Do not substitute it for `Campaign.Current` world entities or mutate `Hero`/`Settlement` state directly.
 
-**Purpose:** Constructs a new banner visual entity and returns it to the caller.
+## Dependencies
 
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-var result = game.CreateBannerVisual(banner);
+```mermaid
+graph TD
+    SUB[MBSubModuleBase] --> GM[GameManagerBase]
+    GM --> CREATE[Game.CreateGame / LoadSaveGame]
+    CREATE --> GAME[Game]
+    GAME --> OBJ[MBObjectManager]
+    GAME --> STATE[GameStateManager]
+    GAME --> MODELS[BasicGameModels / GameModelsManager]
+    GAME --> EVENT[EventManager]
+    GAME --> CAM[Campaign / GameType]
+    STATE --> MIS[MissionState / Mission]
+    GAME --> SAVE[SaveManager]
 ```
 
-### GetDefaultEquipmentWithName
-`public Equipment GetDefaultEquipmentWithName(string equipmentName)`
+- **Upstream:** [MBSubModuleBase](../../core/MBSubModuleBase) callbacks receive a `Game`; `MBGameManager` calls the two static factories.
+- **Object layer:** [MBObjectManager](../../campaign-ext/MBObjectManager) is initialized by `Game.CreateGame`; `Game` does not make an unregistered object valid.
+- **Downstream:** [Campaign](../../campaign/Campaign) runs as a `GameType`; [Mission](../../mission/Mission) is entered through the state manager; behaviors and models consume those contexts.
+- **Save:** `[SaveableRootClass(5000)]` makes `Game` a save root; `Game.Save(...)` delegates the write to `SaveManager`.
 
-**Purpose:** Reads and returns the default equipment with name value held by the this instance.
+## Key members
 
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-var result = game.GetDefaultEquipmentWithName("example");
-```
+### Session and mode
 
-### SetDefaultEquipments
-`public void SetDefaultEquipments(IReadOnlyDictionary<string, Equipment> defaultEquipments)`
+- `static Game Current { get; internal set; }`: the active session singleton, valid only between creation and destruction.
+- `GameType GameType`: the current mode (campaign, multiplayer, or another `GameType`).
+- `State CurrentState`: `Running`, `Destroying`, or `Destroyed`.
+- `GameManagerBase GameManager`: runtime configuration, development mode, and application time.
 
-**Purpose:** Assigns a new value to default equipments and updates the object's internal state.
+### Objects, state, and models
 
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.SetDefaultEquipments(iReadOnlyDictionary<string, defaultEquipments);
-```
+- `MBObjectManager ObjectManager`: module object registration and lookup, such as `GetObjectTypeList<ItemObject>()`.
+- `GameStateManager GameStateManager`: owns the GameState stack for Missions, menus, and lobbies.
+- `BasicGameModels BasicModels` and `AddGameModelsManager<T>(IEnumerable<GameModel>)`: the rule-model collections used by the session.
+- `GameTextManager GameTextManager` and `EventManager EventManager`: text and session event services.
+- `BasicCharacterObject PlayerTroop` and `Monster DefaultMonster`: basic unit data used by the current mode.
 
-### CreateGame
-`public static Game CreateGame(GameType gameType, GameManagerBase gameManager, int seed)`
+### Handlers and save
 
-**Purpose:** Constructs a new game entity and returns it to the caller.
+- `AddGameHandler<T>()`, `GetGameHandler<T>()`, and `RemoveGameHandler<T>()`: attach components driven by `Game.OnTick`.
+- `Save(MetaData, string, ISaveDriver, Action<SaveResult>)`: writes the save root through `SaveManager`, notifying handlers before and after the operation.
+- `Destroy()`: irreversibly ends the session and clears `Game.Current`.
 
-```csharp
-// Static call; no instance required
-Game.CreateGame(gameType, gameManager, 0);
-```
+## Crash and boundary risks
 
-### CreateGame
-`public static Game CreateGame(GameType gameType, GameManagerBase gameManager)`
+1. **Null `Game.Current`:** factories have not run, the module is still loading, or `Destroy()` has completed. Prefer the callback parameter `Game game`.
+2. **Wrong state layer:** directly manipulating `GameStateManager` from campaign rules can bypass Campaign/Mission cleanup; use the appropriate state or Mission API.
+3. **Unregistered objects:** `ObjectManager.GetObject<T>(id)` returns null for types not registered from module XML. Do not replace registration with `new ItemObject`; see [MBObjectBase](../../campaign-ext/MBObjectBase).
+4. **Model misuse:** `BasicModels` exposes the current model set. Model replacement belongs in the game-starter registration window, not in a per-frame update.
+5. **Save lifetime:** `Save` invokes `GameHandler.OnBeforeSave`; its completion callback may run later, so do not release referenced objects prematurely.
+6. **Stale caches:** references to `ObjectManager`, `EventManager`, or `GameStateManager` become invalid across `Destroy()`.
 
-**Purpose:** Constructs a new game entity and returns it to the caller.
+## Real acquisition paths
 
-```csharp
-// Static call; no instance required
-Game.CreateGame(gameType, gameManager);
-```
-
-### LoadSaveGame
-`public static Game LoadSaveGame(LoadResult loadResult, GameManagerBase gameManager)`
-
-**Purpose:** Reads save game from persistent storage or a stream.
+### Use the Game supplied by a module hook
 
 ```csharp
-// Static call; no instance required
-Game.LoadSaveGame(loadResult, gameManager);
+public sealed class MySubModule : MBSubModuleBase
+{
+    protected internal override void OnGameInitializationFinished(Game game)
+    {
+        var objectManager = game.ObjectManager;
+        foreach (ItemObject item in objectManager.GetObjectTypeList<ItemObject>())
+        {
+            Debug.Print(item.StringId);
+        }
+    }
+}
 ```
 
-### Save
-`public void Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)`
-
-**Purpose:** Writes the this instance's data to persistent storage or a stream.
+### Read the active state only inside a live session
 
 ```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.Save(metaData, "example", driver, onSaveCompleted);
+Game game = Game.Current;
+if (game != null && game.CurrentState == Game.State.Running)
+{
+    GameState activeState = game.GameStateManager?.ActiveState;
+    bool inMission = activeState is MissionState;
+    Debug.Print($"Running state: {activeState?.GetType().Name}, mission={inMission}");
+}
 ```
 
-### Destroy
-`public void Destroy()`
+The real `CustomGameManager` and `MultiplayerGameManager` flow is `Game.CreateGame(...).DoLoading()`, followed by state pushes through `Game.Current.GameStateManager`. The order matters: create the session first, then read `Current`.
 
-**Purpose:** Executes the Destroy logic.
+## Navigation
 
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.Destroy();
-```
-
-### CreateGameManager
-`public void CreateGameManager()`
-
-**Purpose:** Constructs a new game manager entity and returns it to the caller.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.CreateGameManager();
-```
-
-### OnStateChanged
-`public void OnStateChanged(GameState oldState)`
-
-**Purpose:** Invoked when the state changed event is raised.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.OnStateChanged(oldState);
-```
-
-### Initialize
-`public void Initialize()`
-
-**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.Initialize();
-```
-
-### RegisterTypes
-`public static void RegisterTypes(GameType gameType, MBObjectManager objectManager, GameManagerBase gameManager)`
-
-**Purpose:** Registers types with the current system so it can later be observed or dispatched.
-
-```csharp
-// Static call; no instance required
-Game.RegisterTypes(gameType, objectManager, gameManager);
-```
-
-### SetBasicModels
-`public void SetBasicModels(IEnumerable<GameModel> models)`
-
-**Purpose:** Assigns a new value to basic models and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.SetBasicModels(models);
-```
-
-### OnGameStart
-`public void OnGameStart()`
-
-**Purpose:** Invoked when the game start event is raised.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.OnGameStart();
-```
-
-### DoLoading
-`public bool DoLoading()`
-
-**Purpose:** Executes the DoLoading logic.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-var result = game.DoLoading();
-```
-
-### OnMissionIsStarting
-`public void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
-
-**Purpose:** Invoked when the mission is starting event is raised.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.OnMissionIsStarting("example", rec);
-```
-
-### OnFinalize
-`public void OnFinalize()`
-
-**Purpose:** Invoked when the finalize event is raised.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.OnFinalize();
-```
-
-### InitializeDefaultGameObjects
-`public void InitializeDefaultGameObjects()`
-
-**Purpose:** Prepares the resources, state, or bindings required by default game objects.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.InitializeDefaultGameObjects();
-```
-
-### LoadBasicFiles
-`public void LoadBasicFiles()`
-
-**Purpose:** Reads basic files from persistent storage or a stream.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.LoadBasicFiles();
-```
-
-### ItemObjectDeserialized
-`public void ItemObjectDeserialized(ItemObject itemObject)`
-
-**Purpose:** Executes the ItemObjectDeserialized logic.
-
-```csharp
-// Obtain an instance of Game from the subsystem API first
-Game game = ...;
-game.ItemObjectDeserialized(itemObject);
-```
-
-## Usage Example
-
-```csharp
-var game = Game.Current;
-game.AddGameObject(gameObject);
-```
-
-## See Also
-
-- [Area Index](../)
+- Parent: [core-extra index](./)
+- Siblings: [GameStateManager](../GameStateManager) · [GameManagerBase](../GameManagerBase)
+- Upstream: [MBSubModuleBase](../../core/MBSubModuleBase) · [MBObjectManager](../../campaign-ext/MBObjectManager)
+- Downstream: [Campaign](../../campaign/Campaign) · [Mission](../../mission/Mission)
+- Related: [SaveManager](../../save-system/SaveManager) · [MBObjectBase](../../campaign-ext/MBObjectBase) · [documentation contract](../../../architecture/doc-contract)

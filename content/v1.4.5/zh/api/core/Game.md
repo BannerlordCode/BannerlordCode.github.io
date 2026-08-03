@@ -30,12 +30,12 @@ description: "Bannerlord 运行期游戏会话的单一根对象：持有 GameTy
 > 仅链接到本周期已存在或已规划的页面；其余依赖以类型名标注，避免悬空链接。
 
 - **上游（谁创建 / 注入它）**
-  - `MBSubModuleBase`（模块生命周期钩子：`OnGameStart`、`OnGameLoaded`、`InitializeSubModuleGameObjects` 等，都会被传入这个 `Game`）→ [MBSubModuleBase.md](./MBSubModuleBase.md)
-  - `MBGameManager`（单人会话入口，内部调用 `Game.CreateGame` / `Game.LoadSaveGame`）→ [MBSubModuleBase.md](./MBSubModuleBase.md)
-  - `MBObjectManager`（对象注册表，由 `Game` 持有并负责 `RegisterTypes` / `LoadXML`）→ [MBObjectBase.md](./MBObjectBase.md)
+  - `MBSubModuleBase`（模块生命周期钩子：`OnGameStart`、`OnGameLoaded`、`InitializeSubModuleGameObjects` 等，都会被传入这个 `Game`）→ [MBSubModuleBase.md](.././MBSubModuleBase)
+  - `MBGameManager`（单人会话入口，内部调用 `Game.CreateGame` / `Game.LoadSaveGame`）→ [MBSubModuleBase.md](.././MBSubModuleBase)
+  - `MBObjectManager`（对象注册表，由 `Game` 持有并负责 `RegisterTypes` / `LoadXML`）→ [MBObjectBase.md](.././MBObjectBase)
 - **下游（它持有 / 驱动什么）**
-  - `Campaign`（`GameType` 在单人战役模式下的具体子类，`Game.GameType as Campaign`）→ [../campaign/Campaign.md](../campaign/Campaign.md)
-  - `Mission`（通过 `GameStateManager` 进入，`Game.Current.GameStateManager.ActiveState is MissionState`）→ [../mission/Mission.md](../mission/Mission.md)
+  - `Campaign`（`GameType` 在单人战役模式下的具体子类，`Game.GameType as Campaign`）→ [../campaign/Campaign.md](../../campaign/Campaign)
+  - `Mission`（通过 `GameStateManager` 进入，`Game.Current.GameStateManager.ActiveState is MissionState`）→ [../mission/Mission.md](../../mission/Mission)
   - `GameStateManager`（`CreateGameManager()` 创建，管理 `GameState` 栈）
   - `GameHandler` / Behavior（`AddGameHandler<T>()` 挂上的游戏级逻辑，随 `OnTick` 被驱动）
 - **Events（事件）**
@@ -48,7 +48,7 @@ description: "Bannerlord 运行期游戏会话的单一根对象：持有 GameTy
   - `DefaultMonster`、`DefaultSkills`、`DefaultCharacterAttributes`、`DefaultItemCategories`、`DefaultBannerEffects`、`DefaultSiegeEngineTypes`：都通过 `Game.Current` 拿到，背后走 `ObjectManager`。
 - **Save points（存档点）**
   - `Save(MetaData, string, ISaveDriver, Action<SaveResult>)`：存档入口，内部对每个 `GameHandler` 调 `OnBeforeSave`/`OnAfterSave`，再交给 `SaveManager`。是否允许存档取决于 `GameType.SupportsSaving`。
-  - 崩溃与存档边界细则见 [crash-boundary](../../architecture/crash-boundary)。
+  - 崩溃与存档边界细则见 [crash-boundary](../../../architecture/crash-boundary)。
 
 ## 风险（Risks）
 
@@ -166,12 +166,12 @@ public void SubscribeOnce()
 
 ## 参见（See Also）
 
-- 上游入口：[模块索引](./) · [MBSubModuleBase（生命周期钩子）](./MBSubModuleBase.md) · [MBObjectBase（对象注册表）](./MBObjectBase.md)
-- 下游 / 相关：[Campaign（GameType 子类）](../campaign/Campaign.md) · [Mission（战斗实例）](../mission/Mission.md)
-- 规范与边界：[Doc Contract](../../architecture/doc-contract) · [Crash Boundary](../../architecture/crash-boundary)
+- 上游入口：[模块索引](./) · [MBSubModuleBase（生命周期钩子）](.././MBSubModuleBase) · [MBObjectBase（对象注册表）](.././MBObjectBase)
+- 下游 / 相关：[Campaign（GameType 子类）](../../campaign/Campaign) · [Mission（战斗实例）](../../mission/Mission)
+- 规范与边界：[Doc Contract](../../../architecture/doc-contract) · [Crash Boundary](../../../architecture/crash-boundary)
 
 ## 导航（Navigation）
 
 - ↑ Parent: [模块索引](./)（`content/v1.4.5/zh/api/core/_index.md`）
-- ↔ Sibling: [MBSubModuleBase.md](./MBSubModuleBase.md) · [MBObjectBase.md](./MBObjectBase.md)
-- Related: [Doc Contract](../../architecture/doc-contract) · [Crash Boundary](../../architecture/crash-boundary) · [Campaign](../campaign/Campaign.md) · [Mission](../mission/Mission.md)
+- ↔ Sibling: [MBSubModuleBase.md](.././MBSubModuleBase) · [MBObjectBase.md](.././MBObjectBase)
+- Related: [Doc Contract](../../../architecture/doc-contract) · [Crash Boundary](../../../architecture/crash-boundary) · [Campaign](../../campaign/Campaign) · [Mission](../../mission/Mission)

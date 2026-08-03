@@ -27,7 +27,7 @@ description: "TaleWorlds.ObjectSystem 中所有 MB 对象的根基类：统一�
 
 **上游（谁创建 / 管理它）**
 
-- [MBObjectManager](../campaign-ext/MBObjectManager) —— 模块对象的注册与按名查找（`GetObject<T>(string)`、`GetObjectTypeList<T>()`）
+- [MBObjectManager](../../campaign-ext/MBObjectManager) —— 模块对象的注册与按名查找（`GetObject<T>(string)`、`GetObjectTypeList<T>()`）
 - `MBGUID` —— `Id` 字段的身份结构（TypeId + SubId），跨档引用靠它还原
 - SaveSystem / `SaveableProperty` —— 字段持久化（`[SaveableProperty(1/2/3)]`）
 - `TaleWorlds.Localization.TextObject` —— `GetName()` 的返回值类型
@@ -35,9 +35,9 @@ description: "TaleWorlds.ObjectSystem 中所有 MB 对象的根基类：统一�
 
 **下游（它的子类）**
 
-- [ItemObject](../core-extra/ItemObject) —— 物品（模块级）
-- [Game](../core-extra/Game) —— 顶层游戏对象
-- [Hero](../campaign/Hero) —— 英雄（战局级，由 `CampaignObjectManager` 管理）
+- [ItemObject](../../core-extra/ItemObject) —— 物品（模块级）
+- [Game](../../core-extra/Game) —— 顶层游戏对象
+- [Hero](../../campaign/Hero) —— 英雄（战局级，由 `CampaignObjectManager` 管理）
 - `CharacterObject` —— 兵种（模块级）
 
 **生命周期钩子 / 事件**
@@ -110,13 +110,13 @@ if (sword != null && sword.IsReady)
 ## 导航
 
 - ↑ 父级：[核心模块索引](./)
-- ↔ 同级：[MBSubModuleBase](MBSubModuleBase)、[Game](../core-extra/Game)
-- 下游 / 相关：[ItemObject](../core-extra/ItemObject)、[Hero](../campaign/Hero)
-- 上游枢纽：[MBObjectManager](../campaign-ext/MBObjectManager)
-- 架构：[文档契约](../../architecture/doc-contract)、[架构首页](../../architecture/)
+- ↔ 同级：[MBSubModuleBase](../MBSubModuleBase)、[Game](../../core-extra/Game)
+- 下游 / 相关：[ItemObject](../../core-extra/ItemObject)、[Hero](../../campaign/Hero)
+- 上游枢纽：[MBObjectManager](../../campaign-ext/MBObjectManager)
+- 架构：[文档契约](../../../architecture/doc-contract)、[架构首页](../../../architecture/)
 
 ## 参见
 
-- 上游枢纽：[MBObjectManager](../campaign-ext/MBObjectManager) —— 对象的注册与按名查找
-- 下游 / 相关：[ItemObject](../core-extra/ItemObject)、[Hero](../campaign/Hero)
-- 架构约束：[文档契约](../../architecture/doc-contract)、[架构首页](../../architecture/)
+- 上游枢纽：[MBObjectManager](../../campaign-ext/MBObjectManager) —— 对象的注册与按名查找
+- 下游 / 相关：[ItemObject](../../core-extra/ItemObject)、[Hero](../../campaign/Hero)
+- 架构约束：[文档契约](../../../architecture/doc-contract)、[架构首页](../../../architecture/)

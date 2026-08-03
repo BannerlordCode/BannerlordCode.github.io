@@ -63,7 +63,7 @@ description: "The runtime container for battle simulation: created by MissionSta
             MissionBehaviors   Agents          Teams        MissionLogics
             (List<Behavior>)  (AgentReadOnlyList) (TeamCollection) (List<MissionLogic>)
                   │               │               │              │
-                  ├──► [MissionBehavior](./MissionBehavior)   (rules/observer)
+                  ├──► [MissionBehavior](.././MissionBehavior)   (rules/observer)
                   ├──► Agent (./Agent)            ├──► Team
                   └──► Formation (./Formation)    └──► Team-internal Formation
                   ▼
@@ -73,7 +73,7 @@ description: "The runtime container for battle simulation: created by MissionSta
 ```
 
 - **Upstream / creator**: `MissionState` (`: GameState`), `CampaignMission` (static open entry), `MissionInitializerRecord`.
-- **Collection deps (held at runtime)**: [`MissionBehavior`](./MissionBehavior), [`Agent`](./Agent), `Team`, `Formation` ([`Formation`](./Formation)), `MissionLogic`, `MissionObject`.
+- **Collection deps (held at runtime)**: [`MissionBehavior`](.././MissionBehavior), [`Agent`](.././Agent), `Team`, `Formation` ([`Formation`](.././Formation)), `MissionLogic`, `MissionObject`.
 - **Result / state**: `MissionState.Current.CurrentMission`, `MissionResult`, the `State` enum (`NewlyCreated`/`Initializing`/`Continuing`/`EndingNextFrame`/`Over`).
 - **Surrounding**: `Scene` (native scene), `Screen` (Gauntlet UI overlay), save system (**does not** directly serialize a `Mission` instance — see Risks).
 
@@ -220,8 +220,8 @@ public class KillTrackingBehavior : MissionLogic
 ## See Also
 
 - ↑ Parent (module index): [Mission module home](./)
-- ↔ Siblings: [MissionBehavior](./MissionBehavior) · [Agent](./Agent) · [Formation](./Formation)
-- Upstream hubs: [Campaign](../campaign/Campaign) (decides what battle to start) · [MBSubModuleBase](../core/MBSubModuleBase) (behavior registration entry)
-- Contract: [Doc Contract](../../architecture/doc-contract) (handwritten-doc and crash-boundary master rules)
+- ↔ Siblings: [MissionBehavior](.././MissionBehavior) · [Agent](.././Agent) · [Formation](.././Formation)
+- Upstream hubs: [Campaign](../../campaign/Campaign) (decides what battle to start) · [MBSubModuleBase](../../core/MBSubModuleBase) (behavior registration entry)
+- Contract: [Doc Contract](../../../architecture/doc-contract) (handwritten-doc and crash-boundary master rules)
 
 > Note: `Team`, `MissionState`, `MissionResult`, `Screen`, and the save system do not have standalone pages this cycle, so they are not linked to missing files; their real type names and relationships are explained in the Dependency / Risks sections above.

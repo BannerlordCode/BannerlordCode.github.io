@@ -30,12 +30,12 @@ description: "The single root object of a running Bannerlord game session: it ho
 > Only links to pages that exist or are planned this cycle; other dependencies are named as types to avoid dead links.
 
 - **Upstream (who creates / injects it)**
-  - `MBSubModuleBase` (lifecycle hooks: `OnGameStart`, `OnGameLoaded`, `InitializeSubModuleGameObjects`, etc., all receive this `Game`) → [MBSubModuleBase.md](./MBSubModuleBase.md)
-  - `MBGameManager` (SP session entry; internally calls `Game.CreateGame` / `Game.LoadSaveGame`) → [MBSubModuleBase.md](./MBSubModuleBase.md)
-  - `MBObjectManager` (object registry, held by `Game` and responsible for `RegisterTypes` / `LoadXML`) → [MBObjectBase.md](./MBObjectBase.md)
+  - `MBSubModuleBase` (lifecycle hooks: `OnGameStart`, `OnGameLoaded`, `InitializeSubModuleGameObjects`, etc., all receive this `Game`) → [MBSubModuleBase.md](.././MBSubModuleBase)
+  - `MBGameManager` (SP session entry; internally calls `Game.CreateGame` / `Game.LoadSaveGame`) → [MBSubModuleBase.md](.././MBSubModuleBase)
+  - `MBObjectManager` (object registry, held by `Game` and responsible for `RegisterTypes` / `LoadXML`) → [MBObjectBase.md](.././MBObjectBase)
 - **Downstream (what it holds / drives)**
-  - `Campaign` (`GameType` subclass for SP campaign; `Game.GameType as Campaign`) → [../campaign/Campaign.md](../campaign/Campaign.md)
-  - `Mission` (entered via `GameStateManager`; `Game.Current.GameStateManager.ActiveState is MissionState`) → [../mission/Mission.md](../mission/Mission.md)
+  - `Campaign` (`GameType` subclass for SP campaign; `Game.GameType as Campaign`) → [../campaign/Campaign.md](../../campaign/Campaign)
+  - `Mission` (entered via `GameStateManager`; `Game.Current.GameStateManager.ActiveState is MissionState`) → [../mission/Mission.md](../../mission/Mission)
   - `GameStateManager` (created by `CreateGameManager()`; manages the `GameState` stack)
   - `GameHandler` / Behavior (`AddGameHandler<T>()` attaches game-spanning logic, driven by `OnTick`)
 - **Events**
@@ -48,7 +48,7 @@ description: "The single root object of a running Bannerlord game session: it ho
   - `DefaultMonster`, `DefaultSkills`, `DefaultCharacterAttributes`, `DefaultItemCategories`, `DefaultBannerEffects`, `DefaultSiegeEngineTypes`: all obtained through `Game.Current`, backed by `ObjectManager`.
 - **Save points**
   - `Save(MetaData, string, ISaveDriver, Action<SaveResult>)`: the save entry; internally calls `OnBeforeSave`/`OnAfterSave` on each `GameHandler`, then hands off to `SaveManager`. Whether saving is allowed depends on `GameType.SupportsSaving`.
-  - Crash and save-boundary details: [crash-boundary](../../architecture/crash-boundary).
+  - Crash and save-boundary details: [crash-boundary](../../../architecture/crash-boundary).
 
 ## Risks
 
@@ -166,12 +166,12 @@ public void SubscribeOnce()
 
 ## See Also
 
-- Upstream entry: [Module index](./) · [MBSubModuleBase (lifecycle hooks)](./MBSubModuleBase.md) · [MBObjectBase (object registry)](./MBObjectBase.md)
-- Downstream / related: [Campaign (GameType subclass)](../campaign/Campaign.md) · [Mission (battle instance)](../mission/Mission.md)
-- Contract & boundaries: [Doc Contract](../../architecture/doc-contract) · [Crash Boundary](../../architecture/crash-boundary)
+- Upstream entry: [Module index](./) · [MBSubModuleBase (lifecycle hooks)](.././MBSubModuleBase) · [MBObjectBase (object registry)](.././MBObjectBase)
+- Downstream / related: [Campaign (GameType subclass)](../../campaign/Campaign) · [Mission (battle instance)](../../mission/Mission)
+- Contract & boundaries: [Doc Contract](../../../architecture/doc-contract) · [Crash Boundary](../../../architecture/crash-boundary)
 
 ## Navigation
 
 - ↑ Parent: [Module index](./) (`content/v1.4.5/en/api/core/_index.md`)
-- ↔ Sibling: [MBSubModuleBase.md](./MBSubModuleBase.md) · [MBObjectBase.md](./MBObjectBase.md)
-- Related: [Doc Contract](../../architecture/doc-contract) · [Crash Boundary](../../architecture/crash-boundary) · [Campaign](../campaign/Campaign.md) · [Mission](../mission/Mission.md)
+- ↔ Sibling: [MBSubModuleBase.md](.././MBSubModuleBase) · [MBObjectBase.md](.././MBObjectBase)
+- Related: [Doc Contract](../../../architecture/doc-contract) · [Crash Boundary](../../../architecture/crash-boundary) · [Campaign](../../campaign/Campaign) · [Mission](../../mission/Mission)

@@ -46,7 +46,7 @@ ScreenBase (当前屏幕，挂在 ScreenManager 栈顶)
 5. `ReleaseMovie(id)` —— 释放电影、解绑 `DataSource`、销毁控件树。
 6. `screenBase.RemoveLayer(layer)` —— 层离开屏幕栈；屏幕关闭时 `OnFinalize` 会清理 `UIContext`。
 
-> 注意：`GauntletLayer` **没有** `layer.DataSource` 这样的属性。DataContext 是在 `LoadMovie` 时连同电影一起绑定的，并保存在返回的 `GauntletMovieIdentifier.DataSource` 上（见 [GauntletMovieIdentifier](./GauntletMovieIdentifier)）。这也意味着“换数据”要么改同一个 VM 的属性，要么 `ReleaseMovie` 后 `LoadMovie` 一份新的。
+> 注意：`GauntletLayer` **没有** `layer.DataSource` 这样的属性。DataContext 是在 `LoadMovie` 时连同电影一起绑定的，并保存在返回的 `GauntletMovieIdentifier.DataSource` 上（见 [GauntletMovieIdentifier](.././GauntletMovieIdentifier)）。这也意味着“换数据”要么改同一个 VM 的属性，要么 `ReleaseMovie` 后 `LoadMovie` 一份新的。
 
 ## 何时用 / 何时不要用
 
@@ -70,8 +70,8 @@ UIResourceManager ── WidgetFactory/Sprite ─►│              │─ 持�
 ViewModel (DataContext) ── 经 LoadMovie ───►│              │      （Movie + DataSource）
 ```
 
-- 上游：[ScreenBase](../campaign-ext/ScreenBase)（图层宿主，`AddLayer`/`RemoveLayer`）、[ScreenManager](../gui/ScreenManager)（屏幕栈，`TopScreen` 即“当前屏幕”）、[UIResourceManager](./UIResourceManager)（注册的电影模板与控件工厂）、[ViewModel](../core-extra/ViewModel)（DataContext 来源）。
-- 下游：[GauntletMovieIdentifier](./GauntletMovieIdentifier)（`LoadMovie` 的返回值，封装了 `Movie` 与 `DataSource`）；更下层的 `Widget` 属性绑定属于 GauntletUI 运行时，由 `UIContext` 直接驱动。
+- 上游：[ScreenBase](../../campaign-ext/ScreenBase)（图层宿主，`AddLayer`/`RemoveLayer`）、[ScreenManager](../../gui/ScreenManager)（屏幕栈，`TopScreen` 即“当前屏幕”）、[UIResourceManager](.././UIResourceManager)（注册的电影模板与控件工厂）、[ViewModel](../../core-extra/ViewModel)（DataContext 来源）。
+- 下游：[GauntletMovieIdentifier](.././GauntletMovieIdentifier)（`LoadMovie` 的返回值，封装了 `Movie` 与 `DataSource`）；更下层的 `Widget` 属性绑定属于 GauntletUI 运行时，由 `UIContext` 直接驱动。
 
 ## 风险（崩溃 / 内存泄漏 / 输入异常）
 
@@ -228,5 +228,5 @@ public class MyHudBehavior : MissionBehavior
 ## 参见
 
 - ↑ 父级（bucket 索引）：[engine 目录](./)
-- ↔ 同级 / 上游：[ScreenBase](../campaign-ext/ScreenBase)（图层宿主）、[ScreenManager](../gui/ScreenManager)（`TopScreen` 与屏幕栈）、[UIResourceManager](./UIResourceManager)（电影模板与控件工厂）、[GauntletMovieIdentifier](./GauntletMovieIdentifier)（`LoadMovie` 返回值）
-- 相关类型：[ViewModel](../core-extra/ViewModel)（DataContext 来源）、[MBSubModuleBase](../core/MBSubModuleBase)（模组入口，通常在那里装配行为与屏幕）
+- ↔ 同级 / 上游：[ScreenBase](../../campaign-ext/ScreenBase)（图层宿主）、[ScreenManager](../../gui/ScreenManager)（`TopScreen` 与屏幕栈）、[UIResourceManager](.././UIResourceManager)（电影模板与控件工厂）、[GauntletMovieIdentifier](.././GauntletMovieIdentifier)（`LoadMovie` 返回值）
+- 相关类型：[ViewModel](../../core-extra/ViewModel)（DataContext 来源）、[MBSubModuleBase](../../core/MBSubModuleBase)（模组入口，通常在那里装配行为与屏幕）

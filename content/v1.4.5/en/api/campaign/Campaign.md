@@ -47,13 +47,13 @@ graph TD
 ```
 
 - **Upstream (who creates it / what it inherits)**
-  - [MBSubModuleBase](../core/MBSubModuleBase.md) — module load entry; `GameManager` starts the campaign through it.
+  - [MBSubModuleBase](../../core/MBSubModuleBase) — module load entry; `GameManager` starts the campaign through it.
   - `GameType` (base class, TaleWorlds.Core) — `Campaign` completes initialization through the `GameType` load state machine `DoLoadingForGameType`.
 - **Downstream (what it owns / drives)**
-  - [Hero](Hero.md) — via `AliveHeroes` / `DeadOrDisabledHeroes`.
-  - [Settlement](Settlement.md) — via `Settlements`.
-  - [MobileParty](MobileParty.md) — via `MobileParties` and its categorized collections (`LordParties` / `CaravanParties` / `BanditParties`, etc.).
-  - [Clan](Clan.md) / `Kingdom` — via `Clans` / `Kingdoms`.
+  - [Hero](../Hero) — via `AliveHeroes` / `DeadOrDisabledHeroes`.
+  - [Settlement](../Settlement) — via `Settlements`.
+  - [MobileParty](../MobileParty) — via `MobileParties` and its categorized collections (`LordParties` / `CaravanParties` / `BanditParties`, etc.).
+  - [Clan](../Clan) / `Kingdom` — via `Clans` / `Kingdoms`.
 - **Events & Behaviors**
   - `CampaignEvents` — the static event bus (`DailyTickEvent`, `HourlyTickEvent`, `DailyTickHeroEvent`, …); a Behavior subscribes inside `RegisterEvents()`.
   - `CampaignEventDispatcher` — internal dispatcher; `Campaign` initializes it in `OnInitialize` as `new CampaignEventDispatcher(...)` and registers `CampaignEvents` / `IssueManager` / `QuestManager` as receivers.
@@ -63,7 +63,7 @@ graph TD
   - `IMapScene` (`MapSceneWrapper`) — world-map scene wrapper providing the pathfinding grid and borders (`LoadMapScene`).
   - `MapEventManager` / `SiegeEventManager` / `MapMarkerManager` — map battles, sieges, markers.
 - **Save points**
-  - `SaveHandler` / `SupportsSaving` (only when `CampaignGameMode.Campaign`) — serialized by the [SaveManager](../save-system/SaveManager) system; `OnGameOver` triggers `QuickSaveCurrentGame` in Ironman mode.
+  - `SaveHandler` / `SupportsSaving` (only when `CampaignGameMode.Campaign`) — serialized by the [SaveManager](../../save-system/SaveManager) system; `OnGameOver` triggers `QuickSaveCurrentGame` in Ironman mode.
 
 ## Risks
 
@@ -159,12 +159,12 @@ float dist = Campaign.Current.Models.MapDistanceModel.GetDistance(
 
 ## Navigation
 
-- ↑ Parent: [Module index](./) · [MBSubModuleBase (lifecycle entry)](../core/MBSubModuleBase.md)
-- ↔ Siblings: [Hero](Hero.md) · [Settlement](Settlement.md) · [MobileParty](MobileParty.md) · [Clan](Clan.md)
-- Related: [Mission (battle layer)](../mission/Mission.md) · [SaveManager (save system)](../save-system/SaveManager) · [Doc Contract](../../architecture/doc-contract) · [Crash Boundary](../../architecture/crash-boundary)
+- ↑ Parent: [Module index](./) · [MBSubModuleBase (lifecycle entry)](../../core/MBSubModuleBase)
+- ↔ Siblings: [Hero](../Hero) · [Settlement](../Settlement) · [MobileParty](../MobileParty) · [Clan](../Clan)
+- Related: [Mission (battle layer)](../../mission/Mission) · [SaveManager (save system)](../../save-system/SaveManager) · [Doc Contract](../../../architecture/doc-contract) · [Crash Boundary](../../../architecture/crash-boundary)
 
 ## See Also
 
-- Upstream hub: [MBSubModuleBase](../core/MBSubModuleBase.md) — the module and Behavior lifecycle entry; understand when `Campaign` is brought up.
-- Downstream / related: [Hero](Hero.md) and [Settlement](Settlement.md) — the core world entities `Campaign` owns; their state changes must go through Actions / Behaviors.
-- Conventions: [Doc Contract](../../architecture/doc-contract) and [Crash Boundary](../../architecture/crash-boundary) — hard constraints when writing world state and saves.
+- Upstream hub: [MBSubModuleBase](../../core/MBSubModuleBase) — the module and Behavior lifecycle entry; understand when `Campaign` is brought up.
+- Downstream / related: [Hero](../Hero) and [Settlement](../Settlement) — the core world entities `Campaign` owns; their state changes must go through Actions / Behaviors.
+- Conventions: [Doc Contract](../../../architecture/doc-contract) and [Crash Boundary](../../../architecture/crash-boundary) — hard constraints when writing world state and saves.

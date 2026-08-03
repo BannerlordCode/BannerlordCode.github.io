@@ -59,23 +59,23 @@ description: "Bannerlord 战役层的中央发布/订阅事件总线：mod 通�
 
 **上游（谁触发 / 谁持有）**
 
-- [Campaign](../campaign/Campaign/) — 持有 `CampaignEvents` 的唯一实例，随战役创建与销毁
-- [CampaignEventDispatcher](./CampaignEventDispatcher/) — 把每个 `OnXxx` 调用扇出到本 hub 与所有 receiver
-- 各类 `*Action`（行动索引见 [actions-index](./actions-index/)）：`KillCharacterAction`、`ChangeOwnerOfSettlementAction`、`ChangeKingdomAction`、`ChangeRelationAction`、`MakePeaceAction`、`DeclareWarAction`、`TakePrisonerAction`、`RemoveCompanionAction`、`StartMercenaryServiceAction`、`EndMercenaryServiceAction`、`TeleportHeroAction`、`SiegeAftermathAction` 等，在改完状态后触发对应事件
+- [Campaign](../../campaign/Campaign/) — 持有 `CampaignEvents` 的唯一实例，随战役创建与销毁
+- [CampaignEventDispatcher](../CampaignEventDispatcher/) — 把每个 `OnXxx` 调用扇出到本 hub 与所有 receiver
+- 各类 `*Action`（行动索引见 [actions-index](../actions-index/)）：`KillCharacterAction`、`ChangeOwnerOfSettlementAction`、`ChangeKingdomAction`、`ChangeRelationAction`、`MakePeaceAction`、`DeclareWarAction`、`TakePrisonerAction`、`RemoveCompanionAction`、`StartMercenaryServiceAction`、`EndMercenaryServiceAction`、`TeleportHeroAction`、`SiegeAftermathAction` 等，在改完状态后触发对应事件
 
 **下游（谁消费）**
 
-- [CampaignBehaviorBase](./CampaignBehaviorBase/) — mod 行为在 `RegisterEvents()` 里订阅
-- [CampaignEventReceiver](./CampaignEventReceiver/) — 定义全部 `OnXxx` 虚方法的抽象基类
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — mod 行为在 `RegisterEvents()` 里订阅
+- [CampaignEventReceiver](../CampaignEventReceiver/) — 定义全部 `OnXxx` 虚方法的抽象基类
 - 游戏内各原生 `CampaignBehavior`（如 `DefaultLogsCampaignBehavior` 监听 `BattleStarted`）
 
 **相关 / 实现**
 
-- [MbEvent](./MbEvent/) 与 [IMbEvent](./IMbEvent/) — 底层委托容器与接口（`AddNonSerializedListener` / `ClearListeners`）
-- [ReferenceMBEvent](./ReferenceMBEvent/) — 带 `ref`/`out` 参数的「引用型」事件（如 `CanHeroDieEvent`），允许监听者投票/改写返回值
-- [CampaignGameStarter](./CampaignGameStarter/) — 注册行为的入口
-- [CampaignBehaviorManager](./CampaignBehaviorManager/) — 管理行为生命周期，读档后重建并复订阅
-- [SaveManager](../save-system/SaveManager/) — 存档点：行为随档重建，事件闭包不序列化
+- [MbEvent](../MbEvent/) 与 [IMbEvent](../IMbEvent/) — 底层委托容器与接口（`AddNonSerializedListener` / `ClearListeners`）
+- [ReferenceMBEvent](../ReferenceMBEvent/) — 带 `ref`/`out` 参数的「引用型」事件（如 `CanHeroDieEvent`），允许监听者投票/改写返回值
+- [CampaignGameStarter](../CampaignGameStarter/) — 注册行为的入口
+- [CampaignBehaviorManager](../CampaignBehaviorManager/) — 管理行为生命周期，读档后重建并复订阅
+- [SaveManager](../../save-system/SaveManager/) — 存档点：行为随档重建，事件闭包不序列化
 
 ## ⚠ 风险与崩溃边界
 
@@ -411,10 +411,10 @@ public class MySubModule : MBSubModuleBase
 
 - 本页权威语义来自 **bannerlord-1.4.5** 源码；页内列出的事件（`HeroKilledEvent`、`OnSettlementOwnerChangedEvent`、`OnPartyRemovedEvent`、`OnClanChangedKingdomEvent`、`OnIssueUpdatedEvent`、`HeroPrisonerTaken`、`OnNewGameCreatedEvent`、`BattleStarted`、`WarDeclared`、`HeroOrPartyTradedGold`、`OnHeroCombatHitEvent`、`DailyTickPartyEvent` 等）均已核对在 **1.3.15** 中以**相同 `IMbEvent<T>` 签名**存在。
 - 两个版本里 `IMbEvent` 都只暴露 `AddNonSerializedListener`——即「非序列化监听」，没有旧文档里偶尔提到的 `AddListener`（序列化监听）公共 API；监听的恢复完全依赖行为随档重建。若你见过 `AddListener`，那是对其它引擎版本的误解。
-- 本页聚焦 Campaign 层；战斗场景内的实时事件（Agent 命中、Mission 开始/结束等）请走 `Mission` / `IMissionListener` 体系（见 [Mission](../mission/Mission/)）。
+- 本页聚焦 Campaign 层；战斗场景内的实时事件（Agent 命中、Mission 开始/结束等）请走 `Mission` / `IMissionListener` 体系（见 [Mission](../../mission/Mission/)）。
 
 ## 参见
 
 - ↑ 父级：[campaign-ext 索引](../)
-- ↔ 同级：[CampaignBehaviorBase](./CampaignBehaviorBase/) · [CampaignEventReceiver](./CampaignEventReceiver/) · [CampaignEventDispatcher](./CampaignEventDispatcher/) · [CampaignGameStarter](./CampaignGameStarter/) · [CampaignBehaviorManager](./CampaignBehaviorManager/) · [MbEvent](./MbEvent/) · [IMbEvent](./IMbEvent/) · [ReferenceMBEvent](./ReferenceMBEvent/) · [行动索引](./actions-index/)
-- 相关类：[Campaign](../campaign/Campaign/) · [Hero](../campaign/Hero/) · [Settlement](../campaign/Settlement/) · [MobileParty](../campaign/MobileParty/) · [Clan](../campaign/Clan/) · [Kingdom](../campaign/Kingdom/) · [PartyBase](../campaign/PartyBase/) · [IssueBase](./IssueBase/) · [CharacterObject](../campaign/CharacterObject/) · [Workshop](../campaign/Workshop/) · [Village](../campaign/Village/) · [存档系统](../save-system/SaveManager/) · [MBSubModuleBase](../core/MBSubModuleBase/)
+- ↔ 同级：[CampaignBehaviorBase](../CampaignBehaviorBase/) · [CampaignEventReceiver](../CampaignEventReceiver/) · [CampaignEventDispatcher](../CampaignEventDispatcher/) · [CampaignGameStarter](../CampaignGameStarter/) · [CampaignBehaviorManager](../CampaignBehaviorManager/) · [MbEvent](../MbEvent/) · [IMbEvent](../IMbEvent/) · [ReferenceMBEvent](../ReferenceMBEvent/) · [行动索引](../actions-index/)
+- 相关类：[Campaign](../../campaign/Campaign/) · [Hero](../../campaign/Hero/) · [Settlement](../../campaign/Settlement/) · [MobileParty](../../campaign/MobileParty/) · [Clan](../../campaign/Clan/) · [Kingdom](../../campaign/Kingdom/) · [PartyBase](../../campaign/PartyBase/) · [IssueBase](../IssueBase/) · [CharacterObject](../../campaign/CharacterObject/) · [Workshop](../../campaign/Workshop/) · [Village](../../campaign/Village/) · [存档系统](../../save-system/SaveManager/) · [MBSubModuleBase](../../core/MBSubModuleBase/)

@@ -1,241 +1,146 @@
 ---
 title: "MBSubModuleBase"
-description: "Auto-generated class reference for MBSubModuleBase."
+description: "The module lifecycle adapter: the engine calls a derived class during loading, game start/load, Mission initialization, ticks, and shutdown."
 ---
+
 # MBSubModuleBase
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MBSubModuleBase`
-**Base:** none
-**File:** `TaleWorlds.MountAndBlade/MBSubModuleBase.cs`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public abstract class MBSubModuleBase`  
+**Base:** none (top-level abstract base)  
+**Source:** `TaleWorlds.MountAndBlade/MBSubModuleBase.cs`
 
-## Overview
+## Responsibility
 
-`MBSubModuleBase` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MBSubModuleBase` is the lifecycle adapter for a SubModule: the engine creates a derived instance from the module manifest, stores it in `Module.CurrentModule`, and lets `MBGameManager` dispatch callbacks at each game phase.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of this type as a timeline of hooks, not as a container for `Hero`, `Campaign`, or `Mission` state. The instance exists while the module is loaded, but `Game.Current` and `Campaign.Current` can still be null. Use runtime objects only after the game-start/load callbacks that provide them.
 
-## Key Methods
+In 1.3.15, `MBGameManager` enumerates `Module.CurrentModule.CollectSubModules()` from `BeginGameStart`, `OnGameStart`, `OnGameLoaded`, `OnGameEnd`, and related methods. Each derived module is therefore asked to do one phase-specific job. Long-lived state belongs in `CampaignBehaviorBase`, `GameHandler`, or another explicit owner.
 
-### OnConfigChanged
-`public virtual void OnConfigChanged()`
+### Lifecycle layers
 
-**Purpose:** Invoked when the config changed event is raised.
+| Phase | Good use | Do not assume |
+| --- | --- | --- |
+| `OnSubModuleLoad` / `OnNewModuleLoad` | Static registration, configuration, input, one-time resources | `Game.Current` or `Campaign.Current` exists |
+| `InitializeGameStarter` / `OnGameStart` | Add `CampaignBehaviorBase` to `CampaignGameStarter` | Save data has already loaded |
+| `OnGameLoaded` / `OnAfterGameLoaded` | Build caches from restored campaign state | New and loaded campaigns have identical state |
+| `OnBeforeMissionBehaviorInitialize` / `OnMissionBehaviorInitialize` | Add a `MissionBehavior` | All Agents, Teams, and Formations exist yet |
+| `OnApplicationTick` / `OnNetworkTick` | Small guarded frame/network work | A valid Mission exists every frame |
+| `OnGameEnd` / `OnSubModuleUnloaded` | Release resources and unsubscribe | Destroyed objects remain usable |
 
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnConfigChanged();
+## When to use it
+
+- **Use it** to register a behavior in `OnGameStart`, rebuild non-save caches after a load, add a Mission behavior, or pair global event subscription with unsubscription.
+- **Do not use it** for daily campaign rules in `OnApplicationTick`, direct writes to `Hero` or `Settlement`, or orphan behavior instances. Use [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) for event-driven campaign logic and the relevant [Action](../../campaign-ext/actions) for world mutations.
+
+## Dependencies
+
+```mermaid
+graph TD
+    XML[SubModule.xml] --> MOD[Module.CurrentModule]
+    MOD --> SUB[MBSubModuleBase derived type]
+    SUB --> MGR[MBGameManager dispatch]
+    MGR --> GAME[Game]
+    MGR --> CAM[Campaign]
+    MGR --> MIS[Mission]
+    SUB --> START[CampaignGameStarter.AddBehavior]
+    START --> BEHAVIOR[CampaignBehaviorBase]
+    BEHAVIOR --> EVENTS[CampaignEvents]
 ```
 
-### OnGameLoaded
-`public virtual void OnGameLoaded(Game game, object initializerObject)`
+- **Upstream:** [Module](../Module) reads `SubModuleClassType` from `SubModule.xml`; `MBGameManager` forwards lifecycle calls.
+- **Downstream:** [Game](../../core-extra/Game) provides the runtime root, [Campaign](../../campaign/Campaign) owns campaign behaviors and save state, and [Mission](../../mission/Mission) owns battle behaviors.
+- **Events and save:** a behavior registered through `CampaignGameStarter.AddBehavior` reaches `RegisterEvents()` and `SyncData(IDataStore)` through `CampaignBehaviorManager`.
 
-**Purpose:** Invoked when the game loaded event is raised.
+## Crash and save risks
 
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnGameLoaded(game, initializerObject);
-```
+1. **Early null access:** `OnSubModuleLoad` and `OnBeforeInitialModuleScreenSetAsRoot` run before game creation. Dereferencing `Campaign.Current` or `Game.Current` there can crash the main menu.
+2. **Unregistered behavior:** constructing `MyBehavior` without `CampaignGameStarter.AddBehavior` means it receives neither events nor save callbacks.
+3. **Load ordering:** `OnGameLoaded` is the restored-state window. Adding a save-bearing behavior only after initialization can miss the old file's behavior data.
+4. **Tick work:** `OnApplicationTick(float dt)` also runs in menus. Guard `Game.Current`, avoid heavy work, and prefer events.
+5. **Leaked subscriptions:** unsubscribe module-wide events in `OnSubModuleUnloaded`, otherwise hot reload can duplicate callbacks.
+6. **Mission timing:** Mission initialization does not guarantee that Agents, Teams, or Formations are ready; defer those reads to the derived `MissionBehavior` callbacks.
 
-### OnAfterGameLoaded
-`public virtual void OnAfterGameLoaded(Game game)`
+## Key members by phase
 
-**Purpose:** Invoked when the after game loaded event is raised.
+### Module loading
 
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnAfterGameLoaded(game);
-```
+- `OnSubModuleLoad()` / `OnSubModuleUnloaded()` for paired setup and cleanup.
+- `RegisterSubModuleTypes()` for save/object-system type registration.
+- `OnConfigChanged()` for refreshing configuration-dependent caches.
+- `OnSubModuleActivated()` / `OnSubModuleDeactivated()` for enable-state changes.
 
-### OnNewGameCreated
-`public virtual void OnNewGameCreated(Game game, object initializerObject)`
+### Game start and load
 
-**Purpose:** Invoked when the new game created event is raised.
+- `InitializeGameStarter(Game, IGameStarter)` and `OnGameStart(Game, IGameStarter)` for behavior registration. In 1.3.15 `OnGameStart` is `protected internal virtual`.
+- `RegisterSubModuleObjects(bool)` / `AfterRegisterSubModuleObjects(bool)` for new-save versus loaded-save object setup.
+- `BeginGameStart`, `OnCampaignStart`, `OnGameLoaded`, `OnAfterGameLoaded`, and `OnNewGameCreated` for phase-specific bridges.
 
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnNewGameCreated(game, initializerObject);
-```
+### Runtime and Mission
 
-### BeginGameStart
-`public virtual void BeginGameStart(Game game)`
+- `OnApplicationTick(float)`, `AfterAsyncTickTick(float)`, and `OnNetworkTick(float)` for guarded frame work.
+- `OnBeforeMissionBehaviorInitialize(Mission)` / `OnMissionBehaviorInitialize(Mission)` for Mission behavior injection.
+- `OnGameEnd(Game)` for game-level cleanup; `DoLoading(Game)` returns whether this module continues a loading step.
 
-**Purpose:** Executes the BeginGameStart logic.
+## Real mod entry point
 
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.BeginGameStart(game);
-```
-
-### OnCampaignStart
-`public virtual void OnCampaignStart(Game game, object starterObject)`
-
-**Purpose:** Invoked when the campaign start event is raised.
+The following API names and call order are taken from the 1.3.15 `MBGameManager.cs`, `SandboxSubModule.cs`, and `CampaignGameStarter` call sites:
 
 ```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnCampaignStart(game, starterObject);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+namespace MyMod;
+
+public sealed class MySubModule : MBSubModuleBase
+{
+    protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            var starter = (CampaignGameStarter)gameStarterObject;
+            starter.AddBehavior(new DailyGoldBehavior());
+        }
+    }
+}
+
+public sealed class DailyGoldBehavior : CampaignBehaviorBase
+{
+    private int _days;
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData("Days", ref _days);
+    }
+
+    private void OnDailyTick()
+    {
+        _days++;
+        if (_days >= 7 && Hero.MainHero != null)
+        {
+            _days = 0;
+            GiveGoldAction.ApplyBetweenCharacters(null, Hero.MainHero, 1000, true);
+        }
+    }
+}
 ```
 
-### RegisterSubModuleObjects
-`public virtual void RegisterSubModuleObjects(bool isSavedCampaign)`
+The acquisition path is `SubModule.xml` → `MBSubModuleBase.OnGameStart` → `CampaignGameStarter.AddBehavior` → `CampaignEvents`; it is not a constructor-time lookup of `Campaign.Current`. The state mutation contract for `GiveGoldAction` is documented in the [Action index](../../campaign-ext/actions).
 
-**Purpose:** Registers sub module objects with the current system so it can later be observed or dispatched.
+## Navigation
 
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.RegisterSubModuleObjects(false);
-```
-
-### AfterRegisterSubModuleObjects
-`public virtual void AfterRegisterSubModuleObjects(bool isSavedCampaign)`
-
-**Purpose:** Executes the AfterRegisterSubModuleObjects logic.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.AfterRegisterSubModuleObjects(false);
-```
-
-### OnMultiplayerGameStart
-`public virtual void OnMultiplayerGameStart(Game game, object starterObject)`
-
-**Purpose:** Invoked when the multiplayer game start event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnMultiplayerGameStart(game, starterObject);
-```
-
-### OnGameInitializationFinished
-`public virtual void OnGameInitializationFinished(Game game)`
-
-**Purpose:** Invoked when the game initialization finished event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnGameInitializationFinished(game);
-```
-
-### OnAfterGameInitializationFinished
-`public virtual void OnAfterGameInitializationFinished(Game game, object starterObject)`
-
-**Purpose:** Invoked when the after game initialization finished event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnAfterGameInitializationFinished(game, starterObject);
-```
-
-### DoLoading
-`public virtual bool DoLoading(Game game)`
-
-**Purpose:** Executes the DoLoading logic.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-var result = mBSubModuleBase.DoLoading(game);
-```
-
-### OnGameEnd
-`public virtual void OnGameEnd(Game game)`
-
-**Purpose:** Invoked when the game end event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnGameEnd(game);
-```
-
-### OnMissionBehaviorInitialize
-`public virtual void OnMissionBehaviorInitialize(Mission mission)`
-
-**Purpose:** Invoked when the mission behavior initialize event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnMissionBehaviorInitialize(mission);
-```
-
-### OnBeforeMissionBehaviorInitialize
-`public virtual void OnBeforeMissionBehaviorInitialize(Mission mission)`
-
-**Purpose:** Invoked when the before mission behavior initialize event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnBeforeMissionBehaviorInitialize(mission);
-```
-
-### OnInitialState
-`public virtual void OnInitialState()`
-
-**Purpose:** Invoked when the initial state event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnInitialState();
-```
-
-### OnSubModuleActivated
-`public virtual void OnSubModuleActivated()`
-
-**Purpose:** Invoked when the sub module activated event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnSubModuleActivated();
-```
-
-### OnSubModuleDeactivated
-`public virtual void OnSubModuleDeactivated()`
-
-**Purpose:** Invoked when the sub module deactivated event is raised.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.OnSubModuleDeactivated();
-```
-
-### InitializeSubModuleGameObjects
-`public virtual void InitializeSubModuleGameObjects(Game game)`
-
-**Purpose:** Prepares the resources, state, or bindings required by sub module game objects.
-
-```csharp
-// Obtain an instance of MBSubModuleBase from the subsystem API first
-MBSubModuleBase mBSubModuleBase = ...;
-mBSubModuleBase.InitializeSubModuleGameObjects(game);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-MBSubModuleBase instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- Parent: [core index](./)
+- Siblings: [Game](../../core-extra/Game) · [MBObjectBase](../../campaign-ext/MBObjectBase)
+- Children/downstream: [Campaign](../../campaign/Campaign) · [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) · [Mission](../../mission/Mission)
+- Related: [SaveManager](../../save-system/SaveManager) · [documentation contract](../../../architecture/doc-contract) · [crash boundaries](../../../architecture/crash-boundaries)

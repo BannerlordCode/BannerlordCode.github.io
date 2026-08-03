@@ -1,277 +1,127 @@
 ---
 title: "Game"
-description: "Game 的自动生成类参考。"
+description: "一局 Bannerlord 运行期会话的根对象：连接 GameType、MBObjectManager、GameStateManager、模型集合、事件总线和存档生命周期。"
 ---
+
 # Game
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
-**Type:** `public sealed class Game : IGameStateManagerOwner`
-**Base:** `IGameStateManagerOwner`
-**File:** `TaleWorlds.Core/Game.cs`
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public sealed class Game : IGameStateManagerOwner`（`[SaveableRootClass(5000)]`）  
+**Base:** `IGameStateManagerOwner`  
+**源文件：** `TaleWorlds.Core/Game.cs`
 
-## 概述
+## 职责一句话
 
-`Game` 位于 `TaleWorlds.Core`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Game` 是一局游戏从创建、运行到销毁的根容器：它持有当前模式、对象注册表、状态机、文本/模型服务、事件管理器和玩家单位，并以 `Game.Current` 暴露当前会话。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.Core` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`Game` 不是 `Campaign`，也不是一次战斗的 `Mission`。战役是 `GameType` 的一个实现；Mission 则通过 `GameStateManager` 进入当前状态栈。把它当作“全局会话边界”来用：需要跨界面共享的服务放这里，战役规则放 [Campaign](../../campaign/Campaign)，战斗级逻辑放 [Mission](../../mission/Mission)。
 
-## 主要属性
+### 生命周期
 
-| Name | Signature |
-|------|-----------|
-| `CurrentState` | `public Game.State CurrentState { get; }` |
-| `MonsterMissionDataCreator` | `public IMonsterMissionDataCreator MonsterMissionDataCreator { get; set; }` |
-| `DefaultMonster` | `public Monster DefaultMonster { get; }` |
-| `GameType` | `public GameType GameType { get; }` |
-| `DefaultSiegeEngineTypes` | `public DefaultSiegeEngineTypes DefaultSiegeEngineTypes { get; }` |
-| `ObjectManager` | `public MBObjectManager ObjectManager { get; }` |
-| `PlayerTroop` | `public BasicCharacterObject PlayerTroop { get; }` |
-| `BasicModels` | `public BasicGameModels BasicModels { get; }` |
-| `GameManager` | `public GameManagerBase GameManager { get; }` |
-| `GameTextManager` | `public GameTextManager GameTextManager { get; }` |
-| `GameStateManager` | `public GameStateManager GameStateManager { get; }` |
-| `CheatMode` | `public bool CheatMode { get; }` |
-| `IsDevelopmentMode` | `public bool IsDevelopmentMode { get; }` |
-| `IsEditModeOn` | `public bool IsEditModeOn { get; }` |
-| `UnitSpawnPrioritization` | `public UnitSpawnPrioritizations UnitSpawnPrioritization { get; }` |
-| `ApplicationTime` | `public float ApplicationTime { get; set; }` |
-| `Current` | `public static Game Current { get; set; }` |
-| `BannerVisualCreator` | `public IBannerVisualCreator BannerVisualCreator { get; set; }` |
-| `NextUniqueTroopSeed` | `public int NextUniqueTroopSeed { get; }` |
-| `DefaultCharacterAttributes` | `public DefaultCharacterAttributes DefaultCharacterAttributes { get; }` |
-| `DefaultSkills` | `public DefaultSkills DefaultSkills { get; }` |
-| `DefaultBannerEffects` | `public DefaultBannerEffects DefaultBannerEffects { get; }` |
-| `DefaultItemCategories` | `public DefaultItemCategories DefaultItemCategories { get; }` |
-| `EventManager` | `public EventManager EventManager { get; }` |
+1. `Game.CreateGame(GameType, GameManagerBase)` 初始化 [MBObjectManager](../../campaign-ext/MBObjectManager)，注册类型，并在构造函数中设置 `Game.Current`。
+2. `Game.LoadSaveGame(LoadResult, GameManagerBase)` 恢复存档根对象，重新注册类型，调用 `ReInitialize`，再进入加载流程。
+3. `Initialize()` 创建 `GameTextManager`、模型管理器和 `GameType` 的初始化状态；`CreateGameManager()` 创建 `GameStateManager`。
+4. 运行期间，内部 `OnTick(float)` 驱动 `GameStateManager`、`GameHandler` 和 `AfterTick`；mod 应通过行为/事件接入，而不是覆写这个内部循环。
+5. `Destroy()` 先通知 `GameHandler`、`GameManager`、`GameType` 和对象管理器，再清空事件、状态机和 `Game.Current`。
 
-## 主要方法
+## 何时用，何时不用
 
-### CreateBannerVisual
-`public IBannerVisual CreateBannerVisual(Banner banner)`
+- **用它**：在生命周期钩子收到 `Game game` 后读取 `GameType`、`ObjectManager`、`GameStateManager`、`PlayerTroop` 或 `BasicModels`；在整局范围内挂载 `GameHandler`；从 `Game.Current.EventManager` 注册游戏级事件。
+- **不用它**：不要在模块静态构造、`Destroy()` 之后或无法确认会话已建立时读取 `Game.Current`；不要用它代替 `Campaign.Current` 的世界实体集合，更不要直接修改 `Hero`、`Settlement` 等状态。
 
-**用途 / Purpose:** 构建一个新的 banner visual 实体并返回给调用方。
+## 依赖关系
 
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-var result = game.CreateBannerVisual(banner);
+```mermaid
+graph TD
+    SUB[MBSubModuleBase] --> GM[GameManagerBase]
+    GM --> CREATE[Game.CreateGame / LoadSaveGame]
+    CREATE --> GAME[Game]
+    GAME --> OBJ[MBObjectManager]
+    GAME --> STATE[GameStateManager]
+    GAME --> MODELS[BasicGameModels / GameModelsManager]
+    GAME --> EVENT[EventManager]
+    GAME --> CAM[Campaign / GameType]
+    STATE --> MIS[MissionState / Mission]
+    GAME --> SAVE[SaveManager]
 ```
 
-### GetDefaultEquipmentWithName
-`public Equipment GetDefaultEquipmentWithName(string equipmentName)`
+- **上游**：[MBSubModuleBase](../../core/MBSubModuleBase) 的 `OnGameStart`、`OnGameLoaded` 等钩子直接接收 `Game`；`MBGameManager` 调用两个静态工厂。
+- **对象层**：[MBObjectManager](../../campaign-ext/MBObjectManager) 由 `Game.CreateGame` 初始化；`Game` 只持有它，不负责让未注册对象变得有效。
+- **下游**：[Campaign](../../campaign/Campaign) 作为 `GameType` 运行战役；[Mission](../../mission/Mission) 通过状态机进入；模型和行为再消费这些上下文。
+- **存档**：`[SaveableRootClass(5000)]` 使 `Game` 成为保存根；实际保存由 `SaveManager.Save` 和 `Game.Save(...)` 驱动。
 
-**用途 / Purpose:** 读取并返回当前对象中 default equipment with name 的结果。
+## 关键成员
 
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-var result = game.GetDefaultEquipmentWithName("example");
-```
+### 当前会话与模式
 
-### SetDefaultEquipments
-`public void SetDefaultEquipments(IReadOnlyDictionary<string, Equipment> defaultEquipments)`
+- `static Game Current { get; internal set; }`：当前会话的单例入口；只在创建到销毁之间有效。
+- `GameType GameType`：当前模式（战役、多人或其它 `GameType` 实现）。
+- `State CurrentState`：`Running`、`Destroying`、`Destroyed` 生命周期标记。
+- `GameManagerBase GameManager`：提供配置、开发模式和应用时间等运行环境能力。
 
-**用途 / Purpose:** 为 default equipments 赋新值，并同步更新对象内部状态。
+### 对象、状态与模型
 
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.SetDefaultEquipments(iReadOnlyDictionary<string, defaultEquipments);
-```
+- `MBObjectManager ObjectManager`：模块对象的注册/查找入口；例如 `GetObjectTypeList<ItemObject>()`。
+- `GameStateManager GameStateManager`：管理 GameState 栈；Mission、菜单和大厅都通过它切换。
+- `BasicGameModels BasicModels` 与 `AddGameModelsManager<T>(IEnumerable<GameModel>)`：读取规则模型集合。
+- `GameTextManager GameTextManager`、`EventManager EventManager`：文本和游戏级事件服务。
+- `BasicCharacterObject PlayerTroop`、`Monster DefaultMonster`：当前模式使用的基础单位数据。
 
-### CreateGame
-`public static Game CreateGame(GameType gameType, GameManagerBase gameManager, int seed)`
+### 游戏级行为与存档
 
-**用途 / Purpose:** 构建一个新的 game 实体并返回给调用方。
+- `AddGameHandler<T>()` / `GetGameHandler<T>()` / `RemoveGameHandler<T>()`：挂载随 `Game.OnTick` 驱动的游戏级组件。
+- `Save(MetaData, string, ISaveDriver, Action<SaveResult>)`：通过 `SaveManager` 写入保存根；保存前后会通知所有 `GameHandler`。
+- `Destroy()`：不可逆地结束会话并把 `Game.Current` 置空。
 
-```csharp
-// 静态调用，不需要实例
-Game.CreateGame(gameType, gameManager, 0);
-```
+## 风险与边界
 
-### CreateGame
-`public static Game CreateGame(GameType gameType, GameManagerBase gameManager)`
+1. **`Game.Current` 为空**：工厂调用前、模块早期、`Destroy()` 之后都可能为空。优先使用钩子参数 `Game game`，只在确认会话存在时使用静态入口。
+2. **状态机错层**：在战役逻辑里直接操作 `GameStateManager` 可能绕过 Campaign/ Mission 的清理；需要切换战斗应使用对应的 Mission/State API。
+3. **对象未注册**：`ObjectManager.GetObject<T>(id)` 找不到 XML 未注册的对象；不要 `new ItemObject` 伪造已注册对象。身份与加载规则见 [MBObjectBase](../../campaign-ext/MBObjectBase)。
+4. **模型替换误用**：`BasicModels` 只读当前模型集合；规则替换应在 `GameStarter`/模型管理器的注册窗口完成，不能在每帧修改模型实例。
+5. **存档时机**：`Save` 会先调用 `GameHandler.OnBeforeSave`，异步结果可能稍后回调；不要在回调前释放仍被保存流程引用的对象。
+6. **销毁后缓存**：缓存 `Game.Current.ObjectManager`、`EventManager` 或 `GameStateManager` 的引用并跨越 `Destroy`，会读到已清理的服务。
 
-**用途 / Purpose:** 构建一个新的 game 实体并返回给调用方。
+## 真实获取路径
 
-```csharp
-// 静态调用，不需要实例
-Game.CreateGame(gameType, gameManager);
-```
-
-### LoadSaveGame
-`public static Game LoadSaveGame(LoadResult loadResult, GameManagerBase gameManager)`
-
-**用途 / Purpose:** 从持久化存储或流中读取 save game。
+### 在模块钩子中使用传入的 Game
 
 ```csharp
-// 静态调用，不需要实例
-Game.LoadSaveGame(loadResult, gameManager);
+public sealed class MySubModule : MBSubModuleBase
+{
+    protected internal override void OnGameInitializationFinished(Game game)
+    {
+        // 此时由 MBGameManager 传入已创建的会话；不需要猜测 Current 是否为空。
+        var objectManager = game.ObjectManager;
+        foreach (ItemObject item in objectManager.GetObjectTypeList<ItemObject>())
+        {
+            Debug.Print(item.StringId);
+        }
+    }
+}
 ```
 
-### Save
-`public void Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)`
-
-**用途 / Purpose:** 将当前对象的数据写入持久化存储或流中。
+### 在运行期读取当前状态
 
 ```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.Save(metaData, "example", driver, onSaveCompleted);
+Game game = Game.Current;
+if (game != null && game.CurrentState == Game.State.Running)
+{
+    GameState activeState = game.GameStateManager?.ActiveState;
+    bool inMission = activeState is MissionState;
+    Debug.Print($"Running state: {activeState?.GetType().Name}, mission={inMission}");
+}
 ```
 
-### Destroy
-`public void Destroy()`
+`CustomGameManager` 和 `MultiplayerGameManager` 的真实调用链都是 `Game.CreateGame(...).DoLoading()`，之后才通过 `Game.Current.GameStateManager` 推入状态；这也是 mod 应遵守的“先建会话，再读 Current”顺序。
 
-**用途 / Purpose:** 调用 Destroy 对应的操作。
+## 导航
 
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.Destroy();
-```
-
-### CreateGameManager
-`public void CreateGameManager()`
-
-**用途 / Purpose:** 构建一个新的 game manager 实体并返回给调用方。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.CreateGameManager();
-```
-
-### OnStateChanged
-`public void OnStateChanged(GameState oldState)`
-
-**用途 / Purpose:** 在 state changed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.OnStateChanged(oldState);
-```
-
-### Initialize
-`public void Initialize()`
-
-**用途 / Purpose:** 加载当前对象所需的初始资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.Initialize();
-```
-
-### RegisterTypes
-`public static void RegisterTypes(GameType gameType, MBObjectManager objectManager, GameManagerBase gameManager)`
-
-**用途 / Purpose:** 将types注册到当前系统，以便后续监听或分发。
-
-```csharp
-// 静态调用，不需要实例
-Game.RegisterTypes(gameType, objectManager, gameManager);
-```
-
-### SetBasicModels
-`public void SetBasicModels(IEnumerable<GameModel> models)`
-
-**用途 / Purpose:** 为 basic models 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.SetBasicModels(models);
-```
-
-### OnGameStart
-`public void OnGameStart()`
-
-**用途 / Purpose:** 在 game start 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.OnGameStart();
-```
-
-### DoLoading
-`public bool DoLoading()`
-
-**用途 / Purpose:** 调用 DoLoading 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-var result = game.DoLoading();
-```
-
-### OnMissionIsStarting
-`public void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)`
-
-**用途 / Purpose:** 在 mission is starting 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.OnMissionIsStarting("example", rec);
-```
-
-### OnFinalize
-`public void OnFinalize()`
-
-**用途 / Purpose:** 在 finalize 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.OnFinalize();
-```
-
-### InitializeDefaultGameObjects
-`public void InitializeDefaultGameObjects()`
-
-**用途 / Purpose:** 为 default game objects 初始化必要的资源、状态或绑定。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.InitializeDefaultGameObjects();
-```
-
-### LoadBasicFiles
-`public void LoadBasicFiles()`
-
-**用途 / Purpose:** 从持久化存储或流中读取 basic files。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.LoadBasicFiles();
-```
-
-### ItemObjectDeserialized
-`public void ItemObjectDeserialized(ItemObject itemObject)`
-
-**用途 / Purpose:** 调用 ItemObjectDeserialized 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Game 实例
-Game game = ...;
-game.ItemObjectDeserialized(itemObject);
-```
-
-## 使用示例
-
-```csharp
-var game = Game.Current;
-game.AddGameObject(gameObject);
-```
-
-## 参见
-
-- [本区域目录](../)
+- ↑ 父级：[core-extra 目录](./)
+- ↔ 同级：[GameStateManager](../GameStateManager) · [GameManagerBase](../GameManagerBase)
+- ↑ 上游：[MBSubModuleBase](../../core/MBSubModuleBase) · [MBObjectManager](../../campaign-ext/MBObjectManager)
+- ↓ 下游：[Campaign](../../campaign/Campaign) · [Mission](../../mission/Mission)
+- 相关：[SaveManager](../../save-system/SaveManager) · [MBObjectBase](../../campaign-ext/MBObjectBase) · [文档契约](../../../architecture/doc-contract)

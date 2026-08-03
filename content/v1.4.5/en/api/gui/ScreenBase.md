@@ -86,14 +86,14 @@ public void OpenOptionsFromMap()
 
 ## Dependency Graph
 
-- **Upstream:** [ScreenManager](./ScreenManager) owns the stack and invokes this page's lifecycle handles; [ScreenLayer](./ScreenLayer) provides the input/render units owned by the screen.
-- **Downstream:** [GauntletLayer](../engine/GauntletLayer) hosts the movie and [ViewModel](../core-extra/ViewModel) supplies bound state and commands; both must be cleaned before finalization.
-- **Boundary:** [UI lifecycle crash boundaries](../../architecture/crash-boundary) covers main-thread, focus, and finalization failures.
+- **Upstream:** [ScreenManager](../ScreenManager) owns the stack and invokes this page's lifecycle handles; [ScreenLayer](../ScreenLayer) provides the input/render units owned by the screen.
+- **Downstream:** [GauntletLayer](../../engine/GauntletLayer) hosts the movie and [ViewModel](../../core-extra/ViewModel) supplies bound state and commands; both must be cleaned before finalization.
+- **Boundary:** [UI lifecycle crash boundaries](../../../architecture/crash-boundary) covers main-thread, focus, and finalization failures.
 
 ## See Also and Navigation
 
 - [GUI API index](../_index)
-- [ScreenManager: screen stack, TopScreen, and global Layers](./ScreenManager)
-- [GauntletLayer: mounting movies and input on a screen](../engine/GauntletLayer)
-- [ViewModel: bound data and commands](../core-extra/ViewModel)
-- [UI lifecycle crash boundaries](../../architecture/crash-boundary)
+- [ScreenManager: screen stack, TopScreen, and global Layers](../ScreenManager)
+- [GauntletLayer: mounting movies and input on a screen](../../engine/GauntletLayer)
+- [ViewModel: bound data and commands](../../core-extra/ViewModel)
+- [UI lifecycle crash boundaries](../../../architecture/crash-boundary)

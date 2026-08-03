@@ -13,7 +13,7 @@ description: "A short-lived battlefield entity that is built into a Mission, ass
 
 ## One-line responsibility
 
-It connects one human, mount, or other combat entity inside a Mission to its native entity, equipment, controller, Team, Formation, and combat callbacks.
+It connects one human, mount, or other combat entity inside a Mission to its native entity, equipment, controller, Team, Formation, and combat callbacks, and defines when that instance is valid from creation and build through activity, death, deletion, and Mission cleanup.
 
 ## Mental Model
 
@@ -53,7 +53,7 @@ It connects one human, mount, or other combat entity inside a Mission to its nat
 
 ## Dependencies
 
-The upstream owner is [Mission](./Mission), which creates and ticks Agents. [MissionBehavior](./MissionBehavior) receives their lifecycle callbacks; the runtime relationship continues into [Team](../mission-ext/Team), [Formation](./Formation), and [AgentComponent](../mission-ext/AgentComponent). Campaign missions connect battlefield entities back to Campaign semantics through [CampaignAgentComponent](../campaign-ext/CampaignAgentComponent).
+The upstream owner is [Mission](../Mission), which creates and ticks Agents. [MissionBehavior](../MissionBehavior) receives their lifecycle callbacks; the runtime relationship continues into [Team](../../mission-ext/Team), [Formation](../Formation), and [AgentComponent](../../mission-ext/AgentComponent). Campaign missions connect battlefield entities back to Campaign semantics through [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent).
 
 ### Relationship map
 
@@ -124,6 +124,25 @@ public override void OnAgentCreated(Agent agent)
 
 This callback is appropriate for installing a component and recording identity. It is too early to depend on equipped `Equipment`; move that work to `OnAgentBuild(Agent agent, Banner banner)` or a later Mission callback.
 
+### Creating a unit through Mission.SpawnAgent
+
+When a mod genuinely needs to add an entity to the scene, it puts the real character and Team into `AgentBuildData` and lets the current Mission perform creation and build:
+
+```csharp
+AgentBuildData buildData = new AgentBuildData(Game.Current.PlayerTroop)
+    .Team(Mission.Current.PlayerTeam)
+    .InitialPosition(new Vec3(120f, 80f, 0f))
+    .InitialDirection(Vec2.Forward);
+
+Agent spawnedAgent = Mission.Current.SpawnAgent(buildData);
+if (spawnedAgent != null && spawnedAgent.HasBeenBuilt)
+{
+    spawnedAgent.SetWatchState(Agent.WatchState.Alarmed);
+}
+```
+
+`SpawnAgent` continues through equipment, visuals, components, and active-list construction; use `OnAgentCreated` and `OnAgentBuild` when the distinction between existence and completed construction matters.
+
 ### Reading active Agents from Mission.Current and cleaning up on removal
 
 `Mission.Current` exists only for the current Mission, and `Mission.Current.Agents` is a changing active collection. The following uses real APIs to acquire the current entities and only uses removal parameters during cleanup; it does not retain an old Agent:
@@ -174,9 +193,8 @@ This page follows the v1.4.5 `TaleWorlds.MountAndBlade` source. The same Mission
 
 ## Navigation
 
-- ↑ [Mission module index](./)
-- ↔ [Mission](./Mission) · [MissionBehavior](./MissionBehavior) · [Formation](./Formation)
-- ↓ [Team](../mission-ext/Team) · [AgentComponent](../mission-ext/AgentComponent) · [CampaignAgentComponent](../campaign-ext/CampaignAgentComponent)
-- Related upstream: [Campaign](../campaign/Campaign) · [MBSubModuleBase](../core/MBSubModuleBase)
+- ↑ [Mission module index](../)
+- ↔ [Mission](../Mission) · [MissionBehavior](../MissionBehavior) · [Formation](../Formation)
+- ↓ [Team](../../mission-ext/Team) · [AgentComponent](../../mission-ext/AgentComponent) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent)
+- Related upstream: [Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
 - Risk references: [Crash boundaries](../../architecture/crash-boundary) · [Doc contract](../../architecture/doc-contract)
-

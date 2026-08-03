@@ -95,14 +95,14 @@ protected override void OnSubModuleUnloaded()
 
 ## 依赖图
 
-- **上游：** [EngineScreenManager](../engine/EngineScreenManager) 注入引擎连接；源码中的模块级订阅者通过本页的静态事件入口注册和解除观察。
-- **下游：** [ScreenBase](./ScreenBase) 执行单屏幕生命周期；[GauntletLayer](../engine/GauntletLayer) 和 [ViewModel](../core-extra/ViewModel) 通过当前屏幕参与输入、绑定和渲染。
-- **边界：** [UI 生命周期崩溃边界](../../architecture/crash-boundary) 说明主线程、焦点和清理顺序。
+- **上游：** [EngineScreenManager](../../engine/EngineScreenManager) 注入引擎连接；源码中的模块级订阅者通过本页的静态事件入口注册和解除观察。
+- **下游：** [ScreenBase](../ScreenBase) 执行单屏幕生命周期；[GauntletLayer](../../engine/GauntletLayer) 和 [ViewModel](../../core-extra/ViewModel) 通过当前屏幕参与输入、绑定和渲染。
+- **边界：** [UI 生命周期崩溃边界](../../../architecture/crash-boundary) 说明主线程、焦点和清理顺序。
 
 ## 参见与导航
 
 - [GUI API 目录](../_index)
-- [ScreenBase：派生屏幕的生命周期与 Layer 所有权](./ScreenBase)
-- [GauntletLayer：UI movie 与输入 Layer](../engine/GauntletLayer)
-- [ViewModel：Gauntlet 数据绑定](../core-extra/ViewModel)
-- [UI 生命周期崩溃边界](../../architecture/crash-boundary)
+- [ScreenBase：派生屏幕的生命周期与 Layer 所有权](../ScreenBase)
+- [GauntletLayer：UI movie 与输入 Layer](../../engine/GauntletLayer)
+- [ViewModel：Gauntlet 数据绑定](../../core-extra/ViewModel)
+- [UI 生命周期崩溃边界](../../../architecture/crash-boundary)

@@ -95,14 +95,14 @@ For opening a page, the source `MapScreen.OpenOptions` uses `ScreenManager.PushS
 
 ## Dependency Graph
 
-- **Upstream:** [EngineScreenManager](../engine/EngineScreenManager) injects the engine connection; [ScreenBase](./ScreenBase) is the screen contract consumed by the stack.
-- **Downstream:** [GauntletLayer](../engine/GauntletLayer) and [ViewModel](../core-extra/ViewModel) participate in input, binding, and rendering through the current screen.
-- **Boundary:** [UI lifecycle crash boundaries](../../architecture/crash-boundary) documents main-thread, focus, and cleanup ordering.
+- **Upstream:** [EngineScreenManager](../../engine/EngineScreenManager) injects the engine connection; [ScreenBase](../ScreenBase) is the screen contract consumed by the stack.
+- **Downstream:** [GauntletLayer](../../engine/GauntletLayer) and [ViewModel](../../core-extra/ViewModel) participate in input, binding, and rendering through the current screen.
+- **Boundary:** [UI lifecycle crash boundaries](../../../architecture/crash-boundary) documents main-thread, focus, and cleanup ordering.
 
 ## See Also and Navigation
 
 - [GUI API index](../_index)
-- [ScreenBase: derived-screen lifecycle and Layer ownership](./ScreenBase)
-- [GauntletLayer: UI movies and input Layers](../engine/GauntletLayer)
-- [ViewModel: Gauntlet-bound data](../core-extra/ViewModel)
-- [UI lifecycle crash boundaries](../../architecture/crash-boundary)
+- [ScreenBase: derived-screen lifecycle and Layer ownership](../ScreenBase)
+- [GauntletLayer: UI movies and input Layers](../../engine/GauntletLayer)
+- [ViewModel: Gauntlet-bound data](../../core-extra/ViewModel)
+- [UI lifecycle crash boundaries](../../../architecture/crash-boundary)

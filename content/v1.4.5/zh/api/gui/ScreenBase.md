@@ -86,14 +86,14 @@ public void OpenOptionsFromMap()
 
 ## 依赖图
 
-- **上游：** [ScreenManager](./ScreenManager) owns the stack and calls this page's lifecycle handles; [ScreenLayer](./ScreenLayer) supplies the input/render units that this screen owns.
-- **下游：** [GauntletLayer](../engine/GauntletLayer) hosts the movie and [ViewModel](../core-extra/ViewModel) supplies bound state and commands; their cleanup must finish before the screen is finalized.
-- **边界：** [UI 生命周期崩溃边界](../../architecture/crash-boundary) covers main-thread, focus, and finalization failures.
+- **上游：** [ScreenManager](../ScreenManager) owns the stack and calls this page's lifecycle handles; [ScreenLayer](../ScreenLayer) supplies the input/render units that this screen owns.
+- **下游：** [GauntletLayer](../../engine/GauntletLayer) hosts the movie and [ViewModel](../../core-extra/ViewModel) supplies bound state and commands; their cleanup must finish before the screen is finalized.
+- **边界：** [UI 生命周期崩溃边界](../../../architecture/crash-boundary) covers main-thread, focus, and finalization failures.
 
 ## 参见与导航
 
 - [GUI API 目录](../_index)
-- [ScreenManager：屏幕栈、TopScreen 与全局 Layer](./ScreenManager)
-- [GauntletLayer：把 movie 和输入挂到屏幕](../engine/GauntletLayer)
-- [ViewModel：绑定数据与命令](../core-extra/ViewModel)
-- [UI 生命周期崩溃边界](../../architecture/crash-boundary)
+- [ScreenManager：屏幕栈、TopScreen 与全局 Layer](../ScreenManager)
+- [GauntletLayer：把 movie 和输入挂到屏幕](../../engine/GauntletLayer)
+- [ViewModel：绑定数据与命令](../../core-extra/ViewModel)
+- [UI 生命周期崩溃边界](../../../architecture/crash-boundary)

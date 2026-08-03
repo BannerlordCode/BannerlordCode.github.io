@@ -13,7 +13,7 @@ description: "战场中一个可被操控、编入阵形、参与战斗并经历
 
 ## 一句话职责
 
-它把一个已经进入 Mission 的人、马或其他战斗实体连接到原生实体、装备、AI 控制器、Team、Formation 和战斗回调。
+它把一个已经进入 Mission 的人、马或其他战斗实体连接到原生实体、装备、AI 控制器、Team、Formation 和战斗回调，并定义该实例从创建、构建、活动到死亡、删除和 Mission 清理的有效边界。
 
 ## 概述
 
@@ -57,7 +57,7 @@ description: "战场中一个可被操控、编入阵形、参与战斗并经历
 
 ## 依赖关系
 
-`Agent` 的上游是 [Mission](./Mission) 的创建与 tick；它由 [MissionBehavior](./MissionBehavior) 的生命周期回调观察，并向下连接到 [Team](../mission-ext/Team)、[Formation](./Formation) 和 [AgentComponent](../mission-ext/AgentComponent)。战役来源还会通过 [CampaignAgentComponent](../campaign-ext/CampaignAgentComponent) 把场上实体与 Campaign 语义连接起来。
+`Agent` 的上游是 [Mission](../Mission) 的创建与 tick；它由 [MissionBehavior](../MissionBehavior) 的生命周期回调观察，并向下连接到 [Team](../../mission-ext/Team)、[Formation](../Formation) 和 [AgentComponent](../../mission-ext/AgentComponent)。战役来源还会通过 [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent) 把场上实体与 Campaign 语义连接起来。
 
 ### 关键关系
 
@@ -128,6 +128,25 @@ public override void OnAgentCreated(Agent agent)
 
 这个回调适合安装组件和记录身份，不适合读取已装备的 `Equipment`。如果需要在组件初始化完成后读取装备或 Formation，应把逻辑放进 `OnAgentBuild(Agent agent, Banner banner)` 或更晚的 Mission 回调。
 
+### 通过 Mission.SpawnAgent 创建单位
+
+动态加入场景时，mod 不构造 `Agent`，而是把真实的角色和 Team 放入 `AgentBuildData`，交给当前 Mission 完成创建与构建：
+
+```csharp
+AgentBuildData buildData = new AgentBuildData(Game.Current.PlayerTroop)
+    .Team(Mission.Current.PlayerTeam)
+    .InitialPosition(new Vec3(120f, 80f, 0f))
+    .InitialDirection(Vec2.Forward);
+
+Agent spawnedAgent = Mission.Current.SpawnAgent(buildData);
+if (spawnedAgent != null && spawnedAgent.HasBeenBuilt)
+{
+    spawnedAgent.SetWatchState(Agent.WatchState.Alarmed);
+}
+```
+
+`SpawnAgent` 会继续执行装备、视觉、组件和活动列表构建；需要区分“已创建”和“已构建”时分别使用 `OnAgentCreated` 与 `OnAgentBuild`。
+
 ### 从 Mission.Current 读取活动 Agent，并在移除时清理
 
 `Mission.Current` 只在当前 Mission 存在；`Mission.Current.Agents` 是动态活动集合。下面的逻辑展示真实可用的获取路径，并在回调中只使用被移除者的状态，不缓存旧 Agent：
@@ -178,8 +197,8 @@ public sealed class AgentMonitor : MissionLogic
 
 ## 导航
 
-- ↑ [Mission 模块首页](./)
-- ↔ [Mission](./Mission) · [MissionBehavior](./MissionBehavior) · [Formation](./Formation)
-- ↓ [Team](../mission-ext/Team) · [AgentComponent](../mission-ext/AgentComponent) · [CampaignAgentComponent](../campaign-ext/CampaignAgentComponent)
-- 相关上游：[Campaign](../campaign/Campaign) · [MBSubModuleBase](../core/MBSubModuleBase)
+- ↑ [Mission 模块首页](../)
+- ↔ [Mission](../Mission) · [MissionBehavior](../MissionBehavior) · [Formation](../Formation)
+- ↓ [Team](../../mission-ext/Team) · [AgentComponent](../../mission-ext/AgentComponent) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent)
+- 相关上游：[Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
 - 风险专题：[崩溃边界](../../architecture/crash-boundary) · [文档契约](../../architecture/doc-contract)

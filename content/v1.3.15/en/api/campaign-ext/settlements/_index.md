@@ -9,7 +9,7 @@ description: "Settlement ownership, town and village state, economy, garrisons, 
 
 ## Mental model and reading order
 
-Read [Settlement](../../campaign/Settlement), [Town](../Town), and [Village](../../campaign/Village). Then compare [Workshop](../../campaign/Workshop) with the settlement economy models before using an ownership action.
+Read [Settlement](../../campaign/Settlement), [Town](../../campaign/Town), and [Village](../../campaign/Village). Then compare [Workshop](../../campaign/Workshop) with the settlement economy models before using an ownership action.
 
 ## When to use
 

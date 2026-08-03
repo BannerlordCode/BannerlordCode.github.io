@@ -4,15 +4,15 @@ description: "The abstract bridge from saveable members to DefinitionContext: de
 ---
 # SaveableTypeDefiner
 
-**Namespace:** `TaleWorlds.SaveSystem`  
-**Module:** `TaleWorlds.SaveSystem`  
-**Type:** `public abstract class SaveableTypeDefiner`  
-**Base:** none  
+**Namespace:** `TaleWorlds.SaveSystem`
+**Module:** `TaleWorlds.SaveSystem`
+**Type:** `public abstract class SaveableTypeDefiner`
+**Base:** none
 **File:** `TaleWorlds.SaveSystem/SaveableTypeDefiner.cs` (semantics checked against 1.4.5 source)
 
 ## Responsibility
 
-`SaveableTypeDefiner` adds a module's types to the save system's `DefinitionContext`. It does not store instance data and does not replace [IDataStore](../campaign-ext/IDataStore). It defines how types are identified, which members exist, and how containers are constructed; [SaveManager](SaveManager) consumes those definitions during save/load.
+`SaveableTypeDefiner` adds a module's types to the save system's `DefinitionContext`. It does not store instance data and does not replace [IDataStore](../../campaign-ext/IDataStore). It defines how types are identified, which members exist, and how containers are constructed; [SaveManager](../SaveManager) consumes those definitions during save/load.
 
 ## Mental model
 
@@ -44,7 +44,7 @@ In 1.4.5, `SaveableObjectSystemTypeDefiner` uses `base(10000)`, adds `MBGUID` wi
 
 Use it when a custom class, struct, enum, interface, basic type, or generic container must be part of `SaveManager`'s object graph, especially when paired with [SaveableFieldAttribute](../SaveableFieldAttribute) or [SaveablePropertyAttribute](../SaveablePropertyAttribute).
 
-Do not create a definer just for a few `CampaignBehaviorBase` fields; use [IDataStore](../campaign-ext/IDataStore) there. Do not use it to register XML object types; that is `MBObjectManager.RegisterType<T>` in [MBObjectManager](../campaign-ext/MBObjectManager).
+Do not create a definer just for a few `CampaignBehaviorBase` fields; use [IDataStore](../../campaign-ext/IDataStore) there. Do not use it to register XML object types; that is `MBObjectManager.RegisterType<T>` in [MBObjectManager](../../campaign-ext/MBObjectManager).
 
 ## Key extension points
 
@@ -78,7 +78,7 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 
 ```
 
-This is a real 1.4.5 declaration: `base(20000)` and local type ID `1` form the type SaveId, while the concrete dictionary shape is registered separately. The module calls [SaveManager](SaveManager) to build the context; a mod should not manually construct this definer. Native [SaveableCampaignTypeDefiner](../campaign-ext/SaveableCampaignTypeDefiner) follows the same pattern with `base(330000)`.
+This is a real 1.4.5 declaration: `base(20000)` and local type ID `1` form the type SaveId, while the concrete dictionary shape is registered separately. The module calls [SaveManager](../SaveManager) to build the context; a mod should not manually construct this definer. Native [SaveableCampaignTypeDefiner](../../campaign-ext/SaveableCampaignTypeDefiner) follows the same pattern with `base(330000)`.
 
 `saveBaseId + local save id` is a type ID; a field's `LocalSaveId` forms a separate `MemberTypeId`. Both layers must remain stable after release.
 
@@ -101,11 +101,11 @@ The same base helpers and override stages exist in 1.3.15 and 1.4.5. Official mo
 
 ## Dependencies and navigation
 
-- Member declarations: [SaveableFieldAttribute](SaveableFieldAttribute) · [SaveablePropertyAttribute](SaveablePropertyAttribute).
-- Execution: [SaveManager](SaveManager) builds [DefinitionContext](DefinitionContext) and reports definition errors.
-- Behavior route: [CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase) and [IDataStore](../campaign-ext/IDataStore).
-- Object registry route: [MBObjectManager](../campaign-ext/MBObjectManager).
+- Member declarations: [SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute).
+- Execution: [SaveManager](../SaveManager) builds [DefinitionContext](../DefinitionContext) and reports definition errors.
+- Behavior route: [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) and [IDataStore](../../campaign-ext/IDataStore).
+- Object registry route: [MBObjectManager](../../campaign-ext/MBObjectManager).
 
 - Parent: [save-system API](../)
-- Siblings: [SaveManager](SaveManager) · [SaveableFieldAttribute](SaveableFieldAttribute)
-- Related: [ContainerDefinition](ContainerDefinition) · [IConflictResolver](IConflictResolver) · [Save and crash boundaries](../../architecture/crash-boundaries)
+- Siblings: [SaveManager](../SaveManager) · [SaveableFieldAttribute](../SaveableFieldAttribute)
+- Related: [ContainerDefinition](../ContainerDefinition) · [IConflictResolver](../IConflictResolver) · [Save and crash boundaries](../../../architecture/crash-boundaries)

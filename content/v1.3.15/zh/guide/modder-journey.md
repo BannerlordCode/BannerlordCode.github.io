@@ -176,12 +176,17 @@ MBInformationManager.AddQuickInformation(
 ```xml
 <Item id="my_steel_sword"
       name="{=my_steel_sword}Steel Sword"
-      is_merchandise="true"
-      value="200"
       weight="1.2"
-      type="Item"
-      subtype="one_handed_sword">
-    <Weapon ... />
+      Type="OneHandedWeapon">
+    <ItemComponent>
+        <Weapon weapon_class="OneHandedSword"
+                item_usage="handed_weapon_one_handed"
+                weapon_length="100"
+                speed_rating="85"
+                thrust_speed="80"
+                thrust_damage="20"
+                swing_damage="30" />
+    </ItemComponent>
 </Item>
 ```
 

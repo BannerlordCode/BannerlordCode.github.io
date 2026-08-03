@@ -4,10 +4,10 @@ description: "每支部队（MobileParty / Settlement）的成员名册与囚犯
 ---
 # TroopRoster
 
-**Namespace:** TaleWorlds.CampaignSystem.Roster  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** `public class TroopRoster : ISerializableObject`  
-**Base:** `ISerializableObject`  
+**Namespace:** TaleWorlds.CampaignSystem.Roster
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class TroopRoster : ISerializableObject`
+**Base:** `ISerializableObject`
 **File:** `TaleWorlds.CampaignSystem/Roster/TroopRoster.cs`
 
 ## 概述
@@ -65,32 +65,32 @@ TroopRoster temp = TroopRoster.CreateDummyTroopRoster();
 ### 增删兵员
 
 #### `public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)`
-**用途**：名册增删的核心入口。加 `count` 个兵、其中 `woundedCount` 个伤员、并附带 `xpChange` 经验。  
-**副作用**：维护缓存总计（普通兵进 `_totalRegulars`，英雄进 `_totalHeroes`）；英雄增减会触发 `OwnerParty.OnHeroAdded` / `OnHeroRemoved` 与 `OnRosterSizeChanged`；任何数量变化都会 `UpdateVersion()`（进而 `MobileParty.UpdateVersionNo()`）。若条目人数归零且 `removeDepleted == true`，该兵种条目被移除。  
+**用途**：名册增删的核心入口。加 `count` 个兵、其中 `woundedCount` 个伤员、并附带 `xpChange` 经验。
+**副作用**：维护缓存总计（普通兵进 `_totalRegulars`，英雄进 `_totalHeroes`）；英雄增减会触发 `OwnerParty.OnHeroAdded` / `OnHeroRemoved` 与 `OnRosterSizeChanged`；任何数量变化都会 `UpdateVersion()`（进而 `MobileParty.UpdateVersionNo()`）。若条目人数归零且 `removeDepleted == true`，该兵种条目被移除。
 **调用时机**：随时随地改普通兵员；加英雄也走它（但更推荐 `AddHeroToPartyAction.Apply` 以保证英雄侧状态一致）。返回该兵种在 `data` 中的索引。
 
 #### `public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default, int xp = 0)`
-**用途**：从名册移除若干兵员（含普通兵与英雄）。  
-**副作用**：对非英雄会回退 `xp`（即减经验）；**在 `PlayerEncounter.CurrentBattleSimulation != null` 且非英雄时，`removeDepleted` 被强制为 `false`**——即战斗模拟期间普通兵只减 `Number` 不立即压缩条目，等模拟结束再统一整理。这是故意的「延迟清理」，若在战斗模拟中反复 `RemoveTroop` 到 0 却不触发压缩，名册里会残留 `Number==0` 的条目。  
+**用途**：从名册移除若干兵员（含普通兵与英雄）。
+**副作用**：对非英雄会回退 `xp`（即减经验）；**在 `PlayerEncounter.CurrentBattleSimulation != null` 且非英雄时，`removeDepleted` 被强制为 `false`**——即战斗模拟期间普通兵只减 `Number` 不立即压缩条目，等模拟结束再统一整理。这是故意的「延迟清理」，若在战斗模拟中反复 `RemoveTroop` 到 0 却不触发压缩，名册里会残留 `Number==0` 的条目。
 **调用时机**：日常减员、释放囚犯、战后结算。
 
 #### `public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default)`
-**用途**：把若干普通兵标记为伤员（底层 `AddToCountsAtIndex(index, 0, numberToWound)`）。  
+**用途**：把若干普通兵标记为伤员（底层 `AddToCountsAtIndex(index, 0, numberToWound)`）。
 **陷阱**：英雄的 `WoundedNumber` 由 `Character.HeroObject.IsWounded` 派生（`TroopRosterElement` 的 getter 对英雄直接返回 0 或 1），所以 `WoundTroop` 对**英雄无效**。要让英雄负伤请走 `Hero.MakeWounded(...)`，它会经 `OnHeroHealthStatusChanged` 回写名册的 `_totalWoundedHeroes`。
 
 #### `public void Add(TroopRoster troopRoster)` / `public void Add(TroopRosterElement element)`
-**用途**：把另一份名册（或单个元素）并入当前名册。逐个调用 `AddToCounts`，因此会正常维护缓存与回调。  
+**用途**：把另一份名册（或单个元素）并入当前名册。逐个调用 `AddToCounts`，因此会正常维护缓存与回调。
 **注意**：`Add` 用的是**当前**名册的 `OwnerParty`，被并入的名册归属被忽略。
 
 #### `public void Clear()`
-**用途**：移除所有条目。逐条走 `AddToCountsAtIndex(负数)`，因此会为每个英雄触发 `OnHeroRemoved` 回调。  
+**用途**：移除所有条目。逐条走 `AddToCountsAtIndex(负数)`，因此会为每个英雄触发 `OnHeroRemoved` 回调。
 **调用时机**：解散部队、重置名册前（注意会触发归属回调，可能改动英雄世界状态）。
 
 #### `public ICollection<TroopRosterElement> RemoveIf(Predicate<TroopRosterElement> match)`
 **用途**：按条件批量移除，返回被移除元素的**拷贝列表**。从末尾向前遍历，对每个命中的条目调用 `AddToCountsAtIndex` 反向冲减，因此会正常维护统计与回调。
 
 #### `public void RemoveZeroCounts()`
-**用途**：压缩 `data` 数组，丢弃所有 `Number == 0` 的条目。  
+**用途**：压缩 `data` 数组，丢弃所有 `Number == 0` 的条目。
 **风险**：它直接搬移数组并只 `UpdateVersion()`，**不触发 `OwnerParty.OnHeroRemoved`**。若用它清掉一个人数归零的英雄条目，英雄的 `PartyBelongedTo` 等归属状态不会被通知，造成失同步。移除英雄务必用 `RemoveTroop`。
 
 ### 计数与总计（只读属性）
@@ -111,11 +111,11 @@ TroopRoster temp = TroopRoster.CreateDummyTroopRoster();
 ### 元素访问与查询
 
 #### `public MBList<TroopRosterElement> GetTroopRoster()`
-**用途**：返回当前所有元素的（缓存）列表，便于 `foreach` 遍历。  
+**用途**：返回当前所有元素的（缓存）列表，便于 `foreach` 遍历。
 **陷阱**：返回的是按 `VersionNo` 缓存的 `MBList`。若你**持有这个引用**之后名册发生增删，`VersionNo` 变化会让下一次 `GetTroopRoster()` 重建列表，但你手里那份旧引用仍是旧快照。遍历请在每次需要时现取，不要长期缓存。
 
 #### `public TroopRosterElement GetElementCopyAtIndex(int index)`
-**用途**：按索引取元素。  
+**用途**：按索引取元素。
 **值拷贝陷阱**：`TroopRosterElement` 是 `struct`，这里按值返回。下面这样写**不会**改变名册：
 ```csharp
 TroopRosterElement e = roster.GetElementCopyAtIndex(i);
@@ -139,11 +139,11 @@ e.Xp += 100;       // 同上，无效
 ### 经验、版本与复制
 
 #### `public void AddXpToTroop(CharacterObject troop, int xpAmount)` / `AddXpToTroopAtIndex(int index, int xpAmount)`
-**用途**：给某兵种累加经验。底层经 `SetElementXp`，会触发 `OwnerParty.OnXpChanged`。  
+**用途**：给某兵种累加经验。底层经 `SetElementXp`，会触发 `OwnerParty.OnXpChanged`。
 **注意**：它**只写经验，不触发升级**。兵员升级到上一阶由 `PartyUpgraderCampaignBehavior` 在每日 tick 中读取经验、经 `PartyTroopUpgradeModel` 决定并调用 `AddToCounts` 完成——`TroopRoster` 本身没有「自动升级」逻辑。
 
 #### `public void SetElementXp(int index, int number)` / `SetElementNumber(int index, int number)` / `SetElementWoundedNumber(int index, int number)`
-**用途**：底层直接写元素的 `Xp` / `Number` / `WoundedNumber`。  
+**用途**：底层直接写元素的 `Xp` / `Number` / `WoundedNumber`。
 **风险（重要）**：这三个 setter **只改数据 + `UpdateVersion()`，不维护缓存总计，也不触发 `OwnerParty` 回调**。用 `SetElementNumber` 改完人数后，`TotalRegulars` / `TotalHeroes` 等会与实际不符，且英雄的入队/出队回调不会触发，直到下次读档 `CalculateCachedStatsOnLoad` 才被整体重算。除非你在做底层/序列化相关操作，否则请一律用 `AddToCounts` / `RemoveTroop`。
 
 #### `public void UpdateVersion()`
@@ -231,7 +231,7 @@ if (prisoner != null && prisoners.Contains(prisoner))
 - [PartyBase](../../campaign/PartyBase/) 的 `EstimatedStrength` —— 由名册经 `PartyStrengthModel` 计算战力。
 - [PartyWageModel](../PartyWageModel/) —— 由名册算工资（`MobileParty.TotalWage`）。
 - [PartySizeLimitModel](../PartySizeLimitModel/) —— 队伍人数上限基于名册。
-- [PartyHealingModel](../PartyHealingModel/) —— 伤员恢复回写 `WoundTroop` / 缓存。
+- [PartyHealingModel](../models/) —— 伤员恢复回写 `WoundTroop` / 缓存。
 - [PartyTroopUpgradeModel](../PartyTroopUpgradeModel/) + [PartyUpgraderCampaignBehavior](../PartyUpgraderCampaignBehavior/) —— 读取经验完成升级。
 - 战斗/遭遇（`PlayerEncounter.CurrentBattleSimulation`）—— 影响 `RemoveTroop` 的 `removeDepleted` 行为。
 
@@ -274,5 +274,5 @@ if (prisoner != null && prisoners.Contains(prisoner))
 - ↑ 父级：[campaign-ext 索引](../)
 - ↔ 同级：[ItemRoster](../ItemRoster/) · [TroopRosterElement](../TroopRosterElement/) · [FlattenedTroopRoster](../FlattenedTroopRoster/)
 - 上游枢纽：[PartyBase](../../campaign/PartyBase/) · [CharacterObject](../../campaign/CharacterObject/) · [Hero](../../campaign/Hero/) · [MobileParty](../../campaign/MobileParty/)
-- 相关模型/行为：[PartySizeLimitModel](../PartySizeLimitModel/) · [PartyWageModel](../PartyWageModel/) · [PartyHealingModel](../PartyHealingModel/) · [PartyTroopUpgradeModel](../PartyTroopUpgradeModel/) · [PartyUpgraderCampaignBehavior](../PartyUpgraderCampaignBehavior/)
+- 相关模型/行为：[PartySizeLimitModel](../PartySizeLimitModel/) · [PartyWageModel](../PartyWageModel/) · [PartyHealingModel](../models/) · [PartyTroopUpgradeModel](../PartyTroopUpgradeModel/) · [PartyUpgraderCampaignBehavior](../PartyUpgraderCampaignBehavior/)
 - 相关 Action：[AddHeroToPartyAction](../AddHeroToPartyAction/) · [TakePrisonerAction](../TakePrisonerAction/) · [RecruitPrisonersCampaignBehavior](../RecruitPrisonersCampaignBehavior/)

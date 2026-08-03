@@ -4,10 +4,10 @@ description: "Moving parties on the campaign map: the player party, lord parties
 ---
 # MobileParty
 
-**Namespace:** TaleWorlds.CampaignSystem.Party  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** `public class MobileParty : PartyBase, ILocatable`  
-**Base:** `PartyBase`  
+**Namespace:** TaleWorlds.CampaignSystem.Party
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class MobileParty : PartyBase, ILocatable`
+**Base:** `PartyBase`
 **File:** `TaleWorlds.CampaignSystem/Party/MobileParty.cs`
 
 ## Overview
@@ -43,7 +43,7 @@ Think of `MobileParty` as a **movable container on the map**:
 ### Army and encounter boundaries
 
 - [`Army`](../../campaign-ext/Army/) may aggregate mobile parties and change their movement/AI ownership.
-- [`MapEvent`](../../campaign-ext/MapEvent/) and [`Mission`](../../mission/Mission/) are temporary encounter/scene layers; party references must be checked across those transitions.
+- [`MapEvent`](../MapEvent/) and [`Mission`](../../mission/Mission/) are temporary encounter/scene layers; party references must be checked across those transitions.
 
 ## How to Obtain a MobileParty
 

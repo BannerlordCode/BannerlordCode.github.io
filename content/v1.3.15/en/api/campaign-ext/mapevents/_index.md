@@ -41,7 +41,7 @@ if (mapEvent != null && !mapEvent.IsFinalized)
 
 | Namespace | Type | Purpose | Timing |
 | --- | --- | --- | --- |
-| TaleWorlds.CampaignSystem.MapEvents | [MapEvent](../MapEvent) | Owns battle type, sides, state, settlement context, and finalization for one campaign conflict. | From registered creation until finalization. |
+| TaleWorlds.CampaignSystem.MapEvents | [MapEvent](../../campaign/MapEvent) | Owns battle type, sides, state, settlement context, and finalization for one campaign conflict. | From registered creation until finalization. |
 | TaleWorlds.CampaignSystem.MapEvents | [MapEventManager](../MapEventManager) | Saves, locates, starts special events, updates active events, and removes finalized ones. | Campaign tick and action-driven event creation. |
 | TaleWorlds.CampaignSystem.MapEvents | [MapEventSide](../MapEventSide) | Aggregates one attacker or defender side's parties, troop allocation, strength, and surrender state. | During setup, simulation, Mission reporting, and resolution. |
 | TaleWorlds.CampaignSystem.MapEvents | [MapEventParty](../MapEventParty) | Tracks one party's contribution, casualties, rewards, and roster allocation inside its side. | After the party joins until battle accounting completes. |

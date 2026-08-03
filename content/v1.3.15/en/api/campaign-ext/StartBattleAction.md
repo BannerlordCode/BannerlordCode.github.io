@@ -5,15 +5,15 @@ description: "Official exit to create or join a map MapEvent: open field/raid/sa
 
 # StartBattleAction
 
-**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public static class StartBattleAction`  
-**Base:** —  
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`
+**Module:** `TaleWorlds.CampaignSystem`
+**Type:** `public static class StartBattleAction`
+**Base:** —
 **File:** `TaleWorlds.CampaignSystem/Actions/StartBattleAction.cs`
 
 ## One-sentence responsibility
 
-Puts two [`PartyBase`](../../campaign/PartyBase) sides (mobile parties or settlement parties) **into or onto** a map [`MapEvent`](../MapEvent): `EncounterModel.CreateMapEventComponentForEncounter` picks `MapEvent.BattleTypes`, may interrupt the player encounter, and broadcasts `OnStartBattle` → `CampaignEvents.BattleStarted`.
+Puts two [`PartyBase`](../../campaign/PartyBase) sides (mobile parties or settlement parties) **into or onto** a map [`MapEvent`](../../campaign/MapEvent): `EncounterModel.CreateMapEventComponentForEncounter` picks `MapEvent.BattleTypes`, may interrupt the player encounter, and broadcasts `OnStartBattle` → `CampaignEvents.BattleStarted`.
 
 ## Mental Model
 
@@ -73,11 +73,11 @@ Hard rule:
 
 Source order highlights (1.4.5):
 
-1. Attacker is **Garrison** → `SallyOut` or `BlockadeSallyOutBattle` (`IsTargetingPort`).  
-2. Else take `CurrentSettlement` / `BesiegedSettlement` as settlement clues.  
-3. Siege-related and defender is not settlement Party → `SiegeOutside`.  
-4. No settlement clue → `FieldBattle`.  
-5. Settlement present and type still None: town → `Siege` (port blockade may become `BlockadeBattle`); hideout → `Hideout`; village → `FieldBattle`.  
+1. Attacker is **Garrison** → `SallyOut` or `BlockadeSallyOutBattle` (`IsTargetingPort`).
+2. Else take `CurrentSettlement` / `BesiegedSettlement` as settlement clues.
+3. Siege-related and defender is not settlement Party → `SiegeOutside`.
+4. No settlement clue → `FieldBattle`.
+5. Settlement present and type still None: town → `Siege` (port blockade may become `BlockadeBattle`); hideout → `Hideout`; village → `FieldBattle`.
 
 When defender **already has** a MapEvent: inherit from `IsFieldBattle` / `IsRaid` / `IsSiegeAssault` / `IsSallyOut` / `IsSiegeOutside` / `IsBlockade` / `IsBlockadeSallyOut` and similar. Special case: naval Raid where settlement side has no healthy troops may strip defender MapEventSide and flip to FieldBattle.
 
@@ -87,7 +87,7 @@ When defender **already has** a MapEvent: inherit from `IsFieldBattle` / `IsRaid
 |-----------|---------------|--------------|
 | **Upstream entities** | [`PartyBase`](../../campaign/PartyBase) / [`MobileParty`](../../campaign/MobileParty) / [`Settlement`](../../campaign/Settlement) | Sides and siege subject |
 | **Upstream Model** | `Campaign.Current.Models.EncounterModel` | `CreateMapEventComponentForEncounter` |
-| **Downstream** | [`MapEvent`](../MapEvent) / `MapEvent.BattleTypes` | FieldBattle, Raid, Siege, SallyOut, SiegeOutside, Hideout, Blockade* (1.4.x) |
+| **Downstream** | [`MapEvent`](../../campaign/MapEvent) / `MapEvent.BattleTypes` | FieldBattle, Raid, Siege, SallyOut, SiegeOutside, Hideout, Blockade* (1.4.x) |
 | **Downstream** | `PlayerEncounter` | In-town player may get `InterruptEncounter` |
 | **Downstream events** | [`CampaignEvents`](../CampaignEvents)`.BattleStarted` | dispatcher `OnStartBattle`; also watch `MapEventStarted` etc. |
 | **Stock call sites** | `EncounterManager`: `Apply` (contact), `ApplyStartRaid`, `ApplyStartAssaultAgainstWalls` | Map encounter main path |
@@ -112,30 +112,30 @@ When defender **already has** a MapEvent: inherit from `IsFieldBattle` / `IsRaid
 
 ### `ApplyStartBattle(MobileParty attackerParty, MobileParty defenderParty)`
 
-- **Purpose:** Two mobile parties field fight (`FieldBattle`).  
-- **Timing:** Most common open-field scripted fight; skips complex `Apply` inference.  
+- **Purpose:** Two mobile parties field fight (`FieldBattle`).
+- **Timing:** Most common open-field scripted fight; skips complex `Apply` inference.
 - **Note:** Parameters are `MobileParty`; internal takes `.Party`.
 
 ### `ApplyStartRaid(MobileParty attackerParty, Settlement settlement)`
 
-- **Purpose:** Attacker vs `settlement.Party`, type Raid, subject=settlement.  
+- **Purpose:** Attacker vs `settlement.Party`, type Raid, subject=settlement.
 - **Timing:** Start raid; one of `EncounterManager`'s stock entries.
 
 ### `ApplyStartSallyOut(Settlement settlement, MobileParty defenderParty)`
 
-- **Purpose:** **Garrison is attacker**, sallies against outside `defenderParty`.  
-- **Timing:** Under siege sally menu.  
+- **Purpose:** **Garrison is attacker**, sallies against outside `defenderParty`.
+- **Timing:** Under siege sally menu.
 - **Prerequisite:** `Town.GarrisonParty` non-null.
 
 ### `ApplyStartAssaultAgainstWalls(MobileParty attackerParty, Settlement settlement)`
 
-- **Purpose:** Siege-type map fight against walls/fort.  
+- **Purpose:** Siege-type map fight against walls/fort.
 - **Timing:** Assault; stock `EncounterManager` entry.
 
 ### `Apply(PartyBase attackerParty, PartyBase defenderParty)`
 
-- **Purpose:** Generic: infer or inherit BattleTypes, **create or join** MapEvent.  
-- **Timing:** `EncounterManager` contact, reinforce an existing fight.  
+- **Purpose:** Generic: infer or inherit BattleTypes, **create or join** MapEvent.
+- **Timing:** `EncounterManager` contact, reinforce an existing fight.
 - **Note:** Inference depends on real `CurrentSettlement` / `BesiegedSettlement` / garrison flags; fails silently.
 
 ## Real examples
@@ -252,23 +252,23 @@ StartBattleAction.Apply(attacker.Party, defender.Party);
 
 ## Cross-version notes
 
-- Four dedicated entries + generic `Apply` stay stable across 1.3.x/1.4.5; 1.4.5 inference includes naval `BattleTypes` such as Blockade.  
-- Public event: `CampaignEvents.BattleStarted` (dispatcher `OnStartBattle`).  
+- Four dedicated entries + generic `Apply` stay stable across 1.3.x/1.4.5; 1.4.5 inference includes naval `BattleTypes` such as Blockade.
+- Public event: `CampaignEvents.BattleStarted` (dispatcher `OnStartBattle`).
 - URL: `campaign-ext/StartBattleAction`.
 
 ## ↑ Parent Navigation
 
 - [Actions — campaign world-change family](../actions-index) — **parent of this page**
-- [campaign-ext area](./)  
-- [API index](../)  
-- [Crash and save boundaries §2](../../../architecture/crash-boundaries)  
+- [campaign-ext area](./)
+- [API index](../)
+- [Crash and save boundaries §2](../../../architecture/crash-boundaries)
 - [Doc contract](../../../architecture/doc-contract)
 
 ## ↔ Sibling Navigation
 
 | Page | Relationship |
 |------|--------------|
-| [MapEvent](../MapEvent) | Map battle entity |
+| [MapEvent](../../campaign/MapEvent) | Map battle entity |
 | [TakePrisonerAction](../TakePrisonerAction) | Post-battle captives |
 | [DestroyPartyAction](../DestroyPartyAction) | Post-battle wipe cleanup |
 | [KillCharacterAction](../KillCharacterAction) | Post-battle death |
@@ -280,6 +280,6 @@ StartBattleAction.Apply(attacker.Party, defender.Party);
 
 ## See also
 
-- [Campaign system guide](../../../guide/campaign-system)  
-- [Mission system](../../../guide/mission-system) — Agent layer after you enter the battlefield  
+- [Campaign system guide](../../../guide/campaign-system)
+- [Mission system](../../../guide/mission-system) — Agent layer after you enter the battlefield
 - [Developer task roadmap](../../../architecture/developer-roadmap)

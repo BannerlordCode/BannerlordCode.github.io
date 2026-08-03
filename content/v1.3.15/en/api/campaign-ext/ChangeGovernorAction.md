@@ -4,14 +4,14 @@ description: "The campaign transition for assigning or removing a town governor 
 ---
 # ChangeGovernorAction
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** static class  
+**Namespace:** TaleWorlds.CampaignSystem.Actions
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class ChangeGovernorAction`
 **Source:** `TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs`
 
 ## Responsibility
 
-Change the governorship of a [Town](../Town) through a campaign action that coordinates `Town.Governor`, `Hero.GovernorOf`, hero movement, and the governor lifecycle events.
+Change the governorship of a [Town](../../campaign/Town) through a campaign action that coordinates `Town.Governor`, `Hero.GovernorOf`, hero movement, and the governor lifecycle events.
 
 ## Mental model
 
@@ -23,11 +23,11 @@ Use `RemoveGovernorOf(hero)` only when `hero.GovernorOf` is known to be non-null
 
 | Role | Connection | Why it matters |
 |---|---|---|
-| Town state | [Town](../Town) | Its `Governor` property is the settlement-side reference. |
+| Town state | [Town](../../campaign/Town) | Its `Governor` property is the settlement-side reference. |
 | Hero state | [Hero](../../campaign/Hero) | `GovernorOf`, prison state, current settlement, and busy state determine the transition. |
-| Travel implementation | [TeleportHeroAction](../TeleportHeroAction) | Immediate travel is used only for a non-prisoner already at the target; all other non-null assignments become delayed travel. |
-| Event consumers | [CampaignEventReceiver](../CampaignEventReceiver) | `OnGovernorChanged` occurs after references are cleared/assigned; `OnHeroGetsBusy` follows it for a new governor. |
-| Owner-change workflow | [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction) | Ownership changes are a common downstream reason to clear or replace a governor. |
+| Travel implementation | [TeleportHeroAction](.././TeleportHeroAction) | Immediate travel is used only for a non-prisoner already at the target; all other non-null assignments become delayed travel. |
+| Event consumers | [CampaignEventReceiver](.././CampaignEventReceiver) | `OnGovernorChanged` occurs after references are cleared/assigned; `OnHeroGetsBusy` follows it for a new governor. |
+| Owner-change workflow | [ChangeOwnerOfSettlementAction](.././ChangeOwnerOfSettlementAction) | Ownership changes are a common downstream reason to clear or replace a governor. |
 
 The event timing is important: receivers see the old governor already detached, and a non-null new governor has already been assigned or scheduled for governor travel. They should not infer that the hero is physically in the settlement when the delayed branch was selected.
 
@@ -60,5 +60,5 @@ if (Campaign.Current != null && currentSettlement?.Town != null && !Hero.MainHer
 ## Navigation
 
 - ↑ [Campaign extension API](../)
-- ↔ [ChangeClanInfluenceAction](./ChangeClanInfluenceAction) · [ChangeClanLeaderAction](./ChangeClanLeaderAction)
-- Related: [Town](../Town) · [Hero](../../campaign/Hero) · [TeleportHeroAction](../TeleportHeroAction) · [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
+- ↔ [ChangeClanInfluenceAction](.././ChangeClanInfluenceAction) · [ChangeClanLeaderAction](.././ChangeClanLeaderAction)
+- Related: [Town](../../campaign/Town) · [Hero](../../campaign/Hero) · [TeleportHeroAction](.././TeleportHeroAction) · [ChangeOwnerOfSettlementAction](.././ChangeOwnerOfSettlementAction)

@@ -1,76 +1,83 @@
 ---
 title: "PartyTrainingModel"
-description: "PartyTrainingModel 的自动生成类参考。"
+description: "计算部队日常训练、战斗经验和共享 XP 的可替换策略，不直接给兵员升级或写技能状态。"
 ---
+
 # PartyTrainingModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class PartyTrainingModel : MBGameModel<PartyTrainingModel>`
-**Base:** `MBGameModel<PartyTrainingModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyTrainingModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class PartyTrainingModel : MBGameModel<PartyTrainingModel>`  
+**Base:** `MBGameModel<PartyTrainingModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyTrainingModel.cs`  
+**Default implementation:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPartyTrainingModel.cs`
 
-## 概述
+## 一句话职责
 
-`PartyTrainingModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`PartyTrainingModel` 把部队领袖、兵种、战斗和 Perk 转换为可解释的部队 XP 结果；它决定“应获得多少训练经验”，不直接向 `TroopRoster` 添加 XP，也不执行升级。
 
 ## 心智模型
 
-把 `PartyTrainingModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+训练模型是 `MobileParty` 名册与技能/升级行为之间的计算层。默认实例由 [GameModels](../GameModels) 注册，`MobilePartyTrainingBehavior` 在每日队伍 tick 读取 `GetEffectiveDailyExperience`，再把结果乘以兵员数量后写入名册。地图战斗由 `MapEventParty` 读取 `CalculateXpGainFromBattles` 和 `GenerateSharedXp`，技能管理器则用 `GetXpReward` 计算击杀经验。
 
-## 主要方法
+共享 XP 和每日训练不是同一个池：共享 XP 受到领袖 Perk、兵种是否骑乘/远程等因素影响，日常经验还会考虑队伍是否活动、海上、驻扎、军团和兵种等级。模型可以返回 `ExplainedNumber` 供调试，但所有持久化写入必须在 Behavior 或技能管理器的正确事件阶段完成。
 
-### GenerateSharedXp
-`public abstract int GenerateSharedXp(CharacterObject troop, int xp, MobileParty mobileParty)`
+## 何时使用，何时不要用
 
-**用途 / Purpose:** 生成shared xp的实例、数据或表示。
+- 想修改训练速度、战斗 XP、共享 XP 分配或击杀奖励时，替换模型并在战役启动阶段注册。
+- 想读取当前队伍训练预览时，从 `Campaign.Current.Models.PartyTrainingModel` 获取结果。
+- 不要在模型方法里调用 `AddXpToTroop`、`AddSkillXp` 或升级 Action；同一个结果可能在每日 tick、战斗结算和 UI 预览中被读取多次。
+- 不要把模型返回的每日经验直接当成每个兵员的最终 XP；原版会按 `TroopRosterElement.Number` 乘算并在正确 tick 写入名册。
 
-```csharp
-// 先通过子系统 API 拿到 PartyTrainingModel 实例
-PartyTrainingModel partyTrainingModel = ...;
-var result = partyTrainingModel.GenerateSharedXp(troop, 0, mobileParty);
-```
+## 依赖关系
 
-### CalculateXpGainFromBattles
-`public abstract ExplainedNumber CalculateXpGainFromBattles(FlattenedTroopRosterElement troopRosterElement, PartyBase party)`
+#### 上游
 
-**用途 / Purpose:** 计算xp gain from battles的当前值或结果。
+- [Campaign](../../campaign/Campaign) 和 [GameModels](../GameModels) 持有注册后的训练策略。
+- [MobileParty](../../campaign/MobileParty)、[PartyBase](../../campaign/PartyBase/) 和 `TroopRosterElement` 提供队伍、战斗和兵员上下文。
+- `CharacterObject`、兵种 Tier、领袖技能和 Leadership/Steward 等 Perk 提供训练修正。
 
-```csharp
-// 先通过子系统 API 拿到 PartyTrainingModel 实例
-PartyTrainingModel partyTrainingModel = ...;
-var result = partyTrainingModel.CalculateXpGainFromBattles(troopRosterElement, party);
-```
+#### 下游
 
-### GetXpReward
-`public abstract int GetXpReward(CharacterObject character)`
+- `MobilePartyTrainingBehavior` 在 hourly/daily 事件读取每日训练结果，并把 XP 添加到 `TroopRoster`。
+- `MapEventParty` 在战斗经验结算时读取 `CalculateXpGainFromBattles` 和 `GenerateSharedXp`。
+- `DefaultSkillLevelingManager` 使用 `GetXpReward` 与升级回调分配英雄技能经验；兵员升级资格属于 [PartyTroopUpgradeModel](../PartyTroopUpgradeModel)。
 
-**用途 / Purpose:** 读取并返回当前对象中 xp reward 的结果。
+## 成员与调用时机
 
-```csharp
-// 先通过子系统 API 拿到 PartyTrainingModel 实例
-PartyTrainingModel partyTrainingModel = ...;
-var result = partyTrainingModel.GetXpReward(character);
-```
+| 成员 | 用途与时机 | 副作用边界 |
+|---|---|---|
+| `GenerateSharedXp(CharacterObject, int, MobileParty)` | 战斗中将可分享 XP 按领袖和兵种特征转换为共享增量。 | 返回增量，不写名册。 |
+| `CalculateXpGainFromBattles(FlattenedTroopRosterElement, PartyBase)` | 地图战斗结束时，为指定扁平兵员结果加入战斗/Perk 修正。 | 不结算战斗、不直接给 XP。 |
+| `GetXpReward(CharacterObject)` | 技能管理器根据被击杀兵种等级计算基础奖励。 | 只返回奖励，不授予经验。 |
+| `GetEffectiveDailyExperience(MobileParty, TroopRosterElement)` | 每日队伍 tick 计算单个兵种的有效训练 XP，结合活动状态、兵种 Tier、Perk 与军团/驻扎条件。 | `ExplainedNumber` 只描述结果，写入由 Behavior 完成。 |
 
-### GetEffectiveDailyExperience
-`public abstract ExplainedNumber GetEffectiveDailyExperience(MobileParty party, TroopRosterElement troop)`
-
-**用途 / Purpose:** 读取并返回当前对象中 effective daily experience 的结果。
+## 真实查询示例
 
 ```csharp
-// 先通过子系统 API 拿到 PartyTrainingModel 实例
-PartyTrainingModel partyTrainingModel = ...;
-var result = partyTrainingModel.GetEffectiveDailyExperience(party, troop);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Roster;
+
+MobileParty party = MobileParty.MainParty;
+PartyTrainingModel training = Campaign.Current.Models.PartyTrainingModel;
+TroopRosterElement troop = party.MemberRoster.GetElementCopyAtIndex(0);
+ExplainedNumber dailyExperience = training.GetEffectiveDailyExperience(party, troop);
 ```
 
-## 使用示例
+这段代码只预览原版每日训练公式。真正的 `AddXpToTroop` 由 `MobilePartyTrainingBehavior.OnDailyTickParty` 执行；如果自定义 Behavior 也写入 XP，应明确只订阅一个阶段，避免双倍训练。
 
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-PartyTrainingModel instance = ...;
-```
+## 风险与排错
 
-## 参见
+1. 把 `GetEffectiveDailyExperience` 返回值当作每个兵员的总 XP 而跳过名册数量乘算，会让大队伍和小队伍获得相同训练量。
+2. 在模型中写 `TroopRoster` 或触发升级会让每日 tick、战斗结算和 UI 查询产生重复写入，可能导致升级顺序和存档结果不一致。
+3. 训练模型会区分海上、活动、军团领袖、玩家家族和兵种 Tier。粗暴地返回固定值会绕过 Perk 设计，也可能让不应训练的兵员获得 XP。
+4. `CalculateXpGainFromBattles` 的输入来自地图事件的扁平名册；不要把它当作当前 `MobileParty.MemberRoster` 的实时索引，也不要在 MapEvent 结束后缓存其中的临时引用。
+5. 替换模型只改变规则，不自动保存自定义训练状态；持久化计数器应由 [CampaignBehaviorBase](../CampaignBehaviorBase) 的存档契约管理。
 
-- [本区域目录](../)
+## 导航
+
+- [Parent: campaign-ext](../)
+- [Models family guide](../models/)
+- [Sibling: PartyTroopUpgradeModel](../PartyTroopUpgradeModel) · [PartyWageModel](../PartyWageModel)
+- [Related: Campaign](../../campaign/Campaign) · [GameModels](../GameModels) · [MobileParty](../../campaign/MobileParty)

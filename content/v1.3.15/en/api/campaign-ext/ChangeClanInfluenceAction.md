@@ -4,9 +4,9 @@ description: "The campaign-state entry point for changing a clan's influence whi
 ---
 # ChangeClanInfluenceAction
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** static class  
+**Namespace:** TaleWorlds.CampaignSystem.Actions
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class ChangeClanInfluenceAction`
 **Source:** `TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs`
 
 ## Responsibility
@@ -24,9 +24,9 @@ Use this action when a campaign feature has decided that influence must change a
 | Role | Connection | Why it matters |
 |---|---|---|
 | Target | [Clan](../../campaign/Clan) | Owns the persistent `Influence` value changed by the action. |
-| Downstream event | [CampaignEventReceiver](../CampaignEventReceiver) | Receivers are notified synchronously through `OnClanInfluenceChanged`; UI and campaign behavior reactions see the new value. |
+| Downstream event | [CampaignEventReceiver](.././CampaignEventReceiver) | Receivers are notified synchronously through `OnClanInfluenceChanged`; UI and campaign behavior reactions see the new value. |
 | Upstream calculations | [Campaign](../../campaign/Campaign) | Vanilla callers obtain costs from `Campaign.Current.Models` before applying the delta. |
-| Related action boundary | [DisbandArmyAction](../DisbandArmyAction) | Army disband and cohesion flows are examples of a higher-level workflow that may charge influence. |
+| Related action boundary | [DisbandArmyAction](.././DisbandArmyAction) | Army disband and cohesion flows are examples of a higher-level workflow that may charge influence. |
 
 The observable order is fixed: mutate the clan first, then dispatch. A receiver must therefore treat `clan.Influence` as already updated and use the supplied `amount` to identify the change made by this call.
 
@@ -59,5 +59,5 @@ if (Campaign.Current != null && Clan.PlayerClan != null)
 ## Navigation
 
 - ↑ [Campaign extension API](../)
-- ↔ [ChangeClanLeaderAction](./ChangeClanLeaderAction) · [ChangeGovernorAction](./ChangeGovernorAction)
-- Related: [Clan](../../campaign/Clan) · [Campaign](../../campaign/Campaign) · [DisbandArmyAction](../DisbandArmyAction)
+- ↔ [ChangeClanLeaderAction](.././ChangeClanLeaderAction) · [ChangeGovernorAction](.././ChangeGovernorAction)
+- Related: [Clan](../../campaign/Clan) · [Campaign](../../campaign/Campaign) · [DisbandArmyAction](.././DisbandArmyAction)

@@ -1,77 +1,89 @@
 ---
 title: "PregnancyModel"
-description: "为怀孕行为计算每日概率和孕期时长。"
+description: "提供战役怀孕周期、胎儿结果和每日受孕概率的可替换模型，不直接创建孩子或改变英雄状态。"
 ---
+
 # PregnancyModel
 
-**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public abstract class PregnancyModel : MBGameModel<PregnancyModel>`  
-**Base:** `MBGameModel<PregnancyModel>`  
-**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PregnancyModel.cs`  
-**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPregnancyModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`
+**Module:** `TaleWorlds.CampaignSystem`
+**Type:** `public abstract class PregnancyModel : MBGameModel<PregnancyModel>`
+**Base:** `MBGameModel<PregnancyModel>`
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PregnancyModel.cs`
+**Default implementation:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPregnancyModel.cs`
 
-## One-line job
+## 一句话职责
 
-`PregnancyModel` 提供 Hero 每日怀孕概率和孕期时长。`PregnancyCampaignBehavior` 负责附近检查、随机投掷、Pregnancy 记录、分娩和保存。
+`PregnancyModel` 定义受孕概率、孕期长度、双胞胎、性别和分娩死亡率等规则；它只提供策略结果，真正的怀孕记录、分娩、事件和死亡由 [PregnancyCampaignBehavior](../PregnancyCampaignBehavior) 与相关 Action 执行。
 
-## Mental Model
+## 心智模型
 
-行为先确认夫妻在附近且满足资格，再读取 `GetDailyChanceOfPregnancyForHero` 与 `PregnancyDurationInDays`。行为执行随机比较并创建带结束时间的 `Pregnancy` 记录。替换 Model 只改变概率或时长，不应直接操作怀孕列表或分娩状态。
+模型处于“每日英雄检查”和“生命周期状态迁移”之间。`GameModels` 在战役启动时解析它，`PregnancyCampaignBehavior` 每日检查已婚且符合条件的英雄，读取 `GetDailyChanceOfPregnancyForHero` 后才可能调用 [MakePregnantAction](../MakePregnantAction)。受孕事件再由 Behavior 保存一个带 `Mother`、`Father`、`DueDate` 的内部记录；到期时 Behavior 读取其他概率属性，创建后代、发布出生事件、清除怀孕状态，并可能调用死亡 Action。
 
-The model answers policy only; the campaign behavior owns the random roll, pregnancy record, childbirth event, and save lifecycle. This separation keeps previews deterministic and prevents a UI query from creating a second pregnancy.
+因此模型方法可能被每日 tick、AI 或 UI 预览重复查询，必须是纯计算。改变 `PregnancyDurationInDays` 会影响 `CampaignTime` 到期日和日志保留时间；改变死亡/死胎/双胞胎概率会影响世界人口与存档结果，不能在运行中随意替换。
 
-```text
-Hero + spouse + proximity/eligibility
-       -> PregnancyModel chance/duration
-       -> PregnancyCampaignBehavior 随机投掷
-       -> Pregnancy record -> childbirth events and save
-```
+## 何时使用，何时不要用
 
-## Dependencies
+- 想调整怀孕周期、年龄/子女数量导致的概率、双胞胎率或分娩结果时，替换模型并在战役启动阶段注册。
+- 想查询当前英雄的概率时，从 `Campaign.Current.Models.PregnancyModel` 读取；先确认英雄有配偶、属于有效家族且战役已经加载。
+- 不要在模型中设置 `Hero.IsPregnant`、创建 `Hero`、发出生事件或调用 `KillCharacterAction`；模型不是生命周期控制器。
+- 不要把概率属性当成百分比整数。游戏使用 `MBRandom.RandomFloat <= probability`，替换实现应返回有界的 `[0, 1]` 概率，并保持 `PregnancyDurationInDays` 为正数。
 
-| Type | Relation |
-| --- | --- |
-| [`Campaign`](../../campaign/Campaign) | 提供 Model 注册表和战役时间。 |
-| [`Hero`](../../campaign/Hero) | 提供年龄、配偶、生存和 Clan 上下文。 |
-| `PregnancyCampaignBehavior` | 持有随机、记录和保存。 |
-| [`CampaignEvents`](../CampaignEvents) | 派发分娩和 Hero 生命周期事件。 |
+## 依赖关系
 
-## Key contract
+#### 上游
 
-| Member | Purpose | Timing |
-| --- | --- | --- |
-| `GetDailyChanceOfPregnancyForHero` | 返回有界每日概率。 | 行为每日 tick |
-| `PregnancyDurationInDays` | 返回创建记录使用的孕期。 | 创建记录和日志 |
+- [Campaign](../../campaign/Campaign) 的 [GameModels](../GameModels) 持有模型实例。
+- [Hero](../../campaign/Hero) 提供年龄、配偶、子女数量、家族和 Perk。
+- `CampaignOptions` 的加速模式会被默认实现用于选择 18 或 36 天孕期。
 
-## Real access path
+#### 下游
+
+- [PregnancyCampaignBehavior](../PregnancyCampaignBehavior) 在 `DailyTickHero` 中读取每日概率和孕期长度，并通过存档同步怀孕列表。
+- [MakePregnantAction](../MakePregnantAction) 创建怀孕状态；到期流程使用 `HeroCreator.DeliverOffSpring` 和出生事件。
+- [KillCharacterAction](../KillCharacterAction) 只在分娩死亡概率命中且符合原版条件时执行；模型不应直接调用它。
+- `ChildbirthLogEntry`、`PregnancyLogEntry` 和 `CampaignEvents` 会消费周期与出生结果。
+
+## 成员与调用时机
+
+| 成员 | 用途与时机 | 副作用边界 |
+|---|---|---|
+| `PregnancyDurationInDays` | 受孕时计算 `CampaignTime.DaysFromNow` 的到期日；默认根据加速模式为 18 或 36 天。 | 只返回周期，不创建内部记录。 |
+| `MaternalMortalityProbabilityInLabor` | 分娩完成后判断母亲死亡概率；默认 0.015。 | 不执行死亡 Action。 |
+| `StillbirthProbability` | 每个胎儿生成前判断是否死胎；默认 0.01。 | 不显示消息、不发布出生事件。 |
+| `DeliveringFemaleOffspringProbability` | 对存活胎儿判断性别；默认 0.51。 | 不创建 `Hero`。 |
+| `DeliveringTwinsProbability` | 到期时判断一次是否生成两个胎儿；默认 0.03。 | 不修改母亲或怀孕列表。 |
+| `GetDailyChanceOfPregnancyForHero(Hero)` | 每日配偶相遇检查时计算受孕概率；默认实现考虑年龄、已有子女、家族规模和 Virile Perk。 | 不设置 `IsPregnant`，不调用 `MakePregnantAction`。 |
+
+## 真实查询示例
 
 ```csharp
-public float ReadPregnancyChance(Hero hero)
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+
+Hero hero = Hero.MainHero;
+PregnancyModel pregnancy = Campaign.Current.Models.PregnancyModel;
+float dailyChance = 0f;
+
+if (hero.IsFemale && hero.Spouse != null && hero.IsAlive && !hero.IsPregnant)
 {
-    if (Campaign.Current == null || hero == null)
-    {
-        return 0f;
-    }
-    return Campaign.Current.Models.PregnancyModel
-        .GetDailyChanceOfPregnancyForHero(hero);
+    dailyChance = pregnancy.GetDailyChanceOfPregnancyForHero(hero);
 }
 ```
 
-行为负责随机比较和保存记录；不要从 UI 或对话回调创建第二次怀孕。
+这只是读取模型结果。原版 `PregnancyCampaignBehavior` 还会检查配偶位置、年龄、生命状态和游戏选项，然后才由 `MakePregnantAction` 建立状态；Mod 不应因为查询结果大于零就直接改写英雄属性。
 
-## 风险与调试顺序
+## 风险与排错
 
-1. 概率必须在预期范围内，超过 1 会使每日投掷全部成功。
-2. 孕期必须为正，并兼容 `CampaignTime.DaysFromNow`。
-3. 资格和附近检查属于行为，不要在替换 Model 中绕过。
-4. Pregnancy 记录由行为保存，不由 Model 保存。
-5. 分娩会创建 Hero 并派发事件，不能从概率方法调用。
+1. 在 `GetDailyChanceOfPregnancyForHero` 中调用 `MakePregnantAction` 会在同一个每日检查里重复创建记录；模型会被读取多次，最终造成重复怀孕或出生事件。
+2. `PregnancyDurationInDays` 同时影响到期检查和日志保留时间。运行中更换周期可能使已有存档的 `DueDate` 与新规则不一致。
+3. 默认实现访问 `hero.Clan`、`hero.Spouse` 和配偶的 Perk；对没有家族或配偶的英雄调用时必须先遵守上游前置条件，否则会空引用。
+4. 概率越界会让 `MBRandom.RandomFloat <= probability` 永远成功或永远失败，直接改变人口曲线。自定义实现应夹紧结果并保留难度/年龄边界。
+5. 怀孕列表由 Behavior 的 `SyncData` 保存，模型不持有这份状态。把 `Pregnancy` 对象或自定义计数器放进模型会在换档、重载或模型重建时丢失。
 
-## Navigation
+## 导航
 
-- [Campaign-ext models family](../models/)
-- [Hero](../../campaign/Hero)
-- [CampaignEvents](../CampaignEvents)
-- [MarriageModel](../MarriageModel)
-- [Save system guide](../../../guide/save-system-guide)
+- [Parent: campaign-ext](./)
+- [Models family guide](../models)
+- [Sibling: MarriageModel](../MarriageModel) · [AgeModel](../AgeModel)
+- [Related: Hero](../../campaign/Hero) · [Campaign](../../campaign/Campaign) · [MakePregnantAction](../MakePregnantAction)

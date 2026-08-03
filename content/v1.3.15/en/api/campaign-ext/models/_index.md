@@ -56,9 +56,9 @@ The table covers the highest-risk interface/default pairs in this family. `Purpo
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartySizeLimitModel](../DefaultPartySizeLimitModel) | Combines clan tier, perks, and leader abilities into the vanilla limit. | Model registration and Party/Recruitment queries |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyWageModel](../PartyWageModel) | Converts roster state and wage rules into a party's daily wage. | Daily settlement and wage previews |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyWageModel](../DefaultPartyWageModel) | Applies vanilla troop-tier, perk, and party-state wage factors. | Campaign daily economy tick |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyHealingModel](../PartyHealingModel) | Computes wounded-party recovery without editing the wounded roster. | Map ticks and medical recovery |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyHealingModel](../DefaultPartyHealingModel) | Computes wounded-party recovery without editing the wounded roster. | Map ticks and medical recovery |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyHealingModel](../DefaultPartyHealingModel) | Provides vanilla healing factors for medicine, settlement, and party state. | MobileParty daily/map updates |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyMoraleModel](../PartyMoraleModel) | Explains how food, battles, and composition contribute to morale. | Daily updates, battle edges, UI previews |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyMoraleModel](../DefaultPartyMoraleModel) | Explains how food, battles, and composition contribute to morale. | Daily updates, battle edges, UI previews |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyMoraleModel](../DefaultPartyMoraleModel) | Implements default morale factors and bounded change. | Campaign tick and party refresh |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyNavigationModel](../PartyNavigationModel) | Chooses map targets, routes, and navigation restrictions for parties. | Target selection and pathfinding |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyNavigationModel](../DefaultPartyNavigationModel) | Supplies vanilla target priority and map-navigation policy. | Map AI tick |
@@ -68,7 +68,7 @@ The table covers the highest-risk interface/default pairs in this family. `Purpo
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyDesertionModel](../DefaultPartyDesertionModel) | Implements vanilla desertion thresholds and limits for its behavior. | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [DiplomacyModel](../DiplomacyModel) | Evaluates war, peace, relation, and diplomatic-option eligibility. | Kingdom decisions and diplomacy menus |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultDiplomacyModel](../DefaultDiplomacyModel) | Supplies vanilla diplomatic costs, relation gates, and AI scores. | Campaign decision resolution |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [ClanFinanceModel](../ClanFinanceModel) | Aggregates clan income, expenses, and assets for economy consumers. | Daily finance and clan UI |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [ClanFinanceModel](../DefaultClanFinanceModel) | Aggregates clan income, expenses, and assets for economy consumers. | Daily finance and clan UI |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultClanFinanceModel](../DefaultClanFinanceModel) | Calculates vanilla workshop, vassal, and party finance entries. | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [ClanPoliticsModel](../ClanPoliticsModel) | Computes influence, policy support, and political-choice outcomes. | Kingdom policy and clan decisions |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultClanPoliticsModel](../DefaultClanPoliticsModel) | Implements default political scores from tier, fiefs, and relations. | Vote evaluation and political UI |
@@ -96,7 +96,7 @@ The table covers the highest-risk interface/default pairs in this family. `Purpo
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultCharacterDevelopmentModel](../DefaultCharacterDevelopmentModel) | Supplies vanilla skill experience, attribute gates, and upgrade rules. | Battle and quest rewards |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [MarriageModel](../MarriageModel) | Evaluates candidates, relation gates, and costs for marriage. | Proposal and marriage decisions |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultMarriageModel](../DefaultMarriageModel) | Implements default marriage eligibility, price, and relation rules. | Campaign decision stage |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PregnancyModel](../PregnancyModel) | Calculates eligibility, cycle, and outcome for hero pregnancy. | Hero daily lifecycle tick |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PregnancyModel](../DefaultPregnancyModel) | Calculates eligibility, cycle, and outcome for hero pregnancy. | Hero daily lifecycle tick |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPregnancyModel](../DefaultPregnancyModel) | Provides vanilla probability, cooldown, and age boundaries. | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [VolunteerModel](../VolunteerModel) | Calculates volunteer pools and refresh probability for recruitment. | Recruitment menus and daily refresh |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultVolunteerModel](../DefaultVolunteerModel) | Implements the default culture, village, and relation volunteer pool. | Recruitment resolution |

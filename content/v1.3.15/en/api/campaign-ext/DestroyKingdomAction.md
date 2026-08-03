@@ -4,9 +4,9 @@ description: "Irreversibly dismantles a kingdom by destroying every surviving me
 ---
 # DestroyKingdomAction
 
-**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** static action  
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`
+**Module:** `TaleWorlds.CampaignSystem`
+**Type:** `public static class DestroyKingdomAction`
 **Source:** `TaleWorlds.CampaignSystem/Actions/DestroyKingdomAction.cs`
 
 ## One-line job

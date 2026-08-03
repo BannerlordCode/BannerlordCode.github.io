@@ -4,14 +4,18 @@ description: "通过官方的部队、英雄、领地、战争与事件级联，
 ---
 # DestroyClanAction
 
-**命名空间：** `TaleWorlds.CampaignSystem.Actions`  
-**模块：** `TaleWorlds.CampaignSystem`  
-**类型：** 静态 Action  
+**命名空间：** `TaleWorlds.CampaignSystem.Actions`
+**模块：** `TaleWorlds.CampaignSystem`
+**类型：** `public static class DestroyClanAction`
 **源码：** `TaleWorlds.CampaignSystem/Actions/DestroyClanAction.cs`
 
-## 一句话职责
+## 核心定位
 
 将氏族作为战役势力注销，并按引擎预期顺序拆除其部队、在世成员、领地、外交关系和王国归属。
+
+## 概述
+
+氏族的消灭不是单个布尔标记，而是对战役对象图的不可逆收束：持有者的战团会被删除，在世成员进入角色移除流程，城镇与城堡会被交给继承氏族，战争关系和王国成员关系也必须一起清理。`DestroyClanAction` 将这些会相互修改集合的步骤放进固定顺序，并给 Behavior 留下统一的事件边界。
 
 ## 心智模型
 

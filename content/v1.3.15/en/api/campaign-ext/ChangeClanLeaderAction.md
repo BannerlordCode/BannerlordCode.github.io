@@ -4,9 +4,9 @@ description: "The campaign transaction for installing a clan leader while preser
 ---
 # ChangeClanLeaderAction
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** static class  
+**Namespace:** TaleWorlds.CampaignSystem.Actions
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public static class ChangeClanLeaderAction`
 **Source:** `TaleWorlds.CampaignSystem/Actions/ChangeClanLeaderAction.cs`
 
 ## Responsibility
@@ -24,10 +24,10 @@ Leader replacement crosses several ownership boundaries. The action moves all go
 | Role | Connection | Side effect |
 |---|---|---|
 | Old and new owner | [Clan](../../campaign/Clan) and [Hero](../../campaign/Hero) | `Clan.SetLeader` happens near the end, after preparatory state changes. |
-| Wealth transfer | [GiveGoldAction](../GiveGoldAction) | The old leader's current gold is transferred with notifications disabled. |
-| Governor cleanup | [ChangeGovernorAction](./ChangeGovernorAction) | A chosen leader who is currently a governor is removed before they receive the clan role. |
+| Wealth transfer | [GiveGoldAction](.././GiveGoldAction) | The old leader's current gold is transferred with notifications disabled. |
+| Governor cleanup | [ChangeGovernorAction](.././ChangeGovernorAction) | A chosen leader who is currently a governor is removed before they receive the clan role. |
 | Party continuity | [MobileParty](../../campaign/MobileParty) | An available leader receives a party if needed, or becomes that party's leader. |
-| Event consumers | [CampaignEventReceiver](../CampaignEventReceiver) | `OnClanLeaderChanged(oldLeader, newLeader)` fires only after `SetLeader`. |
+| Event consumers | [CampaignEventReceiver](.././CampaignEventReceiver) | `OnClanLeaderChanged(oldLeader, newLeader)` fires only after `SetLeader`. |
 
 The relation loop runs before `SetLeader`; the notification runs after it. Event receivers can rely on `clan.Leader` being the new hero, but they should not assume an absent party was impossible: prisoners, fugitives, released heroes, and traveling heroes intentionally skip party creation.
 
@@ -37,7 +37,7 @@ Call `ApplyWithSelectedNewLeader` only after the source workflow has resolved th
 
 ## Risk boundary
 
-Do not assign `clan.Leader` or call `Clan.SetLeader` directly for a live campaign transition. That skips gold transfer, governor removal, party leadership repair, relation changes, and the event that behaviors use to react. Do not manually clear only `Hero.GovernorOf` before promotion either: it can leave the town pointing at a stale governor; use [ChangeGovernorAction](./ChangeGovernorAction).
+Do not assign `clan.Leader` or call `Clan.SetLeader` directly for a live campaign transition. That skips gold transfer, governor removal, party leadership repair, relation changes, and the event that behaviors use to react. Do not manually clear only `Hero.GovernorOf` before promotion either: it can leave the town pointing at a stale governor; use [ChangeGovernorAction](.././ChangeGovernorAction).
 
 The action reads `Campaign.Current.Models.DiplomacyModel` and iterates `Hero.AllAliveHeroes`, so it belongs after campaign initialization and before teardown. Calling it after the old leader has been partially invalidated, or reapplying it after an event callback already succeeded, can produce duplicated relation changes and a leader/party mismatch that persists into saves.
 
@@ -61,5 +61,5 @@ if (Campaign.Current != null && Clan.PlayerClan.Leader != selectedHeir)
 ## Navigation
 
 - ↑ [Campaign extension API](../)
-- ↔ [ChangeClanInfluenceAction](./ChangeClanInfluenceAction) · [ChangeGovernorAction](./ChangeGovernorAction)
-- Related: [Clan](../../campaign/Clan) · [Hero](../../campaign/Hero) · [GiveGoldAction](../GiveGoldAction) · [KillCharacterAction](../KillCharacterAction)
+- ↔ [ChangeClanInfluenceAction](.././ChangeClanInfluenceAction) · [ChangeGovernorAction](.././ChangeGovernorAction)
+- Related: [Clan](../../campaign/Clan) · [Hero](../../campaign/Hero) · [GiveGoldAction](.././GiveGoldAction) · [KillCharacterAction](.././KillCharacterAction)

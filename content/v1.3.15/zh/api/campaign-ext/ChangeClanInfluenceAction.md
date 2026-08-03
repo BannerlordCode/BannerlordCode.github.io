@@ -4,9 +4,9 @@ description: "以战役事件同步方式改写氏族影响力的唯一状态入
 ---
 # ChangeClanInfluenceAction
 
-**命名空间:** TaleWorlds.CampaignSystem.Actions  
-**模块:** TaleWorlds.CampaignSystem  
-**类型:** static class  
+**命名空间:** TaleWorlds.CampaignSystem.Actions
+**模块:** TaleWorlds.CampaignSystem
+**类型:** `public static class ChangeClanInfluenceAction`
 **源文件:** `TaleWorlds.CampaignSystem/Actions/ChangeClanInfluenceAction.cs`
 
 ## 职责
@@ -24,9 +24,9 @@ description: "以战役事件同步方式改写氏族影响力的唯一状态入
 | 角色 | 关联 | 原因 |
 |---|---|---|
 | 目标 | [Clan](../../campaign/Clan) | 持有本 Action 改写的持久化 `Influence` 值。 |
-| 下游事件 | [CampaignEventReceiver](../CampaignEventReceiver) | 接收者经 `OnClanInfluenceChanged` 同步收到通知；UI 与 Behavior 可读取新值。 |
+| 下游事件 | [CampaignEventReceiver](.././CampaignEventReceiver) | 接收者经 `OnClanInfluenceChanged` 同步收到通知；UI 与 Behavior 可读取新值。 |
 | 上游计算 | [Campaign](../../campaign/Campaign) | 原版调用方先由 `Campaign.Current.Models` 获得费用，再提交增量。 |
-| 相关事务 | [DisbandArmyAction](../DisbandArmyAction) | 解散军团、凝聚力等高层流程可能以影响力作为成本。 |
+| 相关事务 | [DisbandArmyAction](.././DisbandArmyAction) | 解散军团、凝聚力等高层流程可能以影响力作为成本。 |
 
 可观察顺序固定为“先改氏族，再派发”。因此接收者应把 `clan.Influence` 当作已更新的值，并用 `amount` 判别本次提交的变化。
 
@@ -59,5 +59,5 @@ if (Campaign.Current != null && Clan.PlayerClan != null)
 ## 导航
 
 - ↑ [战役扩展 API](../)
-- ↔ [ChangeClanLeaderAction](./ChangeClanLeaderAction) · [ChangeGovernorAction](./ChangeGovernorAction)
-- 相关：[Clan](../../campaign/Clan) · [Campaign](../../campaign/Campaign) · [DisbandArmyAction](../DisbandArmyAction)
+- ↔ [ChangeClanLeaderAction](.././ChangeClanLeaderAction) · [ChangeGovernorAction](.././ChangeGovernorAction)
+- 相关：[Clan](../../campaign/Clan) · [Campaign](../../campaign/Campaign) · [DisbandArmyAction](.././DisbandArmyAction)

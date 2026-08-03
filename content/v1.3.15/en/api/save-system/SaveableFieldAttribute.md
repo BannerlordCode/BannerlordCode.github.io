@@ -4,10 +4,10 @@ description: "The Attribute that marks an instance field for TaleWorlds.SaveSyst
 ---
 # SaveableFieldAttribute
 
-**Namespace:** `TaleWorlds.SaveSystem`  
-**Module:** `TaleWorlds.SaveSystem`  
-**Type:** `public class SaveableFieldAttribute : Attribute`  
-**Base:** `Attribute`  
+**Namespace:** `TaleWorlds.SaveSystem`
+**Module:** `TaleWorlds.SaveSystem`
+**Type:** `public class SaveableFieldAttribute : Attribute`
+**Base:** `Attribute`
 **File:** `TaleWorlds.SaveSystem/SaveableFieldAttribute.cs` (semantics checked against 1.4.5 source)
 
 ## One-line responsibility
@@ -118,11 +118,11 @@ The Attribute constructor and `LocalSaveId` type are the same in 1.3.15 and 1.4.
 
 ## Dependencies and navigation
 
-- Upstream: [SaveableTypeDefiner](SaveableTypeDefiner) adds the containing class to the definition table.
-- Execution: [SaveManager](SaveManager) initializes the definition context and performs save/load.
-- Contrast: [SaveablePropertyAttribute](SaveablePropertyAttribute) marks properties; [IDataStore](../campaign-ext/IDataStore) handles behavior key/value sync.
-- Common object: [MBObjectBase](../campaign-ext/MBObjectBase) exposes `StringId` and `Id` that the save system also defines.
+- Upstream: [SaveableTypeDefiner](../SaveableTypeDefiner) adds the containing class to the definition table.
+- Execution: [SaveManager](../SaveManager) initializes the definition context and performs save/load.
+- Contrast: [SaveablePropertyAttribute](../SaveablePropertyAttribute) marks properties; [IDataStore](../../campaign-ext/IDataStore) handles behavior key/value sync.
+- Common object: [MBObjectBase](../../campaign-ext/MBObjectBase) exposes `StringId` and `Id` that the save system also defines.
 
 - Parent: [save-system API](./)
-- Siblings: [SaveablePropertyAttribute](SaveablePropertyAttribute) · [SaveableTypeDefiner](SaveableTypeDefiner)
-- Related: [FieldDefinition](FieldDefinition) · [MemberTypeId](MemberTypeId) · [CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase) · [Save and crash boundaries](../../architecture/crash-boundaries)
+- Siblings: [SaveablePropertyAttribute](../SaveablePropertyAttribute) · [SaveableTypeDefiner](../SaveableTypeDefiner)
+- Related: [FieldDefinition](../FieldDefinition) · [MemberTypeId](../MemberTypeId) · [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) · [Save and crash boundaries](../../../architecture/crash-boundaries)

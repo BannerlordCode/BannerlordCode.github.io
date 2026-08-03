@@ -4,15 +4,15 @@ description: "存档定义上下文的自动发现入口：为类型、根对象
 ---
 # SaveableTypeDefiner
 
-**Namespace:** `TaleWorlds.SaveSystem`  
-**Module:** `TaleWorlds.SaveSystem`  
-**Type:** `public abstract class SaveableTypeDefiner`  
-**Base:** 无  
+**Namespace:** `TaleWorlds.SaveSystem`
+**Module:** `TaleWorlds.SaveSystem`
+**Type:** `public abstract class SaveableTypeDefiner`
+**Base:** 无
 **源文件：** `TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`（以 1.4.5 源码为语义依据）
 
 ## 职责
 
-`SaveableTypeDefiner` 把一个程序集/模块拥有的类型加入保存系统的 `DefinitionContext`。它不保存实例数据，也不替代 [IDataStore](../campaign-ext/IDataStore)。它定义“类型如何被识别、成员用哪些编号、容器如何构建”，而 [SaveManager](SaveManager) 在保存/加载时使用这些定义。
+`SaveableTypeDefiner` 把一个程序集/模块拥有的类型加入保存系统的 `DefinitionContext`。它不保存实例数据，也不替代 [IDataStore](../../campaign-ext/IDataStore)。它定义“类型如何被识别、成员用哪些编号、容器如何构建”，而 [SaveManager](../SaveManager) 在保存/加载时使用这些定义。
 
 ## 心智模型
 
@@ -44,7 +44,7 @@ description: "存档定义上下文的自动发现入口：为类型、根对象
 
 **使用：**新增一个会进入 `SaveManager` 对象图的自定义类、结构、枚举、接口、基础类型或泛型容器时；尤其是配合 [SaveableFieldAttribute](../SaveableFieldAttribute) / [SaveablePropertyAttribute](../SaveablePropertyAttribute) 时。
 
-**不要使用：**仅为 `CampaignBehaviorBase` 的几个字段创建 definer；那应使用 [IDataStore](../campaign-ext/IDataStore)。也不要用它注册 `MBObjectManager` 的 XML 对象类型；那是 [MBObjectManager](../campaign-ext/MBObjectManager) 的 `RegisterType<T>` 契约。
+**不要使用：**仅为 `CampaignBehaviorBase` 的几个字段创建 definer；那应使用 [IDataStore](../../campaign-ext/IDataStore)。也不要用它注册 `MBObjectManager` 的 XML 对象类型；那是 [MBObjectManager](../../campaign-ext/MBObjectManager) 的 `RegisterType<T>` 契约。
 
 ## 关键扩展点
 
@@ -78,7 +78,7 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 
 ```
 
-这是 1.4.5 的真实声明：`base(20000)` 和类型 local ID `1` 共同形成类型 SaveId，具体字典形状另由 `ConstructContainerDefinition` 登记。模块初始化时由 [SaveManager](SaveManager) 建立定义上下文；mod 不应手动 `new` 这个 definer。原生 [SaveableCampaignTypeDefiner](../campaign-ext/SaveableCampaignTypeDefiner) 采用同一模式，并以 `base(330000)` 登记 Campaign 类型。
+这是 1.4.5 的真实声明：`base(20000)` 和类型 local ID `1` 共同形成类型 SaveId，具体字典形状另由 `ConstructContainerDefinition` 登记。模块初始化时由 [SaveManager](../SaveManager) 建立定义上下文；mod 不应手动 `new` 这个 definer。原生 [SaveableCampaignTypeDefiner](../../campaign-ext/SaveableCampaignTypeDefiner) 采用同一模式，并以 `base(330000)` 登记 Campaign 类型。
 
 ## 风险与防坏档
 
@@ -99,11 +99,11 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 
 ## 依赖关系与导航
 
-- 成员声明：[SaveableFieldAttribute](SaveableFieldAttribute) · [SaveablePropertyAttribute](SaveablePropertyAttribute)。
-- 执行入口：[SaveManager](SaveManager) 构建 [DefinitionContext](DefinitionContext) 并报告定义错误。
-- Behavior 另一条路线：[CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase) 和 [IDataStore](../campaign-ext/IDataStore)。
-- 对象注册另一条路线：[MBObjectManager](../campaign-ext/MBObjectManager)。
+- 成员声明：[SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute)。
+- 执行入口：[SaveManager](../SaveManager) 构建 [DefinitionContext](../DefinitionContext) 并报告定义错误。
+- Behavior 另一条路线：[CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) 和 [IDataStore](../../campaign-ext/IDataStore)。
+- 对象注册另一条路线：[MBObjectManager](../../campaign-ext/MBObjectManager)。
 
 - 父级：[save-system API](../)
-- 同级：[SaveManager](SaveManager) · [SaveableFieldAttribute](SaveableFieldAttribute)
-- 相关：[ContainerDefinition](ContainerDefinition) · [IConflictResolver](IConflictResolver) · [存档与崩溃边界](../../architecture/crash-boundaries)
+- 同级：[SaveManager](../SaveManager) · [SaveableFieldAttribute](../SaveableFieldAttribute)
+- 相关：[ContainerDefinition](../ContainerDefinition) · [IConflictResolver](../IConflictResolver) · [存档与崩溃边界](../../../architecture/crash-boundaries)

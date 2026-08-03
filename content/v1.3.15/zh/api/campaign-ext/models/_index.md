@@ -56,9 +56,9 @@ ExplainedNumber loyaltyChange = loyaltyModel.CalculateLoyaltyChange(town, includ
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartySizeLimitModel](../DefaultPartySizeLimitModel) | 组合家族等级、perk 与领袖能力，提供 vanilla 队伍上限。 | 模型注册后由 Party/Recruitment 消费 |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyWageModel](../PartyWageModel) | 将名册与工资规则转换为队伍每日工资。 | 每日结算与工资提示 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyWageModel](../DefaultPartyWageModel) | 按 troop tier、perk 和队伍状态计算默认工资。 | Campaign daily tick |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyHealingModel](../PartyHealingModel) | 计算队伍伤兵恢复速度，不直接修改伤兵名册。 | 地图 tick 的医疗恢复计算 |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyHealingModel](../DefaultPartyHealingModel) | 计算队伍伤兵恢复速度，不直接修改伤兵名册。 | 地图 tick 的医疗恢复计算 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyHealingModel](../DefaultPartyHealingModel) | 提供 vanilla 医疗技能、驻扎地和队伍状态的恢复公式。 | 每日/地图 tick 由 MobileParty 调用 |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyMoraleModel](../PartyMoraleModel) | 计算粮食、战斗和队伍组成对士气的贡献。 | 每日结算、战斗前后和 UI 预览 |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyMoraleModel](../DefaultPartyMoraleModel) | 计算粮食、战斗和队伍组成对士气的贡献。 | 每日结算、战斗前后和 UI 预览 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyMoraleModel](../DefaultPartyMoraleModel) | 实现默认士气因素与边界，输出可解释的变化量。 | Campaign tick 与队伍状态刷新 |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyNavigationModel](../PartyNavigationModel) | 决定队伍地图目标、路线与导航限制。 | 目标选择和地图寻路阶段 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyNavigationModel](../DefaultPartyNavigationModel) | 使用 vanilla 目标优先级和地图规则提供导航策略。 | 地图 AI tick |
@@ -68,7 +68,7 @@ ExplainedNumber loyaltyChange = loyaltyModel.CalculateLoyaltyChange(town, includ
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyDesertionModel](../DefaultPartyDesertionModel) | 实现 vanilla 逃兵阈值与数量上限，供 Behavior 执行移除。 | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [DiplomacyModel](../DiplomacyModel) | 评估战争、和平、关系与外交选项是否可用。 | 王国决策、外交菜单和事件结算 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultDiplomacyModel](../DefaultDiplomacyModel) | 提供默认外交代价、关系门槛与 AI 选择评分。 | Campaign 决策阶段 |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [ClanFinanceModel](../ClanFinanceModel) | 汇总家族收入、支出与资产变化，供财政 UI 和每日结算。 | 每日财政结算与家族界面 |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [ClanFinanceModel](../DefaultClanFinanceModel) | 汇总家族收入、支出与资产变化，供财政 UI 和每日结算。 | 每日财政结算与家族界面 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultClanFinanceModel](../DefaultClanFinanceModel) | 计算 vanilla 工坊、封臣和 party 财政项目。 | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [ClanPoliticsModel](../ClanPoliticsModel) | 计算家族政治影响、政策支持与政治选择结果。 | 王国政策和家族决策评估 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultClanPoliticsModel](../DefaultClanPoliticsModel) | 按家族等级、领地和关系实现默认政治评分。 | 决策投票与政治 UI 刷新 |
@@ -96,7 +96,7 @@ ExplainedNumber loyaltyChange = loyaltyModel.CalculateLoyaltyChange(town, includ
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultCharacterDevelopmentModel](../DefaultCharacterDevelopmentModel) | 提供 vanilla 技能经验、属性门槛和升级规则。 | 战斗/任务奖励与每日成长 |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [MarriageModel](../MarriageModel) | 判断婚姻候选、关系门槛和婚姻代价。 | 求婚、婚姻决策和事件结算 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultMarriageModel](../DefaultMarriageModel) | 实现默认婚姻资格、价格和关系规则。 | Campaign 决策阶段 |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PregnancyModel](../PregnancyModel) | 计算怀孕资格、周期和生育结果。 | 每日英雄生命周期 tick |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PregnancyModel](../DefaultPregnancyModel) | 计算怀孕资格、周期和生育结果。 | 每日英雄生命周期 tick |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPregnancyModel](../DefaultPregnancyModel) | 提供 vanilla 怀孕概率、冷却与年龄边界。 | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [VolunteerModel](../VolunteerModel) | 计算村庄和据点可提供的志愿兵及刷新概率。 | 招募菜单打开与每日刷新 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultVolunteerModel](../DefaultVolunteerModel) | 按文化、村庄和关系实现默认志愿兵池。 | 招募结算阶段 |

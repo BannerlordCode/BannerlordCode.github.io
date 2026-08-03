@@ -70,7 +70,7 @@ Think of `Village` as the **"village economy card" bolted onto a `Settlement`**,
   (BecomeNormal/BeingRaided/Looted)          IncreaseSettlementHealthAction
 ```
 
-- **Upstream (what it depends on):** [`Settlement`](../Settlement/) (holds the component, `settlement.Village`), [`Town`](../../campaign-ext/Town/) (`Bound` is usually a `Town`, whose component registers the trade-bound), [`VillageType`](../../campaign-ext/VillageType/) (drives the production list), [`MBObjectManager`](../../campaign-ext/MBObjectManager/) (rebuilds references on `Deserialize` via `ReadObjectReferenceFromXml`).
+- **Upstream (what it depends on):** [`Settlement`](../Settlement/) (holds the component, `settlement.Village`), [`Town`](../Town/) (`Bound` is usually a `Town`, whose component registers the trade-bound), [`VillageType`](../../campaign-ext/VillageType/) (drives the production list), [`MBObjectManager`](../../campaign-ext/MBObjectManager/) (rebuilds references on `Deserialize` via `ReadObjectReferenceFromXml`).
 - **Downstream (who consumes it):** [`SettlementProsperityModel`](../../campaign-ext/SettlementProsperityModel/) (`HearthChange`), [`VillageProductionCalculatorModel`](../../campaign-ext/VillageProductionCalculatorModel/) (`GetWarehouseCapacity`, output), `SettlementMilitiaModel` (`MilitiaChange`), `VillageMarketData` (stock/market), `VillagerPartyComponent` (villager caravan).
 - **Related events / Actions / Behaviors:** `CampaignEventDispatcher.OnVillageBecomeNormal / OnVillageBeingRaided / OnVillageLooted`; [`ChangeVillageStateAction`](../../campaign-ext/ChangeVillageStateAction/) and `IncreaseSettlementHealthAction`; `VillageGoodProductionCampaignBehavior`, `VillageHealCampaignBehavior`, `VillageHostileActionCampaignBehavior`, `VillageTradeBoundCampaignBehavior`, `VillagerCampaignBehavior`.
 - **Save points:** `[SaveableField]`/`[SaveableProperty]` (`Hearth`, `TradeTaxAccumulated`, `_villageState`, `_bound`, `_marketData`), `[CachedData]` (`VillagerPartyComponent`).
@@ -172,7 +172,7 @@ if (target != null && target.Village != null)
 ## See Also
 
 - [`Settlement`](../Settlement/) — the parent settlement that holds the Village component (↑ Parent)
-- [`Town`](../../campaign-ext/Town/) — the town component `Bound` usually points at (↔ Sibling component)
+- [`Town`](../Town/) — the town component `Bound` usually points at (↔ Sibling component)
 - [`VillageType`](../../campaign-ext/VillageType/) — the upstream type that drives the village production list
 - [`Clan`](../Clan/) — the clan behind the village's owning town
 - [`Campaign`](../Campaign/) — `Campaign.Current.AllVillages` and the global state entry point

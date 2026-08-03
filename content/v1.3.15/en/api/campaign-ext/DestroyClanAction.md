@@ -4,9 +4,9 @@ description: "Irreversibly retires a campaign clan through the engine's full par
 ---
 # DestroyClanAction
 
-**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** static action  
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`
+**Module:** `TaleWorlds.CampaignSystem`
+**Type:** `public static class DestroyClanAction`
 **Source:** `TaleWorlds.CampaignSystem/Actions/DestroyClanAction.cs`
 
 ## One-line job

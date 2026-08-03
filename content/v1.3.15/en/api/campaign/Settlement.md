@@ -4,10 +4,10 @@ description: "Fixed locations on the campaign map: towns, castles, villages, hid
 ---
 # Settlement
 
-**Namespace:** TaleWorlds.CampaignSystem.Settlements  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** `public class Settlement : PartyBase, ILocatable`  
-**Base:** `PartyBase`  
+**Namespace:** TaleWorlds.CampaignSystem.Settlements
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public class Settlement : PartyBase, ILocatable`
+**Base:** `PartyBase`
 **File:** `TaleWorlds.CampaignSystem/Settlements/Settlement.cs`
 
 ## Overview
@@ -40,7 +40,7 @@ Think of `Settlement` as the **gateway object for a location**:
 
 ### Battle and siege boundaries
 
-- [`MapEvent`](../../campaign-ext/MapEvent/) describes a current map encounter at the settlement; it may be `null` even when the settlement exists.
+- [`MapEvent`](../MapEvent/) describes a current map encounter at the settlement; it may be `null` even when the settlement exists.
 - [`SiegeEvent`](../../campaign-ext/SiegeEvent/) owns the longer-lived siege state; use siege actions for ending a siege instead of clearing settlement references.
 - [`Campaign`](../Campaign/) and its models/behaviors drive daily settlement calculations and persistence.
 
@@ -190,7 +190,7 @@ bool IsEnemyVillage(Settlement settlement) =>
 
 ## See Also
 
-- [Town](../../campaign-ext/Town/) / [Village](../Village/) / [Castle](../../campaign-ext/CastleEncounter/) — concrete settlement components
+- [Town](../Town/) / [Village](../Village/) / [Castle](../../campaign-ext/CastleEncounter/) — concrete settlement components
 - [MobileParty](../MobileParty/) — moving parties that enter settlements
 - [Clan](../Clan/) — settlement owner
 - [SiegeEvent](../../campaign-ext/SiegeEvent/) — siege logic

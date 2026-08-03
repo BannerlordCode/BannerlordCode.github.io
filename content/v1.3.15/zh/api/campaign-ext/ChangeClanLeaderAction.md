@@ -4,14 +4,14 @@ description: "安装氏族领袖时维护继承、队伍、总督、关系、金
 ---
 # ChangeClanLeaderAction
 
-**命名空间:** TaleWorlds.CampaignSystem.Actions  
-**模块:** TaleWorlds.CampaignSystem  
-**类型:** static class  
+**命名空间:** TaleWorlds.CampaignSystem.Actions
+**模块:** TaleWorlds.CampaignSystem
+**类型:** `public static class ChangeClanLeaderAction`
 **源文件:** `TaleWorlds.CampaignSystem/Actions/ChangeClanLeaderAction.cs`
 
 ## 职责
 
-以死亡、玩家继承和王国继承所使用的完整事务替换 [Clan](../../campaign/Clan) 的领袖，而不是只改 leader 字段。
+以死亡、玩家继承和王国继承所使用的完整事务替换 [Clan](../../campaign/Clan) 的领袖，而不是只改 leader 字段。它把“谁是领袖”这项最终状态与继承过程必须同步的金币、总督、队伍、关系和事件通知一起提交，使下游 Behavior 不会接到一个只改了字段的半完成状态。
 
 ## 心智模型
 
@@ -24,10 +24,10 @@ description: "安装氏族领袖时维护继承、队伍、总督、关系、金
 | 角色 | 关联 | 副作用 |
 |---|---|---|
 | 旧/新所有者 | [Clan](../../campaign/Clan) 与 [Hero](../../campaign/Hero) | `Clan.SetLeader` 靠近流程末尾，之前先完成准备状态变更。 |
-| 财富转移 | [GiveGoldAction](../GiveGoldAction) | 旧领袖当前金币被转走，且关闭通知。 |
-| 总督清理 | [ChangeGovernorAction](./ChangeGovernorAction) | 当选领袖若为总督，必须先解除该职务。 |
+| 财富转移 | [GiveGoldAction](.././GiveGoldAction) | 旧领袖当前金币被转走，且关闭通知。 |
+| 总督清理 | [ChangeGovernorAction](.././ChangeGovernorAction) | 当选领袖若为总督，必须先解除该职务。 |
 | 队伍连续性 | [MobileParty](../../campaign/MobileParty) | 可行动的新领袖没有队伍时创建氏族队伍；有队伍但不是队长时改为队长。 |
-| 事件消费者 | [CampaignEventReceiver](../CampaignEventReceiver) | `OnClanLeaderChanged(oldLeader, newLeader)` 仅在 `SetLeader` 之后发布。 |
+| 事件消费者 | [CampaignEventReceiver](.././CampaignEventReceiver) | `OnClanLeaderChanged(oldLeader, newLeader)` 仅在 `SetLeader` 之后发布。 |
 
 关系循环发生在 `SetLeader` 之前，通知发生在其后。事件接收者可以依赖 `clan.Leader` 已是新 Hero；但不能假定新领袖一定有队伍，因为囚犯、逃亡者、已释放者和旅行中的 Hero 会刻意跳过建队。
 
@@ -37,7 +37,7 @@ description: "安装氏族领袖时维护继承、队伍、总督、关系、金
 
 ## 风险边界
 
-不要在存活战役中直接赋值 `clan.Leader` 或仅调用 `Clan.SetLeader`。这样会漏掉金币、总督、队长、关系和供 Behavior 响应的事件。也不要在晋升前只清 `Hero.GovernorOf`：Town 仍可能指向过期总督；必须使用 [ChangeGovernorAction](./ChangeGovernorAction)。
+不要在存活战役中直接赋值 `clan.Leader` 或仅调用 `Clan.SetLeader`。这样会漏掉金币、总督、队长、关系和供 Behavior 响应的事件。也不要在晋升前只清 `Hero.GovernorOf`：Town 仍可能指向过期总督；必须使用 [ChangeGovernorAction](.././ChangeGovernorAction)。
 
 该 Action 读取 `Campaign.Current.Models.DiplomacyModel` 并遍历 `Hero.AllAliveHeroes`，因此应在 Campaign 初始化完成后、销毁前调用。旧领袖已被部分失效后再调用，或事件回调已成功后重复调用，会造成关系重复变化，以及会随存档保留的领袖/队伍不一致。
 
@@ -61,5 +61,5 @@ if (Campaign.Current != null && Clan.PlayerClan.Leader != selectedHeir)
 ## 导航
 
 - ↑ [战役扩展 API](../)
-- ↔ [ChangeClanInfluenceAction](./ChangeClanInfluenceAction) · [ChangeGovernorAction](./ChangeGovernorAction)
-- 相关：[Clan](../../campaign/Clan) · [Hero](../../campaign/Hero) · [GiveGoldAction](../GiveGoldAction) · [KillCharacterAction](../KillCharacterAction)
+- ↔ [ChangeClanInfluenceAction](.././ChangeClanInfluenceAction) · [ChangeGovernorAction](.././ChangeGovernorAction)
+- 相关：[Clan](../../campaign/Clan) · [Hero](../../campaign/Hero) · [GiveGoldAction](.././GiveGoldAction) · [KillCharacterAction](.././KillCharacterAction)

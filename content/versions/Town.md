@@ -70,7 +70,7 @@ This page compares the accessible API of `Town` across **1.3.0 / 1.3.15 / 1.4.5*
 | v1.3.0 | 🇨🇳 中文 | [v1.3.0 Town](/v1.3.0/zh/api/campaign/Town) |
 | v1.3.0 | 🇬🇧 English | [v1.3.0 Town](/v1.3.0/en/api/campaign/Town) |
 | v1.3.15 | 🇨🇳 中文 | [v1.3.15 Town](/v1.3.15/zh/api/campaign-ext/Town) |
-| v1.3.15 | 🇬🇧 English | [v1.3.15 Town](/v1.3.15/en/api/campaign-ext/Town) |
+| v1.3.15 | 🇬🇧 English | [v1.3.15 Town](/v1.3.15/en/api/campaign/Town) |
 | v1.4.5 | 🇨🇳 中文 | [v1.4.5 Town](/v1.4.5/zh/api/campaign/Town) |
 | v1.4.5 | 🇬🇧 English | [v1.4.5 Town](/v1.4.5/en/api/campaign/Town) |
 

@@ -4,14 +4,18 @@ description: "销毁每个仍存活的成员氏族、清除战争并通知战役
 ---
 # DestroyKingdomAction
 
-**命名空间：** `TaleWorlds.CampaignSystem.Actions`  
-**模块：** `TaleWorlds.CampaignSystem`  
-**类型：** 静态 Action  
+**命名空间：** `TaleWorlds.CampaignSystem.Actions`
+**模块：** `TaleWorlds.CampaignSystem`
+**类型：** `public static class DestroyKingdomAction`
 **源码：** `TaleWorlds.CampaignSystem/Actions/DestroyKingdomAction.cs`
 
-## 一句话职责
+## 核心定位
 
 将王国作为政治容器消灭：对每个未消灭成员氏族执行官方灭亡事务，再移除战争关系并派发王国已毁事件。
+
+## 概述
+
+王国的消灭会展开为其成员氏族的多次不可逆销毁，而不是把 `IsEliminated` 设为 true 就结束。每个仍存活氏族都会经历部队、英雄、据点、战争和王国归属的清理，最后才删除王国自身的战争姿态并通知监听者；这也是为什么它只能用于明确的政治终局。
 
 ## 心智模型
 

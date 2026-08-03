@@ -1,104 +1,82 @@
 ---
 title: "PartyMoraleModel"
-description: "Auto-generated class reference for PartyMoraleModel."
+description: "The replaceable policy for base, battle, starvation, and unpaid-wage morale, returning explanations without directly changing party morale."
 ---
+
 # PartyMoraleModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`
+**Module:** `TaleWorlds.CampaignSystem`
 **Type:** `public abstract class PartyMoraleModel : MBGameModel<PartyMoraleModel>`
 **Base:** `MBGameModel<PartyMoraleModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyMoraleModel.cs`
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyMoraleModel.cs`
+**Default implementation:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPartyMoraleModel.cs`
 
-## Overview
+## One-line responsibility
 
-`PartyMoraleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`PartyMoraleModel` combines recent events, leadership, food variety, over-capacity size, starvation, unpaid wages, and perks into a party morale result. It answers what morale should be, but does not set `MobileParty.Morale` itself.
 
-## Mental Model
+## Mental model
 
-Treat `PartyMoraleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is a read-only calculation layer between party state and campaign decisions. `MobileParty` and UI code may request `GetEffectivePartyMorale` repeatedly; the returned `ExplainedNumber` rebuilds its base, recent-event, bonus, and penalty components each time. The default model exposes a high-morale threshold of 70, which other policies such as healing may read to enable high-morale perks. It is not a setter for a final morale field.
 
-## Key Properties
+Daily logic uses fixed starvation and unpaid-wage penalties, while battles use one-time victory or defeat changes. A campaign behavior applies the resulting state at the correct tick. A replacement must keep values bounded and explanations stable without changing food, wages, rosters, or events during a query.
 
-| Name | Signature |
-|------|-----------|
-| `HighMoraleValue` | `public abstract float HighMoraleValue { get; }` |
+## When to use and when not to
 
-## Key Methods
+- Replace the model to change the morale formula, food-variety effect, over-capacity penalty, or battle changes; register it during campaign startup.
+- Query UI-friendly results through `Campaign.Current.Models.PartyMoraleModel` and preserve the meaning of `includeDescription`.
+- Do not call `MobileParty.SetMorale`, pay gold, add food, or raise battle events from model methods. Those are Behavior/Action state transitions.
+- Do not use `GetVictoryMoraleChange` as a substitute for `GetEffectivePartyMorale`, and do not assume `HighMoraleValue` is a universal hard requirement for every party type.
 
-### GetDailyStarvationMoralePenalty
-`public abstract int GetDailyStarvationMoralePenalty(PartyBase party)`
+## Dependencies
 
-**Purpose:** Reads and returns the daily starvation morale penalty value held by the this instance.
+- [Campaign](../../campaign/Campaign) and [GameModels](../GameModels) own the registered `PartyMoraleModel` instance.
+- [MobileParty](../../campaign/MobileParty) supplies leader, party limit, food variety, recent events, unpaid wages, perks, and movement/settlement state.
+- [PartyBase](../../campaign/PartyBase) supplies starvation, member counts, and battle context.
+- [PartyHealingModel](../PartyHealingModel) reads `HighMoraleValue` when deciding whether high-morale healing perks apply; this is a read relationship, not mutual mutation.
+- Daily and battle campaign behaviors consume the results and apply state changes separately.
 
-```csharp
-// Obtain an instance of PartyMoraleModel from the subsystem API first
-PartyMoraleModel partyMoraleModel = ...;
-var result = partyMoraleModel.GetDailyStarvationMoralePenalty(party);
-```
+## Members and timing
 
-### GetDailyNoWageMoralePenalty
-`public abstract int GetDailyNoWageMoralePenalty(MobileParty party)`
+| Member | Purpose and timing | Side-effect boundary |
+|---|---|---|
+| `HighMoraleValue` | Exposes the high-morale threshold; healing and other policies may read it. | Read-only policy value. |
+| `GetDailyStarvationMoralePenalty(PartyBase)` | Supplies the daily starvation penalty; the default is -5. | Does not inspect or alter food. |
+| `GetDailyNoWageMoralePenalty(MobileParty)` | Supplies the daily unpaid-wage penalty; the default is -3. | Does not pay wages or remove troops. |
+| `GetStandardBaseMorale(PartyBase)` | Supplies the base morale, 50 in the default implementation. | Returns a baseline only. |
+| `GetVictoryMoraleChange(PartyBase)` | Supplies the one-time victory change, +20 by default. | Does not end a battle or publish an event. |
+| `GetDefeatMoraleChange(PartyBase)` | Supplies the one-time defeat change, -20 by default. | Does not decide the battle result. |
+| `GetEffectivePartyMorale(MobileParty, bool)` | Combines recent events, skills, starvation, wages, food, size, and perks; `includeDescription` controls explanation lines. | Must remain side-effect free. |
 
-**Purpose:** Reads and returns the daily no wage morale penalty value held by the this instance.
-
-```csharp
-// Obtain an instance of PartyMoraleModel from the subsystem API first
-PartyMoraleModel partyMoraleModel = ...;
-var result = partyMoraleModel.GetDailyNoWageMoralePenalty(party);
-```
-
-### GetStandardBaseMorale
-`public abstract float GetStandardBaseMorale(PartyBase party)`
-
-**Purpose:** Reads and returns the standard base morale value held by the this instance.
+## Real acquisition and query example
 
 ```csharp
-// Obtain an instance of PartyMoraleModel from the subsystem API first
-PartyMoraleModel partyMoraleModel = ...;
-var result = partyMoraleModel.GetStandardBaseMorale(party);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+
+MobileParty party = MobileParty.MainParty;
+PartyMoraleModel moraleModel = Campaign.Current.Models.PartyMoraleModel;
+ExplainedNumber effectiveMorale = moraleModel.GetEffectivePartyMorale(
+    party,
+    includeDescription: true);
+
+bool isHighMorale = effectiveMorale.ResultNumber >= moraleModel.HighMoraleValue;
 ```
 
-### GetVictoryMoraleChange
-`public abstract float GetVictoryMoraleChange(PartyBase party)`
+This follows the game's own party-morale query path. To change the formula, register a `PartyMoraleModel` subclass through `IGameStarter.AddModel`; to apply and save a daily change, change the appropriate behavior rather than assigning from the model.
 
-**Purpose:** Reads and returns the victory morale change value held by the this instance.
+## Risks and debugging boundaries
 
-```csharp
-// Obtain an instance of PartyMoraleModel from the subsystem API first
-PartyMoraleModel partyMoraleModel = ...;
-var result = partyMoraleModel.GetVictoryMoraleChange(party);
-```
+1. `GetEffectivePartyMorale` is read by UI, AI, healing, and campaign logic. Charging gold or mutating `MobileParty` there repeats the operation once per read.
+2. Treating `HighMoraleValue`, the daily penalties, and effective morale as one value causes high-morale perks and daily settlement to double-apply or disappear.
+3. Over-capacity, food variety, and `HasUnpaidWages` are live state. Do not cache a `MobileParty` across ticks or assume garrison, militia, villager, and regular parties share the same branch.
+4. `includeDescription` should control only `ExplainedNumber` text. Changing the numeric result based on it makes UI previews disagree with settlement.
+5. Store persistent custom counters in a [CampaignBehaviorBase](../CampaignBehaviorBase) save contract and let the model read them; the model instance is not a save container.
 
-### GetDefeatMoraleChange
-`public abstract float GetDefeatMoraleChange(PartyBase party)`
+## Navigation
 
-**Purpose:** Reads and returns the defeat morale change value held by the this instance.
-
-```csharp
-// Obtain an instance of PartyMoraleModel from the subsystem API first
-PartyMoraleModel partyMoraleModel = ...;
-var result = partyMoraleModel.GetDefeatMoraleChange(party);
-```
-
-### GetEffectivePartyMorale
-`public abstract ExplainedNumber GetEffectivePartyMorale(MobileParty party, bool includeDescription = false)`
-
-**Purpose:** Reads and returns the effective party morale value held by the this instance.
-
-```csharp
-// Obtain an instance of PartyMoraleModel from the subsystem API first
-PartyMoraleModel partyMoraleModel = ...;
-var result = partyMoraleModel.GetEffectivePartyMorale(party, false);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-PartyMoraleModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Parent: campaign-ext](./)
+- [Models family guide](../models)
+- [Sibling: PartyHealingModel](../PartyHealingModel) · [PartyWageModel](../PartyWageModel)
+- [Related: Campaign](../../campaign/Campaign) · [GameModels](../GameModels) · [MobileParty](../../campaign/MobileParty)

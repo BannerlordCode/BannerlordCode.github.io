@@ -1,120 +1,97 @@
 ---
 title: "PartyHealingModel"
-description: "Auto-generated class reference for PartyHealingModel."
+description: "The replaceable campaign policy for party, prisoner, and hero healing results, without directly changing hit points or rosters."
 ---
+
 # PartyHealingModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`
+**Module:** `TaleWorlds.CampaignSystem`
 **Type:** `public abstract class PartyHealingModel : MBGameModel<PartyHealingModel>`
 **Base:** `MBGameModel<PartyHealingModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyHealingModel.cs`
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyHealingModel.cs`
+**Default implementation:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPartyHealingModel.cs`
 
-## Overview
+## One-line responsibility
 
-`PartyHealingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`PartyHealingModel` turns party type, surgeon, supplies, settlement, and battle context into healing, survival, and post-battle recovery results. It answers how much or how likely, but never writes `Hero.HitPoints`, rosters, or death state itself.
 
-## Mental Model
+## Mental model
 
-Treat `PartyHealingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is the policy layer between [PartyBase](../../campaign/PartyBase) state and the campaign healing behavior. [GameModels](../GameModels) resolves the registered instance; `PartyBase.HealingRateForMemberRegulars`, hero healing properties, and `PartyHealCampaignBehavior` then consume its results. `ExplainedNumber` may carry starvation, settlement, skill, and perk explanations, but those explanations do not change call timing.
 
-## Key Methods
+Regular members, heroes, and prisoners use separate daily methods, while map-simulation casualties use `GetSurvivalChance`. A replacement therefore has to preserve the distinction between regulars, heroes, prisoners, siege bombardment, and battle-end healing. The model must remain read-only: the behavior applies healing through `Hero.Heal` or roster logic after the calculation.
 
-### GetSurgeryChance
-`public abstract float GetSurgeryChance(PartyBase party)`
+## When to use and when not to
 
-**Purpose:** Reads and returns the surgery chance value held by the this instance.
+- Replace the model when changing healing speed, survival probability, medicine XP, or battle-end hero recovery; register the replacement during campaign startup.
+- Read the current policy through `Campaign.Current.Models.PartyHealingModel`; do not construct `DefaultPartyHealingModel` and bypass the registry.
+- Do not mutate rosters, food, hit points, or death state, or call an Action from `GetDailyHealing*` or `GetSurvivalChance`. These methods run during previews, simulation, and repeated campaign ticks.
+- Do not treat `isPrisoner` as a global statement about the party. Callers query the same `PartyBase` for members and prisoners separately, and the result must describe the requested category only.
 
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetSurgeryChance(party);
-```
+## Dependencies
 
-### GetSurvivalChance
-`public abstract float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
+#### Upstream
 
-**Purpose:** Reads and returns the survival chance value held by the this instance.
+- [Campaign](../../campaign/Campaign) exposes the registered policy through `Campaign.Current.Models`.
+- [PartyBase](../../campaign/PartyBase) supplies members, prisoners, starvation, settlement, and map-event context.
+- [MobileParty](../../campaign/MobileParty) supplies the surgeon, moving/garrison/sea state, perks, and morale.
+- [Hero](../../campaign/Hero) supplies hit points, age, armor, and hero-specific healing context.
 
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetSurvivalChance(party, agentCharacter, damageType, false, null);
-```
+#### Downstream
 
-### GetSkillXpFromHealingTroop
-`public abstract int GetSkillXpFromHealingTroop(PartyBase party)`
+- `PartyHealCampaignBehavior` consumes the result during hourly, quarter-daily, settlement, and battle-end events.
+- `MapEventSide` uses survival probability for simulated casualties; post-battle hero healing enters the [Hero](../../campaign/Hero) healing path again.
+- [PartyMoraleModel](../PartyMoraleModel) and [PartyWageModel](../PartyWageModel) are adjacent policies. Starvation and unpaid wages may affect morale, but PartyHealingModel must not write morale.
+- [GameModels](../GameModels) is the registration and runtime-resolution boundary.
 
-**Purpose:** Reads and returns the skill xp from healing troop value held by the this instance.
+## Members and timing
 
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetSkillXpFromHealingTroop(party);
-```
+| Member | Purpose and timing | Side-effect boundary |
+|---|---|---|
+| `GetSurgeryChance(PartyBase)` | Computes the effective surgeon's chance before map casualty handling. | Returns a probability; it does not perform surgery. |
+| `GetSurvivalChance(PartyBase, CharacterObject, DamageTypes, bool, PartyBase)` | Computes simulated survival from damage type, level, armor, medicine perks, and the enemy surgeon. | Does not call `KillCharacterAction` or edit wounds. |
+| `GetSkillXpFromHealingTroop(PartyBase)` | Converts healed troop counts into Medicine experience for the skill manager. | Returns a coefficient only. |
+| `GetDailyHealingForRegulars(PartyBase, bool, bool)` | Computes daily healing for regular members or regular prisoners; `includeDescriptions` controls explanation lines. | Does not edit `TroopRoster`. |
+| `GetDailyHealingHpForHeroes(PartyBase, bool, bool)` | Computes daily hit-point healing for heroes or hero prisoners; a null party supplies the base for unassigned heroes. | The behavior splits the result into hourly work; the model does not write HP. |
+| `GetHeroesEffectedHealingAmount(Hero, float)` | Converts a healing rate into the perk-adjusted, probabilistically rounded amount used by `Hero.Heal`. | Does not call `Heal` itself. |
+| `GetSiegeBombardmentHitSurgeryChance(PartyBase)` | Supplies the siege-bombardment medicine-perk chance during casualty selection. | Does not select the victim. |
+| `GetBattleEndHealingAmount(PartyBase, Hero)` | Computes hero recovery after a victorious map battle. | The returned explanation is applied by the healing behavior. |
 
-### GetDailyHealingForRegulars
-`public abstract ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)`
-
-**Purpose:** Reads and returns the daily healing for regulars value held by the this instance.
-
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetDailyHealingForRegulars(partyBase, false, false);
-```
-
-### GetDailyHealingHpForHeroes
-`public abstract ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)`
-
-**Purpose:** Reads and returns the daily healing hp for heroes value held by the this instance.
+## Real acquisition and query example
 
 ```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetDailyHealingHpForHeroes(partyBase, false, false);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Party;
+
+Campaign campaign = Campaign.Current;
+PartyBase party = MobileParty.MainParty.Party;
+PartyHealingModel healing = campaign.Models.PartyHealingModel;
+
+ExplainedNumber regularRate = healing.GetDailyHealingForRegulars(
+    party,
+    isPrisoners: false,
+    includeDescriptions: true);
+ExplainedNumber heroRate = healing.GetDailyHealingHpForHeroes(
+    party,
+    isPrisoners: false,
+    includeDescriptions: true);
 ```
 
-### GetHeroesEffectedHealingAmount
-`public abstract int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
+This follows the same call path as `PartyBase.HealingRateForMemberRegularsExplained`. To change the policy, register a `PartyHealingModel` subclass during `CampaignGameStarter` setup so [Campaign](../../campaign/Campaign) resolves it while building `GameModels`.
 
-**Purpose:** Reads and returns the heroes effected healing amount value held by the this instance.
+## Risks and debugging boundaries
 
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetHeroesEffectedHealingAmount(hero, 0);
-```
+1. Calling `Hero.Heal`, `KillCharacterAction`, or `GiveGoldAction` from the model turns a read-only calculation into a repeated write. Map simulation and UI previews may invoke it again, causing duplicate healing, events, or save corruption.
+2. A negative regular-healing result is a valid injury/adverse-condition result, and callers use it to reduce hit points. Never return an uninitialized `ExplainedNumber` or an unbounded random result.
+3. A replacement for `GetSurvivalChance` must preserve blunt-damage rules, difficulty settings, hero age, and the caller's `CanDie` contract; otherwise non-lethal blunt damage and player-character protection change unexpectedly.
+4. Confirm that the campaign and party exist before reading `Campaign.Current`, `MobileParty.MainParty`, or perks. Main menu and early save-loading paths cannot assume those objects are ready.
+5. A model replacement does not save mutable state automatically. Put persistent custom state in a separate [CampaignBehaviorBase](../CampaignBehaviorBase) with a save contract instead of a mutable dictionary inside the model.
 
-### GetSiegeBombardmentHitSurgeryChance
-`public abstract float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
+## Navigation
 
-**Purpose:** Reads and returns the siege bombardment hit surgery chance value held by the this instance.
-
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetSiegeBombardmentHitSurgeryChance(party);
-```
-
-### GetBattleEndHealingAmount
-`public abstract ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)`
-
-**Purpose:** Reads and returns the battle end healing amount value held by the this instance.
-
-```csharp
-// Obtain an instance of PartyHealingModel from the subsystem API first
-PartyHealingModel partyHealingModel = ...;
-var result = partyHealingModel.GetBattleEndHealingAmount(partyBase, hero);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-PartyHealingModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Parent: campaign-ext](./)
+- [Models family guide](../models)
+- [Sibling: PartyWageModel](../PartyWageModel) · [PartyMoraleModel](../PartyMoraleModel)
+- [Related: Campaign](../../campaign/Campaign) · [GameModels](../GameModels) · [PartyBase](../../campaign/PartyBase)

@@ -4,14 +4,14 @@ description: "委任或解除城镇总督时同步驻地、忙碌状态、双向
 ---
 # ChangeGovernorAction
 
-**命名空间:** TaleWorlds.CampaignSystem.Actions  
-**模块:** TaleWorlds.CampaignSystem  
-**类型:** static class  
+**命名空间:** TaleWorlds.CampaignSystem.Actions
+**模块:** TaleWorlds.CampaignSystem
+**类型:** `public static class ChangeGovernorAction`
 **源文件:** `TaleWorlds.CampaignSystem/Actions/ChangeGovernorAction.cs`
 
 ## 职责
 
-通过一个同时协调 `Town.Governor`、`Hero.GovernorOf`、Hero 移动与总督生命周期事件的战役 Action，变更 [Town](../Town) 的总督。
+通过一个同时协调 `Town.Governor`、`Hero.GovernorOf`、Hero 移动与总督生命周期事件的战役 Action，变更 [Town](.././Town) 的总督。
 
 ## 心智模型
 
@@ -23,11 +23,11 @@ description: "委任或解除城镇总督时同步驻地、忙碌状态、双向
 
 | 角色 | 关联 | 原因 |
 |---|---|---|
-| 城镇状态 | [Town](../Town) | `Governor` 是 Settlement 一侧的引用。 |
+| 城镇状态 | [Town](.././Town) | `Governor` 是 Settlement 一侧的引用。 |
 | Hero 状态 | [Hero](../../campaign/Hero) | `GovernorOf`、囚犯状态、当前位置与忙碌状态共同决定转换。 |
-| 移动实现 | [TeleportHeroAction](../TeleportHeroAction) | 仅当非囚犯已在目标驻地时立即传送；其他非空委任都进入延迟传送。 |
-| 事件消费者 | [CampaignEventReceiver](../CampaignEventReceiver) | 引用清理/设置后派发 `OnGovernorChanged`；对新总督紧接着派发 `OnHeroGetsBusy`。 |
-| 易主流程 | [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction) | 领地易主常是清除或替换总督的下游原因。 |
+| 移动实现 | [TeleportHeroAction](.././TeleportHeroAction) | 仅当非囚犯已在目标驻地时立即传送；其他非空委任都进入延迟传送。 |
+| 事件消费者 | [CampaignEventReceiver](.././CampaignEventReceiver) | 引用清理/设置后派发 `OnGovernorChanged`；对新总督紧接着派发 `OnHeroGetsBusy`。 |
+| 易主流程 | [ChangeOwnerOfSettlementAction](.././ChangeOwnerOfSettlementAction) | 领地易主常是清除或替换总督的下游原因。 |
 
 事件时序很重要：接收者看到的是旧总督已解除、而新总督已设置或已被安排总督旅行后的状态。若走延迟分支，接收者不能推断 Hero 已物理到达 Settlement。
 
@@ -60,5 +60,5 @@ if (Campaign.Current != null && currentSettlement?.Town != null && !Hero.MainHer
 ## 导航
 
 - ↑ [战役扩展 API](../)
-- ↔ [ChangeClanInfluenceAction](./ChangeClanInfluenceAction) · [ChangeClanLeaderAction](./ChangeClanLeaderAction)
-- 相关：[Town](../Town) · [Hero](../../campaign/Hero) · [TeleportHeroAction](../TeleportHeroAction) · [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
+- ↔ [ChangeClanInfluenceAction](.././ChangeClanInfluenceAction) · [ChangeClanLeaderAction](.././ChangeClanLeaderAction)
+- 相关：[Town](.././Town) · [Hero](../../campaign/Hero) · [TeleportHeroAction](.././TeleportHeroAction) · [ChangeOwnerOfSettlementAction](.././ChangeOwnerOfSettlementAction)

@@ -4,10 +4,10 @@ description: "战役世界里「部队」的统一句柄：既包裹移动中的
 ---
 # PartyBase
 
-**Namespace:** TaleWorlds.CampaignSystem.Party  
-**Module:** TaleWorlds.CampaignSystem  
-**Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`  
-**Base:** 无（直接继承 `System.Object`）；实现 `IBattleCombatant`、`IRandomOwner`、`IInteractablePoint`  
+**Namespace:** TaleWorlds.CampaignSystem.Party
+**Module:** TaleWorlds.CampaignSystem
+**Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`
+**Base:** 无（直接继承 `System.Object`）；实现 `IBattleCombatant`、`IRandomOwner`、`IInteractablePoint`
 **File:** `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
 
 ## 一句话职责
@@ -74,7 +74,7 @@ description: "战役世界里「部队」的统一句柄：既包裹移动中的
 
 - [PartySizeLimitModel](../../campaign-ext/PartySizeLimitModel/) — `PartySizeLimit` / `PrisonerSizeLimit` 的计算来源。
 - [PartyWageModel](../../campaign-ext/PartyWageModel/) — 部队工资（由 `MobileParty` 汇总，规划人力成本时参考）。
-- [PartyHealingModel](../../campaign-ext/PartyHealingModel/) — `HealingRateForMember*` 的计算来源。
+- [PartyHealingModel](../../campaign-ext/models/) — `HealingRateForMember*` 的计算来源。
 - [MilitaryPowerModel](../../campaign-ext/MilitaryPowerModel/) — `EstimatedStrength` / `CalculateCurrentStrength` / `GetCustomStrength` 的算力来源。
 - [EncounterModel](../../campaign-ext/EncounterModel/) — `IsPartyUnderPlayerCommand` 与遭遇距离判定。
 - [MapVisibilityModel](../../campaign-ext/MapVisibilityModel/) — `UpdateVisibilityAndInspected` 中的可见性计算。
@@ -249,6 +249,6 @@ foreach (MobileParty mp in MobileParty.All)
 - 相关组件：[PartyComponent](../../campaign-ext/PartyComponent/)
 - 相关名册：[TroopRoster](../../campaign-ext/TroopRoster/) · [ItemRoster](../../campaign-ext/ItemRoster/)
 - 相关事件：[MapEvent](../../campaign-ext/MapEvent/)
-- 相关模型：[PartySizeLimitModel](../../campaign-ext/PartySizeLimitModel/) · [PartyWageModel](../../campaign-ext/PartyWageModel/) · [PartyHealingModel](../../campaign-ext/PartyHealingModel/) · [MilitaryPowerModel](../../campaign-ext/MilitaryPowerModel/) · [EncounterModel](../../campaign-ext/EncounterModel/) · [MapVisibilityModel](../../campaign-ext/MapVisibilityModel/)
+- 相关模型：[PartySizeLimitModel](../../campaign-ext/PartySizeLimitModel/) · [PartyWageModel](../../campaign-ext/PartyWageModel/) · [PartyHealingModel](../../campaign-ext/models/) · [MilitaryPowerModel](../../campaign-ext/MilitaryPowerModel/) · [EncounterModel](../../campaign-ext/EncounterModel/) · [MapVisibilityModel](../../campaign-ext/MapVisibilityModel/)
 - 相关行动：[AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction/) · [TakePrisonerAction](../../campaign-ext/TakePrisonerAction/) · [TransferPrisonerAction](../../campaign-ext/TransferPrisonerAction/)
 - 对象管理：[MBObjectManager](../../campaign-ext/MBObjectManager/)

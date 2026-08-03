@@ -1,30 +1,100 @@
 ---
 title: "ShipOwnerChangeDetail"
-description: "Auto-generated class reference for ShipOwnerChangeDetail."
+description: "Explains ship ownership changes caused by trade, transfer, looting, production, or mobile-party creation, including the payment boundary."
 ---
 # ShipOwnerChangeDetail
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public enum ShipOwnerChangeDetail`
-**Base:** none
-**File:** `TaleWorlds.CampaignSystem/Actions/ChangeShipOwnerAction.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public enum ChangeShipOwnerAction.ShipOwnerChangeDetail`  
+**Base:** `System.Enum`  
+**Source:** `TaleWorlds.CampaignSystem/Actions/ChangeShipOwnerAction.cs`
 
-## Overview
+## One-line responsibility
 
-`ShipOwnerChangeDetail` lives in `TaleWorlds.CampaignSystem.Actions` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+Carry the source of a ship ownership transaction through `OnShipOwnerChangedEvent` so naval visuals, trade, AI, and logs can distinguish trade, looting, and system creation.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.Actions` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`ShipOwnerChangeDetail` is the reason selected by [`ChangeShipOwnerAction`](../ChangeShipOwnerAction), not a replacement for `Ship.Owner`. The Action keeps the old `PartyBase`, calculates and pays the ship value through `ShipCostModel` and [`GiveGoldAction`](../GiveGoldAction) on the trade path, writes `ship.Owner`, dirties naval visuals for both sides, and then publishes `CampaignEvents.OnShipOwnerChangedEvent`.
 
-## Usage Example
+Use `ApplyByTrade`, `ApplyByTransferring`, or another matching public entry. Do not assign the owner directly or pay outside the trade wrapper, because that can double-settle the transaction.
+
+## Enum Values and Timing
+
+| Value | Entry point | Meaning |
+|---|---|---|
+| `ApplyByTrade` | `ApplyByTrade` | A trade buys or sells the ship; the Action calculates and settles its price. |
+| `ApplyByTransferring` | `ApplyByTransferring` | The ship moves between owners without a trade price. |
+| `ApplyByLooting` | `ApplyByLooting` | Battle or looting resolution takes the ship. |
+| `ApplyByMobilePartyCreation` | `ApplyByMobilePartyCreation` | A newly created mobile party receives the ship. |
+| `ApplyByProduction` | `ApplyByProduction` | A produced ship is registered with its target owner. |
+
+The `ApplyBy` spelling is part of each enum name, but its integer ordering is not a persistence contract.
+
+## Dependencies and Event Consumers
+
+- **Upstream:** [`ChangeShipOwnerAction`](../ChangeShipOwnerAction), `Ship`, [`PartyBase`](../../campaign/PartyBase), and `ShipCostModel`.
+- **Payment boundary:** Only `ApplyByTrade` enters value calculation and [`GiveGoldAction`](../GiveGoldAction); the other reasons are not free-trade variants.
+- **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnShipOwnerChangedEvent` as `IMbEvent<Ship, PartyBase, ChangeShipOwnerAction.ShipOwnerChangeDetail>`.
+- **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), nameplate views, port/shipyard behaviors, and naval AI refresh the new and old owner state.
+- **Save boundary:** Ship ownership is campaign state; the event reason is not replayed for non-serialized listeners after a load.
+
+## Risks and Lifetime
+
+- Writing `ship.Owner` directly skips ship-list registration, naval visual invalidation, and `OnShipOwnerChangedEvent`.
+- `ApplyByTrade` chooses different gold paths for settlements, caravans, villagers, and lord parties. Do not pre-pay the same `cost` outside the Action.
+- The event is synchronous. The ownership has changed when the callback runs, but downstream visual and party caches may still be processing; do not immediately destroy or transfer the same ship again.
+- `oldOwner` may be null, and the new owner must satisfy the Action's mobile-party or settlement assumptions. Check before accessing `oldOwner.MobileParty`.
+
+## Real Usage Example
+
+The built-in settlement nameplate notifications listen with this signature:
 
 ```csharp
-// Obtain an instance from the relevant subsystem API
-ShipOwnerChangeDetail instance = ...;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public sealed class ShipOwnerBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnShipOwnerChangedEvent.AddNonSerializedListener(this, OnShipOwnerChanged);
+    }
+
+    private void OnShipOwnerChanged(
+        Ship ship,
+        PartyBase oldOwner,
+        ChangeShipOwnerAction.ShipOwnerChangeDetail detail)
+    {
+        if (detail == ChangeShipOwnerAction.ShipOwnerChangeDetail.ApplyByLooting && ship != null)
+        {
+            RecordLootedShip(ship, oldOwner);
+        }
+    }
+
+    private void RecordLootedShip(Ship ship, PartyBase oldOwner)
+    {
+        // Read the new Owner and update a mod-owned runtime naval index.
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // This example does not persist the transient reason.
+    }
+}
 ```
 
-## See Also
+When a mod genuinely transfers a ship, it should obtain a real `PartyBase` and `Ship` from the campaign and call `ChangeShipOwnerAction.ApplyByTransferring(newOwner, ship)`. Trade should remain responsible for price and gold flow.
 
-- [Area Index](../)
+## Version Note
+
+v1.3.15 and v1.4.5 expose the same five values and `OnShipOwnerChangedEvent` argument order. The v1.4.5 naval source is the authority for the payment, visual, and caller notes here.
+
+## Navigation
+
+- ↑ Parent: [Campaign-Ext API](../)
+- ↔ Siblings: [ChangeShipOwnerAction](../ChangeShipOwnerAction) · [ShipDestroyDetail](../ShipDestroyDetail)
+- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- Related: [PartyBase](../../campaign/PartyBase) · [MobileParty](../../campaign/MobileParty) · [GiveGoldAction](../GiveGoldAction)
+

@@ -89,6 +89,6 @@ The predicate supplies a real `Clan` from the campaign object list. It is intent
 
 ## Navigation
 
-- ↑ [Campaign actions](./) · [API](../)
+- ↑ [Campaign actions](../actions/) · [API](../)
 - ↔ [Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Army](../Army)
 - Related: [DestroyKingdomAction](../DestroyKingdomAction) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [Crash boundaries](../../../architecture/crash-boundaries)

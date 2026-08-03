@@ -72,6 +72,6 @@ The action updates the map and emits the event sequence; callers should not dupl
 
 ## Navigation
 
-- Parent: [Campaign action index](./)
+- Parent: [Campaign action index](../actions/)
 - Siblings: [StartBattleAction](../StartBattleAction) · [DestroyPartyAction](../DestroyPartyAction) · [TakePrisonerAction](../TakePrisonerAction)
 - Related: [Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty) · [CampaignEvents](../CampaignEvents)

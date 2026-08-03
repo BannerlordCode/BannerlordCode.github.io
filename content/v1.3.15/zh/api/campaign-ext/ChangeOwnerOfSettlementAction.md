@@ -73,6 +73,6 @@ public static void GrantSettlement(Hero newOwner, Settlement settlement)
 
 ## 导航
 
-- 父级：[Campaign Action 目录](./)
+- 父级：[Campaign Action 目录](../actions/)
 - 同级：[ChangeKingdomAction](../ChangeKingdomAction) · [StartBattleAction](../StartBattleAction) · [ChangeRelationAction](../ChangeRelationAction)
 - 相关：[Settlement](../../campaign/Settlement) · [Hero](../../campaign/Hero) · [CampaignEvents](../CampaignEvents)

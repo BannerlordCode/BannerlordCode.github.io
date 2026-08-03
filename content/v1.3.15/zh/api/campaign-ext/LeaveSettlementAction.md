@@ -107,6 +107,6 @@ public void OnPlayerCharacterChanged(out bool isMainPartyChanged)
 
 ## 导航
 
-- 父级：[campaign-ext 目录](./)
+- 父级：[campaign-ext 目录](../)
 - 同级：[EnterSettlementAction](../EnterSettlementAction) · [TeleportHeroAction](../TeleportHeroAction) · [DestroyPartyAction](../DestroyPartyAction)
 - 相关：[MobileParty](../../campaign/MobileParty) · [Hero](../../campaign/Hero) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore)

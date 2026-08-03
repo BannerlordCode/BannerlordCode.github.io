@@ -97,6 +97,6 @@ The official implementation reads the diplomacy model and charges the player onl
 
 ## Navigation
 
-- ↑ [Campaign actions](./) · [API](../)
+- ↑ [Campaign actions](../actions/) · [API](../)
 - ↔ [Army](../Army) · [Kingdom](../../campaign/Kingdom) · [MobileParty](../../campaign/MobileParty) · [Clan](../../campaign/Clan)
 - Related: [ChangeClanInfluenceAction](../ChangeClanInfluenceAction) · [ChangeRelationAction](../ChangeRelationAction) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [Crash boundaries](../../../architecture/crash-boundaries)

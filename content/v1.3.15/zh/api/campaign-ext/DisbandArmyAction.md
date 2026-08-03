@@ -101,6 +101,6 @@ public void ReleasePlayerArmyAfterBattle()
 
 ## 导航
 
-- ↑ [战役 Actions](./) · [API](../)
+- ↑ [战役 Actions](../actions/) · [API](../)
 - ↔ [Army](../Army) · [Kingdom](../../campaign/Kingdom) · [MobileParty](../../campaign/MobileParty) · [Clan](../../campaign/Clan)
 - 相关：[ChangeClanInfluenceAction](../ChangeClanInfluenceAction) · [ChangeRelationAction](../ChangeRelationAction) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [崩溃边界](../../../architecture/crash-boundaries)

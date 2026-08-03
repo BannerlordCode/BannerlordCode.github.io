@@ -118,7 +118,7 @@ if (mission != null && mission.CurrentState == Mission.State.Continuing)
 
 ## 导航
 
-- [↑ Mission API 模块](./)
+- [↑ Mission API 模块](../)
 - [↔ MissionBehavior](../MissionBehavior/)
 - [↔ Agent](../Agent/) · [Team](../Team/) · [Formation](../Formation/)
 - [↓ MissionLogic](../../mission-ext/MissionLogic/)

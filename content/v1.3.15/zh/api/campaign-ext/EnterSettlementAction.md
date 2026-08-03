@@ -72,6 +72,6 @@ Action 会同时更新地图和事件顺序，调用者不应复制这些写入�
 
 ## 导航
 
-- 父级：[Campaign Action 目录](./)
+- 父级：[Campaign Action 目录](../actions/)
 - 同级：[StartBattleAction](../StartBattleAction) · [DestroyPartyAction](../DestroyPartyAction) · [TakePrisonerAction](../TakePrisonerAction)
 - 相关：[Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty) · [CampaignEvents](../CampaignEvents)

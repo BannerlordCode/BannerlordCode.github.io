@@ -1,65 +1,78 @@
 ---
 title: "SettlementPatrolModel"
-description: "Auto-generated class reference for SettlementPatrolModel."
+description: "The model contract for patrol eligibility, spawn timing, and settlement patrol-party templates."
 ---
 # SettlementPatrolModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementPatrolModel : MBGameModel<SettlementPatrolModel>`
-**Base:** `MBGameModel<SettlementPatrolModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementPatrolModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementPatrolModel : MBGameModel<SettlementPatrolModel>`  
+**Base:** `MBGameModel<SettlementPatrolModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementPatrolModel.cs`
 
-## Overview
+## One-line job
 
-`SettlementPatrolModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SettlementPatrolModel` supplies patrol spawn delay, settlement eligibility, and the party template used by patrol behavior. It does not create a `MobileParty` or destroy an existing patrol.
 
 ## Mental Model
 
-Treat `SettlementPatrolModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`PatrolPartiesCampaignBehavior` owns the lifecycle. During campaign ticks it asks the Model for eligibility, keeps a generation queue, obtains a template, and only then calls `PatrolPartyComponent.CreatePatrolParty`. Thus `CanSettlementHavePatrolParties` is the gate, `GetPatrolPartySpawnDuration` is the queue delay, and `GetPartyTemplateForPatrolParty` is the spawn configuration. Calling the template method a factory bypasses queue and cleanup behavior.
 
-## Key Methods
+## Dependencies and consumers
 
-### GetPatrolPartySpawnDuration
-`public abstract CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)`
+| Type or flow | Relationship |
+| --- | --- |
+| [`GameModels`](../GameModels) / [`Campaign`](../../campaign/Campaign) | Provides the active registered patrol policy. |
+| [`Settlement`](../../campaign/Settlement) / [`Town`](../../campaign/Town) | Supply owner, town kind, buildings, and gate/port context. |
+| Settlement Guard House / `BuildingEffectModel` | Supply eligibility, interval, and patrol strength. |
+| `PatrolPartiesCampaignBehavior` | Maintains the queue, creates patrol parties, and removes invalid parties with `DestroyPartyAction`. |
 
-**Purpose:** Reads and returns the patrol party spawn duration value held by the this instance.
+## Public contract
 
-```csharp
-// Obtain an instance of SettlementPatrolModel from the subsystem API first
-SettlementPatrolModel settlementPatrolModel = ...;
-var result = settlementPatrolModel.GetPatrolPartySpawnDuration(settlement, false);
-```
+| Member | Actual responsibility and timing |
+| --- | --- |
+| `GetPatrolPartySpawnDuration(Settlement, bool)` | Returns the `CampaignTime` delay before the next patrol spawn. |
+| `CanSettlementHavePatrolParties(Settlement, bool)` | Checks whether the settlement currently qualifies. |
+| `GetPartyTemplateForPatrolParty(Settlement, bool)` | Returns the `PartyTemplateObject` for a patrol; may be null when ineligible. |
 
-### CanSettlementHavePatrolParties
-`public abstract bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)`
-
-**Purpose:** Checks whether the this instance meets the preconditions for settlement have patrol parties.
-
-```csharp
-// Obtain an instance of SettlementPatrolModel from the subsystem API first
-SettlementPatrolModel settlementPatrolModel = ...;
-var result = settlementPatrolModel.CanSettlementHavePatrolParties(settlement, false);
-```
-
-### GetPartyTemplateForPatrolParty
-`public abstract PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)`
-
-**Purpose:** Reads and returns the party template for patrol party value held by the this instance.
+## Real access path
 
 ```csharp
-// Obtain an instance of SettlementPatrolModel from the subsystem API first
-SettlementPatrolModel settlementPatrolModel = ...;
-var result = settlementPatrolModel.GetPartyTemplateForPatrolParty(settlement, false);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+Settlement settlement = Settlement.All
+    .FirstOrDefault(candidate => candidate.IsTown && candidate.Town != null);
+if (settlement != null)
+{
+    SettlementPatrolModel model = Campaign.Current.Models.SettlementPatrolModel;
+    bool eligible = model.CanSettlementHavePatrolParties(settlement, naval: false);
+    if (eligible)
+    {
+        CampaignTime delay = model.GetPatrolPartySpawnDuration(settlement, naval: false);
+        PartyTemplateObject template = model
+            .GetPartyTemplateForPatrolParty(settlement, naval: false);
+    }
+}
 ```
 
-## Usage Example
+This is a state preview. Let `PatrolPartiesCampaignBehavior` perform actual spawning; do not create parties from UI or a daily callback.
 
-```csharp
-// Typically obtained from a subsystem API or factory
-SettlementPatrolModel instance = ...;
-```
+## Risks and version boundary
 
-## See Also
+- The default requires a non-rebel town with an owner and an upgraded Guard House; an ineligible settlement can return a null template.
+- `naval` is part of the public contract. The 1.4.5 land implementation mainly uses the Guard House path, but a replacement must define its naval behavior explicitly.
+- The queue, spawn position, cleanup, and save state belong to the Behavior. Creating a party in the Model causes duplicate or orphaned parties.
+- Removing eligibility can cause the Behavior to call `DestroyPartyAction`; validate cleanup of existing patrols when replacing the policy.
 
-- [Area Index](../)
+## Navigation
+
+- [Parent: Campaign-Ext](..)
+- [Sibling: Models family](../models/)
+- [Default: DefaultSettlementPatrolModel](../DefaultSettlementPatrolModel)
+- [Related: SettlementGarrisonModel](../SettlementGarrisonModel) · [CampaignTime](../CampaignTime)
+- [Downstream: Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty)
+

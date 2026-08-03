@@ -77,6 +77,6 @@ public static class WarScript
 
 ## 导航
 
-- ↑ 父级：[Actions 目录](./)
+- ↑ 父级：[Actions 目录](../actions/)
 - ↔ 同级：[MakePeaceAction](../MakePeaceAction) · [ChangeKingdomAction](../ChangeKingdomAction) · [ChangeRelationAction](../ChangeRelationAction)
 - 相关：[Kingdom](../../campaign/Kingdom) · [Clan](../../campaign/Clan) · [CampaignEvents](../CampaignEvents)

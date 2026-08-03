@@ -1,107 +1,98 @@
 ---
 title: "DefaultSettlementSecurityModel"
-description: "DefaultSettlementSecurityModel 的自动生成类参考。"
+description: "默认城镇治安漂移、附近战斗影响和税收因素的源码驱动实现。"
 ---
 # DefaultSettlementSecurityModel
 
-**Namespace:** TaleWorlds.CampaignSystem.GameComponents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class DefaultSettlementSecurityModel : SettlementSecurityModel`
-**Base:** `SettlementSecurityModel`
-**File:** `TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementSecurityModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.GameComponents`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class DefaultSettlementSecurityModel : SettlementSecurityModel`  
+**Base:** [`SettlementSecurityModel`](../SettlementSecurityModel)  
+**Source:** `TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementSecurityModel.cs`（1.4.5 权威源码；1.3.15 同名实现）
 
-## 概述
+## 一句话职责
 
-`DefaultSettlementSecurityModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`DefaultSettlementSecurityModel` 计算城镇每日治安变化，并把附近劫掠、击败土匪、驻军、繁荣、政策、问题、建筑、巡逻队和 Perk 转成可解释因素。它还提供税收因子，但不直接写 `Town.Security`。
 
 ## 心智模型
 
-把 `DefaultSettlementSecurityModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`Town.SecurityChange` 与解释属性读取 `Campaign.Current.Models.SettlementSecurityModel`。每日城镇 tick 才会把结果写回治安状态；`TownSecurityCampaignBehavior` 负责在地图事件和据点清理事件之后应用附近战斗的直接增减。因此 `CalculateSecurityChange`、附近战斗效果和税收效果是三个不同的契约，不能把它们合并成一个 setter。
 
-## 主要属性
+默认每日公式依次考虑附近 hideout、被劫掠村庄、围城、繁荣、驻军、政策、总督、项目、问题、Perk、治安漂移和巡逻队。驻军强度还会经 `MilitaryPowerModel` 计算，说明项用于 UI 和调试。
 
-| Name | Signature |
-|------|-----------|
-| `MaximumSecurityInSettlement` | `public override int MaximumSecurityInSettlement { get; }` |
-| `SecurityDriftMedium` | `public override int SecurityDriftMedium { get; }` |
-| `MapEventSecurityEffectRadius` | `public override float MapEventSecurityEffectRadius { get; }` |
-| `HideoutClearedSecurityEffectRadius` | `public override float HideoutClearedSecurityEffectRadius { get; }` |
-| `HideoutClearedSecurityGain` | `public override int HideoutClearedSecurityGain { get; }` |
-| `ThresholdForTaxCorruption` | `public override int ThresholdForTaxCorruption { get; }` |
-| `ThresholdForHigherTaxCorruption` | `public override int ThresholdForHigherTaxCorruption { get; }` |
-| `ThresholdForTaxBoost` | `public override int ThresholdForTaxBoost { get; }` |
-| `SettlementTaxBoostPercentage` | `public override int SettlementTaxBoostPercentage { get; }` |
-| `SettlementTaxPenaltyPercentage` | `public override int SettlementTaxPenaltyPercentage { get; }` |
-| `ThresholdForNotableRelationBonus` | `public override int ThresholdForNotableRelationBonus { get; }` |
-| `ThresholdForNotableRelationPenalty` | `public override int ThresholdForNotableRelationPenalty { get; }` |
-| `DailyNotableRelationBonus` | `public override int DailyNotableRelationBonus { get; }` |
-| `DailyNotableRelationPenalty` | `public override int DailyNotableRelationPenalty { get; }` |
-| `DailyNotablePowerBonus` | `public override int DailyNotablePowerBonus { get; }` |
-| `DailyNotablePowerPenalty` | `public override int DailyNotablePowerPenalty { get; }` |
+## 依赖与消费链
 
-## 主要方法
+| 类型/流程 | 关系 |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) / [`GameModels`](../GameModels) | 提供已注册的治安 Model 与地图时间/距离上下文。 |
+| [`Town`](../../campaign/Town) | 提供治安、繁荣、驻军、建筑、帮派和所有者状态，并暴露 `SecurityChange`。 |
+| [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) | 使用治安阈值和高/低治安忠诚因素。 |
+| `TownSecurityCampaignBehavior` / [`MapEvent`](../../campaign/MapEvent) | 使用半径与附近战斗效果，并负责写入治安。 |
+| `DefaultSettlementTaxModel` | 使用高治安加税和低治安腐败因子。 |
 
-### CalculateSecurityChange
-`public override ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
+## 默认契约与公式锚点
 
-**用途 / Purpose:** 计算security change的当前值或结果。
+| 成员 | 1.4.5 默认值 | 含义 |
+| --- | ---: | --- |
+| `MaximumSecurityInSettlement` / `SecurityDriftMedium` | `100` / `50` | 治安上界与漂移中心。 |
+| `MapEventSecurityEffectRadius` | `50f` | 地图事件影响城镇的距离半径。 |
+| `HideoutClearedSecurityEffectRadius` / `HideoutClearedSecurityGain` | `100f` / `6` | 清理 hideout 后的范围与治安增益。 |
+| `ThresholdForTaxBoost` | `75` | 高治安税收加成起点。 |
+| `ThresholdForTaxCorruption` / `ThresholdForHigherTaxCorruption` | `50` / `0` | 低治安税收惩罚区间。 |
+| `SettlementTaxBoostPercentage` / `SettlementTaxPenaltyPercentage` | `5` / `10` | 高治安加成和低治安惩罚百分比。 |
+| `ThresholdForNotableRelationBonus` / `ThresholdForNotableRelationPenalty` | `75` / `50` | 名人关系效果的治安边界。 |
+| `DailyNotableRelationBonus` / `DailyNotableRelationPenalty` | `1` / `-1` | 每日关系因素。 |
+| `DailyNotablePowerBonus` / `DailyNotablePowerPenalty` | `1` / `-1` | 每日影响力因素。 |
 
-```csharp
-// 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
-DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
-var result = defaultSettlementSecurityModel.CalculateSecurityChange(town, false);
-```
+默认实现的主要常量包括：被劫掠村庄 `-2`、围城 `-3`、附近 hideout `-2`，繁荣对治安最多 `-5` 且每点繁荣为 `-0.0005`，治安漂移为 `-(security - 50) / 15`。驻军、政策、建筑、问题和 Perk 会继续添加 `ExplainedNumber` 项；没有驻军或没有有效巡逻队时相应分支为零。
 
-### GetLootedNearbyPartySecurityEffect
-`public override float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
+`GetLootedNearbyPartySecurityEffect` 返回 `-0.005 * strength`，`GetNearbyBanditPartyDefeatedSecurityEffect` 返回 `0.005 * strength`。它们只计算事件影响，不判断事件是否合法，也不执行 `+=`。
 
-**用途 / Purpose:** 读取并返回当前对象中 looted nearby party security effect 的结果。
+## 真实获取与替换
 
 ```csharp
-// 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
-DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
-var result = defaultSettlementSecurityModel.GetLootedNearbyPartySecurityEffect(town, 0);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Core;
+
+Campaign campaign = Campaign.Current;
+SettlementSecurityModel model = campaign.Models.SettlementSecurityModel;
+Town town = Town.AllTowns.FirstOrDefault();
+if (town != null)
+{
+    ExplainedNumber change = model.CalculateSecurityChange(town, includeDescriptions: true);
+    float banditEffect = model.GetNearbyBanditPartyDefeatedSecurityEffect(town, 20f);
+}
 ```
 
-### GetNearbyBanditPartyDefeatedSecurityEffect
-`public override float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
-
-**用途 / Purpose:** 读取并返回当前对象中 nearby bandit party defeated security effect 的结果。
+替换时使用抽象接口注册，而不是在地图事件中 `new` 一个临时实例：
 
 ```csharp
-// 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
-DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
-var result = defaultSettlementSecurityModel.GetNearbyBanditPartyDefeatedSecurityEffect(town, 0);
+public sealed class ModSettlementSecurityModel : DefaultSettlementSecurityModel
+{
+    public override float HideoutClearedSecurityEffectRadius => 120f;
+}
+
+public override void InitializeGameStarter(Game game, IGameStarter gameStarter)
+{
+    gameStarter.AddModel(new ModSettlementSecurityModel());
+}
 ```
 
-### CalculateGoldGainDueToHighSecurity
-`public override void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
+## 风险与版本边界
 
-**用途 / Purpose:** 计算gold gain due to high security的当前值或结果。
+- 模型返回值会被 UI、每日 tick 和事件 Behavior 重复读取，不能在计算中调用 Action 或修改城镇。
+- `MapEventSecurityEffectRadius` 和 hideout 半径按世界地图距离使用平方比较；把它当作 `float` 数值增益会造成错误影响范围。
+- 驻军强度依赖 `MilitaryPowerModel`，替换多个 Model 时要检查递归依赖和总量单位。
+- 修改治安阈值时必须同步检查忠诚和税收页面；治安状态本身由 `Town` 保存，不属于无状态 Model。
+- 本页公式和数值以 1.4.5 `Bannerlord.Source/bin` 为准，1.3.15 发布前需复核对应 DLL。
 
-```csharp
-// 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
-DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
-defaultSettlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explainedNumber);
-```
+## 导航
 
-### CalculateGoldCutDueToLowSecurity
-`public override void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
-
-**用途 / Purpose:** 计算gold cut due to low security的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 DefaultSettlementSecurityModel 实例
-DefaultSettlementSecurityModel defaultSettlementSecurityModel = ...;
-defaultSettlementSecurityModel.CalculateGoldCutDueToLowSecurity(town, explainedNumber);
-```
-
-## 使用示例
-
-```csharp
-Game.Current.ReplaceModel<DefaultSettlementSecurityModel>(new MyDefaultSettlementSecurityModel());
-```
-
-## 参见
-
-- [本区域目录](../)
+- [上级：Campaign-Ext](..)
+- [同级：Models 家族](../models/)
+- [接口契约：SettlementSecurityModel](../SettlementSecurityModel)
+- [相关：SettlementLoyaltyModel](../SettlementLoyaltyModel) · [SettlementProsperityModel](../SettlementProsperityModel)
+- [事件输入：MapEvent](../../campaign/MapEvent)

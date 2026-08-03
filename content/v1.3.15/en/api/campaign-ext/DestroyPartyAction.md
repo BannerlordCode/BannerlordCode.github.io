@@ -69,6 +69,6 @@ For a planned disband, call `ApplyForDisbanding` with the related settlement so 
 
 ## Navigation
 
-- Parent: [Campaign action index](./)
+- Parent: [Campaign action index](../actions/)
 - Siblings: [AddHeroToPartyAction](../AddHeroToPartyAction) · [EnterSettlementAction](../EnterSettlementAction) · [KillCharacterAction](../KillCharacterAction)
 - Related: [MobileParty](../../campaign/MobileParty) · [PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents)

@@ -73,6 +73,6 @@ Use the gift overload only when the campaign rule really is a gift; the reason c
 
 ## Navigation
 
-- Parent: [Campaign action index](./)
+- Parent: [Campaign action index](../actions/)
 - Siblings: [ChangeKingdomAction](../ChangeKingdomAction) · [StartBattleAction](../StartBattleAction) · [ChangeRelationAction](../ChangeRelationAction)
 - Related: [Settlement](../../campaign/Settlement) · [Hero](../../campaign/Hero) · [CampaignEvents](../CampaignEvents)

@@ -1,34 +1,100 @@
 ---
 title: "SiegeAftermath"
-description: "Auto-generated campaign action reference for SiegeAftermath."
+description: "The SiegeAftermathAction.SiegeAftermath enum for siege resolution, connecting the player's choice to contribution data, settlement economy, and event logs."
 ---
 # SiegeAftermath
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions
-**Module:** TaleWorlds.CampaignSystem
-**Type:** static class
-**File:** `TaleWorlds.CampaignSystem/Actions/SiegeAftermathAction.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Actions`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public enum SiegeAftermathAction.SiegeAftermath` (nested enum)  
+**Base:** `System.Enum`  
+**Source:** `TaleWorlds.CampaignSystem/Actions/SiegeAftermathAction.cs`
 
-SiegeAftermath is a set of static methods that trigger "SiegeAftermath" in the campaign for a specific reason. Mods call its `Apply*` overloads to change game state (one per reason).
+## One-line responsibility
 
-## Methods
+Mark the `Devastate`, `Pillage`, or `ShowMercy` choice after a siege and carry it with party contributions to the behavior that applies the aftermath.
 
-### ApplyAftermath
+## Mental Model
+
+This enum is not settlement prosperity and does not perform pillage by itself. `SiegeAftermathAction.ApplyAftermath` receives the attacker, settlement, previous owner, and `Dictionary<MobileParty, float>` contribution map, then passes `SiegeAftermathAction.SiegeAftermath` to `CampaignEventDispatcher.OnSiegeAftermathApplied`. `SiegeAftermathCampaignBehavior` and other listeners apply the actual prosperity, building, militia, influence, log, and menu consequences.
+
+Call `ApplyAftermath` at the siege-resolution boundary while the contribution map still belongs to the current `MapEvent`. Do not treat the enum as a setter that can devastate a settlement independently of the campaign behavior.
+
+## Enum Values and Timing
+
+| Value | Typical entry | Downstream meaning |
+|---|---|---|
+| `Devastate` | `SiegeAftermathAction.ApplyAftermath` | Select the harshest post-siege branch, normally carrying destruction or economic penalties. |
+| `Pillage` | `SiegeAftermathAction.ApplyAftermath` | Select the pillage branch whose loot and economic effects are handled downstream. |
+| `ShowMercy` | `SiegeAftermathAction.ApplyAftermath` | Select the less destructive aftermath branch. |
+
+The enum contains no cost, prosperity delta, or reward amount; those are calculated by the active campaign behavior and models.
+
+## Dependencies and Event Consumers
+
+- **Upstream:** [`SiegeAftermathAction`](../SiegeAftermathAction), [`SiegeEvent`](../SiegeEvent/), [`MobileParty`](../../campaign/MobileParty), and [`Settlement`](../../campaign/Settlement).
+- **Contribution data:** `Dictionary<MobileParty, float>` must come from the current siege battle; do not reuse another map event's contribution map.
+- **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnSiegeAftermathAppliedEvent` as `IMbEvent<MobileParty, Settlement, SiegeAftermathAction.SiegeAftermath, Clan, Dictionary<MobileParty, float>>`.
+- **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), `SiegeAftermathCampaignBehavior`, default logs, and building/prosperity/militia models consume the choice.
+- **Save boundary:** Resulting settlement and log state may be saved; the event and transient contribution map are not replayed after load.
+
+## Risks and Lifetime
+
+- Publishing `OnSiegeAftermathAppliedEvent` without the Action breaks the normal ordering of siege state; calling the Action alone does not implement custom economic consequences for a mod.
+- The attacker, settlement, previous owner, and contribution map must describe the same siege. Mismatched objects can credit rewards, logs, or damage to the wrong settlement.
+- The event synchronously reaches several behaviors. Calling the same aftermath Action from a listener can duplicate prosperity changes, logs, or rewards.
+- The menu and siege data live near the `MapEvent` end boundary. Do not keep old event or party references and replay the choice later.
+
+## Real Usage Example
+
+The built-in `DefaultLogsCampaignBehavior` registers the same event signature:
 
 ```csharp
-public static void ApplyAftermath(MobileParty attackerParty, Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermathType, Clan previousSettlementOwner, Dictionary<MobileParty, float> partyContributions)
+using System.Collections.Generic;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public sealed class SiegeAftermathBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnSiegeAftermathAppliedEvent.AddNonSerializedListener(this, OnSiegeAftermathApplied);
+    }
+
+    private void OnSiegeAftermathApplied(
+        MobileParty attackerParty,
+        Settlement settlement,
+        SiegeAftermathAction.SiegeAftermath aftermath,
+        Clan previousSettlementOwner,
+        Dictionary<MobileParty, float> partyContributions)
+    {
+        if (settlement != null && partyContributions != null)
+        {
+            RecordAftermath(settlement, aftermath, partyContributions);
+        }
+    }
+
+    private void RecordAftermath(Settlement settlement, SiegeAftermathAction.SiegeAftermath aftermath, Dictionary<MobileParty, float> partyContributions)
+    {
+        // Update mod-owned log or analysis state from this siege's inputs.
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // This example does not save the transient contribution map.
+    }
+}
 ```
 
-**Purpose:** Applies the effect of aftermath to the this instance.
+A mod with a valid siege-resolution entry should call `SiegeAftermathAction.ApplyAftermath(attackerParty, settlement, aftermath, previousSettlementOwner, partyContributions)`, not write an aftermath value into `Settlement`.
 
-## Usage Example
+## Version Note
 
-```csharp
-// Trigger this action from a mod
-SiegeAftermath.ApplyAftermath(attackerParty, settlement, aftermathType, previousSettlementOwner, dictionary<MobileParty, 100);
-```
+v1.3.15 and v1.4.5 use the nested type `SiegeAftermathAction.SiegeAftermath` with `Devastate`, `Pillage`, and `ShowMercy`. The v1.4.5 siege behavior is the authority for the downstream notes here.
 
-## See Also
+## Navigation
 
-- [Area Index](../)
-- [Campaign System](../../campaign/)
+- ↑ Parent: [Campaign-Ext API](../)
+- ↔ Siblings: [SiegeAftermathAction](../SiegeAftermathAction) · [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
+- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- Related: [SiegeEvent](../SiegeEvent/) · [Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty)

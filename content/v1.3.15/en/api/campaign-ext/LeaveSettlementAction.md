@@ -107,6 +107,6 @@ This v1.3.15 page keeps the v1.3.15 route and exact public entries, while the re
 
 ## Navigation
 
-- Parent: [campaign-ext index](./)
+- Parent: [campaign-ext index](../)
 - Siblings: [EnterSettlementAction](../EnterSettlementAction) · [TeleportHeroAction](../TeleportHeroAction) · [DestroyPartyAction](../DestroyPartyAction)
 - Related: [MobileParty](../../campaign/MobileParty) · [Hero](../../campaign/Hero) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore)

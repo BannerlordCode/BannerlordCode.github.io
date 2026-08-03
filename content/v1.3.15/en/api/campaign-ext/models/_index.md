@@ -76,8 +76,6 @@ The table covers the highest-risk interface/default pairs in this family. `Purpo
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementLoyaltyModel](../DefaultSettlementLoyaltyModel) | Applies culture, governor, policy, and event factors to vanilla loyalty. | Settlement daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementSecurityModel](../SettlementSecurityModel) | Computes security change and its crime, rebellion, and prosperity inputs. | Daily settlement settlement |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementSecurityModel](../DefaultSettlementSecurityModel) | Provides the default garrison, gang, and crime security formula. | Campaign daily tick |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementMilitiaModel](../SettlementMilitiaModel) | Calculates militia growth, cap, and battle-ready count. | Daily update and siege assessment |
-| TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementMilitiaModel](../DefaultSettlementMilitiaModel) | Combines loyalty, buildings, and village contribution into militia change. | Settlement daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementProsperityModel](../SettlementProsperityModel) | Calculates prosperity change with food, loyalty, and trade explanations. | Daily settlement economy |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementProsperityModel](../DefaultSettlementProsperityModel) | Implements vanilla prosperity growth, decay, and loyalty effects. | Campaign daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementEconomyModel](../SettlementEconomyModel) | Evaluates settlement production, demand, and market outcomes. | Daily economy and trade UI |

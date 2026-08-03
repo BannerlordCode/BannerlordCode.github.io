@@ -217,7 +217,7 @@ DeclareWarAction.ApplyByDefault(kingdomA, kingdomB);
 ## ↑ Parent Navigation
 
 - [Actions — campaign world-change family](../actions-index) — **parent of this page**
-- [campaign-ext area](./)  
+- [campaign-ext area](../)  
 - [API index](../)  
 - [Crash and save boundaries §2](../../../architecture/crash-boundaries)  
 - [Doc contract](../../../architecture/doc-contract)

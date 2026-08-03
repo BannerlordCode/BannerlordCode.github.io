@@ -70,6 +70,6 @@ public static void Capture(PartyBase capturer, Hero target)
 
 ## 导航
 
-- 父级：[Campaign Action 目录](./)
+- 父级：[Campaign Action 目录](../actions/)
 - 同级：[KillCharacterAction](../KillCharacterAction) · [EnterSettlementAction](../EnterSettlementAction) · [AddHeroToPartyAction](../AddHeroToPartyAction)
 - 相关：[Hero](../../campaign/Hero) · [PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents)

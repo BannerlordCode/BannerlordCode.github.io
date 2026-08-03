@@ -82,6 +82,6 @@ public static bool StartFieldFight(MobileParty attacker, MobileParty defender)
 
 ## 导航
 
-- 父级：[Campaign Action 目录](./)
+- 父级：[Campaign Action 目录](../actions/)
 - 同级：[EnterSettlementAction](../EnterSettlementAction) · [TakePrisonerAction](../TakePrisonerAction) · [DestroyPartyAction](../DestroyPartyAction)
 - 相关：[MapEvent](../MapEvent) · [PartyBase](../../campaign/PartyBase) · [MobileParty](../../campaign/MobileParty) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents)

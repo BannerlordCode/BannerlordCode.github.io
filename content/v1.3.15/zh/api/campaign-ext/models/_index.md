@@ -76,12 +76,8 @@ ExplainedNumber loyaltyChange = loyaltyModel.CalculateLoyaltyChange(town, includ
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementLoyaltyModel](../DefaultSettlementLoyaltyModel) | 使用文化、总督、政策和事件实现 vanilla 忠诚度变化。 | Settlement daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementSecurityModel](../SettlementSecurityModel) | 计算安全度变化及其对犯罪、叛乱和繁荣的影响。 | 每日据点结算 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementSecurityModel](../DefaultSettlementSecurityModel) | 提供默认驻军、帮派和犯罪因素的安全度公式。 | Campaign daily tick |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementMilitiaModel](../SettlementMilitiaModel) | 计算民兵增长、上限和战斗可用数量。 | 每日据点更新与围城前评估 |
-| TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementMilitiaModel](../DefaultSettlementMilitiaModel) | 将忠诚度、建筑和村庄贡献组合成 vanilla 民兵变化。 | Settlement daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementProsperityModel](../SettlementProsperityModel) | 计算繁荣度变化及粮食、忠诚和交易解释项。 | 每日据点结算 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementProsperityModel](../DefaultSettlementProsperityModel) | 实现 vanilla 繁荣增长/衰减与忠诚度影响。 | Campaign daily tick |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [SettlementEconomyModel](../SettlementEconomyModel) | 评估据点经济活动、生产和市场结果。 | 每日经济更新与交易 UI |
-| TaleWorlds.CampaignSystem.GameComponents | [DefaultSettlementEconomyModel](../DefaultSettlementEconomyModel) | 使用 vanilla 生产链和需求实现据点经济计算。 | Settlement daily tick |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [BuildingModel](../BuildingModel) | 判断建筑类型可用性及其对据点的效果。 | 建筑队列、城镇管理和存档加载 |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultBuildingModel](../DefaultBuildingModel) | 提供默认建筑类别、前置条件与效果查询。 | `BuildingsCampaignBehavior` 注册/读取 |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [BuildingConstructionModel](../BuildingConstructionModel) | 计算建筑施工速度、资源消耗和完成时间。 | 每日建筑推进 |

@@ -93,6 +93,6 @@ public void RemoveDefeatedRebelClan()
 
 ## 导航
 
-- ↑ [战役 Actions](./) · [API](../)
+- ↑ [战役 Actions](../actions/) · [API](../)
 - ↔ [Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Army](../Army)
 - 相关：[DestroyKingdomAction](../DestroyKingdomAction) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [崩溃边界](../../../architecture/crash-boundaries)

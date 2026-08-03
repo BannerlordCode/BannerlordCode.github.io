@@ -155,7 +155,7 @@ public sealed class BossDefeatLogic : MissionLogic
 
 ## 导航
 
-- [↑ Mission extension 模块](./)
+- [↑ Mission extension 模块](../)
 - [↔ Mission](../../mission/Mission/)
 - [↔ MissionBehavior](../../mission/MissionBehavior/)
 - [相关 Agent](../../mission/Agent/) · [Team](../../mission/Team/) · [Formation](../../mission/Formation/)

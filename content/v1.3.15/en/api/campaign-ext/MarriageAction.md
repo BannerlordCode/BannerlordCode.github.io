@@ -69,6 +69,6 @@ The model remains the authority for suitability and clan placement; the caller o
 
 ## Navigation
 
-- Parent: [Campaign action index](./)
+- Parent: [Campaign action index](../actions/)
 - Siblings: [ChangeRelationAction](../ChangeRelationAction) · [ChangeKingdomAction](../ChangeKingdomAction) · [KillCharacterAction](../KillCharacterAction)
 - Related: [Hero](../../campaign/Hero) · [Clan](../../campaign/Clan) · [CampaignEvents](../CampaignEvents)

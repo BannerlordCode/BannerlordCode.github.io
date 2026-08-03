@@ -27,7 +27,7 @@ Think of `MissionBehavior` as a **temporary plugin for the current scene**:
 
 - Created when entering the scene, either by the engine or by your registration, and destroyed when the scene ends.
 - Unlike `CampaignBehaviorBase`, which persists across the campaign map, a `MissionBehavior` only exists for one Mission.
-- It is not created automatically; register it in `MBSubModuleBase.OnGameStart` via `MissionGameStarter.AddBehavior(...)`.
+- It is created by the Mission creation path or attached to an already-running Mission with `Mission.AddMissionBehavior`.
 - Multiple `MissionBehavior`s can run in one scene, each handling different logic.
 
 ## Dependencies
@@ -45,17 +45,24 @@ Think of `MissionBehavior` as a **temporary plugin for the current scene**:
 ## How to Register
 
 ```csharp
-protected override void OnGameStart(Game game, IGameStarter starterObject)
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static Mission OpenCustomMission(string sceneName)
 {
-    base.OnGameStart(game, starterObject);
-    if (starterObject is CampaignGameStarter campaignStarter)
-    {
-        campaignStarter.AddBehavior(new MyCampaignBehavior());
-    }
-    if (starterObject is MissionGameStarter missionStarter)
-    {
-        missionStarter.AddBehavior(new MyMissionBehavior());
-    }
+    return MissionState.OpenNew(
+        "MyMission",
+        new MissionInitializerRecord(sceneName),
+        _ => new MissionBehavior[]
+        {
+            new MyMissionBehavior()
+        });
+}
+
+// If the Mission is already running, use the runtime insertion point instead.
+if (Mission.Current is { CurrentState: Mission.State.Continuing } currentMission)
+{
+    currentMission.AddMissionBehavior(new MyMissionBehavior());
 }
 ```
 
@@ -153,7 +160,7 @@ public override void OnMissionTick(float dt)
 
 ## `BehaviorType`
 
-Override `BehaviorType` to decide the behavior category: `Other`, `Logic`, `Battle`, etc. The category affects call order and whether the engine auto-enables it.
+Every concrete `MissionBehavior` must return one of the v1.3.15 enum values, `Other` or `Logic`. `MissionLogic` already fixes the value to `Logic`; use `Other` for ordinary scene callbacks. The value decides which Mission collection receives the behavior and whether it participates in end-condition polling.
 
 ```csharp
 public override MissionBehaviorType BehaviorType => MissionBehaviorType.Logic;

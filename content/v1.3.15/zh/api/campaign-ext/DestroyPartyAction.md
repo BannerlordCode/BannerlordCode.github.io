@@ -69,6 +69,6 @@ public static void RemoveCaravan(MobileParty caravan)
 
 ## 导航
 
-- 父级：[Campaign Action 目录](./)
+- 父级：[Campaign Action 目录](../actions/)
 - 同级：[AddHeroToPartyAction](../AddHeroToPartyAction) · [EnterSettlementAction](../EnterSettlementAction) · [KillCharacterAction](../KillCharacterAction)
 - 相关：[MobileParty](../../campaign/MobileParty) · [PartyBase](../../campaign/PartyBase) · [CampaignEvents](../CampaignEvents)

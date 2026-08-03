@@ -1,96 +1,89 @@
 ---
 title: "SettlementTaxModel"
-description: "Auto-generated class reference for SettlementTaxModel."
+description: "The replaceable settlement contract for town taxes, village income tax, and trade commission adjustments."
 ---
 # SettlementTaxModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementTaxModel : MBGameModel<SettlementTaxModel>`
-**Base:** `MBGameModel<SettlementTaxModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementTaxModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementTaxModel : MBGameModel<SettlementTaxModel>`  
+**Base:** `MBGameModel<SettlementTaxModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementTaxModel.cs`
 
-## Overview
+## One-line job
 
-`SettlementTaxModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SettlementTaxModel` calculates daily town tax, village market-income tax, town trade commission ratios, and the security-based commission adjustment. It does not add gold to a Clan or Town.
 
 ## Mental Model
 
-Treat `SettlementTaxModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The tax model has two consumers. `DefaultClanFinanceModel` reads `CalculateTownTax` for daily clan finance; the trading Action reads town/village ratios and applies the result to settlement gold and `TradeTaxAccumulated`. The Model answers “how much should be charged”; downstream Behaviors or Actions own the gold mutation.
 
-## Key Properties
+It also connects to [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) and [`SettlementSecurityModel`](../SettlementSecurityModel): town tax uses their thresholds and explained factors, while trade commission is adjusted from security. Replacing tax rules requires checking those adjacent contracts as one chain.
 
-| Name | Signature |
-|------|-----------|
-| `SettlementCommissionRateTown` | `public abstract float SettlementCommissionRateTown { get; }` |
-| `SettlementCommissionRateVillage` | `public abstract float SettlementCommissionRateVillage { get; }` |
-| `SettlementCommissionDecreaseSecurityThreshold` | `public abstract int SettlementCommissionDecreaseSecurityThreshold { get; }` |
-| `MaximumDecreaseBasedOnSecuritySecurity` | `public abstract int MaximumDecreaseBasedOnSecuritySecurity { get; }` |
+## Dependencies and consumers
 
-## Key Methods
+| Type or flow | Relationship |
+| --- | --- |
+| [`GameModels`](../GameModels) / [`Campaign`](../../campaign/Campaign) | Provides the model registered during campaign startup. |
+| [`Town`](../../campaign/Town) / [`Village`](../../campaign/Village) | Supply prosperity, security, loyalty, policies, buildings, and market income. |
+| [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) / [`SettlementSecurityModel`](../SettlementSecurityModel) | Supply tax-bonus and corruption thresholds and factors. |
+| `DefaultClanFinanceModel` / `SellItemsAction` | Consume results and perform clan-finance or trade-commission writes. |
 
-### GetTownTaxRatio
-`public abstract float GetTownTaxRatio(Town town)`
+## Public contract
 
-**Purpose:** Reads and returns the town tax ratio value held by the this instance.
+| Member | Actual responsibility and timing |
+| --- | --- |
+| `SettlementCommissionRateTown` / `SettlementCommissionRateVillage` | Base trade-commission ratios. |
+| `SettlementCommissionDecreaseSecurityThreshold` | Security threshold below which trade commission is reduced. |
+| `MaximumDecreaseBasedOnSecuritySecurity` | Maximum percentage reduction caused by security. |
+| `GetTownTaxRatio(Town)` / `GetVillageTaxRatio(Village)` | Provide the effective ratio for trade or income Actions. |
+| `GetTownCommissionChangeBasedOnSecurity(Town, float)` | Adjust an already calculated commission by town security. |
+| `CalculateTownTax(Town, bool)` | Return an explained daily town-tax result. |
+| `CalculateVillageTaxFromIncome(Village, int)` | Convert village market income into an integer tax amount. |
 
-```csharp
-// Obtain an instance of SettlementTaxModel from the subsystem API first
-SettlementTaxModel settlementTaxModel = ...;
-var result = settlementTaxModel.GetTownTaxRatio(town);
-```
-
-### GetVillageTaxRatio
-`public abstract float GetVillageTaxRatio(Village village)`
-
-**Purpose:** Reads and returns the village tax ratio value held by the this instance.
+## Real access path
 
 ```csharp
-// Obtain an instance of SettlementTaxModel from the subsystem API first
-SettlementTaxModel settlementTaxModel = ...;
-var result = settlementTaxModel.GetVillageTaxRatio(village);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Settlements;
+
+Settlement townSettlement = Settlement.All.FirstOrDefault(settlement => settlement.IsTown);
+Settlement villageSettlement = Settlement.All.FirstOrDefault(settlement => settlement.IsVillage);
+SettlementTaxModel model = Campaign.Current.Models.SettlementTaxModel;
+
+if (townSettlement?.Town != null)
+{
+    Town town = townSettlement.Town;
+    float townRatio = model.GetTownTaxRatio(town);
+    float dailyTax = model.CalculateTownTax(town, includeDescriptions: true).ResultNumber;
+    float adjustedCommission = model
+        .GetTownCommissionChangeBasedOnSecurity(town, 100f);
+}
+
+if (villageSettlement?.Village != null)
+{
+    int villageTax = model.CalculateVillageTaxFromIncome(
+        villageSettlement.Village, marketIncome: 100);
+}
 ```
 
-### GetTownCommissionChangeBasedOnSecurity
-`public abstract float GetTownCommissionChangeBasedOnSecurity(Town town, float commission)`
+Read the model after Campaign startup. Register replacements with `CampaignGameStarter.AddModel`; do not create a temporary instance while a trade transaction is executing.
 
-**Purpose:** Reads and returns the town commission change based on security value held by the this instance.
+## Risks and version boundary
 
-```csharp
-// Obtain an instance of SettlementTaxModel from the subsystem API first
-SettlementTaxModel settlementTaxModel = ...;
-var result = settlementTaxModel.GetTownCommissionChangeBasedOnSecurity(town, 0);
-```
+- `CalculateTownTax` is a daily result, not a balance already deposited into clan finance; applying it twice creates gold.
+- `GetTownCommissionChangeBasedOnSecurity` accepts an already calculated commission, not the trade total; mixing units causes double taxation or negative commission.
+- Low-loyalty and low-security thresholds come from other Models. Changing only the tax ratio can make UI explanations disagree with actual tax.
+- `SellItemsAction` writes settlement gold and accumulated trade tax; the Model must not call `ChangeGold`, `GiveGoldAction`, or mutate `TradeTaxAccumulated`.
+- Policy-dependent ratios and constants are version-specific; use the target version's `DefaultSettlementTaxModel` as authority.
 
-### CalculateTownTax
-`public abstract ExplainedNumber CalculateTownTax(Town town, bool includeDescriptions = false)`
+## Navigation
 
-**Purpose:** Calculates the current value or result of town tax.
+- [Parent: Campaign-Ext](..)
+- [Sibling: Models family](../models/)
+- [Default: DefaultSettlementTaxModel](../DefaultSettlementTaxModel)
+- [Related: SettlementSecurityModel](../SettlementSecurityModel) · [SettlementLoyaltyModel](../SettlementLoyaltyModel)
+- [Downstream: Town](../../campaign/Town) · [ClanFinanceModel](../ClanFinanceModel)
 
-```csharp
-// Obtain an instance of SettlementTaxModel from the subsystem API first
-SettlementTaxModel settlementTaxModel = ...;
-var result = settlementTaxModel.CalculateTownTax(town, false);
-```
-
-### CalculateVillageTaxFromIncome
-`public abstract int CalculateVillageTaxFromIncome(Village village, int marketIncome)`
-
-**Purpose:** Calculates the current value or result of village tax from income.
-
-```csharp
-// Obtain an instance of SettlementTaxModel from the subsystem API first
-SettlementTaxModel settlementTaxModel = ...;
-var result = settlementTaxModel.CalculateVillageTaxFromIncome(village, 0);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-SettlementTaxModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)

@@ -91,6 +91,6 @@ public void EndScenarioKingdom(string kingdomId)
 
 ## Navigation
 
-- ↑ [Campaign actions](./) · [API](../)
+- ↑ [Campaign actions](../actions/) · [API](../)
 - ↔ [Kingdom](../../campaign/Kingdom) · [Clan](../../campaign/Clan) · [Army](../Army)
 - Related: [DestroyClanAction](../DestroyClanAction) · [ChangeKingdomAction](../ChangeKingdomAction) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [Crash boundaries](../../../architecture/crash-boundaries)

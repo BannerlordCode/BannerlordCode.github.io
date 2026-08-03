@@ -11,7 +11,7 @@ description: "启动或取消 MobileParty 的战役解散生命周期，涵盖�
 
 ## 一句话定位
 
-请求战役系统按官方流程移除一个 `MobileParty`：普通部队进入由 Behavior 持有的等待流程，而空部队立即被摧毁。
+请求战役系统按官方流程移除一个 `MobileParty`：普通部队进入由 Behavior 持有的等待流程，而空部队立即被摧毁。它把同步 Action、延迟 Behavior、事件链和终态移除连成可追踪的生命周期。
 
 ## 心智模型
 

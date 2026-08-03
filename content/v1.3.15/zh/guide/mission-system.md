@@ -49,21 +49,21 @@ namespace MyModule.Missions
     // ⭐ 关键：继承 MissionBehavior
     public class MyMissionBehavior : MissionBehavior
     {
-        // 任务开始
-        public override void OnMissionStart()
+        public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+        // Mission 完成统一初始化时调用
+        public override void OnBehaviorInitialize()
         {
-            base.OnMissionStart();
-            
-            // 初始化逻辑
-            Debug.Print("MyMissionBehavior started!");
+            base.OnBehaviorInitialize();
+            // 这里取得 Mission 内的短寿命对象并订阅场景事件
         }
-        
-        // 任务初始化后
-        public override void OnMissionInitialize()
+
+        // 所有行为完成初始化后调用
+        public override void AfterStart()
         {
-            base.OnMissionInitialize();
+            base.AfterStart();
         }
-        
+
         // 每帧调用（早）
         public override void OnPreMissionTick(float dt)
         {
@@ -77,10 +77,11 @@ namespace MyModule.Missions
             base.OnMissionTick(dt);
         }
         
-        // 任务结束
-        public override void OnMissionFinish(bool isHeroParty)
+        // Mission 进入结束流程
+        public override void OnEndMissionInternal()
         {
-            base.OnMissionFinish(isHeroParty);
+            // 解绑场景事件、清空 Agent/Team 缓存
+            base.OnEndMissionInternal();
         }
     }
 }
@@ -121,15 +122,15 @@ if (mission != null && mission.CurrentState == Mission.State.Continuing)
 ```
 Mission 创建
     │
-    ├─► OnMissionStart()         ← 任务开始时
+    ├─► OnBehaviorInitialize()   ← 统一初始化行为
     │
-    ├─► OnMissionInitialize()   ← 任务初始化
+    ├─► EarlyStart() / AfterStart() ← 启动阶段
     │
     ├─► OnPreMissionTick(dt)     ← 每帧早（早于所有Tick）
     │
     ├─► OnMissionTick(dt)        ← 每帧晚（晚于所有Tick）
     │
-    └─► OnMissionFinish()       ← 任务结束时
+    └─► OnEndMissionInternal()   ← 结束清理
 ```
 
 ### 常见 MissionBehavior 类型
@@ -302,55 +303,32 @@ formation.AI.SetBehaviorWeight<ArrowFormationBehavior>(0.8f);
 ```csharp
 public class CustomBattleLogic : MissionBehavior
 {
-    private Team _playerTeam;
-    private Team _enemyTeam;
     private int _killsRequired = 10;
     private int _currentKills = 0;
-    
-    public override void OnMissionStart()
+
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnBehaviorInitialize()
     {
-        base.OnMissionStart();
-        
-        // 创建队伍
-        _playerTeam = Mission.Current.CreateNewTeam(Team.Side.Defender);
-        _enemyTeam = Mission.Current.CreateNewTeam(Team.Side.Attacker);
-        
-        // 初始化敌人
-        SpawnEnemies();
+        base.OnBehaviorInitialize();
     }
-    
+
     public override void OnAgentRemoved(
         Agent affectedAgent,
         Agent affectorAgent,
         AgentState agentState,
         KillingBlow blow)
     {
-        if (affectedAgent.Team == _enemyTeam && affectorAgent != null)
+        if (affectorAgent?.IsMainAgent == true && agentState == AgentState.Killed)
         {
             _currentKills++;
-            
+
             if (_currentKills >= _killsRequired)
             {
-                // 胜利条件达成
-                EndBattle(true);
+                // 这只推进 Mission 状态；需要写入战斗结果时应改用 MissionLogic.MissionEnded
+                Mission.Current?.EndMission();
             }
         }
-    }
-    
-    private void SpawnEnemies()
-    {
-        // 创建敌人 Agent
-        foreach (var spawnPoint in GetEnemySpawnPoints())
-        {
-            Agent enemy = CreateEnemyAgent(spawnPoint);
-            enemy.Team = _enemyTeam;
-        }
-    }
-    
-    private void EndBattle(bool playerWon)
-    {
-        // 结束战斗
-        Mission.Current.EndBattle();
     }
 }
 ```

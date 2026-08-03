@@ -155,7 +155,7 @@ Potentially crashing or save-corrupting patterns include:
 
 ## Navigation
 
-- [↑ Mission extension module](./)
+- [↑ Mission extension module](../)
 - [↔ Mission](../../mission/Mission/)
 - [↔ MissionBehavior](../../mission/MissionBehavior/)
 - [Related Agent](../../mission/Agent/) · [Team](../../mission/Team/) · [Formation](../../mission/Formation/)

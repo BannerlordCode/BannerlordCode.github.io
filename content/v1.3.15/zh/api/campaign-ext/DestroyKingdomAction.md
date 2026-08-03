@@ -95,6 +95,6 @@ public void EndScenarioKingdom(string kingdomId)
 
 ## 导航
 
-- ↑ [战役 Actions](./) · [API](../)
+- ↑ [战役 Actions](../actions/) · [API](../)
 - ↔ [Kingdom](../../campaign/Kingdom) · [Clan](../../campaign/Clan) · [Army](../Army)
 - 相关：[DestroyClanAction](../DestroyClanAction) · [ChangeKingdomAction](../ChangeKingdomAction) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [崩溃边界](../../../architecture/crash-boundaries)

@@ -118,7 +118,7 @@ if (mission != null && mission.CurrentState == Mission.State.Continuing)
 
 ## Navigation
 
-- [↑ Mission API module](./)
+- [↑ Mission API module](../)
 - [↔ MissionBehavior](../MissionBehavior/)
 - [↔ Agent](../Agent/) · [Team](../Team/) · [Formation](../Formation/)
 - [↓ MissionLogic](../../mission-ext/MissionLogic/)

@@ -1,64 +1,81 @@
 ---
 title: "DefaultSettlementPatrolModel"
-description: "Auto-generated class reference for DefaultSettlementPatrolModel."
+description: "Bannerlord's default Guard House patrol eligibility, spawn interval, and culture-template selection."
 ---
 # DefaultSettlementPatrolModel
 
-**Namespace:** TaleWorlds.CampaignSystem.GameComponents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class DefaultSettlementPatrolModel : SettlementPatrolModel`
-**Base:** `SettlementPatrolModel`
-**File:** `TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementPatrolModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.GameComponents`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class DefaultSettlementPatrolModel : SettlementPatrolModel`  
+**Base:** [`SettlementPatrolModel`](../SettlementPatrolModel)  
+**Source:** `TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementPatrolModel.cs` (1.4.5 authority)
 
-## Overview
+## One-line job
 
-`DefaultSettlementPatrolModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`DefaultSettlementPatrolModel` uses settlement ownership, rebel state, Guard House level, and patrol-strength building effects to determine patrol eligibility, delay, and culture template.
 
 ## Mental Model
 
-Treat `DefaultSettlementPatrolModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The default implementation is query-only: it searches `Town.Buildings` for a levelled `SettlementGuardHouse`. An eligible non-rebel town waits less time as the Guard House level rises, and `PatrolPartyStrength` maps to the owning culture's weak, moderate, or strong patrol template. `PatrolPartiesCampaignBehavior` still queues and creates the party.
 
-## Key Methods
+The 1.4.5 default does not implement a separate naval-template branch, but callers must still pass the contract's `naval` argument. A custom naval policy should make that difference explicit.
 
-### GetPatrolPartySpawnDuration
-`public override CampaignTime GetPatrolPartySpawnDuration(Settlement settlement, bool naval)`
+## Dependencies and consumers
 
-**Purpose:** Reads and returns the patrol party spawn duration value held by the this instance.
+| Type or flow | Relationship |
+| --- | --- |
+| [`SettlementPatrolModel`](../SettlementPatrolModel) / [`GameModels`](../GameModels) | Contract and registered access path. |
+| [`Settlement`](../../campaign/Settlement) / [`Town`](../../campaign/Town) | Supply owner, settlement kind, and building list. |
+| Settlement Guard House / `BuildingEffectEnum.PatrolPartyStrength` | Supply eligibility, level, and patrol strength. |
+| `CultureObject` / `PatrolPartiesCampaignBehavior` | Select the culture template and apply it to an actual patrol party. |
 
-```csharp
-// Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
-DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
-var result = defaultSettlementPatrolModel.GetPatrolPartySpawnDuration(settlement, false);
-```
+## Default rules
 
-### CanSettlementHavePatrolParties
-`public override bool CanSettlementHavePatrolParties(Settlement settlement, bool naval)`
+| Member | 1.4.5 behavior |
+| --- | --- |
+| `CanSettlementHavePatrolParties` | Requires a non-null owner, a non-rebel owner, and `settlement.IsTown`, then checks for a Guard House. |
+| Guard House lookup | Requires `DefaultBuildingTypes.SettlementGuardHouse` with `CurrentLevel > 0`. |
+| `GetPatrolPartySpawnDuration` | Returns `CampaignTime.Days(10 - (level - 1) * 2)`; higher levels shorten the interval. |
+| `GetPartyTemplateForPatrolParty` | Strength `1/2/3` selects the owning culture's weak/moderate/strong template; other values fall back to weak; no Guard House returns null. |
 
-**Purpose:** Checks whether the this instance meets the preconditions for settlement have patrol parties.
-
-```csharp
-// Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
-DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
-var result = defaultSettlementPatrolModel.CanSettlementHavePatrolParties(settlement, false);
-```
-
-### GetPartyTemplateForPatrolParty
-`public override PartyTemplateObject GetPartyTemplateForPatrolParty(Settlement settlement, bool naval)`
-
-**Purpose:** Reads and returns the party template for patrol party value held by the this instance.
+## Real access and replacement
 
 ```csharp
-// Obtain an instance of DefaultSettlementPatrolModel from the subsystem API first
-DefaultSettlementPatrolModel defaultSettlementPatrolModel = ...;
-var result = defaultSettlementPatrolModel.GetPartyTemplateForPatrolParty(settlement, false);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+Settlement settlement = Settlement.All
+    .FirstOrDefault(candidate => candidate.IsTown && candidate.Town != null);
+if (settlement != null)
+{
+    SettlementPatrolModel model = Campaign.Current.Models.SettlementPatrolModel;
+    if (model.CanSettlementHavePatrolParties(settlement, naval: false))
+    {
+        CampaignTime spawnAfter = model
+            .GetPatrolPartySpawnDuration(settlement, naval: false);
+        PartyTemplateObject template = model
+            .GetPartyTemplateForPatrolParty(settlement, naval: false);
+    }
+}
 ```
 
-## Usage Example
+Register a replacement in `InitializeGameStarter` and keep eligibility, delay, and template behavior coherent. Do not call `CreatePatrolParty` from a Model query.
 
-```csharp
-Game.Current.ReplaceModel<DefaultSettlementPatrolModel>(new MyDefaultSettlementPatrolModel());
-```
+## Risks and version boundary
 
-## See Also
+- `GetPartyTemplateForPatrolParty` returns null without a Guard House; bypassing the eligibility check can cause a later spawn null reference.
+- `PatrolPartyStrength` comes from the building system. Unknown values fall back to the weak template; they do not identify arbitrary culture templates.
+- Changing the interval changes map party count, simulation load, and save growth. Do not use a random delay in a frequently queried Model method.
+- `PatrolPartiesCampaignBehavior` owns queue and cleanup; the Model changes policy, not the `DestroyPartyAction` lifecycle.
 
-- [Area Index](../)
+## Navigation
+
+- [Parent: Campaign-Ext](..)
+- [Sibling: Models family](../models/)
+- [Contract: SettlementPatrolModel](../SettlementPatrolModel)
+- [Related: SettlementGarrisonModel](../SettlementGarrisonModel) · [CampaignTime](../CampaignTime)
+- [Downstream: Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty)
+

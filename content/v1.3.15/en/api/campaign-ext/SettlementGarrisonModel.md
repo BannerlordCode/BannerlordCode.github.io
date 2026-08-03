@@ -1,87 +1,85 @@
 ---
 title: "SettlementGarrisonModel"
-description: "Auto-generated class reference for SettlementGarrisonModel."
+description: "The model contract for garrison growth, auto-recruitment, party transfers, and daily wall-repair limits."
 ---
 # SettlementGarrisonModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementGarrisonModel : MBGameModel<SettlementGarrisonModel>`
-**Base:** `MBGameModel<SettlementGarrisonModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementGarrisonModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementGarrisonModel : MBGameModel<SettlementGarrisonModel>`  
+**Base:** `MBGameModel<SettlementGarrisonModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementGarrisonModel.cs`
 
-## Overview
+## One-line job
 
-`SettlementGarrisonModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SettlementGarrisonModel` decides daily base-garrison change, auto-recruitment limits, how many troops a party should take from or leave in a garrison, and the daily wall-repair limit. It does not mutate rosters or wall hit points.
 
 ## Mental Model
 
-Treat `SettlementGarrisonModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is garrison policy, not the garrison party. `GarrisonRecruitmentCampaignBehavior` reads the first two methods during settlement ticks and applies the result; `Town.RepairWallsOfSettlementDaily` reads the repair limit and then writes wall ratios. The two `FindNumber...` methods are AI recommendations, not executed transfers.
 
-## Key Methods
+The signatures also carry preconditions: the find methods depend on `settlement.Town.GarrisonParty`, party size, and ownership context. Check for a town, a party, and a garrison before calling them; they are not static math functions safe for an uninitialized settlement.
 
-### GetMaximumDailyAutoRecruitmentCount
-`public abstract int GetMaximumDailyAutoRecruitmentCount(Town town)`
+## Dependencies and consumers
 
-**Purpose:** Reads and returns the maximum daily auto recruitment count value held by the this instance.
+| Type or flow | Relationship |
+| --- | --- |
+| [`GameModels`](../GameModels) / [`Campaign`](../../campaign/Campaign) | Owns the registered campaign model. |
+| [`Settlement`](../../campaign/Settlement) / [`Town`](../../campaign/Town) | Supply settlement, garrison, prosperity, food, wall, and owner context. |
+| `GarrisonRecruitmentCampaignBehavior` | Applies base change and auto-recruitment results. |
+| [`MobileParty`](../../campaign/MobileParty) / `PartyRoster` | Receive recommended party-to-garrison quantities; behavior or Actions perform transfers. |
+| `Town.RepairWallsOfSettlementDaily` | Applies the maximum repair amount to each wall section. |
 
-```csharp
-// Obtain an instance of SettlementGarrisonModel from the subsystem API first
-SettlementGarrisonModel settlementGarrisonModel = ...;
-var result = settlementGarrisonModel.GetMaximumDailyAutoRecruitmentCount(town);
-```
+## Public contract
 
-### CalculateBaseGarrisonChange
-`public abstract ExplainedNumber CalculateBaseGarrisonChange(Settlement settlement, bool includeDescriptions = false)`
+| Member | Actual responsibility and timing |
+| --- | --- |
+| `GetMaximumDailyAutoRecruitmentCount(Town)` | Maximum number automatically added to a garrison per day. |
+| `CalculateBaseGarrisonChange(Settlement, bool)` | Daily base-garrison delta, including explained rebellion/issue effects. |
+| `FindNumberOfTroopsToTakeFromGarrison(MobileParty, Settlement, float)` | Recommended number for an AI party to take from a garrison. |
+| `FindNumberOfTroopsToLeaveToGarrison(MobileParty, Settlement)` | Recommended number for an AI party to leave behind. |
+| `GetMaximumDailyRepairAmount(Settlement)` | Maximum wall hit points that the settlement may repair in one day. |
 
-**Purpose:** Calculates the current value or result of base garrison change.
-
-```csharp
-// Obtain an instance of SettlementGarrisonModel from the subsystem API first
-SettlementGarrisonModel settlementGarrisonModel = ...;
-var result = settlementGarrisonModel.CalculateBaseGarrisonChange(settlement, false);
-```
-
-### FindNumberOfTroopsToTakeFromGarrison
-`public abstract int FindNumberOfTroopsToTakeFromGarrison(MobileParty mobileParty, Settlement settlement, float idealGarrisonStrengthPerWalledCenter = 0f)`
-
-**Purpose:** Looks up the matching number of troops to take from garrison in the current collection or scope.
+## Real access path
 
 ```csharp
-// Obtain an instance of SettlementGarrisonModel from the subsystem API first
-SettlementGarrisonModel settlementGarrisonModel = ...;
-var result = settlementGarrisonModel.FindNumberOfTroopsToTakeFromGarrison(mobileParty, settlement, 0);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.Core;
+
+Settlement settlement = Settlement.All
+    .FirstOrDefault(candidate => candidate.IsTown && candidate.Town != null);
+MobileParty party = MobileParty.MainParty;
+
+if (settlement?.Town != null && party != null)
+{
+    SettlementGarrisonModel model = Campaign.Current.Models.SettlementGarrisonModel;
+    int autoRecruit = model.GetMaximumDailyAutoRecruitmentCount(settlement.Town);
+    ExplainedNumber baseChange = model
+        .CalculateBaseGarrisonChange(settlement, includeDescriptions: true);
+    int leave = model.FindNumberOfTroopsToLeaveToGarrison(party, settlement);
+    float repair = model.GetMaximumDailyRepairAmount(settlement);
+}
 ```
 
-### FindNumberOfTroopsToLeaveToGarrison
-`public abstract int FindNumberOfTroopsToLeaveToGarrison(MobileParty mobileParty, Settlement settlement)`
+Use the returned quantities for a preview or AI decision. Register a replacement during campaign startup; do not edit `MemberRoster` from a Model method.
 
-**Purpose:** Looks up the matching number of troops to leave to garrison in the current collection or scope.
+## Risks and version boundary
 
-```csharp
-// Obtain an instance of SettlementGarrisonModel from the subsystem API first
-SettlementGarrisonModel settlementGarrisonModel = ...;
-var result = settlementGarrisonModel.FindNumberOfTroopsToLeaveToGarrison(mobileParty, settlement);
-```
+- The find methods return recommendations, not transfer Actions. Applying the result twice removes or adds troops twice.
+- The default implementation reads `settlement.Town.GarrisonParty`; calling it for a village or a settlement without a garrison can null-reference.
+- Repair is measured in wall hit points. `Town` divides it by a section's maximum and writes each section, so the result is not a `0..1` ratio.
+- The default returns zero during a siege or when all sections are full. Skipping either boundary changes the siege lifecycle.
+- Garrison size feeds food, wages, militia, and building effects; tune this Model only after checking the daily-tick chain.
 
-### GetMaximumDailyRepairAmount
-`public abstract float GetMaximumDailyRepairAmount(Settlement settlement)`
+## Navigation
 
-**Purpose:** Reads and returns the maximum daily repair amount value held by the this instance.
+- [Parent: Campaign-Ext](..)
+- [Sibling: Models family](../models/)
+- [Default: DefaultSettlementGarrisonModel](../DefaultSettlementGarrisonModel)
+- [Related: SettlementFoodModel](../SettlementFoodModel) · [SettlementMilitiaModel](../SettlementMilitiaModel)
+- [Downstream: Town](../../campaign/Town) · [MobileParty](../../campaign/MobileParty)
 
-```csharp
-// Obtain an instance of SettlementGarrisonModel from the subsystem API first
-SettlementGarrisonModel settlementGarrisonModel = ...;
-var result = settlementGarrisonModel.GetMaximumDailyRepairAmount(settlement);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-SettlementGarrisonModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)

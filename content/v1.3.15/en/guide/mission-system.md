@@ -47,21 +47,21 @@ namespace MyModule.Missions
     // ⭐ Key: Inherit MissionBehavior
     public class MyMissionBehavior : MissionBehavior
     {
-        // Mission starts
-        public override void OnMissionStart()
+        public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+        // Called during Mission-wide behavior initialization
+        public override void OnBehaviorInitialize()
         {
-            base.OnMissionStart();
-            
-            // Initialization logic
-            Debug.Print("MyMissionBehavior started!");
+            base.OnBehaviorInitialize();
+            // Resolve short-lived Mission objects and subscribe to scene events here.
         }
-        
-        // After mission initialization
-        public override void OnMissionInitialize()
+
+        // Called after all behaviors have completed initialization
+        public override void AfterStart()
         {
-            base.OnMissionInitialize();
+            base.AfterStart();
         }
-        
+
         // Per-frame call (early)
         public override void OnPreMissionTick(float dt)
         {
@@ -75,10 +75,11 @@ namespace MyModule.Missions
             base.OnMissionTick(dt);
         }
         
-        // Mission ends
-        public override void OnMissionFinish(bool isHeroParty)
+        // Mission enters its ending phase
+        public override void OnEndMissionInternal()
         {
-            base.OnMissionFinish(isHeroParty);
+            // Unsubscribe scene events and clear Agent/Team caches.
+            base.OnEndMissionInternal();
         }
     }
 }
@@ -119,15 +120,15 @@ if (mission != null && mission.CurrentState == Mission.State.Continuing)
 ```
 Mission Created
     │
-    ├─► OnMissionStart()         ← When mission begins
+    ├─► OnBehaviorInitialize()   ← Unified behavior initialization
     │
-    ├─► OnMissionInitialize()   ← Mission initialization
+    ├─► EarlyStart() / AfterStart() ← Startup phases
     │
     ├─► OnPreMissionTick(dt)     ← Every frame early (before all Ticks)
     │
     ├─► OnMissionTick(dt)        ← Every frame late (after all Ticks)
     │
-    └─► OnMissionFinish()       ← When mission ends
+    └─► OnEndMissionInternal()   ← Teardown
 ```
 
 ### Common MissionBehavior Types
@@ -298,55 +299,32 @@ formation.AI.SetBehaviorWeight<ArrowFormationBehavior>(0.8f);
 ```csharp
 public class CustomBattleLogic : MissionBehavior
 {
-    private Team _playerTeam;
-    private Team _enemyTeam;
     private int _killsRequired = 10;
     private int _currentKills = 0;
-    
-    public override void OnMissionStart()
+
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnBehaviorInitialize()
     {
-        base.OnMissionStart();
-        
-        // Create teams
-        _playerTeam = Mission.Current.CreateNewTeam(Team.Side.Defender);
-        _enemyTeam = Mission.Current.CreateNewTeam(Team.Side.Attacker);
-        
-        // Initialize enemies
-        SpawnEnemies();
+        base.OnBehaviorInitialize();
     }
-    
+
     public override void OnAgentRemoved(
         Agent affectedAgent,
         Agent affectorAgent,
         AgentState agentState,
         KillingBlow blow)
     {
-        if (affectedAgent.Team == _enemyTeam && affectorAgent != null)
+        if (affectorAgent?.IsMainAgent == true && agentState == AgentState.Killed)
         {
             _currentKills++;
-            
+
             if (_currentKills >= _killsRequired)
             {
-                // Victory condition met
-                EndBattle(true);
+                // This advances Mission state; use MissionLogic.MissionEnded to write a battle result.
+                Mission.Current?.EndMission();
             }
         }
-    }
-    
-    private void SpawnEnemies()
-    {
-        // Create enemy Agents
-        foreach (var spawnPoint in GetEnemySpawnPoints())
-        {
-            Agent enemy = CreateEnemyAgent(spawnPoint);
-            enemy.Team = _enemyTeam;
-        }
-    }
-    
-    private void EndBattle(bool playerWon)
-    {
-        // End battle
-        Mission.Current.EndBattle();
     }
 }
 ```

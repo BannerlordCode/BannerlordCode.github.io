@@ -1,457 +1,108 @@
 ---
 title: "ScreenManager"
-description: "Auto-generated class reference for ScreenManager."
+description: "The static screen stack, TopScreen, global Layers, and main-thread transition contract in TaleWorlds.ScreenSystem."
 ---
+
 # ScreenManager
 
-**Namespace:** TaleWorlds.ScreenSystem
-**Module:** TaleWorlds.ScreenSystem
-**Type:** `public static class ScreenManager`
-**Base:** none
-**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs`
+**Namespace:** `TaleWorlds.ScreenSystem`  
+**Module:** `TaleWorlds.ScreenSystem`  
+**Type:** `public static class ScreenManager`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs`
 
-## Overview
+## Responsibility
 
-`ScreenManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+`ScreenManager` is the static owner of the UI: it maintains the screen stack, selects `TopScreen`, merges the top screen's Layers with global Layers for input and rendering order, and turns push, pop, pause, resume, and finalization into one main-thread state machine.
 
 ## Mental Model
 
-Treat `ScreenManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Do not look for a `new ScreenManager()` instance. The class is static, and the engine injects its `IScreenManagerEngineConnection` during startup through `EngineScreenManager.Initialize`. The manager owns a private screen list; its last item is `TopScreen`. The top screen owns the current UI, while screens below it can remain on the stack in a paused/inactive state.
 
-## Key Properties
+Every stack operation is a lifecycle transaction, not just a list mutation. `PushScreen` pauses and deactivates the old top, then initializes, activates, and resumes the new screen. `PopScreen` deactivates and finalizes the old top, then activates and resumes the predecessor. `CleanAndPushScreen` pauses, deactivates, and finalizes every existing screen before creating the new root. All three paths require the main thread, so a worker callback must marshal back to the game thread before changing UI.
 
-| Name | Signature |
-|------|-----------|
-| `Scale` | `public static float Scale { get; }` |
-| `UsableArea` | `public static Vec2 UsableArea { get; }` |
-| `IsLateTickInProgress` | `public static bool IsLateTickInProgress { get; }` |
-| `SortedLayers` | `public static List<ScreenLayer> SortedLayers { get; }` |
-| `TopScreen` | `public static ScreenBase TopScreen { get; }` |
-| `FocusedLayer` | `public static ScreenLayer FocusedLayer { get; }` |
-| `FirstHitLayer` | `public static ScreenLayer FirstHitLayer { get; }` |
+## When to Use / When Not To
 
-## Key Methods
+- Use `PushScreen` for a returnable options, encyclopedia, save/load, or custom page. It preserves the current page beneath the temporary screen.
+- Use `PopScreen` to close the current page and return. Do not call `TopScreen.OnDeactivate` manually or edit the stack through reflection.
+- Use `CleanAndPushScreen` when a new root flow must not be returnable. It destroys the existing stack and is not an overlay operation.
+- Use the current screen's `AddLayer`, or `AddGlobalLayer` for a cross-screen overlay, when only an input or Gauntlet Layer is needed. Do not attach the same Layer to multiple screens.
+- Read `TopScreen` to observe the current page and `SortedLayers` to inspect input/render order. These are observations, not replacement APIs.
 
-### OnPushScreenEvent
-`public delegate void OnPushScreenEvent(ScreenBase pushedScreen)`
+## Stack Transition Timing
 
-**Purpose:** Invoked when the push screen event event is raised.
+| API | Existing stack | New screen | Meaning |
+| --- | --- | --- | --- |
+| `SetAndActivateRootScreen(screen)` | Requires `TopScreen == null`; otherwise throws. | Adds, initializes, activates, resumes, and raises `OnPushScreen`. | Establishes the first root screen. |
+| `PushScreen(screen)` | Pauses the old top and deactivates it if active; does not finalize or remove it. | Adds, initializes, activates, resumes, and raises `OnPushScreen`. | Opens a returnable temporary page. |
+| `PopScreen()` | Pauses, deactivates, finalizes, raises `OnPopScreen`, and removes the current top. | Activates and resumes the new top when one remains. | Closes the current page. |
+| `CleanAndPushScreen(screen)` | Pauses, deactivates, finalizes, and removes all screens from top to bottom, then performs memory cleanup. | Adds and fully initializes, activates, and resumes the new screen. | Starts a clean, non-returnable root flow. |
+| `ReplaceTopScreen(screen)` | Finalizes and removes the old top without retaining it. | Initializes, activates, and resumes the replacement. | Replaces the current top. |
 
-```csharp
-// Obtain an instance of ScreenManager from the subsystem API first
-ScreenManager screenManager = ...;
-screenManager.OnPushScreenEvent(pushedScreen);
-```
+These calls are synchronous lifecycle transitions. The source checks `TWParallel.IsMainThread()` in `PushScreen`, `PopScreen`, `CleanAndPushScreen`, and the cleanup path; the wrong thread triggers a failed assert. Treat the `TopScreen` change as complete on that same main-thread call before `OnPushScreen` or `OnPopScreen` observers run.
 
-### OnPopScreenEvent
-`public delegate void OnPopScreenEvent(ScreenBase poppedScreen)`
+## TopScreen, SortedLayers, and Global Layers
 
-**Purpose:** Invoked when the pop screen event event is raised.
+- `TopScreen` is the read-only view of the last stack item. It changes with the stack and is observed through the top screen's `OnAddLayer` and `OnRemoveLayer` events so sorting can be refreshed.
+- `SortedLayers` merges `TopScreen.Layers` with `_globalLayers` and sorts them. Input hit testing, focus, and ticking depend on it, so adding and removing Layers in the middle of a frame can change input order.
+- `FocusedLayer` is the current keyboard/mouse/gamepad focus Layer; `FirstHitLayer` is the input hit result. Both are transient and can point at no usable Layer after deactivation or finalization.
+- `AddGlobalLayer(GlobalLayer layer, bool isFocusable)` inserts by `InputRestrictions.Order` and activates the Layer immediately. `RemoveGlobalLayer` removes and deactivates it. Use global Layers only for cross-screen behavior and remove them when the feature or module ends.
+- `Scale`, `UsableArea`, and `IsLateTickInProgress` describe layout/render state. `EngineInterface` and `Initialize(IScreenManagerEngineConnection)` are engine bridge points, not APIs a mod should repeatedly initialize to open a page.
 
-```csharp
-// Obtain an instance of ScreenManager from the subsystem API first
-ScreenManager screenManager = ...;
-screenManager.OnPopScreenEvent(poppedScreen);
-```
+## Tick Phases and Observation Events
 
-### OnControllerDisconnectedEvent
-`public delegate void OnControllerDisconnectedEvent()`
+`Tick(float dt)` runs global early ticks, updates input and the current screen, then runs the top screen's `FrameTick`, the predecessor's idle tick, sorted Layer ticks, global Layer ticks, late update, and the top screen's post-frame tick. `LateTick(float dt)` runs render ticks for active, non-finalized Layers and marks the phase with `IsLateTickInProgress`. Do not assume a background thread can safely change the stack from an `OnPushScreen` or Layer callback.
 
-**Purpose:** Invoked when the controller disconnected event event is raised.
+`OnPushScreen` and `OnPopScreen` are lifecycle observation events. Subscribers should record or coordinate external resources and unsubscribe when the module unloads; these events do not replace `ScreenBase.OnInitialize` or `OnFinalize` as resource hooks.
 
-```csharp
-// Obtain an instance of ScreenManager from the subsystem API first
-ScreenManager screenManager = ...;
-screenManager.OnControllerDisconnectedEvent();
-```
+## Real Acquisition, Initialization, and Registration Paths
 
-### OnPlatformTextRequestedDelegate
-`public delegate bool OnPlatformTextRequestedDelegate(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
-
-**Purpose:** Invoked when the platform text requested delegate event is raised.
+The engine connection is injected by `TaleWorlds.Engine.EngineScreenManager` during engine initialization:
 
 ```csharp
-// Obtain an instance of ScreenManager from the subsystem API first
-ScreenManager screenManager = ...;
-var result = screenManager.OnPlatformTextRequestedDelegate("example", "example", 0, 0);
+internal static void Initialize()
+{
+    ScreenManager.Initialize(new ScreenManagerEngineConnection());
+}
 ```
 
-### Initialize
-`public static void Initialize(IScreenManagerEngineConnection engineInterface)`
-
-**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
+Normal UI code uses the static entry points directly. The source `ViewSubModule` registers `OnPushScreen` during module load and removes it during module unload, which is the real registration pattern for observing transitions:
 
 ```csharp
-// Static call; no instance required
-ScreenManager.Initialize(engineInterface);
+protected override void OnSubModuleLoad()
+{
+    base.OnSubModuleLoad();
+    ScreenManager.OnPushScreen += OnScreenManagerPushScreen;
+}
+
+protected override void OnSubModuleUnloaded()
+{
+    ScreenManager.OnPushScreen -= OnScreenManagerPushScreen;
+    base.OnSubModuleUnloaded();
+}
 ```
 
-### RemoveGlobalLayer
-`public static void RemoveGlobalLayer(GlobalLayer layer)`
+For opening a page, the source `MapScreen.OpenOptions` uses `ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(false))`. No manager instance needs to be acquired first.
 
-**Purpose:** Removes global layer from the current collection or state.
+## Risks and Cleanup Boundaries
 
-```csharp
-// Static call; no instance required
-ScreenManager.RemoveGlobalLayer(layer);
-```
+- `CleanAndPushScreen`, `PopScreen`, and `OnFinalize` finalize screens and their Layers. Revalidate cached `TopScreen`, `GauntletLayer`, and `ViewModel` references after `OnPopScreen` or module cleanup.
+- `PushScreen` leaves the old screen paused and inactive on the stack. If it unsubscribes in `OnDeactivate` but does not resubscribe in `OnActivate`, it may be dead after returning; if it never cleans up, subscriptions can duplicate.
+- `TopScreen` can be null during startup, after a clean, or after manager finalization. Check it before reading Layers; entries in `SortedLayers` can also be inactive or finalized.
+- The main-thread assertion on stack APIs is a correctness boundary, not a suggestion. Cross-thread push/pop can desynchronize TopScreen, focus, and input sorting, then crash when the next frame touches a disposed resource.
+- A global Layer is not owned by one screen. Forgetting `RemoveGlobalLayer` can carry input restrictions, focus, and strong references across game states until manager finalization.
+- Manager finalization detaches internal collection events and nulls the screen and global-Layer collections. Do not call stack or global-Layer APIs after module shutdown.
 
-### AddGlobalLayer
-`public static void AddGlobalLayer(GlobalLayer layer, bool isFocusable)`
+## Dependency Graph
 
-**Purpose:** Adds global layer to the current collection or state.
+- **Upstream:** [EngineScreenManager](../engine/EngineScreenManager) injects the engine connection; [ScreenBase](./ScreenBase) is the screen contract consumed by the stack.
+- **Downstream:** [GauntletLayer](../engine/GauntletLayer) and [ViewModel](../core-extra/ViewModel) participate in input, binding, and rendering through the current screen.
+- **Boundary:** [UI lifecycle crash boundaries](../../architecture/crash-boundary) documents main-thread, focus, and cleanup ordering.
 
-```csharp
-// Static call; no instance required
-ScreenManager.AddGlobalLayer(layer, false);
-```
+## See Also and Navigation
 
-### OnConstrainStateChanged
-`public static void OnConstrainStateChanged(bool isConstrained)`
-
-**Purpose:** Invoked when the constrain state changed event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnConstrainStateChanged(false);
-```
-
-### ScreenTypeExistsAtList
-`public static bool ScreenTypeExistsAtList(ScreenBase screen)`
-
-**Purpose:** Executes the ScreenTypeExistsAtList logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.ScreenTypeExistsAtList(screen);
-```
-
-### UpdateLayout
-`public static void UpdateLayout()`
-
-**Purpose:** Recalculates and stores the latest representation of layout.
-
-```csharp
-// Static call; no instance required
-ScreenManager.UpdateLayout();
-```
-
-### SetSuspendLayer
-`public static void SetSuspendLayer(ScreenLayer layer, bool isSuspended)`
-
-**Purpose:** Assigns a new value to suspend layer and updates the object's internal state.
-
-```csharp
-// Static call; no instance required
-ScreenManager.SetSuspendLayer(layer, false);
-```
-
-### OnFinalize
-`public static void OnFinalize()`
-
-**Purpose:** Invoked when the finalize event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnFinalize();
-```
-
-### Tick
-`public static void Tick(float dt)`
-
-**Purpose:** Advances the this instance's state by one frame or update cycle.
-
-```csharp
-// Static call; no instance required
-ScreenManager.Tick(0);
-```
-
-### LateTick
-`public static void LateTick(float dt)`
-
-**Purpose:** Executes the LateTick logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.LateTick(0);
-```
-
-### OnPlatformScreenKeyboardRequested
-`public static bool OnPlatformScreenKeyboardRequested(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)`
-
-**Purpose:** Invoked when the platform screen keyboard requested event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnPlatformScreenKeyboardRequested("example", "example", 0, 0);
-```
-
-### OnOnscreenKeyboardDone
-`public static void OnOnscreenKeyboardDone(string inputText)`
-
-**Purpose:** Invoked when the onscreen keyboard done event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnOnscreenKeyboardDone("example");
-```
-
-### OnOnscreenKeyboardCanceled
-`public static void OnOnscreenKeyboardCanceled()`
-
-**Purpose:** Invoked when the onscreen keyboard canceled event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnOnscreenKeyboardCanceled();
-```
-
-### OnGameWindowFocusChange
-`public static void OnGameWindowFocusChange(bool focusGained)`
-
-**Purpose:** Invoked when the game window focus change event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnGameWindowFocusChange(false);
-```
-
-### ReplaceTopScreen
-`public static void ReplaceTopScreen(ScreenBase screen)`
-
-**Purpose:** Executes the ReplaceTopScreen logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.ReplaceTopScreen(screen);
-```
-
-### GetPersistentInputRestrictions
-`public static List<ScreenLayer> GetPersistentInputRestrictions()`
-
-**Purpose:** Reads and returns the persistent input restrictions value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ScreenManager.GetPersistentInputRestrictions();
-```
-
-### SetAndActivateRootScreen
-`public static void SetAndActivateRootScreen(ScreenBase screen)`
-
-**Purpose:** Assigns a new value to and activate root screen and updates the object's internal state.
-
-```csharp
-// Static call; no instance required
-ScreenManager.SetAndActivateRootScreen(screen);
-```
-
-### CleanAndPushScreen
-`public static void CleanAndPushScreen(ScreenBase screen)`
-
-**Purpose:** Executes the CleanAndPushScreen logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.CleanAndPushScreen(screen);
-```
-
-### ClearSiegeMachineSelection
-`public static string ClearSiegeMachineSelection(List<string> args)`
-
-**Purpose:** Removes all siege machine selection from the this instance.
-
-```csharp
-// Static call; no instance required
-ScreenManager.ClearSiegeMachineSelection(args);
-```
-
-### CopyCustomBattle
-`public static string CopyCustomBattle(List<string> args)`
-
-**Purpose:** Copies the custom battle state of the this instance to a target.
-
-```csharp
-// Static call; no instance required
-ScreenManager.CopyCustomBattle(args);
-```
-
-### ApplyCustomBattleLayout
-`public static string ApplyCustomBattleLayout(List<string> args)`
-
-**Purpose:** Applies the effect of custom battle layout to the this instance.
-
-```csharp
-// Static call; no instance required
-ScreenManager.ApplyCustomBattleLayout(args);
-```
-
-### PushScreen
-`public static void PushScreen(ScreenBase screen)`
-
-**Purpose:** Executes the PushScreen logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.PushScreen(screen);
-```
-
-### PopScreen
-`public static void PopScreen()`
-
-**Purpose:** Executes the PopScreen logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.PopScreen();
-```
-
-### CleanScreens
-`public static void CleanScreens()`
-
-**Purpose:** Executes the CleanScreens logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.CleanScreens();
-```
-
-### Update
-`public static void Update(IReadOnlyList<int> lastKeysPressed)`
-
-**Purpose:** Recalculates and stores the latest representation of the this instance.
-
-```csharp
-// Static call; no instance required
-ScreenManager.Update(lastKeysPressed);
-```
-
-### EarlyUpdate
-`public static void EarlyUpdate(Vec2 usableArea)`
-
-**Purpose:** Executes the EarlyUpdate logic.
-
-```csharp
-// Static call; no instance required
-ScreenManager.EarlyUpdate(usableArea);
-```
-
-### IsControllerActive
-`public static bool IsControllerActive()`
-
-**Purpose:** Determines whether the this instance is in the controller active state or condition.
-
-```csharp
-// Static call; no instance required
-ScreenManager.IsControllerActive();
-```
-
-### IsMouseCursorHidden
-`public static bool IsMouseCursorHidden()`
-
-**Purpose:** Determines whether the this instance is in the mouse cursor hidden state or condition.
-
-```csharp
-// Static call; no instance required
-ScreenManager.IsMouseCursorHidden();
-```
-
-### IsMouseCursorActive
-`public static bool IsMouseCursorActive()`
-
-**Purpose:** Determines whether the this instance is in the mouse cursor active state or condition.
-
-```csharp
-// Static call; no instance required
-ScreenManager.IsMouseCursorActive();
-```
-
-### IsLayerBlockedAtPosition
-`public static bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)`
-
-**Purpose:** Determines whether the this instance is in the layer blocked at position state or condition.
-
-```csharp
-// Static call; no instance required
-ScreenManager.IsLayerBlockedAtPosition(layer, position);
-```
-
-### GetMouseVisibility
-`public static bool GetMouseVisibility()`
-
-**Purpose:** Reads and returns the mouse visibility value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ScreenManager.GetMouseVisibility();
-```
-
-### TrySetFocus
-`public static void TrySetFocus(ScreenLayer layer)`
-
-**Purpose:** Attempts to retrieve set focus, usually returning success through an out parameter.
-
-```csharp
-// Static call; no instance required
-ScreenManager.TrySetFocus(layer);
-```
-
-### TryLoseFocus
-`public static void TryLoseFocus(ScreenLayer layer)`
-
-**Purpose:** Attempts to retrieve lose focus, usually returning success through an out parameter.
-
-```csharp
-// Static call; no instance required
-ScreenManager.TryLoseFocus(layer);
-```
-
-### OnScaleChange
-`public static void OnScaleChange(float newScale)`
-
-**Purpose:** Invoked when the scale change event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnScaleChange(0);
-```
-
-### OnControllerDisconnect
-`public static void OnControllerDisconnect()`
-
-**Purpose:** Invoked when the controller disconnect event is raised.
-
-```csharp
-// Static call; no instance required
-ScreenManager.OnControllerDisconnect();
-```
-
-### SetScreenDebugInformationEnabled
-`public static string SetScreenDebugInformationEnabled(List<string> args)`
-
-**Purpose:** Assigns a new value to screen debug information enabled and updates the object's internal state.
-
-```csharp
-// Static call; no instance required
-ScreenManager.SetScreenDebugInformationEnabled(args);
-```
-
-### SetScreenDebugInformationEnabled
-`public static void SetScreenDebugInformationEnabled(bool isEnabled)`
-
-**Purpose:** Assigns a new value to screen debug information enabled and updates the object's internal state.
-
-```csharp
-// Static call; no instance required
-ScreenManager.SetScreenDebugInformationEnabled(false);
-```
-
-## Usage Example
-
-```csharp
-var manager = ScreenManager.Current;
-```
-
-## See Also
-
-- [Area Index](../)
+- [GUI API index](../_index)
+- [ScreenBase: derived-screen lifecycle and Layer ownership](./ScreenBase)
+- [GauntletLayer: UI movies and input Layers](../engine/GauntletLayer)
+- [ViewModel: Gauntlet-bound data](../core-extra/ViewModel)
+- [UI lifecycle crash boundaries](../../architecture/crash-boundary)

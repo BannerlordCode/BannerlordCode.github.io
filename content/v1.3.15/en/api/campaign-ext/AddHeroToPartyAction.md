@@ -68,6 +68,6 @@ The caller chooses the destination and notification policy; roster cleanup and t
 
 ## Navigation
 
-- Parent: [Campaign action index](./)
+- Parent: [Campaign action index](../actions/)
 - Siblings: [GiveGoldAction](../GiveGoldAction) · [TakePrisonerAction](../TakePrisonerAction) · [DestroyPartyAction](../DestroyPartyAction)
 - Related: [Hero](../../campaign/Hero) · [MobileParty](../../campaign/MobileParty) · [CampaignEvents](../CampaignEvents)

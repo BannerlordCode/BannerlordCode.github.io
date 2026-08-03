@@ -14,7 +14,7 @@ description: "The Sandbox default PartyFoodBuyingModel: 30 town days, 12 village
 
 ## One-line responsibility
 
-This is the vanilla AI food-buying policy: it targets `30` food days in towns, `12` in villages, uses `30` as the low-cost baseline, and weighted-selects food or live livestock from settlement stock.
+This is the vanilla AI food-buying policy: it targets `30` food days in towns, `12` in villages, uses `30` as the low-cost baseline, and weighted-selects food or live livestock from settlement stock. It returns a target and candidate only; the behavior calculates the shortage and `SellItemsAction` performs the inventory and gold transfer. Replacing it therefore affects AI parties using the active model without directly writing trade state.
 
 ## Mental model
 

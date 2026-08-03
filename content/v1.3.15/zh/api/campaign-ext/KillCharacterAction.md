@@ -86,6 +86,6 @@ public static class ModExecution
 
 ## 导航
 
-- ↑ 父级：[Actions 目录](./)
+- ↑ 父级：[Actions 目录](../actions/)
 - ↔ 同级：[TakePrisonerAction](../TakePrisonerAction) · [DestroyPartyAction](../DestroyPartyAction) · [MarriageAction](../MarriageAction)
 - 相关：[Hero](../../campaign/Hero) · [Campaign](../../campaign/Campaign) · [CampaignEvents](../CampaignEvents) · [ChangeRelationAction](../ChangeRelationAction)

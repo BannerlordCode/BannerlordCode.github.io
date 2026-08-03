@@ -76,6 +76,6 @@ For settlement tax or party funding, choose the explicit direction instead of sw
 
 ## Navigation
 
-- Parent: [Actions index](./)
+- Parent: [Actions index](../actions/)
 - Siblings: [ChangeRelationAction](../ChangeRelationAction) · [AddHeroToPartyAction](../AddHeroToPartyAction) · [MakePeaceAction](../MakePeaceAction)
 - Related: [Hero](../../campaign/Hero) · [PartyBase](../../campaign/PartyBase) · [Settlement](../../campaign/Settlement) · [Campaign](../../campaign/Campaign)

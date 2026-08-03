@@ -8,7 +8,7 @@ description: "Moves a hero or ordinary prisoner between PartyBase prison rosters
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public static class TransferPrisonerAction`  
 **Base:** None (static class)  
-**Source:** `TaleWorlds.CampaignSystem/Actions/TransferPrisonerAction.cs`
+**Source:** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TransferPrisonerAction.cs`
 
 ## One-line responsibility
 

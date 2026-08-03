@@ -8,7 +8,7 @@ description: "在战役中把一名英雄或普通俘虏从一个 PartyBase 的 
 **模块：** `TaleWorlds.CampaignSystem`  
 **类型：** `public static class TransferPrisonerAction`  
 **基类：** 无（静态类）  
-**源文件：** `TaleWorlds.CampaignSystem/Actions/TransferPrisonerAction.cs`
+**源文件：** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TransferPrisonerAction.cs`
 
 ## 一句话职责
 

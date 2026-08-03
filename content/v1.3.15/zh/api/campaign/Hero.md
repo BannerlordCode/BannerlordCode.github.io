@@ -27,7 +27,8 @@ description: "Bannerlord 战役世界的核心角色对象：玩家、领主、�
 - `Hero` 本身不处理战斗场景里的动作；进入战斗后，它会生成一个 `Agent` 作为战场化身。
 - 角色卡片是**全局唯一**的：每个 `Hero` 对应一个 `stringId`，可以通过 `Hero.Find(stringId)` 拿到同一实例。
 - 不要自己 `new Hero()`；创建新英雄走 `HeroCreator.CreateHero(...)` 或 `Hero.FindFirst`/`Hero.FindAll` 查询现有英雄。
-- 修改英雄状态通常直接写属性（`Gold`、`Clan` 等）；影响生命值、技能、特性有专门方法（`ChangeHeroGold`、`AddSkillXp`、`SetTraitLevel`）。
+- `Hero` 保存战役状态，但不要用直接字段写入来模拟世界变更。涉及转账、关系、入队、死亡或外交时，优先调用对应的 `*Action.Apply`，让事件和关联对象一起更新。
+- `ChangeHeroGold` 是低层的单英雄余额调整；它不代表两端交易，也不会替付款方扣款或发布金币交易事件。需要从一个角色把钱转给另一个角色时使用 `GiveGoldAction`。
 
 ## 如何获取 Hero
 
@@ -122,10 +123,14 @@ if (relation < -20)
 ```
 
 #### `public void SetPersonalRelation(Hero otherHero, int value)`
-直接设定两人关系值。会影响后续对话、任务、军团加入等判定。
+低层设定两人关系值，会影响后续对话、任务、军团加入等判定。模组要改变关系时应使用 `ChangeRelationAction`，让外交模型进行修正、限制范围并发布 `OnHeroRelationChanged`；不要把这个 setter 当作公开事务入口。
 
 ```csharp
-Hero.MainHero.SetPersonalRelation(someLord, 50); // 设为友好
+using TaleWorlds.CampaignSystem.Actions;
+
+int delta = 50 - Hero.MainHero.GetRelation(someLord);
+if (delta != 0)
+    ChangeRelationAction.ApplyPlayerRelation(someLord, delta);
 ```
 
 #### `public bool CanLeadParty()`
@@ -142,11 +147,16 @@ if (companion != null)
 ### 经济与影响力
 
 #### `public void ChangeHeroGold(int changeAmount)`
-为该英雄增减金钱；可传入负数以扣钱。
+对单个英雄的低层余额增减，可传入负数以扣钱。它不检查另一个资金端，也不发布 `GiveGoldAction` 的交易事件；正式角色间转账应使用 [GiveGoldAction](../../campaign-ext/GiveGoldAction/)。只有明确需要单账户奖励/扣款且业务不需要交易事件时才直接调用它。
 
 ```csharp
-Hero.MainHero.ChangeHeroGold(5000);   // 玩家加 5000
-someLord.ChangeHeroGold(-1000);       // 扣该领主 1000
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero receiver = Hero.OneToOneConversationHero;
+if (receiver != null && Hero.MainHero.Gold >= 1000)
+{
+    GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, receiver, 1000);
+}
 ```
 
 #### `public void AddInfluenceWithKingdom(float additionalInfluence)`
@@ -214,15 +224,15 @@ Hero.MainHero.SetImmuneToWound(true); // 主角不会被打伤
 
 ## 典型用法示例
 
-### 示例 1：给所有玩家家族成员加钱
+### 示例 1：把玩家已有金币转给当前对话对象
 
 ```csharp
-foreach (Hero hero in Clan.PlayerClan.Heroes)
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero receiver = Hero.OneToOneConversationHero;
+if (receiver != null && Hero.MainHero.Gold >= 1000)
 {
-    if (hero.IsAlive)
-    {
-        hero.ChangeHeroGold(1000);
-    }
+    GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, receiver, 1000);
 }
 ```
 
@@ -255,7 +265,7 @@ Hero.MainHero.AddSkillXp(skill, Math.Max(0, nextLevelXp - currentXp));
 
 - 上游：[Campaign](../Campaign/) 与 [MBObjectManager](../../campaign-ext/MBObjectManager/) 创建并持有唯一的战役英雄对象。
 - 下游：[CharacterObject](../CharacterObject/) 提供模板，[MobileParty](../MobileParty/) 和 [Settlement](../Settlement/) 反映归属；Mission 中会生成短命的 [Agent](../../mission/Agent/)。
-- 变更：给钱、杀死、转移部队或改变外交关系调用对应 Action，并让 CampaignEvents 通知其它系统；不要只写字段。
+- 变更：给钱、杀死、转移部队或改变外交关系调用对应 Action，并让 CampaignEvents 通知其它系统；不要只写字段或把低层 setter 当作事务入口。
 
 ## 参见
 

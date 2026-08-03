@@ -22,6 +22,8 @@ This class implements the “choose a target and choose an item” contract of [
 
 `FindItemToBuy` can therefore be queried without buying anything. A subclass can usually change only a target-day property or replace the candidate-selection method while preserving the output contract. It must not write campaign state from the Model.
 
+The actual purchase is triggered by [PartiesBuyFoodCampaignBehavior](../PartiesBuyFoodCampaignBehavior/), which listens to `CampaignEvents.SettlementEntered` and `CampaignEvents.HourlyTickPartyEvent`. The behavior checks campaign state, party leadership, settlement type, food consumption, army attachment, faction hostility, and stock before it reads this model. A model result therefore does not by itself mean that a purchase will happen.
+
 ## When to use and when not to
 
 - Inherit and override the relevant property when AI town or village food reserves need a different target.
@@ -44,7 +46,7 @@ This class implements the “choose a target and choose an item” contract of [
 | `MinimumDaysFoodToLastWhileBuyingFoodFromTown` | Returns `30f`. | Read by the behavior when calculating a town shortage; adds no food. |
 | `MinimumDaysFoodToLastWhileBuyingFoodFromVillage` | Returns `12f`. | Read for village shortages; it does not guarantee village stock. |
 | `LowCostFoodPriceAverage` | Returns `30f`. | Used as a low-cost baseline in AI settlement evaluation; it does not set transaction price. |
-| `FindItemToBuy(...)` | Scans stock, filters food/live livestock by price and buyer gold, then weighted-selects an item using price and item value. | Returns an `ItemRosterElement` copy and price; returns `Invalid`/`0` when no candidate exists and performs no transaction. |
+| `FindItemToBuy` | Scans stock, filters food/live livestock by price and buyer gold, then weighted-selects an item using price and item value. | Returns an `ItemRosterElement` copy and price; returns `Invalid`/`0` when no candidate exists and performs no transaction. |
 
 ## Vanilla selection details
 
@@ -76,17 +78,26 @@ if (settlement != null)
 To change only the town target while preserving vanilla candidate selection, subclass and register during campaign setup:
 
 ```csharp
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
 public sealed class MyPartyFoodBuyingModel : DefaultPartyFoodBuyingModel
 {
     public override float MinimumDaysFoodToLastWhileBuyingFoodFromTown => 45f;
 }
 
-protected override void InitializeGameStarter(Game game, IGameStarter starter)
+public sealed class MySubModule : MBSubModuleBase
 {
-    starter.AddModel(new MyPartyFoodBuyingModel());
+    protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+            starter.AddModel(new MyPartyFoodBuyingModel());
+        }
+    }
 }
 ```
 
@@ -99,7 +110,9 @@ This keeps the default candidate filtering and weighted selection. The food beha
 3. The Model returns a recommendation. Calling a trade Action inside it makes the outer behavior loop buy again, duplicating gold and inventory changes.
 4. `Settlement.ItemRoster` and `SettlementComponent` are valid only for a live settlement object. Do not cache a loading-stage or destroyed settlement in model state.
 5. These thresholds are not global player-food constants. Main-party exclusion, war status, army attachment, food consumption, and settlement stock are checked separately by the behavior.
-6. v1.4.5 keeps `30/12/30` and the candidate-selection semantics; the decompiled `GetItemPrice` argument shape changes internally and should not become a mod-level assumption.
+6. After `FindItemToBuy` returns, the behavior may calculate the transaction price again inside `SellItemsAction.Apply`. A price change can prevent the transfer, while live livestock can still advance the loop by `MeatCount`; do not treat one model query as a completed trade.
+7. Army purchases distribute settlement food using each party's `FoodChange`; a custom food-consumption model must preserve the non-zero total-consumption boundary used for that division.
+8. v1.4.5 keeps `30/12/30` and the candidate-selection semantics; the decompiled `GetItemPrice` argument shape changes internally and should not become a mod-level assumption.
 
 ## Navigation
 

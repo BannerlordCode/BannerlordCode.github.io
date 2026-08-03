@@ -22,6 +22,8 @@ description: "PartyFoodBuyingModel 的 Sandbox 默认实现：城镇 30 天、�
 
 因此，`FindItemToBuy` 可被预测性调用而不会自动购买。继承该类时，通常只覆盖天数属性或完整的候选选择方法；不要为了改目标天数而复制交易 Action，也不要在 Model 内做世界写入。
 
+实际购买由 [PartiesBuyFoodCampaignBehavior](../PartiesBuyFoodCampaignBehavior/) 监听 `CampaignEvents.SettlementEntered` 和 `CampaignEvents.HourlyTickPartyEvent` 触发。行为先检查战役已开始、队伍有领袖、据点类型、食物消耗、军团附属关系、敌对关系和库存，再读取本模型；因此模型的返回值不能单独解释为“现在一定会买”。
+
 ## 何时使用，何时不要用
 
 - 想把 AI 在城镇/村庄的安全粮食储备改成别的天数时，继承并覆盖对应属性。
@@ -44,7 +46,7 @@ description: "PartyFoodBuyingModel 的 Sandbox 默认实现：城镇 30 天、�
 | `MinimumDaysFoodToLastWhileBuyingFoodFromTown` | 返回 `30f`。 | Behavior 在城镇计算目标食物量时读取；不添加食物。 |
 | `MinimumDaysFoodToLastWhileBuyingFoodFromVillage` | 返回 `12f`。 | Behavior 在村庄计算目标食物量时读取；不保证村庄一定有库存。 |
 | `LowCostFoodPriceAverage` | 返回 `30f`。 | AI 访问据点评估使用的低价基准；不直接设置交易价格。 |
-| `FindItemToBuy(...)` | 扫描据点库存，筛选食物/活牲畜、价格与买方金币条件，再按价格和物品价值权重随机选一项。 | 返回 `ItemRosterElement` 副本和价格；无候选返回 `Invalid`/`0`，不执行交易。 |
+| `FindItemToBuy` | 扫描据点库存，筛选食物/活牲畜、价格与买方金币条件，再按价格和物品价值权重随机选一项。 | 返回 `ItemRosterElement` 副本和价格；无候选返回 `Invalid`/`0`，不执行交易。 |
 
 ## Vanilla 选择细节
 
@@ -76,17 +78,26 @@ if (settlement != null)
 只改变目标天数时，可以继承默认实现并在战役启动阶段注册：
 
 ```csharp
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
 public sealed class MyPartyFoodBuyingModel : DefaultPartyFoodBuyingModel
 {
     public override float MinimumDaysFoodToLastWhileBuyingFoodFromTown => 45f;
 }
 
-protected override void InitializeGameStarter(Game game, IGameStarter starter)
+public sealed class MySubModule : MBSubModuleBase
 {
-    starter.AddModel(new MyPartyFoodBuyingModel());
+    protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+            starter.AddModel(new MyPartyFoodBuyingModel());
+        }
+    }
 }
 ```
 
@@ -99,7 +110,9 @@ protected override void InitializeGameStarter(Game game, IGameStarter starter)
 3. Model 只返回建议。若在其中调用交易 Action，Behavior 的外层循环会再次购买，造成重复扣款/扣库存。
 4. `Settlement.ItemRoster` 和 `SettlementComponent` 只有在有效战役据点对象上才可用；不要把加载阶段或已销毁据点缓存进模型字段。
 5. 这三个阈值不是玩家粮食系统的全局常量。主队排除、战争关系、军队附属状态、食物消耗和据点库存仍由 Behavior 检查。
-6. v1.4.5 保持 `30/12/30` 和候选选择语义；底层 `GetItemPrice` 的反编译调用参数形式变化不应复制进 Mod 的业务假设。
+6. `FindItemToBuy` 返回后，Behavior 在 `SellItemsAction.Apply` 内可能再次计算实际交易价格；价格变化可能使交易不执行，但活牲畜仍会按 `MeatCount` 推进本轮循环。不要把一次模型查询当作已完成交易。
+7. 军团购粮按成员队伍的 `FoodChange` 分摊据点食物；自定义食物消耗模型必须避免军团总消耗为零时的除法边界。
+8. v1.4.5 保持 `30/12/30` 和候选选择语义；底层 `GetItemPrice` 的反编译调用参数形式变化不应复制进 Mod 的业务假设。
 
 ## 导航
 

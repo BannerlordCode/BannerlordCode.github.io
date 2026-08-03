@@ -76,6 +76,6 @@ public static class QuestReward
 
 ## 导航
 
-- ↑ 父级：[Actions 目录](./)
+- ↑ 父级：[Actions 目录](../actions/)
 - ↔ 同级：[ChangeRelationAction](../ChangeRelationAction) · [AddHeroToPartyAction](../AddHeroToPartyAction) · [MakePeaceAction](../MakePeaceAction)
 - 相关：[Hero](../../campaign/Hero) · [PartyBase](../../campaign/PartyBase) · [Settlement](../../campaign/Settlement) · [Campaign](../../campaign/Campaign)

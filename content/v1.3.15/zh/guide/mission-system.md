@@ -88,27 +88,31 @@ namespace MyModule.Missions
 
 ### 注册行为
 
-在 SubModule 中注册：
+`MissionBehavior` 不是战役 `CampaignBehaviorBase`，不能在 `MBSubModuleBase.OnGameStart` 中通过 `CampaignGameStarter.AddBehavior` 注册。创建自定义 Mission 时，应让 `MissionState.OpenNew` 的行为工厂返回它：
 
 ```csharp
-protected override void OnGameStart(Game game, IGameStarter gameStarter)
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static Mission OpenCustomMission(string sceneName)
 {
-    base.OnGameStart(game, gameStarter);
-    
-    // 添加任务行为
-    gameStarter.AddBehavior(new MyMissionBehavior());
+    return MissionState.OpenNew(
+        "MyMission",
+        new MissionInitializerRecord(sceneName),
+        _ => new MissionBehavior[]
+        {
+            new MyMissionBehavior()
+        });
 }
 ```
 
 或在 Mission 中添加：
 
 ```csharp
-public override void OnMissionStart()
+Mission mission = Mission.Current;
+if (mission != null && mission.CurrentState == Mission.State.Continuing)
 {
-    base.OnMissionStart();
-    
-    // 获取当前 Mission 并添加行为
-    Mission.Current.AddMissionBehavior(new MyMissionBehavior());
+    mission.AddMissionBehavior(new MyMissionBehavior());
 }
 ```
 
@@ -219,34 +223,23 @@ agent.TrySetWeaponIndexAsWielded(EquipmentIndex.WeaponItemPrimarySlot);
 agent.FatalPush(Mission.DamageTypes.Invalid);
 ```
 
-### 监听 Agent 事件
+### 观察 Agent 移除
+
+死亡、撤退和其他移除状态应重写 [`MissionBehavior.OnAgentRemoved`](../../api/mission/MissionBehavior)，不要订阅不存在的 `Agent.AgentDied` 事件。这个回调属于 Mission 生命周期；只复制需要的字段，不要把已移除的 Agent 当作仍然有效的引用保存下来。
 
 ```csharp
 public class MyAgentLogic : MissionBehavior
 {
-    public override void OnAgentCreated(Agent agent)
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
     {
-        base.OnAgentCreated(agent);
-        
-        // 监听特定 Agent
-        if (agent.Character.Name == "MyHero")
+        if (affectedAgent?.IsMainAgent == true)
         {
-            agent.AgentHit += OnAgentHit;
-            agent.AgentMounted += OnAgentMounted;
-            agent.AgentDied += OnAgentDied;
+            Debug.Print($"主 Agent 已移除：{agentState}");
         }
-    }
-    
-    private void OnAgentHit(Agent victim, Agent attacker, int damage, 
-        Vec3 impactPoint, bool isBlocked, bool isSiegeEngineHit)
-    {
-        Debug.Print($"Agent hit: {victim.Name} took {damage} damage");
-    }
-    
-    private void OnAgentDied(Agent victim, Agent attacker, 
-        AgentState agentState, BitWriter writer)
-    {
-        Debug.Print($"Agent died: {victim.Name}");
     }
 }
 ```
@@ -326,12 +319,13 @@ public class CustomBattleLogic : MissionBehavior
         SpawnEnemies();
     }
     
-    public override void OnAgentDied(Agent victim, Agent attacker, 
-        AgentState agentState, BitWriter writer)
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
     {
-        base.OnAgentDied(victim, attacker, agentState, writer);
-        
-        if (victim.Team == _enemyTeam && attacker != null)
+        if (affectedAgent.Team == _enemyTeam && affectorAgent != null)
         {
             _currentKills++;
             
@@ -363,17 +357,21 @@ public class CustomBattleLogic : MissionBehavior
 
 ### 注册自定义任务
 
+自定义任务必须在打开 Mission 的调用点提供 behavior；不要把 `MissionBehavior` 交给战役的 `IGameStarter`：
+
 ```csharp
-// 在 SubModule 中
-public class MySubModule : MBSubModuleBase
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static Mission OpenCustomBattle(string sceneName)
 {
-    protected override void OnGameStart(Game game, IGameStarter gameStarter)
-    {
-        base.OnGameStart(game, gameStarter);
-        
-        // 添加自定义逻辑
-        gameStarter.AddBehavior(new CustomBattleLogic());
-    }
+    return MissionState.OpenNew(
+        "CustomBattle",
+        new MissionInitializerRecord(sceneName),
+        _ => new MissionBehavior[]
+        {
+            new CustomBattleLogic()
+        });
 }
 ```
 

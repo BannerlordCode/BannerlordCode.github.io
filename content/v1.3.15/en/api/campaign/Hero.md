@@ -27,7 +27,8 @@ Think of `Hero` as the **campaign-world character card**, not the 3D battlefield
 - `Hero` itself does not animate or fight. When a battle starts, it spawns an `Agent` that represents the hero on the battlefield.
 - The card is **globally unique**: every `Hero` has a `stringId` and can be retrieved with `Hero.Find(stringId)`.
 - Do **not** `new Hero()` yourself. Create new heroes through `HeroCreator.CreateHero(...)` or query existing heroes with `Hero.FindFirst` / `Hero.FindAll`.
-- State changes are usually direct property writes (`Gold`, `Clan`, etc.). Health, skills, and traits have dedicated methods (`ChangeHeroGold`, `AddSkillXp`, `SetTraitLevel`).
+- `Hero` stores campaign state, but direct field writes are not the world-mutation API. For transfers, relations, party membership, death, or diplomacy, prefer the matching `*Action.Apply` entry so events and related objects are updated together.
+- `ChangeHeroGold` is a low-level one-hero balance adjustment. It is not a two-sided transfer, does not debit another account, and does not publish the gold-trade event; use `GiveGoldAction` when money moves between characters.
 
 ## Dependencies
 
@@ -136,10 +137,14 @@ if (relation < -20)
 ```
 
 #### `public void SetPersonalRelation(Hero otherHero, int value)`
-Sets the relation value directly. This affects dialogue, quests, and army-joining checks.
+Sets the relation value at a low level, affecting dialogue, quests, and army-joining checks. A mod that changes relations should use `ChangeRelationAction` so the diplomacy model can adjust and clamp the change and publish `OnHeroRelationChanged`; do not treat this setter as the public transaction boundary.
 
 ```csharp
-Hero.MainHero.SetPersonalRelation(someLord, 50); // become friendly
+using TaleWorlds.CampaignSystem.Actions;
+
+int delta = 50 - Hero.MainHero.GetRelation(someLord);
+if (delta != 0)
+    ChangeRelationAction.ApplyPlayerRelation(someLord, delta);
 ```
 
 #### `public bool CanLeadParty()`
@@ -156,11 +161,16 @@ if (companion != null)
 ### Economy & Influence
 
 #### `public void ChangeHeroGold(int changeAmount)`
-Add or remove gold from this hero.
+Adds or removes gold from one hero at a low level. It does not validate another money endpoint or publish the `GiveGoldAction` trade event; use [GiveGoldAction](../../campaign-ext/GiveGoldAction/) for a real character-to-character transfer. Call this method directly only when the feature intentionally adjusts one account without a transfer event.
 
 ```csharp
-Hero.MainHero.ChangeHeroGold(5000);  // player gains 5000
-someLord.ChangeHeroGold(-1000);      // deduct 1000 from a lord
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero receiver = Hero.OneToOneConversationHero;
+if (receiver != null && Hero.MainHero.Gold >= 1000)
+{
+    GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, receiver, 1000);
+}
 ```
 
 #### `public void AddInfluenceWithKingdom(float additionalInfluence)`
@@ -228,15 +238,15 @@ Hero.MainHero.SetImmuneToWound(true); // protagonist cannot be wounded
 
 ## Typical Usage Examples
 
-### Example 1: Give money to all player-clan heroes
+### Example 1: Transfer the player's existing gold to the conversation partner
 
 ```csharp
-foreach (Hero hero in Clan.PlayerClan.Heroes)
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero receiver = Hero.OneToOneConversationHero;
+if (receiver != null && Hero.MainHero.Gold >= 1000)
 {
-    if (hero.IsAlive)
-    {
-        hero.ChangeHeroGold(1000);
-    }
+    GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, receiver, 1000);
 }
 ```
 

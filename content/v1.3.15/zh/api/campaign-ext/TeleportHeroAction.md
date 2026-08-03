@@ -9,7 +9,7 @@ description: "战役中安全安排英雄立即或延迟前往据点、加入部
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public static class TeleportHeroAction`  
 **Base:** 无  
-**源文件：** `TaleWorlds.CampaignSystem/Actions/TeleportHeroAction.cs`
+**源文件：** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TeleportHeroAction.cs`
 
 ## 职责
 
@@ -72,7 +72,7 @@ graph TD
 ## 风险与崩溃边界
 
 1. 立即据点路径在检查旧部队前已经让 Hero 离开当前据点；旧部队若非活动、正在交战或已有 `MapEvent`，方法会直接返回，可能留下“离开了据点但尚未进入目标”的中间状态。
-2. 延迟路径在检查旧部队之前就会移除 Governor，并可能先离开旧据点；对正在交战或非活动的部队调用可能产生部分清理后返回。调用者应先检查 `hero.PartyBelongedTo?.IsActive`、`IsCurrentlyEngagingParty`、`MapEvent` 和当前据点状态。
+2. 延迟路径在检查旧部队之前就会移除 Governor，并可能先离开旧据点；旧部队非活动，或同时处于交战状态且已有 `MapEvent` 时，方法会返回并可能留下部分清理。调用者应先检查 `hero.PartyBelongedTo?.IsActive`、`IsCurrentlyEngagingParty`、`MapEvent` 和当前据点状态。
 3. 从 `MemberRoster` 移除 Hero 会改变部队成员计数；不要在同一个 tick 继续使用旧的 roster 索引或缓存的 `PartyBelongedTo`，也不要保存已被解散队伍的引用供跨事件使用。
 4. 成为队长会重建队伍名称和视觉缓存，并取消解散、重新开启 AI 决策。若 mod 在动作后又写回旧名称或 `DoNotMakeNewDecisions`，会覆盖该动作为队伍恢复运行所做的修复。
 5. `OnHeroTeleportationRequested` 不是成功事件，且目标为空时也可能收到；监听器必须再次读取 Hero 当前状态。不要在监听器中立刻假设 `CurrentSettlement`、`PartyBelongedTo` 或目标对象非空。

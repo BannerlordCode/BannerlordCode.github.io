@@ -86,6 +86,6 @@ This mirrors the native party-screen execution entry. For a battle cause, use `A
 
 ## Navigation
 
-- Parent: [Actions index](./)
+- Parent: [Actions index](../actions/)
 - Siblings: [TakePrisonerAction](../TakePrisonerAction) · [DestroyPartyAction](../DestroyPartyAction) · [MarriageAction](../MarriageAction)
 - Related: [Hero](../../campaign/Hero) · [Campaign](../../campaign/Campaign) · [CampaignEvents](../CampaignEvents) · [ChangeRelationAction](../ChangeRelationAction)

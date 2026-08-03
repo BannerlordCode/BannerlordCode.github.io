@@ -56,9 +56,9 @@ The table covers the highest-risk interface/default pairs in this family. `Purpo
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartySizeLimitModel](../DefaultPartySizeLimitModel) | Combines clan tier, perks, and leader abilities into the vanilla limit. | Model registration and Party/Recruitment queries |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyWageModel](../PartyWageModel) | Converts roster state and wage rules into a party's daily wage. | Daily settlement and wage previews |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyWageModel](../DefaultPartyWageModel) | Applies vanilla troop-tier, perk, and party-state wage factors. | Campaign daily economy tick |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyHealingModel](../DefaultPartyHealingModel) | Computes wounded-party recovery without editing the wounded roster. | Map ticks and medical recovery |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyHealingModel](../PartyHealingModel) | Computes wounded-party recovery without editing the wounded roster. | Map ticks and medical recovery |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyHealingModel](../DefaultPartyHealingModel) | Provides vanilla healing factors for medicine, settlement, and party state. | MobileParty daily/map updates |
-| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyMoraleModel](../DefaultPartyMoraleModel) | Explains how food, battles, and composition contribute to morale. | Daily updates, battle edges, UI previews |
+| TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyMoraleModel](../PartyMoraleModel) | Explains how food, battles, and composition contribute to morale. | Daily updates, battle edges, UI previews |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyMoraleModel](../DefaultPartyMoraleModel) | Implements default morale factors and bounded change. | Campaign tick and party refresh |
 | TaleWorlds.CampaignSystem.ComponentInterfaces | [PartyNavigationModel](../PartyNavigationModel) | Chooses map targets, routes, and navigation restrictions for parties. | Target selection and pathfinding |
 | TaleWorlds.CampaignSystem.GameComponents | [DefaultPartyNavigationModel](../DefaultPartyNavigationModel) | Supplies vanilla target priority and map-navigation policy. | Map AI tick |

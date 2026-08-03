@@ -86,27 +86,31 @@ namespace MyModule.Missions
 
 ### Register Behavior
 
-Register in SubModule:
+`MissionBehavior` is not a campaign `CampaignBehaviorBase`, so it must not be registered through `CampaignGameStarter.AddBehavior` in `MBSubModuleBase.OnGameStart`. When opening a custom Mission, return it from the `MissionState.OpenNew` behavior factory:
 
 ```csharp
-protected override void OnGameStart(Game game, IGameStarter gameStarter)
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static Mission OpenCustomMission(string sceneName)
 {
-    base.OnGameStart(game, gameStarter);
-    
-    // Add mission behavior
-    gameStarter.AddBehavior(new MyMissionBehavior());
+    return MissionState.OpenNew(
+        "MyMission",
+        new MissionInitializerRecord(sceneName),
+        _ => new MissionBehavior[]
+        {
+            new MyMissionBehavior()
+        });
 }
 ```
 
 Or add in Mission:
 
 ```csharp
-public override void OnMissionStart()
+Mission mission = Mission.Current;
+if (mission != null && mission.CurrentState == Mission.State.Continuing)
 {
-    base.OnMissionStart();
-    
-    // Get current Mission and add behavior
-    Mission.Current.AddMissionBehavior(new MyMissionBehavior());
+    mission.AddMissionBehavior(new MyMissionBehavior());
 }
 ```
 
@@ -215,34 +219,23 @@ agent.TrySetWeaponIndexAsWielded(EquipmentIndex.WeaponItemPrimarySlot);
 agent.FatalPush(Mission.DamageTypes.Invalid);
 ```
 
-### Listen to Agent Events
+### Observe Agent Removal
+
+For death, retreat, and other removal states, override [`MissionBehavior.OnAgentRemoved`](../../api/mission/MissionBehavior) instead of subscribing to a nonexistent `Agent.AgentDied` event. The callback is part of the Mission lifecycle; copy the fields you need and do not retain the removed Agent as a live reference.
 
 ```csharp
 public class MyAgentLogic : MissionBehavior
 {
-    public override void OnAgentCreated(Agent agent)
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
     {
-        base.OnAgentCreated(agent);
-        
-        // Listen to specific Agent
-        if (agent.Character.Name == "MyHero")
+        if (affectedAgent?.IsMainAgent == true)
         {
-            agent.AgentHit += OnAgentHit;
-            agent.AgentMounted += OnAgentMounted;
-            agent.AgentDied += OnAgentDied;
+            Debug.Print($"Main Agent removed: {agentState}");
         }
-    }
-    
-    private void OnAgentHit(Agent victim, Agent attacker, int damage, 
-        Vec3 impactPoint, bool isBlocked, bool isSiegeEngineHit)
-    {
-        Debug.Print($"Agent hit: {victim.Name} took {damage} damage");
-    }
-    
-    private void OnAgentDied(Agent victim, Agent attacker, 
-        AgentState agentState, BitWriter writer)
-    {
-        Debug.Print($"Agent died: {victim.Name}");
     }
 }
 ```
@@ -322,12 +315,13 @@ public class CustomBattleLogic : MissionBehavior
         SpawnEnemies();
     }
     
-    public override void OnAgentDied(Agent victim, Agent attacker, 
-        AgentState agentState, BitWriter writer)
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
     {
-        base.OnAgentDied(victim, attacker, agentState, writer);
-        
-        if (victim.Team == _enemyTeam && attacker != null)
+        if (affectedAgent.Team == _enemyTeam && affectorAgent != null)
         {
             _currentKills++;
             
@@ -359,17 +353,21 @@ public class CustomBattleLogic : MissionBehavior
 
 ### Register Custom Mission
 
+Supply the behavior at the call site that opens the Mission; do not pass a `MissionBehavior` to the campaign `IGameStarter`:
+
 ```csharp
-// In SubModule
-public class MySubModule : MBSubModuleBase
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static Mission OpenCustomBattle(string sceneName)
 {
-    protected override void OnGameStart(Game game, IGameStarter gameStarter)
-    {
-        base.OnGameStart(game, gameStarter);
-        
-        // Add custom logic
-        gameStarter.AddBehavior(new CustomBattleLogic());
-    }
+    return MissionState.OpenNew(
+        "CustomBattle",
+        new MissionInitializerRecord(sceneName),
+        _ => new MissionBehavior[]
+        {
+            new CustomBattleLogic()
+        });
 }
 ```
 

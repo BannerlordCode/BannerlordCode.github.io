@@ -84,6 +84,6 @@ The Action owns the diplomatic consequences; the caller only chooses the entry p
 
 ## Navigation
 
-- Parent: [Actions index](./)
+- Parent: [Actions index](../actions/)
 - Siblings: [DeclareWarAction](../DeclareWarAction) · [MakePeaceAction](../MakePeaceAction) · [ChangeRelationAction](../ChangeRelationAction)
 - Related: [Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Campaign](../../campaign/Campaign)

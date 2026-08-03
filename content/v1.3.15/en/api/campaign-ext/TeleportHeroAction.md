@@ -9,7 +9,7 @@ description: "The campaign transition for moving a Hero immediately or with a de
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** `public static class TeleportHeroAction`  
 **Base:** none  
-**Source:** `TaleWorlds.CampaignSystem/Actions/TeleportHeroAction.cs`
+**Source:** `TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Actions/TeleportHeroAction.cs`
 
 ## Responsibility
 
@@ -72,7 +72,7 @@ graph TD
 ## Risks and Failure Boundaries
 
 1. Immediate settlement travel lets the Hero leave the current settlement before checking whether the old party is active or safe. If that party is inactive, engaging, or in a `MapEvent`, the method returns and can leave a partially detached state.
-2. Delayed travel removes governance and may leave the old settlement before checking the old party. A call during engagement or against an inactive party can therefore perform partial cleanup and return. Pre-check `hero.PartyBelongedTo?.IsActive`, `IsCurrentlyEngagingParty`, `MapEvent`, and settlement state.
+2. Delayed travel removes governance and may leave the old settlement before checking the old party. It returns when the old party is inactive, or when it is both engaging and already in a `MapEvent`, so partial cleanup can occur before the return. Pre-check `hero.PartyBelongedTo?.IsActive`, `IsCurrentlyEngagingParty`, `MapEvent`, and settlement state.
 3. Removing the Hero from `MemberRoster` changes party membership counts. Do not keep using an old roster index or cached `PartyBelongedTo` in the same tick, and do not retain a destroyed party reference across events.
 4. Becoming leader rebuilds party naming and visual caches, cancels disbanding, and re-enables AI decisions. Writing an old name or `DoNotMakeNewDecisions` value after the action can undo the repair needed for the party to run.
 5. `OnHeroTeleportationRequested` is not a success event and can be raised for a null target. Listeners must re-read the Hero's state and must not assume `CurrentSettlement`, `PartyBelongedTo`, or the destination is non-null.

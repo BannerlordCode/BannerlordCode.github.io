@@ -16,7 +16,7 @@ description: "把实例字段加入 TaleWorlds.SaveSystem 成员定义的 Attrib
 
 ## 心智模型
 
-把 `LocalSaveId` 当成**类型成员的 schema 编号**，而不是数据库自增 ID。保存系统读取字段上的 Attribute，再由 [SaveableTypeDefiner](../SaveableTypeDefiner) 将包含该字段的类放入定义上下文；[SaveManager](../SaveManager) 之后才能收集、写出和恢复成员。
+把 `LocalSaveId` 当成**类型成员的 schema 编号**，而不是数据库自增 ID。保存系统读取字段上的 Attribute，再由 [SaveableTypeDefiner](SaveableTypeDefiner) 将包含该字段的类放入定义上下文；[SaveManager](SaveManager) 之后才能收集、写出和恢复成员。
 
 字段编号必须在所属声明类层级的**字段表**内唯一并跨版本稳定。`TypeDefinition` 对字段和属性分别收集、分别读写；二者不共享重复检查。字段的 `MemberTypeId` 仍包含声明类层级和 `LocalSaveId`，字段声明顺序、私有/公共可见性都不应被当成兼容机制。
 
@@ -26,7 +26,7 @@ description: "把实例字段加入 TaleWorlds.SaveSystem 成员定义的 Attrib
 
 不适合：
 
-- Behavior 的私有状态应优先在 `CampaignBehaviorBase.SyncData(IDataStore)` 中登记，参见 [IDataStore](../../campaign-ext/IDataStore)。
+- Behavior 的私有状态应优先在 `CampaignBehaviorBase.SyncData(IDataStore)` 中登记，参见 [IDataStore](../campaign-ext/IDataStore)。
 - 纯运行时缓存、线程句柄、UI 控件、场景实体句柄不应保存。
 - 不能把 Attribute 当作类型注册；包含字段的类仍需由 definer 注册。
 
@@ -44,7 +44,7 @@ public class SaveableFieldAttribute : Attribute
 }
 ```
 
-`LocalSaveId` 是可读写的 `short` 属性，但产品代码应把它视为已经发布的 schema 编号，不要在运行中改写。源码的 Attribute 目标只包含 `Field`；属性成员应使用 [SaveablePropertyAttribute](../SaveablePropertyAttribute)。`TypeDefinition.CollectFields()` 以声明类型 class level 加上这个 ID 构成 `MemberTypeId`；字段名和声明顺序不参与匹配。
+`LocalSaveId` 是可读写的 `short` 属性，但产品代码应把它视为已经发布的 schema 编号，不要在运行中改写。源码的 Attribute 目标只包含 `Field`；属性成员应使用 [SaveablePropertyAttribute](SaveablePropertyAttribute)。`TypeDefinition.CollectFields()` 以声明类型 class level 加上这个 ID 构成 `MemberTypeId`；字段名和声明顺序不参与匹配。
 
 ## 真实示例：字段、类型定义与读档
 

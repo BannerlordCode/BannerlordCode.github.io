@@ -25,6 +25,8 @@ Supports Chinese and English documentation, covering v1.3.15, v1.3.0, and v1.4.5
 
 ### 指南 / Guide
 - 环境搭建 (Environment Setup)
+- Mod 开发工作流 (Mod Development Workflow)
+- Mod 作者路线 (Modder Journey)
 - Gauntlet UI 系统 (Gauntlet UI System)
 - 任务系统 (Mission System)
 - 战役系统 (Campaign System)
@@ -80,6 +82,23 @@ bun run docs:build
 ```
 
 构建产物位于 `public/`。
+
+### 文档门禁 / Documentation Gates
+
+从 `BannerlordCode.github.io/` 执行以下检查：
+
+```bash
+npm test
+npm run audit:links
+npm run audit:quality
+npm run audit:body-writers
+npm run audit:navigation
+npm run audit:section-tree
+npm run audit:page-navigation
+npm run audit:coverage
+```
+
+`audit:links` 必须报告 `BROKEN_LINKS=0`；质量审计的 `Blockers` 必须为 0；导航和结构审计必须通过。覆盖率报告会明确显示 R1 的 `covered` 与 `gap`，在长尾手写波次完成前，非零 `gap` 是当前状态而不是完成声明。所有业务正文必须由人工或读过源码和调用点的作者撰写，库存、覆盖率、导航和断链工具只允许生成结构化报告。
 
 ### 预览 / Preview
 

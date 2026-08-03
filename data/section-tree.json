@@ -56,12 +56,294 @@
       "title": "campaign index",
       "weight": null,
       "pages": 1355,
+      "subsections": [
+        "/v1.3.0/en/api/campaign/agentorigins/",
+        "/v1.3.0/en/api/campaign/bartersystem/",
+        "/v1.3.0/en/api/campaign/campaignbehaviors/",
+        "/v1.3.0/en/api/campaign/charactercreationcontent/",
+        "/v1.3.0/en/api/campaign/characterdevelopment/",
+        "/v1.3.0/en/api/campaign/characters/",
+        "/v1.3.0/en/api/campaign/componentinterfaces/",
+        "/v1.3.0/en/api/campaign/conversation/",
+        "/v1.3.0/en/api/campaign/election/",
+        "/v1.3.0/en/api/campaign/encounters/",
+        "/v1.3.0/en/api/campaign/encyclopedia/",
+        "/v1.3.0/en/api/campaign/extensions/",
+        "/v1.3.0/en/api/campaign/gamecomponents/",
+        "/v1.3.0/en/api/campaign/gamemenus/",
+        "/v1.3.0/en/api/campaign/gamestate/",
+        "/v1.3.0/en/api/campaign/heroes/",
+        "/v1.3.0/en/api/campaign/inventory/",
+        "/v1.3.0/en/api/campaign/issues/",
+        "/v1.3.0/en/api/campaign/logentries/",
+        "/v1.3.0/en/api/campaign/map/",
+        "/v1.3.0/en/api/campaign/mapevents/",
+        "/v1.3.0/en/api/campaign/mapnotificationtypes/",
+        "/v1.3.0/en/api/campaign/naval/",
+        "/v1.3.0/en/api/campaign/parties/",
+        "/v1.3.0/en/api/campaign/party/",
+        "/v1.3.0/en/api/campaign/quests/",
+        "/v1.3.0/en/api/campaign/root/",
+        "/v1.3.0/en/api/campaign/roster/",
+        "/v1.3.0/en/api/campaign/savecompability/",
+        "/v1.3.0/en/api/campaign/sceneinformationpopuptypes/",
+        "/v1.3.0/en/api/campaign/settlements/",
+        "/v1.3.0/en/api/campaign/siege/",
+        "/v1.3.0/en/api/campaign/tournamentgames/"
+      ]
+    },
+    "/v1.3.0/en/api/campaign/agentorigins/": {
+      "title": "AgentOrigins",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/bartersystem/": {
+      "title": "BarterSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/campaignbehaviors/": {
+      "title": "CampaignBehaviors",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/charactercreationcontent/": {
+      "title": "CharacterCreationContent",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/characterdevelopment/": {
+      "title": "CharacterDevelopment",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/characters/": {
+      "title": "Characters",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/componentinterfaces/": {
+      "title": "ComponentInterfaces",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/conversation/": {
+      "title": "Conversation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/election/": {
+      "title": "Election",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/encounters/": {
+      "title": "Encounters",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/encyclopedia/": {
+      "title": "Encyclopedia",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/extensions/": {
+      "title": "Extensions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/gamecomponents/": {
+      "title": "GameComponents",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/gamemenus/": {
+      "title": "GameMenus",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/gamestate/": {
+      "title": "GameState",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/heroes/": {
+      "title": "Heroes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/inventory/": {
+      "title": "Inventory",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/issues/": {
+      "title": "Issues",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/logentries/": {
+      "title": "LogEntries",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/map/": {
+      "title": "Map",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/mapevents/": {
+      "title": "MapEvents",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/mapnotificationtypes/": {
+      "title": "MapNotificationTypes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/naval/": {
+      "title": "Naval",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/parties/": {
+      "title": "Parties",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/party/": {
+      "title": "Party",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/quests/": {
+      "title": "Quests",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/roster/": {
+      "title": "Roster",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/savecompability/": {
+      "title": "SaveCompability",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/sceneinformationpopuptypes/": {
+      "title": "SceneInformationPopupTypes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/settlements/": {
+      "title": "Settlements",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/siege/": {
+      "title": "Siege",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign/tournamentgames/": {
+      "title": "TournamentGames",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/campaign-ext/": {
       "title": "campaign-ext index",
       "weight": null,
       "pages": 1216,
+      "subsections": [
+        "/v1.3.0/en/api/campaign-ext/actions/",
+        "/v1.3.0/en/api/campaign-ext/global/",
+        "/v1.3.0/en/api/campaign-ext/networkmessages/",
+        "/v1.3.0/en/api/campaign-ext/root/",
+        "/v1.3.0/en/api/campaign-ext/sandbox/",
+        "/v1.3.0/en/api/campaign-ext/storymode/",
+        "/v1.3.0/en/api/campaign-ext/taleworlds/"
+      ]
+    },
+    "/v1.3.0/en/api/campaign-ext/actions/": {
+      "title": "Actions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/global/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/networkmessages/": {
+      "title": "NetworkMessages",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/sandbox/": {
+      "title": "SandBox",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/storymode/": {
+      "title": "StoryMode",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/campaign-ext/taleworlds/": {
+      "title": "TaleWorlds",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/core/": {
@@ -74,42 +356,308 @@
       "title": "core-extra index",
       "weight": null,
       "pages": 520,
+      "subsections": [
+        "/v1.3.0/en/api/core-extra/codegeneration/",
+        "/v1.3.0/en/api/core-extra/eventsystem/",
+        "/v1.3.0/en/api/core-extra/graph/",
+        "/v1.3.0/en/api/core-extra/http/",
+        "/v1.3.0/en/api/core-extra/imageidentifiers/",
+        "/v1.3.0/en/api/core-extra/newsmanager/",
+        "/v1.3.0/en/api/core-extra/root/",
+        "/v1.3.0/en/api/core-extra/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/en/api/core-extra/codegeneration/": {
+      "title": "CodeGeneration",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/eventsystem/": {
+      "title": "EventSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/graph/": {
+      "title": "Graph",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/http/": {
+      "title": "Http",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/imageidentifiers/": {
+      "title": "ImageIdentifiers",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/newsmanager/": {
+      "title": "NewsManager",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/core-extra/viewmodelcollection/": {
+      "title": "ViewModelCollection",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/engine/": {
       "title": "engine index",
       "weight": null,
       "pages": 204,
+      "subsections": [
+        "/v1.3.0/en/api/engine/gauntletui/",
+        "/v1.3.0/en/api/engine/inputsystem/",
+        "/v1.3.0/en/api/engine/options/",
+        "/v1.3.0/en/api/engine/root/"
+      ]
+    },
+    "/v1.3.0/en/api/engine/gauntletui/": {
+      "title": "GauntletUI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/engine/inputsystem/": {
+      "title": "InputSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/engine/options/": {
+      "title": "Options",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/engine/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/gameplay/": {
       "title": "stub",
       "weight": null,
       "pages": 15,
+      "subsections": [
+        "/v1.3.0/en/api/gameplay/sandbox/",
+        "/v1.3.0/en/api/gameplay/storymode/"
+      ]
+    },
+    "/v1.3.0/en/api/gameplay/sandbox/": {
+      "title": "SandBox",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gameplay/storymode/": {
+      "title": "StoryMode",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/gui/": {
       "title": "gui index",
       "weight": null,
       "pages": 181,
+      "subsections": [
+        "/v1.3.0/en/api/gui/basetypes/",
+        "/v1.3.0/en/api/gui/data/",
+        "/v1.3.0/en/api/gui/extrawidgets/",
+        "/v1.3.0/en/api/gui/gamepadnavigation/",
+        "/v1.3.0/en/api/gui/layout/",
+        "/v1.3.0/en/api/gui/prefabsystem/",
+        "/v1.3.0/en/api/gui/root/"
+      ]
+    },
+    "/v1.3.0/en/api/gui/basetypes/": {
+      "title": "BaseTypes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/data/": {
+      "title": "Data",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/extrawidgets/": {
+      "title": "ExtraWidgets",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/gamepadnavigation/": {
+      "title": "GamepadNavigation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/layout/": {
+      "title": "Layout",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/prefabsystem/": {
+      "title": "PrefabSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/gui/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/localization/": {
       "title": "localization index",
       "weight": null,
       "pages": 54,
+      "subsections": [
+        "/v1.3.0/en/api/localization/expressions/",
+        "/v1.3.0/en/api/localization/root/",
+        "/v1.3.0/en/api/localization/textprocessor/"
+      ]
+    },
+    "/v1.3.0/en/api/localization/expressions/": {
+      "title": "Expressions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/localization/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/localization/textprocessor/": {
+      "title": "TextProcessor",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/mission/": {
       "title": "mission index",
       "weight": null,
       "pages": 52,
+      "subsections": [
+        "/v1.3.0/en/api/mission/root/"
+      ]
+    },
+    "/v1.3.0/en/api/mission/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/mission-ext/": {
       "title": "mission-ext index",
       "weight": null,
       "pages": 1103,
+      "subsections": [
+        "/v1.3.0/en/api/mission-ext/componentinterfaces/",
+        "/v1.3.0/en/api/mission-ext/gauntletui/",
+        "/v1.3.0/en/api/mission-ext/missionrepresentatives/",
+        "/v1.3.0/en/api/mission-ext/missions/",
+        "/v1.3.0/en/api/mission-ext/missionspawnhandlers/",
+        "/v1.3.0/en/api/mission-ext/network/",
+        "/v1.3.0/en/api/mission-ext/objects/",
+        "/v1.3.0/en/api/mission-ext/options/",
+        "/v1.3.0/en/api/mission-ext/root/",
+        "/v1.3.0/en/api/mission-ext/source/",
+        "/v1.3.0/en/api/mission-ext/view/",
+        "/v1.3.0/en/api/mission-ext/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/en/api/mission-ext/componentinterfaces/": {
+      "title": "ComponentInterfaces",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/gauntletui/": {
+      "title": "GauntletUI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/missionrepresentatives/": {
+      "title": "MissionRepresentatives",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/missions/": {
+      "title": "Missions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/missionspawnhandlers/": {
+      "title": "MissionSpawnHandlers",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/network/": {
+      "title": "Network",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/objects/": {
+      "title": "Objects",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/options/": {
+      "title": "Options",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/source/": {
+      "title": "Source",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/view/": {
+      "title": "View",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/mission-ext/viewmodelcollection/": {
+      "title": "ViewModelCollection",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/api/system/": {
@@ -122,12 +670,118 @@
       "title": "viewmodel index",
       "weight": null,
       "pages": 433,
+      "subsections": [
+        "/v1.3.0/en/api/viewmodel/armymanagement/",
+        "/v1.3.0/en/api/viewmodel/charactercreation/",
+        "/v1.3.0/en/api/viewmodel/characterdeveloper/",
+        "/v1.3.0/en/api/viewmodel/clanmanagement/",
+        "/v1.3.0/en/api/viewmodel/conversation/",
+        "/v1.3.0/en/api/viewmodel/education/",
+        "/v1.3.0/en/api/viewmodel/encyclopedia/",
+        "/v1.3.0/en/api/viewmodel/gamemenu/",
+        "/v1.3.0/en/api/viewmodel/inventory/",
+        "/v1.3.0/en/api/viewmodel/kingdommanagement/",
+        "/v1.3.0/en/api/viewmodel/map/",
+        "/v1.3.0/en/api/viewmodel/party/",
+        "/v1.3.0/en/api/viewmodel/quests/",
+        "/v1.3.0/en/api/viewmodel/root/",
+        "/v1.3.0/en/api/viewmodel/weaponcrafting/"
+      ]
+    },
+    "/v1.3.0/en/api/viewmodel/armymanagement/": {
+      "title": "ArmyManagement",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/charactercreation/": {
+      "title": "CharacterCreation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/characterdeveloper/": {
+      "title": "CharacterDeveloper",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/clanmanagement/": {
+      "title": "ClanManagement",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/conversation/": {
+      "title": "Conversation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/education/": {
+      "title": "Education",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/encyclopedia/": {
+      "title": "Encyclopedia",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/gamemenu/": {
+      "title": "GameMenu",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/inventory/": {
+      "title": "Inventory",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/kingdommanagement/": {
+      "title": "KingdomManagement",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/map/": {
+      "title": "Map",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/party/": {
+      "title": "Party",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/quests/": {
+      "title": "Quests",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/en/api/viewmodel/weaponcrafting/": {
+      "title": "WeaponCrafting",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/en/architecture/": {
       "title": "Architecture (v1.3.0)",
       "weight": null,
-      "pages": 1,
+      "pages": 5,
       "subsections": []
     },
     "/v1.3.0/en/guide/": {
@@ -183,12 +837,294 @@
       "title": "campaign 目录",
       "weight": null,
       "pages": 1355,
+      "subsections": [
+        "/v1.3.0/zh/api/campaign/agentorigins/",
+        "/v1.3.0/zh/api/campaign/bartersystem/",
+        "/v1.3.0/zh/api/campaign/campaignbehaviors/",
+        "/v1.3.0/zh/api/campaign/charactercreationcontent/",
+        "/v1.3.0/zh/api/campaign/characterdevelopment/",
+        "/v1.3.0/zh/api/campaign/characters/",
+        "/v1.3.0/zh/api/campaign/componentinterfaces/",
+        "/v1.3.0/zh/api/campaign/conversation/",
+        "/v1.3.0/zh/api/campaign/election/",
+        "/v1.3.0/zh/api/campaign/encounters/",
+        "/v1.3.0/zh/api/campaign/encyclopedia/",
+        "/v1.3.0/zh/api/campaign/extensions/",
+        "/v1.3.0/zh/api/campaign/gamecomponents/",
+        "/v1.3.0/zh/api/campaign/gamemenus/",
+        "/v1.3.0/zh/api/campaign/gamestate/",
+        "/v1.3.0/zh/api/campaign/heroes/",
+        "/v1.3.0/zh/api/campaign/inventory/",
+        "/v1.3.0/zh/api/campaign/issues/",
+        "/v1.3.0/zh/api/campaign/logentries/",
+        "/v1.3.0/zh/api/campaign/map/",
+        "/v1.3.0/zh/api/campaign/mapevents/",
+        "/v1.3.0/zh/api/campaign/mapnotificationtypes/",
+        "/v1.3.0/zh/api/campaign/naval/",
+        "/v1.3.0/zh/api/campaign/parties/",
+        "/v1.3.0/zh/api/campaign/party/",
+        "/v1.3.0/zh/api/campaign/quests/",
+        "/v1.3.0/zh/api/campaign/root/",
+        "/v1.3.0/zh/api/campaign/roster/",
+        "/v1.3.0/zh/api/campaign/savecompability/",
+        "/v1.3.0/zh/api/campaign/sceneinformationpopuptypes/",
+        "/v1.3.0/zh/api/campaign/settlements/",
+        "/v1.3.0/zh/api/campaign/siege/",
+        "/v1.3.0/zh/api/campaign/tournamentgames/"
+      ]
+    },
+    "/v1.3.0/zh/api/campaign/agentorigins/": {
+      "title": "AgentOrigins",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/bartersystem/": {
+      "title": "BarterSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/campaignbehaviors/": {
+      "title": "CampaignBehaviors",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/charactercreationcontent/": {
+      "title": "CharacterCreationContent",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/characterdevelopment/": {
+      "title": "CharacterDevelopment",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/characters/": {
+      "title": "Characters",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/componentinterfaces/": {
+      "title": "ComponentInterfaces",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/conversation/": {
+      "title": "Conversation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/election/": {
+      "title": "Election",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/encounters/": {
+      "title": "Encounters",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/encyclopedia/": {
+      "title": "Encyclopedia",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/extensions/": {
+      "title": "Extensions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/gamecomponents/": {
+      "title": "GameComponents",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/gamemenus/": {
+      "title": "GameMenus",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/gamestate/": {
+      "title": "GameState",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/heroes/": {
+      "title": "Heroes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/inventory/": {
+      "title": "Inventory",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/issues/": {
+      "title": "Issues",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/logentries/": {
+      "title": "LogEntries",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/map/": {
+      "title": "Map",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/mapevents/": {
+      "title": "MapEvents",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/mapnotificationtypes/": {
+      "title": "MapNotificationTypes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/naval/": {
+      "title": "Naval",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/parties/": {
+      "title": "Parties",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/party/": {
+      "title": "Party",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/quests/": {
+      "title": "Quests",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/roster/": {
+      "title": "Roster",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/savecompability/": {
+      "title": "SaveCompability",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/sceneinformationpopuptypes/": {
+      "title": "SceneInformationPopupTypes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/settlements/": {
+      "title": "Settlements",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/siege/": {
+      "title": "Siege",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign/tournamentgames/": {
+      "title": "TournamentGames",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/campaign-ext/": {
       "title": "campaign-ext 目录",
       "weight": null,
       "pages": 1216,
+      "subsections": [
+        "/v1.3.0/zh/api/campaign-ext/actions/",
+        "/v1.3.0/zh/api/campaign-ext/global/",
+        "/v1.3.0/zh/api/campaign-ext/networkmessages/",
+        "/v1.3.0/zh/api/campaign-ext/root/",
+        "/v1.3.0/zh/api/campaign-ext/sandbox/",
+        "/v1.3.0/zh/api/campaign-ext/storymode/",
+        "/v1.3.0/zh/api/campaign-ext/taleworlds/"
+      ]
+    },
+    "/v1.3.0/zh/api/campaign-ext/actions/": {
+      "title": "Actions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/global/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/networkmessages/": {
+      "title": "NetworkMessages",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/sandbox/": {
+      "title": "SandBox",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/storymode/": {
+      "title": "StoryMode",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/campaign-ext/taleworlds/": {
+      "title": "TaleWorlds",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/core/": {
@@ -201,42 +1137,308 @@
       "title": "core-extra 目录",
       "weight": null,
       "pages": 520,
+      "subsections": [
+        "/v1.3.0/zh/api/core-extra/codegeneration/",
+        "/v1.3.0/zh/api/core-extra/eventsystem/",
+        "/v1.3.0/zh/api/core-extra/graph/",
+        "/v1.3.0/zh/api/core-extra/http/",
+        "/v1.3.0/zh/api/core-extra/imageidentifiers/",
+        "/v1.3.0/zh/api/core-extra/newsmanager/",
+        "/v1.3.0/zh/api/core-extra/root/",
+        "/v1.3.0/zh/api/core-extra/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/zh/api/core-extra/codegeneration/": {
+      "title": "CodeGeneration",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/eventsystem/": {
+      "title": "EventSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/graph/": {
+      "title": "Graph",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/http/": {
+      "title": "Http",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/imageidentifiers/": {
+      "title": "ImageIdentifiers",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/newsmanager/": {
+      "title": "NewsManager",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/core-extra/viewmodelcollection/": {
+      "title": "ViewModelCollection",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/engine/": {
       "title": "engine 目录",
       "weight": null,
       "pages": 204,
+      "subsections": [
+        "/v1.3.0/zh/api/engine/gauntletui/",
+        "/v1.3.0/zh/api/engine/inputsystem/",
+        "/v1.3.0/zh/api/engine/options/",
+        "/v1.3.0/zh/api/engine/root/"
+      ]
+    },
+    "/v1.3.0/zh/api/engine/gauntletui/": {
+      "title": "GauntletUI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/engine/inputsystem/": {
+      "title": "InputSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/engine/options/": {
+      "title": "Options",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/engine/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/gameplay/": {
       "title": "stub",
       "weight": null,
       "pages": 15,
+      "subsections": [
+        "/v1.3.0/zh/api/gameplay/sandbox/",
+        "/v1.3.0/zh/api/gameplay/storymode/"
+      ]
+    },
+    "/v1.3.0/zh/api/gameplay/sandbox/": {
+      "title": "SandBox",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gameplay/storymode/": {
+      "title": "StoryMode",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/gui/": {
       "title": "gui 目录",
       "weight": null,
       "pages": 181,
+      "subsections": [
+        "/v1.3.0/zh/api/gui/basetypes/",
+        "/v1.3.0/zh/api/gui/data/",
+        "/v1.3.0/zh/api/gui/extrawidgets/",
+        "/v1.3.0/zh/api/gui/gamepadnavigation/",
+        "/v1.3.0/zh/api/gui/layout/",
+        "/v1.3.0/zh/api/gui/prefabsystem/",
+        "/v1.3.0/zh/api/gui/root/"
+      ]
+    },
+    "/v1.3.0/zh/api/gui/basetypes/": {
+      "title": "BaseTypes",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/data/": {
+      "title": "Data",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/extrawidgets/": {
+      "title": "ExtraWidgets",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/gamepadnavigation/": {
+      "title": "GamepadNavigation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/layout/": {
+      "title": "Layout",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/prefabsystem/": {
+      "title": "PrefabSystem",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/gui/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/localization/": {
       "title": "localization 目录",
       "weight": null,
       "pages": 54,
+      "subsections": [
+        "/v1.3.0/zh/api/localization/expressions/",
+        "/v1.3.0/zh/api/localization/root/",
+        "/v1.3.0/zh/api/localization/textprocessor/"
+      ]
+    },
+    "/v1.3.0/zh/api/localization/expressions/": {
+      "title": "Expressions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/localization/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/localization/textprocessor/": {
+      "title": "TextProcessor",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/mission/": {
       "title": "mission 目录",
       "weight": null,
       "pages": 52,
+      "subsections": [
+        "/v1.3.0/zh/api/mission/root/"
+      ]
+    },
+    "/v1.3.0/zh/api/mission/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/mission-ext/": {
       "title": "mission-ext 目录",
       "weight": null,
       "pages": 1103,
+      "subsections": [
+        "/v1.3.0/zh/api/mission-ext/componentinterfaces/",
+        "/v1.3.0/zh/api/mission-ext/gauntletui/",
+        "/v1.3.0/zh/api/mission-ext/missionrepresentatives/",
+        "/v1.3.0/zh/api/mission-ext/missions/",
+        "/v1.3.0/zh/api/mission-ext/missionspawnhandlers/",
+        "/v1.3.0/zh/api/mission-ext/network/",
+        "/v1.3.0/zh/api/mission-ext/objects/",
+        "/v1.3.0/zh/api/mission-ext/options/",
+        "/v1.3.0/zh/api/mission-ext/root/",
+        "/v1.3.0/zh/api/mission-ext/source/",
+        "/v1.3.0/zh/api/mission-ext/view/",
+        "/v1.3.0/zh/api/mission-ext/viewmodelcollection/"
+      ]
+    },
+    "/v1.3.0/zh/api/mission-ext/componentinterfaces/": {
+      "title": "ComponentInterfaces",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/gauntletui/": {
+      "title": "GauntletUI",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/missionrepresentatives/": {
+      "title": "MissionRepresentatives",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/missions/": {
+      "title": "Missions",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/missionspawnhandlers/": {
+      "title": "MissionSpawnHandlers",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/network/": {
+      "title": "Network",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/objects/": {
+      "title": "Objects",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/options/": {
+      "title": "Options",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/source/": {
+      "title": "Source",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/view/": {
+      "title": "View",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/mission-ext/viewmodelcollection/": {
+      "title": "ViewModelCollection",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/api/system/": {
@@ -249,12 +1451,118 @@
       "title": "viewmodel 目录",
       "weight": null,
       "pages": 433,
+      "subsections": [
+        "/v1.3.0/zh/api/viewmodel/armymanagement/",
+        "/v1.3.0/zh/api/viewmodel/charactercreation/",
+        "/v1.3.0/zh/api/viewmodel/characterdeveloper/",
+        "/v1.3.0/zh/api/viewmodel/clanmanagement/",
+        "/v1.3.0/zh/api/viewmodel/conversation/",
+        "/v1.3.0/zh/api/viewmodel/education/",
+        "/v1.3.0/zh/api/viewmodel/encyclopedia/",
+        "/v1.3.0/zh/api/viewmodel/gamemenu/",
+        "/v1.3.0/zh/api/viewmodel/inventory/",
+        "/v1.3.0/zh/api/viewmodel/kingdommanagement/",
+        "/v1.3.0/zh/api/viewmodel/map/",
+        "/v1.3.0/zh/api/viewmodel/party/",
+        "/v1.3.0/zh/api/viewmodel/quests/",
+        "/v1.3.0/zh/api/viewmodel/root/",
+        "/v1.3.0/zh/api/viewmodel/weaponcrafting/"
+      ]
+    },
+    "/v1.3.0/zh/api/viewmodel/armymanagement/": {
+      "title": "ArmyManagement",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/charactercreation/": {
+      "title": "CharacterCreation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/characterdeveloper/": {
+      "title": "CharacterDeveloper",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/clanmanagement/": {
+      "title": "ClanManagement",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/conversation/": {
+      "title": "Conversation",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/education/": {
+      "title": "Education",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/encyclopedia/": {
+      "title": "Encyclopedia",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/gamemenu/": {
+      "title": "GameMenu",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/inventory/": {
+      "title": "Inventory",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/kingdommanagement/": {
+      "title": "KingdomManagement",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/map/": {
+      "title": "Map",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/party/": {
+      "title": "Party",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/quests/": {
+      "title": "Quests",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/root/": {
+      "title": "Root",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.0/zh/api/viewmodel/weaponcrafting/": {
+      "title": "WeaponCrafting",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.0/zh/architecture/": {
       "title": "架构 / Architecture (v1.3.0)",
       "weight": null,
-      "pages": 1,
+      "pages": 5,
       "subsections": []
     },
     "/v1.3.0/zh/guide/": {
@@ -319,13 +1627,140 @@
     "/v1.3.15/en/api/campaign/": {
       "title": "campaign index",
       "weight": null,
-      "pages": 51,
+      "pages": 52,
       "subsections": []
     },
     "/v1.3.15/en/api/campaign-ext/": {
       "title": "campaign-ext index",
       "weight": null,
       "pages": 2834,
+      "subsections": [
+        "/v1.3.15/en/api/campaign-ext/actions/",
+        "/v1.3.15/en/api/campaign-ext/behaviors/",
+        "/v1.3.15/en/api/campaign-ext/dialogs/",
+        "/v1.3.15/en/api/campaign-ext/encounters/",
+        "/v1.3.15/en/api/campaign-ext/gamemenus/",
+        "/v1.3.15/en/api/campaign-ext/issues/",
+        "/v1.3.15/en/api/campaign-ext/mapevents/",
+        "/v1.3.15/en/api/campaign-ext/models/",
+        "/v1.3.15/en/api/campaign-ext/party/",
+        "/v1.3.15/en/api/campaign-ext/quests/",
+        "/v1.3.15/en/api/campaign-ext/sandbox-content/",
+        "/v1.3.15/en/api/campaign-ext/settlements/",
+        "/v1.3.15/en/api/campaign-ext/behaviors-priority/",
+        "/v1.3.15/en/api/campaign-ext/character-development/",
+        "/v1.3.15/en/api/campaign-ext/helpers/",
+        "/v1.3.15/en/api/campaign-ext/campaign-behaviors-tail/",
+        "/v1.3.15/en/api/campaign-ext/campaign-tail/",
+        "/v1.3.15/en/api/campaign-ext/issues-tail/"
+      ]
+    },
+    "/v1.3.15/en/api/campaign-ext/actions/": {
+      "title": "Actions Family Handbook",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/behaviors/": {
+      "title": "Behaviors Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/behaviors-priority/": {
+      "title": "Priority Behavior Types",
+      "weight": 10,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/campaign-behaviors-tail/": {
+      "title": "Campaign behavior long-tail family",
+      "weight": 90,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/campaign-tail/": {
+      "title": "CampaignSystem namespace long tail",
+      "weight": 91,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/character-development/": {
+      "title": "Character Development Family Handbook",
+      "weight": 12,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/dialogs/": {
+      "title": "Dialogs Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/encounters/": {
+      "title": "Encounters Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/gamemenus/": {
+      "title": "GameMenus Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/helpers/": {
+      "title": "Helpers Family Handbook",
+      "weight": 20,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/issues/": {
+      "title": "Issues Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/issues-tail/": {
+      "title": "Issue long-tail family",
+      "weight": 92,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/mapevents/": {
+      "title": "MapEvents Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/models/": {
+      "title": "Models Family Handbook",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/party/": {
+      "title": "Party Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/quests/": {
+      "title": "Quests Family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/sandbox-content/": {
+      "title": "SandBox content family",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/campaign-ext/settlements/": {
+      "title": "Settlements Family",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/en/api/core/": {
@@ -338,6 +1773,14 @@
       "title": "core-extra index",
       "weight": null,
       "pages": 527,
+      "subsections": [
+        "/v1.3.15/en/api/core-extra/platform-tail/"
+      ]
+    },
+    "/v1.3.15/en/api/core-extra/platform-tail/": {
+      "title": "Core, Library, and Engine platform long tail",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/en/api/engine/": {
@@ -368,6 +1811,21 @@
       "title": "mission-ext index",
       "weight": null,
       "pages": 1633,
+      "subsections": [
+        "/v1.3.15/en/api/mission-ext/mountandblade-tail/",
+        "/v1.3.15/en/api/mission-ext/source-handlers/"
+      ]
+    },
+    "/v1.3.15/en/api/mission-ext/mountandblade-tail/": {
+      "title": "MountAndBlade managed long tail",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/en/api/mission-ext/source-handlers/": {
+      "title": "Source mission handlers family",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/en/api/save-system/": {
@@ -380,6 +1838,14 @@
       "title": "system index",
       "weight": null,
       "pages": 25,
+      "subsections": [
+        "/v1.3.15/en/api/system/runtime-tail/"
+      ]
+    },
+    "/v1.3.15/en/api/system/runtime-tail/": {
+      "title": "Managed runtime long tail",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/en/api/viewmodel/": {
@@ -391,7 +1857,7 @@
     "/v1.3.15/en/architecture/": {
       "title": "Architecture",
       "weight": null,
-      "pages": 5,
+      "pages": 10,
       "subsections": []
     },
     "/v1.3.15/en/guide/": {
@@ -453,13 +1919,140 @@
     "/v1.3.15/zh/api/campaign/": {
       "title": "campaign 目录",
       "weight": null,
-      "pages": 51,
+      "pages": 52,
       "subsections": []
     },
     "/v1.3.15/zh/api/campaign-ext/": {
       "title": "campaign-ext 目录",
       "weight": null,
       "pages": 2834,
+      "subsections": [
+        "/v1.3.15/zh/api/campaign-ext/actions/",
+        "/v1.3.15/zh/api/campaign-ext/behaviors/",
+        "/v1.3.15/zh/api/campaign-ext/dialogs/",
+        "/v1.3.15/zh/api/campaign-ext/encounters/",
+        "/v1.3.15/zh/api/campaign-ext/gamemenus/",
+        "/v1.3.15/zh/api/campaign-ext/issues/",
+        "/v1.3.15/zh/api/campaign-ext/mapevents/",
+        "/v1.3.15/zh/api/campaign-ext/models/",
+        "/v1.3.15/zh/api/campaign-ext/party/",
+        "/v1.3.15/zh/api/campaign-ext/quests/",
+        "/v1.3.15/zh/api/campaign-ext/sandbox-content/",
+        "/v1.3.15/zh/api/campaign-ext/settlements/",
+        "/v1.3.15/zh/api/campaign-ext/behaviors-priority/",
+        "/v1.3.15/zh/api/campaign-ext/character-development/",
+        "/v1.3.15/zh/api/campaign-ext/helpers/",
+        "/v1.3.15/zh/api/campaign-ext/campaign-behaviors-tail/",
+        "/v1.3.15/zh/api/campaign-ext/campaign-tail/",
+        "/v1.3.15/zh/api/campaign-ext/issues-tail/"
+      ]
+    },
+    "/v1.3.15/zh/api/campaign-ext/actions/": {
+      "title": "Actions 家族手册",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/behaviors/": {
+      "title": "Behaviors 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/behaviors-priority/": {
+      "title": "Behaviors 优先类型",
+      "weight": 10,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/campaign-behaviors-tail/": {
+      "title": "Campaign Behavior long-tail family",
+      "weight": 90,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/campaign-tail/": {
+      "title": "CampaignSystem namespace long tail",
+      "weight": 91,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/character-development/": {
+      "title": "Character Development 家族手册",
+      "weight": 12,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/dialogs/": {
+      "title": "Dialogs 对话家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/encounters/": {
+      "title": "Encounters 遭遇家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/gamemenus/": {
+      "title": "GameMenus 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/helpers/": {
+      "title": "Helpers 家族手册",
+      "weight": 20,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/issues/": {
+      "title": "Issues 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/issues-tail/": {
+      "title": "Issue long-tail family",
+      "weight": 92,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/mapevents/": {
+      "title": "MapEvents 地图事件家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/models/": {
+      "title": "Models 家族手册",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/party/": {
+      "title": "Party 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/quests/": {
+      "title": "Quests 家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/sandbox-content/": {
+      "title": "SandBox 内容家族",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/campaign-ext/settlements/": {
+      "title": "Settlements 家族",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/zh/api/core/": {
@@ -472,6 +2065,14 @@
       "title": "core-extra 目录",
       "weight": null,
       "pages": 527,
+      "subsections": [
+        "/v1.3.15/zh/api/core-extra/platform-tail/"
+      ]
+    },
+    "/v1.3.15/zh/api/core-extra/platform-tail/": {
+      "title": "Core、Library、Engine 平台长尾",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/zh/api/engine/": {
@@ -502,6 +2103,21 @@
       "title": "mission-ext 目录",
       "weight": null,
       "pages": 1633,
+      "subsections": [
+        "/v1.3.15/zh/api/mission-ext/mountandblade-tail/",
+        "/v1.3.15/zh/api/mission-ext/source-handlers/"
+      ]
+    },
+    "/v1.3.15/zh/api/mission-ext/mountandblade-tail/": {
+      "title": "MountAndBlade 托管长尾",
+      "weight": null,
+      "pages": 0,
+      "subsections": []
+    },
+    "/v1.3.15/zh/api/mission-ext/source-handlers/": {
+      "title": "Source Mission Handlers 源码家族",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/zh/api/save-system/": {
@@ -514,6 +2130,14 @@
       "title": "system 目录",
       "weight": null,
       "pages": 25,
+      "subsections": [
+        "/v1.3.15/zh/api/system/runtime-tail/"
+      ]
+    },
+    "/v1.3.15/zh/api/system/runtime-tail/": {
+      "title": "Managed runtime long tail",
+      "weight": null,
+      "pages": 0,
       "subsections": []
     },
     "/v1.3.15/zh/api/viewmodel/": {
@@ -525,13 +2149,13 @@
     "/v1.3.15/zh/architecture/": {
       "title": "架构总览 / Architecture",
       "weight": null,
-      "pages": 5,
+      "pages": 10,
       "subsections": []
     },
     "/v1.3.15/zh/guide/": {
       "title": "入门指南 / Getting Started Guide",
       "weight": null,
-      "pages": 11,
+      "pages": 9,
       "subsections": []
     },
     "/v1.3.15/zh/native/": {
@@ -594,7 +2218,7 @@
       ]
     },
     "/v1.4.5/en/api/campaign/": {
-      "title": "campaign index",
+      "title": "Campaign API — v1.4.5",
       "weight": null,
       "pages": 1360,
       "subsections": []
@@ -606,9 +2230,9 @@
       "subsections": []
     },
     "/v1.4.5/en/api/core/": {
-      "title": "core index",
+      "title": "Foundation / Core API — v1.4.5",
       "weight": null,
-      "pages": 2,
+      "pages": 4,
       "subsections": []
     },
     "/v1.4.5/en/api/core-extra/": {
@@ -642,7 +2266,7 @@
       "subsections": []
     },
     "/v1.4.5/en/api/mission/": {
-      "title": "mission index",
+      "title": "Mission API — v1.4.5",
       "weight": null,
       "pages": 74,
       "subsections": []
@@ -672,27 +2296,27 @@
       "subsections": []
     },
     "/v1.4.5/en/architecture/": {
-      "title": "v1.4.5 Architecture",
+      "title": "Architecture — v1.4.5",
       "weight": null,
-      "pages": 5,
+      "pages": 4,
       "subsections": []
     },
     "/v1.4.5/en/guide/": {
-      "title": "Getting Started Guide",
+      "title": "Guide",
       "weight": null,
-      "pages": 11,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/en/native/": {
       "title": "Native Reference",
       "weight": null,
-      "pages": 7,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/en/xml-reference/": {
       "title": "XML Reference",
       "weight": null,
-      "pages": 1,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/": {
@@ -728,7 +2352,7 @@
       ]
     },
     "/v1.4.5/zh/api/campaign/": {
-      "title": "campaign 目录",
+      "title": "战役 API — v1.4.5",
       "weight": null,
       "pages": 1360,
       "subsections": []
@@ -740,9 +2364,9 @@
       "subsections": []
     },
     "/v1.4.5/zh/api/core/": {
-      "title": "core 目录",
+      "title": "基础 / Core API — v1.4.5",
       "weight": null,
-      "pages": 2,
+      "pages": 4,
       "subsections": []
     },
     "/v1.4.5/zh/api/core-extra/": {
@@ -776,7 +2400,7 @@
       "subsections": []
     },
     "/v1.4.5/zh/api/mission/": {
-      "title": "mission 目录",
+      "title": "任务 API — v1.4.5",
       "weight": null,
       "pages": 74,
       "subsections": []
@@ -806,31 +2430,31 @@
       "subsections": []
     },
     "/v1.4.5/zh/architecture/": {
-      "title": "v1.4.5 架构总览 / Architecture",
+      "title": "架构 — v1.4.5",
       "weight": null,
-      "pages": 5,
+      "pages": 4,
       "subsections": []
     },
     "/v1.4.5/zh/guide/": {
-      "title": "入门指南 / Getting Started Guide",
+      "title": "指南",
       "weight": null,
-      "pages": 11,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/native/": {
-      "title": "原生接口 / Native Reference",
+      "title": "原生接口参考",
       "weight": null,
-      "pages": 7,
+      "pages": 0,
       "subsections": []
     },
     "/v1.4.5/zh/xml-reference/": {
-      "title": "XML 参考 / XML Reference",
+      "title": "XML 参考",
       "weight": null,
-      "pages": 1,
+      "pages": 0,
       "subsections": []
     },
     "/versions/": {
-      "title": "璺ㄧ増鏈被瀵规瘮 / Cross-Version Class Comparison",
+      "title": "跨版本类对比 / Cross-Version Class Comparison",
       "weight": null,
       "pages": 18,
       "subsections": []

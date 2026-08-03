@@ -6,7 +6,14 @@
   "scripts": {
     "docs:dev": "zola serve --interface 127.0.0.1 --port 5173",
     "docs:build": "zola build",
-    "docs:preview": "zola serve --interface 127.0.0.1 --port 4173"
+    "docs:preview": "zola serve --interface 127.0.0.1 --port 4173",
+    "audit:coverage": "node tools/r1-coverage-report.mjs --version 1.3.15 --lang zh --out tools/data/r1-coverage-report.json --gap-out tools/data/r1-gap-full.json",
+    "audit:quality": "node tools/audit-doc-quality.mjs",
+    "audit:links": "node tools/audit-links.mjs",
+    "audit:navigation": "node tools/audit-navigation.mjs",
+    "audit:section-tree": "node tools/generate-section-tree.mjs --check",
+    "audit:page-navigation": "node tools/generate-page-navigation.mjs --check",
+    "test:tools": "node --test tools/tests/handwritten-policy.test.mjs tools/tests/report-cli.test.mjs tools/tests/retired-generators.test.mjs tools/tests/audit-doc-quality.test.mjs tools/tests/audit-links.test.mjs tools/tests/navigation.test.mjs tools/tests/page-navigation.test.mjs"
   },
   "devDependencies": {}
 }

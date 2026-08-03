@@ -1,93 +1,121 @@
 ---
 title: "SettlementLoyaltyModel"
-description: "Auto-generated class reference for SettlementLoyaltyModel."
+description: "The replaceable policy that explains town loyalty drift, tax effects, and rebellion thresholds."
 ---
 # SettlementLoyaltyModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementLoyaltyModel : MBGameModel<SettlementLoyaltyModel>`
-**Base:** `MBGameModel<SettlementLoyaltyModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementLoyaltyModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementLoyaltyModel : MBGameModel<SettlementLoyaltyModel>`  
+**Base:** `MBGameModel<SettlementLoyaltyModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementLoyaltyModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementLoyaltyModel.cs`
 
-## Overview
+## One-line job
 
-`SettlementLoyaltyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SettlementLoyaltyModel` explains the daily loyalty delta and the thresholds used by settlement economy, tax, militia, and rebellion systems. It predicts settlement state; it does not assign `Town.Loyalty`.
 
 ## Mental Model
 
-Treat `SettlementLoyaltyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`Town` exposes `LoyaltyChange` and `LoyaltyChangeExplanation` as model-backed views. The daily settlement behavior consumes the numeric result during campaign progression and writes the resulting state through the settlement lifecycle. Other models read loyalty thresholds: prosperity uses high/low loyalty effects, militia uses the rebellious-state threshold, and tax uses loyalty-based gold modifiers. That makes this model a shared policy contract: changing a threshold changes several downstream systems at once.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `SettlementLoyaltyChangeDueToSecurityThreshold` | `public abstract int SettlementLoyaltyChangeDueToSecurityThreshold { get; }` |
-| `MaximumLoyaltyInSettlement` | `public abstract int MaximumLoyaltyInSettlement { get; }` |
-| `LoyaltyDriftMedium` | `public abstract int LoyaltyDriftMedium { get; }` |
-| `HighLoyaltyProsperityEffect` | `public abstract float HighLoyaltyProsperityEffect { get; }` |
-| `LowLoyaltyProsperityEffect` | `public abstract int LowLoyaltyProsperityEffect { get; }` |
-| `MilitiaBoostPercentage` | `public abstract int MilitiaBoostPercentage { get; }` |
-| `HighSecurityLoyaltyEffect` | `public abstract float HighSecurityLoyaltyEffect { get; }` |
-| `LowSecurityLoyaltyEffect` | `public abstract float LowSecurityLoyaltyEffect { get; }` |
-| `GovernorSameCultureLoyaltyEffect` | `public abstract float GovernorSameCultureLoyaltyEffect { get; }` |
-| `GovernorDifferentCultureLoyaltyEffect` | `public abstract float GovernorDifferentCultureLoyaltyEffect { get; }` |
-| `SettlementOwnerDifferentCultureLoyaltyEffect` | `public abstract float SettlementOwnerDifferentCultureLoyaltyEffect { get; }` |
-| `ThresholdForTaxBoost` | `public abstract int ThresholdForTaxBoost { get; }` |
-| `RebellionStartLoyaltyThreshold` | `public abstract int RebellionStartLoyaltyThreshold { get; }` |
-| `ThresholdForTaxCorruption` | `public abstract int ThresholdForTaxCorruption { get; }` |
-| `ThresholdForHigherTaxCorruption` | `public abstract int ThresholdForHigherTaxCorruption { get; }` |
-| `ThresholdForProsperityBoost` | `public abstract int ThresholdForProsperityBoost { get; }` |
-| `ThresholdForProsperityPenalty` | `public abstract int ThresholdForProsperityPenalty { get; }` |
-| `AdditionalStarvationPenaltyStartDay` | `public abstract int AdditionalStarvationPenaltyStartDay { get; }` |
-| `AdditionalStarvationLoyaltyEffect` | `public abstract int AdditionalStarvationLoyaltyEffect { get; }` |
-| `RebelliousStateStartLoyaltyThreshold` | `public abstract int RebelliousStateStartLoyaltyThreshold { get; }` |
-| `LoyaltyBoostAfterRebellionStartValue` | `public abstract int LoyaltyBoostAfterRebellionStartValue { get; }` |
-| `ThresholdForNotableRelationBonus` | `public abstract float ThresholdForNotableRelationBonus { get; }` |
-| `DailyNotableRelationBonus` | `public abstract int DailyNotableRelationBonus { get; }` |
-
-## Key Methods
-
-### CalculateLoyaltyChange
-`public abstract ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
-
-**Purpose:** Calculates the current value or result of loyalty change.
-
-```csharp
-// Obtain an instance of SettlementLoyaltyModel from the subsystem API first
-SettlementLoyaltyModel settlementLoyaltyModel = ...;
-var result = settlementLoyaltyModel.CalculateLoyaltyChange(town, false);
+```text
+Town state + culture + governor + security + policies
+                  |
+                  v
+Campaign.Current.Models.SettlementLoyaltyModel
+                  |
+                  +--> CalculateLoyaltyChange
+                  +--> loyalty thresholds / tax effects
+                  |
+                  v
+daily settlement behavior -> Town.Loyalty
+                  |
+        prosperity / militia / tax / rebellion consumers
 ```
 
-### CalculateGoldGainDueToHighLoyalty
-`public abstract void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
+Use the model for explanations, previews, and a replacement policy. Use settlement Actions and campaign behaviors for ownership, rebellion, and state mutation. Never set `Town.Loyalty` from a UI callback or from inside `CalculateLoyaltyChange`; doing so recursively changes the value being calculated and bypasses campaign events.
 
-**Purpose:** Calculates the current value or result of gold gain due to high loyalty.
+## Dependencies
+
+### Upstream
+
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | Owns the registered model and campaign clock. |
+| [`Town`](../../campaign/Town) | Supplies loyalty, security, prosperity, governor, and settlement context. |
+| [`SettlementSecurityModel`](../SettlementSecurityModel) | Supplies security change that participates in loyalty formulas. |
+| [`CampaignEvents`](../CampaignEvents) | Delivers settlement/tick hooks where the result is consumed. |
+
+### Downstream
+
+| Type | Relation |
+| --- | --- |
+| [`Town`](../../campaign/Town) | Exposes `LoyaltyChange` and its explanation. |
+| `DefaultSettlementProsperityModel` | Reads prosperity thresholds and high/low loyalty effects. |
+| `DefaultSettlementMilitiaModel` | Reads the rebellious-state threshold and militia boost. |
+| `DefaultSettlementTaxModel` | Uses high/low loyalty effects when calculating tax. |
+
+## Key contract
+
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `CalculateLoyaltyChange` | Return the explainable daily loyalty delta. | Settlement daily tick and UI preview |
+| `RebellionStartLoyaltyThreshold` | Threshold at which rebellion checks become eligible. | Daily rebellion evaluation |
+| `RebelliousStateStartLoyaltyThreshold` | Threshold used for rebellious-state effects. | Militia and settlement state |
+| `ThresholdForProsperityBoost` / `ThresholdForProsperityPenalty` | Connect loyalty to prosperity calculation. | Daily economy model |
+| `CalculateGoldGainDueToHighLoyalty` | Add high-loyalty tax effect to an explanation. | Tax preview and daily finance |
+| `CalculateGoldCutDueToLowLoyalty` | Add low-loyalty tax effect to an explanation. | Tax preview and daily finance |
+
+## Real access paths
 
 ```csharp
-// Obtain an instance of SettlementLoyaltyModel from the subsystem API first
-SettlementLoyaltyModel settlementLoyaltyModel = ...;
-settlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedNumber);
+public ExplainedNumber ExplainTownLoyalty(Town town)
+{
+    if (Campaign.Current == null || town == null)
+    {
+        return new ExplainedNumber(0f);
+    }
+
+    return Campaign.Current.Models.SettlementLoyaltyModel
+        .CalculateLoyaltyChange(town, includeDescriptions: true);
+}
 ```
 
-### CalculateGoldCutDueToLowLoyalty
-`public abstract void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
-
-**Purpose:** Calculates the current value or result of gold cut due to low loyalty.
+This mirrors `Town.LoyaltyChangeExplanation`. The caller can display `ResultNumber` and its explanation lines but must leave the next state transition to the campaign settlement behavior.
 
 ```csharp
-// Obtain an instance of SettlementLoyaltyModel from the subsystem API first
-SettlementLoyaltyModel settlementLoyaltyModel = ...;
-settlementLoyaltyModel.CalculateGoldCutDueToLowLoyalty(town, explainedNumber);
+public ExplainedNumber ExplainTax(Town town, ExplainedNumber tax)
+{
+    SettlementLoyaltyModel model = Campaign.Current.Models.SettlementLoyaltyModel;
+    model.CalculateGoldGainDueToHighLoyalty(town, ref tax);
+    model.CalculateGoldCutDueToLowLoyalty(town, ref tax);
+    return tax;
+}
 ```
 
-## Usage Example
+The two tax methods mutate only the passed explanation; they do not mutate the town or treasury.
 
-```csharp
-// Typically obtained from a subsystem API or factory
-SettlementLoyaltyModel instance = ...;
-```
+## Replacement rules
 
-## See Also
+- Preserve bounded loyalty deltas and the default threshold relationships.
+- Keep `includeDescriptions` side-effect free.
+- Delegate to the vanilla model before adding a mod factor so culture, governor, policy, and security inputs remain intact.
+- Coordinate any threshold change with prosperity, militia, tax, and rebellion pages; a single threshold is not local to this class.
+- Apply ownership or rebellion changes through the corresponding Action/behavior, never from a model callback.
 
-- [Area Index](../)
+## Risks and debugging order
+
+1. **Cross-model drift:** changing loyalty thresholds without changing prosperity or militia expectations creates contradictory UI.
+2. **Tick recursion:** calling a state-mutating Action from `CalculateLoyaltyChange` can run during every preview and daily tick.
+3. **Load order:** `Campaign.Current.Models` is unavailable while campaign objects are loading.
+4. **Culture mismatch:** the default model reads governor and owner culture; custom formulas should preserve null-governor branches.
+5. **Save boundaries:** loyalty is saved on the town/settlement state, not on the model. Do not add save fields to a stateless model.
+
+## Navigation
+
+- [Campaign-ext models family](../models/)
+- [Town](../../campaign/Town)
+- [SettlementSecurityModel](../SettlementSecurityModel)
+- [SettlementProsperityModel](../SettlementProsperityModel)
+- [CampaignEvents](../CampaignEvents)

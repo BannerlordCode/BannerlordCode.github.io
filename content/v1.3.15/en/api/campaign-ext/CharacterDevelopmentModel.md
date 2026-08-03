@@ -1,177 +1,101 @@
 ---
 title: "CharacterDevelopmentModel"
-description: "Auto-generated class reference for CharacterDevelopmentModel."
+description: "Calculates skill learning, XP thresholds, focus, attributes, and perk progression for HeroDeveloper."
 ---
 # CharacterDevelopmentModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class CharacterDevelopmentModel : MBGameModel<CharacterDevelopmentModel>`
-**Base:** `MBGameModel<CharacterDevelopmentModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CharacterDevelopmentModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class CharacterDevelopmentModel : MBGameModel<CharacterDevelopmentModel>`  
+**Base:** `MBGameModel<CharacterDevelopmentModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CharacterDevelopmentModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultCharacterDevelopmentModel.cs`
 
-## Overview
+## One-line job
 
-`CharacterDevelopmentModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`CharacterDevelopmentModel` defines progression math: XP requirements, learning limits/rates, skill-level changes, trait levels, and the next focus, attribute, or perk choice. It does not grant XP or mutate a `HeroDeveloper` on its own.
 
 ## Mental Model
 
-Treat `CharacterDevelopmentModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`HeroDeveloper` owns persistent XP, focus points, attributes, and perk selections. It asks this model for thresholds and rates, then applies the result to the hero and raises the appropriate progression notifications. Battle rewards, quests, and daily systems are upstream XP producers; they should not duplicate the formula. A replacement model must preserve the monotonic relationship between XP and levels and the cap properties used by UI and save code.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `MaxAttribute` | `public abstract int MaxAttribute { get; }` |
-| `MaxFocusPerSkill` | `public abstract int MaxFocusPerSkill { get; }` |
-| `MaxSkillRequiredForEpicPerkBonus` | `public abstract int MaxSkillRequiredForEpicPerkBonus { get; }` |
-| `MinSkillRequiredForEpicPerkBonus` | `public abstract int MinSkillRequiredForEpicPerkBonus { get; }` |
-| `FocusPointsPerLevel` | `public abstract int FocusPointsPerLevel { get; }` |
-| `FocusPointsAtStart` | `public abstract int FocusPointsAtStart { get; }` |
-| `AttributePointsAtStart` | `public abstract int AttributePointsAtStart { get; }` |
-| `LevelsPerAttributePoint` | `public abstract int LevelsPerAttributePoint { get; }` |
-
-## Key Methods
-
-### SkillsRequiredForLevel
-`public abstract int SkillsRequiredForLevel(int level)`
-
-**Purpose:** Executes the SkillsRequiredForLevel logic.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.SkillsRequiredForLevel(0);
+```text
+XP / focus / attributes / SkillObject
+              |
+              v
+Campaign.Current.Models.CharacterDevelopmentModel
+              |
+              +--> threshold and learning queries
+              |
+              v
+HeroDeveloper -> persistent Hero progression -> UI / perks / models
 ```
 
-### GetMaxSkillPoint
-`public abstract int GetMaxSkillPoint()`
+## Dependencies
 
-**Purpose:** Reads and returns the max skill point value held by the this instance.
+### Upstream
 
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetMaxSkillPoint();
-```
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | Supplies the active progression model. |
+| [`Hero`](../../campaign/Hero) / `HeroDeveloper` | Own persistent XP, focus, attributes, and perks. |
+| [`SkillObject`](../../core-extra/SkillObject) / `TraitObject` | Identify the progression track. |
+| `ExplainedNumber` | Carries learning limits and rate explanations. |
 
-### GetXpRequiredForSkillLevel
-`public abstract int GetXpRequiredForSkillLevel(int skillLevel)`
+### Downstream
 
-**Purpose:** Reads and returns the xp required for skill level value held by the this instance.
+| Type | Relation |
+| --- | --- |
+| `HeroDeveloper` | Uses every threshold and learning method while applying progression. |
+| `TraitLevelingHelper` | Uses trait XP conversion methods. |
+| `DefaultPartyWageModel` / `DefaultDiplomacyModel` | Read skill caps and epic-perk thresholds. |
+| [`ViewModel`](../../core-extra/ViewModel) | Displays learning rate and available choices. |
 
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetXpRequiredForSkillLevel(0);
-```
+## Key contract
 
-### GetSkillLevelChange
-`public abstract int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `GetXpRequiredForSkillLevel` | Convert skill level to cumulative XP threshold. | XP application and UI |
+| `GetSkillLevelChange` | Convert gained XP into a level delta. | Hero progression |
+| `CalculateLearningLimit` | Explain the focus/attribute learning cap. | Skill screen and tick |
+| `CalculateLearningRate` | Explain current XP multiplier. | Skill screen and XP grant |
+| `GetTraitLevelForTraitXp` | Convert trait XP to level and remainder. | Trait leveling |
+| `GetNextSkillToAddFocus` / `GetNextAttributeToUpgrade` | Choose the next eligible development target. | Auto-allocation and UI |
 
-**Purpose:** Reads and returns the skill level change value held by the this instance.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetSkillLevelChange(hero, skill, 0);
-```
-
-### GetXpAmountForSkillLevelChange
-`public abstract int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
-
-**Purpose:** Reads and returns the xp amount for skill level change value held by the this instance.
+## Real access paths
 
 ```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetXpAmountForSkillLevelChange(hero, skill, 0);
+public ExplainedNumber ExplainLearning(Hero hero, SkillObject skill)
+{
+    HeroDeveloper developer = hero.HeroDeveloper;
+    int focus = developer.GetFocus(skill);
+    return Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningRate(
+        hero.CharacterAttributes, focus, hero.GetSkillValue(skill), skill,
+        includeDescriptions: true);
+}
 ```
 
-### GetTraitLevelForTraitXp
-`public abstract void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int newValue, out int traitLevel, out int traitXp)`
-
-**Purpose:** Reads and returns the trait level for trait xp value held by the this instance.
+`HeroDeveloper` uses the same model when calculating XP deltas and caps. Granting XP remains a separate operation:
 
 ```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-characterDevelopmentModel.GetTraitLevelForTraitXp(hero, trait, 0, traitLevel, traitXp);
+int delta = Campaign.Current.Models.CharacterDevelopmentModel
+    .GetSkillLevelChange(hero, skill, earnedXp);
 ```
 
-### GetTraitXpRequiredForTraitLevel
-`public abstract int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
+The caller may use `delta` to decide UI or reward behavior, but the hero's saved values must be changed through `HeroDeveloper` APIs.
 
-**Purpose:** Reads and returns the trait xp required for trait level value held by the this instance.
+## Risks and debugging order
 
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetTraitXpRequiredForTraitLevel(trait, 0);
-```
+1. Return monotonic XP thresholds; a lower threshold at a higher skill level can repeatedly level a hero on load.
+2. Preserve `MaxSkillPoint`, focus, and attribute caps used by `HeroDeveloper` and ViewModels.
+3. Do not mutate XP from a learning-rate preview; previews run more often than reward application.
+4. Trait conversion must return both level and remainder consistently.
+5. New Perk thresholds are read by other models; keep vanilla properties when decorating.
 
-### CalculateLearningLimit
-`public abstract ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
+## Navigation
 
-**Purpose:** Calculates the current value or result of learning limit.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.CalculateLearningLimit(characterAttributes, 0, skill, false);
-```
-
-### CalculateLearningRate
-`public abstract ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
-
-**Purpose:** Calculates the current value or result of learning rate.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.CalculateLearningRate(characterAttributes, 0, 0, skill, false);
-```
-
-### GetNextSkillToAddFocus
-`public abstract SkillObject GetNextSkillToAddFocus(Hero hero)`
-
-**Purpose:** Reads and returns the next skill to add focus value held by the this instance.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetNextSkillToAddFocus(hero);
-```
-
-### GetNextAttributeToUpgrade
-`public abstract CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
-
-**Purpose:** Reads and returns the next attribute to upgrade value held by the this instance.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetNextAttributeToUpgrade(hero);
-```
-
-### GetNextPerkToChoose
-`public abstract PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
-
-**Purpose:** Reads and returns the next perk to choose value held by the this instance.
-
-```csharp
-// Obtain an instance of CharacterDevelopmentModel from the subsystem API first
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetNextPerkToChoose(hero, perk);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-CharacterDevelopmentModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Campaign-ext models family](../models/)
+- [Hero](../../campaign/Hero)
+- [SkillObject](../../core-extra/SkillObject)
+- [ViewModel](../../core-extra/ViewModel)
+- [PartyWageModel](../PartyWageModel)

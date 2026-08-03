@@ -49,6 +49,10 @@ if (process.env.BANNERLORD_ALLOW_RETIRED_BODY_GEN !== '1') {
 | `bulk-fix-stubs.mjs` | Bulk-rewrites acquisition stubs / examples |
 | `bulk-fix-generic-method-purposes.mjs` | Bulk-rewrites remaining generic purposes |
 | `gen-catalog-stubs.mjs` | Generates catalog-based stub pages |
+| `fix-entry-examples.mjs` | Rewrites product guide and entry-page examples |
+| `fix-placeholder-examples.mjs` | Rewrites product examples and removes placeholders |
+| `fix-zh-execute-placeholder.mjs` | Rewrites generated method-purpose placeholders |
+| `gen-actions-index.mjs` | Generates signature-derived Actions reference prose |
 | `improve-base-overviews.mjs` | Rewrites base-class overview/mental models |
 | `fix-purpose-warnings.mjs` | Second-pass purpose prose rewrites |
 | `fix-generic-purpose-warnings.mjs` | Generic-purpose warning rewrites |

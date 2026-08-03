@@ -1,5 +1,5 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
-import { join, normalize, sep, posix } from 'path';
+import { join, normalize, resolve, sep, posix } from 'path';
 
 /**
  * Link auditor for Zola content tree.
@@ -16,7 +16,7 @@ import { join, normalize, sep, posix } from 'path';
  *   AUDIT_MODE=url|file|either  (default: url)
  */
 
-const root = join(process.cwd(), 'content');
+const root = resolve(process.env.AUDIT_CONTENT_ROOT || join(process.cwd(), 'content'));
 const SLASH = '/';
 const MODE = (process.env.AUDIT_MODE || 'url').toLowerCase();
 
@@ -163,3 +163,5 @@ for (const f of sortedFrom) {
   console.log('\n## ' + f + '  (' + hs.length + ')');
   for (const h of hs) console.log('   -> ' + h);
 }
+
+process.exitCode = broken.length > 0 ? 1 : 0;

@@ -1,127 +1,77 @@
 ---
 title: "MarriageModel"
-description: "MarriageModel 的自动生成类参考。"
+description: "在 MarriageAction 应用婚姻前检查资格并计算关系和 Clan 结果。"
 ---
 # MarriageModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class MarriageModel : MBGameModel<MarriageModel>`
-**Base:** `MBGameModel<MarriageModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/MarriageModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class MarriageModel : MBGameModel<MarriageModel>`  
+**Base:** `MBGameModel<MarriageModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/MarriageModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultMarriageModel.cs`
 
-## 概述
+## One-line job
 
-`MarriageModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`MarriageModel` 判断 Hero/Clan 是否适合婚姻，并选择婚后归属 Clan。它是决策策略；`MarriageAction` 才修改关系、Clan 列表并派发事件。
 
-## 心智模型
+## Mental Model
 
-把 `MarriageModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+婚姻 offer 和对话会反复查询资格。玩家接受后，`MarriageAction.Apply` 再次验证双方，读取关系增量和目标 Clan，然后执行双方变更。这样预览不会提前修改关系，也不会把 Hero 移出原 Clan。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `MinimumMarriageAgeMale` | `public abstract int MinimumMarriageAgeMale { get; }` |
-| `MinimumMarriageAgeFemale` | `public abstract int MinimumMarriageAgeFemale { get; }` |
-
-## 主要方法
-
-### IsCoupleSuitableForMarriage
-`public abstract bool IsCoupleSuitableForMarriage(Hero firstHero, Hero secondHero)`
-
-**用途 / Purpose:** 判断当前对象是否处于 couple suitable for marriage 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.IsCoupleSuitableForMarriage(firstHero, secondHero);
+```text
+Hero / Clan -> MarriageModel 资格与结果
+            -> offer / conversation 预览
+            -> MarriageAction.Apply -> relation + clan + events + save
 ```
 
-### GetEffectiveRelationIncrease
-`public abstract int GetEffectiveRelationIncrease(Hero firstHero, Hero secondHero)`
+## Dependencies
 
-**用途 / Purpose:** 读取并返回当前对象中 effective relation increase 的结果。
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 提供活动 Model。 |
+| [`Hero`](../../campaign/Hero) / [`Clan`](../../campaign/Clan) | 提供年龄、关系、势力和所有权状态。 |
+| [`MarriageAction`](../MarriageAction) | 应用实际婚姻。 |
+| `MarriageOfferCampaignBehavior` | 管理 offer 生命周期和保存。 |
 
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.GetEffectiveRelationIncrease(firstHero, secondHero);
-```
+## Key contract
 
-### GetClanAfterMarriage
-`public abstract Clan GetClanAfterMarriage(Hero firstHero, Hero secondHero)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `IsCoupleSuitableForMarriage` | 验证一对 Hero。 | offer、对话、Action 再检验 |
+| `IsSuitableForMarriage` | 验证单个 Hero。 | Hero/UI 查询 |
+| `IsClanSuitableForMarriage` | 验证 NPC offer 的 Clan。 | offer 调度 |
+| `GetEffectiveRelationIncrease` | 返回 Action 使用的关系增量。 | 婚姻应用 |
+| `GetClanAfterMarriage` | 选择婚后目标 Clan。 | 婚姻应用 |
 
-**用途 / Purpose:** 读取并返回当前对象中 clan after marriage 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.GetClanAfterMarriage(firstHero, secondHero);
-```
-
-### IsSuitableForMarriage
-`public abstract bool IsSuitableForMarriage(Hero hero)`
-
-**用途 / Purpose:** 判断当前对象是否处于 suitable for marriage 状态或条件。
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.IsSuitableForMarriage(hero);
+public bool CanPropose(Hero first, Hero second)
+{
+    if (Campaign.Current == null || first == null || second == null)
+    {
+        return false;
+    }
+    return Campaign.Current.Models.MarriageModel
+        .IsCoupleSuitableForMarriage(first, second);
+}
 ```
 
-### IsClanSuitableForMarriage
-`public abstract bool IsClanSuitableForMarriage(Clan clan)`
+`MarriageAction.Apply` 会再次调用同样的方法，随后才使用 `ChangeRelationAction` 和 Clan 变更。
 
-**用途 / Purpose:** 判断当前对象是否处于 clan suitable for marriage 状态或条件。
+## 风险与调试顺序
 
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.IsClanSuitableForMarriage(clan);
-```
+1. 资格查询必须无副作用，因为对话和 UI 会重复调用。
+2. 保留死亡、囚禁、亲缘、年龄和已有婚姻分支。
+3. Clan 迁移必须由 Action 完成，确保两边列表和存档一致。
+4. 自定义目标 Clan 必须已注册且未被消灭。
+5. offer 状态由行为保存，Model 不持有 Saveable 字段。
 
-### NpcCoupleMarriageChance
-`public abstract float NpcCoupleMarriageChance(Hero firstHero, Hero secondHero)`
+## Navigation
 
-**用途 / Purpose:** 调用 NpcCoupleMarriageChance 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.NpcCoupleMarriageChance(firstHero, secondHero);
-```
-
-### ShouldNpcMarriageBetweenClansBeAllowed
-`public abstract bool ShouldNpcMarriageBetweenClansBeAllowed(Clan consideringClan, Clan targetClan)`
-
-**用途 / Purpose:** 调用 ShouldNpcMarriageBetweenClansBeAllowed 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.ShouldNpcMarriageBetweenClansBeAllowed(consideringClan, targetClan);
-```
-
-### GetAdultChildrenSuitableForMarriage
-`public abstract List<Hero> GetAdultChildrenSuitableForMarriage(Hero hero)`
-
-**用途 / Purpose:** 读取并返回当前对象中 adult children suitable for marriage 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MarriageModel 实例
-MarriageModel marriageModel = ...;
-var result = marriageModel.GetAdultChildrenSuitableForMarriage(hero);
-```
-
-## 使用示例
-
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-MarriageModel instance = ...;
-```
-
-## 参见
-
-- [本区域目录](../)
+- [Campaign-ext models family](../models/)
+- [Hero](../../campaign/Hero)
+- [Clan](../../campaign/Clan)
+- [MarriageAction](../MarriageAction)
+- [CampaignEvents](../CampaignEvents)

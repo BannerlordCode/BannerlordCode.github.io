@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros/breadcrumb.html" as breadcrumb %}
+{% import "macros/page-navigation.html" as page_navigation %}
 
 {% block title %}{{ page.title | default(value=config.title) }}{% endblock %}
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock %}
@@ -9,5 +10,6 @@
   {{ breadcrumb::render_breadcrumb(current_url=page.path, lang=lang) }}
   <h1>{{ page.title }}</h1>
   {{ page.content | safe }}
+  {{ page_navigation::render(current_url=page.path, lang=lang) }}
 </article>
 {% endblock %}

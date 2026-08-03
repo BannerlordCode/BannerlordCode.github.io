@@ -28,12 +28,12 @@ Bannerlord uses **Gauntlet** as its UI framework. Gauntlet is a data-driven UI s
 
 ## 目录 / Contents
 
-1. [创建 GauntletMovie](#创建-gauntletmovie)
-2. [GauntletMovie 生命周期](#gauntletmovie-生命周期)
-3. [ScreenManager 用法](#screenmanager-用法)
-4. [ViewModel 数据绑定](#viewmodel-数据绑定)
-5. [常见 UI 模式](#常见-ui-模式)
-6. [完整示例](#完整示例)
+1. [创建 GauntletMovie](#chuang-jian-gauntletmovie)
+2. [GauntletMovie 生命周期](#gauntletmovie-sheng-ming-zhou-qi)
+3. [ScreenManager 用法](#screenmanager-yong-fa)
+4. [ViewModel 数据绑定](#viewmodel-shu-ju-bang-ding)
+5. [常见 UI 模式](#chang-jian-ui-mo-shi)
+6. [完整示例](#wan-zheng-shi-li)
 
 ---
 

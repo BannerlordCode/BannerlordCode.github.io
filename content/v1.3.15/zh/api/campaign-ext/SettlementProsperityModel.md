@@ -1,54 +1,75 @@
 ---
 title: "SettlementProsperityModel"
-description: "SettlementProsperityModel 的自动生成类参考。"
+description: "根据城镇经济输入计算繁荣度和村庄 hearth 变化的策略。"
 ---
 # SettlementProsperityModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementProsperityModel : MBGameModel<SettlementProsperityModel>`
-**Base:** `MBGameModel<SettlementProsperityModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementProsperityModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementProsperityModel : MBGameModel<SettlementProsperityModel>`  
+**Base:** `MBGameModel<SettlementProsperityModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementProsperityModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementProsperityModel.cs`
 
-## 概述
+## One-line job
 
-`SettlementProsperityModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`SettlementProsperityModel` 解释城镇每日繁荣度和村庄 hearth 变化，返回 `ExplainedNumber`；保存状态由 settlement 行为负责。
 
-## 心智模型
+## Mental Model
 
-把 `SettlementProsperityModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+繁荣度和 hearth 是库存状态，不是即时价格。`Town.ProsperityChange` 与 `Village.HearthChange` 在战役 tick 和 UI 解释中查询 Model。默认公式读取食物、忠诚、治安、生产、劫掠和附属村庄。替换实现只能计算，不能在计算过程中写回数值。
 
-## 主要方法
-
-### CalculateProsperityChange
-`public abstract ExplainedNumber CalculateProsperityChange(Town fortification, bool includeDescriptions = false)`
-
-**用途 / Purpose:** 计算prosperity change的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementProsperityModel 实例
-SettlementProsperityModel settlementProsperityModel = ...;
-var result = settlementProsperityModel.CalculateProsperityChange(fortification, false);
+```text
+Town / Village + food + loyalty + security + production
+       -> SettlementProsperityModel -> delta + explanation
+       -> settlement behavior 写入保存状态
 ```
 
-### CalculateHearthChange
-`public abstract ExplainedNumber CalculateHearthChange(Village village, bool includeDescriptions = false)`
+## Dependencies
 
-**用途 / Purpose:** 计算hearth change的当前值或结果。
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 提供活动 Model 注册表。 |
+| [`Town`](../../campaign/Town) / [`Village`](../../campaign/Village) | 暴露繁荣/hearth 和解释属性。 |
+| [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) | 提供忠诚阈值和效果。 |
+| [`SettlementSecurityModel`](../SettlementSecurityModel) | 提供治安输入。 |
+| `SettlementEconomyModel` | 提供生产和需求上下文。 |
+
+## Key contract
+
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `CalculateProsperityChange` | 计算城镇每日繁荣变化。 | settlement tick、UI |
+| `CalculateHearthChange` | 计算村庄每日 hearth 变化。 | village tick、UI |
+
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 SettlementProsperityModel 实例
-SettlementProsperityModel settlementProsperityModel = ...;
-var result = settlementProsperityModel.CalculateHearthChange(village, false);
+public ExplainedNumber ExplainTownProsperity(Town town)
+{
+    if (Campaign.Current == null || town == null)
+    {
+        return new ExplainedNumber(0f);
+    }
+    return Campaign.Current.Models.SettlementProsperityModel
+        .CalculateProsperityChange(town, includeDescriptions: true);
+}
 ```
 
-## 使用示例
+这就是 `Town.ProsperityChangeExplanation` 的调用路径；每日行为稍后才会写入保存状态。
 
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-SettlementProsperityModel instance = ...;
-```
+## 风险与调试顺序
 
-## 参见
+1. 不要从回调中写 `town.Prosperity` 或 `village.Hearth`。
+2. 忠诚/治安阈值变化要和对应 Model 一起检查。
+3. 保留饥荒和无附属村庄分支，避免新城镇返回 NaN。
+4. 繁荣会影响后续需求，失控的因素会破坏经济。
+5. 繁荣/hearth 属于 settlement 存档，不属于无状态 Model。
 
-- [本区域目录](../)
+## Navigation
+
+- [Campaign-ext models family](../models/)
+- [Town](../../campaign/Town)
+- [Village](../../campaign/Village)
+- [SettlementLoyaltyModel](../SettlementLoyaltyModel)
+- [SettlementEconomyModel](../SettlementEconomyModel)

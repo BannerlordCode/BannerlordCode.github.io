@@ -1,142 +1,104 @@
 ---
 title: "CombatSimulationModel"
-description: "Auto-generated class reference for CombatSimulationModel."
+description: "Resolves map-battle advantages, simulated hits, siege progress, and pursuit timing without owning MapEvent state."
 ---
 # CombatSimulationModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class CombatSimulationModel : MBGameModel<CombatSimulationModel>`
-**Base:** `MBGameModel<CombatSimulationModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CombatSimulationModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class CombatSimulationModel : MBGameModel<CombatSimulationModel>`  
+**Base:** `MBGameModel<CombatSimulationModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CombatSimulationModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultCombatSimulationModel.cs`
 
-## Overview
+## One-line job
 
-`CombatSimulationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`CombatSimulationModel` supplies deterministic policy for map-battle simulation: hit damage, battle advantage, siege equipment progress, simulation ticks, pursuit rounds, and blunt-damage chance. It computes an outcome input; it does not create or finish a `MapEvent`.
 
 ## Mental Model
 
-Treat `CombatSimulationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`MapEvent` owns battle participants and state. During a simulated round it asks the model for advantages and hit results, then applies casualties, morale, rewards, and completion through its own lifecycle. Siege code uses the same model for equipment progress and settlement advantage. The model may read troop, party, ship, and settlement data, but mutation belongs to `MapEvent`, Actions, and battle behaviors.
 
-## Key Methods
-
-### SimulateHit
-`public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
-
-**Purpose:** Executes the SimulateHit logic.
-
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.SimulateHit(strikerTroop, struckTroop, strikerParty, struckParty, 0, battle, 0, 0);
+```text
+MapEvent / parties / troops / siege state
+              |
+              v
+Campaign.Current.Models.CombatSimulationModel
+              |
+              +--> advantage / hit / tick / pursuit queries
+              |
+              v
+MapEvent applies casualties and outcome -> rewards / Actions / events
 ```
 
-### SimulateHit
-`public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
+## Dependencies
 
-**Purpose:** Executes the SimulateHit logic.
+### Upstream
 
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.SimulateHit(strikerShip, struckShip, strikerParty, struckParty, siegeEngine, 0, battle, troopCasualties);
-```
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | Owns the registered simulation policy. |
+| [`MapEvent`](../../campaign/MapEvent) | Owns battle sides, morale, rounds, and completion. |
+| [`PartyBase`](../../campaign/PartyBase) / `CharacterObject` | Supply troop and party inputs. |
+| `SiegeEvent` / `Settlement` | Supply siege progress and defender context. |
 
-### GetSimulationTicksForBattleRound
-`public abstract ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
+### Downstream
 
-**Purpose:** Reads and returns the simulation ticks for battle round value held by the this instance.
+| Type | Relation |
+| --- | --- |
+| `MapEvent` | Calls `SimulateHit`, `GetBattleAdvantage`, tick, and pursuit methods. |
+| `BesiegerCamp` | Uses settlement advantage and equipment progress. |
+| [`BattleMoraleModel`](../../mission-ext/BattleMoraleModel) | Handles mission morale separately from map simulation. |
+| Battle reward Actions | Apply the result after the event resolves. |
 
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetSimulationTicksForBattleRound(mapEvent);
-```
+## Key contract
 
-### GetNumberOfEquipmentsBuilt
-`public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `SimulateHit` | Return explained simulated damage for troop or ship combat. | Map-event round |
+| `GetBattleAdvantage` | Explain attacker and defender advantage. | Round setup |
+| `GetSimulationTicksForBattleRound` | Schedule each side's next simulation tick. | Map-event clock |
+| `GetPursuitRoundCount` | Choose pursuit rounds after a victory. | Battle conclusion |
+| `GetSettlementAdvantage` | Score the settlement side in siege simulation. | Siege tick |
+| `GetNumberOfEquipmentsBuilt` / `GetMaximumSiegeEquipmentProgress` | Control siege equipment progress. | Besieger camp |
 
-**Purpose:** Reads and returns the number of equipments built value held by the this instance.
-
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetNumberOfEquipmentsBuilt(settlement);
-```
-
-### GetMaximumSiegeEquipmentProgress
-`public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
-
-**Purpose:** Reads and returns the maximum siege equipment progress value held by the this instance.
+## Real access path
 
 ```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetMaximumSiegeEquipmentProgress(settlement);
+public ExplainedNumber Simulate(MapEvent battle, CharacterObject attacker,
+    CharacterObject defender, PartyBase attackerParty, PartyBase defenderParty)
+{
+    CombatSimulationModel model = Campaign.Current.Models.CombatSimulationModel;
+    (int attackerTicks, int defenderTicks) = model.GetSimulationTicksForBattleRound(battle);
+    ExplainedNumber hit = model.SimulateHit(
+        attacker, defender, attackerParty, defenderParty,
+        strikerAdvantage: 0f, battle, strikerSideMorale: 50f, struckSideMorale: 50f);
+    return hit;
+}
 ```
 
-### GetSettlementAdvantage
-`public abstract float GetSettlementAdvantage(Settlement settlement)`
+`MapEvent` uses the result to apply casualties and later calls `GetPursuitRoundCount`. A caller should not apply the same damage a second time.
 
-**Purpose:** Reads and returns the settlement advantage value held by the this instance.
+## Replacement rules
 
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetSettlementAdvantage(settlement);
-```
+- Preserve non-negative damage and bounded hit chances.
+- Keep tick counts finite and positive so a battle cannot stall or spin forever.
+- Delegate to vanilla before adding a troop, terrain, or naval factor.
+- Return `ExplainedNumber` factors without mutating the `MapEvent`.
+- Keep ship overloads distinct from troop overloads; their casualty out-parameter has a separate contract.
 
-### GetBattleAdvantage
-`public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
+## Risks and debugging order
 
-**Purpose:** Reads and returns the battle advantage value held by the this instance.
+1. Double casualties occur when a mod applies `SimulateHit` and lets `MapEvent` apply it again.
+2. A zero tick interval can lock the campaign clock in a battle loop.
+3. Siege advantage changes AI decisions and equipment progress, not just a display number.
+4. Map simulation is not Mission combat; do not call mission-only Agent APIs here.
+5. Keep version-specific naval inputs by delegating to the installed default implementation.
 
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-combatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, attackerAdvantage);
-```
+## Navigation
 
-### GetShipSiegeEngineHitChance
-`public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
-
-**Purpose:** Reads and returns the ship siege engine hit chance value held by the this instance.
-
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetShipSiegeEngineHitChance(ship, siegeEngineType, battleSide);
-```
-
-### GetPursuitRoundCount
-`public abstract int GetPursuitRoundCount(MapEvent mapEvent)`
-
-**Purpose:** Reads and returns the pursuit round count value held by the this instance.
-
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetPursuitRoundCount(mapEvent);
-```
-
-### GetBluntDamageChance
-`public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
-
-**Purpose:** Reads and returns the blunt damage chance value held by the this instance.
-
-```csharp
-// Obtain an instance of CombatSimulationModel from the subsystem API first
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetBluntDamageChance(strikerTroop, strikedTroop, strikerParty, strikedParty, battle);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-CombatSimulationModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Campaign-ext models family](../models/)
+- [MapEvent](../../campaign/MapEvent)
+- [SiegeEvent](../SiegeEvent)
+- [PartyBase](../../campaign/PartyBase)
+- [BattleMoraleModel](../../mission-ext/BattleMoraleModel)

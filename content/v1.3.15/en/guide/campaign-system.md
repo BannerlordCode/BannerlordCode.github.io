@@ -30,7 +30,7 @@ Treat `Campaign System` as an entry point or data node for this subsystem: inspe
 ## Contents
 
 1. [CampaignGameStarter](#campaigngamestarter)
-2. [MobileParty System](#obileparty-system)
+2. [MobileParty System](#mobileparty-system)
 3. [Settlement and Kingdom](#settlement-and-kingdom)
 4. [Clan and Hero](#clan-and-hero)
 5. [Campaign Events](#campaign-events)

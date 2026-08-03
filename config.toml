@@ -2,7 +2,7 @@ base_url = "https://bannerlordcode.github.io"
 title = "Bannerlord Modding Wiki"
 description = "Bannerlord Modding SDK Documentation - 模块架构指南与 API 参考"
 compile_sass = false
-build_search_index = false
+build_search_index = true
 minify_html = false
 default_language = "en"
 taxonomies = []
@@ -10,7 +10,7 @@ taxonomies = []
 [search]
 include_title = true
 include_description = true
-include_content = false
+include_content = true
 include_path = true
 
 [markdown]

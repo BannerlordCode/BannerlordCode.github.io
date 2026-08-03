@@ -1,6 +1,6 @@
 {# Tree-structured sidebar for the Bannerlord Modding Wiki.
-   Reads data/section-tree.json (fast JSON) instead of get_section() to keep
-   the Zola build times acceptable with 35k+ pages.
+   navigation.json supplies curated module routes; section-tree.json supplies
+   structural sections discovered from content. Each URL is emitted once.
 #}
 {%- macro render_nav(current_url, lang) -%}
   {%- set nav = load_data(path="data/navigation.json") -%}
@@ -14,6 +14,7 @@
       {%- set_global matched_len = key | length -%}
     {%- endif -%}
   {%- endfor -%}
+  {%- set_global emitted_routes = [] -%}
 
   {%- set path_parts = current_url | split(pat="/") -%}
   {%- set current_version = path_parts | nth(n=1) | default(value="") -%}
@@ -30,124 +31,74 @@
   {%- if root_key and nav.routes[root_key] is defined -%}
     {%- for group_key, group in nav.groups -%}
       {%- set_global group_routes = [] -%}
-      {%- if group_key == "start" and nav.routes[root_key] is defined -%}
+      {%- if group_key == "start" -%}
         {%- set_global group_routes = group_routes | concat(with=[root_key]) -%}
       {%- endif -%}
-      {%- if group_key == "cross-version" -%}
-        {%- if nav.routes["/versions/"] is defined -%}
-          {%- set_global group_routes = group_routes | concat(with=["/versions/"]) -%}
-        {%- endif -%}
+      {%- if group_key == "cross-version" and nav.routes["/versions/"] is defined -%}
+        {%- set_global group_routes = group_routes | concat(with=["/versions/"]) -%}
       {%- endif -%}
       {%- for key, node in nav.routes -%}
         {%- if node.parent == root_key and node.group == group_key -%}
           {%- set_global group_routes = group_routes | concat(with=[key]) -%}
         {%- endif -%}
       {%- endfor -%}
+      {%- set_global unique_group_routes = [] -%}
+      {%- for candidate_route in group_routes -%}
+        {%- if not (emitted_routes is containing(candidate_route)) -%}
+          {%- set_global unique_group_routes = unique_group_routes | concat(with=[candidate_route]) -%}
+          {%- set_global emitted_routes = emitted_routes | concat(with=[candidate_route]) -%}
+        {%- endif -%}
+      {%- endfor -%}
 
-      {%- if group_routes | length > 0 -%}
+      {%- if unique_group_routes | length > 0 -%}
         {%- set_global group_active = false -%}
-        {%- for r in group_routes -%}
-          {%- if mapped_url == r -%}
-            {%- set_global group_active = true -%}
-          {%- endif -%}
+        {%- for route_key in group_routes -%}
+          {%- if mapped_url == route_key -%}{%- set_global group_active = true -%}{%- endif -%}
         {%- endfor -%}
-        {%- set is_open = group_active or not group.collapsed -%}
-        <details class="group" {% if is_open %}open{% endif %}>
+        <details class="group" {% if group_active or not group.collapsed %}open{% endif %}>
           <summary>{{ group.label[lang] }}</summary>
           <div class="group-items">
-            {%- for route_key in group_routes -%}
+        {%- for route_key in unique_group_routes -%}
               {%- set node = nav.routes[route_key] -%}
-              {%- set_global sub_routes = [] -%}
-              {%- for child_key in node.children -%}
-                {%- set child = nav.routes[child_key] -%}
-                {%- if child.group == group_key -%}
-                  {%- set_global sub_routes = sub_routes | concat(with=[child_key]) -%}
+              {%- set_global curated_children = [] -%}
+              {%- set_global section_children = [] -%}
+              {%- if group_key != "start" or route_key != root_key -%}
+                {%- for child_key in node.children -%}
+                  {%- if nav.routes[child_key] is defined -%}
+                    {%- set_global curated_children = curated_children | concat(with=[child_key]) -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if tree.byRoute[route_key] is defined and tree.byRoute[route_key].subsections is defined -%}
+                  {%- for child_key in tree.byRoute[route_key].subsections -%}
+                    {%- if not (curated_children is containing(child_key)) -%}
+                      {%- set_global section_children = section_children | concat(with=[child_key]) -%}
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- endif -%}
-              {%- endfor -%}
-
-              {%- set sec_title = node.label[lang] -%}
-              {%- set sec_pages = 0 -%}
-              {%- set sec_subs = [] -%}
-              {%- if tree.byRoute[route_key] is defined -%}
-                {%- set sec = tree.byRoute[route_key] -%}
-                {%- if sec.title is defined -%}{%- set sec_title = sec.title -%}{%- endif -%}
-                {%- if sec.pages is defined -%}{%- set sec_pages = sec.pages -%}{%- endif -%}
-                {%- if sec.subsections is defined -%}{%- set sec_subs = sec.subsections -%}{%- endif -%}
               {%- endif -%}
-              {%- set has_children = sub_routes | length > 0 or sec_subs | length > 0 or sec_pages > 0 -%}
+              {%- set has_children = curated_children | length > 0 or section_children | length > 0 or (tree.byRoute[route_key] is defined and tree.byRoute[route_key].pages > 0) -%}
 
               {%- if has_children -%}
-                {%- set sub_open = not node.collapsed or (mapped_url is starting_with(route_key)) -%}
-                <details class="group" {% if sub_open %}open{% endif %}>
+                <details class="group" {% if not node.collapsed or mapped_url is starting_with(route_key) %}open{% endif %}>
                   <summary>{{ node.label[lang] }}</summary>
                   <div class="group-items">
-                    <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">
-                      {%- if lang == 'zh' %}目录{% else %}Index{% endif -%}
-                    </a>
-                    {%- if sec_pages > 0 -%}
-                      <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">
-                        {%- if lang == 'zh' %}全部 {{ sec_pages }} 个页面{% else %}All {{ sec_pages }} pages{% endif -%}
-                      </a>
-                    {%- endif -%}
-                    {%- for child_key in sub_routes -%}
+                    <a href="{{ route_key | safe }}" class="{% if mapped_url == route_key %}active{% endif %}">{% if lang == 'zh' %}目录{% else %}Index{% endif %}</a>
+                    {%- for child_key in curated_children -%}
                       {%- set child = nav.routes[child_key] -%}
-                      <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child.label[lang] }}</a>
-                    {%- endfor -%}
-
-                    {%- for sub_key in sec_subs -%}
-                      {%- set sub_title = sub_key -%}
-                      {%- set sub_pages = 0 -%}
-                      {%- set sub_subs = [] -%}
-                      {%- if tree.byRoute[sub_key] is defined -%}
-                        {%- set sub_sec = tree.byRoute[sub_key] -%}
-                        {%- if sub_sec.title is defined -%}{%- set sub_title = sub_sec.title -%}{%- endif -%}
-                        {%- if sub_sec.pages is defined -%}{%- set sub_pages = sub_sec.pages -%}{%- endif -%}
-                        {%- if sub_sec.subsections is defined -%}{%- set sub_subs = sub_sec.subsections -%}{%- endif -%}
+                      {%- if not (emitted_routes is containing(child_key)) -%}
+                        <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child.label[lang] }}</a>
+                        {%- set_global emitted_routes = emitted_routes | concat(with=[child_key]) -%}
                       {%- endif -%}
-                      <details class="group" {% if mapped_url is starting_with(sub_key) %}open{% endif %}>
-                        <summary>{{ sub_title }}</summary>
-                        <div class="group-items">
-                          <a href="{{ sub_key | safe }}">
-                            {%- if lang == 'zh' %}目录{% else %}Index{% endif -%}
-                          </a>
-                          {%- if sub_pages > 0 -%}
-                            <a href="{{ sub_key | safe }}">
-                              {%- if lang == 'zh' %}全部 {{ sub_pages }} 个页面{% else %}All {{ sub_pages }} pages{% endif -%}
-                            </a>
-                          {%- endif -%}
-                          {%- for sub2_key in sub_subs -%}
-                            {%- set sub2_title = sub2_key -%}
-                            {%- set sub2_pages = 0 -%}
-                            {%- set sub2_subs = [] -%}
-                            {%- if tree.byRoute[sub2_key] is defined -%}
-                              {%- set sub2_sec = tree.byRoute[sub2_key] -%}
-                              {%- if sub2_sec.title is defined -%}{%- set sub2_title = sub2_sec.title -%}{%- endif -%}
-                              {%- if sub2_sec.pages is defined -%}{%- set sub2_pages = sub2_sec.pages -%}{%- endif -%}
-                              {%- if sub2_sec.subsections is defined -%}{%- set sub2_subs = sub2_sec.subsections -%}{%- endif -%}
-                            {%- endif -%}
-                            <details class="group" {% if mapped_url is starting_with(sub2_key) %}open{% endif %}>
-                              <summary>{{ sub2_title }}</summary>
-                              <div class="group-items">
-                                <a href="{{ sub2_key | safe }}">
-                                  {%- if lang == 'zh' %}目录{% else %}Index{% endif -%}
-                                </a>
-                                {%- if sub2_pages > 0 -%}
-                                  <a href="{{ sub2_key | safe }}">
-                                    {%- if lang == 'zh' %}全部 {{ sub2_pages }} 个页面{% else %}All {{ sub2_pages }} pages{% endif -%}
-                                  </a>
-                                {%- endif -%}
-                                {%- for sub3_key in sub2_subs -%}
-                                  {%- set sub3_title = sub3_key -%}
-                                  {%- if tree.byRoute[sub3_key] is defined and tree.byRoute[sub3_key].title is defined -%}
-                                    {%- set sub3_title = tree.byRoute[sub3_key].title -%}
-                                  {%- endif -%}
-                                  <a href="{{ sub3_key | safe }}">{{ sub3_title }}</a>
-                                {%- endfor -%}
-                              </div>
-                            </details>
-                          {%- endfor -%}
-                        </div>
-                      </details>
+                    {%- endfor -%}
+                    {%- for child_key in section_children -%}
+                      {%- set child_title = child_key -%}
+                      {%- if tree.byRoute[child_key] is defined and tree.byRoute[child_key].title is defined -%}
+                        {%- set child_title = tree.byRoute[child_key].title -%}
+                      {%- endif -%}
+                      {%- if not (emitted_routes is containing(child_key)) -%}
+                        <a href="{{ child_key | safe }}" class="{% if mapped_url == child_key %}active{% endif %}">{{ child_title }}</a>
+                        {%- set_global emitted_routes = emitted_routes | concat(with=[child_key]) -%}
+                      {%- endif -%}
                     {%- endfor -%}
                   </div>
                 </details>
@@ -161,10 +112,10 @@
     {%- endfor -%}
   {%- else -%}
     <details class="group" open>
-      <summary>{%- if lang == 'zh' %}站点导航{% else %}Site Navigation{% endif -%}</summary>
+      <summary>{% if lang == 'zh' %}站点导航{% else %}Site Navigation{% endif %}</summary>
       <div class="group-items">
         {%- if nav.routes["/"] is defined -%}
-          <a href="{{ '/' | safe }}" class="{% if mapped_url == '/' %}active{% endif %}">{{ nav.routes["/"].label[lang] }}</a>
+          <a href="/" class="{% if mapped_url == '/' %}active{% endif %}">{{ nav.routes["/"].label[lang] }}</a>
         {%- endif -%}
         {%- for version in nav.meta.versions -%}
           {%- for lang_code in nav.meta.languages -%}
@@ -175,7 +126,7 @@
           {%- endfor -%}
         {%- endfor -%}
         {%- if nav.routes["/versions/"] is defined -%}
-          <a href="{{ '/versions/' | safe }}" class="{% if mapped_url == '/versions/' %}active{% endif %}">{{ nav.routes["/versions/"].label[lang] }}</a>
+          <a href="/versions/" class="{% if mapped_url == '/versions/' %}active{% endif %}">{{ nav.routes["/versions/"].label[lang] }}</a>
         {%- endif -%}
       </div>
     </details>

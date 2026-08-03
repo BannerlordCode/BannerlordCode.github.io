@@ -2,7 +2,7 @@
 title: "viewmodel 目录"
 description: ViewModel 视图模型类参考目录
 ---
-## 模块心智模型
+## 心智模型
 
 `viewmodel` 桶是 Bannerlord 的**表现层数据模型（presentation model）**——它只收录那些没有归到具体模块、跨战役/任务/核心散落分布的独立 ViewModel 与配套数据载体，是 Gauntlet UI 与游戏状态之间的「可绑定桥」。
 
@@ -29,6 +29,16 @@ description: ViewModel 视图模型类参考目录
 上方 Gauntlet 的层是消费端：Movie 通过 DataSource 持有这些 VM，XAML 控件绑定其属性与命令，基类 `ViewModel`（`TaleWorlds.Library`）与 Movie 生命周期机制见 [GUI 模块](../gui/)。本桶与 [core-extra](../core-extra/) 是「碎片 vs 主体」关系——更庞大的业务 VM 集合（王国、背包、锻造等）按命名空间落在 core-extra，跨桶查阅才能拼出完整 MVVM 图景。
 
 生命周期风险不可忽视：ViewModel 在场景切换或菜单关闭时必须正确 `OnFinalize` 注销订阅，否则悬空 `PropertyChanged` 回调会越界访问已释放状态。UI/ViewModel 生命周期崩溃的边界与兜底策略见 [崩溃边界](../../architecture/crash-boundaries/)。
+
+| Namespace | Type | Purpose | Timing |
+| --- | --- | --- | --- |
+| TaleWorlds.Core.ViewModelCollection | [CharacterViewModel](./CharacterViewModel) | 将角色外观和装备状态暴露给绑定的 Movie。 | 角色卡片或预览打开期间。 |
+| TaleWorlds.Core.ViewModelCollection.Information | [HintViewModel](./HintViewModel) | 提供提示文本、显隐和提示命令。 | 悬停或焦点变化期间。 |
+| TaleWorlds.MountAndBlade.ViewModelCollection.Input | [InputKeyItemVM](./InputKeyItemVM) | 表示一条按键绑定及其显示状态。 | 输入设置绑定期间。 |
+| TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement | [ClanCardSelectionInfo](./ClanCardSelectionInfo) | 承载氏族管理界面的卡片选择数据。 | 构建氏族选择界面时。 |
+| TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu | [GameMenuItemCreationData](./GameMenuItemCreationData) | 描述游戏菜单选项创建所需的数据。 | 组装菜单选项时。 |
+| TaleWorlds.CampaignSystem.ViewModelCollection | [IssueQuestFlags](./IssueQuestFlags) | 编码日志界面中 Issue/Quest 的显示标志。 | 投影日志条目到 UI 时。 |
+| TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard | [BattleResultType](./BattleResultType) | 标识任务记分板显示的战斗结果类别。 | Mission 报告结果之后。 |
 
 <!-- BEGIN SECTION INDEX -->
 

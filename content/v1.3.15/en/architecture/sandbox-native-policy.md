@@ -60,6 +60,50 @@ Native (IMB* / EngineMethod)  ← only reach indirectly via managed wrappers
 
 **Take away:** patterns and call chains — not "SandBox type name = public SDK".
 
+## Runnable SandBox chain
+
+The following is the smallest source-backed chain to trace before adding a
+single-player feature. The implementation classes live in the v1.4.5 source
+bundle under `Bannerlord.Source/Modules.SandBox`; the managed contracts linked
+below are the stable v1.3.15 mod surface.
+
+1. The module enters `MBSubModuleBase.OnGameStart` and receives an
+   `IGameStarter`.
+2. For a campaign start, cast to `CampaignGameStarter` and call
+   `AddBehavior` once. The behavior implements `RegisterEvents` and
+   `SyncData(IDataStore)`.
+3. Register a `DialogFlow` or `GameMenu` from that behavior. Conditions only
+   decide whether an option is visible; the consequence callback performs one
+   documented `*Action.Apply` mutation.
+4. If a calculation must be replaced, call `AddModel` during game-start
+   registration. Consumers read the replacement through `Campaign.Current.Models`.
+5. A screen or mission creates its `ViewModel`, attaches a
+   `GauntletLayer`, and releases both from `OnFinalize`/screen teardown.
+
+```csharp
+protected override void OnGameStart(Game game, IGameStarter starter)
+{
+    if (game.GameType is Campaign)
+    {
+        var campaignStarter = (CampaignGameStarter)starter;
+        campaignStarter.AddBehavior(new AgingCampaignBehavior());
+        campaignStarter.AddModel(new DefaultDiplomacyModel());
+    }
+}
+```
+
+The two types above are real SandBox implementations; a mod normally supplies
+its own behavior or model subclass at the same registration point. The
+registration methods and lifecycle are the important contract. Read the
+[CampaignBehaviorBase](../../api/campaign-ext/CampaignBehaviorBase),
+[CampaignGameStarter](../../api/campaign-ext/CampaignGameStarter),
+[DialogFlow](../../api/campaign-ext/DialogFlow),
+[GameMenu](../../api/campaign-ext/GameMenu),
+[GameModels](../../api/campaign-ext/GameModels), and
+[GauntletLayer](../../api/engine/GauntletLayer) pages together. Do not copy a
+SandBox private class as a public API or call `Campaign.Current` before a
+campaign exists.
+
 **Don't:**
 
 - Document SandBox `internal` / tightly coupled types as stable public API in mod docs  
@@ -83,6 +127,20 @@ See [native-interop](../native-interop). Summary:
 1. Default: call only **managed** `TaleWorlds.Engine` / `MountAndBlade`  
 2. Thin `IMB*` wrappers → [noise policy](../noise-policy): inventory, no fake long prose  
 3. When comparing decompiles: `native-1.3.15/` / `native-1.4.5/` and on-site [native-1.3.15-src](../../native-1.3.15-src/)  
+
+The native provenance map is intentionally narrow:
+
+| Boundary | Evidence to inspect | Managed hand-off |
+| --- | --- | --- |
+| Startup exports | `native-1.3.15-src/exports-and-bridge` (`WotsMain*`, `pass_managed_*`) | `MBDotNet` and `LibraryApplicationInterface` |
+| Engine callbacks | `native-1.3.15-src/engine-core` (`ftdnNative_*`, callback tables) | `TaleWorlds.Engine` wrappers and `[EngineMethod]` interfaces |
+| Mission/scene bridge | `native-1.3.15-src/mission` and `scene` | `Mission`, `Scene`, `Agent`, and managed mission behaviors |
+| Rendering/physics | `native-1.3.15-src/rendering` and `physics` | Engine managed objects; never direct P/Invoke from a campaign behavior |
+
+`IMB*` and `[EngineMethod]` names are provenance anchors, not a promise that
+the native DLL is a supported mod ABI. Version-specific addresses must stay in
+the native source reference and must never be presented as stable managed
+entry points.
 
 ## On-site presentation rules (mandatory)
 

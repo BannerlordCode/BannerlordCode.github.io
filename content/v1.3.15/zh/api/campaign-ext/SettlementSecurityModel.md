@@ -1,108 +1,96 @@
 ---
 title: "SettlementSecurityModel"
-description: "SettlementSecurityModel 的自动生成类参考。"
+description: "计算城镇治安变化以及税收、忠诚和经济系统使用的治安因素。"
 ---
 # SettlementSecurityModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementSecurityModel : MBGameModel<SettlementSecurityModel>`
-**Base:** `MBGameModel<SettlementSecurityModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementSecurityModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementSecurityModel : MBGameModel<SettlementSecurityModel>`  
+**Base:** `MBGameModel<SettlementSecurityModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementSecurityModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementSecurityModel.cs`
 
-## 概述
+## One-line job
 
-`SettlementSecurityModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`SettlementSecurityModel` 解释城镇每日治安变化，以及附近劫掠和击败土匪带来的临时治安因素。它不直接修改 `Town.Security`，也不创建劫掠事件。
 
-## 心智模型
+## Mental Model
 
-把 `SettlementSecurityModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`Town.SecurityChange` 在每日 tick 和 UI 预览中读取本 Model。税收与忠诚模型会再次读取治安阈值；战役行为负责记录劫掠或土匪战斗，并在后续 tick 把结果作为输入。因此所有方法必须是只读、可重复的计算。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `MaximumSecurityInSettlement` | `public abstract int MaximumSecurityInSettlement { get; }` |
-| `SecurityDriftMedium` | `public abstract int SecurityDriftMedium { get; }` |
-| `MapEventSecurityEffectRadius` | `public abstract float MapEventSecurityEffectRadius { get; }` |
-| `HideoutClearedSecurityEffectRadius` | `public abstract float HideoutClearedSecurityEffectRadius { get; }` |
-| `HideoutClearedSecurityGain` | `public abstract int HideoutClearedSecurityGain { get; }` |
-| `ThresholdForTaxCorruption` | `public abstract int ThresholdForTaxCorruption { get; }` |
-| `ThresholdForHigherTaxCorruption` | `public abstract int ThresholdForHigherTaxCorruption { get; }` |
-| `ThresholdForTaxBoost` | `public abstract int ThresholdForTaxBoost { get; }` |
-| `SettlementTaxBoostPercentage` | `public abstract int SettlementTaxBoostPercentage { get; }` |
-| `SettlementTaxPenaltyPercentage` | `public abstract int SettlementTaxPenaltyPercentage { get; }` |
-| `ThresholdForNotableRelationBonus` | `public abstract int ThresholdForNotableRelationBonus { get; }` |
-| `ThresholdForNotableRelationPenalty` | `public abstract int ThresholdForNotableRelationPenalty { get; }` |
-| `DailyNotableRelationBonus` | `public abstract int DailyNotableRelationBonus { get; }` |
-| `DailyNotableRelationPenalty` | `public abstract int DailyNotableRelationPenalty { get; }` |
-| `DailyNotablePowerBonus` | `public abstract int DailyNotablePowerBonus { get; }` |
-| `DailyNotablePowerPenalty` | `public abstract int DailyNotablePowerPenalty { get; }` |
-
-## 主要方法
-
-### GetLootedNearbyPartySecurityEffect
-`public abstract float GetLootedNearbyPartySecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
-
-**用途 / Purpose:** 读取并返回当前对象中 looted nearby party security effect 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementSecurityModel 实例
-SettlementSecurityModel settlementSecurityModel = ...;
-var result = settlementSecurityModel.GetLootedNearbyPartySecurityEffect(town, 0);
+```text
+Town + garrison + gangs + nearby outcomes
+        -> Campaign.Current.Models.SettlementSecurityModel
+        -> CalculateSecurityChange / raid effects
+        -> settlement behavior -> Town.Security
+        -> loyalty / tax / economy
 ```
 
-### CalculateSecurityChange
-`public abstract ExplainedNumber CalculateSecurityChange(Town town, bool includeDescriptions = false)`
+## Dependencies
 
-**用途 / Purpose:** 计算security change的当前值或结果。
+### Upstream
 
-```csharp
-// 先通过子系统 API 拿到 SettlementSecurityModel 实例
-SettlementSecurityModel settlementSecurityModel = ...;
-var result = settlementSecurityModel.CalculateSecurityChange(town, false);
-```
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 持有活动 Model 注册表。 |
+| [`Town`](../../campaign/Town) | 提供治安、驻军、帮派和所有者上下文。 |
+| [`MapEvent`](../../campaign/MapEvent) | 提供附近队伍强度和战斗结果。 |
+| [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) | 在忠诚公式中消费治安阈值。 |
 
-### GetNearbyBanditPartyDefeatedSecurityEffect
-`public abstract float GetNearbyBanditPartyDefeatedSecurityEffect(Town town, float sumOfAttackedPartyStrengths)`
+### Downstream
 
-**用途 / Purpose:** 读取并返回当前对象中 nearby bandit party defeated security effect 的结果。
+| Type | Relation |
+| --- | --- |
+| [`Town`](../../campaign/Town) | 暴露 `SecurityChange` 和解释。 |
+| `DefaultSettlementTaxModel` | 使用高/低治安税收效果。 |
+| `DefaultSettlementLoyaltyModel` | 使用高/低治安忠诚因素。 |
+| `DefaultSettlementProsperityModel` | 把治安作为经济输入。 |
 
-```csharp
-// 先通过子系统 API 拿到 SettlementSecurityModel 实例
-SettlementSecurityModel settlementSecurityModel = ...;
-var result = settlementSecurityModel.GetNearbyBanditPartyDefeatedSecurityEffect(town, 0);
-```
+## Key contract
 
-### CalculateGoldGainDueToHighSecurity
-`public abstract void CalculateGoldGainDueToHighSecurity(Town town, ref ExplainedNumber explainedNumber)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `CalculateSecurityChange` | 计算每日治安变化。 | 城镇 tick、UI |
+| `GetLootedNearbyPartySecurityEffect` | 把被攻击队伍强度转换为负面效果。 | 劫掠结算 |
+| `GetNearbyBanditPartyDefeatedSecurityEffect` | 把击败土匪转换为正面效果。 | MapEvent 结算 |
+| `CalculateGoldGainDueToHighSecurity` | 添加高治安税收因素。 | 税收预览 |
 
-**用途 / Purpose:** 计算gold gain due to high security的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementSecurityModel 实例
-SettlementSecurityModel settlementSecurityModel = ...;
-settlementSecurityModel.CalculateGoldGainDueToHighSecurity(town, explainedNumber);
-```
-
-### CalculateGoldCutDueToLowSecurity
-`public abstract void CalculateGoldCutDueToLowSecurity(Town town, ref ExplainedNumber explainedNumber)`
-
-**用途 / Purpose:** 计算gold cut due to low security的当前值或结果。
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 SettlementSecurityModel 实例
-SettlementSecurityModel settlementSecurityModel = ...;
-settlementSecurityModel.CalculateGoldCutDueToLowSecurity(town, explainedNumber);
+public ExplainedNumber ExplainSecurity(Town town)
+{
+    if (Campaign.Current == null || town == null)
+    {
+        return new ExplainedNumber(0f);
+    }
+    return Campaign.Current.Models.SettlementSecurityModel
+        .CalculateSecurityChange(town, includeDescriptions: true);
+}
 ```
 
-## 使用示例
+劫掠辅助方法也只是计算：
 
 ```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-SettlementSecurityModel instance = ...;
+float loss = Campaign.Current.Models.SettlementSecurityModel
+    .GetLootedNearbyPartySecurityEffect(town, attackedPartyStrength);
 ```
 
-## 参见
+行为系统才记录事件；Model 不能在计算 `loss` 时调用 Action 或修改城镇。
 
-- [本区域目录](../)
+## 风险与调试顺序
+
+1. 劫掠效果和每日变化是不同输入，不要相互替代。
+2. 保留无驻军、无帮派和所有者文化不同等 vanilla 分支。
+3. 治安保存于 Town，Model 无状态；不要给替换 Model 加保存字段。
+4. 改动高/低治安因素时同步检查税收和忠诚页面。
+5. 预览路径不能使用随机数，随机结果应由事件解析器产生。
+
+## Navigation
+
+- [Campaign-ext models family](../models/)
+- [Town](../../campaign/Town)
+- [SettlementLoyaltyModel](../SettlementLoyaltyModel)
+- [SettlementProsperityModel](../SettlementProsperityModel)
+- [MapEvent](../../campaign/MapEvent)

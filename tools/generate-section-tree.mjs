@@ -1,39 +1,28 @@
-// tools/generate-section-tree.mjs
-//
-// Pre-compute the section/page-count tree for the sidebar so the theme does
-// not need to call get_section() on every render. Run after content generation.
+// Pre-compute the section/page-count tree used by the sidebar.
 //
 //   node tools/generate-section-tree.mjs
-// Output:
-//   data/section-tree.json
+//   node tools/generate-section-tree.mjs --check
+//   node tools/generate-section-tree.mjs --content-root <dir> --out <file>
 
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..');
-const CONTENT_ROOT = join(REPO_ROOT, 'content');
-const OUT_PATH = join(REPO_ROOT, 'data', 'section-tree.json');
+const DEFAULT_CONTENT_ROOT = join(REPO_ROOT, 'content');
+const DEFAULT_OUT_PATH = join(REPO_ROOT, 'data', 'section-tree.json');
 
-function walk(dir, cb) {
-  let entries;
-  try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return; }
-  // Process `_index.md` before other files so leaf counters are not overwritten.
-  const sorted = entries.slice().sort((a, b) => {
-    if (a.name === '_index.md') return -1;
-    if (b.name === '_index.md') return 1;
-    return a.name.localeCompare(b.name);
-  });
-  for (const e of sorted) {
-    if (e.name.startsWith('.')) continue;
-    const full = join(dir, e.name);
-    if (e.isDirectory()) walk(full, cb);
-    else cb(full, e.name);
-  }
+function argValue(args, name, fallback) {
+  const index = args.indexOf(name);
+  return index >= 0 && args[index + 1] ? args[index + 1] : fallback;
 }
-
-const tree = { sections: {}, byRoute: {} };
 
 function parseFrontmatter(text) {
   if (!text.startsWith('---')) return { title: null, weight: null };
@@ -48,68 +37,130 @@ function parseFrontmatter(text) {
   };
 }
 
-function ensureRoute(route, fallbackTitle) {
-  if (!tree.byRoute[route]) {
-    tree.byRoute[route] = {
-      title: fallbackTitle,
-      weight: null,
-      pages: 0,
-      subsections: [],
-    };
+function walk(dir, cb) {
+  let entries;
+  try {
+    entries = readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return;
   }
-  return tree.byRoute[route];
+  const sorted = entries.slice().sort((a, b) => {
+    if (a.name === '_index.md') return -1;
+    if (b.name === '_index.md') return 1;
+    return a.name.localeCompare(b.name);
+  });
+  for (const entry of sorted) {
+    if (entry.name.startsWith('.')) continue;
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) walk(full, cb);
+    else cb(full, entry.name);
+  }
 }
 
-walk(CONTENT_ROOT, (fullPath, name) => {
-  const rel = relative(CONTENT_ROOT, fullPath).replace(/\\/g, '/');
-  if (!rel.endsWith('.md')) return;
+export function buildSectionTree(contentRoot) {
+  const tree = { sections: {}, byRoute: {} };
 
-  if (name === '_index.md') {
-    const route = '/' + rel.slice(0, -'_index.md'.length);
-    const fm = parseFrontmatter(readFileSync(fullPath, 'utf8'));
-    const existing = tree.byRoute[route];
-    tree.byRoute[route] = {
-      title: fm.title || existing?.title || route.split('/').filter(Boolean).pop(),
-      weight: fm.weight ?? existing?.weight ?? null,
-      pages: existing?.pages ?? 0,
-      subsections: existing?.subsections ?? [],
-    };
+  function ensureRoute(route, fallbackTitle) {
+    if (!tree.byRoute[route]) {
+      tree.byRoute[route] = {
+        title: fallbackTitle,
+        weight: null,
+        pages: 0,
+        subsections: [],
+      };
+    }
+    return tree.byRoute[route];
+  }
+
+  walk(contentRoot, (fullPath, name) => {
+    const rel = relative(contentRoot, fullPath).replace(/\\/g, '/');
+    if (!rel.endsWith('.md')) return;
+
+    if (name === '_index.md') {
+      const route = '/' + rel.slice(0, -'_index.md'.length);
+      const fm = parseFrontmatter(readFileSync(fullPath, 'utf8'));
+      const existing = tree.byRoute[route];
+      tree.byRoute[route] = {
+        title: fm.title || existing?.title || route.split('/').filter(Boolean).pop(),
+        weight: fm.weight ?? existing?.weight ?? null,
+        pages: existing?.pages ?? 0,
+        subsections: existing?.subsections ?? [],
+      };
+      return;
+    }
+
+    const parentRel = dirname(rel).replace(/\\/g, '/');
+    const parentRoute = '/' + (parentRel === '.' ? '' : parentRel + '/');
+    const section = ensureRoute(parentRoute, parentRoute.split('/').filter(Boolean).pop());
+    section.pages++;
+  });
+
+  for (const route of Object.keys(tree.byRoute)) {
+    if (route === '/') continue;
+    const parts = route.split('/').filter(Boolean);
+    parts.pop();
+    const parentRoute = parts.length ? '/' + parts.join('/') + '/' : '/';
+    const parent = ensureRoute(parentRoute, parts.length ? parts[parts.length - 1] : 'Home');
+    if (!parent.subsections.includes(route)) parent.subsections.push(route);
+  }
+
+  for (const route of Object.keys(tree.byRoute)) {
+    tree.byRoute[route].subsections.sort((a, b) => {
+      const wa = tree.byRoute[a]?.weight ?? 0;
+      const wb = tree.byRoute[b]?.weight ?? 0;
+      if (wa !== wb) return wa - wb;
+      return a.localeCompare(b);
+    });
+  }
+
+  return tree;
+}
+
+function main() {
+  const args = process.argv.slice(2);
+  if (args.includes('--help')) {
+    console.log('Usage: node tools/generate-section-tree.mjs [--content-root DIR] [--out FILE] [--check]');
     return;
   }
 
-  // Count this non-index page against its parent section route.
-  const parentRel = dirname(rel).replace(/\\/g, '/');
-  const parentRoute = '/' + (parentRel === '.' ? '' : parentRel + '/');
-  const section = ensureRoute(parentRoute, parentRoute.split('/').filter(Boolean).pop());
-  section.pages++;
-});
+  const contentRoot = resolve(argValue(args, '--content-root', DEFAULT_CONTENT_ROOT));
+  const outPath = resolve(argValue(args, '--out', DEFAULT_OUT_PATH));
+  const check = args.includes('--check');
+  const tree = buildSectionTree(contentRoot);
+  const rendered = JSON.stringify(tree, null, 2) + '\n';
 
-// Wire up subsection lists.
-for (const route of Object.keys(tree.byRoute)) {
-  if (route === '/') continue;
-  const parts = route.split('/').filter(Boolean);
-  parts.pop();
-  const parentRoute = parts.length ? '/' + parts.join('/') + '/' : '/';
-  const parent = ensureRoute(parentRoute, parts.length ? parts[parts.length - 1] : 'Home');
-  if (!parent.subsections.includes(route)) {
-    parent.subsections.push(route);
+  if (check) {
+    if (!existsSync(outPath)) {
+      console.error(`Section tree is missing: ${outPath}`);
+      process.exitCode = 1;
+      return;
+    }
+    let current;
+    try {
+      current = readFileSync(outPath, 'utf8');
+    } catch (error) {
+      console.error(`Unable to read section tree ${outPath}: ${error.message}`);
+      process.exitCode = 1;
+      return;
+    }
+    if (current !== rendered) {
+      console.error(`Section tree is stale or mismatched: ${outPath}`);
+      console.error(`Expected ${Object.keys(tree.byRoute).length} routes from ${contentRoot}`);
+      process.exitCode = 1;
+      return;
+    }
+    console.log(`SECTION_TREE_OK routes=${Object.keys(tree.byRoute).length}`);
+    return;
   }
+
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, rendered, 'utf8');
+  const totalPages = Object.values(tree.byRoute).reduce((sum, section) => sum + section.pages, 0);
+  console.log(`Wrote ${outPath}`);
+  console.log(`Sections: ${Object.keys(tree.byRoute).length}`);
+  console.log(`Leaf pages counted: ${totalPages}`);
 }
 
-// Sort subsections using a stable order.
-for (const route of Object.keys(tree.byRoute)) {
-  tree.byRoute[route].subsections.sort((a, b) => {
-    const wa = tree.byRoute[a]?.weight ?? 0;
-    const wb = tree.byRoute[b]?.weight ?? 0;
-    if (wa !== wb) return wa - wb;
-    return a.localeCompare(b);
-  });
+if (process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url))) {
+  main();
 }
-
-const totalPages = Object.values(tree.byRoute).reduce((sum, s) => sum + s.pages, 0);
-
-mkdirSync(dirname(OUT_PATH), { recursive: true });
-writeFileSync(OUT_PATH, JSON.stringify(tree, null, 2), 'utf8');
-console.log(`Wrote ${OUT_PATH}`);
-console.log(`Sections: ${Object.keys(tree.byRoute).length}`);
-console.log(`Leaf pages counted: ${totalPages}`);

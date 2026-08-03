@@ -7,13 +7,13 @@
 // Exit code 0 = no blockers, 1 = blocking issues found.
 
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
-import { join, relative, dirname, sep } from 'path';
+import { join, relative, resolve, dirname, sep } from 'path';
 
 const args = process.argv.slice(2);
 const verbose = args.includes('--verbose');
 const targetArg = args.find((a) => !a.startsWith('--'));
 const target = targetArg || process.env.AUDIT_DOCS_ROOT || 'content';
-const docsRoot = join(import.meta.dirname, '..', target);
+const docsRoot = resolve(import.meta.dirname, '..', target);
 const reSep = new RegExp(sep === '\\' ? '\\\\' : sep, 'g');
 
 const blockers = [];
@@ -243,6 +243,18 @@ function buildTitleRe(title) {
   return new RegExp(`\\bnew\\s+${escaped}\\s*\\(`, 'iu');
 }
 
+function isPlaceholderTitleConstructor(block, title) {
+  const titleRe = buildTitleRe(title);
+  if (!titleRe || !titleRe.test(block)) return false;
+  const codeLines = block
+    .split(/\r?\n/)
+    .map((line) => line.replace(/\/\/.*$/, '').trim())
+    .filter(Boolean);
+  // A constructor followed by real member/lifecycle calls is a valid example;
+  // a lone constructor statement remains a placeholder.
+  return codeLines.length <= 1;
+}
+
 function isClassDocPage(pathRel, typeLine) {
   return /\/api\//.test(pathRel) && typeLine !== '';
 }
@@ -298,7 +310,7 @@ function auditFile(filePath) {
     }
 
     // Constructor using the page title itself in a code block is always suspect.
-    if (titleRe && titleRe.test(b)) {
+    if (isPlaceholderTitleConstructor(block, title)) {
       blockers.push({
         file: pathRel,
         line: 0,
@@ -385,7 +397,7 @@ function auditFile(filePath) {
         // `new Title(...)` line is a placeholder even on class doc pages.
         for (const block of methodBlocks) {
           const b = block.replace(/\r?\n/g, ' ');
-          if (titleRe && titleRe.test(b)) {
+          if (isPlaceholderTitleConstructor(block, title)) {
             blockers.push({
               file: pathRel,
               line: method.startLine,

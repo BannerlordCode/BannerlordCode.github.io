@@ -19,10 +19,10 @@ Bannerlord supports multiple languages through `MBTextManager` and language file
 
 ## 目录 / Contents
 
-1. [语言文件](#语言文件)
-2. [MBTextManager 用法](#mbtextmanager-用法)
+1. [语言文件](#yu-yan-wen-jian)
+2. [MBTextManager 用法](#mbtextmanager-yong-fa)
 3. [TextObject](#textobject)
-4. [运行时语言切换](#运行时语言切换)
+4. [运行时语言切换](#yun-xing-shi-yu-yan-qie-huan)
 
 ---
 

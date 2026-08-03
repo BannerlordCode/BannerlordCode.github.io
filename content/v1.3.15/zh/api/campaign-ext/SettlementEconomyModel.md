@@ -1,98 +1,74 @@
 ---
 title: "SettlementEconomyModel"
-description: "SettlementEconomyModel 的自动生成类参考。"
+description: "为城镇经济行为提供需求、供给、预算和金库变化策略。"
 ---
 # SettlementEconomyModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementEconomyModel : MBGameModel<SettlementEconomyModel>`
-**Base:** `MBGameModel<SettlementEconomyModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementEconomyModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementEconomyModel : MBGameModel<SettlementEconomyModel>`  
+**Base:** `MBGameModel<SettlementEconomyModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementEconomyModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementEconomyModel.cs`
 
-## 概述
+## One-line job
 
-`SettlementEconomyModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`SettlementEconomyModel` 预测物品类别的需求、供给、每日市场预算和城镇金库变化。它不直接添加物品或金币。
 
-## 心智模型
+## Mental Model
 
-把 `SettlementEconomyModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+这是市场模拟的策略边界。`TownMarketData` 和 `ItemConsumptionBehavior` 读取需求/预算后，才通过自己的行为修改库存和金库。繁荣、生产和物品价值是输入，不属于本 Model 的写入职责。替换实现必须保持供需单位一致，并为新市场处理零供给分支。
 
-## 主要方法
-
-### GetEstimatedDemandForCategory
-`public abstract float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
-
-**用途 / Purpose:** 读取并返回当前对象中 estimated demand for category 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementEconomyModel 实例
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetEstimatedDemandForCategory(town, itemData, category);
+```text
+Town + ItemCategory + inventory + prosperity
+       -> SettlementEconomyModel
+       -> demand / supply / budget / gold delta
+       -> ItemConsumptionBehavior / TownMarketData 执行变更
 ```
 
-### GetDailyDemandForCategory
-`public abstract float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity = 0)`
+## Dependencies
 
-**用途 / Purpose:** 读取并返回当前对象中 daily demand for category 的结果。
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 持有注册的经济 Model。 |
+| [`Town`](../../campaign/Town) / `TownMarketData` | 提供市场状态和价格。 |
+| [`ItemObject`](../../core-extra/ItemObject) / `ItemCategory` | 标识货物和值。 |
+| [`SettlementProsperityModel`](../SettlementProsperityModel) | 繁荣变化会影响每日需求。 |
 
-```csharp
-// 先通过子系统 API 拿到 SettlementEconomyModel 实例
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetDailyDemandForCategory(town, category, 0);
-```
+## Key contract
 
-### GetDemandChangeFromValue
-`public abstract float GetDemandChangeFromValue(float purchaseValue)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `GetEstimatedDemandForCategory` | 从物品数据估算需求。 | 市场预览 |
+| `GetDailyDemandForCategory` | 返回每日类别需求。 | 消费 tick |
+| `GetSupplyDemandForCategory` | 根据旧值和每日变化更新供需。 | 市场更新 |
+| `GetTownGoldChange` | 计算城镇金库变化。 | 消费行为 |
+| `CalculateDailySettlementBudgetForItemCategory` | 限制类别每日支出。 | 商队和消费 |
 
-**用途 / Purpose:** 读取并返回当前对象中 demand change from value 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementEconomyModel 实例
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetDemandChangeFromValue(0);
-```
-
-### GetSupplyDemandForCategory
-`public abstract ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)`
-
-**用途 / Purpose:** 读取并返回当前对象中 supply demand for category 的结果。
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 SettlementEconomyModel 实例
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetSupplyDemandForCategory(town, category, 0, 0, 0, 0);
+public float DailyFoodDemand(Town town, ItemCategory category)
+{
+    return Campaign.Current.Models.SettlementEconomyModel
+        .GetDailyDemandForCategory(town, category);
+}
 ```
 
-### GetTownGoldChange
-`public abstract int GetTownGoldChange(Town town)`
+`ItemConsumptionBehavior` 使用这些值后才移除物品或改变金库；不要在 Model 内执行相同写入。
 
-**用途 / Purpose:** 读取并返回当前对象中 town gold change 的结果。
+## 风险与调试顺序
 
-```csharp
-// 先通过子系统 API 拿到 SettlementEconomyModel 实例
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetTownGoldChange(town);
-```
+1. 区分需求数量和金币金额，保持符号约定。
+2. 预算必须有界，否则每日会无限创造或消耗金库。
+3. 新市场的缺货和零供给必须返回稳定结果。
+4. 不要从预算查询递归调用繁荣写入流程。
+5. 经济状态由市场/settlement 行为保存，不由 Model 保存。
 
-### CalculateDailySettlementBudgetForItemCategory
-`public abstract float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
+## Navigation
 
-**用途 / Purpose:** 计算daily settlement budget for item category的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementEconomyModel 实例
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.CalculateDailySettlementBudgetForItemCategory(town, 0, category);
-```
-
-## 使用示例
-
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-SettlementEconomyModel instance = ...;
-```
-
-## 参见
-
-- [本区域目录](../)
+- [Campaign-ext models family](../models/)
+- [Town](../../campaign/Town)
+- [ItemObject](../../core-extra/ItemObject)
+- [SettlementProsperityModel](../SettlementProsperityModel)
+- [PartyWageModel](../PartyWageModel)

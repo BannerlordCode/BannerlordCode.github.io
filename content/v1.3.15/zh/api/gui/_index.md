@@ -3,7 +3,7 @@ title: "gui 目录"
 description: Gauntlet UI 系统类参考目录
 ---
 
-## 模块心智模型
+## 心智模型
 
 一句话洞察：`gui` 桶不是某一个类，而是 Bannerlord Gauntlet UI 运行时的**整套地基**——从屏幕栈门面（ScreenManager）到一次加载出来的 XAML 实例（GauntletMovie），再到控件树、布局测量、文本光栅化、手柄导航，以及最底层的原生 2D 绘制（Shader / Material / Texture / OpenGL / Dwmapi）被粘合在一起，共同构成「界面内容该怎么渲染、怎么跑」这一层。
 
@@ -31,6 +31,17 @@ description: Gauntlet UI 系统类参考目录
 与 **engine 桶**（见 `../engine/`）的关系：gui 桶本身不负责把 UI 接入游戏循环，那是 `GauntletLayer` 的工作。`GauntletLayer` 是 engine 桶里承载 Gauntlet UI 的 `ScreenLayer`，`ScreenManager` 管理的屏幕栈决定哪个 `GauntletLayer` 当前活动；gui 桶的 `GauntletMovie` 与控件树就运行在它里面。
 
 与 **viewmodel 桶**（见 `../viewmodel/`）的关系：`GauntletMovie` 绑定的正是 viewmodel 桶的 ViewModel 家族（`IViewModel` / `ViewModel`）。没有 viewmodel 提供数据，gui 桶的控件树只是空壳；数据变化经 `RefreshDataSource` / `RefreshBindingWithChildren` 回流到控件。此外，UI 运行时任何异常（绑定失败、控件树崩溃）都可能经由架构层的[崩溃边界](../../architecture/crash-boundaries/)策略被隔离，避免拖垮整个游戏循环。
+
+| Namespace | Type | Purpose | Timing |
+| --- | --- | --- | --- |
+| TaleWorlds.ScreenSystem | [ScreenManager](./ScreenManager) | 持有屏幕栈并向活动层派发每帧工作。 | 应用和屏幕切换期间。 |
+| TaleWorlds.GauntletUI.Data | [GauntletMovie](./GauntletMovie) | 表示一个加载的 XAML Movie、根控件和数据上下文。 | 从 `LoadMovie` 到卸载期间。 |
+| TaleWorlds.GauntletUI | [WidgetContainer](./WidgetContainer) | 在更新和布局阶段维护控件子树。 | 控件树活动期间。 |
+| TaleWorlds.GauntletUI.Layout | [LayoutBox](./LayoutBox) | 承载布局测量所使用的矩形。 | measure/arrange 阶段。 |
+| TaleWorlds.TwoDimension.BitmapFont | [TextHelper](./TextHelper) | 将本地化文本转换为位图字体布局数据。 | 文本控件刷新时。 |
+| TaleWorlds.GauntletUI.GamepadNavigation | [GamepadNavigationHelper](./GamepadNavigationHelper) | 根据控件几何位置选择手柄导航候选项。 | 焦点移动期间。 |
+| TaleWorlds.GauntletUI | [EmptyWidget](./EmptyWidget) | 提供无外观控件，用于间距或条件布局。 | 构建父级控件树时。 |
+| TaleWorlds.GauntletUI.Data | [ViewBindCommandInfo](./ViewBindCommandInfo) | 描述 Movie 数据层发现的命令绑定。 | ViewModel 绑定期间。 |
 
 <!-- BEGIN SECTION INDEX -->
 

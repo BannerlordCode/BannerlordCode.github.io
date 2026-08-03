@@ -1,3 +1,10 @@
+// H0 RETIRED: body generation forbidden — handwritten docs only.
+// Emergency override BANNERLORD_ALLOW_RETIRED_BODY_GEN=1 is forbidden for product builds/CI/commits.
+if (process.env.BANNERLORD_ALLOW_RETIRED_BODY_GEN !== '1') {
+  console.error('RETIRED: this tool must not write product page bodies. Handwritten docs only. See tools/RETIRED_BODY_GENERATORS.md and architecture/doc-contract.md');
+  process.exit(1);
+}
+
 // Bulk-normalize method-purpose lines that were emitted by an older version of
 // doc-fragments.mjs. Replaces the placeholder verb+subject pattern with the
 // current, context-aware sentence from docFragments.methodPurpose().

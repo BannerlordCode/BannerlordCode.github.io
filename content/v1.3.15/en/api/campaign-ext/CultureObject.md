@@ -1,198 +1,259 @@
 ---
 title: "CultureObject"
-description: "Auto-generated class reference for CultureObject."
+description: "The complete static data definition for one Bannerlord campaign culture: its troop trees, civilian/artisan NPC templates, clan & hero name tables, banner colors, default policies, and party templates — a shared read-only config referenced by Clan, Kingdom, Settlement, and CharacterObject."
 ---
+
 # CultureObject
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public sealed class CultureObject : BasicCultureObject`
-**Base:** `BasicCultureObject`
-**File:** `TaleWorlds.CampaignSystem/CultureObject.cs`
+**Namespace:** TaleWorlds.CampaignSystem  
+**Module:** TaleWorlds.CampaignSystem  
+**Type:** `public sealed class CultureObject : BasicCultureObject`  
+**Base:** `BasicCultureObject` (located in `TaleWorlds.Core`; itself derived from `MBObjectBase`)  
+**Source:** `TaleWorlds.CampaignSystem/CultureObject.cs`
 
 ## Overview
 
-`CultureObject` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`CultureObject` is the **entire static data profile of one campaign culture**: it defines what troops that culture recruits (`BasicTroop` / militia), which civilian and artisan NPCs spawn in its towns, what family and hero names it uses, its banner primary color, which policies a newly founded kingdom adopts by default, and which `PartyTemplateObject` sets lord parties, caravans, and patrols use. `Clan`, `Kingdom`, `Settlement`, and `CharacterObject` each hold only a *reference* to a `CultureObject`; nearly every "culture-dependent" presentation at runtime — unit trees, colors, naming — is produced by reading this shared object. It is deserialized once from the `SPCultures` XML and is treated as a globally unique, read-only configuration that almost every mod touching faction appearance or units must work with.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of `CultureObject` as a **culture's "household register + arsenal spec sheet"**, not as an object that acts on its own:
 
-## Key Properties
+- It does **not** tick and holds no logic; it is purely a **data container** that other systems read.
+- Every culture is deserialized once from `SPCultures` XML by `MBObjectManager` during campaign initialization, then shared as a singleton. You should **not** `new` a `CultureObject`; instead obtain an existing instance through `Clan.Culture`, `Kingdom.Culture`, `Settlement.Culture`, `CharacterObject.Culture`, or `MBObjectManager`.
+- It lives in the **data / configuration layer** (the `TaleWorlds.CampaignSystem` object system, inheriting `BasicCultureObject` → `MBObjectBase` from `TaleWorlds.ObjectSystem`), not in the behavior layer (`CampaignBehavior`) or the model layer (`Model`). To "change a culture's behavior" you change the `Clan` / `Kingdom` that references it, or the relevant `Behavior` / `Model` — never the shared config itself.
+- **When to use:** you need a culture's troop trees, colors, name tables, equipment, or party templates; or you build recruit / naming / banner / rebel-spawn logic that branches on culture.
+- **When NOT to use:** to move a clan/kingdom into a different faction, set `Clan.Culture` (writable) or run the kingdom-creation flow — do **not** clone or `new` a `CultureObject`. To alter how a unit performs in a specific fight, edit the `CharacterObject` or its equipment, not the culture's global template (that would hit *every* unit of the culture).
+- **Dependencies:** loaded and save-collected by `MBObjectManager`; read for naming by `NameGenerator`; reverse-referenced by `PartyTemplateObject` / `CharacterObject` / `ItemObject` / `FeatObject` / `PolicyObject`.
+- **Failure modes:** many systems dereference `culture.DefaultPartyTemplate`, `culture.BasicTroop`, `culture.MaleNameList` directly; a culture missing those references throws `NullReferenceException` during troop generation, tournaments, or naming. Almost all fields are `private set`; only `MilitiaBonus` / `ProsperityBonus` are writable.
 
-| Name | Signature |
-|------|-----------|
-| `Traits` | `public CultureTrait Traits { get; }` |
-| `BasicTroop` | `public CharacterObject BasicTroop { get; }` |
-| `EliteBasicTroop` | `public CharacterObject EliteBasicTroop { get; }` |
-| `MeleeMilitiaTroop` | `public CharacterObject MeleeMilitiaTroop { get; }` |
-| `MeleeEliteMilitiaTroop` | `public CharacterObject MeleeEliteMilitiaTroop { get; }` |
-| `RangedEliteMilitiaTroop` | `public CharacterObject RangedEliteMilitiaTroop { get; }` |
-| `RangedMilitiaTroop` | `public CharacterObject RangedMilitiaTroop { get; }` |
-| `TournamentMaster` | `public CharacterObject TournamentMaster { get; }` |
-| `Villager` | `public CharacterObject Villager { get; }` |
-| `CaravanMaster` | `public CharacterObject CaravanMaster { get; }` |
-| `CaravanGuard` | `public CharacterObject CaravanGuard { get; }` |
-| `PrisonGuard` | `public CharacterObject PrisonGuard { get; }` |
-| `Guard` | `public CharacterObject Guard { get; }` |
-| `Blacksmith` | `public CharacterObject Blacksmith { get; }` |
-| `Weaponsmith` | `public CharacterObject Weaponsmith { get; }` |
-| `Townswoman` | `public CharacterObject Townswoman { get; }` |
-| `TownswomanInfant` | `public CharacterObject TownswomanInfant { get; }` |
-| `TownswomanChild` | `public CharacterObject TownswomanChild { get; }` |
-| `TownswomanTeenager` | `public CharacterObject TownswomanTeenager { get; }` |
-| `VillageWoman` | `public CharacterObject VillageWoman { get; }` |
-| `VillagerMaleChild` | `public CharacterObject VillagerMaleChild { get; }` |
-| `VillagerMaleTeenager` | `public CharacterObject VillagerMaleTeenager { get; }` |
-| `VillagerFemaleChild` | `public CharacterObject VillagerFemaleChild { get; }` |
-| `VillagerFemaleTeenager` | `public CharacterObject VillagerFemaleTeenager { get; }` |
-| `Townsman` | `public CharacterObject Townsman { get; }` |
-| `TownsmanInfant` | `public CharacterObject TownsmanInfant { get; }` |
-| `TownsmanChild` | `public CharacterObject TownsmanChild { get; }` |
-| `TownsmanTeenager` | `public CharacterObject TownsmanTeenager { get; }` |
-| `RansomBroker` | `public CharacterObject RansomBroker { get; }` |
-| `GangleaderBodyguard` | `public CharacterObject GangleaderBodyguard { get; }` |
-| `MerchantNotary` | `public CharacterObject MerchantNotary { get; }` |
-| `ArtisanNotary` | `public CharacterObject ArtisanNotary { get; }` |
-| `PreacherNotary` | `public CharacterObject PreacherNotary { get; }` |
-| `RuralNotableNotary` | `public CharacterObject RuralNotableNotary { get; }` |
-| `ShopWorker` | `public CharacterObject ShopWorker { get; }` |
-| `Tavernkeeper` | `public CharacterObject Tavernkeeper { get; }` |
-| `TavernGamehost` | `public CharacterObject TavernGamehost { get; }` |
-| `Musician` | `public CharacterObject Musician { get; }` |
-| `TavernWench` | `public CharacterObject TavernWench { get; }` |
-| `Armorer` | `public CharacterObject Armorer { get; }` |
-| `HorseMerchant` | `public CharacterObject HorseMerchant { get; }` |
-| `Barber` | `public CharacterObject Barber { get; }` |
-| `Merchant` | `public CharacterObject Merchant { get; }` |
-| `Beggar` | `public CharacterObject Beggar { get; }` |
-| `FemaleBeggar` | `public CharacterObject FemaleBeggar { get; }` |
-| `FemaleDancer` | `public CharacterObject FemaleDancer { get; }` |
-| `Shipwright` | `public CharacterObject Shipwright { get; }` |
-| `MilitiaVeteranArcher` | `public CharacterObject MilitiaVeteranArcher { get; }` |
-| `GearDummy` | `public CharacterObject GearDummy { get; }` |
-| `DefaultBattleEquipmentRoster` | `public MBEquipmentRoster DefaultBattleEquipmentRoster { get; }` |
-| `DefaultCivilianEquipmentRoster` | `public MBEquipmentRoster DefaultCivilianEquipmentRoster { get; }` |
-| `DefaultStealthEquipmentRoster` | `public MBEquipmentRoster DefaultStealthEquipmentRoster { get; }` |
-| `DuelPresetEquipmentRoster` | `public MBEquipmentRoster DuelPresetEquipmentRoster { get; }` |
-| `MarriageBrideEquipmentRoster` | `public MBEquipmentRoster MarriageBrideEquipmentRoster { get; }` |
-| `BanditChief` | `public CharacterObject BanditChief { get; }` |
-| `BanditRaider` | `public CharacterObject BanditRaider { get; }` |
-| `BanditBandit` | `public CharacterObject BanditBandit { get; }` |
-| `BanditBoss` | `public CharacterObject BanditBoss { get; }` |
-| `DefaultCharacterCreationBodyProperty` | `public MBBodyProperty DefaultCharacterCreationBodyProperty { get; }` |
-| `EncyclopediaText` | `public TextObject EncyclopediaText { get; }` |
-| `StartingPoint` | `public CampaignVec2 StartingPoint { get; }` |
-| `DefaultPartyTemplate` | `public PartyTemplateObject DefaultPartyTemplate { get; }` |
-| `VillagerPartyTemplate` | `public PartyTemplateObject VillagerPartyTemplate { get; }` |
-| `FishingPartyTemplate` | `public PartyTemplateObject FishingPartyTemplate { get; }` |
-| `MilitiaPartyTemplate` | `public PartyTemplateObject MilitiaPartyTemplate { get; }` |
-| `RebelsPartyTemplate` | `public PartyTemplateObject RebelsPartyTemplate { get; }` |
-| `CaravanPartyTemplates` | `public MBList<PartyTemplateObject> CaravanPartyTemplates { get; }` |
-| `EliteCaravanPartyTemplates` | `public MBList<PartyTemplateObject> EliteCaravanPartyTemplates { get; }` |
-| `AvailableShipHulls` | `public MBList<ShipHull> AvailableShipHulls { get; }` |
-| `BanditBossPartyTemplate` | `public PartyTemplateObject BanditBossPartyTemplate { get; }` |
-| `VassalRewardTroopsPartyTemplate` | `public PartyTemplateObject VassalRewardTroopsPartyTemplate { get; }` |
-| `SettlementPatrolPartyTemplateWeak` | `public PartyTemplateObject SettlementPatrolPartyTemplateWeak { get; }` |
-| `SettlementPatrolPartyTemplateModerate` | `public PartyTemplateObject SettlementPatrolPartyTemplateModerate { get; }` |
-| `SettlementPatrolPartyTemplateStrong` | `public PartyTemplateObject SettlementPatrolPartyTemplateStrong { get; }` |
-| `SettlementPatrolPartyTemplateNaval` | `public PartyTemplateObject SettlementPatrolPartyTemplateNaval { get; }` |
-| `VassalRewardItems` | `public MBReadOnlyList<ItemObject> VassalRewardItems { get; }` |
-| `BannerBearerReplacementWeapons` | `public MBReadOnlyList<ItemObject> BannerBearerReplacementWeapons { get; }` |
-| `MaleNameList` | `public MBReadOnlyList<TextObject> MaleNameList { get; }` |
-| `FemaleNameList` | `public MBReadOnlyList<TextObject> FemaleNameList { get; }` |
-| `ClanNameList` | `public MBReadOnlyList<TextObject> ClanNameList { get; }` |
-| `CultureFeats` | `public MBReadOnlyList<FeatObject> CultureFeats { get; }` |
-| `DefaultPolicyList` | `public MBReadOnlyList<PolicyObject> DefaultPolicyList { get; }` |
-| `PossibleClanBannerIconsIDs` | `public MBReadOnlyList<int> PossibleClanBannerIconsIDs { get; }` |
-| `NotableTemplates` | `public MBReadOnlyList<CharacterObject> NotableTemplates { get; }` |
-| `RebelliousHeroTemplates` | `public MBReadOnlyList<CharacterObject> RebelliousHeroTemplates { get; }` |
-| `LordTemplates` | `public MBReadOnlyList<CharacterObject> LordTemplates { get; }` |
-| `TournamentTeamTemplatesForOneParticipant` | `public MBReadOnlyList<CharacterObject> TournamentTeamTemplatesForOneParticipant { get; }` |
-| `TournamentTeamTemplatesForTwoParticipant` | `public MBReadOnlyList<CharacterObject> TournamentTeamTemplatesForTwoParticipant { get; }` |
-| `TournamentTeamTemplatesForFourParticipant` | `public MBReadOnlyList<CharacterObject> TournamentTeamTemplatesForFourParticipant { get; }` |
-| `BasicMercenaryTroops` | `public MBReadOnlyList<CharacterObject> BasicMercenaryTroops { get; }` |
-| `MilitiaBonus` | `public int MilitiaBonus { get; }` |
-| `ProsperityBonus` | `public int ProsperityBonus { get; }` |
-| `BoardGame` | `public CultureObject.BoardGameType BoardGame { get; }` |
-| `NavalFactor` | `public float NavalFactor { get; }` |
+## When to Use / When NOT to Use
 
-## Key Methods
+| Situation | Do this | Not this |
+|-----------|---------|----------|
+| Read a faction's recruits, colors, names, equipment | Read `Clan.Culture` / `MBObjectManager.GetObjectTypeList<CultureObject>()` and its properties | Assume or hardcode troop ids |
+| Switch a *clan's* allegiance culture at runtime | Set `Clan.Culture` (it is `{ get; set; }`) or run the kingdom-creation flow | `new CultureObject` and re-point everything |
+| Tune one unit's loadout in a fight | Edit the specific `CharacterObject` / equipment | Mutate the culture's global `DefaultBattleEquipmentRoster` |
+| Add a brand-new playable culture | Ship a stable, unique id in your mod XML and fill **all** template references | Reuse a vanilla id or leave `DefaultPartyTemplate` null |
 
-### HasTrait
-`public bool HasTrait(CultureTrait trait)`
+## Dependencies
 
-**Purpose:** Determines whether the this instance already holds trait.
+### Upstream (created / owned / saved)
 
-```csharp
-// Obtain an instance of CultureObject from the subsystem API first
-CultureObject cultureObject = ...;
-var result = cultureObject.HasTrait(trait);
-```
+- [MBObjectManager](../MBObjectManager/) — deserializes every `CultureObject` from `SPCultures` XML at campaign init, and (via `AutoGeneratedInstanceCollectObjects`) collects its referenced `CharacterObject` / `PartyTemplateObject` / `ItemObject` on every save. **This is the save point for culture objects.**
+- [BasicCultureObject](../../core-extra/BasicCultureObject/) — base class providing identity & appearance fields: `Name`, `IsMainCulture`, `IsBandit`, `Color` / `Color2`, `ClothAlternativeColor*`, `BackgroundColor*` / `ForegroundColor*`, `Banner`, `EncounterBackgroundMesh`.
+- [MBObjectBase](../MBObjectBase/) — the root object-system base (`TaleWorlds.ObjectSystem`) that gives every culture its string id used for save references.
+- [ItemObject](../../core/ItemObject/) — reward items (`VassalRewardItems`, `BannerBearerReplacementWeapons`) and equipment rosters reference it.
 
-### HasFeat
-`public bool HasFeat(FeatObject feat)`
+### Downstream (consumers of this config)
 
-**Purpose:** Determines whether the this instance already holds feat.
+- [Clan](../../campaign/Clan/) — `Clan.Culture` (`{ get; set; }`) drives the clan's troops, family name, and banner color; it is writable, so a clan can switch cultures at runtime.
+- [Kingdom](../../campaign/Kingdom/) — `Kingdom.Culture` (`{ get; private set; }`) drives the kingdom's troops and banner; read-only from outside.
+- [Settlement](../../campaign/Settlement/) — `Settlement.Culture` (`public CultureObject Culture;`) drives the town's civilian/artisan NPC templates and militia troops.
+- [Hero](../../campaign/Hero/) / [CharacterObject](../../campaign/CharacterObject/) — `CharacterObject.Culture` (`public new CultureObject Culture`) drives a person's default equipment rosters and faction.
+- [NameGenerator](../NameGenerator/) — reads `MaleNameList` / `FemaleNameList` / `ClanNameList` to generate hero and clan names.
+- [FeatObject](../FeatObject/) / [PolicyObject](../PolicyObject/) / [PartyTemplateObject](../PartyTemplateObject/) — a culture's feats, default policies, and all party templates.
 
-```csharp
-// Obtain an instance of CultureObject from the subsystem API first
-CultureObject cultureObject = ...;
-var result = cultureObject.HasFeat(feat);
-```
+### Behaviors / Models (real call sites)
 
-### GetCulturalFeats
-`public IEnumerable<FeatObject> GetCulturalFeats(Func<FeatObject, bool> predicate = null)`
+- [CampaignBehaviorBase](../CampaignBehaviorBase/) — most campaign behaviors enumerate all cultures via `MBObjectManager.Instance.GetObjectTypeList<CultureObject>()`.
+- [RebellionsCampaignBehavior](../RebellionsCampaignBehavior/) — rebel logic walks cultures to pick `RebelliousHeroTemplates`.
+- [KingdomCreationModel](../KingdomCreationModel/) — exposes selectable cultures through `GetAvailablePlayerKingdomCultures()` when the player founds a kingdom.
 
-**Purpose:** Reads and returns the cultural feats value held by the this instance.
+### Save point
 
-```csharp
-// Obtain an instance of CultureObject from the subsystem API first
-CultureObject cultureObject = ...;
-var result = cultureObject.GetCulturalFeats(func<FeatObject, false);
-```
+Culture objects are owned by `MBObjectManager`. `Clan` / `Kingdom` / `Settlement` / `CharacterObject` store their culture reference as a **string id**; on load `MBObjectManager` resolves it back to the same instance. Changing or deleting a culture's id breaks that resolution (you get `null`), and the downstream dereference then crashes — this is the primary save-corruption risk.
 
-### ToString
-`public override string ToString()`
+## Risks
 
-**Purpose:** Returns a human-readable string representation of the this instance.
+- **Changing / deleting a culture id = corrupted save.** `Clan.Culture`, `Kingdom.Culture`, `Settlement.Culture`, `CharacterObject.Culture` are persisted as string ids. If your new culture id does not match a saved reference, or you renamed a vanilla culture's id, `MBObjectManager` resolves it to `null` on load, and troop generation / naming / banners dereferencing it throw. Use stable, unique ids in your mod XML and keep them backward-compatible.
+- **Don't write to read-only template fields.** `BasicTroop`, `DefaultPartyTemplate`, `Color`, `MaleNameList`, etc. are `private set`; external assignment is rejected by the compiler. Forcing it via serialization or reflection changes that culture's troops/colors for **every** clan, settlement, and unit, and it is not naturally restored by saving. To customize a unit, edit the specific `CharacterObject` or `PartyTemplateObject`.
+- **A culture missing templates crashes at runtime.** Many systems dereference `culture.DefaultPartyTemplate` / `culture.BasicTroop` / `culture.MilitiaPartyTemplate` directly. A hand-made culture must fill these references, or lord parties, militia, and tournament generation throw `NullReferenceException`.
+- **`MilitiaBonus` / `ProsperityBonus` are writable but have global side effects.** These are the only two writable properties on the class. Changing them mid-campaign immediately affects the militia/prosperity bonus of **every** settlement of that culture; they are not a normal "balance tweak" entry point — confirm that scope is what you want.
+- **Name tables can be empty.** `NameGenerator` internally guards with `IsEmpty()`, but if you read `MaleNameList` / `FemaleNameList` directly and assume non-empty, some special cultures (e.g. `neutral_culture`) may yield no names.
+
+## Members (grouped by theme)
+
+### Identity & appearance (inherited from `BasicCultureObject`)
+
+- `Name` (`TextObject`, read-only) — display name (e.g. "Sturgia"). Both `ToString()` and `GetName()` return it.
+- `IsMainCulture` (`bool`, read-only) — whether this is a playable main culture; `KingdomCreationModel.GetAvailablePlayerKingdomCultures()` normally returns only `IsMainCulture == true` cultures.
+- `IsBandit` (`bool`, read-only) — whether this is a bandit culture (e.g. mountain bandits, sea raiders).
+- `CanHaveSettlement` (`bool`, read-only) — whether this culture can own a settlement.
+- `Color` / `Color2` (`uint`, read-only) — faction primary & secondary color (ARGB hex). `Clan` / `Kingdom` banners and map tint read from here.
+- `ClothAlternativeColor` / `ClothAlternativeColor2` (`uint`, read-only) — alternate cloth colors.
+- `BackgroundColor1` / `BackgroundColor2` / `ForegroundColor1` / `ForegroundColor2` (`uint`, read-only) — banner background/foreground colors.
+- `Banner` (`Banner`, read-only) — the culture's default faction banner.
+- `EncounterBackgroundMesh` (`string`, read/write) — wilderness encounter background mesh name.
+
+### Basic troops & militia (`CharacterObject`)
+
+- `BasicTroop` (`CharacterObject`, read-only) — the culture's **tier-1 recruit** template, the start of the upgrade chain. Clan / town recruitment upgrades from here.
+- `EliteBasicTroop` (`CharacterObject`, read-only) — elite variant of the basic troop.
+- `MeleeMilitiaTroop` / `RangedMilitiaTroop` / `MeleeEliteMilitiaTroop` / `RangedEliteMilitiaTroop` (`CharacterObject`, read-only) — settlement militia & elite militia templates, used by `MilitiaPartyTemplate` and village militia spawning.
+- Bandit templates `BanditChief` / `BanditRaider` / `BanditBandit` / `BanditBoss` (`CharacterObject`, read-only) — the unit tiers of a bandit culture; `BanditBossPartyTemplate` corresponds to `BanditBoss`.
+
+Read `culture.BasicTroop` to get the recruit starting point — do not guess troop ids yourself.
+
+### Town / civilian / artisan NPC templates (`CharacterObject`)
+
+A group of **civilian and functional-NPC templates spawned in settlements belonging to this culture**, used by `Settlement` / `Town` / `Village`, workshops, and quest systems:
+
+`TournamentMaster`, `Villager`, `CaravanMaster`, `CaravanGuard`, `PrisonGuard`, `Guard`, `Blacksmith`, `Weaponsmith`, `Townswoman` (with `Infant` / `Child` / `Teenager` variants), `Townsman` (with `Infant` / `Child` / `Teenager`), `VillageWoman`, `Villager` (with `MaleChild` / `MaleTeenager` / `FemaleChild` / `FemaleTeenager`), `RansomBroker`, `GangleaderBodyguard`, `MerchantNotary` / `ArtisanNotary` / `PreacherNotary` / `RuralNotableNotary`, `ShopWorker`, `Tavernkeeper`, `TavernGamehost`, `Musician`, `TavernWench`, `Armorer`, `HorseMerchant`, `Barber`, `Merchant`, `Beggar` / `FemaleBeggar`, `FemaleDancer`, `Shipwright`, `MilitiaVeteranArcher`, `GearDummy`.
+
+All are read-only `CharacterObject` fields that decide "what a culture's town looks like". Pull templates from here for a custom settlement ecosystem rather than building your own set.
+
+### Name / lord / clan template collections
+
+- `MaleNameList` / `FemaleNameList` (`MBReadOnlyList<TextObject>`, read-only) — hero name pool; read by `NameGenerator.Current.GetNameListForCulture(culture, isFemale)` and hero naming.
+- `ClanNameList` (`MBReadOnlyList<TextObject>`, read-only) — clan name pool; read by `NameGenerator.Current.GenerateClanName(culture, settlement)`.
+- `NotableTemplates` / `LordTemplates` / `RebelliousHeroTemplates` (`MBReadOnlyList<CharacterObject>`, read-only) — notable / lord / rebel-hero template sets; rebel & clan generation pick from these.
+- `BasicMercenaryTroops` (`MBReadOnlyList<CharacterObject>`, read-only) — the culture's recruitable mercenary base troops.
+- `TournamentTeamTemplatesForOneParticipant` / `ForTwoParticipant` / `ForFourParticipant` (`MBReadOnlyList<CharacterObject>`, read-only) — tournament team templates grouped by participant count.
+
+### Equipment rosters (`MBEquipmentRoster`)
+
+- `DefaultBattleEquipmentRoster` — default battle equipment for the culture's units.
+- `DefaultCivilianEquipmentRoster` — default civilian equipment.
+- `DefaultStealthEquipmentRoster` — stealth equipment (read by `CharacterObject` equip-selection logic).
+- `DuelPresetEquipmentRoster` — duel preset equipment.
+- `MarriageBrideEquipmentRoster` — wedding bride equipment.
+
+### Party templates (`PartyTemplateObject`)
+
+- `DefaultPartyTemplate` (`PartyTemplateObject`, read-only) — **the most critical template**: lord / clan party generation dereferences it to decide composition. A custom or replaced culture must keep it non-null.
+- `VillagerPartyTemplate` / `FishingPartyTemplate` / `MilitiaPartyTemplate` / `RebelsPartyTemplate` — villager, fishing, militia, and rebel party templates.
+- `BanditBossPartyTemplate` / `VassalRewardTroopsPartyTemplate` — bandit boss party, vassal-reward troop template.
+- `SettlementPatrolPartyTemplateWeak` / `Moderate` / `Strong` / `Naval` — settlement patrol templates in weak / moderate / strong / naval tiers.
+- `CaravanPartyTemplates` / `EliteCaravanPartyTemplates` (`MBReadOnlyList<PartyTemplateObject>`) — normal and elite caravan template sets.
+
+### Traits / policies / values / misc
+
+- `Traits` (`CultureTrait[]`, read-only) — the culture's trait array; test with `HasTrait`.
+- `CultureFeats` (`MBReadOnlyList<FeatObject>`, read-only) — feat set; read via `HasFeat` / `GetCulturalFeats`.
+- `DefaultPolicyList` (`MBReadOnlyList<PolicyObject>`, read-only) — policies adopted by default when a kingdom is founded.
+- `PossibleClanBannerIconsIDs` (`MBReadOnlyList<int>`, read-only) — banner icon ids a clan of this culture may use.
+- `MilitiaBonus` / `ProsperityBonus` (`int`, **read/write**) — militia/prosperity bonus; the only two writable properties on the class.
+- `NavalFactor` (`float`, read-only) — naval weight affecting naval logic.
+- `BoardGame` (`BoardGameType` enum, read-only) — the culture's board game (`None` / `Seega` / `Puluc` / `Konane` / `MuTorere` / `Tablut` / `BaghChal` / `Total`).
+- `StartingPoint` (`CampaignVec2`, read-only) — campaign starting coordinate.
+- `EncyclopediaText` (`TextObject`, read-only) — encyclopedia entry description.
+- `DefaultCharacterCreationBodyProperty` (`MBBodyProperty`, read-only) — default body shape at character creation.
+- `AvailableShipHulls` (`MBReadOnlyList<ShipHull>`, read-only) — available ship hulls (naval).
+- `VassalRewardItems` / `BannerBearerReplacementWeapons` (`MBReadOnlyList<ItemObject>`, read-only) — vassal reward items, banner-bearer replacement weapons.
+
+### Methods
+
+#### `public bool HasTrait(CultureTrait trait)`
+Returns whether this culture owns a given `CultureTrait`.
 
 ```csharp
-// Obtain an instance of CultureObject from the subsystem API first
-CultureObject cultureObject = ...;
-var result = cultureObject.ToString();
+CultureObject culture = Clan.PlayerClan.Culture;
+if (culture.Traits != null && culture.Traits.Length > 0)
+{
+    CultureTrait first = culture.Traits[0];
+    if (culture.HasTrait(first)) // does this culture have the trait?
+    {
+        // apply a culture-based bonus or branch an event
+    }
+}
 ```
 
-### Deserialize
-`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Restores the this instance from serialized data.
+#### `public bool HasFeat(FeatObject feat)`
+Returns whether this culture includes a given `FeatObject` (e.g. "forest adaptation", "desert adaptation").
 
 ```csharp
-// Obtain an instance of CultureObject from the subsystem API first
-CultureObject cultureObject = ...;
-cultureObject.Deserialize(objectManager, node);
+CultureObject culture = Settlement.CurrentSettlement.Culture;
+foreach (FeatObject feat in culture.CultureFeats)
+{
+    if (culture.HasFeat(feat) && feat.IsPositive)
+    {
+        // read the feat's combat/map modifier (EffectBonus / IncrementType)
+    }
+}
 ```
 
-### GetName
-`public override TextObject GetName()`
-
-**Purpose:** Reads and returns the name value held by the this instance.
+#### `public IEnumerable<FeatObject> GetCulturalFeats(Func<FeatObject, bool> predicate = null)`
+Returns the culture's feats, optionally filtered; with no argument returns all.
 
 ```csharp
-// Obtain an instance of CultureObject from the subsystem API first
-CultureObject cultureObject = ...;
-var result = cultureObject.GetName();
+var positiveFeats = Clan.PlayerClan.Culture.GetCulturalFeats(f => f.IsPositive);
 ```
 
-## Usage Example
+#### `public override TextObject GetName()`
+Returns the culture's display name (`base.Name`). `ToString()` returns the string form of `Name` as well.
 
 ```csharp
-// Typically call this after obtaining an instance from the subsystem API
-CultureObject cultureObject = ...;
-cultureObject.HasTrait(trait);
+TextObject name = Clan.PlayerClan.Culture.GetName();
+InformationManager.DisplayMessage(new InformationMessage(name.ToString()));
 ```
+
+#### `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`
+Internal: deserializes all fields and sub-collections from an `SPCultures` XML node. **Not a mod API** — called by the object system during load; calling it manually corrupts already-initialized global state.
+
+## Example
+
+### Example 1: read the player clan's culture for its troops and color
+
+```csharp
+// Real acquisition path: Clan.Culture (writable property)
+CultureObject playerCulture = Clan.PlayerClan.Culture;
+if (playerCulture != null)
+{
+    CharacterObject recruit = playerCulture.BasicTroop;   // tier-1 recruit template
+    uint primaryColor = playerCulture.Color;              // faction primary color (ARGB)
+    bool isBandit = playerCulture.IsBandit;               // is this a bandit culture?
+    InformationManager.DisplayMessage(new InformationMessage(
+        $"{playerCulture.Name}: basic troop {recruit.Name}, primary color #{primaryColor:X8}"));
+}
+```
+
+### Example 2: enumerate all cultures, pick main cultures, generate a clan name
+
+```csharp
+// Real acquisition path: MBObjectManager.Instance.GetObjectTypeList<CultureObject>()
+foreach (CultureObject culture in MBObjectManager.Instance.GetObjectTypeList<CultureObject>())
+{
+    if (!culture.IsMainCulture)
+    {
+        continue; // only handle playable main cultures
+    }
+
+    // NameGenerator reads this culture's ClanNameList / MaleNameList / FemaleNameList
+    TextObject clanName = NameGenerator.Current.GenerateClanName(culture, null);
+    CharacterObject elite = culture.EliteBasicTroop;
+
+    if (elite != null)
+    {
+        // e.g. collect each culture's elite troop for a custom recruit pool
+    }
+}
+```
+
+### Example 3: acquisition paths by id / from other objects
+
+```csharp
+// 1) by string id (vanilla ids: "empire", "aserai", "vlandia", "sturgia", "khuzait", "battania", "nord", "neutral_culture")
+CultureObject empire = MBObjectManager.Instance.GetObject<CultureObject>("empire");
+
+// 2) from a settlement
+CultureObject settlementCulture = Settlement.CurrentSettlement.Culture;
+
+// 3) from a kingdom (Kingdom.Culture is read-only)
+CultureObject kingdomCulture = Clan.PlayerClan.Kingdom?.Culture;
+
+// 4) from a hero / character (CharacterObject.Culture is public new CultureObject Culture)
+CultureObject heroCulture = Hero.MainHero.CharacterObject.Culture;
+```
+
+## Cross-version notes
+
+- **v1.3.0:** this class already existed but lacked `SettlementPatrolPartyTemplateNaval`, `NotableTemplates`, `RebelliousHeroTemplates`, `LordTemplates`, `TournamentTeamTemplatesForOneParticipant` / `ForTwoParticipant` / `ForFourParticipant`, and `BasicMercenaryTroops`; these were added in **v1.3.15**.
+- **v1.3.15 (this page):** namespace remains `TaleWorlds.CampaignSystem`; the field set closely matches 1.4.5. Semantics follow the 1.4.5 authoritative source.
+- **v1.4.5:** no material difference for this class versus 1.3.15; `Clan.Culture` is still writable and `Kingdom.Culture` is still read-only.
 
 ## See Also
 
-- [Area Index](../)
+- ↑ Parent: [campaign-ext module index](../) · [API index](../../)
+- ↔ Siblings (closely related in this module): [MBObjectManager](../MBObjectManager/) · [CampaignBehaviorBase](../CampaignBehaviorBase/) · [NameGenerator](../NameGenerator/) · [FeatObject](../FeatObject/) · [PolicyObject](../PolicyObject/) · [PartyTemplateObject](../PartyTemplateObject/) · [MBObjectBase](../MBObjectBase/)
+- Related (downstream consumers / base): [Clan](../../campaign/Clan/) · [Kingdom](../../campaign/Kingdom/) · [Settlement](../../campaign/Settlement/) · [Hero](../../campaign/Hero/) · [CharacterObject](../../campaign/CharacterObject/) · [BasicCultureObject](../../core-extra/BasicCultureObject/) · [ItemObject](../../core/ItemObject/)

@@ -1,137 +1,126 @@
 ---
 title: "PartySizeLimitModel"
-description: "Auto-generated class reference for PartySizeLimitModel."
+description: "Campaign policy for troop, prisoner, garrison, and initial-roster capacity."
 ---
 # PartySizeLimitModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class PartySizeLimitModel : MBGameModel<PartySizeLimitModel>`
-**Base:** `MBGameModel<PartySizeLimitModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartySizeLimitModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class PartySizeLimitModel : MBGameModel<PartySizeLimitModel>`  
+**Base:** `MBGameModel<PartySizeLimitModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartySizeLimitModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPartySizeLimitModel.cs`
 
-## Overview
+## One-line job
 
-`PartySizeLimitModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`PartySizeLimitModel` answers how many members, prisoners, garrison troops, and initial roster entries a party may support. It is a calculation provider, not a roster editor: `PartyBase` caches its answers while Actions and roster APIs perform the actual transfer.
 
 ## Mental Model
 
-Treat `PartySizeLimitModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Capacity has several distinct contracts. Member capacity governs living troops and heroes; prisoner capacity is separate; garrison capacity belongs to a settlement; initial-roster methods choose a starting composition from a template. Treating all four as one number causes recruitment screens, prisoner transfers, and party creation to disagree.
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `MinimumNumberOfVillagersAtVillagerParty` | `public abstract int MinimumNumberOfVillagersAtVillagerParty { get; }` |
-
-## Key Methods
-
-### GetPartyMemberSizeLimit
-`public abstract ExplainedNumber GetPartyMemberSizeLimit(PartyBase party, bool includeDescriptions = false)`
-
-**Purpose:** Reads and returns the party member size limit value held by the this instance.
-
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.GetPartyMemberSizeLimit(party, false);
+```text
+PartyBase / Settlement / PartyTemplateObject
+             |
+             v
+Campaign.Current.Models.PartySizeLimitModel
+             |
+             +--> member / prisoner / garrison limits
+             +--> clan-tier and hero effects
+             +--> initial roster and ship selection
+             |
+             v
+PartyBase caches limits; PartyScreen and party creation consume them
 ```
 
-### GetPartyPrisonerSizeLimit
-`public abstract ExplainedNumber GetPartyPrisonerSizeLimit(PartyBase party, bool includeDescriptions = false)`
+The default model combines clan tier, leader skills/perks, party component, settlement context, and template ratios. Use it for previews and eligibility checks. Use `GiveGoldAction`, recruitment APIs, prisoner transfer APIs, or `TroopRoster` operations for mutations; changing a cached limit cannot safely create space in a roster.
 
-**Purpose:** Reads and returns the party prisoner size limit value held by the this instance.
+## Dependencies
 
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.GetPartyPrisonerSizeLimit(party, false);
-```
+### Upstream
 
-### CalculateGarrisonPartySizeLimit
-`public abstract ExplainedNumber CalculateGarrisonPartySizeLimit(Settlement settlement, bool includeDescriptions = false)`
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | Supplies the active model registry. |
+| [`PartyBase`](../../campaign/PartyBase) | Owns member/prisoner rosters and cached limits. |
+| [`Hero`](../../campaign/Hero) / [`Clan`](../../campaign/Clan) | Provide leader and clan-tier effects. |
+| `PartyTemplateObject` | Defines initial composition ratios. |
 
-**Purpose:** Calculates the current value or result of garrison party size limit.
+### Downstream
 
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.CalculateGarrisonPartySizeLimit(settlement, false);
-```
+| Type | Relation |
+| --- | --- |
+| [`MobileParty`](../../campaign/MobileParty) | Uses initial roster/ship selection during party creation. |
+| [`TroopRoster`](../TroopRoster) | Receives actual recruitment and transfer mutations. |
+| PartyScreen transfer UI | Reads explained limits for transfer validation and UI. |
+| [`Settlement`](../../campaign/Settlement) | Supplies garrison context. |
 
-### GetClanTierPartySizeEffectForHero
-`public abstract int GetClanTierPartySizeEffectForHero(Hero hero)`
+## Key contract
 
-**Purpose:** Reads and returns the clan tier party size effect for hero value held by the this instance.
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `GetPartyMemberSizeLimit` | Explain troop/hero capacity for a `PartyBase`. | Cached by `PartyBase` |
+| `GetPartyPrisonerSizeLimit` | Explain prisoner capacity. | Prisoner transfer and UI |
+| `CalculateGarrisonPartySizeLimit` | Calculate settlement garrison capacity. | Settlement management |
+| `GetClanTierPartySizeEffectForHero` | Return the clan-tier contribution for a hero-led party. | Capacity explanation |
+| `FindAppropriateInitialRosterForMobileParty` | Build a roster from a `PartyTemplateObject`. | Party creation |
+| `FindAppropriateInitialShipsForMobileParty` | Select initial ships when the template supports them. | Naval party creation |
 
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.GetClanTierPartySizeEffectForHero(hero);
-```
-
-### GetNextClanTierPartySizeEffectChangeForHero
-`public abstract int GetNextClanTierPartySizeEffectChangeForHero(Hero hero)`
-
-**Purpose:** Reads and returns the next clan tier party size effect change for hero value held by the this instance.
+## Real access paths
 
 ```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.GetNextClanTierPartySizeEffectChangeForHero(hero);
+using TaleWorlds.CampaignSystem;
+
+public int GetFreeTroopSlots(PartyBase party)
+{
+    if (Campaign.Current == null || party == null)
+    {
+        return 0;
+    }
+
+    ExplainedNumber limit = Campaign.Current.Models.PartySizeLimitModel
+        .GetPartyMemberSizeLimit(party, includeDescriptions: true);
+    return Math.Max(0, (int)limit.ResultNumber - party.NumberOfAllMembers);
+}
 ```
 
-### GetAssumedPartySizeForLordParty
-`public abstract int GetAssumedPartySizeForLordParty(Hero leaderHero, IFaction partyMapFaction, Clan actualClan)`
-
-**Purpose:** Reads and returns the assumed party size for lord party value held by the this instance.
+`PartyBase.PartySizeLimit` and `PartyBase.PartySizeLimitExplainer` use this same model and cache the numeric answer. A replacement must keep the result stable until the party invalidates its cache.
 
 ```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.GetAssumedPartySizeForLordParty(leaderHero, partyMapFaction, actualClan);
+public MobileParty CreateFromTemplate(PartyTemplateObject template, MobileParty party)
+{
+    PartySizeLimitModel model = Campaign.Current.Models.PartySizeLimitModel;
+    TroopRoster roster = model.FindAppropriateInitialRosterForMobileParty(party, template);
+    foreach (TroopRosterElement element in roster.GetTroopRoster())
+    {
+        party.MemberRoster.AddToCounts(element.Character, element.Number, insertAtFront: false);
+    }
+    return party;
+}
 ```
 
-### GetIdealVillagerPartySize
-`public abstract int GetIdealVillagerPartySize(Village village)`
+Use the official party creation path in production; the example shows why the model returns a roster while the caller owns the mutation.
 
-**Purpose:** Reads and returns the ideal villager party size value held by the this instance.
+## Replacement rules
 
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.GetIdealVillagerPartySize(village);
-```
+- Delegate to the installed default model and adjust only the factor you own.
+- Preserve non-negative limits and `ExplainedNumber` descriptions.
+- Keep member and prisoner limits independent.
+- Do not use a hero-only estimate for a garrison or a garrison limit for a mobile party.
+- Do not call initial-roster methods on every map tick; they are creation-time policies.
 
-### FindAppropriateInitialRosterForMobileParty
-`public abstract TroopRoster FindAppropriateInitialRosterForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
+## Risks and debugging order
 
-**Purpose:** Looks up the matching appropriate initial roster for mobile party in the current collection or scope.
+1. **Cache mismatch:** inspect `PartyBase` cached fields before blaming the model; legitimate roster changes must invalidate them through the party API.
+2. **Clan tier drift:** changing `Clan.Tier` directly skips the campaign progression contract; use the supported clan progression path.
+3. **Template overflow:** the default implementation asserts when a template ratio exceeds its expected bound. Validate custom templates before calling it.
+4. **Null campaign:** title screen and module startup have no active registry.
+5. **Naval divergence:** v1.4.5 can return ships as well as troops; do not discard the ship result for a naval party.
 
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.FindAppropriateInitialRosterForMobileParty(party, partyTemplate);
-```
+## Navigation
 
-### FindAppropriateInitialShipsForMobileParty
-`public abstract List<Ship> FindAppropriateInitialShipsForMobileParty(MobileParty party, PartyTemplateObject partyTemplate)`
-
-**Purpose:** Looks up the matching appropriate initial ships for mobile party in the current collection or scope.
-
-```csharp
-// Obtain an instance of PartySizeLimitModel from the subsystem API first
-PartySizeLimitModel partySizeLimitModel = ...;
-var result = partySizeLimitModel.FindAppropriateInitialShipsForMobileParty(party, partyTemplate);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-PartySizeLimitModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Campaign-ext models family](../models/)
+- [PartyBase](../../campaign/PartyBase)
+- [MobileParty](../../campaign/MobileParty)
+- [TroopRoster](../TroopRoster)
+- [PartyWageModel](../PartyWageModel)

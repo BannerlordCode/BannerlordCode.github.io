@@ -18,10 +18,10 @@ This guide covers best practices and common patterns for Bannerlord modding. Fol
 
 ## 目录 / Contents
 
-1. [代码组织](#代码组织)
-2. [性能优化](#性能优化)
-3. [兼容性](#兼容性)
-4. [调试技巧](#调试技巧)
+1. [代码组织](#dai-ma-zu-zhi)
+2. [性能优化](#xing-neng-you-hua)
+3. [兼容性](#jian-rong-xing)
+4. [调试技巧](#diao-shi-ji-qiao)
 
 ---
 
@@ -203,7 +203,7 @@ C:\Users\<用户名>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 
 ## 相关文档 / Related Documentation
 
-- [调试技巧](./#调试技巧)
+- [调试技巧](./#diao-shi-ji-qiao)
 - [API 参考](../../api/)
 - [架构文档](../../architecture/)
 

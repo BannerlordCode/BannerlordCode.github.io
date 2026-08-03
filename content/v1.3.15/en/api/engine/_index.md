@@ -2,6 +2,25 @@
 title: "engine index"
 description: Engine class reference index
 ---
+## Mental Model
+
+Engine types are managed handles over the native scene and rendering runtime. `Scene` owns entities, `GameEntity` owns components, and `NativeObject` makes pointer lifetime explicit. `GauntletLayer` and `TwoDimensionView` connect that runtime to the UI stack; all handles become invalid when their native owner is released.
+
+Use engine APIs inside the scene, screen, or mission lifecycle that created them. Keep UI state in a view-model and use campaign Actions for world-state changes. Do not cache a native handle past scene teardown or call engine drawing APIs from a campaign tick without an active scene.
+
+| Namespace | Type | Purpose | Timing |
+| --- | --- | --- | --- |
+| TaleWorlds.Engine.GauntletUI | [GauntletLayer](./GauntletLayer) | Hosts a Gauntlet movie as an interactive screen layer. | While a screen owns the layer. |
+| TaleWorlds.Engine | [GameEntity](./GameEntity) | Represents one native scene entity and its attached components. | From scene creation until entity release. |
+| TaleWorlds.Engine | [Scene](./Scene) | Owns scene entities, resources, and spatial queries. | During mission or map-scene lifetime. |
+| TaleWorlds.DotNet | [NativeObject](./NativeObject) | Stores the managed pointer and release boundary for native handles. | For every managed engine wrapper. |
+| TaleWorlds.Engine | [GameEntityComponent](./GameEntityComponent) | Adds specialized behavior to a game entity. | While its parent entity is alive. |
+| TaleWorlds.Engine | [EngineScreenManager](./EngineScreenManager) | Bridges engine frame dispatch to the screen and layer stack. | During the application loop. |
+| TaleWorlds.Engine | [TwoDimensionView](./TwoDimensionView) | Provides the engine-side viewport used by 2D UI drawing. | While a UI view is attached. |
+| TaleWorlds.Engine | [Mesh](./Mesh) | Holds native mesh data used for scene rendering. | During resource load and draw. |
+| TaleWorlds.Engine | [WorldPosition](./WorldPosition) | Carries world coordinates and orientation for spatial operations. | During placement and physics queries. |
+| TaleWorlds.Engine | [Camera](./Camera) | Defines the projection used to render a scene. | While a scene view is active. |
+
 <!-- BEGIN SECTION INDEX -->
 
 ## Parent Navigation

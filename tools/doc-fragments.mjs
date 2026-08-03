@@ -1,3 +1,5 @@
+// RETIRED: import-only library — must NOT gain a product write path.
+// See tools/RETIRED_BODY_GENERATORS.md and architecture/doc-contract.md.
 function buildArgsFromSignature(sig) {
   const open = sig.indexOf('(');
   const close = sig.lastIndexOf(')');

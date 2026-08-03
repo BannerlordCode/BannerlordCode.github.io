@@ -34,6 +34,11 @@ campaign-ext 是「管道」，上接核心战役类型、下连存档与基础�
 
 往下看，存档真正落盘靠 [../save-system/](../save-system/)（如 `SaveableField` 契约与 `SaveManager`），`IDataStore` 只是行为层面向它的窗口；而名册里引用的兵种与物品装备又来自 [../core-extra/](../core-extra/)，尤其是 [../core-extra/Equipment/](../core-extra/Equipment/)（装备元素）与 [../core-extra/SkillObject/](../core-extra/SkillObject/)（技能定义）。若要搞清楚「对象跨档为何失效」「模块注册顺序为何致坏档」这类崩溃，请回到架构总览 [../../architecture/crash-boundaries/](../../architecture/crash-boundaries/) 与模块加载秩序 [../../architecture/module-system/](../../architecture/module-system/)。
 
+## Mental Model
+
+`TaleWorlds.CampaignSystem` 拥有战役全局状态、事件分发和存档边界，并向 Action、Behavior、Model、菜单与对话提供协调契约。先读家族页再使用具体类型；下面的目录是身份索引，不承诺每个实现细节稳定。
+
+<!-- BEGIN SECTION INDEX -->
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航
@@ -2952,4 +2957,34 @@ campaign-ext 是「管道」，上接核心战役类型、下连存档与基础�
 - [XsdElement](./XsdElement)
 
 
+## 长尾 CampaignSystem 契约
+
+以下覆盖精确的 `TaleWorlds.CampaignSystem` 命名空间。每行最多五个紧密类型，保留完整命名空间并注明正常生命周期阶段。
+
+| Namespace | Type | Purpose | Timing |
+| --- | --- | --- | --- |
+| TaleWorlds.CampaignSystem | [AIBehaviorData](./AIBehaviorData); [ActionNotes](./ActionNotes); [ArmyDispersionReason](./ArmyDispersionReason); [ArmyTypes](./ArmyTypes); [AtmosphereGrid](./AtmosphereGrid) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [BattleResultPartyData](./BattleResultPartyData); [BattleSimulation](./BattleSimulation); [BehaviorSaveData](../campaign/BehaviorSaveData); [BoardGameType](./BoardGameType); [CampaignBehaviorDataStore](../campaign/CampaignBehaviorDataStore) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | Mission 或遭遇生命周期 |
+| TaleWorlds.CampaignSystem | [CampaignCheats](./CampaignCheats); [CampaignData](./CampaignData); [CampaignEntityComponent](./CampaignEntityComponent); [CampaignEventDispatcher](./CampaignEventDispatcher); [CampaignGameMode](./CampaignGameMode) | 覆盖 campaign lifecycle状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役启动或时钟 tick |
+| TaleWorlds.CampaignSystem | [CampaignInformationManager](./CampaignInformationManager); [CampaignMission](./CampaignMission); [CampaignObjectBase](./CampaignObjectBase); [CampaignObjectManager](./CampaignObjectManager); [CampaignOptions](./CampaignOptions) | 覆盖 campaign lifecycle状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役启动或时钟 tick |
+| TaleWorlds.CampaignSystem | [CampaignPeriodicEventManager](./CampaignPeriodicEventManager); [CampaignTickCacheDataStore](./CampaignTickCacheDataStore); [CampaignTimeControlMode](./CampaignTimeControlMode); [CampaignTutorial](./CampaignTutorial); [CampaignVec2](./CampaignVec2) | 覆盖 campaign lifecycle状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役启动或时钟 tick |
+| TaleWorlds.CampaignSystem | [CharacterData](./CharacterData); [CharacterRelationManager](./CharacterRelationManager); [CharacterRestrictionFlags](./CharacterRestrictionFlags); [CharacterStates](./CharacterStates); [Concept](./Concept) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [ConversationContext](./ConversationContext); [ConversationSceneData](./ConversationSceneData); [CultureTrait](./CultureTrait); [DefaultItems](./DefaultItems); [DefaultPolicies](./DefaultPolicies) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 对话注册或活动对话 |
+| TaleWorlds.CampaignSystem | [DefaultSkillEffects](./DefaultSkillEffects); [DialogFlow](./DialogFlow); [DialogFlowContext](../campaign/DialogFlowContext); [DialogFlowLine](../campaign/DialogFlowLine); [Difficulty](./Difficulty) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [EncounterManager](./EncounterManager); [EventHandlerRec](../campaign/EventHandlerRec); [ExplainedNumber](./ExplainedNumber); [ExplanationLine](../campaign/ExplanationLine); [FactionManager](./FactionManager) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | Mission 或遭遇生命周期 |
+| TaleWorlds.CampaignSystem | [FactionManagerStancesData](../campaign/FactionManagerStancesData); [FinishStates](./FinishStates); [GameAccelerationMode](./GameAccelerationMode); [GameLoadingType](./GameLoadingType); [GameSceneDataManager](./GameSceneDataManager) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [HeroCreator](./HeroCreator); [HeroGetsBusyReasons](./HeroGetsBusyReasons); [HeroRelations](../campaign/HeroRelations); [IAgentBehaviorManager](./IAgentBehaviorManager); [ICampaignBehavior](./ICampaignBehavior) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [ICampaignBehaviorManager](./ICampaignBehaviorManager); [ICampaignMission](./ICampaignMission); [ICampaignMissionManager](./ICampaignMissionManager); [IFaction](./IFaction); [IMainHeroVisualSupplier](./IMainHeroVisualSupplier) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役启动或时钟 tick |
+| TaleWorlds.CampaignSystem | [IMapEventVisualCreator](./IMapEventVisualCreator); [IMbEvent](./IMbEvent); [IMbEventBase](./IMbEventBase); [INavigationElement](./INavigationElement); [INavigationHandler](./INavigationHandler) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [IRandomOwner](./IRandomOwner); [ISandBoxMissionManager](./ISandBoxMissionManager); [ISaveManager](./ISaveManager); [ITrackableCampaignObject](./ITrackableCampaignObject); [IViewDataTracker](./IViewDataTracker) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [JournalLog](./JournalLog); [KingdomManager](./KingdomManager); [LogType](./LogType); [MBCampaignEvent](./MBCampaignEvent); [ManagedParameters](./ManagedParameters) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [ManagedParametersEnum](./ManagedParametersEnum); [MapNavigationExtensions](./MapNavigationExtensions); [MapNavigationItemType](./MapNavigationItemType); [MapTimeTracker](../campaign/MapTimeTracker); [MbEvent](./MbEvent) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [MeetingSceneData](./MeetingSceneData); [NameGenerator](./NameGenerator); [NavigationPermissionItem](./NavigationPermissionItem); [NoticeType](./NoticeType); [Occupation](./Occupation) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [OperationType](./OperationType); [PartyRestFlags](./PartyRestFlags); [PartyRole](./PartyRole); [PartyThinkParams](./PartyThinkParams); [PartyTypeEnum](./PartyTypeEnum) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [PeriodicTicker](../campaign/PeriodicTicker); [PlayerCaptivity](./PlayerCaptivity); [PolicyObject](./PolicyObject); [PropertyObjectData](./PropertyObjectData); [QuestStates](../campaign/QuestStates) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役启动或时钟 tick |
+| TaleWorlds.CampaignSystem | [RandomOwnerExtensions](./RandomOwnerExtensions); [ReferenceIMBEvent](./ReferenceIMBEvent); [ReferenceMBEvent](./ReferenceMBEvent); [Romance](./Romance); [RomanceLevelEnum](./RomanceLevelEnum) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [RomanticState](./RomanticState); [SandBoxManager](./SandBoxManager); [SandBoxMission](./SandBoxMission); [SaveHandler](./SaveHandler); [SaveMode](./SaveMode) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [SaveableCampaignTypeDefiner](./SaveableCampaignTypeDefiner); [Seasons](./Seasons); [SettlementBusynessPriority](./SettlementBusynessPriority); [SingleplayerBattleSceneData](./SingleplayerBattleSceneData); [SkillEffect](./SkillEffect) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役启动或时钟 tick |
+| TaleWorlds.CampaignSystem | [SkillObjectData](./SkillObjectData); [StanceLink](./StanceLink); [StanceType](../campaign/StanceType); [Track](./Track); [TrackedObject](./TrackedObject) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
+| TaleWorlds.CampaignSystem | [TradeRumor](./TradeRumor); [TroopUpgradeTracker](./TroopUpgradeTracker); [VisualCreator](./VisualCreator); [VisualTrackerManager](./VisualTrackerManager) | 覆盖 related campaign contracts状态及 CampaignSystem 消费方使用的协调；变更仍由 Action 或已注册 Behavior 负责。 | 战役事件、查询或状态更新 |
 <!-- END SECTION INDEX -->

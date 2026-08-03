@@ -19,11 +19,11 @@ TaleWorlds.SaveSystem is a new save system introduced in v1.3.15. In v1.3.0, sav
 
 ## 目录 / Contents
 
-1. [核心概念](#核心概念)
-2. [创建可存档类](#创建可存档类)
-3. [SaveManager 用法](#savemanager-用法)
-4. [常见问题](#常见问题)
-5. [相关 API](#相关-api)
+1. [核心概念](#he-xin-gai-nian)
+2. [创建可存档类](#chuang-jian-ke-cun-dang-lei)
+3. [SaveManager 用法](#savemanager-yong-fa)
+4. [常见问题](#chang-jian-wen-ti)
+5. [相关 API](#xiang-guan-api-related-api)
 
 ---
 

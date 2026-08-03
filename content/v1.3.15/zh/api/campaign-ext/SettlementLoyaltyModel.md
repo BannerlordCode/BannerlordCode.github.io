@@ -1,93 +1,92 @@
 ---
 title: "SettlementLoyaltyModel"
-description: "SettlementLoyaltyModel 的自动生成类参考。"
+description: "解释城镇忠诚度日变化、税收效果和叛乱阈值的可替换策略。"
 ---
 # SettlementLoyaltyModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementLoyaltyModel : MBGameModel<SettlementLoyaltyModel>`
-**Base:** `MBGameModel<SettlementLoyaltyModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementLoyaltyModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementLoyaltyModel : MBGameModel<SettlementLoyaltyModel>`  
+**Base:** `MBGameModel<SettlementLoyaltyModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementLoyaltyModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementLoyaltyModel.cs`
 
-## 概述
+## One-line job
 
-`SettlementLoyaltyModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`SettlementLoyaltyModel` 计算并解释城镇每日忠诚度变化，以及税收、民兵和叛乱系统共用的忠诚度阈值。它预测状态，不直接赋值 `Town.Loyalty`。
 
-## 心智模型
+## Mental Model
 
-把 `SettlementLoyaltyModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`Town.LoyaltyChange` 和 `LoyaltyChangeExplanation` 都是模型驱动的只读视图。每日 Settlement 行为在战役时钟推进时消费数值并写入状态；繁荣模型读取高/低忠诚效果，民兵模型读取 rebellious 阈值，税收模型读取税收修正。因此一个阈值的改变会影响多个下游系统，不能只在本页局部理解。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `SettlementLoyaltyChangeDueToSecurityThreshold` | `public abstract int SettlementLoyaltyChangeDueToSecurityThreshold { get; }` |
-| `MaximumLoyaltyInSettlement` | `public abstract int MaximumLoyaltyInSettlement { get; }` |
-| `LoyaltyDriftMedium` | `public abstract int LoyaltyDriftMedium { get; }` |
-| `HighLoyaltyProsperityEffect` | `public abstract float HighLoyaltyProsperityEffect { get; }` |
-| `LowLoyaltyProsperityEffect` | `public abstract int LowLoyaltyProsperityEffect { get; }` |
-| `MilitiaBoostPercentage` | `public abstract int MilitiaBoostPercentage { get; }` |
-| `HighSecurityLoyaltyEffect` | `public abstract float HighSecurityLoyaltyEffect { get; }` |
-| `LowSecurityLoyaltyEffect` | `public abstract float LowSecurityLoyaltyEffect { get; }` |
-| `GovernorSameCultureLoyaltyEffect` | `public abstract float GovernorSameCultureLoyaltyEffect { get; }` |
-| `GovernorDifferentCultureLoyaltyEffect` | `public abstract float GovernorDifferentCultureLoyaltyEffect { get; }` |
-| `SettlementOwnerDifferentCultureLoyaltyEffect` | `public abstract float SettlementOwnerDifferentCultureLoyaltyEffect { get; }` |
-| `ThresholdForTaxBoost` | `public abstract int ThresholdForTaxBoost { get; }` |
-| `RebellionStartLoyaltyThreshold` | `public abstract int RebellionStartLoyaltyThreshold { get; }` |
-| `ThresholdForTaxCorruption` | `public abstract int ThresholdForTaxCorruption { get; }` |
-| `ThresholdForHigherTaxCorruption` | `public abstract int ThresholdForHigherTaxCorruption { get; }` |
-| `ThresholdForProsperityBoost` | `public abstract int ThresholdForProsperityBoost { get; }` |
-| `ThresholdForProsperityPenalty` | `public abstract int ThresholdForProsperityPenalty { get; }` |
-| `AdditionalStarvationPenaltyStartDay` | `public abstract int AdditionalStarvationPenaltyStartDay { get; }` |
-| `AdditionalStarvationLoyaltyEffect` | `public abstract int AdditionalStarvationLoyaltyEffect { get; }` |
-| `RebelliousStateStartLoyaltyThreshold` | `public abstract int RebelliousStateStartLoyaltyThreshold { get; }` |
-| `LoyaltyBoostAfterRebellionStartValue` | `public abstract int LoyaltyBoostAfterRebellionStartValue { get; }` |
-| `ThresholdForNotableRelationBonus` | `public abstract float ThresholdForNotableRelationBonus { get; }` |
-| `DailyNotableRelationBonus` | `public abstract int DailyNotableRelationBonus { get; }` |
-
-## 主要方法
-
-### CalculateLoyaltyChange
-`public abstract ExplainedNumber CalculateLoyaltyChange(Town town, bool includeDescriptions = false)`
-
-**用途 / Purpose:** 计算loyalty change的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 SettlementLoyaltyModel 实例
-SettlementLoyaltyModel settlementLoyaltyModel = ...;
-var result = settlementLoyaltyModel.CalculateLoyaltyChange(town, false);
+```text
+Town + culture + governor + security + policies
+        -> Campaign.Current.Models.SettlementLoyaltyModel
+        -> CalculateLoyaltyChange / thresholds
+        -> settlement daily behavior -> Town.Loyalty
+        -> prosperity / militia / tax / rebellion
 ```
 
-### CalculateGoldGainDueToHighLoyalty
-`public abstract void CalculateGoldGainDueToHighLoyalty(Town town, ref ExplainedNumber explainedNumber)`
+要显示预测或替换规则时使用 Model；要改变所有权、开启叛乱或写状态时使用 Action/Behavior。不要在 `CalculateLoyaltyChange` 内调用状态变更 Action，也不要从 UI 直接写 Loyalty，否则预览和 tick 会递归触发副作用。
 
-**用途 / Purpose:** 计算gold gain due to high loyalty的当前值或结果。
+## Dependencies
+
+### Upstream
+
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 提供 Model 注册表和战役时钟。 |
+| [`Town`](../../campaign/Town) | 提供忠诚、治安、繁荣、总督和城镇上下文。 |
+| [`SettlementSecurityModel`](../SettlementSecurityModel) | 提供参与忠诚公式的治安变化。 |
+| [`CampaignEvents`](../CampaignEvents) | 提供 tick 与城镇生命周期钩子。 |
+
+### Downstream
+
+| Type | Relation |
+| --- | --- |
+| [`Town`](../../campaign/Town) | 暴露忠诚变化及解释。 |
+| `DefaultSettlementProsperityModel` | 使用忠诚阈值和高/低忠诚效果。 |
+| `DefaultSettlementMilitiaModel` | 使用 rebellious 阈值和民兵增益。 |
+| `DefaultSettlementTaxModel` | 使用高/低忠诚税收效果。 |
+
+## Key contract
+
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `CalculateLoyaltyChange` | 返回可解释的每日忠诚变化。 | 城镇 tick、UI 预览 |
+| `RebellionStartLoyaltyThreshold` | 叛乱检查的资格阈值。 | 每日叛乱评估 |
+| `RebelliousStateStartLoyaltyThreshold` | rebellious 状态效果阈值。 | 民兵和城镇状态 |
+| `ThresholdForProsperityBoost` / `ThresholdForProsperityPenalty` | 把忠诚接入繁荣计算。 | 每日经济模型 |
+| `CalculateGoldGainDueToHighLoyalty` | 向税收解释添加高忠诚收益。 | 税收预览和财务 tick |
+
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 SettlementLoyaltyModel 实例
-SettlementLoyaltyModel settlementLoyaltyModel = ...;
-settlementLoyaltyModel.CalculateGoldGainDueToHighLoyalty(town, explainedNumber);
+public ExplainedNumber ExplainTownLoyalty(Town town)
+{
+    if (Campaign.Current == null || town == null)
+    {
+        return new ExplainedNumber(0f);
+    }
+    return Campaign.Current.Models.SettlementLoyaltyModel
+        .CalculateLoyaltyChange(town, includeDescriptions: true);
+}
 ```
 
-### CalculateGoldCutDueToLowLoyalty
-`public abstract void CalculateGoldCutDueToLowLoyalty(Town town, ref ExplainedNumber explainedNumber)`
+这与 `Town.LoyaltyChangeExplanation` 的真实路径一致。`ResultNumber` 只用于显示或后续官方 settlement 流程，不应在这里写回 Town。
 
-**用途 / Purpose:** 计算gold cut due to low loyalty的当前值或结果。
+## 风险与调试顺序
 
-```csharp
-// 先通过子系统 API 拿到 SettlementLoyaltyModel 实例
-SettlementLoyaltyModel settlementLoyaltyModel = ...;
-settlementLoyaltyModel.CalculateGoldCutDueToLowLoyalty(town, explainedNumber);
-```
+1. 同时检查繁荣、民兵和税收页面，因为它们共享阈值。
+2. 禁止在模型查询期间触发 Action，避免 UI 预览造成真实叛乱或所有权变更。
+3. 没有活动战役时 Model 注册表不可用。
+4. 保留无总督、文化不同和治安异常等 vanilla 分支。
+5. Loyalty 属于 Town/Settlement 的保存状态，不属于无状态的 Model；不要把 Saveable 字段加到模型中。
 
-## 使用示例
+## Navigation
 
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-SettlementLoyaltyModel instance = ...;
-```
-
-## 参见
-
-- [本区域目录](../)
+- [Campaign-ext models family](../models/)
+- [Town](../../campaign/Town)
+- [SettlementSecurityModel](../SettlementSecurityModel)
+- [SettlementProsperityModel](../SettlementProsperityModel)
+- [CampaignEvents](../CampaignEvents)

@@ -1,177 +1,93 @@
 ---
 title: "CharacterDevelopmentModel"
-description: "CharacterDevelopmentModel 的自动生成类参考。"
+description: "为 HeroDeveloper 计算技能学习、经验阈值、专注点、属性和 Perk 进度。"
 ---
 # CharacterDevelopmentModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class CharacterDevelopmentModel : MBGameModel<CharacterDevelopmentModel>`
-**Base:** `MBGameModel<CharacterDevelopmentModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CharacterDevelopmentModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class CharacterDevelopmentModel : MBGameModel<CharacterDevelopmentModel>`  
+**Base:** `MBGameModel<CharacterDevelopmentModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CharacterDevelopmentModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultCharacterDevelopmentModel.cs`
 
-## 概述
+## One-line job
 
-`CharacterDevelopmentModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`CharacterDevelopmentModel` 定义经验阈值、学习上限/速率、技能变化、特性等级以及下一个专注点、属性或 Perk。它不直接给 Hero 加经验，也不直接写 `HeroDeveloper`。
 
-## 心智模型
+## Mental Model
 
-把 `CharacterDevelopmentModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`HeroDeveloper` 持有可保存的经验、专注点、属性和 Perk。它向 Model 询问阈值和速率，再通过自己的 API 应用结果并发送成长通知。战斗奖励、任务和每日系统是经验生产者，不应复制成长公式。替换实现必须保持经验阈值单调递增，并保留 UI 与存档使用的上限属性。
 
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `MaxAttribute` | `public abstract int MaxAttribute { get; }` |
-| `MaxFocusPerSkill` | `public abstract int MaxFocusPerSkill { get; }` |
-| `MaxSkillRequiredForEpicPerkBonus` | `public abstract int MaxSkillRequiredForEpicPerkBonus { get; }` |
-| `MinSkillRequiredForEpicPerkBonus` | `public abstract int MinSkillRequiredForEpicPerkBonus { get; }` |
-| `FocusPointsPerLevel` | `public abstract int FocusPointsPerLevel { get; }` |
-| `FocusPointsAtStart` | `public abstract int FocusPointsAtStart { get; }` |
-| `AttributePointsAtStart` | `public abstract int AttributePointsAtStart { get; }` |
-| `LevelsPerAttributePoint` | `public abstract int LevelsPerAttributePoint { get; }` |
-
-## 主要方法
-
-### SkillsRequiredForLevel
-`public abstract int SkillsRequiredForLevel(int level)`
-
-**用途 / Purpose:** 调用 SkillsRequiredForLevel 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.SkillsRequiredForLevel(0);
+```text
+XP / focus / attributes / SkillObject
+        -> Campaign.Current.Models.CharacterDevelopmentModel
+        -> threshold / learning queries
+        -> HeroDeveloper -> 保存的成长状态 -> UI / Perk
 ```
 
-### GetMaxSkillPoint
-`public abstract int GetMaxSkillPoint()`
+## Dependencies
 
-**用途 / Purpose:** 读取并返回当前对象中 max skill point 的结果。
+### Upstream
 
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetMaxSkillPoint();
-```
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 提供活动成长策略。 |
+| [`Hero`](../../campaign/Hero) / `HeroDeveloper` | 持有经验、专注、属性和 Perk。 |
+| [`SkillObject`](../../core-extra/SkillObject) / `TraitObject` | 标识成长轨道。 |
+| `ExplainedNumber` | 保存学习限制和速率说明。 |
 
-### GetXpRequiredForSkillLevel
-`public abstract int GetXpRequiredForSkillLevel(int skillLevel)`
+### Downstream
 
-**用途 / Purpose:** 读取并返回当前对象中 xp required for skill level 的结果。
+| Type | Relation |
+| --- | --- |
+| `HeroDeveloper` | 在应用成长时调用这些方法。 |
+| `TraitLevelingHelper` | 使用特性经验换算。 |
+| `DefaultPartyWageModel` / `DefaultDiplomacyModel` | 读取技能和 Epic Perk 阈值。 |
+| [`ViewModel`](../../core-extra/ViewModel) | 显示学习速率和可选成长。 |
 
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetXpRequiredForSkillLevel(0);
-```
+## Key contract
 
-### GetSkillLevelChange
-`public abstract int GetSkillLevelChange(Hero hero, SkillObject skill, float skillXp)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `GetXpRequiredForSkillLevel` | 把等级转换为累计 XP 阈值。 | XP 应用、UI |
+| `GetSkillLevelChange` | 把获得 XP 转换为等级变化。 | Hero 成长 |
+| `CalculateLearningLimit` | 解释专注/属性学习上限。 | 技能界面、tick |
+| `CalculateLearningRate` | 解释当前 XP 倍率。 | 技能界面、奖励 |
+| `GetTraitLevelForTraitXp` | 把特性 XP 转换为等级和余数。 | 特性成长 |
 
-**用途 / Purpose:** 读取并返回当前对象中 skill level change 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetSkillLevelChange(hero, skill, 0);
-```
-
-### GetXpAmountForSkillLevelChange
-`public abstract int GetXpAmountForSkillLevelChange(Hero hero, SkillObject skill, int skillLevelChange)`
-
-**用途 / Purpose:** 读取并返回当前对象中 xp amount for skill level change 的结果。
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetXpAmountForSkillLevelChange(hero, skill, 0);
+public ExplainedNumber ExplainLearning(Hero hero, SkillObject skill)
+{
+    HeroDeveloper developer = hero.HeroDeveloper;
+    int focus = developer.GetFocus(skill);
+    return Campaign.Current.Models.CharacterDevelopmentModel.CalculateLearningRate(
+        hero.CharacterAttributes, focus, hero.GetSkillValue(skill), skill,
+        includeDescriptions: true);
+}
 ```
 
-### GetTraitLevelForTraitXp
-`public abstract void GetTraitLevelForTraitXp(Hero hero, TraitObject trait, int newValue, out int traitLevel, out int traitXp)`
-
-**用途 / Purpose:** 读取并返回当前对象中 trait level for trait xp 的结果。
+`HeroDeveloper` 使用同一个 Model 计算经验变化和上限，但真正写入经验必须走 `HeroDeveloper` API：
 
 ```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-characterDevelopmentModel.GetTraitLevelForTraitXp(hero, trait, 0, traitLevel, traitXp);
+int delta = Campaign.Current.Models.CharacterDevelopmentModel
+    .GetSkillLevelChange(hero, skill, earnedXp);
 ```
 
-### GetTraitXpRequiredForTraitLevel
-`public abstract int GetTraitXpRequiredForTraitLevel(TraitObject trait, int traitLevel)`
+## 风险与调试顺序
 
-**用途 / Purpose:** 读取并返回当前对象中 trait xp required for trait level 的结果。
+1. 高等级阈值必须不低于低等级，否则读档会重复升级。
+2. 保留技能、专注和属性上限，UI 与 `HeroDeveloper` 都依赖它们。
+3. 学习速率是预览，不得在查询时修改经验。
+4. 特性换算必须同时返回等级和剩余 XP。
+5. 新的 Perk 阈值会被多个 Model 读取，装饰实现时先委托 vanilla。
 
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetTraitXpRequiredForTraitLevel(trait, 0);
-```
+## Navigation
 
-### CalculateLearningLimit
-`public abstract ExplainedNumber CalculateLearningLimit(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, SkillObject skill, bool includeDescriptions = false)`
-
-**用途 / Purpose:** 计算learning limit的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.CalculateLearningLimit(characterAttributes, 0, skill, false);
-```
-
-### CalculateLearningRate
-`public abstract ExplainedNumber CalculateLearningRate(IReadOnlyPropertyOwner<CharacterAttribute> characterAttributes, int focusValue, int skillValue, SkillObject skill, bool includeDescriptions = false)`
-
-**用途 / Purpose:** 计算learning rate的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.CalculateLearningRate(characterAttributes, 0, 0, skill, false);
-```
-
-### GetNextSkillToAddFocus
-`public abstract SkillObject GetNextSkillToAddFocus(Hero hero)`
-
-**用途 / Purpose:** 读取并返回当前对象中 next skill to add focus 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetNextSkillToAddFocus(hero);
-```
-
-### GetNextAttributeToUpgrade
-`public abstract CharacterAttribute GetNextAttributeToUpgrade(Hero hero)`
-
-**用途 / Purpose:** 读取并返回当前对象中 next attribute to upgrade 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetNextAttributeToUpgrade(hero);
-```
-
-### GetNextPerkToChoose
-`public abstract PerkObject GetNextPerkToChoose(Hero hero, PerkObject perk)`
-
-**用途 / Purpose:** 读取并返回当前对象中 next perk to choose 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CharacterDevelopmentModel 实例
-CharacterDevelopmentModel characterDevelopmentModel = ...;
-var result = characterDevelopmentModel.GetNextPerkToChoose(hero, perk);
-```
-
-## 使用示例
-
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-CharacterDevelopmentModel instance = ...;
-```
-
-## 参见
-
-- [本区域目录](../)
+- [Campaign-ext models family](../models/)
+- [Hero](../../campaign/Hero)
+- [SkillObject](../../core-extra/SkillObject)
+- [ViewModel](../../core-extra/ViewModel)
+- [PartyWageModel](../PartyWageModel)

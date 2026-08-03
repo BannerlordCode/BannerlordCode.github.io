@@ -1,98 +1,79 @@
 ---
 title: "SettlementEconomyModel"
-description: "Auto-generated class reference for SettlementEconomyModel."
+description: "Provides market demand, supply, budget, and town-gold policy for settlement economy behaviors."
 ---
 # SettlementEconomyModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class SettlementEconomyModel : MBGameModel<SettlementEconomyModel>`
-**Base:** `MBGameModel<SettlementEconomyModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementEconomyModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class SettlementEconomyModel : MBGameModel<SettlementEconomyModel>`  
+**Base:** `MBGameModel<SettlementEconomyModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementEconomyModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementEconomyModel.cs`
 
-## Overview
+## One-line job
 
-`SettlementEconomyModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SettlementEconomyModel` predicts demand, supply, daily market budget, and town-gold change for an item category. It is consulted by economy behaviors and trade UI; it does not add items or gold itself.
 
 ## Mental Model
 
-Treat `SettlementEconomyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The model is a policy boundary around market simulation. `TownMarketData` and `ItemConsumptionBehavior` ask it for demand and budget, then mutate inventories and town gold through their own behavior. Prosperity, production, and item values are inputs, not outputs owned by this model. A replacement must keep supply/demand units consistent and should return explanations or bounded values for missing categories.
 
-## Key Methods
-
-### GetEstimatedDemandForCategory
-`public abstract float GetEstimatedDemandForCategory(Town town, ItemData itemData, ItemCategory category)`
-
-**Purpose:** Reads and returns the estimated demand for category value held by the this instance.
-
-```csharp
-// Obtain an instance of SettlementEconomyModel from the subsystem API first
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetEstimatedDemandForCategory(town, itemData, category);
+```text
+Town + ItemCategory + inventory + prosperity
+          -> SettlementEconomyModel
+          -> demand / supply / budget / gold delta
+          -> ItemConsumptionBehavior / TownMarketData apply changes
 ```
 
-### GetDailyDemandForCategory
-`public abstract float GetDailyDemandForCategory(Town town, ItemCategory category, int extraProsperity = 0)`
+## Dependencies
 
-**Purpose:** Reads and returns the daily demand for category value held by the this instance.
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | Owns the registered economy model. |
+| [`Town`](../../campaign/Town) / `TownMarketData` | Supply market state and prices. |
+| [`ItemObject`](../../core-extra/ItemObject) / `ItemCategory` | Identify goods and values. |
+| [`SettlementProsperityModel`](../SettlementProsperityModel) | Prosperity changes feed daily demand. |
 
-```csharp
-// Obtain an instance of SettlementEconomyModel from the subsystem API first
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetDailyDemandForCategory(town, category, 0);
-```
+## Key contract
 
-### GetDemandChangeFromValue
-`public abstract float GetDemandChangeFromValue(float purchaseValue)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `GetEstimatedDemandForCategory` | Estimate demand from item data and category. | Market preview |
+| `GetDailyDemandForCategory` | Return daily category demand. | Consumption tick |
+| `GetSupplyDemandForCategory` | Reconcile old supply/demand with daily changes. | Market update |
+| `GetTownGoldChange` | Calculate town treasury drift. | Consumption behavior |
+| `CalculateDailySettlementBudgetForItemCategory` | Cap a town's spending for a category. | Caravan and item consumption |
 
-**Purpose:** Reads and returns the demand change from value value held by the this instance.
-
-```csharp
-// Obtain an instance of SettlementEconomyModel from the subsystem API first
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetDemandChangeFromValue(0);
-```
-
-### GetSupplyDemandForCategory
-`public abstract ValueTuple<float, float> GetSupplyDemandForCategory(Town town, ItemCategory category, float dailySupply, float dailyDemand, float oldSupply, float oldDemand)`
-
-**Purpose:** Reads and returns the supply demand for category value held by the this instance.
+## Real access path
 
 ```csharp
-// Obtain an instance of SettlementEconomyModel from the subsystem API first
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetSupplyDemandForCategory(town, category, 0, 0, 0, 0);
+public float DailyFoodDemand(Town town, ItemCategory category)
+{
+    return Campaign.Current.Models.SettlementEconomyModel
+        .GetDailyDemandForCategory(town, category);
+}
+
+public int TownGoldDelta(Town town)
+{
+    return Campaign.Current.Models.SettlementEconomyModel.GetTownGoldChange(town);
+}
 ```
 
-### GetTownGoldChange
-`public abstract int GetTownGoldChange(Town town)`
+`ItemConsumptionBehavior` uses these values before it removes consumed goods or changes the town balance. Do not perform those mutations from the model.
 
-**Purpose:** Reads and returns the town gold change value held by the this instance.
+## Risks and debugging order
 
-```csharp
-// Obtain an instance of SettlementEconomyModel from the subsystem API first
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.GetTownGoldChange(town);
-```
+1. Keep category units and sign conventions consistent: demand is not a gold amount.
+2. Do not return an unbounded budget; it can drain or create town gold every tick.
+3. Preserve missing-market and zero-supply branches for newly created settlements.
+4. Prosperity changes feed demand later; avoid calling the prosperity model recursively from a budget query.
+5. Economy state is saved by market/settlement behaviors, not by the model.
 
-### CalculateDailySettlementBudgetForItemCategory
-`public abstract float CalculateDailySettlementBudgetForItemCategory(Town town, float demand, ItemCategory category)`
+## Navigation
 
-**Purpose:** Calculates the current value or result of daily settlement budget for item category.
-
-```csharp
-// Obtain an instance of SettlementEconomyModel from the subsystem API first
-SettlementEconomyModel settlementEconomyModel = ...;
-var result = settlementEconomyModel.CalculateDailySettlementBudgetForItemCategory(town, 0, category);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-SettlementEconomyModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [Campaign-ext models family](../models/)
+- [Town](../../campaign/Town)
+- [ItemObject](../../core-extra/ItemObject)
+- [SettlementProsperityModel](../SettlementProsperityModel)
+- [PartyWageModel](../PartyWageModel)

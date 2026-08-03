@@ -3,7 +3,7 @@ title: "engine 目录"
 description: TaleWorlds.Engine 引擎类参考目录
 ---
 
-## 模块心智模型
+## 心智模型
 
 engine 桶是离 C++ 引擎最近的一层托管封装——它既暴露场景/实体/网格等底层运行时对象，又承载 GauntletUI 的渲染宿主层，是模组与引擎原生边界之间的“转换中枢”。
 
@@ -33,6 +33,19 @@ engine 桶是离 C++ 引擎最近的一层托管封装——它既暴露场景/�
 与 **GUI 模块**（[../gui/](../gui/)）关系最密：GauntletUI 的控件树、Widget、Brush 等都定义在 gui 桶，而本桶的 `GauntletLayer` / `TwoDimensionView` / `UIResourceManager` 是把它们实例化并挂到屏幕上的引擎侧宿主。写模组界面时，通常是“在 engine 桶拿到层与视口，在 gui 桶定义界面与样式”。
 
 与**托管/原生边界**（[../../architecture/native-interop/](../../architecture/native-interop/)）强相关：本桶类型是 native-interop 最密集的落点，`NativeObject`、`EngineApplicationInterface` 是理解跨边界调用与对象生命周期的关键。若遇到“对象已失效 / 空引用”类崩溃，务必结合**崩溃边界**（[../../architecture/crash-boundaries/](../../architecture/crash-boundaries/)）排查——多数源于原生对象先于托管引用被释放，而非 C# 逻辑错误。
+
+| Namespace | Type | Purpose | Timing |
+| --- | --- | --- | --- |
+| TaleWorlds.Engine.GauntletUI | [GauntletLayer](./GauntletLayer) | 将 Gauntlet Movie 作为可交互屏幕层承载。 | 屏幕持有该层期间。 |
+| TaleWorlds.Engine | [GameEntity](./GameEntity) | 表示原生场景实体及其挂载组件。 | 从场景创建到实体释放。 |
+| TaleWorlds.Engine | [Scene](./Scene) | 持有场景实体、资源和空间查询。 | Mission 或地图场景生命周期内。 |
+| TaleWorlds.DotNet | [NativeObject](./NativeObject) | 保存托管指针并定义原生句柄的释放边界。 | 每个引擎托管包装器期间。 |
+| TaleWorlds.Engine | [GameEntityComponent](./GameEntityComponent) | 为 GameEntity 添加专用行为。 | 父实体存活期间。 |
+| TaleWorlds.Engine | [EngineScreenManager](./EngineScreenManager) | 将引擎帧派发连接到屏幕和层栈。 | 应用主循环期间。 |
+| TaleWorlds.Engine | [TwoDimensionView](./TwoDimensionView) | 提供 2D UI 绘制使用的引擎视口。 | UI view 挂载期间。 |
+| TaleWorlds.Engine | [Mesh](./Mesh) | 持有场景渲染所需的原生网格数据。 | 资源加载和绘制期间。 |
+| TaleWorlds.Engine | [WorldPosition](./WorldPosition) | 承载空间操作使用的世界坐标和朝向。 | 放置和物理查询期间。 |
+| TaleWorlds.Engine | [Camera](./Camera) | 定义场景渲染使用的投影。 | 场景视图活动期间。 |
 
 <!-- BEGIN SECTION INDEX -->
 

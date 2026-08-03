@@ -1,142 +1,88 @@
 ---
 title: "CombatSimulationModel"
-description: "CombatSimulationModel 的自动生成类参考。"
+description: "计算地图战斗优势、模拟命中、围城进度和追击时序，不持有 MapEvent 状态。"
 ---
 # CombatSimulationModel
 
-**Namespace:** TaleWorlds.CampaignSystem.ComponentInterfaces
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class CombatSimulationModel : MBGameModel<CombatSimulationModel>`
-**Base:** `MBGameModel<CombatSimulationModel>`
-**File:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CombatSimulationModel.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class CombatSimulationModel : MBGameModel<CombatSimulationModel>`  
+**Base:** `MBGameModel<CombatSimulationModel>`  
+**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CombatSimulationModel.cs`  
+**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultCombatSimulationModel.cs`
 
-## 概述
+## One-line job
 
-`CombatSimulationModel` 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。
+`CombatSimulationModel` 为地图战斗提供伤害、战斗优势、围城器械、模拟 tick、追击回合和钝击概率策略。它计算输入，不创建或结束 `MapEvent`。
 
-## 心智模型
+## Mental Model
 
-把 `CombatSimulationModel` 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`MapEvent` 持有战斗双方和生命周期。模拟回合中它询问 Model 的优势和命中结果，再由自身应用伤亡、士气、奖励和完成事件。围城代码也使用同一 Model 计算城镇优势和器械进度。Model 可以读取队伍、单位、船和城镇，但变更属于 `MapEvent`、Action 和战斗行为。
 
-## 主要方法
-
-### SimulateHit
-`public abstract ExplainedNumber SimulateHit(CharacterObject strikerTroop, CharacterObject struckTroop, PartyBase strikerParty, PartyBase struckParty, float strikerAdvantage, MapEvent battle, float strikerSideMorale, float struckSideMorale)`
-
-**用途 / Purpose:** 调用 SimulateHit 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.SimulateHit(strikerTroop, struckTroop, strikerParty, struckParty, 0, battle, 0, 0);
+```text
+MapEvent / parties / troops / siege
+        -> Campaign.Current.Models.CombatSimulationModel
+        -> advantage / hit / tick / pursuit queries
+        -> MapEvent 应用伤亡和结果 -> rewards / events
 ```
 
-### SimulateHit
-`public abstract ExplainedNumber SimulateHit(Ship strikerShip, Ship struckShip, PartyBase strikerParty, PartyBase struckParty, SiegeEngineType siegeEngine, float strikerAdvantage, MapEvent battle, out int troopCasualties)`
+## Dependencies
 
-**用途 / Purpose:** 调用 SimulateHit 对应的操作。
+### Upstream
 
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.SimulateHit(strikerShip, struckShip, strikerParty, struckParty, siegeEngine, 0, battle, troopCasualties);
-```
+| Type | Relation |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | 持有模拟策略。 |
+| [`MapEvent`](../../campaign/MapEvent) | 持有双方、士气、回合和完成状态。 |
+| [`PartyBase`](../../campaign/PartyBase) / `CharacterObject` | 提供单位和队伍输入。 |
+| [`SiegeEvent`](../SiegeEvent) / [`Settlement`](../../campaign/Settlement) | 提供围城上下文。 |
 
-### GetSimulationTicksForBattleRound
-`public abstract ValueTuple<int, int> GetSimulationTicksForBattleRound(MapEvent mapEvent)`
+### Downstream
 
-**用途 / Purpose:** 读取并返回当前对象中 simulation ticks for battle round 的结果。
+| Type | Relation |
+| --- | --- |
+| `MapEvent` | 调用 `SimulateHit`、优势、tick 和追击方法。 |
+| `BesiegerCamp` | 使用城镇优势和器械进度。 |
+| [`BattleMoraleModel`](../../mission-ext/BattleMoraleModel) | 在 Mission 层单独处理士气。 |
+| Battle reward Actions | 在事件完成后应用结果。 |
 
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetSimulationTicksForBattleRound(mapEvent);
-```
+## Key contract
 
-### GetNumberOfEquipmentsBuilt
-`public abstract int GetNumberOfEquipmentsBuilt(Settlement settlement)`
+| Member | Purpose | Timing |
+| --- | --- | --- |
+| `SimulateHit` | 返回单位或船战斗的解释伤害。 | 地图战斗回合 |
+| `GetBattleAdvantage` | 解释攻击方和防守方优势。 | 回合开始 |
+| `GetSimulationTicksForBattleRound` | 安排双方下一次模拟 tick。 | 地图时钟 |
+| `GetPursuitRoundCount` | 决定胜利后的追击回合。 | 战斗结束 |
+| `GetSettlementAdvantage` | 计算围城防守方优势。 | 围城 tick |
 
-**用途 / Purpose:** 读取并返回当前对象中 number of equipments built 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetNumberOfEquipmentsBuilt(settlement);
-```
-
-### GetMaximumSiegeEquipmentProgress
-`public abstract float GetMaximumSiegeEquipmentProgress(Settlement settlement)`
-
-**用途 / Purpose:** 读取并返回当前对象中 maximum siege equipment progress 的结果。
+## Real access path
 
 ```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetMaximumSiegeEquipmentProgress(settlement);
+public ExplainedNumber Simulate(MapEvent battle, CharacterObject attacker,
+    CharacterObject defender, PartyBase attackerParty, PartyBase defenderParty)
+{
+    CombatSimulationModel model = Campaign.Current.Models.CombatSimulationModel;
+    (int attackerTicks, int defenderTicks) = model.GetSimulationTicksForBattleRound(battle);
+    return model.SimulateHit(attacker, defender, attackerParty, defenderParty,
+        strikerAdvantage: 0f, battle, strikerSideMorale: 50f, struckSideMorale: 50f);
+}
 ```
 
-### GetSettlementAdvantage
-`public abstract float GetSettlementAdvantage(Settlement settlement)`
+`MapEvent` 会继续应用伤亡并调用追击回合；调用者不能再次应用同一份伤害。
 
-**用途 / Purpose:** 读取并返回当前对象中 settlement advantage 的结果。
+## 风险与调试顺序
 
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetSettlementAdvantage(settlement);
-```
+1. 不要在 Model 返回命中后再次手动扣伤亡，避免双重结算。
+2. tick 间隔必须为正，否则战斗可能卡死或无限循环。
+3. 围城优势会影响 AI 和器械进度，不只是显示数字。
+4. 地图模拟不是 Mission 战斗，不能在这里调用 Agent 专用 API。
+5. 新版本的海上输入应通过当前默认实现保留。
 
-### GetBattleAdvantage
-`public abstract void GetBattleAdvantage(MapEvent mapEvent, out ExplainedNumber defenderAdvantage, out ExplainedNumber attackerAdvantage)`
+## Navigation
 
-**用途 / Purpose:** 读取并返回当前对象中 battle advantage 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-combatSimulationModel.GetBattleAdvantage(mapEvent, defenderAdvantage, attackerAdvantage);
-```
-
-### GetShipSiegeEngineHitChance
-`public abstract float GetShipSiegeEngineHitChance(Ship ship, SiegeEngineType siegeEngineType, BattleSideEnum battleSide)`
-
-**用途 / Purpose:** 读取并返回当前对象中 ship siege engine hit chance 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetShipSiegeEngineHitChance(ship, siegeEngineType, battleSide);
-```
-
-### GetPursuitRoundCount
-`public abstract int GetPursuitRoundCount(MapEvent mapEvent)`
-
-**用途 / Purpose:** 读取并返回当前对象中 pursuit round count 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetPursuitRoundCount(mapEvent);
-```
-
-### GetBluntDamageChance
-`public abstract float GetBluntDamageChance(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, MapEvent battle)`
-
-**用途 / Purpose:** 读取并返回当前对象中 blunt damage chance 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 CombatSimulationModel 实例
-CombatSimulationModel combatSimulationModel = ...;
-var result = combatSimulationModel.GetBluntDamageChance(strikerTroop, strikedTroop, strikerParty, strikedParty, battle);
-```
-
-## 使用示例
-
-```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-CombatSimulationModel instance = ...;
-```
-
-## 参见
-
-- [本区域目录](../)
+- [Campaign-ext models family](../models/)
+- [MapEvent](../../campaign/MapEvent)
+- [SiegeEvent](../SiegeEvent)
+- [PartyBase](../../campaign/PartyBase)
+- [BattleMoraleModel](../../mission-ext/BattleMoraleModel)

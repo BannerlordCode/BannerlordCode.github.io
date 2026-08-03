@@ -12,11 +12,11 @@ description: 快速上手 Bannerlord 模块开发 / Quick start guide for Banner
 
 ## 目录 / Table of Contents
 
-1. [环境搭建 / Environment Setup](#环境搭建)
-2. [项目结构 / Project Structure](#项目结构)
-3. [第一个 SubModule / Your First SubModule](#第一个-submodule)
-4. [调试技巧 / Debugging Tips](#调试技巧)
-5. [常见问题 / FAQ](#常见问题)
+1. [环境搭建 / Environment Setup](#huan-jing-da-jian-environment-setup)
+2. [项目结构 / Project Structure](#xiang-mu-jie-gou-project-structure)
+3. [第一个 SubModule / Your First SubModule](#di-yi-ge-submodule-your-first-submodule)
+4. [调试技巧 / Debugging Tips](#diao-shi-ji-qiao-debugging-tips)
+5. [常见问题 / FAQ](#chang-jian-wen-ti-faq)
 
 ---
 

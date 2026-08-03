@@ -18,10 +18,10 @@ Bannerlord's asset system is based on XML definitions and native asset managemen
 
 ## 目录 / Contents
 
-1. [资源类型](#资源类型)
-2. [项目结构](#项目结构)
-3. [XML 资源定义](#xml-资源定义)
-4. [代码加载](#代码加载)
+1. [资源类型](#zi-yuan-lei-xing)
+2. [项目结构](#xiang-mu-jie-gou)
+3. [XML 资源定义](#xml-zi-yuan-ding-yi)
+4. [代码加载](#dai-ma-jia-zai)
 
 ---
 

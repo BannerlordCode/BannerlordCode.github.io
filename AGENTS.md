@@ -54,6 +54,7 @@ BannerlordCode.github.io/
 | `content/versions/_index.md` | 🔀 Cross-version class comparison hub |
 | `content/v1.3.15/zh/api/save-system/SaveManager.md` | Style reference for class-reference docs |
 | `tools/audit-links.mjs` | Verify 0 broken links |
+| `tools/generate-page-navigation.mjs` | Build leaf-page Parent/Previous/Next/Related route data |
 | `tools/validate-build.ps1` | Full-site build validation with memory evidence |
 | `tools/class-version-diff.mjs` | Diff one class's API across versions; powers `content/versions/` |
 
@@ -101,3 +102,9 @@ node tools/class-version-diff.mjs ClassName      # print one class's diff
 - **Cross-version comparison** (`content/versions/`): one page per class, comparing its accessible API (public/protected/internal, excl. private) across 1.3.0/1.3.15/1.4.5, with a hand-curated modder-impact note. Pages are auto-generated from source by `tools/gen-version-pages.mjs` (which imports `tools/class-version-diff.mjs`). Re-run after the sibling `bannerlord-*` source trees update. 1.4.5 source is decompiled, so some modifiers may differ from the original — the pages note this.
 - When generating class docs via subagents (agent_team): instruct them to (1) grep signatures for large files, (2) use the `write` tool (not print to message), (3) wrap generics in backticks in prose.
 - GitHub Actions deploys the Zola `public/` directory to GitHub Pages on push to `main`.
+
+## H0 HANDWRITTEN-ONLY POLICY
+- Product prose under `content/**` is handwritten and source-backed; do not use signature-to-prose, stub, placeholder, or bulk body-rewrite tools as a product path.
+- Read `tools/RETIRED_BODY_GENERATORS.md` and the versioned `architecture/doc-contract.md` before authoring documentation.
+- Retired writers must fail closed unless `BANNERLORD_ALLOW_RETIRED_BODY_GEN=1` is explicitly set for local archaeology. That override is forbidden in product builds, CI, and commits touching `content/**`.
+- Use inventory, coverage, link, quality, navigation, and cross-version tools only for reports or structural data; they must not invent page prose.

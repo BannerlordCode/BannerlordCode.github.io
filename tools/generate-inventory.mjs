@@ -14,10 +14,20 @@
 import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join, relative, sep, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
+import { checkReport } from './lib/report-meta.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, '..');
 const CONTENT_ROOT = join(REPO_ROOT, 'content');
+const ARGS = process.argv.slice(2);
+const argValue = (flag, fallback = null) => {
+  const i = ARGS.indexOf(flag);
+  return i >= 0 && ARGS[i + 1] ? ARGS[i + 1] : fallback;
+};
+const OUT_ARG = argValue('--out');
+const CHECK = ARGS.includes('--check');
+const REQUIRE_COMPLETE = ARGS.includes('--require-complete');
 
 // ---------------------------------------------------------------------------
 // Source tree configuration
@@ -333,7 +343,23 @@ function buildDocIndex(ver, lang) {
 // ---------------------------------------------------------------------------
 // Match a source type against a doc index
 // ---------------------------------------------------------------------------
+// These two v1.3.15 Chinese routes are intentional handwritten corrections to
+// duplicate generated pages. Keep them stable across inventory refreshes.
+const CURATED_PAGE_PATHS = new Map([
+  [
+    '1.3.15\0zh\0TaleWorlds.CampaignSystem.MapEvents\0MapEvent',
+    'content/v1.3.15/zh/api/campaign-ext/MapEvent.md',
+  ],
+  [
+    '1.3.15\0zh\0TaleWorlds.CampaignSystem.Settlements\0Town',
+    'content/v1.3.15/zh/api/campaign-ext/Town.md',
+  ],
+]);
+
 function matchDoc(namespace, typeName, predictedArea, index, version, lang) {
+  const curated = CURATED_PAGE_PATHS.get(`${version}\0${lang}\0${namespace}\0${typeName}`);
+  if (curated) return { hasDoc: true, pagePath: curated };
+
   const nsSuffix = namespace.replace(/\./g, '_');
   // 1. namespace-aware collision-suffix match (exact)
   const suffixed = index.suffixMap.get(typeName);
@@ -430,9 +456,17 @@ function main() {
   // Write JSON.
   const dataDir = join(__dirname, 'data');
   if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
-  const outPath = join(dataDir, 'type-inventory.json');
-  writeFileSync(outPath, JSON.stringify(manifest, null, 2), 'utf8');
-  process.stderr.write(`\nWrote ${outPath}\n`);
+  const canonicalPath = join(dataDir, 'type-inventory.json');
+  const outPath = OUT_ARG ? resolve(REPO_ROOT, OUT_ARG) : canonicalPath;
+  const outputText = JSON.stringify(manifest, null, 2);
+  if (CHECK) {
+    if (!checkReport(outPath, manifest)) process.exitCode = 1;
+  } else {
+    const parent = dirname(outPath);
+    if (!existsSync(parent)) mkdirSync(parent, { recursive: true });
+    writeFileSync(outPath, outputText, 'utf8');
+    process.stderr.write(`\nWrote ${outPath}\n`);
+  }
 
   // Print summary to stdout.
   const lines = [];
@@ -453,7 +487,13 @@ function main() {
   const stdoutText = lines.join('\n');
   console.log(stdoutText);
 
-  // Save summary report.
+  if (REQUIRE_COMPLETE && summary.some((s) => s.missing > 0)) {
+    console.error(`Inventory incomplete: ${summary.filter((s) => s.missing > 0).length} scopes have missing docs.`);
+    process.exitCode = 1;
+  }
+
+  // Save summary report only for the canonical write path.
+  if (CHECK || OUT_ARG) return;
   const notesDir = join(REPO_ROOT, '.omo', 'notes');
   if (!existsSync(notesDir)) mkdirSync(notesDir, { recursive: true });
   const report = [];

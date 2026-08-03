@@ -29,11 +29,11 @@ Bannerlord's combat system is built on **Mission** (battle). Every battle scene 
 
 ## 目录 / Contents
 
-1. [MissionBehavior 模式](#missionbehavior-模式)
-2. [Agent 系统](#agent-系统)
-3. [Formation 和 Team](#formation-和-team)
-4. [任务示例](#任务示例)
-5. [相关 API](#相关-api)
+1. [MissionBehavior 模式](#missionbehavior-mo-shi)
+2. [Agent 系统](#agent-xi-tong)
+3. [Formation 和 Team](#formation-he-team)
+4. [任务示例](#ren-wu-shi-li)
+5. [相关 API](#xiang-guan-api-related-api)
 
 ---
 

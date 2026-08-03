@@ -1,0 +1,56 @@
+{# Render leaf navigation from Zola's already-loaded section pages. The
+   generator-backed JSON remains the freshness/audit contract, while this
+   runtime path avoids parsing a multi-megabyte map for every rendered page. #}
+{%- macro render(current_url, lang) -%}
+  {%- set_global parent_path = "" -%}
+  {%- for ancestor in page.ancestors -%}
+    {%- set_global parent_path = ancestor -%}
+  {%- endfor -%}
+  {%- if parent_path -%}
+    {%- set parent_section = get_section(path=parent_path) -%}
+    {%- set_global previous_sibling = false -%}
+    {%- set_global next_sibling = false -%}
+    {%- set_global found_current = false -%}
+    {%- for sibling in parent_section.pages -%}
+      {%- if found_current and not next_sibling -%}
+        {%- set_global next_sibling = sibling -%}
+      {%- elif sibling.path == current_url -%}
+        {%- set_global found_current = true -%}
+      {%- elif not found_current -%}
+        {%- set_global previous_sibling = sibling -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- set navigation = load_data(path="data/navigation.json") -%}
+    {%- set related_parent = navigation.routes[parent_section.path] -%}
+    <nav class="page-navigation" aria-label="{% if lang == 'zh' %}页面导航{% else %}Page navigation{% endif %}">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">{% if lang == 'zh' %}父级{% else %}Parent{% endif %}</span>
+          <a href="{{ parent_section.path | safe }}">{{ parent_section.title }}</a>
+        </div>
+        <div class="page-navigation-siblings">
+          {% if previous_sibling %}
+            <a rel="prev" href="{{ previous_sibling.path | safe }}">&larr; {{ previous_sibling.title }}</a>
+          {% else %}
+            <span class="page-navigation-disabled" aria-disabled="true">&larr; {% if lang == 'zh' %}已是第一项{% else %}First item{% endif %}</span>
+          {% endif %}
+          {% if next_sibling %}
+            <a rel="next" href="{{ next_sibling.path | safe }}">{{ next_sibling.title }} &rarr;</a>
+          {% else %}
+            <span class="page-navigation-disabled" aria-disabled="true">{% if lang == 'zh' %}已是最后一项{% else %}Last item{% endif %} &rarr;</span>
+          {% endif %}
+        </div>
+      </div>
+      {% if related_parent is defined and related_parent.children is defined and related_parent.children | length > 0 %}
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">{% if lang == 'zh' %}相关入口{% else %}Related{% endif %}</span>
+          {% for related_route in related_parent.children %}
+            {% if navigation.routes[related_route] is defined %}
+              <a href="{{ related_route | safe }}">{{ navigation.routes[related_route].label[lang] | default(value=related_route) }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </nav>
+  {%- endif -%}
+{%- endmacro render -%}

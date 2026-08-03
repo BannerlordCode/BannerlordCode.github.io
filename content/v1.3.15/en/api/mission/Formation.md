@@ -1,1256 +1,321 @@
 ---
 title: "Formation"
-description: "Auto-generated class reference for Formation."
+description: "A Mission Team's troop grouping by class (Infantry/Cavalry/Ranged/Skirmisher/HorseArcher...): the control surface that issues movement, charge, arrangement, riding, firing and facing orders to every Agent it holds."
 ---
 # Formation
 
 **Namespace:** TaleWorlds.MountAndBlade
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public sealed class Formation : IFormation`
-**Base:** `IFormation`
-**File:** `TaleWorlds.MountAndBlade/Formation.cs`
+**Source:** `TaleWorlds.MountAndBlade/Formation.cs`
 
 ## Overview
 
-`Formation` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Formation` is the **tactical group** a `Team` splits its troops into during a `Mission`, one group per class (infantry, archers, cavalry, horse archers, skirmishers, …). It is not an entity on the battlefield — it is the *control surface* that gathers a set of `Agent`s into one unit and lets you issue a single move / charge / arrangement / mount / fire / face command that is then fanned out to every member. Think of `Agent` as the individual soldier being commanded and `Formation` as the command board that drives the whole squad at once. At any moment an `Agent` belongs to exactly one `Formation`, and a `Team` owns one `Formation` per `FormationClass` plus a few special formations. You almost never `new` a `Formation` yourself — the `Team` creates and owns them when it initializes.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
-
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `RetreatPositionCache` | `public Formation.RetreatPositionCacheSystem RetreatPositionCache { get; }` |
-| `RepresentativeClass` | `public FormationClass RepresentativeClass { get; }` |
-| `IsAIControlled` | `public bool IsAIControlled { get; }` |
-| `Direction` | `public Vec2 Direction { get; }` |
-| `UnitSpacing` | `public int UnitSpacing { get; }` |
-| `OrderPositionLock` | `public object OrderPositionLock { get; }` |
-| `CountOfUnits` | `public int CountOfUnits { get; }` |
-| `CountOfDetachedUnits` | `public int CountOfDetachedUnits { get; }` |
-| `CountOfUndetachableNonPlayerUnits` | `public int CountOfUndetachableNonPlayerUnits { get; }` |
-| `CountOfUnitsWithoutDetachedOnes` | `public int CountOfUnitsWithoutDetachedOnes { get; }` |
-| `UnitsWithoutLooseDetachedOnes` | `public MBReadOnlyList<IFormationUnit> UnitsWithoutLooseDetachedOnes { get; }` |
-| `CountOfUnitsWithoutLooseDetachedOnes` | `public int CountOfUnitsWithoutLooseDetachedOnes { get; }` |
-| `CountOfDetachableNonPlayerUnits` | `public int CountOfDetachableNonPlayerUnits { get; }` |
-| `OrderPosition` | `public Vec2 OrderPosition { get; }` |
-| `OrderGroundPosition` | `public Vec3 OrderGroundPosition { get; }` |
-| `OrderPositionIsValid` | `public bool OrderPositionIsValid { get; }` |
-| `Depth` | `public float Depth { get; }` |
-| `MinimumWidth` | `public float MinimumWidth { get; }` |
-| `MaximumWidth` | `public float MaximumWidth { get; }` |
-| `UnitDiameter` | `public float UnitDiameter { get; }` |
-| `CurrentDirection` | `public Vec2 CurrentDirection { get; }` |
-| `SmoothedAverageUnitPosition` | `public Vec2 SmoothedAverageUnitPosition { get; }` |
-| `LooseDetachedUnits` | `public MBReadOnlyList<Agent> LooseDetachedUnits { get; }` |
-| `DetachedUnits` | `public MBReadOnlyList<Agent> DetachedUnits { get; }` |
-| `AttackEntityOrderSecondaryDetachment` | `public AttackEntityOrderSecondaryDetachment AttackEntityOrderSecondaryDetachment { get; }` |
-| `AI` | `public FormationAI AI { get; }` |
-| `TargetFormation` | `public Formation TargetFormation { get; }` |
-| `QuerySystem` | `public FormationQuerySystem QuerySystem { get; }` |
-| `CachedFormationIntegrityData` | `public Formation.FormationIntegrityDataGroup CachedFormationIntegrityData { get; }` |
-| `CachedAveragePosition` | `public Vec2 CachedAveragePosition { get; }` |
-| `CachedMedianPosition` | `public WorldPosition CachedMedianPosition { get; }` |
-| `CachedCurrentVelocity` | `public Vec2 CachedCurrentVelocity { get; }` |
-| `CachedMovementSpeed` | `public float CachedMovementSpeed { get; }` |
-| `CachedClosestEnemyFormationDistanceSquared` | `public float CachedClosestEnemyFormationDistanceSquared { get; }` |
-| `CachedClosestEnemyFormation` | `public FormationQuerySystem CachedClosestEnemyFormation { get; }` |
-| `Detachments` | `public MBReadOnlyList<IDetachment> Detachments { get; }` |
-| `OverridenUnitCount` | `public int? OverridenUnitCount { get; }` |
-| `IsSpawning` | `public bool IsSpawning { get; }` |
-| `IsAITickedAfterSplit` | `public bool IsAITickedAfterSplit { get; }` |
-| `HasPlayerControlledTroop` | `public bool HasPlayerControlledTroop { get; }` |
-| `IsPlayerTroopInFormation` | `public bool IsPlayerTroopInFormation { get; }` |
-| `ContainsAgentVisuals` | `public bool ContainsAgentVisuals { get; set; }` |
-| `PlayerOwner` | `public Agent PlayerOwner { get; set; }` |
-| `BannerCode` | `public string BannerCode { get; set; }` |
-| `IsSplittableByAI` | `public bool IsSplittableByAI { get; }` |
-| `IsAIOwned` | `public bool IsAIOwned { get; }` |
-| `IsConvenientForTransfer` | `public bool IsConvenientForTransfer { get; }` |
-| `OrderLocalAveragePosition` | `public Vec2 OrderLocalAveragePosition { get; }` |
-| `FacingOrder` | `public FacingOrder FacingOrder { get; }` |
-| `ArrangementOrder` | `public ArrangementOrder ArrangementOrder { get; }` |
-| `FormOrder` | `public FormOrder FormOrder { get; }` |
-| `RidingOrder` | `public RidingOrder RidingOrder { get; }` |
-| `FiringOrder` | `public FiringOrder FiringOrder { get; }` |
-| `HasAnyMountedUnit` | `public bool HasAnyMountedUnit { get; }` |
-| `Width` | `public float Width { get; }` |
-| `IsDeployment` | `public bool IsDeployment { get; }` |
-| `LogicalClass` | `public FormationClass LogicalClass { get; }` |
-| `SecondaryLogicalClasses` | `public IEnumerable<FormationClass> SecondaryLogicalClasses { get; }` |
-| `Arrangement` | `public IFormationArrangement Arrangement { get; set; }` |
-| `PhysicalClass` | `public FormationClass PhysicalClass { get; }` |
-| `SecondaryPhysicalClasses` | `public IEnumerable<FormationClass> SecondaryPhysicalClasses { get; }` |
-| `Interval` | `public float Interval { get; }` |
-| `CalculateHasSignificantNumberOfMounted` | `public bool CalculateHasSignificantNumberOfMounted { get; }` |
-| `Distance` | `public float Distance { get; }` |
-| `CurrentPosition` | `public Vec2 CurrentPosition { get; }` |
-| `Captain` | `public Agent Captain { get; set; }` |
-| `MinimumDistance` | `public float MinimumDistance { get; }` |
-| `IsLoose` | `public bool IsLoose { get; }` |
-| `MinimumInterval` | `public float MinimumInterval { get; }` |
-| `MaximumInterval` | `public float MaximumInterval { get; }` |
-| `MaximumDistance` | `public float MaximumDistance { get; }` |
-| `Formation` | `public IFormationArrangement Formation { get; }` |
-| `FormationFileIndex` | `public int FormationFileIndex { get; set; }` |
-| `FormationRankIndex` | `public int FormationRankIndex { get; set; }` |
-| `FollowedUnit` | `public IFormationUnit FollowedUnit { get; }` |
-| `IsShieldUsageEncouraged` | `public bool IsShieldUsageEncouraged { get; }` |
-| `IsPlayerUnit` | `public bool IsPlayerUnit { get; }` |
-
-## Key Methods
-
-### CreateNewOrderWorldPosition
-`public WorldPosition CreateNewOrderWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
-
-**Purpose:** Constructs a new new order world position entity and returns it to the caller.
+Picture `Formation` as **the per-class, centrally-commandable squad inside a Team**:
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.CreateNewOrderWorldPosition(worldPositionEnforcedCache);
-```
-
-### SetMovementOrder
-`public void SetMovementOrder(MovementOrder input)`
-
-**Purpose:** Assigns a new value to movement order and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetMovementOrder(input);
-```
-
-### SetFacingOrder
-`public void SetFacingOrder(FacingOrder order)`
-
-**Purpose:** Assigns a new value to facing order and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetFacingOrder(order);
-```
-
-### SetArrangementOrder
-`public void SetArrangementOrder(ArrangementOrder order)`
-
-**Purpose:** Assigns a new value to arrangement order and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetArrangementOrder(order);
-```
-
-### SetFormOrder
-`public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)`
-
-**Purpose:** Assigns a new value to form order and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetFormOrder(order, false);
-```
-
-### SetRidingOrder
-`public void SetRidingOrder(RidingOrder order)`
-
-**Purpose:** Assigns a new value to riding order and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetRidingOrder(order);
-```
-
-### SetFiringOrder
-`public void SetFiringOrder(FiringOrder order)`
-
-**Purpose:** Assigns a new value to firing order and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetFiringOrder(order);
-```
-
-### SetControlledByAI
-`public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)`
-
-**Purpose:** Assigns a new value to controlled by a i and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetControlledByAI(false, false);
-```
-
-### SetTargetFormation
-`public void SetTargetFormation(Formation targetFormation)`
-
-**Purpose:** Assigns a new value to target formation and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetTargetFormation(targetFormation);
-```
-
-### OnDeploymentFinished
-`public void OnDeploymentFinished()`
-
-**Purpose:** Invoked when the deployment finished event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnDeploymentFinished();
-```
-
-### ResetArrangementOrderTickTimer
-`public void ResetArrangementOrderTickTimer()`
-
-**Purpose:** Returns arrangement order tick timer to its default or initial condition.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ResetArrangementOrderTickTimer();
-```
-
-### SetPositioning
-`public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)`
-
-**Purpose:** Assigns a new value to positioning and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetPositioning(null, null, 0);
-```
-
-### GetCountOfUnitsWithCondition
-`public int GetCountOfUnitsWithCondition(Func<Agent, bool> function)`
-
-**Purpose:** Reads and returns the count of units with condition value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetCountOfUnitsWithCondition(func<Agent, false);
-```
-
-### GetReadonlyMovementOrderReference
-`public readonly ref MovementOrder GetReadonlyMovementOrderReference()`
-
-**Purpose:** Reads and returns the readonly movement order reference value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetReadonlyMovementOrderReference();
-```
-
-### GetFirstUnit
-`public Agent GetFirstUnit()`
-
-**Purpose:** Reads and returns the first unit value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetFirstUnit();
-```
-
-### GetCountOfUnitsBelongingToLogicalClass
-`public int GetCountOfUnitsBelongingToLogicalClass(FormationClass logicalClass)`
-
-**Purpose:** Reads and returns the count of units belonging to logical class value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetCountOfUnitsBelongingToLogicalClass(logicalClass);
-```
-
-### GetCountOfUnitsBelongingToPhysicalClass
-`public int GetCountOfUnitsBelongingToPhysicalClass(FormationClass physicalClass, bool excludeBannerBearers)`
-
-**Purpose:** Reads and returns the count of units belonging to physical class value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetCountOfUnitsBelongingToPhysicalClass(physicalClass, false);
-```
-
-### SetSpawnIndex
-`public void SetSpawnIndex(int value = 0)`
-
-**Purpose:** Assigns a new value to spawn index and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetSpawnIndex(0);
-```
-
-### GetNextSpawnIndex
-`public int GetNextSpawnIndex()`
-
-**Purpose:** Reads and returns the next spawn index value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetNextSpawnIndex();
-```
-
-### GetUnitWithIndex
-`public Agent GetUnitWithIndex(int unitIndex)`
-
-**Purpose:** Reads and returns the unit with index value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetUnitWithIndex(0);
-```
-
-### GetAveragePositionOfUnits
-`public Vec2 GetAveragePositionOfUnits(bool excludeDetachedUnits, bool excludePlayer)`
-
-**Purpose:** Reads and returns the average position of units value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetAveragePositionOfUnits(false, false);
-```
-
-### GetMedianAgent
-`public Agent GetMedianAgent(bool excludeDetachedUnits, bool excludePlayer, Vec2 averagePosition)`
-
-**Purpose:** Reads and returns the median agent value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetMedianAgent(false, false, averagePosition);
-```
-
-### GetUnderAttackTypeOfUnits
-`public Agent.UnderAttackType GetUnderAttackTypeOfUnits(float timeLimit = 3f)`
-
-**Purpose:** Reads and returns the under attack type of units value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetUnderAttackTypeOfUnits(0);
-```
-
-### GetMovementTypeOfUnits
-`public Agent.MovementBehaviorType GetMovementTypeOfUnits()`
-
-**Purpose:** Reads and returns the movement type of units value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetMovementTypeOfUnits();
-```
-
-### GetUnitsWithoutDetachedOnes
-`public IEnumerable<Agent> GetUnitsWithoutDetachedOnes()`
-
-**Purpose:** Reads and returns the units without detached ones value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetUnitsWithoutDetachedOnes();
-```
-
-### GetWallDirectionOfRelativeFormationLocation
-`public Vec2 GetWallDirectionOfRelativeFormationLocation(Agent unit)`
-
-**Purpose:** Reads and returns the wall direction of relative formation location value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetWallDirectionOfRelativeFormationLocation(unit);
-```
-
-### GetDirectionOfUnit
-`public Vec2 GetDirectionOfUnit(Agent unit)`
-
-**Purpose:** Reads and returns the direction of unit value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetDirectionOfUnit(unit);
-```
-
-### GetMovementState
-`public MovementOrder.MovementStateEnum GetMovementState()`
-
-**Purpose:** Reads and returns the movement state value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetMovementState();
-```
-
-### GetOrderPositionOfUnit
-`public WorldPosition GetOrderPositionOfUnit(Agent unit)`
-
-**Purpose:** Reads and returns the order position of unit value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetOrderPositionOfUnit(unit);
-```
-
-### GetCurrentGlobalPositionOfUnit
-`public Vec2 GetCurrentGlobalPositionOfUnit(Agent unit, bool blendWithOrderDirection)`
-
-**Purpose:** Reads and returns the current global position of unit value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetCurrentGlobalPositionOfUnit(unit, false);
-```
-
-### GetAverageMaximumMovementSpeedOfUnits
-`public float GetAverageMaximumMovementSpeedOfUnits()`
-
-**Purpose:** Reads and returns the average maximum movement speed of units value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetAverageMaximumMovementSpeedOfUnits();
-```
-
-### GetFormationPower
-`public float GetFormationPower()`
-
-**Purpose:** Reads and returns the formation power value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetFormationPower();
-```
-
-### GetFormationMeleeFightingPower
-`public float GetFormationMeleeFightingPower()`
-
-**Purpose:** Reads and returns the formation melee fighting power value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetFormationMeleeFightingPower();
-```
-
-### GetDetachmentOrDefault
-`public IDetachment GetDetachmentOrDefault(Agent agent)`
-
-**Purpose:** Reads and returns the detachment or default value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetDetachmentOrDefault(agent);
-```
-
-### GetDetachmentFrame
-`public WorldFrame? GetDetachmentFrame(Agent agent)`
-
-**Purpose:** Reads and returns the detachment frame value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetDetachmentFrame(agent);
-```
-
-### GetMiddleFrontUnitPositionOffset
-`public Vec2 GetMiddleFrontUnitPositionOffset()`
-
-**Purpose:** Reads and returns the middle front unit position offset value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetMiddleFrontUnitPositionOffset();
-```
-
-### GetUnitsToPopWithReferencePosition
-`public List<IFormationUnit> GetUnitsToPopWithReferencePosition(int count, Vec3 targetPosition)`
-
-**Purpose:** Reads and returns the units to pop with reference position value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetUnitsToPopWithReferencePosition(0, targetPosition);
-```
-
-### GetUnitsToPop
-`public List<IFormationUnit> GetUnitsToPop(int count)`
-
-**Purpose:** Reads and returns the units to pop value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetUnitsToPop(0);
-```
-
-### GetUnavailableUnitPositionsAccordingToNewOrder
-`public IEnumerable<ValueTuple<WorldPosition, Vec2>> GetUnavailableUnitPositionsAccordingToNewOrder(Formation simulationFormation, in WorldPosition position, in Vec2 direction, float width, int unitSpacing)`
-
-**Purpose:** Reads and returns the unavailable unit positions according to new order value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetUnavailableUnitPositionsAccordingToNewOrder(simulationFormation, position, direction, 0, 0);
-```
-
-### GetUnitSpawnFrameWithIndex
-`public void GetUnitSpawnFrameWithIndex(int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitCount, int unitSpacing, bool isMountedFormation, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)`
-
-**Purpose:** Reads and returns the unit spawn frame with index value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.GetUnitSpawnFrameWithIndex(0, formationPosition, formationDirection, 0, 0, 0, false, unitSpawnPosition, unitSpawnDirection);
-```
-
-### GetUnitPositionWithIndexAccordingToNewOrder
-`public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)`
-
-**Purpose:** Reads and returns the unit position with index according to new order value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, unitSpawnPosition, unitSpawnDirection);
-```
-
-### GetUnitPositionWithIndexAccordingToNewOrder
-`public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, int overridenUnitCount, out WorldPosition? unitPosition, out Vec2? unitDirection)`
-
-**Purpose:** Reads and returns the unit position with index according to new order value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, 0, unitPosition, unitDirection);
-```
-
-### GetUnitPositionWithIndexAccordingToNewOrder
-`public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection, out float actualWidth)`
-
-**Purpose:** Reads and returns the unit position with index according to new order value held by the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, unitSpawnPosition, unitSpawnDirection, actualWidth);
-```
-
-### HasUnitsWithCondition
-`public bool HasUnitsWithCondition(Func<Agent, bool> function)`
-
-**Purpose:** Determines whether the this instance already holds units with condition.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.HasUnitsWithCondition(func<Agent, false);
-```
-
-### HasUnitsWithCondition
-`public bool HasUnitsWithCondition(Func<Agent, bool> function, out Agent result)`
-
-**Purpose:** Determines whether the this instance already holds units with condition.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.HasUnitsWithCondition(func<Agent, false, result);
-```
-
-### HasAnyEnemyFormationsThatIsNotEmpty
-`public bool HasAnyEnemyFormationsThatIsNotEmpty()`
-
-**Purpose:** Determines whether the this instance already holds any enemy formations that is not empty.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.HasAnyEnemyFormationsThatIsNotEmpty();
-```
-
-### HasUnitWithConditionLimitedRandom
-`public bool HasUnitWithConditionLimitedRandom(Func<Agent, bool> function, int startingIndex, int willBeCheckedUnitCount, out Agent resultAgent)`
-
-**Purpose:** Determines whether the this instance already holds unit with condition limited random.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.HasUnitWithConditionLimitedRandom(func<Agent, false, 0, 0, resultAgent);
-```
-
-### CollectUnitIndices
-`public int CollectUnitIndices()`
-
-**Purpose:** Executes the CollectUnitIndices logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.CollectUnitIndices();
-```
-
-### ApplyActionOnEachUnit
-`public void ApplyActionOnEachUnit(Action<Agent> action, Agent ignoreAgent = null)`
-
-**Purpose:** Applies the effect of action on each unit to the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ApplyActionOnEachUnit(action, null);
-```
-
-### ApplyActionOnEachAttachedUnit
-`public void ApplyActionOnEachAttachedUnit(Action<Agent> action)`
-
-**Purpose:** Applies the effect of action on each attached unit to the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ApplyActionOnEachAttachedUnit(action);
-```
-
-### ApplyActionOnEachDetachedUnit
-`public void ApplyActionOnEachDetachedUnit(Action<Agent> action)`
-
-**Purpose:** Applies the effect of action on each detached unit to the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ApplyActionOnEachDetachedUnit(action);
-```
-
-### ApplyActionOnEachUnitViaBackupList
-`public void ApplyActionOnEachUnitViaBackupList(Action<Agent> action)`
-
-**Purpose:** Applies the effect of action on each unit via backup list to the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ApplyActionOnEachUnitViaBackupList(action);
-```
-
-### ApplyActionOnEachUnit
-`public void ApplyActionOnEachUnit(Action<Agent, List<WorldPosition>> action, List<WorldPosition> list)`
-
-**Purpose:** Applies the effect of action on each unit to the this instance.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ApplyActionOnEachUnit(action<Agent, action, list);
-```
-
-### CountUnitsOnNavMeshIDMod10
-`public int CountUnitsOnNavMeshIDMod10(int navMeshID, bool includeOnlyPositionedUnits)`
-
-**Purpose:** Executes the CountUnitsOnNavMeshIDMod10 logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.CountUnitsOnNavMeshIDMod10(0, false);
-```
-
-### OnAgentControllerChanged
-`public void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)`
-
-**Purpose:** Invoked when the agent controller changed event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnAgentControllerChanged(agent, oldController);
-```
-
-### OnMassUnitTransferStart
-`public void OnMassUnitTransferStart()`
-
-**Purpose:** Invoked when the mass unit transfer start event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnMassUnitTransferStart();
-```
-
-### OnMassUnitTransferEnd
-`public void OnMassUnitTransferEnd()`
-
-**Purpose:** Invoked when the mass unit transfer end event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnMassUnitTransferEnd();
-```
-
-### OnBatchUnitRemovalStart
-`public void OnBatchUnitRemovalStart()`
-
-**Purpose:** Invoked when the batch unit removal start event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnBatchUnitRemovalStart();
-```
-
-### OnBatchUnitRemovalEnd
-`public void OnBatchUnitRemovalEnd()`
-
-**Purpose:** Invoked when the batch unit removal end event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnBatchUnitRemovalEnd();
-```
-
-### OnUnitAddedOrRemoved
-`public void OnUnitAddedOrRemoved()`
-
-**Purpose:** Invoked when the unit added or removed event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnUnitAddedOrRemoved();
-```
-
-### OnAgentLostMount
-`public void OnAgentLostMount(Agent agent)`
-
-**Purpose:** Invoked when the agent lost mount event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnAgentLostMount(agent);
-```
-
-### OnFormationDispersed
-`public void OnFormationDispersed()`
-
-**Purpose:** Invoked when the formation dispersed event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnFormationDispersed();
-```
-
-### OnUnitDetachmentChanged
-`public void OnUnitDetachmentChanged(Agent unit, bool isOldDetachmentLoose, bool isNewDetachmentLoose)`
-
-**Purpose:** Invoked when the unit detachment changed event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnUnitDetachmentChanged(unit, false, false);
-```
-
-### OnUndetachableNonPlayerUnitAdded
-`public void OnUndetachableNonPlayerUnitAdded(Agent unit)`
-
-**Purpose:** Invoked when the undetachable non player unit added event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnUndetachableNonPlayerUnitAdded(unit);
-```
-
-### OnUndetachableNonPlayerUnitRemoved
-`public void OnUndetachableNonPlayerUnitRemoved(Agent unit)`
-
-**Purpose:** Invoked when the undetachable non player unit removed event is raised.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.OnUndetachableNonPlayerUnitRemoved(unit);
-```
-
-### ResetMovementOrderPositionCache
-`public void ResetMovementOrderPositionCache()`
-
-**Purpose:** Returns movement order position cache to its default or initial condition.
+- **Lifecycle:** born with the `Mission`. A `Team` constructs one `Formation` per class (`new Formation(team, index)`, `Formation.cs:605`) and disposes them together with the `Team` when the `Mission` ends.
+- **Who creates / owns it:** the `Team` (`Team.FormationsIncludingSpecialAndEmpty` / `Team.FormationsIncludingEmpty`, both `MBList<Formation>`). The formation itself does not spawn units; the spawn system routes troops in via `Team.AddAgentToTeam` → `Formation.AddUnit`.
+- **What layer it lives in:** the pure runtime combat layer (`TaleWorlds.MountAndBlade`). It takes no part in the campaign save. It reads live state such as `Mission.Current`, `Mission.Current.Mode`, `Mission.Current.IsFormationUnitPositionAvailableMT` — outside a `Mission` context a `Formation` is meaningless.
+- **How it is driven:** orders are written as small *Order* objects (`MovementOrder`, `ArrangementOrder`, `FormOrder`, `RidingOrder`, `FiringOrder`, `FacingOrder`); each frame `Formation.Tick` translates those orders into per-`Agent` settings (`agent.SetRidingOrder` / `agent.SetFiringOrder` / `agent.SetTargetFormationIndex`, …).
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ResetMovementOrderPositionCache();
-```
-
-### Reset
-`public void Reset()`
-
-**Purpose:** Returns the this instance to its default or initial condition.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.Reset();
-```
-
-### Split
-`public IEnumerable<Formation> Split(int count = 2)`
-
-**Purpose:** Splits split into multiple parts or sub-items.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.Split(0);
-```
-
-### TransferUnits
-`public void TransferUnits(Formation target, int unitCount)`
-
-**Purpose:** Executes the TransferUnits logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.TransferUnits(target, 0);
-```
-
-### TransferUnitsAux
-`public void TransferUnitsAux(Formation target, int unitCount, bool isPlayerOrder, bool useSelectivePop)`
-
-**Purpose:** Executes the TransferUnitsAux logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.TransferUnitsAux(target, 0, false, false);
-```
-
-### DebugArrangements
-`public void DebugArrangements()`
-
-**Purpose:** Executes the DebugArrangements logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.DebugArrangements();
-```
+The `OrderOfBattle` is the broader system this plugs into: the pre-battle deployment / order screen (the `OrderOfBattle*` view-models and the `OrderController` that executes player and AI orders) is where a human player picks classes, heroes and initial orders. At runtime, modders mostly read and set those same orders through `Formation` and the `OrderController` rather than through the UI layer (see [the mission-ext bucket](../../mission-ext/)).
 
-### AddUnit
-`public void AddUnit(Agent unit)`
+## How to Obtain a Formation
 
-**Purpose:** Adds unit to the current collection or state.
+You always take a `Formation` *from a `Team`* — you never construct one. There are two equivalent ways:
 
 ```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.AddUnit(unit);
-```
-
-### RemoveUnit
-`public void RemoveUnit(Agent unit)`
-
-**Purpose:** Removes unit from the current collection or state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.RemoveUnit(unit);
-```
-
-### DetachUnit
-`public void DetachUnit(Agent unit, bool isLoose)`
-
-**Purpose:** Executes the DetachUnit logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.DetachUnit(unit, false);
-```
-
-### AttachUnit
-`public void AttachUnit(Agent unit)`
-
-**Purpose:** Executes the AttachUnit logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.AttachUnit(unit);
-```
-
-### SwitchUnitLocations
-`public void SwitchUnitLocations(Agent firstUnit, Agent secondUnit)`
-
-**Purpose:** Executes the SwitchUnitLocations logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SwitchUnitLocations(firstUnit, secondUnit);
-```
-
-### ForceCalculateCaches
-`public void ForceCalculateCaches()`
-
-**Purpose:** Executes the ForceCalculateCaches logic.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.ForceCalculateCaches();
-```
-
-### Tick
-`public void Tick(float dt)`
+// Option 1 (recommended): take it directly by class. Internally this is just
+// FormationsIncludingSpecialAndEmpty[(int)cls].
+Team playerTeam = Mission.Current.PlayerTeam;
+Formation infantry = playerTeam.GetFormation(FormationClass.Infantry);
+Formation archers  = playerTeam.GetFormation(FormationClass.Ranged);
 
-**Purpose:** Advances the this instance's state by one frame or update cycle.
+// Option 2: iterate the list the Team holds.
+foreach (Formation f in playerTeam.FormationsIncludingSpecialAndEmpty)
+{
+    if (f.CountOfUnits > 0)
+    {
+        // this formation has troops in it
+    }
+}
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.Tick(0);
+// Use FormationsIncludingEmpty when you only want non-empty regular formations.
+foreach (Formation f in playerTeam.FormationsIncludingEmpty) { /* ... */ }
 ```
 
-### SetHasPendingUnitPositions
-`public void SetHasPendingUnitPositions(bool hasPendingUnitPositions)`
+> Note: the argument to `GetFormation` is a `FormationClass` value (see below); its integer value *is* the formation's index in the list. There is **no** `Team.Formations` property and no `Formations.GetFormation(...)` — call `team.GetFormation(...)` directly.
 
-**Purpose:** Assigns a new value to has pending unit positions and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.SetHasPendingUnitPositions(false);
-```
+## Formation Classes (FormationClass)
 
-### JoinDetachment
-`public void JoinDetachment(IDetachment detachment)`
+`FormationClass` (`TaleWorlds.Core`) is both the "class slot" of a formation and the index into the team's formation array:
 
-**Purpose:** Joins several detachment items into a single whole.
+| Value | Meaning |
+|-------|---------|
+| `Infantry = 0` | Infantry |
+| `Ranged = 1` | Archer / crossbowman |
+| `Cavalry = 2` | Cavalry |
+| `HorseArcher = 3` | Horse archer |
+| `Skirmisher = 4` | Skirmisher (javelins, etc.) |
+| `HeavyInfantry = 5` | Heavy infantry |
+| `LightCavalry = 6` | Light cavalry |
+| `HeavyCavalry = 7` | Heavy cavalry |
+| `NumberOfAllFormations = 10` / `Unset = 10` | sentinel meaning "none / unassigned" |
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.JoinDetachment(detachment);
-```
+A formation carries a `LogicalClass` (what it *should* be, inferred from current members) and a `PhysicalClass` (the dominant real class, `QuerySystem.MainClass`). `RepresentativeClass` / `SecondaryLogicalClasses` / `SecondaryPhysicalClasses` let you know at a glance what is mixed into the squad without iterating units.
 
-### FormAttackEntityDetachment
-`public void FormAttackEntityDetachment(GameEntity targetEntity)`
+## When to Use / When NOT to Use
 
-**Purpose:** Executes the FormAttackEntityDetachment logic.
+**Use `Formation` when:**
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.FormAttackEntityDetachment(targetEntity);
-```
+- You want to issue a **squad-level tactical command**: move a group to a point, charge, change arrangement, mount/dismount, hold/fire.
+- You want to **query or operate on a whole squad**: count troops, filter by condition, run one action on every `Agent` (`ApplyActionOnEachUnit`).
+- You want to **read squad posture**: average position, nearest enemy formation, formation width, unit count, whether it is all cavalry (`QuerySystem` + the `CountOf*` properties).
 
-### LeaveDetachment
-`public void LeaveDetachment(IDetachment detachment)`
+**Do NOT use `Formation` when:**
 
-**Purpose:** Executes the LeaveDetachment logic.
+- You want to change the **instantaneous state of a single soldier** — operate on that `Agent` directly; do not touch the formation's orders for one unit.
+- You are on the **campaign (Campaign) layer** where no `Mission` exists. Store your decision as a `FormationClass` + in-team index or an `OrderType`, then push it through a `MissionBehavior` once the `Mission` starts (see [MissionBehavior](../MissionBehavior/)).
+- You want to **serialize / save a `Formation` reference**. It is a pure runtime object that goes stale when the `Mission` ends; save a *rebuildable* key like class + team, not an object reference.
+- You assume the **same `Formation` instance survives across `Mission`es** — every battle creates brand-new instances.
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.LeaveDetachment(detachment);
-```
+## Dependencies
 
-### DisbandAttackEntityDetachment
-`public void DisbandAttackEntityDetachment()`
+- **Upstream (creates / owns / drives)**
+  - [Team](../Team/) — creates and owns all formations; exposes `GetFormation`, `FormationsIncludingSpecialAndEmpty`.
+  - [Mission](../Mission/) — provides `Mission.Current`, runs `Formation.Tick`, and decides `Mode` (deployment / battle).
+  - [OrderController](../../mission-ext/OrderController/) — `Team.MasterOrderController` / `PlayerOrderController` actually performs `Split` / `TransferUnits` / player orders.
+- **Downstream (commanded / queried)**
+  - [Agent](../Agent/) — the units inside a formation; added via `AddUnit` and driven via `agent.SetTargetFormationIndex` / `SetRidingOrder` / `SetFiringOrder`.
+  - `FormationQuerySystem` (`QuerySystem`) — per-formation posture cache (enemy distance, class ratio, average position).
+  - `FormationAI` (`AI`) — the formation's AI behavior, driven by `Team.TeamAI`.
+- **Order vocabulary (existing EN pages)**
+  - [MovementOrder](../../mission-ext/MovementOrder/) — move / charge / follow / attack factories.
+  - [ArrangementOrder](../../mission-ext/ArrangementOrder/) — line / column / circle / square / shield-wall / scatter / loose / wedge.
+  - [OrderType](../../mission-ext/OrderType/), [FiringOrder](../../mission-ext/FiringOrder/), [RidingOrder](../../mission-ext/RidingOrder/), [FacingOrder](../../mission-ext/FacingOrder/), [FormOrder](../../mission-ext/FormOrder/).
+- **Related behaviors / entry points**
+  - [MissionBehavior](../MissionBehavior/) — the callback entry point for reading/issuing formation orders in battle.
+  - [MBGameManager](../../mission-ext/MBGameManager/) / [MissionLogic](../../mission-ext/MissionLogic/) — where modders hook into the mission loop.
+  - [FormationSpawnData](../FormationSpawnData/) — how troops are routed into formations.
 
-**Purpose:** Executes the DisbandAttackEntityDetachment logic.
+## Risks
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.DisbandAttackEntityDetachment();
-```
+`Formation` is one of the easiest types to crash with if you hold or call it outside its live `Mission`:
 
-### Rearrange
-`public void Rearrange(IFormationArrangement arrangement)`
+1. **Calling it outside a `Mission` throws `NullReferenceException`.** Many members read `Mission.Current` — `Reset()`, `Tick()`, `IsDeployment => Mission.Current.Mode`, `IsConvenientForTransfer => Mission.Current.MissionTeamAIType`, `CreateNewOrderWorldPosition`, and more. In any scope where `Mission == null` (campaign map tick, menus, early save-load) calling `formation.Xxx` dereferences null. Only touch a formation while `Mission.Current != null` and the mission is active.
 
-**Purpose:** Executes the Rearrange logic.
+2. **Holding a `Formation` reference after the `Mission` ends = dangling reference.** When the `Mission` ends the `Team` and its formations are torn down; a cached field now points at a dead object. Re-calling it reads a null or wrong `Mission.Current`. Prefer events and local variables; do not store formations long-term.
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.Rearrange(arrangement);
-```
+3. **Holding an `Agent` taken from a formation after that `Agent` is dead.** `GetFirstUnit()`, `GetUnitWithIndex(...)`, `ApplyActionOnEachUnit(...)` and the `DetachedUnits` / `LooseDetachedUnits` lists hand back `Agent` references that may have died between frames. Before acting on one, check `agent.IsActive()` / `agent.State == AgentState.Active` (and that you are still inside the `Mission`). Treating a stale `Agent` as live leads to the same null/dead-reference crashes as risk 1–2.
 
-### TickForColumnArrangementInitialPositioning
-`public void TickForColumnArrangementInitialPositioning(Formation formation)`
+4. **Wrong-phase orders are silently replaced or ignored.** `SetMovementOrder` contains an auto-replace loop `while (!_movementOrder.IsApplicable(this))` inside `Tick`: during deployment, an order that does not apply then (e.g. `Charge` without a valid target position) is quietly swapped for `Move` or `Stop`. For deployment positioning use `MovementOrder.MovementOrderMove(pos)`; issue the real "charge" after `OnDeploymentFinished` or from battle logic.
 
-**Purpose:** Advances the for column arrangement initial positioning state each frame or update cycle.
+5. **`Split` / `TransferUnits` rearrange units and raise `OnFormationsChanged`.** Calling them mid-`foreach` over `FormationsIncludingSpecialAndEmpty` mutates the list you are iterating, risking skipped/duplicated entries. Collect targets first, or do it inside a suitable `MissionLogic` callback.
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.TickForColumnArrangementInitialPositioning(formation);
-```
+6. **`SetControlledByAI(false)` hands the formation to the player and can re-trigger AI activation.** Switching an AI-controlled formation to manual while `TeamAI` also drives it makes orders "fight". Before mixing control, be clear on `PlayerOwner` vs `IsAIOwned` (`SetControlledByAI` internally calls `AI.ActiveBehavior.OnLostAIControl()` / re-`OnBehaviorActivated()`).
 
-### CalculateFormationDirectionEnforcingFactorForRank
-`public float CalculateFormationDirectionEnforcingFactorForRank(int rankIndex)`
+7. **Do not write a `Formation` / `Team` into a serializable field (save corruption).** These are transient runtime objects; loading a save would yield a wrong/empty reference and can break `Mission` init. Use a rebuildable key (`FormationClass` + in-team enum).
 
-**Purpose:** Calculates the current value or result of formation direction enforcing factor for rank.
+8. **Setting `BannerCode` broadcasts a network message in multiplayer.** Assigning `formation.BannerCode` on the server does `GameNetwork.BeginBroadcastModuleEvent` with `InitializeFormation`; a client-only assignment will not sync. Change banners through the server-authoritative path.
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.CalculateFormationDirectionEnforcingFactorForRank(0);
-```
+## Key Members
 
-### BeginSpawn
-`public void BeginSpawn(int unitCount, bool isMounted)`
+### Core properties
 
-**Purpose:** Executes the BeginSpawn logic.
+| Property | Type | Meaning / notes |
+|----------|------|-----------------|
+| `Team` | `Team` (`readonly`) | The owning team. |
+| `Index` | `int` (`readonly`) | Index of the formation in the team (equals `(int)FormationIndex`). |
+| `FormationIndex` | `FormationClass` (`readonly`) | The class slot this formation represents. |
+| `CountOfUnits` | `int` | Troops in formation + detached ones. |
+| `CountOfUnitsWithoutDetachedOnes` | `int` | Only arranged (non-detached) troops. |
+| `DetachedUnits` / `LooseDetachedUnits` | `MBReadOnlyList<Agent>` | Units pulled out of the arrangement via `DetachUnit`. |
+| `QuerySystem` | `FormationQuerySystem` | Posture cache: class ratio, nearest enemy, average/median position, speed. |
+| `AI` | `FormationAI` | The formation's AI controller. |
+| `OrderPosition` / `OrderGroundPosition` / `OrderPositionIsValid` | `Vec2` / `Vec3` / `bool` | Current order target point; invalid → `CreateNewOrderWorldPosition` prints a yellow warning. |
+| `CurrentPosition` | `Vec2` | The formation's actual center (average position + facing). |
+| `Direction` / `CurrentDirection` | `Vec2` | The formation's facing. |
+| `LogicalClass` / `PhysicalClass` | `FormationClass` | Logical class / dominant physical class. |
+| `ArrangementOrder` / `FormOrder` / `RidingOrder` / `FiringOrder` / `FacingOrder` | order type | Current order (read-only; change them via the `Set*` methods). |
+| `IsDeployment` | `bool` | `Mission.Current.Mode == MissionMode.Deployment`. |
+| `IsAIControlled` | `bool` | Whether AI owns the formation. |
+| `Captain` | `Agent` | Formation captain; assignment raises `OnCaptainChanged`. |
+| `PlayerOwner` | `Agent` | Player commander; assigning it **auto-calls** `SetControlledByAI(value == null)`. |
+| `IsSpawning` | `bool` | True between `BeginSpawn` / `EndSpawn`. |
+| `TargetFormation` | `Formation` | Locked enemy/friendly target; assigning fans `agent.SetTargetFormationIndex` to the whole squad. |
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.BeginSpawn(0, false);
-```
+### Order system (issuing commands)
 
-### EndSpawn
-`public void EndSpawn()`
+Every command is built as an Order object first, then handed to a `Set*` method; the order is realized on the units during `Tick`.
 
-**Purpose:** Executes the EndSpawn logic.
+#### `public void SetMovementOrder(MovementOrder input)`
+Sets the move / charge order. **Side effects:** raises `OnBeforeMovementOrderApplied`; if the new order differs in "aggression" it refreshes the squad's `DrivenProperty`; finally `SetTargetFormation(null)` clears any lock; if the order is not currently applicable it is auto-replaced during `Tick`. **When to call:** as the unified command entry during battle or deployment positioning.
 
 ```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.EndSpawn();
-```
+// Move to a world position
+WorldPosition pos = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 40f, 0f));
+formation.SetMovementOrder(MovementOrder.MovementOrderMove(pos));
 
-### GetHashCode
-`public override int GetHashCode()`
+// Charge immediately (parameterless static read-only instance)
+formation.SetMovementOrder(MovementOrder.MovementOrderCharge);
 
-**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+// Charge a specific enemy formation
+formation.SetMovementOrder(MovementOrder.MovementOrderChargeToTarget(enemyFormation));
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetHashCode();
+// Follow an Agent / a scene entity / attack an entity
+formation.SetMovementOrder(MovementOrder.MovementOrderFollow(someAgent));
+formation.SetMovementOrder(MovementOrder.MovementOrderFollowEntity(someGameEntity));
+formation.SetMovementOrder(MovementOrder.MovementOrderAttackEntity(someGameEntity, surroundEntity: true));
 ```
-
-### GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth
-`public static float GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(Formation simulationFormation)`
 
-**Purpose:** Reads and returns the last simulated formations occupation width if lesser than actual width value held by the this instance.
+Available static factories / read-only instances (see [MovementOrder](../../mission-ext/MovementOrder/)): `MovementOrderCharge`, `MovementOrderStop`, `MovementOrderRetreat`, `MovementOrderAdvance`, `MovementOrderFallBack` (all read-only), plus `MovementOrderMove(WorldPosition)`, `MovementOrderChargeToTarget(Formation)`, `MovementOrderFollow(Agent)`, `MovementOrderFollowEntity(GameEntity)`, `MovementOrderAttackEntity(GameEntity, bool)`.
 
-```csharp
-// Static call; no instance required
-Formation.GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(simulationFormation);
-```
+> There is no `Formation.MoveTo(...)` / `Formation.Charge()` shortcut — you must go through `MovementOrder` + `SetMovementOrder`.
 
-### GetFormationFramesForBeforeFormationCreation
-`public static List<WorldFrame> GetFormationFramesForBeforeFormationCreation(float width, int manCount, bool areMounted, WorldPosition spawnOrigin, Mat3 spawnRotation)`
+#### `public void SetArrangementOrder(ArrangementOrder order)`
+Sets the arrangement: line `ArrangementOrderLine`, column `ArrangementOrderColumn`, circle `ArrangementOrderCircle`, square `ArrangementOrderSquare`, shield wall `ArrangementOrderShieldWall`, scatter `ArrangementOrderScatter`, loose `ArrangementOrderLoose`, wedge `ArrangementOrderSkein`. **Side effects:** recomputes `Width` / defense factor, invalidates `QuerySystem` and forces a cache recalculation (see [ArrangementOrder](../../mission-ext/ArrangementOrder/)).
 
-**Purpose:** Reads and returns the formation frames for before formation creation value held by the this instance.
-
 ```csharp
-// Static call; no instance required
-Formation.GetFormationFramesForBeforeFormationCreation(0, 0, false, spawnOrigin, spawnRotation);
+formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderLine);
+formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderShieldWall);
 ```
-
-### GetDefaultUnitDiameter
-`public static float GetDefaultUnitDiameter(bool isMounted)`
 
-**Purpose:** Reads and returns the default unit diameter value held by the this instance.
+#### `public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)`
+Sets how the formation *forms up* (e.g. `FormOrder.FormOrderCustom(width)`). **Side effects:** raises `FormOrder.OnApply` and invalidates `QuerySystem`.
 
-```csharp
-// Static call; no instance required
-Formation.GetDefaultUnitDiameter(false);
-```
-
-### GetDefaultMinimumUnitInterval
-`public static float GetDefaultMinimumUnitInterval(bool isMounted)`
+#### `public void SetRidingOrder(RidingOrder order)`
+Mount / dismount. **Side effects:** iterates the squad calling `agent.SetRidingOrder(order.OrderEnum)` and reshapes the formation.
 
-**Purpose:** Reads and returns the default minimum unit interval value held by the this instance.
+#### `public void SetFiringOrder(FiringOrder order)`
+Open / hold fire. **Side effects:** iterates the squad calling `agent.SetFiringOrder(order.OrderEnum)`.
 
-```csharp
-// Static call; no instance required
-Formation.GetDefaultMinimumUnitInterval(false);
-```
+#### `public void SetFacingOrder(FacingOrder order)`
+Sets the facing instruction (e.g. `FacingOrderLookAtEnemy`, `FacingOrderLookAtDirection`).
 
-### GetDefaultUnitInterval
-`public static float GetDefaultUnitInterval(bool isMounted, int unitSpacing)`
+#### `public void SetTargetFormation(Formation targetFormation)`
+Locks a target formation (for charge / engagement). **Side effects:** writes `TargetFormation`, which fans `agent.SetTargetFormationIndex` to the whole squad; pass `null` to clear.
 
-**Purpose:** Reads and returns the default unit interval value held by the this instance.
+#### `public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)`
+Toggles AI control. **Side effects:** when AI takes over and the formation has units, it immediately `AI.Tick()`s and issues `AI.ActiveBehavior.CurrentOrder` as the movement order; handing back to the player calls `AI.ActiveBehavior.OnLostAIControl()`. Interacts with `PlayerOwner` assignment.
 
-```csharp
-// Static call; no instance required
-Formation.GetDefaultUnitInterval(false, 0);
-```
+### Query & batch operations
 
-### GetDefaultMinimumUnitDistance
-`public static float GetDefaultMinimumUnitDistance(bool isMounted)`
+#### `public int CountOfUnits` / `CountOfUnitsWithoutDetachedOnes` / `CountOfDetachedUnits`
+Current squad size, split by whether detached units are counted.
 
-**Purpose:** Reads and returns the default minimum unit distance value held by the this instance.
+#### `public int GetCountOfUnitsWithCondition(Func<Agent, bool> function)`
+Counts units (arranged + detached) matching a predicate.
 
 ```csharp
-// Static call; no instance required
-Formation.GetDefaultMinimumUnitDistance(false);
+int mounted = formation.GetCountOfUnitsWithCondition(a => a.HasMount);
 ```
 
-### GetDefaultUnitDistance
-`public static float GetDefaultUnitDistance(bool isMounted, int unitSpacing)`
+#### `public bool HasUnitsWithCondition(Func<Agent, bool> function, out Agent result)`
+Whether any unit matches; returns one via `out` if so.
 
-**Purpose:** Reads and returns the default unit distance value held by the this instance.
+#### `public void ApplyActionOnEachUnit(Action<Agent> action, Agent ignoreAgent = null)`
+Runs one action on every `Agent` in the formation (excluding detached). Variants `ApplyActionOnEachAttachedUnit`, `ApplyActionOnEachDetachedUnit`, `ApplyActionOnEachUnitViaBackupList` cover attached / detached / "use a backup list to survive mutation during iteration".
 
 ```csharp
-// Static call; no instance required
-Formation.GetDefaultUnitDistance(false, 0);
+formation.ApplyActionOnEachUnit(a =>
+{
+    if (a.Health < a.HealthLimit)
+        a.Health = Math.Min(a.Health + 10f, a.HealthLimit);
+});
 ```
 
-### GetDefaultFileWidth
-`public static float GetDefaultFileWidth(int fileUnitCount, int unitSpacing, bool isMounted)`
+#### `public Agent GetFirstUnit()` / `public Agent GetUnitWithIndex(int unitIndex)`
+Takes a unit by index (arranged first, then detached). Indices are **not** stable across `Mission`es.
 
-**Purpose:** Reads and returns the default file width value held by the this instance.
+#### `public FormationQuerySystem QuerySystem`
+Posture query entry: class ratio (`CavalryUnitRatioReadOnly`, …), nearest enemy, average/median position, speed, units inside/outside a castle, etc. If the data may be stale, call `QuerySystem.Expire()` to force a recompute.
 
-```csharp
-// Static call; no instance required
-Formation.GetDefaultFileWidth(0, 0, false);
-```
-
-### GetDefaultRankDepth
-`public static float GetDefaultRankDepth(int rankUnitCount, int unitSpacing, bool isMounted)`
+### Unit management inside a formation
 
-**Purpose:** Reads and returns the default rank depth value held by the this instance.
+#### `public void TransferUnits(Formation target, int unitCount)`
+Moves `unitCount` units from this formation to another. **Side effects:** routed through `Team.MasterOrderController.TransferUnits`; both sides `CalculateLogicalClass`, their `QuerySystem` is invalidated, and `Team.QuerySystem.ExpireAfterUnitAddRemove` fires. Transferred units keep their old orders/positioning when the target was empty. Guarded by `IsSplittableByAI` in `TransferUnitsAux`.
 
-```csharp
-// Static call; no instance required
-Formation.GetDefaultRankDepth(0, 0, false);
-```
+#### `public IEnumerable<Formation> Split(int count = 2)`
+Splits this formation into `count` formations (via `Team.MasterOrderController.SplitFormation`). **Side effects:** `PostponeCostlyOperations = true` during the split; afterwards each new formation `QuerySystem.Expire()`s and recomputes `LogicalClass`. Returns the split-off formations.
 
-### InfantryInterval
-`public static float InfantryInterval(int unitSpacing)`
+#### `public void DetachUnit(Agent unit, bool isLoose)` / `public void AttachUnit(Agent unit)`
+Temporarily pulls a single unit out of / back into the arrangement. A detached unit still belongs to the `Team` but no longer takes part in the formation layout and can be commanded individually.
 
-**Purpose:** Executes the InfantryInterval logic.
+#### `public void BeginSpawn(int unitCount, bool isMounted)` / `public void EndSpawn()`
+Marks spawn start/end; `IsSpawning` is true between them. Units stream in via `AddUnit` during this window; after `EndSpawn` the formation is considered complete.
 
-```csharp
-// Static call; no instance required
-Formation.InfantryInterval(0);
-```
+#### `public void AddUnit(Agent unit)` / `public void RemoveUnit(Agent unit)`
+Adds / removes a unit, raising `OnUnitAdded` / `OnUnitRemoved` and `OnUnitCountChanged`.
 
-### CavalryInterval
-`public static float CavalryInterval(int unitSpacing)`
+### Lifecycle & per-frame
 
-**Purpose:** Executes the CavalryInterval logic.
+#### `public void Tick(float dt)`
+Called every frame by the `Mission` to drive the whole formation: refreshes average/median position and speed caches, advances `AI.Tick()` (if `Team.HasTeamAi` and the formation is AI- or player-sergeant-controlled), realizes the current `MovementOrder` into positioning (`SetPositioning`), clears empty target formations, and raises `OnTick`. **Do not call it manually** — the engine calls it in the battle loop; you normally only read state or issue orders from a custom `MissionBehavior`'s `OnMissionTick`.
 
-```csharp
-// Static call; no instance required
-Formation.CavalryInterval(0);
-```
+#### `public void Reset()`
+Resets to the initial state (line formation, default `FacingOrderLookAtEnemy`, cleared player ownership). Called once at construction; mods rarely call it again.
 
-### InfantryDistance
-`public static float InfantryDistance(int unitSpacing)`
+#### `public void OnDeploymentFinished()`
+Deployment-phase end hook. **Side effects:** `AI.OnDeploymentFinished()` and `OrderController.TryCancelStopOrder(this)` cancels the deployment stop order. Called by the deployment controller when switching to battle.
 
-**Purpose:** Executes the InfantryDistance logic.
+#### `public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)`
+Sets the formation's order point, facing and spacing. **Side effects:** clamps out-of-bounds to `Mission.Current.GetClosestBoundaryPosition`; large moves trigger `Arrangement.UpdateLocalPositionErrors`; writes `OrderPosition` / `Direction` / `UnitSpacing` and flips the arrangement if needed. Mostly called internally by `MovementOrder.Tick`, but mods may call it directly to place a formation.
 
-```csharp
-// Static call; no instance required
-Formation.InfantryDistance(0);
-```
+#### `public void Rearrange(IFormationArrangement arrangement)`
+Replaces the underlying arrangement algorithm (e.g. `LineFormation` / `ColumnFormation`); switching re-subscribes `OnWidthChanged` / `OnShapeChanged`.
 
-### CavalryDistance
-`public static float CavalryDistance(int unitSpacing)`
+## Example
 
-**Purpose:** Executes the CavalryDistance logic.
+### Example 1: move the player's infantry formation to a point (real acquisition path)
 
 ```csharp
-// Static call; no instance required
-Formation.CavalryDistance(0);
-```
+// Inside a custom MissionBehavior / MissionLogic, while the Mission is active
+if (Mission.Current?.PlayerTeam == null) return;
 
-### IsDefenseRelatedAIDrivenComponent
-`public static bool IsDefenseRelatedAIDrivenComponent(DrivenProperty drivenProperty)`
+// Take the formation by class from the Team (do not new it yourself)
+Formation infantry = Mission.Current.PlayerTeam.GetFormation(FormationClass.Infantry);
+if (infantry == null || infantry.CountOfUnits == 0) return;
 
-**Purpose:** Determines whether the this instance is in the defense related a i driven component state or condition.
-
-```csharp
-// Static call; no instance required
-Formation.IsDefenseRelatedAIDrivenComponent(drivenProperty);
+// Build a world position as the move target
+WorldPosition target = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 40f, 0f));
+infantry.SetMovementOrder(MovementOrder.MovementOrderMove(target));
 ```
 
-### GetRetreatPositionFromCache
-`public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
+### Example 2: shield-wall the infantry and charge everyone (at deployment end / battle start)
 
-**Purpose:** Reads and returns the retreat position from cache value held by the this instance.
-
 ```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-var result = formation.GetRetreatPositionFromCache(agentPosition);
-```
-
-### AddNewPositionToCache
-`public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
+public override void OnMissionTick(float dt)
+{
+    Mission mission = Mission.Current;
+    if (mission == null || mission.PlayerTeam == null) return;
 
-**Purpose:** Adds new position to cache to the current collection or state.
+    foreach (Formation f in mission.PlayerTeam.FormationsIncludingSpecialAndEmpty)
+    {
+        if (f.CountOfUnits == 0) continue;
 
-```csharp
-// Obtain an instance of Formation from the subsystem API first
-Formation formation = ...;
-formation.AddNewPositionToCache(agentPostion, retreatingPosition);
+        // Shield-wall the infantry / heavy infantry, charge the rest
+        if (f.LogicalClass == FormationClass.Infantry || f.LogicalClass == FormationClass.HeavyInfantry)
+        {
+            f.SetArrangementOrder(ArrangementOrder.ArrangementOrderShieldWall);
+        }
+        f.SetMovementOrder(MovementOrder.MovementOrderCharge);
+    }
+}
 ```
-
-## Usage Example
 
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Formation formation = ...;
-formation.CreateNewOrderWorldPosition(worldPositionEnforcedCache);
-```
+> Key point: both examples go through `Mission.Current.PlayerTeam.GetFormation(...)` + the `MovementOrder` factories, with no ellipsis placeholders or dummy value names.
 
 ## See Also
 
-- [Area Index](../)
+- [↑ Mission](../Mission/) — the scene and driver that owns the formation
+- [↔ Team](../Team/) — creates and owns all formations
+- [↔ Agent](../Agent/) — the units inside a formation
+- [↔ MissionBehavior](../MissionBehavior/) — callback entry point for reading/issuing formation orders in battle
+- [↔ FormationSpawnData](../FormationSpawnData/) — how troops are routed into formations
+- [Related OrderController](../../mission-ext/OrderController/) — actually performs Split / Transfer / player orders
+- [Related MovementOrder](../../mission-ext/MovementOrder/) — move / charge factories
+- [Related ArrangementOrder](../../mission-ext/ArrangementOrder/) — arrangement orders

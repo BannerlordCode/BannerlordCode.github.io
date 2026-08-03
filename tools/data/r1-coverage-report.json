@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T18:52:34.520Z",
+  "generatedAt": "2026-08-03T09:25:31.785Z",
   "version": "1.3.15",
   "lang": "zh",
   "apiRoot": "content/v1.3.15/zh/api",
@@ -8,17 +8,23 @@
   "r1Target": 4796,
   "noiseExcludedExtra": 687,
   "totalBusiness": 4796,
-  "coveredDeep": 74,
-  "coveredFamily": 4722,
+  "coveredDeep": 64,
+  "coveredFamily": 4732,
   "covered": 4796,
   "gap": 0,
   "coverageRate": 1,
   "gapSample": [],
   "sTierMiss": [],
-  "sTierInScope": 60,
-  "sTierCovered": 60,
+  "sTierInScope": 62,
+  "sTierCovered": 62,
   "gapCategoriesTop": [],
   "meta": {
+    "scope": "content/v1.3.15/zh/api",
+    "version": "1.3.15",
+    "language": "zh",
+    "sourceFingerprint": "ff7f15a024ec9a7b23411aa5c8246cafd8618f2a62f394285f18cd89998f6a10",
+    "gitSha": "fdcbc28dbd6f87e9447f91edf92e4bd598161410",
+    "command": "C:\\WorkSpace\\Bannerlord\\BannerlordCode.github.io\\tools\\r1-coverage-report.mjs --version 1.3.15 --lang zh --out tools/data/r1-coverage-report.json --gap-out tools/data/r1-gap-full.json",
     "inventorySkippedNoise": 140,
     "inventorySkippedBaseNoise": 140,
     "noiseExcludedExtra": 687,
@@ -26,16 +32,16 @@
     "r1Target": 4796,
     "previousTotalBusiness": 5483,
     "pageClassCounts": {
-      "stub": 5510,
-      "deep_pass": 74,
-      "family_entry_pass": 122,
-      "noise": 9
+      "stub": 5521,
+      "deep_pass": 64,
+      "family_entry_pass": 23,
+      "noise": 21
     },
-    "deepPassPages": 74,
-    "familyEntryPages": 122,
-    "familyPurposeTypeNames": 5723,
-    "deepPassTypeNames": 74,
+    "deepPassPages": 64,
+    "familyEntryPages": 23,
+    "familyPurposeTypeNames": 4784,
+    "deepPassTypeNames": 64,
     "r1ExtraNoise": "NetworkMessages.*; Messages.From*/To*/BattleServer*/CustomBattleServer*/Lobby* (+ remaining Messages.*); top-level BattleServer*/CustomBattleServer*/Lobby*; psai.*; type IMB*/BattleServer*/CustomBattleServer*/Lobby*",
-    "note": "COVERED if R1-target inventory typeName has a deep_pass class page OR appears as a link/table-row name in a family_entry_pass _index with a non-empty non-formulaic purpose cell / 用途 line. Formulaic \"是 … 公开类型\" purposes do not count. Deep wins over family for dual hits. R1-extra noise stays inventory-listable but is out of r1Target deep-body denominator. CampaignSystem/MountAndBlade core gameplay namespaces are never blanket-noise."
+    "note": "COVERED if an R1-target inventory identity has a deep_pass page declaring the same qualified (version, language, namespace, typeName) identity OR a qualified handwritten family entry. Unqualified family entries count only when the simple name is unique in inventory. Formulaic purposes do not count. S-tier requires standalone deep pages. R1-extra noise stays inventory-listable but is out of the denominator."
   }
 }

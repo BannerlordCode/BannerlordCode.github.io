@@ -16,11 +16,11 @@ This guide helps you diagnose and solve common issues in Bannerlord modding.
 
 ## 目录 / Contents
 
-1. [模块问题](#模块问题)
-2. [游戏崩溃](#游戏崩溃)
-3. [XML 问题](#xml-问题)
-4. [存档问题](#存档问题)
-5. [性能问题](#性能问题)
+1. [模块问题](#mo-kuai-wen-ti)
+2. [游戏崩溃](#you-xi-beng-kui)
+3. [XML 问题](#xml-wen-ti)
+4. [存档问题](#cun-dang-wen-ti)
+5. [性能问题](#xing-neng-wen-ti)
 
 ---
 
@@ -215,7 +215,7 @@ public override void OnMissionFinish(bool isHeroParty)
 
 ## 相关文档 / Related Documentation
 
-- [调试技巧](./#调试技巧)
+- [调试技巧](./#diao-shi-ji-qiao)
 - [存档系统](../save-system-guide/)
 - [常见模式](../common-patterns/)
 

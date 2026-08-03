@@ -1,176 +1,149 @@
 ---
 title: "Agent"
-description: "A single entity inside a Mission: soldiers, the player, horses, and their battlefield state, attributes, and behavior controls."
+description: "The native-backed representation of one live Mission unit: identity, team, formation, state, health, and combat control."
 ---
 # Agent
 
-**Namespace:** TaleWorlds.MountAndBlade  
-**Module:** TaleWorlds.MountAndBlade  
-**Type:** `public class Agent : Entity, IAgent`  
-**Base:** `Entity`  
-**File:** `TaleWorlds.MountAndBlade/Agent.cs`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase`  
+**Base:** `DotNetObject`  
+**Source:** `TaleWorlds.MountAndBlade/Agent.cs`
 
-## Overview
+## Responsibility in one line
 
-`Agent` represents a **concrete entity inside a Mission**: the player character, AI soldiers, horses, siege-engine operators, etc. Unlike `Hero` (the campaign character card), `Agent` is the real-time battlefield object with position, orientation, health, equipment, animation state, and AI controller.
+It connects one person, mount, or other controllable unit in the scene to its Mission, Team, Formation, character source, and native combat object.
 
-It is one of the most commonly manipulated objects in combat mods: spawning troops, modifying health, giving weapons, controlling movement, playing animations, switching teams, and more.
+## Mental model
 
-## Mental Model
+`Agent` is a **single-Mission, native-backed combat entity**, not the `Hero` or `CharacterObject` itself.
 
-Think of `Agent` as a **controllable character instance inside the scene**:
+- Mission's creation path produces Agents and exposes them through `Mission.Agents`/`AllAgents` and `OnAgentCreated`; a mod should not call `new Agent()`.
+- `Character`/`Origin` describe the source character or party, while `Team`/`Formation` describe the unit's live battlefield organization. `State`/`IsActive()` describe whether it is currently active.
+- `Agent.Main` is the convenience path for `Mission.Current?.MainAgent`. It is useful only while a current Mission and player Agent exist.
+- After lethal damage, routing, or engine removal, the Agent is deactivated from its Team, removal callbacks run, and then `OnRemove`/`OnDelete` clean it up. Never carry the object reference across Missions.
 
-- `Agent` exists only for the lifetime of the `Mission`; all agents are destroyed when the scene changes.
-- The same `Hero` generates a different `Agent` instance in each battle.
-- Do not `new Agent()`; create agents through `Mission.Current.SpawnAgent(...)`.
-- It carries both **physics/rendering state** (position, animation) and **gameplay state** (health, team, equipment).
-
-## How to Obtain an Agent
+## How to obtain an Agent
 
 ```csharp
-// Player-controlled agent
-Agent main = Mission.Current?.MainAgent;
-
-// Iterate all agents
-foreach (Agent agent in Mission.Current.Agents)
+Mission mission = Mission.Current;
+if (mission == null)
 {
-    if (agent.IsActive() && agent.IsHuman)
+    return;
+}
+
+Agent main = mission.MainAgent;
+Agent sameMain = Agent.Main;
+Agent firstActive = mission.Agents.FirstOrDefault(agent => agent.IsActive());
+if (main == null || main != sameMain || firstActive == null)
+{
+    return;
+}
+
+Team team = firstActive.Team;
+Formation formation = firstActive.Formation;
+```
+
+New units must come through the Mission spawn/agent-origin path. Direct construction misses the native pointer, equipment, Team, and Formation bindings that the engine establishes.
+
+## Key members
+
+| Member | Use and timing | Boundary |
+|---|---|---|
+| `Main`, `IsMainAgent` | Find the current player Agent | `null` outside a Mission; invalid after the main Agent is removed |
+| `Mission` | Find the scene that owns the Agent | Not a campaign-lifetime dependency after teardown |
+| `Team`, `Formation` | Resolve current side and formation | Can change on team changes or become `null` during removal |
+| `Character`, `Origin` | Read the character template or spawn source | Neither replaces a stable campaign identity or save object |
+| `State`, `IsActive()` | Distinguish Active, Killed, Routed, Unconscious, Deleted, and other phases | A state check is not a guarantee that every native call remains safe |
+| `Health`, `HealthLimit` | Read health or make a confirmed in-mission combat adjustment | Direct health changes do not replace campaign casualty or save logic |
+| `Position`, `Frame`, `MovementVelocity` | Read live spatial and movement state | Reading after end/delete can touch an invalid native object |
+| `Equipment`, `SpawnEquipment` | Read current and initial equipment | Equipment changes during build, weapon changes, and drops |
+| `IsHuman`, `IsMount`, `IsHero` | Filter unit kinds | `IsHero` depends on `Character`; not every Agent is a campaign Hero |
+| `KillCount` | Read or record Mission-local kills | Not the campaign battle result; write-back belongs to Mission result handling |
+
+## Agent state and death ordering
+
+The 1.4.5 `Mission.OnAgentRemoved` implementation sets `affectedAgent.State`, increments the opposing affector's kill count, calls `affectedAgent.Team.DeactivateAgent`, notifies every `MissionBehavior.OnEarlyAgentRemoved` and `OnAgentRemoved`, removes the Agent from the active list, and calls `affectedAgent.OnRemove`. Later `OnAgentDeleted` removes it from the Mission's full collection and clears it.
+
+Death handling therefore belongs in [`MissionBehavior.OnAgentRemoved`](../MissionBehavior/) or a subclass:
+
+```csharp
+public sealed class AgentRemovalRecorder : MissionBehavior
+{
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
     {
-        // ...
+        bool killed = agentState == AgentState.Killed;
+        int agentIndex = affectedAgent.Index;
+        bool wasHero = affectedAgent.IsHero;
+        BattleSideEnum side = affectedAgent.Team?.Side ?? BattleSideEnum.None;
+        bool playerCausedIt = affectorAgent?.IsMainAgent ?? false;
+
+        RecordRemoval(agentIndex, side, wasHero, killed, playerCausedIt);
     }
-}
 
-// Get agents from event arguments
-public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, ...)
-{
-    if (affectedAgent == Mission.Current.MainAgent)
+    private void RecordRemoval(
+        int agentIndex,
+        BattleSideEnum side,
+        bool wasHero,
+        bool killed,
+        bool playerCausedIt)
     {
-        // player got hit
-    }
-}
-```
-
-## Core Properties
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `Mission.MainAgent` | `Agent` | Player agent. |
-| `IsActive` | `bool` | Is alive and still in the scene. |
-| `IsHuman` | `bool` | Is a human (not a horse, etc.). |
-| `IsMount` | `bool` | Is a mount. |
-| `Team` | `Team` | Team this agent belongs to. |
-| `Formation` | `Formation` | Formation this agent belongs to. |
-| `Health` / `HealthLimit` | `float` | Current and max health. |
-| `Character` | `CharacterObject` | Underlying character template. |
-| `Hero` (extension) | `Hero` | If the agent corresponds to a hero, access via extension or `Character.HeroObject`. |
-| `Position` / `LookDirection` | `Vec3` | Position and facing direction. |
-| `WieldedWeapon` | `MissionWeapon` | Currently held weapon. |
-| `Origin` | `IAgentOriginBase` | Spawn origin (party, hero, scene placement, etc.). |
-
-## Key Methods
-
-### `public bool IsActive()`
-Check whether the agent is still alive and valid.
-
-```csharp
-Agent target = Mission.Current.Agents.FirstOrDefault(a => a.IsActive() && a.IsHuman);
-```
-
-### `public void TelegraphAttackToAgent(Agent target)`
-Make the agent attack the target (AI-controlled).
-
-```csharp
-myAgent.TelegraphAttackToAgent(enemy);
-```
-
-### `public void SetTargetPosition(ref WorldPosition targetPosition)`
-Set a movement target position.
-
-```csharp
-WorldPosition pos = new WorldPosition(Mission.Current.Scene, new Vec3(100f, 50f, 0f));
-agent.SetTargetPosition(pos);
-```
-
-### `public void SetLookDirection(Vec3 direction)`
-Set facing direction.
-
-```csharp
-agent.SetLookDirection(enemy.Position - agent.Position);
-```
-
-### `public void SetWeaponAmountInSlot(...)` / `public void WieldNextWeapon(...)`
-Manage equipment and weapon switching.
-
-```csharp
-agent.WieldNextWeapon(Agent.HandIndex.MainHand);
-```
-
-### `public void Die(...)`
-Kill the agent immediately. Useful for custom mission logic.
-
-```csharp
-agent.Die(new Blow(agent.Index), Agent.KillInfoFlags.None);
-```
-
-### `public void MakeVoice(...)` / `public void SetActionChannel(...)`
-Play voice lines and animations.
-
-```csharp
-agent.MakeVoice(SkinVoiceManager.VoiceType.Yell, SkinVoiceManager.CombatVoiceNetworkPredictionType.NoPrediction);
-```
-
-## Typical Usage Examples
-
-### Example 1: Heal the player agent
-
-```csharp
-Agent main = Mission.Current?.MainAgent;
-if (main != null && main.IsActive())
-{
-    main.Health = main.HealthLimit;
-}
-```
-
-### Example 2: Regenerate health for nearby allies
-
-```csharp
-public override void OnMissionTick(float dt)
-{
-    if (Mission.Current?.PlayerTeam == null) return;
-    foreach (Agent agent in Mission.Current.Agents)
-    {
-        if (agent.IsActive() && agent.Team == Mission.Current.PlayerTeam && agent.IsHuman)
-        {
-            if (agent.Health < agent.HealthLimit)
-            {
-                agent.Health = Math.Min(agent.Health + 5f * dt, agent.HealthLimit);
-            }
-        }
+        // Store value data in a Mission-scoped record; do not store Agent.
     }
 }
 ```
 
-### Example 3: Detect player kills
+The callback may extract values such as `Index`, `IsHero`, and `Team.Side`, but it must not use the removed Agent to track a character after the Mission or write it as a campaign `Hero` into a save.
 
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-{
-    if (affectorAgent == Mission.Current?.MainAgent && affectedAgent.IsHuman)
-    {
-        InformationManager.DisplayMessage(new InformationMessage($"Killed {affectedAgent.Name}"));
-    }
-}
-```
+## Common control methods
 
-## Cross-Version Notes
+| Method | Correct use | Risk |
+|---|---|---|
+| `IsActive()` | Exclude inactive units in a tick or query | The Agent can still be removed later in the same frame; keep the operation short |
+| `SetTargetPosition(ref WorldPosition)` | Set a target for AI/control logic | The position must belong to the current Scene |
+| `SetLookDirection(Vec3)` | Adjust the look direction | Call only for a built Agent in a running Mission |
+| `TelegraphAttackToAgent(Agent)` | Show an attack telegraph toward another target | The target must belong to the same valid Mission |
+| `SetWeaponAmountInSlot`, `WieldNextWeapon` | Change live ammunition or wield state | Do not turn temporary combat equipment into save equipment |
+| `Die(Blow, KillInfo)` | Enter the engine's Blow-based death path | It triggers the full removal pipeline; do not re-enter it for the same Agent from `OnAgentRemoved` |
+| `MakeVoice`, `SetActionChannel` | Play voice or set an animation action | Requires a valid native Agent and Mission time |
 
-- v1.3.0 / v1.3.15 / v1.4.5 core API is the same.
-- v1.4.5 added more splits around `Agent.Controller` and `AgentComponent`; for complex AI behavior, prefer `AgentComponent` or `MissionLogic`.
+## When to use and when not to
 
-## See Also
+**Use it for:** reading position/state in a Mission tick, immediate combat control for a valid Agent, short-lived indexes in `OnAgentCreated`/`OnAgentRemoved`, and filtering active units inside a Team or Formation.
 
-- [Mission](../Mission/) — the scene the agent lives in
-- [Team](../Team/) — teams and sides
-- [Formation](../Formation/) — formations
-- [MissionBehavior](../MissionBehavior/) — receive agent-related events
-- [MissionObject](../../mission-ext/MissionObject/) — scene interactables
+**Do not use it for:** treating an Agent as a persistent Hero, caching it across scenes, deriving permanent campaign casualties directly from `Health`, or replacing campaign `*Action` and event timing with Agent fields.
+
+## Dependencies
+
+- Upstream: [`Mission`](../Mission/) creates, owns, and removes Agents; [`MissionBehavior`](../MissionBehavior/) broadcasts lifecycle events.
+- Organization: [`Team`](../Team/) manages side membership and active Agents; [`Formation`](../Formation/) manages formation membership and orders.
+- Downstream: `MissionLogic` can collect end conditions in `OnAgentRemoved`; Campaign/SandBox behaviors return the Mission result to campaign state.
+- Related model: `CharacterObject`/`BasicCharacterObject` supply the character template; durable identity belongs to campaign objects or the save system.
+
+## Risks and teardown
+
+1. **Null Mission:** `Agent.Main`, `Mission`, and `Team` may be null during menus, loading, or ending.
+2. **Post-death references:** In `OnAgentRemoved` the Agent has already been deactivated from its Team; after `OnAgentDeleted` it is no longer in the Mission's complete set. Do not access it asynchronously.
+3. **Team/formation changes:** Team and Formation are not permanent ownership; team changes, splits, retreat, and cleanup can all change them.
+4. **Native handles:** Position, Frame, Equipment, and control methods reach the native object. `IsActive()` narrows the window but cannot guarantee validity across frames.
+5. **Campaign consistency:** Direct combat-property writes are not a safe Hero, party, or casualty update. Campaign write-back belongs after Mission result handling and the correct Action timing.
+
+## Cross-version notes
+
+- 1.3.15 and 1.4.5 both provide `Agent.Main`, `Mission.Current`, `Team`, `Formation`, `State`, and `IsActive()` as the normal access path.
+- The 1.4.5 source makes the `OnAgentRemoved`/`OnRemove`/`OnDelete` boundaries explicit; 1.3.15 code should follow the same short-lived reference rule.
+
+## Navigation
+
+- [↑ Mission API module](./)
+- [↔ Mission](../Mission/)
+- [↔ MissionBehavior](../MissionBehavior/)
+- [Owning Team](../Team/) · [Owning Formation](../Formation/)
+- [MissionLogic](../../mission-ext/MissionLogic/)
+- [Campaign layer](../../campaign/Campaign/)

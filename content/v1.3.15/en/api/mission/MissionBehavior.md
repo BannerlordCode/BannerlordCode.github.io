@@ -30,6 +30,18 @@ Think of `MissionBehavior` as a **temporary plugin for the current scene**:
 - It is not created automatically; register it in `MBSubModuleBase.OnGameStart` via `MissionGameStarter.AddBehavior(...)`.
 - Multiple `MissionBehavior`s can run in one scene, each handling different logic.
 
+## Dependencies
+
+### Lifecycle inputs
+
+- [`Mission`](../Mission/) owns the behavior instance and determines when callbacks are valid.
+- [`MissionLogic`](../../mission-ext/MissionLogic/) is the specialized mission-behavior family for combat rules and simulation.
+- [`Agent`](../Agent/), [`Team`](../Team/), and [`Formation`](../Formation/) are valid only while the current mission owns their scene state.
+
+### Campaign boundary
+
+- [`CampaignBehaviorBase`](../../campaign-ext/CampaignBehaviorBase/) is the corresponding long-lived campaign hook; use it for saveable or map-wide state rather than caching it in a mission behavior.
+
 ## How to Register
 
 ```csharp

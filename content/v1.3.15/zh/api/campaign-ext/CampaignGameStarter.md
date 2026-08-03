@@ -41,7 +41,7 @@ namespace MyMod
     public class MySubModule : MBSubModuleBase
     {
         // 新战役 / 教学 / 编辑器开局时触发；读档走 OnGameLoaded
-        public override void OnCampaignStart(Game game, object starterObject)
+        protected internal override void OnCampaignStart(Game game, object starterObject)
         {
             CampaignGameStarter starter = (CampaignGameStarter)starterObject;
             starter.AddBehavior(new DailyGoldBehavior());
@@ -91,7 +91,7 @@ protected internal override void InitializeGameStarter(Game game, IGameStarter s
 - **调用时机**：只能在 starter 被引擎分发的钩子内部（`OnCampaignStart` / `InitializeGameStarter` / `OnGameLoaded`）调用；之后调用无效。
 
 ```csharp
-public override void OnCampaignStart(Game game, object starterObject)
+protected internal override void OnCampaignStart(Game game, object starterObject)
 {
     CampaignGameStarter starter = (CampaignGameStarter)starterObject;
     starter.AddBehavior(new DailyGoldBehavior());
@@ -211,7 +211,7 @@ namespace MyMod
 {
     public class MySubModule : MBSubModuleBase
     {
-        public override void OnCampaignStart(Game game, object starterObject)
+        protected internal override void OnCampaignStart(Game game, object starterObject)
         {
             // 引擎把当次战役的 CampaignGameStarter 当作 starterObject 传进来
             CampaignGameStarter starter = (CampaignGameStarter)starterObject;
@@ -271,6 +271,12 @@ protected internal override void InitializeGameStarter(Game game, IGameStarter s
 
 - **v1.3.0**：本类与 `AddBehavior` / `AddModel` / `OnCampaignStart` / `InitializeGameStarter` 这套注册形态已经稳定存在，与本页描述一致。`IGameStarter` 契约未变。
 - **v1.4.5**：`GetModel<T>()` 在找不到时由返回 `default(T)` 改为显式返回 `null`，对 mod 调用方行为一致；其余 `AddBehavior` / `AddModel` / `AddModel<T>` / `RemoveBehavior` / 菜单对话登记方法均保持不变。需要注意：本类**没有**名为 `InitializeCampaign` 或 `OnNewGameDataEnded` 的成员——战役注册的唯一入口就是上方 `MBSubModuleBase` 的几个钩子。
+
+## 依赖关系
+
+- 上游：[MBSubModuleBase](../../core/MBSubModuleBase) 的 `OnGameStart` 接收 `IGameStarter`，再转为 `CampaignGameStarter`。
+- 下游：[CampaignBehaviorBase](../CampaignBehaviorBase) 进入行为管理器，[GameModels](../GameModels) 进入模型集合。
+- 生命周期：只在启动器开放的注册窗口添加行为/模型；运行中替换会造成重复实例或空模型。
 
 ## 参见
 

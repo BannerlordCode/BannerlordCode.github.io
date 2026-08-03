@@ -149,6 +149,12 @@ kingdom.CreateArmy(Hero.MainHero, target, Army.ArmyTypes.Besieger);
 - v1.3.0 / v1.3.15 / v1.4.5 军团 API 一致，核心就是 `Kingdom.CreateArmy`、`Gather`、`FinishArmyObjective`。
 - v1.4.5 新增了一些军团AI条件判断，但创建/解散流程没变。
 
+## 依赖关系
+
+- 上游：[Kingdom](../../campaign/Kingdom/) 创建军团，[MobileParty](../../campaign/MobileParty/) 作为领袖和附属部队加入。
+- 下游：[MapEvent](../../campaign/MapEvent/)、SiegeEvent 与 PartySpeed/Morale Models 使用目标、凝聚力和兵力。
+- 生命周期：军团是战役运行期聚合对象；解散后不要继续使用成员列表或目标据点引用。
+
 ## 参见
 
 - [Kingdom](../../campaign/Kingdom/) — 创建军团的王国

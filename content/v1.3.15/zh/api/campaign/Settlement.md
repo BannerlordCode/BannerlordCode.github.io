@@ -174,6 +174,12 @@ bool IsEnemyVillage(Settlement settlement) =>
 - v1.4.5 增加了更多港口与海军相关属性（`HasPort`、`PortPosition`）。
 - 经济/忠诚度相关字段在各版本间位置相同，但部分属性名称可能略有调整。
 
+## 依赖关系
+
+- 上游：[Campaign](../Campaign/) 和 [MBObjectManager](../../campaign-ext/MBObjectManager/) 持有已注册据点；[Clan](../Clan)/[Kingdom](../Kingdom) 提供政治归属。
+- 下游：[Town](../Town)、[Village](../Village)、[MobileParty](../MobileParty) 和 Settlement Models 读取据点状态。
+- 变更：改所有者、开始围城或改变经济走 Action/Model 契约；直接改字段会跳过事件和缓存更新。
+
 ## 参见
 
 - [Town](../../campaign-ext/Town/) / [Village](../Village/) / [Castle](../../campaign-ext/CastleEncounter/) — 具体据点组件

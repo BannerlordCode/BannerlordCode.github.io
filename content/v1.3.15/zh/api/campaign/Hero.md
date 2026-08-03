@@ -251,6 +251,12 @@ Hero.MainHero.AddSkillXp(skill, Math.Max(0, nextLevelXp - currentXp));
 - v1.3.0：基础 API 相同，但 `Hero.MainHero` 之前可能写作 `CharacterObject.PlayerCharacter.HeroObject`。
 - v1.4.5：新增/拆分了部分 `HeroDeveloper` 与 `Hero.Skills` 相关访问；写跨版本 mod 时建议优先使用 `Hero.MainHero.HeroDeveloper`。
 
+## 依赖关系
+
+- 上游：[Campaign](../Campaign/) 与 [MBObjectManager](../../campaign-ext/MBObjectManager/) 创建并持有唯一的战役英雄对象。
+- 下游：[CharacterObject](../CharacterObject/) 提供模板，[MobileParty](../MobileParty/) 和 [Settlement](../Settlement/) 反映归属；Mission 中会生成短命的 [Agent](../../mission/Agent/)。
+- 变更：给钱、杀死、转移部队或改变外交关系调用对应 Action，并让 CampaignEvents 通知其它系统；不要只写字段。
+
 ## 参见
 
 - [CharacterObject](../CharacterObject/) — 英雄背后的模板数据

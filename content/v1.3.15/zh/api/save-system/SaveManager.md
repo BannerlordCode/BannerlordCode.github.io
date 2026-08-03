@@ -1,154 +1,100 @@
 ---
 title: "SaveManager"
-description: "Bannerlord 存档系统的静态入口：保存、读取、元数据与 SaveableField 的序列化协调者。"
+description: "TaleWorlds.SaveSystem 的静态执行总管：建立 DefinitionContext，调用 SaveContext/LoadContext，并把结果交给 ISaveDriver。"
 ---
 # SaveManager
 
-**Namespace:** TaleWorlds.SaveSystem  
-**Module:** TaleWorlds.SaveSystem  
+**Namespace:** `TaleWorlds.SaveSystem`  
+**Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public static class SaveManager`  
-**Base:** —  
-**File:** `TaleWorlds.SaveSystem/SaveManager.cs`
+**Base:** `System.Object`  
+**Source:** `TaleWorlds.SaveSystem/SaveManager.cs`
 
 ## 概述
 
-`SaveManager` 是 Bannerlord 存档系统的**顶层静态 API**。它负责把任意 `object`（通常是 `Campaign` 实例或你的自定义数据根对象）序列化成字节流并写入文件，也负责从文件读取并反序列化。
+`SaveManager` 是保存系统的流程总管，不是存档文件名管理器，也不是 Behavior 状态的替代 API。它负责：
 
-核心职责：
+- 通过 `InitializeGlobalDefinitionContext` 收集当前程序集中的保存定义并记录定义错误；
+- 用 `Save(object target, MetaData metaData, string saveName, ISaveDriver driver)` 创建 `SaveContext`，收集对象图，再交给驱动写文件；
+- 用 `Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)` 创建 `LoadContext`，恢复根对象并返回 `LoadResult`；
+- 暴露 `CheckSaveableTypes()`、`LoadMetaData()` 和 `.sav` 扩展名等诊断/协议入口。
 
-- `Save(...)`：把对象写入持久化存储。
-- `Load(...)` / `LoadMetaData(...)`：读取存档与元数据。
-- `InitializeGlobalDefinitionContext()`：在游戏启动时注册所有 `[SaveableType]` / `[SaveableRootClass]` 定义。
-- `CheckSaveableTypes()`：检查标记了 `[SaveableField]` / `[SaveableProperty]` 的类型是否合规。
-
-对 mod 开发者来说，最常见的接触点并不是直接调用 `SaveManager.Save`——引擎会在主菜单保存/读取时自动调用它。你需要做的是：让你的自定义数据**成为可存档对象**。
+大多数 mod 不应直接替换游戏的 `ISaveDriver` 或手动调用底层上下文。mod 应先正确完成 [SaveableTypeDefiner](../SaveableTypeDefiner/)、字段/属性 Attribute，以及 [IDataStore](../../campaign-ext/IDataStore/) 的 Behavior 注册，让游戏已有的保存入口处理它们。
 
 ## 心智模型
 
-把 `SaveManager` 看作**“对象 → 二进制存档”的转换器**：
+保存有四层：
 
-- 它是**静态类**，没有实例；所有方法直接通过 `SaveManager.Method()` 调用。
-- 它不关心“这个对象代表什么”，只关心“这个对象及其字段能否被安全序列化”。
-- 你的职责是：在需要跨存档保留的数据上标记 `[SaveableField]`、`[SaveableProperty]` 或 `[SaveableRootClass]`，并确保数据类型简单（基础类型、字符串、枚举、`MBObjectBase` 引用、`List<T>`、`Dictionary<K,V>` 等）。
-- 不要直接覆盖 `Campaign` 的保存流程；而是把 mod 数据挂到 `CampaignBehaviorBase` 的 `SyncData` 或自定义 `SaveableData` 上。
+1. 类型定义层：`DefinitionContext.FillWithCurrentTypes()` 读取 definers，失败时保存直接产生 `SaveOutput` 错误。
+2. 对象图层：`SaveContext.Save` 从 `target` 收集成员和引用。
+3. 文件驱动层：`ISaveDriver.Save` 把 `SaveData` 写入实际存储，可能异步返回。
+4. 恢复层：`LoadContext.Load` 读取 `LoadData`，再按定义还原根对象；如果使用 late initialize，会返回回调初始化器。
 
-## 核心方法
+`SaveManager` 在保存期间把 `_isLoading` 设为 false，在加载期间设为 true，并设置当前 `OperatingVersion`。这些是保存系统内部的阶段状态，不是 mod 业务逻辑的“暂停开关”。
 
-### `public static void InitializeGlobalDefinitionContext()`
-在模块加载阶段调用，扫描并注册所有存档类型。通常由引擎自动完成；mod 开发者很少需要手动调用。
+## 关键成员
+
+| 成员 | 作用 |
+| --- | --- |
+| `SaveFileExtension` | 固定为 `"sav"` |
+| `InitializeGlobalDefinitionContext()` | 创建并填充全局定义上下文，输出定义错误 |
+| `CheckSaveableTypes()` | 扫描带 Saveable Attribute 但当前上下文尚无定义的字段/属性类型 |
+| `Save(...)` | 构建 `SaveContext`，调用驱动保存，返回 `SaveOutput` |
+| `LoadMetaData(...)` | 只让驱动读取存档元数据 |
+| `Load(...)` | 构建 `LoadContext` 并返回 `LoadResult` |
+| `ShouldResolveConflicts()` | 反映当前是否在加载流程中，供冲突解析逻辑判断 |
+
+## 真实示例：验证、保存与加载
+
+这是源码中 `SaveManager` 的实际公共调用形状。`ISaveDriver` 和 `MetaData` 通常由游戏的存档层提供；mod 不应伪造一个驱动来绕过游戏存档 UI。
 
 ```csharp
-// 一般在 SubModule 初始化时由引擎调用
 SaveManager.InitializeGlobalDefinitionContext();
-```
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
 
-### `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`
-把 `target` 序列化并写入。`saveName` 不含扩展名；`driver` 决定写入到哪里（文件系统）。
-
-```csharp
-var metaData = new MetaData();
-metaData.Add("ModVersion", MySubModule.Version);
-SaveOutput output = SaveManager.Save(
+SaveOutput saveResult = SaveManager.Save(
     Campaign.Current,
-    metaData,
-    "MySave",
-    new FileDriver("MySave"));
+    campaignMetaData,
+    "my_campaign_slot",
+    saveDriver);
 
-if (output.Successful)
+if (saveResult != null && saveResult.Successful)
 {
-    Console.WriteLine($"Saved {output.BytesWritten} bytes");
-}
-```
-
-> 注意：在 mod 里极少需要手动保存整个 `Campaign`。更常见的是让引擎在玩家点击“保存”时调用。
-
-### `public static LoadResult Load(string saveName, ISaveDriver driver)`
-读取指定存档。返回的 `LoadResult` 包含反序列化后的根对象与元数据。
-
-```csharp
-LoadResult result = SaveManager.Load("MySave", new FileDriver("MySave"));
-if (result.Successful)
-{
-    Campaign loadedCampaign = (Campaign)result.Root;
-    MetaData meta = result.MetaData;
-}
-```
-
-### `public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`
-只读取存档的元数据，不解压完整对象。常用于存档列表显示。
-
-```csharp
-MetaData meta = SaveManager.LoadMetaData("MySave", new FileDriver("MySave"));
-string modVersion = meta.GetValue("ModVersion");
-```
-
-### `public static List<Type> CheckSaveableTypes()`
-检查所有可存档类型是否满足序列化约束（例如字段类型是否支持）。调试 mod 存档崩溃时有用。
-
-```csharp
-List<Type> badTypes = SaveManager.CheckSaveableTypes();
-foreach (Type t in badTypes)
-{
-    Console.WriteLine($"Saveable type issue: {t.FullName}");
-}
-```
-
-## 典型用法示例
-
-### 示例 1：让自定义数据随 Campaign 存档
-
-```csharp
-public class MyModSaveData
-{
-    [SaveableField(0)]
-    public int PlayerKills;
-
-    [SaveableField(1)]
-    public List<string> DefeatedBossIds = new List<string>();
-}
-
-public class MyCampaignBehavior : CampaignBehaviorBase
-{
-    [SaveableField(0)]
-    private MyModSaveData _data = new MyModSaveData();
-
-    public override void SyncData(IDataStore dataStore)
+    LoadResult loadResult = SaveManager.Load("my_campaign_slot", saveDriver);
+    if (loadResult != null && loadResult.Successful)
     {
-        dataStore.SyncData("MyModData", ref _data);
-    }
-
-    public void RecordKill(string bossId)
-    {
-        _data.PlayerKills++;
-        _data.DefeatedBossIds.Add(bossId);
+        Campaign loadedCampaign = (Campaign)loadResult.RootObject;
     }
 }
 ```
 
-> `SyncData` 会在保存时自动把 `_data` 交给 `SaveManager` 序列化；读取时自动还原。
+上例的关键不是在 Behavior 中主动保存，而是保证 `Campaign.Current` 的对象图和所有 mod 类型都有定义。若只新增 Behavior 字段，使用 [IDataStore](../../campaign-ext/IDataStore/)；若新增可被多个对象引用的类，再为该类加 Attribute 与 definer。
 
-### 示例 2：在行为里安全地访问存档元数据
+## 加载阶段与晚初始化
 
-```csharp
-public override void OnGameLoaded(CampaignGameStarter campaignGameStarter)
-{
-    // 如果你需要确认存档版本，可以通过自定义行为字段保存版本号
-    if (_data == null)
-    {
-        _data = new MyModSaveData();
-    }
-}
-```
+`Load` 默认使用 `loadAsLateInitialize: false`。传入 `true` 时，成功结果会附带 `LoadCallbackInitializator`，由调用方在合适的游戏阶段执行延后的 `[LoadInitializationCallback]`。这与 [MBObjectBase](../../campaign-ext/MBObjectBase/) 的 `OnBeforeLoad`、`PreAfterLoad`、`AfterLoad` 配合；不要在 `Load` 返回的第一刻假设所有派生系统都已经完成最终初始化。
+
+`LoadMetaData` 只询问驱动，不会恢复 `RootObject`。`Save` 可能返回 continuing 状态，因为 `ISaveDriver.Save` 可以异步完成；调用者应根据 `SaveOutput`/驱动结果处理，而不是立即假定文件已落盘。
+
+## 风险与坏档边界
+
+- **定义错误会阻止保存。** `InitializeGlobalDefinitionContext` 收集的错误会让 `Save` 返回失败结果；检查 [SaveableTypeDefiner](../SaveableTypeDefiner/) 和所有容器/成员定义，不要用 try/catch 把错误吞掉后继续发布。
+- **驱动不是定义层。** `ISaveDriver` 只负责元数据/数据存取；它不会修复重复 `LocalSaveId`、未知类型或不兼容字段。
+- **保存是异步边界。** `ISaveDriver.Save` 返回 `Task<SaveResultWithMessage>`；保存结果可能是 continuing 或失败。不要在结果成功前覆盖旧档或退出关键状态。
+- **加载不兼容要显式处理。** `LoadResult` 失败、根对象为空或旧类型不匹配时，不要把半加载对象送入战役 tick。
+- **不要把阶段状态当游戏状态。** `ShouldResolveConflicts()` 只是当前加载标志；`OperatingVersion` 也不是给 mod 保存自己的版本字段的替代品。
+- **错误的 late initialization。** 在回调初始化器执行前访问依赖对象，会产生 null 或顺序相关错误；将派生引用恢复放在明确的 `AfterLoad`/加载完成事件之后。
 
 ## 跨版本提示
 
-- v1.3.0：基础 `SaveableField` 已存在，但 `[SaveableProperty]` 和 `AutoGeneratedSaveManager` 支持较弱。
-- v1.3.15：引入 `AutoGeneratedSaveManager`，可自动为简单类型生成保存契约。
-- v1.4.5：SaveSystem 进一步拆分；保存驱动 (`ISaveDriver`) 接口更稳定，但具体内部二进制格式可能有变化。跨版本 mod 建议不要直接读写二进制，而是依赖 `SyncData` 与 `SaveableData`。
+1.3.15 与 1.4.5 都提供 `.sav`、定义上下文、`Save`、`LoadMetaData`、`Load` 和 late initialize 参数。内部实现和官方类型定义会增长；跨版本 mod 必须保持自己的 type ID、member ID、key 和字段类型兼容，而不能依赖官方类型表的绝对编号。
 
-## 参见
+## 依赖关系与导航
 
-- [AutoGeneratedSaveManager](../AutoGeneratedSaveManager/) — 自动生成保存契约
-- [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) — `SyncData` 的常用挂载点
-- [Campaign](../../campaign/Campaign/) — 整个战役世界的根对象
-- 存档架构详解：[架构 > 存档系统](../../../architecture/save-system/)
+- 定义：[SaveableTypeDefiner](../SaveableTypeDefiner/)、[SaveableFieldAttribute](../SaveableFieldAttribute/)、[SaveablePropertyAttribute](../SaveablePropertyAttribute/)。
+- Behavior：[IDataStore](../../campaign-ext/IDataStore/) 是 Behavior 私有状态的正确入口。
+- 对象身份：[MBObjectManager](../../campaign-ext/MBObjectManager/) 与 [MBObjectBase](../../campaign-ext/MBObjectBase/) 提供可恢复对象引用。
+- 战役根：[Campaign](../../campaign/Campaign/) 及其行为数据构成常见 `target` 对象图。
+
+- 父级：[save-system API](./)
+- 同级：[SaveableTypeDefiner](../SaveableTypeDefiner/) · [SaveableFieldAttribute](../SaveableFieldAttribute/)

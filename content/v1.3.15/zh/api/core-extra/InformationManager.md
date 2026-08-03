@@ -252,6 +252,12 @@ private void PromptForPartyName(MobileParty party)
 - **v1.3.15 与 v1.4.5 的 `InformationManager` 公开成员一致**：`DisplayMessage`、`AddSystemNotification`、`ShowInquiry`、`ShowTextInquiry`、`HideInquiry`、`IsAnyInquiryActive`、`ShowTooltip`/`HideTooltip`、`GetIsAnyTooltipActive`/`GetIsAnyTooltipActiveAndExtended`、`RegisterTooltip`/`UnregisterTooltip`、`Clear`、属性 `RegisteredTypes`，以及对应的内部事件/回调字段。两版行为完全相同——都是把调用转发给静态事件委托；唯一差异是 1.4.5 源码改用 `?.Invoke()` 语法糖，1.3.15 是显式 `null` 判断，对调用方无影响。
 - 需要 `AddQuickInformation`（飘字）、`ShowMultiSelectionInquiry`（多选）、`AddNotice`（地图通告）、`ShowSceneNotification`（场景通知）时，这些从 1.3.x 起就在 `MBInformationManager`（`TaleWorlds.Core`）上，不在 `InformationManager`；跨版本写 mod 时若用到它们，请直接依赖 `MBInformationManager` 而不是假设 `InformationManager` 会新增这些方法。
 
+## 依赖关系
+
+- 上游：[TextObject](../../localization/TextObject) 提供可本地化的消息和询问文本。
+- 下游：消息队列、询问窗口和 [ScreenManager](../../gui/ScreenManager) 负责显示与销毁 UI。
+- 生命周期：只在有效 UI 阶段调用；战役状态变更仍由 [CampaignEvents](../../campaign-ext/CampaignEvents) 或 Action 负责。
+
 ## 参见
 
 - [Game](../Game/) — 游戏世界入口，很多行为在 `OnGameStart` 之后才有 UI 层可接收消息

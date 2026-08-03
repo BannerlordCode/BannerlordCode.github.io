@@ -189,6 +189,12 @@ party.Position2D = targetTown.GatePosition;
 - v1.4.5 对海军航行和海战的支持增强；注意 `IsNavalVisualDirty`、`SetSailAtPosition` 等方法在 v1.4.5 中更完整。
 - `NavigationType` 在较新版本中可能有新枚举值。
 
+## 依赖关系
+
+- 上游：[Campaign](../Campaign) 创建全局部队，[PartyBase](../PartyBase) 提供通用队伍身份，[Hero](../Hero) 提供领袖。
+- 下游：[TroopRoster](../../campaign-ext/TroopRoster/)、[ItemRoster](../../campaign-ext/ItemRoster/)、[Army](../../campaign-ext/Army/) 和 PartySpeed/Wage Models 读取部队状态。
+- 变更：创建、销毁、合并和转移囚犯走相应 Action；地图 tick 期间不要手动改位置绕过路径和事件。
+
 ## 参见
 
 - [Settlement](../Settlement/) — 部队可以进入、防御或劫掠的地点

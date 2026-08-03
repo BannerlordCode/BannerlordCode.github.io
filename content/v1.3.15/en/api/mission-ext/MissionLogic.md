@@ -1,158 +1,108 @@
 ---
 title: "MissionLogic"
-description: "MissionBehavior subclass for win/lose and end-of-mission: MissionEnded, leave confirmation, battle results. Agent-death hooks come from the base class."
+description: "The MissionBehavior subclass for end conditions, leave requests, retreat or surrender, and battle-result callbacks."
 ---
-
 # MissionLogic
 
-**Namespace:** TaleWorlds.MountAndBlade  
-**Module:** TaleWorlds.MountAndBlade  
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
 **Type:** `public abstract class MissionLogic : MissionBehavior`  
-**Base:** [MissionBehavior](../../mission/MissionBehavior)  
-**File:** `TaleWorlds.MountAndBlade/MissionLogic.cs`
+**Base:** [`MissionBehavior`](../../mission/MissionBehavior/)  
+**Source:** `TaleWorlds.MountAndBlade/MissionLogic.cs`
 
-## Overview
+## Responsibility in one line
 
-`MissionLogic` is the **logic subclass** of `MissionBehavior`. It owns "when does this Mission end, what is the result, can the player leave?" style duties.
+It adds the decision points for when a Mission ends, whether the player may leave, and when its result is ready to the normal scene-behavior lifecycle.
 
-The source itself is thin (a set of empty `virtual`s). Real win/lose rules live in subclasses, for example vanilla [BattleEndLogic](../BattleEndLogic). In `Mission.CheckMissionEnded` the engine walks `Mission.MissionLogics` and calls `MissionEnded(ref MissionResult)` on each. The first `true` marks `MissionEnded` and raises `OnMissionResultReady`.
+## Mental model
 
-**Agent death, Tick, create** hooks are **not** new on `MissionLogic`. They come from `MissionBehavior` (`OnAgentRemoved`, `OnMissionTick`, and friends). You pick `MissionLogic` because you need the `MissionLogics` list and the end protocol. If you only count kills, a plain `MissionBehavior` (`BehaviorType.Other`) is usually the better fit.
+`MissionLogic` is not a second Agent system. It is the specialized subclass whose `BehaviorType` is fixed to `Logic`:
 
-## Mental Model
-
-```
-MissionBehavior                    ← general scene plugin (Tick / Agent events)
-       │
-       └── MissionLogic            ← BehaviorType = Logic
-              │                    ← enters Mission.MissionLogics
-              ├── BattleEndLogic   ← vanilla field-battle end
-              ├── BasicLeaveMissionLogic
-              └── your custom end conditions
-```
-
-| Dimension | Meaning |
-|-----------|---------|
-| Lifetime | One Mission; `AddMissionBehavior` also adds to `MissionLogics` when `BehaviorType == Logic` |
-| Who creates | Mission start path / `MissionGameStarter` / runtime `Mission.Current.AddMissionBehavior` |
-| Layer | Mission |
-| End protocol | `MissionEnded` → write `MissionResult` → `OnMissionResultReady` → optional `ShowBattleResults` / `OnBattleEnded` |
-
-### When to use
-
-- Custom win/lose conditions (kill a boss, hold a point, timeout)
-- Intercept "player presses leave": `OnEndMissionRequest` returns a confirm dialog or `canLeave = false`
-- Retreat / surrender campaign write-back hooks (`OnRetreatMission` / `OnSurrenderMission`)
-- You need `Mission.GetMissionBehavior<YourLogic>()` and to be scanned by the end check
-
-### When not to use
-
-| Don't | Use instead |
-|-------|-------------|
-| Only listen for kills, no end decision | Inherit `MissionBehavior`, `BehaviorType = Other` |
-| Heavy kingdom/hero mutation inside `OnAgentRemoved` and assume it's safe | Put campaign Actions in post-battle write-back; see [crash boundaries](../../../architecture/crash-boundaries) |
-| Multiple Logics all return `MissionEnded == true` with conflicting results | One authoritative end Logic, or coordinate `MissionResult` |
-| Treat it like `CampaignBehaviorBase` (long-lived save state) | Campaign behavior + `SyncData`; MissionLogic is not saved |
-| Forget to register, yet expect `CheckMissionEnded` to call you | Must `AddMissionBehavior`; base already fixes `BehaviorType.Logic` |
-
-## Dependencies
-
-```
+```text
 Mission
-  ├── MissionBehaviors (all behaviors)
-  ├── MissionLogics (MissionLogic only)
-  │     └── CheckMissionEnded() polls MissionEnded(ref result)
-  └── MissionResult / MissionEnded flag
+├─ MissionBehaviors       every scene behavior
+└─ MissionLogics          MissionLogic instances with BehaviorType == Logic
+   ├─ MissionEnded(ref result)   polled by Mission.CheckMissionEnded
+   ├─ OnMissionResultReady       result is ready
+   ├─ ShowBattleResults          result-display stage
+   └─ OnBattleEnded              post-battle logic notification
 ```
 
-| Direction | Type | Relationship |
-|-----------|------|--------------|
-| Upstream | [Mission](../../mission/Mission) | `AddMissionBehavior`, `MissionLogics`, `CheckMissionEnded` |
-| Base | [MissionBehavior](../../mission/MissionBehavior) | Agent / Tick / lifecycle hooks |
-| Downstream example | [BattleEndLogic](../BattleEndLogic) | Vanilla field-battle end |
-| Collaborators | [Team](../../mission/Team) / [Agent](../../mission/Agent) | End conditions often read team and unit state |
-| Write-back | Campaign / MapEvent (via SandBox mission controllers) | Battle results return to the map; don't thrash the world mid-fight |
+It is supplied by the Mission creation path or attached with `Mission.AddMissionBehavior`. That method adds the instance to `MissionBehaviors`, adds it to `MissionLogics` because of `BehaviorType == Logic`, and then calls `OnCreated`. If it is never registered, `CheckMissionEnded` will never call it.
 
-## Risks and crash boundaries
+## When to use and when not to
 
-1. **Mission-only:** the `Mission` property is `null` after `RemoveMissionBehavior`.
-2. **`MissionEnded` is the authority switch:** returning `true` sets `Mission.MissionEnded` and dispatches the result; false positives end the fight early.
-3. **Agent hook timing:** in `OnAgentRemoved` the Agent is already leaving. Don't cache the reference long-term; persist Hero ids across battles. See [crash boundaries §4](../../../architecture/crash-boundaries).
-4. **No unguarded `ChangeKingdomAction` / map reshuffles in death callbacks:** re-entrancy and bad saves. Push campaign consequences to `OnMissionResultReady` / map-side events.
-5. **`OnEndMissionRequest`:** `canLeave = false` blocks leave; forgetting to restore traps the player in the scene.
-6. **Coexistence with `BattleEndLogic`:** vanilla fights already have an end Logic. If you add another, decide who returns `true` first, or disable/replace the default (advanced, easy to break compat).
+**Use it for:** custom win/lose conditions, ending after a boss is removed, intercepting a leave request, retreat/surrender notifications, extra Mission equipment, and result handling after `OnMissionResultReady`.
 
-## How to register
+**Use another entry point when:**
 
-### Path A: Mission starter (preferred, before combat)
+| Need | Correct entry |
+|---|---|
+| Only count kills or observe hits, without deciding the end | Inherit [`MissionBehavior`](../../mission/MissionBehavior/) and return `MissionBehaviorType.Other` |
+| Change campaign heroes, parties, kingdoms, or relations | Record the Mission result, then call the relevant `*Action.Apply` at a safe campaign phase; do not reorder the world in a death callback |
+| Persist state across battles | `CampaignBehaviorBase.SyncData`, campaign objects, or the save system |
+| Let vanilla `BattleEndLogic` and custom logic both decide the same result | Define one result owner; multiple logics returning `true` are resolved by the first one in `MissionLogics` order |
 
-```csharp
-// In the factory or MissionGameStarter path that builds/opens the Mission:
-missionStarter.AddBehavior(new MyBossFightLogic());
-```
+## Real registration and lookup
 
-### Path B: Attach at runtime to the current Mission
+1. **Register while creating the Mission:** the source method `SandBoxMissions.OpenTownCenterMission` puts `BasicLeaveMissionLogic`, `BattleAgentLogic`, and other behaviors into the collection returned by the `MissionState.OpenNew` behavior factory. A custom logic belongs in that same `InitializeMissionBehaviorsDelegate` collection.
+2. **Register at runtime:** the actual public Mission entry is:
 
 ```csharp
 Mission mission = Mission.Current;
-if (mission == null)
+if (mission != null && mission.CurrentState == Mission.State.Continuing)
 {
-    return;
-}
-
-if (mission.GetMissionBehavior<MyBossFightLogic>() == null)
-{
-    mission.AddMissionBehavior(new MyBossFightLogic());
+    mission.AddMissionBehavior(new CaptureFlagLogic());
 }
 ```
 
-`AddMissionBehavior` source outline: sets `behavior.Mission = this`, if `BehaviorType == Logic` then `MissionLogics.Add`, then `OnCreated()`.
-
-### Path C: Query an existing Logic
+3. **Look up a registered logic:**
 
 ```csharp
-BattleEndLogic endLogic = Mission.Current?.GetMissionBehavior<BattleEndLogic>();
-bool playerWon = endLogic != null && endLogic.PlayerVictory;
+MissionLogic logic = Mission.Current?.GetMissionBehavior<CaptureFlagLogic>();
+if (logic != null)
+{
+    logic.OnRetreatMission();
+}
 ```
+
+Do not write `MissionGameStarter.AddBehavior(...)`. The inspected 1.3.15 and 1.4.5 MountAndBlade sources have no such Mission registration type. `CampaignGameStarter` belongs to Campaign startup and does not replace the Mission behavior factory.
+
+## End protocol and lifetime
+
+| Stage | What Mission does | Logic entry |
+|---|---|---|
+| Initialization | Binds the Mission and runs behavior initialization | `OnBehaviorInitialize`, `EarlyStart`, `AfterStart` inherited from MissionBehavior |
+| Runtime | Drives every behavior each frame | `OnMissionTick`, `OnAgentRemoved`, and other inherited hooks |
+| End check | Iterates `MissionLogics` | The first logic returning `true` writes the result and stops the check |
+| Result ready | Delivers the result to every logic | `OnMissionResultReady(MissionResult)` |
+| Result display | Asks logics to present results during the ending delay | `ShowBattleResults()` |
+| Battle end | Notifies logic and follows retreat/surrender paths | `OnBattleEnded()`, `OnRetreatMission()`, or `OnSurrenderMission()` |
+| Teardown | Cleans behaviors, scene units, teams, and native resources | `OnEndMissionInternal`, `OnRemoveBehavior` |
+
+`MissionLogic.cs` itself is intentionally thin. It defines end/result/leave/equipment virtuals; Agent, Team, tick, and object events come from [`MissionBehavior`](../../mission/MissionBehavior/).
 
 ## Key members
 
-> `MissionLogic.cs` only defines the virtuals below. **Tick / OnAgentRemoved and friends live on the base class.**
+| Member | Use and timing | Result or side effect |
+|---|---|---|
+| `BehaviorType` | Automatically returns `MissionBehaviorType.Logic` | Places the instance in `MissionLogics`; do not change it to `Other` in a subclass |
+| `MissionEnded(ref MissionResult missionResult)` | Called during Mission end checks | Return `true` only with a real result; a false positive ends the fight early |
+| `OnEndMissionRequest(out bool canLeave)` | Called when the player requests to leave | Return `InquiryData` for confirmation; `canLeave = false` blocks leaving |
+| `OnRetreatMission`, `OnSurrenderMission` | Called on retreat or surrender paths | Good for Mission-scoped notifications; campaign write-back still needs campaign timing |
+| `OnMissionResultReady` | Called after the result is determined | Pass temporary results to a handler; do not decide a second result here |
+| `ShowBattleResults`, `OnBattleEnded` | Result display and post-battle stages | They can run after agents have been removed; do not assume agents remain active |
+| `GetExtraEquipmentElementsForCharacter` | Mission asks logics for extra equipment during agent setup | `null` means no extras; do not return uninitialized elements |
+| `OnAgentRemoved`, `OnMissionTick` | Inherited from MissionBehavior | Collect conditions here; make the final decision in `MissionEnded` |
 
-| Member | Purpose and timing |
-|--------|--------------------|
-| `BehaviorType` | Always `MissionBehaviorType.Logic` (don't change to Other in a subclass or you leave `MissionLogics`) |
-| `MissionEnded(ref MissionResult missionResult)` | **Core.** Return `true` when the mission should end and fill the result via `ref`; default `false` |
-| `OnMissionResultReady(MissionResult)` | After the result is written on Mission; prep UI or cache the result |
-| `OnBattleEnded()` | Battle flow wrap-up (subclass as needed) |
-| `ShowBattleResults()` | Moment to show battle-result UI |
-| `OnEndMissionRequest(out bool canLeave)` | Player asked to leave; return `InquiryData` for a confirm; default `canLeave = true`, return `null` |
-| `OnRetreatMission()` | Retreat path |
-| `OnSurrenderMission()` | Surrender path |
-| `OnAutoDeployTeam(Team)` | When a Team auto-deploys |
-| `GetExtraEquipmentElementsForCharacter(...)` | Extra equipment elements for a character; default `null` |
+## Agent-death example
 
-### Inherited from MissionBehavior, useful for end logic
-
-| Hook | Typical use |
-|------|-------------|
-| `OnBehaviorInitialize` / `AfterStart` | Grab `IMissionAgentSpawnLogic`, cache Teams |
-| `OnMissionTick` | Poll custom objectives (watch performance) |
-| `OnAgentRemoved` | Record kills, flag boss death; still return the real end from `MissionEnded` |
-| `OnEndMission` | Clear Agent caches |
-
-## Real examples
-
-### Example 1: Custom Logic that wins when a boss dies
+The death hook belongs to the base class, but it commonly updates an end-condition flag:
 
 ```csharp
-using TaleWorlds.Core;
-using TaleWorlds.MountAndBlade;
-
-public sealed class BossKillMissionLogic : MissionLogic
+public sealed class BossDefeatLogic : MissionLogic
 {
-    private bool _bossDead;
-    private bool _resultSent;
+    private bool _bossRemoved;
 
     public override void OnAgentRemoved(
         Agent affectedAgent,
@@ -160,126 +110,54 @@ public sealed class BossKillMissionLogic : MissionLogic
         AgentState agentState,
         KillingBlow blow)
     {
-        // Use Character string id; don't keep Agent refs past mission end
-        if (affectedAgent?.Character != null
-            && affectedAgent.Character.StringId == "my_mod_boss")
+        if (affectedAgent.IsHero && affectedAgent.Team?.Side == BattleSideEnum.Defender)
         {
-            _bossDead = true;
+            _bossRemoved = agentState == AgentState.Killed;
         }
     }
 
     public override bool MissionEnded(ref MissionResult missionResult)
     {
-        if (!_bossDead || _resultSent)
+        if (!_bossRemoved || Mission == null)
         {
             return false;
         }
 
-        _resultSent = true;
-        // Prefer the factory over hand-building BattleState
-        missionResult = MissionResult.CreateSuccessful(Mission.Current, enemyRetreated: false);
+        missionResult = MissionResult.CreateSuccessful(Mission, enemyRetreated: false);
         return true;
     }
-
-    public override void OnMissionResultReady(MissionResult missionResult)
-    {
-        InformationManager.DisplayMessage(
-            new InformationMessage(missionResult.PlayerVictory
-                ? "Boss defeated. Mission complete."
-                : "Mission ended."));
-    }
-
-    protected override void OnEndMission()
-    {
-        _bossDead = false;
-        _resultSent = false;
-    }
 }
 ```
 
-Register:
+This stores only a boolean, not the removed Agent reference. Extract the needed Agent/Team identity immediately in `OnAgentRemoved`; apply campaign rewards, relations, or Hero changes only after the Mission result is handed back to the campaign layer.
 
-```csharp
-Mission.Current?.AddMissionBehavior(new BossKillMissionLogic());
-```
+## Dependencies and risks
 
-### Example 2: Confirm before leave (stop accidental exit)
+- [`Mission`](../../mission/Mission/) owns `MissionBehaviors` and `MissionLogics`, and decides when to poll `MissionEnded`.
+- [`MissionBehavior`](../../mission/MissionBehavior/) supplies Agent, Team, tick, interaction, and cleanup callbacks.
+- [`Agent`](../../mission/Agent/), [`Team`](../../mission/Team/), and [`Formation`](../../mission/Formation/) are live objects often read by end conditions.
+- [`BattleEndLogic`](../BattleEndLogic/) is a real vanilla end-logic example; adding another result owner requires an explicit priority decision.
+- [`Campaign`](../../campaign/Campaign/), `MapEvent`, and campaign `*Action` types are downstream of the result. Do not perform re-entrant map reshuffles from `OnAgentRemoved`.
 
-```csharp
-public sealed class ConfirmLeaveLogic : MissionLogic
-{
-    public override InquiryData OnEndMissionRequest(out bool canLeave)
-    {
-        if (Mission.Current != null
-            && Mission.Current.MainAgent != null
-            && Mission.Current.MainAgent.Health < Mission.Current.MainAgent.HealthLimit * 0.3f)
-        {
-            canLeave = false;
-            return new InquiryData(
-                "Confirm leave",
-                "You are badly wounded. Leave the battlefield anyway?",
-                true,
-                true,
-                "Leave",
-                "Stay",
-                () => { canLeave = true; Mission.Current.EndMission(); },
-                null);
-        }
+Potentially crashing or save-corrupting patterns include:
 
-        canLeave = true;
-        return null;
-    }
-}
-```
-
-> In real projects, match `EndMission` / confirm callback signatures to your target version's `InquiryData` and Mission API. The point: **drive leave with `canLeave` and Inquiry, don't silently swallow input.**
-
-### Example 3: Kill feed only. Don't force MissionLogic
-
-```csharp
-public sealed class KillFeedBehavior : MissionBehavior
-{
-    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
-
-    public override void OnAgentRemoved(
-        Agent affectedAgent,
-        Agent affectorAgent,
-        AgentState agentState,
-        KillingBlow blow)
-    {
-        if (affectorAgent != null && affectorAgent.IsMainAgent && affectedAgent != null)
-        {
-            InformationManager.DisplayMessage(
-                new InformationMessage($"Killed {affectedAgent.Name}"));
-        }
-    }
-}
-```
+1. Reading `Mission.Current` in a constructor before the behavior is bound.
+2. Adding a logic at runtime and assuming `OnBehaviorInitialize`, `EarlyStart`, or `AfterStart` will run retroactively.
+3. Keeping an Agent or Team reference from `OnAgentRemoved` and using it after Mission teardown.
+4. Letting multiple logics return `true` without coordination, or writing an incomplete `MissionResult`.
+5. Leaving `canLeave = false` permanently, or mutating the active behavior list again from teardown.
 
 ## Cross-version notes
 
-- The `MissionLogic` abstract surface is stable from 1.3.x through 1.4.5: `MissionEnded` / `OnMissionResultReady` / `OnEndMissionRequest`.
-- `MissionResult` constructor parameters can shift by version; for cross-version mods check the target assembly, or reuse vanilla `BattleEndLogic`'s result path.
-- Sandbox campaign fights usually end via SandBox mission controllers plus `BattleEndLogic`. If you replace that, test MapEvent settlement after return to the map.
+- 1.3.15 and 1.4.5 both place `MissionLogic` in `MissionLogics` and use `MissionEnded(ref MissionResult)` for end decisions.
+- The cross-version-safe registration pattern is to return the logic from the Mission creation behavior collection, or call `AddMissionBehavior` on a confirmed current Mission.
+- Concrete SandBox logics vary by game mode; do not treat one mode's end logic as the default behavior of every Mission.
 
-## ↑ Parent Navigation
+## Navigation
 
-- [mission-ext index](./)
-- [API root](../)
-- [Crash and save boundaries](../../../architecture/crash-boundaries)
-
-## 🔀 Sibling Navigation
-
-| Page | Relationship |
-|------|--------------|
-| [MissionBehavior](../../mission/MissionBehavior) | Base: Agent/Tick hooks |
-| [BattleEndLogic](../BattleEndLogic) | Vanilla end implementation |
-| [Mission](../../mission/Mission) | `AddMissionBehavior` / `MissionLogics` |
-| [Team](../../mission/Team) | Team state end conditions often read |
-| [Agent](../../mission/Agent) | Death and alive checks |
-
-## See also
-
-- [Mission system guide](../../../guide/mission-system)
-- [Module system](../../../architecture/module-system) — when behaviors register
-- [SDK overview](../../../architecture/sdk-overview)
+- [↑ Mission extension module](./)
+- [↔ Mission](../../mission/Mission/)
+- [↔ MissionBehavior](../../mission/MissionBehavior/)
+- [Related Agent](../../mission/Agent/) · [Team](../../mission/Team/) · [Formation](../../mission/Formation/)
+- [Vanilla BattleEndLogic](../BattleEndLogic/)
+- [Architecture: crash and save boundaries](../../../architecture/crash-boundaries/)

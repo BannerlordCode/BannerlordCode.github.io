@@ -1,215 +1,117 @@
 ---
 title: "MBObjectBase"
-description: "Root type for every registerable game object in ObjectSystem: StringId, MBGUID, registration lifecycle, and save-time reference identity."
+description: "The root of registered Bannerlord objects: StringId, MBGUID identity, XML initialization, and save-load lifecycle hooks."
 ---
-
 # MBObjectBase
 
-**Namespace:** TaleWorlds.ObjectSystem  
-**Module:** TaleWorlds.ObjectSystem  
+**Namespace:** `TaleWorlds.ObjectSystem`  
+**Module:** `TaleWorlds.ObjectSystem`  
 **Type:** `public class MBObjectBase`  
-**Base:** —  
-**File:** `TaleWorlds.ObjectSystem/MBObjectBase.cs`  
-**Authority source:** 1.4.5 (semantics match 1.3.15)
+**Base:** `System.Object`  
+**Source:** `TaleWorlds.ObjectSystem/MBObjectBase.cs`
 
 ## Overview
 
-`MBObjectBase` is the root type of Bannerlord's **ObjectSystem**. Almost everything that lands in the `MBObjectManager` dictionary, can be deserialized from XML, and is rebuilt in saves as an **object reference** (not a bare string) inherits it:
+`MBObjectBase` is the root contract for objects registered by [MBObjectManager](../MBObjectManager/), looked up by ID, created from XML, and potentially stored as object references in a save. `Hero`, `ItemObject`, `Settlement`, `Clan`, `Kingdom`, and `MobileParty` all enter the world through this object-system path.
 
-- Campaign entities: `Hero`, `Clan`, `Kingdom`, `Settlement`, `MobileParty`, `ItemObject`, `CharacterObject`, …
-- Core definitions: `SkillObject`, `CultureObject`, `Monster`, `CraftingTemplate`, …
-- Mod custom types: if you register them in `RegisterSubModuleTypes`, they join the same system
+It is not a business DTO that a mod should construct and use outside the manager. Its job is to connect a type to three contracts:
 
-As a modder you rarely `new MBObjectBase()` yourself, but you **will** look objects up by `StringId`, hold `Hero` / `ItemObject` references, and store those references in `SaveableField`s every day. This class is the key to why saves carry object identity instead of raw id strings.
+1. `StringId` is the logical identity used by XML and `GetObject<T>(string)`.
+2. `Id` is the session-assigned `MBGUID` used for internal object-graph references.
+3. `Initialize`, `Deserialize`, `AfterRegister`, `OnBeforeLoad`, `PreAfterLoad`, and `AfterLoad` divide XML loading and save restoration into explicit hooks.
 
 ## Mental Model
 
-Think of `MBObjectBase` as a **registry entry with two keys**:
+Treat this class as an entry in an object registry, not as an ordinary DTO. Once registered, the manager maintains a `StringId` table, an `MBGUID` table, and a per-type list. `OnRegistered` marks the object registered and invokes `AfterRegister`. XML loading creates or retrieves a presumed object, then calls `Deserialize` and `AfterInitialized`; an object that never becomes ready is removed by `UnregisterNonReadyObjects`.
 
-| Key | Type | Role |
-|-----|------|------|
-| `StringId` | `string` | Human/XML/`GetObject<T>("iron_sword_t2")` stable name |
-| `Id` | `MBGUID` | Runtime-unique GUID; `GetHashCode()` is based on it |
+`StringId` is the stable mod-facing lookup key. `Id` is not a version-stable business key. Save an association as a restorable object reference or `StringId`, and never retain an object instance from a previous campaign session in a static field.
 
-Lifecycle (engine-driven; mods mostly observe):
+## Access and lifecycle
 
-1. **Construct** — `new T()` or XML deserialization creates the instance; it is **not** in the manager yet.
-2. **Register** — after `MBObjectManager` records it, `OnRegistered()` runs → `IsRegistered = true` → virtual `AfterRegister()`.
-3. **Initialize** — `Initialize()` / `Deserialize` set `IsInitialized`; `AfterInitialized()` sets `IsReady` when already registered.
-4. **Save load** — `[LoadInitializationCallback] BeforeLoad` → if `IsRegistered`, `TryRegisterObjectWithoutInitialization` re-attaches to the manager, then `PreAfterLoad` / `AfterLoad`.
+The normal access path is a manager lookup:
 
-**When to use**
+```csharp
+MBObjectManager objects = MBObjectManager.Instance;
+Hero lord = objects.GetObject<Hero>("lord_1");
+ItemObject sword = objects.GetObject<ItemObject>("iron_sword_t2");
 
-- Game data that needs stable identity (items, heroes, settlements, skills, …)
-- Saving **references to registered objects** in `SaveableField` (the engine resolves by object identity; you don't hand-rebuild from strings)
+if (lord != null && sword != null && lord.IsReady)
+{
+    TextObject message = new TextObject("{=mod_found}Found {ITEM} for {HERO}.");
+    message.SetTextVariable("ITEM", sword.Name);
+    message.SetTextVariable("HERO", lord.Name);
+    InformationManager.DisplayMessage(new InformationMessage(message.ToString()));
+}
+```
 
-**When not to use**
+For XML, the base `Deserialize` calls `Initialize` and reads the `id` attribute into `StringId`; a subclass should call `base.Deserialize` before reading its own attributes and references. During save loading, `OnBeforeLoad` re-registers the object, while `PreAfterLoad` and `AfterLoad` are broadcast after the manager has restored the object records. Resolve cross-object runtime references in `AfterLoad`.
 
-- Temporary UI state, per-frame caches → plain class / ViewModel, keep them out of ObjectSystem
-- Cross-session data that is **not** an ObjectSystem object → `CampaignBehaviorBase.SyncData` with primitives or your own Saveable types
-- Don't assume "has a `StringId`" means "registered"; unregistered instances in saves or lookups corrupt saves / return null
+## Overridable members
 
-## Dependencies
+| Member | Role | Appropriate use |
+| --- | --- | --- |
+| `StringId` / `Id` | logical identity / session GUID | lookup and references; never treat `Id` as a version-stable key |
+| `Initialize()` | defaults for new or XML objects | establish local defaults; do not assume every reference is loaded |
+| `Deserialize(MBObjectManager, XmlNode)` | populate from XML | call the base method first; defer complex references |
+| `AfterRegister()` | callback after registration | initialize against registered dependencies; avoid recursive registration |
+| `OnBeforeLoad()` | before binary members are restored | prepare for restoration; not a “everything exists” phase |
+| `PreAfterLoad()` / `AfterLoad()` | two post-load phases | rebind cross-object runtime references in `AfterLoad` |
+| `GetName()` | defaults to a `TextObject` from `StringId` | override when the business type has a localized name |
 
-| Direction | Type / system | Relationship |
-|-----------|---------------|--------------|
-| Upstream | [MBObjectManager](../MBObjectManager) | Registry; `Instance.GetObject<T>(stringId)`, type registration |
-| Upstream | [Game](../../core-extra/Game) | Session holds `ObjectManager`; loads base XML |
-| Upstream | [MBSubModuleBase](../../core/MBSubModuleBase) | `RegisterSubModuleTypes` declares custom `MBObjectBase` derivatives |
-| Downstream | [Hero](../../campaign/Hero), ItemObject, Settlement, … | Shared base of all business objects |
-| Save | [SaveManager](../../save-system/SaveManager) | `StringId` / `Id` / `IsRegistered` are `[SaveableProperty]`; reference fields collected via the object graph |
-| Load hooks | `LoadInitializationCallback` | `BeforeLoad` rebuilds registration after deserialize, before business AfterLoad |
+## Real example: register and create a custom object
+
+The following uses the real `RegisterType<T>` and `CreateObject<T>(string)` shapes. Type registration belongs in the game's `OnRegisterTypes` or equivalent registration stage; object creation belongs after that type is registered.
+
+```csharp
+public sealed class RelicObject : MBObjectBase
+{
+    [SaveableField(1)]
+    private int _discoveredCount;
+
+    public RelicObject() { }
+
+    public RelicObject(string stringId) : base(stringId) { }
+
+    public void MarkDiscovered()
+    {
+        _discoveredCount++;
+    }
+}
+
+// Run from Game.OnRegisterTypes or the equivalent game-type registration stage.
+MBObjectManager.Instance.RegisterType<RelicObject>(
+    "Relic", "Relics", 220u, autoCreateInstance: false, isTemporary: false);
+
+// Run after type registration has completed.
+RelicObject relic = MBObjectManager.Instance.CreateObject<RelicObject>("my_mod_relic_01");
+relic.MarkDiscovered();
+RelicObject sameRelic = MBObjectManager.Instance.GetObject<RelicObject>("my_mod_relic_01");
+```
+
+`[SaveableField]` alone does not add a new type to the save definition table; [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) must also register `RelicObject`. A runtime-only object can omit save members, but it still must obey registration and unique-ID rules.
 
 ## Risks and crash boundaries
 
-| Risk | Consequence | Mitigation |
-|------|-------------|------------|
-| Use an unregistered instance as a real object | `GetObject` misses it; save refs dangle | Only use manager-returned instances, or official Creator / XML load paths |
-| Change an existing object's `StringId` without updating callers | Lookup failures, bad saves, duplicate ids | Treat StringId as a **primary key**; almost never mutate at runtime |
-| Touch the business graph before `OnBeforeLoad` / AfterLoad finish | Other objects not ready yet | Put logic in `AfterLoad` overrides or Campaign events; don't poke `Campaign.Current` in constructors |
-| Custom type never `RegisterType`d | XML / save load fails | Register in `RegisterSubModuleTypes`; keep type ids unique vs vanilla |
-| Stuff an unregistered temp object into a `SaveableField` | Serialize/deserialize crash or null | Only save **registered** `MBObjectBase` refs, or save `StringId` and resolve later |
-| Confuse `Id` (GUID) with `StringId` | Wrong API usage | Display/config → StringId; hash/internal → Id |
-
-## Key members
-
-### Identity
-
-| Member | Purpose and timing |
-|--------|--------------------|
-| `string StringId { get; set; }` | Stable string id. XML `id=`, config tables, `GetObject<T>(id)` all use it. `[SaveableProperty(1)]`. |
-| `MBGUID Id { get; set; }` | Runtime GUID. `GetHashCode()` is based on it. `[SaveableProperty(2)]`. |
-| `bool IsInitialized` | Whether `Initialize`/`Deserialize` has run. `[CachedData]`, not a business primary key. |
-| `bool IsReady` | True after registration and `AfterInitialized`. |
-| `bool IsRegistered` | Whether it sits in ObjectManager; persisted in saves. Internal set. |
-
-### Lifecycle (engine-called; subclasses may override)
-
-| Member | Purpose and timing |
-|--------|--------------------|
-| `virtual void Initialize()` | Marks `IsInitialized = true`. XML path calls this from `Deserialize`. |
-| `virtual void Deserialize(MBObjectManager, XmlNode)` | Reads `id` from XML and `Initialize`s. Override on custom objects for extra attributes. |
-| `virtual void AfterRegister()` | After `OnRegistered`; light "just entered the table" hooks. |
-| `void AfterInitialized()` | If registered, sets `IsReady = true`. |
-| `void OnRegistered()` / `OnUnregistered()` | Manager sets `IsRegistered` on register/unregister. |
-| `protected virtual void OnBeforeLoad()` | After load: re-attach registered objects to Manager. |
-| `protected virtual void PreAfterLoad()` / `AfterLoad()` | Two-phase business repair after load; engine calls via `*Internal`. |
-| `virtual TextObject GetName()` | Default `TextObject` content is `StringId`; display names usually overridden by subclasses. |
-
-### Construction
-
-```csharp
-public MBObjectBase()
-public MBObjectBase(string stringId)   // sets StringId only; still needs registration
-public MBObjectBase(MBObjectBase other) // copies StringId
-```
-
-## Real examples
-
-### Example 1: Resolve a registered object by StringId
-
-```csharp
-using TaleWorlds.Core;
-using TaleWorlds.ObjectSystem;
-
-// In-session: Game.Current.ObjectManager and MBObjectManager.Instance share the same registry
-ItemObject ironSword = MBObjectManager.Instance.GetObject<ItemObject>("iron_sword_t2");
-if (ironSword == null)
-{
-    // Wrong id, module not loaded, or type not registered
-    return;
-}
-
-// StringId is the primary key; Id is the runtime GUID
-string key = ironSword.StringId; // "iron_sword_t2"
-```
-
-### Example 2: Persist an object reference in a CampaignBehavior (preferred)
-
-```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.SaveSystem;
-
-public class MyTrackedHeroBehavior : CampaignBehaviorBase
-{
-    // Saves a Hero reference; the engine resolves by MBObjectBase identity.
-    // Don't replace this with a bare string and hand-rebuild.
-    [SaveableField(1)]
-    private Hero _patron;
-
-    public override void RegisterEvents()
-    {
-        CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnSessionLaunched);
-    }
-
-    public override void SyncData(IDataStore dataStore)
-    {
-        dataStore.SyncData("patron", ref _patron);
-    }
-
-    private void OnSessionLaunched(CampaignGameStarter starter)
-    {
-        if (_patron == null)
-            _patron = Hero.MainHero; // already-registered campaign object
-    }
-}
-```
-
-### Example 3: Register a custom type (SubModule)
-
-```csharp
-using TaleWorlds.MountAndBlade;
-using TaleWorlds.ObjectSystem;
-
-public class MyModSubModule : MBSubModuleBase
-{
-    protected override void RegisterSubModuleTypes()
-    {
-        base.RegisterSubModuleTypes();
-        // typeId must be globally unique; collisions fail registration
-        MBObjectManager.Instance.RegisterType<MyCustomObject>(
-            "MyCustomObject", "MyCustomObjects", 9100u, true, false);
-    }
-}
-
-// Custom object: override Deserialize at least, to read XML fields
-public class MyCustomObject : MBObjectBase
-{
-    public int Power { get; private set; }
-
-    public override void Deserialize(MBObjectManager objectManager, System.Xml.XmlNode node)
-    {
-        base.Deserialize(objectManager, node); // sets StringId + Initialize
-        if (node.Attributes["power"] != null)
-            Power = int.Parse(node.Attributes["power"].Value);
-    }
-}
-```
+- **A duplicate `StringId` is not preserved.** `RegisterObject` keeps looking for an unused numeric suffix and rewrites the object's `StringId`. Use a `my_mod_` prefix, and use the object's actual ID after creation instead of assuming a collision throws.
+- **Do not use `MBGUID` as a persistent business ID.** The manager allocates it from type and counters; load order or module changes can invalidate that assumption.
+- **Do not resolve references too early in `Deserialize`.** XML references may point to objects that are not fully initialized. Defer them to `AfterLoad` to avoid null and load-order failures.
+- **Incomplete presumed objects are removed.** Custom XML or manual `RegisterPresumedObject` calls must finish initialization or `UnregisterNonReadyObjects` will remove the object.
+- **Save IDs are a type-level contract.** Custom members need unique, stable `LocalSaveId` values and a definer; changing an ID or changing a member type in place can make old saves restore incorrectly.
+- **Do not cache objects across sessions.** `ClearAllObjects` empties the current registry; after a load, query by `StringId` or use a reference restored by the save system.
 
 ## Cross-version notes
 
-- **1.3.0 / 1.3.15 / 1.4.5:** `StringId` + `Id` + register/load-hook model is stable.
-- **1.4.5:** source is decompiled; `SaveableProperty` numbers and `AutoGenerated*` collectors follow the same idea as 1.3.15. When modding, stick to "register, then reference"; don't depend on private field layout.
+The 1.3.15 and 1.4.5 `MBObjectBase` lifecycle and `MBObjectManager` registration, lookup, and XML-loading APIs are substantially the same. The 1.4.5 source retains the `AfterLoad` and `OnBeforeLoad` phases. When targeting both versions, verify the concrete module types separately; a stable base class does not imply identical type tables.
 
-## ↑ Parent Navigation
+## Dependencies
 
-- [campaign-ext index](./) — module for this page
-- [SDK overview](../../../architecture/sdk-overview) — layering and ObjectSystem placement
-- [Save system](../../../architecture/save-system) — how references enter saves
+- Upstream: [MBObjectManager](../MBObjectManager/) owns type registration, object tables, and XML entry points.
+- Persistence: [SaveableFieldAttribute](../../save-system/SaveableFieldAttribute/) and [SaveableTypeDefiner](../../save-system/SaveableTypeDefiner/) define custom members.
+- Campaign host: [CampaignBehaviorBase](../CampaignBehaviorBase/) is a common lifecycle host for reading and changing registered objects.
+- Concrete consumers: [Hero](../../campaign/Hero/) and [ItemObject](../../core/ItemObject/) document business constraints; messages can use [TextObject](../../localization/TextObject/).
 
-## ↔ Sibling Navigation
+## Navigation
 
-| Page | Relationship |
-|------|--------------|
-| [MBObjectManager](../MBObjectManager) | Register and lookup entry point |
-| [CampaignBehaviorBase](../CampaignBehaviorBase) | Common host; `SyncData` saves object refs |
-| [Hero](../../campaign/Hero) | Typical `MBObjectBase` derivative (campaign character) |
-| [Campaign](../../campaign/Campaign) | Campaign root; owns large object graphs |
-| [Game](../../core-extra/Game) | Session and `ObjectManager` |
-| [SaveManager](../../save-system/SaveManager) | Serialization coordinator |
-| [MBSubModuleBase](../../core/MBSubModuleBase) | When to register custom types |
-
-## See also
-
-- [Module system](../../../architecture/module-system) — SubModule lifecycle and registration order
-- [Doc contract](../../../architecture/doc-contract) — handwritten deep-page standard
+- Parent: [campaign-ext API](./)
+- Siblings: [MBObjectManager](../MBObjectManager/) · [IDataStore](../IDataStore/)
+- Related: [SaveManager](../../save-system/SaveManager/) · [Campaign](../../campaign/Campaign/)

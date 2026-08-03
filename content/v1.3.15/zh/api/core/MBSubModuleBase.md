@@ -97,6 +97,7 @@ graph TD
 
 ```csharp
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
@@ -107,9 +108,8 @@ public sealed class MySubModule : MBSubModuleBase
 {
     protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
     {
-        if (game.GameType is Campaign)
+        if (game.GameType is Campaign && gameStarterObject is CampaignGameStarter starter)
         {
-            var starter = (CampaignGameStarter)gameStarterObject;
             starter.AddBehavior(new DailyGoldBehavior());
         }
     }

@@ -4,7 +4,10 @@
 Automated tools must not invent or bulk-rewrite page prose (overview, mental
 model, method purposes, usage examples, stubs, curated body fills).
 
-See also: `architecture/doc-contract.md` (when present).
+See also the applicable versioned contracts: `content/v1.3.15/en/architecture/doc-contract.md`,
+`content/v1.3.15/zh/architecture/doc-contract.md`,
+`content/v1.4.5/en/architecture/doc-contract.md`, and
+`content/v1.4.5/zh/architecture/doc-contract.md`.
 
 ## Emergency override (forbidden for product)
 
@@ -23,7 +26,7 @@ At the top of each retired CLI (after imports):
 // H0 RETIRED: body generation forbidden — handwritten docs only
 // Emergency override BANNERLORD_ALLOW_RETIRED_BODY_GEN=1 is forbidden for product builds.
 if (process.env.BANNERLORD_ALLOW_RETIRED_BODY_GEN !== '1') {
-  console.error('RETIRED: this tool must not write product page bodies. Handwritten docs only. See tools/RETIRED_BODY_GENERATORS.md and architecture/doc-contract.md');
+  console.error('RETIRED: this tool must not write product page bodies. Handwritten docs only. See tools/RETIRED_BODY_GENERATORS.md and the applicable versioned content/<version>/<lang>/architecture/doc-contract.md');
   process.exit(1);
 }
 ```
@@ -58,11 +61,25 @@ if (process.env.BANNERLORD_ALLOW_RETIRED_BODY_GEN !== '1') {
 | `fix-generic-purpose-warnings.mjs` | Generic-purpose warning rewrites |
 | `final-polish.mjs` | Auto-fills descriptions and mental-model prose |
 
+## Audited write paths
+
+These audit-identified paths must not bypass H0. The first two are retired;
+the latter two may remain only for structural/index output and must never
+write class-page or other product body prose.
+
+| Script | Required status |
+|--------|-----------------|
+| `cleanup-entry-page-examples.mjs` | **Retired** — writes/replaces product guide and entry-page example bodies |
+| `fix-remaining-quality-blockers.mjs` | **Retired** — writes product-page quality fixes and body prose |
+| `gen-class-catalog.mjs` | **Retired** — requires an explicit structural-only redesign before it may write catalog output |
+| `generate-section-indexes.mjs` | **Retired** — requires an explicit structural-only redesign before it may write index output |
+
 ## Special cases
 
 | Script | Status |
 |--------|--------|
-| `doc-fragments.mjs` | **Export-only library** — not runnable as main. Comment-retired: must not gain a product write path. Still importable for reference/heuristics by non-product tooling. |
+| `doc-fragments.mjs` | **Import-only, restricted** — may be imported only by non-product archaeology or tests; never use it as a product body-writing path. |
+| `lib/class-ref.mjs` | **Import-only, restricted** — may be imported only by non-product archaeology or tests; never use it as a product body-writing path. |
 | `method-coverage.mjs` | **Report-only OK** (JSON/CSV coverage). **`--fix` hard-fails** — that mode injects missing method sections into product pages. |
 
 ## Still allowed (do not retire)
@@ -76,5 +93,6 @@ These must keep working:
 - `gen-llm-txt.mjs`
 - `class-version-diff.mjs`
 
-Structural / index / inventory tooling that does not invent class-page body
-prose is out of scope for this retirement list.
+Structural / index / inventory tooling is permitted only when it does not
+invent class-page body prose. The audited paths above remain subject to their
+explicit structural/index-only restrictions.

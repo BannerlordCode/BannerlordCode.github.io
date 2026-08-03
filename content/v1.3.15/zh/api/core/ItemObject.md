@@ -132,6 +132,12 @@ foreach (ItemObject item in MBObjectManager.Instance.GetObjectTypeList<ItemObjec
 - v1.3.0 / v1.3.15 / v1.4.5 的物品系统 API 基本一致。
 - v1.4.5 对锻造系统（`WeaponDesign` / `CraftingTemplate`）扩展更多，但 `ItemObject` 本身稳定。
 
+## 依赖关系
+
+- 上游：[MBObjectManager](../../campaign-ext/MBObjectManager/) 从 XML/模块注册物品；ItemComponent 提供价格、护甲和武器等领域数据。
+- 下游：[ItemRoster](../../campaign-ext/ItemRoster/)、[Equipment](../../core-extra/Equipment/)、交易/装备 Model 和 SaveManager 通过稳定 `StringId` 读取它。
+- 生命周期：这是注册对象而不是运行时库存条目；添加/移除数量应操作宿主 roster，不要 `new ItemObject()` 伪造世界物品。
+
 ## 参见
 
 - [MobileParty](../../campaign/MobileParty/) — 部队物品包袱

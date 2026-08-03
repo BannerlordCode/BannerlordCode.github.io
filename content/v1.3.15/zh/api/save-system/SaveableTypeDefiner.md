@@ -1,125 +1,109 @@
 ---
 title: "SaveableTypeDefiner"
-description: "存档类型定义器的自动发现基类：用稳定的 saveBaseId 和分阶段定义方法把类、结构、枚举、泛型容器加入 SaveSystem，而不是在运行期手动注册。"
+description: "存档定义上下文的自动发现入口：为类型、根对象、泛型容器和兼容迁移分配稳定 SaveId。"
 ---
-
 # SaveableTypeDefiner
 
 **Namespace:** `TaleWorlds.SaveSystem`  
 **Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public abstract class SaveableTypeDefiner`  
-**Base:** 无（抽象基类）  
-**源文件：** `TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`
+**Base:** 无  
+**源文件：** `TaleWorlds.SaveSystem/SaveableTypeDefiner.cs`（以 1.4.5 源码为语义依据）
 
-## 职责一句话
+## 职责
 
-`SaveableTypeDefiner` 为一个程序集划分稳定的保存 ID 区间，并在 SaveSystem 建立定义上下文时登记该程序集需要序列化的类型、字段和容器。
+`SaveableTypeDefiner` 把一个程序集/模块拥有的类型加入保存系统的 `DefinitionContext`。它不保存实例数据，也不替代 [IDataStore](../campaign-ext/IDataStore)。它定义“类型如何被识别、成员用哪些编号、容器如何构建”，而 [SaveManager](SaveManager) 在保存/加载时使用这些定义。
 
 ## 心智模型
 
-它不是 mod 代码通常“拿来调用”的服务。`DefinitionContext.FillWithCurrentTypes()` 会扫描可见程序集，找到每个非抽象派生类，用无参构造函数创建实例，调用 `Initialize(context)`，然后按固定顺序执行 `DefineBasicTypes`、`DefineClassTypes`、`DefineStructTypes`、`DefineInterfaceTypes`、`DefineEnumTypes`、`DefineRootClassTypes`、泛型定义、容器定义和冲突解析器阶段。
+每个 definer 是一张稳定的存档 schema 表：
 
-因此派生类是**声明文件**：构造函数只返回稳定的 `saveBaseId`，定义方法只调用 `AddClassDefinition` 等保护方法。不要在 `OnGameStart`、Behavior 构造函数或每次存档时手动 `new` 一个 definer，也不要根据运行期计数生成 ID。
+1. 构造函数提供模块范围的 `saveBaseId`。
+2. `DefineClassTypes`、`DefineStructTypes`、`DefineEnumTypes` 等重写方法声明类型。
+3. `AddClassDefinition(typeof(T), saveId)` 等 helper 最终使用 `saveBaseId + saveId` 写入定义上下文。
+4. 成员上的 [SaveableFieldAttribute](../SaveableFieldAttribute) / [SaveablePropertyAttribute](../SaveablePropertyAttribute) 再提供类型内部的 `LocalSaveId`。
 
-## ID 与阶段
+因此 `saveBaseId`/`saveId` 和成员 `LocalSaveId` 都是兼容契约。一个模组可以在同一 definer 中定义多个类，但不能每次启动随机分配编号。
 
-`saveBaseId + localSaveId` 形成最终 `TypeSaveId`。`saveBaseId` 必须由模块/功能长期占用且互不重叠；本地 ID 一旦发布也不能复用给别的类型。定义器中的阶段只描述“类型是什么”，并不创建对象：对象实例仍由 [Game](../../core-extra/Game)、[Campaign](../../campaign/Campaign) 或 Behavior 创建和持有。
+## 自动发现和固定阶段
 
-| 阶段 | 典型调用 | 用途 |
-| --- | --- | --- |
-| `DefineClassTypes` | `AddClassDefinition(typeof(MyState), 1)` | 保存引用型类 |
-| `DefineStructTypes` | `AddStructDefinition(typeof(CampaignTime), 1001)` | 保存值类型 |
-| `DefineEnumTypes` | `AddEnumDefinition(typeof(MyMode), 2001)` | 保存枚举 |
-| `DefineRootClassTypes` | `AddRootClassDefinition(...)` | 保存根对象 |
-| `DefineGenericClassDefinitions` / `DefineGenericStructDefinitions` | `ConstructGenericClassDefinition(typeof(List<>))` | 预构造泛型定义 |
-| `DefineContainerDefinitions` | `ConstructContainerDefinition(typeof(List<MyState>))` | 注册具体容器形状 |
-| `DefineConflictResolvers` | `AddConflictResolver(...)` | 处理旧档类型冲突 |
+`DefinitionContext.FillWithCurrentTypes()` 只收集 SaveSystem 程序集及引用它的程序集；它不是对所有当前程序集的无条件扫描。它用无参构造函数创建非抽象 definer，然后按以下顺序对全部 definer 分阶段调用：
 
-`AddClassDefinitionWithCustomFields` 和 `AddStructDefinitionWithCustomFields` 只适用于明确维护自定义字段 ID 的兼容场景；它们不是绕过 `[SaveableField]`/`[SaveableProperty]` 的捷径。
+1. `Initialize(context)`。
+2. `DefineBasicTypes`、`DefineClassTypes`、`DefineStructTypes`、`DefineInterfaceTypes`、`DefineEnumTypes`、`DefineRootClassTypes`。
+3. `DefineGenericStructDefinitions`、`DefineGenericClassDefinitions`、`DefineContainerDefinitions`、`DefineConflictResolvers`。
+4. 收集各类型的初始化回调、`[SaveableProperty]` 和 `[SaveableField]`，再汇总错误。
 
-## 依赖关系
-
-```mermaid
-graph TD
-    ASM[模块程序集] --> CTX[DefinitionContext.FillWithCurrentTypes]
-    CTX --> DEF[SaveableTypeDefiner 派生类]
-    DEF --> IDS[saveBaseId + local ID]
-    DEF --> TYPES[Class / Struct / Enum / Container definitions]
-    TYPES --> SAVE[SaveManager / SaveContext]
-    SAVE --> ROOT[Game / Campaign / Behavior state]
-    ROOT --> ATTR[SaveableField / SaveableProperty]
-```
-
-- **上游**：`DefinitionContext` 自动扫描程序集并通过 `Activator.CreateInstance` 创建派生类；派生类必须有公开无参构造函数。
-- **定义输入**：类型成员上的 [SaveableFieldAttribute](../SaveableFieldAttribute)、[SaveablePropertyAttribute](../SaveablePropertyAttribute) 描述字段；definer 负责类型和容器的 ID。
-- **下游**：[SaveManager](../SaveManager)、`SaveContext` 和 `IDataStore` 使用定义表读写 [Game](../../core-extra/Game)、[Campaign](../../campaign/Campaign) 及行为状态。
-- **关联**：Behavior 的 `SyncData(IDataStore)` 解决实例字段的读写；`SaveableTypeDefiner` 解决类型定义，两者不能互相替代。
-
-## 何时用，何时不用
-
-- **用它**：新增一个跨版本保存的 mod 类型、嵌套结构或特定容器，需要稳定的类型 ID 和显式兼容策略时。
-- **不用它**：只想保存 Behavior 的几个字段时，先在 `SyncData` 中使用 `IDataStore.SyncData`；只想给现有类型增加成员时，按 [SaveableField](../SaveableFieldAttribute) / [SaveableProperty](../SaveablePropertyAttribute) 规则处理，不要复制整个原生 definer。
-
-## 风险（存档损坏边界）
-
-1. **ID 冲突**：两个模块复用相同 `saveBaseId`，或同一 definer 复用 local ID，会让旧档把一个类型解释成另一个类型。
-2. **ID 漂移**：发布后重排、删除并复用 ID 会让历史存档无法反序列化；新增类型应使用新的空位。
-3. **缺少无参构造函数**：自动发现通过 `Activator.CreateInstance` 创建派生类，只有需要参数的构造函数会在建立定义上下文时失败。
-4. **容器形状不完整**：`Dictionary<TKey,TValue>`、`List<T>` 等闭合泛型需要在 `DefineContainerDefinitions` 中明确构造；遗漏会在保存深层对象时出现未定义类型错误。
-5. **重复容器定义**：`ConstructContainerDefinition` 对已有定义会触发断言；同一容器应由一个权威 definer 负责。
-6. **错误的职责层**：definer 只建立静态定义，不保证实例已注册或字段有意义；对象生命周期仍由 [MBObjectManager](../../campaign-ext/MBObjectManager)、Campaign 或 Behavior 管理。
-7. **跨版本删字段**：移除带 `[SaveableField]` 的字段而未保留兼容读取策略，可能让旧档加载失败；先查看 `SaveableCampaignTypeDefiner` 和现有兼容逻辑。
+因此容器的元素、键和值必须在此前已有定义；`Define*` 只建表，不应访问 `Campaign.Current`、创建 Hero 或触发事件。
 
 ## 真实原生模式
 
-1.3.15 的 `SaveableCampaignTypeDefiner` 使用 `base(330000)`，在 `DefineClassTypes` 中登记 `Campaign`、`Hero`、`MobileParty` 等类，在 `DefineStructTypes` 中登记 `CampaignTime`，并在 `DefineContainerDefinitions` 中构造 `Dictionary<...>`、`List<...>` 等闭合容器。StoryMode 的 `SaveableStoryModeTypeDefiner` 使用另一段 `base(320000)`，说明模块之间必须预先分配不重叠的区间。
+1.4.5 源码中的 `SaveableObjectSystemTypeDefiner` 使用 `base(10000)`，在 `DefineBasicTypes` 中加入 `MBGUID`，在 `DefineClassTypes` 中调用 `AddClassDefinition(typeof(MBObjectBase), 34)`。`SaveableLocalizationTypeDefiner` 使用 `base(20000)`，注册 `TextObject` 并构建 `Dictionary<string, TextObject>` 容器。这说明 definer 同时覆盖基础类型、类和容器，而不是只登记带 Attribute 的字段。
 
-## 真实 mod 定义
+## 何时使用 / 何时不要使用
+
+**使用：**新增一个会进入 `SaveManager` 对象图的自定义类、结构、枚举、接口、基础类型或泛型容器时；尤其是配合 [SaveableFieldAttribute](../SaveableFieldAttribute) / [SaveablePropertyAttribute](../SaveablePropertyAttribute) 时。
+
+**不要使用：**仅为 `CampaignBehaviorBase` 的几个字段创建 definer；那应使用 [IDataStore](../campaign-ext/IDataStore)。也不要用它注册 `MBObjectManager` 的 XML 对象类型；那是 [MBObjectManager](../campaign-ext/MBObjectManager) 的 `RegisterType<T>` 契约。
+
+## 关键扩展点
+
+| 方法 | 作用 |
+| --- | --- |
+| `DefineBasicTypes()` | 用 `AddBasicTypeDefinition` 注册基础类型和序列化器 |
+| `DefineClassTypes()` | 用 `AddClassDefinition` 注册普通引用类型 |
+| `DefineRootClassTypes()` | 用 `AddRootClassDefinition` 注册保存图根类 |
+| `DefineStructTypes()` / `DefineEnumTypes()` / `DefineInterfaceTypes()` | 注册值类型、枚举和接口定义 |
+| `DefineGenericClassDefinitions()` / `DefineGenericStructDefinitions()` | 通过 `ConstructGeneric...` 构建泛型定义 |
+| `DefineContainerDefinitions()` | 用 `ConstructContainerDefinition` 注册 `List<T>`、`Dictionary<TKey,TValue>` 等容器 |
+| `DefineConflictResolvers()` | 通过 `AddConflictResolver` 声明兼容冲突处理 |
+
+## 真实示例：原生 Localization 定义器
 
 ```csharp
-using System.Collections.Generic;
-using TaleWorlds.SaveSystem;
-
-namespace MyMod;
-
-// 必须是可由 DefinitionContext 自动 Activator.CreateInstance 的无参构造。
-public sealed class MySaveableTypes : SaveableTypeDefiner
+public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 {
-    public MySaveableTypes() : base(350000)
-    {
-    }
+    public SaveableLocalizationTypeDefiner() : base(20000) { }
 
     protected override void DefineClassTypes()
     {
-        AddClassDefinition(typeof(CampaignState), 1);
-    }
-
-    protected override void DefineStructTypes()
-    {
-        AddStructDefinition(typeof(MyCounter), 1001);
+        AddClassDefinition(typeof(TextObject), 1);
     }
 
     protected override void DefineContainerDefinitions()
     {
-        ConstructContainerDefinition(typeof(List<CampaignState>));
+        ConstructContainerDefinition(typeof(Dictionary<string, TextObject>));
     }
 }
+
 ```
 
-定义完成后，消费者仍从真实运行期根对象取得状态，而不是从 `MySaveableTypes` 取实例：
+这是 1.4.5 的真实声明：`base(20000)` 和类型 local ID `1` 共同形成类型 SaveId，具体字典形状另由 `ConstructContainerDefinition` 登记。模块初始化时由 [SaveManager](SaveManager) 建立定义上下文；mod 不应手动 `new` 这个 definer。原生 [SaveableCampaignTypeDefiner](../campaign-ext/SaveableCampaignTypeDefiner) 采用同一模式，并以 `base(330000)` 登记 Campaign 类型。
 
-```csharp
-Game game = Game.Current;
-Campaign campaign = Campaign.Current;
-Debug.Print(game.GameType.GetType().Name);
-Debug.Print(campaign.SaveHandler.GetType().Name);
-```
+## 风险与防坏档
 
-`CampaignState` 的成员还必须遵守 SaveSystem 的字段属性/兼容规则；`MySaveableTypes` 不会自动创建 `CampaignState`，也不会把它挂到 Campaign。定义器被扫描并执行后，实例才可能被 `SaveManager` 正确编码。
+- **`saveBaseId` 冲突。** helper 实际把基准和局部编号相加；两个模块范围重叠会产生相同类型保存 ID，导致定义冲突或错误解析。为 mod 预留明确范围并固定它。
+- **局部 `saveId` 改动。** `AddClassDefinition(typeof(T), 1)` 的 `1` 也是持久化类型身份；发布后不要为了排序随意重排。
+- **遗漏容器定义。** 字段类型可能是 `List<T>` 或字典；没有相应容器定义，`DefinitionContext`/`SaveManager` 检查会报未定义类型。
+- **把 Attribute 当自动注册。** 仅标记字段/属性不会生成类定义；同样，definer 也不会替你把类加入 `MBObjectManager` 的 XML 类型表。
+- **改签名而不考虑旧档。** 删除类、改字段类型、改 `LocalSaveId` 或换 resolver 都会影响旧存档；需要兼容 resolver 或新版本成员和迁移策略。
+- **在定义阶段执行游戏逻辑。** `Define...` 方法用于建表，不应访问 `Campaign.Current`、创建 Hero 或触发事件；那些对象可能尚未初始化。
 
-## 导航
+- **误解读档顺序。** `SaveManager.Load` 会重新建立当前版本的定义表；`LoadContext` 先创建对象、解析引用、填充字段/属性，再运行初始化和 late 初始化回调。字段可能在对象之间并行填充，不能在构造函数或过早的事件中读取完整状态。
 
-- ↑ 父级：[save-system 目录](./)
-- ↔ 同级：[SaveableBasicTypeDefiner](../SaveableBasicTypeDefiner) · [SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute)
-- ↓ 下游：[SaveManager](../SaveManager) · [ISaveDriver](../ISaveDriver)
-- 相关：[Game](../../core-extra/Game) · [Campaign](../../campaign/Campaign) · [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase)
+- **误把 resolver 当重编号工具。** `DefineConflictResolvers` 只应为明确的旧版本类型 ID 提供迁移映射；错误 resolver 会把旧数据送入错误类型。
+
+## 跨版本提示
+
+1.3.15 与 1.4.5 都提供相同的基类 helper 和阶段重写点。官方模块的 `saveBaseId`、类型局部编号和类型清单可能随版本增加；mod 应把自己的编号视为永久协议，不要复制某个版本官方编号范围。
+
+## 依赖关系与导航
+
+- 成员声明：[SaveableFieldAttribute](SaveableFieldAttribute) · [SaveablePropertyAttribute](SaveablePropertyAttribute)。
+- 执行入口：[SaveManager](SaveManager) 构建 [DefinitionContext](DefinitionContext) 并报告定义错误。
+- Behavior 另一条路线：[CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase) 和 [IDataStore](../campaign-ext/IDataStore)。
+- 对象注册另一条路线：[MBObjectManager](../campaign-ext/MBObjectManager)。
+
+- 父级：[save-system API](../)
+- 同级：[SaveManager](SaveManager) · [SaveableFieldAttribute](SaveableFieldAttribute)
+- 相关：[ContainerDefinition](ContainerDefinition) · [IConflictResolver](IConflictResolver) · [存档与崩溃边界](../../architecture/crash-boundaries)

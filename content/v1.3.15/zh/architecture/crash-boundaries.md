@@ -14,7 +14,7 @@ description: "模组离奇崩溃与坏档的 8 类根因：存档、世界变更
 ## 2. 世界变更必须走 `*Action.Apply`
 - 错误：直接改 `Hero.Gold`、`Settlement.Owner`、关系字段 —— 跳过事件级联，AI/UI/存档不同步，坏档。
 - 正确：调用对应 `XxxAction.Apply(...)`（如 `GiveGoldAction.Apply`）。
-- 入口：[CampaignEvents](../../api/campaign-ext/CampaignEvents/) · [CampaignEventReceiver](../../api/campaign-ext/CampaignEventReceiver/) · Actions 家族（编写中 → [campaign-ext](../../api/campaign-ext/)）
+- 入口：[CampaignEvents](../../api/campaign-ext/CampaignEvents/) · [CampaignEventReceiver](../../api/campaign-ext/CampaignEventReceiver/) · [Actions 家族](../../api/campaign-ext/actions/)
 
 ## 3. Campaign 事件时机 vs Mission 内外
 - 错误：在 Mission 进行中订阅/假设 Campaign tick 已发生；在错误阶段触发逻辑。
@@ -34,7 +34,7 @@ description: "模组离奇崩溃与坏档的 8 类根因：存档、世界变更
 ## 6. SubModule 加载阶段
 - 错误：在 `OnSubModuleLoad` 里访问尚未初始化的 `Campaign`/`Game`；过早注册 Behavior。
 - 正确：区分 `OnSubModuleLoad`（静态注册）与 `OnGameStart`/`OnCampaignStart`（运行时）；Behavior 在 `CampaignGameStarter` 里加。
-- 入口：[CampaignGameStarter](../../api/campaign-ext/CampaignGameStarter/) · [CampaignBehaviorBase](../../api/campaign-ext/CampaignBehaviorBase/) · MBSubModuleBase（编写中 → [core](../../api/core/)）
+- 入口：[CampaignGameStarter](../../api/campaign-ext/CampaignGameStarter/) · [CampaignBehaviorBase](../../api/campaign-ext/CampaignBehaviorBase/) · [MBSubModuleBase](../../api/core/MBSubModuleBase/)
 
 ## 7. Model 替换
 - 错误：`new` 一个 Model 直接赋值，被引擎覆盖；或返回 null 导致计算崩溃。

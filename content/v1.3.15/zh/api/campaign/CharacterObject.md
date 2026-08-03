@@ -305,6 +305,12 @@ foreach (CharacterObject cav in CharacterObject.FindAll(c => c.IsRegular && c.Is
 - **1.3.0**：本仓库未包含 1.3.0 的 `TaleWorlds.CampaignSystem` 源码（仅有 `SandBox` / `StoryMode` 工程），无法确认其与 1.3.15 的逐行差异。撰写时以 1.3.15 与 1.4.5 为准，二者在该类上无公开差异。
 - **英雄生成入口**：跨版本创建英雄建议统一走 `HeroCreator.CreateHero` / `HeroCreator.CreateSpecialHero`，由它内部决定是否 `CreateFrom` 模板——不要在 mod 里手动拼 `new Hero(...)` + `CreateFrom`，以免漏掉 `HeroInitializationArgs` 里的文化/家族/出身结算。
 
+## 依赖关系
+
+- 上游：[MBObjectManager](../../campaign-ext/MBObjectManager/) 注册 XML/模块对象；[CultureObject](../../campaign-ext/CultureObject/) 和模板数据决定职业与装备。
+- 下游：[Hero](../Hero/) 以 `CharacterObject` 作为人物模板，[TroopRoster](../../campaign-ext/TroopRoster/) 和 Agent 生成逻辑读取它。
+- 存档：保存稳定对象身份和可序列化状态；不要跨 Game 生命周期缓存引用。
+
 ## 参见
 
 - [Hero](../Hero/) — 战役世界里的具体角色实例，与 `CharacterObject` 双向绑定

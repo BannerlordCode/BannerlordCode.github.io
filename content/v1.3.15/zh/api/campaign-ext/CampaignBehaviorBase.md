@@ -45,12 +45,12 @@ description: "战役模块扩展的根类：注册事件、保存数据、注入
 ```csharp
 public class MySubModule : MBSubModuleBase
 {
-    protected override void OnSubModuleLoad()
+    protected internal override void OnSubModuleLoad()
     {
         base.OnSubModuleLoad();
     }
 
-    protected override void OnGameStart(Game game, IGameStarter starterObject)
+    protected internal override void OnGameStart(Game game, IGameStarter starterObject)
     {
         base.OnGameStart(game, starterObject);
 
@@ -72,7 +72,7 @@ public override void RegisterEvents()
 {
     CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
     CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
-    CampaignEvents.OnSettlementEnteredEvent.AddNonSerializedListener(this, OnSettlementEntered);
+    CampaignEvents.SettlementEntered.AddNonSerializedListener(this, OnSettlementEntered);
 }
 
 private void OnDailyTick()
@@ -80,7 +80,7 @@ private void OnDailyTick()
     // 每天执行一次
 }
 
-private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, MapEvent mapEvent)
+private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
 {
     // 某个英雄死亡
 }
@@ -108,7 +108,7 @@ public override void SyncData(IDataStore dataStore)
 }
 ```
 
-> `SyncData` 的字段必须标记 `[SaveableField]` 或 `[SaveableProperty]`，否则保存系统不会识别。
+> `SyncData` 直接把字段交给 `IDataStore`；行为字段不需要因为使用 `SyncData` 而额外添加 `[SaveableField]` 或 `[SaveableProperty]`。属性/字段标注是对象图另一种保存契约，不能替代行为的 `SyncData`。
 
 ### `public static T GetCampaignBehavior<T>()`
 在运行时按类型找到已注册的行为。适合在别处调用行为的公共方法。
@@ -192,6 +192,12 @@ public class InvasionBehavior : CampaignBehaviorBase
 - v1.3.0 / v1.3.15 / v1.4.5：`CampaignBehaviorBase` 抽象接口非常稳定；`RegisterEvents` + `SyncData` 是跨版本最可靠的扩展方式。
 - v1.4.5 对 `CampaignGameStarter` 做了细化拆分，但 `AddBehavior(...)` 方法保持不变。
 - 跨版本兼容建议：使用条件编译或反射处理不同版本的 `CampaignEvents` 签名差异。
+
+## 依赖关系
+
+- 上游：[CampaignGameStarter](../CampaignGameStarter/) 在战役启动阶段挂载行为；[Campaign](../../campaign/Campaign/) 持有其生命周期。
+- 下游：[CampaignEvents](../CampaignEvents) 回调事件，`SyncData(IDataStore)` 连接 [SaveManager](../../save-system/SaveManager)。
+- 世界变更：行为负责时机和协调，实体状态变化转交对应 `*Action.Apply`，不要在 tick 中直接改底层字段。
 
 ## 参见
 

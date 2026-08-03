@@ -29,6 +29,20 @@ Think of `Hero` as the **campaign-world character card**, not the 3D battlefield
 - Do **not** `new Hero()` yourself. Create new heroes through `HeroCreator.CreateHero(...)` or query existing heroes with `Hero.FindFirst` / `Hero.FindAll`.
 - State changes are usually direct property writes (`Gold`, `Clan`, etc.). Health, skills, and traits have dedicated methods (`ChangeHeroGold`, `AddSkillXp`, `SetTraitLevel`).
 
+## Dependencies
+
+### Ownership and political context
+
+- [`Campaign`](../Campaign/) owns the persistent hero registry and resolves `Hero.MainHero` during a live campaign.
+- [`Clan`](../Clan/) and [`Kingdom`](../Kingdom/) provide political ownership, party membership, and faction context.
+- [`MobileParty`](../MobileParty/) is the usual runtime holder when a hero leads or joins a party.
+
+### Mutations and observation
+
+- [`CampaignEvents`](../../campaign-ext/CampaignEvents/) exposes lifecycle and relation events that behaviors observe.
+- [`KillCharacterAction`](../../campaign-ext/KillCharacterAction/) and other campaign actions coordinate world-changing transitions; do not simulate them by editing unrelated fields.
+- [`Mission`](../../mission/Mission/) and [`Agent`](../../mission/Agent/) are temporary scene projections, not alternate hero storage.
+
 ## How to Obtain a Hero
 
 ```csharp

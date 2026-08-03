@@ -31,6 +31,20 @@ Think of `MobileParty` as a **movable container on the map**:
 - Move position with `SetPositionAfterMapChange`; set intent with `SetMove*` methods; control AI through the `Ai` property.
 - Party identity is wrapped by a `PartyComponent` (lord, caravan, bandit, etc.), accessible via `Component` for type-specific behavior.
 
+## Dependencies
+
+### Ownership and movement
+
+- [`Campaign`](../Campaign/) owns the party registry and campaign tick that advances party simulation.
+- [`PartyBase`](../PartyBase/) is the common map-party identity used by encounters, factions, and rosters.
+- [`Settlement`](../Settlement/) is a common movement target and the source of garrison, town, and village context.
+- [`Hero`](../Hero/) supplies leader, party roles, and persistent character state.
+
+### Army and encounter boundaries
+
+- [`Army`](../../campaign-ext/Army/) may aggregate mobile parties and change their movement/AI ownership.
+- [`MapEvent`](../../campaign-ext/MapEvent/) and [`Mission`](../../mission/Mission/) are temporary encounter/scene layers; party references must be checked across those transitions.
+
 ## How to Obtain a MobileParty
 
 ```csharp

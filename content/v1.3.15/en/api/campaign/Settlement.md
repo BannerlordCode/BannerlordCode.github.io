@@ -30,6 +30,20 @@ Think of `Settlement` as the **gateway object for a location**:
 - `Settlement.Party` is the garrison, `MilitiaPartyComponent` is the militia.
 - Player's current location: `Settlement.CurrentSettlement`.
 
+## Dependencies
+
+### Persistent components
+
+- [`MobileParty`](../MobileParty/) and [`PartyBase`](../PartyBase/) represent parties approaching, defending, or garrisoned at the settlement.
+- [`Town`](../Town/) and [`Village`](../Village/) hold settlement-type-specific economy, garrison, and production state.
+- [`Hero`](../Hero/) supplies owner, governor, and notable relationships used by settlement systems.
+
+### Battle and siege boundaries
+
+- [`MapEvent`](../../campaign-ext/MapEvent/) describes a current map encounter at the settlement; it may be `null` even when the settlement exists.
+- [`SiegeEvent`](../../campaign-ext/SiegeEvent/) owns the longer-lived siege state; use siege actions for ending a siege instead of clearing settlement references.
+- [`Campaign`](../Campaign/) and its models/behaviors drive daily settlement calculations and persistence.
+
 ## How to Obtain a Settlement
 
 ```csharp

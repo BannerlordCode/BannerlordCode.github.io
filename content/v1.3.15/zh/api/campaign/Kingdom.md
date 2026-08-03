@@ -157,6 +157,12 @@ bool IsEnemySettlement(Settlement s) =>
 - v1.3.0 / v1.3.15 / v1.4.5 的王国 API 一致。
 - v1.4.5 对王国决议和外交 AI 做了扩展，新增了更多 `KingdomDecision` 子类。
 
+## 依赖关系
+
+- 上游：[Clan](../Clan) 提供成员与资产，[Campaign](../Campaign) 持有全局王国集合。
+- 下游：[MobileParty](../MobileParty/)、[Settlement](../Settlement/)、[Army](../../campaign-ext/Army/) 与 Diplomacy Model 使用王国状态。
+- 变更：宣战、停战和改变所有权必须用相应 Action；不要直接改 `Kingdom.Stances` 或成员集合。
+
 ## 参见
 
 - [Clan](../Clan/) — 王国的组成单元

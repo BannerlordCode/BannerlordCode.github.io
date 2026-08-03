@@ -128,7 +128,7 @@ namespace MyMod
     public class MySubModule : MBSubModuleBase
     {
         // Fires on a new campaign / tutorial / editor start; saves use OnGameLoaded.
-        public override void OnCampaignStart(Game game, object starterObject)
+        protected internal override void OnCampaignStart(Game game, object starterObject)
         {
             CampaignGameStarter starter = (CampaignGameStarter)starterObject;
             starter.AddBehavior(new DailyGoldBehavior());

@@ -116,6 +116,12 @@ foreach (Clan clan in Clan.All)
 - v1.3.0 / v1.3.15 / v1.4.5 的氏族 API 基本稳定。
 - v1.4.5 对强盗氏族和小派系做了更细分类（`IsMafia`、`IsSect`、`IsNomad`）。
 
+## 依赖关系
+
+- 上游：[Hero](../Hero) 和 [Kingdom](../Kingdom) 组成成员与阵营关系；[Campaign](../Campaign) 持有全局家族集合。
+- 下游：[Settlement](../Settlement)、[MobileParty](../MobileParty) 和外交/财政 Model 读取家族资产与政治状态。
+- 变更：加入王国、改变领地或外交走 Action，让事件链更新 UI、AI 和存档，不直接替换集合。
+
 ## 参见
 
 - [Kingdom](../Kingdom/) — 氏族所属的王国

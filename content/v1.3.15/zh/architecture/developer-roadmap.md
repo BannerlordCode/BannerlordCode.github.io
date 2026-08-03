@@ -4,12 +4,12 @@ description: "按模组开发真实任务组织：注册 SubModule、改世界�
 ---
 # 开发者任务路线图
 
-> 不按字母表找类。先在这里定位你要做的「任务」，顺着依赖链点进具体类页。每格都链到已手写页；未写完的家族（Actions / Models）链到模块桶并标注编写中。
+> 不按字母表找类。先在这里定位你要做的「任务」，顺着依赖链点进具体类页。每格都链到入口页；长尾家族先回到模块地图，再进入已审查的具体类型。
 
 ## 任务 → 入口类
 
 ### 1. 注册 SubModule 并在战役里加 Behavior
-依赖链：`MBSubModuleBase`（SubModule 入口，页面编写中 → 见 [core 模块](../../api/core/)）→ `CampaignGameStarter.AddBehavior<T>` → 你的 `CampaignBehaviorBase` 子类。
+- [MBSubModuleBase](../../api/core/MBSubModuleBase/)（SubModule 生命周期入口）→ `CampaignGameStarter.AddBehavior<T>` → 你的 `CampaignBehaviorBase` 子类。
 - [CampaignGameStarter](../../api/campaign-ext/CampaignGameStarter/)
 - [CampaignBehaviorBase](../../api/campaign-ext/CampaignBehaviorBase/)
 - [CampaignEventReceiver](../../api/campaign-ext/CampaignEventReceiver/)（订阅战役事件）
@@ -18,7 +18,7 @@ description: "按模组开发真实任务组织：注册 SubModule、改世界�
 ### 2. 安全地改世界状态（给钱 / 杀人 / 改王国）
 原则：**永远走 `*Action.Apply`，不要直接改字段**（直接改会跳过事件级联、坏档、AI 失同步）。
 - 事件与 Action 入口：[CampaignEvents](../../api/campaign-ext/CampaignEvents/) · [CampaignEventReceiver](../../api/campaign-ext/CampaignEventReceiver/)
-- Actions 家族页：编写中 → 见 [campaign-ext 模块](../../api/campaign-ext/)（KillCharacterAction / ChangeRelationAction / GiveGoldAction / DeclareWarAction 等）
+- Actions 家族页：[Actions 总则](../../api/campaign-ext/actions/)；高风险动作包括 `KillCharacterAction` / `ChangeRelationAction` / `GiveGoldAction` / `DeclareWarAction`
 - 实体：[Hero](../../api/campaign/Hero/) · [Clan](../../api/campaign/Clan/) · [Kingdom](../../api/campaign/Kingdom/)
 - 风险：见 [崩溃边界 · 世界变更须走 Action](../crash-boundaries/)
 
@@ -37,7 +37,7 @@ description: "按模组开发真实任务组织：注册 SubModule、改世界�
 
 ### 5. 改党派战争得分 / 经济数值
 - [GameModels](../../api/campaign-ext/GameModels/)（模型聚合入口）
-- 具体模型（PartySpeed/Wage/Diplomacy/…）页面编写中 → 见 [campaign-ext 模块](../../api/campaign-ext/)
+- 具体模型（PartySpeed/Wage/Diplomacy/…）：见 [Models 家族手册](../../api/campaign-ext/models/)
 - 风险：替换模型要经 `GameModels` 注册，直接 new 会被覆盖。
 
 ### 6. 做 UI 界面（Gauntlet）

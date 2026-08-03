@@ -29,6 +29,20 @@ Think of `CampaignBehaviorBase` as a **background service in the campaign world*
 - One mod usually needs **one main behavior**; complex mods may split into several (economy behavior, event behavior, UI behavior).
 - `SyncData` is the **recommended single hook** for cross-save mod data persistence.
 
+## Dependencies
+
+### Registration and events
+
+- [`CampaignGameStarter`](../CampaignGameStarter/) registers behavior instances during campaign startup.
+- [`CampaignEvents`](../CampaignEvents/) provides the event stream consumed by `RegisterEvents()`.
+- [`Campaign`](../../campaign/Campaign/) owns the behavior manager and invokes the behavior in the campaign lifecycle.
+
+### Persistence and downstream state
+
+- [`IDataStore`](../IDataStore/) is the storage boundary passed to `SyncData`; use stable keys and preserve compatible data shapes.
+- [`SaveableFieldAttribute`](../../save-system/SaveableFieldAttribute/) can describe nested saveable data, while the outer behavior still uses `SyncData`.
+- Domain entities such as [`Hero`](../../campaign/Hero/) and [`MobileParty`](../../campaign/MobileParty/) should be changed through their documented actions or models, not by using a behavior as an untracked global singleton.
+
 ## Core Members
 
 | Member | Description |
@@ -45,12 +59,12 @@ Usually register inside `CampaignGameStarter` (or `MbSubModuleBase.OnGameStart`)
 ```csharp
 public class MySubModule : MBSubModuleBase
 {
-    protected override void OnSubModuleLoad()
+    protected internal override void OnSubModuleLoad()
     {
         base.OnSubModuleLoad();
     }
 
-    protected override void OnGameStart(Game game, IGameStarter starterObject)
+    protected internal override void OnGameStart(Game game, IGameStarter starterObject)
     {
         base.OnGameStart(game, starterObject);
 
@@ -72,7 +86,7 @@ public override void RegisterEvents()
 {
     CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
     CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
-    CampaignEvents.OnSettlementEnteredEvent.AddNonSerializedListener(this, OnSettlementEntered);
+    CampaignEvents.SettlementEntered.AddNonSerializedListener(this, OnSettlementEntered);
 }
 
 private void OnDailyTick()
@@ -80,7 +94,7 @@ private void OnDailyTick()
     // runs once per day
 }
 
-private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, MapEvent mapEvent)
+private void OnHeroKilled(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
 {
     // a hero died
 }
@@ -108,7 +122,7 @@ public override void SyncData(IDataStore dataStore)
 }
 ```
 
-> Fields passed to `SyncData` must be marked with `[SaveableField]` or `[SaveableProperty]` so the save system recognizes them.
+> `SyncData` passes fields directly to `IDataStore`; a behavior field does not need `[SaveableField]` or `[SaveableProperty]` merely because it is synchronized there. Those attributes describe another object-graph save contract and do not replace the behavior's `SyncData` implementation.
 
 ### `public static T GetCampaignBehavior<T>()`
 Find a registered behavior by type at runtime. Useful for calling public methods on the behavior from elsewhere.

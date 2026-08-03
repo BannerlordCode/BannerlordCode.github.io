@@ -247,6 +247,12 @@ protected override void InitializeGameStarter(Game game, IGameStarter starter)
 - v1.4.5：属性集合最完整（即本页所列范围）。覆盖机制与 v1.3.x 一致，但模型总数显著增加；跨版本 mod 不要假设某个具体属性一定存在，宁可走 `GetGameModel<T>()`。
 - 通用：无论哪个版本，模型都**只回答“怎么算”**。若某版本间某个评分公式改了，那通常是对应 `*Model` 的默认实现变了，替换该 Model 即可，无需触碰调用方。
 
+## 依赖关系
+
+- 上游：[CampaignGameStarter](../CampaignGameStarter/) 或 `IGameStarter.AddModel` 注册实现；[Campaign](../../campaign/Campaign/) 暴露运行时集合。
+- 下游：Party、Settlement、Diplomacy 和 Character 模型被实体 tick、菜单和 AI 查询。
+- 替换边界：Model 只计算结果，不执行世界变更；宣战、改所有权或转移英雄使用 `*Action.Apply`。
+
 ## 参见
 
 - [Campaign](../) — 通过 `Campaign.Current.Models` 拿到整个容器

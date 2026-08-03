@@ -236,6 +236,8 @@ Bannerlord 原生支持多人。需要：
 
 ## 下一步 / Next Steps
 
+- 查看 [Mod 开发工作流](./mod-workflow) - 从环境配置到发布的可重复流程
+- 查看 [Mod 作者路线](./modder-journey) - 从目标选择到验证的任务路线
 - 查看 [Gauntlet UI 系统](./gauntlet-ui) - 创建自定义界面
 - 查看 [任务系统](./mission-system) - 自定义战斗和任务
 - 查看 [战役系统](./campaign-system) - 修改世界地图玩法
@@ -322,6 +324,8 @@ Bannerlord 原生支持多人。需要：
 
 - [Gauntlet UI 系统 / Gauntlet UI System](./gauntlet-ui)
 - [任务系统 / Mission System](./mission-system)
+- [Mod 开发工作流 / Mod Development Workflow](./mod-workflow)
+- [Mod 作者路线 / Modder Journey](./modder-journey)
 - [存档系统指南 / Save System Guide](./save-system-guide)
 - [常见模式 / Common Patterns](./common-patterns)
 - [战役系统 / Campaign System](./campaign-system)

@@ -100,11 +100,11 @@ node tools/class-version-diff.mjs ClassName      # print one class's diff
 ## NOTES
 - `zola check` is configured to warn on internal links, but `tools/audit-links.mjs` is the stricter dead-link gate. Run `node tools/audit-links.mjs` after edits; `BROKEN_LINKS` must be 0.
 - **Cross-version comparison** (`content/versions/`): one page per class, comparing its accessible API (public/protected/internal, excl. private) across 1.3.0/1.3.15/1.4.5, with a hand-curated modder-impact note. Pages are auto-generated from source by `tools/gen-version-pages.mjs` (which imports `tools/class-version-diff.mjs`). Re-run after the sibling `bannerlord-*` source trees update. 1.4.5 source is decompiled, so some modifiers may differ from the original — the pages note this.
-- When generating class docs via subagents (agent_team): instruct them to (1) grep signatures for large files, (2) use the `write` tool (not print to message), (3) wrap generics in backticks in prose.
+- The only allowed agent workflow for class docs is to read source and signatures, then handwrite source-backed product prose. Agents/subagents must not generate class docs, inject signatures into page bodies, or use a write tool/generator to fill `content/**`; signatures are evidence only, never body prose.
 - GitHub Actions deploys the Zola `public/` directory to GitHub Pages on push to `main`.
 
 ## H0 HANDWRITTEN-ONLY POLICY
 - Product prose under `content/**` is handwritten and source-backed; do not use signature-to-prose, stub, placeholder, or bulk body-rewrite tools as a product path.
-- Read `tools/RETIRED_BODY_GENERATORS.md` and the versioned `architecture/doc-contract.md` before authoring documentation.
+- Read `tools/RETIRED_BODY_GENERATORS.md` and the applicable versioned contract before authoring documentation: `content/v1.3.15/en/architecture/doc-contract.md` or `content/v1.3.15/zh/architecture/doc-contract.md`, and likewise the matching `content/v1.4.5/en/architecture/doc-contract.md` or `content/v1.4.5/zh/architecture/doc-contract.md` for v1.4.5 work.
 - Retired writers must fail closed unless `BANNERLORD_ALLOW_RETIRED_BODY_GEN=1` is explicitly set for local archaeology. That override is forbidden in product builds, CI, and commits touching `content/**`.
 - Use inventory, coverage, link, quality, navigation, and cross-version tools only for reports or structural data; they must not invent page prose.

@@ -232,6 +232,12 @@ if (tournamentGame.CreationTime.ElapsedDaysUntilNow >= (float)tournamentGame.Rem
 - **`ToDateString()` 不存在于 v1.3.15 与 v1.4.5**：它是在更晚版本才加入的便捷方法。当前要拿到本地化日期字符串请使用 `ToString()`。
 - `Campaign.CurrentTime`（返回 `float` 小时）在上述所有版本中都存在，作为引擎内部便捷入口；写 mod 的比较与调度逻辑时仍应优先使用 `CampaignTime` 本身。
 
+## 依赖关系
+
+- 上游：[Campaign](../../campaign/Campaign) 持有战役时钟，`CampaignTime.Now` 随战役推进更新。
+- 下游：[CampaignEvents](../CampaignEvents) 发布 tick；[CampaignBehaviorBase](../CampaignBehaviorBase) 用它安排周期任务。
+- 存档：保存可恢复的战役时间或最后处理时间，不要把现实 `DateTime` 当作战役时钟。
+
 ## 参见
 
 - [本区域目录](../)

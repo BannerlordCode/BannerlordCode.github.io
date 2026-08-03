@@ -81,11 +81,14 @@ private void OnDailyTickParty(MobileParty party)
 ```
 
 ### `public GameModels Models`
-获取模型集合，用于读取或替换算法。例如修改影响力消耗、部队速度、技能经验公式等。
+获取运行时模型集合，用于读取战役算法。模型的登记/替换应在启动器阶段完成，而不是给运行期属性直接赋值。
 
 ```csharp
-// 注意：替换模型需要在 CampaignGameStarter 的 OnGameStart/OnGameLoaded 中进行
-Campaign.Current.Models.DiplomacyModel = new MyCustomDiplomacyModel();
+// 在 MBSubModuleBase.InitializeGameStarter 中登记自定义 DiplomacyModel 子类。
+if (starterObject is CampaignGameStarter starter)
+{
+    starter.AddModel(new MyCustomDiplomacyModel());
+}
 ```
 
 ### `public CampaignObjectManager CampaignObjectManager`
@@ -161,12 +164,18 @@ public class MyCampaignBehavior : CampaignBehaviorBase
 }
 ```
 
-> `Campaign.Current.Models` 在运行时可以通过反射替换，但推荐走 `CampaignGameStarter.AddModel` 注册。
+> `GameModels` 的具体属性带有私有 setter。运行时读取使用 `Campaign.Current.Models`，自定义模型应通过 `CampaignGameStarter.AddModel` 登记；若要包装原模型，使用 `AddModel<T>(MBGameModel<T>)`。
 
 ## 跨版本提示
 
 - v1.3.0：`Campaign.Current` 行为一致；`Models` 集合中的具体模型类数量较少。
 - v1.4.5：`Campaign` 拆分了更多子管理器（如新增/拆分的 `CampaignInformationManager`），跨版本 mod 建议优先通过接口属性访问，而不是反射内部字段。
+
+## 依赖关系
+
+- 上游：[Game](../../core-extra/Game) 通过 `GameType` 创建并持有战役；[MBSubModuleBase](../../core/MBSubModuleBase) 在启动阶段接入它。
+- 下游：[CampaignGameStarter](../../campaign-ext/CampaignGameStarter/) 注册 [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase/) 与模型；[CampaignEvents](../../campaign-ext/CampaignEvents/) 驱动观察。
+- 世界变更：英雄、部队、据点和外交状态应走相应 Action，Campaign 只提供生命周期与服务集合。
 
 ## 参见
 

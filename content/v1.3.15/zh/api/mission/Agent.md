@@ -1,176 +1,149 @@
 ---
 title: "Agent"
-description: "Mission 场景中的单个实体：士兵、玩家、马匹的战场状态、属性与行为控制。"
+description: "Mission 中一个实时单位的 native-backed 表示：身份、队伍、编队、状态、生命和战斗控制。"
 ---
 # Agent
 
-**Namespace:** TaleWorlds.MountAndBlade  
-**Module:** TaleWorlds.MountAndBlade  
-**Type:** `public class Agent : Entity, IAgent`  
-**Base:** `Entity`  
-**File:** `TaleWorlds.MountAndBlade/Agent.cs`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase`  
+**Base:** `DotNetObject`  
+**Source:** `TaleWorlds.MountAndBlade/Agent.cs`
 
-## 概述
+## 一句话职责
 
-`Agent` 代表 Mission 场景里的**一个具体实体**：玩家角色、AI 士兵、马匹、攻城器械操作员等。与 `Hero`（战役角色卡片）不同，`Agent` 是战场上的实时对象，拥有位置、方向、生命值、装备、动画状态和 AI 控制器。
-
-它是战斗 mod 最常操作的对象之一：刷兵、修改血量、给武器、控制移动、播放动画、切换队伍等。
+它把场景中的一个人、坐骑或其他可控制单位连接到 Mission、Team、Formation、角色模板和原生战斗对象，并在创建、战斗、受伤、死亡、撤退到删除的短生命周期内维护这些关联。
 
 ## 心智模型
 
-把 `Agent` 想象成**“场景里的一个可控制角色实例”**：
+`Agent` 是 **单场景、native-backed 的战斗实体**，不是 `Hero` 或 `CharacterObject` 本身。
 
-- `Agent` 只在 `Mission` 存活期间存在；切换场景后全部销毁。
-- 同一个 `Hero` 在不同战斗里会生成不同的 `Agent` 实例。
-- 不要 new `Agent()`；通过 `Mission.Current.SpawnAgent(...)` 创建。
-- 它同时承载**物理/渲染状态**（位置、动画）和**游戏逻辑状态**（血量、队伍、装备）。
+- Mission 的创建路径产生 Agent，随后通过 `Mission.Agents`/`AllAgents` 和 `OnAgentCreated` 暴露它；模组不应 `new Agent()`。
+- `Character`/`Origin` 描述它来自哪个角色或队伍，`Team`/`Formation` 描述它当前在战场上的组织位置，`State`/`IsActive()` 描述它当前是否仍在活动。
+- `Agent.Main` 是 `Mission.Current?.MainAgent` 的便捷入口。它只在有当前 Mission 和玩家 Agent 时有效。
+- 受致命伤、撤退或被引擎移除后，Agent 会先从 Team 的活动集合中停用，再触发 behavior 的 removal 回调，最后经过 `OnRemove`/`OnDelete` 清理。不要跨 Mission 保存对象引用。
 
 ## 如何获取 Agent
 
 ```csharp
-// 玩家控制的 Agent
-Agent main = Mission.Current?.MainAgent;
-
-// 遍历所有 Agent
-foreach (Agent agent in Mission.Current.Agents)
+Mission mission = Mission.Current;
+if (mission == null)
 {
-    if (agent.IsActive() && agent.IsHuman)
+    return;
+}
+
+Agent main = mission.MainAgent;
+Agent sameMain = Agent.Main;
+Agent firstActive = mission.Agents.FirstOrDefault(agent => agent.IsActive());
+if (main == null || main != sameMain || firstActive == null)
+{
+    return;
+}
+
+Team team = firstActive.Team;
+Formation formation = firstActive.Formation;
+```
+
+新建单位应由 `Mission` 的 spawn/agent origin 流程完成；直接构造 `Agent` 会缺少 native 指针、装备、Team 和 Formation 绑定。
+
+## 关键成员
+
+| 成员 | 用途与时机 | 边界 |
+|---|---|---|
+| `Main`、`IsMainAgent` | 找玩家控制的当前 Agent | Mission 外为 `null`；主角被移除后会失效 |
+| `Mission` | 取得该 Agent 所属的场景 | Mission teardown 后不可当作长期依赖 |
+| `Team`、`Formation` | 找到当前阵营和编队 | Agent 被移除或换队时会变化；可能为 `null` |
+| `Character`、`Origin` | 读取角色模板或 spawn 来源 | 它们不是 Mission 状态的替代物；保存时应保存稳定 ID/战役对象 |
+| `State`、`IsActive()` | 判断 Active、Killed、Routed、Unconscious、Deleted 等阶段 | State 不是“仍可安全调用所有 native 方法”的保证 |
+| `Health`、`HealthLimit` | 读取生命或在确认的 Mission 阶段进行战斗内调整 | 直接改生命不会替代战役层伤亡/存档流程 |
+| `Position`、`Frame`、`MovementVelocity` | 读取实时位置和移动状态 | 结束或删除后的 native 对象上读取可能崩溃 |
+| `Equipment`、`SpawnEquipment` | 读取当前/初始装备 | 装备可能在构建、换武器、掉落过程中改变 |
+| `IsHuman`、`IsMount`、`IsHero` | 过滤单位类型 | `IsHero` 依赖 `Character`，不能把所有 Agent 当 Hero |
+| `KillCount` | 读取或记录 Mission 内击杀计数 | 不等同于 Campaign 战果；结果写回需依赖 Mission 结果流程 |
+
+## Agent 状态与死亡时序
+
+`Mission.OnAgentRemoved` 的 1.4.5 实现顺序是：设置 `affectedAgent.State`，对攻击者增加击杀数，调用 `affectedAgent.Team.DeactivateAgent`，通知所有 `MissionBehavior.OnEarlyAgentRemoved` 和 `OnAgentRemoved`，从活动列表移除，再调用 `affectedAgent.OnRemove`。之后 `OnAgentDeleted` 会把对象从 Mission 的全部集合中移除并清理。
+
+因此，死亡处理应放在 [`MissionBehavior.OnAgentRemoved`](../MissionBehavior/) 或其子类中：
+
+```csharp
+public sealed class AgentRemovalRecorder : MissionBehavior
+{
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
     {
-        // ...
+        bool killed = agentState == AgentState.Killed;
+        int agentIndex = affectedAgent.Index;
+        bool wasHero = affectedAgent.IsHero;
+        BattleSideEnum side = affectedAgent.Team?.Side ?? BattleSideEnum.None;
+        bool playerCausedIt = affectorAgent?.IsMainAgent ?? false;
+
+        RecordRemoval(agentIndex, side, wasHero, killed, playerCausedIt);
     }
-}
 
-// 从事件参数拿到 Agent
-public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, ...)
-{
-    if (affectedAgent == Mission.Current.MainAgent)
+    private void RecordRemoval(
+        int agentIndex,
+        BattleSideEnum side,
+        bool wasHero,
+        bool killed,
+        bool playerCausedIt)
     {
-        // 玩家被击中
-    }
-}
-```
-
-## 核心属性
-
-| 属性 | 类型 | 说明 |
-|------|------|------|
-| `Mission.MainAgent` | `Agent` | 玩家 Agent。 |
-| `IsActive` | `bool` | 是否还活着且在场景中。 |
-| `IsHuman` | `bool` | 是否是人类（非马匹等）。 |
-| `IsMount` | `bool` | 是否是坐骑。 |
-| `Team` | `Team` | 所属队伍。 |
-| `Formation` | `Formation` | 所属编队。 |
-| `Health` / `HealthLimit | `float` | 当前生命值 / 上限。 |
-| `Character` | `CharacterObject` | 底层角色模板。 |
-| `Hero` (extension) | `Hero` | 若该 Agent 有对应英雄，可通过扩展或 `Character.HeroObject` 拿到。 |
-| `Position` / `LookDirection` | `Vec3` | 位置与朝向。 |
-| `WieldedWeapon` | `MissionWeapon` | 当前手持武器。 |
-| `Origin` | `IAgentOriginBase` | 生成来源（部队、英雄、场景放置等）。 |
-
-## 主要方法
-
-### `public bool IsActive()`
-判断 Agent 是否仍然存活且有效。
-
-```csharp
-Agent target = Mission.Current.Agents.FirstOrDefault(a => a.IsActive() && a.IsHuman);
-```
-
-### `public void TelegraphAttackToAgent(Agent target)`
-让 Agent 向目标发起攻击（AI 控制）。
-
-```csharp
-myAgent.TelegraphAttackToAgent(enemy);
-```
-
-### `public void SetTargetPosition(ref WorldPosition targetPosition)`
-设置移动目标点。
-
-```csharp
-WorldPosition pos = new WorldPosition(Mission.Current.Scene, new Vec3(100f, 50f, 0f));
-agent.SetTargetPosition(pos);
-```
-
-### `public void SetLookDirection(Vec3 direction)`
-设置朝向。
-
-```csharp
-agent.SetLookDirection(enemy.Position - agent.Position);
-```
-
-### `public void SetWeaponAmountInSlot(...)` / `public void WieldNextWeapon(...)`
-管理装备与武器切换。
-
-```csharp
-agent.WieldNextWeapon(Agent.HandIndex.MainHand);
-```
-
-### `public void Die(...)`
-立即杀死 Agent。常用于自定义任务逻辑。
-
-```csharp
-agent.Die(new Blow(agent.Index), Agent.KillInfoFlags.None);
-```
-
-### `public void MakeVoice(...)` / `public void SetActionChannel(...)`
-播放语音与动画。
-
-```csharp
-agent.MakeVoice(SkinVoiceManager.VoiceType.Yell, SkinVoiceManager.CombatVoiceNetworkPredictionType.NoPrediction);
-```
-
-## 典型用法示例
-
-### 示例 1：治疗玩家 Agent
-
-```csharp
-Agent main = Mission.Current?.MainAgent;
-if (main != null && main.IsActive())
-{
-    main.Health = main.HealthLimit;
-}
-```
-
-### 示例 2：给附近所有友军加临时生命值
-
-```csharp
-public override void OnMissionTick(float dt)
-{
-    if (Mission.Current?.PlayerTeam == null) return;
-    foreach (Agent agent in Mission.Current.Agents)
-    {
-        if (agent.IsActive() && agent.Team == Mission.Current.PlayerTeam && agent.IsHuman)
-        {
-            if (agent.Health < agent.HealthLimit)
-            {
-                agent.Health = Math.Min(agent.Health + 5f * dt, agent.HealthLimit);
-            }
-        }
+        // Store value data in a Mission-scoped record; do not store Agent.
     }
 }
 ```
 
-### 示例 3：检测玩家击杀
+在回调中可以抽取 `Index`、`IsHero`、`Team.Side` 等值，但不要在 Mission 结束后用 `affectedAgent` 追踪角色，也不要把它当作战役 `Hero` 写入存档。
 
-```csharp
-public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
-{
-    if (affectorAgent == Mission.Current?.MainAgent && affectedAgent.IsHuman)
-    {
-        InformationManager.DisplayMessage(new InformationMessage($"Killed {affectedAgent.Name}"));
-    }
-}
-```
+## 常用控制方法
+
+| 方法 | 正确用途 | 风险 |
+|---|---|---|
+| `IsActive()` | 在 tick 或查询中排除非活动单位 | 通过检查后仍可能在同一帧被移除；短操作内使用 |
+| `SetTargetPosition(ref WorldPosition)` | 为 AI/控制逻辑设置目标位置 | 必须使用当前 Scene 的有效 WorldPosition |
+| `SetLookDirection(Vec3)` | 调整观察方向 | 只在 Agent 已构建且 Mission 仍运行时调用 |
+| `TelegraphAttackToAgent(Agent)` | 让一个 Agent 对另一个目标显示攻击预告 | 目标必须属于当前有效 Mission |
+| `SetWeaponAmountInSlot`、`WieldNextWeapon` | 调整战斗中的弹药/持 weapon 状态 | 不要把临时战斗装备写成存档装备 |
+| `Die(Blow, KillInfo)` | 通过引擎的 Blow 流程让 Agent 死亡 | 会进入完整伤亡回调；不要在 `OnAgentRemoved` 里对同一对象重入调用 |
+| `MakeVoice`、`SetActionChannel` | 播放语音或设置动画 action | 需要有效 native Agent 和当前 Mission 时间 |
+
+## 何时用 / 何时不用
+
+**适合：** 在 Mission tick 中读取位置/状态、给当前有效 Agent 下达即时战斗控制、在 `OnAgentCreated`/`OnAgentRemoved` 建立短期索引，以及在 Team/Formation 中筛选活动单位。
+
+**不适合：** 把 Agent 当作 `Hero` 的持久对象、跨场景缓存 Agent、在战役层直接依赖 `Health` 计算永久伤亡、或用 Agent 字段替代 `*Action.Apply` 与战役事件。
+
+## 依赖图
+
+- 上游：[`Mission`](../Mission/) 创建、持有和移除 Agent；[`MissionBehavior`](../MissionBehavior/) 广播生命周期。
+- 组织：[`Team`](../Team/) 管理阵营活动集合；[`Formation`](../Formation/) 管理编队成员和指令。
+- 下游：`MissionLogic` 可用 `OnAgentRemoved` 收集结束条件；Campaign/SandBox behavior 把 Mission 结果写回战役。
+- 关联模型：`CharacterObject`/`BasicCharacterObject` 提供角色模板；真正跨场景保存的身份应回到 Campaign 对象或存档系统。
+
+## 风险与 teardown
+
+1. **空 Mission：** `Agent.Main`、`Mission` 和 `Team` 在菜单、加载或结束阶段都可能为空。
+2. **死亡后引用：** `OnAgentRemoved` 中 Agent 已被 Team 停用；`OnAgentDeleted` 后它不再属于 Mission 的全部集合。不要异步访问。
+3. **队伍/编队变化：** `Team` 和 `Formation` 不是永久归属，换队、拆分、撤退和清理都会改变它们。
+4. **native 句柄：** Position、Frame、Equipment 和控制方法最终触达原生对象；`IsActive()` 只能缩小窗口，不能跨帧保证对象仍有效。
+5. **战役一致性：** 直接设置战斗属性不等于安全地修改 Hero、Party 或伤亡存档；战役写回要放在 Mission 结果和正确 Action 时序之后。
 
 ## 跨版本提示
 
-- v1.3.0 / v1.3.15 / v1.4.5 核心 API 一致。
-- v1.4.5 增加了更多 `Agent.Controller` 和 `AgentComponent` 的拆分，复杂 AI 行为建议通过 `AgentComponent` 或 `MissionLogic` 实现。
+- 1.3.15 与 1.4.5 都提供 `Agent.Main`、`Mission.Current`、`Team`、`Formation`、`State` 和 `IsActive()` 这条常用访问路径。
+- 1.4.5 源码把 `OnAgentRemoved`、`OnRemove`、`OnDelete` 的边界展示得更清楚；1.3.15 代码也应遵守相同的短寿命引用规则。
 
-## 参见
+## 导航
 
-- [Mission](../Mission/) — Agent 所在场景
-- [Team](../Team/) — 队伍与阵营
-- [Formation](../Formation/) — 编队
-- [MissionBehavior](../MissionBehavior/) — 接收 Agent 相关事件
-- [MissionObject](../../mission-ext/MissionObject/) — 场景交互对象
+- [↑ Mission API 模块](./)
+- [↔ Mission](../Mission/)
+- [↔ MissionBehavior](../MissionBehavior/)
+- [所属 Team](../Team/) · [所属 Formation](../Formation/)
+- [MissionLogic](../../mission-ext/MissionLogic/)
+- [战役层 Campaign](../../campaign/Campaign/)

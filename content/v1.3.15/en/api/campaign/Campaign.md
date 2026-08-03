@@ -31,6 +31,20 @@ Think of `Campaign` as the **campaign-world engine instance**:
 - It is mostly a **coordinator/container**: most “doing” logic lives in `CampaignBehaviorBase` subclasses or `GameModel` subclasses, not directly on `Campaign`.
 - It exposes the current game time through `CampaignTime.Now` (on `CampaignTime`); time is the axis around which the campaign turns.
 
+## Dependencies
+
+### Upstream and ownership
+
+- [`CampaignGameStarter`](../../campaign-ext/CampaignGameStarter/) creates and wires the campaign's behaviors and models before the world starts ticking.
+- [`Game`](../../core-extra/Game/) owns the broader game session; `Campaign` is one `GameType` selected for campaign play.
+
+### Downstream services
+
+- [`CampaignBehaviorBase`](../../campaign-ext/CampaignBehaviorBase/) consumes campaign events and performs scheduled world changes.
+- [`GameModels`](../../campaign-ext/GameModels/) supplies the replaceable algorithms used by economy, diplomacy, party, and combat systems.
+- [`Hero`](../Hero/), [`MobileParty`](../MobileParty/), and [`Settlement`](../Settlement/) are persistent entities held and coordinated by the campaign.
+- [`SaveManager`](../../save-system/SaveManager/) serializes the campaign graph; custom behavior state should follow its `SyncData` contract instead of replacing the root save.
+
 ## How to Access Campaign
 
 ```csharp
@@ -81,11 +95,14 @@ private void OnDailyTickParty(MobileParty party)
 ```
 
 ### `public GameModels Models`
-Get the model collection, used to read or replace algorithms such as influence cost, party speed, or skill XP formulas.
+Get the runtime model collection for reading campaign algorithms. Register or replace models during starter initialization; do not assign the runtime properties directly.
 
 ```csharp
-// Note: replacing models should usually be done in CampaignGameStarter's OnGameStart/OnGameLoaded.
-Campaign.Current.Models.DiplomacyModel = new MyCustomDiplomacyModel();
+// Inside MBSubModuleBase.InitializeGameStarter, register your DiplomacyModel subclass.
+if (starterObject is CampaignGameStarter starter)
+{
+    starter.AddModel(new MyCustomDiplomacyModel());
+}
 ```
 
 ### `public CampaignObjectManager CampaignObjectManager`
@@ -161,7 +178,7 @@ public class MyCampaignBehavior : CampaignBehaviorBase
 }
 ```
 
-> You can replace `Campaign.Current.Models` members at runtime via reflection, but prefer registering models through `CampaignGameStarter.AddModel`.
+> `GameModels` properties have private setters. Read models through `Campaign.Current.Models`; register custom models with `CampaignGameStarter.AddModel`, or wrap an existing model through `AddModel<T>(MBGameModel<T>)`.
 
 ## Cross-Version Notes
 

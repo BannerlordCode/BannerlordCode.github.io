@@ -216,7 +216,7 @@ public class MyKillLogger : CampaignBehaviorBase
 }
 ```
 
-注册该行为：`Campaign.Current.AddCampaignBehavior(new MyKillLogger());`（通常在 `MBSubModuleBase` 的 `OnGameStart` 里，配合 `Campaign.Current.GetCampaignBehavior<T>()` 防重复注册）。
+注册该行为：从 `MBSubModuleBase.InitializeGameStarter` 或 `OnGameStart` 取得 `CampaignGameStarter`，调用 `AddBehavior(new MyKillLogger())`；不要调用不存在的 `Campaign.Current.AddCampaignBehavior`。
 
 ### 示例 2：在行为里订阅“据点易主”并安全响应
 

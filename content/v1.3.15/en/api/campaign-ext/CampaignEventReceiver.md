@@ -215,7 +215,7 @@ public class MyKillLogger : CampaignBehaviorBase
 }
 ```
 
-Register the behavior with `Campaign.Current.AddCampaignBehavior(new MyKillLogger());` (typically inside an `MBSubModuleBase` `OnGameStart`, guarding against double registration with `Campaign.Current.GetCampaignBehavior<MyKillLogger>()`).
+Register the behavior by obtaining `CampaignGameStarter` in `MBSubModuleBase.InitializeGameStarter` or `OnGameStart` and calling `AddBehavior(new MyKillLogger())`; `Campaign.Current.AddCampaignBehavior` is not a 1.3.15 API.
 
 ### Example 2: Subscribing to "settlement owner changed" and reacting safely
 

@@ -1,358 +1,101 @@
 ---
 title: "SaveablePropertyAttribute"
-description: "Property-level save contract: [SaveableProperty(localSaveId)] writes via getter and restores via setter. Requires a set method, stable LocalSaveId, clear Field/SyncData split. Setter side effects corrupt loads."
+description: "The Attribute that adds an instance property to TaleWorlds.SaveSystem; LocalSaveId is the property's persistent identity within its type."
 ---
-
 # SaveablePropertyAttribute
 
 **Namespace:** `TaleWorlds.SaveSystem`  
 **Module:** `TaleWorlds.SaveSystem`  
 **Type:** `public class SaveablePropertyAttribute : Attribute`  
-**Base:** `Attribute`  
-**File:** `TaleWorlds.SaveSystem/SaveablePropertyAttribute.cs`  
-**AttributeUsage:** `AttributeTargets.Property` (properties only; fields use [`SaveableFieldAttribute`](../SaveableFieldAttribute))
+**Base:** `System.Attribute`  
+**Source:** `TaleWorlds.SaveSystem/SaveablePropertyAttribute.cs`
 
-## One-line job
+## Overview
 
-Mark an **instance property on a saveable type** with a numeric slot `LocalSaveId`: save goes through the **getter**, load goes through the **setter**, so [`SaveManager`](../SaveManager) can put public or semi-public state into the object graph by **id (not property name)**.
+`SaveablePropertyAttribute(short localSaveId)` declares a property for the save route. The save system reflects the Attribute, identifies the property by `LocalSaveId`, and relies on [SaveableTypeDefiner](../SaveableTypeDefiner/) to register the containing type. It answers “which property is in the object graph,” not behavior bucketing, type registration, or business mutation.
 
 ## Mental Model
 
-`[SaveableProperty(n)]` and `[SaveableField(n)]` are **two entry points into the same member-layout contract**. The key is always `LocalSaveId`. The difference is the read/write channel:
+The property Attribute and [SaveableFieldAttribute](../SaveableFieldAttribute/) are two entry points into the same save definition system:
 
-| Dimension | Fact |
-|-----------|------|
-| **Lifetime** | Fixed at compile time. `TypeDefinition.CollectProperties` finds attributed instance properties → `PropertyDefinition` → `MemberDefinitions`. |
-| **Who creates / who holds** | You (mod or official type) declare it on the property. The engine holds `PropertyDefinition` / `MemberTypeId`. The save file sees ids and values, not C# property names. |
-| **Layer** | **Save**: global object-graph serialization. Does **not** replace a Campaign Behavior's private bucket via [`IDataStore`](../../campaign-ext/IDataStore). |
-| **Read/write path** | Save: `PropertyDefinition.GetValue` → `GetMethod` (or auto-generated `GetPropertyValueDelegate`). Load: `PropertyLoadData.FillObject` → **`SetMethod.Invoke`**. |
-| **What is the key?** | `short LocalSaveId` + declaring type **class level** → `MemberTypeId`. **Not the property name.** Renaming is safe. Changing id or type semantics of that id is not. |
-| **Hard gate** | Must have **both getter and setter** (`private set` is enough; `PropertyDefinition` resolves with `GetSetMethod(nonPublic: true)`). Get-only properties **cannot** use SaveableProperty. |
+- `SaveableProperty` suits a value exposed through a getter and restored through a setter.
+- `SaveableField` suits implementation-detail state.
+- Both `LocalSaveId` values are stable schema numbers within the containing type; do not reuse one across fields and properties.
+- The Attribute is only a member declaration. The containing class still needs a `SaveableTypeDefiner`, and its values must be serializable.
 
-### What happens on save/load
+## When to use / when not to use
 
-```
-[SaveableProperty(6)] public Town Town { get; private set; }
-         │
-         ▼
-TypeDefinition.CollectProperties
-  → MemberTypeId(classLevel, LocalSaveId=6)
-  → new PropertyDefinition(PropertyInfo, id)
-       · Resolve SetMethod / GetMethod (including non-public)
-       · Missing set or get → throw Exception (fails at definition time)
-         │
-         ▼
-Save  : PropertySaveData.Initialize → GetValue(target) write out
-Load  : PropertyLoadData.FillObject → setMethod.Invoke(target, data)
-```
+Use it for an encapsulated value or official-style read-only view, such as the `get; private set;` shape used by `TextObject.Attributes`. Do not make a setter a campaign Action, UI refresh, or event-chain entry point: load-time assignment can happen before those systems are ready.
 
-Compared with Field:
+Behavior-private state normally belongs in [IDataStore](../../campaign-ext/IDataStore/), not in a new save definition for a single counter. Do not mark runtime caches or external engine handles.
 
-```
-[SaveableField(n)]     → CollectFields → FieldDefinition → direct field access
-[SaveableProperty(n)]  → CollectProperties → PropertyDefinition → get/set methods
+## Member shape
+
+```csharp
+[AttributeUsage(AttributeTargets.Property)]
+public class SaveablePropertyAttribute : Attribute
+{
+    public short LocalSaveId { get; set; }
+    public SaveablePropertyAttribute(short localSaveId)
+    {
+        LocalSaveId = localSaveId;
+    }
+}
 ```
 
-Both land in the same type's `MemberDefinitions` list. On save, `ObjectSaveData.CollectMembers` builds `PropertySaveData` or `FieldSaveData` from the definition branch.
+The source targets only `Property`. A getter must provide a value during saving, and a setter must allow restoration during loading; neither should assume that every related object has already loaded.
 
-### Field vs Property (two-entry mental model)
+## Real example: property members and a type definition
 
-| Prefer Property | Prefer Field |
-|-----------------|--------------|
-| State already is a property API (`MBObjectBase.StringId`, `Workshop.Capital`) | Private implementation detail, `_amount`-style backing |
-| Publicly get-only, but load must still write via `private set` | No set surface at all; load should only assign |
-| Official type is property-style and you continue its id table | Custom POD / data bags are often all Field |
-| Want AutoGenerated `GetPropertyValueDelegate` | Field delegates / direct `FieldInfo` |
+```csharp
+[Serializable]
+public sealed class RelicInfo
+{
+    [SaveableProperty(1)]
+    public TextObject Name { get; private set; }
 
-**Official mixed samples (Field + Property share one id table on the same type):**
+    [SaveableProperty(2)]
+    public Hero Owner { get; private set; }
 
-- `Building`: `[SaveableField(0..3,5)]` + `[SaveableProperty(6)] Town` (`CurrentLevel`'s public set has world side effects, so it is **intentionally not** Saveable; the saved member is `_currentLevel`).  
-- `Workshop`: fields `100-104`, properties `105` / `111` / `112` / `115`.  
-- `ItemRosterElement`: `[SaveableField(11)] _amount` + `[SaveableProperty(21)] EquipmentElement`; public `Amount` set throws on underflow and **must not** be SaveableProperty.  
-- `MBObjectBase`: pure properties `StringId` / `Id` / `IsRegistered`.
+    public RelicInfo(TextObject name, Hero owner)
+    {
+        Name = name;
+        Owner = owner;
+    }
+}
 
-### When to use
+public sealed class RelicSaveDefiner : SaveableTypeDefiner
+{
+    public RelicSaveDefiner() : base(910000) { }
 
-- Data lives on a type the **object graph will walk**: custom data classes, class/struct registered via [`SaveableTypeDefiner`](../SaveableTypeDefiner), property slots on official saveable entities.  
-- Value must survive save/load, and the property type is SaveSystem-supported (primitives, `string`, enums, saveable references, `List<T>` / `Dictionary<K,V>`, etc.). Containers often need `ConstructContainerDefinition`.  
-- Combined with Behavior: **outer** `IDataStore.SyncData("key", ref _root)`, **inner** `_root` properties use `[SaveableProperty]` (or Field).
-
-### When not to use
-
-| Scenario | Correct alternative |
-|----------|---------------------|
-| Getter only, no setter (including init-only if set cannot be resolved) | Mark backing field with `[SaveableField]`, or add `private set` |
-| Private counters/dicts owned only by a `CampaignBehaviorBase` | [`IDataStore.SyncData`](../../campaign-ext/IDataStore) + stable string key |
-| Computed / derived / rebuildable cache | Do not save; store raw fields; recompute in `OnGameLoaded` / `LoadInitializationCallback` |
-| Setter fires events, dirties Town, triggers quests | Save raw value with Field; put logic in load callbacks or explicit APIs (see `Building.CurrentLevel`) |
-| Static properties | Not in the instance graph |
-| Same logic both `SyncData` and `[SaveableProperty]` | **No double-write** (see [Crash Boundaries §1](../../../architecture/crash-boundaries)) |
-
-### vs `IDataStore.SyncData` (required reading)
-
-```
-SyncData(IDataStore)        → Behavior private bucket (StringId cabinet, key = string)
-[SaveableProperty(n)]       → Global saveable object graph (layout = numeric LocalSaveId + get/set)
-[SaveableField(n)]          → Same object graph (layout = numeric LocalSaveId + field)
+    protected override void DefineClassTypes()
+    {
+        AddClassDefinition(typeof(RelicInfo), 1);
+    }
+}
 ```
 
-- **Behavior-private state** → override `SyncData`, `dataStore.SyncData("stableKey", ref field)`.  
-- **Members on world/custom objects** → `[SaveableProperty]` / `[SaveableField]`; type must be rooted or Definer-registered.  
-- Nested is fine as **outer SyncData, inner Saveable\***; do not open a second parallel key for the same scalar.
-
-### Do Field and Property share one LocalSaveId space?
-
-- In `TypeDefinition`, **`_properties` and `_fields` are two dictionaries**. `CollectProperties` / `CollectFields` only check "id already defined" inside their own dictionary.  
-- So "field id=3 + property id=3" may **not** report *already defined* at collect time. Official types **never** do that (`Building` / `Workshop` / `ItemRosterElement` use one ascending table).  
-- **Discipline:** treat Field + Property LocalSaveId as **one slot table per type**. Only add, never reuse retired ids, never collide across kinds. The binary finds members by `MemberTypeId`; colliding ids is a fast path to corrupt saves.
-
-## Dependencies
-
-| Direction | Type / system | Relationship |
-|-----------|---------------|--------------|
-| **Upstream** | Your saveable type + [`SaveableTypeDefiner`](../SaveableTypeDefiner) | Type must enter `DefinitionContext`; member ids only matter after that |
-| **Upstream** | [`SaveableRootClassAttribute`](../SaveableRootClassAttribute) / class definition id | Type-level SaveId and member LocalSaveId are two contract layers |
-| **Downstream** | [`PropertyDefinition`](../PropertyDefinition) | Forces get/set resolution; missing either throws `Exception`; optional `GetPropertyValueDelegate` |
-| **Downstream** | `PropertySaveData` / `PropertyLoadData` | Save calls get, load calls set; limited conversion via `LoadContext.TryConvertType` |
-| **Save** | [`SaveManager`](../SaveManager) | `InitializeGlobalDefinitionContext`, real Save/Load I/O |
-| **Save** | [`AutoGeneratedSaveManager`](../AutoGeneratedSaveManager) | May generate get delegates for properties; still needs your ids and a set method |
-| **Sibling** | [`SaveableFieldAttribute`](../SaveableFieldAttribute) | Field slots; same-type id discipline |
-| **Sibling** | [`IDataStore`](../../campaign-ext/IDataStore) / [`CampaignBehaviorBase`](../../campaign-ext/CampaignBehaviorBase) | Behavior bucket vs object graph; often combined |
-| **Risk docs** | [Crash Boundaries §1](../../../architecture/crash-boundaries) | Id stability, load order, double-write |
+This is one complete save chain: `TextObject` and `Hero` must already be present in the save definition graph, and the definer registers `RelicInfo`. A private setter is an encapsulation boundary, not a way around the save system; it lets the loader restore the value while normal runtime callers still cannot assign it.
 
 ## Risks and crash boundaries
 
-> Authoritative summary: [Crash Boundaries §1](../../../architecture/crash-boundaries) (SaveId, SyncData vs Saveable\*, load order). Property adds one extra rule: **load always invokes the setter**.
-
-| Risk | Symptom | Correct practice |
-|------|---------|------------------|
-| **No setter / no getter** | Definition-time `Property … does not have setter/getter method`; `Debug.FailedAssert` + `Exception` | Ensure get + set (`private set` ok); or mark Field instead |
-| **Change LocalSaveId after release** | Old saves misaligned, silent cross-wiring, load crash | Id is a contract: only add; never change semantics; retired ids **never reused** |
-| **Same id, new type** (`int` → `List<Hero>` still id `3`) | Read as old type → crash or bad data | New semantics get a **new id**; old id stays retired |
-| **Duplicate LocalSaveId within same kind** | *SaveId … of property … is already defined* | Unique property id per class level (same for field dictionary) |
-| **Field and Property share the same id** | Collect may not error; layout hard to reason about | Unified numbering table; official mixed types keep ids apart |
-| **Setter has world side effects** | Load triggers dirty flags, events, second Actions, UI | Setter only assigns; side effects in `LoadInitializationCallback` / explicit methods (see `Building`) |
-| **Type unregistered / not serializable** | Save/load fails | Definer registers class/struct/container; only store supported types |
-| **Read property before load finishes** | NRE, null refs, default 0 treated as truth | Wait for Behavior `SyncData` / `OnGameLoaded` / object `LoadInitializationCallback` |
-| **Double-write** | Half in bucket, half in graph | One path per piece of state |
-| **Migrate Field ↔ Property** | Same name and same numeric id still change member identity | Treat as migration: validate old saves or use new id + backfill branch |
-
-Engine points (`TypeDefinition.CollectProperties` + `PropertyDefinition` + `PropertyLoadData`):
-
-- Scans `BindingFlags.Instance | Public | NonPublic` properties; only those with `[SaveableProperty]` enter definitions.  
-- `MemberTypeId(GetClassLevel(DeclaringType), LocalSaveId)`; duplicate in same dictionary → `_errors`, no silent overwrite.  
-- Set/Get may be non-public; both must still resolve.  
-- Load: `setMethod.Invoke`; write only if `data == null`, types match, or `TryConvertType` succeeds.
-
-## Key members
-
-The attribute type is tiny. The whole contract sits on the constructor argument:
-
-### Constructor
-
-#### `public SaveablePropertyAttribute(short localSaveId)`
-
-- **Purpose:** Declare this property's member slot **within the declaring type (class level)**.  
-- **When:** On the property, e.g. `[SaveableProperty(1)] public int Score { get; private set; }` (you may omit the `Attribute` suffix).  
-- **Constraint:** `localSaveId` is `short`; plan it with Field/Property on the same type; stable after release.
-
-### Property
-
-#### `public short LocalSaveId { get; set; }`
-
-- **Purpose:** Slot number read at definition time (normally set only by the constructor).  
-- **When:** You almost always pass it only as the attribute argument. Do not change it at runtime hoping to change save layout.
-
-## Real examples
-
-### Example 1: Official style -  data-class properties + Definer + Behavior outer SyncData
-
-```csharp
-using System.Collections.Generic;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.SaveSystem;
-
-namespace MyMod
-{
-    public class MyItem
-    {
-        [SaveableProperty(1)]
-        public string Id { get; private set; }
-
-        [SaveableProperty(2)]
-        public int Count { get; private set; }
-
-        public MyItem() { }
-
-        public MyItem(string id, int count)
-        {
-            Id = id;
-            Count = count;
-        }
-    }
-
-    public class MyModData
-    {
-        [SaveableProperty(1)]
-        public int Score { get; set; }
-
-        [SaveableProperty(2)]
-        public List<MyItem> Items { get; set; } = new List<MyItem>();
-
-        // Retired id 3: never reuse
-    }
-
-    public class MyModTypeDefiner : SaveableTypeDefiner
-    {
-        public MyModTypeDefiner() : base(900000) { }
-
-        protected override void DefineClassTypes()
-        {
-            AddClassDefinition(typeof(MyModData), 1);
-            AddClassDefinition(typeof(MyItem), 2);
-        }
-
-        protected override void DefineContainerDefinitions()
-        {
-            ConstructContainerDefinition(typeof(List<MyItem>));
-        }
-    }
-
-    public class ScoreBehavior : CampaignBehaviorBase
-    {
-        private MyModData _data = new MyModData();
-
-        public override void RegisterEvents() { }
-
-        public override void SyncData(IDataStore dataStore)
-        {
-            dataStore.SyncData("MyMod_ScoreRoot", ref _data);
-            if (dataStore.IsLoading && _data == null)
-                _data = new MyModData();
-        }
-
-        public void AddScore(int delta) => _data.Score += delta;
-    }
-}
-```
-
-Outer key `"MyMod_ScoreRoot"` stays stable; inner property ids `1`/`2` stay stable. Upgrades only **add** ids; they do not change old id semantics.
-
-### Example 2: Mix Field + Property (aligned with Building / ItemRosterElement)
-
-```csharp
-using TaleWorlds.SaveSystem;
-
-namespace MyMod
-{
-    public class ProgressNode
-    {
-        [SaveableField(0)]
-        private int _rawLevel;
-
-        [SaveableField(1)]
-        public float Progress;
-
-        // Public set has side effects → do not mark SaveableProperty; persist _rawLevel
-        public int Level
-        {
-            get => _rawLevel;
-            set
-            {
-                _rawLevel = value;
-                // If load ran this path it would dirty UI / fire events → dangerous
-                MarkDirty();
-            }
-        }
-
-        [SaveableProperty(2)]
-        public string OwnerId { get; private set; }
-
-        private void MarkDirty() { /* UI / cache */ }
-
-        public void SetOwner(string id) => OwnerId = id;
-    }
-}
-```
-
-### Example 3: Wrong -  get-only, setter side effects, double-write, id reuse
-
-```csharp
-// Wrong: PropertyDefinition requires a setter; collect throws
-[SaveableProperty(1)]
-public int Score { get; }
-
-// Wrong: load Invokes set → replays side effects
-[SaveableProperty(2)]
-public int Reputation
-{
-    get => _rep;
-    set
-    {
-        _rep = value;
-        CampaignEventDispatcher.Instance /* hypothetical */.OnRepChanged(); // load explosion
-    }
-}
-
-// Wrong: same counter both SyncData and SaveableProperty
-public override void SyncData(IDataStore dataStore)
-{
-    dataStore.SyncData("Rep", ref _rep);
-}
-[SaveableProperty(0)]
-public int Rep { get => _rep; set => _rep = value; }
-
-// Wrong: after release, id 3 was int; now List
-// [SaveableProperty(3)] public int OldScore;
-[SaveableProperty(3)]
-public List<string> Allies; // corrupt save
-```
-
-```csharp
-// Right: private set only assigns; side effects run after load
-[SaveableProperty(1)]
-public int Score { get; private set; }
-
-[SaveableProperty(4)] // new id; old 3 stays retired forever
-public List<string> AllyIds { get; private set; }
-
-[LoadInitializationCallback]
-private void OnLoad()
-{
-    // Rebuild caches / validate here, not inside set
-}
-```
+- **Duplicate `LocalSaveId`.** Fields and properties within one type must be unique; reuse can define or restore the wrong member.
+- **Changing ID or type.** Published saves treat the number and member type as schema. Renumbering, changing `Hero` to a string, or removing the property can make old saves fail. Add a versioned member and migration path instead.
+- **Setter side effects.** The loader calls the setter. If it triggers an Action, event, or access to half-restored `Campaign.Current`, it can duplicate effects or fail with null/partial state. Keep setters assignment-only and do derived work in a deliberate post-load phase.
+- **Unstable getters.** The getter's value must be serializable and independent of transient UI or engine state; do not mark a calculated property as saveable.
+- **Attribute without a definer.** Without `AddClassDefinition`, the containing type is absent from `SaveManager`'s definition context and saving can return a definition error.
+- **Confusing routes.** Property IDs belong to type definitions; behavior keys belong to string buckets. Do not change `LocalSaveId` to fix an `IDataStore` key compatibility problem.
 
 ## Cross-version notes
 
-- **v1.3.x / v1.4.x:** Attribute surface is stable (`LocalSaveId`, Property-only).  
-- Auto-generated save managers improve property get delegates over time; **the id contract does not change**.  
-- Moving Field ↔ Property changes **member identity**: same name and same numeric id still need a migration plan; do not assume a silent upgrade.  
-- Primary semantics follow 1.4.5 source (`CollectProperties` / `PropertyDefinition` / `PropertyLoadData`); this page URL stays fixed at `save-system/SaveablePropertyAttribute`.
+The constructor, Attribute target, and `LocalSaveId` type are the same in 1.3.15 and 1.4.5. `TextObject.Attributes` still uses `[SaveableProperty(2)]`, demonstrating the encapsulated-property route; it does not mean that every property can be added to an existing schema safely.
 
-## ↑ Parent Navigation
+## Dependencies and navigation
 
-- [save-system area](./) -  module index for this page  
-- [API directory](../) -  full API entry  
-- [Save system architecture](../../../architecture/save-system) -  SaveManager and saveable data  
-- [Crash Boundaries §1](../../../architecture/crash-boundaries) -  SaveId / SyncData boundaries  
-- [Doc contract](../../../architecture/doc-contract) -  deep-page quality standard  
+- Definition: [SaveableTypeDefiner](../SaveableTypeDefiner/) registers the containing class and type ID.
+- Execution: [SaveManager](../SaveManager/) builds the definition context and performs `Save`/`Load`.
+- Contrast: [SaveableFieldAttribute](../SaveableFieldAttribute/) handles fields; [IDataStore](../../campaign-ext/IDataStore/) handles behavior state.
+- Example value: [TextObject](../../localization/TextObject/) demonstrates both field and property save members.
 
-## ↔ Sibling Navigation
-
-| Page | Relationship |
-|------|--------------|
-| [SaveableFieldAttribute](../SaveableFieldAttribute) | Field slots; no setter requirement; dual entry with this page |
-| [SaveableTypeDefiner](../SaveableTypeDefiner) | Register types and containers; id ranges |
-| [SaveableRootClassAttribute](../SaveableRootClassAttribute) | Root / type-level SaveId |
-| [SaveManager](../SaveManager) | Top-level save API |
-| [PropertyDefinition](../PropertyDefinition) | get/set wrapper and failure conditions |
-| [IDataStore](../../campaign-ext/IDataStore) | Behavior string-key channel |
-| [CampaignBehaviorBase](../../campaign-ext/CampaignBehaviorBase) | `SyncData` hook |
-| [FieldDefinition](../FieldDefinition) | Field definition wrapper (contrast) |
-
-## See also
-
-- [Save system practical guide](../../../guide/save-system-guide)  
-- [AutoGeneratedSaveManager](../AutoGeneratedSaveManager)  
-- [Module system](../../../architecture/module-system) -  when Definers / Behaviors register  
+- Parent: [save-system API](./)
+- Siblings: [SaveableFieldAttribute](../SaveableFieldAttribute/) · [SaveableTypeDefiner](../SaveableTypeDefiner/)

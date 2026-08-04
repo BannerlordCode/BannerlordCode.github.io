@@ -50,9 +50,12 @@ Passing `null` clears the leader; when the party is not in a map event, the comp
 | `MobileParty` / `Party` | Return the host and its `PartyBase`; meaningful only after the component is bound. |
 | `PartyOwner` / `Leader` / `HomeSettlement` | Describe the concrete party category; a `null` result must be handled according to the derived type. |
 | `Name` / `Banner` | Supply display and map-icon data; the name is not a persistent object ID. |
+| `GetDefaultComponentBanner()` | Let the concrete component provide a default banner; `MobileParty.Banner` tries it after a custom banner and before falling back to the map faction banner. It may return `null`. |
+| `ClearCachedName()` | Invalidate a derived component's cached `Name`; the base implementation is a no-op, and concrete components decide when owner or leader changes require it. |
 | `AvoidHostileActions` | Express the component's default hostile-action policy, not a complete AI override. |
 | `WagePaymentLimit` / `SetWagePaymentLimit` | The default limit comes from [PartyWageModel](../PartyWageModel); the base setter is not a universal write API. |
 | `CanHaveNavalNavigationCapability` / `CanHaveLandNavigationCapability` | Report capability from the component and current clan; they do not move the party on the map. |
+| `GetMountAndHarnessVisualIdsForPartyIcon(PartyBase, out string, out string)` | Supply mount and harness resource IDs for the map party icon; the base implementation returns empty strings, while concrete caravan/custom components may override it. |
 | `ChangePartyLeader(Hero)` | Enforce the roster-member rule, invoke derived logic, and publish a leader change. |
 
 ## Real example

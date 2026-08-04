@@ -1,6 +1,6 @@
 ---
 title: "CampaignPeriodicEventManager"
-description: "CampaignPeriodicEventManager drives party, settlement, hero, faction, and AI ticks and registers custom MBCampaignEvent instances for the active campaign runtime."
+description: "CampaignPeriodicEventManager drives party, settlement, hero, clan, and AI ticks and registers custom MBCampaignEvent instances for the active campaign runtime."
 ---
 # CampaignPeriodicEventManager
 
@@ -55,7 +55,7 @@ Custom events are runtime state, not save objects that `Campaign` restores autom
 
 ## Real example: register and delete a custom periodic event
 
-This pattern follows the v1.4.5 `MapTracksCampaignBehavior` implementation: `RegisterEvents()` subscribes only to new-campaign and load-finished notifications, and both lifecycle entry points call an idempotent method that creates and binds the event; the owner marks it for deletion when its system ends. This avoids treating a runtime handle as save-restored state.
+This is a defensive mod pattern adapted from the lifecycle locations in v1.4.5 `MapTracksCampaignBehavior`, not a line-for-line copy: the source `RegisterEvents()` also registers hourly, party-hourly, and party-destroyed listeners, and its `AddEventHandler()` creates the handle unconditionally. This example keeps only the new-campaign and load-finished notifications relevant to periodic-event registration and uses an idempotent helper to create and bind the event; the owner marks it for deletion when its system ends. This avoids treating a runtime handle as save-restored state.
 
 ```csharp
 using TaleWorlds.CampaignSystem;

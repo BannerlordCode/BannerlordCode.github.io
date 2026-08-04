@@ -1,6 +1,6 @@
 ---
 title: "CampaignPeriodicEventManager"
-description: "CampaignPeriodicEventManager 驱动战役中的队伍、据点、英雄、派系与 AI 周期 tick，并在当前战役运行期间登记自定义 MBCampaignEvent。"
+description: "CampaignPeriodicEventManager 驱动战役中的队伍、据点、英雄、Clan 与 AI 周期 tick，并在当前战役运行期间登记自定义 MBCampaignEvent。"
 ---
 # CampaignPeriodicEventManager
 
@@ -55,7 +55,7 @@ description: "CampaignPeriodicEventManager 驱动战役中的队伍、据点、�
 
 ## 真实示例：注册并删除自定义周期事件
 
-下面的模式对应 v1.4.5 `MapTracksCampaignBehavior` 的做法：`RegisterEvents()` 只订阅新战役和读档完成通知，两个生命周期入口通过幂等方法创建并绑定事件；所属系统结束时标记删除。这样不会把运行时句柄误当成可由存档恢复的对象。
+下面是参考 v1.4.5 `MapTracksCampaignBehavior` 生命周期位置改写的防御性 Mod 模式，不是逐行复刻：源码的 `RegisterEvents()` 还注册小时 tick、队伍小时 tick 和队伍销毁事件，且其 `AddEventHandler()` 会无条件创建句柄。本例只保留与周期事件注册有关的新战役/读档完成通知，并用幂等方法创建和绑定事件；所属系统结束时标记删除。这样不会把运行时句柄误当成可由存档恢复的对象。
 
 ```csharp
 using TaleWorlds.CampaignSystem;

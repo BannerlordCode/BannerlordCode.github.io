@@ -38,7 +38,7 @@ Although many forwarding methods are public, calling `CampaignEventDispatcher.In
 ## Dependencies
 
 - **Owner:** [Campaign](../Campaign) creates the dispatcher and registers [CampaignEvents](../CampaignEvents), the issue manager, and the quest manager as receivers.
-- **Upstream callbacks:** [CampaignPeriodicEventManager](../CampaignPeriodicEventManager) supplies party, settlement, hero, and faction ticks; map and Action code also report state changes through the dispatcher.
+- **Upstream callbacks:** [CampaignPeriodicEventManager](../CampaignPeriodicEventManager) supplies party, settlement, hero, and clan ticks; map and Action code also report state changes through the dispatcher.
 - **Mod downstream:** [CampaignBehaviorBase](../CampaignBehaviorBase) subscribes to [CampaignEvents](../CampaignEvents) from `RegisterEvents()`, while handlers work with [MobileParty](../MobileParty), [Settlement](../Settlement), and [Hero](../Hero).
 
 ## Forwarding surface and timing

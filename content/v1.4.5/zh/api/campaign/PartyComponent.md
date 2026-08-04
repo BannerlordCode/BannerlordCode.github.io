@@ -50,9 +50,12 @@ description: "PartyComponent 是 MobileParty 的抽象类型组件，承载队�
 | `MobileParty` / `Party` | 返回组件宿主及其 `PartyBase`；它们只有在组件已绑定后才有意义。 |
 | `PartyOwner` / `Leader` / `HomeSettlement` | 描述具体队伍类别的身份；允许为 `null` 的返回值必须按派生类语义处理。 |
 | `Name` / `Banner` | 用于队伍显示和地图图标；名称缓存由具体组件决定，不能当作持久 ID。 |
+| `GetDefaultComponentBanner()` | 由具体组件提供默认 Banner；`MobileParty.Banner` 在没有自定义 Banner 时会先尝试使用它，再回退到地图派系 Banner。结果可以是 `null`。 |
+| `ClearCachedName()` | 使派生组件缓存的 `Name` 失效；基类实现为空，所有者或领袖变化时由具体组件决定何时调用。 |
 | `AvoidHostileActions` | 表达该队伍的默认敌对行为边界，不是强制 AI 的总开关。 |
 | `WagePaymentLimit` / `SetWagePaymentLimit` | 默认上限来自 [PartyWageModel](../PartyWageModel)；基类的设置方法不是通用写入器，具体组件需提供自己的实现。 |
 | `CanHaveNavalNavigationCapability` / `CanHaveLandNavigationCapability` | 返回组件和当前 Clan 能力共同决定的导航资格，不会替队伍设置地图位置。 |
+| `GetMountAndHarnessVisualIdsForPartyIcon(PartyBase, out string, out string)` | 为地图队伍图标提供坐骑和挽具资源 ID；基类默认输出空字符串，Caravan/Custom 等具体组件可以覆盖它。 |
 | `ChangePartyLeader(Hero)` | 在 roster 成员约束通过后调用派生类的领袖变更逻辑并发布变化。 |
 
 ## 真实示例

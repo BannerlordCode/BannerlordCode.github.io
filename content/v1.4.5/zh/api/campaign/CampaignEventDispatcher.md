@@ -38,7 +38,7 @@ description: "CampaignEventDispatcher 是当前战役的内部事件接收器扇
 ## 依赖关系
 
 - **所有者：** [Campaign](../Campaign) 创建 dispatcher，并把 [CampaignEvents](../CampaignEvents)、IssueManager 和 QuestManager 注册为接收器。
-- **上游回调：** [CampaignPeriodicEventManager](../CampaignPeriodicEventManager) 推送队伍、据点、英雄和派系 tick；地图与 Action 代码也通过 dispatcher 报告状态变化。
+- **上游回调：** [CampaignPeriodicEventManager](../CampaignPeriodicEventManager) 推送队伍、据点、英雄和 Clan tick；地图与 Action 代码也通过 dispatcher 报告状态变化。
 - **Mod 下游：** [CampaignBehaviorBase](../CampaignBehaviorBase) 在 `RegisterEvents()` 中订阅 [CampaignEvents](../CampaignEvents)，具体实体使用 [MobileParty](../MobileParty)、[Settlement](../Settlement) 和 [Hero](../Hero)。
 
 ## 转发面与时序

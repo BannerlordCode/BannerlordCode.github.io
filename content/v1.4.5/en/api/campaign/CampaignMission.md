@@ -1,277 +1,123 @@
 ---
 title: "CampaignMission"
-description: "Auto-generated class reference for CampaignMission."
+description: "CampaignMission is the static facade from campaign code into SandBox mission creation and the holder of the active campaign-mission context."
 ---
 # CampaignMission
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public static class CampaignMission`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
+**Namespace:** `TaleWorlds.CampaignSystem`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class CampaignMission`  
+**Base:** none  
+**Source file:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
 
-## Overview
+## One-sentence responsibility
 
-`CampaignMission` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+It forwards campaign-facing mission-opening calls to `Campaign.Current.CampaignMissionManager` and exposes the active `ICampaignMission` context through `Current` while a mission is running.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+**A static facade, not a mission instance.** `CampaignMission` does not own a battle's Agents, Location, or conversation state, and it does not attach behaviors to a `Mission`. Each `Open...Mission` method passes its arguments to the current campaign's `CampaignMissionManager`. In the standard single-player campaign, SandBox injects `SandBox.CampaignMissionManager` during `OnGameInitializationFinished`, and that adapter forwards to `SandBoxMissions`.
 
-## Key Properties
+`CampaignMission.Current` is a separate lifetime chain. `SandBoxMissions` includes `CampaignMissionComponent` in the behavior list for a new mission; the component assigns itself in `OnCreated` and clears the static value in `OnEndMission` after dispatching the end event. It is therefore meaningful only during an active `Mission`. Assigning a fake implementation to `Current` skips the component, events, and cleanup ordering and is not a valid way to simulate a mission.
 
-| Name | Signature |
-|------|-----------|
-| `Current` | `public static ICampaignMission Current { get; set; }` |
+## When to use and when not to use
 
-## Key Methods
+- Use the matching `CampaignMission.Open...` entry when an existing campaign flow must enter a town, village, hideout, siege, conversation, or other mission. The caller must supply real scene, `Location`, character, and troop data.
+- Read `CampaignMission.Current` from a mission behavior when you need mission mode, location, following, or conversation hooks; accept that it can be `null`.
+- Do not call the entries before campaign initialization, before `OnGameInitializationFinished`, or after mission teardown. The static forwarding code directly accesses `Campaign.Current.CampaignMissionManager`, so the wrong phase can produce a null reference or an uninjected implementation.
+- Do not use this facade to mutate campaign objects, battle results, or save fields. Use the relevant `*Action.Apply` or [Model](../GameModels) contract; mission results are committed through [Mission](../../mission/Mission), `PlayerEncounter`, and the campaign battle logic.
 
-### OpenBattleMission
-`public static IMission OpenBattleMission(string scene, bool usesTownDecalAtlas, string sceneLevels = "")`
+## Dependencies
 
-**Purpose:** Opens the resource or UI associated with battle mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenBattleMission("example", false, "example");
+```text
+Campaign.Current
+  -> CampaignMissionManager (ICampaignMissionManager)
+  -> SandBox.CampaignMissionManager
+  -> SandBoxMissions mission factory methods
+  -> MissionState.OpenNew with CampaignMissionComponent
+  -> CampaignMission.Current = component
 ```
 
-### OpenNavalRaidMission
-`public static IMission OpenNavalRaidMission(TroopRoster attackerSideTroops, BattleSideEnum navalSide, List<Ship> allShips)`
+- Campaign owner: [Campaign](../Campaign) exposes the `CampaignMissionManager` property.
+- Contracts and active context: [ICampaignMissionManager](../ICampaignMissionManager) · [ICampaignMission](../ICampaignMission).
+- SandBox implementation: [CampaignMissionManager](../../campaign-ext/CampaignMissionManager) · [CampaignMissionComponent](../../campaign-ext/CampaignMissionComponent).
+- Mission lifetime: [Mission](../../mission/Mission); mission callbacks are also forwarded through [CampaignEventDispatcher](../CampaignEventDispatcher).
 
-**Purpose:** Opens the resource or UI associated with naval raid mission.
+## Public entry surface
 
-```csharp
-// Static call; no instance required
-CampaignMission.OpenNavalRaidMission(attackerSideTroops, navalSide, allShips);
-```
+Use the entries by scenario rather than treating them as an alphabetic method dictionary:
 
-### OpenAlleyFightMission
-`public static IMission OpenAlleyFightMission(string scene, int upgradeLevel, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)`
+| Scenario | Entries and important inputs | Source-backed meaning |
+|---|---|---|
+| Regular battles | `OpenBattleMission(string, bool, string)` and `OpenBattleMission(MissionInitializerRecord)` | One overload accepts scene/decal/scene-level settings; the other accepts a prepared initializer record. Do not mix the two input models. |
+| Naval and caravan battles | `OpenNavalRaidMission`, `OpenNavalBattleMission`, `OpenNavalSetPieceBattleMission`, `OpenCaravanBattleMission` | Naval entries require `TroopRoster`, `Ship`, or `IShipOrigin` collections. The current SandBox manager returns `null` for the three naval implementations, so their interface presence is not proof of single-player support. |
+| Sieges | `OpenSiegeMissionWithDeployment`, `OpenSiegeMissionNoDeployment`, `OpenSiegeLordsHallFightMission` | The deployment entry receives wall-health percentages, attacker/defender siege weapons, and the attacker flag; the no-deployment entry represents a siege mission without the deployment phase. |
+| Settlements and hideouts | `OpenTownCenterMission`, `OpenCastleCourtyardMission`, `OpenVillageMission`, `OpenIndoorMission`, `OpenHideoutBattleMission`, `OpenHideoutAmbushMission` | These entries require real `Location`, scene, upgrade, or troop-formation data. SandBox selects the concrete mission type and installs its behaviors. |
+| Conversation and special flows | `OpenConversationMission`, `OpenCombatMissionWithDialogue`, `OpenMeetingMission`, `OpenPrisonBreakMission`, `OpenArenaStartMission`, `OpenArenaDuelMission`, `OpenRetirementMission`, `OpenAlleyFightMission`, `OpenBattleMissionWhileEnteringSettlement`, `OpenDisguiseMission` | These pass conversation characters, a prisoner, a duel callback, a location, or a disguise origin to SandBox. Bypassing them with direct `MissionState.OpenNew` can omit `CampaignMissionComponent`. |
 
-**Purpose:** Opens the resource or UI associated with alley fight mission.
+Every entry returns `IMission`, but that return only means the requested mission was opened. `CampaignMission.Current` becomes reliable after the component's `OnCreated` callback.
 
-```csharp
-// Static call; no instance required
-CampaignMission.OpenAlleyFightMission("example", 0, location, playerSideTroops, rivalSideTroops);
-```
+## Real example
 
-### OpenCombatMissionWithDialogue
-`public static IMission OpenCombatMissionWithDialogue(string scene, CharacterObject characterToTalkTo, int upgradeLevel)`
-
-**Purpose:** Opens the resource or UI associated with combat mission with dialogue.
+This inspection uses the real campaign ownership path and does not pretend that `CampaignMissionManager` has a `Current` singleton property:
 
 ```csharp
-// Static call; no instance required
-CampaignMission.OpenCombatMissionWithDialogue("example", characterToTalkTo, 0);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+Campaign campaign = Campaign.Current;
+if (campaign != null && campaign.CampaignMissionManager != null)
+{
+    CampaignMission.ICampaignMissionManager manager = campaign.CampaignMissionManager;
+    ICampaignMission activeMission = CampaignMission.Current;
+
+    if (activeMission != null && Mission.Current != null)
+    {
+        MissionMode mode = activeMission.Mode;
+        Location location = activeMission.Location;
+    }
+}
 ```
 
-### OpenBattleMissionWhileEnteringSettlement
-`public static IMission OpenBattleMissionWhileEnteringSettlement(string scene, int upgradeLevel, int numberOfMaxTroopToBeSpawnedForPlayer, int numberOfMaxTroopToBeSpawnedForOpponent)`
-
-**Purpose:** Opens the resource or UI associated with battle mission while entering settlement.
+Campaign behaviors do call `CampaignMission` to start conversations. StoryMode's `VillagersInNeed` constructs `ConversationCharacterData` from `CharacterObject.PlayerCharacter` and an already acquired villager character, then calls `OpenConversationMission`:
 
 ```csharp
-// Static call; no instance required
-CampaignMission.OpenBattleMissionWhileEnteringSettlement("example", 0, 0, 0);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Conversation;
+using TaleWorlds.Core;
+
+public static void OpenConversationWith(CharacterObject partner)
+{
+    if (Campaign.Current == null || partner == null)
+    {
+        return;
+    }
+
+    ConversationCharacterData player = new ConversationCharacterData(
+        CharacterObject.PlayerCharacter, null, true, false, false, false, false, false);
+    ConversationCharacterData other = new ConversationCharacterData(
+        partner, null, true, true, false, false, false, false);
+
+    CampaignMission.OpenConversationMission(player, other);
+}
 ```
 
-### OpenHideoutBattleMission
-`public static IMission OpenHideoutBattleMission(string scene, FlattenedTroopRoster playerTroops, bool isTutorial)`
+## Risks and save boundaries
 
-**Purpose:** Opens the resource or UI associated with hideout battle mission.
+- If `Campaign.Current` or its `CampaignMissionManager` has not been injected, the static entry has no valid forwarding target. Calling from an early SubModule load hook can cause a null reference or an invalid game state.
+- `Current` is a transient active-Mission context, not a stable save object. Do not store it in a campaign behavior and keep reading its Agents, Location, or conversation state after mission end.
+- Between `OnMissionResultReady` and `OnEndMission`, `PlayerEncounter` can still commit results and siege logic can still synchronize engines. Do not assume that an `Open...` return means battle results are already saved, and do not clear rosters yourself.
+- Assigning `Current` directly or opening a mission without `CampaignMissionComponent` skips `OnMissionStarted`, `OnAfterMissionStarted`, and `OnMissionEnded`; this can leave global context or receiver state behind.
+- The interface exposes naval entries, but the current SandBox methods explicitly return `null` for all three. Check the result and module support before using them.
 
-```csharp
-// Static call; no instance required
-CampaignMission.OpenHideoutBattleMission("example", playerTroops, false);
-```
+## Version note
 
-### OpenSiegeMissionWithDeployment
-`public static IMission OpenSiegeMissionWithDeployment(string scene, float wallHitPointsPercentages, bool hasAnySiegeTower, List<MissionSiegeWeapon> siegeWeaponsOfAttackers, List<MissionSiegeWeapon> siegeWeaponsOfDefenders, bool isPlayerAttacker, int upgradeLevel = 0, bool isSallyOut = false, bool isReliefForceAttack = false)`
+This page follows the v1.4.5 `CampaignMission.cs`, SandBox implementation, and call sites. The static facade pattern may remain across versions, but mission entries, naval support, `MissionInitializerRecord` fields, and `CampaignMissionComponent` event ordering must be rechecked against the target source.
 
-**Purpose:** Opens the resource or UI associated with siege mission with deployment.
+## Navigation
 
-```csharp
-// Static call; no instance required
-CampaignMission.OpenSiegeMissionWithDeployment("example", 0, false, siegeWeaponsOfAttackers, siegeWeaponsOfDefenders, false, 0, false, false);
-```
-
-### OpenSiegeMissionNoDeployment
-`public static IMission OpenSiegeMissionNoDeployment(string scene, bool isSallyOut = false, bool isReliefForceAttack = false)`
-
-**Purpose:** Opens the resource or UI associated with siege mission no deployment.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenSiegeMissionNoDeployment("example", false, false);
-```
-
-### OpenSiegeLordsHallFightMission
-`public static IMission OpenSiegeLordsHallFightMission(string scene, FlattenedTroopRoster attackerPriorityList)`
-
-**Purpose:** Opens the resource or UI associated with siege lords hall fight mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenSiegeLordsHallFightMission("example", attackerPriorityList);
-```
-
-### OpenBattleMission
-`public static IMission OpenBattleMission(MissionInitializerRecord rec)`
-
-**Purpose:** Opens the resource or UI associated with battle mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenBattleMission(rec);
-```
-
-### OpenNavalBattleMission
-`public static IMission OpenNavalBattleMission(MissionInitializerRecord rec)`
-
-**Purpose:** Opens the resource or UI associated with naval battle mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenNavalBattleMission(rec);
-```
-
-### OpenNavalSetPieceBattleMission
-`public static IMission OpenNavalSetPieceBattleMission(MissionInitializerRecord rec, MBList<IShipOrigin> playerShips, MBList<IShipOrigin> playerAllyShips, MBList<IShipOrigin> enemyShips)`
-
-**Purpose:** Opens the resource or UI associated with naval set piece battle mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenNavalSetPieceBattleMission(rec, playerShips, playerAllyShips, enemyShips);
-```
-
-### OpenCaravanBattleMission
-`public static IMission OpenCaravanBattleMission(MissionInitializerRecord rec, bool isCaravan)`
-
-**Purpose:** Opens the resource or UI associated with caravan battle mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenCaravanBattleMission(rec, false);
-```
-
-### OpenTownCenterMission
-`public static IMission OpenTownCenterMission(string scene, Location location, CharacterObject talkToChar, int townUpgradeLevel, string playerSpawnTag)`
-
-**Purpose:** Opens the resource or UI associated with town center mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenTownCenterMission("example", location, talkToChar, 0, "example");
-```
-
-### OpenCastleCourtyardMission
-`public static IMission OpenCastleCourtyardMission(string scene, Location location, CharacterObject talkToChar, int castleUpgradeLevel)`
-
-**Purpose:** Opens the resource or UI associated with castle courtyard mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenCastleCourtyardMission("example", location, talkToChar, 0);
-```
-
-### OpenVillageMission
-`public static IMission OpenVillageMission(string scene, Location location, CharacterObject talkToChar)`
-
-**Purpose:** Opens the resource or UI associated with village mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenVillageMission("example", location, talkToChar);
-```
-
-### OpenIndoorMission
-`public static IMission OpenIndoorMission(string scene, int upgradeLevel, Location location, CharacterObject talkToChar)`
-
-**Purpose:** Opens the resource or UI associated with indoor mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenIndoorMission("example", 0, location, talkToChar);
-```
-
-### OpenPrisonBreakMission
-`public static IMission OpenPrisonBreakMission(string scene, Location location, CharacterObject prisonerCharacter)`
-
-**Purpose:** Opens the resource or UI associated with prison break mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenPrisonBreakMission("example", location, prisonerCharacter);
-```
-
-### OpenArenaStartMission
-`public static IMission OpenArenaStartMission(string scene, Location location, CharacterObject talkToChar)`
-
-**Purpose:** Opens the resource or UI associated with arena start mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenArenaStartMission("example", location, talkToChar);
-```
-
-### OpenArenaDuelMission
-`public static IMission OpenArenaDuelMission(string scene, Location location, CharacterObject talkToChar, bool requireCivilianEquipment, bool spawnBothSidesWithHorse, Action<CharacterObject> onDuelEnd, float customAgentHealth)`
-
-**Purpose:** Opens the resource or UI associated with arena duel mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenArenaDuelMission("example", location, talkToChar, false, false, onDuelEnd, 0);
-```
-
-### OpenConversationMission
-`public static IMission OpenConversationMission(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, string specialScene = "", string sceneLevels = "", bool isMultiAgentConversation = false)`
-
-**Purpose:** Opens the resource or UI associated with conversation mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenConversationMission(playerCharacterData, conversationPartnerData, "example", "example", false);
-```
-
-### OpenRetirementMission
-`public static IMission OpenRetirementMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null, string unconsciousMenuId = "")`
-
-**Purpose:** Opens the resource or UI associated with retirement mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenRetirementMission("example", location, null, "example", "example");
-```
-
-### OpenHideoutAmbushMission
-`public static IMission OpenHideoutAmbushMission(string sceneName, FlattenedTroopRoster playerTroops, Location location)`
-
-**Purpose:** Opens the resource or UI associated with hideout ambush mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenHideoutAmbushMission("example", playerTroops, location);
-```
-
-### OpenDisguiseMission
-`public static IMission OpenDisguiseMission(string scene, bool willSetUpContact, string sceneLevels, Location fromLocation)`
-
-**Purpose:** Opens the resource or UI associated with disguise mission.
-
-```csharp
-// Static call; no instance required
-CampaignMission.OpenDisguiseMission("example", false, "example", fromLocation);
-```
-
-## Usage Example
-
-```csharp
-CampaignMission.OpenBattleMission("example", false, "example");
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Campaign API](../)
+- ↔ Siblings: [Campaign](../Campaign) · [ICampaignMission](../ICampaignMission) · [ICampaignMissionManager](../ICampaignMissionManager)
+- Related types: [CampaignMissionManager](../../campaign-ext/CampaignMissionManager) · [CampaignMissionComponent](../../campaign-ext/CampaignMissionComponent) · [Mission](../../mission/Mission)

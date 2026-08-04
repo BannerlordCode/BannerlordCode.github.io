@@ -10,15 +10,15 @@ description: "The Campaign rule contract for clan tiers, renown thresholds, elig
 **Base:** `MBGameModel<ClanTierModel>`
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanTierModel.cs`
 
+## Overview
+
+`ClanTierModel` is a Campaign rule model. It defines what should be calculated; it does not directly store or mutate `Clan.Tier`, `Clan.Renown`, or `Clan.Influence`. [Clan](../Clan) owns that state. For example, `Clan.AddRenown` first increases renown, then calls `CalculateTier`; when the tier increases, the change is sent through the [CampaignEvents](../CampaignEvents) dispatch chain as `OnClanTierChanged`. This lets tier, renown thresholds, and capacity rules be replaced as one policy while Clan still writes the result and lets behaviors, UI, and event receivers observe the same change chain. The default implementation is also read by lord-party spawning, mercenary and vassal eligibility checks, the clan-management UI, and map-banner visuals, so a policy change reaches all of those downstream paths.
+
+The default 1.4.5 implementation is [DefaultClanTierModel](../DefaultClanTierModel). [SandBoxManager](../SandBoxManager) adds it to [CampaignGameStarter](../CampaignGameStarter) during Campaign model registration, and the [GameModels](../GameModels) constructor resolves the `ClanTierModel` property through `GetSpecificGameBehaviors()`. A mod should read the live instance through `Campaign.Current.Models.ClanTierModel`, rather than creating a separate instance and expecting the game to use it.
+
 ## One-line responsibility
 
 Provides the rules that calculate clan tier bounds, renown thresholds, creation-time values, eligibility, party capacity, and companion capacity.
-
-## Overview
-
-`ClanTierModel` is a Campaign rule model. It defines what should be calculated; it does not directly store or mutate `Clan.Tier`, `Clan.Renown`, or `Clan.Influence`. [Clan](../Clan) owns that state. For example, `Clan.AddRenown` first increases renown, then calls `CalculateTier`; when the tier increases, the change is sent through the [CampaignEvents](../CampaignEvents) dispatch chain as `OnClanTierChanged`.
-
-The default 1.4.5 implementation is [DefaultClanTierModel](../DefaultClanTierModel). [SandBoxManager](../SandBoxManager) adds it to [CampaignGameStarter](../CampaignGameStarter) during Campaign model registration, and [GameModels](../GameModels) resolves the `ClanTierModel` property during initialization. A mod should read the live instance through `Campaign.Current.Models.ClanTierModel`, rather than creating a separate instance and expecting the game to use it.
 
 ## Mental model
 
@@ -38,13 +38,9 @@ Treat this as the replaceable calculator at the clan-rules layer: `Clan` is the 
 
 ## Lifecycle and dependency graph
 
-```text
-SandBoxManager
-  -> CampaignGameStarter.AddModel(new DefaultClanTierModel())
-  -> GameModels.Initialize() / GetGameModel<ClanTierModel>()
-  -> Campaign.Current.Models.ClanTierModel
-  -> Clan, CampaignBehaviors, Helpers, UI, and SandBox read the rules
-```
+- [SandBoxManager](../SandBoxManager) registers [DefaultClanTierModel](../DefaultClanTierModel) with [CampaignGameStarter](../CampaignGameStarter).
+- The [GameModels](../GameModels) constructor resolves the model through `GetSpecificGameBehaviors()`, and [Campaign](../Campaign) exposes it as `Campaign.Current.Models.ClanTierModel`.
+- [Clan](../Clan), [CampaignEvents](../CampaignEvents), [PartySizeLimitModel](../PartySizeLimitModel), [WorkshopModel](../WorkshopModel), and [KingdomCreationModel](../KingdomCreationModel) form the state, event, and calculation dependency chain.
 
 - Registration upstream: [CampaignGameStarter](../CampaignGameStarter) stores the model list; generic `AddModel` initializes the new model from the existing model of the same type before adding it.
 - Live holder: the `ClanTierModel` property on [GameModels](../GameModels) is resolved during initialization; [Campaign](../Campaign) provides the active Campaign context.
@@ -72,13 +68,13 @@ These are rule boundaries, not save fields. The default 1.4.5 values are listed 
 
 `public abstract int CalculateInitialRenown(Clan clan)`
 
-Calculates a value for a clan whose tier is already known and whose initial renown must be established. The default implementation indexes its tier-lower-bound array and chooses a random upper bound between the current tier's floor and the next tier's floor, using the maximum-tier floor plus 1500 at the cap. `Clan.Deserialize` calls it after reading the clan tier from XML. This is not a general-purpose recalculation of an existing clan's renown; changing the model can produce a different initial result when the same save or XML is loaded.
+Calculates a value for a clan whose tier is already known and whose initial renown must be established. The default implementation indexes its tier-lower-bound array, takes the current floor and the next floor (or the maximum-tier floor plus `1500` at the cap), then sets the random upper bound to the integer result of `nextLower - (nextLower - currentLower) * 0.4`, about 60% of the interval toward the next tier. `Clan.Deserialize` calls it while reading a clan's tier during XML setup. That is not the same as loading saved state: `Tier` is saveable, so this path does not support claiming that reopening the same save re-randomizes renown. This is not a general-purpose recalculation of an existing clan's renown.
 
 ### CalculateInitialInfluence
 
 `public abstract int CalculateInitialInfluence(Clan clan)`
 
-Calculates influence for a clan that needs initial influence. The default implementation combines the initial-renown calculation with random terms. `ClanVariablesCampaignBehavior` calls it while restoring clan variables only for non-player clans with a leader, a kingdom-faction leader, and positive renown, then writes the result through `ChangeClanInfluenceAction.Apply`; the model does not perform that write itself.
+Calculates influence for a clan that needs initial influence. The default implementation combines the initial-renown calculation with random terms. During new-game creation, `ClanVariablesCampaignBehavior.OnNewGameCreated` calls it only for non-player clans with a leader, a kingdom-faction leader, and positive renown, then writes the result through `ChangeClanInfluenceAction.Apply`; the model does not perform that write itself.
 
 ### CalculateTier
 
@@ -133,19 +129,23 @@ if (campaign != null && campaign.Models != null && Clan.PlayerClan != null)
 For a next-tier preview, use the contract's boolean and `out` explanation instead of assuming that a maximum-tier clan has a next tier:
 
 ```csharp
-Clan playerClan = Clan.PlayerClan;
-ClanTierModel clanTierModel = Campaign.Current.Models.ClanTierModel;
-if (playerClan != null && clanTierModel != null)
+Campaign campaign = Campaign.Current;
+if (campaign != null && campaign.Models != null)
 {
-    (ExplainedNumber changes, bool hasNextTier) = clanTierModel.HasUpcomingTier(playerClan, out TextObject explanation, includeDescriptions: true);
-    if (hasNextTier)
+    Clan playerClan = Clan.PlayerClan;
+    ClanTierModel clanTierModel = campaign.Models.ClanTierModel;
+    if (playerClan != null && clanTierModel != null)
     {
-        int nextTier = playerClan.Tier + 1;
+        (ExplainedNumber changes, bool hasNextTier) = clanTierModel.HasUpcomingTier(playerClan, out TextObject explanation, includeDescriptions: true);
+        if (hasNextTier)
+        {
+            int nextTier = playerClan.Tier + 1;
+        }
     }
 }
 ```
 
-To replace the policy, add a complete `ClanTierModel` implementation to `CampaignGameStarter` during Campaign model registration so that `GameModels` resolves it during initialization. Do not wait until the Campaign is running or a save has loaded and expect an already-resolved model property or existing clan state to migrate automatically.
+To replace the policy, add a complete `ClanTierModel` implementation to `CampaignGameStarter` during Campaign model registration so that the `GameModels` constructor resolves it through `GetSpecificGameBehaviors()`. Do not wait until the Campaign is running or a save has loaded and expect an already-resolved model property or existing clan state to migrate automatically.
 
 ## Read versus mutation boundaries
 
@@ -160,7 +160,7 @@ To replace the policy, add a complete `ClanTierModel` implementation to `Campaig
 2. The default implementation uses `clan.Tier` as an array index. A negative tier, a tier above `MaxClanTier`, or an unchecked integer passed to `GetRequiredRenownForTier` can throw an index exception. The maximum tier is especially important because `Tier + 1` is not a valid lookup.
 3. Default `GetCompanionLimit` directly calls `clan.Leader.GetPerkValue`, while `HasUpcomingTier` passes `clan.Leader` to `PartySizeLimitModel`. Do not call these default paths while the leader is unset, being destroyed, or not yet restored by save loading.
 4. Default `HasUpcomingTier` also depends on `PartySizeLimitModel`, `WorkshopModel`, and `KingdomCreationModel`. Calling it too early, or breaking those registrations while replacing the model, can produce null references or inconsistent previews.
-5. `SandBoxManager` registers `DefaultClanTierModel`, and `GameModels.Initialize` then resolves and caches the model. A replacement added too late may not affect the resolved `Campaign.Current.Models.ClanTierModel`; changing thresholds after save loading also changes the meaning of tier, capacity, and eligibility. Keep saved tiers in the custom model's valid range and perform explicit migration when a version change requires it.
+5. `SandBoxManager` registers `DefaultClanTierModel`, and the `GameModels` constructor then resolves and caches the model through `GetSpecificGameBehaviors()`. A replacement added too late may not affect the resolved `Campaign.Current.Models.ClanTierModel`; changing thresholds after save loading also changes the meaning of tier, capacity, and eligibility. Keep saved tiers in the custom model's valid range and perform explicit migration when a version change requires it.
 6. The model has no visible save fields of its own, but its results affect the clan's saved or behaviorally significant tier, renown, influence, party, and companion state. Do not bypass Actions and events with direct field writes, or UI, behaviors, and save data can disagree.
 
 ## Navigation

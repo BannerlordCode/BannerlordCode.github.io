@@ -10,15 +10,15 @@ description: "Clan 的声望等级、资格门槛、队伍上限和同伴上限�
 **Base:** `MBGameModel<ClanTierModel>`
 **Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/ClanTierModel.cs`
 
+## 概述
+
+`ClanTierModel` 是 Campaign 的规则模型。它只定义“应该算出什么”，不直接保存或修改 `Clan.Tier`、`Clan.Renown` 或 `Clan.Influence`。实际状态由 [Clan](../Clan) 持有；例如 `Clan.AddRenown` 先增加声望，再调用 `CalculateTier`，在等级提高时通过 [CampaignEvents](../CampaignEvents) 的分发链触发 `OnClanTierChanged`。因此，等级、声望门槛和容量规则可以由模型统一替换，而 Clan 仍负责把计算结果写入状态并让行为、UI 与事件接收方观察同一条变化链。默认实现还被领主队伍生成、雇佣兵和封臣资格检查、Clan 管理界面及地图旗帜视觉读取，规则改变会同时影响这些下游路径。
+
+1.4.5 的默认实现是 [DefaultClanTierModel](../DefaultClanTierModel)。它由 [SandBoxManager](../SandBoxManager) 在 Campaign 模型注册阶段加入 [CampaignGameStarter](../CampaignGameStarter)，随后 [GameModels](../GameModels) 构造函数通过 `GetSpecificGameBehaviors()` 解析出 `ClanTierModel` 属性。mod 应通过 `Campaign.Current.Models.ClanTierModel` 读取当前实例，而不是自己 `new` 一个实例来代替运行时模型。
+
 ## 一句话职责
 
 为 `Clan` 提供等级范围、声望阈值、创建时的初始值、阵营资格以及队伍和同伴容量的规则计算。
-
-## 概述
-
-`ClanTierModel` 是 Campaign 的规则模型。它只定义“应该算出什么”，不直接保存或修改 `Clan.Tier`、`Clan.Renown` 或 `Clan.Influence`。实际状态由 [Clan](../Clan) 持有；例如 `Clan.AddRenown` 先增加声望，再调用 `CalculateTier`，在等级提高时通过 [CampaignEvents](../CampaignEvents) 的分发链触发 `OnClanTierChanged`。
-
-1.4.5 的默认实现是 [DefaultClanTierModel](../DefaultClanTierModel)。它由 [SandBoxManager](../SandBoxManager) 在 Campaign 模型注册阶段加入 [CampaignGameStarter](../CampaignGameStarter)，随后 [GameModels](../GameModels) 在初始化时解析出 `ClanTierModel` 属性。mod 应通过 `Campaign.Current.Models.ClanTierModel` 读取当前实例，而不是自己 `new` 一个实例来代替运行时模型。
 
 ## 心智模型
 
@@ -38,13 +38,9 @@ description: "Clan 的声望等级、资格门槛、队伍上限和同伴上限�
 
 ## 生命周期与依赖图
 
-```text
-SandBoxManager
-  -> CampaignGameStarter.AddModel(new DefaultClanTierModel())
-  -> GameModels.Initialize() / GetGameModel<ClanTierModel>()
-  -> Campaign.Current.Models.ClanTierModel
-  -> Clan、CampaignBehaviors、Helpers、UI、SandBox 读取规则
-```
+- [SandBoxManager](../SandBoxManager) 在注册阶段把 [DefaultClanTierModel](../DefaultClanTierModel) 加入 [CampaignGameStarter](../CampaignGameStarter)。
+- [GameModels](../GameModels) 构造函数通过 `GetSpecificGameBehaviors()` 解析模型，并由 [Campaign](../Campaign) 暴露为 `Campaign.Current.Models.ClanTierModel`。
+- [Clan](../Clan)、[CampaignEvents](../CampaignEvents)、[PartySizeLimitModel](../PartySizeLimitModel)、[WorkshopModel](../WorkshopModel) 和 [KingdomCreationModel](../KingdomCreationModel) 组成实际的状态、事件和计算依赖链。
 
 - 上游注册：[CampaignGameStarter](../CampaignGameStarter) 保存模型列表；泛型 `AddModel` 会用已有同类模型初始化新模型后再加入列表。
 - 当前持有者：[GameModels](../GameModels) 的 `ClanTierModel` 属性在初始化时解析模型；[Campaign](../Campaign) 暴露当前 Campaign 上下文。
@@ -72,13 +68,13 @@ SandBoxManager
 
 `public abstract int CalculateInitialRenown(Clan clan)`
 
-在 Clan 已有等级、需要为其建立初始声望时计算一个值。默认实现按 `clan.Tier` 读取等级下限数组，并在当前等级与下一级（最高级使用最高级下限加 1500）之间取随机上界；`Clan.Deserialize` 在读取 XML 的等级后调用它。因此它不是“把当前声望重新算回去”的通用刷新函数，换模型后重新加载同一保存可能得到不同的初始结果。
+在 Clan 已有等级、需要为其建立初始声望时计算一个值。默认实现按 `clan.Tier` 读取等级下限数组，先取当前等级下限，再取下一级下限（最高级使用最高级下限加 `1500`），最后把随机上界设为 `nextLower - (nextLower - currentLower) * 0.4` 的整数结果，也就是区间向下一级方向推进约 60% 的位置；`Clan.Deserialize` 在 XML 初始化读取等级后调用它。这段 XML 初始化不等同于存档加载：`Tier` 是可保存状态，不能据此断言读取同一存档会重新随机化声望。因此它不是“把当前声望重新算回去”的通用刷新函数。
 
 ### CalculateInitialInfluence
 
 `public abstract int CalculateInitialInfluence(Clan clan)`
 
-为需要初始化的 Clan 计算影响力。默认实现使用初始声望计算结果和随机项组成整数。`ClanVariablesCampaignBehavior` 在恢复 Clan 变量时，只对非玩家、拥有领袖、领袖属于王国阵营且声望为正的 Clan 调用它，然后通过 `ChangeClanInfluenceAction.Apply` 写入影响力；模型本身不执行这次写入。
+为需要初始化的 Clan 计算影响力。默认实现使用初始声望计算结果和随机项组成整数。新游戏创建时，`ClanVariablesCampaignBehavior.OnNewGameCreated` 只对非玩家、拥有领袖、领袖属于王国阵营且声望为正的 Clan 调用它，然后通过 `ChangeClanInfluenceAction.Apply` 写入影响力；模型本身不执行这次写入。
 
 ### CalculateTier
 
@@ -133,19 +129,23 @@ if (campaign != null && campaign.Models != null && Clan.PlayerClan != null)
 预览下一级时，应使用合同返回的布尔值和 `out` 说明，而不是自行假定最高等级存在下一级：
 
 ```csharp
-Clan playerClan = Clan.PlayerClan;
-ClanTierModel clanTierModel = Campaign.Current.Models.ClanTierModel;
-if (playerClan != null && clanTierModel != null)
+Campaign campaign = Campaign.Current;
+if (campaign != null && campaign.Models != null)
 {
-    (ExplainedNumber changes, bool hasNextTier) = clanTierModel.HasUpcomingTier(playerClan, out TextObject explanation, includeDescriptions: true);
-    if (hasNextTier)
+    Clan playerClan = Clan.PlayerClan;
+    ClanTierModel clanTierModel = campaign.Models.ClanTierModel;
+    if (playerClan != null && clanTierModel != null)
     {
-        int nextTier = playerClan.Tier + 1;
+        (ExplainedNumber changes, bool hasNextTier) = clanTierModel.HasUpcomingTier(playerClan, out TextObject explanation, includeDescriptions: true);
+        if (hasNextTier)
+        {
+            int nextTier = playerClan.Tier + 1;
+        }
     }
 }
 ```
 
-若要替换规则，应在 Campaign 模型注册阶段向 `CampaignGameStarter` 添加完整的 `ClanTierModel` 派生类，让 `GameModels` 初始化时解析到它；不要在 Campaign 已运行或保存已加载后只替换一个局部计算并期待既有状态自动迁移。
+若要替换规则，应在 Campaign 模型注册阶段向 `CampaignGameStarter` 添加完整的 `ClanTierModel` 派生类，让 `GameModels` 构造函数中的 `GetSpecificGameBehaviors()` 解析到它；不要在 Campaign 已运行或保存已加载后只替换一个局部计算并期待既有状态自动迁移。
 
 ## 读取与修改的边界
 
@@ -160,7 +160,7 @@ if (playerClan != null && clanTierModel != null)
 2. 默认实现把 `clan.Tier` 用作数组索引。传入负等级、超过 `MaxClanTier` 的等级，或把不受约束的 tier 直接传给 `GetRequiredRenownForTier`，都可能抛出索引异常；最高等级尤其不能直接读取 `Tier + 1`。
 3. 默认的 `GetCompanionLimit` 直接访问 `clan.Leader.GetPerkValue`，而 `HasUpcomingTier` 会把 `clan.Leader` 交给 `PartySizeLimitModel`。在 Clan 领袖尚未设置、正在销毁或保存加载尚未完成时不要调用默认实现的这些路径。
 4. 默认的 `HasUpcomingTier` 还依赖 `PartySizeLimitModel`、`WorkshopModel` 和 `KingdomCreationModel`。过早调用，或替换模型时破坏这些模型的注册顺序，会导致空引用或不一致的预览结果。
-5. `SandBoxManager` 在注册阶段加入 `DefaultClanTierModel`，`GameModels.Initialize` 随后缓存解析结果。太晚添加替换模型可能无法影响已解析的 `Campaign.Current.Models.ClanTierModel`，而在保存加载后改变阈值会改变升级、容量和资格的解释。版本升级应保持旧保存中的 tier 在新模型有效范围内，并在必要时显式迁移数据。
+5. `SandBoxManager` 在注册阶段加入 `DefaultClanTierModel`，`GameModels` 构造函数中的 `GetSpecificGameBehaviors()` 随后缓存解析结果。太晚添加替换模型可能无法影响已解析的 `Campaign.Current.Models.ClanTierModel`，而在保存加载后改变阈值会改变升级、容量和资格的解释。版本升级应保持旧保存中的 tier 在新模型有效范围内，并在必要时显式迁移数据。
 6. 模型没有自己的可见保存字段，但它的结果会被写入或影响 Clan 的等级、声望、影响力、队伍和同伴状态。不要通过直接写字段绕过 Action 和事件，否则 UI、行为和保存内容可能互相不一致。
 
 ## 导航

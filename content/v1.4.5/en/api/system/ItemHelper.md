@@ -1,111 +1,143 @@
 ---
 title: "ItemHelper"
-description: "Auto-generated class reference for ItemHelper."
+description: "Compares weapon usage compatibility and builds localized item damage and count text."
 ---
 # ItemHelper
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class ItemHelper`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/ItemHelper.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class ItemHelper`  
+**Base:** `System.Object`  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/ItemHelper.cs`
 
-## Overview
+## One-sentence responsibility
 
-`ItemHelper` is a helper class that usually provides static logic which does not depend on instance state.
+`ItemHelper` supplies inventory and tooltip code with weapon-usage compatibility checks and localized text for modified damage and item counts.
 
 ## Mental Model
 
-Treat `ItemHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The helper has two independent contracts:
 
-## Key Methods
+- **Comparison:** `IsWeaponComparableWithUsage` finds whether an [ItemObject](../../core-extra/ItemObject) has a usage matching a requested `WeaponDescriptionId`; `CheckComparability` decides whether two items can occupy the same comparison category.
+- **Presentation:** the damage methods evaluate a [WeaponComponentData](../../core-extra/WeaponComponentData) with an [ItemModifier](../../core-extra/ItemModifier), while `NumberOfItems` fills a localized count template using the item's name.
 
-### IsWeaponComparableWithUsage
-`public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId)`
+It does not equip an item, change an [ItemRoster](../../campaign/ItemRoster), or compare final UI numbers. Inventory view models use the returned boolean/index and then perform their own comparison and presentation flow.
 
-**Purpose:** Determines whether the this instance is in the weapon comparable with usage state or condition.
+## When to use and when not to use
 
-```csharp
-// Static call; no instance required
-ItemHelper.IsWeaponComparableWithUsage(item, "example");
-```
+- **Use it:** when an inventory or tooltip flow already has a real item/weapon component and needs the game's compatibility or localized damage wording.
+- **Use it:** with the `usageIndex` returned by the out-parameter overload before calling `GetWeaponWithUsageIndex`.
+- **Do not use it:** as an item equip or roster mutation API; every public method is read-only except for writing output variables/text variables in returned `TextObject` values.
+- **Do not compare only `ItemObject.Type` when weapon data is available:** `CheckComparability` first applies weapon-category rules.
+- **Do not pass an arbitrary usage index:** the indexed overload accesses `item.Weapons[usageIndex]` directly once the weapon branch is selected.
 
-### IsWeaponComparableWithUsage
-`public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId, out int comparableUsageIndex)`
+## Public entries
 
-**Purpose:** Determines whether the this instance is in the weapon comparable with usage state or condition.
-
-```csharp
-// Static call; no instance required
-ItemHelper.IsWeaponComparableWithUsage(item, "example", comparableUsageIndex);
-```
-
-### CheckComparability
-`public static bool CheckComparability(ItemObject item, ItemObject comparedItem)`
-
-**Purpose:** Verifies whether comparability holds true for the this instance.
+### Weapon usage checks
 
 ```csharp
-// Static call; no instance required
-ItemHelper.CheckComparability(item, comparedItem);
+public static bool IsWeaponComparableWithUsage(ItemObject item, string comparedUsageId)
+public static bool IsWeaponComparableWithUsage(
+    ItemObject item,
+    string comparedUsageId,
+    out int comparableUsageIndex)
 ```
 
-### CheckComparability
-`public static bool CheckComparability(ItemObject item, ItemObject comparedItem, int usageIndex)`
+Both overloads scan `item.Weapons` and match `WeaponDescriptionId`. `OneHandedBastardSword` and `OneHandedSword` are treated as mutually comparable aliases. The indexed overload initializes the output to `-1` and returns the first matching index; a miss returns `false`.
 
-**Purpose:** Verifies whether comparability holds true for the this instance.
+### Item comparison checks
 
 ```csharp
-// Static call; no instance required
-ItemHelper.CheckComparability(item, comparedItem, 0);
+public static bool CheckComparability(ItemObject item, ItemObject comparedItem)
+public static bool CheckComparability(
+    ItemObject item,
+    ItemObject comparedItem,
+    int usageIndex)
 ```
 
-### GetSwingDamageText
-`public static TextObject GetSwingDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
+Null input returns `false`. When the primary weapon categories are compatible, the method asks whether `comparedItem` has a matching usage. Compatible categories are melee with melee, consumable ranged with consumable ranged, consumable non-ranged with consumable non-ranged, and shield with shield. Otherwise it falls back to `item.Type == comparedItem.Type`.
 
-**Purpose:** Reads and returns the swing damage text value held by the this instance.
+The no-index overload uses `item.PrimaryWeapon.WeaponDescriptionId`. The indexed overload uses `item.Weapons[usageIndex].WeaponDescriptionId`; callers must supply an index valid for `item.Weapons` and a compared item with compatible weapon data.
+
+### Damage text
 
 ```csharp
-// Static call; no instance required
-ItemHelper.GetSwingDamageText(weapon, itemModifier);
+public static TextObject GetSwingDamageText(
+    WeaponComponentData weapon,
+    ItemModifier itemModifier)
+public static TextObject GetMissileDamageText(
+    WeaponComponentData weapon,
+    ItemModifier itemModifier)
+public static TextObject GetThrustDamageText(
+    WeaponComponentData weapon,
+    ItemModifier itemModifier)
 ```
 
-### GetMissileDamageText
-`public static TextObject GetMissileDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
+Each method applies the modifier through the corresponding `GetModified...Damage` method and returns a `TextObject` shaped as `{DAMAGE} {DAMAGE_TYPE}`. Swing uses `SwingDamageType`, thrust uses `ThrustDamageType`, and missile uses `SwingDamageType` for `ThrowingAxe` but `ThrustDamageType` for other weapon classes.
 
-**Purpose:** Reads and returns the missile damage text value held by the this instance.
+### `NumberOfItems`
 
 ```csharp
-// Static call; no instance required
-ItemHelper.GetMissileDamageText(weapon, itemModifier);
+public static TextObject NumberOfItems(int number, ItemObject item)
 ```
 
-### GetThrustDamageText
-`public static TextObject GetThrustDamageText(WeaponComponentData weapon, ItemModifier itemModifier)`
+Sets `ITEM` to `item.Name` and `NUMBER_OF_ITEM` to `number` in the localized template. The template displays the numeric count and plural item name only when the count is greater than one; the helper does not validate or clamp the number.
 
-**Purpose:** Reads and returns the thrust damage text value held by the this instance.
+## Real inventory and tooltip flow
+
+The stock inventory view obtains a real equipped element, asks for a matching usage, then formats modified damage for the tooltip:
 
 ```csharp
-// Static call; no instance required
-ItemHelper.GetThrustDamageText(weapon, itemModifier);
+using Helpers;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+
+if (Hero.MainHero != null)
+{
+    EquipmentElement weaponElement = Hero.MainHero.BattleEquipment[EquipmentIndex.Weapon0];
+    ItemObject item = weaponElement.Item;
+    if (item?.PrimaryWeapon != null && ItemHelper.IsWeaponComparableWithUsage(
+        item,
+        "OneHandedSword",
+        out int usageIndex))
+    {
+        WeaponComponentData weapon = item.GetWeaponWithUsageIndex(usageIndex);
+        TextObject damageText = ItemHelper.GetSwingDamageText(
+            weapon,
+            weaponElement.ItemModifier);
+    }
+}
 ```
 
-### NumberOfItems
-`public static TextObject NumberOfItems(int number, ItemObject item)`
+`ItemMenuVM` and `TooltipRefresherCollection` follow this same separation: they choose the usage and modifier first, then ask `ItemHelper` for text. The helper does not compare `damageText` strings or mutate the equipment element.
 
-**Purpose:** Executes the NumberOfItems logic.
+## Dependencies and ownership
 
-```csharp
-// Static call; no instance required
-ItemHelper.NumberOfItems(0, item);
-```
+- [ItemObject](../../core-extra/ItemObject) owns the item type, primary weapon, and weapon usage list.
+- [WeaponComponentData](../../core-extra/WeaponComponentData) owns weapon description IDs, classes, damage types, and modified damage calculations.
+- [ItemModifier](../../core-extra/ItemModifier) supplies the modifier consumed by damage calculations.
+- [TextObject](../../localization/TextObject) carries the localized damage/count variables and item name.
+- Inventory view models own usage selection, comparison display, and roster/equipment mutation; `ItemHelper` only returns a boolean, index, or localized text.
 
-## Usage Example
+## Risks and version boundaries
 
-```csharp
-ItemHelper.Initialize();
-```
+- The sword alias rule is exact: only `OneHandedSword` and `OneHandedBastardSword` receive the special mutual match.
+- `CheckComparability` is category-aware only when the primary weapon conditions are met; its fallback is the broader `ItemObject.Type` equality check.
+- The indexed overload can fail for an invalid `usageIndex`. It also reads `comparedItem.PrimaryWeapon` after checking only `item.PrimaryWeapon`; a non-null `comparedItem` with no primary weapon can therefore throw before the type fallback. Use the index returned by the helper for the same item and verify both weapon components before calling it.
+- Damage text is derived from modified damage, but it does not expose the numeric damage as a separate return value; callers that compare numbers must calculate those values through the weapon APIs themselves.
+- `NumberOfItems` writes variables on a newly created `TextObject`; it does not change the item's name or count in a roster.
+- The helper has no fields or save contract. Its returned text and comparison results are transient UI/calculation values.
 
-## See Also
+## Version note
 
-- [Area Index](../)
+This page follows v1.4.5 `ItemHelper.cs`. The eight public signatures are compatibility and presentation helpers; inventory ownership and equipment mutation remain outside this class.
+
+## Navigation
+
+- [↑ API system index](../)
+- [Related: ItemObject](../../core-extra/ItemObject)
+- [Related: WeaponComponentData](../../core-extra/WeaponComponentData)
+- [Related: ItemModifier](../../core-extra/ItemModifier)
+- [Related: TextObject](../../localization/TextObject)
+- [Related: ItemRoster](../../campaign/ItemRoster)

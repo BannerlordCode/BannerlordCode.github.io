@@ -113,4 +113,4 @@ public static void RecallSelectedHero(Hero hero)
 
 - ↑ 父级：[campaign-ext 目录](../)
 - ↔ 同级：[AddHeroToPartyAction](../AddHeroToPartyAction) · [EnterSettlementAction](../EnterSettlementAction) · [LeaveSettlementAction](../LeaveSettlementAction) · [DisbandPartyAction](../DisbandPartyAction)
-- 相关：[Hero](../../campaign/Hero) · [MobileParty](../../campaign/MobileParty) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase)
+- 相关：[Hero](../../campaign/Hero) · [MobileParty](../../campaign/MobileParty) · [Settlement](../../campaign/Settlement) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [TeleportationDetail](../TeleportationDetail)

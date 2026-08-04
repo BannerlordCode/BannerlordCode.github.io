@@ -12,7 +12,7 @@ description: "Explains ship ownership changes caused by trade, transfer, looting
 
 ## One-line responsibility
 
-Carry the source of a ship ownership transaction through `OnShipOwnerChangedEvent` so naval visuals, trade, AI, and logs can distinguish trade, looting, and system creation.
+Carry the source of a ship ownership transaction through `OnShipOwnerChangedEvent` so settlement-nameplate notifications and patrol AI can distinguish trade, looting, and system creation.
 
 ## Mental Model
 
@@ -37,7 +37,7 @@ The `ApplyBy` spelling is part of each enum name, but its integer ordering is no
 - **Upstream:** [`ChangeShipOwnerAction`](../ChangeShipOwnerAction), `Ship`, [`PartyBase`](../../campaign/PartyBase), and `ShipCostModel`.
 - **Payment boundary:** Only `ApplyByTrade` enters value calculation and [`GiveGoldAction`](../GiveGoldAction); the other reasons are not free-trade variants.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnShipOwnerChangedEvent` as `IMbEvent<Ship, PartyBase, ChangeShipOwnerAction.ShipOwnerChangeDetail>`.
-- **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), nameplate views, port/shipyard behaviors, and naval AI refresh the new and old owner state.
+- **Downstream:** `SettlementNameplateNotificationsVM` and `AiPatrollingBehavior` consume the ownership-change event. The authoritative call sites do not show a port or shipyard behavior listening to it.
 - **Save boundary:** Ship ownership is campaign state; the event reason is not replayed for non-serialized listeners after a load.
 
 ## Risks and Lifetime
@@ -54,6 +54,8 @@ The built-in settlement nameplate notifications listen with this signature:
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Naval;
+using TaleWorlds.CampaignSystem.Party;
 
 public sealed class ShipOwnerBehavior : CampaignBehaviorBase
 {
@@ -94,7 +96,7 @@ v1.3.15 and v1.4.5 expose the same five values and `OnShipOwnerChangedEvent` arg
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [ChangeShipOwnerAction](../ChangeShipOwnerAction) · [ShipDestroyDetail](../ShipDestroyDetail)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ Owner Action: [ChangeShipOwnerAction](../ChangeShipOwnerAction)
+- ↔ Siblings: [ShipDestroyDetail](../ShipDestroyDetail)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [PartyBase](../../campaign/PartyBase) · [MobileParty](../../campaign/MobileParty) · [GiveGoldAction](../GiveGoldAction)
-

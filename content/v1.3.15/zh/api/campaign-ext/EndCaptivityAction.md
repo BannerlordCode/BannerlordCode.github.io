@@ -166,4 +166,4 @@ if (prisoner != null && prisoner.IsPrisoner)
 
 - 父级：[campaign-ext 目录](../)
 - 同级：[TakePrisonerAction](../TakePrisonerAction/) · [SellPrisonersAction](../SellPrisonersAction/) · [TransferPrisonerAction](../TransferPrisonerAction/) · [MakeHeroFugitiveAction](../MakeHeroFugitiveAction/)
-- 相关：[Hero](../../campaign/Hero/) · [MobileParty](../../campaign/MobileParty/) · [FlattenedTroopRoster](../FlattenedTroopRoster/) · [CampaignEvents](../CampaignEvents/) · [SetPrisonerFreeBarterable](../SetPrisonerFreeBarterable/) · [KillCharacterAction](../KillCharacterAction/)
+- 相关：[Hero](../../campaign/Hero/) · [MobileParty](../../campaign/MobileParty/) · [FlattenedTroopRoster](../FlattenedTroopRoster/) · [CampaignEvents](../CampaignEvents/) · [SetPrisonerFreeBarterable](../SetPrisonerFreeBarterable/) · [KillCharacterAction](../KillCharacterAction/) · [EndCaptivityDetail](../EndCaptivityDetail/)

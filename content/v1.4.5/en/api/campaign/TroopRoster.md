@@ -1,485 +1,205 @@
 ---
 title: "TroopRoster"
-description: "Auto-generated class reference for TroopRoster."
+description: "A party's troop ledger: tracks CharacterObject counts, wounded troops, experience, and derived caches while notifying its owning PartyBase."
 ---
 # TroopRoster
 
-**Namespace:** TaleWorlds.CampaignSystem.Roster
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class TroopRoster : ISerializableObject`
-**Base:** `ISerializableObject`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Roster/TroopRoster.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Roster`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class TroopRoster : ISerializableObject`  
+**Base:** `ISerializableObject`  
+**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Roster/TroopRoster.cs`  
+**Version note:** This page follows the v1.4.5 `TroopRoster.cs` implementation and its live Campaign call sites.
 
-## Overview
+## One-line responsibility
 
-`TroopRoster` lives in `TaleWorlds.CampaignSystem.Roster` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`TroopRoster` is a `CharacterObject`-grouped troop state container: it tracks counts, wounded state, troop experience, and cached totals, while notifying its owning [PartyBase](../PartyBase) when roster state changes.
 
-## Mental Model
+## Mental model: a Party ledger, not an independent party
 
-Start from namespace `TaleWorlds.CampaignSystem.Roster` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`TroopRoster` describes which troops exist and what state each troop type has. It does not move, fight, register, or destroy a party. Its normal host is the `PartyBase` owned by a [MobileParty](../MobileParty) or [Settlement](../Settlement):
 
-## Key Properties
-
-| Name | Signature |
-|------|-----------|
-| `VersionNo` | `public int VersionNo { get; }` |
-
-## Key Methods
-
-### CreateDummyTroopRoster
-`public static TroopRoster CreateDummyTroopRoster()`
-
-**Purpose:** Constructs a new dummy troop roster entity and returns it to the caller.
-
-```csharp
-// Static call; no instance required
-TroopRoster.CreateDummyTroopRoster();
+```text
+MobileParty / Settlement
+  -> PartyBase
+      -> MemberRoster / PrisonRoster : TroopRoster
+          -> TroopRosterElement(CharacterObject, Number, WoundedNumber, Xp)
 ```
 
-### GetHashCode
-`public override int GetHashCode()`
+An existing party's `MemberRoster` and `PrisonRoster` are world state owned by that host. `OwnerParty` is an internal saveable property in the source. A mod normally obtains the roster from `mobileParty.MemberRoster`, `mobileParty.PrisonRoster`, `partyBase.MemberRoster`, or `settlement.Party.MemberRoster`; it does not construct a roster and attach it to a half-built party.
 
-**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+### Lifecycle and ownership
 
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetHashCode();
+1. `PartyBase` creates its member, prisoner, and item rosters and sets their owner; after the party enters the Campaign, the roster becomes part of world state.
+2. `AddToCounts`, `RemoveTroop`, `WoundTroop`, and related methods update counts and `VersionNo`, and call `OwnerParty.OnHeroAdded`, `OnHeroRemoved`, `OnRosterSizeChanged`, or `OnXpChanged` when applicable.
+3. `GetTroopRoster()` rebuilds an internal `MBList<TroopRosterElement>` cache when `VersionNo` changes. It is a read/iteration path, not a supported way to bypass the owner callbacks.
+4. During save loading, the serialization layer restores the element array, count, and version. `OnLoad` discards the old derived-list cache, and `CalculateCachedStatsOnLoad()` recomputes cached totals for rosters loaded in that pass.
+5. Party destruction, prisoner release, and encounter resolution belong to their Actions or Campaign flows. A roster reference does not extend the lifetime of a party that has been removed.
+
+### Party rosters versus temporary rosters
+
+- `MobileParty.MainParty.MemberRoster`, `MobileParty.MainParty.PrisonRoster`, and `Settlement.Party.MemberRoster` are host rosters whose changes affect the game world.
+- `TroopRoster.CreateDummyTroopRoster()` returns a temporary container with no owner. The source uses it for random casualties, encounter rewards, and pending transfers. It is not registered with the Campaign and does not place troops into a party.
+- `CloneRosterData()` also returns an ownerless copy. It copies character, count, and wounded count, but not experience. Treat it as an intermediate calculation or transfer value, not as a writable view of the source roster.
+
+## When to use it and when not to
+
+### Use it for
+
+- Reading members, prisoners, wounded troops, hero counts, and troop experience from a `MobileParty`, `PartyBase`, or `Settlement`.
+- Modifying a known Campaign roster with `AddToCounts`, `RemoveTroop`, `WoundTroop`, or `AddXpToTroop` after the owning flow has decided that the world change is valid.
+- Reading `GetTroopRoster()` for battle, UI, or custom rules, then resolving each `TroopRosterElement.Character` to a registered [CharacterObject](../CharacterObject).
+- Collecting temporary troops with `CreateDummyTroopRoster()` before a higher-level Action or transfer flow consumes them.
+
+### Do not treat it as
+
+- **A party creation API.** Create and register a mobile party through `MobileParty.CreateParty` and its component initialization. Do not put a dummy roster into a half-built `PartyBase`.
+- **A hero migration API.** Adding a Hero to a party, imprisoning or releasing one, or removing one from a party belongs to [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction), [TakePrisonerAction](../../campaign-ext/TakePrisonerAction), or the relevant Action. Adding a hero count alone does not complete that migration.
+- **A battle result API.** Battle casualties and loot are coordinated by [MapEvent](../MapEvent), encounter flows, and [CampaignBattleRecoveryBehavior](../CampaignBattleRecoveryBehavior). Roster methods perform only the state change they are called for.
+- **A rules Model.** `TotalManCount` and `TotalWounded` expose current roster state, while wages and combat power are Model inputs. Change a rule by extending or replacing the relevant Model, not by overwriting roster results every tick.
+
+## Dependencies and data flow
+
+```mermaid
+graph TD
+    MP[MobileParty] --> PB[PartyBase]
+    SET[Settlement] --> PB
+    PB --> MR[MemberRoster]
+    PB --> PR[PrisonRoster]
+    MR --> EL[TroopRosterElement]
+    PR --> EL
+    EL --> CO[CharacterObject]
+    PB --> EVT[PartyBase callbacks]
+    MR --> FL[FlattenedTroopRoster]
+    ME[MapEvent / PlayerEncounter] --> MR
+    SAVE[SaveSystem load] --> MR
 ```
 
-### CalculateCachedStatsOnLoad
-`public static void CalculateCachedStatsOnLoad()`
+- **Host:** [MobileParty](../MobileParty) and [PartyBase](../PartyBase) establish which party, encounter, or settlement owns the roster; settlement garrisons follow the same container contract.
+- **Elements and objects:** [TroopRosterElement](../TroopRosterElement) stores `Character`, `Number`, `WoundedNumber`, and `Xp`. `CharacterObject` must be a registered ObjectSystem object, not a temporary replacement.
+- **Consumers:** [FlattenedTroopRoster](../FlattenedTroopRoster) expands grouped entries into a per-person view. Party capacity, battle, and AI Models read roster totals but do not manage the roster's host lifetime.
+- **Events and flows:** [PlayerEncounter](../PlayerEncounter), [MapEvent](../MapEvent), `CampaignBattleRecoveryBehavior`, and party-screen flows read or change rosters at encounter or battle boundaries. Those call sites are why `AddToCounts` owner callbacks matter.
+- **Save boundary:** `data`, `_count`, and `OwnerParty` participate in the `ISerializableObject`/SaveSystem restoration path. After load, caches must be rebuilt; a mod should not store the runtime list returned by `GetTroopRoster()` as its own long-lived save format.
 
-**Purpose:** Calculates the current value or result of cached stats on load.
+## Members and call timing
 
-```csharp
-// Static call; no instance required
-TroopRoster.CalculateCachedStatsOnLoad();
-```
+### Statistics
 
-### ToFlattenedRoster
-`public FlattenedTroopRoster ToFlattenedRoster()`
+| Member | Purpose, effects, and timing |
+| --- | --- |
+| `Count` | Number of distinct `TroopRosterElement` slots, not total people. Use it for current-index traversal and reread it after mutations. |
+| `VersionNo` | Roster state version. Count, wounded, or experience changes update it, and `GetTroopRoster()` uses it to detect a stale cache. It can key a derived cache but is not a replacement for a gameplay event. |
+| `TotalRegulars` / `TotalHeroes` | Counts regular troops and hero slots. Hero counts are maintained from the element count, while hero wounds are derived from `HeroObject.IsWounded`. |
+| `TotalWoundedRegulars` / `TotalWoundedHeroes` / `TotalWounded` | Wounded totals. Regular wounded counts come from elements; a hero's wounded count reflects its current Hero state. Do not treat hero wounds as an ordinary troop number. |
+| `TotalManCount` / `TotalHealthyCount` | Total regulars plus heroes, and that total minus regular and hero wounded counts. These are current-state reads for existing Campaign rules. |
 
-**Purpose:** Executes the ToFlattenedRoster logic.
+### Read and copy paths
 
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.ToFlattenedRoster();
-```
+| Member | Purpose, effects, and timing |
+| --- | --- |
+| `GetTroopRoster()` | Returns an `MBList<TroopRosterElement>` maintained from `VersionNo` for iteration and LINQ queries. Elements are structs; changing a `foreach` copy is not a reliable way to write the source roster. |
+| `GetElementCopyAtIndex(int)` / `GetCharacterAtIndex(int)` | Read an element or character by slot. The index must come from the current `Count`; do not carry it across an operation that removes or reorders slots. |
+| `FindIndexOfTroop(CharacterObject)` / `Contains(CharacterObject)` | Map a registered character object to a current slot. Validate the object and Campaign lifetime before using it in a mutation. |
+| `GetTroopCount(CharacterObject)` | Returns the current count for one character, or 0 when absent. Do not turn an absent result into an unconditional `RemoveTroop` call. |
+| `ToFlattenedRoster()` | Creates a [FlattenedTroopRoster](../FlattenedTroopRoster) from current totals. It is a new expanded result, not a live write-through view. |
+| `CloneRosterData()` | Creates an ownerless copy with character, count, and wounded values but no experience. Use it for temporary calculation, never to replace a party's real roster. |
+| `RostersAreIdentical(TroopRoster, TroopRoster)` | Compares owners, slots, versions, and character/count relationships for validation. It does not merge rosters. |
 
-### Add
-`public void Add(TroopRoster troopRoster)`
+### Supported mutation paths
 
-**Purpose:** Adds an item to the current collection or state.
+| Member | Purpose, effects, and timing |
+| --- | --- |
+| `AddToCounts(CharacterObject, int, bool, int, int, bool, int)` | Preferred add/remove entry point. It finds or creates a slot, maintains regular/hero totals, updates the version, and invokes owner Hero/roster callbacks. A new slot cannot have a non-positive count plus wounded count. |
+| `AddToCounts(TroopRosterElement)` / `Add(TroopRoster)` | Adds an element or every element from another roster. The source is not reduced; these are additions, not transfers. |
+| `AddToCountsAtIndex(int, int, int, int, bool)` | Changes count, wounded count, and experience for an existing slot. It clamps a wounded-count adjustment that would exceed the new total and invokes owner callbacks. Use only with a current index. |
+| `RemoveTroop(CharacterObject, int, UniqueTroopDescriptor, int)` | Decreases a character's count. During `PlayerEncounter.CurrentBattleSimulation`, non-hero zero-count slots can be retained for the simulation. Confirm that the character exists first. |
+| `WoundTroop(CharacterObject, int, UniqueTroopDescriptor)` | Increases wounded count without reducing total people. The battle or recovery flow decides when it is appropriate; it does not represent a death. |
+| `AddXpToTroop(CharacterObject, int)` / `AddXpToTroopAtIndex(int, int)` | Adds troop experience; the indexed entry also calls `OwnerParty.OnXpChanged`. Do not pass negative values or stale indexes. |
+| `RemoveIf(Predicate<TroopRosterElement>)` / `Clear()` / `RemoveZeroCounts()` | Removes matching elements, clears the roster, or compacts zero-count slots. These change the version/cache; finish processing returned elements before mutating the source again. |
 
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.Add(troopRoster);
-```
+### Narrow structural operations
 
-### Add
-`public void Add(TroopRosterElement troopRosterElement)`
+`SetElementNumber`, `SetElementWoundedNumber`, and `SetElementXp` write one current slot by index; `SwapTroopsAtIndices` and `ShiftTroopToIndex` change slot order. These are used by encounter, party-screen, and internal flows. They are not equivalent to safely adding or removing a troop from a Party. When Hero ownership, party totals, or experience notifications matter, prefer `AddToCounts`, `RemoveTroop`, and `AddXpToTroop`.
 
-**Purpose:** Adds an item to the current collection or state.
+`RemoveNumberOfNonHeroTroopsRandomly(int)` returns an ownerless random regular-troop roster and removes healthy regular troops from the source. `WoundNumberOfNonHeroTroopsRandomly(int)` only wounds random regular troops. Both depend on current cached totals and input bounds; they belong in casualty flows, not as general recruitment/deletion helpers.
 
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.Add(troopRosterElement);
-```
+## Real acquisition and mutation examples
 
-### RemoveIf
-`public ICollection<TroopRosterElement> RemoveIf(Predicate<TroopRosterElement> match)`
+### Read healthy regulars from the current player party
 
-**Purpose:** Removes if from the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.RemoveIf(match);
-```
-
-### FindIndexOfTroop
-`public int FindIndexOfTroop(CharacterObject character)`
-
-**Purpose:** Looks up the matching index of troop in the current collection or scope.
+This path obtains the player's current mobile party from the Campaign facade, matching the Party/Encounter access pattern in the source. It reads only; it creates no roster and changes no Party:
 
 ```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.FindIndexOfTroop(character);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
+
+public int CountHealthyRegularsInPlayerParty()
+{
+    if (Campaign.Current == null || MobileParty.MainParty == null)
+    {
+        return 0;
+    }
+
+    TroopRoster roster = MobileParty.MainParty.MemberRoster;
+    return roster.GetTroopRoster()
+        .Where(element => element.Character != null && !element.Character.IsHero)
+        .Sum(element => element.Number - element.WoundedNumber);
+}
 ```
 
-### RemoveNumberOfNonHeroTroopsRandomly
-`public TroopRoster RemoveNumberOfNonHeroTroopsRandomly(int numberOfMen)`
+### Safely add one troop to an existing slot
 
-**Purpose:** Removes number of non hero troops randomly from the current collection or state.
+A real party mutation first obtains `MobileParty.MainParty.MemberRoster`, then uses `AddToCounts` so the Party receives version and roster callbacks. This example increments the first existing regular-troop slot, avoiding a fabricated troop ID:
 
 ```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.RemoveNumberOfNonHeroTroopsRandomly(0);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
+
+public bool AddOneExistingRegularTroop()
+{
+    if (Campaign.Current == null || MobileParty.MainParty == null)
+    {
+        return false;
+    }
+
+    TroopRoster roster = MobileParty.MainParty.MemberRoster;
+    for (int index = 0; index < roster.Count; index++)
+    {
+        CharacterObject character = roster.GetCharacterAtIndex(index);
+        if (character != null && !character.IsHero)
+        {
+            roster.AddToCounts(character, 1);
+            return true;
+        }
+    }
+
+    return false;
+}
 ```
 
-### WoundNumberOfNonHeroTroopsRandomly
-`public void WoundNumberOfNonHeroTroopsRandomly(int numberOfMen)`
+To transfer troops between parties, do not only call `AddToCounts` on the target. The relevant transfer, encounter, or prisoner flow must reduce the source and apply the same `TroopRosterElement` semantics to the destination.
 
-**Purpose:** Executes the WoundNumberOfNonHeroTroopsRandomly logic.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.WoundNumberOfNonHeroTroopsRandomly(0);
-```
+- **Orphan roster:** Treating `CreateDummyTroopRoster()` or `CloneRosterData()` as a real party roster loses `OwnerParty` callbacks, which can desynchronize Hero ownership, party totals, or map state. Obtain real rosters from their host.
+- **Invalid index:** `GetCharacterAtIndex`, `SetElement*`, `AddToCountsAtIndex`, and some `GetElement*` overloads access the backing array directly. Negative, stale, or empty-roster indexes can throw `IndexOutOfRangeException`; reread the index after removing a slot.
+- **Invalid counts:** `TroopRosterElement.Number`, `WoundedNumber`, and `Xp` reject negative values, and wounded counts must remain consistent with total count. Prefer the delta semantics of `AddToCounts` over editing a struct copied from the cached list.
+- **Skipped Party callbacks:** `SetElementNumber` or direct element edits do not perform the complete Hero add/remove, `OnRosterSizeChanged`, XP notification, or higher-level Action cascade. Hero, prisoner, battle-casualty, and party-transfer changes belong to their Campaign flows.
+- **Hero wound confusion:** A hero's `WoundedNumber` reads `HeroObject.IsWounded`. Repeatedly treating a Hero as a regular troop produces totals inconsistent with the Hero lifecycle.
+- **Stale cache:** `GetTroopRoster()` is maintained through `VersionNo`. Keeping its list or an old roster reference across ticks, encounters, or save loading can read stale party state. Store stable `CharacterObject.Id` or host identifiers in custom state and resolve them again in the current Campaign.
+- **Load timing:** Between `OnLoad` and `CalculateCachedStatsOnLoad`, derived totals and the expanded list may not be ready. Do not start custom battle/UI or batch roster mutations while SaveSystem is restoring a roster.
+- **Object registration:** `TroopRosterElement` serializes a `CharacterObject` object ID. A custom troop must be registered through the ObjectSystem and available during load, or the roster can resolve a null character and fail in later reads.
+- **Campaign lifetime:** `MemberRoster`, `PrisonRoster`, `MapEvent`, and `PlayerEncounter` ownership changes during battles, captivity, and party destruction. Do not use a roster reference after its host has entered a teardown path.
 
-### SwapTroopsAtIndices
-`public void SwapTroopsAtIndices(int firstIndex, int secondIndex)`
+## Version and implementation boundary
 
-**Purpose:** Executes the SwapTroopsAtIndices logic.
+In v1.4.5, `TroopRoster` uses `ISerializableObject` to restore its element array and version, while `TroopRosterElement` participates in the SaveSystem contract for each element. Versions can change cache fields, wound handling, or Party callbacks. Mod code should depend on the public semantics of `MobileParty.MemberRoster`, `PartyBase.MemberRoster`, `AddToCounts`, `GetTroopRoster`, and `TroopRosterElement`, not on the decompiled private array layout.
 
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.SwapTroopsAtIndices(0, 0);
-```
+## Navigation
 
-### ShiftTroopToIndex
-`public void ShiftTroopToIndex(int troopIndex, int targetIndex)`
-
-**Purpose:** Executes the ShiftTroopToIndex logic.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.ShiftTroopToIndex(0, 0);
-```
-
-### AddToCountsAtIndex
-`public int AddToCountsAtIndex(int index, int countChange, int woundedCountChange = 0, int xpChange = 0, bool removeDepleted = true)`
-
-**Purpose:** Adds to counts at index to the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.AddToCountsAtIndex(0, 0, 0, 0, false);
-```
-
-### CheckValidity
-`public void CheckValidity()`
-
-**Purpose:** Verifies whether validity holds true for the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.CheckValidity();
-```
-
-### AddToCounts
-`public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)`
-
-**Purpose:** Adds to counts to the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.AddToCounts(character, 0, false, 0, 0, false, 0);
-```
-
-### GetTroopCount
-`public int GetTroopCount(CharacterObject troop)`
-
-**Purpose:** Reads and returns the troop count value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetTroopCount(troop);
-```
-
-### RemoveZeroCounts
-`public void RemoveZeroCounts()`
-
-**Purpose:** Removes zero counts from the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.RemoveZeroCounts();
-```
-
-### GetElementCopyAtIndex
-`public TroopRosterElement GetElementCopyAtIndex(int index)`
-
-**Purpose:** Reads and returns the element copy at index value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetElementCopyAtIndex(0);
-```
-
-### SetElementNumber
-`public void SetElementNumber(int index, int number)`
-
-**Purpose:** Assigns a new value to element number and updates the object's internal state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.SetElementNumber(0, 0);
-```
-
-### GetElementNumber
-`public int GetElementNumber(int index)`
-
-**Purpose:** Reads and returns the element number value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetElementNumber(0);
-```
-
-### GetElementNumber
-`public int GetElementNumber(CharacterObject character)`
-
-**Purpose:** Reads and returns the element number value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetElementNumber(character);
-```
-
-### SetElementWoundedNumber
-`public void SetElementWoundedNumber(int index, int number)`
-
-**Purpose:** Assigns a new value to element wounded number and updates the object's internal state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.SetElementWoundedNumber(0, 0);
-```
-
-### GetElementWoundedNumber
-`public int GetElementWoundedNumber(int index)`
-
-**Purpose:** Reads and returns the element wounded number value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetElementWoundedNumber(0);
-```
-
-### SetElementXp
-`public void SetElementXp(int index, int number)`
-
-**Purpose:** Assigns a new value to element xp and updates the object's internal state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.SetElementXp(0, 0);
-```
-
-### GetElementXp
-`public int GetElementXp(int index)`
-
-**Purpose:** Reads and returns the element xp value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetElementXp(0);
-```
-
-### GetElementXp
-`public int GetElementXp(CharacterObject character)`
-
-**Purpose:** Reads and returns the element xp value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetElementXp(character);
-```
-
-### GetCharacterAtIndex
-`public CharacterObject GetCharacterAtIndex(int index)`
-
-**Purpose:** Reads and returns the character at index value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetCharacterAtIndex(0);
-```
-
-### Equals
-`public override bool Equals(object obj)`
-
-**Purpose:** Compares the this instance with the supplied instance for equality.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.Equals(obj);
-```
-
-### RostersAreIdentical
-`public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)`
-
-**Purpose:** Executes the RostersAreIdentical logic.
-
-```csharp
-// Static call; no instance required
-TroopRoster.RostersAreIdentical(a, b);
-```
-
-### Contains
-`public bool Contains(CharacterObject character)`
-
-**Purpose:** Indicates whether the this instance contains the specified item.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.Contains(character);
-```
-
-### ValidateTroopListCache
-`public void ValidateTroopListCache()`
-
-**Purpose:** Checks whether troop list cache satisfies the required constraints, usually returning a boolean.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.ValidateTroopListCache();
-```
-
-### GetTroopRoster
-`public MBList<TroopRosterElement> GetTroopRoster()`
-
-**Purpose:** Reads and returns the troop roster value held by the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.GetTroopRoster();
-```
-
-### Clear
-`public void Clear()`
-
-**Purpose:** Removes all content from the this instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.Clear();
-```
-
-### RemoveTroop
-`public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor), int xp = 0)`
-
-**Purpose:** Removes troop from the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.RemoveTroop(troop, 0, default(UniqueTroopDescriptor), 0);
-```
-
-### WoundTroop
-`public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor))`
-
-**Purpose:** Executes the WoundTroop logic.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.WoundTroop(troop, 0, default(UniqueTroopDescriptor));
-```
-
-### Sum
-`public int Sum(Func<TroopRosterElement, int> selector)`
-
-**Purpose:** Executes the Sum logic.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.Sum(func<TroopRosterElement, 0);
-```
-
-### OnHeroHealthStatusChanged
-`public void OnHeroHealthStatusChanged(Hero hero)`
-
-**Purpose:** Invoked when the hero health status changed event is raised.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.OnHeroHealthStatusChanged(hero);
-```
-
-### UpdateVersion
-`public void UpdateVersion()`
-
-**Purpose:** Recalculates and stores the latest representation of version.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.UpdateVersion();
-```
-
-### CloneRosterData
-`public TroopRoster CloneRosterData()`
-
-**Purpose:** Duplicates the this instance's state and returns a new roster data instance.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-var result = troopRoster.CloneRosterData();
-```
-
-### AddXpToTroop
-`public void AddXpToTroop(CharacterObject troop, int xpAmount)`
-
-**Purpose:** Adds xp to troop to the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.AddXpToTroop(troop, 0);
-```
-
-### AddXpToTroopAtIndex
-`public void AddXpToTroopAtIndex(int index, int xpAmount)`
-
-**Purpose:** Adds xp to troop at index to the current collection or state.
-
-```csharp
-// Obtain an instance of TroopRoster from the subsystem API first
-TroopRoster troopRoster = ...;
-troopRoster.AddXpToTroopAtIndex(0, 0);
-```
-
-## Usage Example
-
-```csharp
-TroopRoster.CreateDummyTroopRoster();
-```
-
-## See Also
-
-- [Area Index](../)
+- **Up Parent:** [Campaign API index](../) · [Campaign](../Campaign)
+- **Siblings:** [PartyBase](../PartyBase) · [MobileParty](../MobileParty) · [FlattenedTroopRoster](../FlattenedTroopRoster) · [TroopRosterElement](../TroopRosterElement)
+- **Related:** [CharacterObject](../CharacterObject) · [Settlement](../Settlement) · [MapEvent](../MapEvent) · [PlayerEncounter](../PlayerEncounter) · [AddHeroToPartyAction](../../campaign-ext/AddHeroToPartyAction) · [TakePrisonerAction](../../campaign-ext/TakePrisonerAction) · [CampaignBattleRecoveryBehavior](../CampaignBattleRecoveryBehavior)

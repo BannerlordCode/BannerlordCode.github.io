@@ -166,4 +166,4 @@ This v1.3.15 page uses `bannerlord-1.4.5/Bannerlord.Source` `EndCaptivityAction.
 
 - Parent: [campaign-ext index](../)
 - Siblings: [TakePrisonerAction](../TakePrisonerAction/) · [SellPrisonersAction](../SellPrisonersAction/) · [TransferPrisonerAction](../TransferPrisonerAction/) · [MakeHeroFugitiveAction](../MakeHeroFugitiveAction/)
-- Related: [Hero](../../campaign/Hero/) · [MobileParty](../../campaign/MobileParty/) · [FlattenedTroopRoster](../FlattenedTroopRoster/) · [CampaignEvents](../CampaignEvents/) · [SetPrisonerFreeBarterable](../SetPrisonerFreeBarterable/) · [KillCharacterAction](../KillCharacterAction/)
+- Related: [Hero](../../campaign/Hero/) · [MobileParty](../../campaign/MobileParty/) · [FlattenedTroopRoster](../FlattenedTroopRoster/) · [CampaignEvents](../CampaignEvents/) · [SetPrisonerFreeBarterable](../SetPrisonerFreeBarterable/) · [KillCharacterAction](../KillCharacterAction/) · [EndCaptivityDetail](../EndCaptivityDetail/)

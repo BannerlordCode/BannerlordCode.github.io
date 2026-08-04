@@ -31,7 +31,7 @@ Keep short-lived scene state in the derived behavior and treat `Mission` as host
 
 **Do not use it for:**
 
-- Victory checks, `MissionResult` creation, retreat, or surrender; derive from [`MissionLogic`](../mission-ext/MissionLogic) and implement that contract.
+- Victory checks, `MissionResult` creation, retreat, or surrender; derive from [`MissionLogic`](../../mission-ext/MissionLogic) and implement that contract.
 - Campaign map mutations; return to Campaign behavior and the appropriate Action instead of changing save state in a Mission tick.
 - Global lifecycle work outside a Mission; use the proper SubModule or Campaign event entry rather than substituting `Mission.Current`.
 
@@ -79,16 +79,16 @@ Returning `Logic` from a class that is not a `MissionLogic` makes the `as Missio
 | `Mission` | Set internally by the host after attachment; the route to `Agents`, `Teams`, `PlayerTeam`, and other context. It is `null` after removal. |
 | `BehaviorType` | Chooses the ordinary collection or `MissionLogics`. It is not a runtime mode switch and must not change with Mission state. |
 | `DebugInput` | Exposes the debug input context; keep it for development behavior rather than treating it as the long-term player-input layer. |
-| `OnAgentRemoved(...)` | The point to read `AgentState`, affector, and `KillingBlow`. Do not retain the removed `Agent` across frames. |
+| `OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)` | The point to read `AgentState`, affector, and `KillingBlow`. Do not retain the removed `Agent` across frames. |
 | `GetCompassTargets()` | Returns `null` by default. Only behaviors that actually provide compass targets should return a list; an empty list is not a substitute for another behavior's result. |
 | `OnMissionStateActivated` / `OnMissionStateDeactivated` / `OnMissionStateFinalized` | Bridges outer MissionState activation, deactivation, and finalization; subscriptions must be cleaned symmetrically. |
 
 ## Dependencies
 
-- **Host and upstream:** [`Mission`](./Mission) obtains the factory result from `MissionState.OpenNew` and calls `AddMissionBehavior`; [`Campaign`](../campaign/Campaign) or SandBox mission entry points decide when to open a Mission.
-- **Scene objects:** [`Agent`](./Agent) drives creation, hit, and removal callbacks; [`Team`](../mission-ext/Team) and [`Formation`](./Formation) provide deployment, side, and formation context.
-- **Rules downstream:** [`MissionLogic`](../mission-ext/MissionLogic) specializes Logic behaviors and participates in the `MissionLogics` result, retreat, and end flow.
-- **Module entry:** [`MBSubModuleBase`](../core/MBSubModuleBase) is the mod's game-lifecycle entry point, but it does not replace Mission-level behavior registration.
+- **Host and upstream:** [`Mission`](../Mission) obtains the factory result from `MissionState.OpenNew` and calls `AddMissionBehavior`; [`Campaign`](../../campaign/Campaign) or SandBox mission entry points decide when to open a Mission.
+- **Scene objects:** [`Agent`](../Agent) drives creation, hit, and removal callbacks; [`Team`](../../mission-ext/Team) and [`Formation`](../Formation) provide deployment, side, and formation context.
+- **Rules downstream:** [`MissionLogic`](../../mission-ext/MissionLogic) specializes Logic behaviors and participates in the `MissionLogics` result, retreat, and end flow.
+- **Module entry:** [`MBSubModuleBase`](../../core/MBSubModuleBase) is the mod's game-lifecycle entry point, but it does not replace Mission-level behavior registration.
 
 ## Risks and crash boundaries
 
@@ -142,12 +142,12 @@ public static Mission OpenBattleWithCounter(MissionInitializerRecord rec)
 }
 ```
 
-Dynamic attachment is also a real path: StoryMode's `AchievementsCampaignBehavior.OnMissionStarted(IMission obj)` creates `AchievementMissionLogic` and calls `Mission.Current.AddMissionBehavior(...)`. Use that shape when a Mission is already open and a listener is needed only after the event fires.
+Dynamic attachment is also a real path: StoryMode's `AchievementsCampaignBehavior.OnMissionStarted(IMission obj)` creates `AchievementMissionLogic` and calls `Mission.Current.AddMissionBehavior(new AchievementMissionLogic(OnAgentRemoved, OnAgentHit))`. Use that shape when a Mission is already open and a listener is needed only after the event fires.
 
 ## See also and bidirectional navigation
 
-- ↑ Parent (module index): [Mission module home](./)
-- ↔ Siblings: [Mission](./Mission) · [Agent](./Agent) · [Formation](./Formation)
-- ↓ Specialized child: [MissionLogic](../mission-ext/MissionLogic)
-- Upstream entries: [Campaign](../campaign/Campaign) · [MBSubModuleBase](../core/MBSubModuleBase)
-- Writing contract: [Doc Contract](../../architecture/doc-contract)
+- ↑ Parent (module index): [Mission module home](../)
+- ↔ Siblings: [Mission](../Mission) · [Agent](../Agent) · [Formation](../Formation)
+- ↓ Specialized child: [MissionLogic](../../mission-ext/MissionLogic)
+- Upstream entries: [Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
+- Writing contract: [Doc Contract](../../../architecture/doc-contract)

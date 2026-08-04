@@ -135,5 +135,5 @@ The v1.3.15 and v1.4.5 routes use the same five entry points and the same observ
 
 - ↑ Parent: [Campaign-Ext API](../)
 - ↔ Siblings: [DestroyShipAction](../DestroyShipAction) · [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
-- ↓ Children: no separate child page; the nested reason enum is exposed by [ChangeShipOwnerAction](../ChangeShipOwnerAction)
+- ↓ Children: [ShipOwnerChangeDetail](../ShipOwnerChangeDetail)
 - Related: [Ship](../Ship) · [ShipCostModel](../ShipCostModel) · [CampaignEvents](../CampaignEvents) · [MobileParty](../../campaign/MobileParty)

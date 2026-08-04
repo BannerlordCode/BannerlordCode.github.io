@@ -73,6 +73,9 @@ write class-page or other product body prose.
 | `fix-remaining-quality-blockers.mjs` | **Retired** — writes product-page quality fixes and body prose |
 | `gen-class-catalog.mjs` | **Retired** — requires an explicit structural-only redesign before it may write catalog output |
 | `generate-section-indexes.mjs` | **Retired** — requires an explicit structural-only redesign before it may write index output |
+| `create-catalog-sections.mjs` | **Structural-only** — writes only `api/catalog/_index.md` and `api/catalog-campaign/_index.md`; it must not write class-page bodies |
+| `ensure-sections.mjs` | **Structural-only** — writes only missing section `_index.md` files; it must not write class-page bodies |
+| `cleanup-orphan-api.mjs` | **Destructive and fail-closed** — deletes API pages only with explicit local `BANNERLORD_ALLOW_CONTENT_CLEANUP=1` opt-in |
 
 ## Special cases
 

@@ -31,4 +31,5 @@ SiegeAftermathAction.ApplyAftermath(attackerParty, settlement, aftermathType, pr
 ## See Also
 
 - [Area Index](../)
+- [SiegeAftermath](../SiegeAftermath)
 - [Campaign System](../../campaign/)

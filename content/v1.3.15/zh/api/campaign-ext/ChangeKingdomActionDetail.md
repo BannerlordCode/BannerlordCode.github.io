@@ -40,7 +40,7 @@ description: "说明氏族加入、离开、叛乱、佣兵转换和王国毁灭
 
 - **上游：** [`ChangeKingdomAction`](../ChangeKingdomAction) 接收 [`Clan`](../../campaign/Clan)、旧/新 [`Kingdom`](../../campaign/Kingdom) 和佣兵期限等状态。
 - **事件：** [`CampaignEvents`](../CampaignEvents) 的 `OnClanChangedKingdomEvent` 类型为 `IMbEvent<Clan, Kingdom, Kingdom, ChangeKingdomAction.ChangeKingdomActionDetail, bool>`。
-- **下游：** [`CampaignEventReceiver`](../CampaignEventReceiver)、默认日志、地图 Nameplate、任务和 `FactionManager` 会按原因更新运行时状态。
+- **下游：** `DefaultLogsCampaignBehavior`、`SettlementNameplatesVM`、`PrisonerReleaseCampaignBehavior` 和任务监听器消费事件；`FactionManager` 属于 Action 内部状态更新，不是该事件的下游消费者。
 - **相关反向流程：** 战争关系应由 [`DeclareWarAction`](../DeclareWarAction) 或 [`MakePeaceAction`](../MakePeaceAction) 处理，不要在本事件中手改外交 stance。
 - **存档：** 王国、氏族和战争关系由战役存档保存；这个非序列化事件不会在读档时自动重放。
 
@@ -102,6 +102,7 @@ public sealed class KingdomChangeBehavior : CampaignBehaviorBase
 ## 导航
 
 - ↑ 父级：[Campaign-Ext API](../)
-- ↔ 同级：[ChangeKingdomAction](../ChangeKingdomAction) · [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
-- ↓ 所属：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ 所属 Action：[ChangeKingdomAction](../ChangeKingdomAction)
+- ↔ 同级：[ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
+- 事件：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - 相关：[Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [DeclareWarAction](../DeclareWarAction)

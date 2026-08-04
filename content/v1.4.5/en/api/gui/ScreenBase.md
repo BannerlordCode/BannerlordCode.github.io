@@ -1,70 +1,91 @@
 ---
 title: "ScreenBase"
-description: "The screen lifecycle, Layer ownership, and UI update boundary behind TaleWorlds.ScreenSystem."
+description: "The abstract screen base driven by the ScreenManager stack, owning screen lifecycle, ScreenLayer ordering, and UI update boundaries in TaleWorlds.ScreenSystem."
 ---
-
 # ScreenBase
 
 **Namespace:** `TaleWorlds.ScreenSystem`  
 **Module:** `TaleWorlds.ScreenSystem`  
 **Type:** `public abstract class ScreenBase`  
-**Base:** none  
-**Source:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenBase.cs`
+**Base:** `object`  
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenBase.cs`
 
-## Responsibility
+## One-line responsibility
 
-`ScreenBase` is the lifecycle and Layer container for one screen. `ScreenManager` decides when the screen enters the stack, pauses, activates, or is finalized; the derived screen creates its UI, scene resources, and `ViewModel` in protected callbacks; `ScreenBase` places its Layers into the input, update, and render loop in the correct order.
+`ScreenBase` turns a top-level UI scene pushed by `ScreenManager` into lifecycle hooks and an ordered `ScreenLayer` collection; derived screens create ViewModels, Gauntlet movies, scene layers, and input behavior inside those hooks.
 
 ## Mental Model
 
-This is not a bag of methods that a mod should construct and drive manually. It is an owner inside the UI stack. Construction only creates the component and Layer collections, leaving the screen inactive, paused, and uninitialized. The manager's `SetAndActivateRootScreen`, `PushScreen`, and `CleanAndPushScreen` paths invoke the internal lifecycle handles, which then call your `OnInitialize`, `OnActivate`, `OnDeactivate`, `OnFinalize`, and other protected overrides.
+This is not a bag of methods that a mod should construct and drive manually. It is an owner inside the UI stack. Construction creates only component and Layer collections, leaving the screen uninitialized, inactive, and paused. `SetAndActivateRootScreen`, `PushScreen`, and `CleanAndPushScreen` invoke internal handles, which call `OnInitialize`, `OnActivate`, `OnDeactivate`, `OnFinalize`, and the other protected hooks.
 
-Initialization happens once, while activation and deactivation can repeat. A screen covered by a pushed screen is normally paused and inactive, not destroyed; `PopScreen` can activate and resume it. Finalization is terminal. Activation activates Layers first and schedules `OnReady` for the next screen frame. Deactivation deactivates Layers first. `ScreenManager.Tick` gives frame callbacks to the current top screen and can give the predecessor an idle tick, so campaign work and background simulation do not belong in a screen tick.
+Initialization happens once, while activation and deactivation can repeat. A screen covered by a pushed screen is normally paused and inactive but remains on the stack; `PopScreen` can activate and resume it. Activation enables Layers first and schedules `OnReady` for the next screen frame. Finalization is terminal: old screens and Layers must not be brought back into a later frame.
 
 ## When to Use / When Not To
 
-- Inherit `ScreenBase` for a full-screen page, map view, or UI state that owns one or more input Layers. Create long-lived resources in `OnInitialize`, restore visibility and focus in `OnActivate`, pause in `OnDeactivate`, and release in `OnFinalize`.
-- A Gauntlet page normally uses a `GauntletLayer` to host a `ViewModel`. The screen owns their lifetime; binding and commands belong in the `ViewModel`, not in a screen that has become a data model.
-- For a temporary overlay or a global input layer, consider `ScreenManager.AddGlobalLayer` instead of creating a full screen.
-- Do not call the internal `HandleInitialize`, `HandleActivate`, or `HandleFinalize` methods. Do not mutate the screen stack from a worker thread. Use `ScreenManager.PushScreen`, `PopScreen`, or `CleanAndPushScreen` so the manager can keep the stack and `TopScreen` coherent.
-- Do not reattach a Layer after `RemoveLayer` or finalization. `RemoveLayer` immediately deactivates and finalizes the Layer; it is not a hide or detach operation. Use Layer state or `SetLayerCategoriesState` for temporary visibility changes.
+- Inherit `ScreenBase` for a full-screen page, map view, or UI state that owns input Layers. Create resources in `OnInitialize`, restore visibility/focus in `OnActivate`, pause in `OnDeactivate`, and release in `OnFinalize`.
+- A Gauntlet page uses a `GauntletLayer` to host a [ViewModel](../../core-extra/ViewModel); the screen owns their lifetime, while binding and commands belong in the ViewModel.
+- For a cross-screen overlay or input layer, consider `AddGlobalLayer` on [ScreenManager](../ScreenManager) instead of creating a full screen.
+- Do not call internal `HandleInitialize`, `HandleActivate`, or `HandleFinalize`, and do not mutate the stack from a worker thread. Use `PushScreen`, `PopScreen`, or `CleanAndPushScreen`.
+- Do not reattach a Layer after `RemoveLayer` or finalization. `RemoveLayer` immediately deactivates and finalizes it; use Layer state or category APIs for temporary visibility.
 
 ## Lifecycle and Update Order
 
-| Stage | `ScreenBase` behavior | What a derived screen should do |
-| --- | --- | --- |
-| Construction | Creates `_components` and `_layers`; `IsActive=false`, `IsPaused=true`. | Store constructor inputs only; do not require the engine or UI to be ready. |
-| Initialization | `HandleInitialize` sets `IsInitialized=true` before calling `OnInitialize`. | Create `GauntletLayer`, scene Layers, ViewModels, and one-time subscriptions. |
-| Activation | Sets `IsActive=true`, activates Layers in reverse order, then calls `OnActivate`; the next `FrameTick` calls `OnReady` once. | Load the movie, set ViewModel active state, and set focus. Do not do this in the constructor. |
-| Pause/resume | Pushing a screen pauses and deactivates the old screen's Layers; popping resumes and activates the predecessor. | Handle a temporary cover without treating it as destruction. |
-| Deactivation | Sets `IsActive=false`, deactivates Layers in reverse order, then calls `OnDeactivate`. | Stop sounds, movies, and high-frequency view work while retaining reusable state. |
-| Frame update | An active screen runs `OnFrameTick`, Layer ticks, and `OnPostFrameTick`; the predecessor may receive `OnIdleTick`. | Keep this to frame-sized UI work and check that scene/VM dependencies are alive. |
-| Finalization | Calls `OnFinalize`, finalizes remaining Layers in reverse order, clears Layer events, and sets `IsFinalized=true`. | Unsubscribe, unload movies, remove/release resources; never use the screen or its Layers afterward. |
+| Stage | `ScreenBase` behavior | Derived-screen timing |
+|---|---|---|
+| Construction | Creates `_components` and `_layers`; `IsActive=false`, `IsPaused=true`. | Store constructor inputs only; do not require engine/UI readiness. |
+| Initialization | `HandleInitialize` enters `OnInitialize` once. | Create Gauntlet/scene Layers, ViewModels, and one-time subscriptions. |
+| Activation | Sets active, activates Layers, then calls `OnActivate`; next `FrameTick` calls `OnReady` once. | Load movies, activate the ViewModel, and set focus. |
+| Pause/resume | Pushing pauses and deactivates the old screen; popping activates and resumes its predecessor. | Handle a temporary cover, not destruction. |
+| Deactivation | Deactivates Layers before calling `OnDeactivate`. | Stop high-frequency UI work while retaining resumable resources. |
+| Frame update | Active screens run `OnFrameTick` and `OnPostFrameTick`; the predecessor may receive an idle tick. | Keep this to UI frame work and validate dependencies. |
+| Finalization | Calls `OnFinalize`, finalizes remaining Layers, clears Layer events, and sets `IsFinalized=true`. | Unsubscribe and release movies/resources; never use the screen afterward. |
 
 ## State, Components, and Layers
 
-### State and events
+- `IsInitialized`, `IsActive`, `IsPaused`, and `IsFinalized` are read-only lifecycle observations, not switches for bypassing the manager.
+- `Layers` is an ordered `MBReadOnlyList<ScreenLayer>`; the manager merges the top screen's Layers with global Layers into `SortedLayers`.
+- `OnAddLayer` and `OnRemoveLayer` observe collection changes. Finalization clears them, so they are not a permanent cross-screen event bus.
+- `AddComponent` and `FindComponent<T>` manage screen components. `AddLayer` asserts for null, finalized, or duplicate Layers; an active screen activates a new Layer immediately and raises `OnAddLayer`.
+- `HasLayer`, `FindLayer<T>`, and `FindLayer<T>(string name)` return null on a miss. `RemoveLayer` deactivates, finalizes, removes, raises `OnRemoveLayer`, and refreshes global order.
+- `SetLayerCategoriesState(string[] categoryIds, bool isActive)` toggles named Layers; `SetLayerCategoriesStateAndToggleOthers` inverses the state of non-matching Layers; `SetLayerCategoriesStateAndDeactivateOthers` only deactivates non-matching Layers.
 
-- `IsInitialized`, `IsActive`, `IsPaused`, and `IsFinalized` are read-only lifecycle observations. Use them for guards and diagnostics; they are not switches for bypassing the manager.
-- `Layers` is an ordered `MBReadOnlyList<ScreenLayer>`. The manager merges `TopScreen.Layers` with global Layers into `SortedLayers` for input and render ordering.
-- `MouseVisible` is virtual so a derived screen can express its mouse policy.
-- `OnAddLayer` and `OnRemoveLayer` notify the manager and other observers when the collection changes. Finalization clears these events, so they are not a permanent cross-screen event bus.
+## Real example: CustomBattleScreen and Gauntlet lifetime
 
-### Adding, finding, and removing
+The following structure is from `Modules.CustomBattle/.../CustomBattleScreen.cs`:
 
-- `AddComponent(ScreenComponent component)` and `FindComponent<T>()` manage screen components.
-- `AddLayer(ScreenLayer layer)` asserts for null, finalized, or duplicate Layers. If the screen is active, the new Layer is activated immediately; the collection is sorted and `OnAddLayer` is raised.
-- `HasLayer(ScreenLayer layer)`, `FindLayer<T>()`, and `FindLayer<T>(string name)` find owned Layers. A miss returns null, so callers must guard it.
-- `RemoveLayer(ScreenLayer layer)` deactivates it when the screen is active, finalizes it, removes it, raises `OnRemoveLayer`, and refreshes global order. It has no keep-alive detach semantics.
-- `SetLayerCategoriesState(string[] categoryIds, bool isActive)` toggles named Layers; `SetLayerCategoriesStateAndToggleOthers` toggles non-matching Layers to the opposite state; `SetLayerCategoriesStateAndDeactivateOthers` deactivates non-matching Layers. All three depend on stable Layer names and do not replace screen lifecycle transitions.
+```csharp
+private void LoadMovie()
+{
+    if (!_isMovieLoaded)
+    {
+        _gauntletMovie = _gauntletLayer.LoadMovie("CustomBattleScreen", _dataSource);
+        _isMovieLoaded = true;
+    }
+}
 
-## Gauntlet and ViewModel Integration
+protected override void OnInitialize()
+{
+    _dataSource = new CustomBattleVM(_customBattleState);
+    _gauntletLayer = new GauntletLayer("CustomBattle", 1, true);
+    LoadMovie();
+    AddLayer(_gauntletLayer);
+}
 
-A typical UI screen owns a `GauntletLayer` that hosts a `ViewModel`. The source `CustomBattleScreen` creates `CustomBattleVM` and `GauntletLayer` in `OnInitialize`, loads the movie, and calls `AddLayer`; in `OnActivate` it reloads the movie, activates the ViewModel, and gives the Layer focus through `ScreenManager.TrySetFocus`; in `OnDeactivate` it unloads the movie and deactivates the ViewModel; in `OnFinalize` it unloads the movie, calls `RemoveLayer`, and clears its references. The screen therefore owns the UI resource lifetime instead of asking a global manager to infer it.
+protected override void OnFinalize()
+{
+    UnloadMovie();
+    RemoveLayer(_gauntletLayer);
+    _dataSource = null;
+    _gauntletLayer = null;
+    base.OnFinalize();
+}
+```
+
+The real screen also reloads the movie, activates its ViewModel, and calls `ScreenManager.TrySetFocus` in `OnActivate`; `OnDeactivate` unloads the movie and deactivates the ViewModel. The screen therefore owns the UI resource lifetime rather than asking a global manager to infer it.
 
 ## Real Call Path
 
-The source `MapScreen.OpenOptions` calls `ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(false))`. The manager pauses and deactivates the map screen, initializes/activates/resumes the options screen, and later finalizes it on `PopScreen` before restoring the map screen. A mod should use the same manager entry point rather than invoking a derived screen's lifecycle callbacks:
+`Modules.SandBox/.../MapScreen.cs` implements `OpenOptions` with `ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(false))`. The manager pauses the map screen, initializes and activates the options screen, and later finalizes it on `PopScreen` before restoring the map screen:
 
 ```csharp
 public void OpenOptionsFromMap()
@@ -76,24 +97,24 @@ public void OpenOptionsFromMap()
 }
 ```
 
-## Risks and Cleanup Boundaries
-
-- After `OnFinalize`, `IsFinalized` is permanently true. Reusing a `GauntletLayer`, scene, `ViewModel`, or old event subscription can bring disposed objects back into a later UI frame.
-- `RemoveLayer` finalizes the Layer. When a derived screen removes its own Layer in `OnFinalize`, it must also release references to that Layer and its ViewModel; it must not add the Layer again after the callback.
-- Adding a Layer to an active screen activates it immediately. Initialize engine-backed resources on the main thread and in the correct UI phase. The manager enforces main-thread ownership for stack operations; Layer changes should follow the same ownership rule.
-- Pair `ViewModel.OnFinalize`, Gauntlet movie unload, event removal, and input registration cleanup with screen finalization. Setting a field to null does not unregister an engine callback.
-- Deactivation is not finalization. Do not destroy resources needed when the screen is resumed, and do not keep reading closed scene or input state from an inactive screen.
-
 ## Dependency Graph
 
-- **Upstream:** [ScreenManager](../ScreenManager) owns the stack and invokes this page's lifecycle handles; [ScreenLayer](../ScreenLayer) provides the input/render units owned by the screen.
+- **Upstream:** [ScreenManager](../ScreenManager) owns the stack and invokes lifecycle handles; [MBSubModuleBase](../../core/MBSubModuleBase) or a game-state listener commonly starts UI-module integration.
+- **Inside the screen:** [ScreenLayer](../ScreenLayer) provides input, focus, and render units; [ScreenComponent](../ScreenComponent) provides screen-level helpers.
 - **Downstream:** [GauntletLayer](../../engine/GauntletLayer) hosts the movie and [ViewModel](../../core-extra/ViewModel) supplies bound state and commands; both must be cleaned before finalization.
 - **Boundary:** [UI lifecycle crash boundaries](../../../architecture/crash-boundary) covers main-thread, focus, and finalization failures.
 
-## See Also and Navigation
+## Risks and Cleanup Boundaries
 
-- [GUI API index](../_index)
-- [ScreenManager: screen stack, TopScreen, and global Layers](../ScreenManager)
-- [GauntletLayer: mounting movies and input on a screen](../../engine/GauntletLayer)
-- [ViewModel: bound data and commands](../../core-extra/ViewModel)
-- [UI lifecycle crash boundaries](../../../architecture/crash-boundary)
+- `AddLayer(null)`, adding a finalized Layer, or adding the same Layer twice triggers an assertion.
+- `RemoveLayer` finalizes the Layer immediately. Do not call its movie, Input, or events afterward, and do not leave a ViewModel holding released controls.
+- Screen finalization clears Layer events; derived screens must still unsubscribe from Campaign, engine, and custom events in `OnFinalize`.
+- `OnFrameTick` runs only while active; asynchronous callbacks must verify the screen is alive and stop posting work after finalization.
+- Screen-stack and Layer changes belong to the main-thread UI owner. Release a Gauntlet movie before its Layer is finalized or `GauntletLayer` asserts.
+
+## Navigation
+
+- **Parent:** [GUI API index](../)
+- **Siblings:** [ScreenManager](../ScreenManager), [ScreenLayer](../ScreenLayer), [ScreenComponent](../ScreenComponent)
+- **Children / related types:** [GauntletLayer](../../engine/GauntletLayer), [ViewModel](../../core-extra/ViewModel), [GameStateScreenManager](../../mission-ext/GameStateScreenManager)
+- **Upstream entry:** [MBSubModuleBase](../../core/MBSubModuleBase)

@@ -1,78 +1,75 @@
 ---
 title: "ScreenManager"
-description: "TaleWorlds.ScreenSystem 的静态屏幕栈、TopScreen、全局 Layer 与主线程切换契约。"
+description: "TaleWorlds.ScreenSystem 的静态屏幕协调器，维护顶部屏幕、屏幕栈、全局层、输入焦点和 UI 主线程切换。"
 ---
-
 # ScreenManager
 
 **Namespace:** `TaleWorlds.ScreenSystem`  
 **Module:** `TaleWorlds.ScreenSystem`  
 **Type:** `public static class ScreenManager`  
-**Base:** 无  
-**Source:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs`
+**Base:** `object`  
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs`
 
 ## 一句话职责
 
-`ScreenManager` 是整个 UI 的静态所有者：它维护屏幕栈，决定 `TopScreen`，把顶层屏幕的 Layer 与全局 Layer 合并为输入/渲染顺序，并把 push、pop、暂停、恢复和最终化串成一致的主线程状态机。
+`ScreenManager` 把游戏状态产生的 `ScreenBase` 实例组织成主线程屏幕栈，并协调顶部屏幕的 layer、全局 layer、输入命中、焦点、布局和 tick。
 
 ## 心智模型
 
-不要寻找一个 `new ScreenManager()` 实例；这是静态入口，由引擎在启动时通过 `EngineScreenManager.Initialize` 注入 `IScreenManagerEngineConnection`。屏幕自身由 `ScreenManager` 的私有列表持有，列表最后一项是 `TopScreen`。顶层屏幕负责当前 UI，下面的屏幕可以保留在栈中但处于 paused/inactive 状态。
+这是静态协调器，不存在 `new ScreenManager()` 实例，也没有供 mod 直接写入的公开屏幕列表。引擎启动阶段调用 `Initialize(IScreenManagerEngineConnection)` 注入窗口/输入桥；栈最后一项是 `TopScreen`，下面的屏幕可以保留但处于 paused/inactive。
 
-每个栈变更都是一次生命周期事务，而不只是修改列表：`PushScreen` 暂停并停用旧顶层，再初始化、激活和恢复新屏幕；`PopScreen` 停用并最终化旧顶层，再恢复前一个屏幕；`CleanAndPushScreen` 先从栈顶到底部暂停、停用并最终化全部屏幕，再建立新屏幕。三个入口都要求主线程，因此后台事件应把工作派发回游戏主线程后再切换 UI。
+每个栈操作都是完整生命周期事务。`PushScreen` 暂停并停用旧顶部，再初始化、激活和恢复新屏幕；`PopScreen` 停用并最终化旧顶部，再恢复前一个屏幕；`CleanAndPushScreen` 先最终化全部旧栈，再建立新屏幕。它们都要求主线程，因为一次切换会同时改变 ViewModel、Gauntlet movie、焦点和引擎 layer 状态。
 
 ## 何时使用 / 何时不要使用
 
-- 打开一个可以返回的 options、encyclopedia、保存/加载或自定义页面时使用 `PushScreen`；它保留当前页面，适合临时覆盖。
-- 完成流程并返回上一页时使用 `PopScreen`；不要手动调用 `TopScreen.OnDeactivate` 或从反射中修改栈。
-- 需要从一个干净根页面开始时使用 `CleanAndPushScreen`。它会摧毁栈内所有屏幕，不能用于希望用户返回原页面的弹层。
-- 只需在已有屏幕上显示 Gauntlet 或输入覆盖时，使用该屏幕的 `AddLayer`，或使用 `AddGlobalLayer` 管理跨屏幕 Layer；不要把同一个 Layer 同时挂进多个屏幕。
-- 读取当前屏幕可用 `TopScreen`，读取排序后的输入/渲染 Layer 可用 `SortedLayers`；这些是观察结果，不是手动替换栈的入口。
+- 可返回的 options、百科、存档/读档或自定义页面使用 `PushScreen`。
+- 关闭当前页面并返回使用 `PopScreen`；不要手动调用 `TopScreen.OnDeactivate` 或反射修改栈。
+- 需要不可回退的新根流程使用 `CleanAndPushScreen`；不要用它做临时弹层。
+- 只需跨屏幕输入覆盖时使用 `AddGlobalLayer`；不要把同一个 layer 挂进多个屏幕。
+- `TopScreen` 和 `SortedLayers` 是观察入口，不是替换栈的写入口。
 
-## 栈操作的时序
+## 栈操作时序
 
 | API | 旧栈处理 | 新屏幕处理 | 适用语义 |
-| --- | --- | --- | --- |
-| `SetAndActivateRootScreen(screen)` | 要求 `TopScreen == null`，否则抛异常。 | 加入栈，Initialize、Activate、Resume，并触发 `OnPushScreen`。 | 进程/游戏状态刚建立根屏幕时。 |
-| `PushScreen(screen)` | 对旧顶层 Pause；若 active 则 Deactivate，但不 Finalize、不移除。 | 加入栈，Initialize、Activate、Resume，并触发 `OnPushScreen`。 | 可回退的临时页面。 |
-| `PopScreen()` | Pause、Deactivate、Finalize 当前顶层，触发 `OnPopScreen` 并移除。 | 若仍有屏幕，Activate 并 Resume 新顶层。 | 关闭当前页面并回退。 |
-| `CleanAndPushScreen(screen)` | 从栈顶到底部 Pause、Deactivate、Finalize、移除所有屏幕，并执行内存清理。 | 加入并完整 Initialize、Activate、Resume。 | 不允许回退的全新根流程。 |
-| `ReplaceTopScreen(screen)` | Finalize 并移除旧顶层，然后压入新屏幕。 | Initialize、Activate、Resume。 | 替换当前顶层而不保留它。 |
+|---|---|---|---|
+| `SetAndActivateRootScreen(screen)` | 要求 `TopScreen == null`，否则抛异常。 | 加入、初始化、激活、恢复并触发 `OnPushScreen`。 | 建立第一个根屏幕。 |
+| `PushScreen(screen)` | 暂停旧顶部，若 active 则停用；不最终化、不移除。 | 加入、初始化、激活、恢复并触发 `OnPushScreen`。 | 可回退的临时页面。 |
+| `PopScreen()` | 暂停、停用、最终化当前顶部，触发 `OnPopScreen` 并移除。 | 有前一个屏幕时激活并恢复它。 | 关闭当前页面。 |
+| `CleanAndPushScreen(screen)` | 从栈顶到底部暂停、停用、最终化并移除全部屏幕，再清理内存。 | 加入并完整初始化、激活、恢复。 | 不允许回退的新根流程。 |
+| `CleanScreens()` | 清空全部屏幕并最终化。 | 不加入新屏幕。 | 退出或重置。 |
+| `ReplaceTopScreen(screen)` | 最终化并移除旧顶部，不保留返回路径。 | 初始化、激活、恢复替代屏幕。 | 直接替换顶部。 |
 
-这些方法不是异步队列。源码在 `PushScreen`、`PopScreen`、`CleanAndPushScreen` 和清理路径上检查 `TWParallel.IsMainThread()`；错误线程会触发 failed assert。把 `TopScreen` 的变化当作在同一主线程调用中完成，随后才让 `OnPushScreen` / `OnPopScreen` 观察者处理事件。
+这些 API 是同步切换，不是异步队列。源码在 `PushScreen`、`PopScreen`、`CleanAndPushScreen` 和清理路径检查 `TWParallel.IsMainThread()`；错误线程会触发 failed assert。
 
 ## TopScreen、SortedLayers 与全局 Layer
 
-- `TopScreen` 是栈最后一项的只读属性。它会随栈集合变化更新，并接收 `OnAddLayer` / `OnRemoveLayer` 观察以刷新排序。
-- `SortedLayers` 将 `TopScreen.Layers` 与 `_globalLayers` 合并并按 Layer 排序。输入命中、focus 和 Tick 都依赖它，因此在同一帧反复增删 Layer 会改变输入顺序。
-- `FocusedLayer` 是当前键鼠/手柄焦点 Layer；`FirstHitLayer` 是输入命中结果。它们会随 active/finalized 状态变化，不应被当作永久引用。
-- `AddGlobalLayer(GlobalLayer layer, bool isFocusable)` 按 `InputRestrictions.Order` 插入并立即激活其 Layer；`RemoveGlobalLayer` 移除并停用。全局 Layer 要跨屏幕存在时才使用，并在模块卸载或功能关闭时成对移除。
-- `Scale`、`UsableArea`、`IsLateTickInProgress` 是渲染/布局观察点。`EngineInterface` 和 `Initialize(IScreenManagerEngineConnection)` 属于引擎桥接，不是普通 mod 为了打开页面而重复初始化的 API。
+- `TopScreen` 是私有栈最后一项的只读视图；其 layer 变化会让排序缓存失效并重新计算。
+- `SortedLayers` 合并顶部屏幕层与全局层并排序；输入命中、焦点和 tick 都依赖它。
+- `FocusedLayer` 是当前键鼠/手柄焦点层；`FirstHitLayer` 是本输入帧首先命中的层，二者都可能因停用/最终化而失效。
+- `AddGlobalLayer(GlobalLayer layer, bool isFocusable)` 插入全局集合并立即激活 layer；`RemoveGlobalLayer` 移除并停用。全局层的 movie、ViewModel 和事件仍由拥有者释放。
+- `Scale`、`UsableArea`、`IsLateTickInProgress` 是布局/渲染观察点；不要为了打开页面重复调用引擎桥接初始化。
 
-## 生命周期 Tick 与观察事件
+## Tick 与观察事件
 
-`Tick(float dt)` 先处理全局 Layer 的 early tick，再更新输入和当前屏幕；随后运行顶层 `FrameTick`、前一个屏幕的 idle tick、排序 Layer 的 tick、全局 Layer 的 tick、late update 和顶层 post-frame tick。`LateTick(float dt)` 再处理 active、未最终化 Layer 的渲染 tick，并以 `IsLateTickInProgress` 标记阶段。不要在 `OnPushScreen` 或 Layer 事件里假设一个后台线程可以安全地立刻改栈。
-
-`OnPushScreen` 和 `OnPopScreen` 是屏幕生命周期观察事件。订阅者应只记录或协调外部资源，并在对应模块卸载时解除订阅；它们不是替代 `ScreenBase.OnInitialize` / `OnFinalize` 的初始化钩子。
+`Tick(float dt)` 处理全局 early tick、输入更新、顶部 `FrameTick`、前一个屏幕的 idle tick、排序 layer tick、全局 layer tick、late update 和顶部 post-frame tick。`LateTick(float dt)` 处理 active、未最终化 layer 的 render tick，并以 `IsLateTickInProgress` 标记阶段。`OnPushScreen` 和 `OnPopScreen` 只是观察事件，不能替代 `ScreenBase.OnInitialize` / `OnFinalize` 的资源 hook。
 
 ## 真实获取、初始化与注册路径
 
-`ScreenManager` 的引擎连接由 `TaleWorlds.Engine.EngineScreenManager` 在引擎初始化阶段注入：
+引擎在启动阶段调用 `ScreenManager.Initialize(IScreenManagerEngineConnection)`；mod 不应自行构造连接或重复初始化。源码 `Modules.Native/.../ViewSubModule.cs` 在加载时订阅 `OnPushScreen`，卸载时解除，并从真实 `ViewCreator` 工厂压入 options screen：
 
 ```csharp
-internal static void Initialize()
-{
-    ScreenManager.Initialize(new ScreenManagerEngineConnection());
-}
-```
+using TaleWorlds.Library;
+using TaleWorlds.ScreenSystem;
 
-普通 UI 代码直接使用静态入口。源码中的 `ViewSubModule` 在模块加载时注册 `OnPushScreen`，在模块卸载时解除；这才是观察屏幕变化的真实注册方式：
-
-```csharp
 protected override void OnSubModuleLoad()
 {
     base.OnSubModuleLoad();
     ScreenManager.OnPushScreen += OnScreenManagerPushScreen;
+}
+
+private void OnScreenManagerPushScreen(ScreenBase pushedScreen)
+{
+    Debug.Print("Pushed screen: " + pushedScreen.GetType().Name);
 }
 
 protected override void OnSubModuleUnloaded()
@@ -80,29 +77,34 @@ protected override void OnSubModuleUnloaded()
     ScreenManager.OnPushScreen -= OnScreenManagerPushScreen;
     base.OnSubModuleUnloaded();
 }
+
+private void OpenOptionsFromMainMenu()
+{
+    ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(fromMainMenu: true));
+}
 ```
 
-页面打开则沿用 `MapScreen.OpenOptions` 的真实调用：`ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(false))`。这里不需要也不应该先“获取 manager 实例”。
-
-## 风险与清理边界
-
-- `CleanAndPushScreen`、`PopScreen` 和 `OnFinalize` 会最终化屏幕及其 Layer；任何缓存的 `TopScreen`、`GauntletLayer` 或 `ViewModel` 引用都必须在 `OnPopScreen`/模块清理时重新验证。
-- `PushScreen` 让旧屏幕暂停并停用但仍保留在栈中。旧页面若在 `OnDeactivate` 解除事件、在 `OnActivate` 未重新订阅，就会出现回退后 UI 不响应；反过来不清理则会重复订阅。
-- `TopScreen` 可能为 null（启动、清栈或引擎 finalization 后），读取其 Layer 前必须判断；`SortedLayers` 中的 Layer 也可能已 inactive 或 finalized。
-- 栈 API 的主线程断言不是可忽略的提示。跨线程 push/pop 可能破坏 TopScreen、焦点和输入排序，最坏情况下在下一帧访问已停用资源并崩溃。
-- 全局 Layer 不属于某个屏幕；忘记 `RemoveGlobalLayer` 会把输入限制、焦点或强引用带过整个游戏状态，直到 ScreenManager finalization。
-- ScreenManager finalization 会解除内部集合事件、置空屏幕列表和全局 Layer 集合。模块卸载后不要再次调用栈或全局 Layer API。
+不需要也不应该先获取 manager 实例；地图 `OpenOptions`、`OpenSaveLoad` 也使用同一 `PushScreen` 路径。
 
 ## 依赖图
 
-- **上游：** [EngineScreenManager](../../engine/EngineScreenManager) 注入引擎连接；源码中的模块级订阅者通过本页的静态事件入口注册和解除观察。
-- **下游：** [ScreenBase](../ScreenBase) 执行单屏幕生命周期；[GauntletLayer](../../engine/GauntletLayer) 和 [ViewModel](../../core-extra/ViewModel) 通过当前屏幕参与输入、绑定和渲染。
+- **上游：** [IScreenManagerEngineConnection](../IScreenManagerEngineConnection) 是引擎连接契约；[MBSubModuleBase](../../core/MBSubModuleBase) 的模块生命周期承载 UI 注册。
+- **栈成员：** [ScreenBase](../ScreenBase) 执行单屏幕生命周期；[ScreenLayer](../ScreenLayer) 提供输入、焦点和渲染排序。
+- **下游：** [GauntletLayer](../../engine/GauntletLayer) 承载 movie，[ViewModel](../../core-extra/ViewModel) 通过当前 screen 参与绑定和命令。
 - **边界：** [UI 生命周期崩溃边界](../../../architecture/crash-boundary) 说明主线程、焦点和清理顺序。
 
-## 参见与导航
+## 风险与清理边界
 
-- [GUI API 目录](../_index)
-- [ScreenBase：派生屏幕的生命周期与 Layer 所有权](../ScreenBase)
-- [GauntletLayer：UI movie 与输入 Layer](../../engine/GauntletLayer)
-- [ViewModel：Gauntlet 数据绑定](../../core-extra/ViewModel)
-- [UI 生命周期崩溃边界](../../../architecture/crash-boundary)
+- `PushScreen`、`PopScreen`、`CleanAndPushScreen` 和 `CleanScreens` 要求主线程；跨线程操作可能破坏 TopScreen、焦点和输入排序。
+- `SetAndActivateRootScreen` 在已有 `TopScreen` 时抛出异常；它不是普通导航入口。
+- `PopScreen`、`CleanScreens`、`CleanAndPushScreen` 和 `ReplaceTopScreen` 都最终化被移除屏幕。不要继续使用其 layer、movie 或 ViewModel。
+- 静态 `OnPushScreen` / `OnPopScreen` 订阅必须在模块卸载时解除，否则会出现重复回调和失效引用。
+- `TopScreen` 在启动、清栈和 manager 最终化后可能为 null；缓存的 `FocusedLayer` 也必须在切换回调中重新确认。
+- `AddGlobalLayer` 激活 layer，`RemoveGlobalLayer` 只停用并移除；拥有者仍必须释放全局 layer 的资源。
+
+## 导航
+
+- **↑ Parent：** [GUI API 目录](../)
+- **↔ Sibling：** [ScreenBase](../ScreenBase)、[ScreenLayer](../ScreenLayer)、[IScreenManagerEngineConnection](../IScreenManagerEngineConnection)
+- **Children / 相关类型：** [GauntletLayer](../../engine/GauntletLayer)、[ViewModel](../../core-extra/ViewModel)、[GameStateScreenManager](../../mission-ext/GameStateScreenManager)
+- **上游入口：** [MBSubModuleBase](../../core/MBSubModuleBase)

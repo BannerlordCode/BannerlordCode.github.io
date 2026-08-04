@@ -53,7 +53,7 @@ It connects one human, mount, or other combat entity inside a Mission to its nat
 
 ## Dependencies
 
-The upstream owner is [Mission](../Mission), which creates and ticks Agents. [MissionBehavior](../MissionBehavior) receives their lifecycle callbacks; the runtime relationship continues into [Team](../../mission-ext/Team), [Formation](../Formation), and [AgentComponent](../../mission-ext/AgentComponent). Campaign missions connect battlefield entities back to Campaign semantics through [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent).
+The upstream owner is [Mission](../Mission/), which creates and ticks Agents. [MissionBehavior](../MissionBehavior/) receives their lifecycle callbacks; the runtime relationship continues into [Team](../../mission-ext/Team/), [Formation](../Formation/), and [AgentComponent](../../mission-ext/AgentComponent/). Campaign missions connect battlefield entities back to Campaign semantics through [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent/).
 
 ### Relationship map
 
@@ -194,7 +194,7 @@ This page follows the v1.4.5 `TaleWorlds.MountAndBlade` source. The same Mission
 ## Navigation
 
 - ↑ [Mission module index](../)
-- ↔ [Mission](../Mission) · [MissionBehavior](../MissionBehavior) · [Formation](../Formation)
-- ↓ [Team](../../mission-ext/Team) · [AgentComponent](../../mission-ext/AgentComponent) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent)
-- Related upstream: [Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
-- Risk references: [Crash boundaries](../../architecture/crash-boundary) · [Doc contract](../../architecture/doc-contract)
+- ↔ [Mission](../Mission/) · [MissionBehavior](../MissionBehavior/) · [Formation](../Formation/)
+- ↓ [Team](../../mission-ext/Team/) · [AgentComponent](../../mission-ext/AgentComponent/) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent/)
+- Related upstream: [Campaign](../../campaign/Campaign/) · [MBSubModuleBase](../../core/MBSubModuleBase/)
+- Risk references: [Crash boundaries](../../../architecture/crash-boundary/) · [Doc contract](../../../architecture/doc-contract/)

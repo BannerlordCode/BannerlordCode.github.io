@@ -34,7 +34,7 @@ The numeric ordering is not a save contract. Persist the resulting diplomatic st
 - **Upstream:** [`MakePeaceAction`](../MakePeaceAction), [`IFaction`](../IFaction), `FactionManager`, and kingdom decision resolution.
 - **State:** The `StanceLink` becomes neutral and tribute is written through `SetDailyTributePaid`; player-visible map entities may be marked dirty.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `MakePeace` as `IMbEvent<IFaction, IFaction, MakePeaceAction.MakePeaceDetail>`.
-- **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), `SiegeEventCampaignBehavior`, `PrisonerReleaseCampaignBehavior`, alliances, and quest behaviors branch on the reason.
+- **Downstream:** `SiegeEventCampaignBehavior`, `PrisonerReleaseCampaignBehavior`, and `AllianceCampaignBehavior` consume the peace event but generally ignore `detail`; `CommentOnMakePeaceBehavior` explicitly branches on `ByKingdomDecision`.
 - **Reverse operation:** War must use [`DeclareWarAction`](../DeclareWarAction), not a direct faction stance write.
 
 ## Risks and Lifetime
@@ -88,6 +88,7 @@ v1.3.15 and v1.4.5 expose `Default` and `ByKingdomDecision` with the same `MakeP
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [MakePeaceAction](../MakePeaceAction) · [DeclareWarAction](../DeclareWarAction)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ Owner Action: [MakePeaceAction](../MakePeaceAction)
+- ↔ Siblings: [DeclareWarAction](../DeclareWarAction)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [IFaction](../IFaction) · [Kingdom](../../campaign/Kingdom) · [SiegeEvent](../SiegeEvent/)

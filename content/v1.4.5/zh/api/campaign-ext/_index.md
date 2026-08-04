@@ -1,7 +1,228 @@
 ---
-title: "campaign-ext 目录"
-description: 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目录
+title: "Campaign 扩展工作流：Behavior、Action、Model、Mission 与存档（v1.4.5）"
+description: "从 MBSubModuleBase 注册 Campaign Behavior，到事件、世界变更 Action、Model 计算、MissionBehavior 与 SyncData 存档的任务优先入口；后附完整字母索引。"
 ---
+# Campaign 扩展工作流
+
+这里不是第二个战役实体目录，而是把模组从加载入口带到世界、任务和存档边界的工作流地图。先按任务进入，再在本页末尾的字母索引按类型名查找。正文以 v1.4.5 源码为准；本页没有把 v1.3.15 的行为当作当前 API。
+
+## 元数据
+
+| 项目 | 内容 |
+|---|---|
+| 主要命名空间 | `TaleWorlds.CampaignSystem`、`TaleWorlds.CampaignSystem.Actions`、`TaleWorlds.MountAndBlade`、`TaleWorlds.SaveSystem` |
+| 运行模块 | CampaignSystem、MountAndBlade、SaveSystem；SandBox 的 Tournament behavior 是事件与存档的调用范例 |
+| 源码依据 | `CampaignGameStarter`、`CampaignBehaviorBase`、`CampaignBehaviorManager`、`CampaignEvents`、`CampaignEventReceiver`、`TournamentCampaignBehavior`、`MBSubModuleBase`、`Mission`、`SaveManager` |
+| 本页范围 | 跨层入口与安全边界；不替代各个 Action、Model、实体或 Mission 类型的深页 |
+
+## ↑ 父级导航
+
+- [API 参考](../)
+- [版本首页](../../)
+
+## ↔ 同级入口
+
+- [战役 API](../campaign/)
+- [Mission API](../mission/)
+- [基础 / Core API](../core/)
+- [存档系统](../save-system/)
+
+## ↓ 子级入口
+
+- [GiveGoldAction](./GiveGoldAction)
+- [KillCharacterAction](./KillCharacterAction)
+- [ChangeKingdomAction](./ChangeKingdomAction)
+- [DeclareWarAction](./DeclareWarAction)
+- [完整字母索引](#字母索引按类型名查找)
+
+## 先建立边界
+
+`Campaign` 是持续存在的战略世界：它拥有 `Hero`、`Clan`、`Kingdom`、`Settlement` 等对象，也拥有当前规则集合 `Campaign.Current.Models`。在它的生命周期内，`CampaignBehaviorBase` 接收事件并通过 `SyncData(IDataStore)` 保存自己的状态。
+
+Foundation/Core 位于更外层。`MBSubModuleBase` 是模组被游戏调用的入口，`Game` 与对象注册在这里准备；它不是可以提前使用 `Campaign.Current` 的许可。只有传入的 starter 确实是 `CampaignGameStarter` 时，才在 `OnGameStart` 注册战役行为。
+
+`Mission` 是一场短命的战术遭遇。`Mission.Current`、`Agent`、`MissionBehavior` 只在任务存在期间有效。Mission 产生结果，再由战役层在合适的结算阶段变更世界；不要把临时 Agent 引用带回长期 Campaign state。
+
+SaveSystem 负责序列化；Campaign behavior manager 会在保存前逐个调用已注册 behavior 的 `SyncData`。`IDataStore.SyncData` 的 key 是存档契约的一部分，改名、改类型或把未注册的复杂对象塞进去，都可能导致读档失败或丢失状态。
+
+```text
+MBSubModuleBase.OnGameStart
+  -> CampaignGameStarter.AddBehavior
+  -> CampaignBehaviorManager.RegisterEvents
+  -> CampaignEvents 回调
+  -> Action.Apply 改世界 / GameModels 计算规则
+  -> OnBeforeSave -> behavior.SyncData(IDataStore)
+
+Campaign 可拉起 Mission
+  -> MissionBehavior 接收 Agent 生命周期
+  -> Mission 结束后才把长期结果交回 Campaign
+```
+
+## 按任务进入
+
+| 目标 | 从哪里开始 | 正确出口 | 不要这样做 |
+|---|---|---|---|
+| 在单人战役加载时安装系统 | [MBSubModuleBase](../core/MBSubModuleBase) 的 `OnGameStart`，确认 `CampaignGameStarter` | `AddBehavior(new YourBehavior())` | 在 SubModule 加载或 UI 钩子里提前读 `Campaign.Current` |
+| 写长期战役逻辑 | [CampaignBehaviorBase](../campaign/CampaignBehaviorBase) 与 [CampaignEvents](../campaign/CampaignEvents) | 在 `RegisterEvents` 用 `AddNonSerializedListener` 订阅；在 `SyncData` 保存字段 | 每帧轮询，或把 event delegate 当作可存档状态 |
+| 改英雄金钱、死亡、阵营或宣战 | [GiveGoldAction](./GiveGoldAction)、[KillCharacterAction](./KillCharacterAction)、[ChangeKingdomAction](./ChangeKingdomAction)、[DeclareWarAction](./DeclareWarAction) | 选匹配原因的 `Apply...` 方法，让事件、通知与附带清理发生 | 直接写 `Hero.Gold`、`Clan.Kingdom` 或 faction stance |
+| 计算宣战分数或财政阈值 | [GameModelsManager](../core-extra/GameModelsManager/)、[DiplomacyModel](../campaign/DiplomacyModel)、[ClanFinanceModel](../campaign/ClanFinanceModel) | 从 `Campaign.Current.Models` 取得 Model；把它的结果用于决策或 UI | 用 Model 代替 Action 以为它会提交世界状态 |
+| 保存自定义 behavior 字段 | [CampaignBehaviorBase](../campaign/CampaignBehaviorBase) 与 [SaveManager](../save-system/SaveManager) | 每个字段以稳定 key 调用 `SyncData` | 只在普通 C# 字段里保存，或在 `OnBeforeSaveEvent` 临时拼状态 |
+| 写战斗/遭遇逻辑 | [Mission](../mission/Mission) 与 [MissionBehavior](../mission/MissionBehavior) | 在 MissionBehavior 回调中取得 `Agent`，并在移除时清理引用 | 在 Mission 结束后继续访问 `Mission.Current` 或已移除 Agent |
+
+## 任务一：注册 Campaign Behavior
+
+`CampaignGameStarter` 维护待安装的 behavior 列表；`CampaignBehaviorManager` 随后对每一个实例调用 `RegisterEvents`，并在保存前读取其 `SyncData`。这意味着构造行为对象不等于它已订阅事件，也意味着只要不注册，它的保存回调就不会进入 manager 的数据存储。
+
+下面的入口路径来自 `MBSubModuleBase.OnGameStart`，而不是假设一个全局 service 已存在：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public sealed class MySubModule : MBSubModuleBase
+{
+    protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        if (gameStarterObject is CampaignGameStarter campaignStarter)
+        {
+            campaignStarter.AddBehavior(new DailyLedgerBehavior());
+        }
+    }
+}
+```
+
+对应的 behavior 用 v1.4.5 `TournamentCampaignBehavior` 的模式订阅非序列化监听器，并让 manager 通过 `IDataStore` 管理持久字段：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public sealed class DailyLedgerBehavior : CampaignBehaviorBase
+{
+    private int _observedDays;
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData("my_mod_observed_days", ref _observedDays);
+    }
+
+    private void OnDailyTick()
+    {
+        _observedDays++;
+    }
+}
+```
+
+`AddNonSerializedListener(this, ...)` 的 owner 不能是临时对象：manager 移除 behavior 时会按 owner 清理监听器。不要在 `RegisterEvents` 里重复注册同一个实例，也不要把需要重建的订阅关系手工塞进 `SyncData`。
+
+## 任务二：事件驱动地读规则，按 Action 提交世界变更
+
+事件用于知道“何时发生”，Model 用于回答“规则算出来是什么”，Action 用于实际改世界。这三个职责不能互换。SandBox 的 tournament behavior 通过 `DailyTickSettlementEvent` 进入 `ConsiderStartOrEndTournament`，在那里读取 `Campaign.Current.Models.TournamentModel`；它另一个 `DailyTickEvent` 回调则更新排行榜声望。战役源码在创建角色时通过 `GiveGoldAction.ApplyBetweenCharacters` 发放初始金钱，而不是直接改余额。
+
+例如，宣战评分来自当前已装配的 `DiplomacyModel`。这段代码的 `Campaign.Current`、玩家 clan、王国集合和 reason 都是引擎提供的真实获取路径；它只计算，不会宣战：
+
+```csharp
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Localization;
+
+if (Campaign.Current != null && Clan.PlayerClan != null)
+{
+    Kingdom playerKingdom = Clan.PlayerClan.Kingdom;
+    Kingdom targetKingdom = Kingdom.All.FirstOrDefault(
+        kingdom => kingdom != playerKingdom && !kingdom.IsEliminated);
+
+    if (playerKingdom != null && targetKingdom != null)
+    {
+        TextObject reason;
+        float score = Campaign.Current.Models.DiplomacyModel.GetScoreOfDeclaringWar(
+            playerKingdom, targetKingdom, Clan.PlayerClan, out reason, includeReason: true);
+    }
+}
+```
+
+`ClanFinanceModel` 同样由 `Campaign.Current.Models` 提供，例如 `PartyGoldLowerThreshold` 是规则读取而非余额转移。要提交金钱变化，使用 Action；它会限制 giver 的可用金钱，并广播交易事件：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero player = Hero.MainHero;
+GiveGoldAction.ApplyBetweenCharacters((Hero)null, player, 1000, false);
+```
+
+死亡、加入王国和宣战更有附带状态：`KillCharacterAction` 处理 death mark、队伍、继承和事件；`ChangeKingdomAction` 调整 stance、佣兵关系与队伍；`DeclareWarAction` 更新势力状态并广播。先在对应 Action 深页确认 `ApplyByBattle`、`ApplyByExecution`、`ApplyByJoinToKingdom`、`ApplyByKingdomDecision` 等原因是否匹配当前流程。尤其不要在 `MapEvent`、围城、主角死亡确认或议会决策尚未结算时绕开它们直接写字段。
+
+## 任务三：存档字段与读档时机
+
+`IDataStore` 明确区分 `IsSaving` 和 `IsLoading`，但 behavior 的通常写法仍是无条件调用同一条 `SyncData(key, ref field)`；保存系统决定是写入还是回填。key 应稳定、命名空间化，例如 `my_mod_observed_days`，并在版本升级时为类型迁移提供兼容方案。
+
+Campaign behavior manager 订阅 `CampaignEvents.OnBeforeSaveEvent`，清空内部 behavior data，再调用每个 behavior 的 `SyncData`；加载时它再把数据回填进同一批 behavior。由此有两个硬条件：
+
+1. 新旧存档都必须能安装同一个 behavior，且它的字段类型/键兼容。
+2. `SyncData` 内不要触发 Action、创建 Mission、访问短命 Agent 或依赖尚未完成的世界初始化；这些副作用会让保存和读档阶段重入不完整状态。
+
+复杂自定义类型还需要遵守 [SaveManager](../save-system/SaveManager) 与 Core 的可存档类型注册规则。本页的 `int` 示例不需要额外定义器；它不能证明任意对象图都可存档。
+
+## 任务四：MissionBehavior 与 Agent 生命周期
+
+`Mission` 初始化 behavior 后调用 `OnBehaviorInitialize`；创建 Agent 时分发 `OnAgentCreated`；移除 Agent 时分发 `OnAgentRemoved`；删除 behavior 前调用 `OnRemoveBehavior`。因此能长期保留的是你的 Campaign state 或可序列化 ID，不是 `Agent` 实例。下面的 behavior 从生命周期回调获得真实 Agent，并在两个释放点清空引用：
+
+```csharp
+using System.Collections.Generic;
+using TaleWorlds.MountAndBlade;
+
+public sealed class AgentTrackerBehavior : MissionBehavior
+{
+    private readonly HashSet<Agent> _trackedAgents = new HashSet<Agent>();
+
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnAgentCreated(Agent agent)
+    {
+        _trackedAgents.Add(agent);
+    }
+
+    public override void OnAgentRemoved(
+        Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+    {
+        _trackedAgents.Remove(affectedAgent);
+    }
+
+    public override void OnRemoveBehavior()
+    {
+        _trackedAgents.Clear();
+    }
+}
+```
+
+仅在一场已经创建的 Mission 内使用 `Mission.Current`，并优先让 Mission 的建立流程安装 behavior。不要从 Campaign behavior 的日 tick 缓存或调用 `Mission.Current`；地图上大多数时刻它为 `null`，而 Agent 在 `OnAgentRemoved` 后继续访问可能造成崩溃或读取无效原生对象。
+
+## 时机、崩溃与坏档检查
+
+- **太早访问 Campaign：** `OnSubModuleLoad`、菜单根切换和其他非 Campaign 钩子都可能早于战役创建。只在 `OnGameStart` 收到 `CampaignGameStarter` 后注册 behavior，并在事件实际触发后读 `Campaign.Current`。
+- **重复事件或错误 owner：** 同一 behavior 的重复 `RegisterEvents` 会使回调多次执行；短命 owner 使清理无法跟踪。使用 behavior 自身作为 listener owner。
+- **绕开 Action：** 金钱、死亡、王国和战争都有事件、通知、关联实体与清理。直接改字段会漏掉这些链条，造成 UI 不一致、残留队伍，甚至坏档。
+- **把 Model 当写接口：** Model 只提供当前规则的计算结果。替换 Model 必须在 starter 的正确阶段进行，并保持基模型初始化/委托链；空替换或硬编码公式会破坏其它模组和版本更新。
+- **不兼容存档：** 不稳定 key、未注册复杂类型、在 `SyncData` 中做副作用，都会让读档失败或把状态写成不完整快照。
+- **逃逸的 Agent：** Agent、Mission 和 native scene 对象都只属于当前任务。`OnAgentRemoved` 和 `OnRemoveBehavior` 是释放引用的边界，不是可选清理。
+
+## 相关深页
+
+- [Campaign](../campaign/Campaign)、[CampaignGameStarter](../campaign/CampaignGameStarter)、[CampaignBehaviorBase](../campaign/CampaignBehaviorBase)、[CampaignEvents](../campaign/CampaignEvents)
+- [GameModelsManager](../core-extra/GameModelsManager/)、[DiplomacyModel](../campaign/DiplomacyModel)、[ClanFinanceModel](../campaign/ClanFinanceModel)
+- [Mission](../mission/Mission)、[MissionBehavior](../mission/MissionBehavior)、[MBSubModuleBase](../core/MBSubModuleBase)、[IDataStore](../campaign/IDataStore)、[SaveManager](../save-system/SaveManager)
+
+## 字母索引（按类型名查找）
+
+以下是现有子页面的完整身份索引，适合已知类型名时跳转；它不是上述工作流、风险边界或子页面完成度的替代品。
+
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航

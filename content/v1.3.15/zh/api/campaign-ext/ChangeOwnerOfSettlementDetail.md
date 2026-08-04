@@ -18,7 +18,7 @@ description: "记录据点所有权由围城、交易、叛乱、赠礼或家族
 
 `ChangeOwnerOfSettlementDetail` 不是据点的当前所有者，也不决定谁能占领据点。它是 [`ChangeOwnerOfSettlementAction`](../ChangeOwnerOfSettlementAction) 的内部原因标签。公开 `ApplyBy*` 方法完成 `Settlement` 的所有者、城镇/城堡组件、地图视觉和相关缓存的更新后，才通过 `CampaignEvents.OnSettlementOwnerChangedEvent` 发出它。
 
-模组需要转移据点时，应根据来源调用 `ApplyBySiege`、`ApplyByBarter`、`ApplyByGift` 等入口，不应直接改 `Settlement.OwnerClan` 或手动发布事件。监听器可以把原因用于日志或任务分支，但不应把事件当成“所有权尚未变化”的预告。
+`Settlement.OwnerClan` 是只读的派生属性：村庄会跟随 `Village.Bound.OwnerClan`，城镇或城堡会跟随 `Town.OwnerClan`，不能直接赋值。模组需要转移据点时，应根据来源调用 `ApplyBySiege`、`ApplyByBarter`、`ApplyByGift` 等入口；Action 会更新底层所有权状态并发布事件，不应手动重复发布。监听器可以把原因用于日志或任务分支，但不应把事件当成“所有权尚未变化”的预告。
 
 ## 枚举值与典型时机
 
@@ -57,6 +57,7 @@ description: "记录据点所有权由围城、交易、叛乱、赠礼或家族
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Settlements;
 
 public sealed class SettlementOwnerBehavior : CampaignBehaviorBase
 {
@@ -100,6 +101,7 @@ public sealed class SettlementOwnerBehavior : CampaignBehaviorBase
 ## 导航
 
 - ↑ 父级：[Campaign-Ext API](../)
-- ↔ 同级：[ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction) · [ChangeKingdomActionDetail](../ChangeKingdomActionDetail)
-- ↓ 所属：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ 所属 Action：[ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
+- ↔ 同级：[ChangeKingdomActionDetail](../ChangeKingdomActionDetail)
+- 事件：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - 相关：[Settlement](../../campaign/Settlement) · [Hero](../../campaign/Hero) · [SiegeEvent](../SiegeEvent)

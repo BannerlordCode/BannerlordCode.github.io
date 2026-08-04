@@ -18,7 +18,7 @@ Identify the destination and timing semantics of a hero teleport so rosters, gov
 
 `TeleportationDetail` is the reason carried by [`TeleportHeroAction`](../TeleportHeroAction). The Action first sends `OnHeroTeleportationRequestedEvent`, then either performs an immediate settlement/party move or marks the hero as traveling for `TeleportationCampaignBehavior` to finish later. The immediate party-leader branch also clears party-name caches, restores party decisions, and cancels pending disbanding; delayed branches remove old governor and roster relationships before queuing the trip.
 
-The event is therefore a synchronous request boundary, not a promise that the target has finished loading. Call the matching `ApplyImmediate*` or `ApplyDelayed*` method. Do not remove the hero from a roster and publish a teleport event yourself.
+The event is therefore a synchronous dispatch boundary followed by a branch attempt, not an acknowledgement that the request succeeded or that the target has finished loading. It is raised before null-target, invalid-party, and state checks can return early. Call the matching `ApplyImmediate*` or `ApplyDelayed*` method. Do not remove the hero from a roster and publish a teleport event yourself.
 
 ## Enum Values and Timing
 
@@ -38,13 +38,13 @@ The enum order is not the delayed queue's save format. `TeleportationCampaignBeh
 
 - **Upstream:** [`TeleportHeroAction`](../TeleportHeroAction), [`Hero`](../../campaign/Hero), [`Settlement`](../../campaign/Settlement), [`MobileParty`](../../campaign/MobileParty), and `DelayedTeleportationModel`.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnHeroTeleportationRequestedEvent` as `IMbEvent<Hero, Settlement, MobileParty, TeleportHeroAction.TeleportationDetail>`.
-- **Downstream:** `TeleportationCampaignBehavior`, [`CampaignBehaviorBase`](../CampaignBehaviorBase), `DisbandPartyCampaignBehavior`, nameplates, governor behaviors, and party behaviors consume the request.
+- **Downstream:** `TeleportationCampaignBehavior`, `DisbandPartyCampaignBehavior`, `PlayerTrackCompanionBehavior`, `PartyNameplateVM`, and notification listeners consume the request. `CampaignBehaviorBase` is only their base class, not a consumer.
 - **Save boundary:** Delayed `TeleportationData` is persisted through [`IDataStore`](../IDataStore) and the save system; the immediate request is not a mod-owned persistent queue.
 
 ## Risks and Lifetime
 
 - An immediate move can remove the hero from the old party before entering the new settlement or party. Re-read `PartyBelongedTo` after the callback instead of retaining the old party reference.
-- A null or invalid target, an active engagement, or a dead hero can make the Action return early. Check real targets and the Campaign lifecycle before calling.
+- A null or invalid target, an active engagement, or a dead hero can make the Action return early after the request event was dispatched. Check real targets and the Campaign lifecycle before calling it, and do not treat the event as movement success.
 - Becoming a party leader changes custom names, AI decisions, and disbanding state; do not confuse `ImmediateTeleportToParty` with its party-leader variant.
 - Delayed teleport saves hero, target, and `CampaignTime`. Do not destroy the target, retain stale objects in a second mod queue, or maintain a parallel queue outside `SyncData`.
 - The event is a synchronous request notification. Non-serialized listeners do not receive old requests after load; rebuild runtime state from the teleport behavior or the hero's current location.
@@ -56,6 +56,8 @@ The built-in `TeleportationCampaignBehavior` consumes this event shape:
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 public sealed class TeleportAuditBehavior : CampaignBehaviorBase
 {
@@ -92,12 +94,12 @@ An actual move should run from a live Campaign flow with a valid target, for exa
 
 ## Version Note
 
-v1.3.15 and v1.4.5 expose the same seven values and immediate/delayed branches. The v1.4.5 delayed-save and party-AI behavior is the authority for the risk notes here.
+v1.3.15 already exposes the same seven values and runs the immediate/delayed branches from `ApplyInternal`. v1.4.5 retains that contract; its delayed-save and party-AI behavior is the authority for the risk notes here.
 
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [TeleportHeroAction](../TeleportHeroAction) · [DisbandPartyAction](../DisbandPartyAction)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase)
+- ↓ Owner Action: [TeleportHeroAction](../TeleportHeroAction)
+- ↔ Siblings: [DisbandPartyAction](../DisbandPartyAction)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [Hero](../../campaign/Hero) · [Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty) · [IDataStore](../IDataStore)
-

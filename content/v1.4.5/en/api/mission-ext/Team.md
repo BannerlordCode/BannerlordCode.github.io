@@ -1,487 +1,155 @@
 ---
 title: "Team"
-description: "Auto-generated class reference for Team."
+description: "The Mission-scoped battle team that owns Agents, Formations, faction relations, and command state; it is a runtime boundary, not saved campaign data."
 ---
+
 # Team
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public class Team : IMissionTeam`
-**Base:** `IMissionTeam`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Team.cs`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public class Team : IMissionTeam`  
+**Contract:** [`IMissionTeam`](../../core-extra/IMissionTeam)  
+**Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Team.cs`
 
-## Overview
+## One-line responsibility
 
-`Team` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+Inside one Mission, `Team` organizes the Agents, Formations, orders, AI, team relations, and tactical queries that belong to one battle side.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`Team` belongs to the Mission layer. `Mission.Teams` creates and owns it for an attacker, defender, player, enemy, ally, or scenario-specific group; Campaign and the save system do not own it. Team creation establishes the native `MBTeam`, initializes normal and special Formations, and assigns attacker/defender, player, and enemy roles. When the Mission ends, the team collection clears the Formations and native handles, so a Team is valid only during its host Mission.
 
-## Key Properties
+Think of it as one level in the runtime ownership tree: Team owns Agent and Formation collections, Formation groups those Agents, and TeamAI, `QuerySystem`, and `DetachmentManager` maintain tactical state around that tree. It is not a persistent `Kingdom` or `Clan`, and constructing a Team yourself does not replace `Mission.Teams.Add` because that bypasses Mission-level initialization.
 
-| Name | Signature |
-|------|-----------|
-| `Side` | `public BattleSideEnum Side { get; }` |
-| `Mission` | `public Mission Mission { get; }` |
-| `FormationsIncludingEmpty` | `public MBList<Formation> FormationsIncludingEmpty { get; }` |
-| `FormationsIncludingSpecialAndEmpty` | `public MBList<Formation> FormationsIncludingSpecialAndEmpty { get; }` |
-| `TeamAI` | `public TeamAIComponent TeamAI { get; }` |
-| `IsPlayerTeam` | `public bool IsPlayerTeam { get; }` |
-| `IsPlayerAlly` | `public bool IsPlayerAlly { get; }` |
-| `TeamSide` | `public TeamSideEnum TeamSide { get; }` |
-| `Color` | `public uint Color { get; }` |
-| `Color2` | `public uint Color2 { get; }` |
-| `Banner` | `public Banner Banner { get; }` |
-| `QuerySystem` | `public TeamQuerySystem QuerySystem { get; }` |
-| `DetachmentManager` | `public DetachmentManager DetachmentManager { get; }` |
-| `IsPlayerGeneral` | `public bool IsPlayerGeneral { get; }` |
-| `IsPlayerSergeant` | `public bool IsPlayerSergeant { get; }` |
-| `MoraleChangeFactor` | `public float MoraleChangeFactor { get; }` |
-| `GeneralsFormation` | `public Formation GeneralsFormation { get; set; }` |
-| `BodyGuardFormation` | `public Formation BodyGuardFormation { get; set; }` |
-| `GeneralAgent` | `public Agent GeneralAgent { get; set; }` |
-| `Heroes` | `public IEnumerable<Agent> Heroes { get; }` |
-| `HasBots` | `public bool HasBots { get; }` |
-| `Leader` | `public Agent Leader { get; }` |
-| `Invalid` | `public static Team Invalid { get; set; }` |
+## When to use it, and when not to
 
-## Key Methods
+**Use it when:**
 
-### SetCustomOrderController
-`public void SetCustomOrderController(OrderController customMasterOrderController, OrderController customPlayerOrderController)`
+- A `MissionBehavior` needs the player, enemy, attacker, or defender Team during initialization, ticks, or Agent callbacks.
+- Code must inspect sides, team relationships, Formations, order controllers, or tactical query data.
+- A live Mission already exposes the desired object through `Mission.PlayerTeam`, `PlayerEnemyTeam`, `AttackerTeam`, or `DefenderTeam`.
 
-**Purpose:** Assigns a new value to custom order controller and updates the object's internal state.
+**Do not use it when:**
 
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.SetCustomOrderController(customMasterOrderController, customPlayerOrderController);
-```
+- Persisting campaign state. Save stable character, faction, or formation intent identifiers and reacquire runtime teams in the next Mission.
+- Editing `ActiveAgents`, `TeamAgents`, or Formation lists directly. `Agent.SetTeam` and the `Agent.Formation` setter maintain reverse references, native state, and cache invalidation.
+- Ticking, clearing, or migrating a Team after its Mission has ended, without a valid Mission, or from a background thread.
+- Applying campaign diplomacy. War, relation, and gold changes belong to Campaign Actions and Behaviors, not Team.
 
-### UpdateCachedEnemyDataForFleeing
-`public void UpdateCachedEnemyDataForFleeing()`
+## Creation, ownership, and teardown
 
-**Purpose:** Recalculates and stores the latest representation of cached enemy data for fleeing.
+Mission components create teams through `Mission.Teams.Add(BattleSideEnum.Attacker, ...)` or the defender equivalent. `TeamCollection.Add` creates the native team, constructs the managed object, initializes Formations, and runs Mission callbacks such as `OnAddTeam` and `AfterAddTeam`. The public constructor is not the normal mod entry point because direct construction skips the collection and relation setup.
 
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.UpdateCachedEnemyDataForFleeing();
-```
+During `Mission.EndMission`, `Teams.Clear()` clears Formations, role references, and native team state. `Team.Invalid` is a sentinel for “no valid team” used by the engine and Agent build paths; it is not a normal battle team. Check `team != null && team.IsValid` before using a Team and let the current Mission own its lifetime.
 
-### Reset
-`public void Reset()`
+## Key members and side effects
 
-**Purpose:** Returns the this instance to its default or initial condition.
+### Identity, side, and relations
 
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.Reset();
-```
+- `Mission` is the host; `Side`, `IsAttacker`, `IsDefender`, and `TeamSide` describe the battle role, not a Campaign faction identity.
+- `IsPlayerTeam`, `IsPlayerAlly`, `IsPlayerGeneral`, and `IsPlayerSergeant` describe the current Mission's player role and can change with scenario setup.
+- `IsEnemyOf` and `IsFriendOf` read relationships. `SetIsEnemyOf` changes them and performs the required multiplayer synchronization when applicable; do not update only a local cache.
+- `Color`, `Color2`, and `Banner` are scene-facing identity data, not persistent Campaign ownership.
 
-### Clear
-`public void Clear()`
+### Agent and Formation ownership
 
-**Purpose:** Removes all content from the this instance.
+- `ActiveAgents` contains Agents still active in the Mission; death, removal, and team changes alter it.
+- `TeamAgents` is the registered team collection and does not have the same lifetime or count as `ActiveAgents`.
+- `FormationsIncludingEmpty` includes ordinary Formations even when empty; `FormationsIncludingSpecialAndEmpty` also includes special Formations.
+- `GetFormation(FormationClass)` retrieves an existing Formation by class. Do not infer a scenario's meaning from a hard-coded index.
+- `Leader`, `Heroes`, `GeneralAgent`, `GeneralsFormation`, and `BodyGuardFormation` are meaningful only after their corresponding role has been assigned and can become null or stale during teardown.
+
+### Orders, AI, and queries
+
+- `MasterOrderController`, `PlayerOrderController`, and `SetCustomOrderController` define where orders come from. Replacing a controller changes order dispatch and can affect multiplayer behavior.
+- `TeamAI`, `AddTeamAI`, `DelegateCommandToAI`, and `ResetTactic` control AI ownership. Do not add the same AI component repeatedly from a tick.
+- `QuerySystem` exposes unit counts, positions, power, ally/enemy ratios, and casualty-related tactical data. Its `QueryData` values are cached with expiry rules, not thread-safe per-frame snapshots.
+- `DetachmentManager` tracks detached units and targets. Agent and Formation movement must go through the callbacks that keep detachment state current.
+
+### Timing and cleanup
+
+- `Tick(float dt)` is called by Mission's update order. Do not call it manually to compensate for a missed frame; Mission processes Agents before teams and Formations.
+- `OnAgentRemoved`, `OnMissionEnded`, `Reset`, and `Clear` are cleanup boundaries. Do not put old Agents or Formations into a collection that survives the Mission.
+- `OnFormationsChanged`, `OnFormationsChangedInDeployment`, and `OnFormationAIActiveBehaviorChanged` are observation points; external subscribers must release their own references before Mission teardown.
+
+## Dependency graph
+
+- **Host and upstream:** [`Mission`](../../mission/Mission) creates and owns Team; [`MissionBehavior`](../../mission/MissionBehavior) is the usual mod timing boundary.
+- **Runtime children:** [`Agent`](../../mission/Agent) joins or leaves through `SetTeam`; [`Formation`](../../mission/Formation) groups Agents and consumes Team orders.
+- **Tactical systems:** [`TeamQuerySystem`](../TeamQuerySystem), [`TeamAIComponent`](../TeamAIComponent), and [`TeamCollection`](../TeamCollection) provide query, AI, and collection behavior.
+- **Rule consumer:** [`MissionLogic`](../MissionLogic) can use Team and Formation state for victory, retreat, and result decisions; Team should not end the Campaign itself.
+- **Module boundary:** [`MBSubModuleBase`](../../core/MBSubModuleBase) owns module lifecycle, but it cannot provide a valid Team before a Mission exists.
+
+## Real acquisition examples
+
+This MissionBehavior reads the real player Team and infantry Formation after Mission initialization. It does not construct Team or edit Agent collections; it changes AI control once during the Mission setup window.
 
 ```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.Clear();
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public sealed class TeamInspectionBehavior : MissionBehavior
+{
+    protected override void OnBehaviorInitialize()
+    {
+        Team playerTeam = Mission.PlayerTeam;
+        if (playerTeam == null || !playerTeam.IsValid)
+        {
+            return;
+        }
+
+        Formation infantry = playerTeam.GetFormation(FormationClass.Infantry);
+        if (infantry != null && infantry.IsAIControlled)
+        {
+            infantry.SetControlledByAI(false);
+        }
+    }
+}
 ```
 
-### DoesFirstFormationClassContainSecond
-`public static bool DoesFirstFormationClassContainSecond(FormationClass f1, FormationClass f2)`
-
-**Purpose:** Returns a boolean answer to whether first formation class contain second is true for the this instance.
+For an in-Mission observer, acquire both sides from the host and use the relationship API rather than reconstructing the relation:
 
 ```csharp
-// Static call; no instance required
-Team.DoesFirstFormationClassContainSecond(f1, f2);
+public sealed class EnemyTeamObserver : MissionBehavior
+{
+    protected override void OnMissionTick(float dt)
+    {
+        Team playerTeam = Mission.PlayerTeam;
+        Team enemyTeam = Mission.PlayerEnemyTeam;
+        if (playerTeam != null && enemyTeam != null && playerTeam.IsEnemyOf(enemyTeam))
+        {
+            int activeEnemies = enemyTeam.ActiveAgents.Count;
+            if (activeEnemies == 0)
+            {
+                OnEnemyTeamDepleted();
+            }
+        }
+    }
+
+    private void OnEnemyTeamDepleted()
+    {
+    }
+}
 ```
 
-### GetFormationFormationClass
-`public static FormationClass GetFormationFormationClass(Formation f)`
-
-**Purpose:** Reads and returns the formation formation class value held by the this instance.
-
-```csharp
-// Static call; no instance required
-Team.GetFormationFormationClass(f);
-```
-
-### GetPlayerTeamFormationClass
-`public static FormationClass GetPlayerTeamFormationClass(Agent mainAgent)`
-
-**Purpose:** Reads and returns the player team formation class value held by the this instance.
-
-```csharp
-// Static call; no instance required
-Team.GetPlayerTeamFormationClass(mainAgent);
-```
-
-### AssignPlayerAsSergeantOfFormation
-`public void AssignPlayerAsSergeantOfFormation(MissionPeer peer, FormationClass formationClass)`
-
-**Purpose:** Executes the AssignPlayerAsSergeantOfFormation logic.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.AssignPlayerAsSergeantOfFormation(peer, formationClass);
-```
-
-### AddTacticOption
-`public void AddTacticOption(TacticComponent tacticOption)`
-
-**Purpose:** Adds tactic option to the current collection or state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.AddTacticOption(tacticOption);
-```
-
-### RemoveTacticOption
-`public void RemoveTacticOption(Type tacticType)`
-
-**Purpose:** Removes tactic option from the current collection or state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.RemoveTacticOption(tacticType);
-```
-
-### ClearTacticOptions
-`public void ClearTacticOptions()`
-
-**Purpose:** Removes all tactic options from the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.ClearTacticOptions();
-```
-
-### ResetTactic
-`public void ResetTactic()`
-
-**Purpose:** Returns tactic to its default or initial condition.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.ResetTactic();
-```
-
-### AddTeamAI
-`public void AddTeamAI(TeamAIComponent teamAI, bool forceNotAIControlled = false)`
-
-**Purpose:** Adds team a i to the current collection or state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.AddTeamAI(teamAI, false);
-```
-
-### DelegateCommandToAI
-`public void DelegateCommandToAI()`
-
-**Purpose:** Executes the DelegateCommandToAI logic.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.DelegateCommandToAI();
-```
-
-### RearrangeFormationsAccordingToFilter
-`public void RearrangeFormationsAccordingToFilter(List<(Formation formation, int troopCount, TroopTraitsMask troopFilter, List<Agent> excludedAgents)> MassTransferData)`
-
-**Purpose:** Executes the RearrangeFormationsAccordingToFilter logic.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.RearrangeFormationsAccordingToFilter(formation, 0, troopFilter, massTransferData);
-```
-
-### Tick
-`public void Tick(float dt)`
-
-**Purpose:** Advances the this instance's state by one frame or update cycle.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.Tick(0);
-```
-
-### GetFormation
-`public Formation GetFormation(FormationClass formationIndex)`
-
-**Purpose:** Reads and returns the formation value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetFormation(formationIndex);
-```
-
-### SetIsEnemyOf
-`public void SetIsEnemyOf(Team otherTeam, bool isEnemyOf)`
-
-**Purpose:** Assigns a new value to is enemy of and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.SetIsEnemyOf(otherTeam, false);
-```
-
-### IsEnemyOf
-`public bool IsEnemyOf(Team otherTeam)`
-
-**Purpose:** Determines whether the this instance is in the enemy of state or condition.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.IsEnemyOf(otherTeam);
-```
-
-### IsFriendOf
-`public bool IsFriendOf(Team otherTeam)`
-
-**Purpose:** Determines whether the this instance is in the friend of state or condition.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.IsFriendOf(otherTeam);
-```
-
-### AddAgentToTeam
-`public void AddAgentToTeam(Agent unit)`
-
-**Purpose:** Adds agent to team to the current collection or state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.AddAgentToTeam(unit);
-```
-
-### RemoveAgentFromTeam
-`public void RemoveAgentFromTeam(Agent unit)`
-
-**Purpose:** Removes agent from team from the current collection or state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.RemoveAgentFromTeam(unit);
-```
-
-### DeactivateAgent
-`public void DeactivateAgent(Agent agent)`
-
-**Purpose:** Deactivates the resource, state, or feature associated with agent.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.DeactivateAgent(agent);
-```
-
-### OnAgentRemoved
-`public void OnAgentRemoved(Agent agent)`
-
-**Purpose:** Invoked when the agent removed event is raised.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.OnAgentRemoved(agent);
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.ToString();
-```
-
-### OnMissionEnded
-`public void OnMissionEnded()`
-
-**Purpose:** Invoked when the mission ended event is raised.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.OnMissionEnded();
-```
-
-### TriggerOnFormationsChanged
-`public void TriggerOnFormationsChanged(Formation formation)`
-
-**Purpose:** Triggers the logic or event associated with on formations changed.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.TriggerOnFormationsChanged(formation);
-```
-
-### TriggerOnFormationsChangedInDeployment
-`public void TriggerOnFormationsChangedInDeployment()`
-
-**Purpose:** Triggers the logic or event associated with on formations changed in deployment.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.TriggerOnFormationsChangedInDeployment();
-```
-
-### GetOrderControllerOf
-`public OrderController GetOrderControllerOf(Agent agent)`
-
-**Purpose:** Reads and returns the order controller of value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetOrderControllerOf(agent);
-```
-
-### SetPlayerRole
-`public void SetPlayerRole(bool isPlayerGeneral, bool isPlayerSergeant)`
-
-**Purpose:** Assigns a new value to player role and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.SetPlayerRole(false, false);
-```
-
-### HasAnyEnemyTeamsWithAgents
-`public bool HasAnyEnemyTeamsWithAgents(bool ignoreMountedAgents)`
-
-**Purpose:** Determines whether the this instance already holds any enemy teams with agents.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.HasAnyEnemyTeamsWithAgents(false);
-```
-
-### HasAnyFormationsIncludingSpecialThatIsNotEmpty
-`public bool HasAnyFormationsIncludingSpecialThatIsNotEmpty()`
-
-**Purpose:** Determines whether the this instance already holds any formations including special that is not empty.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.HasAnyFormationsIncludingSpecialThatIsNotEmpty();
-```
-
-### GetFormationCount
-`public int GetFormationCount()`
-
-**Purpose:** Reads and returns the formation count value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetFormationCount();
-```
-
-### GetAIControlledFormationCount
-`public int GetAIControlledFormationCount()`
-
-**Purpose:** Reads and returns the a i controlled formation count value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetAIControlledFormationCount();
-```
-
-### GetAveragePositionOfEnemies
-`public Vec2 GetAveragePositionOfEnemies()`
-
-**Purpose:** Reads and returns the average position of enemies value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetAveragePositionOfEnemies();
-```
-
-### GetAveragePosition
-`public Vec2 GetAveragePosition()`
-
-**Purpose:** Reads and returns the average position value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetAveragePosition();
-```
-
-### GetMedianPosition
-`public WorldPosition GetMedianPosition(Vec2 averagePosition)`
-
-**Purpose:** Reads and returns the median position value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetMedianPosition(averagePosition);
-```
-
-### GetWeightedAverageOfEnemies
-`public Vec2 GetWeightedAverageOfEnemies(Vec2 basePoint)`
-
-**Purpose:** Reads and returns the weighted average of enemies value held by the this instance.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-var result = team.GetWeightedAverageOfEnemies(basePoint);
-```
-
-### DisableDetachmentTicking
-`public void DisableDetachmentTicking()`
-
-**Purpose:** Executes the DisableDetachmentTicking logic.
-
-```csharp
-// Obtain an instance of Team from the subsystem API first
-Team team = ...;
-team.DisableDetachmentTicking();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Team team = ...;
-team.SetCustomOrderController(customMasterOrderController, customPlayerOrderController);
-```
-
-## See Also
-
-- [Area Index](../)
+## Risks and crash boundaries
+
+1. **Cross-Mission references:** Team, Agent, Formation, native `MBTeam`, and QuerySystem are Mission runtime objects. Save or Campaign code should store stable identifiers and reacquire them after a new Mission opens.
+2. **Wrong construction boundary:** `new Team(...)` skips TeamCollection's native handle, Formation, relation, and role setup and can leave managed and native state inconsistent.
+3. **Bypassing reverse references:** Writing team or Formation lists directly skips `Agent.SetTeam`, `Agent.Formation`, detachment updates, QuerySystem expiry, and network synchronization. Use the supported setters and Team/Formation operations.
+4. **Wrong-phase ticks:** Calling `Tick`, `Clear`, or QuerySystem members after Mission teardown can touch cleared native state. Keep work inside the MissionBehavior lifecycle.
+5. **Thread and network rules:** Some Agent work is parallelized, but Team and Formation updates remain constrained by Mission's update thread and native state. Cross-thread relation changes or missing multiplayer sync can diverge peers.
+6. **Cached queries:** QuerySystem expiry means repeated reads may return cached data. Do not treat it as an exact death event or synchronously write Team state from a query callback.
+
+## Version note
+
+In 1.4.5, Team remains a `TaleWorlds.MountAndBlade` Mission runtime object. 1.3.15 uses the same Team/Formation/Agent boundary, but TeamAI, query-cache, and multiplayer event members can differ. Compile against the target version's `Team.cs` and Mission factory; do not substitute a persistent Campaign object for Team.
+
+## See also and bidirectional navigation
+
+- ↑ Parent module: [Mission extensions API](../)
+- ↔ Siblings: [TeamQuerySystem](../TeamQuerySystem) · [TeamCollection](../TeamCollection) · [TeamAIComponent](../TeamAIComponent)
+- ↓ Formation and members: [Formation](../../mission/Formation) · [Agent](../../mission/Agent)
+- Upstream/timing: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [MissionLogic](../MissionLogic)
+- Module entry: [MBSubModuleBase](../../core/MBSubModuleBase)
+- Writing contract: [Doc Contract](../../../architecture/doc-contract)

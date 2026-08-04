@@ -1,78 +1,75 @@
 ---
 title: "ScreenManager"
-description: "The static screen stack, TopScreen, global Layers, and main-thread transition contract in TaleWorlds.ScreenSystem."
+description: "The static screen coordinator for TaleWorlds.ScreenSystem, maintaining the top screen, screen stack, global layers, input focus, and main-thread UI transitions."
 ---
-
 # ScreenManager
 
 **Namespace:** `TaleWorlds.ScreenSystem`  
 **Module:** `TaleWorlds.ScreenSystem`  
 **Type:** `public static class ScreenManager`  
-**Base:** none  
-**Source:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs`
+**Base:** `object`  
+**File:** `bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs`
 
-## Responsibility
+## One-line responsibility
 
-`ScreenManager` is the static owner of the UI: it maintains the screen stack, selects `TopScreen`, merges the top screen's Layers with global Layers for input and rendering order, and turns push, pop, pause, resume, and finalization into one main-thread state machine.
+`ScreenManager` organizes game-state-created `ScreenBase` instances into a main-thread screen stack and coordinates the top screen's Layers, global Layers, input hit testing, focus, layout, and ticks.
 
 ## Mental Model
 
-Do not look for a `new ScreenManager()` instance. The class is static, and the engine injects its `IScreenManagerEngineConnection` during startup through `EngineScreenManager.Initialize`. The manager owns a private screen list; its last item is `TopScreen`. The top screen owns the current UI, while screens below it can remain on the stack in a paused/inactive state.
+This is a static coordinator: there is no `new ScreenManager()` instance and no writable screen list for mods. During startup the engine calls `Initialize(IScreenManagerEngineConnection)` to inject the window/input bridge. The last private stack item is `TopScreen`; screens beneath it can remain paused and inactive.
 
-Every stack operation is a lifecycle transaction, not just a list mutation. `PushScreen` pauses and deactivates the old top, then initializes, activates, and resumes the new screen. `PopScreen` deactivates and finalizes the old top, then activates and resumes the predecessor. `CleanAndPushScreen` pauses, deactivates, and finalizes every existing screen before creating the new root. All three paths require the main thread, so a worker callback must marshal back to the game thread before changing UI.
+Every stack operation is a lifecycle transaction. `PushScreen` pauses and deactivates the old top, then initializes, activates, and resumes the new screen. `PopScreen` deactivates and finalizes the old top, then activates and resumes the predecessor. `CleanAndPushScreen` finalizes the entire old stack before establishing the new screen. All of these operations require the main thread because they change ViewModel, Gauntlet movie, focus, and engine-Layer state together.
 
 ## When to Use / When Not To
 
-- Use `PushScreen` for a returnable options, encyclopedia, save/load, or custom page. It preserves the current page beneath the temporary screen.
-- Use `PopScreen` to close the current page and return. Do not call `TopScreen.OnDeactivate` manually or edit the stack through reflection.
-- Use `CleanAndPushScreen` when a new root flow must not be returnable. It destroys the existing stack and is not an overlay operation.
-- Use the current screen's `AddLayer`, or `AddGlobalLayer` for a cross-screen overlay, when only an input or Gauntlet Layer is needed. Do not attach the same Layer to multiple screens.
-- Read `TopScreen` to observe the current page and `SortedLayers` to inspect input/render order. These are observations, not replacement APIs.
+- Use `PushScreen` for returnable options, encyclopedia, save/load, or custom pages.
+- Use `PopScreen` to close the current page; do not call `TopScreen.OnDeactivate` manually or edit the stack through reflection.
+- Use `CleanAndPushScreen` for a new non-returnable root flow, not a temporary overlay.
+- Use `AddGlobalLayer` for a cross-screen input overlay; do not attach one Layer to multiple screens.
+- Read `TopScreen` and `SortedLayers` as observations, not replacement APIs.
 
 ## Stack Transition Timing
 
 | API | Existing stack | New screen | Meaning |
-| --- | --- | --- | --- |
-| `SetAndActivateRootScreen(screen)` | Requires `TopScreen == null`; otherwise throws. | Adds, initializes, activates, resumes, and raises `OnPushScreen`. | Establishes the first root screen. |
-| `PushScreen(screen)` | Pauses the old top and deactivates it if active; does not finalize or remove it. | Adds, initializes, activates, resumes, and raises `OnPushScreen`. | Opens a returnable temporary page. |
+|---|---|---|---|
+| `SetAndActivateRootScreen(screen)` | Requires `TopScreen == null`; otherwise throws. | Adds, initializes, activates, resumes, and raises `OnPushScreen`. | Establishes the first root. |
+| `PushScreen(screen)` | Pauses and deactivates the old top; does not finalize or remove it. | Adds, initializes, activates, resumes, and raises `OnPushScreen`. | Opens a returnable page. |
 | `PopScreen()` | Pauses, deactivates, finalizes, raises `OnPopScreen`, and removes the current top. | Activates and resumes the new top when one remains. | Closes the current page. |
-| `CleanAndPushScreen(screen)` | Pauses, deactivates, finalizes, and removes all screens from top to bottom, then performs memory cleanup. | Adds and fully initializes, activates, and resumes the new screen. | Starts a clean, non-returnable root flow. |
-| `ReplaceTopScreen(screen)` | Finalizes and removes the old top without retaining it. | Initializes, activates, and resumes the replacement. | Replaces the current top. |
+| `CleanAndPushScreen(screen)` | Pauses, deactivates, finalizes, and removes every old screen, then cleans memory. | Adds and fully initializes, activates, and resumes the new screen. | Starts a clean root flow. |
+| `CleanScreens()` | Finalizes and removes every screen. | Adds nothing. | Exits or resets UI. |
+| `ReplaceTopScreen(screen)` | Finalizes and removes the old top without retaining it. | Initializes, activates, and resumes the replacement. | Directly replaces the top. |
 
-These calls are synchronous lifecycle transitions. The source checks `TWParallel.IsMainThread()` in `PushScreen`, `PopScreen`, `CleanAndPushScreen`, and the cleanup path; the wrong thread triggers a failed assert. Treat the `TopScreen` change as complete on that same main-thread call before `OnPushScreen` or `OnPopScreen` observers run.
+These APIs are synchronous, not an asynchronous queue. The source checks `TWParallel.IsMainThread()` in `PushScreen`, `PopScreen`, `CleanAndPushScreen`, and cleanup paths; the wrong thread triggers a failed assert.
 
 ## TopScreen, SortedLayers, and Global Layers
 
-- `TopScreen` is the read-only view of the last stack item. It changes with the stack and is observed through the top screen's `OnAddLayer` and `OnRemoveLayer` events so sorting can be refreshed.
-- `SortedLayers` merges `TopScreen.Layers` with `_globalLayers` and sorts them. Input hit testing, focus, and ticking depend on it, so adding and removing Layers in the middle of a frame can change input order.
-- `FocusedLayer` is the current keyboard/mouse/gamepad focus Layer; `FirstHitLayer` is the input hit result. Both are transient and can point at no usable Layer after deactivation or finalization.
-- `AddGlobalLayer(GlobalLayer layer, bool isFocusable)` inserts by `InputRestrictions.Order` and activates the Layer immediately. `RemoveGlobalLayer` removes and deactivates it. Use global Layers only for cross-screen behavior and remove them when the feature or module ends.
-- `Scale`, `UsableArea`, and `IsLateTickInProgress` describe layout/render state. `EngineInterface` and `Initialize(IScreenManagerEngineConnection)` are engine bridge points, not APIs a mod should repeatedly initialize to open a page.
+- `TopScreen` is the read-only view of the last private stack item; its Layer events invalidate the sorting cache.
+- `SortedLayers` merges the top screen's Layers with global Layers and sorts them. Input hit testing, focus, and ticking depend on it.
+- `FocusedLayer` is the current keyboard/mouse/controller focus Layer; `FirstHitLayer` is the first Layer hit in the current input frame. Both can become unusable after deactivation or finalization.
+- `AddGlobalLayer(GlobalLayer layer, bool isFocusable)` inserts a global Layer and activates it immediately; `RemoveGlobalLayer` removes and deactivates it. The owner still releases global movies, ViewModels, and subscriptions.
+- `Scale`, `UsableArea`, and `IsLateTickInProgress` expose layout/render state; mods should not repeatedly initialize the engine bridge to open a page.
 
 ## Tick Phases and Observation Events
 
-`Tick(float dt)` runs global early ticks, updates input and the current screen, then runs the top screen's `FrameTick`, the predecessor's idle tick, sorted Layer ticks, global Layer ticks, late update, and the top screen's post-frame tick. `LateTick(float dt)` runs render ticks for active, non-finalized Layers and marks the phase with `IsLateTickInProgress`. Do not assume a background thread can safely change the stack from an `OnPushScreen` or Layer callback.
-
-`OnPushScreen` and `OnPopScreen` are lifecycle observation events. Subscribers should record or coordinate external resources and unsubscribe when the module unloads; these events do not replace `ScreenBase.OnInitialize` or `OnFinalize` as resource hooks.
+`Tick(float dt)` runs global early ticks, input update, the top screen's `FrameTick`, the predecessor's idle tick, sorted Layer ticks, global Layer ticks, late update, and the top screen's post-frame tick. `LateTick(float dt)` runs render ticks for active, non-finalized Layers and marks the phase with `IsLateTickInProgress`. `OnPushScreen` and `OnPopScreen` are observation events, not replacements for `ScreenBase.OnInitialize` or `OnFinalize` resource hooks.
 
 ## Real Acquisition, Initialization, and Registration Paths
 
-The engine connection is injected by `TaleWorlds.Engine.EngineScreenManager` during engine initialization:
+The engine calls `ScreenManager.Initialize(IScreenManagerEngineConnection)` during startup. A mod should not construct the connection or initialize it again. The source `Modules.Native/.../ViewSubModule.cs` subscribes to `OnPushScreen` during module load, removes it during unload, and pushes an options screen from a real `ViewCreator` factory:
 
 ```csharp
-internal static void Initialize()
-{
-    ScreenManager.Initialize(new ScreenManagerEngineConnection());
-}
-```
+using TaleWorlds.Library;
+using TaleWorlds.ScreenSystem;
 
-Normal UI code uses the static entry points directly. The source `ViewSubModule` registers `OnPushScreen` during module load and removes it during module unload, which is the real registration pattern for observing transitions:
-
-```csharp
 protected override void OnSubModuleLoad()
 {
     base.OnSubModuleLoad();
     ScreenManager.OnPushScreen += OnScreenManagerPushScreen;
+}
+
+private void OnScreenManagerPushScreen(ScreenBase pushedScreen)
+{
+    Debug.Print("Pushed screen: " + pushedScreen.GetType().Name);
 }
 
 protected override void OnSubModuleUnloaded()
@@ -80,29 +77,34 @@ protected override void OnSubModuleUnloaded()
     ScreenManager.OnPushScreen -= OnScreenManagerPushScreen;
     base.OnSubModuleUnloaded();
 }
+
+private void OpenOptionsFromMainMenu()
+{
+    ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(fromMainMenu: true));
+}
 ```
 
-For opening a page, the source `MapScreen.OpenOptions` uses `ScreenManager.PushScreen(ViewCreator.CreateOptionsScreen(false))`. No manager instance needs to be acquired first.
-
-## Risks and Cleanup Boundaries
-
-- `CleanAndPushScreen`, `PopScreen`, and `OnFinalize` finalize screens and their Layers. Revalidate cached `TopScreen`, `GauntletLayer`, and `ViewModel` references after `OnPopScreen` or module cleanup.
-- `PushScreen` leaves the old screen paused and inactive on the stack. If it unsubscribes in `OnDeactivate` but does not resubscribe in `OnActivate`, it may be dead after returning; if it never cleans up, subscriptions can duplicate.
-- `TopScreen` can be null during startup, after a clean, or after manager finalization. Check it before reading Layers; entries in `SortedLayers` can also be inactive or finalized.
-- The main-thread assertion on stack APIs is a correctness boundary, not a suggestion. Cross-thread push/pop can desynchronize TopScreen, focus, and input sorting, then crash when the next frame touches a disposed resource.
-- A global Layer is not owned by one screen. Forgetting `RemoveGlobalLayer` can carry input restrictions, focus, and strong references across game states until manager finalization.
-- Manager finalization detaches internal collection events and nulls the screen and global-Layer collections. Do not call stack or global-Layer APIs after module shutdown.
+No manager instance needs to be acquired. `MapScreen.OpenOptions` and `OpenSaveLoad` use the same `PushScreen` path.
 
 ## Dependency Graph
 
-- **Upstream:** [EngineScreenManager](../../engine/EngineScreenManager) injects the engine connection; [ScreenBase](../ScreenBase) is the screen contract consumed by the stack.
-- **Downstream:** [GauntletLayer](../../engine/GauntletLayer) and [ViewModel](../../core-extra/ViewModel) participate in input, binding, and rendering through the current screen.
+- **Upstream:** [IScreenManagerEngineConnection](../IScreenManagerEngineConnection) is the engine connection contract; [MBSubModuleBase](../../core/MBSubModuleBase) provides the module lifecycle for UI registration.
+- **Stack members:** [ScreenBase](../ScreenBase) executes one-screen lifecycle; [ScreenLayer](../ScreenLayer) provides input, focus, and render ordering.
+- **Downstream:** [GauntletLayer](../../engine/GauntletLayer) hosts movies and [ViewModel](../../core-extra/ViewModel) supplies binding state and commands through the current screen.
 - **Boundary:** [UI lifecycle crash boundaries](../../../architecture/crash-boundary) documents main-thread, focus, and cleanup ordering.
 
-## See Also and Navigation
+## Risks and Cleanup Boundaries
 
-- [GUI API index](../_index)
-- [ScreenBase: derived-screen lifecycle and Layer ownership](../ScreenBase)
-- [GauntletLayer: UI movies and input Layers](../../engine/GauntletLayer)
-- [ViewModel: Gauntlet-bound data](../../core-extra/ViewModel)
-- [UI lifecycle crash boundaries](../../../architecture/crash-boundary)
+- `PushScreen`, `PopScreen`, `CleanAndPushScreen`, and `CleanScreens` require the main thread; cross-thread changes can corrupt TopScreen, focus, and input sorting.
+- `SetAndActivateRootScreen` throws when `TopScreen` already exists; it is not ordinary navigation.
+- `PopScreen`, `CleanScreens`, `CleanAndPushScreen`, and `ReplaceTopScreen` finalize removed screens. Do not use their Layers, movies, or ViewModels afterward.
+- Static `OnPushScreen` and `OnPopScreen` subscriptions must be removed during module unload, or duplicate callbacks and stale references remain.
+- `TopScreen` can be null during startup, after a clean, or after manager finalization; cached `FocusedLayer` must also be revalidated at transition callbacks.
+- `AddGlobalLayer` activates a Layer while `RemoveGlobalLayer` only deactivates and removes it; the owner remains responsible for resource cleanup.
+
+## Navigation
+
+- **Parent:** [GUI API index](../)
+- **Siblings:** [ScreenBase](../ScreenBase), [ScreenLayer](../ScreenLayer), [IScreenManagerEngineConnection](../IScreenManagerEngineConnection)
+- **Children / related types:** [GauntletLayer](../../engine/GauntletLayer), [ViewModel](../../core-extra/ViewModel), [GameStateScreenManager](../../mission-ext/GameStateScreenManager)
+- **Upstream entry:** [MBSubModuleBase](../../core/MBSubModuleBase)

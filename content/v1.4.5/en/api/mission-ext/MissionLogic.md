@@ -8,7 +8,7 @@ description: "The Mission logic base for rules, victory, results, retreat, and s
 **Namespace:** `TaleWorlds.MountAndBlade`  
 **Module:** `TaleWorlds.MountAndBlade`  
 **Type:** `public abstract class MissionLogic : MissionBehavior`  
-**Base:** [`MissionBehavior`](../mission/MissionBehavior)  
+**Base:** [`MissionBehavior`](../../mission/MissionBehavior)  
 **Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLogic.cs`
 
 ## One-line responsibility
@@ -31,7 +31,7 @@ Ownership still belongs to the host `Mission`: a factory delegate returns the ob
 
 **Do not use it for:**
 
-- Pure Agent hit, scene entity, or camera observation that does not participate in rules; derive from [`MissionBehavior`](../mission/MissionBehavior) and return `Other`.
+- Pure Agent hit, scene entity, or camera observation that does not participate in rules; derive from [`MissionBehavior`](../../mission/MissionBehavior) and return `Other`.
 - Campaign map war, gold, or relation changes; use the appropriate Campaign Action/Behavior instead of putting save-world mutations in result polling.
 - Ending a Mission while the result is incomplete; `MissionEnded` must remain `false` until a valid result can be written.
 
@@ -83,14 +83,14 @@ The implementation must therefore return `false` until its condition is met, ass
 | `OnBattleEnded()` | Result-flow callback from `OnEndMissionResult`, followed by retreat/end processing. |
 | `ShowBattleResults()` | Display phase after a result is recognized and before final Mission cleanup. |
 | `OnRetreatMission()` / `OnSurrenderMission()` | Rule cleanup for the corresponding leave reason; neither replaces `OnEndMissionInternal`. |
-| `GetExtraEquipmentElementsForCharacter(...)` | Mission merges every non-null list from every Logic; the default is `null` when this Logic contributes nothing. |
+| `GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)` | Mission merges every non-null list from every Logic; the default is `null` when this Logic contributes nothing. |
 | `OnMissionResultReady(MissionResult)` | All Logic objects see the final result; use it to prepare downstream settlement without changing the result. |
 
 ## Dependencies
 
-- **Host:** [`Mission`](../mission/Mission) owns `MissionLogics` and controls result polling, display, retreat/surrender, and `EndMissionInternal`.
-- **Base contract:** [`MissionBehavior`](../mission/MissionBehavior) supplies the `Mission` back-reference, general Agent/Team/tick callbacks, and `OnRemoveBehavior` cleanup.
-- **Scene data:** [`Agent`](../mission/Agent), [`Team`](./Team), and [`Formation`](../mission/Formation) are common runtime inputs for victory and deployment rules.
+- **Host:** [`Mission`](../../mission/Mission) owns `MissionLogics` and controls result polling, display, retreat/surrender, and `EndMissionInternal`.
+- **Base contract:** [`MissionBehavior`](../../mission/MissionBehavior) supplies the `Mission` back-reference, general Agent/Team/tick callbacks, and `OnRemoveBehavior` cleanup.
+- **Scene data:** [`Agent`](../../mission/Agent), [`Team`](../Team), and [`Formation`](../../mission/Formation) are common runtime inputs for victory and deployment rules.
 - **Registration upstream:** SandBox's `OpenBattleMission` uses `MissionState.OpenNew` and `InitializeMissionBehaviorsDelegate` to return Logic objects; StoryMode's `AchievementsCampaignBehavior` dynamically calls `AddMissionBehavior` after a Mission starts.
 - **Result downstream:** `MissionResult`, `InquiryData`, and Campaign settlement behaviors consume the callbacks; do not bypass Mission to end the outer Campaign from inside Logic.
 
@@ -152,12 +152,12 @@ public static Mission OpenBattleWithCounterLogic(
 }
 ```
 
-This is the same acquisition path as the source factory: the delegate receives the newly created `Mission`, while the behaviors use their host reference only after `AddMissionBehavior` attaches them. For a live Mission, the StoryMode shape is `Mission.Current.AddMissionBehavior(new AchievementMissionLogic(...))` from `OnMissionStarted`.
+This is the same acquisition path as the source factory: the delegate receives the newly created `Mission`, while the behaviors use their host reference only after `AddMissionBehavior` attaches them. For a live Mission, the StoryMode shape is `Mission.Current.AddMissionBehavior(new AchievementMissionLogic(OnAgentRemoved, OnAgentHit))` from `OnMissionStarted`.
 
 ## See also and bidirectional navigation
 
-- ↑ Parent (module index): [Mission extensions module home](./)
-- ↔ Related entries: [Mission](../mission/Mission) · [MissionBehavior](../mission/MissionBehavior)
-- Scene dependencies: [Agent](../mission/Agent) · [Team](./Team) · [Formation](../mission/Formation)
-- Upstream modules: [Campaign](../campaign/Campaign) · [MBSubModuleBase](../core/MBSubModuleBase)
-- Writing contract: [Doc Contract](../../architecture/doc-contract)
+- ↑ Parent (module index): [Mission extensions module home](../)
+- ↔ Related entries: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior)
+- Scene dependencies: [Agent](../../mission/Agent) · [Team](../Team) · [Formation](../../mission/Formation)
+- Upstream modules: [Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
+- Writing contract: [Doc Contract](../../../architecture/doc-contract)

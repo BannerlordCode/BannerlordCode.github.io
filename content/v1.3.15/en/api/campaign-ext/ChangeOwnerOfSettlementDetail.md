@@ -18,7 +18,7 @@ Carry the reason for a settlement ownership transfer through `OnSettlementOwnerC
 
 `ChangeOwnerOfSettlementDetail` is not the current owner and does not decide who may claim a settlement. It is the reason selected by [`ChangeOwnerOfSettlementAction`](../ChangeOwnerOfSettlementAction). A public `ApplyBy*` method updates the settlement owner, town/castle components, map visuals, and related caches before `CampaignEvents.OnSettlementOwnerChangedEvent` publishes the detail.
 
-Use the public wrapper matching the source of the transfer, such as `ApplyBySiege`, `ApplyByBarter`, or `ApplyByGift`. Do not assign `Settlement.OwnerClan` directly or publish the event yourself. A listener can use the reason for logs and quests, but should treat the ownership mutation as already applied.
+`Settlement.OwnerClan` is a read-only derived property: for a village it follows `Village.Bound.OwnerClan`, and for a fortification it follows `Town.OwnerClan`; it cannot be assigned. Use the public wrapper matching the source of the transfer, such as `ApplyBySiege`, `ApplyByBarter`, or `ApplyByGift`. The Action updates the underlying ownership state and publishes the event; do not publish the event yourself. A listener can use the reason for logs and quests, but should treat the ownership mutation as already applied.
 
 ## Enum Values and Timing
 
@@ -57,6 +57,7 @@ The built-in `SettlementNameplatesVM` and `Army` use this event shape:
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Settlements;
 
 public sealed class SettlementOwnerBehavior : CampaignBehaviorBase
 {
@@ -100,6 +101,7 @@ v1.3.15 and v1.4.5 expose the same eight reasons and event parameter order. The 
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction) · [ChangeKingdomActionDetail](../ChangeKingdomActionDetail)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ Owner Action: [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementAction)
+- ↔ Siblings: [ChangeKingdomActionDetail](../ChangeKingdomActionDetail)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [Settlement](../../campaign/Settlement) · [Hero](../../campaign/Hero) · [SiegeEvent](../SiegeEvent)

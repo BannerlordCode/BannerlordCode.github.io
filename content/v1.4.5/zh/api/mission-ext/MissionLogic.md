@@ -8,7 +8,7 @@ description: "Mission 中负责规则、胜负、结果和撤退流程的 Logic 
 **Namespace:** `TaleWorlds.MountAndBlade`  
 **Module:** `TaleWorlds.MountAndBlade`  
 **Type:** `public abstract class MissionLogic : MissionBehavior`  
-**Base:** [`MissionBehavior`](../mission/MissionBehavior)  
+**Base:** [`MissionBehavior`](../../mission/MissionBehavior)  
 **Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionLogic.cs`
 
 ## 一句话职责
@@ -31,7 +31,7 @@ description: "Mission 中负责规则、胜负、结果和撤退流程的 Logic 
 
 **不适合使用：**
 
-- 只观察 Agent 命中、场景实体或镜头而不参与规则时；继承 [`MissionBehavior`](../mission/MissionBehavior) 并返回 `Other`。
+- 只观察 Agent 命中、场景实体或镜头而不参与规则时；继承 [`MissionBehavior`](../../mission/MissionBehavior) 并返回 `Other`。
 - 处理 Campaign 大地图的战争、金钱或关系时；使用相应 Campaign Action/Behavior，不要把存档世界变更塞进结果轮询。
 - 在没有确定结果的情况下结束 Mission；`MissionEnded` 必须保持 `false`，而不是返回一个未完整初始化的结果。
 
@@ -83,15 +83,15 @@ Mission 的 `CheckMissionEnded` 会遍历 `MissionLogics`，为每个 Logic 创�
 | `OnBattleEnded()` | `OnEndMissionResult` 触发的结果流程回调，随后会进入撤退/结束。 |
 | `ShowBattleResults()` | 结果已被判定后、最终 Mission 清理前的展示阶段。 |
 | `OnRetreatMission()` / `OnSurrenderMission()` | 对应离场原因的规则收尾；不要把它们误当成 `OnEndMissionInternal` 的替代品。 |
-| `GetExtraEquipmentElementsForCharacter(...)` | Mission 遍历所有 Logic 并合并非空列表；默认返回 `null`，无额外装备时保持 `null`。 |
+| `GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)` | Mission 遍历所有 Logic 并合并非空列表；默认返回 `null`，无额外装备时保持 `null`。 |
 | `OnMissionResultReady(MissionResult)` | 所有 Logic 都能看到最终结果；适合只读结果并准备下游结算。 |
 
 ## 依赖关系
 
-- **宿主：** [`Mission`](../mission/Mission) 持有 `MissionLogics`，负责结果轮询、结果显示、撤退/投降和 `EndMissionInternal`。
-- **基类：** [`MissionBehavior`](../mission/MissionBehavior) 提供 `Mission` 反向引用、通用 Agent/Team/tick 回调和 `OnRemoveBehavior` 清理入口。
-- **场上数据：** [`Agent`](../mission/Agent)、[`Team`](./Team) 和 [`Formation`](../mission/Formation) 是胜负和部署规则常用的运行时输入。
-- **上游注册：** SandBox 的 [`Mission`](../mission/Mission) 以 `MissionState.OpenNew` 和 `InitializeMissionBehaviorsDelegate` 返回 Logic；StoryMode 的 `AchievementsCampaignBehavior` 则在 Mission 开始后动态 `AddMissionBehavior`。
+- **宿主：** [`Mission`](../../mission/Mission) 持有 `MissionLogics`，负责结果轮询、结果显示、撤退/投降和 `EndMissionInternal`。
+- **基类：** [`MissionBehavior`](../../mission/MissionBehavior) 提供 `Mission` 反向引用、通用 Agent/Team/tick 回调和 `OnRemoveBehavior` 清理入口。
+- **场上数据：** [`Agent`](../../mission/Agent)、[`Team`](../Team) 和 [`Formation`](../../mission/Formation) 是胜负和部署规则常用的运行时输入。
+- **上游注册：** SandBox 的 [`Mission`](../../mission/Mission) 以 `MissionState.OpenNew` 和 `InitializeMissionBehaviorsDelegate` 返回 Logic；StoryMode 的 `AchievementsCampaignBehavior` 则在 Mission 开始后动态 `AddMissionBehavior`。
 - **下游结果：** `MissionResult`、`InquiryData` 和 Campaign 结算行为消费本页回调的结果；不要在 Logic 内绕过 Mission 直接结束外层 Campaign。
 
 ## 风险与崩溃边界
@@ -152,12 +152,12 @@ public static Mission OpenBattleWithCounterLogic(
 }
 ```
 
-This is the same acquisition path as the source factory: the delegate receives the newly created `Mission`, but the behaviors use their host reference only after `AddMissionBehavior` attaches them. For a live Mission, the StoryMode pattern is `Mission.Current.AddMissionBehavior(new AchievementMissionLogic(...))` from `OnMissionStarted`.
+同一来源工厂路径是：委托接收刚创建的 `Mission`，行为只有在 `AddMissionBehavior` 挂载后才使用宿主引用。对于已运行的 Mission，StoryMode 的真实模式是在 `OnMissionStarted` 中调用 `Mission.Current.AddMissionBehavior(new AchievementMissionLogic(OnAgentRemoved, OnAgentHit))`。
 
 ## 参见与双向导航
 
-- ↑ 父级（模块索引）：[Mission extensions 模块首页](./)
-- ↔ 相关入口：[Mission](../mission/Mission) · [MissionBehavior](../mission/MissionBehavior)
-- 场上依赖：[Agent](../mission/Agent) · [Team](./Team) · [Formation](../mission/Formation)
-- 上游模块：[Campaign](../campaign/Campaign) · [MBSubModuleBase](../core/MBSubModuleBase)
-- 文档规范：[Doc Contract](../../architecture/doc-contract)
+- ↑ 父级（模块索引）：[Mission extensions 模块首页](../)
+- ↔ 相关入口：[Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior)
+- 场上依赖：[Agent](../../mission/Agent) · [Team](../Team) · [Formation](../../mission/Formation)
+- 上游模块：[Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
+- 文档规范：[Doc Contract](../../../architecture/doc-contract)

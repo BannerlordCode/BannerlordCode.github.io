@@ -79,4 +79,4 @@ When the result came from a council agreement, call `ApplyByKingdomDecision` wit
 
 - Parent: [Actions index](../actions/)
 - Siblings: [DeclareWarAction](../DeclareWarAction) · [ChangeKingdomAction](../ChangeKingdomAction) · [ChangeRelationAction](../ChangeRelationAction)
-- Related: [Kingdom](../../campaign/Kingdom) · [Campaign](../../campaign/Campaign) · [CampaignEvents](../CampaignEvents)
+- Related: [Kingdom](../../campaign/Kingdom) · [Campaign](../../campaign/Campaign) · [CampaignEvents](../CampaignEvents) · [MakePeaceDetail](../MakePeaceDetail)

@@ -40,7 +40,7 @@ The numeric ordering is not a save contract. Branch on names rather than storing
 
 - **Upstream:** [`ChangeKingdomAction`](../ChangeKingdomAction) receives [`Clan`](../../campaign/Clan), old/new [`Kingdom`](../../campaign/Kingdom), and mercenary timing state.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnClanChangedKingdomEvent` as `IMbEvent<Clan, Kingdom, Kingdom, ChangeKingdomAction.ChangeKingdomActionDetail, bool>`.
-- **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), default logs, map nameplates, quests, and `FactionManager` update runtime state from the reason.
+- **Downstream:** `DefaultLogsCampaignBehavior`, `SettlementNameplatesVM`, `PrisonerReleaseCampaignBehavior`, and quest listeners consume the event. `FactionManager` performs state updates inside the Action; it is not a downstream event consumer.
 - **Related actions:** War and peace must go through [`DeclareWarAction`](../DeclareWarAction) or [`MakePeaceAction`](../MakePeaceAction), not a direct stance write from this event.
 - **Save boundary:** Kingdom, clan, and war state are saved; this non-serialized event is not replayed when a save is loaded.
 
@@ -101,7 +101,7 @@ v1.3.15 and v1.4.5 expose the same nine reasons and named entry points. The v1.4
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [ChangeKingdomAction](../ChangeKingdomAction) · [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ Owner Action: [ChangeKingdomAction](../ChangeKingdomAction)
+- ↔ Siblings: [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [DeclareWarAction](../DeclareWarAction)
-

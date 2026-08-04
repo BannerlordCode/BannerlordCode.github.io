@@ -1,323 +1,123 @@
 ---
 title: "Equipment"
-description: "Auto-generated class reference for Equipment."
+description: "A 12-slot battle, civilian, or stealth equipment snapshot; it organizes EquipmentElement values rather than party inventory."
 ---
 # Equipment
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
-**Type:** `public class Equipment`
-**Base:** none
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public class Equipment`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.Core/TaleWorlds.Core/Equipment.cs`
 
-## Overview
+## Responsibility
 
-`Equipment` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`Equipment` stores the 12 slots of one battle, civilian, or stealth configuration and exposes the copy, validation, and aggregate operations used to prepare characters and Agents.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Think of it as an equipment loadout table, not an inventory. `EquipmentType` selects `Battle`, `Civilian`, or `Stealth`; `EquipmentIndex` selects weapon, armor, horse, and harness slots. Each slot contains an `EquipmentElement`, a value type that references an `ItemObject` and may carry an `ItemModifier`, cosmetic item, and quest-item flag.
 
-## Key Properties
+Characters, `CharacterObject`, `Hero`, and `InventoryLogic` hold copies or snapshots of these configurations. Putting an item in an `Equipment` object does not add it to a party `ItemRoster`; editing a roster does not automatically replace a character's slot. Moving equipment into or out of a character must cross the character/inventory lifecycle explicitly.
 
-| Name | Signature |
-|------|-----------|
-| `this` | `public EquipmentElement this { get; set; }` |
-| `this` | `public EquipmentElement this { get; set; }` |
-| `HairCoverType` | `public ArmorComponent.HairCoverTypes HairCoverType { get; }` |
-| `EarsAreHidden` | `public bool EarsAreHidden { get; }` |
+## When to use / when not to use
 
-## Key Methods
+### Use it for
 
-### Clone
-`public Equipment Clone(bool cloneWithoutWeapons = false)`
+- Reading a real campaign character's loadout through `Hero.BattleEquipment`, `Hero.CivilianEquipment`, or `Hero.StealthEquipment`.
+- Reading slots by `EquipmentIndex`, then using `EquipmentElement.Item`, `ItemModifier`, `IsEmpty`, and `GetModified*` for the actual effects.
+- Preparing a character, cloning a template, or building inventory state with `Clone`, `FillFrom`, `IsEmpty`, `IsItemFitsToSlot`, and the armor/weight aggregations.
+- Making an independent candidate configuration: clone first, then change a slot rather than mutating a still-shared template or active character object.
 
-**Purpose:** Duplicates the this instance's state and returns a new instance.
+### Do not use it for
 
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.Clone(false);
+- Do not treat it as an `ItemRoster`. Equipping an item does not perform an inventory deduction, transfer event, or `HeroOrPartyGaveItem` dispatch.
+- Do not mix weapon, armor, horse, and harness slots. The setter checks `IsItemFitsToSlot`; the wrong slot can assert or produce invalid visuals and Agent data.
+- Do not expect a campaign `Equipment` edit to update an already spawned Agent's `MissionEquipment` or visuals. Mission state has its own lifecycle.
+- Do not treat `EquipmentElement.Invalid` as a persistable item, and do not place an unregistered `ItemObject` in a saved loadout.
+
+## Dependency map
+
+```text
+CharacterObject / Hero / MBEquipmentRoster
+        -> Equipment (Battle / Civilian / Stealth)
+        -> Equipment[EquipmentIndex] = EquipmentElement
+        -> ItemObject + ItemModifier + CosmeticItem
+        -> CharacterData / AgentOrigin / InventoryLogic
+        -> Party.ItemRoster (only in an explicit transfer flow)
 ```
 
-### FillFrom
-`public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)`
+- **Upstream:** `CharacterObject` equipment templates, `MBEquipmentRoster`, and [Hero](../../campaign/Hero) provide configurations; `Campaign.Current` also supplies default equipment for dead heroes.
+- **Composition:** [EquipmentElement](../EquipmentElement) is the slot value. `ItemObject` defines the item and `ItemModifier` changes derived price/armor behavior.
+- **Downstream:** `CharacterData` serializes and rebuilds equipment codes; Agent-origin and mission spawning code read armor, weight, and weapon slots.
+- **Inventory boundary:** Character-data and inventory flows transfer `EquipmentElement` values between a character's equipment and a party roster. Writing one side alone can duplicate or lose items; cross-owner transfers belong to [GiveItemAction](../../campaign-ext/GiveItemAction) or [SellItemsAction](../../campaign-ext/SellItemsAction).
 
-**Purpose:** Executes the FillFrom logic.
+## Key members
 
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-equipment.FillFrom(sourceEquipment, false);
-```
+| Member | Use and side effects |
+|---|---|
+| `ItemEquipmentType` / `IsBattle` / `IsCivilian` / `IsStealth` | Identifies the loadout meaning. Do not apply one configuration as another type. |
+| `this[int]` / `this[EquipmentIndex]` | Reads or writes a slot. The setter checks fit and writes the fixed internal slot array. |
+| `Horse` | Reads the horse slot; it is not a harness slot and not a quantity in a party inventory. |
+| `Clone(bool cloneWithoutWeapons)` / `FillFrom` | Creates an independent snapshot or copies another loadout. `cloneWithoutWeapons` clears weapon slots; it does not return anything to inventory. |
+| `IsEmpty` / `GetTotalWeightOfArmor` / `GetTotalWeightOfWeapons` | Supplies character selection, encumbrance, and Agent-generation inputs; empty slots can still produce default body/armor results. |
+| `GetHeadArmorSum` / `GetHumanBodyArmorSum` / `GetLegArmorSum` | Aggregates modified armor effects, including `ItemModifier`; do not substitute an ItemObject's base armor value. |
+| `IsItemFitsToSlot` / `GetEquipmentFromSlot` | Validate a slot before writing or reading it. Reject invalid indices rather than continuing with partially changed state. |
+| `SwapWeapons` / `GetInitialWeaponIndicesToEquip` | Supports loadout selection and initial Agent weapon choice. These change configuration/selection, not inventory or battle events. |
 
-### Deserialize
-`public void Deserialize(MBObjectManager objectManager, XmlNode node)`
+## Real acquisition and examples
 
-**Purpose:** Restores the this instance from serialized data.
+### Read and clone the hero's battle loadout
 
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-equipment.Deserialize(objectManager, node);
-```
-
-### DeserializeNode
-`public void DeserializeNode(MBObjectManager objectManager, XmlNode node)`
-
-**Purpose:** Restores node from serialized data.
+`Hero.MainHero.BattleEquipment` is a real campaign acquisition path. Clone before preparing a candidate so the current hero loadout is not modified in place:
 
 ```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-equipment.DeserializeNode(objectManager, node);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+
+Equipment battle = Hero.MainHero.BattleEquipment;
+Equipment candidate = battle.Clone(cloneWithoutWeapons: false);
+EquipmentElement mainHand = candidate[EquipmentIndex.WeaponItemBeginSlot];
+
+if (!mainHand.IsEmpty && candidate.GetTotalWeightOfWeapons() > 0f)
+{
+    int weaponValue = mainHand.ItemValue;
+}
 ```
 
-### GetEquipmentIndexFromOldEquipmentIndexName
-`public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)`
+### Set a slot only after validating the item
 
-**Purpose:** Reads and returns the equipment index from old equipment index name value held by the this instance.
+Construct an `EquipmentElement` from a registered definition, validate the slot, and write to an independent copy. This remains a loadout change; giving a party the item still requires its roster or inventory flow:
 
 ```csharp
-// Static call; no instance required
-Equipment.GetEquipmentIndexFromOldEquipmentIndexName("example");
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("sword");
+EquipmentElement element = new EquipmentElement(sword);
+Equipment candidate = Hero.MainHero.BattleEquipment.Clone();
+
+if (sword != null && Equipment.IsItemFitsToSlot(EquipmentIndex.WeaponItemBeginSlot, sword))
+{
+    candidate[EquipmentIndex.WeaponItemBeginSlot] = element;
+}
 ```
 
-### IsEmpty
-`public bool IsEmpty()`
+## Risks and lifecycle
 
-**Purpose:** Determines whether the this instance is in the empty state or condition.
+- **Shared versus snapshot:** `CharacterObject` template equipment, a hero's current equipment, and a `Clone` result have different lifetimes. Mutating a template can affect later characters; mutating a hero can affect saves and the next Agent spawn.
+- **Slot validity:** `Equipment` has a fixed 12-slot layout. A wrong `EquipmentIndex`, a horse in a weapon slot, or armor in a weapon slot can trigger `IsItemFitsToSlot` assertions and leave invalid equipment, animation, or Agent state.
+- **Inventory duplication:** Character equipment and a party `ItemRoster` can both reference the same `ItemObject`. Setting equipment and adding to the roster without the character-data/inventory flow can duplicate items; clearing equipment without returning it can lose items.
+- **Agent boundary:** Campaign `Equipment` is a spawn input. An existing Agent/Mission uses runtime state, so a campaign setter is not a live mission API.
+- **Save identity:** Equipment slots save references to `ItemObject`, `ItemModifier`, and related definitions. An unregistered item, invalid modifier, or early load-time construction can become an empty or incorrect slot after loading.
 
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.IsEmpty();
-```
+## Version note
 
-### GetTotalWeightOfArmor
-`public float GetTotalWeightOfArmor(bool forHuman)`
+This page follows the v1.4.5 12-slot `Equipment.cs`, `EquipmentIndex`, and `EquipmentElement` implementation. v1.3.15 slot mappings, templates, and Agent read points can differ; cross-version code should re-check the target version's index and lifecycle contract.
 
-**Purpose:** Reads and returns the total weight of armor value held by the this instance.
+## Navigation
 
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetTotalWeightOfArmor(false);
-```
-
-### GetTotalWeightOfWeapons
-`public float GetTotalWeightOfWeapons()`
-
-**Purpose:** Reads and returns the total weight of weapons value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetTotalWeightOfWeapons();
-```
-
-### GetHeadArmorSum
-`public float GetHeadArmorSum()`
-
-**Purpose:** Reads and returns the head armor sum value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetHeadArmorSum();
-```
-
-### GetHumanBodyArmorSum
-`public float GetHumanBodyArmorSum()`
-
-**Purpose:** Reads and returns the human body armor sum value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetHumanBodyArmorSum();
-```
-
-### GetLegArmorSum
-`public float GetLegArmorSum()`
-
-**Purpose:** Reads and returns the leg armor sum value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetLegArmorSum();
-```
-
-### GetArmArmorSum
-`public float GetArmArmorSum()`
-
-**Purpose:** Reads and returns the arm armor sum value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetArmArmorSum();
-```
-
-### GetHorseArmorSum
-`public float GetHorseArmorSum()`
-
-**Purpose:** Reads and returns the horse armor sum value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetHorseArmorSum();
-```
-
-### GetUnderwearType
-`public UnderwearTypes GetUnderwearType(bool isFemale)`
-
-**Purpose:** Reads and returns the underwear type value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetUnderwearType(false);
-```
-
-### HasWeapon
-`public bool HasWeapon()`
-
-**Purpose:** Determines whether the this instance already holds weapon.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.HasWeapon();
-```
-
-### HasWeaponOfClass
-`public bool HasWeaponOfClass(WeaponClass weaponClass)`
-
-**Purpose:** Determines whether the this instance already holds weapon of class.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.HasWeaponOfClass(weaponClass);
-```
-
-### CreateFromEquipmentCode
-`public static Equipment CreateFromEquipmentCode(string equipmentCode)`
-
-**Purpose:** Constructs a new from equipment code entity and returns it to the caller.
-
-```csharp
-// Static call; no instance required
-Equipment.CreateFromEquipmentCode("example");
-```
-
-### CalculateEquipmentCode
-`public string CalculateEquipmentCode()`
-
-**Purpose:** Calculates the current value or result of equipment code.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.CalculateEquipmentCode();
-```
-
-### AddEquipmentToSlotWithoutAgent
-`public void AddEquipmentToSlotWithoutAgent(EquipmentIndex equipmentIndex, EquipmentElement itemRosterElement)`
-
-**Purpose:** Adds equipment to slot without agent to the current collection or state.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-equipment.AddEquipmentToSlotWithoutAgent(equipmentIndex, itemRosterElement);
-```
-
-### GetEquipmentFromSlot
-`public EquipmentElement GetEquipmentFromSlot(EquipmentIndex equipmentIndex)`
-
-**Purpose:** Reads and returns the equipment from slot value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetEquipmentFromSlot(equipmentIndex);
-```
-
-### IsItemFitsToSlot
-`public static bool IsItemFitsToSlot(EquipmentIndex slotIndex, ItemObject item)`
-
-**Purpose:** Determines whether the this instance is in the item fits to slot state or condition.
-
-```csharp
-// Static call; no instance required
-Equipment.IsItemFitsToSlot(slotIndex, item);
-```
-
-### GetWeaponPickUpSlotIndex
-`public EquipmentIndex GetWeaponPickUpSlotIndex(EquipmentElement itemRosterElement, bool isStuckMissile)`
-
-**Purpose:** Reads and returns the weapon pick up slot index value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.GetWeaponPickUpSlotIndex(itemRosterElement, false);
-```
-
-### IsEquipmentEqualTo
-`public bool IsEquipmentEqualTo(Equipment other)`
-
-**Purpose:** Determines whether the this instance is in the equipment equal to state or condition.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-var result = equipment.IsEquipmentEqualTo(other);
-```
-
-### GetRandomEquipmentElements
-`public static Equipment GetRandomEquipmentElements(BasicCharacterObject character, bool randomEquipmentModifier, EquipmentType equipmentType, int seed = -1)`
-
-**Purpose:** Reads and returns the random equipment elements value held by the this instance.
-
-```csharp
-// Static call; no instance required
-Equipment.GetRandomEquipmentElements(character, false, equipmentType, 0);
-```
-
-### SwapWeapons
-`public static void SwapWeapons(Equipment equipment, EquipmentIndex index1, EquipmentIndex index2)`
-
-**Purpose:** Executes the SwapWeapons logic.
-
-```csharp
-// Static call; no instance required
-Equipment.SwapWeapons(equipment, index1, index2);
-```
-
-### GetInitialWeaponIndicesToEquip
-`public void GetInitialWeaponIndicesToEquip(out EquipmentIndex mainHandWeaponIndex, out EquipmentIndex offHandWeaponIndex, out bool isMainHandNotUsableWithOneHand, InitialWeaponEquipPreference initialWeaponEquipPreference = InitialWeaponEquipPreference.Any)`
-
-**Purpose:** Reads and returns the initial weapon indices to equip value held by the this instance.
-
-```csharp
-// Obtain an instance of Equipment from the subsystem API first
-Equipment equipment = ...;
-equipment.GetInitialWeaponIndicesToEquip(mainHandWeaponIndex, offHandWeaponIndex, isMainHandNotUsableWithOneHand, initialWeaponEquipPreference.Any);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Equipment equipment = ...;
-equipment.Clone(false);
-```
-
-## See Also
-
-- [Area Index](../)
+- **↑ Parent:** [Core-extra API](./)
+- **↔ Sibling:** [EquipmentElement](../EquipmentElement) · [EquipmentIndex](../EquipmentIndex) · [ItemObject](../ItemObject) · [ItemModifier](../ItemModifier)
+- **Related:** [Hero](../../campaign/Hero) · [CharacterObject](../../campaign/CharacterObject) · [ItemRoster](../../campaign/ItemRoster) · [GiveItemAction](../../campaign-ext/GiveItemAction)

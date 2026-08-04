@@ -12,11 +12,11 @@ description: "区分英雄因赎金、和平、战斗、逃脱、选择、死亡
 
 ## 一句话职责
 
-把英雄离开囚禁的原因传给 `HeroPrisonerReleased`，让日志、任务、通知和俘虏 Behavior 区分赎回、逃脱、和平释放和死亡清理，而不是把事件参数当作囚禁状态本身。
+标记英雄结束囚禁的原因，并在 Action 发出 `HeroPrisonerReleased` 时让日志、任务、通知和 Companion 监听器区分各释放路径；非主角的 `Death` 清理会提前返回，不发送该事件。
 
 ## 心智模型
 
-`EndCaptivityDetail` 是 [`EndCaptivityAction`](../EndCaptivityAction) 写完俘虏名册和英雄状态后发出的原因。公开 `ApplyBy*` 入口负责从原 `PartyBase.PrisonRoster` 移除英雄、清理俘虏关系、恢复或改变英雄状态，并通过 `CampaignEvents.HeroPrisonerReleased` 分发原因；模组不应自己从 `PrisonRoster` 删除英雄再手发事件。
+`EndCaptivityDetail` 是 [`EndCaptivityAction`](../EndCaptivityAction) 在处理俘虏名册和英雄状态时使用的原因。通常公开 `ApplyBy*` 入口会从原 `PartyBase.PrisonRoster` 移除英雄、清理俘虏关系、恢复或改变英雄状态，并通过 `CampaignEvents.HeroPrisonerReleased` 分发原因；但 `Death` 对非主角英雄在移除名册后会直接结束内部流程，不会走这个释放事件。模组不应自己从 `PrisonRoster` 删除英雄再手发事件。
 
 原因值不代表当前是否仍为囚犯，也不提供释放者的完整信息。监听器应以事件的 `prisoner`、`party` 和 `capturerFaction` 为准，并在回调时认为释放事务已经生效。
 
@@ -29,7 +29,7 @@ description: "区分英雄因赎金、和平、战斗、逃脱、选择、死亡
 | `ReleasedAfterBattle` | `ApplyByReleasedAfterBattle` | 战斗结算导致俘虏释放。 |
 | `ReleasedAfterEscape` | `ApplyByEscape` | 英雄从囚禁中逃脱。 |
 | `ReleasedByChoice` | `ApplyByReleasedByChoice` | 玩家或战役流程主动选择释放。 |
-| `Death` | `ApplyByDeath` | 囚禁中的英雄死亡，使用释放事件链清理俘虏关系。 |
+| `Death` | `ApplyByDeath` | 囚禁中的英雄死亡；非主角路径清理名册后直接结束，主角路径仍会走主角释放事件分支。 |
 | `ReleasedByCompensation` | `ApplyByReleasedByCompensation` | 通过补偿结算结束囚禁。 |
 
 枚举值的顺序不应作为存档格式；保存应记录模组自己的业务结果，并在加载时重新读取英雄当前状态。
@@ -37,15 +37,15 @@ description: "区分英雄因赎金、和平、战斗、逃脱、选择、死亡
 ## 依赖与事件下游
 
 - **上游：** [`EndCaptivityAction`](../EndCaptivityAction)、[`Hero`](../../campaign/Hero)、[`PartyBase`](../../campaign/PartyBase) 和俘虏名册。
-- **事件：** [`CampaignEvents`](../CampaignEvents) 的 `HeroPrisonerReleased` 类型为 `IMbEvent<Hero, PartyBase, IFaction, EndCaptivityDetail, bool>`。
-- **下游：** [`CampaignEventReceiver`](../CampaignEventReceiver)、`PrisonerReleaseCampaignBehavior`、默认日志和任务会按原因处理释放。
+- **事件：** [`CampaignEvents`](../CampaignEvents) 的 `HeroPrisonerReleased` 类型为 `IMbEvent<Hero, PartyBase, IFaction, EndCaptivityDetail, bool>`；它覆盖普通释放和主角释放路径，但不能视为所有 `Death` 清理都会触发。
+- **下游：** 默认日志、通知、任务和 Companion 监听器消费 `HeroPrisonerReleased`；`PrisonerReleaseCampaignBehavior` 是调用 `EndCaptivityAction` 的上游生产者，不是该释放事件的消费者。
 - **相关行动：** [`TakePrisonerAction`](../TakePrisonerAction)、[`TransferPrisonerAction`](../TransferPrisonerAction) 和 [`KillCharacterAction`](../KillCharacterAction) 会改变同一俘虏生命周期的上下游状态。
 - **存档：** 俘虏名册与英雄位置保存；释放原因不会在读档时为非序列化监听器重放。
 
 ## 风险与生命周期
 
 - 不要直接调用 `PartyBase.PrisonRoster.RemoveTroop` 代替 Action。那会跳过英雄状态、释放事件、日志和任务清理。
-- `Death` 不是“正常释放”。它与英雄死亡、遗产和 Companion 清理可能处于同一同步级联，监听器不要再调用普通释放 Action。
+- `Death` 不是“正常释放”。非主角死亡路径不会发送 `HeroPrisonerReleased`；只有 Main Hero 分支继续发送该事件。它可能与英雄死亡、遗产和 Companion 清理处于同一同步级联，监听器不要再调用普通释放 Action。
 - 回调里的 `party` 可能为空（例如某些死亡或补偿路径），`capturerFaction` 也可能不是英雄当前地图派系；先判空再访问。
 - 不要把 `EndCaptivityDetail` 当作可恢复的英雄状态。读档后应从 `Hero.IsPrisoner`、所属队伍和当前战役数据重建运行时索引。
 
@@ -56,6 +56,7 @@ description: "区分英雄因赎金、和平、战斗、逃脱、选择、死亡
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
 
 public sealed class PrisonerReleaseBehavior : CampaignBehaviorBase
 {
@@ -98,6 +99,7 @@ public sealed class PrisonerReleaseBehavior : CampaignBehaviorBase
 ## 导航
 
 - ↑ 父级：[Campaign-Ext API](../)
-- ↔ 同级：[EndCaptivityAction](../EndCaptivityAction) · [TransferPrisonerAction](../TransferPrisonerAction)
-- ↓ 所属：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ 所属 Action：[EndCaptivityAction](../EndCaptivityAction)
+- ↔ 同级：[TransferPrisonerAction](../TransferPrisonerAction)
+- 事件：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - 相关：[Hero](../../campaign/Hero) · [PartyBase](../../campaign/PartyBase) · [TakePrisonerAction](../TakePrisonerAction)

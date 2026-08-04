@@ -16,7 +16,7 @@ Mark whether a hero relation change is an ordinary interaction or an emissary ac
 
 ## Mental Model
 
-This enum is produced only by the public entry points of [`ChangeRelationAction`](../ChangeRelationAction). The Action asks `DiplomacyModel.GetHeroesForEffectiveRelation` for the heroes whose relation is actually stored, clamps the resulting value to `-100..100`, writes it through `CharacterRelationManager`, and then publishes `CampaignEvents.HeroRelationChanged` with `ChangeRelationDetail`.
+This enum is produced only by the public entry points of [`ChangeRelationAction`](../ChangeRelationAction). The Action first scales and randomly rounds a positive request, asks `DiplomacyModel.GetHeroesForEffectiveRelation` for the heroes whose relation is actually stored, reads the old value with `CharacterRelationManager.GetHeroRelation`, clamps "old relation + scaled `relationChange`" to `-100..100`, and writes the result with `effectiveHero.SetPersonalRelation(effectiveHero2, value)`. It then publishes the same pre-clamp `relationChange` with `ChangeRelationDetail` through `CampaignEvents.HeroRelationChanged`.
 
 The detail identifies the source, not the relation value, and should not be written into a hero. Ordinary player or hero interactions use `ApplyPlayerRelation` or `ApplyRelationChangeBetweenHeroes`; emissary flows use `ApplyEmissaryRelation`. Do not bypass the model or manually publish a notification.
 
@@ -27,12 +27,12 @@ The detail identifies the source, not the relation value, and should not be writ
 | `Default` | `ApplyPlayerRelation`, `ApplyRelationChangeBetweenHeroes` | An ordinary dialogue, quest, reward, or aftermath relation change. |
 | `Emissary` | `ApplyEmissaryRelation` | A relation change performed by an emissary; downstream code can distinguish it from direct interaction. |
 
-Positive changes may be scaled and randomized by the diplomacy model, so `detail` does not guarantee that the final `relationChange` equals the caller's input.
+Positive changes may be scaled and randomized by the diplomacy model. The event's `relationChange` is the scaled value before the storage clamp; the actual stored delta is "clamped new relation - old relation", so the two can differ at `-100` or `100`, including an actual delta of zero.
 
 ## Dependencies and Event Consumers
 
 - **Upstream:** [`ChangeRelationAction`](../ChangeRelationAction), [`Hero`](../../campaign/Hero), and `Campaign.Current.Models.DiplomacyModel`.
-- **State:** `CharacterRelationManager` writes personal relation for the effective heroes; the original heroes remain available in the event arguments.
+- **State:** `CharacterRelationManager.GetHeroRelation` reads the old relation; `effectiveHero.SetPersonalRelation(...)` writes the clamped value for the effective heroes. The original heroes remain available in the event arguments.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `HeroRelationChanged` as `IMbEvent<Hero, Hero, int, bool, ChangeRelationAction.ChangeRelationDetail, Hero, Hero>`.
 - **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), relation behaviors, notifications, and quests consume the detail and both hero pairs.
 - **Save boundary:** Relation values are campaign state; the event is not replayed after a save load.
@@ -40,8 +40,8 @@ Positive changes may be scaled and randomized by the diplomacy model, so `detail
 ## Risks and Lifetime
 
 - Direct relation writes skip effective-hero mapping, the `-100..100` clamp, and `OnHeroRelationChanged`, leaving UI and quests out of sync.
-- `ApplyInternal` writes and dispatches only when the effective relation change is nonzero. Calling the Action does not guarantee an event.
-- `showQuickNotification` controls notification behavior, not the relation transaction. Use the event's effective delta rather than recomputing the original request.
+- `ApplyInternal` skips the write and event only when the scaled `relationChange` is zero. When it is nonzero, the event still carries that pre-clamp value even if the clamp leaves stored relation unchanged.
+- `showQuickNotification` controls notification behavior, not the relation transaction. A listener that needs the actual stored delta must track the relation around the callback; it cannot treat the event's `relationChange` as the clamped delta.
 - The relation event is synchronous. Applying another change to the same pair from inside the callback can recurse and trigger duplicate quest effects.
 
 ## Real Usage Example
@@ -62,13 +62,13 @@ public sealed class RelationReasonBehavior : CampaignBehaviorBase
     private void OnRelationChanged(
         Hero effectiveHero,
         Hero effectiveHeroGainedRelationWith,
-        int relationChange,
+        int eventRelationChange,
         bool showNotification,
         ChangeRelationAction.ChangeRelationDetail detail,
         Hero originalHero,
         Hero originalGainedRelationWith)
     {
-        if (detail == ChangeRelationAction.ChangeRelationDetail.Emissary && relationChange != 0)
+        if (detail == ChangeRelationAction.ChangeRelationDetail.Emissary && eventRelationChange != 0)
         {
             RecordEmissaryChange(effectiveHero, effectiveHeroGainedRelationWith, originalHero, originalGainedRelationWith);
         }
@@ -95,7 +95,7 @@ v1.3.15 and v1.4.5 expose only `Default` and `Emissary`, with the same event arg
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [ChangeRelationAction](../ChangeRelationAction) · [ChangeKingdomActionDetail](../ChangeKingdomActionDetail)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ Owner Action: [ChangeRelationAction](../ChangeRelationAction)
+- ↔ Siblings: [ChangeKingdomActionDetail](../ChangeKingdomActionDetail)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [Hero](../../campaign/Hero) · [DiplomacyModel](../DiplomacyModel)
-

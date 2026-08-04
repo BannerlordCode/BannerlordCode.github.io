@@ -2,6 +2,58 @@
 title: "save-system 目录"
 description: TaleWorlds.SaveSystem 存档系统类参考目录
 ---
+
+## Saveable 属性家族：成员、根类与类型定义
+
+### 心智模型
+
+这三个 Attribute 只描述存档 schema 的不同层次，不能互相替代。`SaveableRootClassAttribute` 说明一个 class 可以被标记为对象图根；`SaveableFieldAttribute` 和 `SaveablePropertyAttribute` 分别说明已注册类型中的字段或属性应以哪个成员本地 ID 进入存档。它们不会创建 `DefinitionContext`、不会替 mod 注册 `SaveableTypeDefiner`，也不会把任意 CLR 对象自动变成可存档对象。
+
+### 共同契约与依赖边界
+
+真正的注册链是：[SaveManager](./SaveManager) 创建 [DefinitionContext](./DefinitionContext)，扫描并运行 [SaveableTypeDefiner](./SaveableTypeDefiner)，再让 [TypeDefinition](./TypeDefinition) 反射收集带有成员 Attribute 的字段和属性。成员的 local ID 必须在其声明类型和继承层级内稳定且不重复；成员类型、封闭泛型和容器仍必须由 definer 注册。战役 Behavior 的小块状态则通常应使用 [CampaignBehaviorBase](../campaign/CampaignBehaviorBase) 的 `SyncData(IDataStore)`，而不是为了保存一个 primitive 添加 Saveable Attribute。
+
+| 命名空间 | 类型 | 手写用途 | 典型时机 |
+| --- | --- | --- | --- |
+| `TaleWorlds.SaveSystem` | [`SaveableFieldAttribute`](./SaveableFieldAttribute) | 给实例字段分配 `LocalSaveId`，由 `TypeDefinition.CollectFields()` 收集；适合需要保留字段语义、包括私有字段的已注册类型。 | 类型定义注册完成后，DefinitionContext 收集字段元数据时生效；不是运行期给字段加标签的 API。 |
+| `TaleWorlds.SaveSystem` | [`SaveablePropertyAttribute`](./SaveablePropertyAttribute) | 给实例属性分配 `LocalSaveId`，由 `TypeDefinition.CollectProperties()` 收集；适合通过属性 getter/setter 暴露的持久化成员。 | 类型定义注册完成后、序列化或反序列化对象图前收集；属性仍必须有可用的存取契约。 |
+| `TaleWorlds.SaveSystem` | [`SaveableRootClassAttribute`](./SaveableRootClassAttribute) | 在源码中声明 class 的根类标记及其 `SaveId`；它不等价于完整的 root definition。 | 该标记本身不是当前 v1.4.5 的注册入口；实际 root definition 由 `SaveableCoreTypeDefiner.DefineRootClassTypes()` 调用 `SaveableTypeDefiner.AddRootClassDefinition` 建立。 |
+
+源码中的 `Game` 与 `SaveableCoreTypeDefiner` 分别展示了三层概念：
+
+```csharp
+[SaveableRootClass(5000)]
+public sealed class Game
+{
+    [SaveableField(11)]
+    private int _nextUniqueTroopSeed = 1;
+
+    [SaveableProperty(3)]
+    public GameType GameType { get; private set; }
+}
+```
+
+```csharp
+public class SaveableCoreTypeDefiner : SaveableTypeDefiner
+{
+protected override void DefineRootClassTypes()
+{
+    AddRootClassDefinition(typeof(Game), 4001);
+}
+}
+```
+
+这里 `5000` 是根类 Attribute 的标记值，`11` 和 `3` 是成员本地 ID，而 `SaveableCoreTypeDefiner` 在 base ID `10000` 下注册的 `4001` 才形成实际 root type save ID。不要把这几个数字混用，也不要在发布后随意改变它们。
+
+### 风险边界
+
+- **ID 是存档契约：** 改变 root、type、field 或 property 的已发布 ID，会让旧存档无法按原 schema 解释；改属性名也不等于保留兼容性。
+- **字段和属性不是同一入口：** `SaveableFieldAttribute` 只面向 field，`SaveablePropertyAttribute` 只面向 property。`TypeDefinition` 分别在 field/property 字典中检查重复的 `MemberTypeId` 并记录错误；不要假设 field 与 property 跨种类使用同一个数字会自动触发同一条重复检查，发布时仍应让所有成员本地 ID 清晰且稳定。
+- **标记不等于类型注册：** 成员引用的 class、struct、enum、泛型或容器必须先由 [SaveableTypeDefiner](./SaveableTypeDefiner) 定义；否则 schema 只有成员编号，没有可解析的类型定义。
+- **不要把 Behavior 状态硬塞进 Saveable schema：** 自定义战役状态优先用 [IDataStore](../campaign/IDataStore) 和稳定 key 通过 `SyncData` 保存；不要在保存回调中缓存 `Settlement`、`MobileParty` 等运行时对象引用并假设它们会按引用恢复。
+
+最短的选择规则是：要保存 Behavior 自己的状态，先看 `SyncData`；要让一个已注册对象的成员进入引擎对象图，才考虑 field/property Attribute；要注册对象图的根和类型身份，再看 [SaveableTypeDefiner](./SaveableTypeDefiner)。
+
 <!-- BEGIN SECTION INDEX -->
 
 ## ↑ 上级导航

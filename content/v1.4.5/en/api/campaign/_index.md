@@ -28,6 +28,39 @@ The Campaign layer is the **strategic simulation**: the map, factions, settlemen
 | Logic | `CampaignBehaviorBase`, `CampaignGameStarter`, `CampaignBehaviorManager` | your per-tick code lives here |
 | Events | `CampaignEvents` | subscribe for lifecycle hooks |
 
+## H3-A/H3-B: Entering the Core Entities by Task
+
+These waves cover the connected Campaign entity deep pages completed so far. They explain what to read and which Action changes it. Long-tail types that have not met the handwritten coverage standard, `Army`, `MapEvent`, `SiegeEvent`, and container types continue in later waves; an existing file is not evidence of handwritten coverage.
+
+| Task | Start here | Key boundary |
+|---|---|---|
+| Query a person, relations, or lifecycle | [Hero](./Hero) | Read state; use the relevant Action for gold, relations, death, and party membership. |
+| Read a clan and its fiefs | [Clan](./Clan) | A clan may have no kingdom; influence, leadership, kingdom, and fief changes have separate Actions. |
+| Read kingdom politics | [Kingdom](./Kingdom) | Models calculate diplomatic scores; Actions declare war, make peace, and change the ruling clan. |
+| Read a settlement and siege state | [Settlement](./Settlement) | `Town`, `Village`, and `Hideout` are different components; transfer ownership through an Action. |
+| Read and drive a map party | [MobileParty](./MobileParty) | PartyBase, Hero, Army, AI, and location must remain bidirectionally synchronized. |
+
+### H3-B: Settlement and Party Entities
+
+| Task | Start here | Key boundary |
+|---|---|---|
+| Query character templates, upgrades, and roster sources | [CharacterObject](./CharacterObject) | It is a registered character/troop template; Hero and world-state changes use `Hero` and the relevant Action. |
+| Read the settlement Party boundary and rosters | [PartyBase](./PartyBase) | It is hosted by a `Settlement` or `MobileParty`; do not construct an orphan PartyBase or bypass the host when changing world relationships. |
+| Read town/castle economy and management state | [Town](./Town) | `Town` is the `Settlement` fief component; ownership and governor changes use the relevant Actions, while Models calculate values. |
+| Read village production, hearths, and trade binding | [Village](./Village) | `Bound` and `TradeBound` are different relationships; state changes use `ChangeVillageStateAction`. |
+
+## Entity object graph
+
+```text
+Campaign
+  ├─ Hero ── Clan ── Kingdom
+  ├─ MobileParty ── PartyBase ── roster / encounter
+  └─ Settlement ── Town / Village / Hideout
+        └─ OwnerClan / garrison / siege
+```
+
+Read state from the entity page first, then subscribe to changes through [CampaignEvents](./CampaignEvents), and finally choose a world-changing `*Action` from [campaign-ext](../campaign-ext/). Each entity page ends with Navigation links to its parent, siblings, and downstream dependencies.
+
 ## Dependency graph
 
 ```

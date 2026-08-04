@@ -31,7 +31,7 @@ description: "Mount & Blade 场景中的行为挂载基类：由 Mission 持有�
 
 **不适合使用：**
 
-- 要判定胜负、生成 `MissionResult` 或处理撤退/投降时；继承 [`MissionLogic`](../mission-ext/MissionLogic) 并实现对应契约。
+- 要判定胜负、生成 `MissionResult` 或处理撤退/投降时；继承 [`MissionLogic`](../../mission-ext/MissionLogic) 并实现对应契约。
 - 要改变 Campaign 大地图实体时；回到 Campaign 行为和对应 Action，不要在 Mission tick 中直接改存档状态。
 - 要监听 Mission 之外的全局生命周期时；不要用 `Mission.Current` 代替正确的 SubModule 或 Campaign 事件入口。
 
@@ -79,16 +79,16 @@ description: "Mount & Blade 场景中的行为挂载基类：由 Mission 持有�
 | `Mission` | 加入 Mission 后由宿主内部设置；是读取 `Agents`、`Teams`、`PlayerTeam` 等上下文的入口。移除后必为 `null`。 |
 | `BehaviorType` | 决定行为进入普通集合还是 `MissionLogics`。它不是运行时开关，不能随 Mission 状态改变。 |
 | `DebugInput` | 访问调试输入上下文；只应用于调试或开发期行为，不要把它当作玩家输入层的长期依赖。 |
-| `OnAgentRemoved(...)` | 读取 `AgentState`、击杀者和 `KillingBlow` 的时机。回调结束后不要缓存 `affectedAgent` 作为跨帧对象。 |
+| `OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)` | 读取 `AgentState`、击杀者和 `KillingBlow` 的时机。回调结束后不要缓存 `affectedAgent` 作为跨帧对象。 |
 | `GetCompassTargets()` | 默认返回 `null`；只有确实提供罗盘目标的行为才返回列表。不要把空列表误当作“由其他行为提供”。 |
 | `OnMissionStateActivated` / `OnMissionStateDeactivated` / `OnMissionStateFinalized` | 连接 MissionState 的外层激活、停用和最终化；订阅必须在停用或移除时对称清理。 |
 
 ## 依赖关系
 
-- **宿主与上游：** [`Mission`](./Mission) 通过 `MissionState.OpenNew` 获取行为工厂结果，并调用 `AddMissionBehavior`；[`Campaign`](../campaign/Campaign) 或 SandBox 的任务入口决定何时打开 Mission。
-- **场上对象：** [`Agent`](./Agent) 会触发创建、命中、移除回调；[`Team`](../mission-ext/Team) 和 [`Formation`](./Formation) 提供部署、阵营与编队上下文。
-- **规则下游：** [`MissionLogic`](../mission-ext/MissionLogic) 是 Logic 行为的专门化；它参与 `MissionLogics` 的结果检查、撤退和结束流程。
-- **模块入口：** [`MBSubModuleBase`](../core/MBSubModuleBase) 是 mod 进入游戏生命周期的上游入口，但它不替代 Mission 内的行为注册。
+- **宿主与上游：** [`Mission`](../Mission) 通过 `MissionState.OpenNew` 获取行为工厂结果，并调用 `AddMissionBehavior`；[`Campaign`](../../campaign/Campaign) 或 SandBox 的任务入口决定何时打开 Mission。
+- **场上对象：** [`Agent`](../Agent) 会触发创建、命中、移除回调；[`Team`](../../mission-ext/Team) 和 [`Formation`](../Formation) 提供部署、阵营与编队上下文。
+- **规则下游：** [`MissionLogic`](../../mission-ext/MissionLogic) 是 Logic 行为的专门化；它参与 `MissionLogics` 的结果检查、撤退和结束流程。
+- **模块入口：** [`MBSubModuleBase`](../../core/MBSubModuleBase) 是 mod 进入游戏生命周期的上游入口，但它不替代 Mission 内的行为注册。
 
 ## 风险与崩溃边界
 
@@ -142,12 +142,12 @@ public static Mission OpenBattleWithCounter(MissionInitializerRecord rec)
 }
 ```
 
-动态挂载也是真实使用方式：StoryMode 的 `AchievementsCampaignBehavior.OnMissionStarted(IMission obj)` 创建 `AchievementMissionLogic`，然后调用 `Mission.Current.AddMissionBehavior(...)`。这种方式适用于已有 Mission 已打开、但 mod 只在事件发生后才需要加入监听器的场景。
+动态挂载也是真实使用方式：StoryMode 的 `AchievementsCampaignBehavior.OnMissionStarted(IMission obj)` 创建 `AchievementMissionLogic`，然后调用 `Mission.Current.AddMissionBehavior(new AchievementMissionLogic(OnAgentRemoved, OnAgentHit))`。这种方式适用于已有 Mission 已打开、但 mod 只在事件发生后才需要加入监听器的场景。
 
 ## 参见与双向导航
 
-- ↑ 父级（模块索引）：[Mission 模块首页](./)
-- ↔ 同级：[Mission](./Mission) · [Agent](./Agent) · [Formation](./Formation)
-- ↓ 专门化子类：[MissionLogic](../mission-ext/MissionLogic)
-- 上游入口：[Campaign](../campaign/Campaign) · [MBSubModuleBase](../core/MBSubModuleBase)
-- 文档规范：[Doc Contract](../../architecture/doc-contract)
+- ↑ 父级（模块索引）：[Mission 模块首页](../)
+- ↔ 同级：[Mission](../Mission) · [Agent](../Agent) · [Formation](../Formation)
+- ↓ 专门化子类：[MissionLogic](../../mission-ext/MissionLogic)
+- 上游入口：[Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
+- 文档规范：[Doc Contract](../../../architecture/doc-contract)

@@ -12,7 +12,7 @@ description: "说明舰船因交易、转移、掠夺、生产或移动部队创
 
 ## 一句话职责
 
-把舰船所有权迁移的来源传给 `OnShipOwnerChangedEvent`，使海军视觉、贸易、AI 和日志区分交易、掠夺与系统创建，避免下游把事件原因当成当前船主字段。
+把舰船所有权迁移的来源传给 `OnShipOwnerChangedEvent`，使据点 Nameplate 通知和巡逻 AI 区分交易、掠夺与系统创建，避免下游把事件原因当成当前船主字段。
 
 ## 心智模型
 
@@ -37,7 +37,7 @@ description: "说明舰船因交易、转移、掠夺、生产或移动部队创
 - **上游：** [`ChangeShipOwnerAction`](../ChangeShipOwnerAction)、`Ship`、[`PartyBase`](../../campaign/PartyBase) 和 `ShipCostModel`。
 - **金钱边界：** 只有 `ApplyByTrade` 进入价格计算和 [`GiveGoldAction`](../GiveGoldAction)；其他原因不是免费交易的别名。
 - **事件：** [`CampaignEvents`](../CampaignEvents) 的 `OnShipOwnerChangedEvent` 类型为 `IMbEvent<Ship, PartyBase, ChangeShipOwnerAction.ShipOwnerChangeDetail>`。
-- **下游：** [`CampaignEventReceiver`](../CampaignEventReceiver)、Nameplate、港口/船厂 Behavior 和海军 AI 根据新旧 owner 刷新状态。
+- **下游：** `SettlementNameplateNotificationsVM` 和 `AiPatrollingBehavior` 消费所有权变更事件；权威调用点未显示港口或船厂 Behavior 监听该事件。
 - **存档：** 船与所有者关系由战役保存；事件原因不为读档后的非序列化监听器重放。
 
 ## 风险与生命周期
@@ -54,6 +54,8 @@ description: "说明舰船因交易、转移、掠夺、生产或移动部队创
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Naval;
+using TaleWorlds.CampaignSystem.Party;
 
 public sealed class ShipOwnerBehavior : CampaignBehaviorBase
 {
@@ -94,6 +96,7 @@ public sealed class ShipOwnerBehavior : CampaignBehaviorBase
 ## 导航
 
 - ↑ 父级：[Campaign-Ext API](../)
-- ↔ 同级：[ChangeShipOwnerAction](../ChangeShipOwnerAction) · [ShipDestroyDetail](../ShipDestroyDetail)
-- ↓ 所属：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ 所属 Action：[ChangeShipOwnerAction](../ChangeShipOwnerAction)
+- ↔ 同级：[ShipDestroyDetail](../ShipDestroyDetail)
+- 事件：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - 相关：[PartyBase](../../campaign/PartyBase) · [MobileParty](../../campaign/MobileParty) · [GiveGoldAction](../GiveGoldAction)

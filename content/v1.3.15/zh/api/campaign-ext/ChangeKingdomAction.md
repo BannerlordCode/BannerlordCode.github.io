@@ -86,4 +86,4 @@ public static class RebellionScript
 
 - ↑ 父级：[Actions 目录](../actions/)
 - ↔ 同级：[DeclareWarAction](../DeclareWarAction) · [MakePeaceAction](../MakePeaceAction) · [ChangeRelationAction](../ChangeRelationAction)
-- 相关：[Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Campaign](../../campaign/Campaign)
+- 相关：[Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Campaign](../../campaign/Campaign) · [ChangeKingdomActionDetail](../ChangeKingdomActionDetail)

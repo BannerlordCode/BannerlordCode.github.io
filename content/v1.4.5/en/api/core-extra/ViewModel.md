@@ -1,245 +1,127 @@
 ---
-title: "ViewModel"
-description: "Auto-generated class reference for ViewModel."
+title: "ViewModel: Gauntlet Data Sources and UI Lifetime"
+description: "The v1.4.5 UI binding base class, covering property notifications, commands, refresh, OnFinalize, and its boundary from Campaign state."
 ---
 # ViewModel
 
-**Namespace:** TaleWorlds.Library
-**Module:** TaleWorlds.Library
-**Type:** `public abstract class ViewModel : IViewModel, INotifyPropertyChanged`
-**Base:** `IViewModel`
-**File:** `bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
+## Metadata
 
-## Overview
+- **Namespace:** `TaleWorlds.Library`
+- **Module:** `TaleWorlds.Library`
+- **Type:** `public abstract class ViewModel`
+- **Base:** `IViewModel`, `INotifyPropertyChanged`
+- **Source:** `bin/TaleWorlds.Library/TaleWorlds.Library/ViewModel.cs`
 
-`ViewModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+## Responsibility in one sentence
 
-## Mental Model
+`ViewModel` is the Gauntlet binding data source: it connects UI-visible properties, notifications, and commands to a short-lived screen object, not to Campaign or save state itself.
 
-Treat `ViewModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+## Mental model
 
-## Key Properties
+`ViewModel` sits between Library and UI. Concrete subclasses such as `BannerViewModel` and `MissionOrderVM` hold display state and notify Gauntlet through public properties, `OnPropertyChanged`, and `SetField`. The constructor discovers properties and methods for the concrete type and caches binding metadata; `GetPropertyValue`, `SetPropertyValue`, `GetViewModelAtPath`, and `ExecuteCommand` form part of that binding bridge.
 
-| Name | Signature |
-|------|-----------|
-| `Properties` | `public Dictionary<string, PropertyInfo> Properties { get; set; }` |
-| `Methods` | `public Dictionary<string, MethodInfo> Methods { get; set; }` |
-| `PropertyChanged` | `public event PropertyChangedEventHandler PropertyChanged { get; }` |
-| `PropertyChangedWithValue` | `public event PropertyChangedWithValueEventHandler PropertyChangedWithValue { get; }` |
-| `PropertyChangedWithBoolValue` | `public event PropertyChangedWithBoolValueEventHandler PropertyChangedWithBoolValue { get; }` |
-| `PropertyChangedWithIntValue` | `public event PropertyChangedWithIntValueEventHandler PropertyChangedWithIntValue { get; }` |
-| `PropertyChangedWithFloatValue` | `public event PropertyChangedWithFloatValueEventHandler PropertyChangedWithFloatValue { get; }` |
-| `PropertyChangedWithUIntValue` | `public event PropertyChangedWithUIntValueEventHandler PropertyChangedWithUIntValue { get; }` |
-| `PropertyChangedWithColorValue` | `public event PropertyChangedWithColorValueEventHandler PropertyChangedWithColorValue { get; }` |
-| `PropertyChangedWithDoubleValue` | `public event PropertyChangedWithDoubleValueEventHandler PropertyChangedWithDoubleValue { get; }` |
-| `PropertyChangedWithVec2Value` | `public event PropertyChangedWithVec2ValueEventHandler PropertyChangedWithVec2Value { get; }` |
+A screen normally creates a VM, passes it to [`GauntletLayer`](../../engine/GauntletLayer).`LoadMovie`, lets UI-thread property changes drive the view, then releases the movie, calls `OnFinalize`, and clears the data source in the reverse order. A VM may read Campaign or Mission state, but it is not the authoritative owner. Keeping a Hero, Agent, or native visual alive through another screen creates a lifetime mismatch.
 
-## Key Methods
+## When to use it, and when not to
 
-### OnPropertyChanged
-`public void OnPropertyChanged( string propertyName = null)`
+### Use it when
 
-**Purpose:** Invoked when the property changed event is raised.
+- Building a Gauntlet movie's UI properties, collections, hints, and command entry points.
+- Using `SetField` in setters to avoid redundant notifications and overriding `RefreshValues` in a derived VM to reload localized or derived display values.
+- Overriding `OnFinalize` to unsubscribe and release temporary resources when the UI is destroyed.
 
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChanged("example");
+### Do not use it when
+
+- Do not make a VM the sole source of truth for a `Hero`, `MobileParty`, or `Mission`; world changes belong to the relevant entity, Action, or Behavior.
+- Do not write bound properties from a background thread or trigger notifications after the VM has been finalized.
+- Do not share a VM across screens when it still holds a destroyed `Agent`, `BannerVisual`, or Mission reference.
+
+## Dependency graph
+
+```text
+Campaign/Mission source → concrete ViewModel → GauntletLayer → UIContext/movie
+                                  ↓                 ↓
+                         PropertyChanged       ScreenLayer input/finalize
 ```
 
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(bool value, string propertyName = null)`
+- Upstream: Campaign/Mission or a Core value object; `BannerViewModel`, for example, owns a [`Banner`](../Banner).
+- Binding layer: [`GauntletLayer`](../../engine/GauntletLayer).`LoadMovie` receives the VM and reflects its properties and methods.
+- Host layer: `ScreenLayer`/`ScreenBase` own input order, activation, focus, and destruction; a Mission page is also bounded by [`Mission`](../../mission/Mission).
+- Related subclasses: `BannerViewModel`, `HintViewModel`, and `ItemVM` are concrete data sources. Generated Gauntlet Widgets are not VM subclasses.
 
-**Purpose:** Invoked when the property changed with value event is raised.
+## Important members and timing
 
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(false, "example");
-```
+| Member | Use | Timing and side effects |
+|---|---|---|
+| `PropertyChanged` and typed notification events | Tell the binding layer that a property or value changed. | Notify only on real changes; redundant notifications cost UI work, and notifications after finalization can reach destroyed widgets. |
+| `SetField<T>(ref T, T, string)` | Compares values, assigns the field, and calls `OnPropertyChanged`. | The normal derived-property setter pattern. It returns whether a change occurred and does not refresh related derived properties for you. |
+| `OnPropertyChanged`, `OnPropertyChangedWithValue` | Explicitly broadcast a property or a typed new value. | Use when one setter affects more than one bound property; the property name must match a real binding property. |
+| `GetPropertyValue`, `GetPropertyType`, `SetPropertyValue` | Let the binding bridge access named properties. | Missing names return null or perform no write; the property setter still owns validation. Reflection does not bypass lifecycle rules. |
+| `GetViewModelAtPath` | Resolve nested VMs or `IMBBindingList` entries along a binding path. | Empty lists, invalid indexes, and non-VM children return null. It is not unconditional object navigation. |
+| `ExecuteCommand(string, object[])` | Find an instance method by name, convert some string arguments, and invoke it. | Missing methods or incompatible parameters do not execute. Commands still run inside the current UI lifetime and thread. |
+| `RefreshValues()` | Let a derived VM reload localized or derived display data. | The base implementation is empty; a concrete VM must override it and call it at a valid refresh point. |
+| `OnFinalize()` | Let a derived VM release subscriptions and short-lived resources. | The base class does not clean up derived references. The host should call it once and stop using the VM afterward. |
 
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(int value, string propertyName = null)`
+The binding metadata and SaveSystem auto-collect support are implementation details, not a replacement for Campaign save contracts. Save the behavior or entity state that owns the value and keep the UI VM disposable.
 
-**Purpose:** Invoked when the property changed with value event is raised.
+## Real binding path
 
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(0, "example");
-```
-
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(float value, string propertyName = null)`
-
-**Purpose:** Invoked when the property changed with value event is raised.
+### Build a VM from a real banner value
 
 ```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(0, "example");
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core.ViewModelCollection.BannerEditor;
+
+BannerViewModel bannerViewModel = new BannerViewModel(Hero.MainHero.ClanBanner);
+string bannerCode = bannerViewModel.BannerCode;
+bannerViewModel.RefreshValues();
+bannerViewModel.OnFinalize();
 ```
 
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(uint value, string propertyName = null)`
+`BannerViewModel` accepts a real `Banner`, and its `BannerCode` setter calls `Banner.Deserialize` before notifying the binding layer. A real movie host should release the movie before finalizing the VM; this example shows the order and must not hand the object back to UI after finalization.
 
-**Purpose:** Invoked when the property changed with value event is raised.
+### Derived property and command pattern
 
 ```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(0, "example");
+using TaleWorlds.Library;
+
+public sealed class CounterViewModel : ViewModel
+{
+    private int _count;
+
+    public int Count
+    {
+        get => _count;
+        set => SetField(ref _count, value);
+    }
+
+    public void ResetCount()
+    {
+        Count = 0;
+    }
+}
 ```
 
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(Color value, string propertyName = null)`
+Gauntlet can bind `Count` and can invoke `ResetCount` as a command. This VM owns display state only. When `Count` represents Campaign data, update the authoritative model or Action and let the VM read it again rather than treating a UI field as world state.
 
-**Purpose:** Invoked when the property changed with value event is raised.
+## Risks and boundaries
 
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(value, "example");
-```
+- **Metadata cache:** Construction of a concrete type caches its reflection metadata. Runtime changes to the property layout are not discovered automatically; use `RefreshPropertyAndMethodInfos` only for an actual assembly change, never every frame.
+- **Notification consistency:** Changing a backing field directly does not notify UI; changing one derived value may leave another stale. Use `SetField` and notify related properties explicitly.
+- **Command safety:** `ExecuteCommand` is a reflection entry point. Names and parameters come from UI, so command and setter code must validate state instead of assuming a trusted business call.
+- **Finalization:** `OnFinalize` does not automatically unsubscribe from Campaign, Mission, or custom events. Derived classes must clean up symmetrically, and the host must stop using the VM after movie release.
+- **Thread and stage:** `PropertyChanged` invokes subscribers directly. Background-thread writes can race UI rendering; schedule updates inside the supported UI lifetime and thread.
+- **State authority:** Refreshing a VM changes only the UI representation. Gold, ownership, rosters, and save data require their Campaign APIs; `SetPropertyValue` must not bypass Action or Save contracts.
 
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(double value, string propertyName = null)`
+## Version note
 
-**Purpose:** Invoked when the property changed with value event is raised.
+This page follows the v1.4.5 `TaleWorlds.Library.ViewModel` and Gauntlet call sites. Later or earlier versions may add typed notification or binding helpers; target-version source remains authoritative, and a subclass property is not a base-class guarantee.
 
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(0, "example");
-```
+## Navigation
 
-### OnPropertyChangedWithValue
-`public void OnPropertyChangedWithValue(Vec2 value, string propertyName = null)`
-
-**Purpose:** Invoked when the property changed with value event is raised.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnPropertyChangedWithValue(value, "example");
-```
-
-### GetViewModelAtPath
-`public object GetViewModelAtPath(BindingPath path, bool isList)`
-
-**Purpose:** Reads and returns the view model at path value held by the this instance.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-var result = viewModel.GetViewModelAtPath(path, false);
-```
-
-### GetViewModelAtPath
-`public object GetViewModelAtPath(BindingPath path)`
-
-**Purpose:** Reads and returns the view model at path value held by the this instance.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-var result = viewModel.GetViewModelAtPath(path);
-```
-
-### GetPropertyValue
-`public object GetPropertyValue(string name, PropertyTypeFeeder propertyTypeFeeder)`
-
-**Purpose:** Reads and returns the property value value held by the this instance.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-var result = viewModel.GetPropertyValue("example", propertyTypeFeeder);
-```
-
-### GetPropertyValue
-`public object GetPropertyValue(string name)`
-
-**Purpose:** Reads and returns the property value value held by the this instance.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-var result = viewModel.GetPropertyValue("example");
-```
-
-### GetPropertyType
-`public Type GetPropertyType(string name)`
-
-**Purpose:** Reads and returns the property type value held by the this instance.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-var result = viewModel.GetPropertyType("example");
-```
-
-### SetPropertyValue
-`public void SetPropertyValue(string name, object value)`
-
-**Purpose:** Assigns a new value to property value and updates the object's internal state.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.SetPropertyValue("example", value);
-```
-
-### OnFinalize
-`public virtual void OnFinalize()`
-
-**Purpose:** Invoked when the finalize event is raised.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.OnFinalize();
-```
-
-### ExecuteCommand
-`public void ExecuteCommand(string commandName, object parameters)`
-
-**Purpose:** Runs the operation or workflow associated with command.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.ExecuteCommand("example", parameters);
-```
-
-### RefreshValues
-`public virtual void RefreshValues()`
-
-**Purpose:** Keeps the display or cache of values in sync with the underlying state.
-
-```csharp
-// Obtain an instance of ViewModel from the subsystem API first
-ViewModel viewModel = ...;
-viewModel.RefreshValues();
-```
-
-### RefreshPropertyAndMethodInfos
-`public static void RefreshPropertyAndMethodInfos()`
-
-**Purpose:** Keeps the display or cache of property and method infos in sync with the underlying state.
-
-```csharp
-// Static call; no instance required
-ViewModel.RefreshPropertyAndMethodInfos();
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-ViewModel instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ Core Extra parent](../)
+- [↔ Banner](../Banner)
+- [↔ ItemObject](../ItemObject)
+- [↔ SkillObject](../SkillObject)
+- [Related: GauntletLayer](../../engine/GauntletLayer)
+- [Related: ScreenManager](../../gui/ScreenManager)

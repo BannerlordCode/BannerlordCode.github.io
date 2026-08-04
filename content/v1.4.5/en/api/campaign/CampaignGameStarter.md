@@ -131,4 +131,4 @@ v1.3.15 and v1.4.5 retain the starter's behavior, model, menu, and conversation 
 
 - ↑ Parent: [Campaign API](./)
 - ↔ Siblings: [Campaign](../Campaign) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignBehaviorManager](../CampaignBehaviorManager) · [CampaignEvents](../CampaignEvents)
-- Related: [MBSubModuleBase](../../core/MBSubModuleBase) · [GameModels](../GameModels) · [MissionBehavior](../../mission/MissionBehavior)
+- Related: [MBSubModuleBase](../../core/MBSubModuleBase) · [GameModelsManager](../../core-extra/GameModelsManager) · [MissionBehavior](../../mission/MissionBehavior)

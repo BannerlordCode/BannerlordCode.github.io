@@ -1,7 +1,228 @@
 ---
-title: "campaign-ext index"
-description: Campaign extension class reference index
+title: "Campaign extension workflows: Behavior, Action, Model, Mission, and Save (v1.4.5)"
+description: "A task-first entry point from MBSubModuleBase and Campaign behavior registration through events, world-changing Actions, rule Models, MissionBehavior, and SyncData persistence, followed by the complete alphabetical index."
 ---
+# Campaign extension workflows
+
+This page is not a second campaign-entity directory. It maps a mod from its loading entry point to the campaign, mission, and save boundaries. Start with a task, then use the alphabetical index at the end when you already know a type name. The prose is based on v1.4.5 source; it does not present v1.3.15 behavior as the current API.
+
+## Metadata
+
+| Item | Value |
+|---|---|
+| Main namespaces | `TaleWorlds.CampaignSystem`, `TaleWorlds.CampaignSystem.Actions`, `TaleWorlds.MountAndBlade`, `TaleWorlds.SaveSystem` |
+| Runtime modules | CampaignSystem, MountAndBlade, and SaveSystem; the SandBox tournament behavior is a call-site example for events and persistence |
+| Source evidence | `CampaignGameStarter`, `CampaignBehaviorBase`, `CampaignBehaviorManager`, `CampaignEvents`, `CampaignEventReceiver`, `TournamentCampaignBehavior`, `MBSubModuleBase`, `Mission`, and `SaveManager` |
+| Page scope | Cross-layer entry points and safety boundaries; this does not replace deep pages for individual Actions, Models, entities, or Mission types |
+
+## Parent navigation
+
+- [API Reference](../)
+- [Version Home](../../)
+
+## Sibling entry points
+
+- [Campaign API](../campaign/)
+- [Mission API](../mission/)
+- [Foundation / Core API](../core/)
+- [Save system](../save-system/)
+
+## Child entry points
+
+- [GiveGoldAction](./GiveGoldAction)
+- [KillCharacterAction](./KillCharacterAction)
+- [ChangeKingdomAction](./ChangeKingdomAction)
+- [DeclareWarAction](./DeclareWarAction)
+- [Complete alphabetical index](#alphabetical-index-by-type-name)
+
+## Establish the boundary first
+
+`Campaign` is the long-lived strategic world. It owns objects such as `Hero`, `Clan`, `Kingdom`, and `Settlement`, and exposes the assembled rule set through `Campaign.Current.Models`. During that lifetime, `CampaignBehaviorBase` receives events and persists its state through `SyncData(IDataStore)`.
+
+Foundation/Core is the outer layer. `MBSubModuleBase` is an entry point called by the game where `Game` and object registration are prepared; it is not permission to read `Campaign.Current` early. Register campaign behavior in `OnGameStart` only after confirming that the supplied starter is a `CampaignGameStarter`.
+
+`Mission` is a short-lived tactical encounter. `Mission.Current`, `Agent`, and `MissionBehavior` are valid only while that mission owns them. The mission produces a result, and the campaign layer applies the long-lived world change at the appropriate settlement point. Do not carry a temporary `Agent` reference into campaign state.
+
+SaveSystem serializes the state. The campaign behavior manager calls `SyncData` for each registered behavior before saving. An `IDataStore.SyncData` key is part of the save contract: renaming it, changing its type, or inserting an unregistered object graph can make loading fail or restore incomplete state.
+
+```text
+MBSubModuleBase.OnGameStart
+  -> CampaignGameStarter.AddBehavior
+  -> CampaignBehaviorManager.RegisterEvents
+  -> CampaignEvents callback
+  -> Action.Apply changes the world / GameModels calculate rules
+  -> OnBeforeSave -> behavior.SyncData(IDataStore)
+
+Campaign can open a Mission
+  -> MissionBehavior receives Agent lifecycle events
+  -> only after the Mission ends does long-lived state return to Campaign
+```
+
+## Enter by task
+
+| Goal | Start here | Correct exit | Do not do this |
+|---|---|---|---|
+| Install a system when a single-player campaign starts | [MBSubModuleBase](../core/MBSubModuleBase) `OnGameStart`, after confirming `CampaignGameStarter` | `AddBehavior(new YourBehavior())` | Read `Campaign.Current` from SubModule loading or an unrelated UI hook |
+| Add long-lived campaign logic | [CampaignBehaviorBase](../campaign/CampaignBehaviorBase) and [CampaignEvents](../campaign/CampaignEvents) | Subscribe with `AddNonSerializedListener` in `RegisterEvents`; persist fields in `SyncData` | Poll every frame or treat event delegates as save data |
+| Change hero gold, death, kingdom membership, or war | [GiveGoldAction](./GiveGoldAction), [KillCharacterAction](./KillCharacterAction), [ChangeKingdomAction](./ChangeKingdomAction), [DeclareWarAction](./DeclareWarAction) | Choose the matching `Apply...` operation so events, notifications, and cleanup run | Write `Hero.Gold`, `Clan.Kingdom`, or faction stance directly |
+| Calculate a war score or finance threshold | [GameModelsManager](../core-extra/GameModelsManager/), [DiplomacyModel](../campaign/DiplomacyModel), and [ClanFinanceModel](../campaign/ClanFinanceModel) | Read the installed Model through `Campaign.Current.Models` and use its result for a decision or UI | Treat a Model as if it commits a world change |
+| Persist custom behavior fields | [CampaignBehaviorBase](../campaign/CampaignBehaviorBase) and [SaveManager](../save-system/SaveManager) | Call `SyncData` for each field with a stable key | Keep the field only in ordinary C# state or assemble it temporarily in `OnBeforeSaveEvent` |
+| Add battle or encounter logic | [Mission](../mission/Mission) and [MissionBehavior](../mission/MissionBehavior) | Read `Agent` in MissionBehavior callbacks and release references when it is removed | Access `Mission.Current` or a removed Agent after the mission ends |
+
+## Task 1: Register a Campaign Behavior
+
+`CampaignGameStarter` stores behaviors waiting to be installed. `CampaignBehaviorManager` later calls `RegisterEvents` on each instance and reads its `SyncData` before saving. Constructing a behavior is therefore not the same as subscribing it, and an unregistered behavior will not enter the manager's save path.
+
+The following entry path comes from `MBSubModuleBase.OnGameStart`; it does not assume that a global service already exists:
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public sealed class MySubModule : MBSubModuleBase
+{
+    protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        if (gameStarterObject is CampaignGameStarter campaignStarter)
+        {
+            campaignStarter.AddBehavior(new DailyLedgerBehavior());
+        }
+    }
+}
+```
+
+The behavior follows the v1.4.5 `TournamentCampaignBehavior` pattern for non-serialized listeners and lets the manager own persistent fields through `IDataStore`:
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public sealed class DailyLedgerBehavior : CampaignBehaviorBase
+{
+    private int _observedDays;
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData("my_mod_observed_days", ref _observedDays);
+    }
+
+    private void OnDailyTick()
+    {
+        _observedDays++;
+    }
+}
+```
+
+The owner passed to `AddNonSerializedListener(this, ...)` must not be a temporary object: the manager uses the owner to remove listeners when a behavior is removed. Do not register the same instance repeatedly, and do not put subscriptions that must be rebuilt into `SyncData`.
+
+## Task 2: Read rules through events and submit world changes through Actions
+
+An event answers “when did this happen?”, a Model answers “what does the current rule calculate?”, and an Action performs the world mutation. They are not interchangeable. The SandBox tournament behavior uses `DailyTickSettlementEvent` to reach `ConsiderStartOrEndTournament`, where it reads `Campaign.Current.Models.TournamentModel`; its separate `DailyTickEvent` callback updates leaderboard renown. Campaign code awards starting money with `GiveGoldAction.ApplyBetweenCharacters` instead of writing a balance directly.
+
+For example, the current `DiplomacyModel` supplies a war-declaration score. The `Campaign.Current`, player clan, kingdom collection, and reason output below are real engine paths; this only calculates and does not declare war:
+
+```csharp
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Localization;
+
+if (Campaign.Current != null && Clan.PlayerClan != null)
+{
+    Kingdom playerKingdom = Clan.PlayerClan.Kingdom;
+    Kingdom targetKingdom = Kingdom.All.FirstOrDefault(
+        kingdom => kingdom != playerKingdom && !kingdom.IsEliminated);
+
+    if (playerKingdom != null && targetKingdom != null)
+    {
+        TextObject reason;
+        float score = Campaign.Current.Models.DiplomacyModel.GetScoreOfDeclaringWar(
+            playerKingdom, targetKingdom, Clan.PlayerClan, out reason, includeReason: true);
+    }
+}
+```
+
+`ClanFinanceModel` is also obtained from `Campaign.Current.Models`; for example, `PartyGoldLowerThreshold` is a rule input, not a transfer. To submit a gold change, use an Action. It enforces the giver's available money and broadcasts the transaction event:
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+Hero player = Hero.MainHero;
+GiveGoldAction.ApplyBetweenCharacters((Hero)null, player, 1000, false);
+```
+
+Death, kingdom membership, and war have additional state. `KillCharacterAction` handles death marking, parties, inheritance, and events; `ChangeKingdomAction` updates stances, mercenary relations, and parties; `DeclareWarAction` updates faction state and broadcasts it. Check the relevant Action deep page to choose among `ApplyByBattle`, `ApplyByExecution`, `ApplyByJoinToKingdom`, `ApplyByKingdomDecision`, and other causes. Do not bypass them by writing fields while a map event, siege, hero-death confirmation, or kingdom decision is still being settled.
+
+## Task 3: Save custom fields at the load/save boundary
+
+`IDataStore` distinguishes saving from loading, but a behavior normally calls the same `SyncData(key, ref field)` line in both cases; the save system decides whether to write or restore. Keep keys stable and namespaced, such as `my_mod_observed_days`, and provide a migration path when a field's type must change.
+
+The campaign behavior manager subscribes to `CampaignEvents.OnBeforeSaveEvent`, clears its internal behavior data, and calls `SyncData` on each behavior; during loading it fills the same behavior instances again. Two conditions follow:
+
+1. The same behavior must be installable for old and new saves, with compatible field types and keys.
+2. `SyncData` must not trigger an Action, create a Mission, access a short-lived Agent, or depend on world initialization that is not complete. Those side effects can re-enter the save/load path with an incomplete world.
+
+Complex custom types also have to follow the registration rules described by [SaveManager](../save-system/SaveManager) and Core's saveable-type system. The `int` example above needs no extra definition; it does not prove that an arbitrary object graph is saveable.
+
+## Task 4: MissionBehavior and Agent lifetime
+
+`Mission` initializes its behaviors through `OnBehaviorInitialize`, dispatches `OnAgentCreated` when an Agent appears, dispatches `OnAgentRemoved` when it leaves, and calls `OnRemoveBehavior` before removing a behavior. Long-lived state should therefore be a campaign value or a serializable ID, not an `Agent` instance. The behavior below obtains a real Agent from lifecycle callbacks and clears its references at both release points:
+
+```csharp
+using System.Collections.Generic;
+using TaleWorlds.MountAndBlade;
+
+public sealed class AgentTrackerBehavior : MissionBehavior
+{
+    private readonly HashSet<Agent> _trackedAgents = new HashSet<Agent>();
+
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    public override void OnAgentCreated(Agent agent)
+    {
+        _trackedAgents.Add(agent);
+    }
+
+    public override void OnAgentRemoved(
+        Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow blow)
+    {
+        _trackedAgents.Remove(affectedAgent);
+    }
+
+    public override void OnRemoveBehavior()
+    {
+        _trackedAgents.Clear();
+    }
+}
+```
+
+Use `Mission.Current` only inside an already-created Mission, and prefer the Mission construction path when installing the behavior. Do not read `Mission.Current` from a campaign behavior's daily tick; it is usually `null` on the campaign map, and continuing to access an Agent after `OnAgentRemoved` can touch an invalid native object.
+
+## Timing, crash, and save-corruption checks
+
+- **Campaign read too early:** `OnSubModuleLoad`, menu-root changes, and unrelated hooks can run before a campaign exists. Register from `OnGameStart` after receiving a `CampaignGameStarter`, and read `Campaign.Current` only in a callback where the campaign is ready.
+- **Duplicate events or the wrong owner:** Repeated `RegisterEvents` calls duplicate callbacks; a short-lived listener owner cannot be reliably removed. Use the behavior itself as the listener owner.
+- **Bypassing an Action:** Gold, death, kingdom changes, and war each have events, notifications, related entities, and cleanup. Direct field writes can leave the UI inconsistent, parties behind, or saves invalid.
+- **Treating a Model as a write interface:** A Model only calculates the current rule. Replace one at the correct starter phase and preserve the base-model/decorator chain; an empty replacement or hard-coded formula can break other systems and future updates.
+- **Incompatible saves:** Unstable keys, unregistered complex types, and side effects in `SyncData` can make loading fail or persist an incomplete snapshot.
+- **Escaped Agents:** Agent, Mission, and native scene objects belong to the current encounter. `OnAgentRemoved` and `OnRemoveBehavior` are release boundaries, not optional cleanup.
+
+## Related deep pages
+
+- [Campaign](../campaign/Campaign), [CampaignGameStarter](../campaign/CampaignGameStarter), [CampaignBehaviorBase](../campaign/CampaignBehaviorBase), [CampaignEvents](../campaign/CampaignEvents)
+- [GameModelsManager](../core-extra/GameModelsManager/), [DiplomacyModel](../campaign/DiplomacyModel), [ClanFinanceModel](../campaign/ClanFinanceModel)
+- [Mission](../mission/Mission), [MissionBehavior](../mission/MissionBehavior), [MBSubModuleBase](../core/MBSubModuleBase), [IDataStore](../campaign/IDataStore), [SaveManager](../save-system/SaveManager)
+
+## Alphabetical index by type name
+
+The existing child pages below form a complete identity index for known type names. Use it for lookup; it is not a substitute for the workflow, risk boundaries, or completion status of those leaf pages.
+
 <!-- BEGIN SECTION INDEX -->
 
 ## Parent Navigation

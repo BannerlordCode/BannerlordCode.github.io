@@ -34,7 +34,7 @@ description: "区分普通媾和与王国决议媾和，并说明 MakePeaceActio
 - **上游：** [`MakePeaceAction`](../MakePeaceAction)、[`IFaction`](../IFaction)、`FactionManager` 和王国决议。
 - **核心状态：** `StanceLink` 变为中立，贡金通过 `SetDailyTributePaid` 写入；主角相关地图实体会标脏。
 - **事件：** [`CampaignEvents`](../CampaignEvents) 的 `MakePeace` 类型为 `IMbEvent<IFaction, IFaction, MakePeaceAction.MakePeaceDetail>`。
-- **下游：** [`CampaignEventReceiver`](../CampaignEventReceiver)、`SiegeEventCampaignBehavior`、`PrisonerReleaseCampaignBehavior`、联盟和任务会根据原因执行清理。
+- **下游：** `SiegeEventCampaignBehavior`、`PrisonerReleaseCampaignBehavior` 和 `AllianceCampaignBehavior` 消费媾和事件但通常不读取 `detail`；`CommentOnMakePeaceBehavior` 会明确按 `ByKingdomDecision` 分支。
 - **反向操作：** 战争应走 [`DeclareWarAction`](../DeclareWarAction)，而不是手写 faction stance。
 
 ## 风险与生命周期
@@ -88,6 +88,7 @@ public sealed class PeaceReasonBehavior : CampaignBehaviorBase
 ## 导航
 
 - ↑ 父级：[Campaign-Ext API](../)
-- ↔ 同级：[MakePeaceAction](../MakePeaceAction) · [DeclareWarAction](../DeclareWarAction)
-- ↓ 所属：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ 所属 Action：[MakePeaceAction](../MakePeaceAction)
+- ↔ 同级：[DeclareWarAction](../DeclareWarAction)
+- 事件：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - 相关：[IFaction](../IFaction) · [Kingdom](../../campaign/Kingdom) · [SiegeEvent](../SiegeEvent)

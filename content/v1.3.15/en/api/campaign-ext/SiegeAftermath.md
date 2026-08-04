@@ -16,7 +16,7 @@ Mark the `Devastate`, `Pillage`, or `ShowMercy` choice after a siege and carry i
 
 ## Mental Model
 
-This enum is not settlement prosperity and does not perform pillage by itself. `SiegeAftermathAction.ApplyAftermath` receives the attacker, settlement, previous owner, and `Dictionary<MobileParty, float>` contribution map, then passes `SiegeAftermathAction.SiegeAftermath` to `CampaignEventDispatcher.OnSiegeAftermathApplied`. `SiegeAftermathCampaignBehavior` and other listeners apply the actual prosperity, building, militia, influence, log, and menu consequences.
+This enum is not settlement prosperity and does not perform pillage by itself. `SiegeAftermathAction.ApplyAftermath` receives the attacker, settlement, previous owner, and `Dictionary<MobileParty, float>` contribution map, then passes `SiegeAftermathAction.SiegeAftermath` to `CampaignEventDispatcher.OnSiegeAftermathApplied`. `SiegeAftermathCampaignBehavior` directly applies prosperity, building, loyalty, and gold effects and uses `SiegeAftermathModel` for trait XP; `DefaultLogsCampaignBehavior` records the result.
 
 Call `ApplyAftermath` at the siege-resolution boundary while the contribution map still belongs to the current `MapEvent`. Do not treat the enum as a setter that can devastate a settlement independently of the campaign behavior.
 
@@ -35,7 +35,7 @@ The enum contains no cost, prosperity delta, or reward amount; those are calcula
 - **Upstream:** [`SiegeAftermathAction`](../SiegeAftermathAction), [`SiegeEvent`](../SiegeEvent/), [`MobileParty`](../../campaign/MobileParty), and [`Settlement`](../../campaign/Settlement).
 - **Contribution data:** `Dictionary<MobileParty, float>` must come from the current siege battle; do not reuse another map event's contribution map.
 - **Event:** [`CampaignEvents`](../CampaignEvents) exposes `OnSiegeAftermathAppliedEvent` as `IMbEvent<MobileParty, Settlement, SiegeAftermathAction.SiegeAftermath, Clan, Dictionary<MobileParty, float>>`.
-- **Downstream:** [`CampaignEventReceiver`](../CampaignEventReceiver), `SiegeAftermathCampaignBehavior`, default logs, and building/prosperity/militia models consume the choice.
+- **Downstream:** `SiegeAftermathCampaignBehavior` and `DefaultLogsCampaignBehavior` listen to the event. The former directly applies settlement and gold effects; it calls `SiegeAftermathModel` for trait XP, so the model is not an independent event consumer.
 - **Save boundary:** Resulting settlement and log state may be saved; the event and transient contribution map are not replayed after load.
 
 ## Risks and Lifetime
@@ -53,6 +53,8 @@ The built-in `DefaultLogsCampaignBehavior` registers the same event signature:
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 public sealed class SiegeAftermathBehavior : CampaignBehaviorBase
 {
@@ -95,6 +97,7 @@ v1.3.15 and v1.4.5 use the nested type `SiegeAftermathAction.SiegeAftermath` wit
 ## Navigation
 
 - ↑ Parent: [Campaign-Ext API](../)
-- ↔ Siblings: [SiegeAftermathAction](../SiegeAftermathAction) · [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
-- ↓ Owner and event: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ Owner Action: [SiegeAftermathAction](../SiegeAftermathAction)
+- ↔ Siblings: [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
+- Events: [CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - Related: [SiegeEvent](../SiegeEvent/) · [Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty)

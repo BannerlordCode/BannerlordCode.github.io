@@ -16,7 +16,7 @@ description: "SiegeAftermathAction.SiegeAftermath 的围城结算原因枚举，
 
 ## 心智模型
 
-这个枚举不是据点当前繁荣度，也不是一个会自行执行掠夺的 Action。`SiegeAftermathAction.ApplyAftermath` 接收攻击方、据点、旧所有者和 `Dictionary<MobileParty, float>` 贡献表，然后把 `SiegeAftermathAction.SiegeAftermath` 交给 `CampaignEventDispatcher.OnSiegeAftermathApplied`。真正的繁荣、建筑、民兵、影响力、日志和菜单后果由监听该事件的 `SiegeAftermathCampaignBehavior` 等下游完成。
+这个枚举不是据点当前繁荣度，也不是一个会自行执行掠夺的 Action。`SiegeAftermathAction.ApplyAftermath` 接收攻击方、据点、旧所有者和 `Dictionary<MobileParty, float>` 贡献表，然后把 `SiegeAftermathAction.SiegeAftermath` 交给 `CampaignEventDispatcher.OnSiegeAftermathApplied`。`SiegeAftermathCampaignBehavior` 直接应用繁荣、建筑、忠诚度和金币后果，并通过 `SiegeAftermathModel` 计算特性经验；`DefaultLogsCampaignBehavior` 记录结果。
 
 因此，模组应在围城遭遇已经确定、贡献表仍对应本次 `MapEvent` 时调用 `ApplyAftermath`，不要把枚举当成“直接把据点夷为平地”的快捷 setter。
 
@@ -35,7 +35,7 @@ description: "SiegeAftermathAction.SiegeAftermath 的围城结算原因枚举，
 - **上游：** [`SiegeAftermathAction`](../SiegeAftermathAction)、[`SiegeEvent`](../SiegeEvent/)、[`MobileParty`](../../campaign/MobileParty) 和 [`Settlement`](../../campaign/Settlement)。
 - **贡献数据：** `Dictionary<MobileParty, float>` 必须来自当前围城战斗，不能把别的地图事件的贡献表复用到本次结算。
 - **事件：** [`CampaignEvents`](../CampaignEvents) 的 `OnSiegeAftermathAppliedEvent` 类型为 `IMbEvent<MobileParty, Settlement, SiegeAftermathAction.SiegeAftermath, Clan, Dictionary<MobileParty, float>>`。
-- **下游：** [`CampaignEventReceiver`](../CampaignEventReceiver)、`SiegeAftermathCampaignBehavior`、默认日志、建筑/繁荣/民兵模型和游戏菜单消费这个原因。
+- **下游：** `SiegeAftermathCampaignBehavior` 和 `DefaultLogsCampaignBehavior` 监听该事件。前者直接应用据点与金币效果；`SiegeAftermathModel` 由它调用来计算特性经验，不是独立事件消费者。
 - **存档：** 结算后的据点和日志状态可保存；事件和瞬时贡献表不会在读档时重放。
 
 ## 风险与生命周期
@@ -53,6 +53,8 @@ description: "SiegeAftermathAction.SiegeAftermath 的围城结算原因枚举，
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 public sealed class SiegeAftermathBehavior : CampaignBehaviorBase
 {
@@ -95,6 +97,7 @@ public sealed class SiegeAftermathBehavior : CampaignBehaviorBase
 ## 导航
 
 - ↑ 父级：[Campaign-Ext API](../)
-- ↔ 同级：[SiegeAftermathAction](../SiegeAftermathAction) · [ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
-- ↓ 所属：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
+- ↓ 所属 Action：[SiegeAftermathAction](../SiegeAftermathAction)
+- ↔ 同级：[ChangeOwnerOfSettlementDetail](../ChangeOwnerOfSettlementDetail)
+- 事件：[CampaignEvents](../CampaignEvents) · [CampaignEventReceiver](../CampaignEventReceiver)
 - 相关：[SiegeEvent](../SiegeEvent/) · [Settlement](../../campaign/Settlement) · [MobileParty](../../campaign/MobileParty)

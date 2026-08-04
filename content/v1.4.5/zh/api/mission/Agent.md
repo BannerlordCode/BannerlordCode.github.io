@@ -57,7 +57,7 @@ description: "战场中一个可被操控、编入阵形、参与战斗并经历
 
 ## 依赖关系
 
-`Agent` 的上游是 [Mission](../Mission) 的创建与 tick；它由 [MissionBehavior](../MissionBehavior) 的生命周期回调观察，并向下连接到 [Team](../../mission-ext/Team)、[Formation](../Formation) 和 [AgentComponent](../../mission-ext/AgentComponent)。战役来源还会通过 [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent) 把场上实体与 Campaign 语义连接起来。
+`Agent` 的上游是 [Mission](../Mission/) 的创建与 tick；它由 [MissionBehavior](../MissionBehavior/) 的生命周期回调观察，并向下连接到 [Team](../../mission-ext/Team/)、[Formation](../Formation/) 和 [AgentComponent](../../mission-ext/AgentComponent/)。战役来源还会通过 [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent/) 把场上实体与 Campaign 语义连接起来。
 
 ### 关键关系
 
@@ -198,7 +198,7 @@ public sealed class AgentMonitor : MissionLogic
 ## 导航
 
 - ↑ [Mission 模块首页](../)
-- ↔ [Mission](../Mission) · [MissionBehavior](../MissionBehavior) · [Formation](../Formation)
-- ↓ [Team](../../mission-ext/Team) · [AgentComponent](../../mission-ext/AgentComponent) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent)
-- 相关上游：[Campaign](../../campaign/Campaign) · [MBSubModuleBase](../../core/MBSubModuleBase)
-- 风险专题：[崩溃边界](../../architecture/crash-boundary) · [文档契约](../../architecture/doc-contract)
+- ↔ [Mission](../Mission/) · [MissionBehavior](../MissionBehavior/) · [Formation](../Formation/)
+- ↓ [Team](../../mission-ext/Team/) · [AgentComponent](../../mission-ext/AgentComponent/) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent/)
+- 相关上游：[Campaign](../../campaign/Campaign/) · [MBSubModuleBase](../../core/MBSubModuleBase/)
+- 风险专题：[崩溃边界](../../../architecture/crash-boundary/) · [文档契约](../../../architecture/doc-contract/)

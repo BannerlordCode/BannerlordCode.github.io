@@ -1,41 +1,79 @@
 ---
 title: "DialogHelper"
-description: "Auto-generated class reference for DialogHelper."
+description: "DialogHelper is the campaign conversation-text bridge that matches the current one-to-one character to a GameText and writes the result into MBTextManager."
 ---
 # DialogHelper
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class DialogHelper`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/DialogHelper.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class DialogHelper`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/DialogHelper.cs`
 
-## Overview
+## One-sentence responsibility
 
-`DialogHelper` is a helper class that usually provides static logic which does not depend on instance state.
+It uses the active conversation manager and `CharacterObject.OneToOneConversationCharacter` to find a matching text object, then writes that object into the named global text variable for later conversation expansion.
 
 ## Mental Model
 
-Treat `DialogHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`DialogHelper` neither creates a conversation nor chooses its character. The caller supplies a variable name and a `gameTextId`; the helper asks `Campaign.Current.ConversationManager` for a matching `TextObject` using the current one-to-one character, then calls `MBTextManager.SetTextVariable`. The conversation system and its text templates consume the variable; the helper owns only this context bridge.
 
-## Key Methods
+It therefore requires an active conversation context. A missing campaign, missing one-to-one character, or unmatched text can produce an empty result. This is not a general localization loader, and a variable written for one conversation should not be cached outside that conversation.
 
-### SetDialogString
-`public static void SetDialogString(string stringVariable, string gameTextId)`
+## When to use and when not to use
 
-**Purpose:** Assigns a new value to dialog string and updates the object's internal state.
+- Call `SetDialogString` from a conversation consequence after the current character has been established.
+- Pass a registered GameText ID and the exact variable name used by the following conversation template.
+- Do not call it before `Campaign.Current` or `CharacterObject.OneToOneConversationCharacter` exists, and do not replace the conversation manager's character matching with this helper.
+- Use [StringHelpers](../StringHelpers) when a specific `TextObject` needs character, settlement, or effect variables instead.
 
-```csharp
-// Static call; no instance required
-DialogHelper.SetDialogString("example", "example");
+## Dependencies
+
+```text
+Campaign.Current.ConversationManager
+  -> FindMatchingTextOrNull(gameTextId, OneToOneConversationCharacter)
+  -> MBTextManager.SetTextVariable(stringVariable, TextObject)
+  -> conversation text template
 ```
 
-## Usage Example
+- Conversation context: [Campaign](../../campaign/Campaign) and [ConversationSentence](../../campaign/ConversationSentence).
+- Text object: [TextObject](../../localization/TextObject); character source: [CharacterObject](../../campaign/CharacterObject).
+- Related variable helper: [StringHelpers](../StringHelpers), which builds richer character and settlement variable objects.
+
+## Public members
+
+| Member | Purpose and timing |
+|---|---|
+| `SetDialogString(string stringVariable, string gameTextId)` | Finds matching GameText for the active one-to-one character and writes the returned `TextObject` into `MBTextManager`; it returns no text and does not change conversation state. |
+
+## Real example
 
 ```csharp
-DialogHelper.Initialize();
+using Helpers;
+using TaleWorlds.CampaignSystem;
+
+if (Campaign.Current != null && CharacterObject.OneToOneConversationCharacter != null)
+{
+    DialogHelper.SetDialogString("MEETING_RESULT", "str_meeting_result");
+}
 ```
 
-## See Also
+Use this inside a one-to-one conversation consequence. `str_meeting_result` must be a registered, character-matchable text ID, and `MEETING_RESULT` must match the variable name referenced by the conversation template.
 
-- [Area Index](../)
+## Risks and save boundaries
+
+- The source method has no null guards. Calling it without conversation context can write an empty text object or make later text expansion fail.
+- `stringVariable` is a global text-variable name. Reusing a generic name can contaminate later lines in the same conversation; use a module-specific naming convention.
+- The write is transient UI/conversation state, not a Campaign save field. Never use it as recoverable gameplay data.
+- GameText IDs and character matching belong to localization and conversation data. When replacing a conversation, validate both the template variable and the `ConversationManager` context.
+
+## Version note
+
+The v1.4.5 implementation still calls `FindMatchingTextOrNull` with the active one-to-one character and then writes through `MBTextManager`; it does not create or register a GameText from the ID.
+
+## Navigation
+
+- [↑ API system index](../)
+- [↔ StringHelpers](../StringHelpers)
+- [Related: ConversationSentence](../../campaign/ConversationSentence)
+- [Related: TextObject](../../localization/TextObject)

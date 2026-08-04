@@ -1,101 +1,85 @@
 ---
 title: "StringHelpers"
-description: "Auto-generated class reference for StringHelpers."
+description: "StringHelpers is the Bannerlord text-variable and string-normalization utility for writing CharacterObject, Settlement, and effect values into TextObject or repeatable dialogue lines."
 ---
 # StringHelpers
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class StringHelpers`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/StringHelpers.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class StringHelpers`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/StringHelpers.cs`
 
-## Overview
+## One-sentence responsibility
 
-`StringHelpers` lives in `Helpers` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+It turns characters, settlements, and effect increments into variables for localized text while also providing CamelCase, snake_case, and diacritic normalization; these methods mainly change transient text state, not campaign entities.
 
 ## Mental Model
 
-Start from namespace `Helpers` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`StringHelpers` has two boundaries. `SplitCamelCase`, `CamelCaseToSnakeCase`, and `RemoveDiacritics` are pure string transforms. `SetCharacterProperties`, `SetSettlementProperties`, `SetRepeatableCharacterProperties`, and `SetEffectIncrementTypeTextVariable` write to a parent `TextObject`, `MBTextManager`, or `ConversationSentence.SelectedRepeatLine`. The same tag therefore has different lifetimes depending on its target, and a returned `TextObject` does not make the write location irrelevant.
 
-## Key Methods
+The character group includes `NAME`, `GENDER`, and `LINK`; for heroes, `includeDetails` can add `FIRSTNAME`, `AGE`, `FACTION`, and `CLAN`. The settlement group includes `NAME` and `LINK`. These are values read from the objects at call time, not saved references to those objects.
 
-### SplitCamelCase
-`public static string SplitCamelCase(string text)`
+## When to use and when not to use
 
-**Purpose:** Splits camel case into multiple parts or sub-items.
+- Use `SetCharacterProperties` or `SetSettlementProperties` to build reusable localized-text variables, preferably with a parent `TextObject` to keep the scope local.
+- Use `SetRepeatableCharacterProperties` or `isRepeatable: true` only inside a repeatable conversation-line handler because they write to `ConversationSentence.SelectedRepeatLine`.
+- Use `SetEffectIncrementTypeTextVariable` for additive or factor effects; `AddFactor` multiplies the bonus by 100 before formatting it.
+- Do not treat text variables as save fields, and do not call repeat-line entries without an active selected repeat line. World changes belong to entity or Action APIs.
 
-```csharp
-// Static call; no instance required
-StringHelpers.SplitCamelCase("example");
+## Dependencies
+
+```text
+CharacterObject / Settlement
+  -> StringHelpers property builders
+  -> TextObject / MBTextManager / ConversationSentence.SelectedRepeatLine
+  -> localized dialogue, notifications, encyclopedia text
 ```
 
-### CamelCaseToSnakeCase
-`public static string CamelCaseToSnakeCase(string camelCaseString)`
+- Input entities: [CharacterObject](../../campaign/CharacterObject), [Hero](../../campaign/Hero), and [Settlement](../../campaign/Settlement).
+- Text targets: [TextObject](../../localization/TextObject) and [ConversationSentence](../../campaign/ConversationSentence).
+- Conversation entry: [DialogHelper](../DialogHelper); it finds text while `StringHelpers` fills its variables.
 
-**Purpose:** Executes the CamelCaseToSnakeCase logic.
+## Public members
 
-```csharp
-// Static call; no instance required
-StringHelpers.CamelCaseToSnakeCase("example");
-```
+| Member | Purpose and side effect |
+|---|---|
+| `SplitCamelCase` | Inserts spaces at lower-to-upper and word-start boundaries and returns a new string. |
+| `CamelCaseToSnakeCase` | Converts CamelCase and numeric boundaries to lowercase underscore form and returns a new string. |
+| `SetSettlementProperties` | Builds `NAME` and `LINK` variables for a settlement and writes them to a parent, the global text manager, or a repeat line. |
+| `SetRepeatableCharacterProperties` | Builds character variables and writes them to `ConversationSentence.SelectedRepeatLine`; it is repeat-line-only. |
+| `SetCharacterProperties` | Builds character variables, writes them to a parent or `MBTextManager`, and returns the variable `TextObject`. |
+| `SetEffectIncrementTypeTextVariable` | Formats `bonus` according to `EffectIncrementType`, including a signed value; factor effects are displayed as percentages. |
+| `RemoveDiacritics` | Uses Unicode decomposition to remove non-spacing marks and normalizes back to Form C; it is for comparison/search, not display replacement. |
 
-### SetSettlementProperties
-`public static void SetSettlementProperties(string tag, Settlement settlement, TextObject parent = null, bool isRepeatable = false)`
-
-**Purpose:** Assigns a new value to settlement properties and updates the object's internal state.
-
-```csharp
-// Static call; no instance required
-StringHelpers.SetSettlementProperties("example", settlement, null, false);
-```
-
-### SetRepeatableCharacterProperties
-`public static void SetRepeatableCharacterProperties(string tag, CharacterObject character, bool includeDetails = false)`
-
-**Purpose:** Assigns a new value to repeatable character properties and updates the object's internal state.
+## Real example
 
 ```csharp
-// Static call; no instance required
-StringHelpers.SetRepeatableCharacterProperties("example", character, false);
+using Helpers;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Localization;
+
+Hero hero = Hero.MainHero;
+TextObject notification = new TextObject("{=helper_example}Welcome, {HERO.NAME}.");
+StringHelpers.SetCharacterProperties("HERO", hero.CharacterObject, notification, includeDetails: true);
 ```
 
-### SetCharacterProperties
-`public static TextObject SetCharacterProperties(string tag, CharacterObject character, TextObject parent = null, bool includeDetails = false)`
+The variables are written to the local `notification`, so `{HERO.NAME}` is scoped to that `TextObject`. Omitting `parent` would write to the global `MBTextManager` table and has a different pollution and lifetime risk.
 
-**Purpose:** Assigns a new value to character properties and updates the object's internal state.
+## Risks and save boundaries
 
-```csharp
-// Static call; no instance required
-StringHelpers.SetCharacterProperties("example", character, null, false);
-```
+- With no `parent`, character or settlement variables enter global `MBTextManager`; reusing generic tags can contaminate later notifications or dialogue.
+- `SetRepeatableCharacterProperties` and `isRepeatable: true` require a selected repeat line. Calling them outside the conversation flow reaches an invalid `SelectedRepeatLine` context.
+- `includeDetails` reads hero faction, clan, and age. Do not turn those values into durable state while the object is loading, unregistered, or about to be replaced.
+- `RemoveDiacritics` is for comparison and search. Display text should keep the original localized string; the method does not modify a `TextObject` or character name.
 
-### SetEffectIncrementTypeTextVariable
-`public static void SetEffectIncrementTypeTextVariable(string tag, TextObject description, float bonus, EffectIncrementType effectIncrementType)`
+## Version note
 
-**Purpose:** Assigns a new value to effect increment type text variable and updates the object's internal state.
+In v1.4.5, `SetEffectIncrementTypeTextVariable` formats `EffectIncrementType.AddFactor` as a percentage while other types use the raw bonus. Do not multiply the factor by 100 again in the caller.
 
-```csharp
-// Static call; no instance required
-StringHelpers.SetEffectIncrementTypeTextVariable("example", description, 0, effectIncrementType);
-```
+## Navigation
 
-### RemoveDiacritics
-`public static string RemoveDiacritics(string originalText)`
-
-**Purpose:** Removes diacritics from the current collection or state.
-
-```csharp
-// Static call; no instance required
-StringHelpers.RemoveDiacritics("example");
-```
-
-## Usage Example
-
-```csharp
-StringHelpers.SplitCamelCase("example");
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ API system index](../)
+- [↔ DialogHelper](../DialogHelper)
+- [Related: TextObject](../../localization/TextObject)
+- [Related: CharacterObject](../../campaign/CharacterObject)

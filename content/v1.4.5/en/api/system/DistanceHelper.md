@@ -1,211 +1,95 @@
 ---
 title: "DistanceHelper"
-description: "Auto-generated class reference for DistanceHelper."
+description: "DistanceHelper is the campaign map-distance facade that delegates Settlement, MobileParty, and map-point queries to the active MapDistanceModel while accounting for navigation, ports, and land-sea transitions."
 ---
 # DistanceHelper
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class DistanceHelper`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/DistanceHelper.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class DistanceHelper`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/DistanceHelper.cs`
 
-## Overview
+## One-sentence responsibility
 
-`DistanceHelper` is a helper class that usually provides static logic which does not depend on instance state.
+It normalizes distance requests between settlements, mobile parties, and map points, then delegates them to the active `MapDistanceModel` while preserving port choices, navigation capabilities, land ratios, and maximum-distance decisions.
 
 ## Mental Model
 
-Treat `DistanceHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`DistanceHelper` owns no route cache and moves no party. It reads the supplied `MobileParty.NavigationType`, compares land, naval, and mixed port approaches, and asks `Campaign.Current.Models.MapDistanceModel` for the candidate distances. The `out` values tell the caller whether the winning route starts from or targets a port and how the model classifies its land portion. The result is a calculation, not an executable path.
 
-## Key Methods
+`SettlementHelper`, AI, and delayed-teleportation code call these methods repeatedly, so the same points can produce different results for different navigation capabilities. `float.MaxValue` means that no compatible candidate was found; it is not a normal map distance that can safely be squared or converted to travel time.
 
-### FindClosestDistanceFromSettlementToSettlement
-`public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isFromPort, out bool isTargetingPort, out float landRatio)`
+## When to use and when not to use
 
-**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
+- Use it for campaign comparisons between settlements, parties, and map points, passing the caller's real navigation capability.
+- Use an overload with `maxDistance` when the caller needs a threshold, and keep both the returned distance and `out landRatio` instead of reimplementing port and transition rules.
+- Do not treat it as a pathfinder, a party-speed model, or a battle-distance calculator. Use [MapDistanceModel](../../campaign/MapDistanceModel) or the appropriate AI or party model for those rules.
+- Do not call it before `Campaign.Current` exists, after an input entity has been removed, or with a navigation flag that the entity cannot actually use.
 
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toSettlement, navCapabilities, isFromPort, isTargetingPort, landRatio);
+## Dependencies
+
+```text
+Campaign.Current.Models.MapDistanceModel
+  -> DistanceHelper overload family
+  -> SettlementHelper / AI / delayed teleportation
+  -> distance, port flags, landRatio
 ```
 
-### FindClosestDistanceFromSettlementToSettlement
-`public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities)`
+- Rule provider: [MapDistanceModel](../../campaign/MapDistanceModel) and [GameModels](../../campaign/GameModels).
+- Input entities: [Settlement](../../campaign/Settlement), [MobileParty](../../campaign/MobileParty), and [PartyBase](../../campaign/PartyBase).
+- Typical consumer: [SettlementHelper](../SettlementHelper); higher-level systems still decide what the result means.
 
-**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
+## Public members
 
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toSettlement, navCapabilities);
-```
+| Member group | Members | Purpose and timing |
+|---|---|---|
+| Constant | `BirdFlyDistanceSquaredThresholdForMobilePartyToMobilePartyDistance` | A squared threshold used by party-distance comparisons; it is not a unit conversion for the distance-query results. |
+| Settlement to settlement | The three ordinary `FindClosestDistanceFromSettlementToSettlement` overloads | Compare default, port-origin, port-target, and dual-port candidates; the full overload also returns both port flags and `landRatio`. |
+| Party to settlement | The three distance overloads and the `maxDistance` overload of `FindClosestDistanceFromMobilePartyToSettlement` | Reuse settlement-entry logic when the party is currently in a settlement; otherwise query the party-to-settlement model distance and optionally try a target port. |
+| Party to party | The three `FindClosestDistanceFromMobilePartyToMobileParty` overloads | Account for both current settlements, sea or land capabilities, and transition costs; the threshold overload returns `distance < maxDistance`. |
+| Point and settlement | `FindClosestDistanceFromSettlementToPoint` and `FindClosestDistanceFromMapPointToSettlement` | Compare map points with settlements and report port and land-sea information. |
+| Party to point | The two `FindClosestDistanceFromMobilePartyToPoint` overloads | Use settlement-entry logic for a party inside a settlement and direct map-model distance otherwise. |
+| Exact party distance | `GetDistanceBetweenMobilePartyToMobileParty` | Uses current navigation faces, gate or port positions, and model transition adjustments; it can return `float.MaxValue` without valid entrances. |
 
-### FindClosestDistanceFromSettlementToSettlement
-`public static float FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toSettlement, navCapabilities, landRatio);
-```
-
-### FindClosestDistanceFromMobilePartyToSettlement
-`public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isTargetingPort, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+## Real example
 
 ```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, toSettlement, navCapabilities, isTargetingPort, landRatio);
+using System.Linq;
+using Helpers;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+MobileParty party = MobileParty.MainParty;
+Settlement target = Settlement.All.FirstOrDefault(settlement => settlement.IsTown && settlement != party.CurrentSettlement);
+
+if (target != null)
+{
+    float distance = DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(
+        party,
+        target,
+        party.NavigationCapability,
+        out bool isTargetingPort,
+        out float landRatio);
+}
 ```
 
-### FindClosestDistanceFromMobilePartyToSettlement
-`public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities)`
+This follows the same acquisition shape used by `SettlementHelper`: the party comes from `MobileParty.MainParty`, its capability comes from the party, and the caller preserves the port and land-ratio outputs instead of assuming a land-only distance.
 
-**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+## Risks and save boundaries
 
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, toSettlement, navCapabilities);
-```
+- The helper does not mutate saved entities, but a wrong `NavigationType` can make AI, teleportation, or encounter checks select the wrong route. Do not use `Default` as a substitute for naval capability.
+- `Settlement`, `MobileParty`, and `IMapPoint` must still belong to the active `Campaign`. Loading, destruction, or cross-campaign cached references can produce null or stale-position failures.
+- Check for `float.MaxValue` before calculating travel time, squaring the result, or applying thresholds; an unreachable result can otherwise poison higher-level numeric logic.
+- `landRatio` describes the model's current winning route. It is not persistent movement progress and must not be written into campaign state or saves.
 
-### FindClosestDistanceFromMobilePartyToSettlement
-`public static float FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
+## Version note
 
-**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
+The v1.4.5 implementation includes ports and naval navigation in the same overload-selection logic and lets `MapDistanceModel` apply land-sea transition costs. Mod code should call the helper and active model instead of copying version-specific constants.
 
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, toSettlement, navCapabilities, landRatio);
-```
+## Navigation
 
-### FindClosestDistanceFromMobilePartyToSettlement
-`public static bool FindClosestDistanceFromMobilePartyToSettlement(MobileParty fromMobileParty, Settlement toSettlement, MobileParty.NavigationType navCapabilities, float maxDistance, out float distance, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToSettlement(fromMobileParty, toSettlement, navCapabilities, 0, distance, landRatio);
-```
-
-### FindClosestDistanceFromSettlementToSettlement
-`public static bool FindClosestDistanceFromSettlementToSettlement(Settlement fromSettlement, Settlement toSettlement, MobileParty.NavigationType navCapabilities, float maxDistance, out float distance, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from settlement to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromSettlementToSettlement(fromSettlement, toSettlement, navCapabilities, 0, distance, landRatio);
-```
-
-### FindClosestDistanceFromMobilePartyToMobileParty
-`public static bool FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType, float maxDistance, out float distance, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigationType, 0, distance, landRatio);
-```
-
-### FindClosestDistanceFromMobilePartyToMobileParty
-`public static float FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigationType);
-```
-
-### FindClosestDistanceFromMobilePartyToMobileParty
-`public static float FindClosestDistanceFromMobilePartyToMobileParty(MobileParty from, MobileParty to, MobileParty.NavigationType navigationType, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToMobileParty(from, to, navigationType, landRatio);
-```
-
-### FindClosestDistanceFromSettlementToPoint
-`public static float FindClosestDistanceFromSettlementToPoint(Settlement fromSettlement, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out bool isFromPort)`
-
-**Purpose:** Looks up the matching closest distance from settlement to point in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromSettlementToPoint(fromSettlement, point, navCapabilities, isFromPort);
-```
-
-### FindClosestDistanceFromMapPointToSettlement
-`public static float FindClosestDistanceFromMapPointToSettlement(IMapPoint mapPoint, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out bool isTargetingPort, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from map point to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMapPointToSettlement(mapPoint, toSettlement, navCapabilities, isTargetingPort, landRatio);
-```
-
-### FindClosestDistanceFromSettlementToPoint
-`public static float FindClosestDistanceFromSettlementToPoint(Settlement fromSettlement, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from settlement to point in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromSettlementToPoint(fromSettlement, point, navCapabilities, landRatio);
-```
-
-### FindClosestDistanceFromMobilePartyToPoint
-`public static float FindClosestDistanceFromMobilePartyToPoint(MobileParty fromMobileParty, CampaignVec2 point, MobileParty.NavigationType navCapabilities)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to point in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(fromMobileParty, point, navCapabilities);
-```
-
-### FindClosestDistanceFromMobilePartyToPoint
-`public static float FindClosestDistanceFromMobilePartyToPoint(MobileParty fromMobileParty, CampaignVec2 point, MobileParty.NavigationType navCapabilities, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from mobile party to point in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMobilePartyToPoint(fromMobileParty, point, navCapabilities, landRatio);
-```
-
-### FindClosestDistanceFromMapPointToSettlement
-`public static float FindClosestDistanceFromMapPointToSettlement(IMapPoint mapPoint, Settlement toSettlement, MobileParty.NavigationType navCapabilities, out float landRatio)`
-
-**Purpose:** Looks up the matching closest distance from map point to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.FindClosestDistanceFromMapPointToSettlement(mapPoint, toSettlement, navCapabilities, landRatio);
-```
-
-### GetDistanceBetweenMobilePartyToMobileParty
-`public static float GetDistanceBetweenMobilePartyToMobileParty(MobileParty fromMobileParty, MobileParty toMobileParty, MobileParty.NavigationType customCapability, out float landRatio)`
-
-**Purpose:** Reads and returns the distance between mobile party to mobile party value held by the this instance.
-
-```csharp
-// Static call; no instance required
-DistanceHelper.GetDistanceBetweenMobilePartyToMobileParty(fromMobileParty, toMobileParty, customCapability, landRatio);
-```
-
-## Usage Example
-
-```csharp
-DistanceHelper.Initialize();
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ API system index](../)
+- [↔ SettlementHelper](../SettlementHelper)
+- [Related: MapDistanceModel](../../campaign/MapDistanceModel)
+- [Related: MobileParty](../../campaign/MobileParty)

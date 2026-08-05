@@ -1,107 +1,121 @@
 ---
 title: "MBCampaignEvent"
-description: "Auto-generated class reference for MBCampaignEvent."
+description: "A campaign-time periodic event object that schedules its own handler callbacks through CampaignPeriodicEventManager."
 ---
 # MBCampaignEvent
 
-**Namespace:** TaleWorlds.CampaignSystem
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MBCampaignEvent`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/MBCampaignEvent.cs`
+**Namespace:** `TaleWorlds.CampaignSystem`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class MBCampaignEvent`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/MBCampaignEvent.cs`
 
-## Overview
+## One-line responsibility
 
-`MBCampaignEvent` lives in `TaleWorlds.CampaignSystem` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MBCampaignEvent` stores handlers for a campaign-time periodic signal and advances the next trigger time when its manager calls `CheckUpdate`; it is not the ordinary `CampaignEvents` subscription surface.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.CampaignSystem` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+There are two different event families in Campaign:
 
-## Key Properties
+- [CampaignEvents](../CampaignEvents) exposes long-lived gameplay notifications as `IMbEvent` values. A mod normally subscribes to those from `CampaignBehaviorBase.RegisterEvents()`.
+- `MBCampaignEvent` is an instance-backed periodic event. `CampaignPeriodicEventManager.CreatePeriodicEvent` adds it to `Campaign.Current.CustomPeriodicCampaignEvents`, and the manager later calls `CheckUpdate` from its campaign tick path.
 
-| Name | Signature |
-|------|-----------|
-| `TriggerPeriod` | `public CampaignTime TriggerPeriod { get; }` |
-| `InitialWait` | `public CampaignTime InitialWait { get; }` |
-| `isEventDeleted` | `public bool isEventDeleted { get; set; }` |
+The periodic event owns its handler list and trigger bookkeeping. `Campaign` and `CampaignPeriodicEventManager` own whether the event is reached and removed. Do not create one just to observe an existing `CampaignEvents` notification, and do not call `RunHandlers` to fabricate a state transition that should have come from an Action or the campaign dispatcher.
 
-## Key Methods
+## Lifecycle and dependency graph
 
-### CampaignEventDelegate
-`public delegate void CampaignEventDelegate(MBCampaignEvent campaignEvent, params object delegateParams)`
-
-**Purpose:** Executes the CampaignEventDelegate logic.
-
-```csharp
-// Obtain an instance of MBCampaignEvent from the subsystem API first
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.CampaignEventDelegate(campaignEvent, delegateParams);
+```text
+CampaignPeriodicEventManager.CreatePeriodicEvent
+              |
+              v
+Campaign.Current.CustomPeriodicCampaignEvents
+              |
+              v
+        MBCampaignEvent
+              |
+              v
+  AddHandler -> CheckUpdate -> handler callbacks
+              |
+              v
+       DeletePeriodicEvent -> deferred manager removal
 ```
 
-### AddHandler
-`public void AddHandler(CampaignEventDelegate gameEventDelegate)`
+- The lifecycle owner is [Campaign](../Campaign) and its [CampaignPeriodicEventManager](../CampaignPeriodicEventManager); ordinary observation belongs on [CampaignEvents](../CampaignEvents).
+- The periodic constructor stores `TriggerPeriod`, sets `InitialWait`, and initializes the next trigger to `CampaignTime.Now + InitialWait`.
+- `CampaignPeriodicEventManager` checks custom events during its periodic signal. While the next trigger is past and `isEventDeleted` is false, `CheckUpdate` runs handlers with the current `CampaignTime` and advances by `TriggerPeriod`.
+- `DeletePeriodicEvent` only marks the object. The manager removes marked entries during its cleanup pass; deleting a reference does not immediately remove it from the manager's list.
+- `CreatePeriodicUIEvent` is a separate `MapScreen`-owned list for UI periodic work. The event object itself does not choose a thread or map state.
 
-**Purpose:** Adds handler to the current collection or state.
+## When to use and when not to
 
-```csharp
-// Obtain an instance of MBCampaignEvent from the subsystem API first
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.AddHandler(gameEventDelegate);
-```
+Use `CampaignPeriodicEventManager.CreatePeriodicEvent` when a feature genuinely needs a campaign-time periodic callback and can own the returned event until deletion. Use `CampaignEvents.HourlyTickEvent`, `DailyTickEvent`, or another existing event when the feature only needs to observe a built-in lifecycle signal.
 
-### RunHandlers
-`public void RunHandlers(params object delegateParams)`
+Do not use `MBCampaignEvent` as a timer that runs outside campaign ticks, as a replacement for `CampaignBehaviorBase.SyncData`, or as a way to mutate Heroes, parties, settlements, or diplomacy directly. The callback still needs the correct Action, Model, or behavior boundary for any world change.
 
-**Purpose:** Executes the RunHandlers logic.
+## Public contract
 
-```csharp
-// Obtain an instance of MBCampaignEvent from the subsystem API first
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.RunHandlers(delegateParams);
-```
+### `MBCampaignEvent(string eventName)`
 
-### Unregister
-`public void Unregister(object instance)`
+The string constructor records the diagnostic `description`. It does not configure a periodic schedule.
 
-**Purpose:** Unregisters the this instance from the current system.
+### `MBCampaignEvent(CampaignTime triggerPeriod, CampaignTime initialWait)`
 
-```csharp
-// Obtain an instance of MBCampaignEvent from the subsystem API first
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.Unregister(instance);
-```
+The periodic constructor stores the interval and first wait, then schedules the first eligible trigger relative to `CampaignTime.Now`. A non-positive interval can make catch-up behavior surprising; use a meaningful campaign interval.
 
-### CheckUpdate
-`public void CheckUpdate()`
+### `AddHandler` and `RunHandlers`
 
-**Purpose:** Verifies whether update holds true for the this instance.
+`AddHandler` appends a `CampaignEventDelegate` to the instance list. `RunHandlers(params object[] delegateParams)` invokes each registered delegate with this event and the supplied arguments. The implementation does not catch handler exceptions, so an exception escapes the campaign tick path.
 
-```csharp
-// Obtain an instance of MBCampaignEvent from the subsystem API first
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.CheckUpdate();
-```
+### `Unregister(object instance)`
 
-### DeletePeriodicEvent
-`public void DeletePeriodicEvent()`
+Removes every handler whose delegate `Target` is the supplied instance. This is different from `MbEvent.ClearListeners`, which removes a matching owner record from one listener list. The `MBCampaignEvent` callback delegate should therefore be an instance method when instance-based unregistration is required.
 
-**Purpose:** Executes the DeletePeriodicEvent logic.
+### `CheckUpdate` and `DeletePeriodicEvent`
+
+`CheckUpdate` may run more than once in one call when the campaign is already past multiple trigger times. `DeletePeriodicEvent` sets `isEventDeleted`; it does not invoke handlers or remove the object from `Campaign.Current.CustomPeriodicCampaignEvents` synchronously.
+
+## Real registration example
+
+`CampaignPeriodicEventManager.CreatePeriodicEvent` is the source-backed custom-event entry point used by Campaign code. A handler receives the event and the argument array; the periodic manager supplies the current time from `CheckUpdate`:
 
 ```csharp
-// Obtain an instance of MBCampaignEvent from the subsystem API first
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.DeletePeriodicEvent();
+private static void OnPeriodicCampaignTick(
+    MBCampaignEvent campaignEvent,
+    params object[] parameters)
+{
+    CampaignTime now = (CampaignTime)parameters[0];
+    // Read or dispatch through the owning campaign system at this time.
+}
+
+MBCampaignEvent campaignEvent =
+    CampaignPeriodicEventManager.CreatePeriodicEvent(
+        CampaignTime.Hours(1f),
+        CampaignTime.Hours(1f));
+campaignEvent.AddHandler(OnPeriodicCampaignTick);
 ```
 
-## Usage Example
+The callback is not a save contract. If the feature needs durable state, keep that state in its campaign behavior and implement the behavior's `SyncData(IDataStore)` contract separately. Delete the event from the same lifecycle owner that created it.
 
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-MBCampaignEvent mBCampaignEvent = ...;
-mBCampaignEvent.CampaignEventDelegate(campaignEvent, delegateParams);
-```
+## Risks and boundaries
 
-## See Also
+- `MBCampaignEvent` holds delegates and does not provide owner-based automatic cleanup. A long-lived campaign event can retain a behavior or UI object until `Unregister` or deletion is performed.
+- `RunHandlers` and `CheckUpdate` execute synchronously on the caller's campaign tick path. They do not marshal work to a background thread and do not protect against re-entrant world mutation.
+- Catch-up uses repeated `NextTriggerTime += TriggerPeriod`; a handler must tolerate more than one invocation when the campaign clock has advanced past several intervals.
+- `isEventDeleted` is a manager cleanup flag, not proof that no callback is currently executing. Do not use it as a substitute for an owner lifecycle guard.
+- Do not retain `CampaignTime` arguments as if they were a save snapshot, and do not assume a periodic event recreates itself after loading.
 
-- [Area Index](../)
+## Navigation
+
+### Parent and related entry points
+
+- [Campaign API](../)
+- [CampaignEvents](../CampaignEvents)
+- [CampaignPeriodicEventManager](../CampaignPeriodicEventManager)
+- [CampaignBehaviorBase](../CampaignBehaviorBase)
+- [CampaignEventDispatcher](../CampaignEventDispatcher)
+
+### Bilingual and sibling links
+
+- Chinese: `../../../zh/api/campaign/MBCampaignEvent`
+- Siblings: [MbEvent](../MbEvent) · [ReferenceMBEvent](../ReferenceMBEvent) · [ReferenceIMBEvent](../ReferenceIMBEvent)

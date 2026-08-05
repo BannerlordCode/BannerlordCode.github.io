@@ -4,10 +4,10 @@ description: "Mission 场景实体的抽象基类：负责对象 ID、活动对�
 ---
 # MissionObject
 
-**Namespace:** `TaleWorlds.MountAndBlade`  
-**Module:** `TaleWorlds.MountAndBlade`  
-**Type:** `public abstract class MissionObject : ScriptComponentBehavior`  
-**Base:** `ScriptComponentBehavior`  
+**Namespace:** `TaleWorlds.MountAndBlade`
+**Module:** `TaleWorlds.MountAndBlade`
+**Type:** `public abstract class MissionObject : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
 
 ## 一句话职责
@@ -76,12 +76,12 @@ if (mission != null)
 ### 生命周期回调
 
 - `AfterMissionStart()`：Mission 启动后读取场景对象、缓存短期状态。
-- `OnDeploymentFinished()`：部署点和队伍准备完成后调整对象。
-- `OnMissionEnded()`：Mission 结束时释放 Agent、实体和临时集合引用。
-- `OnEndMission()`：对象级结束通知；派生实现负责自己的清理。
+- `OnDeploymentFinished()`：只有具体 Mission 子系统在自己的部署阶段完成后调用它时，才在此调整对象；`Mission.OnDeploymentFinished()` 不会自动遍历所有 `MissionObject`。
+- `OnMissionEnded()`：Mission 进入结束状态时，派生类在此释放自己持有的 Agent、实体和临时集合引用；基类实现为空。
+- `OnEndMission()`：最终对象级 teardown 通知，此时 Mission 已经清理 Agent。
 - `OnRemoved(int removeReason)`：基类关闭导航面并通知 Mission；覆盖时必须调用 `base`。
 
-**用途 / 调用时机：**这些方法由宿主生命周期调用，mod 不应手动调用它们来模拟 Mission 阶段。
+**用途 / 调用时机：**这些方法由宿主生命周期调用：`Mission` 在结束状态切换时调用 `OnMissionEnded()`，在最终 teardown 阶段、清理 Agent 之后调用 `OnEndMission()`。mod 不应手动调用它们来模拟 Mission 阶段。
 
 ### 启用、停用与实体
 

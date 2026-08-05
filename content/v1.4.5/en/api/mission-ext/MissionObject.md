@@ -4,10 +4,10 @@ description: "Abstract Mission-scene entity base for object IDs, active-object r
 ---
 # MissionObject
 
-**Namespace:** `TaleWorlds.MountAndBlade`  
-**Module:** `TaleWorlds.MountAndBlade`  
-**Type:** `public abstract class MissionObject : ScriptComponentBehavior`  
-**Base:** `ScriptComponentBehavior`  
+**Namespace:** `TaleWorlds.MountAndBlade`
+**Module:** `TaleWorlds.MountAndBlade`
+**Type:** `public abstract class MissionObject : ScriptComponentBehavior`
+**Base:** `ScriptComponentBehavior`
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionObject.cs`
 
 ## One-line responsibility
@@ -76,12 +76,12 @@ This reads objects owned by the current scene. Do not retain the `MissionObject`
 ### Lifecycle callbacks
 
 - `AfterMissionStart()` reads scene state once the Mission is running.
-- `OnDeploymentFinished()` adjusts objects after deployment points and teams are ready.
-- `OnMissionEnded()` releases Agent, entity, and temporary collection references.
-- `OnEndMission()` receives object-level end notification.
+- `OnDeploymentFinished()` adjusts objects only when a concrete Mission subsystem calls it after its deployment step; `Mission.OnDeploymentFinished()` does not automatically walk every `MissionObject`.
+- `OnMissionEnded()` is the derived class's hook for releasing its own Agent, entity, and temporary collection references when the Mission enters its ended state; the base implementation is empty.
+- `OnEndMission()` receives the final object-level teardown notification, after the Mission has cleaned up its Agents.
 - `OnRemoved(int removeReason)` disables navigation and notifies Mission; overrides must call the base method.
 
-**Purpose / timing:** The host invokes these callbacks. A mod should not call them manually to simulate a Mission phase.
+**Purpose / timing:** The host invokes these callbacks. `Mission` calls `OnMissionEnded()` during the ended-state transition, then calls `OnEndMission()` during final teardown after Agent cleanup. A mod should not call them manually to simulate a Mission phase.
 
 ### Enable, disable, and entity operations
 

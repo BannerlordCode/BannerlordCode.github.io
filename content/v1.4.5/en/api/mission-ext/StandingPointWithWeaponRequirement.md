@@ -1,110 +1,103 @@
 ---
 title: "StandingPointWithWeaponRequirement"
-description: "Auto-generated class reference for StandingPointWithWeaponRequirement."
+description: "StandingPoint specialization that gates use by a required item, a supplied item, or one of several weapon classes."
 ---
 # StandingPointWithWeaponRequirement
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public class StandingPointWithWeaponRequirement : StandingPoint`
-**Base:** `StandingPoint`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public class StandingPointWithWeaponRequirement : StandingPoint`  
+**Base:** [`StandingPoint`](../StandingPoint)  
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/StandingPointWithWeaponRequirement.cs`
+
+## One-line responsibility
+
+This point allows use only when the Agent's equipment satisfies one configured weapon identity, supplied-item identity, or weapon-class rule.
 
 ## Overview
 
-`StandingPointWithWeaponRequirement` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+The class is the common gate for pickup, reload, loading, and weapon-specific machine points. Its constructor disables automatic sheathing because the held item is part of the selection contract. The owning machine obtains a scene point, chooses one initialization path, and then lets [`UsableMachine`](../UsableMachine) call `IsDisabledForAgent` during selection.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+There are three mutually intended configuration modes, evaluated in this order:
 
-## Key Methods
+1. `InitRequiredWeapon(ItemObject weapon)` stores an exact item that must be in the Agent's primary slot.
+2. If no exact required item is configured, `InitGivenWeapon(ItemObject weapon)` requires that the Agent's primary slot contains that item.
+3. If neither item is configured, `InitRequiredWeaponClasses(WeaponClass[] requiredWeaponClasses)` scans all weapon slots for a matching class. A consumable class is accepted only when it has remaining capacity, except for the extra weapon slot.
 
-### InitRequiredWeaponClasses
-`public void InitRequiredWeaponClasses(WeaponClass requiredWeaponClasses)`
+The setters only assign their own fields; they do not clear the other modes. If more than one is called, the first non-null item branch wins, followed by the class branch. `SetHasAlternative` changes the host's alternative search behavior, and `SetUsingBattleSide` sets the same side gate that scene tags normally establish.
 
-**Purpose:** Prepares the resources, state, or bindings required by required weapon classes.
+## Dependencies
 
-```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-standingPointWithWeaponRequirement.InitRequiredWeaponClasses(requiredWeaponClasses);
-```
+- [`StandingPoint`](../StandingPoint) supplies scene registration, use lifecycle, path score, and base controller/side checks.
+- [`UsableMachine`](../UsableMachine) filters points for AI and detachment selection; its ammo logic relies on this type for pickup points.
+- [`ItemObject`](../../core-extra/ItemObject) and [`WeaponClass`](../../core-extra/WeaponClass) provide the exact item and class values used by the gate.
+- [`RangedSiegeWeapon`](../RangedSiegeWeapon), [`SiegeLadder`](../SiegeLadder), and [`StonePile`](../StonePile) are source-confirmed consumers of the three configuration paths.
 
-### InitRequiredWeapon
-`public void InitRequiredWeapon(ItemObject weapon)`
+## When to use and when not to
 
-**Purpose:** Prepares the resources, state, or bindings required by required weapon.
+**Use it when:**
 
-```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-standingPointWithWeaponRequirement.InitRequiredWeapon(weapon);
-```
+- A scene slot should accept only a specific machine item, a given item, or an allowed weapon class.
+- An owning machine can resolve registered `ItemObject` instances before selection starts.
 
-### InitGivenWeapon
-`public void InitGivenWeapon(ItemObject weapon)`
+**Do not use it when:**
 
-**Purpose:** Prepares the resources, state, or bindings required by given weapon.
+- Eligibility is based on Team or a hand-maintained actor list; use [`StandingPointWithTeamLimit`](../StandingPointWithTeamLimit) or [`StandingPointWithAgentLimit`](../StandingPointWithAgentLimit).
+- The point should accept an empty hand regardless of item state. This class deliberately rejects that state in all configured modes.
+- You need an inventory transaction. This class only gates a standing point; the owning machine must perform pickup, consumption, or reload changes.
 
-```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-standingPointWithWeaponRequirement.InitGivenWeapon(weapon);
-```
+## Key members and timing
 
-### IsDisabledForAgent
-`public override bool IsDisabledForAgent(Agent agent)`
+- `InitRequiredWeaponClasses(WeaponClass[] requiredWeaponClasses)` replaces the accepted class array. In v1.4.5 the parameter is an array, not a single `WeaponClass`.
+- `InitRequiredWeapon(ItemObject weapon)` requires the exact item in the primary slot.
+- `InitGivenWeapon(ItemObject weapon)` requires the exact given item in the primary slot, including rejecting an empty primary slot.
+- `IsDisabledForAgent` checks the first configured mode and then calls the base point check only after equipment matches.
+- `SetHasAlternative(bool hasAlternative)` and `HasAlternative()` control whether a host may search another point.
+- `SetUsingBattleSide(BattleSideEnum side)` writes the point's side gate; it is used by [`SiegeLadder`](../SiegeLadder) for its defender pickup point.
 
-**Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
+Initialize the requirement while the owning machine is setting up its collected points. Do not wait until an Agent is already moving to the point, because the machine may have cached the point as usable.
 
-```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-var result = standingPointWithWeaponRequirement.IsDisabledForAgent(agent);
-```
+## Real acquisition examples
 
-### SetHasAlternative
-`public void SetHasAlternative(bool hasAlternative)`
-
-**Purpose:** Assigns a new value to has alternative and updates the object's internal state.
+The game source resolves a real item through `Game.Current.ObjectManager` and applies it to points already collected by a siege machine. A mod can follow the same shape when it has a live scene machine and an item ID from its module configuration:
 
 ```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-standingPointWithWeaponRequirement.SetHasAlternative(false);
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+static void ConfigureWeaponPoints(RangedSiegeWeapon siegeWeapon, string itemId)
+{
+    ItemObject weapon = Game.Current.ObjectManager.GetObject<ItemObject>(itemId);
+    if (weapon == null || siegeWeapon == null)
+    {
+        return;
+    }
+
+    foreach (StandingPointWithWeaponRequirement point in
+             siegeWeapon.StandingPoints.OfType<StandingPointWithWeaponRequirement>())
+    {
+        point.InitRequiredWeapon(weapon);
+        point.SetHasAlternative(true);
+    }
+}
 ```
 
-### HasAlternative
-`public override bool HasAlternative()`
+For a class rule, the source-confirmed form is `point.InitRequiredWeaponClasses(new WeaponClass[1] { weapon.PrimaryWeapon.WeaponClass })`. Use that only when the point should accept any item of the selected class rather than the exact item.
 
-**Purpose:** Determines whether the this instance already holds alternative.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-var result = standingPointWithWeaponRequirement.HasAlternative();
-```
+- Calling multiple initialization methods does not reset earlier fields. Explicitly choose one mode and keep later configuration from accidentally taking precedence.
+- The exact-item modes inspect the Agent's primary slot only; an equivalent item in another slot does not satisfy them.
+- Consumable class matching checks `Amount` against `ModifiedMaxAmount`, with the extra weapon slot treated specially. A visually present item can still be rejected when depleted.
+- `ItemObject` references should come from the current `Game.Current.ObjectManager`. Do not fabricate an unregistered item or retain a stale object across module/game lifetimes.
+- `SetUsingBattleSide` changes side eligibility but does not update scene tags or synchronize an already moving Agent. Configure it before the machine selection pass.
 
-### SetUsingBattleSide
-`public void SetUsingBattleSide(BattleSideEnum side)`
+## See also and reciprocal navigation
 
-**Purpose:** Assigns a new value to using battle side and updates the object's internal state.
-
-```csharp
-// Obtain an instance of StandingPointWithWeaponRequirement from the subsystem API first
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-standingPointWithWeaponRequirement.SetUsingBattleSide(side);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-StandingPointWithWeaponRequirement standingPointWithWeaponRequirement = ...;
-standingPointWithWeaponRequirement.InitRequiredWeaponClasses(requiredWeaponClasses);
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Mission-ext module index](../)
+- ↔ Siblings: [StandingPoint](../StandingPoint) · [StandingPointWithVolumeBox](../StandingPointWithVolumeBox) · [StandingPointForRangedArea](../StandingPointForRangedArea)
+- Other gates: [StandingPointWithAgentLimit](../StandingPointWithAgentLimit) · [StandingPointWithTeamLimit](../StandingPointWithTeamLimit)
+- Consumers and types: [RangedSiegeWeapon](../RangedSiegeWeapon) · [SiegeLadder](../SiegeLadder) · [ItemObject](../../core-extra/ItemObject) · [WeaponClass](../../core-extra/WeaponClass)
+- 中文/English: [StandingPointWithWeaponRequirement](../../../../zh/api/mission-ext/StandingPointWithWeaponRequirement)

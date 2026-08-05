@@ -1,282 +1,143 @@
 ---
 title: "SynchedMissionObject"
-description: "Auto-generated class reference for SynchedMissionObject."
+description: "MissionObject network-sync base that broadcasts transforms, visibility, animation, body flags, and colors from authority and interpolates on clients."
 ---
 # SynchedMissionObject
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SynchedMissionObject : MissionObject`
-**Base:** `MissionObject`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public class SynchedMissionObject : MissionObject`  
+**Base:** [`MissionObject`](../MissionObject)  
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
 
-## Overview
+## One-line responsibility
 
-`SynchedMissionObject` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`SynchedMissionObject` connects Mission-scene transforms, visibility, animation, body flags, and colors to `GameNetwork`: authority broadcasts them, while clients and replays move toward the received target state.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+This is the **network-state layer** of `MissionObject`, not a general RPC service. When authority calls `SetFrameSynched`, `SetVisibleSynched`, or `SetDisabledSynched`, it writes a message containing the `MissionObjectId` and updates the local entity. Clients and replays store the target frame or state and interpolate in their tick path.
 
-## Key Properties
+The object must already have been registered by `MissionObject.OnPreInit`, and every endpoint must resolve the same ID. `SynchronizeCompleted` only means that the local sync state machine caught up with its target; it does not prove that Mission or the entity is still alive.
 
-| Name | Signature |
-|------|-----------|
-| `Color` | `public uint Color { get; }` |
-| `Color2` | `public uint Color2 { get; }` |
+## Dependencies
 
-## Key Methods
+[`MissionObject`](../MissionObject) creates the Mission registration and [`MissionObjectId`](../MissionObjectId) is the address carried by synchronized messages. [`Mission`](../../mission/Mission) owns the object collections; `GameNetwork` transports snapshots and server/recorder authority decides which mutations are broadcast. [`UsableMissionObject`](../UsableMissionObject) adds Agent interaction state on top of this layer.
 
-### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+## When to use and when not to
 
-**Purpose:** Reads and returns the tick requirement value held by the this instance.
+**Use it when:**
 
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-var result = synchedMissionObject.GetTickRequirement();
-```
+- A scene object must replicate position, visibility, animation, physics flags, or team colors from multiplayer authority.
+- An existing object needs its synchronization state inspected, or its target state changed through the provided methods.
+- Network recording and replay must reproduce the object without a second message format.
 
-### SetLocalPositionSmoothStep
-`public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)`
+**Do not use it when:**
 
-**Purpose:** Assigns a new value to local position smooth step and updates the object's internal state.
+- A local-only single-player entity needs no replication; [`MissionObject`](../MissionObject) is the smaller boundary.
+- A client needs to submit game rules, damage, or save state; synchronized presentation is not rule authority.
+- You need to hand-broadcast IDs, construct `GameNetworkMessage` objects, or send after removal.
 
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetLocalPositionSmoothStep(targetPosition);
-```
+## State and properties
 
-### SetVisibleSynched
-`public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
+### `SynchFlags`
 
-**Purpose:** Assigns a new value to visible synched and updates the object's internal state.
+`SynchFlags` contains `SynchNone`, `SynchTransform`, `SynchAnimation`, `SynchBodyFlags`, `SyncColors`, and `SynchAll`. It describes snapshot categories; callers should use the existing `*Synched` methods instead of modifying internal flags.
 
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetVisibleSynched(false, false);
-```
+### `Color`, `Color2`, and `SynchronizeCompleted`
 
-### SetPhysicsStateSynched
-`public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)`
+`Color` and `Color2` hold the current team-color state. `SynchronizeCompleted` becomes `true` when the private state reaches `SynchronizeCompleted`. During initial sync or smooth movement the object requests extra ticks, then drops that work after catching up.
 
-**Purpose:** Assigns a new value to physics state synched and updates the object's internal state.
+## Key methods
+
+### Transform synchronization
+
+- `SetLocalPositionSmoothStep(ref Vec3 targetPosition)` smoothly tracks a local target position on the receiving side.
+- `SetFrameSynched(ref MatrixFrame frame)` synchronizes a local transform.
+- `SetGlobalFrameSynched(ref MatrixFrame frame)` synchronizes a global transform and handles parent coordinates.
+- `SetFrameSynchedOverTime(ref MatrixFrame frame, float duration)` and its global counterpart interpolate for a duration.
+
+**Purpose / timing:** Call these on authority when a registered scene object changes position. Do not turn client interpolation output into a new authority broadcast.
 
 ```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetPhysicsStateSynched(false, false);
+using System.Linq;
+using TaleWorlds.MountAndBlade;
+
+SynchedMissionObject movingObject = Mission.Current?
+    .ActiveMissionObjects
+    .FindAllWithType<SynchedMissionObject>()
+    .FirstOrDefault();
+
+if (movingObject != null && GameNetwork.IsServerOrRecorder)
+{
+    MatrixFrame frame = movingObject.GameEntity.GetFrame();
+    frame.origin.z += 0.1f;
+    movingObject.SetFrameSynched(ref frame);
+}
 ```
 
-### SetDisabledSynched
-`public virtual void SetDisabledSynched()`
+### Visibility, disable, and physics
 
-**Purpose:** Assigns a new value to disabled synched and updates the object's internal state.
+- `SetVisibleSynched(bool value, bool forceChildrenVisible = false)` broadcasts visibility and can recurse into children.
+- `SetDisabledSynched()` broadcasts a disable message and then uses the base hide/disable path.
+- `SetPhysicsStateSynched(bool value, bool setChildren = true)` is an override point; the base implementation is empty and does not itself change physics.
+
+Only authority/recording writes the corresponding network messages. If the object is a `UsableMissionObject`, use its `SetIsDeactivatedSynched` or `SetIsDisabledForPlayersSynched` for interaction state.
+
+### Animation, particles, and body flags
+
+- `SetAnimationAtChannelSynched` has string-name and integer-index overloads.
+- `SetAnimationChannelParameterSynched`, `PauseSkeletonAnimationSynched`, and `ResumeSkeletonAnimationSynched` update animation parameters and pause state.
+- `BurstParticlesSynched` and `ApplyImpulseSynched` propagate one-shot presentation or impulse operations.
+- `AddBodyFlagsSynched` and `RemoveBodyFlagsSynched` change `BodyFlags` on the object or its children.
+
+These calls require the relevant skeleton, physics, or particle resources. A message arriving does not make a missing native resource valid.
+
+### Colors and network snapshots
+
+- `SetTeamColors(uint color, uint color2)` changes local color state.
+- `SetTeamColorsSynched` propagates the colors as synchronized state.
+- `WriteToNetwork()` writes the base and derived snapshot.
+- `OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)` applies received transform, animation, colors, and disabled state; an override must preserve base processing.
+
+## Real example: change presentation from authority
+
+This changes an already registered object's transform only on server/recording authority, allowing clients to receive the same movement without mutating Agent or Campaign state:
 
 ```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetDisabledSynched();
+using TaleWorlds.MountAndBlade;
+
+public static class ModMissionPresentation
+{
+    public static void RaiseObject(SynchedMissionObject missionObject)
+    {
+        if (missionObject == null || !missionObject.GameEntity.IsValid)
+        {
+            return;
+        }
+
+        if (GameNetwork.IsServerOrRecorder)
+        {
+            MatrixFrame target = missionObject.GameEntity.GetFrame();
+            target.origin.z += 0.5f;
+            missionObject.SetFrameSynchedOverTime(ref target, 0.25f);
+        }
+    }
+}
 ```
 
-### SetFrameSynched
-`public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)`
+## Risks and version boundaries
 
-**Purpose:** Assigns a new value to frame synched and updates the object's internal state.
+- The sync methods require a registered object and matching IDs at each endpoint; manually constructed objects or rewritten IDs make messages miss their target.
+- A client call does not gain rule authority. It may only enter a local interpolation branch and cannot submit a game result.
+- `OnTick` remains active until synchronization completes; many long-duration interpolations increase Mission tick cost.
+- Animation, impulse, and BodyFlags calls depend on entity resources; a removed or destroyed `GameEntity` cannot be reused.
+- An override that omits `base` in `WriteToNetwork` or `OnAfterReadFromNetwork` can drop base state and diverge replay/client behavior.
 
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetFrameSynched(frame, false);
-```
+## See also and reciprocal navigation
 
-### SetGlobalFrameSynched
-`public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)`
-
-**Purpose:** Assigns a new value to global frame synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetGlobalFrameSynched(frame, false);
-```
-
-### SetFrameSynchedOverTime
-`public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
-
-**Purpose:** Assigns a new value to frame synched over time and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetFrameSynchedOverTime(frame, 0, false);
-```
-
-### SetGlobalFrameSynchedOverTime
-`public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
-
-**Purpose:** Assigns a new value to global frame synched over time and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetGlobalFrameSynchedOverTime(frame, 0, false);
-```
-
-### SetAnimationAtChannelSynched
-`public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)`
-
-**Purpose:** Assigns a new value to animation at channel synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetAnimationAtChannelSynched("example", 0, 0);
-```
-
-### SetAnimationAtChannelSynched
-`public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)`
-
-**Purpose:** Assigns a new value to animation at channel synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetAnimationAtChannelSynched(0, 0, 0);
-```
-
-### SetAnimationChannelParameterSynched
-`public void SetAnimationChannelParameterSynched(int channelNo, float parameter)`
-
-**Purpose:** Assigns a new value to animation channel parameter synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetAnimationChannelParameterSynched(0, 0);
-```
-
-### PauseSkeletonAnimationSynched
-`public void PauseSkeletonAnimationSynched()`
-
-**Purpose:** Executes the PauseSkeletonAnimationSynched logic.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.PauseSkeletonAnimationSynched();
-```
-
-### ResumeSkeletonAnimationSynched
-`public void ResumeSkeletonAnimationSynched()`
-
-**Purpose:** Executes the ResumeSkeletonAnimationSynched logic.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.ResumeSkeletonAnimationSynched();
-```
-
-### BurstParticlesSynched
-`public void BurstParticlesSynched(bool doChildren = true)`
-
-**Purpose:** Executes the BurstParticlesSynched logic.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.BurstParticlesSynched(false);
-```
-
-### ApplyImpulseSynched
-`public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)`
-
-**Purpose:** Applies the effect of impulse synched to the this instance.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.ApplyImpulseSynched(localPosition, impulse);
-```
-
-### AddBodyFlagsSynched
-`public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
-
-**Purpose:** Adds body flags synched to the current collection or state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.AddBodyFlagsSynched(flags, false);
-```
-
-### RemoveBodyFlagsSynched
-`public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
-
-**Purpose:** Removes body flags synched from the current collection or state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.RemoveBodyFlagsSynched(flags, false);
-```
-
-### SetTeamColors
-`public void SetTeamColors(uint color, uint color2)`
-
-**Purpose:** Assigns a new value to team colors and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetTeamColors(0, 0);
-```
-
-### SetTeamColorsSynched
-`public virtual void SetTeamColorsSynched(uint color, uint color2)`
-
-**Purpose:** Assigns a new value to team colors synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetTeamColorsSynched(0, 0);
-```
-
-### WriteToNetwork
-`public virtual void WriteToNetwork()`
-
-**Purpose:** Writes to network to the target location.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.WriteToNetwork();
-```
-
-### OnAfterReadFromNetwork
-`public virtual void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
-
-**Purpose:** Invoked when the after read from network event is raised.
-
-```csharp
-// Obtain an instance of SynchedMissionObject from the subsystem API first
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.GetTickRequirement();
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Mission-ext module index](../)
+- ↔ Base and interaction child: [MissionObject](../MissionObject) · [UsableMissionObject](../UsableMissionObject)
+- Identity: [MissionObjectId](../MissionObjectId)
+- Host: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior)
+- 中文/English: [SynchedMissionObject](../../../../zh/api/mission-ext/SynchedMissionObject)

@@ -1,282 +1,143 @@
 ---
 title: "SynchedMissionObject"
-description: "SynchedMissionObject 的自动生成类参考。"
+description: "MissionObject 的多人同步基类：在权威端广播变换、可见性、动画、物理标志和颜色，并在客户端插值。"
 ---
 # SynchedMissionObject
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public class SynchedMissionObject : MissionObject`
-**Base:** `MissionObject`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public class SynchedMissionObject : MissionObject`  
+**Base:** [`MissionObject`](../MissionObject)  
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/SynchedMissionObject.cs`
 
-## 概述
+## 一句话职责
 
-`SynchedMissionObject` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`SynchedMissionObject` 把 Mission 场景对象的变换、可见性、动画、物理标志和颜色变更接入 `GameNetwork`，由服务器/记录端广播、客户端或回放端按目标状态完成同步。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+它是 `MissionObject` 的**网络状态层**，不是通用 RPC 服务。权威端调用 `SetFrameSynched`、`SetVisibleSynched` 或 `SetDisabledSynched` 时，会写入带有 `MissionObjectId` 的消息并立即更新本地实体；客户端/回放端收到消息后保存目标帧或状态，在 tick 中插值到目标。
 
-## 主要属性
+因此，同一个对象必须已经由 `MissionObject.OnPreInit` 注册，且所有端都能用相同 ID 找到它。`SynchronizeCompleted` 只说明当前同步状态机已追上目标，不代表 Mission 或实体生命周期仍然有效。
 
-| Name | Signature |
-|------|-----------|
-| `Color` | `public uint Color { get; }` |
-| `Color2` | `public uint Color2 { get; }` |
+## 依赖关系
 
-## 主要方法
+[`MissionObject`](../MissionObject) 创建 Mission 注册，[`MissionObjectId`](../MissionObjectId) 是同步消息携带的地址。 [`Mission`](../../mission/Mission) 持有对象集合；`GameNetwork` 传输快照，服务器或 recorder 权威决定哪些变更会广播。 [`UsableMissionObject`](../UsableMissionObject) 在这一层之上增加 Agent 交互状态。
 
-### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
+## 何时用，何时不用
 
-**用途 / Purpose:** 读取并返回当前对象中 tick requirement 的结果。
+**适合使用：**
 
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-var result = synchedMissionObject.GetTickRequirement();
-```
+- 派生带场景实体的多人对象，并需要在服务器改变位置、可见性、动画或颜色。
+- 对已有的 `SynchedMissionObject` 查询同步完成状态，或读取 Mission 当前对象。
+- 让网络录制和回放复现对象状态，而不是另写一套消息格式。
 
-### SetLocalPositionSmoothStep
-`public void SetLocalPositionSmoothStep(ref Vec3 targetPosition)`
+**不适合使用：**
 
-**用途 / Purpose:** 为 local position smooth step 赋新值，并同步更新对象内部状态。
+- 只在单机本地改变一个不需要复制的实体；普通 [`MissionObject`](../MissionObject) 的实体 API 更直接。
+- 从客户端直接提交游戏规则、伤害或存档状态；同步对象只传播场景表现状态，权威规则仍应在服务器或 Mission 逻辑执行。
+- 手动广播 `MissionObjectId`、拼装 `GameNetworkMessage` 或在对象被移除后继续发消息。
 
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetLocalPositionSmoothStep(targetPosition);
-```
+## 同步状态与属性
 
-### SetVisibleSynched
-`public virtual void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
+### `SynchFlags`
 
-**用途 / Purpose:** 为 visible synched 赋新值，并同步更新对象内部状态。
+`SynchFlags` 的值包括 `SynchNone`、`SynchTransform`、`SynchAnimation`、`SynchBodyFlags`、`SyncColors` 和 `SynchAll`。它描述对象快照中可同步的类别；业务代码应调用现成的 `*Synched` 方法，不要自行改写内部标记。
 
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetVisibleSynched(false, false);
-```
+### `Color`、`Color2` 与 `SynchronizeCompleted`
 
-### SetPhysicsStateSynched
-`public virtual void SetPhysicsStateSynched(bool value, bool setChildren = true)`
+`Color` 与 `Color2` 是对象当前团队颜色状态；`SynchronizeCompleted` 在内部状态为 `SynchronizeCompleted` 时为 `true`。初始同步或平滑移动期间，对象会继续请求 tick；追上目标后才停止这部分额外 tick。
 
-**用途 / Purpose:** 为 physics state synched 赋新值，并同步更新对象内部状态。
+## 关键方法
+
+### 变换同步
+
+- `SetLocalPositionSmoothStep(ref Vec3 targetPosition)` 让客户端逐步追踪本地目标位置。
+- `SetFrameSynched(ref MatrixFrame frame)` 同步局部变换。
+- `SetGlobalFrameSynched(ref MatrixFrame frame)` 同步全局变换，并处理父实体坐标转换。
+- `SetFrameSynchedOverTime(ref MatrixFrame frame, float duration)` 与 `SetGlobalFrameSynchedOverTime` 在指定时长内插值。
+
+**用途 / 调用时机：**在权威端改变已注册对象的场景位置时调用；不要在客户端把插值结果当作新的权威状态再广播。
 
 ```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetPhysicsStateSynched(false, false);
+using System.Linq;
+using TaleWorlds.MountAndBlade;
+
+SynchedMissionObject movingObject = Mission.Current?
+    .ActiveMissionObjects
+    .FindAllWithType<SynchedMissionObject>()
+    .FirstOrDefault();
+
+if (movingObject != null && GameNetwork.IsServerOrRecorder)
+{
+    MatrixFrame frame = movingObject.GameEntity.GetFrame();
+    frame.origin.z += 0.1f;
+    movingObject.SetFrameSynched(ref frame);
+}
 ```
 
-### SetDisabledSynched
-`public virtual void SetDisabledSynched()`
+### 可见性、停用与物理
 
-**用途 / Purpose:** 为 disabled synched 赋新值，并同步更新对象内部状态。
+- `SetVisibleSynched(bool value, bool forceChildrenVisible = false)` 广播可见性并可递归处理子实体。
+- `SetDisabledSynched()` 广播停用消息，然后调用基类的隐藏和停用流程。
+- `SetPhysicsStateSynched(bool value, bool setChildren = true)` 是可覆盖的扩展点；基类实现为空，不要把它误认为已经改变物理状态。
+
+服务器/记录端才会写对应网络消息；客户端/回放端进入目标状态机。若对象是 `UsableMissionObject`，交互状态应使用它提供的 `SetIsDeactivatedSynched` 或 `SetIsDisabledForPlayersSynched`。
+
+### 动画、粒子和物理标志
+
+- `SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed)` 或整数索引版本同步骨骼动画。
+- `SetAnimationChannelParameterSynched`、`PauseSkeletonAnimationSynched`、`ResumeSkeletonAnimationSynched` 更新动画参数和暂停状态。
+- `BurstParticlesSynched`、`ApplyImpulseSynched` 传播一次性表现或冲量。
+- `AddBodyFlagsSynched` 与 `RemoveBodyFlagsSynched` 在对象或子对象上改变 `BodyFlags`。
+
+这些入口要求实体具有相应的骨骼、物理或粒子资源；对象没有对应原生资源时，消息到达不等于效果有效，错误资源配置还可能造成原生层异常。
+
+### 颜色与网络快照
+
+- `SetTeamColors(uint color, uint color2)` 只设置本地颜色状态。
+- `SetTeamColorsSynched` 负责将颜色作为同步状态传播。
+- `WriteToNetwork()` 写出基类快照和派生类快照。
+- `OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)` 在收到快照后应用变换、动画、颜色及停用状态；覆盖时必须保留基类处理。
+
+## 真实使用示例：权威端改变表现
+
+以下只在服务器/记录端修改一个已注册对象，并让客户端收到相同的变换；它没有直接修改 Agent 或 Campaign 状态：
 
 ```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetDisabledSynched();
+using TaleWorlds.MountAndBlade;
+
+public static class ModMissionPresentation
+{
+    public static void RaiseObject(SynchedMissionObject missionObject)
+    {
+        if (missionObject == null || !missionObject.GameEntity.IsValid)
+        {
+            return;
+        }
+
+        if (GameNetwork.IsServerOrRecorder)
+        {
+            MatrixFrame target = missionObject.GameEntity.GetFrame();
+            target.origin.z += 0.5f;
+            missionObject.SetFrameSynchedOverTime(ref target, 0.25f);
+        }
+    }
+}
 ```
 
-### SetFrameSynched
-`public void SetFrameSynched(ref MatrixFrame frame, bool isClient = false)`
+## 风险与版本边界
 
-**用途 / Purpose:** 为 frame synched 赋新值，并同步更新对象内部状态。
+- `SetFrameSynched` 等方法依赖对象已注册且 `Id` 在各端一致；手工构造对象或改写 ID 会使消息找不到目标。
+- 客户端调用同步入口不会获得规则权威；它可能只进入本地插值分支，不能用来提交游戏结果。
+- `OnTick` 在同步未完成时会持续运行；大量对象同时使用长时长插值会增加 Mission tick 成本。
+- `SetAnimationAtChannelSynched`、`ApplyImpulseSynched` 和 BodyFlags 方法依赖实体资源；销毁或移除后的 `GameEntity` 不可继续使用。
+- 覆盖 `WriteToNetwork` 或 `OnAfterReadFromNetwork` 时漏掉 `base` 会丢失 `MissionObject`/同步基类状态，导致回放和客户端状态分叉。
 
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetFrameSynched(frame, false);
-```
+## 参见与双向导航
 
-### SetGlobalFrameSynched
-`public void SetGlobalFrameSynched(ref MatrixFrame frame, bool isClient = false)`
-
-**用途 / Purpose:** 为 global frame synched 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetGlobalFrameSynched(frame, false);
-```
-
-### SetFrameSynchedOverTime
-`public void SetFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
-
-**用途 / Purpose:** 为 frame synched over time 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetFrameSynchedOverTime(frame, 0, false);
-```
-
-### SetGlobalFrameSynchedOverTime
-`public void SetGlobalFrameSynchedOverTime(ref MatrixFrame frame, float duration, bool isClient = false)`
-
-**用途 / Purpose:** 为 global frame synched over time 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetGlobalFrameSynchedOverTime(frame, 0, false);
-```
-
-### SetAnimationAtChannelSynched
-`public void SetAnimationAtChannelSynched(string animationName, int channelNo, float animationSpeed = 1f)`
-
-**用途 / Purpose:** 为 animation at channel synched 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetAnimationAtChannelSynched("example", 0, 0);
-```
-
-### SetAnimationAtChannelSynched
-`public void SetAnimationAtChannelSynched(int animationIndex, int channelNo, float animationSpeed = 1f)`
-
-**用途 / Purpose:** 为 animation at channel synched 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetAnimationAtChannelSynched(0, 0, 0);
-```
-
-### SetAnimationChannelParameterSynched
-`public void SetAnimationChannelParameterSynched(int channelNo, float parameter)`
-
-**用途 / Purpose:** 为 animation channel parameter synched 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetAnimationChannelParameterSynched(0, 0);
-```
-
-### PauseSkeletonAnimationSynched
-`public void PauseSkeletonAnimationSynched()`
-
-**用途 / Purpose:** 调用 PauseSkeletonAnimationSynched 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.PauseSkeletonAnimationSynched();
-```
-
-### ResumeSkeletonAnimationSynched
-`public void ResumeSkeletonAnimationSynched()`
-
-**用途 / Purpose:** 调用 ResumeSkeletonAnimationSynched 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.ResumeSkeletonAnimationSynched();
-```
-
-### BurstParticlesSynched
-`public void BurstParticlesSynched(bool doChildren = true)`
-
-**用途 / Purpose:** 调用 BurstParticlesSynched 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.BurstParticlesSynched(false);
-```
-
-### ApplyImpulseSynched
-`public void ApplyImpulseSynched(Vec3 localPosition, Vec3 impulse)`
-
-**用途 / Purpose:** 将 impulse synched 的效果应用到当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.ApplyImpulseSynched(localPosition, impulse);
-```
-
-### AddBodyFlagsSynched
-`public void AddBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
-
-**用途 / Purpose:** 将 body flags synched 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.AddBodyFlagsSynched(flags, false);
-```
-
-### RemoveBodyFlagsSynched
-`public void RemoveBodyFlagsSynched(BodyFlags flags, bool applyToChildren = true)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 body flags synched。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.RemoveBodyFlagsSynched(flags, false);
-```
-
-### SetTeamColors
-`public void SetTeamColors(uint color, uint color2)`
-
-**用途 / Purpose:** 为 team colors 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetTeamColors(0, 0);
-```
-
-### SetTeamColorsSynched
-`public virtual void SetTeamColorsSynched(uint color, uint color2)`
-
-**用途 / Purpose:** 为 team colors synched 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.SetTeamColorsSynched(0, 0);
-```
-
-### WriteToNetwork
-`public virtual void WriteToNetwork()`
-
-**用途 / Purpose:** 将to network写入目标位置。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.WriteToNetwork();
-```
-
-### OnAfterReadFromNetwork
-`public virtual void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
-
-**用途 / Purpose:** 在 after read from network 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 SynchedMissionObject 实例
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-SynchedMissionObject synchedMissionObject = ...;
-synchedMissionObject.GetTickRequirement();
-```
-
-## 参见
-
-- [本区域目录](../)
+- ↑ 父级：[Mission-ext 模块索引](../)
+- ↔ 基类/交互子类：[MissionObject](../MissionObject) · [UsableMissionObject](../UsableMissionObject)
+- 身份：[MissionObjectId](../MissionObjectId)
+- 宿主：[Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior)
+- 中文/English：[SynchedMissionObject](../../../../en/api/mission-ext/SynchedMissionObject)

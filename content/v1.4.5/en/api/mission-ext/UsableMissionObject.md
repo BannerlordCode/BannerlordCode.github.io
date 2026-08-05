@@ -1,516 +1,128 @@
 ---
 title: "UsableMissionObject"
-description: "Auto-generated class reference for UsableMissionObject."
+description: "Mission-scene interaction base for focus, Agent use, AI movement, component callbacks, and synchronized usable state."
 ---
 # UsableMissionObject
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class UsableMissionObject : SynchedMissionObject, IFocusable, IUsable, IVisible`
-**Base:** `SynchedMissionObject`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public abstract class UsableMissionObject : SynchedMissionObject, IFocusable, IUsable, IVisible`  
+**Base:** [`SynchedMissionObject`](../SynchedMissionObject)  
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMissionObject.cs`
 
-## Overview
+## One-line responsibility
 
-`UsableMissionObject` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+This class is the Mission-scene interaction layer: it owns the current user, AI agents moving to or defending the object, focus/use callbacks, and the synchronized interaction flags built on [`SynchedMissionObject`](../SynchedMissionObject).
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`UsableMissionObject` is a scene component, not a campaign service and not a standalone UI control. The engine creates a derived object from a scene entity or the Mission runtime-object path. `OnInit` discovers child entities, creates `GameEntityWithWorldPosition`, and defaults `LockUserFrames` to the inverse of `IsInstantUse`. The Mission or interaction view then drives focus, use, stop-use, and AI detachment callbacks.
 
-## Key Properties
+The object has two kinds of state. `UserAgent`, `MovingAgent`, and `DefendingAgents` describe who is currently interacting with it; `IsDeactivated` and `IsDisabledForPlayers` decide whether new interaction is allowed. `SetDisabled*` changes membership in `Mission.ActiveMissionObjects` and may change visibility or physics, but it is not the same as removing the entity. A derived type should be attached to a real scene entity and should let the host call lifecycle methods instead of constructing one with `new` or calling `OnUse` as a shortcut.
 
-| Name | Signature |
-|------|-----------|
-| `IsDeactivated` | `public bool IsDeactivated { get; }` |
-| `IsDisabledForPlayers` | `public bool IsDisabledForPlayers { get; }` |
-| `IsUserAgentExists` | `public bool IsUserAgentExists { get; }` |
-| `AgentIndex` | `public int AgentIndex { get; }` |
-| `UserAgent` | `public Agent UserAgent { get; }` |
-| `PreviousUserAgent` | `public Agent PreviousUserAgent { get; }` |
-| `GameEntityWithWorldPosition` | `public GameEntityWithWorldPosition GameEntityWithWorldPosition { get; }` |
-| `MovingAgent` | `public virtual Agent MovingAgent { get; }` |
-| `DefendingAgents` | `public List<Agent> DefendingAgents { get; }` |
-| `HasDefendingAgent` | `public bool HasDefendingAgent { get; }` |
-| `LockUserFrames` | `public virtual bool LockUserFrames { get; set; }` |
-| `LockUserPositions` | `public virtual bool LockUserPositions { get; set; }` |
-| `IsInstantUse` | `public bool IsInstantUse { get; set; }` |
-| `IsDeactivated` | `public bool IsDeactivated { get; set; }` |
-| `IsDisabledForPlayers` | `public bool IsDisabledForPlayers { get; set; }` |
-| `HasAIUser` | `public bool HasAIUser { get; }` |
-| `IsVisible` | `public bool IsVisible { get; set; }` |
+Use this base for a gate, workstation, standing point, pickup, or machine part whose interaction is represented by an Agent and may need multiplayer state. Use [`MissionBehavior`](../../mission/MissionBehavior) for Mission-wide coordination, and use Campaign Actions for campaign state. Do not use the object itself as a save-data container.
 
-## Key Methods
+## Dependencies
 
-### ReadFromNetwork
-`public bool ReadFromNetwork(ref bool bufferReadValid)`
+The object enters the Mission through [`MissionObject`](../MissionObject): `OnPreInit` assigns its [`MissionObjectId`](../MissionObjectId) and registers it, while [`Mission`](../../mission/Mission) owns `MissionObjects` and `ActiveMissionObjects`. Interaction focus and Agent lifecycle come from the Mission interaction layer and [`Agent`](../../mission/Agent); optional behavior is delegated to [`UsableMissionObjectComponent`](../UsableMissionObjectComponent). In multiplayer, state changes flow through [`SynchedMissionObject`](../SynchedMissionObject) and its network snapshot contract.
 
-**Purpose:** Reads the data or state of from network.
+## Interaction state and timing
 
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.ReadFromNetwork(bufferReadValid);
-```
+- `UserAgent` is the current Agent using the object; `PreviousUserAgent` is updated when that reference changes. They are valid only while the Mission and entity are alive.
+- `IsDeactivated` blocks interaction and, on the authoritative side, stops the current user, moving Agent, and defending Agents when changed to `true`. `IsDisabledForPlayers` blocks non-AI players while still allowing AI checks to pass its specific condition.
+- `IsDisabledForAgent(Agent agent)` returns `true` for a deactivated object, a mounted Agent, a player-disabled object used by a non-AI Agent, or an Agent that fails `IsAbleToUseMachine()`.
+- `IsInstantUse` controls whether use is treated as instant; `LockUserFrames` and `LockUserPositions` control the client-side correction target while an Agent uses the object. `OnInit` sets `LockUserFrames` to `!IsInstantUse`.
+- `MovingAgent` and `DefendingAgents` are AI detachment state. The base implementation supports one moving Agent; a derived class can override `GetMovingAgentCount`, `GetMovingAgentWithIndex`, `AddMovingAgent`, and `RemoveMovingAgent` for another arrangement. Call `InitializeDefendingAgents` before reading or adding to the defending list.
+- `GameEntityWithWorldPosition` is refreshed in `OnInit` and can be rebuilt with `RefreshGameEntityWithWorldPosition`. `GetUserFrameForAgent` uses it by default, so a custom child layout should override that method or refresh the wrapper after the entity changes.
+- `IsVisible` changes the entity visibility excluding parent visibility. `DescriptionMessage`, `ActionMessage`, and `GetDescriptionText(WeakGameEntity)` supply interaction text; they do not themselves make the object usable.
 
-### OnUserConversationStart
-`public virtual void OnUserConversationStart()`
+## Use workflow
 
-**Purpose:** Invoked when the user conversation start event is raised.
+The normal path is host-driven:
+
+1. The interaction system calls `OnFocusGain` or `OnFocusLose`; the base implementation forwards those events to every [`UsableMissionObjectComponent`](../UsableMissionObjectComponent).
+2. `OnUse` runs on the authoritative side after the interaction is accepted. It resolves conflicting users, removes an AI moving to this object, stops other moving Agents when the object is not instant-use, calls component `OnUse`, assigns `UserAgent`, and broadcasts `UseObject` from the server or recorder. On a client or replay, the method applies the locked frame or position to the Agent instead of changing authority state.
+3. `OnUseStopped` forwards success to components and clears `UserAgent`. `OnAIMoveToUse` and `OnMoveToStopped` maintain the detachment manager and moving-Agent state. `OnAIDefendBegin` and `OnAIDefendEnd` maintain the defending list and detachment manager.
+4. `GetTickRequirement` requests normal and parallel ticking while an Agent is using or moving to the object, normal ticking while Agents defend it, or normal ticking when a component reports `IsOnTickRequired()`. `OnTick` ticks components, corrects a user's position when the entity frame changed, and cleans up inactive moving Agents.
+5. `OnEndMission` clears user, moving, and defending references. `OnRemoved` first follows the [`MissionObject`](../MissionObject) removal path and then calls each component's `OnRemoved`.
+
+The synchronization boundary is explicit. `SetIsDeactivatedSynched` and `SetIsDisabledForPlayersSynched` send the corresponding message only on server/recorder authority and then update local state. `WriteToNetwork` writes the base snapshot followed by both flags and the optional user Agent index; `OnAfterReadFromNetwork` lets the base class apply its state, then resolves the Agent index through `Mission.MissionNetworkHelper`.
+
+## Real acquisition and inspection example
+
+Query an object already registered by the current Mission. This is appropriate for a Mission behavior or another Mission-phase callback; it does not create a detached object.
 
 ```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnUserConversationStart();
+using TaleWorlds.MountAndBlade;
+
+public static bool TryFindUsableForMainAgent(out UsableMissionObject result)
+{
+    result = null;
+    Mission mission = Mission.Current;
+    Agent agent = Agent.Main;
+    if (mission == null || agent == null)
+    {
+        return false;
+    }
+
+    foreach (MissionObject missionObject in mission.ActiveMissionObjects)
+    {
+        if (missionObject is UsableMissionObject usable &&
+            !usable.IsDisabledForAgent(agent))
+        {
+            result = usable;
+            return true;
+        }
+    }
+
+    return false;
+}
 ```
 
-### OnUserConversationEnd
-`public virtual void OnUserConversationEnd()`
+## Real derived-object pattern
 
-**Purpose:** Invoked when the user conversation end event is raised.
+Attach the derived type to a scene entity through the usual Mission scene setup. Override the interaction hook, preserve the base bookkeeping, and use the synchronized setter when the result must reach clients.
 
 ```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnUserConversationEnd();
+using TaleWorlds.Engine;
+using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
+
+public sealed class ModGateUsableObject : UsableMissionObject
+{
+    public ModGateUsableObject() : base(isInstantUse: false)
+    {
+    }
+
+    public override TextObject GetDescriptionText(WeakGameEntity gameEntity)
+    {
+        return new TextObject("{=mod_gate_use}Open the gate");
+    }
+
+    public override void OnUse(Agent userAgent, sbyte agentBoneIndex)
+    {
+        base.OnUse(userAgent, agentBoneIndex);
+        SetIsDeactivatedSynched(true);
+    }
+}
 ```
 
-### SetAreUserPositionsUpdatedInTheMachineTick
-`public void SetAreUserPositionsUpdatedInTheMachineTick(bool value)`
-
-**Purpose:** Assigns a new value to are user positions updated in the machine tick and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.SetAreUserPositionsUpdatedInTheMachineTick(false);
-```
-
-### GetIsUserPositionsUpdatedInTheMachineTick
-`public bool GetIsUserPositionsUpdatedInTheMachineTick()`
-
-**Purpose:** Reads and returns the is user positions updated in the machine tick value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetIsUserPositionsUpdatedInTheMachineTick();
-```
-
-### SetIsDeactivatedSynched
-`public void SetIsDeactivatedSynched(bool value)`
-
-**Purpose:** Assigns a new value to is deactivated synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.SetIsDeactivatedSynched(false);
-```
-
-### SetIsDisabledForPlayersSynched
-`public void SetIsDisabledForPlayersSynched(bool value)`
-
-**Purpose:** Assigns a new value to is disabled for players synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.SetIsDisabledForPlayersSynched(false);
-```
-
-### IsDisabledForAgent
-`public virtual bool IsDisabledForAgent(Agent agent)`
-
-**Purpose:** Determines whether the this instance is in the disabled for agent state or condition.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.IsDisabledForAgent(agent);
-```
-
-### AddComponent
-`public void AddComponent(UsableMissionObjectComponent component)`
-
-**Purpose:** Adds component to the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.AddComponent(component);
-```
-
-### RemoveComponent
-`public void RemoveComponent(UsableMissionObjectComponent component)`
-
-**Purpose:** Removes component from the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.RemoveComponent(component);
-```
-
-### RefreshGameEntityWithWorldPosition
-`public void RefreshGameEntityWithWorldPosition()`
-
-**Purpose:** Keeps the display or cache of game entity with world position in sync with the underlying state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.RefreshGameEntityWithWorldPosition();
-```
-
-### OnFocusGain
-`public virtual void OnFocusGain(Agent userAgent)`
-
-**Purpose:** Invoked when the focus gain event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnFocusGain(userAgent);
-```
-
-### OnFocusLose
-`public virtual void OnFocusLose(Agent userAgent)`
-
-**Purpose:** Invoked when the focus lose event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnFocusLose(userAgent);
-```
-
-### GetInfoTextForBeingNotInteractable
-`public virtual TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
-
-**Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetInfoTextForBeingNotInteractable(userAgent);
-```
-
-### SetUserForClient
-`public virtual void SetUserForClient(Agent userAgent)`
-
-**Purpose:** Assigns a new value to user for client and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.SetUserForClient(userAgent);
-```
-
-### OnUse
-`public virtual void OnUse(Agent userAgent, sbyte agentBoneIndex)`
-
-**Purpose:** Invoked when the use event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnUse(userAgent, 0);
-```
-
-### OnAIMoveToUse
-`public virtual void OnAIMoveToUse(Agent userAgent, IDetachment detachment)`
-
-**Purpose:** Invoked when the a i move to use event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnAIMoveToUse(userAgent, detachment);
-```
-
-### OnUseStopped
-`public virtual void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)`
-
-**Purpose:** Invoked when the use stopped event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnUseStopped(userAgent, false, 0);
-```
-
-### OnMoveToStopped
-`public virtual void OnMoveToStopped(Agent movingAgent)`
-
-**Purpose:** Invoked when the move to stopped event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnMoveToStopped(movingAgent);
-```
-
-### GetMovingAgentCount
-`public virtual int GetMovingAgentCount()`
-
-**Purpose:** Reads and returns the moving agent count value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetMovingAgentCount();
-```
-
-### GetMovingAgentWithIndex
-`public virtual Agent GetMovingAgentWithIndex(int index)`
-
-**Purpose:** Reads and returns the moving agent with index value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetMovingAgentWithIndex(0);
-```
-
-### RemoveMovingAgent
-`public virtual void RemoveMovingAgent(Agent movingAgent)`
-
-**Purpose:** Removes moving agent from the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.RemoveMovingAgent(movingAgent);
-```
-
-### AddMovingAgent
-`public virtual void AddMovingAgent(Agent movingAgent)`
-
-**Purpose:** Adds moving agent to the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.AddMovingAgent(movingAgent);
-```
-
-### OnAIDefendBegin
-`public void OnAIDefendBegin(Agent agent, IDetachment detachment)`
-
-**Purpose:** Invoked when the a i defend begin event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnAIDefendBegin(agent, detachment);
-```
-
-### OnAIDefendEnd
-`public void OnAIDefendEnd(Agent agent)`
-
-**Purpose:** Invoked when the a i defend end event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnAIDefendEnd(agent);
-```
-
-### InitializeDefendingAgents
-`public void InitializeDefendingAgents()`
-
-**Purpose:** Prepares the resources, state, or bindings required by defending agents.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.InitializeDefendingAgents();
-```
-
-### GetDefendingAgentCount
-`public int GetDefendingAgentCount()`
-
-**Purpose:** Reads and returns the defending agent count value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetDefendingAgentCount();
-```
-
-### AddDefendingAgent
-`public void AddDefendingAgent(Agent agent)`
-
-**Purpose:** Adds defending agent to the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.AddDefendingAgent(agent);
-```
-
-### RemoveDefendingAgent
-`public void RemoveDefendingAgent(Agent agent)`
-
-**Purpose:** Removes defending agent from the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.RemoveDefendingAgent(agent);
-```
-
-### IsAgentDefending
-`public bool IsAgentDefending(Agent agent)`
-
-**Purpose:** Determines whether the this instance is in the agent defending state or condition.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.IsAgentDefending(agent);
-```
-
-### SimulateTick
-`public virtual void SimulateTick(float dt)`
-
-**Purpose:** Executes the SimulateTick logic.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.SimulateTick(0);
-```
-
-### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
-
-**Purpose:** Reads and returns the tick requirement value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetTickRequirement();
-```
-
-### GetUserFrameForAgent
-`public virtual WorldFrame GetUserFrameForAgent(Agent agent)`
-
-**Purpose:** Reads and returns the user frame for agent value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetUserFrameForAgent(agent);
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.ToString();
-```
-
-### IsAIMovingTo
-`public virtual bool IsAIMovingTo(Agent agent)`
-
-**Purpose:** Determines whether the this instance is in the a i moving to state or condition.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.IsAIMovingTo(agent);
-```
-
-### HasUserPositionsChanged
-`public virtual bool HasUserPositionsChanged(Agent agent)`
-
-**Purpose:** Determines whether the this instance already holds user positions changed.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.HasUserPositionsChanged(agent);
-```
-
-### WriteToNetwork
-`public override void WriteToNetwork()`
-
-**Purpose:** Writes to network to the target location.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.WriteToNetwork();
-```
-
-### IsUsableByAgent
-`public virtual bool IsUsableByAgent(Agent userAgent)`
-
-**Purpose:** Determines whether the this instance is in the usable by agent state or condition.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.IsUsableByAgent(userAgent);
-```
-
-### SetCustomLocalFrame
-`public void SetCustomLocalFrame(in MatrixFrame customLocalFrame)`
-
-**Purpose:** Assigns a new value to custom local frame and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.SetCustomLocalFrame(customLocalFrame);
-```
-
-### OnEndMission
-`public override void OnEndMission()`
-
-**Purpose:** Invoked when the end mission event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnEndMission();
-```
-
-### OnAfterReadFromNetwork
-`public override void OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, ISynchedMissionObjectReadableRecord) synchedMissionObjectReadableRecord, bool allowVisibilityUpdate = true)`
-
-**Purpose:** Invoked when the after read from network event is raised.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-usableMissionObject.OnAfterReadFromNetwork((BaseSynchedMissionObjectReadableRecord, synchedMissionObjectReadableRecord, false);
-```
-
-### GetDescriptionText
-`public abstract TextObject GetDescriptionText(WeakGameEntity gameEntity)`
-
-**Purpose:** Reads and returns the description text value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMissionObject from the subsystem API first
-UsableMissionObject usableMissionObject = ...;
-var result = usableMissionObject.GetDescriptionText(gameEntity);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-UsableMissionObject instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+## Risks and boundaries
+
+- `DefendingAgents` is null until `InitializeDefendingAgents` is called; `GetDefendingAgentCount`, `AddDefendingAgent`, and `IsAgentDefending` assume that initialization has happened.
+- Directly assigning `IsDeactivated` or `IsDisabledForPlayers` changes local state but does not broadcast the corresponding network message. Use the `*Synched` setter on the authority side for multiplayer state.
+- A `MissionObject` can be disabled without being removed. Do not retain an Agent, `GameEntityWithWorldPosition`, or `GameEntity` reference past `OnEndMission` or `OnRemoved`.
+- `SetDisabled*`, `SetEnabled*`, `SetCustomLocalFrame`, and interaction callbacks require a live Mission and native entity. Calling them from module-load code or a delayed callback after entity removal can hit invalid engine state.
+- A component's `OnTick` is called for every tick that its owner requests. Return `true` from `IsOnTickRequired` only while the component has work, and remove the component before the owner is gone.
+- `OnAfterReadFromNetwork` and `WriteToNetwork` are inheritance contracts. Overrides that omit `base` can lose transform, disabled, or interaction state. Client-side position locking is presentation correction, not permission to commit game rules.
+- This type does not persist campaign data. Store durable consequences through the appropriate Campaign behavior and Action; keep Mission interaction state transient.
+
+## See also and reciprocal navigation
+
+- ↑ Parent: [Mission-ext module index](../)
+- ↔ Inheritance: [MissionObject](../MissionObject) · [SynchedMissionObject](../SynchedMissionObject)
+- ↔ Extension point: [UsableMissionObjectComponent](../UsableMissionObjectComponent)
+- Host and Agent lifecycle: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [Agent](../../mission/Agent)
+- Related machine owner: [UsableMachine](../UsableMachine)
+- Identity: [MissionObjectId](../MissionObjectId)
+- 中文/English: [UsableMissionObject](../../../../zh/api/mission-ext/UsableMissionObject)

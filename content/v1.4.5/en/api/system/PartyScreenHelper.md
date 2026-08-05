@@ -1,281 +1,149 @@
 ---
 title: "PartyScreenHelper"
-description: "Auto-generated class reference for PartyScreenHelper."
+description: "The v1.4.5 campaign helper that builds party screens for troop, prisoner, loot, ransom, quest, and clan-party flows."
 ---
 # PartyScreenHelper
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class PartyScreenHelper`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/PartyScreenHelper.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class PartyScreenHelper`  
+**Base:** `System.Object`  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/PartyScreenHelper.cs`
 
-## Overview
+## Responsibility
 
-`PartyScreenHelper` is a helper class that usually provides static logic which does not depend on instance state.
+`PartyScreenHelper` is the campaign entry-point layer for troop and prisoner presentations. Its public methods create a [PartyState](../../campaign/PartyState), configure [PartyScreenLogic](../../campaign/PartyScreenLogic) with rosters, transfer rules, limits, and callbacks, then push the state through [GameStateManager](../../core-extra/GameStateManager). The helper is not a party model and does not make every transfer itself; the logic and done handlers decide what is applied when the screen closes.
 
-## Mental Model
+## Mental model
 
-Treat `PartyScreenHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Every screen method assembles a stateful transfer session:
 
-## Key Methods
-
-### GetActivePartyState
-`public static PartyState GetActivePartyState()`
-
-**Purpose:** Reads and returns the active party state value held by the this instance.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.GetActivePartyState();
+```text
+party/roster context -> PartyScreenLogicInitializationData -> PartyState -> GameStateManager.PushState
 ```
 
-### CloseScreen
-`public static void CloseScreen(bool isForced, bool fromCancel = false)`
+`PartyScreenMode` labels the session as normal, loot, ransom, prisoner management, troop management, or quest troop management. The helper wires mode-specific transfer delegates and completion handlers. `CloseScreen` calls `PartyScreenLogic.DoneLogic` unless the caller is cancelling, then invokes `OnPartyScreenClosed`, clears the logic, and pops the state.
 
-**Purpose:** Closes the resource or UI associated with screen.
+Some completion handlers are deliberately mutating. The default handler processes released and taken prisoners; garrison and clan-party handlers can add parties, move heroes, transfer ships, or destroy an empty party. Treat this helper as a UI workflow boundary with campaign side effects, not as a read-only convenience API.
 
-```csharp
-// Static call; no instance required
-PartyScreenHelper.CloseScreen(false, false);
-```
+## When to use and when not to use
 
-### OpenScreenAsCheat
-`public static void OpenScreenAsCheat()`
+- **Use it** when a real campaign interaction already has the correct `MobileParty`, `PartyBase`, `TroopRoster`, transfer delegates, capacity, and close callback.
+- **Use `OpenScreenWithCondition` or `OpenScreenAsQuest`** for mod-owned selection flows that need custom transfer predicates and button conditions; pass callbacks that match the source delegate contracts.
+- **Do not instantiate it.** It is a static state factory.
+- **Do not call a mode-specific method without its expected campaign context.** Ransom, donation, garrison, settlement, and clan-party methods read current settlement, main-party, clan, or hero state.
+- **Do not assume closing is neutral.** `DefaultDoneHandler`, prisoner handlers, and clan-party handlers can dispatch actions and modify campaign parties after the UI returns.
 
-**Purpose:** Opens the resource or UI associated with screen as cheat.
+## Public surface
 
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsCheat();
-```
-
-### OpenScreenAsNormal
-`public static void OpenScreenAsNormal()`
-
-**Purpose:** Opens the resource or UI associated with screen as normal.
+### Party modes
 
 ```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsNormal();
+public enum PartyScreenMode
+{
+    Normal,
+    Shared,
+    Loot,
+    Ransom,
+    PrisonerManage,
+    TroopsManage,
+    QuestTroopManage
+}
 ```
 
-### OpenScreenAsRansom
-`public static void OpenScreenAsRansom()`
+The mode is stored on `PartyState` and consumed by `PartyScreenLogic`. It is a presentation contract, not a permission flag by itself; transfer states and delegates still determine what can move.
 
-**Purpose:** Opens the resource or UI associated with screen as ransom.
+### State access and closing
 
 ```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsRansom();
+public static PartyState GetActivePartyState()
+public static void CloseScreen(bool isForced, bool fromCancel = false)
 ```
 
-### OpenScreenAsLoot
-`public static void OpenScreenAsLoot(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TextObject leftPartyName, int leftPartySizeLimit, PartyScreenClosedDelegate partyScreenClosedDelegate = null)`
+`GetActivePartyState` reads `GameStateManager.Current.ActiveState`. It emits a failed assertion and returns `null` when another game state is active. `CloseScreen` finds the active logic, runs `DoneLogic(isForced)` unless cancellation bypasses it, invokes `OnPartyScreenClosed(fromCancel)`, clears `PartyScreenLogic`, and pops the state.
 
-**Purpose:** Opens the resource or UI associated with screen as loot.
+## Standard and specialized entry points
+
+| Entry points | Source-defined workflow |
+| --- | --- |
+| `OpenScreenAsNormal`, `OpenScreenAsCheat` | Build a main-party screen; normal mode branches to the cheat roster when `Game.Current.CheatMode` is enabled. |
+| `OpenScreenAsLoot`, `OpenScreenAsRansom` | Configure loot or ransom transfer states and their completion handlers. |
+| `OpenScreenAsManageTroops`, `OpenScreenAsManageTroopsAndPrisoners`, `OpenScreenAsReceiveTroops` | Build standard troop/prisoner transfer views around a real mobile party or supplied roster. |
+| `OpenScreenAsDonateTroops`, `OpenScreenAsDonateGarrisonWithCurrentSettlement`, `OpenScreenAsDonatePrisoners`, `OpenScreenAsManagePrisoners` | Build donation and garrison flows with capacity checks and settlement callbacks. |
+| `OpenScreenWithCondition`, `OpenScreenForManagingAlley`, `OpenScreenAsQuest` | Accept custom transfer predicates, button conditions, callbacks, limits, and mode-specific rosters. |
+| `OpenScreenWithDummyRoster`, `OpenScreenWithDummyRosterWithMainParty`, `OpenScreenAsCreateClanPartyForHero` | Create controlled roster-selection flows, including the source clan-party creation path. |
+
+All open methods create and push a new `PartyState`; they do not reuse the active state. The generic methods are the extension surface, but their delegates still run inside the stock `PartyScreenLogic` lifecycle.
+
+## Real call-site examples
+
+The town-visit campaign behavior opens a real garrison management screen from the current settlement:
 
 ```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsLoot(leftMemberRoster, leftPrisonerRoster, leftPartyName, 0, null);
+using Helpers;
+using TaleWorlds.CampaignSystem;
+
+PartyScreenHelper.OpenScreenAsManageTroops(
+    currentSettlement.Town.GarrisonParty);
 ```
 
-### OpenScreenAsManageTroopsAndPrisoners
-`public static void OpenScreenAsManageTroopsAndPrisoners(MobileParty leftParty, PartyScreenClosedDelegate onPartyScreenClosed = null)`
+The same source family uses `OpenScreenAsDonatePrisoners` and `OpenScreenAsDonateGarrisonWithCurrentSettlement` for settlement-side transfers. Those methods read `Hero.MainHero.CurrentSettlement`, create a garrison when required, and set the appropriate transfer states.
 
-**Purpose:** Opens the resource or UI associated with screen as manage troops and prisoners.
+Encounter and caravan flows pass real rosters into loot screens:
 
 ```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsManageTroopsAndPrisoners(leftParty, null);
+PartyScreenHelper.OpenScreenAsLoot(
+    TroopRoster.CreateDummyTroopRoster(),
+    troopRoster,
+    encounteredMobileParty.Name,
+    troopRoster.TotalManCount);
 ```
 
-### OpenScreenAsManagePlayerClanPartyClosed
-`public static void OpenScreenAsManagePlayerClanPartyClosed(PartyBase leftOwnerParty, TroopRoster leftMemberRoster, TroopRoster leftPrisonRoster, PartyBase rightOwnerParty, TroopRoster rightMemberRoster, TroopRoster rightPrisonRoster, bool fromCancel)`
-
-**Purpose:** Opens the resource or UI associated with screen as manage player clan party closed.
+Issue and encounter behaviors use the generic condition entry point when the quest or encounter owns the transfer predicate and done callbacks:
 
 ```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsManagePlayerClanPartyClosed(leftOwnerParty, leftMemberRoster, leftPrisonRoster, rightOwnerParty, rightMemberRoster, rightPrisonRoster, false);
+PartyScreenHelper.OpenScreenWithCondition(
+    IsTroopTransferable,
+    DoneButtonCondition,
+    OnDoneClicked,
+    null,
+    PartyScreenLogic.TransferState.Transferable,
+    PartyScreenLogic.TransferState.NotTransferable,
+    base.QuestGiver.Name,
+    requestedCount,
+    showProgressBar: true,
+    isDonating: false,
+    screenMode: PartyScreenHelper.PartyScreenMode.PrisonerManage);
 ```
 
-### OpenScreenAsReceiveTroops
-`public static void OpenScreenAsReceiveTroops(TroopRoster leftMemberParty, TextObject leftPartyName, PartyScreenClosedDelegate partyScreenClosedDelegate = null)`
+The callback names above belong to the owning behavior; the important contract is that the behavior supplies them rather than expecting `PartyScreenHelper` to infer quest rules.
 
-**Purpose:** Opens the resource or UI associated with screen as receive troops.
+## Dependencies and ownership
 
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsReceiveTroops(leftMemberParty, leftPartyName, null);
-```
+- [PartyState](../../campaign/PartyState) is the pushed state and stores `PartyScreenLogic`, `IsDonating`, and `PartyScreenMode`.
+- [PartyScreenLogic](../../campaign/PartyScreenLogic) owns roster transfer validation, done-button evaluation, and the transfer history consumed by completion handlers.
+- [GameStateManager](../../core-extra/GameStateManager) owns state creation and stack transitions; `PartyScreenHelper` only requests those transitions.
+- [TroopRoster](../../campaign/TroopRoster), [FlattenedTroopRoster](../../campaign/FlattenedTroopRoster), [PartyBase](../../campaign/PartyBase), and [MobileParty](../../campaign/MobileParty) provide the real party-side inputs.
+- Campaign actions such as prisoner taking, prisoner release, settlement entry, gold transfer, and party destruction are dispatched by the helper's done handlers or by the owning behavior after the callback.
 
-### OpenScreenAsManageTroops
-`public static void OpenScreenAsManageTroops(MobileParty leftParty)`
+## Risks and version boundaries
 
-**Purpose:** Opens the resource or UI associated with screen as manage troops.
+- `OpenScreenAsNormal` is cheat-sensitive: with `Game.Current.CheatMode` it opens a roster containing valid encyclopedia troops; otherwise it uses the normal main-party flow.
+- `OpenScreenAsRansom` clones the main-party member and prisoner rosters and sets `DoNotApplyGoldTransactions`; it is not equivalent to a normal prisoner transfer.
+- `OpenScreenAsManagePlayerClanPartyClosed` can transfer ships and destroy the left party when its member roster is empty. It must not be reused as a generic no-op close callback.
+- Donation and garrison methods read `Hero.MainHero.CurrentSettlement` and may create a garrison party. Calling them outside a settlement context can fail before the state is usable.
+- `CloseScreen` with `fromCancel` changes whether `DoneLogic` runs. The selected `isForced` value also changes the logic's close decision, so callers must preserve the UI's original close semantics.
+- The generic methods accept nullable rosters and callbacks only where the v1.4.5 signature permits them. The helper fills dummy rosters in some paths, but it does not validate arbitrary custom delegate behavior.
 
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsManageTroops(leftParty);
-```
+## Version note
 
-### OpenScreenAsDonateTroops
-`public static void OpenScreenAsDonateTroops(MobileParty leftParty)`
+This page follows v1.4.5 `PartyScreenHelper.cs`. The helper orchestrates a temporary party-screen state; roster ownership, action dispatch, save behavior, and campaign event semantics remain in the linked logic, rosters, actions, and behaviors.
 
-**Purpose:** Opens the resource or UI associated with screen as donate troops.
+## Navigation
 
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsDonateTroops(leftParty);
-```
-
-### OpenScreenAsDonateGarrisonWithCurrentSettlement
-`public static void OpenScreenAsDonateGarrisonWithCurrentSettlement()`
-
-**Purpose:** Opens the resource or UI associated with screen as donate garrison with current settlement.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsDonateGarrisonWithCurrentSettlement();
-```
-
-### OpenScreenAsDonatePrisoners
-`public static void OpenScreenAsDonatePrisoners()`
-
-**Purpose:** Opens the resource or UI associated with screen as donate prisoners.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsDonatePrisoners();
-```
-
-### DonatePrisonerTransferableDelegate
-`public static bool DonatePrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
-
-**Purpose:** Executes the DonatePrisonerTransferableDelegate logic.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.DonatePrisonerTransferableDelegate(character, type, side, leftOwnerParty);
-```
-
-### OpenScreenAsManagePrisoners
-`public static void OpenScreenAsManagePrisoners()`
-
-**Purpose:** Opens the resource or UI associated with screen as manage prisoners.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsManagePrisoners();
-```
-
-### TroopTransferableDelegate
-`public static bool TroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase leftOwnerParty)`
-
-**Purpose:** Executes the TroopTransferableDelegate logic.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.TroopTransferableDelegate(character, type, side, leftOwnerParty);
-```
-
-### ClanManageTroopAndPrisonerTransferableDelegate
-`public static bool ClanManageTroopAndPrisonerTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
-
-**Purpose:** Executes the ClanManageTroopAndPrisonerTransferableDelegate logic.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.ClanManageTroopAndPrisonerTransferableDelegate(character, type, side, leftOwnerParty);
-```
-
-### ClanManageTroopTransferableDelegate
-`public static bool ClanManageTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
-
-**Purpose:** Executes the ClanManageTroopTransferableDelegate logic.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.ClanManageTroopTransferableDelegate(character, type, side, leftOwnerParty);
-```
-
-### DonateModeTroopTransferableDelegate
-`public static bool DonateModeTroopTransferableDelegate(CharacterObject character, PartyScreenLogic.TroopType type, PartyScreenLogic.PartyRosterSide side, PartyBase LeftOwnerParty)`
-
-**Purpose:** Executes the DonateModeTroopTransferableDelegate logic.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.DonateModeTroopTransferableDelegate(character, type, side, leftOwnerParty);
-```
-
-### OpenScreenWithCondition
-`public static void OpenScreenWithCondition(IsTroopTransferableDelegate isTroopTransferable, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyPresentationDoneButtonDelegate onDoneClicked, PartyPresentationCancelButtonDelegate onCancelClicked, PartyScreenLogic.TransferState memberTransferState, PartyScreenLogic.TransferState prisonerTransferState, TextObject leftPartyName, int limit, bool showProgressBar, bool isDonating, PartyScreenMode screenMode = PartyScreenMode.Normal, TroopRoster memberRosterLeft = null, TroopRoster prisonerRosterLeft = null)`
-
-**Purpose:** Opens the resource or UI associated with screen with condition.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenWithCondition(isTroopTransferable, doneButtonCondition, onDoneClicked, onCancelClicked, memberTransferState, prisonerTransferState, leftPartyName, 0, false, false, partyScreenMode.Normal, null, null);
-```
-
-### OpenScreenForManagingAlley
-`public static void OpenScreenForManagingAlley(bool isNewAlley, TroopRoster memberRosterLeft, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyPresentationDoneButtonDelegate onDoneClicked, TextObject leftPartyName, PartyPresentationCancelButtonDelegate onCancelButtonClicked)`
-
-**Purpose:** Opens the resource or UI associated with screen for managing alley.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenForManagingAlley(false, memberRosterLeft, isTroopTransferable, doneButtonCondition, onDoneClicked, leftPartyName, onCancelButtonClicked);
-```
-
-### OpenScreenAsQuest
-`public static void OpenScreenAsQuest(TroopRoster leftMemberRoster, TextObject leftPartyName, int leftPartySizeLimit, int questDaysMultiplier, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen as quest.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsQuest(leftMemberRoster, leftPartyName, 0, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null);
-```
-
-### OpenScreenWithDummyRoster
-`public static void OpenScreenWithDummyRoster(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TroopRoster rightMemberRoster, TroopRoster rightPrisonerRoster, TextObject leftPartyName, TextObject rightPartyName, int leftPartySizeLimit, int rightPartySizeLimit, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, CanTalkToHeroDelegate canTalkToTroopDelegate = null, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen with dummy roster.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenWithDummyRoster(leftMemberRoster, leftPrisonerRoster, rightMemberRoster, rightPrisonerRoster, leftPartyName, rightPartyName, 0, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null, null);
-```
-
-### OpenScreenWithDummyRosterWithMainParty
-`public static void OpenScreenWithDummyRosterWithMainParty(TroopRoster leftMemberRoster, TroopRoster leftPrisonerRoster, TextObject leftPartyName, int leftPartySizeLimit, PartyPresentationDoneButtonConditionDelegate doneButtonCondition, PartyScreenClosedDelegate onPartyScreenClosed, IsTroopTransferableDelegate isTroopTransferable, PartyPresentationCancelButtonActivateDelegate partyPresentationCancelButtonActivateDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen with dummy roster with main party.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenWithDummyRosterWithMainParty(leftMemberRoster, leftPrisonerRoster, leftPartyName, 0, doneButtonCondition, onPartyScreenClosed, isTroopTransferable, null);
-```
-
-### OpenScreenAsCreateClanPartyForHero
-`public static void OpenScreenAsCreateClanPartyForHero(Hero hero, PartyScreenClosedDelegate onScreenClosed = null, IsTroopTransferableDelegate isTroopTransferable = null)`
-
-**Purpose:** Opens the resource or UI associated with screen as create clan party for hero.
-
-```csharp
-// Static call; no instance required
-PartyScreenHelper.OpenScreenAsCreateClanPartyForHero(hero, null, null);
-```
-
-## Usage Example
-
-```csharp
-PartyScreenHelper.Initialize();
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ API system index](../)
+- [Sibling: InventoryScreenHelper](../InventoryScreenHelper)
+- [Related: PartyState](../../campaign/PartyState)
+- [Related: PartyScreenLogic](../../campaign/PartyScreenLogic)
+- [Related: GameStateManager](../../core-extra/GameStateManager)
+- [中文页面](../../../../zh/api/system/PartyScreenHelper)

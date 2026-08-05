@@ -16,9 +16,9 @@ description: "SandBox.CampaignMissionManager 是 CampaignSystem 合同与 SandBo
 
 ## 心智模型
 
-这是一个**适配器**，不是任务状态管理器。`SandBoxSubModule.OnGameInitializationFinished` 在确认当前 `GameType` 是 `Campaign` 后完成 `CampaignMissionManager` 属性赋值；之后 `CampaignMission.Open...` 才有具体实现可调用。这个类的大多数成员采用显式 `ICampaignMissionManager` 实现，因此调用者通过具体 `CampaignMissionManager` 变量看不到它们，应该通过 `Campaign.Current.CampaignMissionManager` 取得接口。
+这是一个**适配器**，不是任务状态管理器。`SandBoxSubModule.OnGameInitializationFinished` 在确认当前 `GameType` 是 `Campaign` 后完成 `CampaignMissionManager` 属性赋值；之后 `CampaignMission` 的任务打开方法才有具体实现可调用。这个类的大多数成员采用显式 `ICampaignMissionManager` 实现，因此调用者通过具体 `CampaignMissionManager` 变量看不到它们，应该通过 `Campaign.Current.CampaignMissionManager` 取得接口。
 
-每个转发方法都进入 `SandBoxMissions.Open...`。后者负责 `MissionState.OpenNew`、初始化记录和行为列表；manager 不会替调用者创建 `CampaignMissionComponent`，也不会保存当前 Mission。组件页描述的是运行期上下文，manager 页描述的是创建期边界。
+每个转发方法都进入 `SandBoxMissions` 对应的 Open 方法。后者负责 `MissionState.OpenNew`、初始化记录和行为列表；manager 不会替调用者创建 `CampaignMissionComponent`，也不会保存当前 Mission。组件页描述的是运行期上下文，manager 页描述的是创建期边界。
 
 ## 何时使用，何时不要用
 

@@ -43,11 +43,11 @@ The adapter is intentionally thin. Each explicit interface implementation keeps 
 
 | Contract family | SandBox target | Boundary to preserve |
 | --- | --- | --- |
-| Battle and caravan | `SandBoxMissions.OpenBattleMission(...)`, `OpenCaravanBattleMission(...)` | Keep the `MissionInitializerRecord` and caravan flag produced by encounter code. |
-| Siege | `OpenSiegeMissionWithDeployment(...)`, `OpenSiegeMissionNoDeployment(...)`, `OpenSiegeLordsHallFightMission(...)` | Keep wall ratios, prepared engines, attacker state, and sally/relief flags together. |
-| Settlement and special | `OpenTownCenterMission(...)`, `OpenVillageMission(...)`, `OpenIndoorMission(...)`, `OpenPrisonBreakMission(...)`, `OpenHideoutBattleMission(...)` | Keep `Location`, scene, upgrade, character, prisoner, and roster inputs from the encounter. |
-| Conversation and arena | `OpenConversationMission(...)`, `OpenMeetingMission(...)`, `OpenArenaStartMission(...)`, `OpenArenaDuelMission(...)` | Keep conversation data and callbacks tied to the mission lifetime. |
-| Naval contract | `OpenNavalRaidMission(...)`, `OpenNavalBattleMission(...)`, `OpenNavalSetPieceBattleMission(...)` | The current SandBox implementations return `null`; callers must handle unsupported results. |
+| Battle and caravan | `SandBoxMissions.OpenBattleMission`, `OpenCaravanBattleMission` | Keep the `MissionInitializerRecord` and caravan flag produced by encounter code. |
+| Siege | `OpenSiegeMissionWithDeployment`, `OpenSiegeMissionNoDeployment`, `OpenSiegeLordsHallFightMission` | Keep wall ratios, prepared engines, attacker state, and sally/relief flags together. |
+| Settlement and special | `OpenTownCenterMission`, `OpenVillageMission`, `OpenIndoorMission`, `OpenPrisonBreakMission`, `OpenHideoutBattleMission` | Keep `Location`, scene, upgrade, character, prisoner, and roster inputs from the encounter. |
+| Conversation and arena | `OpenConversationMission`, `OpenMeetingMission`, `OpenArenaStartMission`, `OpenArenaDuelMission` | Keep conversation data and callbacks tied to the mission lifetime. |
+| Naval contract | `OpenNavalRaidMission`, `OpenNavalBattleMission`, `OpenNavalSetPieceBattleMission` | The current SandBox implementations return `null`; callers must handle unsupported results. |
 
 The adapter does not add validation around every input. The encounter or quest that owns the transition remains responsible for selecting a compatible scene, location, roster, and mission phase.
 

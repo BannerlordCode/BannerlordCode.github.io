@@ -68,6 +68,7 @@ Keep three boundaries separate:
 
 This obtains the host PartyBase from the active Campaign's main MobileParty, then reads display text, visual leader, and animal speed limitation without modifying a roster:
 
+```csharp
     using TaleWorlds.CampaignSystem;
     using TaleWorlds.CampaignSystem.Party;
     using TaleWorlds.Core;
@@ -91,6 +92,7 @@ This obtains the host PartyBase from the active Campaign's main MobileParty, the
             return size;
         }
     }
+```
 
 size may contain exact numbers or an inspection-aware value; visual leader and speed limitation are also call-time results.
 

@@ -6,7 +6,7 @@ description: "ICampaignMissionManager 是 Campaign 持有的任务创建合同�
 
 **命名空间:** `TaleWorlds.CampaignSystem`（嵌套于 `CampaignMission`）  
 **模块:** `TaleWorlds.CampaignSystem`  
-**类型:** `public interface CampaignMission.ICampaignMissionManager`  
+**类型:** `public interface ICampaignMissionManager`
 **基类:** 无  
 **源文件:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignMission.cs`
 
@@ -92,7 +92,7 @@ if (campaign != null)
 - 直接通过接口创建任务会绕过 `CampaignMission` 的空安全意图，但不会绕过 SandBox 的内部行为；在非战役或模块未注入阶段调用仍然会失败。
 - `MissionInitializerRecord`、`Location`、roster、siege weapon 和 ship 集合必须属于当前战役/任务上下文。把上一次 Mission 的对象缓存到下一场会造成失效引用或错误战斗状态。
 - naval 三个方法在当前 SandBox 实现中返回 `null`。调用方应检查返回值，不能把接口存在当成可用能力。
-- 任务打开后仍要等待 `CampaignMissionComponent.OnCreated`、`OnBehaviorInitialize` 和 `AfterStart`；不要在 `Open...` 返回点就读取未建立的 `CampaignMission.Current`。
+- 任务打开后仍要等待 `CampaignMissionComponent.OnCreated`、`OnBehaviorInitialize` 和 `AfterStart`；不要在任务打开方法返回点就读取未建立的 `CampaignMission.Current`。
 
 ## 版本注记
 

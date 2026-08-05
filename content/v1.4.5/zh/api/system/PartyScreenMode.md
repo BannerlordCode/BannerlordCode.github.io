@@ -1,30 +1,69 @@
 ---
 title: "PartyScreenMode"
-description: "PartyScreenMode 的自动生成类参考。"
+description: "v1.4.5 中保存于 PartyState、用于普通、战利品、赎金、部队、俘虏和任务转移界面的模式枚举。"
 ---
 # PartyScreenMode
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public enum PartyScreenMode`
-**Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/PartyScreenHelper.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public enum PartyScreenMode`  
+**Owner:** [PartyScreenHelper](../PartyScreenHelper)  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/PartyScreenHelper.cs`
 
-## 概述
+## 职责
 
-`PartyScreenMode` 位于 `Helpers`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`PartyScreenMode` 标记 [PartyScreenHelper](../PartyScreenHelper) 写入 [PartyState](../../campaign/PartyState) 的部队界面工作流。它告诉 [PartyScreenLogic](../../campaign/PartyScreenLogic) 当前展示契约，但不会单独授权部队或俘虏移动。
 
 ## 心智模型
 
-先从命名空间 `Helpers` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+辅助类构造状态和初始化数据时选择模式：
 
-## 使用示例
-
-```csharp
-// 从对应子系统 API 获取实例
-PartyScreenMode instance = ...;
+```
+PartyScreenHelper 入口 -> PartyState.PartyScreenMode -> PartyScreenLogic 转移展示
 ```
 
-## 参见
+转移状态、容量限制和回调是独立输入。因此模式表示工作流，不表示完整的 mutation policy。
 
-- [本区域目录](../)
+## 枚举值
+
+| 值 | 源码工作流 |
+| --- | --- |
+| `Normal` | 普通 party 管理和主 party 默认流程。 |
+| `Shared` | 专用转移逻辑使用的共享 party 展示。 |
+| `Loot` | 从战利品 roster 中取得部队或俘虏。 |
+| `Ransom` | 使用源码赎金初始化流程赎回俘虏。 |
+| `PrisonerManage` | 管理或捐献俘虏。 |
+| `TroopsManage` | 管理、接收、捐献或转移部队。 |
+| `QuestTroopManage` | 带有任务回调和容量的任务部队选择。 |
+
+## 真实使用
+
+界面活动时，可以从活动 party 状态读取模式：
+
+```csharp
+Game game = Game.Current;
+PartyState state = PartyScreenHelper.GetActivePartyState();
+bool isQuestTransfer = state != null
+    && state.PartyScreenMode == PartyScreenHelper.PartyScreenMode.QuestTroopManage;
+```
+
+`OpenScreenAsLoot`、`OpenScreenAsRansom`、`OpenScreenAsQuest` 和 `OpenScreenWithCondition` 等入口会在压入 `PartyState` 前设置该值。
+
+## 依赖关系
+
+- [PartyScreenHelper](../PartyScreenHelper) 拥有枚举声明并负责赋值。
+- [PartyState](../../campaign/PartyState) 保存活动模式。
+- [PartyScreenLogic](../../campaign/PartyScreenLogic) 在转移和按钮处理中消费模式。
+- [GameStateManager](../../core-extra/GameStateManager) 通过状态栈使该状态活动。
+
+## 风险与版本边界
+
+`PartyScreenMode` 不能替代 `PartyScreenLogic.TransferState`。`TroopsManage` 仍可能把一侧设置为不可转移，`Loot` 仍然依赖传入 roster 和回调。本文记录的值按 v1.4.5 编写，不是存档 schema 契约。
+
+## 导航
+
+- [↑ API system 索引](../)
+- [所有者：PartyScreenHelper](../PartyScreenHelper)
+- [相关：PartyState](../../campaign/PartyState)
+- [相关：PartyScreenLogic](../../campaign/PartyScreenLogic)
+- [English page](../../../../en/api/system/PartyScreenMode)

@@ -16,13 +16,13 @@ It forwards campaign-facing mission-opening calls to `Campaign.Current.CampaignM
 
 ## Mental Model
 
-**A static facade, not a mission instance.** `CampaignMission` does not own a battle's Agents, Location, or conversation state, and it does not attach behaviors to a `Mission`. Each `Open...Mission` method passes its arguments to the current campaign's `CampaignMissionManager`. In the standard single-player campaign, SandBox injects `SandBox.CampaignMissionManager` during `OnGameInitializationFinished`, and that adapter forwards to `SandBoxMissions`.
+**A static facade, not a mission instance.** `CampaignMission` does not own a battle's Agents, Location, or conversation state, and it does not attach behaviors to a `Mission`. Each mission-opening method passes its arguments to the current campaign's `CampaignMissionManager`. In the standard single-player campaign, SandBox injects `SandBox.CampaignMissionManager` during `OnGameInitializationFinished`, and that adapter forwards to `SandBoxMissions`.
 
 `CampaignMission.Current` is a separate lifetime chain. `SandBoxMissions` includes `CampaignMissionComponent` in the behavior list for a new mission; the component assigns itself in `OnCreated` and clears the static value in `OnEndMission` after dispatching the end event. It is therefore meaningful only during an active `Mission`. Assigning a fake implementation to `Current` skips the component, events, and cleanup ordering and is not a valid way to simulate a mission.
 
 ## When to use and when not to use
 
-- Use the matching `CampaignMission.Open...` entry when an existing campaign flow must enter a town, village, hideout, siege, conversation, or other mission. The caller must supply real scene, `Location`, character, and troop data.
+- Use the matching mission-opening method on `CampaignMission` when an existing campaign flow must enter a town, village, hideout, siege, conversation, or other mission. The caller must supply real scene, `Location`, character, and troop data.
 - Read `CampaignMission.Current` from a mission behavior when you need mission mode, location, following, or conversation hooks; accept that it can be `null`.
 - Do not call the entries before campaign initialization, before `OnGameInitializationFinished`, or after mission teardown. The static forwarding code directly accesses `Campaign.Current.CampaignMissionManager`, so the wrong phase can produce a null reference or an uninjected implementation.
 - Do not use this facade to mutate campaign objects, battle results, or save fields. Use the relevant `*Action.Apply` or [Model](../GameModels) contract; mission results are committed through [Mission](../../mission/Mission), `PlayerEncounter`, and the campaign battle logic.
@@ -108,7 +108,7 @@ public static void OpenConversationWith(CharacterObject partner)
 
 - If `Campaign.Current` or its `CampaignMissionManager` has not been injected, the static entry has no valid forwarding target. Calling from an early SubModule load hook can cause a null reference or an invalid game state.
 - `Current` is a transient active-Mission context, not a stable save object. Do not store it in a campaign behavior and keep reading its Agents, Location, or conversation state after mission end.
-- Between `OnMissionResultReady` and `OnEndMission`, `PlayerEncounter` can still commit results and siege logic can still synchronize engines. Do not assume that an `Open...` return means battle results are already saved, and do not clear rosters yourself.
+- Between `OnMissionResultReady` and `OnEndMission`, `PlayerEncounter` can still commit results and siege logic can still synchronize engines. Do not assume that a mission-opening call returning means battle results are already saved, and do not clear rosters yourself.
 - Assigning `Current` directly or opening a mission without `CampaignMissionComponent` skips `OnMissionStarted`, `OnAfterMissionStarted`, and `OnMissionEnded`; this can leave global context or receiver state behind.
 - The interface exposes naval entries, but the current SandBox methods explicitly return `null` for all three. Check the result and module support before using them.
 

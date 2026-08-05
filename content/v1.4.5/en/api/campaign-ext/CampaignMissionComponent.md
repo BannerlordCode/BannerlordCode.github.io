@@ -47,7 +47,7 @@ The component is therefore the lifetime boundary for mission-scoped campaign cod
 | `AgentSupplier` | Supplier used by campaign mission logic to provide troops/agents. | Read while the mission's agent setup is active. |
 | `Location` | Current campaign location; mission logic can update it during location transitions. | Read only while `CampaignMission.Current` is non-null. |
 | `LastVisitedAlley` | Alley context used by alley mission behavior. | Read/update only in an alley-aware mission. |
-| `Mode` and `SetMissionMode(...)` | The engine mission mode and its transition operation. | Use only from a valid mission transition callback. |
+| `Mode` and `SetMissionMode(MissionMode newMode, bool atStart)` | The engine mission mode and its transition operation. | Use only from a valid mission transition callback. |
 | `OnCreated` | Publishes this component as `CampaignMission.Current`. | Engine-owned creation phase; mods should not call it. |
 | `OnBehaviorInitialize` / `AfterStart` | Dispatch mission-start and after-start notifications. | Engine-owned startup phases. |
 | `OnMissionTick` | Forwards a campaign mission tick to the dispatcher. | Each active mission tick; do not assume campaign exists during teardown. |

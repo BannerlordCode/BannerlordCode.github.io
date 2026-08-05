@@ -68,6 +68,7 @@ PartyBaseHelper 只消费已由 [MobileParty](../../campaign/MobileParty) 或 [S
 
 下面从活动 Campaign 的主移动队伍取得宿主 PartyBase，读取真实的显示、视觉领袖和动物速度限制；它不改动 roster：
 
+```csharp
     using TaleWorlds.CampaignSystem;
     using TaleWorlds.CampaignSystem.Party;
     using TaleWorlds.Core;
@@ -91,6 +92,7 @@ PartyBaseHelper 只消费已由 [MobileParty](../../campaign/MobileParty) 或 [S
             return size;
         }
     }
+```
 
 size 可能是精确人数，也可能是根据侦察边界生成的文本；视觉领袖和速度限制同样是调用时结果。
 

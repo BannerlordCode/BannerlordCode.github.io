@@ -16,13 +16,13 @@ description: "CampaignMission 是战役代码进入 SandBox 任务创建流程�
 
 ## 心智模型
 
-**静态门面，不是任务实例。** `CampaignMission` 自己不保存一场战斗的 Agent、Location 或对话状态，也不负责向 `Mission` 注入行为。每个 `Open...Mission` 方法只是把参数交给当前战役的 `CampaignMissionManager`；在标准单人战役中，这个接口由 SandBox 在 `OnGameInitializationFinished` 阶段注入 `SandBox.CampaignMissionManager`，再由它转给 `SandBoxMissions`。
+**静态门面，不是任务实例。** `CampaignMission` 自己不保存一场战斗的 Agent、Location 或对话状态，也不负责向 `Mission` 注入行为。每个任务打开方法只是把参数交给当前战役的 `CampaignMissionManager`；在标准单人战役中，这个接口由 SandBox 在 `OnGameInitializationFinished` 阶段注入 `SandBox.CampaignMissionManager`，再由它转给 `SandBoxMissions`。
 
 `CampaignMission.Current` 是另一条链：`SandBoxMissions` 创建任务时把 `CampaignMissionComponent` 放入行为列表，组件的 `OnCreated` 将自身设为当前上下文，`OnEndMission` 在派发结束事件后把它清为 `null`。因此它只在活动 `Mission` 生命周期内有意义。手动给 `Current` 赋一个伪实现会绕过组件、事件和清理顺序，不能用来“模拟”一场任务。
 
 ## 何时使用，何时不要用
 
-- 在已有战役流程需要进入城镇、村庄、藏身处、攻城或对话任务时，调用相应的 `CampaignMission.Open...` 入口；由调用方先取得真实的 scene、`Location`、角色和队伍数据。
+- 在已有战役流程需要进入城镇、村庄、藏身处、攻城或对话任务时，调用 `CampaignMission` 上对应的任务打开方法；由调用方先取得真实的 scene、`Location`、角色和队伍数据。
 - 在当前任务的 `MissionBehavior` 中读取 `CampaignMission.Current`，访问任务模式、地点、跟随行为或对话回调；读取前要接受它可能为 `null`。
 - 不要在 `Campaign` 尚未初始化、`OnGameInitializationFinished` 之前或任务结束回调之后调用这些入口。静态转发直接访问 `Campaign.Current.CampaignMissionManager`，错误时机会产生空引用或把流程送进未注入的实现。
 - 不要用它修改战役对象、战斗结果或存档字段。世界状态使用对应的 `*Action.Apply` 或 [Model](../GameModels) 契约；任务结束结果由 [Mission](../../mission/Mission)、`PlayerEncounter` 和相关战役逻辑提交。
@@ -108,7 +108,7 @@ public static void OpenConversationWith(CharacterObject partner)
 
 - `Campaign.Current` 或其 `CampaignMissionManager` 尚未注入时，静态入口没有可用的转发目标；把调用放进 SubModule 的过早加载钩子会得到空引用或错误的游戏状态。
 - `Current` 是活动 Mission 的瞬时上下文，不是存档中的稳定对象。不要把它保存到战役 Behavior 字段，在任务结束后继续访问其中的 `Agent`、`Location` 或对话对象。
-- `OnMissionResultReady` 与 `OnEndMission` 之间仍可能有 `PlayerEncounter` 的结果提交和攻城器械同步。不要在 `Open...` 返回后就假设战斗结果已经落盘，也不要自行清空队伍 roster。
+- `OnMissionResultReady` 与 `OnEndMission` 之间仍可能有 `PlayerEncounter` 的结果提交和攻城器械同步。不要在任务打开调用返回后就假设战斗结果已经落盘，也不要自行清空队伍 roster。
 - 直接给 `Current` 赋值或绕过 `CampaignMissionComponent` 创建 Mission 会跳过 `OnMissionStarted`、`OnAfterMissionStarted`、`OnMissionEnded` 事件，可能留下全局上下文或事件接收器状态。
 - naval 入口由接口暴露不等于 SandBox 已实现；v1.4.5 当前 manager 的三个 naval 方法明确返回 `null`，调用方必须先确认返回值与模块支持。
 

@@ -1,322 +1,171 @@
 ---
 title: "InventoryScreenHelper"
-description: "Auto-generated class reference for InventoryScreenHelper."
+description: "The v1.4.5 campaign helper that builds inventory states for trade, loot, stash, and item-transfer flows."
 ---
 # InventoryScreenHelper
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class InventoryScreenHelper`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/InventoryScreenHelper.cs`
+**Namespace:** `Helpers`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public static class InventoryScreenHelper`  
+**Base:** `System.Object`  
+**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/InventoryScreenHelper.cs`
 
-## Overview
+## Responsibility
 
-`InventoryScreenHelper` is a helper class that usually provides static logic which does not depend on instance state.
+`InventoryScreenHelper` is the campaign entry-point layer for inventory presentations. It creates an [InventoryState](../../campaign/InventoryState), configures its [InventoryLogic](../../campaign/InventoryLogic), and pushes the state through [GameStateManager](../../core-extra/GameStateManager). The helper does not own a screen instance and it does not replace the roster or settlement systems; the presentation logic and its callbacks perform those later operations.
 
-## Mental Model
+## Mental model
 
-Treat `InventoryScreenHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Think of every public `OpenScreen` entry method as the same three-stage transition:
 
-## Key Methods
-
-### InventoryFinishDelegate
-`public delegate void InventoryFinishDelegate()`
-
-**Purpose:** Executes the InventoryFinishDelegate logic.
-
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-inventoryScreenHelper.InventoryFinishDelegate();
+```text
+real campaign context -> InventoryState + InventoryLogic -> GameStateManager.PushState
 ```
 
-### GetGold
-`public override int GetGold()`
+The method name selects the initialization contract. Trade methods attach a listener that reads and writes merchant or caravan gold. Loot, stash, warehouse, and receive-item methods select an inventory mode and roster arrangement. `OpenScreenAsInventoryOf` creates a non-trading comparison or transfer view. Closing is the reverse transition: `CloseScreen` lets `InventoryLogic.DoneLogic()` finish, invokes the optional completion delegate, clears the logic and delegate, and pops the state.
 
-**Purpose:** Reads and returns the gold value held by the this instance.
+This is a state factory, not an object to instantiate, subclass, or cache. Call it only while the campaign has a usable `Game.Current`, state manager, and source rosters.
 
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-var result = inventoryScreenHelper.GetGold();
-```
+## When to use and when not to use
 
-### GetTraderName
-`public override TextObject GetTraderName()`
+- **Use it** when a campaign behavior, view model, or mod-owned interaction already has the real `ItemRoster`, `PartyBase`, `MobileParty`, `SettlementComponent`, or callback needed by a specific inventory mode.
+- **Use `GetActiveInventoryState`** only when the caller already owns a flow that is running with `InventoryState` active. It asserts and returns `null` if another state is active.
+- **Do not instantiate it.** The type is static, and its methods construct the state internally.
+- **Do not treat `CloseScreen` as a harmless navigation call.** `DoneLogic`, inventory callbacks, trade listeners, and roster logic can commit or reject changes before the state is popped.
+- **Do not pass arbitrary loot dictionaries or party objects.** The source expects the main party to be present in the loot dictionary and expects the rosters to agree with the selected mode.
 
-**Purpose:** Reads and returns the trader name value held by the this instance.
+## Public surface
 
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-var result = inventoryScreenHelper.GetTraderName();
-```
-
-### SetGold
-`public override void SetGold(int gold)`
-
-**Purpose:** Assigns a new value to gold and updates the object's internal state.
+### Inventory modes and filters
 
 ```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-inventoryScreenHelper.SetGold(0);
+public enum InventoryMode
+{
+    Default,
+    Trade,
+    Loot,
+    Stash,
+    Warehouse
+}
+
+[Flags]
+public enum InventoryItemType
+{
+    None = 0,
+    Weapon = 1,
+    Shield = 2,
+    HeadArmor = 4,
+    BodyArmor = 8,
+    LegArmor = 0x10,
+    HandArmor = 0x20,
+    Horse = 0x40,
+    HorseHarness = 0x80,
+    Goods = 0x100,
+    Book = 0x200,
+    Animal = 0x400,
+    Cape = 0x800,
+    Banner = 0x1000,
+    HorseCategory = 0xC0,
+    Armors = 0x83C,
+    Equipable = 0x18FF,
+    All = 0xFFF
+}
+
+public enum InventoryCategoryType
+{
+    None = -1,
+    All,
+    Armors,
+    Weapon,
+    Shield,
+    HorseCategory,
+    Goods,
+    CategoryTypeAmount
+}
 ```
 
-### GetOppositeParty
-`public override PartyBase GetOppositeParty()`
+`InventoryMode` controls the presentation contract. `InventoryItemType` is a bit mask used by inventory UI code; `HorseCategory`, `Armors`, `Equipable`, and `All` are combinations rather than new item records. `InventoryCategoryType` is the merchant filter passed into `InventoryLogic.Initialize`.
 
-**Purpose:** Reads and returns the opposite party value held by the this instance.
+### State access and closing
 
 ```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-var result = inventoryScreenHelper.GetOppositeParty();
+public static InventoryState GetActiveInventoryState()
+public static void PlayerAcceptTradeOffer()
+public static void CloseScreen(bool fromCancel)
+public static InventoryItemType GetInventoryItemTypeOfItem(ItemObject item)
 ```
 
-### OnTransaction
-`public override void OnTransaction()`
+`GetActiveInventoryState` reads `GameStateManager.Current.ActiveState`. If it is not an `InventoryState`, the source emits a failed assertion and returns `null`. `PlayerAcceptTradeOffer` forwards to the active logic's `SetPlayerAcceptTraderOffer` when available. `GetInventoryItemTypeOfItem` maps an `ItemObject.ItemTypeEnum` to a flag and returns `None` for a `null` item or an unmapped type.
 
-**Purpose:** Invoked when the transaction event is raised.
+`CloseScreen` optionally resets the logic when it came from cancellation. When `DoneLogic()` accepts the close, the helper invokes `DoneLogicExtrasDelegate`, clears both the delegate and `InventoryLogic`, and calls `Game.Current.GameStateManager.PopState()`.
+
+## Inventory and transfer entry points
+
+The public open methods fall into these source-defined groups:
+
+| Entry points | State contract |
+| --- | --- |
+| `OpenScreenAsInventory`, `OpenScreenAsInventoryOf`, `OpenScreenAsInventoryOfSubParty`, `OpenScreenAsInventoryForCraftedItemDecomposition` | Build `InventoryMode.Default` logic for a player, party, sub-party, or crafting decomposition flow. |
+| `OpenScreenAsTrade`, `ActivateTradeWithCurrentSettlement`, `OpenTradeWithCaravanOrAlleyParty` | Set `InventoryMode.Trade`, enable trading, and attach a settlement or caravan `InventoryListener`. |
+| `OpenScreenAsLoot`, `OpenScreenAsStash`, `OpenScreenAsWarehouse`, `OpenScreenAsReceiveItems` | Select the corresponding mode or receive-item arrangement and push the state with the supplied item roster. |
+
+Every entry point creates a fresh `InventoryState`, assigns `InventoryLogic`, optionally stores a completion delegate, and pushes that state. The helper does not reuse the currently active state.
+
+## Real call-site examples
+
+`PlayerTownVisitCampaignBehavior` uses the helper with a real settlement inventory and stash. These calls are state-changing UI entry points and require the player to be in the corresponding settlement flow:
 
 ```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-inventoryScreenHelper.OnTransaction();
+using Helpers;
+using TaleWorlds.CampaignSystem.Settlements;
+
+InventoryScreenHelper.OpenScreenAsTrade(
+    Settlement.CurrentSettlement.ItemRoster,
+    Settlement.CurrentSettlement.Town);
+
+InventoryScreenHelper.OpenScreenAsStash(
+    Settlement.CurrentSettlement.Stash);
 ```
 
-### GetTraderName
-`public override TextObject GetTraderName()`
+The same behavior opens the garrison and trade screens from its menu context, while `PlayerEncounter` and caravan behavior provide real loot rosters to `OpenScreenAsLoot`. The loot overload indexes the dictionary with `PartyBase.MainParty`, so the caller must include that key before invoking it.
 
-**Purpose:** Reads and returns the trader name value held by the this instance.
+Inventory view models use the item classifier against a real equipment element rather than constructing an `InventoryScreenHelper`:
 
 ```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-var result = inventoryScreenHelper.GetTraderName();
+IsEquipableItem =
+    (InventoryScreenHelper.GetInventoryItemTypeOfItem(
+        newItem.EquipmentElement.Item)
+     & InventoryScreenHelper.InventoryItemType.Equipable) != 0;
 ```
 
-### GetOppositeParty
-`public override PartyBase GetOppositeParty()`
+That source pattern from `SPItemVM` asks a filter question only. It does not equip the item or mutate an `ItemRoster`.
 
-**Purpose:** Reads and returns the opposite party value held by the this instance.
+## Dependencies and ownership
 
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-var result = inventoryScreenHelper.GetOppositeParty();
-```
+- [InventoryState](../../campaign/InventoryState) is the pushed game state and stores the active [InventoryLogic](../../campaign/InventoryLogic) and completion delegate.
+- [GameStateManager](../../core-extra/GameStateManager) owns `CreateState`, `PushState`, and `PopState`; the helper is a caller of that lifecycle, not its owner.
+- [ItemRoster](../../campaign/ItemRoster), [PartyBase](../../campaign/PartyBase), and [MobileParty](../../campaign/MobileParty) supply the item and troop-side context used to initialize the logic.
+- [ItemObject](../../core-extra/ItemObject) supplies the item type consumed by `GetInventoryItemTypeOfItem`.
+- `MerchantInventoryListener` writes settlement gold through `SettlementComponent.ChangeGold`; `CaravanInventoryListener` writes `MobileParty.PartyTradeGold`.
 
-### GetGold
-`public override int GetGold()`
+## Risks and version boundaries
 
-**Purpose:** Reads and returns the gold value held by the this instance.
+- `OpenScreenAsLoot` directly looks up `itemRostersToLoot[PartyBase.MainParty]`; a dictionary without that key fails before the state can be shown.
+- Settlement trade uses a `MerchantInventoryListener` whose `SetGold` applies a delta through `SettlementComponent.ChangeGold`; do not replace it with direct field assignment in a custom flow.
+- Caravan trade uses `PartyTradeGold`, while the settlement listener uses settlement component gold. They are not interchangeable ownership paths.
+- `OpenScreenAsInventory` may populate a test inventory when `Game.Current.CheatMode` is enabled and the test base is not active. Do not use that path as a general item-provisioning API.
+- `CloseScreen` can invoke completion delegates and `DoneLogic`; closing with the wrong `fromCancel` value can change whether the current transfer is reset or committed.
+- The exact v1.4.5 flag values and mode names belong to this source version. Treat combination flags as masks, not as stable IDs for save data.
 
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-var result = inventoryScreenHelper.GetGold();
-```
+## Version note
 
-### SetGold
-`public override void SetGold(int gold)`
+This page follows v1.4.5 `InventoryScreenHelper.cs`. The helper is transient UI orchestration. Inventory ownership, pricing, capacity, and save behavior remain in the linked state, logic, roster, and campaign systems.
 
-**Purpose:** Assigns a new value to gold and updates the object's internal state.
+## Navigation
 
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-inventoryScreenHelper.SetGold(0);
-```
-
-### OnTransaction
-`public override void OnTransaction()`
-
-**Purpose:** Invoked when the transaction event is raised.
-
-```csharp
-// Obtain an instance of InventoryScreenHelper from the subsystem API first
-InventoryScreenHelper inventoryScreenHelper = ...;
-inventoryScreenHelper.OnTransaction();
-```
-
-### GetActiveInventoryState
-`public static InventoryState GetActiveInventoryState()`
-
-**Purpose:** Reads and returns the active inventory state value held by the this instance.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.GetActiveInventoryState();
-```
-
-### PlayerAcceptTradeOffer
-`public static void PlayerAcceptTradeOffer()`
-
-**Purpose:** Executes the PlayerAcceptTradeOffer logic.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.PlayerAcceptTradeOffer();
-```
-
-### CloseScreen
-`public static void CloseScreen(bool fromCancel)`
-
-**Purpose:** Closes the resource or UI associated with screen.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.CloseScreen(false);
-```
-
-### OpenScreenAsInventoryOfSubParty
-`public static void OpenScreenAsInventoryOfSubParty(MobileParty rightParty, MobileParty leftParty, Action doneLogicExtrasDelegate)`
-
-**Purpose:** Opens the resource or UI associated with screen as inventory of sub party.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsInventoryOfSubParty(rightParty, leftParty, doneLogicExtrasDelegate);
-```
-
-### OpenScreenAsInventoryForCraftedItemDecomposition
-`public static void OpenScreenAsInventoryForCraftedItemDecomposition(MobileParty party, CharacterObject character, Action doneLogicExtrasDelegate)`
-
-**Purpose:** Opens the resource or UI associated with screen as inventory for crafted item decomposition.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsInventoryForCraftedItemDecomposition(party, character, doneLogicExtrasDelegate);
-```
-
-### OpenScreenAsInventoryOf
-`public static void OpenScreenAsInventoryOf(MobileParty party, CharacterObject character)`
-
-**Purpose:** Opens the resource or UI associated with screen as inventory of.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsInventoryOf(party, character);
-```
-
-### OpenScreenAsInventoryOf
-`public static void OpenScreenAsInventoryOf(PartyBase rightParty, PartyBase leftParty)`
-
-**Purpose:** Opens the resource or UI associated with screen as inventory of.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsInventoryOf(rightParty, leftParty);
-```
-
-### OpenScreenAsInventoryOf
-`public static void OpenScreenAsInventoryOf(PartyBase rightParty, PartyBase leftParty, CharacterObject character, TextObject leftRosterName = null, InventoryLogic.CapacityData capacityData = null, Action doneLogicExtrasDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen as inventory of.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsInventoryOf(rightParty, leftParty, character, null, null, null);
-```
-
-### OpenScreenAsInventory
-`public static void OpenScreenAsInventory(Action doneLogicExtrasDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen as inventory.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsInventory(null);
-```
-
-### OpenScreenAsLoot
-`public static void OpenScreenAsLoot(Dictionary<PartyBase, ItemRoster> itemRostersToLoot)`
-
-**Purpose:** Opens the resource or UI associated with screen as loot.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsLoot(dictionary<PartyBase, itemRostersToLoot);
-```
-
-### OpenScreenAsStash
-`public static void OpenScreenAsStash(ItemRoster stash)`
-
-**Purpose:** Opens the resource or UI associated with screen as stash.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsStash(stash);
-```
-
-### OpenScreenAsWarehouse
-`public static void OpenScreenAsWarehouse(ItemRoster stash, InventoryLogic.CapacityData otherSideCapacity)`
-
-**Purpose:** Opens the resource or UI associated with screen as warehouse.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsWarehouse(stash, otherSideCapacity);
-```
-
-### OpenScreenAsReceiveItems
-`public static void OpenScreenAsReceiveItems(ItemRoster items, TextObject leftRosterName, Action doneLogicDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen as receive items.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsReceiveItems(items, leftRosterName, null);
-```
-
-### OpenTradeWithCaravanOrAlleyParty
-`public static void OpenTradeWithCaravanOrAlleyParty(MobileParty caravan, InventoryCategoryType merchantItemType = InventoryCategoryType.None)`
-
-**Purpose:** Opens the resource or UI associated with trade with caravan or alley party.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenTradeWithCaravanOrAlleyParty(caravan, inventoryCategoryType.None);
-```
-
-### ActivateTradeWithCurrentSettlement
-`public static void ActivateTradeWithCurrentSettlement()`
-
-**Purpose:** Activates the resource, state, or feature associated with trade with current settlement.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.ActivateTradeWithCurrentSettlement();
-```
-
-### OpenScreenAsTrade
-`public static void OpenScreenAsTrade(ItemRoster leftRoster, SettlementComponent settlementComponent, InventoryCategoryType merchantItemType = InventoryCategoryType.None, Action doneLogicExtrasDelegate = null)`
-
-**Purpose:** Opens the resource or UI associated with screen as trade.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.OpenScreenAsTrade(leftRoster, settlementComponent, inventoryCategoryType.None, null);
-```
-
-### GetInventoryItemTypeOfItem
-`public static InventoryItemType GetInventoryItemTypeOfItem(ItemObject item)`
-
-**Purpose:** Reads and returns the inventory item type of item value held by the this instance.
-
-```csharp
-// Static call; no instance required
-InventoryScreenHelper.GetInventoryItemTypeOfItem(item);
-```
-
-## Usage Example
-
-```csharp
-InventoryScreenHelper.Initialize();
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ API system index](../)
+- [Sibling: PartyScreenHelper](../PartyScreenHelper)
+- [Related: InventoryState](../../campaign/InventoryState)
+- [Related: InventoryLogic](../../campaign/InventoryLogic)
+- [Related: GameStateManager](../../core-extra/GameStateManager)
+- [中文页面](../../../../zh/api/system/InventoryScreenHelper)

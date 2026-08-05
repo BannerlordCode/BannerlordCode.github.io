@@ -1,119 +1,95 @@
 ---
 title: "MapEventManager"
-description: "Auto-generated class reference for MapEventManager."
+description: "The Campaign-owned registry and tick coordinator for active MapEvent objects, including creation, lookup, save loading, and removal."
 ---
+
 # MapEventManager
 
-**Namespace:** TaleWorlds.CampaignSystem.MapEvents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MapEventManager`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventManager.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.MapEvents`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class MapEventManager`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventManager.cs`
 
-## Overview
+## One-line responsibility
 
-`MapEventManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+`MapEventManager` owns the active [`MapEvent`](../MapEvent) collection for a Campaign, drives their periodic update/removal boundary, and exposes the supported lookup and siege-event entry points.
 
-## Mental Model
+## Mental model
 
-Treat `MapEventManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`Campaign` creates and owns one manager through `Campaign.MapEventManager`. The manager stores a saveable `MBList<MapEvent>` and exposes it as a read-only `MBReadOnlyList`. Concrete event factories and encounter code call `OnMapEventCreated`; `Campaign.Tick()` calls the manager's internal `Tick`, which removes finalized events and updates raid/non-player events. On load, `OnAfterLoad` reattaches each event's component state.
 
-## Key Methods
+This is a registry and lifecycle coordinator, not a global battle factory for every event type. Field battles and raids normally use `StartBattleAction` or a concrete component factory; the public `StartSiegeMapEvent`, `StartSallyOutMapEvent`, `StartSiegeOutsideMapEvent`, and `StartBlockadeBattleMapEvent` methods exist for their specific encounter flows. `MapEvents` is a snapshot-like read view, not a collection to mutate during enumeration.
 
-### OnMapEventCreated
-`public void OnMapEventCreated(MapEvent mapEvent)`
+## When to use and when not to use
 
-**Purpose:** Invoked when the map event created event is raised.
+**Use it when:**
 
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-mapEventManager.OnMapEventCreated(mapEvent);
-```
+- Looking up active events, filtering events between factions, or observing the current player event.
+- Integrating a supported siege/sally-out flow whose source path already uses the manager.
+- Reacquiring events after Campaign load instead of storing stale object references.
 
-### GetMapEvent
-`public MapEvent GetMapEvent(int attackerPartyIndex)`
+**Do not use it when:**
 
-**Purpose:** Reads and returns the map event value held by the this instance.
+- Treating `MapEventManager` as a singleton with a public constructor. Construction is internal and the authoritative instance is `Campaign.Current.MapEventManager`.
+- Adding an event by calling `OnMapEventCreated` on a manually initialized object. Creation, sides, component, and event type must be established together by the engine path.
+- Calling `FinalizePlayerMapEvent` without a current player event; the source throws `MBNotFoundException` in that case.
+- Removing items from `MapEvents` while iterating. Let `Campaign.Tick` remove finalized events.
 
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.GetMapEvent(0);
-```
+## Dependencies and lifecycle
 
-### GetMapEventsBetweenFactions
-`public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
+- **Owner:** [`Campaign`](../Campaign) creates the manager, loads it, saves it, and invokes its tick.
+- **Registry:** [`MapEvent`](../MapEvent) objects are added by concrete event components or the manager's supported siege methods.
+- **Consumers:** [`PlayerEncounter`](../PlayerEncounter), `DefaultEncounterModel`, campaign behaviors, and diagnostic code query the active list.
+- **Downstream:** `MapEvent` updates sides/components; finalized events are removed, while Campaign events and settlement/siege code process results.
+- **Persistence:** `_mapEvents` is a saveable field. `OnAfterLoad` repairs each map event; a mod should save stable IDs, not a cached manager or event object graph.
 
-**Purpose:** Reads and returns the map events between factions value held by the this instance.
+## Key members and timing
 
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.GetMapEventsBetweenFactions(faction1, faction2);
-```
+| Member | Purpose, side effect, and timing |
+|---|---|
+| `MapEvents` | Read-only view of active map events. It can change at the next Campaign tick or event callback. |
+| `OnMapEventCreated(MapEvent)` | Adds an initialized event to the registry. It is a lifecycle boundary, not a general-purpose public constructor substitute. |
+| `GetMapEvent(int attackerPartyIndex)` | Finds the first event whose attacker leader index matches. It is an index lookup, not a stable save ID. |
+| `GetMapEventsBetweenFactions(IFaction, IFaction)` | Returns events containing the two factions on opposite sides; useful for read-only diplomacy diagnostics. |
+| `FinalizePlayerMapEvent(MapEvent)` | Finalizes the main party's event and calls `PlayerEncounter.Finish`; requires a current player map event and correct encounter phase. |
+| `StartSiegeMapEvent(...)`, `StartSallyOutMapEvent(...)`, `StartSiegeOutsideMapEvent(...)`, `StartBlockadeBattleMapEvent(...)` | Create and initialize their specific event type, register it, and return it. Use only in the corresponding encounter flow. |
+| `Tick()` | Internal Campaign tick: removes `IsFinalized` events and updates raids/non-player events. Mods should schedule Campaign work, not call it. |
+| `OnAfterLoad()` | Internal load repair that calls each event's `OnAfterLoad` after the save graph is rebuilt. |
 
-### FinalizePlayerMapEvent
-`public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
+## Real acquisition example
 
-**Purpose:** Executes the FinalizePlayerMapEvent logic.
-
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-mapEventManager.FinalizePlayerMapEvent(null);
-```
-
-### StartSiegeMapEvent
-`public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
-
-**Purpose:** Starts the siege map event flow or state machine.
+For a read-only diagnostic, reacquire the manager from the active Campaign and filter its current list:
 
 ```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartSiegeMapEvent(attackerParty, defenderParty);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
+
+public static int CountActivePlayerEvents()
+{
+    MapEventManager manager = Campaign.Current.MapEventManager;
+    return manager.MapEvents.Count(mapEvent => !mapEvent.IsFinalized && mapEvent.IsPlayerMapEvent);
+}
 ```
 
-### StartSallyOutMapEvent
-`public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+For a field battle, use [`StartBattleAction`](../../campaign-ext/StartBattleAction), not a hand-built `MapEventManager` call. For a siege transition, follow the same manager entry used by `PlayerEncounter` and `DefaultEncounterModel` so the settlement and siege event are consistent.
 
-**Purpose:** Starts the sally out map event flow or state machine.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartSallyOutMapEvent(attackerParty, defenderParty);
-```
+1. `Campaign.Current` and `MapEventManager` are unavailable during module loading, the main menu, or after Campaign teardown. Guard the lifecycle before querying them.
+2. `MapEvents` changes while Campaign ticks. Do not mutate the list, finalize an event during enumeration, or retain a reference across `MapEventEnded`.
+3. `FinalizePlayerMapEvent` assumes `MobileParty.MainParty.MapEvent` and a valid `PlayerEncounter`; calling it in another phase throws or finalizes the wrong encounter.
+4. Creating siege events without a matching `Settlement.SiegeEvent`, party side, or naval context can fail during `MapEvent.Initialize` and leave inconsistent save state.
+5. The manager's save graph restores events and their components. Saving a custom reference to the manager or an event and using it after load can point at stale objects; reacquire through `Campaign.Current`.
 
-### StartSiegeOutsideMapEvent
-`public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+## Version note
 
-**Purpose:** Starts the siege outside map event flow or state machine.
+The v1.4.5 manager removes finalized events during its reverse-index tick and updates raids plus non-player events. Constructor visibility, update filtering, and siege entry points are version-sensitive; verify `Campaign.Tick`, `PlayerEncounter`, and `DefaultEncounterModel` when porting.
 
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartSiegeOutsideMapEvent(attackerParty, defenderParty);
-```
+## Navigation
 
-### StartBlockadeBattleMapEvent
-`public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
-
-**Purpose:** Starts the blockade battle map event flow or state machine.
-
-```csharp
-// Obtain an instance of MapEventManager from the subsystem API first
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartBlockadeBattleMapEvent(attackerParty, defenderParty);
-```
-
-## Usage Example
-
-```csharp
-var manager = MapEventManager.Current;
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Campaign API](../)
+- ↔ Siblings: [`MapEvent`](../MapEvent) · [`MapEventSide`](../MapEventSide) · [`Campaign`](../Campaign)
+- Related: [`MapEventState`](../MapEventState) · [`StartBattleAction`](../../campaign-ext/StartBattleAction) · [`PlayerEncounter`](../PlayerEncounter) · [`CampaignEvents`](../CampaignEvents)
+- 中文: [MapEventManager](../../../../zh/api/campaign/MapEventManager)

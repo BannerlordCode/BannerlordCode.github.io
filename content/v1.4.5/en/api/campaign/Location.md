@@ -1,355 +1,100 @@
 ---
 title: "Location"
-description: "Auto-generated class reference for Location."
+description: "Location is one node in a settlement's campaign-location graph, owning scene data, passage links, location characters, reservations, and access rules."
 ---
 # Location
 
-**Namespace:** TaleWorlds.CampaignSystem.Settlements.Locations
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class Location`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/Location.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Settlements.Locations`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class Location`  
+**Base:** none  
+**Source file:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Settlements.Locations/Location.cs`
 
-## Overview
+## One-sentence responsibility
 
-`Location` lives in `TaleWorlds.CampaignSystem.Settlements.Locations` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+It represents a named settlement node such as `center`, `tavern`, `prison`, or `village_center`, and owns the characters, passages, scene variants, access delegates, reservation state, and special items for that node.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.Settlements.Locations` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`Location` is not a scene and not a Mission. It is the campaign-side node that [LocationComplex](../LocationComplex) builds from a [LocationComplexTemplate](../LocationComplexTemplate). The node keeps the data needed to decide whether a player or Agent may enter, which scene name corresponds to an upgrade level, and which `LocationCharacter` descriptors currently belong there. A Mission later consumes this graph through `CampaignMission.Current.Location` and SandBox mission logic.
 
-## Key Properties
+The owner complex matters. `AddCharacter` uses it to remove an existing hero descriptor before adding the new one; `AddPassageToLocation` only adds one directed list entry, while `LocationComplex.AddPassage` is the safe symmetric operation. `Location` also lazy-loads access delegates from XML type/method strings, so its public methods are data-driven and only valid after the template and assemblies have been loaded.
 
-| Name | Signature |
-|------|-----------|
-| `StringId` | `public string StringId { get; }` |
-| `SpecialItems` | `public List<ItemObject> SpecialItems { get; }` |
-| `IsReserved` | `public bool IsReserved { get; }` |
-| `LocationsOfPassages` | `public List<Location> LocationsOfPassages { get; }` |
-| `Name` | `public TextObject Name { get; }` |
-| `DoorName` | `public TextObject DoorName { get; }` |
-| `IsIndoor` | `public bool IsIndoor { get; }` |
-| `CanBeReserved` | `public bool CanBeReserved { get; }` |
-| `IsInitialized` | `public bool IsInitialized { get; }` |
+## When to use and when not to use
 
-## Key Methods
+- Read a location from `Settlement.CurrentSettlement.LocationComplex.GetLocationWithId("center")` or another source-defined ID; do not guess a node from a scene filename.
+- Use `CanPlayerEnter`, `CanPlayerSee`, `CanAIEnter`, and `CanAIExit` before an encounter or passage flow commits to a transition.
+- Use `GetSceneName` or the owning complex's `GetScene` when an existing encounter has already selected the correct upgrade level and mission mode.
+- Use `LocationComplex.ChangeLocation` for movement and `LocationEncounter` for accompanying-player ownership. Call `AddCharacter` directly only when the behavior is deliberately adding a descriptor to this node.
+- Do not treat `Location` as a general inventory container, Agent registry, or saveable scene object. `SpecialItems` is the location's special-item spawn list, not a party [ItemRoster](../ItemRoster).
+- Do not call `RemoveCharacter(Hero)` unless the hero is known to be present; the source uses `First` and can throw when the descriptor is absent.
 
-### Initialize
-`public void Initialize(Location locationTemplate, LocationComplex ownerComplex)`
+## Dependencies
 
-**Purpose:** Prepares the resources, state, or bindings the this instance needs before use.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.Initialize(locationTemplate, ownerComplex);
+```text
+LocationComplexTemplate XML
+  -> LocationComplex
+  -> Location nodes and passage graph
+  -> LocationCharacter descriptors
+  -> MissionAgentHandler / CampaignMission.Current
+  -> scene and Agent transitions
 ```
 
-### CanAIExit
-`public bool CanAIExit(LocationCharacter character)`
+- Graph owner: [LocationComplex](../LocationComplex) creates, initializes, queries, and moves nodes.
+- Template: [LocationComplexTemplate](../LocationComplexTemplate) supplies IDs, names, access expressions, and scene names.
+- Characters: [LocationCharacter](../LocationCharacter) is the stored spawn descriptor.
+- Mission bridge: [CampaignMission](../CampaignMission), [CampaignMissionComponent](../../campaign-ext/CampaignMissionComponent), and [MissionAgentHandler](../../campaign-ext/MissionAgentHandler) consume the active location.
+- Campaign owner: [Settlement](../Settlement) owns the complex used by the current settlement encounter.
 
-**Purpose:** Checks whether the this instance meets the preconditions for a i exit.
+## State and method groups
 
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.CanAIExit(character);
-```
+| Area | Members and source-backed behavior |
+|---|---|
+| Identity and display | `StringId`, `Name`, `DoorName`, `IsIndoor`, `ProsperityMax`. `Name` and `DoorName` prefer reservation overrides; the IDs are the stable lookup keys. |
+| Access and reservation | `CanPlayerEnter`, `CanPlayerSee`, `CanAIEnter`, `CanAIExit` invoke lazily deserialized delegates. `ReserveLocation` only works when `CanBeReserved` is true and changes display names; `RemoveReservation` restores the template names. |
+| Scene variants | `GetSceneName(upgradeLevel)` selects one of four names and falls back to index `0` when the selected entry is empty. `SetSceneName` and `GetSceneCount` are setup/inspection operations. |
+| Characters | `AddCharacter`, `AddLocationCharacter`, `AddLocationCharacters`, `GetCharacterList`, `GetLocationCharacter`, `ContainsCharacter`, and removal methods manage descriptors, not live Agents. Adding a hero removes its previous descriptor through the owner complex. |
+| Passages | `LocationsOfPassages`, `AddPassageToLocation`, and `GetPassageToLocation` describe adjacent nodes. Use `LocationComplex.AddPassage` to update both directions. |
+| Special items | `SpecialItems` and `AddSpecialItem` hold location-specific spawn items. They do not mutate a party roster. |
+| Lifecycle state | `IsInitialized` is set by `Initialize` for saved-campaign reconstruction; `IsReserved` and `SpecialItems` are save-visible fields, while access delegates and character caches are runtime concerns. |
 
-### CanAIEnter
-`public bool CanAIEnter(LocationCharacter character)`
+## Real example
 
-**Purpose:** Checks whether the this instance meets the preconditions for a i enter.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.CanAIEnter(character);
-```
-
-### CanPlayerEnter
-`public bool CanPlayerEnter()`
-
-**Purpose:** Checks whether the this instance meets the preconditions for player enter.
+This reads a real settlement node and its scene data without inventing a `Location` or bypassing the encounter's ownership:
 
 ```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.CanPlayerEnter();
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
+
+Settlement settlement = Settlement.CurrentSettlement;
+LocationComplex complex = settlement?.LocationComplex;
+Location center = complex?.GetLocationWithId("center");
+
+if (center != null && center.CanPlayerEnter())
+{
+    string scene = center.GetSceneName(0);
+    int occupants = center.CharacterCount;
+}
 ```
 
-### CanPlayerSee
-`public bool CanPlayerSee()`
+When an existing encounter has selected a wall or upgrade level, it uses the same node with that level, for example `settlement.LocationComplex.GetScene("center", upgradeLevel)` before handing the scene to `CampaignMission.OpenIndoorMission(nextLocation.GetSceneName(wallLevel), wallLevel, nextLocation, talkToChar)`. The `Location` lookup does not itself open the Mission or validate that the selected scene matches the encounter mode.
 
-**Purpose:** Checks whether the this instance meets the preconditions for player see.
+## Risks and save boundaries
 
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.CanPlayerSee();
-```
+- Access strings come from XML and are resolved with reflection on first use. Missing assemblies, malformed type/method text, or a null delegate can fail when `Can*` is called rather than when the object is constructed.
+- `GetSceneName` indexes a four-element array without validating `upgradeLevel`. Use the upgrade range provided by the owning settlement flow.
+- `AddPassageToLocation` is one-sided; a one-sided link makes AI passage and player door logic disagree. Prefer `LocationComplex.AddPassage(first, second)`.
+- `AddCharacter` and `ChangeLocation` preserve hero uniqueness and mission callbacks. Manually editing `_characterList` is impossible from a mod and duplicating descriptors outside the owner graph is unsafe.
+- A location's character descriptor is not a live Agent. After mission teardown, do not retain an Agent or scene reference just because the campaign node remains.
+- `RemoveAllCharacters` and `RemoveAllHeroCharactersFromPrison` are destructive graph mutations. Use the owning campaign behavior's intended cleanup path, especially when a save or encounter may still refer to accompanying characters.
 
-### ReserveLocation
-`public void ReserveLocation(TextObject locationName, TextObject doorName)`
+## Version note
 
-**Purpose:** Executes the ReserveLocation logic.
+This page follows v1.4.5 `Location.cs`, `Settlement.Deserialize`, and SandBox location/mission call sites. Location IDs, four-level scene fallback, access-expression names, and reservation behavior should be rechecked for another version.
 
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.ReserveLocation(locationName, doorName);
-```
+## Navigation
 
-### RemoveReservation
-`public void RemoveReservation()`
-
-**Purpose:** Removes reservation from the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.RemoveReservation();
-```
-
-### SetOwnerComplex
-`public void SetOwnerComplex(LocationComplex locationComplex)`
-
-**Purpose:** Assigns a new value to owner complex and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.SetOwnerComplex(locationComplex);
-```
-
-### AddCharacter
-`public void AddCharacter(LocationCharacter locationCharacter)`
-
-**Purpose:** Adds character to the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.AddCharacter(locationCharacter);
-```
-
-### AddLocationCharacters
-`public void AddLocationCharacters(CreateLocationCharacterDelegate createDelegate, CultureObject culture, LocationCharacter.CharacterRelations relation, int count)`
-
-**Purpose:** Adds location characters to the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.AddLocationCharacters(createDelegate, culture, relation, 0);
-```
-
-### AddLocationCharacter
-`public LocationCharacter AddLocationCharacter(CreateLocationCharacterDelegate createDelegate, CultureObject culture, LocationCharacter.CharacterRelations relation)`
-
-**Purpose:** Adds location character to the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.AddLocationCharacter(createDelegate, culture, relation);
-```
-
-### AddSpecialItem
-`public void AddSpecialItem(ItemObject itemObject)`
-
-**Purpose:** Adds special item to the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.AddSpecialItem(itemObject);
-```
-
-### GetSceneName
-`public string GetSceneName(int upgradeLevel)`
-
-**Purpose:** Reads and returns the scene name value held by the this instance.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.GetSceneName(0);
-```
-
-### SetSceneName
-`public void SetSceneName(int upgradeLevel, string sceneName)`
-
-**Purpose:** Assigns a new value to scene name and updates the object's internal state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.SetSceneName(0, "example");
-```
-
-### GetSceneCount
-`public int GetSceneCount()`
-
-**Purpose:** Reads and returns the scene count value held by the this instance.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.GetSceneCount();
-```
-
-### RemoveAllHeroCharactersFromPrison
-`public void RemoveAllHeroCharactersFromPrison()`
-
-**Purpose:** Removes all hero characters from prison from the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.RemoveAllHeroCharactersFromPrison();
-```
-
-### RemoveAllCharacters
-`public void RemoveAllCharacters()`
-
-**Purpose:** Removes all characters from the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.RemoveAllCharacters();
-```
-
-### RemoveAllCharacters
-`public void RemoveAllCharacters(Predicate<LocationCharacter> predicate)`
-
-**Purpose:** Removes all characters from the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.RemoveAllCharacters(predicate);
-```
-
-### RemoveLocationCharacter
-`public void RemoveLocationCharacter(LocationCharacter locationCharacter)`
-
-**Purpose:** Removes location character from the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.RemoveLocationCharacter(locationCharacter);
-```
-
-### RemoveCharacter
-`public void RemoveCharacter(Hero hero)`
-
-**Purpose:** Removes character from the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.RemoveCharacter(hero);
-```
-
-### ContainsCharacter
-`public bool ContainsCharacter(LocationCharacter locationCharacter)`
-
-**Purpose:** Indicates whether the this instance contains character.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.ContainsCharacter(locationCharacter);
-```
-
-### ContainsCharacter
-`public bool ContainsCharacter(Hero hero)`
-
-**Purpose:** Indicates whether the this instance contains character.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.ContainsCharacter(hero);
-```
-
-### AddPassageToLocation
-`public void AddPassageToLocation(Location passageToLocation)`
-
-**Purpose:** Adds passage to location to the current collection or state.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.AddPassageToLocation(passageToLocation);
-```
-
-### GetCharacterList
-`public IEnumerable<LocationCharacter> GetCharacterList()`
-
-**Purpose:** Reads and returns the character list value held by the this instance.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.GetCharacterList();
-```
-
-### GetPassageToLocation
-`public Location GetPassageToLocation(string locationId)`
-
-**Purpose:** Reads and returns the passage to location value held by the this instance.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.GetPassageToLocation("example");
-```
-
-### OnAIChangeLocation
-`public void OnAIChangeLocation(Location previousLocation)`
-
-**Purpose:** Invoked when the a i change location event is raised.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-location.OnAIChangeLocation(previousLocation);
-```
-
-### GetLocationCharacter
-`public LocationCharacter GetLocationCharacter(Hero hero)`
-
-**Purpose:** Reads and returns the location character value held by the this instance.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.GetLocationCharacter(hero);
-```
-
-### GetLocationCharacter
-`public LocationCharacter GetLocationCharacter(IAgentOriginBase agentOrigin)`
-
-**Purpose:** Reads and returns the location character value held by the this instance.
-
-```csharp
-// Obtain an instance of Location from the subsystem API first
-Location location = ...;
-var result = location.GetLocationCharacter(agentOrigin);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-Location location = ...;
-location.Initialize(locationTemplate, ownerComplex);
-```
-
-## See Also
-
-- [Area Index](../)
+- Parent: [Campaign API](../)
+- Siblings: [LocationComplex](../LocationComplex) · [LocationCharacter](../LocationCharacter) · [LocationComplexTemplate](../LocationComplexTemplate)
+- Related: [Settlement](../Settlement) · [CampaignMission](../CampaignMission) · [MissionAgentHandler](../../campaign-ext/MissionAgentHandler) · [LocationEncounter](../LocationEncounter)

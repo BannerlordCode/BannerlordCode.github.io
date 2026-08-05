@@ -68,6 +68,10 @@ public sealed class WindowBehavior : MissionBehavior
 
     public override void OnBehaviorInitialize()
     {
+        Mission mission = Mission.Current;
+        if (mission == null)
+            return;
+
         _windowTimer = new MissionTimer(5f);
     }
 

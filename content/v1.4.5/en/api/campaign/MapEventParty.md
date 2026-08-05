@@ -1,191 +1,98 @@
 ---
 title: "MapEventParty"
-description: "Auto-generated class reference for MapEventParty."
+description: "The map-event record that binds one PartyBase to a side, captures its battle roster, and accumulates casualties, contribution, loot, and rewards."
 ---
+
 # MapEventParty
 
-**Namespace:** TaleWorlds.CampaignSystem.MapEvents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MapEventParty`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventParty.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.MapEvents`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class MapEventParty`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventParty.cs`
 
-## Overview
+## One-line responsibility
 
-`MapEventParty` lives in `TaleWorlds.CampaignSystem.MapEvents` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MapEventParty` is the per-party battle record inside a [`MapEventSide`](../MapEventSide), linking one [`PartyBase`](../PartyBase) to its troop snapshot, casualties, contribution, loot destinations, and end-of-battle rewards.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+The constructor is `internal` and is called by `MapEventSide` when a party joins an event. The object is not the party itself and does not replace `PartyBase.MemberRoster`; it is an event-scoped record built from that party's roster. `Update()` rebuilds the `FlattenedTroopRoster` snapshot, while callbacks such as `OnTroopKilled`, `OnTroopWounded`, and `OnTroopRouted` update both the event record and the party roster according to the battle protocol.
 
-## Key Properties
+The record remains tied to the event side until the event resolves. `RosterToReceiveLootMembers`, `RosterToReceiveLootPrisoners`, and `RosterToReceiveLootItems` choose destinations differently for the player and NPC parties. This is why a map-event party is a useful read model for a battle, but a dangerous object to mutate outside the event's callback order.
 
-| Name | Signature |
-|------|-----------|
-| `Party` | `public PartyBase Party { get; }` |
-| `GainedRenownExplained` | `public ExplainedNumber GainedRenownExplained { get; }` |
-| `GainedInfluenceExplained` | `public ExplainedNumber GainedInfluenceExplained { get; }` |
-| `GainedMoraleExplained` | `public ExplainedNumber GainedMoraleExplained { get; }` |
-| `PlunderedGold` | `public int PlunderedGold { get; set; }` |
-| `GoldLost` | `public int GoldLost { get; set; }` |
-| `RosterToReceiveLootMembers` | `public TroopRoster RosterToReceiveLootMembers { get; }` |
-| `RosterToReceiveLootPrisoners` | `public TroopRoster RosterToReceiveLootPrisoners { get; }` |
-| `RosterToReceiveLootItems` | `public ItemRoster RosterToReceiveLootItems { get; }` |
-| `HasTroopLimit` | `public bool HasTroopLimit { get; }` |
+## When to use and when not to use
 
-## Key Methods
+**Use it when:**
 
-### ToString
-`public override string ToString()`
+- Reading which `PartyBase` participates on a side and how many men were present at the event start.
+- Inspecting event-scoped casualties, participating troop limits, contribution, or explained renown/influence/morale after the relevant phase.
+- Handling a battle-end callback that already supplies the event's legal timing.
 
-**Purpose:** Returns a human-readable string representation of the this instance.
+**Do not use it when:**
 
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-var result = mapEventParty.ToString();
-```
+- Adding or removing a party directly. Let [`MapEventSide`](../MapEventSide), encounter logic, and the relevant Action coordinate membership.
+- Replacing the party's roster with `RosterToReceiveLoot...` properties. They are destinations selected by the engine, not disposable working rosters.
+- Calling `Update()` or casualty callbacks to simulate a result. Those methods change the event snapshot and, for casualties, may change `PartyBase.MemberRoster`.
 
-### Update
-`public void Update()`
+## Dependencies and ownership
 
-**Purpose:** Recalculates and stores the latest representation of the this instance.
+- **Owner:** [`MapEventSide`](../MapEventSide) owns the list; [`MapEvent`](../MapEvent) owns both sides and the event lifecycle.
+- **Bound object:** `Party` points to one `PartyBase`, which may be the main party, a MobileParty, a garrison, militia, or another settlement party.
+- **Battle data:** `FlattenedTroopRoster`, `TroopRoster`, `ItemRoster`, `UniqueTroopDescriptor`, `MapEventSide`, and `BattleSideEnum` supply the per-event view.
+- **Downstream:** `PlayerEncounter` consumes player loot destinations; `BattleRewardModel`, `CombatXpModel`, and campaign behaviors calculate rewards and consequences.
+- **Persistence:** the record and its wounded/dead/routed rosters are part of the map-event save graph. Stable party identity is restored by the engine; do not persist a second object copy.
 
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.Update();
-```
+## Key members and timing
 
-### OnTroopKilled
-`public void OnTroopKilled(UniqueTroopDescriptor troopSeed)`
+| Member | Purpose, side effect, and timing |
+|---|---|
+| `Party` | The owning `PartyBase`; available after the record is created and stable only while the event retains the party. |
+| `Troops`, `HealthyManCountAtStart`, `ParticipatingTroopCount`, `HasTroopLimit` | Read the snapshot and Mission allocation boundary. `Troops` is not the live party roster. |
+| `WoundedInBattle`, `DiedInBattle`, `RoutedInBattle` | Event-scoped casualty rosters filled by battle callbacks. Read them after the relevant callback/result phase. |
+| `ContributionToBattle` | Contribution used by battle rewards and allocation logic; it is not a direct gold or renown grant. |
+| `RosterToReceiveLootMembers/Prisoners/Items` | Resolve the legal destination for player or NPC loot. Access requires the player encounter and party lifecycle to be valid. |
+| `Update()` | Rebuilds the flattened snapshot from `Party.MemberRoster`; call only at a host-defined synchronization point. |
+| `OnTroopKilled/Wounded/Routed(...)` | Applies a battle result to the event snapshot and, where source code requires, the live party roster. Engine callbacks own their timing. |
+| `OnRoundEnd(...)` and `OnTroopScoreHit(...)` | Update morale, XP, and contribution through Campaign Models; they are not arbitrary reward APIs. |
+| `SetRenownInfluenceAndMoraleOnBattleEnd(...)` | Stores explained end results for later consumption; it does not itself award those values. |
 
-**Purpose:** Invoked when the troop killed event is raised.
+## Real acquisition example
+
+Read the player side from the active Campaign event and select the record by its `PartyBase`:
 
 ```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnTroopKilled(troopSeed);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
+
+public static int GetMainPartyStartingMen()
+{
+    MapEvent mapEvent = Campaign.Current.MapEventManager.MapEvents
+        .FirstOrDefault(eventRecord => eventRecord.IsPlayerMapEvent);
+    MapEventParty record = mapEvent?.PartiesOnSide(BattleSideEnum.Attacker)
+        .FirstOrDefault(eventParty => eventParty.Party == PartyBase.MainParty);
+    return record?.HealthyManCountAtStart ?? 0;
+}
 ```
 
-### OnTroopWounded
-`public void OnTroopWounded(UniqueTroopDescriptor troopSeed)`
+For a defender, use `BattleSideEnum.Defender`; always check that the record exists because a party can leave or be removed before resolution.
 
-**Purpose:** Invoked when the troop wounded event is raised.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnTroopWounded(troopSeed);
-```
+1. `Troops` is an event snapshot. Reading it as if it were the current `MemberRoster` can produce wrong counts after casualties, transfers, or troop allocation.
+2. Casualty callbacks can mutate the live roster and use `UniqueTroopDescriptor` lookups. Calling them with a descriptor from another event can cause invalid roster access or duplicate losses.
+3. Player loot properties route through `PlayerEncounter.Current`; reading them outside the player encounter can be null or semantically wrong, especially for AI battles.
+4. Calling `Update()` after troop allocations are locked can erase the snapshot that the Mission supplier expects. Let `MapEventSide` own allocation and refresh timing.
+5. Do not carry `MapEventParty`, `PartyBase`, or roster references past `MapEventEnded` into a save record. Store stable IDs or scalar results and reacquire the current party after load.
 
-### OnTroopRouted
-`public void OnTroopRouted(UniqueTroopDescriptor troopSeed)`
+## Version note
 
-**Purpose:** Invoked when the troop routed event is raised.
+The v1.4.5 implementation uses a `FlattenedTroopRoster` snapshot, saveable casualty rosters, and model-backed reward calculations. Constructor visibility, roster compatibility callbacks, and naval members may differ across versions; recheck the source before calling public callbacks directly.
 
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnTroopRouted(troopSeed);
-```
+## Navigation
 
-### OnShipSunk
-`public void OnShipSunk(Ship ship)`
-
-**Purpose:** Invoked when the ship sunk event is raised.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnShipSunk(ship);
-```
-
-### OnShipDamaged
-`public void OnShipDamaged(Ship ship, SiegeEngineType siegeEngine, int damage)`
-
-**Purpose:** Invoked when the ship damaged event is raised.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnShipDamaged(ship, siegeEngine, 0);
-```
-
-### OnShipScoreHit
-`public void OnShipScoreHit(Ship ship, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
-
-**Purpose:** Invoked when the ship score hit event is raised.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnShipScoreHit(ship, struckShip, siegeEngine, 0, false);
-```
-
-### GetTroop
-`public CharacterObject GetTroop(UniqueTroopDescriptor troopSeed)`
-
-**Purpose:** Reads and returns the troop value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-var result = mapEventParty.GetTroop(troopSeed);
-```
-
-### GetTroopState
-`public RosterTroopState GetTroopState(UniqueTroopDescriptor troopSeed)`
-
-**Purpose:** Reads and returns the troop state value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-var result = mapEventParty.GetTroopState(troopSeed);
-```
-
-### OnRoundEnd
-`public void OnRoundEnd(MapEventSide partySide, BattleSideEnum roundWinner)`
-
-**Purpose:** Invoked when the round end event is raised.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnRoundEnd(partySide, roundWinner);
-```
-
-### OnTroopScoreHit
-`public void OnTroopScoreHit(UniqueTroopDescriptor attackerTroopDesc, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
-
-**Purpose:** Invoked when the troop score hit event is raised.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.OnTroopScoreHit(attackerTroopDesc, attackedTroop, 0, false, false, attackerWeapon, false);
-```
-
-### SetRenownInfluenceAndMoraleOnBattleEnd
-`public void SetRenownInfluenceAndMoraleOnBattleEnd(ExplainedNumber renown, ExplainedNumber influence, ExplainedNumber morale)`
-
-**Purpose:** Assigns a new value to renown influence and morale on battle end and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MapEventParty from the subsystem API first
-MapEventParty mapEventParty = ...;
-mapEventParty.SetRenownInfluenceAndMoraleOnBattleEnd(renown, influence, morale);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-MapEventParty mapEventParty = ...;
-mapEventParty.ToString();
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Campaign API](../)
+- ↔ Siblings: [`MapEvent`](../MapEvent) · [`MapEventSide`](../MapEventSide) · [`PartyBase`](../PartyBase)
+- Related: [`TroopRoster`](../TroopRoster) · [`ItemRoster`](../ItemRoster) · [`PlayerEncounter`](../PlayerEncounter) · [`MapEventComponent`](../MapEventComponent)
+- 中文: [MapEventParty](../../../../zh/api/campaign/MapEventParty)

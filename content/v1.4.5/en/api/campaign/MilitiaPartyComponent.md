@@ -1,91 +1,98 @@
 ---
 title: "MilitiaPartyComponent"
-description: "Auto-generated class reference for MilitiaPartyComponent."
+description: "MilitiaPartyComponent is the stationary party component that exposes a settlement's ready militia to map events and settlement systems."
 ---
 # MilitiaPartyComponent
 
-**Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MilitiaPartyComponent : PartyComponent`
-**Base:** `PartyComponent`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/MilitiaPartyComponent.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.Party.PartyComponents`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class MilitiaPartyComponent : PartyComponent`  
+**Base:** [PartyComponent](../PartyComponent)  
+**Source file:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/MilitiaPartyComponent.cs`
 
-## Overview
+## One-sentence responsibility
 
-`MilitiaPartyComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+It owns the settlement militia `MobileParty`, initializes its troops from the settlement culture's militia template, and exposes the party through the settlement's militia back-reference.
 
 ## Mental Model
 
-Treat `MilitiaPartyComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Militia is a stationary party representation used by the settlement and map-event systems, not an ordinary roaming AI party. `CreateMilitiaParty` creates the party, disables AI, sets zero aggressiveness, disables navigation, initializes at the settlement gate from `Settlement.Culture.MilitiaPartyTemplate`, and immediately applies `EnterSettlementAction`.
 
-## Key Properties
+The reverse link is part of the lifecycle: `OnInitialize` assigns `Settlement.MilitiaPartyComponent`, and `OnFinalize` clears it. Settlement militia calculations read the active party through that field and combine it with ready-militia counts. A mod should therefore acquire the component from the settlement rather than searching all parties or creating a replacement for a read operation.
 
-| Name | Signature |
-|------|-----------|
-| `Settlement` | `public Settlement Settlement { get; }` |
-| `Name` | `public override TextObject Name { get; }` |
+## When to use and when not to use
 
-## Key Methods
+- Read `settlement.MilitiaPartyComponent` when a map event, rebellion, or settlement calculation needs the active militia party.
+- Use `CreateMilitiaParty` only during settlement initialization or a deliberate replacement flow; it has immediate settlement-entry and party-state side effects.
+- Use `ConvertPartyToMilitiaParty` only when the owning campaign code intentionally changes an existing party's category.
+- Do not use militia as a mobile patrol or attach ordinary AI navigation to it. The component's creation callback disables AI and leaves navigation unavailable.
+- Do not treat the component's `Settlement` field as a disposable label. It is the saved owner of the party and the source of the reverse reference.
 
-### InitializeMilitiaPartyProperties
-`public void InitializeMilitiaPartyProperties(MobileParty mobileParty, Settlement settlement)`
+## Dependencies
 
-**Purpose:** Prepares the resources, state, or bindings required by militia party properties.
-
-```csharp
-// Obtain an instance of MilitiaPartyComponent from the subsystem API first
-MilitiaPartyComponent militiaPartyComponent = ...;
-militiaPartyComponent.InitializeMilitiaPartyProperties(mobileParty, settlement);
+```text
+Settlement + Culture.MilitiaPartyTemplate
+  -> MilitiaPartyComponent.CreateMilitiaParty
+  -> MobileParty creation callback + EnterSettlementAction
+  -> Settlement.MilitiaPartyComponent
+  -> militia counts and map-event participation
 ```
 
-### GetDefaultComponentBanner
-`public override Banner GetDefaultComponentBanner()`
+- Host: [MobileParty](../MobileParty) owns the component, roster, and map-event party side.
+- Campaign owner: [Settlement](../Settlement) exposes the active militia and consumes its member count.
+- Data source: [CultureObject](../CultureObject) provides `MilitiaPartyTemplate`.
+- Mutation boundary: [EnterSettlementAction](../../campaign-ext/EnterSettlementAction) is part of the factory's creation path.
+- Shared contract: [PartyComponent](../PartyComponent) supplies binding and finalization.
 
-**Purpose:** Reads and returns the default component banner value held by the this instance.
+## State and operations
 
-```csharp
-// Obtain an instance of MilitiaPartyComponent from the subsystem API first
-MilitiaPartyComponent militiaPartyComponent = ...;
-var result = militiaPartyComponent.GetDefaultComponentBanner();
-```
+| Member | Meaning and timing |
+|---|---|
+| `Settlement` | Saveable settlement association and the key used by initialization and cleanup. |
+| `PartyOwner` / `HomeSettlement` | Resolve to the settlement owner's clan leader and the associated settlement. |
+| `Name` | Lazily caches the localized militia name with the settlement name. |
+| `CanHaveNavalNavigationCapability` | Always `false`; militia remains a stationary settlement party. |
+| `CreateMilitiaParty` | Creates a party with a source-derived ID, sets no navigation, initializes the culture template, and enters the settlement. |
+| `ConvertPartyToMilitiaParty` | Replaces an existing party component with the settlement's militia component. |
+| `GetDefaultComponentBanner` | Returns `Settlement.Banner`. |
+| `ClearCachedName` | Invalidates the localized name cache. |
 
-### CreateMilitiaParty
-`public static MobileParty CreateMilitiaParty(string stringId, Settlement settlement)`
+## Real example
 
-**Purpose:** Constructs a new militia party entity and returns it to the caller.
-
-```csharp
-// Static call; no instance required
-MilitiaPartyComponent.CreateMilitiaParty("example", settlement);
-```
-
-### ConvertPartyToMilitiaParty
-`public static void ConvertPartyToMilitiaParty(MobileParty mobileParty, Settlement settlement)`
-
-**Purpose:** Converts party to militia party into another representation or type.
+The safe read path used by settlement and map-event code is the settlement back-reference:
 
 ```csharp
-// Static call; no instance required
-MilitiaPartyComponent.ConvertPartyToMilitiaParty(mobileParty, settlement);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.Settlements;
+
+Settlement settlement = Settlement.CurrentSettlement;
+MilitiaPartyComponent militia = settlement?.MilitiaPartyComponent;
+MobileParty party = militia?.MobileParty;
+
+if (militia != null && party != null && party.IsActive)
+{
+    int militiaCount = party.Party.NumberOfAllMembers;
+    Settlement home = militia.HomeSettlement;
+}
 ```
 
-### ClearCachedName
-`public override void ClearCachedName()`
+`Settlement` creates the component through `CreateMilitiaParty` when it initializes a militia party. That factory's `EnterSettlementAction.ApplyForParty` call is why a mod should not use it as a periodic “ensure present” helper.
 
-**Purpose:** Removes all cached name from the this instance.
+## Risks and save boundaries
 
-```csharp
-// Obtain an instance of MilitiaPartyComponent from the subsystem API first
-MilitiaPartyComponent militiaPartyComponent = ...;
-militiaPartyComponent.ClearCachedName();
-```
+- `CreateMilitiaParty` performs several mutations at once: it creates a party, disables AI, chooses a template, enters the settlement, and installs a reverse reference. Calling it twice can create duplicate militia parties.
+- `Settlement.Culture.MilitiaPartyTemplate` must be loaded before creation. A missing culture/template is a data-load problem, not something the component repairs.
+- Map events read `Settlement.MilitiaPartyComponent` and may set `MapEventSide` on its `MobileParty`. Do not replace the component while the party participates in an event.
+- Finalization clears the settlement back-reference. Holding the old component after party destruction can make code read an inactive roster.
+- The component is saved with its settlement association, while Agent and MapEvent objects are transient. Do not persist engine references through it.
 
-## Usage Example
+## Version note
 
-```csharp
-var component = agent.GetComponent<MilitiaPartyComponent>();
-```
+This page follows v1.4.5 `MilitiaPartyComponent`, `Settlement`, `RebellionsCampaignBehavior`, and map-event militia call sites. Militia templates, initialization IDs, and event integration may change across versions.
 
-## See Also
+## Navigation
 
-- [Area Index](../)
+- Parent: [Campaign API](../)
+- Siblings: [PartyComponent](../PartyComponent) · [GarrisonPartyComponent](../GarrisonPartyComponent) · [PatrolPartyComponent](../PatrolPartyComponent)
+- Related: [MobileParty](../MobileParty) · [Settlement](../Settlement) · [CultureObject](../CultureObject) · [EnterSettlementAction](../../campaign-ext/EnterSettlementAction)

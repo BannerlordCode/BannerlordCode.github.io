@@ -1,69 +1,102 @@
 ---
 title: "PatrolPartyComponent"
-description: "PatrolPartyComponent 的自动生成类参考。"
+description: "PatrolPartyComponent 标识定居点巡逻队，管理 home settlement、海军模式、本地化名称和 roster 初始化。"
 ---
 # PatrolPartyComponent
 
-**Namespace:** TaleWorlds.CampaignSystem.Party.PartyComponents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class PatrolPartyComponent : PartyComponent`
-**Base:** `PartyComponent`
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/PatrolPartyComponent.cs`
+**命名空间:** `TaleWorlds.CampaignSystem.Party.PartyComponents`  
+**模块:** `TaleWorlds.CampaignSystem`  
+**类型:** `public class PatrolPartyComponent : PartyComponent`  
+**基类:** [PartyComponent](../PartyComponent)  
+**源码文件:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party.PartyComponents/PatrolPartyComponent.cs`
 
-## 概述
+## 一句话职责
 
-`PatrolPartyComponent` 是一个组件型对象，通常依附在 Agent、实体或系统对象上，承载局部状态和行为。
+它把 `MobileParty` 标记为陆地或沿海巡逻队，绑定 home settlement，生成本地化身份，并将陆地巡逻队注册到定居点。
 
 ## 心智模型
 
-把 `PatrolPartyComponent` 当作一个 Component 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`PatrolPartyComponent` 是围绕 `PatrolPartiesCampaignBehavior` 创建的队伍的小型身份和生命周期组件。工厂根据 [PartyTemplateObject](../PartyTemplateObject) 是否有船体决定海军模式，创建队伍、在位置附近初始化、加入粮食、排序 roster，并对海军巡逻关闭陆地导航。
 
-## 主要属性
+陆地和海军巡逻的反向引用有意不同。只有 `IsNaval` 为 false 时，`OnInitialize` 和 `OnFinalize` 才调用 `Settlement.SetPatrolParty`；沿海巡逻仍有 `HomeSettlement`，但不会放进定居点的唯一陆地巡逻槽位。因此 `IsNaval` 是生命周期决定，不只是显示选项。
 
-| Name | Signature |
-|------|-----------|
-| `IsNaval` | `public bool IsNaval { get; }` |
+## 何时使用，何时不要使用
 
-## 主要方法
+- 读取现有巡逻队的 `mobileParty.PatrolPartyComponent.HomeSettlement`、`Clan` 和 `IsNaval`。
+- 真正创建巡逻队时，使用巡逻模型提供的模板和真实生成位置调用 `CreatePatrolParty`。
+- 队伍已经创建并绑定后，使用 `SortRoster`；它会把排序委托给 `PartyBaseHelper.SortRoster`。
+- 不要从定居点有港口推断海军模式。工厂依据 `template.ShipHulls` 决定。
+- 不要为同一个陆地定居点重复调用工厂；定居点只保存一个陆地巡逻引用，生命周期回调会替换或清空它。
 
-### GetDefaultComponentBanner
-`public override Banner GetDefaultComponentBanner()`
+## 依赖关系
 
-**用途 / Purpose:** 读取并返回当前对象中 default component banner 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 PatrolPartyComponent 实例
-PatrolPartyComponent patrolPartyComponent = ...;
-var result = patrolPartyComponent.GetDefaultComponentBanner();
+```text
+SettlementPatrolModel 模板 + settlement + position
+  -> PatrolPartyComponent.CreatePatrolParty
+  -> MobileParty 创建、roster 和导航设置
+  -> 非海军的 Settlement.PatrolParty 注册
+  -> PatrolPartiesCampaignBehavior 跟踪 home 与海军巡逻
 ```
 
-### CreatePatrolParty
-`public static MobileParty CreatePatrolParty(string stringId, CampaignVec2 position, float spawnRadius, Settlement homeSettlement, PartyTemplateObject template)`
+- 宿主：[MobileParty](../MobileParty) 持有组件和 roster。
+- 战役行为：[PatrolPartiesCampaignBehavior](../PatrolPartiesCampaignBehavior) 创建并查询巡逻队。
+- 数据来源：[Settlement](../Settlement) 与 `SettlementPatrolModel` 提供 home 和模板。
+- 共同契约：[PartyComponent](../PartyComponent) 提供创建、初始化和结束回调。
+- roster 辅助：[PartyBase](../PartyBase) 被传给排序辅助方法。
 
-**用途 / Purpose:** 构建一个新的 patrol party 实体并返回给调用方。
+## 状态与操作
+
+| 成员 | 含义与时机 |
+|---|---|
+| `HomeSettlement` | 可保存的 home settlement，用于巡逻评分和命名，也是陆地巡逻反向引用的持有者。 |
+| `Clan` | 返回 `HomeSettlement.OwnerClan`，是派生值；home 无效时会失败。 |
+| `IsNaval` | 从工厂构造时的 `template.ShipHulls` 决定并保存。 |
+| `Name` | 使用 home settlement 名称缓存陆地或沿海巡逻名称。 |
+| `PartyOwner` | 返回 `HomeSettlement.Owner`，不是独立保存的 owner 字段。 |
+| `CreatePatrolParty` | 创建、定位、配备、排序和配置巡逻队，并初始化组件的定居点注册。 |
+| `GetDefaultComponentBanner` | 返回 home settlement 的 Banner。 |
+| `SortRoster` | 通过 `PartyBaseHelper` 对绑定的队伍 roster 排序。 |
+
+## 真实示例
+
+源码巡逻行为从战役模型取得模板，并使用估计匪徒速度计算生成半径：
 
 ```csharp
-// 静态调用，不需要实例
-PatrolPartyComponent.CreatePatrolParty("example", position, 0, homeSettlement, template);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.Settlements;
+
+Settlement settlement = Settlement.CurrentSettlement;
+PartyTemplateObject template =
+    Campaign.Current.Models.SettlementPatrolModel
+        .GetPartyTemplateForPatrolParty(settlement, isNaval: false);
+
+MobileParty patrol = PatrolPartyComponent.CreatePatrolParty(
+    "patrol_party_mod_1",
+    settlement.GatePosition,
+    8f * Campaign.Current.EstimatedAverageBanditPartySpeed,
+    settlement,
+    template);
+
+bool isNaval = patrol.PatrolPartyComponent.IsNaval;
 ```
 
-### SortRoster
-`public void SortRoster()`
+工厂已经调用 `SortRoster` 并初始化定居点注册。调用方只有在之后确实修改 roster 时才需要再次排序。
 
-**用途 / Purpose:** 调用 SortRoster 对应的操作。
+## 风险与存档边界
 
-```csharp
-// 先通过子系统 API 拿到 PatrolPartyComponent 实例
-PatrolPartyComponent patrolPartyComponent = ...;
-patrolPartyComponent.SortRoster();
-```
+- `template.ShipHulls` 决定 `IsNaval`。传入 null 或选择错误模板，会创建错误的导航模式。
+- `SetPatrolParty` 只服务陆地巡逻。即使海军巡逻拥有相同的 `HomeSettlement`，从 `Settlement.PatrolParty` 也找不到它。
+- `SortRoster` 要求组件的 `MobileParty` 已绑定；对脱离或已经结束的组件调用是无效的。
+- 结束时会清空定居点的陆地巡逻引用。不要跨队伍销毁或存档重建缓存这个引用。
+- 工厂会改变位置、粮食、roster 顺序和陆地导航权限，是战役状态变更，不是被动类型转换。
 
-## 使用示例
+## 版本说明
 
-```csharp
-var component = agent.GetComponent<PatrolPartyComponent>();
-```
+本页依据 v1.4.5 `PatrolPartyComponent`、`PatrolPartiesCampaignBehavior`、`Settlement.SetPatrolParty` 和定居点巡逻模型编写。海军巡逻行为和模板字段可能随版本变化。
 
-## 参见
+## 导航
 
-- [本区域目录](../)
+- 父级：[Campaign API](../)
+- 同级：[PartyComponent](../PartyComponent) · [MilitiaPartyComponent](../MilitiaPartyComponent) · [GarrisonPartyComponent](../GarrisonPartyComponent)
+- 相关：[MobileParty](../MobileParty) · [Settlement](../Settlement) · [PartyTemplateObject](../PartyTemplateObject) · [PatrolPartiesCampaignBehavior](../PatrolPartiesCampaignBehavior)

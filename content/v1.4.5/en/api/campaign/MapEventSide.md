@@ -1,461 +1,96 @@
 ---
 title: "MapEventSide"
-description: "Auto-generated class reference for MapEventSide."
+description: "The attacker or defender container that groups MapEventParty records and owns event-side strength, casualty, and troop-allocation state."
 ---
+
 # MapEventSide
 
-**Namespace:** TaleWorlds.CampaignSystem.MapEvents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MapEventSide`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs`
+**Namespace:** `TaleWorlds.CampaignSystem.MapEvents`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public class MapEventSide`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs`
 
-## Overview
+## One-line responsibility
 
-`MapEventSide` lives in `TaleWorlds.CampaignSystem.MapEvents` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MapEventSide` groups the [`MapEventParty`](../MapEventParty) records for one attacker or defender side and coordinates that side's strength, casualties, simulation troops, and Mission allocation.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.CampaignSystem.MapEvents` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`MapEventSide` is created internally with an owning [`MapEvent`](../MapEvent), a `BattleSideEnum`, and a leader `PartyBase`. The event then exposes it as `AttackerSide` or `DefenderSide`. Its `Parties` list is the event's party view; it is not a second campaign party collection. `OtherSide` resolves the paired side through the same event.
 
-## Key Properties
+The side has two kinds of state. Saveable fields contain leader/faction identity, casualty and reward values, side ratios, and the party records. Cached fields contain troop-priority lists, allocated/ready troop dictionaries, strength caches, simulation ships, and lock flags. `MakeReadyForSimulation` and `MakeReadyForMission` prepare those caches for the host's simulation or Mission supplier; they are not general-purpose roster editing APIs.
 
-| Name | Signature |
-|------|-----------|
-| `SimulationShipList` | `public MBList<Ship> SimulationShipList { get; }` |
-| `WeightedShipCombatFactor` | `public float WeightedShipCombatFactor { get; }` |
-| `LeaderParty` | `public PartyBase LeaderParty { get; }` |
-| `MissionSide` | `public BattleSideEnum MissionSide { get; }` |
-| `CasualtyStrength` | `public float CasualtyStrength { get; }` |
-| `HasReadyTroops` | `public bool HasReadyTroops { get; }` |
+## When to use and when not to use
 
-## Key Methods
+**Use it when:**
 
-### GetTroops
-`public IReadOnlyList<UniqueTroopDescriptor> GetTroops()`
+- Reading the attacker/defender party list, leader, current healthy count, casualty strength, or side-level result values.
+- Inspecting which side contains `PartyBase.MainParty` or how a running event was classified.
+- Writing a diagnostic that runs during the active event and releases references at `MapEventEnded`.
 
-**Purpose:** Reads and returns the troops value held by the this instance.
+**Do not use it when:**
 
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetTroops();
-```
+- Adding/removing a party by editing `Parties`. Membership belongs to encounter and `MapEvent` protocols.
+- Calling `AllocateTroops`, `MakeReadyForMission`, `Clear`, `Surrender`, or `Route` to force a battle result. Mission suppliers and event resolution own these calls.
+- Treating `StrengthRatio`, `RenownValue`, `InfluenceValue`, or casualty fields as direct mutation inputs. Models, Actions, and finalization calculate and commit their consequences.
 
-### GetTotalHealthyHeroCountOfSide
-`public int GetTotalHealthyHeroCountOfSide()`
+## Dependencies and ownership
 
-**Purpose:** Reads and returns the total healthy hero count of side value held by the this instance.
+- **Owner:** [`MapEvent`](../MapEvent) creates the two sides, stores them in the save graph, and decides their lifecycle.
+- **Children:** [`MapEventParty`](../MapEventParty) records bind each participating [`PartyBase`](../PartyBase) to this side.
+- **Inputs:** `BattleSideEnum`, `MapEvent.BattleTypes`, `MilitaryPowerModel`, troop supplier Models, and the party rosters.
+- **Consumers:** `PartyGroupTroopSupplier`, SandBox Mission setup, combat simulation, `PlayerEncounter`, and campaign reward behaviors consume the side's prepared data.
+- **Persistence:** saveable side values and party records survive a Campaign save; allocation dictionaries and simulation lists are cached and rebuilt.
 
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetTotalHealthyHeroCountOfSide();
-```
+## Key members and timing
 
-### CountTroops
-`public int CountTroops(Func<FlattenedTroopRosterElement, bool> pred)`
+| Member | Purpose, side effect, and timing |
+|---|---|
+| `MapEvent`, `MissionSide`, `LeaderParty`, `OtherSide` | Identify the owning event, side, leader, and opposite side. These are valid only while the event is alive. |
+| `Parties`, `TroopCount`, `HealthyTroopCountAtMapEventStart` | Read party membership and counts. The list is read-only; parties can leave before resolution. |
+| `StrengthRatio`, `CasualtyStrength`, `RenownValue`, `InfluenceValue`, `TroopCasualties`, `ShipCasualties` | Side result and reward inputs stored by the event protocol; do not treat them as independent mod state. |
+| `GetTotalHealthyHeroCountOfSide()`, `GetTotalHealthyTroopCountOfSide()`, `RecalculateMemberCountOfSide()`, `RecalculateStrengthOfSide()` | Read/recalculate current side measures. Results change as party rosters change. |
+| `GetTroops()`, `GetAllocatedTroop(...)`, `GetReadyTroop(...)` | Read the simulation/Mission allocation cache only after the host has made the side ready. |
+| `MakeReadyForSimulation(...)`, `MakeReadyForMission(...)`, `AllocateTroops(...)` | Prepare and lock event troop allocation for simulation or Mission. Host-owned calls with strong phase assumptions. |
+| `OnTroopKilled/Wounded/Routed(...)`, `OnTroopScoreHit(...)` | Forward battle callbacks to the matching `MapEventParty`, updating casualties, XP, and contribution. |
+| `HandleMapEventEnd()`, `CommitXpGains()`, `CommitRenownChanges()`, `CommitInfluenceChanges()`, `CommitMoraleChanges()`, `CommitGoldChanges()` | Apply end-of-event changes in the engine's order. Do not replay them from a listener. |
 
-**Purpose:** Executes the CountTroops logic.
+## Real acquisition example
 
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.CountTroops(func<FlattenedTroopRosterElement, false);
-```
-
-### GetTotalHealthyTroopCountOfSide
-`public int GetTotalHealthyTroopCountOfSide()`
-
-**Purpose:** Reads and returns the total healthy troop count of side value held by the this instance.
+This read-only query obtains the live player event through the real Campaign manager and checks the attacker side:
 
 ```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetTotalHealthyTroopCountOfSide();
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
+
+public static int GetPlayerAttackerCount()
+{
+    MapEvent mapEvent = Campaign.Current.MapEventManager.MapEvents
+        .FirstOrDefault(eventRecord => eventRecord.IsPlayerMapEvent);
+    MapEventSide side = mapEvent?.AttackerSide;
+    return side?.TroopCount ?? 0;
+}
 ```
 
-### RecalculateMemberCountOfSide
-`public int RecalculateMemberCountOfSide()`
+Use `DefenderSide` or `OtherSide` when the question is about the opposite side. Do not enumerate and mutate the side during the same tick that a Mission supplier is allocating troops.
 
-**Purpose:** Recalculates member count of side to reflect the latest state.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.RecalculateMemberCountOfSide();
-```
+1. `Parties` can contain records whose `PartyBase` is changing during retreat, destruction, or finalization. Snapshot the scalar data you need and stop using the side after `MapEventEnded`.
+2. Allocation caches are not saveable truth. Calling `Update`, `Clear`, or an allocation method at the wrong phase can make a Mission spawn a different roster from the simulation or cause a missing troop lookup.
+3. Side-level casualty and reward fields are written by the event protocol. Direct edits bypass party casualty rosters, XP, prisoners, loot, relations, and settlement consequences.
+4. The `LeaderParty` may change when the original leader leaves. Never assume it remains the first party or keep a stale leader reference.
+5. `OtherSide` requires a live event and a valid side; using it after removal or from a partially loaded object can reach invalid event state.
 
-### RecalculateStrengthOfSide
-`public float RecalculateStrengthOfSide()`
+## Version note
 
-**Purpose:** Recalculates strength of side to reflect the latest state.
+The v1.4.5 implementation separates saveable side state from `[CachedData]` troop and ship allocation state. The Mission supplier and naval cache details are version-sensitive; recheck `MapEventSide`, `PartyGroupTroopSupplier`, and the target Mission code when porting.
 
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.RecalculateStrengthOfSide();
-```
+## Navigation
 
-### IsMainPartyAmongParties
-`public bool IsMainPartyAmongParties()`
-
-**Purpose:** Determines whether the this instance is in the main party among parties state or condition.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.IsMainPartyAmongParties();
-```
-
-### CalculateRenownAndInfluenceValuesOnPartyInvolved
-`public void CalculateRenownAndInfluenceValuesOnPartyInvolved(float strengthOfSide)`
-
-**Purpose:** Calculates the current value or result of renown and influence values on party involved.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.CalculateRenownAndInfluenceValuesOnPartyInvolved(0);
-```
-
-### GetSideMorale
-`public float GetSideMorale()`
-
-**Purpose:** Reads and returns the side morale value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetSideMorale();
-```
-
-### HandleMapEventEnd
-`public void HandleMapEventEnd()`
-
-**Purpose:** Executes the response logic associated with map event end.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.HandleMapEventEnd();
-```
-
-### AddHeroDamage
-`public static void AddHeroDamage(Hero character, int damage)`
-
-**Purpose:** Adds hero damage to the current collection or state.
-
-```csharp
-// Static call; no instance required
-MapEventSide.AddHeroDamage(character, 0);
-```
-
-### AllocateShips
-`public void AllocateShips()`
-
-**Purpose:** Executes the AllocateShips logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.AllocateShips();
-```
-
-### AllocateSiegeEngines
-`public void AllocateSiegeEngines()`
-
-**Purpose:** Executes the AllocateSiegeEngines logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.AllocateSiegeEngines();
-```
-
-### AllocateTroops
-`public void AllocateTroops(ref List<UniqueTroopDescriptor> troopsList, int numberToAllocate, Func<UniqueTroopDescriptor, MapEventParty, bool> customAllocationConditions = null)`
-
-**Purpose:** Executes the AllocateTroops logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.AllocateTroops(troopsList, 0, func<UniqueTroopDescriptor, mapEventParty, false);
-```
-
-### GetAllTroops
-`public void GetAllTroops(ref List<UniqueTroopDescriptor> troopsList)`
-
-**Purpose:** Reads and returns the all troops value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.GetAllTroops(troopsList);
-```
-
-### GetAllocatedTroop
-`public CharacterObject GetAllocatedTroop(UniqueTroopDescriptor troopDesc0)`
-
-**Purpose:** Reads and returns the allocated troop value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetAllocatedTroop(troopDesc0);
-```
-
-### GetReadyTroop
-`public CharacterObject GetReadyTroop(UniqueTroopDescriptor troopDesc0)`
-
-**Purpose:** Reads and returns the ready troop value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetReadyTroop(troopDesc0);
-```
-
-### GetAllocatedTroopParty
-`public PartyBase GetAllocatedTroopParty(UniqueTroopDescriptor troopDescriptor)`
-
-**Purpose:** Reads and returns the allocated troop party value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetAllocatedTroopParty(troopDescriptor);
-```
-
-### GetReadyTroopParty
-`public PartyBase GetReadyTroopParty(UniqueTroopDescriptor troopDescriptor)`
-
-**Purpose:** Reads and returns the ready troop party value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetReadyTroopParty(troopDescriptor);
-```
-
-### OnTroopWounded
-`public void OnTroopWounded(UniqueTroopDescriptor troopDesc1)`
-
-**Purpose:** Invoked when the troop wounded event is raised.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopWounded(troopDesc1);
-```
-
-### OnTroopKilled
-`public void OnTroopKilled(UniqueTroopDescriptor troopDesc1)`
-
-**Purpose:** Invoked when the troop killed event is raised.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopKilled(troopDesc1);
-```
-
-### OnTroopRouted
-`public void OnTroopRouted(UniqueTroopDescriptor troopDesc1, bool isOrderRetreat)`
-
-**Purpose:** Invoked when the troop routed event is raised.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopRouted(troopDesc1, false);
-```
-
-### OnTroopScoreHit
-`public void OnTroopScoreHit(UniqueTroopDescriptor troopDesc1, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
-
-**Purpose:** Invoked when the troop score hit event is raised.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopScoreHit(troopDesc1, attackedTroop, 0, false, false, attackerWeapon, false);
-```
-
-### OnShipScoreHit
-`public void OnShipScoreHit(Ship strikerShip, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
-
-**Purpose:** Invoked when the ship score hit event is raised.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.OnShipScoreHit(strikerShip, struckShip, siegeEngine, 0, false);
-```
-
-### OnShipDamaged
-`public void OnShipDamaged(Ship struckShip, SiegeEngineType siegeEngine, int damage)`
-
-**Purpose:** Invoked when the ship damaged event is raised.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.OnShipDamaged(struckShip, siegeEngine, 0);
-```
-
-### MakeReadyForSimulation
-`public void MakeReadyForSimulation(FlattenedTroopRoster priorTroops, int sizeOfSide)`
-
-**Purpose:** Executes the MakeReadyForSimulation logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.MakeReadyForSimulation(priorTroops, 0);
-```
-
-### MakeReadyForMission
-`public void MakeReadyForMission(FlattenedTroopRoster priorTroops)`
-
-**Purpose:** Executes the MakeReadyForMission logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.MakeReadyForMission(priorTroops);
-```
-
-### EndSimulation
-`public void EndSimulation()`
-
-**Purpose:** Executes the EndSimulation logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.EndSimulation();
-```
-
-### Clear
-`public void Clear()`
-
-**Purpose:** Removes all content from the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.Clear();
-```
-
-### SelectRandomSimulationTroop
-`public UniqueTroopDescriptor SelectRandomSimulationTroop()`
-
-**Purpose:** Executes the SelectRandomSimulationTroop logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.SelectRandomSimulationTroop();
-```
-
-### GetRandomSimulationShip
-`public Ship GetRandomSimulationShip()`
-
-**Purpose:** Reads and returns the random simulation ship value held by the this instance.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetRandomSimulationShip();
-```
-
-### Surrender
-`public void Surrender()`
-
-**Purpose:** Executes the Surrender logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.Surrender();
-```
-
-### Route
-`public void Route()`
-
-**Purpose:** Executes the Route logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.Route();
-```
-
-### CommitXpGains
-`public void CommitXpGains()`
-
-**Purpose:** Executes the CommitXpGains logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitXpGains();
-```
-
-### CommitRenownChanges
-`public void CommitRenownChanges()`
-
-**Purpose:** Executes the CommitRenownChanges logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitRenownChanges();
-```
-
-### CommitInfluenceChanges
-`public void CommitInfluenceChanges()`
-
-**Purpose:** Executes the CommitInfluenceChanges logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitInfluenceChanges();
-```
-
-### CommitMoraleChanges
-`public void CommitMoraleChanges()`
-
-**Purpose:** Executes the CommitMoraleChanges logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitMoraleChanges();
-```
-
-### CommitGoldChanges
-`public void CommitGoldChanges()`
-
-**Purpose:** Executes the CommitGoldChanges logic.
-
-```csharp
-// Obtain an instance of MapEventSide from the subsystem API first
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitGoldChanges();
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-MapEventSide mapEventSide = ...;
-mapEventSide.GetTroops();
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Campaign API](../)
+- ↔ Siblings: [`MapEvent`](../MapEvent) · [`MapEventParty`](../MapEventParty) · [`MapEventManager`](../MapEventManager)
+- Related: [`MapEventState`](../MapEventState) · [`MapEventComponent`](../MapEventComponent) · [`PartyBase`](../PartyBase) · [`TroopRoster`](../TroopRoster)
+- 中文: [MapEventSide](../../../../zh/api/campaign/MapEventSide)

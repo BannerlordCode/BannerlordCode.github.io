@@ -1,119 +1,95 @@
 ---
 title: "MapEventManager"
-description: "MapEventManager 的自动生成类参考。"
+description: "战役持有的活动 MapEvent 注册表与 tick 协调器，负责创建、查询、加载修复和移除边界。"
 ---
+
 # MapEventManager
 
-**Namespace:** TaleWorlds.CampaignSystem.MapEvents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MapEventManager`
-**Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventManager.cs`
+**命名空间：** `TaleWorlds.CampaignSystem.MapEvents`  
+**模块：** `TaleWorlds.CampaignSystem`  
+**类型：** `public class MapEventManager`  
+**基类：** 无  
+**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventManager.cs`
 
-## 概述
+## 一句话职责
 
-`MapEventManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+`MapEventManager` 持有战役中的活动 [`MapEvent`](../MapEvent) 集合，驱动它们的周期更新与移除边界，并提供查询和围城事件入口；它不负责替代 Action、Model 或具体事件组件的规则。
 
 ## 心智模型
 
-把 `MapEventManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`Campaign` 通过 `Campaign.MapEventManager` 创建并持有一个管理器。管理器保存可存档的 `MBList<MapEvent>`，对外暴露只读 `MBReadOnlyList`。具体事件工厂和遭遇代码调用 `OnMapEventCreated`；`Campaign.Tick()` 调用管理器的 internal `Tick`，清理已完成事件并更新劫掠/非玩家事件。加载时 `OnAfterLoad` 会让每个事件重新挂接组件状态。
 
-## 主要方法
+它是注册表和生命周期协调器，不是所有战斗类型的全局工厂。野战和劫掠通常走 `StartBattleAction` 或具体组件工厂；公开的 `StartSiegeMapEvent`、`StartSallyOutMapEvent`、`StartSiegeOutsideMapEvent` 和 `StartBlockadeBattleMapEvent` 只服务对应遭遇流程。`MapEvents` 是读取视图，不能在遍历时当作可修改集合。
 
-### OnMapEventCreated
-`public void OnMapEventCreated(MapEvent mapEvent)`
+## 何时使用，何时不要使用
 
-**用途 / Purpose:** 在 map event created 事件触发时调用此回调。
+**适合使用：**
 
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-mapEventManager.OnMapEventCreated(mapEvent);
-```
+- 查询活动事件、筛选两个派系之间的事件，或观察玩家当前事件。
+- 接入源码已经使用管理器的围城/出击流程。
+- 战役加载后重新获取事件，而不是保存旧的对象引用。
 
-### GetMapEvent
-`public MapEvent GetMapEvent(int attackerPartyIndex)`
+**不要这样使用：**
 
-**用途 / Purpose:** 读取并返回当前对象中 map event 的结果。
+- 不要把它当带有公开构造函数的单例；构造函数是 internal，权威实例是 `Campaign.Current.MapEventManager`。
+- 不要对手动初始化的对象调用 `OnMapEventCreated` 来添加事件；创建、双方、组件和事件类型必须由同一个引擎路径建立。
+- 没有当前玩家事件时不要调用 `FinalizePlayerMapEvent`；源码会抛出 `MBNotFoundException`。
+- 不要在遍历时移除 `MapEvents`；让 `Campaign.Tick` 清理已完成事件。
 
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.GetMapEvent(0);
-```
+## 依赖关系与生命周期
 
-### GetMapEventsBetweenFactions
-`public List<MapEvent> GetMapEventsBetweenFactions(IFaction faction1, IFaction faction2)`
+- **所有者：** [`Campaign`](../Campaign) 创建管理器、加载和保存它，并调用 tick。
+- **注册对象：** [`MapEvent`](../MapEvent) 由具体事件组件或管理器支持的围城方法加入。
+- **消费者：** [`PlayerEncounter`](../PlayerEncounter)、`DefaultEncounterModel`、战役行为和诊断代码查询活动集合。
+- **下游：** `MapEvent` 更新双方和组件；已完成事件被移除，Campaign 事件及 Settlement/围城代码处理结果。
+- **存档：** `_mapEvents` 是可存档字段；`OnAfterLoad` 修复每个地图事件。mod 应保存稳定 ID，不要保存管理器或事件对象图的缓存引用。
 
-**用途 / Purpose:** 读取并返回当前对象中 map events between factions 的结果。
+## 关键成员与调用时机
 
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.GetMapEventsBetweenFactions(faction1, faction2);
-```
+| 成员 | 用途、副作用与时机 |
+|---|---|
+| `MapEvents` | 活动地图事件的只读视图；下一个战役 tick 或事件回调后可能改变。 |
+| `OnMapEventCreated(MapEvent)` | 把已初始化事件加入注册表，是生命周期边界，不是公开构造函数替代品。 |
+| `GetMapEvent(int attackerPartyIndex)` | 按进攻方 leader index 找第一个事件；这是索引查询，不是稳定存档 ID。 |
+| `GetMapEventsBetweenFactions(IFaction, IFaction)` | 返回两个派系分别处于两方的事件，适合只读外交诊断。 |
+| `FinalizePlayerMapEvent(MapEvent)` | 结束主派对事件并调用 `PlayerEncounter.Finish`；要求当前玩家事件和正确遭遇阶段。 |
+| `StartSiegeMapEvent(...)`、`StartSallyOutMapEvent(...)`、`StartSiegeOutsideMapEvent(...)`、`StartBlockadeBattleMapEvent(...)` | 创建、初始化、注册对应类型并返回事件；只应在对应遭遇流程调用。 |
+| `Tick()` | Campaign 内部 tick：移除 `IsFinalized` 事件，更新劫掠和非玩家事件。mod 不应手动调用。 |
+| `OnAfterLoad()` | 加载修复入口，在存档图重建后调用每个事件的 `OnAfterLoad`。 |
 
-### FinalizePlayerMapEvent
-`public void FinalizePlayerMapEvent(MapEvent mapEvent = null)`
+## 真实获取示例
 
-**用途 / Purpose:** 调用 FinalizePlayerMapEvent 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-mapEventManager.FinalizePlayerMapEvent(null);
-```
-
-### StartSiegeMapEvent
-`public MapEvent StartSiegeMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
-
-**用途 / Purpose:** 启动siege map event流程或状态机。
+只读诊断应从活动战役重新获取管理器，再筛选当前集合：
 
 ```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartSiegeMapEvent(attackerParty, defenderParty);
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
+
+public static int CountActivePlayerEvents()
+{
+    MapEventManager manager = Campaign.Current.MapEventManager;
+    return manager.MapEvents.Count(mapEvent => !mapEvent.IsFinalized && mapEvent.IsPlayerMapEvent);
+}
 ```
 
-### StartSallyOutMapEvent
-`public MapEvent StartSallyOutMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+开始野战应使用 [`StartBattleAction`](../../campaign-ext/StartBattleAction)，而不是手动调用管理器。围城转换则应跟随 `PlayerEncounter` 与 `DefaultEncounterModel` 使用的同一入口，确保 Settlement 和 SiegeEvent 一致。
 
-**用途 / Purpose:** 启动sally out map event流程或状态机。
+## 风险与崩溃边界
 
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartSallyOutMapEvent(attackerParty, defenderParty);
-```
+1. 模块加载、主菜单或战役销毁后不能使用 `Campaign.Current` 和管理器；查询前要确认生命周期。
+2. `MapEvents` 会在战役 tick 中变化；不要修改集合、遍历时结束事件，或跨 `MapEventEnded` 长期保存引用。
+3. `FinalizePlayerMapEvent` 假定 `MobileParty.MainParty.MapEvent` 存在且 `PlayerEncounter` 有效；错误阶段调用会抛异常或结束错误遭遇。
+4. 没有匹配的 `Settlement.SiegeEvent`、派对方向或海战上下文就创建围城事件，可能在 `MapEvent.Initialize` 期间失败并留下不一致存档状态。
+5. 管理器存档图会恢复事件和组件；存档自定义管理器/事件引用并在加载后继续用，可能指向旧对象，应从 `Campaign.Current` 重新获取。
 
-### StartSiegeOutsideMapEvent
-`public MapEvent StartSiegeOutsideMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
+## 版本说明
 
-**用途 / Purpose:** 启动siege outside map event流程或状态机。
+v1.4.5 管理器在反向索引 tick 中移除已完成事件，并更新劫掠和非玩家事件。构造函数可见性、更新筛选和围城入口可能跨版本变化；移植时应核对 `Campaign.Tick`、`PlayerEncounter` 和 `DefaultEncounterModel`。
 
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartSiegeOutsideMapEvent(attackerParty, defenderParty);
-```
+## 导航
 
-### StartBlockadeBattleMapEvent
-`public MapEvent StartBlockadeBattleMapEvent(PartyBase attackerParty, PartyBase defenderParty)`
-
-**用途 / Purpose:** 启动blockade battle map event流程或状态机。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventManager 实例
-MapEventManager mapEventManager = ...;
-var result = mapEventManager.StartBlockadeBattleMapEvent(attackerParty, defenderParty);
-```
-
-## 使用示例
-
-```csharp
-var manager = MapEventManager.Current;
-```
-
-## 参见
-
-- [本区域目录](../)
+- ↑ 父级：[Campaign API](../)
+- ↔ 同区：[`MapEvent`](../MapEvent) · [`MapEventSide`](../MapEventSide) · [`Campaign`](../Campaign)
+- 相关：[`MapEventState`](../MapEventState) · [`StartBattleAction`](../../campaign-ext/StartBattleAction) · [`PlayerEncounter`](../PlayerEncounter) · [`CampaignEvents`](../CampaignEvents)
+- English: [MapEventManager](../../../../en/api/campaign/MapEventManager)

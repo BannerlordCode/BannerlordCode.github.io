@@ -1,461 +1,96 @@
 ---
 title: "MapEventSide"
-description: "MapEventSide 的自动生成类参考。"
+description: "按进攻方或防守方分组 MapEventParty，并持有事件一方兵力、伤亡和部队分配状态的容器。"
 ---
+
 # MapEventSide
 
-**Namespace:** TaleWorlds.CampaignSystem.MapEvents
-**Module:** TaleWorlds.CampaignSystem
-**Type:** `public class MapEventSide`
-**Base:** 无
-**File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs`
+**命名空间：** `TaleWorlds.CampaignSystem.MapEvents`  
+**模块：** `TaleWorlds.CampaignSystem`  
+**类型：** `public class MapEventSide`  
+**基类：** 无  
+**源文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs`
 
-## 概述
+## 一句话职责
 
-`MapEventSide` 位于 `TaleWorlds.CampaignSystem.MapEvents`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`MapEventSide` 聚合一方的 [`MapEventParty`](../MapEventParty) 记录，并协调进攻方或防守方的兵力、伤亡、模拟部队与 Mission 分配状态。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem.MapEvents` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+`MapEventSide` 由 [`MapEvent`](../MapEvent) 内部使用所属事件、`BattleSideEnum` 和 leader `PartyBase` 创建，然后由事件暴露为 `AttackerSide` 或 `DefenderSide`。它的 `Parties` 是该事件的一方视图，不是另一套战役派对集合；`OtherSide` 通过同一个事件取得对方。
 
-## 主要属性
+这个对象包含两类状态：可存档字段保存 leader/派系身份、伤亡与奖励、比率和派对记录；缓存字段保存部队优先级、已分配/待出场字典、力量缓存、模拟船只和锁定标记。`MakeReadyForSimulation` 与 `MakeReadyForMission` 为宿主的模拟或 Mission supplier 准备缓存，不是通用的 Roster 编辑 API。
 
-| Name | Signature |
-|------|-----------|
-| `SimulationShipList` | `public MBList<Ship> SimulationShipList { get; }` |
-| `WeightedShipCombatFactor` | `public float WeightedShipCombatFactor { get; }` |
-| `LeaderParty` | `public PartyBase LeaderParty { get; }` |
-| `MissionSide` | `public BattleSideEnum MissionSide { get; }` |
-| `CasualtyStrength` | `public float CasualtyStrength { get; }` |
-| `HasReadyTroops` | `public bool HasReadyTroops { get; }` |
+## 何时使用，何时不要使用
 
-## 主要方法
+**适合使用：**
 
-### GetTroops
-`public IReadOnlyList<UniqueTroopDescriptor> GetTroops()`
+- 读取进攻/防守派对列表、leader、当前健康人数、伤亡力量或一方结果值。
+- 检查哪一方包含 `PartyBase.MainParty`，或诊断活动事件的分类。
+- 在活动事件期间写诊断逻辑，并在 `MapEventEnded` 时释放引用。
 
-**用途 / Purpose:** 读取并返回当前对象中 troops 的结果。
+**不要这样使用：**
 
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetTroops();
-```
+- 不要直接编辑 `Parties` 添加/移除派对；成员关系属于遭遇和 `MapEvent` 协议。
+- 不要调用 `AllocateTroops`、`MakeReadyForMission`、`Clear`、`Surrender` 或 `Route` 强行改写战果；这些调用由 Mission supplier 和事件结算拥有。
+- 不要把 `StrengthRatio`、`RenownValue`、`InfluenceValue` 或伤亡字段当成可随意写入的 mod 状态；Model、行动和结算流程会计算并提交后果。
 
-### GetTotalHealthyHeroCountOfSide
-`public int GetTotalHealthyHeroCountOfSide()`
+## 依赖关系与所有权
 
-**用途 / Purpose:** 读取并返回当前对象中 total healthy hero count of side 的结果。
+- **所有者：** [`MapEvent`](../MapEvent) 创建双方、把它们纳入存档图并控制生命周期。
+- **子记录：** [`MapEventParty`](../MapEventParty) 把每个参与的 [`PartyBase`](../PartyBase) 绑定到这一方。
+- **输入：** `BattleSideEnum`、`MapEvent.BattleTypes`、`MilitaryPowerModel`、部队 supplier Model 和派对 Roster。
+- **消费者：** `PartyGroupTroopSupplier`、SandBox Mission 设置、战斗模拟、`PlayerEncounter` 与战役奖励行为消费准备好的数据。
+- **存档：** 一方的可存档值和派对记录会随战役存档；分配字典和模拟列表属于缓存，会重新建立。
 
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetTotalHealthyHeroCountOfSide();
-```
+## 关键成员与调用时机
 
-### CountTroops
-`public int CountTroops(Func<FlattenedTroopRosterElement, bool> pred)`
+| 成员 | 用途、副作用与时机 |
+|---|---|
+| `MapEvent`、`MissionSide`、`LeaderParty`、`OtherSide` | 标识所属事件、方向、leader 和对方；只在事件仍有效时使用。 |
+| `Parties`、`TroopCount`、`HealthyTroopCountAtMapEventStart` | 读取成员和兵力；列表只读，派对可能在结算前离开。 |
+| `StrengthRatio`、`CasualtyStrength`、`RenownValue`、`InfluenceValue`、`TroopCasualties`、`ShipCasualties` | 由事件协议保存的一方结果/奖励输入，不是独立 mod 状态。 |
+| `GetTotalHealthyHeroCountOfSide()`、`GetTotalHealthyTroopCountOfSide()`、`RecalculateMemberCountOfSide()`、`RecalculateStrengthOfSide()` | 读取或重新计算当前一方指标；派对 Roster 变化时结果会变化。 |
+| `GetTroops()`、`GetAllocatedTroop(...)`、`GetReadyTroop(...)` | 读取模拟/Mission 分配缓存；只能在宿主完成准备后解释。 |
+| `MakeReadyForSimulation(...)`、`MakeReadyForMission(...)`、`AllocateTroops(...)` | 为模拟或 Mission 准备并锁定事件兵力；调用阶段有严格宿主前提。 |
+| `OnTroopKilled/Wounded/Routed(...)`、`OnTroopScoreHit(...)` | 把战斗回调转给相应 `MapEventParty`，更新伤亡、经验和贡献。 |
+| `HandleMapEventEnd()`、`CommitXpGains()`、`CommitRenownChanges()`、`CommitInfluenceChanges()`、`CommitMoraleChanges()`、`CommitGoldChanges()` | 按引擎顺序提交事件结束变化；监听器不要自行重放。 |
 
-**用途 / Purpose:** 调用 CountTroops 对应的操作。
+## 真实获取示例
 
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.CountTroops(func<FlattenedTroopRosterElement, false);
-```
-
-### GetTotalHealthyTroopCountOfSide
-`public int GetTotalHealthyTroopCountOfSide()`
-
-**用途 / Purpose:** 读取并返回当前对象中 total healthy troop count of side 的结果。
+下面通过战役管理器取得活动的玩家事件，并只读检查进攻方：
 
 ```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetTotalHealthyTroopCountOfSide();
+using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
+
+public static int GetPlayerAttackerCount()
+{
+    MapEvent mapEvent = Campaign.Current.MapEventManager.MapEvents
+        .FirstOrDefault(eventRecord => eventRecord.IsPlayerMapEvent);
+    MapEventSide side = mapEvent?.AttackerSide;
+    return side?.TroopCount ?? 0;
+}
 ```
 
-### RecalculateMemberCountOfSide
-`public int RecalculateMemberCountOfSide()`
+问题针对防守方时使用 `DefenderSide` 或 `OtherSide`。不要在 Mission supplier 正在分配部队的同一 tick 中遍历并修改一方。
 
-**用途 / Purpose:** 重新计算member count of side以反映最新状态。
+## 风险与崩溃边界
 
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.RecalculateMemberCountOfSide();
-```
+1. 撤退、销毁或结算期间 `Parties` 中的 `PartyBase` 可能正在变化；应先复制需要的标量，并在 `MapEventEnded` 后停止使用这一方。
+2. 分配缓存不是可存档事实。在错误阶段调用 `Update`、`Clear` 或分配方法，会让 Mission 出场 Roster 与模拟不一致，或找不到部队。
+3. 一方伤亡和奖励字段由事件协议写入；直接修改会绕过派对伤亡 Roster、经验、俘虏、战利品、关系和 Settlement 后果。
+4. 原 leader 离开后 `LeaderParty` 可能改变；不要假设它永远是第一个派对，也不要长期保存旧引用。
+5. `OtherSide` 需要活动事件和有效的一方；在移除后或对象部分加载时调用可能触及失效事件状态。
 
-### RecalculateStrengthOfSide
-`public float RecalculateStrengthOfSide()`
+## 版本说明
 
-**用途 / Purpose:** 重新计算strength of side以反映最新状态。
+v1.4.5 将可存档的一方状态与 `[CachedData]` 部队/船只分配状态分开。Mission supplier 和海战缓存细节可能跨版本变化；移植时应重新核对 `MapEventSide`、`PartyGroupTroopSupplier` 和目标 Mission。
 
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.RecalculateStrengthOfSide();
-```
+## 导航
 
-### IsMainPartyAmongParties
-`public bool IsMainPartyAmongParties()`
-
-**用途 / Purpose:** 判断当前对象是否处于 main party among parties 状态或条件。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.IsMainPartyAmongParties();
-```
-
-### CalculateRenownAndInfluenceValuesOnPartyInvolved
-`public void CalculateRenownAndInfluenceValuesOnPartyInvolved(float strengthOfSide)`
-
-**用途 / Purpose:** 计算renown and influence values on party involved的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.CalculateRenownAndInfluenceValuesOnPartyInvolved(0);
-```
-
-### GetSideMorale
-`public float GetSideMorale()`
-
-**用途 / Purpose:** 读取并返回当前对象中 side morale 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetSideMorale();
-```
-
-### HandleMapEventEnd
-`public void HandleMapEventEnd()`
-
-**用途 / Purpose:** 响应 map event end 事件，执行对应的处理逻辑。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.HandleMapEventEnd();
-```
-
-### AddHeroDamage
-`public static void AddHeroDamage(Hero character, int damage)`
-
-**用途 / Purpose:** 将 hero damage 添加到当前容器或状态中。
-
-```csharp
-// 静态调用，不需要实例
-MapEventSide.AddHeroDamage(character, 0);
-```
-
-### AllocateShips
-`public void AllocateShips()`
-
-**用途 / Purpose:** 调用 AllocateShips 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.AllocateShips();
-```
-
-### AllocateSiegeEngines
-`public void AllocateSiegeEngines()`
-
-**用途 / Purpose:** 调用 AllocateSiegeEngines 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.AllocateSiegeEngines();
-```
-
-### AllocateTroops
-`public void AllocateTroops(ref List<UniqueTroopDescriptor> troopsList, int numberToAllocate, Func<UniqueTroopDescriptor, MapEventParty, bool> customAllocationConditions = null)`
-
-**用途 / Purpose:** 调用 AllocateTroops 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.AllocateTroops(troopsList, 0, func<UniqueTroopDescriptor, mapEventParty, false);
-```
-
-### GetAllTroops
-`public void GetAllTroops(ref List<UniqueTroopDescriptor> troopsList)`
-
-**用途 / Purpose:** 读取并返回当前对象中 all troops 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.GetAllTroops(troopsList);
-```
-
-### GetAllocatedTroop
-`public CharacterObject GetAllocatedTroop(UniqueTroopDescriptor troopDesc0)`
-
-**用途 / Purpose:** 读取并返回当前对象中 allocated troop 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetAllocatedTroop(troopDesc0);
-```
-
-### GetReadyTroop
-`public CharacterObject GetReadyTroop(UniqueTroopDescriptor troopDesc0)`
-
-**用途 / Purpose:** 读取并返回当前对象中 ready troop 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetReadyTroop(troopDesc0);
-```
-
-### GetAllocatedTroopParty
-`public PartyBase GetAllocatedTroopParty(UniqueTroopDescriptor troopDescriptor)`
-
-**用途 / Purpose:** 读取并返回当前对象中 allocated troop party 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetAllocatedTroopParty(troopDescriptor);
-```
-
-### GetReadyTroopParty
-`public PartyBase GetReadyTroopParty(UniqueTroopDescriptor troopDescriptor)`
-
-**用途 / Purpose:** 读取并返回当前对象中 ready troop party 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetReadyTroopParty(troopDescriptor);
-```
-
-### OnTroopWounded
-`public void OnTroopWounded(UniqueTroopDescriptor troopDesc1)`
-
-**用途 / Purpose:** 在 troop wounded 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopWounded(troopDesc1);
-```
-
-### OnTroopKilled
-`public void OnTroopKilled(UniqueTroopDescriptor troopDesc1)`
-
-**用途 / Purpose:** 在 troop killed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopKilled(troopDesc1);
-```
-
-### OnTroopRouted
-`public void OnTroopRouted(UniqueTroopDescriptor troopDesc1, bool isOrderRetreat)`
-
-**用途 / Purpose:** 在 troop routed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopRouted(troopDesc1, false);
-```
-
-### OnTroopScoreHit
-`public void OnTroopScoreHit(UniqueTroopDescriptor troopDesc1, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)`
-
-**用途 / Purpose:** 在 troop score hit 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.OnTroopScoreHit(troopDesc1, attackedTroop, 0, false, false, attackerWeapon, false);
-```
-
-### OnShipScoreHit
-`public void OnShipScoreHit(Ship strikerShip, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)`
-
-**用途 / Purpose:** 在 ship score hit 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.OnShipScoreHit(strikerShip, struckShip, siegeEngine, 0, false);
-```
-
-### OnShipDamaged
-`public void OnShipDamaged(Ship struckShip, SiegeEngineType siegeEngine, int damage)`
-
-**用途 / Purpose:** 在 ship damaged 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.OnShipDamaged(struckShip, siegeEngine, 0);
-```
-
-### MakeReadyForSimulation
-`public void MakeReadyForSimulation(FlattenedTroopRoster priorTroops, int sizeOfSide)`
-
-**用途 / Purpose:** 调用 MakeReadyForSimulation 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.MakeReadyForSimulation(priorTroops, 0);
-```
-
-### MakeReadyForMission
-`public void MakeReadyForMission(FlattenedTroopRoster priorTroops)`
-
-**用途 / Purpose:** 调用 MakeReadyForMission 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.MakeReadyForMission(priorTroops);
-```
-
-### EndSimulation
-`public void EndSimulation()`
-
-**用途 / Purpose:** 调用 EndSimulation 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.EndSimulation();
-```
-
-### Clear
-`public void Clear()`
-
-**用途 / Purpose:** 清空当前对象中的内容。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.Clear();
-```
-
-### SelectRandomSimulationTroop
-`public UniqueTroopDescriptor SelectRandomSimulationTroop()`
-
-**用途 / Purpose:** 调用 SelectRandomSimulationTroop 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.SelectRandomSimulationTroop();
-```
-
-### GetRandomSimulationShip
-`public Ship GetRandomSimulationShip()`
-
-**用途 / Purpose:** 读取并返回当前对象中 random simulation ship 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-var result = mapEventSide.GetRandomSimulationShip();
-```
-
-### Surrender
-`public void Surrender()`
-
-**用途 / Purpose:** 调用 Surrender 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.Surrender();
-```
-
-### Route
-`public void Route()`
-
-**用途 / Purpose:** 调用 Route 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.Route();
-```
-
-### CommitXpGains
-`public void CommitXpGains()`
-
-**用途 / Purpose:** 调用 CommitXpGains 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitXpGains();
-```
-
-### CommitRenownChanges
-`public void CommitRenownChanges()`
-
-**用途 / Purpose:** 调用 CommitRenownChanges 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitRenownChanges();
-```
-
-### CommitInfluenceChanges
-`public void CommitInfluenceChanges()`
-
-**用途 / Purpose:** 调用 CommitInfluenceChanges 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitInfluenceChanges();
-```
-
-### CommitMoraleChanges
-`public void CommitMoraleChanges()`
-
-**用途 / Purpose:** 调用 CommitMoraleChanges 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitMoraleChanges();
-```
-
-### CommitGoldChanges
-`public void CommitGoldChanges()`
-
-**用途 / Purpose:** 调用 CommitGoldChanges 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 MapEventSide 实例
-MapEventSide mapEventSide = ...;
-mapEventSide.CommitGoldChanges();
-```
-
-## 使用示例
-
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-MapEventSide mapEventSide = ...;
-mapEventSide.GetTroops();
-```
-
-## 参见
-
-- [本区域目录](../)
+- ↑ 父级：[Campaign API](../)
+- ↔ 同区：[`MapEvent`](../MapEvent) · [`MapEventParty`](../MapEventParty) · [`MapEventManager`](../MapEventManager)
+- 相关：[`MapEventState`](../MapEventState) · [`MapEventComponent`](../MapEventComponent) · [`PartyBase`](../PartyBase) · [`TroopRoster`](../TroopRoster)
+- English: [MapEventSide](../../../../en/api/campaign/MapEventSide)

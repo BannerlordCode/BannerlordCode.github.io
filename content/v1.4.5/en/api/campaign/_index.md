@@ -38,6 +38,7 @@ These waves cover the connected Campaign entity deep pages completed so far. The
 | Read a clan and its fiefs | [Clan](./Clan) | A clan may have no kingdom; influence, leadership, kingdom, and fief changes have separate Actions. |
 | Read kingdom politics | [Kingdom](./Kingdom) | Models calculate diplomatic scores; Actions declare war, make peace, and change the ruling clan. |
 | Read a settlement and siege state | [Settlement](./Settlement) | `Town`, `Village`, and `Hideout` are different components; transfer ownership through an Action. |
+| Observe active siege management | [SiegeEventManager](./SiegeEventManager) | The manager owns the active `SiegeEvent` list and tick/load repair; player menus and map-event components are separate lifecycle surfaces. |
 | Read and drive a map party | [MobileParty](./MobileParty) | PartyBase, Hero, Army, AI, and location must remain bidirectionally synchronized. |
 
 ### H3-B: Settlement and Party Entities

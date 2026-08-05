@@ -7,7 +7,7 @@ description: "The 1.4.5 Sandbox implementation of IMapScene: a native-backed cam
 **Namespace:** `SandBox`  
 **Module:** `SandBox`  
 **Type:** `public class MapScene : IMapScene`  
-**Base:** [IMapScene](../campaign/IMapScene)  
+**Base:** [IMapScene](../../campaign/IMapScene)  
 **Source:** `Modules.SandBox/SandBox/Sandbox/MapScene.cs`
 
 ## One-line responsibility
@@ -18,15 +18,15 @@ Owns the loaded Sandbox world-map `Scene` and adapts its native terrain/navigati
 
 `MapScene` is the concrete runtime object behind `Campaign.Current.MapSceneWrapper`. Its constructor only creates managed caches and a reader/writer lock. `Load` creates the native `Scene`, agent-renderer controller, map assets, terrain size, atmosphere/weather data, and navigation face indexes. `Campaign.LoadMapScene` then reads borders and calls `AfterLoad`. At Campaign teardown, `Destroy` releases the native agent renderer and scene resources.
 
-Most mod code should use the interface, because Campaign and navigation helpers can supply the correct active implementation. Cast to `MapScene` only for Sandbox-only members such as `Scene`, `SetSnowAndRainDataWithDimension`, `ValidateAgentVisualsReseted`, or `SetupWaterWake`. This class is a runtime resource, not a save object and not a place to mutate campaign movement rules; those rules belong to [PartyNavigationModel](../campaign/PartyNavigationModel).
+Most mod code should use the interface, because Campaign and navigation helpers can supply the correct active implementation. Cast to `MapScene` only for Sandbox-only members such as `Scene`, `SetSnowAndRainDataWithDimension`, `ValidateAgentVisualsReseted`, or `SetupWaterWake`. This class is a runtime resource, not a save object and not a place to mutate campaign movement rules; those rules belong to [PartyNavigationModel](../../campaign/PartyNavigationModel).
 
 ## Dependency graph
 
-- Provider: [MapSceneCreator](./MapSceneCreator) returns this type through [IMapSceneCreator](../campaign/IMapSceneCreator).
-- Holder: [Campaign](../campaign/Campaign) stores it as `IMapScene MapSceneWrapper`.
-- Load inputs: [PartyNavigationModel](../campaign/PartyNavigationModel), active module scene assets, [Campaign](../campaign/Campaign), and native `MBMapScene` functions.
-- Consumers: [NavigationHelper](../system/NavigationHelper), map weather/visual managers, [MobileParty](../campaign/MobileParty), [Settlement](../campaign/Settlement), and navigation caches.
-- Contract: [IMapScene](../campaign/IMapScene) lists the campaign-facing lifecycle and queries.
+- Provider: [MapSceneCreator](../MapSceneCreator) returns this type through [IMapSceneCreator](../../campaign/IMapSceneCreator).
+- Holder: [Campaign](../../campaign/Campaign) stores it as `IMapScene MapSceneWrapper`.
+- Load inputs: [PartyNavigationModel](../../campaign/PartyNavigationModel), active module scene assets, [Campaign](../../campaign/Campaign), and native `MBMapScene` functions.
+- Consumers: [NavigationHelper](../../system/NavigationHelper), map weather/visual managers, [MobileParty](../../campaign/MobileParty), [Settlement](../../campaign/Settlement), and navigation caches.
+- Contract: [IMapScene](../../campaign/IMapScene) lists the campaign-facing lifecycle and queries.
 
 ## Lifecycle and native state
 
@@ -60,7 +60,7 @@ Most mod code should use the interface, because Campaign and navigation helpers 
 
 ## Navigation mesh operations
 
-`GetFaceIndex`, `GetFaceAtIndex`, and `GetNumberOfNavigationMeshFaces` expose the current face set. `GetNavigationMeshCenterPosition` reads centers by face or index. `GetNearestFaceCenterForPosition`, `GetNearestFaceCenterForPositionWithPath`, and `GetAccessiblePointNearPosition` find usable positions. `GetPathBetweenAIFaces` fills a `NavigationPath`; `GetPathDistanceBetweenAIFaces` computes a bounded distance; `IsLineToPointClear` checks a direct segment. The two `GetLast...` methods clamp movement to the mesh. All path calls pass excluded face groups and land/sea region-switch costs through to the native scene.
+`GetFaceIndex`, `GetFaceAtIndex`, and `GetNumberOfNavigationMeshFaces` expose the current face set. `GetNavigationMeshCenterPosition` reads centers by face or index. `GetNearestFaceCenterForPosition`, `GetNearestFaceCenterForPositionWithPath`, and `GetAccessiblePointNearPosition` find usable positions. `GetPathBetweenAIFaces` fills a `NavigationPath`; `GetPathDistanceBetweenAIFaces` computes a bounded distance; `IsLineToPointClear` checks a direct segment. `GetLastPointOnNavigationMeshFromPositionToDestination` returns the last reachable point when moving from a starting face toward a destination, while `GetLastPositionOnNavMeshFaceForPointAndDirection` returns the last position along a direction constrained to a specified face. All path calls pass excluded face groups and land/sea region-switch costs through to the native scene.
 
 ```csharp
 Campaign campaign = Campaign.Current;
@@ -96,14 +96,14 @@ The interface call above is the supported read path. A Sandbox-only caller can o
 
 ### ↑ Parent
 
-- [Campaign extension index](./)
-- [IMapScene](../campaign/IMapScene)
+- [Campaign extension index](../)
+- [IMapScene](../../campaign/IMapScene)
 
 ### ↔ Siblings and related types
 
-- [MapSceneCreator](./MapSceneCreator)
-- [IMapSceneCreator](../campaign/IMapSceneCreator)
-- [Campaign](../campaign/Campaign)
-- [PartyNavigationModel](../campaign/PartyNavigationModel)
-- [NavigationHelper](../system/NavigationHelper)
-- [Mission](../mission/Mission)
+- [MapSceneCreator](../MapSceneCreator)
+- [IMapSceneCreator](../../campaign/IMapSceneCreator)
+- [Campaign](../../campaign/Campaign)
+- [PartyNavigationModel](../../campaign/PartyNavigationModel)
+- [NavigationHelper](../../system/NavigationHelper)
+- [Mission](../../mission/Mission)

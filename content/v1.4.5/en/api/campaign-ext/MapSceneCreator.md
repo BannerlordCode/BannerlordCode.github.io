@@ -7,7 +7,7 @@ description: "The Sandbox IMapSceneCreator implementation that constructs the co
 **Namespace:** `SandBox`  
 **Module:** `SandBox`  
 **Type:** `public class MapSceneCreator : IMapSceneCreator`  
-**Base:** [IMapSceneCreator](../campaign/IMapSceneCreator)  
+**Base:** [IMapSceneCreator](../../campaign/IMapSceneCreator)  
 **Source:** `Modules.SandBox/SandBox/Sandbox/MapSceneCreator.cs`
 
 ## One-line responsibility
@@ -16,16 +16,16 @@ Provides the Sandbox concrete map-scene wrapper when Campaign initializes the st
 
 ## Mental model
 
-`MapSceneCreator` is a tiny adapter in the module startup chain. `SandBoxSubModule.OnGameInitializationFinished` assigns one to `Campaign.MapSceneCreator`; Campaign later invokes its explicit `IMapSceneCreator.CreateMapScene` implementation. That call returns a new [MapScene](./MapScene), but does not load it. Campaign owns the next steps: scene levels, `Load`, borders, derived map limits, and `AfterLoad`.
+`MapSceneCreator` is a tiny adapter in the module startup chain. `SandBoxSubModule.OnGameInitializationFinished` assigns one to `Campaign.MapSceneCreator`; Campaign later invokes its explicit `IMapSceneCreator.CreateMapScene` implementation. That call returns a new [MapScene](../MapScene), but does not load it. Campaign owns the next steps: scene levels, `Load`, borders, derived map limits, and `AfterLoad`.
 
-Use it as a reference for the default provider or replace the creator only when implementing a complete map-scene backend. For normal mod code, query the already loaded `Campaign.Current.MapSceneWrapper` through [IMapScene](../campaign/IMapScene); constructing `MapSceneCreator` yourself bypasses the Campaign lifecycle.
+Use it as a reference for the default provider or replace the creator only when implementing a complete map-scene backend. For normal mod code, query the already loaded `Campaign.Current.MapSceneWrapper` through [IMapScene](../../campaign/IMapScene); constructing `MapSceneCreator` yourself bypasses the Campaign lifecycle.
 
 ## Dependency graph
 
-- Registered by `SandBoxSubModule` on [Campaign](../campaign/Campaign).
-- Implements [IMapSceneCreator](../campaign/IMapSceneCreator).
-- Creates [MapScene](./MapScene), which implements [IMapScene](../campaign/IMapScene).
-- Its product is consumed by [PartyNavigationModel](../campaign/PartyNavigationModel), [NavigationHelper](../system/NavigationHelper), map weather, and map visuals.
+- Registered by `SandBoxSubModule` on [Campaign](../../campaign/Campaign).
+- Implements [IMapSceneCreator](../../campaign/IMapSceneCreator).
+- Creates [MapScene](../MapScene), which implements [IMapScene](../../campaign/IMapScene).
+- Its product is consumed by [PartyNavigationModel](../../campaign/PartyNavigationModel), [NavigationHelper](../../system/NavigationHelper), map weather, and map visuals.
 
 ## Public entry
 
@@ -58,12 +58,12 @@ This inspects the creator actually registered by Sandbox and reads the already-o
 
 ### ↑ Parent
 
-- [Campaign API index](../campaign/)
-- [IMapSceneCreator](../campaign/IMapSceneCreator)
+- [Campaign extension index](../)
+- [IMapSceneCreator](../../campaign/IMapSceneCreator)
 
 ### ↔ Siblings and related types
 
-- [MapScene](./MapScene)
-- [IMapScene](../campaign/IMapScene)
-- [Campaign](../campaign/Campaign)
-- [PartyNavigationModel](../campaign/PartyNavigationModel)
+- [MapScene](../MapScene)
+- [IMapScene](../../campaign/IMapScene)
+- [Campaign](../../campaign/Campaign)
+- [PartyNavigationModel](../../campaign/PartyNavigationModel)

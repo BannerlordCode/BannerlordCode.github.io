@@ -29,7 +29,7 @@ Campaign.OnNewGameCreatedInternal
 EncounterGameMenuBehavior
   -> StartSiegeEvent(Settlement, MobileParty)
   -> PlayerSiege.StartPlayerSiege(BattleSideEnum.Attacker)
-  -> PlayerSiege.StartSiegePreparation()
+  -> 玩家围城菜单流程
 Campaign.Tick
   -> SiegeEventManager.Tick(dt)
   -> SiegeEvent.Tick(dt)
@@ -72,35 +72,26 @@ SiegeEvent 结束
 
 向所有读入的 `SiegeEvent` 转发读档后修复。`Campaign.OnSessionStart` 在存档图恢复后、正常会话运行前调用它。Mod 的存档修复应放在自己的存档/会话生命周期中，不要用这个方法代替开始一场新围城。
 
-## 真实获取示例
+## 真实观察示例
 
-下面的流程对应游戏菜单进入玩家围城的调用顺序，并额外防止据点已经被围：
+需要找到当前据点关联的围城时，把 Campaign 持有的管理器当作观察入口：
 
 ```csharp
 Settlement settlement = Settlement.CurrentSettlement;
-MobileParty besieger = MobileParty.MainParty;
-
-if (settlement != null && settlement.IsFortification && !settlement.IsUnderSiege)
-{
-    SiegeEvent siegeEvent = Campaign.Current.SiegeEventManager.StartSiegeEvent(settlement, besieger);
-    PlayerSiege.StartPlayerSiege(BattleSideEnum.Attacker);
-    PlayerSiege.StartSiegePreparation();
-}
-```
-
-只读检查使用 Campaign 持有的实例和只读列表：
-
-```csharp
 foreach (SiegeEvent siegeEvent in Campaign.Current.SiegeEventManager.SiegeEvents)
 {
-    Settlement settlement = siegeEvent.BesiegedSettlement;
-    if (settlement != null && settlement == Settlement.CurrentSettlement)
+    if (settlement != null &&
+        siegeEvent.BesiegedSettlement == settlement &&
+        !siegeEvent.ReadyToBeRemoved)
     {
-        PlayerSiege.StartSiegePreparation();
+        BesiegerCamp camp = siegeEvent.BesiegerCamp;
+        Settlement besiegedSettlement = siegeEvent.BesiegedSettlement;
         break;
     }
 }
 ```
+
+这段代码只读取当前存档拥有的对象。开始或恢复玩家围城应交给已经建立据点、围城方和 UI 状态的菜单/Encounter 流程。
 
 ## 崩溃与存档边界
 

@@ -38,6 +38,7 @@ Campaign 层是**战略模拟**：大地图、势力、据点、队伍，以及�
 | 读取家族和领地 | [Clan](./Clan) | 家族可以没有王国；影响力、领袖、王国和领地变化有独立 Action。 |
 | 读取王国政治 | [Kingdom](./Kingdom) | Model 计算外交评分；宣战、议和、统治家族变化走 Action。 |
 | 读取据点和围城 | [Settlement](./Settlement) | `Town`/`Village`/`Hideout` 是不同组件；所有权转移必须走 Action。 |
+| 观察活动围城管理 | [SiegeEventManager](./SiegeEventManager) | 管理器持有活动 `SiegeEvent` 列表并负责 Tick/读档修复；玩家菜单和地图事件组件属于不同生命周期面。 |
 | 读取和驱动地图队伍 | [MobileParty](./MobileParty) | `PartyBase`、Hero、Army、AI 和位置必须保持双向同步。 |
 
 ### H3-B：据点与 Party 实体

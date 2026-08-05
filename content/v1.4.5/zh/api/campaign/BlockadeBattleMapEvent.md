@@ -24,7 +24,7 @@ description: "封锁战与封锁出击使用的 MapEvent 组件，负责海军�
 
 - 读取 `PlayerEncounter.Battle?.Component` 和 `MapEvent.EventType`，识别活动封锁或封锁出击。
 - 让 `DefaultEncounterModel`、`PlayerEncounter` 或对应的管理器 Encounter 流程调用工厂；不要把它用于普通野战。
-- 源码流程需要管理器入口时使用 `Campaign.Current.MapEventManager.StartBlockadeBattleMapEvent`，以保持事件登记契约。
+- 如果代码确实需要 `BlockadeBattleMapEvent` 组件，源码确认的创建路径是 `BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(attackerParty, defenderParty, isSallyOut)`。不要用 `Campaign.Current.MapEventManager.StartBlockadeBattleMapEvent` 替代：v1.4.5 的这个管理器方法只创建 `component == null` 的原始 `BlockadeBattle` `MapEvent`。
 - 不要手动调用 `CheckLiftingBlockade` 或 `OnFinalize`；它们依赖已初始化的围城参战方、事件状态和引擎结束顺序。
 - 不要假定 `SimulationContext` 随地形改变；本组件始终返回 `SeaBattle`。
 
@@ -39,7 +39,7 @@ PlayerEncounter / DefaultEncounterModel
 ```
 
 - 事件宿主：[MapEvent](../MapEvent) 持有参战方、事件状态和结束流程。
-- Encounter 入口：[PlayerEncounter](../PlayerEncounter)、[DefaultEncounterModel](../DefaultEncounterModel) 与 [MapEventManager](../MapEventManager) 选择封锁流程。
+- Encounter 入口：[PlayerEncounter](../PlayerEncounter) 与 [DefaultEncounterModel](../DefaultEncounterModel) 选择封锁组件工厂；[MapEventManager](../MapEventManager) 在工厂调用 `OnMapEventCreated` 后登记事件。
 - 围城输入：[SiegeEvent](../SiegeEvent) 与 [BesiegerCamp](../BesiegerCamp) 提供封锁状态、围城队伍和被围定居点。
 - 表现流程：`GameMenu.ActivateGameMenu("player_blockade_got_attacked")` 将主队伍被攻击转入封锁菜单。
 - 移动：封锁解除后只对符合条件的非玩家海军攻击方调用 `MobileParty.SetMoveGoToSettlement`。
@@ -72,7 +72,7 @@ if (battle?.Component is BlockadeBattleMapEvent blockade)
 }
 ```
 
-源码通过 Encounter model 或 PlayerEncounter 启动此组件。mod 若确实需要启动封锁，应沿用同一 Campaign 入口，保持 `SiegeEvent`、参战方、港口导航和事件管理器一致。
+源码通过 Encounter model 或 PlayerEncounter 启动此组件。mod 若确实拥有同样合法的围城转换，可调用 `CreateBlockadeBattleMapEvent`；否则优先像上例一样观察活动战斗，避免破坏 `SiegeEvent`、参战方、港口导航和事件管理器登记。
 
 ## 风险与存档边界
 
@@ -85,7 +85,7 @@ if (battle?.Component is BlockadeBattleMapEvent blockade)
 
 ## 版本说明
 
-本页依据 v1.4.5 `BlockadeBattleMapEvent`、`PlayerEncounter.StartBattleInternal`、`DefaultEncounterModel.CreateMapEventComponentForEncounter`、`MapEventManager.StartBlockadeBattleMapEvent` 和 `SiegeEvent.DeactivateBlockade` 编写。1.2 倍海军力量阈值和菜单 ID 可能随版本变化。
+本页依据 v1.4.5 `BlockadeBattleMapEvent`、`PlayerEncounter.StartBattleInternal`、`DefaultEncounterModel.CreateMapEventComponentForEncounter`、`MapEventManager.OnMapEventCreated` 和 `SiegeEvent.DeactivateBlockade` 编写。1.2 倍海军力量阈值和菜单 ID 可能随版本变化。
 
 ## 导航
 

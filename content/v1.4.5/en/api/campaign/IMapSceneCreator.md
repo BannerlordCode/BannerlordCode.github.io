@@ -72,7 +72,7 @@ public class MapModule : MBSubModuleBase
 
 ### ↑ Parent
 
-- [Campaign API index](./)
+- [Campaign API index](../)
 - [Campaign](../Campaign)
 
 ### ↔ Siblings and related types

@@ -24,7 +24,7 @@ The component does more than label the event. During initialization it either op
 
 - Read `PlayerEncounter.Battle?.Component` and `MapEvent.EventType` to identify an active blockade or blockade sally-out.
 - Let `DefaultEncounterModel`, `PlayerEncounter`, or the corresponding manager encounter flow call the factory; do not hand-build the component for ordinary field battles.
-- Use `Campaign.Current.MapEventManager.StartBlockadeBattleMapEvent` when the source flow requires the manager entry point; it preserves the event registration contract.
+- If code specifically needs a `BlockadeBattleMapEvent` component, the source-backed creation path is `BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(attackerParty, defenderParty, isSallyOut)`. Do not substitute `Campaign.Current.MapEventManager.StartBlockadeBattleMapEvent`: in v1.4.5 that manager method creates a raw `BlockadeBattle` `MapEvent` with `component == null`.
 - Do not call `CheckLiftingBlockade` or `OnFinalize` yourself. They depend on initialized siege parties, event state, and the engine's finalization order.
 - Do not assume `SimulationContext` is terrain-dependent: this component always returns `SeaBattle`.
 
@@ -39,7 +39,7 @@ PlayerEncounter / DefaultEncounterModel
 ```
 
 - Event host: [MapEvent](../MapEvent) owns sides, event state, and finalization.
-- Encounter entry: [PlayerEncounter](../PlayerEncounter), [DefaultEncounterModel](../DefaultEncounterModel), and [MapEventManager](../MapEventManager) select the blockade flow.
+- Encounter entry: [PlayerEncounter](../PlayerEncounter) and [DefaultEncounterModel](../DefaultEncounterModel) select the blockade component factory; [MapEventManager](../MapEventManager) records the event after the factory calls `OnMapEventCreated`.
 - Siege input: [SiegeEvent](../SiegeEvent) and [BesiegerCamp](../BesiegerCamp) provide blockade state, besieger parties, and the besieged settlement.
 - Presentation: `GameMenu.ActivateGameMenu("player_blockade_got_attacked")` sends a main-party attack into the blockade menu flow.
 - Movement: `MobileParty.SetMoveGoToSettlement` is applied only to eligible non-player naval attackers after the blockade is lifted.
@@ -72,7 +72,7 @@ if (battle?.Component is BlockadeBattleMapEvent blockade)
 }
 ```
 
-The source starts this component through the encounter model or player encounter. A mod that needs to start a blockade should use that same Campaign entry point so the `SiegeEvent`, party sides, port navigation, and event manager stay consistent.
+The source starts this component through the encounter model or player encounter. A mod that truly owns the same valid siege transition can call `CreateBlockadeBattleMapEvent`; otherwise prefer observing the active battle as above so `SiegeEvent`, party sides, port navigation, and event-manager registration stay consistent.
 
 ## Risks and save boundaries
 
@@ -85,7 +85,7 @@ The source starts this component through the encounter model or player encounter
 
 ## Version note
 
-This page follows v1.4.5 `BlockadeBattleMapEvent`, `PlayerEncounter.StartBattleInternal`, `DefaultEncounterModel.CreateMapEventComponentForEncounter`, `MapEventManager.StartBlockadeBattleMapEvent`, and `SiegeEvent.DeactivateBlockade`. The 1.2 naval-power threshold and menu ID are version-sensitive.
+This page follows v1.4.5 `BlockadeBattleMapEvent`, `PlayerEncounter.StartBattleInternal`, `DefaultEncounterModel.CreateMapEventComponentForEncounter`, `MapEventManager.OnMapEventCreated`, and `SiegeEvent.DeactivateBlockade`. The 1.2 naval-power threshold and menu ID are version-sensitive.
 
 ## Navigation
 

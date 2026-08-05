@@ -29,7 +29,7 @@ Campaign.OnNewGameCreatedInternal
 EncounterGameMenuBehavior
   -> StartSiegeEvent(Settlement, MobileParty)
   -> PlayerSiege.StartPlayerSiege(BattleSideEnum.Attacker)
-  -> PlayerSiege.StartSiegePreparation()
+  -> player siege menu workflow
 Campaign.Tick
   -> SiegeEventManager.Tick(dt)
   -> SiegeEvent.Tick(dt)
@@ -72,35 +72,26 @@ This is an engine-owned update hook. Calling it manually can double-advance cons
 
 Forwards the post-load repair hook to every loaded `SiegeEvent`. `Campaign.OnSessionStart` calls it after the save graph is loaded and before normal session activity resumes. Use save/load hooks for mod state repair; do not use this method as a substitute for starting a new siege.
 
-## Real acquisition example
+## Real observation example
 
-The following mirrors the campaign menu's player-siege entry, with guards for a settlement that is already under siege:
+Use the campaign-owned manager as an observation surface when you need to find the siege attached to the current settlement:
 
 ```csharp
 Settlement settlement = Settlement.CurrentSettlement;
-MobileParty besieger = MobileParty.MainParty;
-
-if (settlement != null && settlement.IsFortification && !settlement.IsUnderSiege)
-{
-    SiegeEvent siegeEvent = Campaign.Current.SiegeEventManager.StartSiegeEvent(settlement, besieger);
-    PlayerSiege.StartPlayerSiege(BattleSideEnum.Attacker);
-    PlayerSiege.StartSiegePreparation();
-}
-```
-
-For read-only inspection, use the campaign-owned instance and the returned read-only list:
-
-```csharp
 foreach (SiegeEvent siegeEvent in Campaign.Current.SiegeEventManager.SiegeEvents)
 {
-    Settlement settlement = siegeEvent.BesiegedSettlement;
-    if (settlement != null && settlement == Settlement.CurrentSettlement)
+    if (settlement != null &&
+        siegeEvent.BesiegedSettlement == settlement &&
+        !siegeEvent.ReadyToBeRemoved)
     {
-        PlayerSiege.StartSiegePreparation();
+        BesiegerCamp camp = siegeEvent.BesiegerCamp;
+        Settlement besiegedSettlement = siegeEvent.BesiegedSettlement;
         break;
     }
 }
 ```
+
+This reads the active save-owned objects only. Starting or resuming a player siege belongs to the menu/encounter flow that already established the settlement, besieger party, and UI state.
 
 ## Failure and save boundaries
 

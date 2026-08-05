@@ -12,21 +12,21 @@ description: "Sandbox mission utilities for agent follow behavior, safe fading, 
 
 ## One-line responsibility
 
-Groups the Sandbox operations that manipulate agents and tagged mission entities during an active [Mission](../mission/Mission).
+Groups the Sandbox operations that manipulate agents and tagged mission entities during an active [Mission](../../mission/Mission).
 
 ## Mental model
 
-`MissionHelper` is a static facade over live Mission state. It does not create a Mission and it does not own agents: the active Mission owns the scene, `Agent` instances, player team, and spawn lifecycle. Its methods are intended for mission controllers and mission behaviors after `Mission.Current` and the relevant scene entities exist. Use [Mission](../mission/Mission) and [MissionBehavior](../mission/MissionBehavior) for lifecycle ownership; use the helper only for the specific Sandbox operation.
+`MissionHelper` is a static facade over live Mission state. It does not create a Mission and it does not own agents: the active Mission owns the scene, `Agent` instances, player team, and spawn lifecycle. Its methods are intended for mission controllers and mission behaviors after `Mission.Current` and the relevant scene entities exist. Use [Mission](../../mission/Mission) and [MissionBehavior](../../mission/MissionBehavior) for lifecycle ownership; use the helper only for the specific Sandbox operation.
 
 Do not call these methods from Campaign startup, a background thread, or after a Mission ends. Do not retain returned agents as if they were campaign entities. For general agent logic, use the `Agent`/`AgentComponent` contract; these helpers assume Sandbox components and scene tags.
 
 ## Dependency graph
 
-- Owner/lifecycle: [Mission](../mission/Mission), [MissionBehavior](../mission/MissionBehavior), and [Agent](../mission/Agent).
+- Owner/lifecycle: [Mission](../../mission/Mission), [MissionBehavior](../../mission/MissionBehavior), and [Agent](../../mission/Agent).
 - Follow path: `CampaignAgentComponent` and its navigator/behavior group.
-- Scene path: `Mission.Current.Scene`, `GameEntity`, and [GenericMissionEvent](../mission-ext/GenericMissionEvent).
-- Campaign path: [Campaign](../campaign/Campaign), [CharacterObject](../campaign/CharacterObject), [PartyBase](../campaign/PartyBase), and `CampaignEventDispatcher` when spawning the player.
-- Related lifecycle guide: [CampaignMission](../campaign/CampaignMission) describes the campaign mission context around a Mission.
+- Scene path: `Mission.Current.Scene`, `GameEntity`, and [GenericMissionEvent](../../mission-ext/GenericMissionEvent).
+- Campaign path: [Campaign](../../campaign/Campaign), [CharacterObject](../../campaign/CharacterObject), [PartyBase](../../campaign/PartyBase), and `CampaignEventDispatcher` when spawning the player.
+- Related lifecycle guide: [CampaignMission](../../campaign/CampaignMission) describes the campaign mission context around a Mission.
 
 ## Agent behavior operations
 
@@ -80,13 +80,13 @@ Call these once after the mission scene has loaded and its spawn tags and object
 
 ### ↑ Parent
 
-- [Campaign extension index](./)
-- [Mission API](../mission/)
+- [Campaign extension index](../)
+- [Mission API](../../mission/)
 
 ### ↔ Siblings and related types
 
-- [Mission](../mission/Mission)
-- [MissionBehavior](../mission/MissionBehavior)
-- [Agent](../mission/Agent)
-- [CampaignMission](../campaign/CampaignMission)
-- [GenericMissionEvent](../mission-ext/GenericMissionEvent)
+- [Mission](../../mission/Mission)
+- [MissionBehavior](../../mission/MissionBehavior)
+- [Agent](../../mission/Agent)
+- [CampaignMission](../../campaign/CampaignMission)
+- [GenericMissionEvent](../../mission-ext/GenericMissionEvent)

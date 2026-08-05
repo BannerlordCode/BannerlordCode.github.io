@@ -10,7 +10,7 @@ description: "围城出击伏击使用的 MapEvent 组件，从 BesiegerCamp 获
 **基类：** [MapEventComponent](../MapEventComponent)  
 **源码文件：** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/SiegeAmbushEventComponent.cs`
 
-## 一句话职责
+## 职责
 
 它标识围城伏击 `MapEvent`，并根据围城营地位置提供军事力量模型所需的模拟上下文。
 

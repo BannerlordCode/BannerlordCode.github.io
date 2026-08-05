@@ -107,7 +107,7 @@ if (campaign != null && campaign.MapSceneWrapper != null && MobileParty.MainPart
 
 ### ↑ Parent
 
-- [Campaign API index](./)
+- [Campaign API index](../)
 - [Campaign](../Campaign)
 
 ### ↔ Siblings and related types

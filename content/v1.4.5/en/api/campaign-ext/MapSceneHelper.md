@@ -16,16 +16,16 @@ Builds the terrain-indexed land/region validity array that the concrete map scen
 
 ## Mental model
 
-This is a pure conversion helper inside the Sandbox map-loading path. `MapScene.Load` receives the live [PartyNavigationModel](../campaign/PartyNavigationModel), calls `GetRegionMapping`, and passes the returned array to `Scene.SetNavMeshRegionMap`. The helper does not own navigation policy and does not alter the model; it translates every `TerrainType` enum value into `IsTerrainTypeValidForNavigationType(value, MobileParty.NavigationType.Default)`.
+This is a pure conversion helper inside the Sandbox map-loading path. `MapScene.Load` receives the live [PartyNavigationModel](../../campaign/PartyNavigationModel), calls `GetRegionMapping`, and passes the returned array to `Scene.SetNavMeshRegionMap`. The helper does not own navigation policy and does not alter the model; it translates every `TerrainType` enum value into `IsTerrainTypeValidForNavigationType(value, MobileParty.NavigationType.Default)`.
 
 Use it when implementing a compatible map-scene loader that needs the same region map. Do not cache its result across a `PartyNavigationModel` replacement, and do not treat it as the API for deciding whether a particular party may move: ask the active model directly.
 
 ## Dependency graph
 
-- Caller: [MapScene](./MapScene) during `Load`.
-- Input policy: [PartyNavigationModel](../campaign/PartyNavigationModel).
-- Input enum: [TerrainType](../core-extra/TerrainType).
-- Runtime consumer: the native `Scene` navigation mesh, then [IMapScene](../campaign/IMapScene) and [NavigationHelper](../system/NavigationHelper).
+- Caller: [MapScene](../MapScene) during `Load`.
+- Input policy: [PartyNavigationModel](../../campaign/PartyNavigationModel).
+- Input enum: [TerrainType](../../core-extra/TerrainType).
+- Runtime consumer: the native `Scene` navigation mesh, then [IMapScene](../../campaign/IMapScene) and [NavigationHelper](../../system/NavigationHelper).
 
 ## Public member
 
@@ -50,11 +50,11 @@ The normal game call is internal to `MapScene.Load`; a mod should usually query 
 
 ### ↑ Parent
 
-- [Campaign extension index](./)
-- [MapScene](./MapScene)
+- [Campaign extension index](../)
+- [MapScene](../MapScene)
 
 ### ↔ Siblings and related types
 
-- [PartyNavigationModel](../campaign/PartyNavigationModel)
-- [IMapScene](../campaign/IMapScene)
-- [NavigationHelper](../system/NavigationHelper)
+- [PartyNavigationModel](../../campaign/PartyNavigationModel)
+- [IMapScene](../../campaign/IMapScene)
+- [NavigationHelper](../../system/NavigationHelper)

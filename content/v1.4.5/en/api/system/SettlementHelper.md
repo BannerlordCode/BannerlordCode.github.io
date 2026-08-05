@@ -1,291 +1,108 @@
 ---
-title: "SettlementHelper"
-description: "Auto-generated class reference for SettlementHelper."
+title: "SettlementHelper: distance-aware settlement queries and campaign transitions"
+description: "SettlementHelper searches campaign settlements, towns, villages, castles, and hideouts, and exposes a few state-changing helpers for party and notable lifecycle work in v1.4.5."
 ---
 # SettlementHelper
 
-**Namespace:** Helpers
-**Module:** Helpers
-**Type:** `public static class SettlementHelper`
-**Base:** none
-**File:** `bin/TaleWorlds.CampaignSystem/Helpers/SettlementHelper.cs`
+**Namespace:** `Helpers`
+<br>**Module:** `TaleWorlds.CampaignSystem`
+<br>**Type:** `public static class SettlementHelper`
+<br>**Base:** `System.Object`
+<br>**Source:** `bin/TaleWorlds.CampaignSystem/Helpers/SettlementHelper.cs`
 
-## Overview
+## One-sentence responsibility
 
-`SettlementHelper` is a helper class that usually provides static logic which does not depend on instance state.
+`SettlementHelper` provides distance-aware and filtered settlement searches for campaign systems, plus a small set of explicit party, notable, garrison, and spawn-support operations that can change world state.
 
 ## Mental Model
 
-Treat `SettlementHelper` as a Helper-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The query family iterates current campaign collections and delegates travel distance to `DistanceHelper` with a `MobileParty.NavigationType`. It returns the domain component that the caller asked for: `Town`, `Village`, `Hideout`, or a `Settlement`, and returns null when no candidate beats the initial distance bound. Random queries collect matching settlements before choosing one. The class also contains operational helpers that leave parties, create notables, or calculate garrison deltas; those are not interchangeable with the read-only searches.
 
-## Key Methods
+## When to use and when not to use
 
-### GetRandomStuff
-`public static string GetRandomStuff(bool isFemale)`
+- Use nearest queries when a quest, AI, UI, or travel operation needs a current candidate subject to a navigation capability and optional settlement predicate.
+- Use `FindRandomSettlement` or `FindRandomHideout` when the caller explicitly wants a random current candidate and can handle null.
+- Use `GetAllHeroesOfSettlement` when the caller needs leaders, heroes without parties, and optionally hero prisoners from the settlement roster.
+- Use `GetGarrisonChangeExplainedNumber` for UI/model explanation; it combines recruitment behavior output and desertion, but it does not recruit troops itself.
+- Do not treat the returned nearest settlement as an ownership decision or guaranteed route. The helper only compares current distances and filters.
+- Do not call `TakeEnemyVillagersOutsideSettlements` or `SpawnNotablesIfNeeded` from repeated display refreshes. They can call Actions, move parties, and create heroes.
 
-**Purpose:** Reads and returns the random stuff value held by the this instance.
+## Dependencies and call chain
 
-```csharp
-// Static call; no instance required
-SettlementHelper.GetRandomStuff(false);
+```text
+Quest / model / ViewModel
+          |
+          v
+SettlementHelper -> Settlement.All / Town.AllTowns / Village.All / Hideout.All
+          |
+          +-> DistanceHelper + NavigationType
+          +-> LeaveSettlementAction / EnterSettlementAction for explicit mutations
 ```
 
-### FindNearestSettlementToSettlement
-`public static Settlement FindNearestSettlementToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
+- [`Settlement`](../../campaign/Settlement), [`MobileParty`](../../campaign/MobileParty), [`Town`](../../campaign/Town), [`Village`](../../campaign/Village), and [`Hero`](../../campaign/Hero) own the objects returned or inspected.
+- [`DistanceHelper`](../DistanceHelper) and the campaign `MapDistanceModel` determine reachable distance; `NavigationType` is a real input, not an optional label.
+- [`LeaveSettlementAction`](../../campaign-ext/LeaveSettlementAction) and [`EnterSettlementAction`](../../campaign-ext/EnterSettlementAction) are the mutation boundaries used by the explicit lifecycle helpers.
 
-**Purpose:** Looks up the matching nearest settlement to settlement in the current collection or scope.
+## Public members by contract
 
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestSettlementToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
-```
+| Group | Members | Source-confirmed behavior |
+|---|---|---|
+| Nearest queries | `FindNearestSettlementToSettlement`, `FindNearestSettlementToMobileParty`, `FindNearestSettlementToPoint`, `FindNearestHideoutToSettlement`, `FindNearestHideoutToMobileParty`, `FindNearestTownToSettlement`, `FindNearestTownToMobileParty`, `FindNearestCastleToSettlement`, `FindNearestCastleToMobileParty`, `FindNearestVillageToSettlement`, `FindNearestVillageToMobileParty` | Iterate the current collection, apply the optional predicate, compare distance, and return the matching component or null. Settlement-to-point uses map position distance; party/settlement searches use `DistanceHelper`. |
+| Fortification and iteration | `FindNearestFortificationToSettlement`, `FindNearestFortificationToMobileParty`, `FindFurthestFortificationToSettlement`, `FindNextSettlementAroundMobileParty` | Compare town and castle candidates, return the closer or furthest result, or return the next matching `Settlement.All` index. The continuation method returns `-1` when no later candidate is within `maxDistance`. |
+| Random and faction selection | `FindRandomSettlement`, `FindRandomHideout`, `GetRandomTown` | Choose from filtered current collections. `GetRandomTown` includes towns or villages and can filter by a `Clan`; it assumes a valid campaign collection and a non-empty candidate range. |
+| Spawn and inspection | `GetBestSettlementToSpawnAround`, `GetAllHeroesOfSettlement`, `GetRandomStuff` | Score safe settlements for a hero, enumerate party leaders/settlement heroes/optional hero prisoners, or return a carried item ID from a gender-specific rotating list. `GetRandomStuff` advances a process-local static index on every call; these methods do not by themselves spawn the hero or move the party. |
+| Garrison and neighbors | `IsGarrisonStarving`, `GetGarrisonChangeExplainedNumber`, `GetNeighborScoreForConsideringClan` | Read current food/model/neighbor state or compose explained garrison change from recruitment and desertion. |
+| Explicit mutations | `TakeEnemyVillagersOutsideSettlements`, `SpawnNotablesIfNeeded` | Set parties to hold, call `LeaveSettlementAction.ApplyForParty`, and possibly call `EnterSettlementAction.ApplyForCharacterOnly` after model-driven notable selection. |
 
-### FindNearestSettlementToMobileParty
-`public static Settlement FindNearestSettlementToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
+## Real example: find a reachable town without mutating the map
 
-**Purpose:** Looks up the matching nearest settlement to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestSettlementToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
-```
-
-### FindNearestSettlementToPoint
-`public static Settlement FindNearestSettlementToPoint(in CampaignVec2 point, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest settlement to point in the current collection or scope.
+This follows the acquisition pattern used by campaign UI and StoryMode code. The predicate is applied to the same live settlement objects that the helper iterates:
 
 ```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestSettlementToPoint(point, func<Settlement, false);
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public static Town FindSafeTownForParty()
+{
+    MobileParty party = MobileParty.MainParty;
+    return SettlementHelper.FindNearestTownToMobileParty(
+        party,
+        party.NavigationCapability,
+        settlement => settlement.IsTown && !settlement.IsUnderSiege);
+}
 ```
 
-### FindNearestHideoutToSettlement
-`public static Hideout FindNearestHideoutToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
+The result can be null and should be checked before assigning a movement target. It is a distance result, not a promise that the party can enter the town after another Action or tick.
 
-**Purpose:** Looks up the matching nearest hideout to settlement in the current collection or scope.
+## Search, sentinel, and mutation boundaries
 
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestHideoutToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
-```
+Most nearest searches initialize their best distance to `Campaign.MapDiagonal * 2f`; no candidate that reaches that bound becomes the result. `FindNextSettlementAroundMobileParty` instead scans after `lastIndex` and returns `-1` when no candidate is close enough. `FindFurthestFortificationToSettlement` reports `float.MinValue` through `furthestDistance` if its candidate list is empty.
 
-### FindNearestHideoutToMobileParty
-`public static Hideout FindNearestHideoutToMobileParty(MobileParty fromMobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
+`FindNearestFortificationToSettlement` and its mobile-party counterpart compare nearest town and nearest castle, but their return type is `Settlement`. Handle both the returned settlement and the possibility that one side is null before dereferencing. Hideout and village methods return their component through the matching settlement and may also return null.
 
-**Purpose:** Looks up the matching nearest hideout to mobile party in the current collection or scope.
+`TakeEnemyVillagersOutsideSettlements` can repeatedly call `LeaveSettlementAction.ApplyForParty` for hostile caravans or villagers and sets target parties to hold. `SpawnNotablesIfNeeded` uses `NotableSpawnModel`, random chance, occupation-specific counts, and `HeroCreator.CreateNotable` before calling `EnterSettlementAction`. These belong in campaign lifecycle code, not in a UI query.
 
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestHideoutToMobileParty(fromMobileParty, navCapabilities, func<Settlement, false);
-```
+## Risks and save boundaries
 
-### FindNearestTownToSettlement
-`public static Town FindNearestTownToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
+- Many methods require a live Campaign map and initialized `Settlement.All`, `Town.AllTowns`, or `Village.All`; do not call them during module construction or before campaign load finishes.
+- Distance results depend on `NavigationType` and the current `DistanceHelper`/MapDistanceModel. Recheck after map state, ports, sea travel, or campaign time changes.
+- `GetRandomTown` computes a random index from the count of town/village candidates. A null or empty campaign collection is outside its intended lifecycle boundary.
+- `GetBestSettlementToSpawnAround` is a weighted heuristic using faction relation, settlement type, garrison strength, raids/sieges, ownership, seeded randomness, and two distance terms. It is not a universal spawn guarantee.
+- `GetAllHeroesOfSettlement` may enumerate prisoner roster data; enumerate while the settlement and roster remain valid and do not save the iterator itself.
+- The helper does not define save schema. Persist stable IDs or behavior state through the campaign owner, then reacquire settlements and heroes after load.
 
-**Purpose:** Looks up the matching nearest town to settlement in the current collection or scope.
+## Version note
 
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestTownToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
-```
+This page follows v1.4.5 `SettlementHelper.cs`, including the `Campaign.MapDiagonal * 2f` nearest-search bound, `-1` continuation sentinel, garrison/desertion composition, and Action-backed party/notable mutations.
 
-### FindNearestTownToMobileParty
-`public static Town FindNearestTownToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
+## Navigation
 
-**Purpose:** Looks up the matching nearest town to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestTownToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
-```
-
-### FindNextSettlementAroundMobileParty
-`public static int FindNextSettlementAroundMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, float maxDistance, int lastIndex, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching next settlement around mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNextSettlementAroundMobileParty(mobileParty, navCapabilities, 0, 0, func<Settlement, false);
-```
-
-### FindNearestCastleToSettlement
-`public static Settlement FindNearestCastleToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest castle to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestCastleToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
-```
-
-### FindNearestCastleToMobileParty
-`public static Settlement FindNearestCastleToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest castle to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestCastleToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
-```
-
-### FindNearestFortificationToSettlement
-`public static Settlement FindNearestFortificationToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest fortification to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestFortificationToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
-```
-
-### FindNearestFortificationToMobileParty
-`public static Settlement FindNearestFortificationToMobileParty(MobileParty mobileParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest fortification to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestFortificationToMobileParty(mobileParty, navCapabilities, func<Settlement, false);
-```
-
-### FindFurthestFortificationToSettlement
-`public static Settlement FindFurthestFortificationToSettlement(MBReadOnlyList<Town> candidates, MobileParty.NavigationType navCapabilities, Settlement fromSettlement, out float furthestDistance)`
-
-**Purpose:** Looks up the matching furthest fortification to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindFurthestFortificationToSettlement(candidates, navCapabilities, fromSettlement, furthestDistance);
-```
-
-### FindNearestVillageToSettlement
-`public static Village FindNearestVillageToSettlement(Settlement fromSettlement, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest village to settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestVillageToSettlement(fromSettlement, navCapabilities, func<Settlement, false);
-```
-
-### FindNearestVillageToMobileParty
-`public static Village FindNearestVillageToMobileParty(MobileParty fromParty, MobileParty.NavigationType navCapabilities, Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching nearest village to mobile party in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindNearestVillageToMobileParty(fromParty, navCapabilities, func<Settlement, false);
-```
-
-### FindRandomSettlement
-`public static Settlement FindRandomSettlement(Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching random settlement in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindRandomSettlement(func<Settlement, false);
-```
-
-### FindRandomHideout
-`public static Settlement FindRandomHideout(Func<Settlement, bool> condition = null)`
-
-**Purpose:** Looks up the matching random hideout in the current collection or scope.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.FindRandomHideout(func<Settlement, false);
-```
-
-### TakeEnemyVillagersOutsideSettlements
-`public static void TakeEnemyVillagersOutsideSettlements(Settlement settlementWhichChangedFaction)`
-
-**Purpose:** Executes the TakeEnemyVillagersOutsideSettlements logic.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.TakeEnemyVillagersOutsideSettlements(settlementWhichChangedFaction);
-```
-
-### GetRandomTown
-`public static Settlement GetRandomTown(Clan fromFaction = null)`
-
-**Purpose:** Reads and returns the random town value held by the this instance.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.GetRandomTown(null);
-```
-
-### GetBestSettlementToSpawnAround
-`public static Settlement GetBestSettlementToSpawnAround(Hero hero)`
-
-**Purpose:** Reads and returns the best settlement to spawn around value held by the this instance.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.GetBestSettlementToSpawnAround(hero);
-```
-
-### GetAllHeroesOfSettlement
-`public static IEnumerable<Hero> GetAllHeroesOfSettlement(Settlement settlement, bool includePrisoners)`
-
-**Purpose:** Reads and returns the all heroes of settlement value held by the this instance.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.GetAllHeroesOfSettlement(settlement, false);
-```
-
-### IsGarrisonStarving
-`public static bool IsGarrisonStarving(Settlement settlement)`
-
-**Purpose:** Determines whether the this instance is in the garrison starving state or condition.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.IsGarrisonStarving(settlement);
-```
-
-### SpawnNotablesIfNeeded
-`public static void SpawnNotablesIfNeeded(Settlement settlement)`
-
-**Purpose:** Executes the SpawnNotablesIfNeeded logic.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.SpawnNotablesIfNeeded(settlement);
-```
-
-### GetGarrisonChangeExplainedNumber
-`public static ExplainedNumber GetGarrisonChangeExplainedNumber(Town town)`
-
-**Purpose:** Reads and returns the garrison change explained number value held by the this instance.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.GetGarrisonChangeExplainedNumber(town);
-```
-
-### GetNeighborScoreForConsideringClan
-`public static float GetNeighborScoreForConsideringClan(Settlement settlement, Clan consideringClan)`
-
-**Purpose:** Reads and returns the neighbor score for considering clan value held by the this instance.
-
-```csharp
-// Static call; no instance required
-SettlementHelper.GetNeighborScoreForConsideringClan(settlement, consideringClan);
-```
-
-## Usage Example
-
-```csharp
-SettlementHelper.Initialize();
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ API system index](../)
+- [↔ MenuHelper](../MenuHelper)
+- [↔ PerkHelper](../PerkHelper)
+- [Related: Settlement](../../campaign/Settlement)
+- [Related: MobileParty](../../campaign/MobileParty)
+- [Related: Town](../../campaign/Town)
+- [Related: Village](../../campaign/Village)
+- [Related: DistanceHelper](../DistanceHelper)
+- [中文页面](../../../../zh/api/system/SettlementHelper)

@@ -1,251 +1,160 @@
 ---
 title: "TeamAIComponent"
-description: "Auto-generated class reference for TeamAIComponent."
+description: "Mission-scoped tactical AI owned by a Team; selects tactics, receives formation callbacks, and drives formation behavior during an active battle."
 ---
 # TeamAIComponent
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
+**Namespace:** `TaleWorlds.MountAndBlade`
+**Module:** `TaleWorlds.MountAndBlade`
 **Type:** `public abstract class TeamAIComponent`
 **Base:** none
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAIComponent.cs`
+**Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/TeamAIComponent.cs`
 
-## Overview
+## Responsibility in one sentence
 
-`TeamAIComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+`TeamAIComponent` is the Mission-time tactical controller for one `Team`: it owns tactic state and tactical areas, receives formation-level notifications, and periodically lets the selected tactic/behaviors decide what the team should do.
 
-## Mental Model
+## Mental model
 
-Treat `TeamAIComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is a battle runtime component, not an `Agent` component and not a campaign or save object. A concrete subclass is created for the current battle mode, bound to one `Mission` and one `Team`, and then installed into `Team.TeamAI`. The `Mission` owns the lifetime indirectly through the `Team`; `Team.Tick` drives it only while the battle is allowed to tick AI and the team still has bots.
 
-## Key Properties
+The protected constructor receives the owning `Mission`, the owning `Team`, and the think/apply timer intervals. Mods normally do not call that constructor or `new TeamAIComponent(...)`. Read the runtime instance from a live team, or provide a concrete subclass through the battle mission controller's `GetTeamAI(...)` path.
 
-| Name | Signature |
-|------|-----------|
-| `Id` | `public string Id { get; }` |
-| `Tactic` | `public Lazy<TacticComponent> Tactic { get; }` |
-| `Weight` | `public float Weight { get; set; }` |
-| `IsDefenseApplicable` | `public bool IsDefenseApplicable { get; }` |
-| `GetIsFirstTacticChosen` | `public bool GetIsFirstTacticChosen { get; }` |
+The selected `TacticComponent` is a state machine boundary. Changing the current tactic can cancel the old tactic, apply the new tactic, and perform an occasional tick. Adding a tactic option only changes the candidate set; it does not itself select or apply that tactic.
 
-## Key Methods
+## When to use it
 
-### TacticalDecisionDelegate
-`public delegate void TacticalDecisionDelegate(in TacticalDecision decision)`
+- Read `Mission.Current.AttackerTeam?.TeamAI` or `Mission.Current.DefenderTeam?.TeamAI` when a Mission behavior needs to observe the active battle AI.
+- Implement or replace a concrete `TeamAIComponent` only when the battle controller is the correct extension point for the behavior you need. The standard path is `BaseBattleMissionController.GetTeamAI(...)`, followed by `Team.AddTeamAI(...)`.
+- Use the tactical-area and tactic-option methods from the phase that owns the battle setup or tactical decision. Keep the operation on the Mission thread and the owning Team.
+- Override the lifecycle callbacks in a concrete subclass when the callback's timing is part of the AI design: deployment completion, formation-frame changes, first unit in a previously empty formation, or Mission-specific cleanup.
 
-**Purpose:** Executes the TacticalDecisionDelegate logic.
+## When not to use it
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.TacticalDecisionDelegate(decision);
-```
+- Do not use it to alter campaign parties, heroes, settlements, or save data. Use campaign Actions, Models, or save contracts for those systems.
+- Do not use it as a per-Agent state holder. Agent lifecycle and death callbacks belong to `Agent`, `MissionBehavior`, and the relevant `Formation` path.
+- Do not assume `TeamAI.Tick` runs every frame. `Team.Tick` skips the normal AI path when `Mission.AllowAiTicking` is false, when the Team has no bots, or when the Team is taking a retreat path.
+- Do not call `OnMissionEnded()` as proof that the object has been detached. The method exists, but the current `Mission.EndMissionInternal` cleanup path clears Teams without a verified automatic call to `Team.OnMissionEnded()`.
+- Do not persist a `TeamAIComponent`, a `TacticComponent`, a `Mission`, or a tactical area in a save. These are Mission runtime objects and must be reacquired for a new Mission.
 
-### AddStrategicArea
-`public void AddStrategicArea(StrategicArea strategicArea)`
+## Creation, installation, and ticking
 
-**Purpose:** Adds strategic area to the current collection or state.
+There are two source-backed setup paths, not one mandatory call sequence:
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.AddStrategicArea(strategicArea);
-```
+- **Battle-controller path:** `BaseBattleMissionController.AfterStart` creates the attacker/defender Teams, and its `GetTeamAI(...)` path supplies the concrete AI that is installed through `Team.AddTeamAI(...)`.
+- **Combatants-logic path:** `MissionCombatantsLogic.EarlyStart` selects a concrete AI such as `TeamAIGeneral`, a siege AI, or a Sally Out AI according to the battle mode and installs it for that path.
 
-### RemoveStrategicArea
-`public void RemoveStrategicArea(StrategicArea strategicArea)`
+Both paths converge on the `Team.AddTeamAI(...)` side effects: it replaces `Team.TeamAI`, initializes detachments and Mission-specific behaviors, calls `ResetTactic()`, ticks existing non-empty formations once, and calls `TickOccasionally()`. After setup, `Mission` ticks Agents and then Teams; `Team.Tick` may call the installed AI and then ticks detachments and non-empty formations.
 
-**Purpose:** Removes strategic area from the current collection or state.
+That installation step is consequential. Installing a second AI changes the controller for every formation on that Team. It is not a harmless setter and should be done only by the owner of the battle setup.
 
 ```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.RemoveStrategicArea(strategicArea);
+using TaleWorlds.MountAndBlade;
+
+public sealed class TeamAiReadoutBehavior : MissionBehavior
+{
+    public override void AfterStart()
+    {
+        Mission mission = Mission.Current;
+        if (mission == null)
+        {
+            return;
+        }
+
+        Team team = mission.PlayerTeam;
+        if (team == null)
+        {
+            return;
+        }
+
+        TeamAIComponent teamAI = team.TeamAI;
+        if (teamAI == null)
+        {
+            return;
+        }
+
+        teamAI.CheckIsDefenseApplicable();
+        bool defenseCanBeUsed = teamAI.IsDefenseApplicable;
+    }
+}
 ```
 
-### RemoveAllStrategicAreas
-`public void RemoveAllStrategicAreas()`
+This example reads the runtime AI after the Mission has a Team. It does not instantiate the abstract component, replace the Team's AI, or assume a particular concrete subclass.
 
-**Purpose:** Removes all strategic areas from the current collection or state.
+## Lifecycle callbacks
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.RemoveAllStrategicAreas();
-```
+| Member | Use and timing | Side effects and boundary |
+|---|---|---|
+| `OnDeploymentFinished()` | Runs when Mission deployment is finished, before the Mission forwards the corresponding behavior callbacks. Use it to finish deployment-dependent tactical setup. | Do not read deployment-only objects before deployment has completed. |
+| `OnUnitAddedToFormationForTheFirstTime` | Runs when a formation changes from empty to non-empty. It is a first-unit transition, not a callback for every Agent joining an already populated formation. | A formation, its Team, and its Mission must still be live. |
+| `OnFormationFrameChanged(Agent, bool, WorldPosition)` | Receives formation-frame changes for an Agent. Use it to update AI state that depends on formation positioning. | The Agent may be leaving the formation; validate the Agent and owning formation before following other references. |
+| `OnMissionEnded()` | Intended for AI-specific end cleanup. The current source does not prove that Mission teardown automatically reaches it through `Team.OnMissionEnded()`. | The implementation stops machines used by active formations. It is not a replacement for explicit teardown owned by the mod. |
+| `TickOccasionally()` | Runs on the AI's occasional timer rather than serving as an unconditional per-frame callback. `Team.AddTeamAI` calls it once after installation. | It can be called before the normal Team tick has settled; do not use it as a general-purpose Mission update hook. |
+| `ResetTacticalPositions()` | Re-scans the live Mission's `TacticalPosition` and `TacticalRegion` mission objects. Tactics use it when tactical geometry must be refreshed during a tactic transition. | It reads `Mission.ActiveMissionObjects`; call it only while that Mission is live. |
+| `OnTacticAppliedForFirstTime()` | Called by `TacticComponent.TickOccasionally()` when `GetIsFirstTacticChosen` is still true. It marks that first-application transition as handled. | It changes the first-tactic marker; it does not choose a tactic or apply a formation order by itself. |
+| `IsCurrentTactic(TacticComponent)` | Compares the supplied tactic by reference with `CurrentTactic`. Use it when a tactic needs to decide whether it still owns the Team. | It is a status query only; it does not refresh or switch the tactic. |
+| `NotifyTacticalDecision(in TacticalDecision)` | Sends a tactical decision to the AI's notification path. | This is a runtime notification, not a campaign event or save event. |
 
-### AddTacticOption
-`public void AddTacticOption(TacticComponent tacticOption)`
+## Tactical state and options
 
-**Purpose:** Adds tactic option to the current collection or state.
+### Tactical positions, regions, and strategic areas
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.AddTacticOption(tacticOption);
-```
+`TacticalPositions` and `TacticalRegions` are collected from the active Mission's mission objects during construction. They describe the tactical geometry available to this AI instance. `StrategicAreas` and `HasStrategicAreas` describe the dynamic strategic areas currently registered for the Team.
 
-### RemoveTacticOption
-`public void RemoveTacticOption(Type tacticType)`
+`AddStrategicArea`, `RemoveStrategicArea`, and `RemoveAllStrategicAreas` mutate the AI's current tactical set. They do not create a campaign settlement or persist the area. Use them while the Mission owns the relevant `StrategicArea`, and remove them when the owning tactical phase ends.
 
-**Purpose:** Removes tactic option from the current collection or state.
+### Tactic options and selection
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.RemoveTacticOption(tacticType);
-```
+- `AddTacticOption(TacticComponent)` adds a concrete tactic to the candidate list. It does not select it by itself.
+- `RemoveTacticOption(Type)` removes by the exact runtime type. Passing a base type does not mean “remove every derived tactic.”
+- `ClearTacticOptions()` removes the current candidate list. Clearing it while a tactic is active does not by itself perform the full cleanup that a tactic transition performs.
+- `ResetTactic(bool keepCurrentTactic = true)` resets the tactical selection. With `false`, the current tactic is canceled and a new selection can be applied; application and occasional-tick side effects can therefore happen immediately.
+- `CheckIsDefenseApplicable()` recalculates the defense decision used by `IsDefenseApplicable`. It is a query refresh for the active battle, not a request to start a defense order.
+- `GetIsFirstTacticChosen` reports whether the first-tactic selection phase has completed. It should not be treated as “the battle has a stable tactic forever.”
 
-### ClearTacticOptions
-`public void ClearTacticOptions()`
+`CurrentTactic` is managed by the AI rather than by a mod's arbitrary field assignment. The setter invokes the old tactic's cancellation path, applies the new tactic, and can trigger an occasional tick. Use the concrete controller's intended reset/selection path instead of swapping this state behind the AI's back.
 
-**Purpose:** Removes all tactic options from the this instance.
+### Tactical decision notifications
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.ClearTacticOptions();
-```
+`OnNotifyTacticalDecision` is a delegate-style notification hook. Subscribe with `+=` and unsubscribe with `-=` when the listener has a bounded lifetime. Direct assignment replaces existing listeners and can silently disconnect the battle controller or another mod. `NotifyTacticalDecision` only reports a decision; it does not itself apply a formation order.
 
-### AssertTeam
-`public void AssertTeam(Team team)`
+## Dependency map
 
-**Purpose:** Executes the AssertTeam logic.
+**Upstream**
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.AssertTeam(team);
-```
+- [`Mission`](../../mission/Mission) owns the active battle and determines whether AI ticking is allowed.
+- [`Team`](../Team) owns the component and calls the Team-level tick/install paths.
+- [`MissionLogic`](../MissionLogic) and the battle controller choose the concrete AI and install tactic options.
+- [`MissionTime`](../MissionTime) supplies the Mission-time basis for timer-driven behavior.
+- [`StrategicArea`](../StrategicArea) supplies dynamic tactical areas.
+- [`TacticComponent`](../TacticComponent) defines the tactic state applied by the AI.
 
-### NotifyTacticalDecision
-`public void NotifyTacticalDecision(in TacticalDecision decision)`
+**Downstream**
 
-**Purpose:** Notifies interested objects that tactical decision has occurred.
+- [`Formation`](../../mission/Formation) receives the AI's formation decisions and reports first-unit/frame transitions.
+- [`Agent`](../../mission/Agent) is the unit referenced by formation-frame callbacks; it is not owned by this component.
+- [`TeamAIGeneral`](../TeamAIGeneral) and [`TeamAISiegeComponent`](../TeamAISiegeComponent) are concrete AI families that implement the abstract behavior for different battle modes.
+- [`BehaviorFlank`](../BehaviorFlank) and [`BehaviorSergeantMPMounted`](../BehaviorSergeantMPMounted), along with detachments, siege machines, and Sally Out controllers, consume the tactic decisions and tactical areas.
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.NotifyTacticalDecision(decision);
-```
+## Failure and crash boundaries
 
-### OnDeploymentFinished
-`public virtual void OnDeploymentFinished()`
+1. **AI not installed:** `Team.TeamAI` can be null during setup or for a Team that does not use this controller. Guard the read before calling members.
+2. **Wrong phase:** a subclass that assumes deployment objects, formations, or siege machines exist can fail when called from construction or before deployment. Put phase checks in the subclass.
+3. **AI replacement:** a second `AddTeamAI` replaces the Team's controller and changes formation ownership. It can leave old tactic state, detachments, or delegate subscriptions alive if the replacement owner does not clean them up.
+4. **Callback lifetime:** Agent and Formation references are valid only inside the current Mission. Do not queue them into campaign code or save data.
+5. **Teardown assumption:** `OnMissionEnded()` is not a reliable automatic disposal signal in the current source path. Use the mod's explicit Mission behavior cleanup and stop observing the Team once Mission teardown starts.
+6. **Delegate overwrite:** assigning a notification delegate instead of subscribing can remove the game's existing listener and break tactical coordination without an immediate exception.
+7. **Wrong update hook:** `TickOccasionally` and the normal AI tick are controlled by Mission/Team timers and AI gates. Use `MissionBehavior` for an unconditional Mission callback rather than forcing a Team AI tick.
 
-**Purpose:** Invoked when the deployment finished event is raised.
+## Version note
 
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.OnDeploymentFinished();
-```
+This page describes the 1.4.5 `TaleWorlds.MountAndBlade` implementation. Older versions can differ in concrete battle controllers and tactic subclasses. Keep the lifecycle rule as the stable contract: acquire from the current Mission's Team, install through the battle setup path, and never carry the component across Missions.
 
-### OnFormationFrameChanged
-`public virtual void OnFormationFrameChanged(Agent agent, bool isFrameEnabled, WorldPosition frame)`
+## Navigation
 
-**Purpose:** Invoked when the formation frame changed event is raised.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.OnFormationFrameChanged(agent, false, frame);
-```
-
-### OnMissionEnded
-`public virtual void OnMissionEnded()`
-
-**Purpose:** Invoked when the mission ended event is raised.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.OnMissionEnded();
-```
-
-### ResetTacticalPositions
-`public void ResetTacticalPositions()`
-
-**Purpose:** Returns tactical positions to its default or initial condition.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.ResetTacticalPositions();
-```
-
-### ResetTactic
-`public void ResetTactic(bool keepCurrentTactic = true)`
-
-**Purpose:** Returns tactic to its default or initial condition.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.ResetTactic(false);
-```
-
-### CheckIsDefenseApplicable
-`public void CheckIsDefenseApplicable()`
-
-**Purpose:** Verifies whether is defense applicable holds true for the this instance.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.CheckIsDefenseApplicable();
-```
-
-### OnTacticAppliedForFirstTime
-`public void OnTacticAppliedForFirstTime()`
-
-**Purpose:** Invoked when the tactic applied for first time event is raised.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.OnTacticAppliedForFirstTime();
-```
-
-### TickOccasionally
-`public virtual void TickOccasionally()`
-
-**Purpose:** Advances the occasionally state each frame or update cycle.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.TickOccasionally();
-```
-
-### IsCurrentTactic
-`public bool IsCurrentTactic(TacticComponent tactic)`
-
-**Purpose:** Determines whether the this instance is in the current tactic state or condition.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-var result = teamAIComponent.IsCurrentTactic(tactic);
-```
-
-### OnUnitAddedToFormationForTheFirstTime
-`public abstract void OnUnitAddedToFormationForTheFirstTime(Formation formation)`
-
-**Purpose:** Invoked when the unit added to formation for the first time event is raised.
-
-```csharp
-// Obtain an instance of TeamAIComponent from the subsystem API first
-TeamAIComponent teamAIComponent = ...;
-teamAIComponent.OnUnitAddedToFormationForTheFirstTime(formation);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-TeamAIComponent instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- [↑ Parent: Mission extension API](../)
+- [↔ Sibling: Team](../Team)
+- [↔ Sibling: TeamQuerySystem](../TeamQuerySystem)
+- [Related: Mission](../../mission/Mission)
+- [Related: Formation](../../mission/Formation)
+- [Related: TacticComponent](../TacticComponent)

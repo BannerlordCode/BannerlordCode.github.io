@@ -1,135 +1,99 @@
 ---
 title: "MissionTime"
-description: "Auto-generated class reference for MissionTime."
+description: "A Mission-time value type backed by MissionTimeTracker ticks; it creates future points, compares timing, and converts ticks to seconds, minutes, and hours."
 ---
+
 # MissionTime
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public struct MissionTime : IComparable<MissionTime>`
-**Base:** `IComparable<MissionTime>`
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionTime.cs`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public struct MissionTime : IComparable<MissionTime>`  
+**Base:** `IComparable<MissionTime>`  
+**Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionTime.cs`
 
-## Overview
+## Responsibility
 
-`MissionTime` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+It represents a Mission time point as an immutable long-tick snapshot and provides current time, future points, elapsed-time calculations, and unit conversions so behaviors can compare timing without maintaining their own floating-point clock.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`MissionTime` is a time-point value, not a timer that advances itself. `MissionTimeTracker` is advanced by `Mission` each frame; `MissionTime.Now` and `MissionTime.DeltaTime` read snapshots from that tracker. `SecondsFromNow` and `MillisecondsFromNow` add an offset to the current Mission time, while `Seconds`, `Minutes`, and `Hours` construct a value from zero.
 
-## Key Methods
+`IsFuture`, `IsPast`, `IsNow`, and `ElapsedSeconds` read the active Mission tracker again, so they only have a valid runtime meaning while a Mission is active. `NumberOfTicks` and `ToSeconds` are value reads that can be passed or compared, but an arbitrary long tick value is not Campaign time or save-game time.
 
-### MillisecondsFromNow
-`public static MissionTime MillisecondsFromNow(float valueInMilliseconds)`
+## When to use it
 
-**Purpose:** Executes the MillisecondsFromNow logic.
+Use it in a Mission behavior to store a next-check point with `MissionTime.SecondsFromNow` and test `IsPast` from a Mission tick. Use it for ordering Mission time points, calculating `ElapsedSeconds`, or sharing the same tick clock with [`MissionTimer`](../MissionTimer).
 
-```csharp
-// Static call; no instance required
-MissionTime.MillisecondsFromNow(0);
-```
+Do not call `Now`, `DeltaTime`, `SecondsFromNow`, `IsPast`, or `ElapsedSeconds` without an active `Mission.Current`. Do not treat it as CampaignTime, wall-clock time, or a persistent cross-Mission clock. Do not increment `NumberOfTicks`; [`MissionTimeTracker`](../MissionTimeTracker) and `Mission` own that progression.
 
-### SecondsFromNow
-`public static MissionTime SecondsFromNow(float valueInSeconds)`
+## Members
 
-**Purpose:** Executes the SecondsFromNow logic.
+| Member | Purpose, side effect, and timing |
+|---|---|
+| `NumberOfTicks` | Read-only internal tick value; one second is `10,000,000` ticks. |
+| `Now` / `DeltaTime` | Snapshots of current Mission time and the latest tracker delta; require an active Mission. |
+| `Zero` | Zero-tick value; it does not mean that a Mission has started. |
+| `IsFuture` / `IsPast` / `IsNow` | Compare the snapshot with current Mission time; access depends on `Mission.Current`. |
+| `ElapsedHours` / `ElapsedSeconds` / `ElapsedMilliseconds` | Current Mission time minus this snapshot; not valid across Missions. |
+| `ToHours` / `ToMinutes` / `ToSeconds` / `ToMilliseconds` | Convert this value's own ticks without reading current Mission time. |
+| `MillisecondsFromNow(float)` / `SecondsFromNow(float)` | Create future points relative to the active Mission; require an active Mission. |
+| `Milliseconds(float)` / `Seconds(float)` / `Minutes(float)` / `Hours(float)` | Construct unit values from zero for arithmetic with other `MissionTime` values. |
+| `CompareTo`, comparison operators, `Equals` | Compare tick ordering/equality without advancing time. |
+| `MissionTime(long)` | Construct from raw ticks; use only when the tick contract is known. |
 
-```csharp
-// Static call; no instance required
-MissionTime.SecondsFromNow(0);
-```
+## Dependencies
 
-### Equals
-`public bool Equals(MissionTime other)`
+- **Clock owner:** [`Mission`](../../mission/Mission) creates and advances [`MissionTimeTracker`](../MissionTimeTracker).
+- **Reads:** `Now` and `DeltaTime` read the tracker directly; `IsPast` and `ElapsedSeconds` read the active Mission indirectly.
+- **Timer consumers:** [`MissionTimer`](../MissionTimer) stores a `MissionTime` start point; short elapsed windows can instead use [`BasicMissionTimer`](../BasicMissionTimer).
+- **Lifecycle boundary:** [`MissionBehavior`](../../mission/MissionBehavior) initialization and tick callbacks are common acquisition points; Campaign save systems do not own this runtime value.
 
-**Purpose:** Compares the this instance with the supplied instance for equality.
+## Real example
 
-```csharp
-// Obtain an instance of MissionTime from the subsystem API first
-MissionTime missionTime = ...;
-var result = missionTime.Equals(other);
-```
-
-### Equals
-`public override bool Equals(object obj)`
-
-**Purpose:** Compares the this instance with the supplied instance for equality.
+This follows the source pattern of using `MissionTime.SecondsFromNow` and `IsPast` inside a Mission behavior:
 
 ```csharp
-// Obtain an instance of MissionTime from the subsystem API first
-MissionTime missionTime = ...;
-var result = missionTime.Equals(obj);
+using TaleWorlds.MountAndBlade;
+
+public sealed class NextCheckBehavior : MissionBehavior
+{
+    private MissionTime _nextCheck;
+
+    public override void OnBehaviorInitialize()
+    {
+        _nextCheck = MissionTime.SecondsFromNow(10f);
+    }
+
+    public override void OnMissionTick(float dt)
+    {
+        if (_nextCheck.IsPast)
+        {
+            _nextCheck = MissionTime.SecondsFromNow(10f);
+        }
+    }
+}
 ```
 
-### GetHashCode
-`public override int GetHashCode()`
+When the code needs the latest Mission-frame delta rather than a future point, it can read `MissionTime.DeltaTime.ToSeconds` in the same Mission tick. Campaign time must not replace Mission ticks here.
 
-**Purpose:** Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.
+## Version note
 
-```csharp
-// Obtain an instance of MissionTime from the subsystem API first
-MissionTime missionTime = ...;
-var result = missionTime.GetHashCode();
-```
+The public time units and factories retain the same core meaning in 1.3.15 and 1.4.5: `10,000,000` ticks per second, with `Now`, `SecondsFromNow`, unit constructors, and comparison operators. The 1.4.5 lifecycle boundaries on this page follow the current `Mission` and `MissionTimeTracker` call sites.
 
-### CompareTo
-`public int CompareTo(MissionTime other)`
+## Risks
 
-**Purpose:** Compares the this instance with the supplied instance for ordering.
+1. Static `Now`, `DeltaTime`, and `SecondsFromNow`, plus `IsPast`/`ElapsedSeconds`, indirectly access `Mission.Current`; calling them on the map, during module loading, or after Mission cleanup can throw a null reference.
+2. `DeltaTime` is the latest tracker delta, not real-world frame time. Reading it in the wrong lifecycle phase can return an old value.
+3. `MissionTime` is not automatically saved or restored across scenes. Putting it in a Campaign singleton or save object leaks short-lived Mission timing into long-lived state.
+4. Do not confuse `Seconds(10f)` with `SecondsFromNow(10f)`: the former is a zero-based duration value, while the latter is a future point relative to the active Mission.
+5. The tick field is a long, but unit conversions return float/double. For long Missions or precise ordering, retain ticks or use the appropriate conversion rather than repeatedly round-tripping through floating-point seconds.
 
-```csharp
-// Obtain an instance of MissionTime from the subsystem API first
-MissionTime missionTime = ...;
-var result = missionTime.CompareTo(other);
-```
+## Navigation
 
-### Milliseconds
-`public static MissionTime Milliseconds(float valueInMilliseconds)`
-
-**Purpose:** Executes the Milliseconds logic.
-
-```csharp
-// Static call; no instance required
-MissionTime.Milliseconds(0);
-```
-
-### Seconds
-`public static MissionTime Seconds(float valueInSeconds)`
-
-**Purpose:** Executes the Seconds logic.
-
-```csharp
-// Static call; no instance required
-MissionTime.Seconds(0);
-```
-
-### Minutes
-`public static MissionTime Minutes(float valueInMinutes)`
-
-**Purpose:** Executes the Minutes logic.
-
-```csharp
-// Static call; no instance required
-MissionTime.Minutes(0);
-```
-
-### Hours
-`public static MissionTime Hours(float valueInHours)`
-
-**Purpose:** Executes the Hours logic.
-
-```csharp
-// Static call; no instance required
-MissionTime.Hours(0);
-```
-
-## Usage Example
-
-```csharp
-MissionTime.MillisecondsFromNow(0);
-```
-
-## See Also
-
-- [Area Index](../)
+- Parent: [Mission-ext index](../)
+- Siblings: [`BasicMissionTimer`](../BasicMissionTimer) · [`MissionTimer`](../MissionTimer) · [`MissionTimeTracker`](../MissionTimeTracker)
+- Host: [`Mission`](../../mission/Mission) · [`MissionBehavior`](../../mission/MissionBehavior)
+- Architecture: [developer roadmap](../../../architecture/developer-roadmap) · [crash boundaries](../../../architecture/crash-boundary)
+- Contract: [documentation contract](../../../architecture/doc-contract)
+- Chinese/English: [`MissionTime`](../../../../zh/api/mission-ext/MissionTime)

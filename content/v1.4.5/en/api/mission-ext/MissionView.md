@@ -1,270 +1,111 @@
 ---
 title: "MissionView"
-description: "Auto-generated class reference for MissionView."
+description: "MissionView is the abstract mission-screen behavior base for camera, input, UI, conversation, and rendering hooks."
 ---
 # MissionView
 
-**Namespace:** TaleWorlds.MountAndBlade.View.MissionViews
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class MissionView : MissionBehavior`
-**Base:** `MissionBehavior`
-**File:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionView.cs`
+**Namespace:** `TaleWorlds.MountAndBlade.View.MissionViews`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public abstract class MissionView : MissionBehavior`  
+**Base:** [MissionBehavior](../../mission/MissionBehavior)  
+**Source file:** `Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View.MissionViews/MissionView.cs`
 
-## Overview
+## One-sentence responsibility
 
-`MissionView` represents a view-layer object, usually responsible for projecting game state into a screen, scene, or interactive UI.
+It provides the view-layer lifecycle that connects a live [Mission](../../mission/Mission) to `MissionScreen`, input, camera policy, photo mode, conversation, and rendering events.
 
 ## Mental Model
 
-Treat `MissionView` as a View-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`MissionView` is a specialized `MissionBehavior`, but it is not the mission's simulation logic. A view is owned by the mission-screen view container; its `MissionScreen` and `Input` are populated by the screen layer, and its callbacks are driven by screen activation, rendering, focus, conversation, and deployment events. `BehaviorType` is `MissionBehaviorType.View`. The base implementation mostly supplies safe defaults: escape/photo mode are allowed, readiness is true, camera override is false, and empty lifecycle hooks do nothing.
 
-## Key Properties
+`SuspendView()` and `ResumeView()` are the explicit view pause boundary. They call protected `OnSuspendView`/`OnResumeView` and update `IsViewSuspended`; they do not end the Mission. `OnEndMissionInternal()` is sealed and forwards to the behavior's end hook, so a subclass should override the appropriate protected/public hook instead of trying to replace the sealed bridge.
 
-| Name | Signature |
-|------|-----------|
-| `MissionScreen` | `public MissionScreen MissionScreen { get; set; }` |
-| `IsFinalized` | `public bool IsFinalized { get; set; }` |
+## When to use and when not to use
 
-## Key Methods
+- Derive from it for mission HUD, camera, photo-mode, conversation, or rendering integrations that belong to the screen layer.
+- Override only the callbacks the view needs, and use `MissionScreen` after the screen has initialized the view.
+- Do not use it for Agent spawning or mission rules; use [MissionLogic](../MissionLogic) or a related mission behavior.
+- Do not assign `MissionScreen` or `Input`; both are engine-owned (`MissionScreen` has an internal setter and `Input` is derived from its scene layer).
+- Do not treat `SuspendView` as mission pause or persist a view reference after `OnRemoveBehavior`/mission end.
 
-### OnMissionScreenTick
-`public virtual void OnMissionScreenTick(float dt)`
+## Dependencies
 
-**Purpose:** Invoked when the mission screen tick event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnMissionScreenTick(0);
+```text
+Mission view factory
+  -> MissionView subclass
+  -> MissionScreen attaches and initializes it
+  -> screen/rendering/focus callbacks
+  -> OnEndMissionInternal -> MissionBehavior end hook
 ```
 
-### OnEscape
-`public virtual bool OnEscape()`
+- Base lifecycle: [MissionBehavior](../../mission/MissionBehavior) owns the mission association and end bridge.
+- Simulation peer: [MissionLogic](../MissionLogic) is the correct layer for non-visual mission rules.
+- State owner: [Mission](../../mission/Mission) supplies live Agents, scene, and mission time.
+- Screen state: [MissionState](../../campaign-ext/MissionState) owns the game-state transition that hosts the Mission.
 
-**Purpose:** Invoked when the escape event is raised.
+## Public surface and timing
 
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-var result = missionView.OnEscape();
-```
+| Area | Members | Meaning |
+| --- | --- | --- |
+| Screen | `MissionScreen`, `Input` | Engine-provided screen and input access; valid after attachment. |
+| Ordering | `ViewOrderPriority` | View-container ordering value used by the screen layer. |
+| Readiness | `IsReady()` | Defaults to `true`; override when the view must finish asynchronous setup. |
+| Camera and escape | `OnEscape()`, `IsOpeningEscapeMenuOnFocusChangeAllowed()`, `UpdateOverridenCamera(float)` | Policy hooks; defaults are no escape handling, allowed focus-menu opening, and no camera override. |
+| Screen lifecycle | `OnMissionScreenInitialize`, `OnMissionScreenActivate`, `OnMissionScreenDeactivate`, `OnMissionScreenFinalize` | Screen attachment and active-state boundaries. |
+| Presentation | `OnMissionScreenTick`, `OnSceneRenderingStarted`, `OnFocusChangeOnGameWindow` | Per-frame/render/focus hooks. |
+| Modes | `OnPhotoModeActivated`, `OnPhotoModeDeactivated`, `OnConversationBegin`, `OnConversationEnd`, `OnDeploymentPlanMade` | Context-specific presentation hooks. |
+| Suspension | `SuspendView()`, `ResumeView()`, `IsViewSuspended` | Pauses view work without ending the Mission. |
 
-### IsOpeningEscapeMenuOnFocusChangeAllowed
-`public virtual bool IsOpeningEscapeMenuOnFocusChangeAllowed()`
+## Real example
 
-**Purpose:** Determines whether the this instance is in the opening escape menu on focus change allowed state or condition.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-var result = missionView.IsOpeningEscapeMenuOnFocusChangeAllowed();
-```
-
-### IsPhotoModeAllowed
-`public virtual bool IsPhotoModeAllowed()`
-
-**Purpose:** Determines whether the this instance is in the photo mode allowed state or condition.
+This is a real extension shape: the view reads mission-local time only while the engine has attached it to the screen and mission.
 
 ```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-var result = missionView.IsPhotoModeAllowed();
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.View.MissionViews;
+
+public sealed class MissionClockView : MissionView
+{
+    private float _elapsed;
+
+    public override void OnMissionScreenInitialize()
+    {
+        _elapsed = 0f;
+    }
+
+    public override void OnMissionScreenTick(float dt)
+    {
+        if (Mission.Current == null || MissionScreen == null || IsViewSuspended)
+        {
+            return;
+        }
+
+        _elapsed += dt;
+    }
+
+    protected override void OnSuspendView()
+    {
+        _elapsed = 0f;
+    }
+}
 ```
 
-### OnFocusChangeOnGameWindow
-`public virtual void OnFocusChangeOnGameWindow(bool focusGained)`
+The concrete instance must be returned by the module's mission-view creation path or added through `MissionScreen.AddMissionView`; creating the object alone does not attach `MissionScreen` or make callbacks run.
 
-**Purpose:** Invoked when the focus change on game window event is raised.
+## Risks and boundaries
 
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnFocusChangeOnGameWindow(false);
-```
+- `MissionScreen` and `Input` are unavailable or incomplete before view initialization; null-check the screen when a callback can run during transitions.
+- A view callback can be called during focus, photo-mode, or conversation transitions when Mission simulation is paused or changing.
+- `OnMissionScreenFinalize` and `OnRemoveBehavior` are cleanup boundaries. Release input, layers, and event listeners there.
+- `OnEndMissionInternal` is sealed in this base class; overriding the wrong method can bypass intended cleanup.
+- `UpdateOverridenCamera` is opt-in. Returning `true` without supplying a coherent camera override can disturb the active mission camera.
 
-### OnSceneRenderingStarted
-`public virtual void OnSceneRenderingStarted()`
+## Version note
 
-**Purpose:** Invoked when the scene rendering started event is raised.
+This page follows the v1.4.5 `MissionView` defaults and screen callbacks. Recheck `MissionScreen` ownership and the view-container ordering rules when targeting another version.
 
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnSceneRenderingStarted();
-```
+## Navigation
 
-### OnMissionScreenInitialize
-`public virtual void OnMissionScreenInitialize()`
-
-**Purpose:** Invoked when the mission screen initialize event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnMissionScreenInitialize();
-```
-
-### OnMissionScreenFinalize
-`public virtual void OnMissionScreenFinalize()`
-
-**Purpose:** Invoked when the mission screen finalize event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnMissionScreenFinalize();
-```
-
-### OnMissionScreenActivate
-`public virtual void OnMissionScreenActivate()`
-
-**Purpose:** Invoked when the mission screen activate event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnMissionScreenActivate();
-```
-
-### OnMissionScreenDeactivate
-`public virtual void OnMissionScreenDeactivate()`
-
-**Purpose:** Invoked when the mission screen deactivate event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnMissionScreenDeactivate();
-```
-
-### UpdateOverridenCamera
-`public virtual bool UpdateOverridenCamera(float dt)`
-
-**Purpose:** Recalculates and stores the latest representation of overriden camera.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-var result = missionView.UpdateOverridenCamera(0);
-```
-
-### IsReady
-`public virtual bool IsReady()`
-
-**Purpose:** Determines whether the this instance is in the ready state or condition.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-var result = missionView.IsReady();
-```
-
-### OnPhotoModeActivated
-`public virtual void OnPhotoModeActivated()`
-
-**Purpose:** Invoked when the photo mode activated event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnPhotoModeActivated();
-```
-
-### OnPhotoModeDeactivated
-`public virtual void OnPhotoModeDeactivated()`
-
-**Purpose:** Invoked when the photo mode deactivated event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnPhotoModeDeactivated();
-```
-
-### OnConversationBegin
-`public virtual void OnConversationBegin()`
-
-**Purpose:** Invoked when the conversation begin event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnConversationBegin();
-```
-
-### OnConversationEnd
-`public virtual void OnConversationEnd()`
-
-**Purpose:** Invoked when the conversation end event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnConversationEnd();
-```
-
-### OnDeploymentPlanMade
-`public virtual void OnDeploymentPlanMade(Team team, bool isFirstPlan)`
-
-**Purpose:** Invoked when the deployment plan made event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnDeploymentPlanMade(team, false);
-```
-
-### SuspendView
-`public void SuspendView()`
-
-**Purpose:** Executes the SuspendView logic.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.SuspendView();
-```
-
-### ResumeView
-`public void ResumeView()`
-
-**Purpose:** Executes the ResumeView logic.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.ResumeView();
-```
-
-### OnEndMissionInternal
-`public sealed override void OnEndMissionInternal()`
-
-**Purpose:** Invoked when the end mission internal event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnEndMissionInternal();
-```
-
-### OnRemoveBehavior
-`public override void OnRemoveBehavior()`
-
-**Purpose:** Invoked when the remove behavior event is raised.
-
-```csharp
-// Obtain an instance of MissionView from the subsystem API first
-MissionView missionView = ...;
-missionView.OnRemoveBehavior();
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-MissionView instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+- Parent: [Mission extension API](../)
+- Siblings: [MissionLogic](../MissionLogic) · [IMissionBehavior](../IMissionBehavior)
+- Related: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [MissionState](../../campaign-ext/MissionState)

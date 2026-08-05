@@ -1,445 +1,130 @@
 ---
 title: "UsableMachine"
-description: "Auto-generated class reference for UsableMachine."
+description: "Scene-backed Mission owner that collects StandingPoints, coordinates Agent detachment slots, and delegates machine-specific AI behavior."
 ---
 # UsableMachine
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public abstract class UsableMachine : SynchedMissionObject, IFocusable, IOrderable, IDetachment`
-**Base:** `SynchedMissionObject`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public abstract class UsableMachine : SynchedMissionObject, IFocusable, IOrderable, IDetachment`  
+**Base:** [`SynchedMissionObject`](../SynchedMissionObject)  
 **File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/UsableMachine.cs`
+
+## One-line responsibility
+
+This is the Mission-scene owner that discovers a machine's [`StandingPoint`](../StandingPoint) components, exposes them as detachment slots, and routes Agent movement, use, synchronization, and teardown to the concrete machine.
 
 ## Overview
 
-`UsableMachine` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`UsableMachine` is an abstract scene component for ladders, siege engines, gates, piles, and similar objects. It does not define the action text or the machine's animation; derived classes provide those contracts and usually override `CreateAIBehaviorObject()` to return a machine-specific [`UsableMachineAIBase`](../UsableMachineAIBase). The base class owns the common collection and reservation rules so every machine can participate in Team detachment evaluation.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Treat a usable machine as a **detachment with scene geometry**. During `OnInit`, it recursively collects `StandingPoint` components from the machine entity or its `machine_parent`, classifies pilot and ammo points by entity tags, initializes defending-agent lists, and captures the active wait entity. Its `IDetachment` implementation then filters those points by side, occupancy, Agent eligibility, navmesh, and ammo-loading state.
 
-## Key Properties
+The `Ai` property is lazy: it calls the derived `CreateAIBehaviorObject()` the first time it is read. The returned AI object is attached to this machine through its protected constructor and is ticked by the host. A base implementation that returns `null` leaves the machine without specialized AI; that is different from manually constructing a detached AI object.
 
-| Name | Signature |
-|------|-----------|
-| `StandingPoints` | `public MBList<StandingPoint> StandingPoints { get; }` |
-| `PilotStandingPoint` | `public StandingPoint PilotStandingPoint { get; }` |
-| `PilotStandingPointSlotIndex` | `public int PilotStandingPointSlotIndex { get; }` |
-| `DestructionComponent` | `public DestructableComponent DestructionComponent { get; }` |
-| `IsDestroyed` | `public bool IsDestroyed { get; }` |
-| `Ai` | `public UsableMachineAIBase Ai { get; }` |
-| `CurrentlyUsedAmmoPickUpPoint` | `public StandingPoint CurrentlyUsedAmmoPickUpPoint { get; set; }` |
-| `IsDisabledForAI` | `public bool IsDisabledForAI { get; set; }` |
-| `UserCountNotInStruckAction` | `public int UserCountNotInStruckAction { get; }` |
-| `UserCountIncludingInStruckAction` | `public int UserCountIncludingInStruckAction { get; }` |
-| `WaitFrame` | `public MatrixFrame WaitFrame { get; }` |
-| `IsDeactivated` | `public virtual bool IsDeactivated { get; }` |
+This is a live Mission object, not a Campaign save entity. It must be attached to a scene `GameEntity` before `StandingPoints`, `GameEntity`, `Mission`, or native physics are used.
 
-## Key Methods
+## Dependencies
 
-### AddComponent
-`public void AddComponent(UsableMissionObjectComponent component)`
+- [`SynchedMissionObject`](../SynchedMissionObject) supplies scene registration and synchronized visibility/physics boundaries.
+- [`StandingPoint`](../StandingPoint) supplies the individual interaction slots collected from the entity hierarchy.
+- [`UsableMachineAIBase`](../UsableMachineAIBase) owns machine-specific AI movement, alternative-point handling, and stopping logic.
+- [`Mission`](../../mission/Mission), [`Agent`](../../mission/Agent), [`Team`](../Team), and [`Formation`](../../mission/Formation) provide the live detachment participants.
+- [`UsableMissionObjectComponent`](../UsableMissionObjectComponent) receives machine-level add, tick, disable, reset, editor, and removal callbacks.
 
-**Purpose:** Adds component to the current collection or state.
+## When to use and when not to
 
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.AddComponent(component);
-```
+**Use it when:**
 
-### RemoveComponent
-`public void RemoveComponent(UsableMissionObjectComponent component)`
+- A scene object has one or more `StandingPoint` children and must be usable by players or AI formations.
+- A custom machine needs one shared place for component lifecycle, synchronized physics, detachment selection, and Mission cleanup.
+- A derived class can implement `GetActionTextForStandingPoint`, `GetDescriptionText`, and its machine-specific AI factory.
 
-**Purpose:** Removes component from the current collection or state.
+**Do not use it when:**
 
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.RemoveComponent(component);
-```
+- The feature is one interaction position without machine-level detachment; use [`StandingPoint`](../StandingPoint).
+- The feature is Mission-wide rules or callbacks; use [`MissionBehavior`](../../mission/MissionBehavior) or [`MissionLogic`](../MissionLogic).
+- The state must survive a save or Campaign transition. This object is torn down with its Mission and is not a persistence boundary.
 
-### GetOrder
-`public virtual OrderType GetOrder(BattleSideEnum side)`
+## Discovery and lifecycle
 
-**Purpose:** Reads and returns the order value held by the this instance.
+`CollectAndSetStandingPoints()` uses the parent entity when it is tagged `machine_parent`; otherwise it recursively collects from the machine's own entity. `OnInit` then identifies the first `Pilot` point, appends `ammopickup` points to `AmmoPickUpPoints`, initializes every point's defending agents, and selects the first child tagged `Wait` as `ActiveWaitStandingPoint`.
 
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetOrder(side);
-```
+The machine requests a tick when a component needs one, when authoritative ammo pickup is active, or when the entity is sinking. `OnTick` skips invisible machines when `MakeVisibilityCheck` is enabled, disables a sinking entity once it crosses the water level, clears a finished ammo-pickup reservation, and ticks each attached component.
 
-### CreateAIBehaviorObject
-`public virtual UsableMachineAIBase CreateAIBehaviorObject()`
+`OnMissionEnded` stops users and deactivates every standing point. `Disable` is stronger: it stops current and moving Agents, destroys Team detachment registrations, deactivates non-ammo points, notifies components, optionally removes ticking, and calls `SetDisabled`. `OnRemoved` releases component references through `OnRemoved`; it is not a place to start new Agent assignments.
 
-**Purpose:** Constructs a new a i behavior object entity and returns it to the caller.
+## Point and detachment selection
 
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.CreateAIBehaviorObject();
-```
+- `GetVacantStandingPointForAI` prefers a valid pilot point when present, then scores other valid points by distance while protecting weapon-required points from being bypassed by an active ammo request.
+- `GetValidVacantReachableStandingPointForAgent` and `GetValidStandingPointForAgentWithoutDistanceCheck` return a `WeakGameEntity`, not a `StandingPoint`; they are lookup helpers for movement code and apply different reachability filters.
+- `GetTargetStandingPointOfAIAgent` finds the point an Agent is currently moving toward.
+- `IsStandingPointAvailableForAgent` checks deactivation, occupancy/movement ownership, point eligibility, and ammo-loading exclusion.
+- The explicit `IDetachment` methods compute side weight, slot costs, candidate Agents, occupancy, formation membership, and scripted movement. `AddAgentAtSlotIndex` removes conflicting moving or defending Agents before assigning the selected slot.
 
-### GetValidVacantReachableStandingPointForAgent
-`public WeakGameEntity GetValidVacantReachableStandingPointForAgent(Agent agent)`
+`GetBestPointAlternativeTo` defaults to the same point. A machine such as an ammo system can override it, while `UsableMachineAIBase` only asks for alternatives when the point reports `HasAlternative()` and the Agent is within `IsInRangeToCheckAlternativePoints`.
 
-**Purpose:** Reads and returns the valid vacant reachable standing point for agent value held by the this instance.
+## State and machine policy
+
+- `StandingPoints`, `PilotStandingPoint`, `PilotAgent`, `WaitEntity`, and `WaitFrame` expose scene-owned roles after `OnInit`.
+- `Ai` caches the object returned by `CreateAIBehaviorObject`; `SetAI` replaces that cache and should be reserved for the machine owner.
+- `CurrentlyUsedAmmoPickUpPoint` drives ticking while an Agent is moving to an ammo point.
+- `UserCountNotInStruckAction` and `UserCountIncludingInStruckAction` count current users with different struck-action policies.
+- `IsDestroyed` reflects `DestructionComponent`; `IsDeactivated` also includes the explicit `Deactivate()` latch.
+- `IsDisabledForBattleSideAI` rejects base-disabled, AI-disabled, or deactivated machines and may additionally reject a side when `EnemyRangeToStopUsing` detects an enemy through the cached `QueryData<bool>` values.
+- `Activate` and `Deactivate` update the machine and every point's `IsDeactivated`; `SetIsDisabledForAI` controls AI selection without destroying the scene entity.
+
+## Real acquisition example
+
+The machine is obtained from the current Mission's active object collection. The helper asks the machine to choose a real point for an existing Agent and leaves movement and reservation to the detachment host:
 
 ```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetValidVacantReachableStandingPointForAgent(agent);
+using TaleWorlds.MountAndBlade;
+
+static StandingPoint FindMachinePointForAgent(Agent agent)
+{
+    Mission mission = Mission.Current;
+    if (mission == null || agent == null)
+    {
+        return null;
+    }
+
+    foreach (UsableMachine machine in
+             mission.ActiveMissionObjects.FindAllWithType<UsableMachine>())
+    {
+        BattleSideEnum side = agent.Team?.Side ?? BattleSideEnum.None;
+        if (!machine.IsDisabledForBattleSideAI(side))
+        {
+            StandingPoint point = machine.GetVacantStandingPointForAI(agent);
+            if (point != null)
+            {
+                return point;
+            }
+        }
+    }
+
+    return null;
+}
 ```
 
-### SetAI
-`public void SetAI(UsableMachineAIBase ai)`
-
-**Purpose:** Assigns a new value to a i and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.SetAI(ai);
-```
-
-### GetValidStandingPointForAgentWithoutDistanceCheck
-`public WeakGameEntity GetValidStandingPointForAgentWithoutDistanceCheck(Agent agent)`
-
-**Purpose:** Reads and returns the valid standing point for agent without distance check value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetValidStandingPointForAgentWithoutDistanceCheck(agent);
-```
-
-### GetVacantStandingPointForAI
-`public StandingPoint GetVacantStandingPointForAI(Agent agent)`
-
-**Purpose:** Reads and returns the vacant standing point for a i value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetVacantStandingPointForAI(agent);
-```
-
-### GetTargetStandingPointOfAIAgent
-`public StandingPoint GetTargetStandingPointOfAIAgent(Agent agent)`
-
-**Purpose:** Reads and returns the target standing point of a i agent value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetTargetStandingPointOfAIAgent(agent);
-```
-
-### OnMissionEnded
-`public override void OnMissionEnded()`
-
-**Purpose:** Invoked when the mission ended event is raised.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.OnMissionEnded();
-```
-
-### SetVisibleSynched
-`public override void SetVisibleSynched(bool value, bool forceChildrenVisible = false)`
-
-**Purpose:** Assigns a new value to visible synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.SetVisibleSynched(false, false);
-```
-
-### SetPhysicsStateSynched
-`public override void SetPhysicsStateSynched(bool value, bool setChildren = true)`
-
-**Purpose:** Assigns a new value to physics state synched and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.SetPhysicsStateSynched(false, false);
-```
-
-### GetTickRequirement
-`public override TickRequirement GetTickRequirement()`
-
-**Purpose:** Reads and returns the tick requirement value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetTickRequirement();
-```
-
-### OnFocusGain
-`public virtual void OnFocusGain(Agent userAgent)`
-
-**Purpose:** Invoked when the focus gain event is raised.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.OnFocusGain(userAgent);
-```
-
-### OnFocusLose
-`public virtual void OnFocusLose(Agent userAgent)`
-
-**Purpose:** Invoked when the focus lose event is raised.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.OnFocusLose(userAgent);
-```
-
-### OnPilotAssignedDuringSpawn
-`public virtual void OnPilotAssignedDuringSpawn()`
-
-**Purpose:** Invoked when the pilot assigned during spawn event is raised.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.OnPilotAssignedDuringSpawn();
-```
-
-### GetInfoTextForBeingNotInteractable
-`public virtual TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)`
-
-**Purpose:** Reads and returns the info text for being not interactable value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetInfoTextForBeingNotInteractable(userAgent);
-```
-
-### Deactivate
-`public void Deactivate()`
-
-**Purpose:** Deactivates the resource, state, or feature represented by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.Deactivate();
-```
-
-### Activate
-`public void Activate()`
-
-**Purpose:** Activates the resource, state, or feature represented by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.Activate();
-```
-
-### IsDisabledForBattleSide
-`public virtual bool IsDisabledForBattleSide(BattleSideEnum sideEnum)`
-
-**Purpose:** Determines whether the this instance is in the disabled for battle side state or condition.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.IsDisabledForBattleSide(sideEnum);
-```
-
-### IsDisabledForBattleSideAI
-`public virtual bool IsDisabledForBattleSideAI(BattleSideEnum sideEnum)`
-
-**Purpose:** Determines whether the this instance is in the disabled for battle side a i state or condition.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.IsDisabledForBattleSideAI(sideEnum);
-```
-
-### ShouldAutoLeaveDetachmentWhenDisabled
-`public virtual bool ShouldAutoLeaveDetachmentWhenDisabled(BattleSideEnum sideEnum)`
-
-**Purpose:** Executes the ShouldAutoLeaveDetachmentWhenDisabled logic.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.ShouldAutoLeaveDetachmentWhenDisabled(sideEnum);
-```
-
-### AutoAttachUserToFormation
-`public virtual bool AutoAttachUserToFormation(BattleSideEnum sideEnum)`
-
-**Purpose:** Executes the AutoAttachUserToFormation logic.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.AutoAttachUserToFormation(sideEnum);
-```
-
-### HasToBeDefendedByUser
-`public virtual bool HasToBeDefendedByUser(BattleSideEnum sideEnum)`
-
-**Purpose:** Determines whether the this instance already holds to be defended by user.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.HasToBeDefendedByUser(sideEnum);
-```
-
-### Disable
-`public virtual void Disable()`
-
-**Purpose:** Executes the Disable logic.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.Disable();
-```
-
-### ToString
-`public override string ToString()`
-
-**Purpose:** Returns a human-readable string representation of the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.ToString();
-```
-
-### GetActionTextForStandingPoint
-`public abstract TextObject GetActionTextForStandingPoint(UsableMissionObject usableGameObject)`
-
-**Purpose:** Reads and returns the action text for standing point value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetActionTextForStandingPoint(usableGameObject);
-```
-
-### GetBestPointAlternativeTo
-`public virtual StandingPoint GetBestPointAlternativeTo(StandingPoint standingPoint, Agent agent)`
-
-**Purpose:** Reads and returns the best point alternative to value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetBestPointAlternativeTo(standingPoint, agent);
-```
-
-### IsInRangeToCheckAlternativePoints
-`public virtual bool IsInRangeToCheckAlternativePoints(Agent agent)`
-
-**Purpose:** Determines whether the this instance is in the in range to check alternative points state or condition.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.IsInRangeToCheckAlternativePoints(agent);
-```
-
-### AddAgentAtSlotIndex
-`public void AddAgentAtSlotIndex(Agent agent, int slotIndex)`
-
-**Purpose:** Adds agent at slot index to the current collection or state.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.AddAgentAtSlotIndex(agent, 0);
-```
-
-### SetIsDisabledForAI
-`public void SetIsDisabledForAI(bool isDisabledForAI)`
-
-**Purpose:** Assigns a new value to is disabled for a i and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.SetIsDisabledForAI(false);
-```
-
-### GetNumberOfUsableSlots
-`public int GetNumberOfUsableSlots()`
-
-**Purpose:** Reads and returns the number of usable slots value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetNumberOfUsableSlots();
-```
-
-### IsStandingPointAvailableForAgent
-`public bool IsStandingPointAvailableForAgent(Agent agent)`
-
-**Purpose:** Determines whether the this instance is in the standing point available for agent state or condition.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.IsStandingPointAvailableForAgent(agent);
-```
-
-### IsUsedByFormation
-`public bool IsUsedByFormation(Formation formation)`
-
-**Purpose:** Determines whether the this instance is in the used by formation state or condition.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.IsUsedByFormation(formation);
-```
-
-### GetDescriptionText
-`public abstract TextObject GetDescriptionText(WeakGameEntity gameEntity)`
-
-**Purpose:** Reads and returns the description text value held by the this instance.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-var result = usableMachine.GetDescriptionText(gameEntity);
-```
-
-### SetEnemyRangeToStopUsing
-`public void SetEnemyRangeToStopUsing(float value)`
-
-**Purpose:** Assigns a new value to enemy range to stop using and updates the object's internal state.
-
-```csharp
-// Obtain an instance of UsableMachine from the subsystem API first
-UsableMachine usableMachine = ...;
-usableMachine.SetEnemyRangeToStopUsing(0);
-```
-
-## Usage Example
-
-```csharp
-// Typically obtained from a subsystem API or factory
-UsableMachine instance = ...;
-```
-
-## See Also
-
-- [Area Index](../)
+Do not call `OnInit`, `OnMissionEnded`, or the explicit `IDetachment` methods to simulate a lifecycle. The Mission and Team systems own those transitions.
+
+## Risks and crash boundaries
+
+- `StandingPoints` is populated during `OnInit`; reading it from a constructor, before scene attachment, or after removal is invalid.
+- `Ai` may be `null` when a derived machine's `CreateAIBehaviorObject` intentionally returns `null`. Do not assume every abstract/base instance has an AI controller.
+- `Disable` affects current users, detachment registrations, point deactivation, component callbacks, and ticking. Use it only from the owner that controls the machine's lifetime.
+- `SetPhysicsStateSynched` also updates navigation-face ability and invalidates every point's cached world position. A client-only or out-of-phase physics mutation can desynchronize movement and native scene state.
+- `CurrentlyUsedAmmoPickUpPoint`, `UserFormations`, and standing-point Agent references are Mission-scoped. Clear or stop them before Mission end; they are not save-safe references.
+- `UsableTeam` and point-level filters can still reject a machine's slots after the machine itself is available. Machine availability is not a guarantee that a particular Agent can use a point.
+
+## See also and reciprocal navigation
+
+- ↑ Parent: [Mission-ext module index](../)
+- ↔ Siblings: [StandingPoint](../StandingPoint) · [UsableMachineAIBase](../UsableMachineAIBase) · [SynchedMissionObject](../SynchedMissionObject)
+- Components: [UsableMissionObjectComponent](../UsableMissionObjectComponent)
+- Mission context: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [Agent](../../mission/Agent)
+- Concrete consumers: [Ballista](../Ballista) · [SiegeTower](../SiegeTower) · [StonePile](../StonePile)
+- 中文/English: [UsableMachine](../../../../zh/api/mission-ext/UsableMachine)

@@ -1,120 +1,102 @@
 ---
 title: "MissionTimer"
-description: "Auto-generated class reference for MissionTimer."
+description: "A MissionTime-backed countdown timer with reset support and client/replay synchronization correction."
 ---
 # MissionTimer
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
-**Type:** `public class MissionTimer`
-**Base:** none
-**File:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionTimer.cs`
+**Namespace:** `TaleWorlds.MountAndBlade`  
+**Module:** `TaleWorlds.MountAndBlade`  
+**Type:** `public class MissionTimer`  
+**Base:** none  
+**Source:** `bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MissionTimer.cs`
 
-## Overview
+## One-line responsibility
 
-`MissionTimer` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`MissionTimer` records a start point and duration on the active Mission clock for scene logic that needs expiry, remaining seconds, or periodic resets; it is not Campaign time and not a background real-time thread.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+`new MissionTimer(duration)` immediately reads `MissionTime.Now`, so it must be created while an active Mission exists and the code is inside its lifecycle. Each `GetRemainingTimeInSeconds` calculation uses `MissionTime` and clamps negative values to `0`; `Check()` only observes expiry, while `Check(reset: true)` moves the start point to now after expiry.
 
-## Key Methods
+Normal single-player/server timers use the local Mission clock. A client or replay path must pass `synched: true` to apply `MissionTimeTracker.GetLastSyncDifference()`. `CreateSynchedTimerClient` is for a network-provided absolute start time, not a general replacement constructor.
 
-### GetStartTime
-`public MissionTime GetStartTime()`
+## Dependencies
 
-**Purpose:** Reads and returns the start time value held by the this instance.
+- **Clock upstream:** [`Mission`](../../mission/Mission) owns [`MissionTimeTracker`](../MissionTimeTracker), and [`MissionTime.Now`](../MissionTime) reads the tracker's current ticks.
+- **Creation/owner:** MissionBehaviors, MissionLogic, or dedicated Mission components own the timer during Mission lifetime; the game's `SneakIntoTheVillaMissionController` and `MultiplayerTimerComponent` follow this pattern.
+- **Network path:** `MissionNetworkComponent` synchronizes tracker time; clients use `CreateSynchedTimerClient` and then read synchronized remaining time.
+- **Related result:** when a timer expires, the owning behavior decides whether to call [`Mission.EndMission`](../../mission/Mission); the timer is not an automatic end Action.
 
-```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-var result = missionTimer.GetStartTime();
-```
+## When to use and when not to
 
-### GetTimerDuration
-`public float GetTimerDuration()`
+**Use it when:**
 
-**Purpose:** Reads and returns the timer duration value held by the this instance.
+- Battle logic needs a Mission-tick-driven countdown for a stealth window, boundary grace period, round, or multiplayer component.
+- A periodic action should restart after every expiry through `Check(reset: true)`.
+- A server creates the timer and clients display the same countdown from a server start timestamp.
 
-```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-var result = missionTimer.GetTimerDuration();
-```
+**Do not use it when:**
 
-### GetRemainingTimeInSeconds
-`public float GetRemainingTimeInSeconds(bool synched = false)`
+- Measuring Campaign days, save time, or long-lived real-world time; use CampaignTime or a Campaign event contract.
+- Calling `new MissionTimer(...)` unconditionally in a behavior constructor, module-loading phase, or after Mission teardown; those phases may not have `Mission.Current`.
+- Changing duration with `Set`; `Set` moves the start point, while `SetDuration` changes duration.
 
-**Purpose:** Reads and returns the remaining time in seconds value held by the this instance.
+## Members, timing, and side effects
 
-```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-var result = missionTimer.GetRemainingTimeInSeconds(false);
-```
+| Member | Purpose, timing, and side effect |
+|---|---|
+| `MissionTimer(float duration)` | Starts at current `MissionTime.Now`; requires an active Mission, and a negative duration expires immediately. |
+| `GetStartTime()` | Returns the start snapshot for reporting or UI; it does not advance time. |
+| `GetTimerDuration()` | Returns the current duration; it does not reset the start point. |
+| `GetRemainingTimeInSeconds(bool synched = false)` | Returns non-negative remaining seconds; the sync flag applies tracker skew only on client/replay paths. |
+| `Check(bool reset = false)` | Tests expiry; `reset: true` resets the start point only when already expired. |
+| `Reset()` | Resets the start point to current Mission time while keeping the duration. |
+| `Set(float timeInSeconds)` | Sets the start point to “current time + timeInSeconds”; it is a start offset, not “set remaining seconds.” |
+| `SetDuration(float duration)` | Replaces duration while keeping the existing start point, which may make the timer expire or become active immediately. |
+| `CreateSynchedTimerClient(float startTimeInSeconds, float duration)` | Builds a client/replay timer from an absolute Mission-second timestamp; do not pass a local relative duration as the start time. |
 
-### Check
-`public bool Check(bool reset = false)`
+## Real MissionBehavior example
 
-**Purpose:** Verifies whether the this instance meets the specified condition.
-
-```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-var result = missionTimer.Check(false);
-```
-
-### Reset
-`public void Reset()`
-
-**Purpose:** Returns the this instance to its default or initial condition.
+Create the timer in `OnBehaviorInitialize` or another lifecycle callback after Mission setup, rather than in a field initializer or constructor that depends on `Mission.Current`:
 
 ```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-missionTimer.Reset();
+using TaleWorlds.MountAndBlade;
+
+public sealed class WindowBehavior : MissionBehavior
+{
+    private MissionTimer _windowTimer;
+
+    public override void OnBehaviorInitialize()
+    {
+        _windowTimer = new MissionTimer(5f);
+    }
+
+    public override void OnMissionTick(float dt)
+    {
+        if (_windowTimer.Check(reset: true))
+        {
+            // A five-second periodic action owned by this behavior.
+        }
+    }
+}
 ```
 
-### Set
-`public void Set(float timeInSeconds)`
+The game's multiplayer component uses the matching network pattern: the server calls `new MissionTimer(duration)`, the client receives `startTimeInSeconds` and calls `CreateSynchedTimerClient`, then reads `GetRemainingTimeInSeconds(synched: true)` for a shared countdown.
 
-**Purpose:** Assigns a new value to the this instance's property or state.
+## Risks and crash boundaries
 
-```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-missionTimer.Set(0);
-```
+- The constructor, `Set`, and synchronized remaining-time path indirectly depend on `Mission.Current`; calling them outside Mission can throw a null-reference exception.
+- Creating the timer during Mission construction can occur before `Mission.Current` is assigned; defer creation to `OnBehaviorInitialize`, `OnCreated`, or a confirmed running callback.
+- `Check(reset: true)` restarts on every expiry check. For a one-shot action, use `Check()` and disable or clear the field yourself.
+- A positive `Set` moves the start into the future, so remaining time can exceed duration; treating it as “set remaining” introduces a delayed-cycle bug.
+- Pass `synched: true` only on the client synchronized read path; otherwise a network countdown uses local time and can drift.
+- Expiry does not call `EndMission`, raise an event, or mutate Campaign state. The behavior must perform the follow-up at a valid Mission phase.
 
-### SetDuration
-`public void SetDuration(float duration)`
+## See also and reciprocal navigation
 
-**Purpose:** Assigns a new value to duration and updates the object's internal state.
-
-```csharp
-// Obtain an instance of MissionTimer from the subsystem API first
-MissionTimer missionTimer = ...;
-missionTimer.SetDuration(0);
-```
-
-### CreateSynchedTimerClient
-`public static MissionTimer CreateSynchedTimerClient(float startTimeInSeconds, float duration)`
-
-**Purpose:** Constructs a new synched timer client entity and returns it to the caller.
-
-```csharp
-// Static call; no instance required
-MissionTimer.CreateSynchedTimerClient(0, 0);
-```
-
-## Usage Example
-
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-MissionTimer missionTimer = ...;
-missionTimer.GetStartTime();
-```
-
-## See Also
-
-- [Area Index](../)
+- ↑ Parent: [Mission-ext module index](../)
+- ↔ Same section: [MissionTime](../MissionTime) · [MissionTimeTracker](../MissionTimeTracker) · [BasicMissionTimer](../BasicMissionTimer)
+- Host: [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [MissionLogic](../MissionLogic)
+- Network: [SynchronizeMissionTimeTracker](../../campaign-ext/SynchronizeMissionTimeTracker) · [MissionResult](../../core-extra/MissionResult)
+- Contract: [Doc Contract](../../../architecture/doc-contract)
+- 中文/English: [MissionTimer](../../../../zh/api/mission-ext/MissionTimer)

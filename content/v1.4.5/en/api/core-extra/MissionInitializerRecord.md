@@ -1,44 +1,92 @@
 ---
 title: "MissionInitializerRecord"
-description: "Auto-generated class reference for MissionInitializerRecord."
+description: "The scene, campaign-mode, map-patch, and rendering initialization record passed when a Mission is opened; it configures creation rather than representing a running Mission."
 ---
+
 # MissionInitializerRecord
 
-**Namespace:** TaleWorlds.Core
-**Module:** TaleWorlds.Core
-**Type:** `public struct MissionInitializerRecord`
-**Base:** none
-**File:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionInitializerRecord.cs`
+**Namespace:** `TaleWorlds.Core`  
+**Module:** `TaleWorlds.Core`  
+**Type:** `public struct MissionInitializerRecord(string name)`  
+**Base:** `ISerializableObject` (explicit implementation)  
+**Source:** `bin/TaleWorlds.Core/TaleWorlds.Core/MissionInitializerRecord.cs`
 
-## Overview
+## Responsibility
 
-`MissionInitializerRecord` lives in `TaleWorlds.Core` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+It packages the scene name and opening parameters passed to `MissionState.OpenNew`, telling the engine which scene, levels, and mission environment to initialize.
 
-## Mental Model
+## Mental model
 
-Start from namespace `TaleWorlds.Core` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+This is a **pre-Mission initialization value**, not the runtime state of a `Mission`. An opening factory normally constructs it, and `MissionState` passes it into native mission initialization. Once the mission is running, mod code should use `Mission.Current` and `MissionBehavior` for runtime objects rather than treating this record as a scene handle.
 
-## Key Methods
+The usual entry is `new MissionInitializerRecord(scene)` followed by an object initializer for the fields relevant to that scene. The `MissionState.OpenNew` delegate creates the behavior array; this record does not create Agents, Teams, or MissionBehaviors. Campaign code also receives it in `Campaign.OnMissionIsStarting(string, MissionInitializerRecord)` and can use `PlayingInCampaignMode` to distinguish campaign missions.
 
-### MissionInitializerRecord
-`public struct MissionInitializerRecord(string name)`
+## When to use it
 
-**Purpose:** Executes the MissionInitializerRecord logic.
+Use it when opening a scene-backed Mission through `MissionState.OpenNew` or a `CampaignMission` entry point, especially when the scene needs explicit levels, terrain, map-patch, campaign-atmosphere, corpse, or loading-screen settings.
+
+Do not use it to find Agents, Teams, or the current Mission; use `Mission.Current`. Do not use it as a save-game DTO: its explicit `SerializeTo` writes only the subset and order defined by the source. Public fields are not automatically equivalent to persistent mod data. Setting the record also does not mean that Agents have finished loading; behavior callbacks must still respect the Mission lifecycle.
+
+## Fields and side effects
+
+| Field | Purpose and boundary |
+|---|---|
+| `SceneName` | Scene name supplied to the engine. |
+| `SceneLevels` | Scene level/layer string; it must match the scene and factory convention. |
+| `TerrainType` | Terrain input; do not guess integer values without the engine/scene contract. |
+| `NeedsRandomTerrain` / `RandomTerrainSeed` | Requests random terrain and its seed where the Mission supports it. |
+| `DamageToFriendsMultiplier` / `DamageFromPlayerToFriendsMultiplier` | Opening damage parameters, not a runtime replacement for battle damage logic. |
+| `PlayingInCampaignMode` | Campaign marker consumed by Campaign mission-start handling. |
+| `EnableSceneRecording` | Requests scene recording and may affect engine-side work/output. |
+| `SceneUpgradeLevel` | Scene upgrade level expected by the scene/module. |
+| `SceneHasMapPatch` / `PatchCoordinates` / `PatchEncounterDir` | Map-patch presence, coordinates, and encounter direction; set them together only for a map-patch mission. |
+| `DoNotUseLoadingScreen` | Requests no loading screen; it does not prove that scene loading is complete. |
+| `DisableDynamicPointlightShadows` / `DisableCorpseFadeOut` | Rendering and corpse-cleanup switches; they do not decide the battle result. |
+| `DecalAtlasGroup` | Decal atlas group used by the scene; follow the concrete mission factory. |
+| `AtmosphereOnCampaign` | Campaign atmosphere information; it is serialized only when `IsValid` is true. |
+
+The explicit `ISerializableObject.SerializeTo` and `DeserializeFrom` implementations define an engine boundary. Do not turn this record into a general save container or change its field meanings while expecting old missions or network peers to remain compatible.
+
+## Dependencies
+
+- **Creation:** [`Mission`](../../mission/Mission) is hosted by the state created through `MissionState.OpenNew`; campaign entry points may go through `CampaignMission` first.
+- **Parallel input:** the factory's `InitializeMissionBehaviorsDelegate` returns [`MissionBehavior`](../../mission/MissionBehavior) objects; the record does not register them.
+- **Downstream consumer:** `Campaign.OnMissionIsStarting` reads the record; after initialization, behaviors use [`Mission.Current`](../../mission/Mission) for runtime state.
+- **Related result flow:** [`MissionLogic`](../../mission-ext/MissionLogic) and [`MissionResult`](../MissionResult) handle outcomes; this record does not produce a result.
+
+## Real example
+
+This follows the real `BannerlordMissions.OpenCustomBattleMission` entry shape: construct the record from a scene name, then pass it to `MissionState.OpenNew`. An empty behavior array is a valid minimal shape; a real mission normally returns its own `MissionBehavior` instances.
 
 ```csharp
-// Obtain an instance of MissionInitializerRecord from the subsystem API first
-MissionInitializerRecord missionInitializerRecord = ...;
-var result = missionInitializerRecord.MissionInitializerRecord("example");
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public static Mission OpenMission(string scene)
+{
+    return MissionState.OpenNew(
+        "CustomBattle",
+        new MissionInitializerRecord(scene)
+        {
+            PlayingInCampaignMode = false,
+            SceneLevels = ""
+        },
+        (Mission mission) => new MissionBehavior[0]);
+}
 ```
 
-## Usage Example
+The real campaign consumption point is `Campaign.OnMissionIsStarting`: it receives the same record and raises campaign mission-start handling when `rec.PlayingInCampaignMode` is true. That callback is for mission-start processing, not for retaining the record across missions.
 
-```csharp
-// Typically call this after obtaining an instance from the subsystem API
-MissionInitializerRecord missionInitializerRecord = ...;
-missionInitializerRecord.MissionInitializerRecord("example");
-```
+## Risks
 
-## See Also
+1. A `SceneName`, `SceneLevels`, or map-patch combination that does not match the resources fails at the scene-initialization boundary; a later tick callback cannot repair it.
+2. `DoNotUseLoadingScreen` changes presentation only. Reading incomplete Agents or Teams during `Initializing` is still unsafe.
+3. The explicit record serializer is not Campaign behavior `SyncData` and is not `[SaveableField]`; it must not hold a mod's long-lived save data.
+4. Fixed-length strings and native-layout fields cross the managed/native boundary. Do not put arbitrary long text or unsupported objects in the record.
 
-- [Area Index](../)
+## Navigation
+
+- Parent: [core-extra index](../)
+- Siblings: [`MissionMode`](../MissionMode) · [`MissionResult`](../MissionResult)
+- Related entry points: [`Mission`](../../mission/Mission) · [`MissionBehavior`](../../mission/MissionBehavior) · [`MissionLogic`](../../mission-ext/MissionLogic)
+- Architecture: [developer roadmap](../../../architecture/developer-roadmap) · [documentation contract](../../../architecture/doc-contract)

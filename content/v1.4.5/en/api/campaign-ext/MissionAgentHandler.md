@@ -1,311 +1,108 @@
 ---
 title: "MissionAgentHandler"
-description: "Auto-generated class reference for MissionAgentHandler."
+description: "MissionAgentHandler is the SandBox mission logic that indexes usable points, spawns location characters, and maintains campaign-location Agent flow."
 ---
 # MissionAgentHandler
 
-**Namespace:** SandBox.Missions.MissionLogics
-**Module:** SandBox.Missions
-**Type:** `public class MissionAgentHandler : MissionLogic`
-**Base:** `MissionLogic`
-**File:** `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionAgentHandler.cs`
+**Namespace:** SandBox.Missions.MissionLogics  
+**Module:** SandBox.Missions  
+**Type:** public class MissionAgentHandler : MissionLogic  
+**Base:** [MissionLogic](../../mission-ext/MissionLogic)  
+**Source file:** Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/MissionAgentHandler.cs
 
-## Overview
+## One-sentence responsibility
 
-`MissionAgentHandler` is a handler used to run agreed response logic when a specific event occurs.
+It turns scene UsableMachine and campaign LocationCharacter data into spawn-point lookup, Agent spawning/simulation, passage use, and location transition behavior.
 
 ## Mental Model
 
-Treat `MissionAgentHandler` as a Handler-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is a SandBox mission behavior, not a generic Agent service. Each applicable SandBox mission factory inserts one MissionAgentHandler into the behavior array passed to MissionState.OpenNew; EarlyStart indexes scene props and may build paired animation-point lists, while OnMissionTick advances passage usage and delayed wandering-agent spawns. The handler dictionaries are keyed by spawn tags and contain UsableMachine objects discovered from the current mission scene. Its public methods are useful only while the same Mission and campaign location are alive.
 
-## Key Properties
+TownPassageProps is the subset stored under the npc_passage tag. UsablePoints returns a newly assembled list from normal and paired dictionaries, so changing that returned list does not change the handler index. Spawn methods consume point availability and campaign character origins; they are not a replacement for Agent construction in battle missions.
 
-| Name | Signature |
-|------|-----------|
-| `TownPassageProps` | `public List<UsableMachine> TownPassageProps { get; }` |
-| `UsablePoints` | `public List<UsableMachine> UsablePoints { get; }` |
+## When to use and when not to use
 
-## Key Methods
+- Use the behavior already attached to Mission.Current when a town, indoor, village, hideout, conversation, or disguise mission needs location Agents or usable-point lookup.
+- Use FindUnusedPointWithTagForAgent, FindUnusedPoints, and FindAllUnusedPoints to respect StandingPoint occupancy and Agent-specific disable rules.
+- Use SpawnLocationCharacters only after CampaignMission.Current.Location and the location mission behaviors are ready.
+- Do not construct this handler in a campaign behavior or use it as a global spawn manager; its indexes belong to one scene/Mission.
+- Do not treat UsablePoints as persistent data, and do not pass Agents or LocationCharacter objects from a finished Mission.
 
-### HasPassages
-`public bool HasPassages()`
+## Dependencies
 
-**Purpose:** Determines whether the this instance already holds passages.
+Mission factory -> MissionState.OpenNew -> MissionAgentHandler in Mission behaviors -> tag indexes and paired points -> LocationCharacter/Agent spawning -> OnEndMission clears indexes.
 
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.HasPassages();
-```
+- Owner: [Mission](../../mission/Mission) stores the behavior and its live Agent/scene context.
+- Mission base: [MissionLogic](../../mission-ext/MissionLogic) supplies the mission callback lifecycle.
+- Campaign context: [CampaignMission](../../campaign/CampaignMission) supplies the active Location used by location spawning.
+- Usable-point model: [UsableMachine](../../mission-ext/UsableMachine) contains StandingPoint candidates and occupancy state.
+- Factory composition: [SandBoxMissions](../SandBoxMissions) adds this behavior to applicable mission types.
 
-### EarlyStart
-`public override void EarlyStart()`
+## Public surface and lifecycle
 
-**Purpose:** Executes the EarlyStart logic.
+| Area | Members | Source-backed meaning |
+| --- | --- | --- |
+| Point collections | TownPassageProps, DisabledPassages, UsablePoints | Read the normal passage, unavailable passage, and combined usable-machine collections for this Mission. |
+| Availability | HasPassages, HasUsablePointWithTag, GetAllSpawnTags, GetAllUsablePointsWithTag | Inspect the tag index without creating Agents. |
+| Selection | FindUnusedUsablePointCount, FindUnusedPointWithTagForAgent, FindUnusedPoints, FindAllUnusedPoints | Count or select points while checking used spawn points, users, moving Agents, and Agent-specific disable state. |
+| Location spawning | SpawnLocationCharacters, SpawnDefaultLocationCharacter, SpawnWanderingAgent, SpawnWanderingAgentWithDelay, SpawnWanderingAgentWithInitialFrame | Spawn campaign location characters at scene points; delay requires a positive timer. |
+| Transition | FadeoutExitingLocationCharacter, SpawnEnteringLocationCharacter | Fade or spawn a location character when the campaign location changes. |
+| Simulation | SimulateAgent | Runs a short local Agent/navigation simulation for an already spawned human Agent. |
+| Positioning | TeleportTargetAgentNearReferenceAgent | Repositions an Agent and optionally followers around a reference Agent. |
+| Diagnostics | DetectMissingEntities | DEBUG-only check for character target tags versus available points. |
+| Static presentation | GetRandomTournamentTeamColor, GetAgentSettlementColors, GetPointCountOfUsableMachine | Utility calculations used by location/tournament presentation and point accounting. |
 
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.EarlyStart();
-```
+EarlyStart calls GetAllProps, initializes passage usage 30 seconds ahead, and only initializes paired usable objects when the current weather is not one of the excluded weather values. OnEndMission clears all point dictionaries, disabled passages, and used spawn points.
 
-### OnRenderingStarted
-`public override void OnRenderingStarted()`
+## Real example
 
-**Purpose:** Invoked when the rendering started event is raised.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.OnRenderingStarted();
-```
-
-### OnMissionTick
-`public override void OnMissionTick(float dt)`
-
-**Purpose:** Invoked when the mission tick event is raised.
+This follows the acquisition path used by SandBox mission logic: obtain the handler from the current Mission, then query a real scene tag and the current Agent.
 
 ```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.OnMissionTick(0);
+using System.Collections.Generic;
+using SandBox.Missions.MissionLogics;
+using SandBox.Objects.Usables;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.MountAndBlade;
+
+public static List<UsableMachine> GetFreePassageCandidates(Agent agent)
+{
+    List<UsableMachine> empty = new List<UsableMachine>();
+    Mission mission = Mission.Current;
+    MissionAgentHandler handler = mission?.GetMissionBehavior<MissionAgentHandler>();
+    if (handler == null || agent == null || CampaignMission.Current == null || CampaignMission.Current.Location == null)
+    {
+        return empty;
+    }
+
+    List<UsableMachine> tagged = handler.GetAllUsablePointsWithTag("npc_passage");
+    UsableMachine preferred = handler.FindUnusedPointWithTagForAgent(agent, "npc_passage");
+    if (preferred != null && !tagged.Contains(preferred))
+    {
+        tagged.Add(preferred);
+    }
+
+    return tagged;
+}
 ```
 
-### OnMissionModeChange
-`public override void OnMissionModeChange(MissionMode oldMissionMode, bool atStart)`
+The returned list is a query result. The actual spawn path remains SpawnLocationCharacters or one of the spawn methods, and those paths require the location mission to have supplied real LocationCharacter and scene data.
 
-**Purpose:** Invoked when the mission mode change event is raised.
+## Risks and boundaries
 
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.OnMissionModeChange(oldMissionMode, false);
-```
+- EarlyStart assumes campaign settlement/weather context and a scene whose usable machines have been loaded. Calling public methods on a detached handler is not a valid initialization path.
+- SpawnLocationCharacters reads CampaignMission.Current.Location, emits campaign receiver callbacks, temporarily deactivates passages, and simulates existing Agents. It can change both scene and campaign-facing state.
+- SpawnWanderingAgentWithDelay asserts that delay is greater than zero; use SpawnWanderingAgent or the initial-frame overload when no delay is required.
+- FindUnused methods are occupancy-sensitive. A point can be present in the tag index while unavailable because it has a user, a moving Agent, a used spawn marker, or an Agent-specific disable rule.
+- TeleportTargetAgentNearReferenceAgent can move Agents and followers. Use it only during an active mission transition, not from a campaign tick after mission teardown.
+- OnEndMission clears indexes. Do not cache UsableMachine lists or Agents as persistent campaign state.
 
-### OnAgentRemoved
-`public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)`
+## Version note
 
-**Purpose:** Invoked when the agent removed event is raised.
+This page follows the v1.4.5 SandBox implementation and its use from town, indoor, village, hideout, conversation, disguise, and location mission logic. Recheck tag names, weather gates, and spawn behavior when targeting another version.
 
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.OnAgentRemoved(affectedAgent, affectorAgent, agentState, killingBlow);
-```
+## Navigation
 
-### DetectMissingEntities
-`public void DetectMissingEntities()`
-
-**Purpose:** Executes the DetectMissingEntities logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.DetectMissingEntities();
-```
-
-### FindUnusedUsablePointCount
-`public Dictionary<string, int> FindUnusedUsablePointCount()`
-
-**Purpose:** Looks up the matching unused usable point count in the current collection or scope.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.FindUnusedUsablePointCount();
-```
-
-### SpawnLocationCharacters
-`public void SpawnLocationCharacters(string overridenTagValue = null)`
-
-**Purpose:** Executes the SpawnLocationCharacters logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.SpawnLocationCharacters("example");
-```
-
-### SpawnDefaultLocationCharacter
-`public Agent SpawnDefaultLocationCharacter(LocationCharacter locationCharacter, bool simulateAgentAfterSpawn = false)`
-
-**Purpose:** Executes the SpawnDefaultLocationCharacter logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.SpawnDefaultLocationCharacter(locationCharacter, false);
-```
-
-### SimulateAgent
-`public void SimulateAgent(Agent agent)`
-
-**Purpose:** Executes the SimulateAgent logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.SimulateAgent(agent);
-```
-
-### FadeoutExitingLocationCharacter
-`public void FadeoutExitingLocationCharacter(LocationCharacter locationCharacter)`
-
-**Purpose:** Executes the FadeoutExitingLocationCharacter logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.FadeoutExitingLocationCharacter(locationCharacter);
-```
-
-### SpawnEnteringLocationCharacter
-`public void SpawnEnteringLocationCharacter(LocationCharacter locationCharacter, Location fromLocation)`
-
-**Purpose:** Executes the SpawnEnteringLocationCharacter logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.SpawnEnteringLocationCharacter(locationCharacter, fromLocation);
-```
-
-### HasUsablePointWithTag
-`public bool HasUsablePointWithTag(string tag)`
-
-**Purpose:** Determines whether the this instance already holds usable point with tag.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.HasUsablePointWithTag("example");
-```
-
-### GetAllSpawnTags
-`public IEnumerable<string> GetAllSpawnTags()`
-
-**Purpose:** Reads and returns the all spawn tags value held by the this instance.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.GetAllSpawnTags();
-```
-
-### GetAllUsablePointsWithTag
-`public List<UsableMachine> GetAllUsablePointsWithTag(string tag)`
-
-**Purpose:** Reads and returns the all usable points with tag value held by the this instance.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.GetAllUsablePointsWithTag("example");
-```
-
-### SpawnWanderingAgent
-`public Agent SpawnWanderingAgent(LocationCharacter locationCharacter)`
-
-**Purpose:** Executes the SpawnWanderingAgent logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.SpawnWanderingAgent(locationCharacter);
-```
-
-### SpawnWanderingAgentWithDelay
-`public void SpawnWanderingAgentWithDelay(LocationCharacter locationCharacter, MatrixFrame matrixFrame, GameEntity spawnEntity, bool noHorses = true, bool hasTorch = false, float delay = 3f)`
-
-**Purpose:** Executes the SpawnWanderingAgentWithDelay logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.SpawnWanderingAgentWithDelay(locationCharacter, matrixFrame, spawnEntity, false, false, 0);
-```
-
-### SpawnWanderingAgentWithInitialFrame
-`public Agent SpawnWanderingAgentWithInitialFrame(LocationCharacter locationCharacter, MatrixFrame spawnPointFrame, WeakGameEntity spawnEntity, bool noHorses = true, bool hasTorch = false)`
-
-**Purpose:** Executes the SpawnWanderingAgentWithInitialFrame logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.SpawnWanderingAgentWithInitialFrame(locationCharacter, spawnPointFrame, spawnEntity, false, false);
-```
-
-### GetRandomTournamentTeamColor
-`public static uint GetRandomTournamentTeamColor(int teamIndex)`
-
-**Purpose:** Reads and returns the random tournament team color value held by the this instance.
-
-```csharp
-// Static call; no instance required
-MissionAgentHandler.GetRandomTournamentTeamColor(0);
-```
-
-### FindUnusedPointWithTagForAgent
-`public UsableMachine FindUnusedPointWithTagForAgent(Agent agent, string tag)`
-
-**Purpose:** Looks up the matching unused point with tag for agent in the current collection or scope.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.FindUnusedPointWithTagForAgent(agent, "example");
-```
-
-### FindUnusedPoints
-`public List<UsableMachine> FindUnusedPoints(string tag)`
-
-**Purpose:** Looks up the matching unused points in the current collection or scope.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.FindUnusedPoints("example");
-```
-
-### FindAllUnusedPoints
-`public List<UsableMachine> FindAllUnusedPoints(Agent agent, string primaryTag)`
-
-**Purpose:** Looks up the matching all unused points in the current collection or scope.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-var result = missionAgentHandler.FindAllUnusedPoints(agent, "example");
-```
-
-### TeleportTargetAgentNearReferenceAgent
-`public void TeleportTargetAgentNearReferenceAgent(Agent referenceAgent, Agent teleportAgent, bool teleportFollowers, bool teleportOpposite)`
-
-**Purpose:** Executes the TeleportTargetAgentNearReferenceAgent logic.
-
-```csharp
-// Obtain an instance of MissionAgentHandler from the subsystem API first
-MissionAgentHandler missionAgentHandler = ...;
-missionAgentHandler.TeleportTargetAgentNearReferenceAgent(referenceAgent, teleportAgent, false, false);
-```
-
-### GetPointCountOfUsableMachine
-`public static int GetPointCountOfUsableMachine(UsableMachine usableMachine, bool checkForUnusedOnes)`
-
-**Purpose:** Reads and returns the point count of usable machine value held by the this instance.
-
-```csharp
-// Static call; no instance required
-MissionAgentHandler.GetPointCountOfUsableMachine(usableMachine, false);
-```
-
-## Usage Example
-
-```csharp
-var behavior = Mission.Current.GetMissionBehavior<MissionAgentHandler>();
-```
-
-## See Also
-
-- [Area Index](../)
+- Parent: [Campaign extension API](../)
+- Siblings: [CampaignMissionComponent](../CampaignMissionComponent) · [UsableMachine](../../mission-ext/UsableMachine)
+- Related: [Mission](../../mission/Mission) · [MissionLogic](../../mission-ext/MissionLogic) · [CampaignMission](../../campaign/CampaignMission) · [UsableMachineAIBase](../../mission-ext/UsableMachineAIBase)

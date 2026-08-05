@@ -52,7 +52,17 @@ description: "打开 Mission 时传给引擎的场景、战役模式、地图补
 | `DecalAtlasGroup` | 场景使用的 decal 图集组；应沿用实际 Mission 工厂的值。 |
 | `AtmosphereOnCampaign` | 战役大气信息；只有 `IsValid` 时显式序列化。 |
 
-记录的 `ISerializableObject.SerializeTo` / `DeserializeFrom` 是显式实现，且写入顺序由引擎契约决定。不要自行把它当作通用存档字段容器，也不要改变字段语义后期待旧任务或网络端自动兼容。
+记录的 `ISerializableObject.SerializeTo` / `DeserializeFrom` 是显式实现，且写入顺序由引擎契约决定。1.4.5 中它们并不是对所有公开字段做对称复制：序列化会写入 `SceneName`、`SceneLevels`、固定的 `6f`、随机地形设置、记录与升级设置、战役/加载/渲染开关、`DecalAtlasGroup`，以及可选的有效大气信息；反序列化会读取名称、消费并丢弃那个浮点数、读取对应的一部分开关，却不会读取 `DecalAtlasGroup`、地形/伤害字段或地图补丁字段。应把它视为版本相关的引擎/线协议，而不是可完整往返的存档 DTO。
+
+## 进入引擎的交接链
+
+打开 Mission 时可以把链路分成三层：
+
+1. 战役调用方可以使用 [`CampaignMission`](../../campaign/CampaignMission) 或它的 [`ICampaignMission`](../../campaign/ICampaignMission) 管理器。例如 `CampaignMission.OpenBattleMission(rec)` 会转发到 `Campaign.Current.CampaignMissionManager.OpenBattleMission(rec)`，并返回 `IMission`。
+2. 直接的任务调用方使用 [`MissionState`](../../campaign-ext/MissionState)。`MissionState.OpenNew` 会先调用 `Game.Current.OnMissionIsStarting`，创建 `MissionState`，构造 [`Mission`](../../mission/Mission)，挂载行为列表，然后把状态压入状态栈。
+3. 在 `Mission.Initialize` 中，托管任务把原生指针和记录按引用交给内部的 [`IMBMission`](../../mission/IMBMission) 桥接接口：`MBAPI.IMBMission.InitializeMission(Pointer, ref rec)`。这里是场景和原生初始化选项离开托管 `Mission` 层的边界；mod 应在这个调用前配置记录，而不是在场景加载后试图改变初始化字段。
+
+Campaign 的 `Campaign.OnMissionIsStarting(string, MissionInitializerRecord)` 会读取 `PlayingInCampaignMode`。这是早期通知点，不代表它长期持有这条记录。
 
 ## 依赖关系
 
@@ -82,13 +92,13 @@ public static Mission OpenMission(string scene)
 }
 ```
 
-战役侧的真实消费点是 `Campaign.OnMissionIsStarting`：它接收同一条记录，并在 `rec.PlayingInCampaignMode` 为真时触发战役事件。这个回调适合做战役开场通知，不适合缓存记录跨 Mission 使用。
+战役侧的真实消费点是 `Campaign.OnMissionIsStarting`：它接收同一条记录，并在 `rec.PlayingInCampaignMode` 为真时触发战役事件。`MissionState.OpenNew` 创建任务后，`Mission.Initialize` 还会把记录按引用转交给 `MBAPI.IMBMission.InitializeMission`；这就是为什么在场景已经创建后修改本地副本不会重新配置场景。这个回调适合做战役开场处理，不适合缓存记录跨 Mission 使用。
 
 ## 风险与崩溃边界
 
 1. `SceneName`、`SceneLevels` 或地图补丁参数与资源不匹配时，失败发生在场景初始化边界，不能靠 MissionBehavior 的 tick 修复。
 2. `DoNotUseLoadingScreen` 只改变加载表现；在 `Initializing` 阶段访问尚未创建或尚未完成加载的 Agent/Team 仍然可能得到不完整状态。
-3. 记录的显式序列化不是 Campaign 行为的 `SyncData`，也不是 `[SaveableField]`。不要用它保存 mod 自己的长期存档数据。
+3. 记录的显式序列化不是 Campaign 行为的 `SyncData`，也不是 `[SaveableField]`。由于 1.4.5 的读写路径覆盖字段不同，把它当作 mod 存档容器可能静默丢失设置，或者让假定完整往返的消费者错位读取。
 4. 固定长度字符串和原生结构字段属于托管到引擎的边界；不要把任意长文本或不受支持的对象塞进记录。
 
 ## 导航

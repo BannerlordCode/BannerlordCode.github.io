@@ -25,7 +25,7 @@ description: "v1.4.5 中由 MapEvent 嵌套声明的枚举，供遭遇模型、�
 ## 什么时候用，什么时候不要用
 
 - **用于按当前 Campaign 状态分支：** 读取 `MapEvent.EventType`，在发放奖励、更新 UI、选择部队或输出诊断前处理对应流程。
-- **使用现有创建 API：** `StartBattleAction.Apply(...)` 及其专用包装会选择类型并创建/加入正确事件；`MapEventManager.StartSiegeMapEvent(...)` 等方法是指定地图事件的直接管理器入口。
+- **使用现有创建 API：** `StartBattleAction.Apply` 及其专用包装会选择类型并创建/加入正确事件；`MapEventManager.StartSiegeMapEvent` 等方法是指定地图事件的直接管理器入口。
 - **不要把它实例化成独立类型：** `BattleTypes` 没有自己的对象生命周期。应写 `MapEvent.BattleTypes.Raid`，而不是 `new BattleTypes()` 或虚构的 `TaleWorlds.CampaignSystem.MapEvents.BattleTypes` 类。
 - **不要把它当作 Mission 类型：** `Siege`、`SallyOut` 和 `BlockadeBattle` 是 Campaign 事件分类；Mission 投影由玩家遭遇和 Campaign mission 代码在后续边界处理，枚举本身不会创建 Mission。
 - **不要写 `MapEvent.EventType`：** 它只是对私有字段的 getter。强行改变类型会跳过组件初始化、参战方选择、据点转换和围城 bookkeeping。
@@ -33,17 +33,12 @@ description: "v1.4.5 中由 MapEvent 嵌套声明的枚举，供遭遇模型、�
 
 ## 依赖关系
 
-```text
-StartBattleAction / EncounterModel
-  -> 选择 MapEvent.BattleTypes
-  -> MapEvent.Initialize(...) -> MapEvent.EventType
-MapEvent.BattleTypes
-  -> MapEventComponent / 模拟规则 / 据点参战方选择
-  -> SiegeEvent.GetInvolvedPartiesForEventType(...)
-MapEvent.FinalizeEventAux()
-  -> SiegeEvent.OnBeforeSiegeEventEnd(..., battleType)
-  -> CampaignEventDispatcher.SiegeCompleted(..., battleType)
-```
+关键依赖流程是：
+
+1. [StartBattleAction](../../campaign-ext/StartBattleAction) 和 [EncounterModel](../EncounterModel) 选择 `MapEvent.BattleTypes` 并传入 `MapEvent.Initialize(...)`，再由 `MapEvent.EventType` 暴露当前值。
+2. `MapEvent.BattleTypes` 选择 [MapEventComponent](../MapEventComponent)、模拟规则和据点参战方。
+3. [SiegeEvent](../SiegeEvent) 在 `GetInvolvedPartiesForEventType(...)` 中消费这个类型。
+4. `MapEvent.FinalizeEventAux()` 把类型传给 `SiegeEvent.OnBeforeSiegeEventEnd(...)` 和 `CampaignEventDispatcher.SiegeCompleted(...)`。
 
 - **创建与选择：** [StartBattleAction](../../campaign-ext/StartBattleAction)、[EncounterModel](../EncounterModel)、[MapEventManager](../MapEventManager) 以及 MapEvents 命名空间下的事件组件。
 - **持有与读取：** [MapEvent](../MapEvent) 暴露 `EventType`；[MapEventSide](../MapEventSide)、[Settlement](../Settlement) 和遭遇模型使用它选择参战方与模拟规则。
@@ -62,14 +57,14 @@ MapEvent.FinalizeEventAux()
 | `Raid` | `2` | 对据点的劫掠。`ApplyStartRaid` 与 `RaidEventComponent.CreateRaidEvent` 使用它；劫掠组件负责村庄伤害和专用结算。 |
 | `IsForcingVolunteers` | `3` | 强征志愿兵的村庄遭遇。匹配的组件在初始化时把村庄切换到强征志愿兵状态，结算时再恢复正常。 |
 | `IsForcingSupplies` | `4` | 强征物资的村庄遭遇。匹配的组件负责强征物资状态和完成回调。 |
-| `Siege` | `5` | 对 fortified settlement 的城墙攻坚。`MapEventManager.StartSiegeMapEvent` 和 `StartBattleAction.ApplyStartAssaultAgainstWalls` 使用它；`SiegeEvent` 在攻城状态收尾时把它解释为攻坚。 |
+| `Siege` | `5` | 对设防据点的城墙攻坚。`MapEventManager.StartSiegeMapEvent` 和 `StartBattleAction.ApplyStartAssaultAgainstWalls` 使用它；`SiegeEvent` 在攻城状态收尾时把它解释为攻坚。 |
 | `Hideout` | `6` | 藏身处战斗。`HideoutEventComponent.CreateHideoutEvent` 使用它，并提供藏身处专用的结算状态。 |
 | `SallyOut` | `7` | 据点驻军/防守方出城迎战围攻方。`ApplyStartSallyOut` 和 `MapEventManager.StartSallyOutMapEvent` 使用它。 |
 | `SiegeOutside` | `8` | 围绕被围据点、但防守方不是据点 Party 的外部战斗。`StartBattleAction.Apply` 和 `StartSiegeOutsideMapEvent` 使用它。 |
-| `BlockadeBattle` | `9` | 对海上封锁的海战。进攻方在海上且目标是港口时，`StartBattleAction.Apply` 选择它；`BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(..., isSallyOut: false)` 创建对应组件路径。 |
+| `BlockadeBattle` | `9` | 对海上封锁的海战。进攻方在海上且目标是港口时，`StartBattleAction.Apply` 选择它；`CreateBlockadeBattleMapEvent` 的 `isSallyOut: false` 重载创建对应组件路径。 |
 | `BlockadeSallyOutBattle` | `10` | 针对海上封锁的出城/出港战。同一封锁组件工厂以 `isSallyOut: true` 使用它，`StartBattleAction.Apply` 也会在对应驻军/港口上下文中选择它。 |
 
-### 相关的 `MapEvent` 成员
+**相关的 `MapEvent` 成员。**
 
 `MapEvent.EventType` 是公开的当前类型读取入口。`IsFieldBattle`、`IsRaid`、`IsForcingVolunteers`、`IsForcingSupplies`、`IsSiegeAssault`、`IsHideoutBattle`、`IsSallyOut`、`IsSiegeOutside`、`IsBlockade` 和 `IsBlockadeSallyOut` 这些布尔属性，分别把私有字段与对应嵌套枚举值比较。随后 `MapEvent.SimulationContext` 和事件组件依据流程选择模拟规则；这些属性都不会改变事件类型。
 
@@ -166,5 +161,4 @@ if (siegeEvent != null && !siegeEvent.ReadyToBeRemoved)
 - **Parent 父级：** [Campaign API](../)
 - **Sibling 同级：** [MapEvent](../MapEvent) · [MapEventState](../MapEventState) · [MapEventManager](../MapEventManager) · [SiegeEvent](../SiegeEvent)
 - **Related 相关：** [StartBattleAction](../../campaign-ext/StartBattleAction) · [EncounterModel](../EncounterModel) · [CampaignEvents](../CampaignEvents) · [CampaignMission](../CampaignMission) · [Mission](../../mission/Mission) · [SaveManager](../../save-system/SaveManager)
-- **双语回链：** [English page](../../../en/api/campaign/BattleTypes)
-
+- **双语回链：** [English page](../../../../en/api/campaign/BattleTypes)

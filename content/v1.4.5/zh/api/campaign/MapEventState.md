@@ -12,21 +12,19 @@ description: "v1.4.5 中由 MapEvent 使用的独立枚举，用于区分初始�
 
 ## 一句话职责
 
-这个独立枚举标记 [MapEvent](../MapEvent) 所处的生命周期阶段，供代码判断事件已经完成初始化、仍在活动中，还是已经结算并等待管理器移除。
+这个独立枚举标记 [MapEvent](../MapEvent) 所处的生命周期阶段，供代码判断事件已经完成初始化、仍在活动中，还是已经结算并等待管理器移除；它只描述状态，不负责创建、推进或结算地图事件，具体变化由 `MapEvent` 的内部生命周期触发。
 
 ## 心智模型
 
 `MapEventState` 不是管理器、战斗胜负结果，也不是开始战斗的指令。`MapEvent` 在自己的可存档 `_state` 字段中持有它，并通过 `MapEvent.State` 暴露；该属性有公开 getter，但 setter 是 private。mod 通常从 `MobileParty.MainParty?.MapEvent`、`Campaign.Current.MapEventManager.MapEvents` 或 Campaign 事件回调中取得并读取它。
 
-v1.4.5 的生命周期可以按下面理解：
+v1.4.5 的生命周期按以下顺序推进：
 
-```text
-new MapEvent（CLR 默认值） -> Begin
-    MapEvent.Initialize(...) -> Wait
-    BeginWait()              -> Wait
-    FinalizeEventAux()       -> WaitingRemoval
-    MapEventManager.Tick()   -> 移除已结算事件
-```
+1. 新构造的 `MapEvent` 使用 CLR 默认值 `Begin`。
+2. `MapEvent.Initialize(...)` 完成内部设置并把状态置为 `Wait`。
+3. 事件恢复到等待阶段时，`BeginWait()` 也会把状态置为 `Wait`。
+4. `FinalizeEventAux()` 开始结算后把状态置为 `WaitingRemoval`。
+5. `MapEventManager.Tick()` 从集合中移除已结算事件。
 
 源码没有显式执行 `State = MapEventState.Begin`。`Begin` 是对象在内部初始化前持有的零值/默认枚举值；`MapEvent.Initialize` 会把状态写成 `Wait`。已经注册的事件通常应在 `Initialize` 之后观察，所以对活动事件有意义的状态是 `Wait`。`WaitingRemoval` 也不等于“对象已经不存在”：`MapEventManager` 会在后续的管理器 tick 中移除已 finalized 的事件。
 
@@ -40,15 +38,12 @@ new MapEvent（CLR 默认值） -> Begin
 
 ## 依赖关系
 
-```text
-Campaign.Current
-  -> MapEventManager -> MapEvent.State -> MapEventState
-StartBattleAction / EncounterModel
-  -> 创建事件并调用内部 Initialize(...) -> Wait
-MapEvent.FinalizeEventAux()
-  -> WaitingRemoval -> CampaignEvents.MapEventEnded
-  -> MapEventManager.Tick() 后续移除事件
-```
+关键依赖流程是：
+
+- `Campaign.Current` 暴露 [MapEventManager](../MapEventManager)，其事件集合提供 `MapEvent.State` 的读取路径。
+- [StartBattleAction](../../campaign-ext/StartBattleAction) 和 [EncounterModel](../EncounterModel) 创建事件并到达内部 `Initialize(...)`，该调用把状态置为 `Wait`。
+- `MapEvent.FinalizeEventAux()` 把状态置为 `WaitingRemoval`，随后分发 [CampaignEvents](../CampaignEvents) 的 `MapEventEnded`。
+- 下一次 [MapEventManager](../MapEventManager) tick 会移除已结算事件。
 
 - **上游：** [Campaign](../Campaign)、[MapEventManager](../MapEventManager)、[StartBattleAction](../../campaign-ext/StartBattleAction) 和 [EncounterModel](../EncounterModel) 建立 Campaign 事件生命周期。
 - **相邻状态：** [MapEvent](../MapEvent) 持有枚举值；[MapEventSide](../MapEventSide)、[MapEventParty](../MapEventParty)、[Settlement](../Settlement) 和 [SiegeEvent](../SiegeEvent) 等对象的清理会跟随结算阶段。
@@ -65,7 +60,7 @@ MapEvent.FinalizeEventAux()
 | `Wait` | `1` | 地图事件活动阶段。`MapEvent.Initialize(...)` 在双方、位置、组件和事件数据准备好后赋值；`BeginWait()` 也会赋值。适合用于活动事件检查。 |
 | `WaitingRemoval` | `2` | 结算已经推进到等待移除阶段。`MapEvent.IsFinalized` 为 true，赋值后随即派发 `CampaignEvents.MapEventEnded`，稍后的 `MapEventManager.Tick()` 才把事件从管理器列表移除。 |
 
-### 唯一承载这个枚举的公开成员
+**唯一承载这个枚举的公开成员。**
 
 `MapEvent.State` 是公开读取入口。它的 setter 是 private，因此这个枚举是观察契约而不是修改 API。若代码只需要判断事件是否仍由管理器保留，使用 `MapEvent.IsFinalized` 即可，它等价于 `State == MapEventState.WaitingRemoval` 的更窄布尔表达。
 
@@ -97,6 +92,7 @@ if (mapEvent != null && mapEvent.State == MapEventState.Wait)
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.MapEvents;
+using TaleWorlds.Library;
 using TaleWorlds.SaveSystem;
 
 public sealed class MapEventStateBehavior : CampaignBehaviorBase
@@ -138,5 +134,4 @@ public sealed class MapEventStateBehavior : CampaignBehaviorBase
 - **Parent 父级：** [Campaign API](../)
 - **Sibling 同级：** [MapEvent](../MapEvent) · [BattleTypes](../BattleTypes) · [MapEventManager](../MapEventManager)
 - **Related 相关：** [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [SiegeEvent](../SiegeEvent) · [StartBattleAction](../../campaign-ext/StartBattleAction) · [Mission](../../mission/Mission)
-- **双语回链：** [English page](../../../en/api/campaign/MapEventState)
-
+- **双语回链：** [English page](../../../../en/api/campaign/MapEventState)

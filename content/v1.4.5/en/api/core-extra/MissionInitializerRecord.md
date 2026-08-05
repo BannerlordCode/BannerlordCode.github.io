@@ -45,7 +45,17 @@ Do not use it to find Agents, Teams, or the current Mission; use `Mission.Curren
 | `DecalAtlasGroup` | Decal atlas group used by the scene; follow the concrete mission factory. |
 | `AtmosphereOnCampaign` | Campaign atmosphere information; it is serialized only when `IsValid` is true. |
 
-The explicit `ISerializableObject.SerializeTo` and `DeserializeFrom` implementations define an engine boundary. Do not turn this record into a general save container or change its field meanings while expecting old missions or network peers to remain compatible.
+The explicit `ISerializableObject.SerializeTo` and `DeserializeFrom` implementations define an engine boundary. In 1.4.5 they are not a symmetric copy of every public field: serialization writes `SceneName`, `SceneLevels`, a fixed `6f`, random-terrain settings, recording and upgrade settings, campaign/loading/rendering flags, `DecalAtlasGroup`, and an optional valid atmosphere payload. Deserialization reads the names, consumes and discards the float, reads only the corresponding subset of flags, and does not read `DecalAtlasGroup`, terrain/damage fields, or map-patch fields. Treat this as a version-specific engine/wire contract, not as a round-trippable save DTO.
+
+## Handoff into the engine
+
+There are three layers in the opening path:
+
+1. A campaign caller can use [`CampaignMission`](../../campaign/CampaignMission) or its [`ICampaignMission`](../../campaign/ICampaignMission) manager. For example, `CampaignMission.OpenBattleMission(rec)` delegates to `Campaign.Current.CampaignMissionManager.OpenBattleMission(rec)` and returns an `IMission`.
+2. A direct mission caller uses [`MissionState`](../../campaign-ext/MissionState). `MissionState.OpenNew` first invokes `Game.Current.OnMissionIsStarting`, creates a `MissionState`, constructs the [`Mission`](../../mission/Mission), attaches the behavior list, and pushes the state.
+3. During `Mission.Initialize`, the managed mission passes its native pointer and the record by reference to the internal [`IMBMission`](../../mission/IMBMission) bridge: `MBAPI.IMBMission.InitializeMission(Pointer, ref rec)`. This is the point where the scene and native initialization options leave the managed `Mission` layer; mod code should configure the record before this call rather than trying to change its initialization fields after loading.
+
+The campaign callback reads `PlayingInCampaignMode` in `Campaign.OnMissionIsStarting(string, MissionInitializerRecord)`. It is an early notification, not ownership of a long-lived record.
 
 ## Dependencies
 
@@ -75,13 +85,13 @@ public static Mission OpenMission(string scene)
 }
 ```
 
-The real campaign consumption point is `Campaign.OnMissionIsStarting`: it receives the same record and raises campaign mission-start handling when `rec.PlayingInCampaignMode` is true. That callback is for mission-start processing, not for retaining the record across missions.
+The real campaign consumption point is `Campaign.OnMissionIsStarting`: it receives the same record and raises campaign mission-start handling when `rec.PlayingInCampaignMode` is true. After `MissionState.OpenNew` creates the mission, `Mission.Initialize` forwards the record by reference to `MBAPI.IMBMission.InitializeMission`; that native handoff is why later edits to a local copy do not reconfigure the already-created scene. The callback is for mission-start processing, not for retaining the record across missions.
 
 ## Risks
 
 1. A `SceneName`, `SceneLevels`, or map-patch combination that does not match the resources fails at the scene-initialization boundary; a later tick callback cannot repair it.
 2. `DoNotUseLoadingScreen` changes presentation only. Reading incomplete Agents or Teams during `Initializing` is still unsafe.
-3. The explicit record serializer is not Campaign behavior `SyncData` and is not `[SaveableField]`; it must not hold a mod's long-lived save data.
+3. The explicit record serializer is not Campaign behavior `SyncData` and is not `[SaveableField]`. Because the 1.4.5 read and write paths cover different fields, using it as a mod save container can silently lose settings or misalign a consumer that assumes a complete round trip.
 4. Fixed-length strings and native-layout fields cross the managed/native boundary. Do not put arbitrary long text or unsupported objects in the record.
 
 ## Navigation

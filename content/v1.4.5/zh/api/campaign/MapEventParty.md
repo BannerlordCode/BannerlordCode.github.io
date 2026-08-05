@@ -18,7 +18,7 @@ description: "v1.4.5 战役层把一个 PartyBase 绑定到 MapEvent 一侧的�
 
 `MapEventParty` 不是第二个 `PartyBase`，也不是通用 `TroopRoster`。它是 [MapEventSide](../MapEventSide) 中的一条参战记录。side 用真实的 `PartyBase` 创建它，然后把该队伍的 `MemberRoster` 快照成 `FlattenedTroopRoster`。模拟或玩家 Mission 期间，唯一 troop descriptor 标识同一批逻辑部队；此记录再跟踪受伤、死亡、溃逃、命中经验、士气影响、战利品去向和战斗贡献。
 
-它的构造函数是 internal。`MapEvent.Initialize` 创建两侧；`MapEventSide.AddPartyInternal` 用真实队伍创建 `MapEventParty`，加入侧列表，再调用 `MapEvent.AddInvolvedPartyInternal` 完成事件 bookkeeping。这个类型没有 `MapEvent` 或 `MapEventSide` 属性；需要判断归属侧时，应枚举 `mapEvent.PartiesOnSide(...)`，或读取已绑定 `PartyBase.Side`，不能按列表位置或队伍当前地图位置猜测。
+它的构造函数是 internal。`MapEvent.Initialize` 创建两侧；`MapEventSide.AddPartyInternal` 用真实队伍创建 `MapEventParty`，加入侧列表，再调用 `MapEvent.AddInvolvedPartyInternal` 完成事件 bookkeeping。这个类型没有 `MapEvent` 或 `MapEventSide` 属性；需要判断归属侧时，应枚举 `mapEvent.PartiesOnSide(BattleSideEnum.Attacker)` 或 `mapEvent.PartiesOnSide(BattleSideEnum.Defender)`，或读取已绑定的 `PartyBase.Side`，不能按列表位置或队伍当前地图位置猜测。
 
 这里有两层 roster。`Party` 及其实时的 `MemberRoster`、`PrisonRoster`、`ItemRoster` 是 Campaign 队伍状态；`Troops` 是事件扁平分配视图，由 `Update()` 重建，并被 `MapEventSide` 和 `PartyGroupTroopSupplier` 消费。Mission Agent 从这个分配视图生成，但最终 roster 的权威仍在 Campaign 队伍。公开的伤亡回调如果由 mod 自己调用，可能把伤亡、经验或士气应用两次；正常调用者是 Mission supplier 和地图事件模拟代码。
 
@@ -73,7 +73,7 @@ MapEventSide.Clear ── 移除事件期间的 MapEventParty 记录
 
 ### 战利品目标 roster
 
-三个 `RosterToReceiveLoot...` 属性会按队伍身份切换目标：
+三个战利品目标属性 `RosterToReceiveLootMembers`、`RosterToReceiveLootPrisoners` 和 `RosterToReceiveLootItems` 会按队伍身份切换目标：
 
 - 对 `PartyBase.MainParty`，`RosterToReceiveLootMembers`、`RosterToReceiveLootPrisoners` 和 `RosterToReceiveLootItems` 分别返回 `PlayerEncounter.Current` 中对应的 roster。
 - 对 NPC 队伍，成员进入 `Party.MemberRoster`，物品进入 `Party.ItemRoster`，俘虏进入 `Party.PrisonRoster`；但 militia 或 garrison 的俘虏会改送到其 home settlement party 的 prison roster。
@@ -148,7 +148,7 @@ if (mapEvent != null && !mapEvent.IsFinalized)
 IMissionTroopSupplier attackers = new PartyGroupTroopSupplier(
     MapEvent.PlayerMapEvent,
     BattleSideEnum.Attacker,
-    priorTroopsForAttackers,
+    null,
     null);
 ```
 

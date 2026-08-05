@@ -25,7 +25,7 @@ The value can be affected by the current event context. During party addition, `
 ## When to use it, and when not to
 
 - **Use it to branch on current Campaign state:** Read `MapEvent.EventType` and handle the type-specific rules before applying rewards, UI, party selection, or diagnostics.
-- **Use it with the existing API:** `StartBattleAction.Apply(...)` or its explicit wrappers choose the type and create/join the correct event; `MapEventManager.StartSiegeMapEvent(...)` and sibling methods are the direct manager paths for specific map events.
+- **Use it with the existing API:** `StartBattleAction.Apply` or its explicit wrappers choose the type and create/join the correct event; `MapEventManager.StartSiegeMapEvent` and sibling methods are the direct manager paths for specific map events.
 - **Do not instantiate it as a type:** `BattleTypes` has no independent object lifecycle. Write `MapEvent.BattleTypes.Raid`, not `new BattleTypes()` or a fictional `TaleWorlds.CampaignSystem.MapEvents.BattleTypes` class.
 - **Do not treat it as a Mission type:** `Siege`, `SallyOut`, and `BlockadeBattle` are Campaign event classifications. Mission projection is a later boundary handled by the player encounter and campaign mission code.
 - **Do not write `MapEvent.EventType`:** `EventType` is a getter over private state. Forcing a different value would skip component initialization, party selection, settlement transitions, and siege bookkeeping.
@@ -33,17 +33,12 @@ The value can be affected by the current event context. During party addition, `
 
 ## Dependencies
 
-```text
-StartBattleAction / EncounterModel
-  -> chooses MapEvent.BattleTypes
-  -> MapEvent.Initialize(...) -> MapEvent.EventType
-MapEvent.BattleTypes
-  -> MapEventComponent / simulation rules / settlement party selection
-  -> SiegeEvent.GetInvolvedPartiesForEventType(...)
-MapEvent.FinalizeEventAux()
-  -> SiegeEvent.OnBeforeSiegeEventEnd(..., battleType)
-  -> CampaignEventDispatcher.SiegeCompleted(..., battleType)
-```
+The key dependency flow is:
+
+1. [StartBattleAction](../../campaign-ext/StartBattleAction) and [EncounterModel](../EncounterModel) choose `MapEvent.BattleTypes` and pass it into `MapEvent.Initialize(...)`, which exposes it through `MapEvent.EventType`.
+2. `MapEvent.BattleTypes` selects the [MapEventComponent](../MapEventComponent), simulation rules, and settlement party selection.
+3. [SiegeEvent](../SiegeEvent) uses the type in `GetInvolvedPartiesForEventType(...)`.
+4. `MapEvent.FinalizeEventAux()` passes the type to `SiegeEvent.OnBeforeSiegeEventEnd(...)` and `CampaignEventDispatcher.SiegeCompleted(...)`.
 
 - **Creation and selection:** [StartBattleAction](../../campaign-ext/StartBattleAction), [EncounterModel](../EncounterModel), [MapEventManager](../MapEventManager), and the event components under the MapEvents namespace.
 - **Owner and readers:** [MapEvent](../MapEvent) exposes `EventType`; [MapEventSide](../MapEventSide), [Settlement](../Settlement), and encounter models use the value to select parties and simulation behavior.
@@ -66,10 +61,10 @@ The source declares no explicit numeric assignments, so v1.4.5 values are sequen
 | `Hideout` | `6` | Hideout battle. `HideoutEventComponent.CreateHideoutEvent` uses it and supplies hideout-specific end-state handling. |
 | `SallyOut` | `7` | The garrison/defender sallying from a settlement against besiegers. It is used by `ApplyStartSallyOut` and `MapEventManager.StartSallyOutMapEvent`. |
 | `SiegeOutside` | `8` | A battle outside a besieged settlement, selected when the parties are interacting around a siege but the defender is not the settlement party. `StartBattleAction.Apply` and `StartSiegeOutsideMapEvent` use it. |
-| `BlockadeBattle` | `9` | Naval battle against a blockade. `StartBattleAction.Apply` selects it for an attacker at sea targeting a port; `BlockadeBattleMapEvent.CreateBlockadeBattleMapEvent(..., isSallyOut: false)` creates the component path. |
+| `BlockadeBattle` | `9` | Naval battle against a blockade. `StartBattleAction.Apply` selects it for an attacker at sea targeting a port; the `CreateBlockadeBattleMapEvent` overload with `isSallyOut: false` creates the component path. |
 | `BlockadeSallyOutBattle` | `10` | Naval sally-out against a blockade. The same blockade component factory uses `isSallyOut: true`, and `StartBattleAction.Apply` selects it for the matching garrison/port context. |
 
-### Related `MapEvent` members
+**Related `MapEvent` members.**
 
 `MapEvent.EventType` is the public current-type getter. The boolean helpers `IsFieldBattle`, `IsRaid`, `IsForcingVolunteers`, `IsForcingSupplies`, `IsSiegeAssault`, `IsHideoutBattle`, `IsSallyOut`, `IsSiegeOutside`, `IsBlockade`, and `IsBlockadeSallyOut` compare that private field against the corresponding nested enum value. `MapEvent.SimulationContext` and event components then use the selected flow to choose simulation rules; none of these helpers changes the event.
 
@@ -166,5 +161,4 @@ This page follows the v1.4.5 decompiled `MapEvent.cs`, `StartBattleAction.cs`, `
 - **Parent:** [Campaign API](../)
 - **Siblings:** [MapEvent](../MapEvent) · [MapEventState](../MapEventState) · [MapEventManager](../MapEventManager) · [SiegeEvent](../SiegeEvent)
 - **Related:** [StartBattleAction](../../campaign-ext/StartBattleAction) · [EncounterModel](../EncounterModel) · [CampaignEvents](../CampaignEvents) · [CampaignMission](../CampaignMission) · [Mission](../../mission/Mission) · [SaveManager](../../save-system/SaveManager)
-- **Language mirror:** [中文页面](../../../zh/api/campaign/BattleTypes)
-
+- **Language mirror:** [中文页面](../../../../zh/api/campaign/BattleTypes)

@@ -18,15 +18,13 @@ This independent enum labels the lifecycle phase held by a [MapEvent](../MapEven
 
 `MapEventState` is not a manager, a battle result, or an instruction to start a fight. `MapEvent` owns the value in its saveable `_state` field and exposes it through `MapEvent.State`; that property has a public getter but a private setter. A mod normally reads the state from an event acquired through `MobileParty.MainParty?.MapEvent`, `Campaign.Current.MapEventManager.MapEvents`, or a Campaign event callback.
 
-In v1.4.5 the lifecycle is:
+In v1.4.5 the lifecycle follows this sequence:
 
-```text
-new MapEvent (CLR default) -> Begin
-    MapEvent.Initialize(...) -> Wait
-    BeginWait()              -> Wait
-    FinalizeEventAux()       -> WaitingRemoval
-    MapEventManager.Tick()   -> removes finalized event
-```
+1. A newly constructed `MapEvent` has the CLR default `Begin`.
+2. `MapEvent.Initialize(...)` completes internal setup and sets `Wait`.
+3. `BeginWait()` also sets `Wait` when the event is resumed into its waiting phase.
+4. `FinalizeEventAux()` sets `WaitingRemoval` after finalization begins.
+5. `MapEventManager.Tick()` removes the finalized event from its collection.
 
 The source does not explicitly assign `State = MapEventState.Begin`. `Begin` is the zero/default enum value held before the internal initialization path writes `Wait`. A registered event should normally be observed after `Initialize`, so `Wait` is the useful active-event state. `WaitingRemoval` is also not the same as “the object no longer exists”: `MapEventManager` removes finalized events on its next manager tick.
 
@@ -40,15 +38,12 @@ The source does not explicitly assign `State = MapEventState.Begin`. `Begin` is 
 
 ## Dependencies
 
-```text
-Campaign.Current
-  -> MapEventManager -> MapEvent.State -> MapEventState
-StartBattleAction / EncounterModel
-  -> MapEvent creation and internal Initialize(...) -> Wait
-MapEvent.FinalizeEventAux()
-  -> WaitingRemoval -> CampaignEvents.MapEventEnded
-  -> MapEventManager.Tick() removes the event
-```
+The key dependency flow is:
+
+- `Campaign.Current` exposes [MapEventManager](../MapEventManager), whose event collection provides the `MapEvent.State` read path.
+- [StartBattleAction](../../campaign-ext/StartBattleAction) and [EncounterModel](../EncounterModel) create the event and reach its internal `Initialize(...)` call, which sets `Wait`.
+- `MapEvent.FinalizeEventAux()` sets `WaitingRemoval` and dispatches [CampaignEvents](../CampaignEvents).`MapEventEnded`.
+- The next [MapEventManager](../MapEventManager) tick removes the finalized event.
 
 - **Upstream:** [Campaign](../Campaign), [MapEventManager](../MapEventManager), [StartBattleAction](../../campaign-ext/StartBattleAction), and [EncounterModel](../EncounterModel) establish the Campaign event lifecycle.
 - **Adjacent state:** [MapEvent](../MapEvent) owns the enum value; [MapEventSide](../MapEventSide), [MapEventParty](../MapEventParty), [Settlement](../Settlement), and [SiegeEvent](../SiegeEvent) are among the objects whose cleanup follows finalization.
@@ -65,7 +60,7 @@ The source declares no explicit numeric assignments, so the v1.4.5 underlying `i
 | `Wait` | `1` | Active map-event phase. `MapEvent.Initialize(...)` assigns it after sides, position, component, and event data are prepared; `BeginWait()` also assigns it. Use this for active-event checks. |
 | `WaitingRemoval` | `2` | Finalization has run far enough to mark the event for removal. `MapEvent.IsFinalized` is true, `CampaignEvents.MapEventEnded` is dispatched immediately after the assignment, and `MapEventManager.Tick()` removes the event later. |
 
-### The only public member that carries this enum
+**The only public member that carries this enum.**
 
 `MapEvent.State` is the public read path. Its setter is private, so the enum is an observation contract rather than a mutation API. `MapEvent.IsFinalized` is the narrower boolean equivalent of `State == MapEventState.WaitingRemoval`; use it when the code only needs to decide whether the event is still retained by the manager.
 
@@ -97,6 +92,7 @@ if (mapEvent != null && mapEvent.State == MapEventState.Wait)
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.MapEvents;
+using TaleWorlds.Library;
 using TaleWorlds.SaveSystem;
 
 public sealed class MapEventStateBehavior : CampaignBehaviorBase
@@ -138,5 +134,4 @@ This page follows the v1.4.5 source in `Bannerlord.Source`. The enum is independ
 - **Parent:** [Campaign API](../)
 - **Siblings:** [MapEvent](../MapEvent) · [BattleTypes](../BattleTypes) · [MapEventManager](../MapEventManager)
 - **Related:** [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [SiegeEvent](../SiegeEvent) · [StartBattleAction](../../campaign-ext/StartBattleAction) · [Mission](../../mission/Mission)
-- **Language mirror:** [中文页面](../../../zh/api/campaign/MapEventState)
-
+- **Language mirror:** [中文页面](../../../../zh/api/campaign/MapEventState)

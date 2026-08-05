@@ -18,7 +18,7 @@ This record is the Campaign-side battle ledger for one `PartyBase`: it keeps a f
 
 `MapEventParty` is not a second `PartyBase`, and it is not a generic `TroopRoster`. It is one participant entry inside a [MapEventSide](../MapEventSide). The side creates it with the actual `PartyBase`, then the entry snapshots that party's `MemberRoster` into a `FlattenedTroopRoster`. During simulation or a player Mission, unique troop descriptors identify the same logical men while the entry records wounded, killed, routed, hit XP, morale effects, loot destinations, and battle contribution.
 
-The constructor is internal. `MapEvent.Initialize` creates the two sides; `MapEventSide.AddPartyInternal` creates a `MapEventParty`, adds it to that side's party list, and calls `MapEvent.AddInvolvedPartyInternal` for event bookkeeping. The object does not expose a `MapEvent` or `MapEventSide` property. To determine its side, enumerate `mapEvent.PartiesOnSide(...)` or use the bound `PartyBase.Side`; do not infer a side from list position or from the party's current world location.
+The constructor is internal. `MapEvent.Initialize` creates the two sides; `MapEventSide.AddPartyInternal` creates a `MapEventParty`, adds it to that side's party list, and calls `MapEvent.AddInvolvedPartyInternal` for event bookkeeping. The object does not expose a `MapEvent` or `MapEventSide` property. To determine its side, enumerate `mapEvent.PartiesOnSide(BattleSideEnum.Attacker)` or `mapEvent.PartiesOnSide(BattleSideEnum.Defender)`, or use the bound `PartyBase.Side`; do not infer a side from list position or from the party's current world location.
 
 The roster has two layers. `Party` and its live `MemberRoster`, `PrisonRoster`, and `ItemRoster` are the Campaign party state. `Troops` is the event's flattened allocation view, rebuilt by `Update()` and consumed by `MapEventSide` and `PartyGroupTroopSupplier`. Mission agents are created from that allocation view, but the Campaign party remains the authority for the final roster. Calling the public callback methods yourself can apply casualties, XP, or morale twice; normal callers are the Mission supplier and the map-event simulation code.
 
@@ -73,7 +73,7 @@ This means a party roster and a map-event roster are related but not interchange
 
 ### Loot destination properties
 
-The three `RosterToReceiveLoot...` properties deliberately switch by party identity:
+The three loot-destination properties, `RosterToReceiveLootMembers`, `RosterToReceiveLootPrisoners`, and `RosterToReceiveLootItems`, deliberately switch by party identity:
 
 - For `PartyBase.MainParty`, `RosterToReceiveLootMembers`, `RosterToReceiveLootPrisoners`, and `RosterToReceiveLootItems` return the corresponding rosters from `PlayerEncounter.Current`.
 - For an NPC party, members go to `Party.MemberRoster`, items go to `Party.ItemRoster`, and prisoners go to `Party.PrisonRoster`, except a militia or garrison party redirects prisoners to its home settlement's party prison roster.
@@ -148,7 +148,7 @@ The second check is intentionally redundant for a normal event: it demonstrates 
 IMissionTroopSupplier attackers = new PartyGroupTroopSupplier(
     MapEvent.PlayerMapEvent,
     BattleSideEnum.Attacker,
-    priorTroopsForAttackers,
+    null,
     null);
 ```
 

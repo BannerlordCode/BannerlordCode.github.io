@@ -1,197 +1,175 @@
 ---
 title: "ClanFinanceModel"
-description: "计算家族（Clan）每日收入、支出与金库净变动，以及城镇关税、村庄贸易税、工坊与车队资产收入的可替换战役经济模型。"
+description: "计算家族每日收入、支出与净额的可替换规则层；通过 applyWithdrawals 选择只预览还是真正拨动税款、贸易金与王国钱包。"
 ---
+
 # ClanFinanceModel
 
-**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public abstract class ClanFinanceModel : MBGameModel<ClanFinanceModel>`  
-**Base:** `MBGameModel<ClanFinanceModel>`  
-**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/ClanFinanceModel.cs`  
-**Default:** `TaleWorlds.CampaignSystem/GameComponents/DefaultClanFinanceModel.cs`
+**命名空间:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**模块:** `TaleWorlds.CampaignSystem`  
+**类型:** `public abstract class ClanFinanceModel : MBGameModel<ClanFinanceModel>`  
+**基类:** `MBGameModel<ClanFinanceModel>`  
+**源文件:** `TaleWorlds.CampaignSystem/ComponentInterfaces/ClanFinanceModel.cs`  
+**默认实现:** `TaleWorlds.CampaignSystem.GameComponents/DefaultClanFinanceModel.cs`
 
 ## 一句话职责
 
-把一个家族及其所有属地、车队、工坊与巷子的累计税收、贸易利润和各项开销，按固定的收入平滑系数摊算成每日可解释的金币净变动，并在每日结算流程中由 GiveGoldAction 落地写入家族金库。
+它回答“这个家族今天净赚还是净亏多少”，把城镇关税、项目产出、村庄、商队、作坊、工资、贡金、债务和王国预算汇总成带可选解释的 `ExplainedNumber`；它负责“算出该动多少金”，而真正把金拨给家族首领的活由 [`GiveGoldAction`](../GiveGoldAction) 完成。
 
 ## 心智模型
 
-这是战役（Campaign）经济层里“家族钱袋子”的规则核心，由 `Campaign.Current.Models.ClanFinanceModel` 持有，默认实现是 `DefaultClanFinanceModel`。它不自己改金币——它是一个计算器：调用方在每日 tick 里拿它的结果，再交给 [`GiveGoldAction`](../GiveGoldAction) 真正落地。
+这是战役每日经济时钟读取前的规则层。`ClanFinanceModel` 不持有任何经济状态，它只是把 [`Clan`](../../campaign/Clan)、[`Town`](../../campaign/Town)、[`Village`](../../campaign/Village)、[`Hero`](../../campaign/Hero)、[`MobileParty`](../../campaign/MobileParty)、[`Workshop`](../../campaign/Workshop) 上已经累积的 `TradeTaxAccumulated`、`PartyTradeGold`、`ProfitMade`、王国钱包和 `DebtToKingdom` 这些“蓄水池”读出来，按 [`RevenueSmoothenFraction`](#revenuesmoothenfraction) 平滑成日额，再加减成家族净变化。
 
-完整链路如下：
+计算链是：`CalculateClanIncome` 累加所有正向来源（城镇税、关税、项目、村庄、商队/队伍贸易利、作坊、 alley、贡金、王国预算、贸易协定、Perk），`CalculateClanExpenses` 累加所有负向来源（队伍与驻军工资、雇佣兵分摊、贡金支出、自动招募、王国预算抽成、债务偿还、作坊亏损），`CalculateClanGoldChange` = 收入 − 支出。
 
-```text
-每日 tick (ClanVariablesCampaignBehavior.DailyTickClan)
-  -> Campaign.Current.Models.ClanFinanceModel.CalculateClanGoldChange(clan, applyWithdrawals: true)
-       -> 累加收入：属地税、车队/工坊、王国预算、贡金、政策、Perk
-       -> 累加支出：队伍/驻军工资、雇佣兵、贡金、债务、自动招募
-       -> 返回 ExplainedNumber（净额 = 收入 - 支出，每项带说明）
-  -> GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, net, disableNotification: true)
-       -> clan.Leader.Gold 改变（即家族金库变化）
-  -> applyWithdrawals:true 时还一并扣减 town.TradeTaxAccumulated / village.TradeTaxAccumulated、
-     王国各钱包、clan.DebtToKingdom、party.PartyTradeGold，并触发 OnPlayerEarnedGoldFromAsset 等事件
-```
+理解这一个开关最关键：**`applyWithdrawals`**。
 
-关键点：所有累计值（如 `Town.TradeTaxAccumulated`）都是“攒了若干天的税”，模型用 `RevenueSmoothenFraction()`（默认 5）把它们摊成“每天该进账多少”。`applyWithdrawals:false` 时只算不动，UI 与预览安全读取；`applyWithdrawals:true` 时才真正扣减并写回各累加器。因此“纯计算路径绝不能改状态”，否则日结算会二次提现或预览数字对不上。
+- `applyWithdrawals = false`：纯预览。只读取蓄水池并返回数字，**不**改写任何 `TradeTaxAccumulated`、`PartyTradeGold`、王国钱包或 `DebtToKingdom`。UI、诊断、决策 AI 都应这样调用。
+- `applyWithdrawals = true`：应用路径。在算出数字的同时，把已经“兑现”的那部分从蓄水池里扣掉（例如 `town.TradeTaxAccumulated -= num`、`party.PartyTradeGold -= num3`、给 `KingdomBudgetWallet` / `MercenaryWallet` / `TributeWallet` 加减、偿还 `DebtToKingdom`），并把玩家资产收入通过 `OnPlayerEarnedGoldFromAsset` 派发出去。这个路径只在每日经济 tick 里走。
 
-> **版本说明**：本页的抽象契约（`ClanFinanceModel` 的成员签名）在 v1.3.15 与 v1.4.5 中完全一致，无新增/移除成员。下方方法语义与默认值以 v1.4.5 的 `DefaultClanFinanceModel` 为准（doc-contract 规定 1.4.5 为最新权威语义）；在 v1.3.15 子树中阅读时，替换/继承模型的行为预期相同。
+使用这个模型，是为了改变所有读者看到的“应计经济结果”。如果你只想给家族一笔叙述性金钱（奖励、罚金、任务报酬），**不要**直接写 `clan.Gold += x` 或 `clan.Leader.Gold += x`，也不要在计算回调里偷偷改金——应当走 [`GiveGoldAction.ApplyBetweenCharacters`](../GiveGoldAction) 或 [`GiveGoldAction.Apply`](../GiveGoldAction)。Daily tick 正是这么做的：先用 `applyWithdrawals: true` 让模型把各蓄水池清零兑现，再拿净结果交给 `GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, net)` 真正入账。把 `clan.Gold += x` 塞进纯计算调用会让同一笔钱被重复结算，并绕过通知与 `OnClanEarnedGoldFromTribute` 等事件。
 
-## 何时用 / 何时不要用
+本版本（v1.3.15）默认实现**没有**公开的 `IncomeSources` / `Expenses` 枚举来分类每一行。收入资产类别只在 `OnPlayerEarnedGoldFromAsset` 的事件参数里以 `DefaultClanFinanceModel.AssetIncomeType`（枚举值 `Workshop`、`Caravan`、`Taxes`、`TributesEarned`）暴露；支出侧只有私有的 `TransactionType`（Income/Both/Expense）用于内部记账。替换模型时，分类口径由你自己决定，但要保证 `CalculateClanGoldChange` 的净结果与收入、支出两边一致。
 
-**用它（替换/继承模型）来改变经济规则**：想调整税率、工资下限、家族补贴、政策收益、资产收入公式时，派生 `DefaultClanFinanceModel` 并重写对应方法，让游戏模型管理器在构建 `Campaign.Current.Models` 时解析到你的版本（后注册的同类模型覆盖基础游戏的 `DefaultClanFinanceModel`）。
+### 生命周期与注册
 
-**不要用它直接改金币**：不要把 `Clan.Gold`、`Hero.Gold`、`Town.TradeTaxAccumulated` 当字段直接 `+=/-=`。那样会绕过每日结算的统一时序、债务/份额分摊、事件派发，且和模型在 `applyWithdrawals:true` 下的扣减重复。正确做法是用 [`GiveGoldAction`](../GiveGoldAction)（或变更模型返回的数字让日结算去落地）。
-
-**不要重复调用带 `applyWithdrawals:true` 的入口**：同一 tick 内再次调用会二次提现/二次扣税，直接污染存档经济。预览与显示一律用 `applyWithdrawals:false`。
+`Campaign.Current.Models.ClanFinanceModel` 持有当前实例。默认实例 `DefaultClanFinanceModel` 由游戏启动器在战役初始化阶段通过 `IGameStarter.AddModel` 注册；自定义模型必须在每日经济 tick 开始查询之前完成注册。标题界面、模块加载早期或没有活动战役时，`Campaign.Current` 可能为 `null`，不能在静态字段初始化或菜单构造函数里无条件读取它——所有调用前都应先判空。
 
 ## 依赖图
 
-### 上游（模型读取/调用）
+### 上游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`Campaign`](../../campaign/Campaign) | 提供 `Current.Models` 与活动战役状态；标题界面为 null。 |
-| [`Clan`](../../campaign/Clan) | 计算目标家族及其 `Fiefs`、`Heroes`、`Kingdom`、`DebtToKingdom`。 |
-| [`Settlement`](../../campaign/Settlement) | 城镇/村庄属地容器，提供 `OwnerClan` 与 `TradeTaxAccumulated`。 |
-| [`Town`](../../campaign/Town) | 城镇税收、项目收入、工坊集合与 `TradeTaxAccumulated`。 |
-| [`Village`](../../campaign/Village) | 村庄 `TradeTaxAccumulated` 与 `VillageState`（被劫/被洗则无收入）。 |
-| [`Workshop`](../../campaign/Workshop) | 工坊 `ProfitMade` 与 `Capital`，决定工坊收入与玩家工坊支出。 |
-| [`Hero`](../../campaign/Hero) | 家族领袖、领主、名人（Notable）的资产与 Perk。 |
-| [`MobileParty`](../../campaign/MobileParty) | 车队/领主队的 `PartyTradeGold` 与 `TotalWage`。 |
-| [`Kingdom`](../../campaign/Kingdom) | 王国政策、份额因子与各钱包（`MercenaryWallet`/`TributeWallet`/`CallToWarWallet`/`KingdomBudgetWallet`）。 |
-| [`GameModels`](../GameModels) | 持有并解析本模型实例（`ClanFinanceModel` 属性）。 |
-| [`ExplainedNumber`](../ExplainedNumber) | 所有计算方法的返回类型，携带逐项金额与说明。 |
-| [`SettlementTaxModel`](../SettlementTaxModel) | 计算城镇基础税 `CalculateTownTax`，被属地收入复用。 |
-| [`CaravanModel`](../CaravanModel) | 提供车队初始贸易金 `GetInitialTradeGold`，用于车队净收入。 |
-| [`WorkshopModel`](../WorkshopModel) | 提供工坊资本下限 `CapitalLowLimit`，用于玩家工坊支出判断。 |
-| [`AlleyModel`](../AlleyModel) | 提供 `GetDailyIncomeOfAlley`，玩家家族巷子收入。 |
-| [`PartyMoraleModel`](../PartyMoraleModel) | 欠饷时计算每日士气惩罚 `GetDailyNoWageMoralePenalty`。 |
+| [`Campaign`](../../campaign/Campaign) | 提供活动战役与 `Models` 注册表，以及 `Campaign.Current.Models` 下的兄弟模型（`SettlementTaxModel`、`WorkshopModel`、`CaravanModel`、`PartyMoraleModel`、`AlleyModel`）。 |
+| [`Clan`](../../campaign/Clan) | 提供 `Fiefs`、`Gold`、`Tier`、`DebtToKingdom`、`IsUnderMercenaryService`、`Kingdom`、各 `WarPartyComponent` 与雇佣状态。 |
+| [`Town`](../../campaign/Town) | 提供 `TradeTaxAccumulated`、 buildings、总督 Perk 与 `Villages`，是城镇税/关税/项目收入的数据源。 |
+| [`Village`](../../campaign/Village) | 提供 `TradeTaxAccumulated`、`VillageState`，是村庄收入的平滑来源。 |
+| [`Hero`](../../campaign/Hero) | 提供名人（`Notable`）每日金变化所需的 `OwnedCaravans`、`OwnedWorkshops`、`OwnedAlleys`。 |
+| [`MobileParty`](../../campaign/MobileParty) | 提供队伍 `PartyTradeGold`、`TotalWage`、`IsLordParty/IsGarrison/IsCaravan` 等，用于商队与队伍工资。 |
+| [`Workshop`](../../campaign/Workshop) | 提供 `ProfitMade` 与 `Capital`，用于作坊日收入与玩家作坊亏损。 |
+| [`ExplainedNumber`](../ExplainedNumber) | 承载收入/支出/净额结果以及可选的因素说明行。 |
 
-### 下游（消费结果/被调用）
+### 下游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`GiveGoldAction`](../GiveGoldAction) | `DailyTickClan`/`DailyTickHero` 把净额注入 `clan.Leader.Gold` / 名人资产。 |
-| [`ClanManagementVM`](../ClanManagementVM) | 家族管理面板读取收入/支出做展示。 |
-| `ClanVariablesCampaignBehavior` | 唯一真正的日结算驱动者（见 [示例](#示例)），调用并落地结果。 |
+| [`Clan`](../../campaign/Clan) | 每日 tick 用 `CalculateClanGoldChange(..., applyWithdrawals: true)` 结算各蓄水池，再用 `GiveGoldAction` 把净额入账到 `clan.Leader`。 |
+| [`Settlement`](../../campaign/Settlement) | 城镇/村庄税收与项目收入最终落在所属的 `Settlement`/`Town` 上，UI 的家族财政面板读取本模型做预览。 |
+| [`GiveGoldAction`](../GiveGoldAction) | 真正的家族金转移走它，而不是 `clan.Gold += x`。 |
+| [`PartyWageModel`](../PartyWageModel) | 相邻规则模型；本模型在算队伍工资时委托 `PartyWageModel` 计算 `TotalWage`，二者不能互相隐式触发世界变更。 |
+| [`CharacterDevelopmentModel`](../CharacterDevelopmentModel) | 默认实现里多处读取 Perk（`Trade.SpringOfGold`、`Steward.GivingHands` 等）作为收入因素。 |
 
-## 风险
+### Action、事件与存档边界
 
-1. **标题/菜单阶段 `Campaign.Current` 为 null**：任何读取 `Campaign.Current.Models.ClanFinanceModel` 的代码必须判空，否则在主菜单或战役未启动时崩溃。
-2. **模型空替换/未注册**：`GameModels.ClanFinanceModel` 是私有 setter，靠模型管理器解析。若你的派生模型未被模块正确注册，`Campaign.Current.Models.ClanFinanceModel` 仍指向 `DefaultClanFinanceModel`，你的改动不生效；若解析失败则为 null，日结算直接崩。
-3. **在“纯计算”路径里改状态**：在 `applyWithdrawals:false` 的分支里写 `TradeTaxAccumulated`、`PartyTradeGold` 或 `Gold`，会让预览/家族面板 UI 触发真实扣减，次日结算再扣一次 → 经济被双倍抽干。
-4. **`RevenueSmoothenFraction()` 返回 0 或负**：所有收入都是 `累计值 / 平滑系数`，除数为 0 会抛异常或得到 `Infinity/NaN`；负值会反转收支符号。重写时务必返回正数。
-5. **无限收入循环 / 复利坏档**：若你新增的收入项依赖 `clan.Gold` 又反馈回金库，或 `applyWithdrawals:true` 时忘记扣减对应 `TradeTaxAccumulated`，累计税永不下降 → 每日无限进账，存档经济彻底崩坏。
-6. **负数/欠饷边界**：`AddPartyExpense` 在预算不足时把差额记到 `clan.DebtToKingdom`；若你改动工资逻辑导致巨额负值，会制造无法偿还的债务并连锁影响王国钱包。
-7. **重复 tick 双重落地**：同一家族在同一日 tick 内被多次以 `applyWithdrawals:true` 计算，会重复提现/重复扣税，写入的金币与钱包数值进入存档后不可逆。
+- **应用路径改的是可存档蓄水池**：`applyWithdrawals: true` 会改写 `Town.TradeTaxAccumulated`、`Village.TradeTaxAccumulated`、`MobileParty.PartyTradeGold`、各王国钱包与 `Clan.DebtToKingdom`。这些字段都在存档中，因此自定义模型在相同战役状态下必须保持确定性——否则重载后每日结算会不一致，表现为坏档或反复扣钱。
+- **派生事件**：玩家资产收入经 `CampaignEventDispatcher.Instance.OnPlayerEarnedGoldFromAsset(AssetIncomeType, amount)` 与 `OnClanEarnedGoldFromTribute(clan, faction)` 派发；`AssetIncomeType` 是默认实现内公开的事件分类枚举（`Workshop`/`Caravan`/`Taxes`/`TributesEarned`）。
+- **模型本身不派发经济事件之外的副作用**，但 `applyWithdrawals: true` 内部会调用 `SkillLevelingManager.OnTradeProfitMade`、`Clan.AddRenown` 与 `PartyMoraleModel.GetDailyNoWageMoralePenalty`（欠薪降士气），这些属于 tick 内部合法世界变更，不要在你的预览调用里误触发。
 
-## 成员（按主题）
+## 风险与调试
 
-### 总账与收支
+1. **战役尚未存在：** `Campaign.Current` 在标题界面和模块加载早期为 `null`；延迟到战役启动钩子再取模型，所有调用前先判空。
+2. **混用预览与应用：** 同一蓄水池先以 `applyWithdrawals: true` 结算（已清零 `TradeTaxAccumulated`），又在 UI 或别处再以 `applyWithdrawals: true` 重复结算一次，会双重扣钱/双重入账。预览一律 `applyWithdrawals: false`。
+3. **直接写 `clan.Gold`：** 在叙事或任务代码里绕过 `GiveGoldAction` 直接改 `Gold`，会跳过通知、`OnClanEarnedGoldFromTribute` 等事件并破坏净额的权威来源；应只通过模型算数 + `GiveGoldAction`。
+4. **在纯计算回调里改世界：** 把招募、传送、`clan.Gold += x` 放进 `Calculate*` 调用会把它从只读查询变成每次 tick 重复执行的副作用，导致经济状况在重载后漂移。
+5. **除零/负金保护：** 默认实现在队伍工资上有 `PartyGoldLowerThreshold`（5000）下限与“金不足时不扣到负值、转而计入 `DebtToKingdom`”的逻辑；自定义实现若丢弃这些保护，会让家族金变成负数或 NaN，进而让工资/贡金分摊崩溃。详见 [崩溃与存档边界](../../../architecture/crash-boundaries)。
+6. **`RevenueSmoothenFraction` 返回 0：** 它作除数把累计税额转成日额；若替换实现返回 0 会抛除零异常。默认实现返回 `5f`。
 
-| Member | Purpose | Side effect（仅 `applyWithdrawals:true`） | Timing |
-| --- | --- | --- | --- |
-| `PartyGoldLowerThreshold` | 队伍贸易金下限（默认 5000），欠饷补足的基准。 | 无（只读属性）。 | 工资计算时读取 |
-| `CalculateClanGoldChange(Clan, includeDescriptions, applyWithdrawals, includeDetails)` | 收入 + 支出合并的每日净额。 | 改动 `clan.DebtToKingdom`、王国钱包、`PartyTradeGold`、`TradeTaxAccumulated` 等。 | `DailyTickClan` |
-| `CalculateClanIncome(Clan, ...)` | 仅收入项（属地、资产、政策、王国预算、贡金）。 | 仅收入相关的提现（关税、村庄税扣减）。 | 预览 / 日结算 |
-| `CalculateClanExpenses(Clan, ...)` | 仅支出项（工资、雇佣兵、贡金、债务、自动招募）。 | 工资扣 `PartyTradeGold`、债务递减、王国预算上缴。 | 预览 / 日结算 |
+## 成员契约
 
-### 属地与资产收入
+### 总额与阈值
 
-| Member | Purpose | Side effect（仅 `applyWithdrawals:true`） | Timing |
-| --- | --- | --- | --- |
-| `CalculateTownIncomeFromTariffs(Clan, Town, applyWithdrawals)` | 城镇关税 = `TradeTaxAccumulated / RevenueSmoothenFraction()` + 多项 Perk/建筑加成。 | 扣减 `town.TradeTaxAccumulated`；玩家触发 `OnPlayerEarnedGoldFromAsset(Taxes)`。 | 日结算（属地收入内） |
-| `CalculateTownIncomeFromProjects(Town)` | 城镇项目日收入（建筑效果 + 总督工程 Perk）。 | 无（纯计算）。 | 日结算 |
-| `CalculateVillageIncome(Clan, Village, applyWithdrawals)` | 村庄贸易税 / 平滑系数，受 `LandTax` 政策与 `ForestKin`/`Logistician` Perk 影响；被劫/被洗为 0。 | 扣减 `village.TradeTaxAccumulated`；玩家触发税收事件。 | 日结算 |
-| `CalculateOwnerIncomeFromCaravan(MobileParty)` | 车队归属者收入 = `(PartyTradeGold - 初始贸易金) / 平滑系数`。 | 无（纯计算，由调用方提现）。 | 查询/日结算 |
-| `CalculateOwnerIncomeFromWorkshop(Workshop)` | 工坊归属者收入 = `ProfitMade / 平滑系数`。 | 无（纯计算）。 | 查询/日结算 |
-| `CalculateNotableDailyGoldChange(Hero, applyWithdrawals)` | 名人（Notable）每日资产收入（车队、工坊、巷子）。 | 提现到该英雄资产，不发给 `clan.Leader`。 | `DailyTickHero` |
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `PartyGoldLowerThreshold` (int) | 单个队伍贸易金的下限；低于此值时从家族补差。默认实现返回 `5000`。 | 在 `AddPartyExpense` 内判断是否需要从 `clan` 补金；只读取，不改金。 |
+| `CalculateClanGoldChange(Clan, includeDescriptions=false, applyWithdrawals=false, includeDetails=false)` | 家族每日净变化 = `CalculateClanIncome` − `CalculateClanExpenses`，返回 `ExplainedNumber`。 | 每日经济 tick 用 `applyWithdrawals: true` 调用并据此入账；预览用 `applyWithdrawals: false`。 |
+| `CalculateClanIncome(Clan, ...)` | 累加所有正向来源（城镇税、关税、项目、村庄、商队/队伍、作坊、alley、贡金、王国预算、贸易协定、Perk）。 | UI 财政面板与决策 AI 用 `applyWithdrawals: false` 预览；tick 用 `applyWithdrawals: true` 清零对应蓄水池。 |
+| `CalculateClanExpenses(Clan, ...)` | 累加所有负向来源（队伍/驻军工资、雇佣兵与贡金分摊、自动招募、王国预算抽成、债务偿还、玩家作坊亏损、call-to-war 协议）。 | 同 `CalculateClanIncome` 的开关语义。 |
 
-### 平滑系数
+### 城镇与村庄
 
-| Member | Purpose | Side effect | Timing |
-| --- | --- | --- | --- |
-| `RevenueSmoothenFraction()` | 收入平滑分母（默认 5）：把累计税收摊到约 5 天，避免单日暴增暴减。 | 无（只读）。 | 每次分摊计算 |
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `CalculateTownIncomeFromTariffs(Clan, Town, applyWithdrawals=false)` | 城镇关税收入：`TradeTaxAccumulated / RevenueSmoothenFraction()` 再叠加城镇 Perk 与建筑加成。 | `applyWithdrawals: true` 时会 `town.TradeTaxAccumulated -= num`，并对玩家触发 `OnPlayerEarnedGoldFromAsset(Taxes, ...)`。 |
+| `CalculateTownIncomeFromProjects(Town)` | 城镇项目（默认建筑 + 总督 `Engineering.ArchitecturalCommisions` Perk + 建筑效果）的日收入，返回 `int`。 | 不参与取款，纯读数。 |
+| `CalculateVillageIncome(Clan, Village, applyWithdrawals=false)` | 村庄收入：`TradeTaxAccumulated / RevenueSmoothenFraction()`，按 `LandTax` 政策、总督 `Scouting.ForestKin` / `Steward.Logistician` Perk 修正。 | `applyWithdrawals: true` 时扣减 `village.TradeTaxAccumulated` 并触发玩家税收事件；被劫掠/正被袭击的村庄返回 0。 |
 
-## 示例
+### 名人与资产
 
-### 计算某家族每日金库净变动（贴合真实日结算）
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `CalculateNotableDailyGoldChange(Hero, applyWithdrawals)` | 名人（Notable）的每日金变化：`OwnedCaravans` + `OwnedWorkshops` + 当前定居点的 `Alley` 收入，返回 `int`。 | `applyWithdrawals: true` 时扣减商队 `PartyTradeGold`、调用 `Workshop.ChangeGold` 并触发事件。 |
+| `CalculateOwnerIncomeFromCaravan(MobileParty)` | 商队所有者收入：`Max(0, PartyTradeGold − 初始贸易金) / RevenueSmoothenFraction()`，返回 `int`。 | 纯读数；取款由 `CalculateHeroIncomeFromAssets` 内部在 `applyWithdrawals: true` 时执行。 |
+| `CalculateOwnerIncomeFromWorkshop(Workshop)` | 作坊所有者收入：`Max(0, ProfitMade) / RevenueSmoothenFraction()`，返回 `int`。 | 纯读数；取款由 `CalculateHeroIncomeFromWorkshops` 内部在 `applyWithdrawals: true` 时通过 `Workshop.ChangeGold` 执行。 |
 
-下面这段与 `ClanVariablesCampaignBehavior.DailyTickClan` 的真实调用顺序一致：先取模型、算净额，再交给 `GiveGoldAction` 落地。
+### 平滑与分类
+
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `RevenueSmoothenFraction()` (float) | 把累计税额平滑成日收入的除法因子；默认实现返回 `5f`。 | 被几乎所有收入/取款方法用作除数；返回 0 会除零崩溃。 |
+| `AssetIncomeType`（默认实现内公开枚举） | 玩家资产收入事件的分类：`Workshop` / `Caravan` / `Taxes` / `TributesEarned`。 | 仅用于 `OnPlayerEarnedGoldFromAsset` 的事件参数，不参与计算。 |
+
+## 真实读取路径
+
+以下两段都只查询当前战役中已经注册的模型，且先对 `Campaign.Current` 判空。
+
+UI 预览（家族财政面板，与 `ClanManagementVM` 一致）——这里用默认 `applyWithdrawals: false`，只读取、不拨动任何蓄水池：
 
 ```csharp
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem.Party; // 仅为 using；实际取自 Clan
 
-if (Campaign.Current == null)
+public void PreviewClanFinance(Clan clan)
 {
-    return;
-}
-
-ClanFinanceModel finance = Campaign.Current.Models.ClanFinanceModel;
-Clan clan = Clan.PlayerClan;
-
-// applyWithdrawals:true 才会真正扣税/扣工资并写回各累加器
-ExplainedNumber goldChange = finance.CalculateClanGoldChange(
-    clan, includeDescriptions: false, applyWithdrawals: true);
-
-int dailyNet = (int)goldChange.ResultNumber;
-
-// 与游戏内一致：把净额注入家族领袖的金库（即家族金库变化）
-GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, dailyNet, disableNotification: true);
-```
-
-### 只预览玩家家族每日收入（不落地、不扣税）
-
-展示/调试时用 `applyWithdrawals:false`，只读不改，安全复用于面板显示。
-
-```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.Core;
-
-ClanFinanceModel finance = Campaign.Current.Models.ClanFinanceModel;
-
-ExplainedNumber income = finance.CalculateClanIncome(
-    Clan.PlayerClan, includeDescriptions: true, applyWithdrawals: false);
-
-int dailyIncome = (int)income.ResultNumber;
-// income.GetLines() 可逐项遍历：税收、车队、工坊、王国预算、政策、Perk 等来源与金额
-```
-
-### 派生模型：给玩家家族加一笔每日补贴（正确扩展方式）
-
-不要把补贴直接写进 `Clan.Gold`，而是扩展模型的收入项，让日结算照常落地：
-
-```csharp
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.Core;
-using TaleWorlds.Localization;
-
-public class GenerousClanFinanceModel : DefaultClanFinanceModel
-{
-    public override ExplainedNumber CalculateClanIncome(
-        Clan clan, bool includeDescriptions = false, bool applyWithdrawals = false, bool includeDetails = false)
+    if (Campaign.Current == null || clan == null)
     {
-        ExplainedNumber income = base.CalculateClanIncome(clan, includeDescriptions, applyWithdrawals, includeDetails);
-        if (clan == Clan.PlayerClan)
-        {
-            income.Add(250, new TextObject("{=my_mod_generous}家族补贴"));
-        }
-        return income;
+        return;
     }
+
+    ClanFinanceModel finance = Campaign.Current.Models.ClanFinanceModel;
+    int income = (int)finance.CalculateClanIncome(clan, includeDescriptions: true).ResultNumber;
+    int expenses = (int)finance.CalculateClanExpenses(clan, includeDescriptions: true).ResultNumber;
+    int dailyChange = income - expenses; // 等价于 CalculateClanGoldChange 的净额
+    // 仅用于显示；不要在这里把 dailyChange 写回 clan.Gold
 }
 ```
 
-把 `GenerousClanFinanceModel` 作为模型注册到你的模块，游戏在构建 `Campaign.Current.Models` 时会优先解析到它，从而取代 `DefaultClanFinanceModel`；`RevenueSmoothenFraction()` 等其余行为保持默认，避免破坏税收与工资时序。
+每日经济 tick 的实际应用路径（与 `ClanVariablesCampaignBehavior` 一致）——先让模型以 `applyWithdrawals: true` 把各蓄水池清零兑现，再拿净额交给 `GiveGoldAction` 真正入账，而不是 `clan.Gold += net`：
 
-## 导航
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
 
-- ↑ [campaign-ext 模型家族](../)
-- ↔ [DefaultClanFinanceModel](../DefaultClanFinanceModel) · [GameModels](../GameModels) · [SettlementTaxModel](../SettlementTaxModel) · [PartyMoraleModel](../PartyMoraleModel)
-- 相关类型：[Clan](../../campaign/Clan) · [Kingdom](../../campaign/Kingdom) · [Town](../../campaign/Town) · [Village](../../campaign/Village) · [Workshop](../../campaign/Workshop) · [GiveGoldAction](../GiveGoldAction)
-- [战役系统指南](../../../guide/campaign-system)
+public void ApplyDailyClanFinance(Clan clan)
+{
+    if (Campaign.Current == null || clan == null)
+    {
+        return;
+    }
+
+    // applyWithdrawals: true → 模型内部清零 TradeTaxAccumulated / PartyTradeGold / 王国钱包 / DebtToKingdom
+    int net = TaleWorlds.Library.MathF.Round(
+        Campaign.Current.Models.ClanFinanceModel
+            .CalculateClanGoldChange(clan, includeDescriptions: false, applyWithdrawals: true)
+            .ResultNumber);
+
+    // 真正的家族金转移走 Action，绝不写 clan.Gold += net
+    GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, net, disableNotification: true);
+}
+```
+
+## 版本与导航
+
+v1.3.15 的 `ClanFinanceModel` 接口与默认实现即上述签名；核心成员在 v1.4.5 中保持同名同参。替换默认实现时优先委托 vanilla 模型再加自己的有界因素，以保证 `CalculateClanGoldChange` 的净结果与收入、支出两侧一致，并保留 `PartyGoldLowerThreshold` 与 `RevenueSmoothenFraction` 的防负金保护。
+
+- [队伍模型目录](../models/)
+- [父级：Campaign 扩展 API](../)
+- [↔ PartyWageModel](../PartyWageModel)
+- [↔ CharacterDevelopmentModel](../CharacterDevelopmentModel)
+- [GiveGoldAction](../GiveGoldAction)
+- [ExplainedNumber](../ExplainedNumber)
+- [Clan](../../campaign/Clan)
+- [Town](../../campaign/Town)
+- [Village](../../campaign/Village)
+- [崩溃与存档边界](../../../architecture/crash-boundaries)

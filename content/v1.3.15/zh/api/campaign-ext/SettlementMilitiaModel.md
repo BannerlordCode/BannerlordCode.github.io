@@ -1,106 +1,83 @@
 ---
 title: "SettlementMilitiaModel"
-description: "计算聚落每日民兵增减、围城后补员数量、老兵生成概率与近战/远程兵种配比的可替换战役策略，不负责把民兵写入聚落的驻防队伍。"
+description: "把聚落繁荣、炉灶、忠诚度、建筑与政策转换为每日民兵增减与围城后补充的可替换策略模型。"
 ---
-
 # SettlementMilitiaModel
 
-**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public abstract class SettlementMilitiaModel : MBGameModel<SettlementMilitiaModel>`  
-**Base:** `MBGameModel<SettlementMilitiaModel>`  
-**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementMilitiaModel.cs`  
-**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSettlementMilitiaModel.cs`
+**命名空间:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**模块:** `TaleWorlds.CampaignSystem`  
+**类型:** `public abstract class SettlementMilitiaModel : MBGameModel<SettlementMilitiaModel>`  
+**基类:** `MBGameModel<SettlementMilitiaModel>`  
+**源文件:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SettlementMilitiaModel.cs`  
+**默认实现:** `TaleWorlds.CampaignSystem/GameComponents/DefaultSettlementMilitiaModel.cs`
 
 ## 一句话职责
 
-`SettlementMilitiaModel` 把一座聚落（城镇、城堡、村庄）当前的民兵存量、繁荣度、炉灶数、忠诚度与叛乱状态，换算成「明天民兵会涨多少、围城后补多少、新兵里老兵占多少、近战远程各占多少」这一组可被战役系统直接消费的预测值。
+它回答“这个聚落今天应该长出多少民兵、围城后该补多少、补出来老兵和近战/远程的比例是多少”，并返回带可选解释的数值；它**不**直接往聚落的民兵名册里塞人、不改编制，也不触发任何世界变更。真正的名册变化发生在聚落每日 tick 里——这个模型只负责算出“该变多少”。
 
 ## 心智模型
 
-这是战役（Campaign）层在每日结算前调用的一组只读策略。`Settlement.Militia` 是保存在聚落上的真实状态（存于存档），而本 Model 是无状态的纯计算：它读取状态后给出「下一步应该朝哪个方向变化」，由聚落每日行为（settlement daily behavior）把结果写回 `Settlement.Militia`，再由防御、劫掠与叛乱系统读取。
+这是聚落每日时钟读取前的规则层。聚落的民兵数值（`Settlement.Militia`，一个 float）在每日 tick 中由 `CalculateMilitiaChange` 返回的每日增减量推动；围城结束、城镇易主或叛乱平息后，由 `MilitiaToSpawnAfterSiege` 与 `CalculateMilitiaSpawnRate` / `CalculateVeteranMilitiaSpawnChance` 决定“一次性补多少、近战还是远程、出不出老兵”。模型本身只是纯查询：把繁荣度、炉灶数、忠诚度、建筑效果、王国政策、总督 Perk 和悬赏任务效果汇总成一个 `ExplainedNumber`。
 
-```text
-聚落状态(Militia / Town.Prosperity / Village.Hearth / Town.Loyalty)
-   + 治安 / 政策 / 建筑 / 总督 Perk / 文化特性
-        -> Campaign.Current.Models.SettlementMilitiaModel
-        -> CalculateMilitiaChange / MilitiaToSpawnAfterSiege
-           / CalculateVeteranMilitiaSpawnChance / CalculateMilitiaSpawnRate
-        -> 聚落每日行为把变化写回 Settlement.Militia
-        -> 防御战、劫掠结算、叛乱评估读取民兵强度
-```
+默认实现（`DefaultSettlementMilitiaModel`）的计算构成是：城堡/城镇基础 +2、村庄基础 +0.5；现有民兵越多“退役”越多（`-militia * 0.025`，软上限）；村庄按炉灶数 `/400` 增长；城镇/城堡按繁荣度 `/1000` 增长，叛乱时还会因低忠诚额外加成；城镇还能从市场军备（武器类商品）和多个政策（如 `Cantons` +1、`Serfdom` -1）得到修正；城堡/城镇进一步叠加建筑（`Militia`、`MilitiaReduction`）、政策、总督 Perk 和悬赏任务效果。注意：模型会读取 `Campaign.Current.Models.SettlementLoyaltyModel` 的叛乱忠诚阈值，所以它是更广的聚落经济规则（繁荣 / 忠诚 / 安全 / 粮食）里的一环，但本身只直接消费其中一部分输入。
 
-民兵增长强度主要从繁荣度（`Town.Prosperity / 1000`）与炉灶数（`Village.Hearth / 400`）得出；同时有随存量衰减的「退役」项（`-Militia * 0.025`）。当城镇处于叛乱状态（`Town.InRebelliousState`）时，会再调用 `SettlementLoyaltyModel` 的 `RebelliousStateStartLoyaltyThreshold` 与 `MilitiaBoostPercentage` 把低忠诚换算成额外民兵加成——这就是民兵与忠诚/治安模型耦合的地方。要改变「规则」就替换 Model；要直接改变某座聚落的民兵数量请用官方流程或行为，不要在本 Model 的回调里写 `Settlement.Militia`。
+使用这个模型，是为了**读取**聚落民兵的增减与补充规则——例如给 UI 显示“本城每天 +X 民兵”的预测，或预览围城后补充的近战/远程比例。如果目标是真正增加、减少或转移民兵部队，应使用聚落每日 tick 和对应的行动/名册 API，而不是在模型回调里自己写 `Settlement.Militia` 或 `Settlement.MilitiaParty`。模型回调必须是只读查询：在 `CalculateMilitiaChange` / `CalculateMilitiaSpawnRate` 内部招募、传送或改编制，会把一个“算数”调用变成每个 tick 都重复执行的副作用，且会与每日 tick 的官方写入打架。`includeDescriptions` 只控制 `ExplainedNumber` 是否记录因素说明，不应改变数值。
 
-### 注册与调用者
+### 生命周期与注册
 
-实例由 `Campaign.Current.Models` 持有，默认类型是 `DefaultSettlementMilitiaModel`。聚落每日行为在战役时钟推进时调用 `CalculateMilitiaChange` 与 `CalculateMilitiaSpawnRate`；围城结束事件调用 `MilitiaToSpawnAfterSiege`；招募/防御生成民兵时调用 `CalculateVeteranMilitiaSpawnChance` 决定新兵是否为老兵。`includeDescriptions` 只控制是否附带可显示的因子说明（`TextObject`），不改变数值。
-
-## 何时用 / 何时不要用
-
-- **用**：你想要全局改写民兵规则——例如让村庄长得更快、让围城后补员更可预测、调整近战/远程比例、增加老兵概率。继承本类并在 `OnGameInitializationFinished` 中替换 `Campaign.Current.Models.SettlementMilitiaModel` 即可。
-- **用**：在 UI 面板里预览「这座城明天民兵会怎么变」时，调用 `CalculateMilitiaChange(settlement, includeDescriptions: true)` 读取 `ExplainedNumber`。
-- **不要用**：直接对 `Settlement.Militia` 赋值或调用任何世界变更 Action 来改变某座聚落的民兵数——那会绕过每日行为的一致性校验，并可能被后续 tick 覆盖或造成坏档。要改状态请用官方聚落流程/行为。
-- **不要用**：在 `Calculate*` 方法内部触发 `ChangeOwnerOfSettlementAction`、`StartBattleAction` 等副作用，否则预览路径会真实改变世界（在 UI 里反复预览就反复触发）。
-- **不要用**：在预览或解释路径里调用 `MilitiaToSpawnAfterSiege`，因为它内部使用 `MBRandom.RandomInt` 产生随机数，每次调用结果都不同，且消耗随机状态。它只应在真实的围城结算事件中被调用一次。
+`Campaign.Current.Models` 持有当前实例，访问键是 `SettlementMilitiaModel`。默认实例是 `DefaultSettlementMilitiaModel`，游戏启动器在战役初始化时通过 `IGameStarter.AddModel` 注册它；自定义模型也必须在战役系统开始查询前完成注册。标题界面、模块加载早期或没有活动战役时，`Campaign.Current` 可能为 `null`，不能在静态字段初始化或菜单构造函数里无条件读取它——所有读取都应先 null-check。
 
 ## 依赖图
 
-### 上游（输入来源 / 被读取的模型）
+### 上游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`Campaign`](../../campaign/Campaign) | 持有活动战役与 `Models` 注册表；跨模型引用通过 `Campaign.Current.Models` 解析。 |
-| [`Settlement`](../../campaign/Settlement) | 提供 `Militia` 存量、是否为城镇/城堡/村庄，以及 `Town`/`Village` 上下文。 |
-| [`Town`](../../campaign/Town) | 提供 `Prosperity`、`Loyalty`、`InRebelliousState`、`Governor`、`SoldItems` 与建筑效果。 |
-| [`Village`](../../campaign/Village) | 提供 `Hearth` 与 `TradeBound`（取关联城镇总督用于老兵概率）。 |
-| [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) | 在叛乱状态计算民兵加成时读取其 `RebelliousStateStartLoyaltyThreshold` 与 `MilitiaBoostPercentage`。 |
-| [`SettlementSecurityModel`](../SettlementSecurityModel) | 共享城镇治安状态；治安通过忠诚间接影响民兵，三者在同一每日结算链上。 |
+| [`Campaign`](../../campaign/Campaign) | 提供活动战役和 `Models` 注册表，以及 `Models.SettlementLoyaltyModel` 等兄弟模型。 |
+| [`Settlement`](../../campaign/Settlement) | 提供 `Militia`、`IsFortification`/`IsVillage`/`IsTown`/`IsCastle`、`Village.Hearth`、`Town.Prosperity` 等核心输入。 |
+| [`Town`](../../campaign/Town) | 提供繁荣度、忠诚度、叛乱状态、总督、市场出售记录与建筑效果。 |
+| [`Village`](../../campaign/Village) | 提供炉灶数（`Hearth`）与贸易绑定城镇（`TradeBound`）。 |
+| [`ExplainedNumber`](../ExplainedNumber) | 承载每日民兵增减、老兵概率与因素说明。 |
+| [`SettlementLoyaltyModel`](../SettlementLoyaltyModel) | 默认实现读取其叛乱忠诚阈值来计算低忠诚时的民兵加成。 |
 
-### 下游（消费结果 / 被驱动的系统）
+### 下游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`Settlement`](../../campaign/Settlement) | 聚落每日行为把 `CalculateMilitiaChange` 的结果写回 `Settlement.Militia`（保存状态）。 |
-| [`MobileParty`](../../campaign/MobileParty) | 防御战/劫掠中生成的民兵以 `MobileParty` 形式参战，配比来自 `CalculateMilitiaSpawnRate`。 |
-| `DefaultSettlementLoyaltyModel` | 读取民兵阈值与叛乱效果，民兵与忠诚/治安形成双向耦合。 |
-| `IssueModel` | `CalculateMilitiaChange` 通过 `IssueModel.GetIssueEffectsOfSettlement(DefaultIssueEffects.SettlementMilitia, ...)` 读取任务对民兵的影响。 |
+| [`Settlement`](../../campaign/Settlement) | 每日 tick 消费 `CalculateMilitiaChange` 的返回值来改写 `Settlement.Militia`。 |
+| [`MilitiaPartyComponent`](../MilitiaPartyComponent) | 围城后补充的民兵作为聚落民兵方（`Settlement.MilitiaParty`）存在于世界；模型只算“补多少/比例”，不自行创建该方。 |
+| [`SiegeEvent`](../SiegeEvent) | 围城结束/易主时触发对 `MilitiaToSpawnAfterSiege` 与补充比例的查询。 |
+| [`SettlementSecurityModel`](../SettlementSecurityModel) | 相邻的聚落规则模型；它管安全度，与民兵同属聚落经济层，替换时不应互相隐式触发写入。 |
 
-## 风险
+### Action、事件与存档边界
 
-1. **`Campaign.Current` 为空**：在标题界面、模块早期或 `OnGameInitializationFinished` 之前访问 `Campaign.Current.Models` 会抛空引用。所有读取都应先判空。
-2. **跨模型空替换**：`CalculateMilitiaChange` 内部在叛乱时直接读取 `Campaign.Current.Models.SettlementLoyaltyModel.*`，`GetSettlementMilitiaChangeDueToIssues` 读取 `Campaign.Current.Models.IssueModel`。若你替换了 `SettlementMilitiaModel` 却让 `SettlementLoyaltyModel` 或 `IssueModel` 为 `null`，计算会在运行时崩溃。
-3. **在纯计算里改状态**：任何 `Calculate*` 方法都应是只读的。务必不要把数值写回 `Settlement.Militia`、不要调用 Action。`MilitiaToSpawnAfterSiege` 是唯一带副作用（消耗随机数）的方法，且只应在围城结算事件中使用。
-4. **NaN / 负数**：结果可为负（退役衰减项），但聚落行为负责夹紧到合法区间；你的重写若返回 NaN 或极端值，会污染每日行为与防御强度估算。
-5. **坏档风险**：`Settlement.Militia` 是保存状态，本模型无状态。不要把 `SaveableField`/`SaveableProperty` 加到替换后的 Model 上，否则新旧存档字段不一致会导致坏档。
-6. **随机可预测性**：`MilitiaToSpawnAfterSiege` 返回 `2 * (45 + MBRandom.RandomInt(10))`（90–109）。若想在 mod 里让补员可预测，应重写为固定值，而不是在预览里重复调用。
+模型结果本身没有存档字段，也不派发事件——返回的 `ExplainedNumber` 是瞬时计算值。真正的民兵数值变化发生在聚落每日 tick（属于存档的聚落状态的一部分）。自定义模型应在相同输入下保持确定性，避免与重放的战役 tick 不一致；所有合法的民兵 roster 变更必须走官方每日 tick / 名册 API，不能放进计算回调。
 
-## 成员（按主题）
+## 风险与调试顺序
 
-### 每日变化
+1. **战役尚未存在:** `Campaign.Current` 在标题界面和早期模块加载阶段为空；默认实现内部直接 `Campaign.Current.Models.SettlementLoyaltyModel` 读取，调用方务必先 null-check，否则在菜单/加载早期会 `NullReferenceException`。
+2. **在回调里改世界:** 在 `CalculateMilitiaChange` / `CalculateMilitiaSpawnRate` 内写入 `Settlement.Militia` 或 `Settlement.MilitiaParty`、招募单位或转移金币，会破坏每日 tick 的权威写入并制造重复副作用。
+3. **无界/负数结果:** 自定义 `CalculateMilitiaChange` 返回极大或负无穷会让民兵数值爆炸或被清零；应保持与默认实现同量级（城堡/城镇 +2 基准、村庄 +0.5 基准、退役项与民兵成反比）。
+4. **out 参数未赋值:** `CalculateMilitiaSpawnRate` 的 `meleeTroopRate` / `rangedTroopRate` 是 `out`，自定义实现必须两条都赋值，且两者之和应归一（默认各 0.5），否则补充出的近战/远程比例会失真。
+5. **重复消费号码:** 同时调用模型又把返回值再写回或再次叠加，会使增减量重复生效；UI 预览应只读，写入只交给每日 tick。
+6. **替换后读自己:** 注册替换模型后，若在回调里再次通过 `Campaign.Current.Models.SettlementMilitiaModel` 查找自己会递归；优先委托 vanilla delegate。
 
-| Member | Purpose | Timing | Side effect |
-| --- | --- | --- | --- |
-| `CalculateMilitiaChange(Settlement, bool includeDescriptions = false)` | 返回可解释的每日民兵增减（基础值、退役、繁荣、炉灶、市场、政策、Perk、建筑、任务）。 | 聚落每日行为、UI 预览 | 只读；`includeDescriptions` 仅决定是否带 `TextObject` 说明。 |
+详见 [`崩溃与存档边界`](../../../architecture/crash-boundaries)。
 
-默认实现的因子：城镇基础 +2、村庄基础 +0.5；退役 `-Militia*0.025`；村庄 `Hearth/400`；城镇/城堡 `Prosperity/1000`（叛乱时叠加低忠诚加成）；城镇市场售出的 `BonusToMilitia` 物品每项 +0.2；政策 `Serfdom -1`、`Cantons +1`、`Citizenship +1`；建筑 `Militia`/`MilitiaReduction`；总督多项 Perk；巴丹文化特性。
+## 成员契约
 
-### 围城后补员
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `MilitiaToSpawnAfterSiege(Town town)` | 返回围城结束/易主后一次性补充的民兵数量。默认实现返回 `2 * (45 + RandomInt(10))`，即 90–109。 | 在攻城结算、城镇易主或叛乱平息时由官方逻辑查询；纯查询，不应在此创建部队。 |
+| `CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)` | 返回该聚落**每日**民兵增减的 `ExplainedNumber`（基础值 + 退役 + 炉灶/繁荣 + 政策/建筑/Perk/悬赏的逐项叠加）。 | 聚落每日 tick 用来改写 `Settlement.Militia`；也供 UI 预览“每日 +X”。`includeDescriptions` 仅控制因素说明文本，不改变数值。 |
+| `CalculateVeteranMilitiaSpawnChance(Settlement settlement)` | 返回补充民兵是“老兵”的概率加成 `ExplainedNumber`：总督 Perk（CitizenMilitia / Drills / SevenVeterans）、巴坦文化特性、建筑 `MilitiaVeterancyChance`、`LandGrantsForVeteran` 政策 +10%。 | 围城后补充民兵时查询；纯查询。 |
+| `CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)` | 通过 `out` 参数给出近战/远程补充比例。默认实现 `melee = 0.5`、`ranged = 0.5`。 | 围城后决定补出来的是近战还是远程；必须用 `out` 接收两个比值，返回值无意义。 |
 
-| Member | Purpose | Timing | Side effect |
-| --- | --- | --- | --- |
-| `MilitiaToSpawnAfterSiege(Town town)` | 返回围城结束后立即生成的民兵数量。 | 围城结束事件（一次性） | 调用 `MBRandom.RandomInt`，消耗随机状态，结果不可预测。 |
+默认实现可观察的因素（以 `CalculateMilitiaChange` 为例）：城堡/城镇基础 +2、村庄基础 +0.5；现有民兵越多退役越多；村庄按炉灶 `/400` 增长；城镇/城堡按繁荣度 `/1000` 增长，叛乱时低忠诚额外加成；城镇受市场军备、政策（`Cantons`+1、`Serfdom`-1）与文化特性影响；城堡/城镇额外叠加建筑、政策、总督 Perk 与悬赏任务。替换模型时建议保留这些项的量级与符号。
 
-### 老兵与新兵配比
+## 真实读取路径
 
-| Member | Purpose | Timing | Side effect |
-| --- | --- | --- | --- |
-| `CalculateVeteranMilitiaSpawnChance(Settlement)` | 返回新生成民兵为老兵的概率加成（总督 Perk、文化特性、建筑、政策）。 | 民兵生成时 | 只读。 |
-| `CalculateMilitiaSpawnRate(Settlement, out float meleeTroopRate, out float rangedTroopRate)` | 通过 `out` 参数给出近战/远程兵种配比（默认 0.5 / 0.5）。 | 民兵生成时 | 仅写 `out` 参数，不改世界。 |
-
-## 示例
-
-### 示例 1：在面板里解释某座聚落明天的民兵变化
+以下代码只查询当前战役中已经注册的模型，与每日 tick 读取和 UI 预览一致：
 
 ```csharp
 using TaleWorlds.CampaignSystem;
@@ -108,90 +85,93 @@ using TaleWorlds.CampaignSystem.ComponentInterfaces;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 
-public ExplainedNumber ExplainMilitiaChange(Settlement settlement)
+public void PreviewMilitiaGrowth(Settlement settlement)
 {
     if (Campaign.Current == null || settlement == null)
     {
-        return new ExplainedNumber(0f);
+        return;
     }
-    return Campaign.Current.Models.SettlementMilitiaModel
+
+    // 每日民兵增减（带因素说明，适合 UI 显示"本城每天 +X 民兵"）
+    ExplainedNumber daily = Campaign.Current.Models.SettlementMilitiaModel
         .CalculateMilitiaChange(settlement, includeDescriptions: true);
+
+    // 围城后补充的近战/远程比例（out 参数，返回值无意义）
+    Campaign.Current.Models.SettlementMilitiaModel
+        .CalculateMilitiaSpawnRate(settlement, out float melee, out float ranged);
+
+    // 围城后补充老兵的概率加成
+    ExplainedNumber veteran = Campaign.Current.Models.SettlementMilitiaModel
+        .CalculateVeteranMilitiaSpawnChance(settlement);
+
+    // 围城结束/易主时一次性补充量
+    if (settlement.IsFortification && settlement.Town != null)
+    {
+        int toSpawn = Campaign.Current.Models.SettlementMilitiaModel
+            .MilitiaToSpawnAfterSiege(settlement.Town);
+    }
 }
 ```
 
-返回的 `ExplainedNumber.ResultNumber` 只用于显示或接入你自己的平衡逻辑；不要把它写回 `Settlement.Militia`，那由聚落每日行为负责。
+这段结果适合调试或 UI 预览；不要自己再把 `daily` 写回 `Settlement.Militia`——那是每日 tick 的职责。
 
-### 示例 2：替换默认模型以改写民兵规则（保留原版作为回退）
+## 替换模型时的安全做法
+
+如果只想增加一个有限修正，保留原模型作为 delegate，避免在回调里再次查找自己造成递归：
 
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ComponentInterfaces;
 using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
-using TaleWorlds.Localization;
 
-public class MyMilitiaModel : SettlementMilitiaModel
+public sealed class ModSettlementMilitiaModel : SettlementMilitiaModel
 {
     private readonly SettlementMilitiaModel _vanilla;
 
-    public MyMilitiaModel(SettlementMilitiaModel vanilla)
+    public ModSettlementMilitiaModel(SettlementMilitiaModel vanilla)
     {
         _vanilla = vanilla;
     }
 
     public override int MilitiaToSpawnAfterSiege(Town town)
-    {
-        // 围城后固定补员 60，避免使用随机数以保证可预测
-        return 60;
-    }
+        => _vanilla.MilitiaToSpawnAfterSiege(town);
 
-    public override ExplainedNumber CalculateMilitiaChange(Settlement settlement, bool includeDescriptions = false)
+    public override ExplainedNumber CalculateMilitiaChange(
+        Settlement settlement, bool includeDescriptions = false)
     {
         ExplainedNumber result = _vanilla.CalculateMilitiaChange(settlement, includeDescriptions);
-        if (settlement.IsVillage)
-        {
-            result.Add(1f, new TextObject("我的村庄民兵加成"));
-        }
+        result.Add(0.5f, new TextObject("Mod: garrison drill"));
         return result;
     }
 
     public override ExplainedNumber CalculateVeteranMilitiaSpawnChance(Settlement settlement)
-    {
-        return _vanilla.CalculateVeteranMilitiaSpawnChance(settlement);
-    }
+        => _vanilla.CalculateVeteranMilitiaSpawnChance(settlement);
 
-    public override void CalculateMilitiaSpawnRate(Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)
+    public override void CalculateMilitiaSpawnRate(
+        Settlement settlement, out float meleeTroopRate, out float rangedTroopRate)
     {
-        meleeTroopRate = 0.4f;
-        rangedTroopRate = 1f - meleeTroopRate;
+        _vanilla.CalculateMilitiaSpawnRate(settlement, out meleeTroopRate, out rangedTroopRate);
     }
 }
 ```
 
-在 SubModule 中安装（先保存原版，再包一层）：
+实际注册时应在 `CampaignGameStarter` 的模型注册阶段保存 vanilla delegate；不要在模型已经替换后再次通过 `Campaign.Current.Models.SettlementMilitiaModel` 查找自己，否则会递归。
 
-```csharp
-protected override void OnGameInitializationFinished(Game game)
-{
-    base.OnGameInitializationFinished(game);
-    if (Campaign.Current != null)
-    {
-        SettlementMilitiaModel vanilla = Campaign.Current.Models.SettlementMilitiaModel;
-        Campaign.Current.Models.SettlementMilitiaModel = new MyMilitiaModel(vanilla);
-    }
-}
-```
+## 版本与导航
 
-> 版本说明：v1.3.15 与 v1.4.5 的 `SettlementMilitiaModel` 接口及 `DefaultSettlementMilitiaModel` 实现在民兵规则上完全一致；两版差异仅在于 `TextObject` 构造参数与调用风格，对 mod 语义无影响。
+v1.3.15 与 v1.4.5 的接口与默认实现结构一致：`MilitiaToSpawnAfterSiege`、`CalculateMilitiaChange`、`CalculateVeteranMilitiaSpawnChance`、`CalculateMilitiaSpawnRate` 四个抽象成员均存在。跨版本替换应委托当前版本的 vanilla model，而不是仅把旧公式复制到新版本（政策、Perk 与文化特性集合会随版本变化）。
 
-## 导航
-
-- ↑ [Campaign-ext 模型目录](../)
-- ↔ [SettlementLoyaltyModel](../SettlementLoyaltyModel)
-- ↔ [SettlementSecurityModel](../SettlementSecurityModel)
-- ↔ [SettlementProsperityModel](../SettlementProsperityModel)
+- [队伍模型目录](../models/)
+- [父级：Campaign 扩展 API](../)
+- [↔ PartySpeedModel](../PartySpeedModel)
+- [↔ SettlementLoyaltyModel](../SettlementLoyaltyModel)
+- [↔ SettlementSecurityModel](../SettlementSecurityModel)
+- [ExplainedNumber](../ExplainedNumber)
+- [SiegeEvent](../SiegeEvent)
+- [MilitiaPartyComponent](../MilitiaPartyComponent)
+- [Campaign](../../campaign/Campaign)
 - [Settlement](../../campaign/Settlement)
 - [Town](../../campaign/Town)
 - [Village](../../campaign/Village)
-- [Campaign](../../campaign/Campaign)
-- [MobileParty](../../campaign/MobileParty)
+- [崩溃与存档边界](../../../architecture/crash-boundaries)

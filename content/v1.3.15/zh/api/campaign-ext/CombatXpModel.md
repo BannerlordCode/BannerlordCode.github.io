@@ -1,174 +1,199 @@
 ---
 title: "CombatXpModel"
-description: "把单次战斗命中转换为英雄/兵种应得经验的可替换战役策略，连接 MilitaryPowerModel、Perk 与 CharacterDevelopmentModel。"
+description: "把一次命中（攻击者 / 被攻击者 / 队长 / 伤害 / 是否致死 / 任务类型）映射为技能经验值与武器所训练技能的可替换规则模型。"
 ---
 # CombatXpModel
 
-**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public abstract class CombatXpModel : MBGameModel<CombatXpModel>`  
-**Base:** `MBGameModel<CombatXpModel>`  
-**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CombatXpModel.cs`  
-**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultCombatXpModel.cs`
+**命名空间:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**模块:** `TaleWorlds.CampaignSystem`  
+**类型:** `public abstract class CombatXpModel : MBGameModel<CombatXpModel>`  
+**基类:** `MBGameModel<CombatXpModel>`  
+**源文件:** `TaleWorlds.CampaignSystem/ComponentInterfaces/CombatXpModel.cs`  
+**默认实现:** `TaleWorlds.CampaignSystem.GameComponents/DefaultCombatXpModel.cs`
 
 ## 一句话职责
 
-`CombatXpModel` 决定战场上每一次命中给攻击方兵种与英雄带来多少经验、经验落到哪个技能，以及远程射击难度如何放大经验——它本身不给任何人写经验，只产出可解释的数值。
+它回答“这一击应该给多少技能经验、由谁来领、训练的是哪个技能”。它是一个只计算的规则层：真正的经验写入发生在战斗结束的经验分配与战斗后的战役经验结算行为里，而不在这个模型内部。
 
 ## 心智模型
 
-这是战役层（Campaign）的“战斗经验规则”插槽，由 `Campaign.Current.Models.CombatXpModel` 持有，战役启动时通过 `GetGameModel<CombatXpModel>()` 解析并注册，替换实现必须在战役建立前装好。它不是 Action、不修改世界状态，而是在命中结算时被反复调用的纯计算：输入攻击方兵种、队长、受击方、队伍、伤害、是否致命与场景类型，输出一个 `ExplainedNumber`。真正的“把经验写进英雄”发生在下游的 `CharacterDevelopmentModel` / `HeroDeveloper` 与 `DefaultSkillLevelingManager`，它们消费本模型产出的数值后再生效。
+这是战斗经验规则层，被 **两处** 消费：一边是 Mission（战斗）里按命中分配技能经验，另一边是战斗结束后战役层面的经验结算。它本身不持有任何单位、不改变任何 `CharacterObject` 的技能等级。
 
-```text
-单次命中（伤害、致命、武器、队伍、场景）
-        -> Campaign.Current.Models.CombatXpModel
-             GetSkillForWeapon   决定经验落到哪个技能
-             GetXpFromHit        计算基础经验（含 MilitaryPowerModel 战力与 Perk 加成）
-             GetXpMultiplierFromShotDifficulty  远程难度倍率
-        -> ExplainedNumber（可解释的 XP）
-        -> DefaultSkillLevelingManager / CharacterDevelopmentModel
-        -> HeroDeveloper / TroopRoster 经验 -> 技能成长 -> 存档
-```
+计算链是：一次命中发生时，调用方把攻击者、被攻击者、队长、攻击者队伍、伤害值、是否致死和任务类型交给 `GetXpFromHit`，模型返回一个 `ExplainedNumber`——先按双方兵力（来自 [`MilitaryPowerModel`](../MilitaryPowerModel) 的兵力估算）估算被攻击者难度，再乘以任务类型倍率，并叠加来自 Perk 的修正因素。`GetSkillForWeapon` 单独负责“这根武器练的是哪个技能”，`CaptainRadius` 则决定队长要离得多近才会作为 `captain` 参数传进来、从而分享这份经验。
 
-需要“改变经验规则”时替换这个 Model；需要“给某个人加经验”时走 `HeroDeveloper` / `DefaultSkillLevelingManager` 等官方成长入口，不要在本模型的回调里直接写英雄经验，也不要在预览/查询时触发世界变更。
+使用这个模型，是为了改变所有消费者看到的“经验是怎么算出来的”。如果目标是直接给某人加经验、改技能等级或推进等级，应使用经验结算行为 / [`CharacterDevelopmentModel`](../CharacterDevelopmentModel) 的等级逻辑，而不是在回调里写 `CharacterObject` 的技能字段。也不要把 `GetXpFromHit` 的返回值当作“已经发放”的经验——它只是一个待应用的建议值。
 
-### 注册与调用者
+何时用：
+- 为自定义战斗报告或伤害日志计算“这一击应得多少经验”。
+- 修改某类武器（例如自定义武器）训练的是哪个技能，或调整攻城器械命中时训练的技能。
 
-实例由 `Campaign.Current.Models` 提供，默认类型是 `DefaultCombatXpModel`。核心调用方有三个，全部来自真实源码：`SimpleAgentOrigin`（任务内逐次命中给部队/英雄结算）、`MapEventParty`（地图遭遇的模拟战斗结算）、`TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultSkillLevelingManager`（把命中 XP 应用到英雄技能）。`GetXpFromHit` 内部还会读取 `Campaign.Current.Models.MilitaryPowerModel.GetTroopPower` 来估计敌我战力，因此它是经验计算与战力模型之间的桥梁。
+何时不要用：
+- 不要直接调用它来“发放”经验——经验写入由战斗结束 / 战役经验行为执行，模型只负责算。
+- 不要在 `GetXpFromHit` / `GetSkillForWeapon` 回调里修改 `CharacterObject` 的技能或属性；那是把只读查询变成带副作用的世界变更。
+- 不要在标题界面或模块加载早期无条件读取 `Campaign.Current`，它此时可能为 `null`。
 
-## 何时用 / 何时不要用
+### 生命周期与注册
 
-**用**：你想调整整场战斗的经验产出曲线、按兵种/队伍/Perk 改写经验规则，或想为某种自定义场景（例如训练场、特殊演习）自定义经验倍率——此时子类化 `CombatXpModel` 并注册为当前战役的模型即可，所有调用方无需改动。
-
-**不要用**：
-- 不要在本模型的任何方法里直接给 `Hero` 或 `HeroDeveloper` 写经验——那会绕过 `CharacterDevelopmentModel` 的阈值与上限，造成重复升级或坏档。本模型只应“算”不应“写”。
-- 不要在查询/预览（如显示预计经验）时修改世界状态或队伍编制。
-- 不要为了给单个人加经验而替换整个模型；那种需求用 `HeroDeveloper.AddSkillXp` 之类的成长 API。
-- 装饰（只微调部分规则）时务必把未改动的方法委托给 `MBGameModel<CombatXpModel>.BaseModel`，否则会丢失默认 Perk 加成与战力计算。
+`Campaign.Current.Models` 持有当前实例。默认实例是 `DefaultCombatXpModel`，游戏启动器在战役初始化时通过 `IGameStarter.AddModel` 注册；自定义模型也必须在战役系统开始查询经验前完成注册。标题界面、模块加载早期或没有活动战役时，`Campaign.Current` 可能为 `null`，不能在静态字段初始化或菜单构造函数里无条件读取它。
 
 ## 依赖图
 
-上游提供输入与计算依赖，下游消费经验数值。
-
 ### 上游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`Campaign`](../../campaign/Campaign) | 提供活动战役与 `Models` 注册表；`Campaign.Current` 为空时模型不可用。 |
-| [`MilitaryPowerModel`](../MilitaryPowerModel) | `GetXpFromHit` 借其 `GetTroopPower` 估计敌我战力，是经验公式的核心输入。 |
-| [`CharacterObject`](../../campaign/CharacterObject) | 攻击方/受击方兵种，决定战力、技能相关性与 Perk 上下文。 |
-| [`PartyBase`](../../campaign/PartyBase) | 攻击方队伍，提供 `MapEvent`、`MobileParty`、`IsGarrison` 等 Perk 上下文。 |
-| [`MapEvent`](../../campaign/MapEvent) | 提供 `MapEventSide.LeaderSimulationModifier`、`Side`、`SimulationContext` 修正战斗经验。 |
+| [`Campaign`](../../campaign/Campaign) | 提供活动战役和 `Models` 注册表（`Campaign.Current.Models.CombatXpModel`）。 |
+| [`CharacterObject`](../../campaign/CharacterObject) | 攻击者、被攻击者、队长均以 `CharacterObject` 传入；其 `MaxHitPoints`、`IsHero`、`IsRanged` 等决定经验与 Perk 修正。 |
+| [`PartyBase`](../../campaign/PartyBase) | 攻击者队伍；默认实现从这里读取 `MapEvent`、`Side`、`LeaderSimulationModifier` 与各种 Perk。 |
+| [`SkillObject`](../../core-extra/SkillObject) | `GetSkillForWeapon` 返回所训练的技能（`Athletics` / `Engineering` / 武器 `RelevantSkill`）。 |
+| [`WeaponComponentData`](../../core-extra/WeaponComponentData) | 武器数据；非攻城器械时取其 `RelevantSkill` 决定训练的技能。 |
+| [`ExplainedNumber`](../ExplainedNumber) | 承载 `GetXpFromHit` 返回的经验值以及各 Perk 因素说明。 |
 
 ### 下游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`CharacterDevelopmentModel`](../CharacterDevelopmentModel) | 消费本模型产出的 XP，换算技能等级、专注与阈值。 |
-| [`Hero`](../../campaign/Hero) / `HeroDeveloper` | 通过 `DefaultSkillLevelingManager` 把命中 XP 写入英雄成长状态。 |
-| [`MobileParty`](../../campaign/MobileParty) | 提供队伍 Perk（Trainer、LeadByExample 等）与 `IsCurrentlyAtSea` 上下文。 |
-| [`GameModels`](../GameModels) | 持有 `CombatXpModel` 属性并负责注册/解析当前战役模型。 |
+| [`Hero`](../../campaign/Hero) | 当 `captain` 是英雄且拥有 `Leadership.InspiringLeader` Perk 时，经验会被加成（`AddFactor`）。 |
+| [`Mission`](../../mission/Mission) | 战斗内的命中经验分配消费 `GetXpFromHit` 与 `GetXpMultiplierFromShotDifficulty`。 |
+| [`MissionTypeEnum`](../MissionTypeEnum) | 任务类型（Battle / PracticeFight / Tournament / SimulationBattle / NoXp）决定经验倍率。 |
+| [`CharacterDevelopmentModel`](../CharacterDevelopmentModel) | 相邻的等级 / 经验模型；`GetXpFromHit` 的 `ExplainedNumber` 最终由经验结算行为写入技能等级。 |
 
-## 风险
+### Action、事件与存档边界
 
-1. **标题界面与战役早期 `Campaign.Current` 为空**：调用前必须判空，否则 `Campaign.Current.Models.CombatXpModel` 会抛空引用；模型自身的 `GetXpFromHit` 也会读取 `Campaign.Current.Models.MilitaryPowerModel`。
-2. **模型空替换 / 注册时机错误**：`GameModels.CombatXpModel` 是 `private set`，若在战役建立之后才替换，部分已缓存的调用方可能仍指向旧模型；装饰子类若忘记委托 `BaseModel`，会静默丢失全部默认 Perk 加成。
-3. **在纯计算里改状态**：`GetXpFromHit` 会被逐次命中反复调用（任务内、模拟战斗都会调用）。若在其中给英雄/队伍写经验或修改世界，会造成经验被多次累计（双重奖励）。
-4. **NaN / 负值**：默认实现用 `MathF.Min(damage, MaxHitPoints)` 与 `0.4f * ...` 夹取，但自定义实现若返回负值或 NaN，会污染 `ExplainedNumber`，进而使技能经验异常甚至损坏存档。
-5. **双重发奖**：本模型只产出数值，真正的写入由 `DefaultSkillLevelingManager` 等下游完成。若模组再手动调一次成长 API，英雄会被重复加经验。
-6. **坏档数据**：经验最终写入 `HeroDeveloper` 并被序列化；负的或被 NaN 污染的累计 XP 会在读档时触发重复升级或成长异常。
+模型本身没有存档字段，也不派发事件。经验的实际写入由战斗结束与战役经验结算行为执行；模型只返回建议值。自定义实现应在相同输入下保持确定性，避免战斗回放 / 存档重载时经验不一致。注意 `GetXpFromHit` 内部会读取 `Campaign.Current.Models.MilitaryPowerModel` 来计算双方兵力——替换模型时若也依赖其它模型，请同样通过 `Campaign.Current.Models` 获取，不要缓存可能失效的引用。
 
-## 成员按主题
+## 风险与调试顺序
 
-### 武器 → 技能映射
+1. **战役尚未存在:** `Campaign.Current` 在标题界面和早期模块加载阶段为空；获取模型前先判空，或延迟到战役启动钩子。
+2. **在回调里改写世界:** 招募、改技能等级、转账或传送必须在行为 / Roster API / Action 中执行，不能放进经验计算回调。
+3. **把返回值当已发放:** `GetXpFromHit` 返回的是“应得经验”，要由经验行为写入；只读取模型不会给任何人加经验。
+4. **`attackerParty` 为 null:** 默认实现中多处读取 `attackerParty.MapEvent` / `MobileParty`，传入 `null` 时相关 Perk 修正会被跳过（这是设计行为），但要确保调用方理解这一后果。
+5. **重复应用倍率:** 同时调用模型、再把返回值写回或再次乘倍率，会使任务类型倍率与 Perk 因素重复生效，导致经验异常膨胀。
+6. **`CaptainRadius` 误用:** 该属性只声明“队长分享经验的有效半径”，模型自身不测量距离；距离判定由调用方（战斗经验分配）负责，把队长传入 `captain` 参数前应当已在半径内。
 
-| Member | Purpose | Timing |
+## 成员契约
+
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetSkillForWeapon(WeaponComponentData, bool isSiegeEngineHit)` | 返回本次命中应成长的 `SkillObject`：默认 `Athletics`；攻城器械命中返回 `Engineering`；否则取 `weapon.RelevantSkill`。无副作用。 | 命中结算后、给技能加经验前调用，决定经验落到哪个技能。 |
-| `MissionTypeEnum` | 场景枚举：`Battle`(×1)、`PracticeFight`(×0.0625)、`Tournament`(×0.33)、`SimulationBattle`(×0.9)、`NoXp`(×0)。 | 调用方按当前场景传入，控制经验倍率。 |
+| `CaptainRadius` | 暴露“队长分享经验的有效半径”；默认实现为 `10f`。 | 由战斗经验分配在判定队长是否在场时读取；模型不在此测量距离，仅声明半径值。 |
+| `GetSkillForWeapon` | 返回某武器训练的技能：攻城器械命中时返回 `Engineering`，否则取武器 `RelevantSkill`，其余（徒手 / 无武器）默认 `Athletics`。 | 命中发生时决定经验计入哪个技能；纯查询，无副作用。 |
+| `GetXpFromHit` | 计算一击应得的技能经验：基于攻防双方兵力估算被击者难度，乘以任务类型倍率，并叠加 `OneHanded` / `TwoHanded` / `Throwing` / `Bow` / `Crossbow` / `Leadership` / `Roguery` 等 Perk 因素，返回 `ExplainedNumber`。 | 每次命中由经验分配 / 战役结算调用；只读计算，不写技能。 |
+| `GetXpMultiplierFromShotDifficulty` | 根据射击难度（远程武器的命中难度参数）返回 `0f~2f` 的倍率，难度越高倍率越大，上限为 `14.4f`。 | 远程命中时由调用方用来放大 `GetXpFromHit` 的结果；纯查询。 |
+| `MissionTypeEnum`（嵌套枚举） | 任务类型枚举：`Battle`、`PracticeFight`、`Tournament`、`SimulationBattle`、`NoXp`，决定 `GetXpFromHit` 的全局倍率（1 / 0.0625 / 0.33 / 0.9 / 0）。 | 作为 `GetXpFromHit` 的最后一个参数传入。 |
 
-### 单次命中经验
+默认实现的可观察因素包括：被击者兵力越高、伤害越大（致死额外加上最大生命值）经验越多；练习战、锦标赛、模拟战分别只有 `0.0625` / `0.33` / `0.9` 倍，`NoXp` 为 `0`；队长有 `Inspiring Leader` 且未在海上时加成；队伍领导者的 `Trainer` / `BaptisedInBlood` / `CorpsACorps` / `LeadByExample` / `Resourceful` / `BullsEye` / `MountedCrossbowman` / `NoRestForTheWicked` 等 Perk 会按兵种与是否在海上追加因素。
 
-| Member | Purpose | Timing |
-| --- | --- | --- |
-| `GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase attackerParty, int damage, bool isFatal, MissionTypeEnum missionType)` | 核心经验公式：用 `MilitaryPowerModel.GetTroopPower` 估算敌我战力，结合伤害、是否致命与场景倍率算出基础经验，再叠加 Perk（Trainer、LeadByExample、BullsEye、Inspiring Leader 等）与队长加成，返回 `ExplainedNumber`。纯计算，不改状态。 | 命中结算时由 `SimpleAgentOrigin`、`MapEventParty`、`DefaultSkillLevelingManager` 调用。 |
-| `CaptainRadius` | 队长影响半径（默认 `10f`）。决定队长在多大范围内对附近士兵共享/加成经验。只读属性，无副作用。 | 经验分配阶段用于判定队长 proximity 加成。 |
+## 真实读取路径
 
-### 远程难度倍率
-
-| Member | Purpose | Timing |
-| --- | --- | --- |
-| `GetXpMultiplierFromShotDifficulty(float shotDifficulty)` | 把远程射击难度（1–14.4，超出夹到 14.4）线性映射为 0–2 的倍率：越难命中经验越高。无副作用。 | 远程命中结算时由 `DefaultSkillLevelingManager` 调用，乘到命中经验上。 |
-
-## 示例
-
-### 示例 1：在战斗场景中读取单次命中经验（真实调用方式）
-
-下面节选自 `SimpleAgentOrigin` / `DefaultSkillLevelingManager` 的真实调用顺序——通过 `Campaign.Current.Models.CombatXpModel` 拿到可解释的经验数值，再由下游成长系统写入英雄。注意要先判空 `Campaign.Current`。
+以下代码只查询当前战役中已经注册的模型，与战斗经验分配读取 `GetXpFromHit` 的顺序一致：
 
 ```csharp
-// 在战斗任务或模拟战斗中，按单次命中计算攻击方应得经验
-if (Campaign.Current == null)
-{
-    return;
-}
-
-ExplainedNumber xpFromHit = Campaign.Current.Models.CombatXpModel.GetXpFromHit(
-    troop,                          // 攻击方兵种（CharacterObject）
-    (CharacterObject)formationCaptain, // 队长（可为 null）
-    (CharacterObject)victim,        // 受击方兵种（CharacterObject）
-    Party,                          // 攻击方队伍（PartyBase）
-    damage,                         // 本次造成的伤害（int）
-    isFatal,                        // 本次命中是否致命
-    CombatXpModel.MissionTypeEnum.Battle);
-
-// 经验应交给 CharacterDevelopmentModel / HeroDeveloper 去写入，不要在这里直接改英雄
-float xpForThisHit = xpFromHit.ResultNumber;
-```
-
-### 示例 2：子类化以微调经验规则（与 StoryModeCombatXpModel 同构）
-
-只调整部分规则时，把未改动的方法委托给 `MBGameModel<CombatXpModel>.BaseModel`，避免丢失默认的战力计算与 Perk 加成。`BaseModel` 即引擎解析到的原版模型。
-
-```csharp
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ComponentInterfaces;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 
-public class MyCombatXpModel : CombatXpModel
+public ExplainedNumber ComputeHitXp(
+    CharacterObject attacker,
+    CharacterObject captain,
+    CharacterObject attacked,
+    PartyBase attackerParty,
+    int damage,
+    bool isFatal)
 {
-    // 便捷访问被装饰的原版模型（StoryModeCombatXpModel 采用同一写法）
-    private CombatXpModel Base => ((MBGameModel<CombatXpModel>)this).BaseModel;
+    if (Campaign.Current == null)
+    {
+        return new ExplainedNumber(0f);
+    }
 
-    public override float CaptainRadius => Base.CaptainRadius;
+    CombatXpModel model = Campaign.Current.Models.CombatXpModel;
+
+    // 普通遭遇战：Battle 倍率为 1f；队长需处于 CaptainRadius 距离内才会出现在 captain 参数里
+    ExplainedNumber xp = model.GetXpFromHit(
+        attacker, captain, attacked, attackerParty, damage, isFatal,
+        CombatXpModel.MissionTypeEnum.Battle);
+
+    return xp;
+}
+```
+
+这段结果适合调试或 UI 预览，用于“这一击算出来是多少经验”；普通逻辑应把 `ExplainedNumber` 交给经验结算行为去写入，不要自己再次把数值乘一遍。
+
+查询武器训练技能与队长半径：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Core;
+
+CombatXpModel model = Campaign.Current.Models.CombatXpModel;
+
+// 武器训练哪个技能：近战武器用其 RelevantSkill，攻城器械用 Engineering，其余默认 Athletics
+SkillObject skill = model.GetSkillForWeapon(weapon, isSiegeEngineHit: false);
+
+// 队长分享经验的有效半径（默认 10f），由战斗经验分配在判定队长是否在场时读取
+float radius = model.CaptainRadius;
+```
+
+## 替换模型时的安全做法
+
+如果只想增加一个有限修正，保留原模型作为 delegate，并让四个成员仍然成对执行：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+
+public sealed class ModCombatXpModel : CombatXpModel
+{
+    private readonly CombatXpModel _vanilla;
+
+    public ModCombatXpModel(CombatXpModel vanilla)
+    {
+        _vanilla = vanilla;
+    }
+
+    public override float CaptainRadius => _vanilla.CaptainRadius;
 
     public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)
-        => Base.GetSkillForWeapon(weapon, isSiegeEngineHit);
+    {
+        return _vanilla.GetSkillForWeapon(weapon, isSiegeEngineHit);
+    }
 
     public override ExplainedNumber GetXpFromHit(
         CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop,
         PartyBase attackerParty, int damage, bool isFatal, MissionTypeEnum missionType)
     {
-        ExplainedNumber xp = Base.GetXpFromHit(
+        ExplainedNumber result = _vanilla.GetXpFromHit(
             attackerTroop, captain, attackedTroop, attackerParty, damage, isFatal, missionType);
-        // 例：把所有正式战斗经验整体下调 20%
-        if (missionType == MissionTypeEnum.Battle)
-        {
-            xp.AddFactor(-0.2f, new TextObject("我的战斗经验修正"));
-        }
-        return xp;
+        result.AddFactor(0.05f, new TextObject("Mod: drill bonus"));
+        return result;
     }
 
     public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)
-        => Base.GetXpMultiplierFromShotDifficulty(shotDifficulty);
+    {
+        return _vanilla.GetXpMultiplierFromShotDifficulty(shotDifficulty);
+    }
 }
 ```
 
-把 `MyCombatXpModel` 注册为当前战役的 CombatXpModel（引擎经 `GetGameModel<CombatXpModel>()` 解析），上述三个真实调用方都会自动走你的实现，无需逐一修改。
+实际注册时应在 `CampaignGameStarter` 的模型注册阶段保存 vanilla delegate；不要在模型已经替换后再次通过 `Campaign.Current.Models.CombatXpModel` 查找自己，否则会递归。若要让替换覆盖 Perk 与任务类型倍率规则，优先委托当前版本的默认模型，再加自己的有界因素。
 
-## 导航
+## 版本与导航
 
-- ↑ 父级：[Campaign-ext 模型索引](../)
-- ↔ 同级：[CharacterDevelopmentModel](../CharacterDevelopmentModel) · [PartySpeedModel](../PartySpeedModel) · [MilitaryPowerModel](../MilitaryPowerModel) · [GameModels](../GameModels) · [CombatSimulationModel](../CombatSimulationModel) · [PartyHealingModel](../PartyHealingModel)
-- 相关类型：[Campaign](../../campaign/Campaign) · [Hero](../../campaign/Hero) · [MobileParty](../../campaign/MobileParty) · [CharacterObject](../../campaign/CharacterObject) · [MapEvent](../../campaign/MapEvent) · [PartyBase](../../campaign/PartyBase)
-- 指南：[战役系统总览](../../../guide/campaign-system)
+v1.3.15 与 v1.4.5 的接口都包含 `CaptainRadius`、`GetSkillForWeapon`、`GetXpFromHit`、`GetXpMultiplierFromShotDifficulty` 与嵌套的 `MissionTypeEnum`；默认实现 `DefaultCombatXpModel` 在 v1.4.5 中更明显地包含海上状态（如 `IsCurrentlyAtSea`）相关条件。跨版本实现应委托当前版本的 vanilla model，而不是把旧公式复制到新版本。
+
+- [队伍模型目录](../models/)
+- [父级：Campaign 扩展 API](../)
+- [↔ CharacterDevelopmentModel](../CharacterDevelopmentModel)
+- [↔ PartySpeedModel](../PartySpeedModel)
+- [↔ ExplainedNumber](../ExplainedNumber)
+- [↔ MissionTypeEnum](../MissionTypeEnum)
+- [Campaign](../../campaign/Campaign)
+- [CharacterObject](../../campaign/CharacterObject)
+- [PartyBase](../../campaign/PartyBase)
+- [SkillObject](../../core-extra/SkillObject)
+- [WeaponComponentData](../../core-extra/WeaponComponentData)
+- [战役系统指南](../../../guide/campaign-system)
+- [崩溃边界与异常处理](../../../architecture/crash-boundaries)

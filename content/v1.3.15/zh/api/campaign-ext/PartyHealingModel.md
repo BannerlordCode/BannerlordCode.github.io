@@ -1,200 +1,223 @@
 ---
 title: "PartyHealingModel"
-description: "计算队伍每日治疗量与战斗后伤员存活、手术成功概率的可替换战役规则模型，自身不修改任何队伍状态。"
+description: "把部队伤兵状态、外科医生技能与医疗 Perk 换算成每日/战斗后治疗数值的可替换规则模型；它只计算，不修改名册。"
 ---
 # PartyHealingModel
 
-**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public abstract class PartyHealingModel : MBGameModel<PartyHealingModel>`  
-**Base:** `MBGameModel<PartyHealingModel>`  
-**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyHealingModel.cs`  
-**Default:** `TaleWorlds.CampaignSystem/GameComponents/DefaultPartyHealingModel.cs`
+**命名空间:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**模块:** `TaleWorlds.CampaignSystem`  
+**类型:** `public abstract class PartyHealingModel : MBGameModel<PartyHealingModel>`  
+**基类:** `MBGameModel<PartyHealingModel>`  
+**源文件:** `TaleWorlds.CampaignSystem/ComponentInterfaces/PartyHealingModel.cs`  
+**默认实现:** `TaleWorlds.CampaignSystem.GameComponents/DefaultPartyHealingModel.cs`
 
 ## 一句话职责
 
-把队伍的军医技能、驻地、士气、饥饿与海上/漂流状态折算成每天恢复的 HP、以及战斗后伤员存活与手术成功概率的一套可替换规则层，它只负责“算多少”，从不改队伍数据。
+它回答“这支队伍今天会治好多少伤兵、英雄会回多少血、这一击会不会死人”，并返回带可选解释的数值；它不给部队加血、不改名册人数，也不在战斗中判定死亡。实际的 HP / 人数变化发生在战役行为（每日治疗 tick、战斗结束结算）里，它们读取这个模型的结果后再写回名册。
 
 ## 心智模型
 
-这是战役层里一个**纯计算**的策略模型：它只回答“某队伍每天该回多少血”“这场战斗里这个伤员会不会死”“手术成功几率多大”，然后把数字交出去，由真正的行为去落地。修改队伍 HP、伤兵名册、英雄 `HitPoints` 的不是这个模型，而是消费它结果的 [`PartyHealCampaignBehavior`](../PartyHealCampaignBehavior) 与战斗模拟逻辑。引擎在 `Campaign.Current.Models` 里挂一个默认实现 `DefaultPartyHealingModel`，所有查询都经过 `Campaign.Current.Models.PartyHealingModel`；替换实现必须在战役开始注册模型时安装，之后每次 tick 自动生效。
+这是战役时钟读取前的**规则层**，不是执行层。队伍负伤状态、`EffectiveSurgeon` 的 Medicine 技能、各种医疗 Perk（Triage Tent、WalkItOff、BushDoctor、PreventiveMedicine 等）、士气、补给、是否驻扎在城镇要塞，先被汇总成几个 `ExplainedNumber` 和一个生存概率；真正的“加血 / 复活 / 阵亡扣减”由 `CampaignBehavior` 在对应 tick 中拿这些数值去改 `MemberRoster` / `Hero.HitPoints`。模型自身没有任何持久字段，也没有副作用——它是一组**纯查询**。
 
-v1.3.15 与 v1.4.5 的八个抽象方法签名完全一致，本页内容以 1.4.5 源码为准。
+使用这个模型，是为了**读取**一张队伍“应该治疗多少”的快照。需要真正改变部队状态时，应走到战役行为或对应的 Roster API（`MemberRoster` 的 HP / 人数方法），而不是在模型的回调里写名册。如果目标是让某个 Perk 生效，也只改模型的返回值（加一个因素），不要顺手招募、传送或扣金币——那会把一个只读查询变成每次每日 tick 都重复执行的副作用。
 
-```text
-队伍状态(编制/士气/驻地/饥饿/海上)
-   -> Campaign.Current.Models.PartyHealingModel
-        -> GetDailyHealingForRegulars / GetDailyHealingHpForHeroes   (每天回血)
-        -> GetSurvivalChance / GetSurgeryChance / GetSiegeBombardmentHitSurgeryChance  (战斗后判定)
-        -> GetBattleEndHealingAmount / GetHeroesEffectedHealingAmount / GetSkillXpFromHealingTroop
-   -> PartyHealCampaignBehavior 按 tick 频率把“每天”数值折算成增量
-   -> heroObject.Heal(...) / roster.AddToCountsAtIndex(...) 实际写回世界状态
-```
+`includeDescriptions` 只控制 `ExplainedNumber` 是否记录构成因素（用于调试/UI 展示），**不应改变数值本身**；自定义实现必须保证两种模式下 `ResultNumber` 一致。
 
-需要改变“规则”时继承并替换这个 Model；需要立刻让某个伤员满血或加人，用 [`Hero`](../../campaign/Hero) 的 `Heal`、名册的 `AddToCountsAtIndex`，或在有真实世界变更时走对应的 `*Action`。**不要**在模型回调里直接写 `Hero.HitPoints`、`MemberRoster` 或触发招募/俘获等 `*Action`——那会绕过 `PartyHealCampaignBehavior` 的溢出累加器，导致治疗被重复叠加或丢失。
+### 生命周期与注册
 
-### 注册与查询者
-
-实例由 [`Campaign`](../../campaign/Campaign) 的 `Models`（类型 [`GameModels`](../GameModels)）持有，默认类型是 `DefaultPartyHealingModel`，由 `SandBoxManager` 在 `Initialize(CampaignGameStarter)` 中通过 `gameStarter.AddModel(new DefaultPartyHealingModel())` 安装。真实查询者包括：`PartyHealCampaignBehavior`（每小时/每刻/每日结算）、`MapEventSide`（战斗模拟里判定存活）、`Hero`（自身治疗时取整）、`DefaultSkillLevelingManager`（治疗给的经验）、`SiegeEventCampaignBehavior`（攻城炮击的手术加成）。[`PartyBase`](../../campaign/PartyBase) 还把常用结果包成 `HealingRateForMemberRegulars` / `HealingRateForMemberHeroes` 等属性直接委托给本模型。
-
-## 何时用 / 何时不要用
-
-**用：**
-- 想调整每日治疗速率、饥饿/漂流的掉血量、要塞/城镇加成。
-- 想改变战斗后存活概率、手术成功率（含攻城炮击）、战斗结束 perk 治疗、治疗给的经验。
-- 在 SubModule 里 `RegisterModels(CampaignGameStarter starter)` 中 `starter.AddModel(new MyPartyHealingModel())` 覆盖默认实现，其余方法委托回 `DefaultPartyHealingModel` 即可。
-
-**不要用：**
-- 不要为了“立刻奶满一队”去直接改 `Hero.HitPoints` 或 `MemberRoster` 的伤兵数——交给模型 + `PartyHealCampaignBehavior` 去应用，否则与溢出累加器（`_overflowedHealingForRegulars` 等）冲突。
-- 不要在模型方法体内调用 `Heal`、`AddToCountsAtIndex` 或任何 `*Action`：模型是纯函数，写世界状态会双重治疗并污染存档。
-- 不要把“每天”速率当成“每小时”用；行为会再除以 `healFrequencyPerDay`（`HoursInDay`、`4`、`1`），单位错配会让治疗快/慢几十倍。
-- 不要缓存模型结果跨 tick 长期复用：速率随士气、驻地、perk、海上状态变化，每 tick 重新算才准。
+`Campaign.Current.Models` 持有当前实例。默认实例是 `DefaultPartyHealingModel`，游戏启动器在战役初始化时通过 `IGameStarter.AddModel` 注册它；自定义模型也必须在战役系统开始查询前完成注册。标题界面、模块加载早期或没有活动战役时，`Campaign.Current` 可能为 `null`，**不能**在静态字段初始化或菜单构造函数里无条件读取它。
 
 ## 依赖图
 
-### 上游（模型读取）
+### 上游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`Campaign`](../../campaign/Campaign) | 提供活动战役与 `Models` 注册表，所有查询入口。 |
-| [`GameModels`](../GameModels) | 持有 `PartyHealingModel`，即 `Campaign.Current.Models`。 |
-| [`PartyBase`](../../campaign/PartyBase) | 主要输入；暴露治疗速率属性与 `MemberRoster` / `PrisonRoster`。 |
-| [`MobileParty`](../../campaign/MobileParty) | 移动队伍上下文：士气、驻地、perk、海上/漂流、是否移动。 |
-| [`Hero`](../../campaign/Hero) | 英雄治疗的 `HitPoints`、状态与 `Heal` 落点。 |
-| [`CharacterObject`](../../campaign/CharacterObject) | 兵种角色：是否英雄、`Tier`、年龄、护甲总和。 |
-| [`TroopRoster`](../TroopRoster) | 伤兵与英雄计数，决定能治疗多少、扣多少。 |
-| [`ExplainedNumber`](../ExplainedNumber) | 结果容器，可带因素说明（`includeDescriptions`）。 |
-| [`DamageTypes`](../../core-extra/DamageTypes) | 战斗伤害类型，用于 `GetSurvivalChance` 判定。 |
-| [`DifficultyModel`](../DifficultyModel) | 玩家氏族成员死亡概率乘子（存活判定内读取）。 |
-| [`PartyMoraleModel`](../PartyMoraleModel) | `HighMoraleValue` 阈值，用于高士气治疗加成。 |
-| [`CharacterDevelopmentModel`](../CharacterDevelopmentModel) | 同族技能/perk 阈值参考（相关模型）。 |
+| [`Campaign`](../../campaign/Campaign) | 提供活动战役与 `Models` 注册表（`Campaign.Current.Models.PartyHealingModel`）。 |
+| [`PartyBase`](../../campaign/PartyBase) | 几乎所有方法的第一参数；提供 `MobileParty`、`MemberRoster`、`IsStarving`、`SiegeEvent`、`ItemRoster` 等状态。 |
+| [`MobileParty`](../../campaign/MobileParty) | 提供编制、`EffectiveSurgeon`、士气、`CurrentSettlement`、`IsCurrentlyAtSea`、Perk 与移动状态。 |
+| [`Hero`](../../campaign/Hero) | `GetHeroesEffectedHealingAmount` 与 `GetBattleEndHealingAmount` 的输入；决定英雄回血与阵亡阈值。 |
+| [`CharacterObject`](../../campaign/CharacterObject) | `GetSurvivalChance` 的受击角色；提供 `IsHero`、`Tier`、`Level`、`Age`、护甲合计等生存因子。 |
+| [`ExplainedNumber`](../ExplainedNumber) | 承载每日治疗/战斗后治疗结果以及可选的因素说明。 |
 
-### 下游（消费模型）
+### 下游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`PartyHealCampaignBehavior`](../PartyHealCampaignBehavior) | 每个 tick 调用模型并把结果写回队伍/英雄。 |
-| [`MapEventSide`](../MapEventSide) | 战斗模拟中对每个倒下单位调用 `GetSurvivalChance`。 |
-| [`CampaignEvents`](../CampaignEvents) | 行为订阅的 `HourlyTick` / `DailyTickSettlement` / `MapEventEnded` / `OnPlayerBattleEnd`。 |
-| [`MapEvent`](../../campaign/MapEvent) | 战斗结束事件，触发 `GetBattleEndHealingAmount`。 |
-| [`SiegeEvent`](../SiegeEvent) | 攻城炮击读取 `GetSiegeBombardmentHitSurgeryChance`。 |
-| [`CampaignBehaviorBase`](../CampaignBehaviorBase) | 治疗行为的基类。 |
-| [`PartySpeedModel`](../PartySpeedModel) | 同族可替换规则模型（参考结构）。 |
-| [`PartyWageModel`](../PartyWageModel) · [`PartySizeLimitModel`](../PartySizeLimitModel) | 同族队伍规则模型。 |
+| [`Settlement`](../../campaign/Settlement) | 默认实现读取 `CurrentSettlement.IsTown` / `IsFortification` / `IsUnderSiege` / `IsRaided` 等来修正治疗。 |
+| [`Town`](../../campaign/Town) | 城镇驻扎时通过 `SkillHelper.AddSkillBonusForTown`（GovernorHealingRateBonus）加成正规军治疗。 |
+| [`SiegeEvent`](../SiegeEvent) | 被围时（`party.SiegeEvent != null`）会跳过“安全驻扎”加值；围城轰炸手术概率走 `GetSiegeBombardmentHitSurgeryChance`。 |
+| [`DamageTypes`](../../core-extra/DamageTypes) | `GetSurvivalChance` 的伤害类型参数（Blunt 且 `canDamageKillEvenIfBlunt=false` 时必活）。 |
+| 战役行为（每日治疗 / 战斗结束结算） | 真正消费模型返回值并改 `MemberRoster`、`Hero.HitPoints` 的执行者；模型不负责应用。 |
+| [`PartyMoraleModel`](../PartyMoraleModel) | 默认实现读取 `PartyMoraleModel.HighMoraleValue` 判断是否触发 BestMedicine 加值。 |
+| [`CharacterDevelopmentModel`](../CharacterDevelopmentModel) | 默认实现通过技能/Perk 阈值（`DefaultSkillEffects`、`DefaultPerks`）给出各因素数值。 |
 
-## 风险
+### Action、事件与存档边界
 
-1. **标题界面 / 模块早期 `Campaign.Current` 为空**：所有调用都形如 `Campaign.Current.Models.PartyHealingModel...`。若在活动战役之外（主菜单、加载前、纯 UI 初始化）调用会空引用。真实调用者都在战役 tick 内，安全；自定义代码需自己 `null` 守卫。
-2. **模型空替换 / 抛异常**：`AddModel` 装了一个会抛异常的实现，则每次治疗 tick 都会中断，影响每一个队伍。覆盖时未实现的抽象方法必须委托回 `DefaultPartyHealingModel`，否则 `AddModel` 装上的实例会在首次调用崩溃。
-3. **在纯计算里改世界状态**：在模型内调用 `Hero.Heal` 或改名册，会绕过 `PartyHealCampaignBehavior` 的溢出累加字典，治疗被重复叠加或丢失，长期还可能破坏存档一致性。
-4. **NaN / 越界破坏不变量**：`GetSurvivalChance` / `GetSurgeryChance` 的返回值必须落在 `[0,1]`；返回 `<0` 或 `>1` 会让死亡概率变为负或超 1。每日治疗可以为负（饥饿/漂流），但暴涨的负值会在一次 tick 内把兵种打成重伤甚至清零。`RoundedResultNumber` 依赖有限数，返回 `NaN`/`±Infinity` 会污染累加器。
-5. **单位错配**：模型返回的是“每天”速率；行为再除以 `healFrequencyPerDay`。若你按“每小时”思考并直接放大，治疗会快/慢几十倍。
-6. **自定义状态未存档**：模型本身无状态、无需存档；但若你给自定义子类加了字段，必须标 `[SaveableField]` 或用 `TypeDefiner` 注册，否则读档后丢失，可能触发行为逻辑不一致。
-7. **缓存陈旧**：速率随士气、驻地、perk、海上状态实时变化；任何把结果存起来跨 tick 复用的做法都会偏离真实值。
+模型结果本身没有存档字段，也不派发事件。生存/治疗数值是**派生量**：合法的名册 HP / 人数变更走战役行为或 Roster API；自定义模型应在相同输入下保持确定性，避免每日 tick 重放时治疗量与已存档名册状态不一致。替换模型时保存 vanilla delegate 并委托它，不要通过 `Campaign.Current.Models.PartyHealingModel` 再次查找自己（会递归）。
 
-## 关键成员（按主题）
+## 成员契约
 
-### 战斗后判定：存活与手术
+### 生存与手术概率
 
-#### `float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)`
-返回某倒下单位**在战斗后存活（不死亡）的概率**，范围 `[0,1]`。`MapEventSide` 在战斗模拟中为每个倒下单位调用它来决定死活。默认实现：`Blunt` 且 `canDamageKillEvenIfBlunt=false` 时直接返回 `1f`（钝器不致死）；敌方有 `DoctorsOath` perk 会提高存活；英雄因护甲、年龄有额外加成，且玩家氏族成员受 `DifficultyModel` 乘子影响。`agentCharacter.IsHero` 为 `false` 且 `Tier<3` 时还会吃 `PhysicianOfPeople` 加成。
-**副作用**：无（纯计算）。**何时调用**：不要手动调用去“决定死活”，那是战斗模拟的职责；覆盖时只改概率公式。
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `GetSurgeryChance(PartyBase party)` | 返回单次手术成功概率（默认 = `0.0015 × EffectiveSurgeon.Medicine`）。 | 战斗结束/围城结算判定伤兵是否救活；纯查询，无副作用。 |
+| `GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)` | 返回受击角色**存活**概率（`1 − 死亡概率`）。Blunt 且不可致死、英雄在 VeryEasy、玩家在 Easy 时直接返回 `1f`。 | 战斗每次伤害结算调用；读取外科医生、敌方阵型 DoctorsOath、护甲、年龄、难度等；无名册修改。 |
+| `GetSiegeBombardmentHitSurgeryChance(PartyBase party)` | 返回围城轰炸命中时的手术概率（默认仅 `Medicine.SiegeMedic` Perk 加值）。 | 围城轰炸结算；纯查询。 |
 
-#### `float GetSurgeryChance(PartyBase party)`
-战斗后伤员接受手术并成功存活的几率，默认 `0.0015f * 军医(Medicine 技能值)`。`DefaultSkillLevelingManager.OnSurgeryApplied` 用它结算医术经验。
-**副作用**：无。**何时调用**：覆盖以调整术后存活/经验节奏。
+### 每日治疗
 
-#### `float GetSiegeBombardmentHitSurgeryChance(PartyBase party)`
-攻城炮击命中后额外的手术成功加成，来自 `Medicine.SiegeMedic` perk；无 perk 时返回 `0`。由 `SiegeEventCampaignBehavior` 在炮击结算时读取。
-**副作用**：无。**何时调用**：覆盖以调整攻城中的外科加成。
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)` | 返回正规军**每日治疗量**（`ExplainedNumber`）。饥饿/海上漂流为负；基础 `5`，要塞 `+10`，城镇总督/Perk 加值。 | 每日治疗 tick 读取；只给数字，不改名册。 |
+| `GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)` | 返回英雄**每日回血**（`ExplainedNumber`）。俘虏 `+20`、无队伍 `+11`、移动队伍基础 `11`、要塞 `+8`。 | 每日治疗 tick 读取；纯查询。 |
+| `GetHeroesEffectedHealingAmount(Hero hero, float healingRate)` | 在每日英雄回血率上叠加 `SelfMedication` 等 Perk，返回最终**整数**回血量。 | 战斗/每日结算中把回血率变成可应用的整数；读取英雄 Perk，无副作用。 |
 
-#### `ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)`
-战斗结束时给英雄的额外治疗量，来自 `PreventiveMedicine`（按缺失 HP 比例）与 `WalkItOff`（攻击方）。`PartyHealCampaignBehavior.OnBattleEndCheckPerkEffects` 在 `MapEventEnded` / `OnPlayerBattleEnd` 中调用，结果 `>0` 时 `heroObject.Heal(...)` 落地。
-**副作用**：无（模型不写回，行为写回）。**何时调用**：覆盖以调整战斗结束 perk 治疗。
+### 战斗后治疗与技能经验
 
-### 每日治疗量（按天）
+| 成员 | 用途 | 调用时机与副作用 |
+| --- | --- | --- |
+| `GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)` | 返回战斗结束时对英雄的额外治疗（`ExplainedNumber`）：`PreventiveMedicine` 按缺失血量、`WalkItOff`（攻方）固定加值。 | 战斗结束结算读取；只计算，不写 `HitPoints`。 |
+| `GetSkillXpFromHealingTroop(PartyBase party)` | 返回通过治疗部队获得的技能经验（默认 `5`）。 | 每日治疗结算给 Medicine 经验；纯查询。 |
 
-#### `ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)`
-普通兵（伤兵）**每天**恢复的基础 HP。默认：非囚犯移动队伍基础 `+5`，城镇/要塞/高士气/perk 再叠加；饥饿或漂流时为负（按兵数比例扣血）。`PartyBase.HealingRateForMemberRegulars` 直接委托它。`PartyHealCampaignBehavior` 把它除以 tick 频率后累加、落到 `MemberRoster`。
-**副作用**：无。**何时调用**：读速率用 `PartyBase.HealingRateForMemberRegulars`；改规则才覆盖本方法。
+默认实现的可观察因素：正规军基础每日 `+5`、要塞 `+10`、城镇总督/Perk 加值；饥饿（garrison `−10%` 总人口、移动队 `−25%`）与海上漂流（`−25%`）为负；英雄基础 `+11`、俘虏 `+20`、要塞 `+8`。v1.4.5 的默认实现额外加入 `IsCurrentlyAtSea` 相关的海上乘数与风/船只状态，替换模型时优先委托当前版本 vanilla 模型而不是复制旧公式。
 
-#### `ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)`
-英雄**每天**恢复的 HP。默认基础 `+11`，要塞 `+8`，囚犯英雄 `+20`；同样受饥饿/漂流影响为负。注意 `partyBase == null` 时走“无队伍归属英雄”分支（返回基础 `11`）。委托给 `PartyBase.HealingRateForMemberHeroes`。
-**副作用**：无。**何时调用**：同上。
+## 真实读取路径
 
-### 英雄取整与技能经验
-
-#### `int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)`
-把一个浮点治疗速率取整成整数 HP，并叠加 `SelfMedication` perk（海上减半）。`Hero` 自身治疗处调用，返回实际应加的 HP。
-**副作用**：无。**何时调用**：覆盖以调整英雄治疗取整与自我治疗 perk。
-
-#### `int GetSkillXpFromHealingTroop(PartyBase party)`
-每治疗一名普通兵给医术（`Medicine`）的经验，默认 `5`。`DefaultSkillLevelingManager` 在 `OnRegularTroopHealedWhileWaiting` / `OnSurgeryApplied` 中乘以治疗兵数与平均 `Tier` 结算经验。
-**副作用**：无。**何时调用**：覆盖以调整治疗给的经验量。
-
-## 最小真实示例
-
-### 示例 1：覆盖模型，提高主队每日治疗（委托默认实现）
+以下代码只查询当前战役中已经注册的模型，得到“本应治疗多少”，**不改动任何名册**：
 
 ```csharp
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 
-public class GenerousHealingModel : PartyHealingModel
+// 只读取模型给出的每日治疗快照，用于调试或 UI 预览。
+public ExplainedNumber ExplainDailyHealing(MobileParty party, bool forPrisoners)
 {
-    // 默认实现作为 fallback，未覆盖的方法保持原版行为
-    private readonly PartyHealingModel _fallback = new DefaultPartyHealingModel();
+    if (Campaign.Current == null || party == null)
+    {
+        return new ExplainedNumber(0f);
+    }
+
+    PartyHealingModel model = Campaign.Current.Models.PartyHealingModel;
+    ExplainedNumber regulars = model.GetDailyHealingForRegulars(party.Party, forPrisoners, includeDescriptions: true);
+    ExplainedNumber heroes = model.GetDailyHealingHpForHeroes(party.Party, forPrisoners, includeDescriptions: true);
+
+    // regulars.ResultNumber / heroes.ResultNumber 是最终数值；
+    // regulars.GetDetailedExplanation() 可在 UI 中展示因素构成。
+    return regulars;
+}
+```
+
+战斗结束判定一名角色是否会在该次伤害中存活（注意 `GetSurvivalChance` 返回的是**存活**概率）：
+
+```csharp
+// 战斗结算时依据生存概率掷骰，决定该角色是否阵亡。
+public bool WillSurviveHit(MobileParty party, CharacterObject character, DamageTypes damage, bool canKillBlunt, MobileParty enemy)
+{
+    if (Campaign.Current == null)
+    {
+        return true; // 无战役上下文时保守假设存活，避免误判扣减
+    }
+
+    PartyHealingModel model = Campaign.Current.Models.PartyHealingModel;
+    float survival = model.GetSurvivalChance(party.Party, character, damage, canKillBlunt, enemy?.Party);
+    return MBRandom.RandomFloat < survival;
+}
+```
+
+**何时不要用（反例）：** 不要在计算回调里写名册。下面的写法是错误的——把名册修改塞进读取路径，会让每次每日 tick 都重复执行招募/扣血，破坏确定性并可能与已存档状态冲突：
+
+```csharp
+// ❌ 错误：在“读取”回调里改世界。模型只应返回数值。
+public override ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)
+{
+    ExplainedNumber result = new ExplainedNumber(0f, includeDescriptions);
+    result.Add(5f);
+    partyBase.MemberRoster.AddToCounts(...); // 不要在模型里改名册
+    return result;
+}
+```
+
+真正应用治疗应放在战役行为中：读取 `GetDailyHealingForRegulars` 的结果，再调用 Roster / `Hero.HitPoints` 的官方 API 把数值写回。
+
+## 替换模型时的安全做法
+
+如果只想增加有限修正，保留原模型作为 delegate，让所有方法继续成对执行：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Core;
+
+public sealed class ModPartyHealingModel : PartyHealingModel
+{
+    private readonly PartyHealingModel _vanilla;
+
+    public ModPartyHealingModel(PartyHealingModel vanilla)
+    {
+        _vanilla = vanilla;
+    }
+
+    public override float GetSurgeryChance(PartyBase party) => _vanilla.GetSurgeryChance(party);
+
+    public override float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null)
+        => _vanilla.GetSurvivalChance(party, agentCharacter, damageType, canDamageKillEvenIfBlunt, enemyParty);
+
+    public override int GetSkillXpFromHealingTroop(PartyBase party) => _vanilla.GetSkillXpFromHealingTroop(party);
 
     public override ExplainedNumber GetDailyHealingForRegulars(PartyBase partyBase, bool isPrisoner, bool includeDescriptions = false)
     {
-        ExplainedNumber result = _fallback.GetDailyHealingForRegulars(partyBase, isPrisoner, includeDescriptions);
-        if (!isPrisoner && partyBase?.IsMobile == true)
-        {
-            result.Add(5f, new TextObject("{=genh}Generous marching rest"));
-        }
+        ExplainedNumber result = _vanilla.GetDailyHealingForRegulars(partyBase, isPrisoner, includeDescriptions);
+        result.AddFactor(0.1f, new TextObject("Mod: field hospital"));
         return result;
     }
 
-    public override float GetSurgeryChance(PartyBase party) => _fallback.GetSurgeryChance(party);
-    public override float GetSurvivalChance(PartyBase party, CharacterObject agentCharacter, DamageTypes damageType, bool canDamageKillEvenIfBlunt, PartyBase enemyParty = null) => _fallback.GetSurvivalChance(party, agentCharacter, damageType, canDamageKillEvenIfBlunt, enemyParty);
-    public override int GetSkillXpFromHealingTroop(PartyBase party) => _fallback.GetSkillXpFromHealingTroop(party);
-    public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false) => _fallback.GetDailyHealingHpForHeroes(partyBase, isPrisoners, includeDescriptions);
-    public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate) => _fallback.GetHeroesEffectedHealingAmount(hero, healingRate);
-    public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party) => _fallback.GetSiegeBombardmentHitSurgeryChance(party);
-    public override ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero) => _fallback.GetBattleEndHealingAmount(partyBase, hero);
+    public override ExplainedNumber GetDailyHealingHpForHeroes(PartyBase partyBase, bool isPrisoners, bool includeDescriptions = false)
+        => _vanilla.GetDailyHealingHpForHeroes(partyBase, isPrisoners, includeDescriptions);
+
+    public override int GetHeroesEffectedHealingAmount(Hero hero, float healingRate)
+        => _vanilla.GetHeroesEffectedHealingAmount(hero, healingRate);
+
+    public override float GetSiegeBombardmentHitSurgeryChance(PartyBase party)
+        => _vanilla.GetSiegeBombardmentHitSurgeryChance(party);
+
+    public override ExplainedNumber GetBattleEndHealingAmount(PartyBase partyBase, Hero hero)
+        => _vanilla.GetBattleEndHealingAmount(partyBase, hero);
 }
 ```
 
-在 SubModule 中注册（战役初始化时 `AddModel` 会替换默认实例）：
+实际注册时应在 `CampaignGameStarter` 的模型注册阶段保存 vanilla delegate；不要在模型已经替换后再次通过 `Campaign.Current.Models.PartyHealingModel` 查找自己，否则会递归。若要让替换覆盖海上、文化和新版本 Perk 规则，优先委托当前版本的 vanilla model，再加自己的有界因素。
 
-```csharp
-protected override void RegisterModels(CampaignGameStarter starter)
-{
-    base.RegisterModels(starter);
-    starter.AddModel(new GenerousHealingModel());
-}
-```
+## 风险与调试顺序
 
-### 示例 2：仅读取主队每日治疗量（真实获取路径）
+1. **战役尚未存在：** `Campaign.Current` 在标题界面和早期模块加载阶段为空；延迟到战役启动钩子再获取模型，所有读取先做 null 检查。
+2. **在回调中修改世界：** 招募、传送、扣金币、改 `HitPoints` / 名册人数必须在战役行为、Roster API 或 Action 中执行，不能放进计算回调。
+3. **无界结果：** 返回 NaN、负数溢出或跳过下限会让每日治疗变成持续掉血或治愈溢出；`ExplainedNumber` 的因素应加有界加值/乘子。
+4. **`includeDescriptions` 改变数值：** 调试/UI 开启说明时数值必须与关闭时完全一致，否则重放与预览不一致。
+5. **递归替换：** 自定义模型内部再查 `Campaign.Current.Models.PartyHealingModel` 会调到自己；保存并在构造时注入 vanilla delegate。
+6. **跨版本差异：** v1.4.5 默认实现加入 `IsCurrentlyAtSea` 等海上因素，替换旧版本公式时应委托当前版本 vanilla，避免漏掉新 Perk/状态。
+7. **坏档关联：** 模型是派生量，不存档；但若替换导致每日治疗量与已存档名册严重不一致，重放 tick 时会出现人数/HP 跳变。见 [崩溃与存档边界](../../../architecture/crash-boundaries)。
 
-```csharp
-// 在战役进行中（如某个 CampaignBehavior 的 tick，或 UI 面板读取时）只读不写
-if (Campaign.Current != null && MobileParty.MainParty != null)
-{
-    PartyHealingModel model = Campaign.Current.Models.PartyHealingModel;
-    ExplainedNumber regulars = model.GetDailyHealingForRegulars(MobileParty.MainParty.Party, isPrisoner: false, includeDescriptions: true);
-    ExplainedNumber heroes = model.GetDailyHealingHpForHeroes(MobileParty.MainParty.Party, isPrisoners: false, includeDescriptions: true);
-    // regulars.ResultNumber 是每天恢复 HP；RoundedResultNumber 用于落地整数
-    // includeDescriptions=true 时结果带因素明细，可展示给玩家
-}
-```
+## 版本与导航
 
-这与 `PartyBase.HealingRateForMemberRegulars` / `HealingRateForMemberHeroes` 内部调用的顺序一致；结果只能用于显示或平衡判断，不要写回 `HitPoints` 或名册。
+接口 `PartyHealingModel` 在 v1.3.0、v1.3.15 与 v1.4.5 中保持完全一致（8 个抽象方法签名未变）；差异只在 `DefaultPartyHealingModel` 的默认公式（v1.4.5 加入海上 `IsCurrentlyAtSea` 相关因素）。跨版本实现应委托当前版本的 vanilla model，而不是把旧公式复制到新版本。
 
-## 导航
-
-- ↑ 父级：[campaign-ext 模型索引](../)
-- ↔ 同级：[PartySpeedModel](../PartySpeedModel) · [PartyWageModel](../PartyWageModel) · [PartySizeLimitModel](../PartySizeLimitModel) · [CharacterDevelopmentModel](../CharacterDevelopmentModel) · [DifficultyModel](../DifficultyModel) · [PartyMoraleModel](../PartyMoraleModel) · [GameModels](../GameModels)
-- 相关：[PartyBase](../../campaign/PartyBase) · [MobileParty](../../campaign/MobileParty) · [Hero](../../campaign/Hero) · [PartyHealCampaignBehavior](../PartyHealCampaignBehavior) · [CampaignEvents](../CampaignEvents) · [MapEventSide](../MapEventSide)
+- [父级：Campaign 扩展 API](../)
+- [↔ PartySpeedModel](../PartySpeedModel)
+- [↔ PartyWageModel](../PartyWageModel)
+- [↔ PartyMoraleModel](../PartyMoraleModel)
+- [↔ CharacterDevelopmentModel](../CharacterDevelopmentModel)
+- [ExplainedNumber](../ExplainedNumber)
+- [SiegeEvent](../SiegeEvent)
+- [Campaign](../../campaign/Campaign)
+- [MobileParty](../../campaign/MobileParty)
+- [PartyBase](../../campaign/PartyBase)
+- [Hero](../../campaign/Hero)
+- [CharacterObject](../../campaign/CharacterObject)
+- [Settlement](../../campaign/Settlement)
+- [Town](../../campaign/Town)
+- [DamageTypes](../../core-extra/DamageTypes)
+- [崩溃与存档边界](../../../architecture/crash-boundaries)

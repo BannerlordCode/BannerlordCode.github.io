@@ -1,207 +1,194 @@
 ---
 title: "SmithingModel"
-description: "战役层的锻造规则模型：计算可锻造部件难度、武器设计难度、武器品质、精炼/锻造/熔炼的精力消耗、材料收支、技能经验与部件研究点。"
+description: "把部件、武器设计、材料与英雄工艺技能换算成锻造/熔炼/精炼的难度、材料与能量成本、技能经验和部件研究点的可替换规则模型。"
 ---
 # SmithingModel
 
-**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**Module:** `TaleWorlds.CampaignSystem`  
-**Type:** `public abstract class SmithingModel : MBGameModel<SmithingModel>`  
-**Base:** `MBGameModel<SmithingModel>`  
-**Source:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SmithingModel.cs`  
-**Default:** `TaleWorlds.CampaignSystem.GameComponents/DefaultSmithingModel.cs`
+**命名空间:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**模块:** `TaleWorlds.CampaignSystem`  
+**类型:** `public abstract class SmithingModel : MBGameModel<SmithingModel>`  
+**基类:** `MBGameModel<SmithingModel>`  
+**源文件:** `TaleWorlds.CampaignSystem/ComponentInterfaces/SmithingModel.cs`  
+**默认实现:** `TaleWorlds.CampaignSystem.GameComponents.DefaultSmithingModel`
 
 ## 一句话职责
 
-`SmithingModel` 把武器设计（部件组合、尺寸、模板）翻译成可解释的数值：每块部件的难度、整把武器的设计难度、随机抽到的武器品质、精炼/锻造/熔炼分别消耗多少铁匠精力、熔炼能回收哪些材料、以及每次操作给铁匠的技能经验和部件研究点。它本身不持有任何进度，也不直接创建 `ItemObject`。
+它把武器部件、武器设计、原材料和英雄的工艺技能与 Perk 换算成「难度、材料/金币成本、能量消耗、技能经验、部件研究点」这些数字，供铁匠界面和锻造/熔炼/精炼行为消费——它只计算并输出这些数值，自己不生成、不发放任何物品，也不会把成品塞进队伍。
 
 ## 心智模型
 
-`SmithingModel` 是战役（Campaign）层的一个**纯规则计算器**，由游戏启动器注册进 `Campaign.Current.Models`，默认实现是 `DefaultSmithingModel`。它和 CraftingSystem 的关系是职责分离：
+这是铁匠系统的规则层（rule layer）。锻造 UI、熔炼 UI 和各种 smithing 行为在需要数值时，统一向 `Campaign.Current.Models.SmithingModel` 要结果：难度决定品质区间，材料成本（`int[]`）喂给 UI 的资源条，能量成本决定英雄当天还能做几次动作，技能经验与研究点写入英雄的成长记录。
 
-- **CraftingSystem**（`TaleWorlds.CampaignSystem.CraftingSystem` 的 `CraftingPiece`、`CraftingTemplate`，以及 `TaleWorlds.Core` 的 `WeaponDesign`、`Crafting`）描述"这把武器由哪些部件、以何种尺寸组成、长得什么样"。
-- **`SmithingModel`** 描述"按这套设计锻造/熔炼/精炼，代价和产出是多少"——它是无状态的数值策略。
-- **`CraftingCampaignBehavior`**（实现 `ICraftingCampaignBehavior`）是真正的"执行者"：它读取 `SmithingModel` 算出的精力、经验、材料，去扣减 `Hero` 的锻造体力、给 `Hero` 加技能经验、把材料写进队伍 `ItemRoster`、把生成的 `ItemObject` 塞进 `Equipment` 或订单。
-- **真正的 `ItemObject` 生成**发生在 `TaleWorlds.Core` 的 `Crafting.GenerateItem`，而不是 `SmithingModel`。`SmithingModel` 只回答"如果生成并锻造这件物品，代价/品质/经验是多少"。
+计算链是：UI/行为传入 `WeaponDesign`、`ItemObject`、`CraftingPiece`、`Hero` 等输入 → 模型计算难度（`GetCraftingPartDifficulty` / `CalculateWeaponDesignDifficulty`）、成本（材料 `int[]` 与能量 `int`）、经验/研究点 → 调用方拿这些数字去驱动界面或交给 smithing 行为实际产出物品。模型本身是纯函数式的：相同输入应得到相同输出，它不缓存、不修改传入对象（除显式 `ref` 的两个精炼方法外），也不触发世界状态变化。
 
-生命周期上：战役开始 → 启动器把 `SmithingModel = GetGameModel<SmithingModel>()` 注入 `GameModels`（见 `GameModels.cs:280`）→ 铁匠铺 UI 与 `CraftingCampaignBehavior` 在玩家每次精炼/锻造/熔炼时查询它 → 战役结束随 `Campaign` 一起释放。替换实现必须在战役查询前通过 `CampaignGameStarter`/SubModule 替换 `Models.SmithingModel`。
+使用这个模型，是为了改写所有消费者看到的「计算规则」——例如让高等级图纸更难、让熔炼更省能量、让研究点更快积累。如果目标是真正造出一把武器、把成品加进队伍或物品栏，应使用 smithing/crafting 行为（如 `SmithingBehavior` 一族）配合 `ItemRoster` / `Equipment` API，或对应的 `*Action`；**不要**在模型的方法回调里 `new ItemObject`、直接写入 `PartyBase` 或调用发放逻辑，那会把一个只读查询变成每次读取都重复执行的副作用，并且绕过每日能量与材料校验。
 
-```text
-WeaponDesign (部件+尺寸+模板)
-   │  查询数值
-   ▼
-Campaign.Current.Models.SmithingModel   （无状态，可替换）
-   │  返回：难度 / 品质 / 精力 / 材料 / 经验 / 研究点
-   ▼
-CraftingCampaignBehavior   （扣体力、加经验、改 ItemRoster、落装备/订单）
-   │
-   ▼
-Crafting.GenerateItem → ItemObject → Equipment / Town 订单
-```
+`ref` 参数要特别注意：`GetSkillXpForRefining` 与 `GetEnergyCostForRefining` 的 `ref Crafting.RefiningFormula` 意味着配方结构是按引用传入的——默认实现虽然未修改它，但签名承诺调用方可就地改写该结构，调用方不应假设配方在调用前后保持不变，也不要对来自懒枚举（`GetRefiningFormulas` 的迭代变量）的只读副本取 `ref`。
 
-要注意：`SmithingModel` 的全部方法都是**只读查询**，它们不修改任何世界状态。任何"扣精力、给经验、回收材料"的副作用都发生在 `CraftingCampaignBehavior` 里，调用方（包括你的 mod）负责在拿到数值后自行落地。
+`int[]` 返回值的长度是 9，下标顺序严格对应 `CraftingMaterials` 枚举（`0 = IronOre`、`1 = Iron1` … `6 = Iron6`、`7 = Wood`、`8 = Charcoal`）。`GetSmithingCostsForWeaponDesign` 返回负值表示要消耗该材料，`GetSmeltingOutputForItem` 返回正值表示熔炼回收量；两个方法末尾的 `array[8]--` 都针对下标 8（木炭）做额外扣减，代表设计本身的「隐性」材料支出。自定义实现务必返回长度为 9 且非 `null` 的数组，否则 UI 按固定下标读取会越界崩溃或写入脏数据。
 
-## 何时用 / 何时不要用
+### 生命周期与注册
 
-**用它（或替换它）的场景：**
-- 想**改变锻造规则**：例如让高级武器消耗更多精力、让熔炼返还更多材料、调整品质概率曲线——继承 `DefaultSmithingModel` 重写对应方法，并在 SubModule 启动时替换 `Campaign.Current.Models.SmithingModel`。
-- 想在自定义 UI/作弊指令里**预览**某把设计会消耗多少精力、给多少经验、能熔炼回哪些材料——直接读 `Campaign.Current.Models.SmithingModel`。
-
-**不要用它做的场景：**
-- **不要绕过 `CraftingCampaignBehavior` 直接 new 一个 `ItemObject` 塞进 `Equipment` 或队伍背包。** 这样会跳过体力检查、订单记录、历史记录与 `IsCraftedByPlayer` 标记，造成坏档与状态不一致。生成武器请走 `ICraftingCampaignBehavior.CreateCraftedWeaponInFreeBuildMode` / `CreateCraftedWeaponInCraftingOrderMode`。
-- **不要在模型回调里写入 `Hero` 体力或 `ItemRoster`。** `SmithingModel` 的方法必须是纯函数（读 `Hero` 的 Perk/技能、读 `ItemObject` 的数值），副作用留给行为层。
-- 不要在标题界面、菜单早期或 `Campaign.Current == null` 时调用——此时 `Models` 尚未注册。
+`Campaign.Current.Models` 持有当前实例，访问器就是 `Campaign.Current.Models.SmithingModel`。默认实例 `DefaultSmithingModel` 由游戏启动器在战役初始化阶段通过 `IGameStarter.AddModel` 注册；自定义实现也必须在战役系统开始查询模型之前完成注册。标题界面、模块加载早期或没有活动战役时，`Campaign.Current` 可能为 `null`，**不能**在静态字段初始化器或菜单构造函数里无条件读取它——任何访问都要先 `null` 检查。
 
 ## 依赖图
 
-`SmithingModel` 只通过参数接收数据、通过 `Campaign.Current.Models` 被持有，不直接引用下游类型；下游由 `CraftingCampaignBehavior` 串接。
+### 上游
 
-### 上游（提供数据 / 持有者）
-
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`Campaign`](../../campaign/Campaign) | 通过 `Campaign.Current.Models.SmithingModel` 持有并暴露本模型；`Campaign.Current` 为空时不可访问。 |
-| [`Hero`](../../campaign/Hero) | 作为铁匠传入，提供 Crafting 技能值与 SteelMaker/PracticalSmith 等 Perk，决定品质概率与精力折扣。 |
-| [`ItemObject`](../../core/ItemObject) | 熔炼/锻造查询的输入与精力基数（`Tier`、`Value`、`WeaponDesign`）。 |
-| [`WeaponDesign`](../../core-extra/WeaponDesign) | 武器设计的载体（`UsedPieces`、模板、`WeaponFlags`），是所有难度/成本计算的输入。 |
+| [`Campaign`](../../campaign/Campaign) | 提供活动战役与 `Models` 注册表，模型的唯一获取入口。 |
+| [`Hero`](../../campaign/Hero) | 提供 `Crafting` 技能值、各类 Perk（`PracticalRefiner`/`PracticalSmith`/`PracticalSmelter`/`CharcoalMaker`/`SteelMaker*`) 与每日能量状态；能量成本据此生成。 |
+| [`ItemObject`](../../core-extra/ItemObject) | 被熔炼/锻造的物品、材料映射目标（`DefaultItems`），提供 `Value`、`Tier` 与 `WeaponDesign`。 |
+| [`CraftingPiece`](../../core-extra/CraftingPiece) | 锻造部件，提供 `PieceTier`、`PieceType` 与 `MaterialsUsed`。 |
+| [`WeaponDesign`](../../core-extra/WeaponDesign) | 武器设计，提供 `UsedPieces`、`Template` 与 `ItemModifierGroup`。 |
+| [`WeaponDesignElement`](../../core-extra/WeaponDesignElement) | 设计中的单个部件槽，提供 `IsValid`、`ScaleFactor` 与 `CraftingPiece`。 |
+| [`CraftingMaterials`](../../core-extra/CraftingMaterials) | 材料枚举，决定所有 `int[]` 返回值的下标顺序。 |
+| [`Crafting`](../../core-extra/Crafting) | 承载 `RefiningFormula` 嵌套类型。 |
+| [`RefiningFormula`](../../core-extra/RefiningFormula) | 精炼配方结构（`Input1`/`Input2`/`Output`/`OutputCount`）；两个精炼方法用 `ref` 就地传入。 |
+| [`ItemModifier`](../../core-extra/ItemModifier) | `GetCraftedWeaponModifier` 返回的武器品质修饰符。 |
+| [`ExplainedNumber`](../ExplainedNumber) | 承载能量成本、研究点结果及可解释因素。 |
 
-### 下游（消费结果 / 执行副作用）
+### 下游
 
-| Type | Relation |
+| 类型 | 关系 |
 | --- | --- |
-| [`CraftingCampaignBehavior`](../CraftingCampaignBehavior) | 真正的执行者：用本模型算出的精力/经验/材料去扣体力、加技能、回收材料、落装备与订单。 |
-| [`Equipment`](../../core-extra/Equipment) | 生成的 `ItemObject` 最终进入 `Hero`/`MobileParty` 的 `Equipment` 槽位（由行为层落地）。 |
-| [`Settlement`](../../campaign/Settlement) | 城镇（`Town`）承载锻造订单与材料库存，是锻造流程的地理入口。 |
-| [`ItemObject`](../../core/ItemObject) | 由 `Crafting.GenerateItem` 生成本体，本模型只读其属性、不负责创建。 |
+| [`SmeltingVM`](../SmeltingVM) | 熔炼界面读取 `GetSmeltingOutputForItem` 与 `GetEnergyCostForSmelting`。 |
+| [`WeaponDesignVM`](../WeaponDesignVM) | 锻造界面读取难度与 `GetSmithingCostsForWeaponDesign`。 |
+| [`ItemRoster`](../ItemRoster) | 熔炼/锻造产出的材料与武器最终进入物品栏；不应在回调里直接写入。 |
+| [`Equipment`](../../core-extra/Equipment) | 锻造产出的武器最终会进装备槽位，由行为而非模型负责。 |
+| [`SkillObject`](../../core-extra/SkillObject) | 常量层，提供 `Crafting` 技能定义引用。 |
 
-## 风险
+### Action、事件与存档边界
 
-1. **`Campaign.Current` 为空**：标题界面、模块早期或战役未加载时 `Models` 尚未注册，调用会 `NullReferenceException`。任何访问前先判空。
-2. **模型空替换 / 替换时机错误**：若你在战役已经开始后才替换 `Models.SmithingModel`，已经缓存的旧数值（如锻造 UI 预览）会不一致。替换必须在 `CampaignGameStarter` 初始化阶段完成。
-3. **在纯计算里改状态**：`GetCraftedWeaponModifier` 内部用 `MBRandom` 抽品质，本身是随机的，但**不应**在模型方法里去写 `Hero` 体力或 `ItemRoster`——保持方法无副作用，否则替换存档/回放会出问题。
-4. **NaN / 负数 / 除零**：`CalculateWeaponDesignDifficulty` 用 `num2 / num` 加权，若设计退化到没有任何有效部件（`num == 0`）会抛除零异常（实际武器总有 Blade，但仍要对自定义退化设计做防护）。`GetSmithingCostsForWeaponDesign` 返回的是**负值**表示消耗、`GetSmeltingOutputForItem` 是**正值**表示回收，混用符号会算错材料账。
-5. **精力漏洞**：`GetEnergyCostFor*` 只"算"不"扣"。如果你只调用模型却不调用 `CraftingCampaignBehavior.SetHeroCraftingStamina` 落地扣减，玩家可以无限免费锻造/熔炼，破坏经济平衡。
-6. **坏档数据**：直接 new `ItemObject` 塞背包会跳过 `CraftingCampaignBehavior` 的订单/历史/`IsCraftedByPlayer` 逻辑，导致存档里出现游离的"伪造"武器，重开时 `Crafting.CreatePreCraftedWeaponOnDeserialize` 可能不匹配。
-7. **`ref Crafting.RefiningFormula` 参数**：`GetSkillXpForRefining` / `GetEnergyCostForRefining` 接受 `ref` 配方，调用方传入的配方会被读取其 `Output`/`OutputCount`，确保传入的是有效配方而非默认 `null` 结构。
+模型自身不派发事件、不持有任何存档字段，结果对调用方是只读的。真正生成物品、扣材料、扣能量的逻辑在 smithing/crafting 行为中执行，并通过 `ItemRoster` 写入；英雄的每日能量状态由战役行为维护。自定义实现应保持确定性（相同输入得到相同能量成本/经验），否则会与存档里记录的每日能量计数不一致，导致坏档或重复计数。
 
-## 成员（按主题）
+## 成员契约
 
-> 以下均为 `abstract`，具体数值来自 `DefaultSmithingModel`；所有方法均为只读查询，无世界副作用。
+### 难度计算
 
-### 难度与品质
-
-| Member | Purpose | 调用时机 / 副作用 |
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetCraftingPartDifficulty(CraftingPiece)` | 单块部件难度 = `PieceTier * 50`（空部件为 0）。 | UI 显示部件难度时；纯函数。 |
-| `CalculateWeaponDesignDifficulty(WeaponDesign)` | 按 Blade/Guard/Handle/Pommel 权重（100/20/60/20）汇总所有已用部件难度并加权平均，得整把武器难度（约 0–100）。 | 锻造前预览、品质抽取、精力计算；注意退化设计可能除零。 |
-| `GetCraftedWeaponModifier(WeaponDesign, Hero)` | 据设计难度 + 铁匠 Crafting 技能 + ExperiencedSmith/MasterSmith/LegendarySmith 等 Perk 计算品质概率，抽取 `Template.ItemModifierGroup` 中的 `ItemModifier`。 | 锻造落武器时；含 `MBRandom` 随机，同输入不同次结果可能不同。 |
-| `ResearchPointsNeedForNewPart(int, int)` | 解锁下一个部件所需研究点 = `sqrt(100/totalPartCount) * (openedPartCount*9 + 10)`。 | 部件研究界面；纯函数。 |
+| `GetCraftingPartDifficulty(CraftingPiece)` → `int` | 返回单个部件难度，默认实现为 `PieceTier * 50`（空部件为 0）。 | 设计难度汇总时按部件类型加权累加；只读，无副作用。 |
+| `CalculateWeaponDesignDifficulty(WeaponDesign)` → `int` | 按部件类型权重（刃 100、护手 20、握柄 60、柄头 20）汇总整把武器难度。 | 锻造前或品质区间计算时调用；只读。 |
+| `ResearchPointsNeedForNewPart(int totalPartCount, int openedPartCount)` → `float` | 解锁新部件所需的研究点，公式 `sqrt(100/total) * (opened*9 + 10)`。 | 部件研究面板读取；只读。 |
 
-### 材料消耗与产出
+### 锻造结果（品质与修饰符）
 
-| Member | Purpose | 调用时机 / 副作用 |
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetSmithingCostsForWeaponDesign(WeaponDesign)` | 返回长度 9 的 `int[]`，每格为对应 `CraftingMaterials` 的净需求（**负值=消耗**），`array[8]` 固定 -1 表示设计本身。 | 锻造预览/扣材料前；纯读取。 |
-| `GetSmeltingOutputForItem(ItemObject)` | 返回长度 9 的 `int[]`，熔炼该物品回收的材料数量（**正值=回收**），读取 `item.WeaponDesign.UsedPieces`。 | 熔炼预览/回收前；纯读取。 |
-| `GetCraftingMaterialItem(CraftingMaterials)` | 把材料枚举映射到 `DefaultItems` 的具体 `ItemObject`（如 `IronOre→DefaultItems.IronOre`、`Iron1→DefaultItems.IronIngot1`）。 | 把材料数组转成可入背包的 `ItemObject`；纯映射。 |
+| `GetCraftedWeaponModifier(WeaponDesign, Hero)` → `ItemModifier` | 依据设计难度与英雄 `Crafting` 技能值做品质加权随机，再从模板的 `ItemModifierGroup` 按品质取一个修饰符。 | 锻造产出确定修饰符时调用；内部会读取 Perk（`ExperiencedSmith`/`MasterSmith`/`LegendarySmith`）调整概率。无世界副作用，但含随机。 |
 
-### 精炼
+### 精炼配方与材料映射
 
-| Member | Purpose | 调用时机 / 副作用 |
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetRefiningFormulas(Hero)` | 返回该铁匠可用的精炼配方序列；`CharcoalMaker`/`IronMaker`/`SteelMaker`(+2/+3) 等 Perk 决定高一级配方的可用性。 | 精炼 UI 与 `DoRefinement`；只读 `Hero` Perk。 |
-| `GetSkillXpForRefining(ref Crafting.RefiningFormula)` | 精炼经验 = `0.3 * 输出材料.Value * 输出数量`。 | 精炼完成后结算经验。 |
+| `GetRefiningFormulas(Hero)` → `IEnumerable<Crafting.RefiningFormula>` | 返回该英雄可用的精炼配方，含 Perk 门控项（`CharcoalMaker`/`IronMaker`/`SteelMaker*`）。 | 精炼 UI 枚举配方；懒枚举，逐条 `yield return`，只读。 |
+| `GetCraftingMaterialItem(CraftingMaterials)` → `ItemObject` | 把材料枚举映射到 `DefaultItems`（矿石、各级铁锭、硬木、木炭）。 | UI 显示材料图标或熔炼成本换算时调用；只读。 |
 
-### 精力消耗（铁匠体力）
+### 熔炼与锻造成本
 
-| Member | Purpose | 调用时机 / 副作用 |
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetEnergyCostForRefining(ref Crafting.RefiningFormula, Hero)` | 基础 6，`PracticalRefiner` Perk 加因子，返回 `int` 精力。 | 精炼前检查/扣减体力（扣减在行为层）。 |
-| `GetEnergyCostForSmithing(ItemObject, Hero)` | 基础 `10 + 5 * Tier`，`PracticalSmith` Perk 加因子。 | 锻造前检查/扣减体力。 |
-| `GetEnergyCostForSmelting(ItemObject, Hero)` | 基础 10，`PracticalSmelter` Perk 加因子。 | 熔炼前检查/扣减体力。 |
+| `GetSmeltingOutputForItem(ItemObject)` → `int[]` | 返回长度 9 的回收量数组（按 `CraftingMaterials` 顺序为正值），含 `AddSmeltingReductions` 的下调。 | 熔炼前预览回收；默认实现已校验 `item.WeaponDesign != null`，只读。 |
+| `GetSmithingCostsForWeaponDesign(WeaponDesign)` → `int[]` | 返回长度 9 的材料成本（负值=消耗），末尾 `array[8]--` 扣木炭。 | 锻造前预览消耗；只读。 |
 
-### 技能经验
+### 能量消耗（每日动作上限）
 
-| Member | Purpose | 调用时机 / 副作用 |
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetSkillXpForSmelting(ItemObject)` | 熔炼经验 = `0.02 * item.Value`。 | 熔炼后 `hero.AddSkillXp(DefaultSkills.Crafting, …)` 的输入。 |
-| `GetSkillXpForSmithingInFreeBuildMode(ItemObject)` | 自由锻造经验 = `0.02 * item.Value`。 | 自由模式锻造后结算。 |
-| `GetSkillXpForSmithingInCraftingOrderMode(ItemObject)` | 订单锻造经验 = `0.1 * item.Value`。 | 订单模式锻造后结算（与订单经验叠加）。 |
+| `GetEnergyCostForRefining(ref Crafting.RefiningFormula, Hero)` → `int` | 精炼能量成本，默认基准 6，受 `PracticalRefiner` Perk 加成。 | 精炼前校验当日能量；`ref` 配方可能被就地改写。 |
+| `GetEnergyCostForSmithing(ItemObject, Hero)` → `int` | 锻造能量成本，默认 `10 + 5*Tier`，受 `PracticalSmith` 加成。 | 锻造前校验；参与每日可锻次数上限。 |
+| `GetEnergyCostForSmelting(ItemObject, Hero)` → `int` | 熔炼能量成本，默认 10，受 `PracticalSmelter` 加成。 | 熔炼前校验；参与每日可熔次数上限。 |
 
-### 部件研究
+### 技能经验与部件研究
 
-| Member | Purpose | 调用时机 / 副作用 |
+| 成员 | 用途 | 调用时机与副作用 |
 | --- | --- | --- |
-| `GetPartResearchGainForSmeltingItem(ItemObject, Hero)` | 熔炼研究点 = `1 + round(0.02 * Value)`，`CuriousSmelter` Perk 加因子。 | 熔炼后累积可解锁部件的研究点。 |
-| `GetPartResearchGainForSmithingItem(ItemObject, Hero, bool isFreeBuildMode)` | 锻造研究点 = `1 + floor(0.1 * Value * 因子)`，`CuriousSmith` Perk 生效，自由模式额外 +0.1 因子。 | 锻造后累积研究点。 |
+| `GetSkillXpForRefining(ref Crafting.RefiningFormula)` → `int` | 精炼经验，默认 `0.3 * 产出物.Value * OutputCount`。 | 精炼结算时；`ref` 配方可能被就地改写。 |
+| `GetSkillXpForSmelting(ItemObject)` → `int` | 熔炼经验，默认 `0.02 * item.Value`。 | 熔炼结算时；只读。 |
+| `GetSkillXpForSmithingInFreeBuildMode(ItemObject)` → `int` | 自由锻造经验，默认 `0.02 * item.Value`。 | 自由模式锻造结算；只读。 |
+| `GetSkillXpForSmithingInCraftingOrderMode(ItemObject)` → `int` | 订单模式锻造经验，默认 `0.1 * item.Value`。 | 订单模式结算；只读。 |
+| `GetPartResearchGainForSmeltingItem(ItemObject, Hero)` → `int` | 熔炼带来的部件研究点，受 `CuriousSmelter` 加成。 | 熔炼结算时；只读。 |
+| `GetPartResearchGainForSmithingItem(ItemObject, Hero, bool isFreeBuild)` → `int` | 锻造带来的研究点，受 `CuriousSmith` 与自由模式 +10% 加成。 | 锻造结算时；只读。 |
 
-## 示例
+## 真实读取路径
 
-### 示例 1：预览熔炼一把武器能回收哪些材料
+下面两段只查询当前战役中已注册的模型，先于任何 UI 计算调用；顺序与铁匠界面实际读取一致：
 
 ```csharp
-// 在铁匠铺或调试指令里，先确认战役已加载，再读取主角的主手武器并查询熔炼产出。
-if (Campaign.Current == null || Hero.MainHero == null)
-{
-    return;
-}
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Core;
 
-EquipmentElement element = Hero.MainHero.BattleEquipment[EquipmentIndex.Weapon0];
-if (!element.IsValid() || element.Item == null || element.Item.WeaponDesign == null)
+// 估算一把图纸的锻造成本与能量消耗
+public int EstimateCrafting(WeaponDesign design, ItemObject crafted, Hero smith)
 {
-    return;
-}
-
-SmithingModel smithing = Campaign.Current.Models.SmithingModel;
-int[] smeltingOutput = smithing.GetSmeltingOutputForItem(element.Item);
-for (int i = 0; i < smeltingOutput.Length; i++)
-{
-    if (smeltingOutput[i] != 0)
+    if (Campaign.Current == null || design == null || smith == null)
     {
-        ItemObject material = smithing.GetCraftingMaterialItem((CraftingMaterials)i);
-        // material.Name + " x" + smeltingOutput[i]  即回收到的材料与数量
+        return -1;
+    }
+
+    SmithingModel model = Campaign.Current.Models.SmithingModel;
+    int[] materialCosts = model.GetSmithingCostsForWeaponDesign(design);
+    int energy = model.GetEnergyCostForSmithing(crafted, smith);
+    int xp = model.GetSkillXpForSmithingInFreeBuildMode(crafted);
+
+    // materialCosts[i] < 0 表示第 i 号材料（CraftingMaterials 枚举顺序）被消耗
+    // materialCosts[8] 是木炭（Charcoal）的隐性设计成本
+    return energy;
+}
+```
+
+下面这段演示遍历英雄的精炼配方，并对每条取经验与能量成本。注意 `ref` 传递：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.Core;
+
+public void InspectRefining(Hero smith)
+{
+    if (Campaign.Current == null || smith == null)
+    {
+        return;
+    }
+
+    SmithingModel model = Campaign.Current.Models.SmithingModel;
+    foreach (var formula in model.GetRefiningFormulas(smith))
+    {
+        // formula.Input1 / Input2 / Output 是 CraftingMaterials 枚举值
+        int xp = model.GetSkillXpForRefining(ref formula);
+        int energy = model.GetEnergyCostForRefining(ref formula, smith);
+        // 这里 formula 可能已被就地修改，不要再当作不可变快照使用
     }
 }
 ```
 
-这与 `CraftingCampaignBehavior.DoSmelting` 内部循环（`GetSmeltingOutputForItem` → `GetCraftingMaterialItem` → `ItemRoster.AddToCounts`）的查询顺序一致；只读返回，不会改动背包。
+这些结果适合调试或 UI 预览；真正扣材料、扣能量、产出成品应交给 smithing/crafting 行为，不要在此直接创建 `ItemObject` 或写入 `ItemRoster`。
 
-### 示例 2：锻造前预估精力、难度与经验
+## 风险与调试顺序
 
-```csharp
-// 自由锻造确认前，用 Crafting.GenerateItem 生成一个临时预览 ItemObject（与锻造 UI 内部一致），
-// 再让 SmithingModel 算出这把设计会消耗的体力、奖励的经验与整体难度。
-if (Campaign.Current == null || hero == null || weaponDesign == null)
-{
-    return;
-}
+1. **战役尚未存在：** `Campaign.Current` 在标题界面、模块加载早期或没有活动战役时为空；任何访问前都先 `null` 检查，延迟到战役启动钩子再取模型。
+2. **`ref` 配方被改写：** `GetSkillXpForRefining` 与 `GetEnergyCostForRefining` 通过 `ref` 传入 `RefiningFormula`，调用后该结构可能已变；不要对来自 `GetRefiningFormulas` 懒枚举的迭代变量再做 `ref` 传递，也不要假设它不变。
+3. **`int[]` 长度或顺序错误：** 返回数组必须为长度 9 且非 `null`，下标严格对应 `CraftingMaterials`（注意下标 8 是木炭的隐性成本）。自定义实现返回错误长度或 `null` 会让 UI 越界崩溃，或把脏数据写进熔炼/锻造结果。
+4. **查询回调里生成或发放物品：** 在模型方法内部 `new ItemObject`、写入 `PartyBase`、调用发放逻辑会绕过每日能量与材料校验，并变成每次读取都执行的副作用——产出必须由行为 + `ItemRoster`/对应 `Action` 完成。
+5. **能量成本为零或负数：** 能量成本参与「英雄每日可锻/熔/精炼次数」上限；若返回 `0` 或负数会让英雄无限次操作，破坏经济平衡，也可能与存档中的每日能量计数不一致导致坏档。
+6. **`ItemObject.WeaponDesign` 为空：** 熔炼非武器/非锻造物品时 `item.WeaponDesign` 可能为 `null`；默认实现已先校验，自定义实现若去掉该校验会在 `UsedPieces` 上抛空引用异常。
 
-SmithingModel smithing = Campaign.Current.Models.SmithingModel;
+## 版本与导航
 
-ItemObject previewItem = new ItemObject();
-Crafting.GenerateItem(weaponDesign, new TextObject("Preview"), hero.Culture, null, ref previewItem);
-if (previewItem == null)
-{
-    return;
-}
+v1.3.15 与 v1.4.5 的接口签名一致（含 `ref Crafting.RefiningFormula` 的两个能量/经验方法），默认实现中的 Perk 门控（`CharcoalMaker`/`IronMaker`/`SteelMaker*`、`Practical*`、`Curious*`）也均存在。跨版本替换模型时，优先委托当前版本的 vanilla 默认实现，再叠加自己的有界修正，避免复制旧版公式丢掉了新版本的 Perk 与品质逻辑。
 
-int designDifficulty = smithing.CalculateWeaponDesignDifficulty(weaponDesign);
-int staminaCost = smithing.GetEnergyCostForSmithing(previewItem, hero);
-int skillXp = smithing.GetSkillXpForSmithingInFreeBuildMode(previewItem);
-int[] materialCost = smithing.GetSmithingCostsForWeaponDesign(weaponDesign);
-
-// 真正落地（扣体力、给经验、回收/扣材料、生成入背包）必须走 CraftingCampaignBehavior，
-// 不要在此处直接 new ItemObject 塞 Equipment。
-```
-
-`Crafting.GenerateItem` 是 `TaleWorlds.Core.Crafting` 的公开静态方法，签名 `(WeaponDesign, TextObject, BasicCultureObject, ItemModifierGroup, ref ItemObject, string customId = null)`；`hero.Culture` 为 `CultureObject`（继承自 `BasicCultureObject`），可直接传入。
-
-## 版本注记
-
-`SmithingModel` 的抽象契约在 **1.3.15 与 1.4.5 完全一致**（同 18 个 `abstract` 方法，签名未变）。差异只存在于默认实现 `DefaultSmithingModel` 与各 Perk 的数值/配方，替换默认模型时请以当前运行版本的 `DefaultSmithingModel.cs` 为准。
-
-## 导航
-
-- ↑ 父级：[campaign-ext 模型索引](../)
-- ↔ 同级：[PartySpeedModel](../PartySpeedModel) · [CharacterDevelopmentModel](../CharacterDevelopmentModel) · [GameModels](../GameModels) · [CraftingCampaignBehavior](../CraftingCampaignBehavior)
-- 相关：[Campaign](../../campaign/Campaign) · [Hero](../../campaign/Hero) · [Settlement](../../campaign/Settlement) · [ItemObject](../../core/ItemObject) · [Equipment](../../core-extra/Equipment) · [WeaponDesign](../../core-extra/WeaponDesign)
+- [队伍模型目录](../models/)
+- [父级：Campaign 扩展 API](../)
+- [↔ CharacterDevelopmentModel](../CharacterDevelopmentModel)
+- [↔ BarterModel](../BarterModel)
+- [↔ WorkshopModel](../WorkshopModel)
+- [SmeltingVM](../SmeltingVM)
+- [WeaponDesignVM](../WeaponDesignVM)
+- [ItemRoster](../ItemRoster)
+- [Hero](../../campaign/Hero)
+- [Campaign](../../campaign/Campaign)
+- [崩溃与存档边界](../../../architecture/crash-boundaries)
+- [战役系统指南](../../../guide/campaign-system)

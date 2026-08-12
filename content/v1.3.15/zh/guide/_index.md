@@ -333,5 +333,6 @@ Bannerlord 原生支持多人。需要：
 - [本地化 / Localization](./localization)
 - [游戏系统概述 / Game Systems Overview](./game-systems-overview)
 - [资源管线 / Asset Pipeline](./asset-pipeline)
+- [SandBox 扩展实战 / SandBox Extension Example](./sandbox-extension-example)
 
 <!-- END SECTION INDEX -->

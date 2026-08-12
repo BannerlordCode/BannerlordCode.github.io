@@ -23,7 +23,7 @@ description: "Internal Gauntlet layout value type that caches a child widget's a
 
 Think of `LayoutBox` as a **layout pass (a rectangular ticket)**, not as "the layout element" itself. The actual layout element is `Widget` plus the `ILayout` implementations (`StackLayout`, `DefaultLayout`, `GridLayout`): `Widget.Measure` computes `MeasuredSize` bottom-up, `ILayout.OnLayout` computes each child's allotted rectangle top-down as a `LayoutBox`, and finally `child.Layout(box.Left, box.Bottom, box.Right, box.Top)` lands the rectangle. When a container has many children (≥ 64), `StackLayout` does not call `child.Layout` one by one inside the loop; instead it wraps each rectangle into a `LayoutBox { Left, Right, Bottom, Top }` and stores it in the `Dictionary<int, LayoutBox> _layoutBoxes`, then commits them all together in a parallel pass via `TWParallel.ForWithoutRenderThread`. `LayoutBox` is exactly that **deferred-commit scratch carrier**.
 
-It relates to [`Widget`](../campaign-ext/Widget) as "the tree node" relates to "the rectangle allotted to that node"; it relates to [`Brush`](../campaign-ext/Brush) as "how big the control draws" relates to "where its rectangle is placed": the brush decides how large a control paints and how much the sprite occupies, while margin and alignment decide which corner of the rectangle it lands in, and `LayoutBox` is merely the computed landing point. `LayoutBox` is entirely passive: it has no methods, no logic, and cannot be referenced directly by a mod (`internal`); its job ends the moment the `Layout` call returns.
+It relates to [`Widget`](../Widget) as "the tree node" relates to "the rectangle allotted to that node"; it relates to [`Brush`](../Brush) as "how big the control draws" relates to "where its rectangle is placed": the brush decides how large a control paints and how much the sprite occupies, while margin and alignment decide which corner of the rectangle it lands in, and `LayoutBox` is merely the computed landing point. `LayoutBox` is entirely passive: it has no methods, no logic, and cannot be referenced directly by a mod (`internal`); its job ends the moment the `Layout` call returns.
 
 ### Lifecycle
 
@@ -37,7 +37,7 @@ It relates to [`Widget`](../campaign-ext/Widget) as "the tree node" relates to "
 
 - **Diagnosing why a control is not where you expect:** inspect its `WidthSizePolicy` / `HeightSizePolicy`, `Margin*`, the container's `LayoutMethod`, and its alignment — those are the real source of each `LayoutBox` rectangle.
 - **Optimizing layout cost for very long lists (hundreds or thousands of children):** understanding that ≥ 64 children take the parallel `LayoutBox` batching path helps explain why "layout behavior differs slightly when there are many children".
-- **Retriggering layout** by changing child visibility / count through a [`ViewModel`](../core-extra/ViewModel), so that fresh `LayoutBox` rectangles are computed naturally.
+- **Retriggering layout** by changing child visibility / count through a [`ViewModel`](../../core-extra/ViewModel), so that fresh `LayoutBox` rectangles are computed naturally.
 
 ## When NOT to use
 
@@ -61,12 +61,12 @@ graph TD
     BRUSH[Brush] --> MEASURE
 ```
 
-- Upstream host: [`GauntletLayer`](../engine/GauntletLayer) provides the `UIContext` and triggers per-frame layout; [`ScreenManager`](ScreenManager) manages the screens hosting the layer.
-- Rectangle source: [`Widget`](../campaign-ext/Widget)'s `Measure` / `MeasuredSize` / `Margin*` / `WidthSizePolicy` / `HeightSizePolicy` directly decide every `LayoutBox` coordinate.
-- Appearance influence: [`Brush`](../campaign-ext/Brush) decides how large a control draws and how much its sprite occupies, feeding indirectly into the `Measure` result.
-- Material layer: [`Material`](Material) backs the rendered appearance that measurement and layout ultimately place on screen.
-- Data side: [`ViewModel`](../core-extra/ViewModel) changes child visibility / count, which changes how many `LayoutBox` rectangles this layout produces.
-- Crash surface: with ≥ 64 children the layout commits off the render thread in parallel — see the "UI thread / parallel layout" section of [Crash & Save Boundaries](../../architecture/crash-boundaries).
+- Upstream host: [`GauntletLayer`](../../engine/GauntletLayer) provides the `UIContext` and triggers per-frame layout; [`ScreenManager`](../ScreenManager) manages the screens hosting the layer.
+- Rectangle source: [`Widget`](../Widget)'s `Measure` / `MeasuredSize` / `Margin*` / `WidthSizePolicy` / `HeightSizePolicy` directly decide every `LayoutBox` coordinate.
+- Appearance influence: [`Brush`](../Brush) decides how large a control draws and how much its sprite occupies, feeding indirectly into the `Measure` result.
+- Material layer: [`Material`](../Material) backs the rendered appearance that measurement and layout ultimately place on screen.
+- Data side: [`ViewModel`](../../core-extra/ViewModel) changes child visibility / count, which changes how many `LayoutBox` rectangles this layout produces.
+- Crash surface: with ≥ 64 children the layout commits off the render thread in parallel — see the "UI thread / parallel layout" section of [Crash & Save Boundaries](../../../architecture/crash-boundaries).
 
 ## Key members and call timing
 
@@ -96,7 +96,7 @@ graph TD
 3. **Coordinate-order trap:** `Layout`'s parameters are `(left, bottom, right, top)`, which does not match `LayoutBox`'s field declaration order (`Left, Right, Top, Bottom`). If you hand-build a rectangle and call `Layout` in a Harmony patch or reflection code, swapping `Top`/`Bottom` flips the control upside-down silently.
 4. **Short-lived value, not cross-frame:** `LayoutBox` is `Clear`ed and rebuilt every frame, and on the parallel path it is only valid within that frame. Storing it in a field as "control position" yields stale coordinates; for positional needs use `Widget.GlobalPosition`.
 5. **Measure/layout separation mismatch:** `MeasuredSize` is computed in the `Measure` phase, `LayoutBox` in the `OnLayout` phase. Reading position in an early stage before `Measure` completes (e.g. construction, just after XML load) returns zero or the old rectangle — you must wait until layout finishes.
-6. **Layout thrash:** frequently changing `SizePolicy` / `Margin` / visibility inside `UpdateBrushes` or event handlers triggers a full `Measure` + `OnLayout` + possible parallel `LayoutBox` commit every frame; with many children this causes noticeable stutter. Batch the changes, or refresh once at the data layer via a [`ViewModel`](../core-extra/ViewModel).
+6. **Layout thrash:** frequently changing `SizePolicy` / `Margin` / visibility inside `UpdateBrushes` or event handlers triggers a full `Measure` + `OnLayout` + possible parallel `LayoutBox` commit every frame; with many children this causes noticeable stutter. Batch the changes, or refresh once at the data layer via a [`ViewModel`](../../core-extra/ViewModel).
 
 ## Real examples
 
@@ -163,9 +163,9 @@ Note that `LayoutBox`'s fields (`Left/Right/Bottom/Top`) and the argument order 
 ## See Also
 
 - ↑ Parent: [gui index](../)
-- ↔ Siblings: [Material](Material) · [ScreenManager](ScreenManager)
-- Upstream: [GauntletLayer](../engine/GauntletLayer)
-- Related layout elements: [Widget](../campaign-ext/Widget) · [Brush](../campaign-ext/Brush)
-- Data side: [ViewModel](../core-extra/ViewModel)
-- Downstream: the rectangle lands through [`Widget`](../campaign-ext/Widget)'s `Layout`; position is exposed via `GlobalPosition` / `Size`
-- Architecture: [Crash & Save Boundaries](../../architecture/crash-boundaries)
+- ↔ Siblings: [Material](../Material) · [ScreenManager](../ScreenManager)
+- Upstream: [GauntletLayer](../../engine/GauntletLayer)
+- Related layout elements: [Widget](../Widget) · [Brush](../Brush)
+- Data side: [ViewModel](../../core-extra/ViewModel)
+- Downstream: the rectangle lands through [`Widget`](../Widget)'s `Layout`; position is exposed via `GlobalPosition` / `Size`
+- Architecture: [Crash & Save Boundaries](../../../architecture/crash-boundaries)

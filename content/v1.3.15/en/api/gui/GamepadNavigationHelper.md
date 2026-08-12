@@ -71,7 +71,7 @@ graph TD
 - Geometry raw material: this class only consumes `Widget.AreaRect` (the widget's visible rectangle) and the `GetRectangle()` / `GetDiscoveryRectangle()` of `GamepadNavigationScope` — see [Widget](../Widget) and the sibling [GamepadNavigationScopeCollection](../GamepadNavigationScopeCollection).
 - Direction type: `GamepadNavigationTypes` is a `System.Flags` enum (`Up` / `Down` / `Left` / `Right` / `Horizontal` / `Vertical` / `None`) that decides how line segments and direction vectors are taken.
 - Data side: focus ultimately lands on a widget, but navigation holds no campaign / mission state; when focusable items must change with world state, control visibility / add-remove in the [ViewModel](../../core-extra/ViewModel) rather than interfering with geometry.
-- Crash surface: see the "UI thread / lifecycle" section of [Crash & Save Boundaries](../../architecture/crash-boundaries) — navigation happens on the UI thread, and mutating rectangles or scopes from another thread races.
+- Crash surface: see the "UI thread / lifecycle" section of [Crash & Save Boundaries](../../../architecture/crash-boundaries) — navigation happens on the UI thread, and mutating rectangles or scopes from another thread races.
 
 ## Risk
 
@@ -161,4 +161,4 @@ In both 1.3.15 and 1.4.5, `GamepadNavigationHelper` is `internal static`, locate
 - ↔ Siblings: [Brush](../Brush) · [Widget](../Widget) · [ScreenManager](../ScreenManager) · [Material](../Material) · [GamepadNavigationScopeCollection](../GamepadNavigationScopeCollection)
 - Upstream: [GauntletLayer](../../engine/GauntletLayer)
 - Downstream: navigation ultimately acts on [Widget](../Widget) focus (`GamepadNavigationIndex` / `OnGamepadNavigationFocusGained`)
-- Related: [ViewModel](../../core-extra/ViewModel) · [Crash & Save Boundaries](../../architecture/crash-boundaries)
+- Related: [ViewModel](../../core-extra/ViewModel) · [Crash & Save Boundaries](../../../architecture/crash-boundaries)

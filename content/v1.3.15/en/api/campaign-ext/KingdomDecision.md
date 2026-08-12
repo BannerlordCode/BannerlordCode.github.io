@@ -34,8 +34,8 @@ Think of a `KingdomDecision` as a *ticket in a queue*, not a service. The lifecy
 
 ## Dependencies
 
-- [DecisionOutcome](DecisionOutcome) — the candidate results a decision proposes, scores, and ultimately applies.
-- [Supporter](Supporter) — one clan's weighted vote (`SupportWeights`) gathered during resolution.
+- [DecisionOutcome](../DecisionOutcome) — the candidate results a decision proposes, scores, and ultimately applies.
+- [Supporter](../Supporter) — one clan's weighted vote (`SupportWeights`) gathered during resolution.
 - [Clan](../../campaign/Clan/) — the proposing clan and every clan polled for support; the source of influence and relations.
 - [Kingdom](../../campaign/Kingdom/) — the owning kingdom whose `UnresolvedDecisions` queue and `AddDecision`/`RemoveDecision` methods drive the lifecycle.
 
@@ -225,7 +225,7 @@ proposerClan.Kingdom.AddDecision(myDecision, ignoreInfluenceCost: false);
 ## See Also
 
 - [↑ Parent](../)
-- [↔ DecisionOutcome](DecisionOutcome)
-- [↔ Supporter](Supporter)
+- [↔ DecisionOutcome](../DecisionOutcome)
+- [↔ Supporter](../Supporter)
 - [↔ Clan](../../campaign/Clan/)
 - [↔ Kingdom](../../campaign/Kingdom/)

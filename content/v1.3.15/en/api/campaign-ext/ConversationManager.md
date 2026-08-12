@@ -40,11 +40,11 @@ Treat `ConversationManager` as a Manager-style extension point, not a type you i
 The manager is wired into the surrounding campaign and mission systems; the following existing pages document the types it depends on or hands control to:
 
 - [Campaign-ext bucket index](../) — the API bucket that hosts this class and its conversation siblings.
-- [DialogFlow](DialogFlow.md) — the fluent builder you feed into `AddDialogFlow` to register conversation lines.
-- [ConversationSentenceOption](ConversationSentenceOption.md) — the per-option record exposed through `CurOptions`.
-- [ConversationSentence](ConversationSentence.md) — the underlying indexed line the manager evaluates.
-- [CampaignEventDispatcher](CampaignEventDispatcher.md) — receives `OnConversationEnded` / `OnAgentJoinedConversation` callbacks.
-- [Persuasion](Persuasion.md) — the persuasion state machine driven by the static `StartPersuasion` family.
+- [DialogFlow](../DialogFlow) — the fluent builder you feed into `AddDialogFlow` to register conversation lines.
+- [ConversationSentenceOption](../ConversationSentenceOption) — the per-option record exposed through `CurOptions`.
+- [ConversationSentence](../ConversationSentence) — the underlying indexed line the manager evaluates.
+- [CampaignEventDispatcher](../CampaignEventDispatcher) — receives `OnConversationEnded` / `OnAgentJoinedConversation` callbacks.
+- [Persuasion](../Persuasion) — the persuasion state machine driven by the static `StartPersuasion` family.
 
 ## Risk
 
@@ -343,8 +343,8 @@ ConversationManager.EndPersuasion();
 ## See Also
 
 - [↑ Parent](../)
-- [↔ DialogFlow](DialogFlow.md)
-- [↔ ConversationSentenceOption](ConversationSentenceOption.md)
-- [↔ ConversationSentence](ConversationSentence.md)
-- [↔ CampaignEventDispatcher](CampaignEventDispatcher.md)
-- [↔ Persuasion](Persuasion.md)
+- [↔ DialogFlow](../DialogFlow)
+- [↔ ConversationSentenceOption](../ConversationSentenceOption)
+- [↔ ConversationSentence](../ConversationSentence)
+- [↔ CampaignEventDispatcher](../CampaignEventDispatcher)
+- [↔ Persuasion](../Persuasion)

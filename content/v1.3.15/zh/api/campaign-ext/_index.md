@@ -2936,6 +2936,7 @@ campaign-ext 是「管道」，上接核心战役类型、下连存档与基础�
 - [WindowsFrameworkThreadConfig](./WindowsFrameworkThreadConfig)
 - [WindowShowStyle](./WindowShowStyle)
 - [WindowStyle](./WindowStyle)
+- [Workshop](./Workshop)
 - [WorkshopItemComparerBase](./WorkshopItemComparerBase)
 - [WorkshopItemIncomeComparer](./WorkshopItemIncomeComparer)
 - [WorkshopItemLocationComparer](./WorkshopItemLocationComparer)

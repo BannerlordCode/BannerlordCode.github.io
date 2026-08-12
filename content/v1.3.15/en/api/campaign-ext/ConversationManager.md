@@ -1,6 +1,6 @@
 ---
 title: "ConversationManager"
-description: "Auto-generated class reference for ConversationManager."
+description: "Drives Bannerlord's branching campaign and mission dialog: it indexes conversation lines, evaluates their conditions and consequences, collects and orders the player's reply options, and orchestrates persuasion minigames with one or many agents."
 ---
 # ConversationManager
 
@@ -8,539 +8,343 @@ description: "Auto-generated class reference for ConversationManager."
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ConversationManager`
 **Base:** none
-**File:** `TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs`
+**Source:** bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationManager.cs
+
+It drives the branching dialog system used both on the campaign map and inside missions: it owns the indexed list of `ConversationSentence` lines, evaluates each line's condition and consequence, gathers the player's available replies into an ordered option set, and starts or ends a dialogue with one or more participants. It also aggregates the persuasion subsystem and the coordination of multi-agent conversations.
 
 ## Overview
 
-`ConversationManager` is a manager: it owns a subsystem's lifecycle, lookup entry points, and cross-object coordination responsibilities.
+`ConversationManager` is the runtime engine behind every conversation in the game. When a dialog opens, it builds an indexed sentence graph, walks the token machine from the current `ActiveToken`, runs each candidate line's condition delegate to decide whether it is visible, runs its consequence delegate when chosen, and exposes the resulting reply options through `CurOptions`. Map conversations (started from the clan/settlement/encounter menus) and mission conversations (started from an `IAgent` in a scene) both funnel through the same manager, so modders get a single surface to start, inspect, steer, and close a dialogue. It also owns the static persuasion state machine used by `StartPersuasion` / `EndPersuasion` and the tag scoring that selects the best text variation for a given `CharacterObject`.
 
 ## Mental Model
 
-Treat `ConversationManager` as a Manager-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Treat `ConversationManager` as a Manager-style extension point, not a type you instantiate. There is exactly one instance per campaign, created and held by `Campaign` and reachable only through `Campaign.Current.ConversationManager`; calling `new ConversationManager()` bypasses the campaign lifecycle and will not be wired to the game state. The manager lives in the *campaign layer* (`TaleWorlds.CampaignSystem`), but it is driven both from campaign code (map conversations) and from mission code (in-scene agent talks). You normally do not replace it — you register dialog content through `CampaignGameStarter`/`DialogFlow`, subscribe to its events to observe a conversation, and call its start/stop and option APIs to script or test a flow. Decide early whether you are a *reader* (querying `CurOptions`/`IsConversationInProgress`), a *driver* (calling `BeginConversation`/`DoOption`/`EndConversation`), or a *content author* (feeding lines via `AddDialogFlow`).
+
+## When to use
+
+- Start or script a conversation programmatically: `SetupAndStartMapConversation`, `OpenMapConversation`, or `SetupAndStartMissionConversation` / `SetupAndStartMissionConversationWithMultipleAgents`.
+- Query live dialog state inside a behavior or UI: `CurOptions`, `CurrentSentenceText`, `SpeakerAgent` / `ListenerAgent`, `IsConversationInProgress`, `OneToOneConversationHero`.
+- Drive a custom conversation flow in code or tests: `BeginConversation`, `DoOption`, `ContinueConversation`, `EndConversation`.
+- Observe conversation progress: subscribe to the public events (`ConversationBegin`, `ConversationEnd`, `ConversationEndOneShot`, `ConversationContinued`, `ConsequenceRunned`, `ConditionRunned`).
+- Run a persuasion check: the static `StartPersuasion` / `GetPersuasionChances` / `PersuasionCommitProgress` / `EndPersuasion` family.
+
+## When NOT to use
+
+- Do **not** construct your own instance with `new ConversationManager()`. Always read `Campaign.Current.ConversationManager`; a hand-made instance is not connected to `Campaign`, `CampaignMission`, or the `GameTextManager` and will throw `MBNullParameterException` ("Campaign"/"Game") the moment it tries to render a sentence.
+- Do **not** hand-build `ConversationSentence` objects and call internal `AddDialogLine` to author dialog content. Register lines through a `DialogFlow` (via `AddDialogFlow`) or through `CampaignGameStarter` in a `CampaignBehaviorBase`; the fluent builder sets the flags, ids, and game-text variations for you.
+- Do **not** mutate `CurOptions` directly to change what the player sees. Populate it through `AddToCurrentOptions` / `ClearCurrentOptions` / `GetPlayerSentenceOptions`, or the displayed list and its internal `SentenceNo` mapping will drift out of sync with `_sentences`.
+- For one-off campaign state changes, prefer the dedicated `*Action.Apply` helpers or behavior methods over poking conversation state fields.
+
+## Dependencies
+
+The manager is wired into the surrounding campaign and mission systems; the following existing pages document the types it depends on or hands control to:
+
+- [Campaign-ext bucket index](../) — the API bucket that hosts this class and its conversation siblings.
+- [DialogFlow](DialogFlow.md) — the fluent builder you feed into `AddDialogFlow` to register conversation lines.
+- [ConversationSentenceOption](ConversationSentenceOption.md) — the per-option record exposed through `CurOptions`.
+- [ConversationSentence](ConversationSentence.md) — the underlying indexed line the manager evaluates.
+- [CampaignEventDispatcher](CampaignEventDispatcher.md) — receives `OnConversationEnded` / `OnAgentJoinedConversation` callbacks.
+- [Persuasion](Persuasion.md) — the persuasion state machine driven by the static `StartPersuasion` family.
+
+## Risk
+
+- **Null game state.** `ProcessSentence` and `UpdateCurrentSentenceText` assert that `Game.Current` and `Campaign.Current` are non-null; rendering a sentence outside an active campaign throws `MBNullParameterException`. Always operate on `Campaign.Current.ConversationManager` while a campaign is loaded.
+- **Out-of-range sentence access.** `DoOption(int)` indexes `CurOptions[optionIndex]` and `ProcessSentence` indexes `_sentences[conversationSentenceOption.SentenceNo]`. Passing an invalid index or a stale `ConversationSentenceOption` after the option set was rebuilt throws `MBOutOfRangeException` / `IndexOutOfRangeException`. Prefer `DoOption(string optionID)`, which resolves the index against the *current* `CurOptions`.
+- **Save corruption / orphaned agents.** `EndConversation` clears agent flags, fires `OnConversationEnded`, and clears the persuasion state. If you abandon a conversation by dropping references instead of calling `EndConversation`, agents stay flagged as conversation agents and the persuasion singleton can leak into the next dialog. Always pair a start with `EndConversation`.
+- **Option/list desync.** Mutating `CurOptions` directly (rather than via the provided methods) corrupts the `SentenceNo` → `_sentences` mapping, so the wrong consequence can run when the player picks an option.
+- **Map vs mission path.** `SetupAndStartMapConversation` sets `NeedsToActivateForMapConversation = true` and relies on the map state to call `OnConversationActivate`; mixing it with mission agents (`SetupAndStartMissionConversation`) on the same manager without ending the prior conversation leaves stale `_conversationAgents` and `_mainAgent`.
 
 ## Key Properties
 
-| Name | Signature |
-|------|-----------|
-| `CurrentSentenceText` | `public string CurrentSentenceText { get; }` |
-| `IsConversationFlowActive` | `public bool IsConversationFlowActive { get; }` |
-| `CurOptions` | `public List<ConversationSentenceOption> CurOptions { get; set; }` |
-| `ConversationAgents` | `public IReadOnlyList<IAgent> ConversationAgents { get; }` |
-| `OneToOneConversationAgent` | `public IAgent OneToOneConversationAgent { get; }` |
-| `SpeakerAgent` | `public IAgent SpeakerAgent { get; }` |
-| `ListenerAgent` | `public IAgent ListenerAgent { get; }` |
-| `IsConversationInProgress` | `public bool IsConversationInProgress { get; }` |
-| `OneToOneConversationHero` | `public Hero OneToOneConversationHero { get; }` |
-| `OneToOneConversationCharacter` | `public CharacterObject OneToOneConversationCharacter { get; }` |
-| `ConversationCharacters` | `public IEnumerable<CharacterObject> ConversationCharacters { get; }` |
-| `ConversationParty` | `public MobileParty ConversationParty { get; }` |
-| `NeedsToActivateForMapConversation` | `public bool NeedsToActivateForMapConversation { get; }` |
-| `Handler` | `public IConversationStateHandler Handler { get; set; }` |
+| Name | Signature | Notes |
+|------|-----------|-------|
+| `CurrentSentenceText` | `public string CurrentSentenceText { get; }` | Resolved, animation-tag-stripped text of the active sentence (after tag variation lookup for the 1:1 character). |
+| `IsConversationFlowActive` | `public bool IsConversationFlowActive { get; }` | Whether the flow has been activated (`OnConversationActivate`/`OnConversationDeactivate`). |
+| `CurOptions` | `public List<ConversationSentenceOption> CurOptions { get; protected set; }` | The player's currently visible reply options. Populate via `AddToCurrentOptions` / `GetPlayerSentenceOptions`. |
+| `ConversationAgents` | `public IReadOnlyList<IAgent> ConversationAgents { get; }` | All agents participating in the conversation. |
+| `OneToOneConversationAgent` | `public IAgent OneToOneConversationAgent { get; }` | The single participant when exactly one agent is present; `null` for multi-agent talks. |
+| `SpeakerAgent` | `public IAgent SpeakerAgent { get; }` | Who is currently speaking (drives the `SPEAKER` text variable). |
+| `ListenerAgent` | `public IAgent ListenerAgent { get; }` | Who is currently listening (drives the `LISTENER` text variable). |
+| `IsConversationInProgress` | `public bool IsConversationInProgress { get; }` | Set by `BeginConversation` / `SetupConversation`, cleared by `EndConversation`. |
+| `OneToOneConversationHero` | `public Hero OneToOneConversationHero { get; }` | The `Hero` of the 1:1 character, or `null`. |
+| `OneToOneConversationCharacter` | `public CharacterObject OneToOneConversationCharacter { get; }` | The `CharacterObject` of the 1:1 agent. |
+| `ConversationCharacters` | `public IEnumerable<CharacterObject> ConversationCharacters { get; }` | All participant characters. |
+| `ConversationParty` | `public MobileParty ConversationParty { get; }` | The party tied to a map conversation (cleared on `EndConversation`). |
+| `NeedsToActivateForMapConversation` | `public bool NeedsToActivateForMapConversation { get; }` | Set by `SetupAndStartMapConversation`; the map state uses it to activate the flow. |
+| `Handler` | `public IConversationStateHandler Handler { get; set; }` | Optional handler notified on install/activate/deactivate/continue/uninstall. |
 
-## Key Methods
+## Members by Theme
 
-### CreateConversationSentenceIndex
-`public int CreateConversationSentenceIndex()`
+### Conversation flow & lifecycle
 
-**Purpose:** Constructs a new conversation sentence index entity and returns it to the caller.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.CreateConversationSentenceIndex();
-```
-
-### StartNew
+#### StartNew
 `public void StartNew(int startingToken, bool setActionsInstantly)`
 
-**Purpose:** Starts the new flow or state machine.
+Resets the used-index set and repeat system, sets `ActiveToken = startingToken` (usually `0`), fires `OnConversationStarted` on the main agent and `OnConversationStart` on each conversation agent, then processes the partner's opening sentence. Call after the agents are set up (see `SetupAndStartMissionConversation`).
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.StartNew(0, false);
-```
-
-### ProcessSentence
-`public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)`
-
-**Purpose:** Executes the ProcessSentence logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.ProcessSentence(conversationSentenceOption);
-```
-
-### UpdateCurrentSentenceText
-`public void UpdateCurrentSentenceText()`
-
-**Purpose:** Recalculates and stores the latest representation of current sentence text.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.UpdateCurrentSentenceText();
-```
-
-### IsConversationEnded
-`public bool IsConversationEnded()`
-
-**Purpose:** Determines whether the this instance is in the conversation ended state or condition.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.IsConversationEnded();
-```
-
-### ClearCurrentOptions
-`public void ClearCurrentOptions()`
-
-**Purpose:** Removes all current options from the this instance.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.ClearCurrentOptions();
-```
-
-### AddToCurrentOptions
-`public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)`
-
-**Purpose:** Adds to current options to the current collection or state.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.AddToCurrentOptions(text, "example", false, hintText);
-```
-
-### GetPlayerSentenceOptions
-`public void GetPlayerSentenceOptions()`
-
-**Purpose:** Reads and returns the player sentence options value held by the this instance.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.GetPlayerSentenceOptions();
-```
-
-### GetStateIndex
-`public int GetStateIndex(string str)`
-
-**Purpose:** Reads and returns the state index value held by the this instance.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.GetStateIndex("example");
-```
-
-### DisableSentenceSort
-`public void DisableSentenceSort()`
-
-**Purpose:** Executes the DisableSentenceSort logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.DisableSentenceSort();
-```
-
-### EnableSentenceSort
-`public void EnableSentenceSort()`
-
-**Purpose:** Executes the EnableSentenceSort logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.EnableSentenceSort();
-```
-
-### AddDialogFlow
-`public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
-
-**Purpose:** Adds dialog flow to the current collection or state.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.AddDialogFlow(dialogFlow, null);
-```
-
-### AddDialogLineMultiAgent
-`public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
-
-**Purpose:** Adds dialog line multi agent to the current collection or state.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.AddDialogLineMultiAgent("example", "example", "example", text, conditionDelegate, consequenceDelegate, 0, 0, 0, null);
-```
-
-### IsAgentInConversation
-`public bool IsAgentInConversation(IAgent agent)`
-
-**Purpose:** Determines whether the this instance is in the agent in conversation state or condition.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.IsAgentInConversation(agent);
-```
-
-### BeginConversation
+#### BeginConversation
 `public void BeginConversation()`
 
-**Purpose:** Executes the BeginConversation logic.
+Marks `IsConversationInProgress = true`, raises `ConversationSetup` then `ConversationBegin`, and clears `NeedsToActivateForMapConversation`. Called automatically by the `SetupAndStart*` helpers; call it yourself only if you drive a flow manually after `StartNew`.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.BeginConversation();
-```
-
-### EndConversation
+#### EndConversation
 `public void EndConversation()`
 
-**Purpose:** Executes the EndConversation logic.
+The required teardown. Fires `OnConversationEnd` on each mission agent, clears `_conversationParty`, raises `ConversationEndOneShot` (once) and `ConversationEnd`, resets `IsConversationInProgress`, un-flags all agents, restores `CurrentConversationContext = Default`, dispatches `OnConversationEnded`, ends any active persuasion, clears agents/speaker/listener/main, and uninstalls the `Handler`. **Always pair a start with this call.**
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.EndConversation();
-```
-
-### DoOption
-`public void DoOption(int optionIndex)`
-
-**Purpose:** Executes the DoOption logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.DoOption(0);
-```
-
-### DoOption
-`public void DoOption(string optionID)`
-
-**Purpose:** Executes the DoOption logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.DoOption("example");
-```
-
-### DoConversationContinuedCallback
-`public void DoConversationContinuedCallback()`
-
-**Purpose:** Executes the DoConversationContinuedCallback logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.DoConversationContinuedCallback();
-```
-
-### DoOptionContinue
-`public void DoOptionContinue()`
-
-**Purpose:** Executes the DoOptionContinue logic.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.DoOptionContinue();
-```
-
-### ContinueConversation
+#### ContinueConversation
 `public void ContinueConversation()`
 
-**Purpose:** Executes the ContinueConversation logic.
+Advances the partner's side when there is at most one option (`CurOptions.Count <= 1`). Ends the conversation if it is finished or if the listener is the player with no further partner line; otherwise re-runs `ProcessPartnerSentence` and raises `ConversationContinued`.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.ContinueConversation();
-```
+#### DoOption (by index)
+`public void DoOption(int optionIndex)`
 
-### SetupAndStartMissionConversation
-`public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)`
+Selects `CurOptions[optionIndex]`, runs its sentence via `ProcessSentence`, then either continues immediately (`DoOptionContinue`) or defers it until the flow activates (`_executeDoOptionContinue`).
 
-**Purpose:** Assigns a new value to up and start mission conversation and updates the object's internal state.
+#### DoOption (by id)
+`public void DoOption(string optionID)`
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.SetupAndStartMissionConversation(agent, mainAgent, false);
-```
+Safer overload: scans the *current* `CurOptions` for a matching `Id` and delegates to `DoOption(int)`. Prefer this over the index overload to avoid stale-index crashes.
 
-### SetupAndStartMissionConversationWithMultipleAgents
-`public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable<IAgent> agents, IAgent mainAgent)`
+#### DoOptionContinue
+`public void DoOptionContinue()`
 
-**Purpose:** Assigns a new value to up and start mission conversation with multiple agents and updates the object's internal state.
+If the conversation has ended on a player line, ends it; otherwise processes the partner's next sentence and raises `ConversationContinued`.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.SetupAndStartMissionConversationWithMultipleAgents(agents, mainAgent);
-```
+#### DoConversationContinuedCallback
+`public void DoConversationContinuedCallback()`
 
-### SetupAndStartMapConversation
-`public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)`
+Raises the `ConversationContinued` event. Called by the flow after advancing.
 
-**Purpose:** Assigns a new value to up and start map conversation and updates the object's internal state.
+#### ProcessSentence
+`public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)`
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.SetupAndStartMapConversation(party, agent, mainAgent);
-```
+Core step: resolves the underlying `ConversationSentence`, advances `ActiveToken` to its output token, recomputes speaker/listener agents, renders the text, runs the sentence's consequence, and (in a mission) triggers voice/animation playback. Asserts `Game.Current` is non-null.
 
-### AddConversationAgents
-`public void AddConversationAgents(IEnumerable<IAgent> agents, bool setActionsInstantly)`
+#### IsConversationEnded
+`public bool IsConversationEnded()`
 
-**Purpose:** Adds conversation agents to the current collection or state.
+Returns `true` when `ActiveToken == 4` (the `"close_window"` state index). Used to decide whether to close the dialog.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.AddConversationAgents(agents, false);
-```
+#### UpdateCurrentSentenceText
+`public void UpdateCurrentSentenceText()`
 
-### RemoveConversationAgent
-`public void RemoveConversationAgent(IAgent agent)`
+Recomputes `_currentSentenceText` from the active sentence (or the error string when no sentence is active). Asserts `Campaign.Current` is non-null.
 
-**Purpose:** Removes conversation agent from the current collection or state.
+#### OnConversationActivate / OnConversationDeactivate
+`public void OnConversationActivate()` / `public void OnConversationDeactivate()`
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.RemoveConversationAgent(agent);
-```
+Flip `_isActive` and notify the `Handler`. `OnConversationActivate` also flushes any deferred `DoOptionContinue`. Called by the `SetupAndStart*` helpers once the flow is ready.
 
-### IsConversationAgent
-`public bool IsConversationAgent(IAgent agent)`
+### Sentence & option management
 
-**Purpose:** Determines whether the this instance is in the conversation agent state or condition.
+#### CreateConversationSentenceIndex
+`public int CreateConversationSentenceIndex()`
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.IsConversationAgent(agent);
-```
+Returns and increments a monotonically growing index used to tag sentences (`_numConversationSentencesCreated`).
 
-### RemoveRelatedLines
+#### ClearCurrentOptions
+`public void ClearCurrentOptions()`
+
+Empties `CurOptions` (allocating it if needed).
+
+#### AddToCurrentOptions
+`public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)`
+
+Appends a hand-built reply option to `CurOptions`. Use this only for dynamically injected options; normal dialog content comes from `DialogFlow`.
+
+#### GetPlayerSentenceOptions
+`public void GetPlayerSentenceOptions()`
+
+Rebuilds `CurOptions` from the player's available sentences (`onlyPlayer: true`), choosing the option whose sentence declares an explicit listener, and updates speaker/listener agents.
+
+#### GetStateIndex
+`public int GetStateIndex(string str)`
+
+Maps a token name to its integer state index, registering a new index for unknown names. Built-in tokens: `start`(0), `event_triggered`(1), `member_chat`(2), `prisoner_chat`(3), `close_window`(4).
+
+#### DisableSentenceSort / EnableSentenceSort
+`public void DisableSentenceSort()` / `public void EnableSentenceSort()`
+
+Toggle automatic priority sorting of sentences. Disabling is useful while you are still adding lines; re-enabling re-sorts immediately.
+
+#### AddDialogFlow
+`public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)`
+
+The supported way to register conversation content. Iterates the flow's `Lines`, creates `ConversationSentence` records (with the correct flags, ids, priority, and token linkage), and registers their game-text variations. Pass `relatedObject` so you can later `RemoveRelatedLines(o)` to unregister.
+
+#### AddDialogLineMultiAgent
+`public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)`
+
+Low-level line registration for multi-agent dialogs, letting you pin which agent speaks (`agentIndex`) and who speaks next (`nextAgentIndex`). Returns the created `ConversationSentence`.
+
+#### RemoveRelatedLines
 `public void RemoveRelatedLines(object o)`
 
-**Purpose:** Removes related lines from the current collection or state.
+Removes every sentence whose `RelatedObject == o` (the `relatedObject` you passed to `AddDialogFlow`). Use it to clean up a behavior's dialogs on unload.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.RemoveRelatedLines(o);
-```
+### Agents & conversation start
 
-### OnConversationDeactivate
-`public void OnConversationDeactivate()`
+#### SetupAndStartMissionConversation
+`public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)`
 
-**Purpose:** Invoked when the conversation deactivate event is raised.
+Sets up the conversation with a single `agent` and the `mainAgent` (the player), starts the flow with token `0`, activates it, and calls `BeginConversation`.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.OnConversationDeactivate();
-```
+#### SetupAndStartMissionConversationWithMultipleAgents
+`public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable<IAgent> agents, IAgent mainAgent)`
 
-### OnConversationActivate
-`public void OnConversationActivate()`
+Same as above but for several `agents`; agent actions are set instantly.
 
-**Purpose:** Invoked when the conversation activate event is raised.
+#### SetupAndStartMapConversation
+`public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)`
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.OnConversationActivate();
-```
+Binds the conversation to `party`, sets up the single `agent`, starts the flow with token `0`, and sets `NeedsToActivateForMapConversation = true` so the map state activates it.
 
-### FindMatchingTextOrNull
-`public TextObject FindMatchingTextOrNull(string id, CharacterObject character)`
-
-**Purpose:** Looks up the matching matching text or null in the current collection or scope.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.FindMatchingTextOrNull("example", character);
-```
-
-### GetApplicableTagNames
-`public IEnumerable<string> GetApplicableTagNames(CharacterObject character)`
-
-**Purpose:** Reads and returns the applicable tag names value held by the this instance.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.GetApplicableTagNames(character);
-```
-
-### IsTagApplicable
-`public bool IsTagApplicable(string tagId, CharacterObject character)`
-
-**Purpose:** Determines whether the this instance is in the tag applicable state or condition.
-
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-var result = conversationManager.IsTagApplicable("example", character);
-```
-
-### OpenMapConversation
+#### OpenMapConversation
 `public void OpenMapConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)`
 
-**Purpose:** Opens the resource or UI associated with map conversation.
+Convenience entry: asks the active `MapState` to begin the map conversation, then delegates to `SetupAndStartMapConversation` using a `MapConversationAgent` for both the partner and `CharacterObject.PlayerCharacter`.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.OpenMapConversation(playerCharacterData, conversationPartnerData);
-```
+#### AddConversationAgents
+`public void AddConversationAgents(IEnumerable<IAgent> agents, bool setActionsInstantly)`
 
-### StartPersuasion
+Adds each active, not-yet-present agent to the conversation and fires `OnConversationStart`.
+
+#### RemoveConversationAgent
+`public void RemoveConversationAgent(IAgent agent)`
+
+Removes a single non-last agent, firing `OnConversationEnd` and un-flagging it. Asserts (FailedAssert) if the agent is inactive, absent, or is the last remaining agent.
+
+#### IsAgentInConversation / IsConversationAgent
+`public bool IsAgentInConversation(IAgent agent)` / `public bool IsConversationAgent(IAgent agent)`
+
+Both return whether `agent` is currently in `ConversationAgents`.
+
+### Tags & text variation
+
+#### FindMatchingTextOrNull
+`public TextObject FindMatchingTextOrNull(string id, CharacterObject character)`
+
+Looks up the game text `id` and returns the variation whose `ChoiceTag` set best matches `character` (highest `FindMatchingScore`); returns `null` if no variation beats the default.
+
+#### GetApplicableTagNames
+`public IEnumerable<string> GetApplicableTagNames(CharacterObject character)`
+
+Yields the `StringId` of every registered `ConversationTag` applicable to `character`.
+
+#### IsTagApplicable
+`public bool IsTagApplicable(string tagId, CharacterObject character)`
+
+Returns whether tag `tagId` applies to `character`. A non-existent `tagId` triggers a `FailedAssert` and returns `false`.
+
+### Persuasion (static)
+
+The following are static and operate on a single module-wide persuasion state held by the manager.
+
+#### StartPersuasion
 `public static void StartPersuasion(float goalValue, float successValue, float failValue, float criticalSuccessValue, float criticalFailValue, float initialProgress = -1f, PersuasionDifficulty difficulty = PersuasionDifficulty.Medium)`
 
-**Purpose:** Starts the persuasion flow or state machine.
+Creates the active persuasion with the given threshold values and difficulty.
 
-```csharp
-// Static call; no instance required
-ConversationManager.StartPersuasion(0, 0, 0, 0, 0, 0, persuasionDifficulty.Medium);
-```
-
-### EndPersuasion
+#### EndPersuasion
 `public static void EndPersuasion()`
 
-**Purpose:** Executes the EndPersuasion logic.
+Clears the persuasion state. Also called automatically by `EndConversation` when persuasion is active.
 
-```csharp
-// Static call; no instance required
-ConversationManager.EndPersuasion();
-```
-
-### PersuasionCommitProgress
+#### PersuasionCommitProgress
 `public static void PersuasionCommitProgress(PersuasionOptionArgs persuasionOptionArgs)`
 
-**Purpose:** Executes the PersuasionCommitProgress logic.
+Commits the chosen option's progress into the active persuasion.
 
-```csharp
-// Static call; no instance required
-ConversationManager.PersuasionCommitProgress(persuasionOptionArgs);
-```
-
-### Clear
+#### Clear
 `public static void Clear()`
 
-**Purpose:** Removes all content from the this instance.
+Resets the persuasion state (equivalent to `EndPersuasion`).
 
-```csharp
-// Static call; no instance required
-ConversationManager.Clear();
-```
-
-### GetPersuasionChanceValues
+#### GetPersuasionChanceValues
 `public void GetPersuasionChanceValues(out float successValue, out float critSuccessValue, out float critFailValue)`
 
-**Purpose:** Reads and returns the persuasion chance values value held by the this instance.
+Returns the active persuasion's success / critical-success / critical-fail thresholds.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.GetPersuasionChanceValues(successValue, critSuccessValue, critFailValue);
-```
-
-### GetPersuasionIsActive
-`public static bool GetPersuasionIsActive()`
-
-**Purpose:** Reads and returns the persuasion is active value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ConversationManager.GetPersuasionIsActive();
-```
-
-### GetPersuasionProgressSatisfied
-`public static bool GetPersuasionProgressSatisfied()`
-
-**Purpose:** Reads and returns the persuasion progress satisfied value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ConversationManager.GetPersuasionProgressSatisfied();
-```
-
-### GetPersuasionIsFailure
-`public static bool GetPersuasionIsFailure()`
-
-**Purpose:** Reads and returns the persuasion is failure value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ConversationManager.GetPersuasionIsFailure();
-```
-
-### GetPersuasionProgress
-`public static float GetPersuasionProgress()`
-
-**Purpose:** Reads and returns the persuasion progress value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ConversationManager.GetPersuasionProgress();
-```
-
-### GetPersuasionGoalValue
-`public static float GetPersuasionGoalValue()`
-
-**Purpose:** Reads and returns the persuasion goal value value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ConversationManager.GetPersuasionGoalValue();
-```
-
-### GetPersuasionChosenOptions
-`public static IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetPersuasionChosenOptions()`
-
-**Purpose:** Reads and returns the persuasion chosen options value held by the this instance.
-
-```csharp
-// Static call; no instance required
-ConversationManager.GetPersuasionChosenOptions();
-```
-
-### GetPersuasionChances
+#### GetPersuasionChances
 `public void GetPersuasionChances(ConversationSentenceOption conversationSentenceOption, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance)`
 
-**Purpose:** Reads and returns the persuasion chances value held by the this instance.
+For an option carrying persuasion data, asks `PersuasionModel.GetChances` (scaled by difficulty). All chances are `0` when the option has no persuasion.
 
-```csharp
-// Obtain an instance of ConversationManager from the subsystem API first
-ConversationManager conversationManager = ...;
-conversationManager.GetPersuasionChances(conversationSentenceOption, successChance, critSuccessChance, critFailChance, failChance);
-```
+#### GetPersuasionIsActive / GetPersuasionProgressSatisfied / GetPersuasionIsFailure / GetPersuasionProgress / GetPersuasionGoalValue / GetPersuasionChosenOptions
+`public static bool GetPersuasionIsActive()` / `public static bool GetPersuasionProgressSatisfied()` / `public static bool GetPersuasionIsFailure()` / `public static float GetPersuasionProgress()` / `public static float GetPersuasionGoalValue()` / `public static IEnumerable<Tuple<PersuasionOptionArgs, PersuasionOptionResult>> GetPersuasionChosenOptions()`
+
+Read-only queries over the active persuasion: whether it exists, whether `Progress >= GoalValue`, whether `Progress < 0` (failure), the raw progress/goal, and the list of options already chosen with their results.
+
+### Public events (hooks)
+
+`ConversationManager` exposes these `public` events you can subscribe to from a `CampaignBehaviorBase` or UI layer:
+
+- `event Action ConversationSetup` — raised by `BeginConversation` before `ConversationBegin`.
+- `event Action ConversationBegin` — raised when a conversation begins.
+- `event Action ConversationEnd` — raised on `EndConversation`.
+- `event Action ConversationEndOneShot` — raised once on the first `EndConversation`, then detached.
+- `event Action ConversationContinued` — raised after the flow advances a sentence.
+- `event Action<ConversationSentence> ConsequenceRunned` — raised after a sentence's consequence runs.
+- `event Action<ConversationSentence> ConditionRunned` — raised after a sentence's condition is evaluated.
+- `event Action<ConversationSentence> ClickableConditionRunned` — raised after a sentence's clickable condition is evaluated.
 
 ## Usage Example
 
 ```csharp
-var manager = ConversationManager.Current;
+// The manager is a singleton owned by the campaign — never construct it yourself.
+ConversationManager conversationManager = Campaign.Current.ConversationManager;
+
+// Start a map conversation with a settlement's notable (party + agent + main agent).
+MobileParty party = Settlement.CurrentSettlement.Party;
+IAgent partner = new MapConversationAgent(hero.CharacterObject);
+IAgent mainAgent = new MapConversationAgent(CharacterObject.PlayerCharacter);
+conversationManager.SetupAndStartMapConversation(party, partner, mainAgent);
+
+// While the dialog is live you can read the player's options:
+foreach (ConversationSentenceOption option in conversationManager.CurOptions)
+{
+    // Pick an option by id (safe against index shifts):
+    // conversationManager.DoOption(option.Id);
+}
+
+// Subscribe to lifecycle events from a behavior:
+conversationManager.ConversationEnd += () =>
+{
+    // Clean up any per-conversation state here.
+};
+
+// Always close the conversation you opened:
+conversationManager.EndConversation();
+```
+
+```csharp
+// Persuasion is driven through the static API on the same manager.
+ConversationManager.StartPersuasion(
+    goalValue: 100f,
+    successValue: 70f,
+    failValue: 30f,
+    criticalSuccessValue: 90f,
+    criticalFailValue: 10f,
+    initialProgress: -1f,
+    difficulty: PersuasionDifficulty.Medium);
+
+if (ConversationManager.GetPersuasionIsActive())
+{
+    float progress = ConversationManager.GetPersuasionProgress();
+    // Commit a chosen option when the player selects it:
+    // ConversationManager.PersuasionCommitProgress(chosenArgs);
+}
+
+ConversationManager.EndPersuasion();
 ```
 
 ## See Also
 
-- [Area Index](../)
+- [↑ Parent](../)
+- [↔ DialogFlow](DialogFlow.md)
+- [↔ ConversationSentenceOption](ConversationSentenceOption.md)
+- [↔ ConversationSentence](ConversationSentence.md)
+- [↔ CampaignEventDispatcher](CampaignEventDispatcher.md)
+- [↔ Persuasion](Persuasion.md)

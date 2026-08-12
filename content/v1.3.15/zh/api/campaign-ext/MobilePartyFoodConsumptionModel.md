@@ -4,11 +4,11 @@ description: "把队伍成员、俘虏、Perk 和战役状态转换为每日食�
 ---
 # MobilePartyFoodConsumptionModel
 
-**命名空间:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
-**模块:** `TaleWorlds.CampaignSystem`  
-**类型:** `public abstract class MobilePartyFoodConsumptionModel : MBGameModel<MobilePartyFoodConsumptionModel>`  
-**基类:** `MBGameModel<MobilePartyFoodConsumptionModel>`  
-**源文件:** `TaleWorlds.CampaignSystem/ComponentInterfaces/MobilePartyFoodConsumptionModel.cs`  
+**Namespace:** `TaleWorlds.CampaignSystem.ComponentInterfaces`  
+**Module:** `TaleWorlds.CampaignSystem`  
+**Type:** `public abstract class MobilePartyFoodConsumptionModel : MBGameModel<MobilePartyFoodConsumptionModel>`  
+**Base:** `MBGameModel<MobilePartyFoodConsumptionModel>`  
+**源文件:** `C:/WorkSpace/Bannerlord/bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces/MobilePartyFoodConsumptionModel.cs`
 **默认实现:** `TaleWorlds.CampaignSystem.GameComponents/DefaultMobilePartyFoodConsumptionModel.cs`
 
 ## 一句话职责
@@ -97,8 +97,11 @@ public ExplainedNumber ExplainDailyFoodChange(MobileParty party)
         return new ExplainedNumber(0f);
     }
 
+    // 两种等效获取方式：模型属性访问器，或泛型 GetModel<T>
     MobilePartyFoodConsumptionModel model =
         Campaign.Current.Models.MobilePartyFoodConsumptionModel;
+    // MobilePartyFoodConsumptionModel model =
+    //     Campaign.Current.Models.GetModel<MobilePartyFoodConsumptionModel>();
     ExplainedNumber baseConsumption =
         model.CalculateDailyBaseFoodConsumptionf(party, includeDescription: true);
     return model.CalculateDailyFoodConsumptionf(party, baseConsumption);
@@ -129,7 +132,7 @@ bool consumesFood = Campaign.Current.Models.MobilePartyFoodConsumptionModel
 
 ## 版本与导航
 
-v1.3.15 与 v1.4.5 保留四个公开入口和默认 `20` 人/食物单位的基础分母；默认 Perk、海上和围城条件应以目标版本源码为准。跨版本替换时优先委托当前版本默认实现。
+v1.3.0、v1.3.15 与 v1.4.5 的公开接口完全一致：四个公开入口（`NumberOfMenOnMapToEatOneFood`、`CalculateDailyBaseFoodConsumptionf`、`CalculateDailyFoodConsumptionf`、`DoesPartyConsumeFood`）签名不变，默认基础分母都是 `20` 人/食物单位。差异只在于默认实现里的 Perk、海上与围城条件集，应以目标版本源码为准；跨版本替换时优先委托当前版本默认实现，而不是把旧公式复制到新版。
 
 - [父级：Campaign 扩展 API](../)
 - [队伍模型目录](../models/)

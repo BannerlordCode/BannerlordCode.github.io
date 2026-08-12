@@ -1,6 +1,6 @@
 ---
 title: "PartyTradeModel"
-description: "The campaign trade-policy contract for caravan item-count limits and party-specific trade price penalties."
+description: "A replaceable campaign model that provides rules for the caravan candidate count and party trade-price penalties."
 ---
 
 # PartyTradeModel
@@ -14,79 +14,120 @@ description: "The campaign trade-policy contract for caravan item-count limits a
 
 ## One-line responsibility
 
-This model supplies replaceable campaign trade calculations: a caravan high-value transaction limit and a party-specific trade-price penalty factor. It does not move items, subtract gold, or complete a transaction.
+It provides two trade-strategy inputs: the upper limit on the number of high-value caravan transaction candidates, and a trade-price penalty factor computed from party skills. It does not move items, subtract gold, or represent a completed transaction. Price models, the caravan flow, and the trade UI may read these values repeatedly, so implementations must stay pure-computation in semantics.
 
 ## Mental model
 
-Treat `PartyTradeModel` as the trade formula stored in `GameModels`, not as a transaction service. During campaign initialization Sandbox registers [DefaultPartyTradeModel](../DefaultPartyTradeModel/); a module can register another model during `InitializeGameStarter` and win by registration order. Once the campaign is running, consumers read the selected instance through `Campaign.Current.Models.PartyTradeModel`.
+Place `PartyTradeModel` in the price-calculation layer of `GameModels`, not as a transaction service. Sandbox registers `DefaultPartyTradeModel` during campaign startup, after which consumers read the current instance through `Campaign.Current.Models.PartyTradeModel`. `GetTradePenaltyFactor` is pulled into the full price chain by `DefaultTradeItemPriceFactorModel`: it first multiplies the party trade penalty into the base penalty, then converts the price according to the buy or sell direction.
 
-`GetTradePenaltyFactor` sits inside the price pipeline. [DefaultTradeItemPriceFactorModel](../DefaultTradeItemPriceFactorModel/) calls it for a non-null client party and multiplies the result into the price factor. The return value therefore changes an input to price calculation, not a transaction that has already happened. `CaravanTransactionHighestValueItemCount` gives caravan-related callers a count limit; it is not a universal trading capacity.
+```text
+MobileParty / Trade skill / caravan policy
+                 |
+                 v
+Campaign.Current.Models.PartyTradeModel
+          +------+------------------+
+          v                         v
+CaravanTransactionHighestValueItemCount   GetTradePenaltyFactor
+          |                         |
+          v                         v
+caravan candidate count limit   DefaultTradeItemPriceFactorModel
+                                    |
+                                    v
+Settlement / ItemObject / buy-sell price
+```
+
+The penalty factor changes a price-calculation input, not inventory or gold state. On buy, the price chain uses the base price factor multiplied by `1 + tradePenalty`; on sell, it divides the base price factor by `1 + tradePenalty`. Settlement, item-category, culture, and other Perk rules are layered on afterward. The caravan count property is a contract value, not the capacity of all parties, nor a command that auto-executes a trade.
 
 ## When to use and when not to
 
-- Replace this model when a mod needs different party-based trade penalties or a different caravan transaction count limit.
-- Read `Campaign.Current.Models.PartyTradeModel` when displaying or diagnosing the current trade penalty; do not copy the vanilla skill formula into every caller.
-- Do not subtract gold, move inventory, or invoke a trade Action from a Model. Actual buy/sell state changes belong to the transaction flow and actions such as [SellItemsAction](../SellItemsAction/).
-- Do not read `Campaign.Current.Models` from `OnSubModuleLoad`. The campaign model container is available only after campaign assembly; registration belongs in [CampaignGameStarter](../CampaignGameStarter/) / `InitializeGameStarter`.
+- Replace this Model when you want to change a category of party's trade-price penalty, the effect of party skills on price, or the upper limit of high-value caravan candidates.
+- When you want to inspect the current party's penalty in the UI or for diagnostics, query `Campaign.Current.Models.PartyTradeModel`; do not copy the vanilla skill formula into every caller.
+- Do not subtract gold, move inventory, refresh the market, or invoke a trade Action inside the Model; the real state changes belong to the transaction flow and entry points such as `SellItemsAction`.
+- Do not read `Campaign.Current.Models` from `OnSubModuleLoad` or before the campaign is assembled; model registration should complete during the initialization phase of `CampaignGameStarter`.
 
-## Dependencies and consumers
+## Dependencies
 
-#### Upstream
+### Upstream
 
-- [GameModels](../GameModels/) stores and exposes the registered model by type when the campaign is constructed.
-- [Campaign](../../campaign/Campaign/) exposes the runtime `Current.Models` container.
-- [MobileParty](../../campaign/MobileParty/) is the input to `GetTradePenaltyFactor`; the default implementation reads party skill effects from it.
+| Type | Relationship |
+| --- | --- |
+| [`Campaign`](../../campaign/Campaign) | Provides the runtime `Current.Models` container. |
+| [`GameModels`](../GameModels) | Holds the Models registered during campaign construction, keyed by type. |
+| [`MobileParty`](../../campaign/MobileParty) | Is the input to `GetTradePenaltyFactor`; the default implementation reads party skill effects from it. |
+| `DefaultSkillEffects.TradePenaltyReduction` | The default model adds the skill effect to the `ExplainedNumber`. |
 
-#### Downstream
+### Downstream
 
-- [DefaultTradeItemPriceFactorModel](../DefaultTradeItemPriceFactorModel/) multiplies the factor into the base buy/sell price calculation.
-- Caravan transaction code reads `CaravanTransactionHighestValueItemCount` as a candidate-count limit; the property itself performs no transaction.
-- Gold and inventory mutations remain the responsibility of the transaction flow and trade Actions, not this Model.
+| Type | Relationship |
+| --- | --- |
+| [`DefaultTradeItemPriceFactorModel`](../DefaultTradeItemPriceFactorModel) | Multiplies the party penalty factor into the full buy/sell price penalty chain. |
+| [`SellItemsAction`](../SellItemsAction) | Performs the actual item and gold changes; it is not called by this Model. |
+| `Caravan` transaction flow | Reads `CaravanTransactionHighestValueItemCount` as the high-value candidate limit; the property itself does not execute a trade. |
+| [`Settlement`](../../campaign/Settlement) | Provides merchant, village/town, and market-price context. |
 
-## Members and timing
+### Action, events and save boundary
 
-| Member | Purpose and timing | Side-effect boundary |
-|---|---|---|
-| `CaravanTransactionHighestValueItemCount` | Supplies the high-value item-count limit read by caravan transaction logic. The vanilla implementation returns `3`. | Returns an integer only; it does not add items, subtract gold, or trigger a trade. |
-| `GetTradePenaltyFactor(MobileParty party)` | Computes the party-specific trade penalty while a price model evaluates a client party. | Returns a `float` only; it must not mutate the party, market, or skills. |
+The model has no save fields of its own and dispatches no trade events. `DefaultTradeItemPriceFactorModel` may compute prices multiple times before a single UI preview or actual trade, so `GetTradePenaltyFactor` must be pure-functional; gold, inventory, and taxes should be handled by the transaction flow and its Actions.
 
-The vanilla 1.3.15 implementation starts an `ExplainedNumber` at `1`, adds the `TradePenaltyReduction` skill effect, and returns its reciprocal. A higher skill reduction normally lowers the penalty factor; the final price still includes settlement, item-category, and other perk rules.
+## Members contract
 
-## Real acquisition and query example
+| Member | Purpose and when called | Side-effect boundary |
+| --- | --- | --- |
+| `CaravanTransactionHighestValueItemCount` | Provides the high-value item candidate-count cap for caravan trade selection logic. | The default returns `3`; it only returns an integer, adds no items, subtracts no gold. |
+| `GetTradePenaltyFactor(MobileParty party)` | Returns the party's trade penalty factor while a price model computes the buy/sell price for some client party. | The default starts an `ExplainedNumber` at `1`, adds `TradePenaltyReduction`, then takes the reciprocal; it only returns a `float`, and mutates neither the party nor the market. |
+
+The default 1.3.15/1.4.5 implementations both initialize `ExplainedNumber` to `1f`, call `SkillHelper.AddSkillBonusForParty(DefaultSkillEffects.TradePenaltyReduction, party, ref explainedNumber)`, then return `1f / explainedNumber.ResultNumber`. The skill modifier normally lowers the penalty factor, but the final price is still decided by the full price model; this return value must not be treated directly as a gold amount or final item price.
+
+## Real acquisition path
+
+The code below reads both actual public entry points from the current campaign; it suits price diagnostics or display:
 
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ComponentInterfaces;
 using TaleWorlds.CampaignSystem.Party;
 
-Campaign campaign = Campaign.Current;
-MobileParty party = MobileParty.MainParty;
-PartyTradeModel tradeModel = campaign.Models.PartyTradeModel;
+public bool TryReadTradePolicy(out int caravanLimit, out float penaltyFactor)
+{
+    caravanLimit = 0;
+    penaltyFactor = 1f;
+    if (Campaign.Current == null || MobileParty.MainParty == null)
+    {
+        return false;
+    }
 
-int caravanLimit = tradeModel.CaravanTransactionHighestValueItemCount;
-float penaltyFactor = tradeModel.GetTradePenaltyFactor(party);
+    PartyTradeModel model = Campaign.Current.Models.PartyTradeModel;
+    caravanLimit = model.CaravanTransactionHighestValueItemCount;
+    penaltyFactor = model.GetTradePenaltyFactor(MobileParty.MainParty);
+    return true;
+}
 ```
 
-This only reads the policy selected for the current campaign. To change it, register a `PartyTradeModel` subclass during `InitializeGameStarter`; do not mutate the `MobileParty` or settlement inventory based on this query.
+Real price consumers also go through `Campaign.Current.Models.TradeItemPriceFactorModel` and the settlement/item context; if you need to display the final price, call the full price model rather than multiplying `penaltyFactor` directly onto `ItemObject.Value`.
 
-## Risks and debugging boundaries
+## Safe replacement boundary
 
-1. Reading `Campaign.Current` before the campaign exists, or calling an unfilled strong-typed property in a non-campaign mode, can produce a `NullReferenceException`. Cross-version or cross-mode code can use `GetGameModel<PartyTradeModel>()` and check for `null`.
-2. Negative, unbounded, or semantically inverted factors can push the downstream price calculation outside its intended range. Test the factor at the full price pipeline boundary, not only in isolation.
-3. Mutating gold, inventory, or a `Settlement` inside `GetTradePenaltyFactor` turns a calculation into a repeated world mutation because price evaluation can occur more than once.
-4. Calling `AddModel` from a running `CampaignBehaviorBase` does not rebuild `Campaign.Current.Models`. Replacement must happen in `InitializeGameStarter`, and multiple modules are subject to last-registration-wins ordering.
-5. `CaravanTransactionHighestValueItemCount` is a caravan contract value, not a general party-size limit or a universal UI trading limit.
+Custom models should register in `InitializeGameStarter`, keep a clean vanilla delegate, and avoid calling `AddModel` inside a running `CampaignBehaviorBase` expecting it to rebuild the existing `GameModels`. If you only adjust the party skill modifier, delegate vanilla `GetTradePenaltyFactor` and then add a limited factor; if you change the caravan candidate cap, do not reuse that value as a normal party capacity.
 
-## Version note
+## Risks and troubleshooting order
 
-- The abstract members are unchanged between v1.3.15 and v1.4.5.
-- The v1.4.5 default implementation still returns `3` and computes the reciprocal of the `TradePenaltyReduction`-adjusted `ExplainedNumber`; callers still obtain it through `Campaign.Current.Models.PartyTradeModel`.
+1. **Campaign not yet built:** Reading `Campaign.Current` too early, or a strongly-typed Model property, may be null; cross-mode code should use `GetGameModel<PartyTradeModel>()` and null-check.
+2. **Treating the factor as the final price:** `GetTradePenaltyFactor` is only an input in the price chain; direction, settlement, item category, and other Perks still keep changing the result.
+3. **Side effects during computation:** Price evaluation may run repeatedly, so mutating gold, inventory, or settlement here causes duplicate trades or corrupted state.
+4. **Runtime replacement failure:** `AddModel` inside a `CampaignBehaviorBase` does not rebuild the already-assembled `Campaign.Current.Models`; the replacement timing and module registration order decide the final instance.
+5. **Misusing the caravan cap:** `CaravanTransactionHighestValueItemCount` defaults to `3` and only expresses the caravan trade contract, not party size, inventory capacity, or a general UI limit.
+6. **Zero or negative factor:** Returning an unbounded, negative, or semantically inverted factor pushes the price chain into an abnormal range; validate the boundary on the full buy/sell price path.
 
-## Navigation
+## Version and navigation
 
-- [Parent: campaign-ext](../)
-- [Models family guide](../models/)
-- [Siblings: PartyFoodBuyingModel](../PartyFoodBuyingModel/) · [PartyImpairmentModel](../PartyImpairmentModel/) · [PartyDesertionModel](../PartyDesertionModel/)
-- [Container and registration: GameModels](../GameModels/) · [CampaignGameStarter](../CampaignGameStarter/)
-- [Consumer: DefaultTradeItemPriceFactorModel](../DefaultTradeItemPriceFactorModel/)
-- [Related: MobileParty](../../campaign/MobileParty/) · [SellItemsAction](../SellItemsAction/)
+The two abstract members are identical between v1.3.15 and v1.4.5; the default caravan cap is still `3`, and the penalty factor is still the reciprocal of the `ExplainedNumber` adjusted by `TradePenaltyReduction`. Actual callers and other price factors may change across module versions, so cross-version implementations should delegate to the default model of the target version.
+
+- [↑ Parent: Campaign Ext API](../)
+- [Party Models index](../models/)
+- [↔ PartyImpairmentModel](../PartyImpairmentModel)
+- [↔ PartyFoodBuyingModel](../PartyFoodBuyingModel)
+- [GameModels](../GameModels)
+- [CampaignGameStarter](../CampaignGameStarter)
+- [DefaultTradeItemPriceFactorModel](../DefaultTradeItemPriceFactorModel)
+- [MobileParty](../../campaign/MobileParty)
+- [SellItemsAction](../SellItemsAction)

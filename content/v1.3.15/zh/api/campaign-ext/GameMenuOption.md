@@ -6,9 +6,9 @@ description: "GameMenuOption 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.GameMenus
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class GameMenuOption`
+**Type:** public class GameMenuOption
 **Base:** 无
-**File:** `TaleWorlds.CampaignSystem/GameMenus/GameMenuOption.cs`
+**源文件路径:** TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameMenus/GameMenuOption.cs
 
 ## 概述
 
@@ -16,7 +16,7 @@ description: "GameMenuOption 的自动生成类参考。"
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem.GameMenus` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+判断 `GameMenuOption` 所属系统时，先看它的命名空间 `TaleWorlds.CampaignSystem.GameMenus`；命名空间确定后，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
 
 ## 主要属性
 
@@ -94,11 +94,14 @@ gameMenuOption.OnConsequenceDelegate(args);
 ## 使用示例
 
 ```csharp
-// 通常从对应子系统 API 获取实例后调用
+// 在菜单上下文中拿到 GameMenuOption 实例，验证条件后执行后果
+Game game = ...;
 GameMenuOption gameMenuOption = ...;
-gameMenuOption.GetConditionsHold(game, menuContext);
+var conditionsHold = gameMenuOption.GetConditionsHold(game, menuContext);
+gameMenuOption.RunConsequence(menuContext);
 ```
 
 ## 参见
 
 - [本区域目录](../)
+- [GameMenu](GameMenu.md)

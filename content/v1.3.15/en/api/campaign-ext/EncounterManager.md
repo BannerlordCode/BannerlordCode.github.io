@@ -70,7 +70,7 @@ Campaign.Tick
 - **Do not read map encounters from the Mission layer.** `Mission.Current` can be `null`, and Agents become invalid after the Mission ends. Read campaign parties, sides, results, and settlements from `MobileParty`, `PartyBase`, `PlayerEncounter`, and `MapEvent`.
 - **Do not treat this static class as an injectable service.** `EncounterManager.Current` does not exist. Do not store a manager instance or add save fields to it.
 
-## Dependency graph
+## Dependencies
 
 ### Upstream: what sends work here
 

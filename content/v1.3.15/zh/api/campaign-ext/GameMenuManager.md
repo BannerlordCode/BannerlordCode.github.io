@@ -12,11 +12,11 @@ description: "GameMenuManager 的自动生成类参考。"
 
 ## 概述
 
-`GameMenuManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+`GameMenuManager` 是 `TaleWorlds.CampaignSystem` 命名空间下的菜单运行时管理器，运行在 Campaign 模拟层（而非 UI 表现层或 Mission 战斗层）。它负责游戏菜单的注册与查找（`AddGameMenu` / `GetGameMenu`）、菜单间跳转（`NextMenu` / `SetNextMenu`）以及虚拟菜单选项的文本、工具提示与可用性的求值与刷新。它由 `Campaign` 在战役开始时创建并作为单例持有，供各 `CampaignBehavior` 在菜单上下文（`MenuContext`）中查询与驱动菜单流程；当你需要在代码中打开、切换或读取某个游戏菜单时应使用它，纯界面展示或战斗逻辑则不应直接依赖它。
 
 ## 心智模型
 
-把 `GameMenuManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+`GameMenuManager` 处于 Campaign 模拟层，是菜单子系统的中央协调者：它由 `Campaign` 在战役开始时创建并作为单例持有，不直接参与战斗（Mission）或表现（Gauntlet UI）层。它维护一份菜单注册表（`AddGameMenu` / `GetGameMenu`），在 `MenuContext` 中求解虚拟菜单选项的文本、工具提示与可用性，并驱动菜单跳转。当你的 `CampaignBehavior` 需要在地图菜单里打开或切换某个游戏菜单、读取当前菜单状态或刷新选项显示时，应通过 `Campaign.Current.GameMenuManager` 使用它；若只是做界面展示或处理战斗逻辑，则应走 UI / Mission 路径，而不应直接依赖本管理器。
 
 ## 主要属性
 
@@ -338,8 +338,18 @@ var result = gameMenuManager.GetGameMenu("example");
 ## 使用示例
 
 ```csharp
-var manager = GameMenuManager.Current;
+// 在 CampaignBehavior 的菜单回调中，通过 Campaign.Current 获取菜单管理器
+GameMenuManager manager = Campaign.Current.GameMenuManager;
+GameMenu townMenu = manager.GetGameMenu("town");
+MenuContext context = Campaign.Current.CurrentMenuContext;
+manager.RefreshMenuOptions(context);
 ```
+
+## 依赖图
+
+- [GameMenu](../GameMenu/) — 菜单数据模型，由本管理器注册与查找
+- [GameMenuOption](../GameMenuOption/) — 菜单选项，由本管理器求值与刷新
+- [本区域目录](../)
 
 ## 参见
 

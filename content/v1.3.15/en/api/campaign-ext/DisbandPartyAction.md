@@ -133,7 +133,7 @@ TeleportHeroAction.ApplyImmediateTeleportToPartyAsPartyLeader(
 
 Do not imitate this by setting `IsDisbanding = false` or clearing `Party.SetCustomName` alone; that bypasses the cancellation event and leaves the behavior's waiting state inconsistent.
 
-## Dependency graph
+## Dependencies
 
 | Dependency | Role in this transition |
 | --- | --- |

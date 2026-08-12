@@ -6,17 +6,17 @@ description: "ConversationManager 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.Conversation
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public class ConversationManager`
+**Type:** public class ConversationManager
 **Base:** 无
-**File:** `TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs`
+**源文件路径:** bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Conversation/ConversationManager.cs
 
 ## 概述
 
-`ConversationManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。
+`ConversationManager` 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。它提供对话句子的索引与状态机、选项的收集与排序，以及对地图对话（MapConversation）与任务对话（MissionConversation）的统一启动入口。
 
 ## 心智模型
 
-把 `ConversationManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。
+把 `ConversationManager` 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。它负责编排对话流程的启动、推进与结束，并聚合 persuasion 说服子系统与多人对话的协调入口。
 
 ## 主要属性
 
@@ -539,8 +539,12 @@ conversationManager.GetPersuasionChances(conversationSentenceOption, successChan
 
 ```csharp
 var manager = ConversationManager.Current;
+manager.BeginConversation();
+manager.EndConversation();
 ```
 
 ## 参见
 
 - [本区域目录](../)
+- [DialogFlow](DialogFlow.md)
+- [ConversationSentenceOption](ConversationSentenceOption.md)

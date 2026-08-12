@@ -6,9 +6,9 @@ description: "KingdomDecision 的自动生成类参考。"
 
 **Namespace:** TaleWorlds.CampaignSystem.Election
 **Module:** TaleWorlds.CampaignSystem
-**Type:** `public abstract class KingdomDecision`
+**Type:** public abstract class KingdomDecision
 **Base:** 无
-**File:** `TaleWorlds.CampaignSystem/Election/KingdomDecision.cs`
+**源文件路径:** TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Election/KingdomDecision.cs
 
 ## 概述
 
@@ -16,7 +16,7 @@ description: "KingdomDecision 的自动生成类参考。"
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.CampaignSystem.Election` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+要理解 `KingdomDecision`，关键看它属于 `TaleWorlds.CampaignSystem.Election` 子系统：公开属性（如 Kingdom、ProposerClan）描述它持有的状态，公开方法（如 DetermineInitialCandidates、ApplyChosenOutcome）描述王国决策允许的行为与流程。
 
 ## 主要属性
 
@@ -367,9 +367,21 @@ var result = kingdomDecision.GetFollowUpDecision();
 ## 使用示例
 
 ```csharp
-// 通常通过子系统 API 或工厂获得派生实例
-KingdomDecision instance = ...;
+// 在王国决策流程中，先取得一个待处理的 KingdomDecision 实例（其具体类型派生自 KingdomDecision）
+KingdomDecision decision = GetKingdomDecision();
+if (decision != null && decision.IsAllowed())
+{
+    var candidates = decision.DetermineInitialCandidates();
+    decision.ApplyChosenOutcome(candidates.First());
+}
 ```
+
+## 依赖图
+
+- [DecisionOutcome](DecisionOutcome) — 决策的可能结果类型
+- [Supporter](Supporter) — 参与投票支持的氏族
+- [Clan](../../campaign/Clan/) — 提案与决策的氏族主体
+- [Kingdom](../../campaign/Kingdom/) — 所属王国
 
 ## 参见
 

@@ -93,7 +93,9 @@ if (mission != null && mission.CurrentState == Mission.State.Continuing)
 
 `MissionGameStarter` 不是 `TaleWorlds.MountAndBlade` 源码中的 Mission 注册类型；不要把战役的 `CampaignGameStarter.AddBehavior` 例子复制到 Mission 页。运行时添加 behavior 也不会回放已经错过的完整启动阶段，因此依赖 `OnBehaviorInitialize` 的行为应走 `OpenNew` 工厂。
 
-## 依赖关系：Agent、Team 与场景对象
+## 依赖图
+
+`Mission` 本身不持有持久状态；它把场景对象、行为和结束裁决组织在当前帧。核心协作对象如下：
 
 - [`Agent`](../Agent/) 是场景中的单个单位，受 Mission 创建和移除流程驱动。
 - [`Team`](../Team/) 是阵营容器；它拥有 `Formation` 集合、OrderController 和 Team AI。

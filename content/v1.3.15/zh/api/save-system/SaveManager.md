@@ -89,7 +89,7 @@ if (saveResult != null && saveResult.Successful)
 
 1.3.15 与 1.4.5 都提供 `.sav`、定义上下文、`Save`、`LoadMetaData`、`Load` 和 late initialize 参数。内部实现和官方类型定义会增长；跨版本 mod 必须保持自己的 type ID、member ID、key 和字段类型兼容，而不能依赖官方类型表的绝对编号。
 
-## 依赖关系与导航
+## 依赖关系
 
 - 定义：[SaveableTypeDefiner](../SaveableTypeDefiner/)、[SaveableFieldAttribute](../SaveableFieldAttribute/)、[SaveablePropertyAttribute](../SaveablePropertyAttribute/)。
 - Behavior：[IDataStore](../../campaign-ext/IDataStore/) 是 Behavior 私有状态的正确入口。

@@ -20,7 +20,7 @@ description: "默认据点民兵增长、老兵概率和攻城后补充规则的
 
 攻城胜利补充、每日变化、老兵概率和近战/远程比例分别由四个公开方法承担。`Town.DailyTick`、`MilitiasCampaignBehavior` 和 `Settlement` 负责把结果应用到 `Settlement.Militia` 或民兵队伍；Model 内没有这些状态的所有权。
 
-## 依赖与消费链
+## 依赖关系
 
 | 类型/流程 | 关系 |
 | --- | --- |

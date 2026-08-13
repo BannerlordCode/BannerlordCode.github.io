@@ -80,6 +80,13 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 
 这是 1.4.5 的真实声明：`base(20000)` 和类型 local ID `1` 共同形成类型 SaveId，具体字典形状另由 `ConstructContainerDefinition` 登记。模块初始化时由 [SaveManager](../SaveManager) 建立定义上下文；mod 不应手动 `new` 这个 definer。原生 [SaveableCampaignTypeDefiner](../../campaign-ext/SaveableCampaignTypeDefiner) 采用同一模式，并以 `base(330000)` 登记 Campaign 类型。
 
+引擎在保存系统初始化阶段收集并填充所有 definer（mod 不应自己实例化这个 definer）：
+
+```csharp
+SaveManager.InitializeGlobalDefinitionContext();
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
+```
+
 ## 风险与防坏档
 
 - **`saveBaseId` 冲突。** helper 实际把基准和局部编号相加；两个模块范围重叠会产生相同类型保存 ID，导致定义冲突或错误解析。为 mod 预留明确范围并固定它。
@@ -97,7 +104,7 @@ public class SaveableLocalizationTypeDefiner : SaveableTypeDefiner
 
 1.3.15 与 1.4.5 都提供相同的基类 helper 和阶段重写点。官方模块的 `saveBaseId`、类型局部编号和类型清单可能随版本增加；mod 应把自己的编号视为永久协议，不要复制某个版本官方编号范围。
 
-## 依赖关系与导航
+## 依赖关系
 
 - 成员声明：[SaveableFieldAttribute](../SaveableFieldAttribute) · [SaveablePropertyAttribute](../SaveablePropertyAttribute)。
 - 执行入口：[SaveManager](../SaveManager) 构建 [DefinitionContext](../DefinitionContext) 并报告定义错误。

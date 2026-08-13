@@ -131,13 +131,15 @@ public sealed class BossDefeatLogic : MissionLogic
 
 这段逻辑只保存布尔结果，没有保存死亡 Agent 引用。`OnAgentRemoved` 中需要的 Team/Agent 身份应立即抽取；战役层的奖励、关系或 Hero 状态应在 Mission 结果交回战役后再用 Action 写回。
 
-## 风险与依赖
+## 依赖关系
 
 - [`Mission`](../../mission/Mission/) 持有 `MissionBehaviors` 与 `MissionLogics`，并决定何时轮询 `MissionEnded`。
 - [`MissionBehavior`](../../mission/MissionBehavior/) 提供 Agent、Team、tick、交互和清理回调。
 - [`Agent`](../../mission/Agent/)、[`Team`](../../mission/Team/) 和 [`Formation`](../../mission/Formation/) 是结束判定常读取的实时对象。
 - [`BattleEndLogic`](../BattleEndLogic/) 是原版战斗结束 logic 的实际例子；添加第二个结果所有者时必须明确优先级。
 - [`Campaign`](../../campaign/Campaign/)、`MapEvent` 和战役 `*Action` 是 Mission 结果的下游，不应在 `OnAgentRemoved` 中做可重入的地图重排。
+
+## 风险与崩溃边界
 
 可能崩溃或坏档的用法：
 

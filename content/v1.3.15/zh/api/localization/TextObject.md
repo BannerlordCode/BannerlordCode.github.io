@@ -123,7 +123,7 @@ public sealed class RelicNotificationDefiner : SaveableTypeDefiner
 
 1.3.15 与 1.4.5 都有 `Value`、`Attributes`、变量重载、复制、ID 读取和保存回调。源码细节可增加，但跨版本 mod 应使用最小公共 API；`Format(float)` 依赖 `A0` 变量约定，不如显式 `SetTextVariable` 清晰。
 
-## 依赖关系与导航
+## 依赖关系
 
 - 解析器：[MBTextManager](../MBTextManager/) 负责语言、token 和最终字符串。
 - 保存：[SaveableFieldAttribute](../../save-system/SaveableFieldAttribute/) / [SaveablePropertyAttribute](../../save-system/SaveablePropertyAttribute/) 与 `SaveableLocalizationTypeDefiner` 定义对象图。

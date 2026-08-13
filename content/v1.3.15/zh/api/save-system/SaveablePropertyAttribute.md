@@ -77,6 +77,13 @@ public sealed class RelicSaveDefiner : SaveableTypeDefiner
 
 这是一个实际可理解的保存链：`TextObject` 和 `Hero` 需要各自已经存在于保存定义图中，`RelicInfo` 再通过 definer 注册。属性的 private setter 不是绕过保存系统的技巧，而是允许加载器回填后仍保持普通运行时代码的封装边界。
 
+属性成员与所属类最终由保存系统收集；引擎在启动保存系统时初始化定义上下文（mod 不应自己调用这些入口去“注册”属性）：
+
+```csharp
+SaveManager.InitializeGlobalDefinitionContext();
+List<Type> missingTypes = SaveManager.CheckSaveableTypes();
+```
+
 ## 风险与防坏档
 
 - **重复 `LocalSaveId`。** 同一类型内字段和属性都要唯一；重复编号会让定义或回填对应到错误成员。
@@ -90,7 +97,7 @@ public sealed class RelicSaveDefiner : SaveableTypeDefiner
 
 1.3.15 与 1.4.5 的构造函数、Attribute 目标和 `LocalSaveId` 类型一致。`TextObject.Attributes` 仍使用 `[SaveableProperty(2)]`，说明属性路线适合保存封装数据，但不代表任意属性都可安全加入旧档 schema。
 
-## 依赖关系与导航
+## 依赖关系
 
 - 定义：[SaveableTypeDefiner](../SaveableTypeDefiner/) 注册所属类和类型编号。
 - 执行：[SaveManager](../SaveManager/) 构建定义上下文并处理 `Save`/`Load`。

@@ -132,12 +132,14 @@ public sealed class KillNoticeBehavior : MissionBehavior
 | `OnMissionModeChange` | 进入 Deployment、Battle 等模式时接收变化；不要假设所有 Mission 都有同样的模式序列 |
 | `OnRemoveBehavior` | 动态移除或 Mission teardown 的清理点；解绑事件并让方法可重复调用 |
 
-## 风险与依赖
+## 依赖关系
 
 - [`Mission`](../Mission/) 持有 behavior，并决定所有回调何时有效。
 - [`MissionLogic`](../../mission-ext/MissionLogic/) 共享本类的 Agent/tick 生命周期，但额外参与结束裁决。
 - [`Agent`](../Agent/)、[`Team`](../Team/)、[`Formation`](../Formation/) 都是 Mission-scoped；行为必须在 `OnEndMissionInternal`/`OnRemoveBehavior` 清空它们的缓存。
 - [`CampaignBehaviorBase`](../../campaign-ext/CampaignBehaviorBase/) 和 [`Campaign`](../../campaign/Campaign/) 属于更长寿命的 Campaign 层，不应被 Mission 行为的临时引用反向持有。
+
+## 风险与崩溃边界
 
 最危险的错误是：在 `Mission.Current == null` 时 tick；在 `OnAgentRemoved` 之后继续访问 Agent 的 native 状态；在 `OnRemoveBehavior` 后继续接收外部事件；或把 Mission 层对象写进存档。它们会导致空引用、无效 native handle、重复回调和坏档。
 

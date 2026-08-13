@@ -116,7 +116,7 @@ public override void SyncData(IDataStore dataStore)
 
 1.3.15 和 1.4.5 的 Attribute 构造函数及 `LocalSaveId` 类型一致。跨版本 mod 应固定编号、固定字段类型，并在删改成员前设计兼容加载；不要依赖反编译文件中的字段顺序。
 
-## 依赖关系与导航
+## 依赖关系
 
 - 上游：[SaveableTypeDefiner](../SaveableTypeDefiner) 负责将声明字段的类加入定义表。
 - 执行：[SaveManager](../SaveManager) 初始化定义上下文并执行保存/加载。

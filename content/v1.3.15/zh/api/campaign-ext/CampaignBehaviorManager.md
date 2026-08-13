@@ -20,12 +20,7 @@ description: "战役系统里所有 CampaignBehavior 的中央登记与派发器
 
 - 每名“员工”是一个 `CampaignBehaviorBase` 实例（比如 `RomanceCampaignBehavior`、`PregnancyCampaignBehavior`、`TournamentCampaignBehavior`）。它们才是真正干活的：订阅 `CampaignEvents`、处理每日 tick、更新世界状态。
 - 这本花名册本身**不实现任何游戏规则**，它只负责三件事：① 持有行为清单；② 在合适的时机（开档、存档前、读档后）逐个通知这些行为做对应的事；③ 让你按类型查到某个行为。
-- 它由 `Campaign` 在开档流程中创建并持有。`Campaign` 会从 `CampaignGameStarter.CampaignBehaviors`（即所有 `MBSubModuleBase` 在 `OnCampaignStart` 里 `AddBehavior` 注册进来的行为）构造出 `CampaignBehaviorManager`：
-
-```csharp
-// TaleWorlds.CampaignSystem/Campaign.cs 中的真实创建点（节选）
-AddCampaignBehaviorManager(new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors));
-```
+- 它由 `Campaign` 在开档流程中创建并持有。`Campaign` 会从 `CampaignGameStarter.CampaignBehaviors`（即所有 `MBSubModuleBase` 在 `OnCampaignStart` 里 `AddBehavior` 注册进来的行为）构造出 `CampaignBehaviorManager`。真实创建点位于 `TaleWorlds.CampaignSystem/Campaign.cs`（节选）：`AddCampaignBehaviorManager(new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors));`
 
 - 你**永远不要**自己 `new CampaignBehaviorManager(...)`。战役启动后，通过 `Campaign.Current.CampaignBehaviorManager` 拿到这个由引擎维护的同一实例（属性的编译期类型是接口 `ICampaignBehaviorManager`）。
 - 它与三层对象的关系：

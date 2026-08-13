@@ -546,5 +546,5 @@ manager.EndConversation();
 ## 参见
 
 - [本区域目录](../)
-- [DialogFlow](DialogFlow.md)
-- [ConversationSentenceOption](ConversationSentenceOption.md)
+- [DialogFlow](../DialogFlow/)
+- [ConversationSentenceOption](../ConversationSentenceOption/)

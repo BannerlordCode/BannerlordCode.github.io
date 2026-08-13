@@ -104,4 +104,4 @@ gameMenuOption.RunConsequence(menuContext);
 ## 参见
 
 - [本区域目录](../)
-- [GameMenu](GameMenu.md)
+- [GameMenu](../GameMenu/)

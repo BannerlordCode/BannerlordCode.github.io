@@ -212,4 +212,4 @@ The public API of `SettlementLoyaltyModel` is identical across v1.3.0, v1.3.15, 
 - [↔ PartySpeedModel](../PartySpeedModel)
 - [Town](../../campaign/Town)
 - [Clan](../../campaign/Clan)
-- [Campaign System Guide](../../../guide/campaign-system.md)
+- [Campaign System Guide](../../../guide/campaign-system/)

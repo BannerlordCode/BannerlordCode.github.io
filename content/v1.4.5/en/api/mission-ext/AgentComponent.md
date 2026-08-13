@@ -44,10 +44,10 @@ flowchart TD
 
 **Do not use it when:**
 
-- the behavior belongs to the whole scene; derive from [`MissionBehavior`](../mission/MissionBehavior) or [`MissionLogic`](./MissionLogic);
-- the state must survive a save or a new Mission; store stable campaign data in a [`CampaignBehaviorBase`](../campaign/CampaignBehaviorBase) and `SyncData`;
-- the work is a global module or campaign hook; use [`MBSubModuleBase`](../core/MBSubModuleBase) or a Campaign event;
-- the callback only needs to observe an Agent death from outside that Agent; use [`MissionBehavior.OnAgentRemoved`](../mission/MissionBehavior) so the callback receives the affector, `AgentState`, and `KillingBlow`.
+- the behavior belongs to the whole scene; derive from [`MissionBehavior`](../../mission/MissionBehavior) or [`MissionLogic`](../MissionLogic);
+- the state must survive a save or a new Mission; store stable campaign data in a [`CampaignBehaviorBase`](../../campaign/CampaignBehaviorBase) and `SyncData`;
+- the work is a global module or campaign hook; use [`MBSubModuleBase`](../../core/MBSubModuleBase) or a Campaign event;
+- the callback only needs to observe an Agent death from outside that Agent; use [`MissionBehavior.OnAgentRemoved`](../../mission/MissionBehavior) so the callback receives the affector, `AgentState`, and `KillingBlow`.
 
 Adding a component does not make it a `MissionBehavior`, does not call `Initialize` immediately, and does not deduplicate the component type. If a mod adds two instances of the same concrete type, `GetComponent<T>()` returns only the first one while both instances receive forwarded callbacks.
 
@@ -55,18 +55,18 @@ Adding a component does not make it a `MissionBehavior`, does not call `Initiali
 
 **Upstream**
 
-- [`Agent`](../mission/Agent) owns `_components`, adds and removes components, and forwards callbacks.
-- [`Mission`](../mission/Mission) owns the scene and supplies the phase in which Agents are created, ticked, mounted, hit, and removed.
-- [`MissionLogic`](./MissionLogic) or another [`MissionBehavior`](../mission/MissionBehavior) is the normal registration boundary.
+- [`Agent`](../../mission/Agent) owns `_components`, adds and removes components, and forwards callbacks.
+- [`Mission`](../../mission/Mission) owns the scene and supplies the phase in which Agents are created, ticked, mounted, hit, and removed.
+- [`MissionLogic`](../MissionLogic) or another [`MissionBehavior`](../../mission/MissionBehavior) is the normal registration boundary.
 
 **Downstream**
 
-- [`CommonAIComponent`](./CommonAIComponent) consumes `GetMoraleAddition`, runs AI morale and retreat logic, and cleans mount reservations during removal.
-- [`HumanAIComponent`](./HumanAIComponent) uses tick, retreat, mount, and removal callbacks for human AI and mount reservations.
-- [`CampaignAgentComponent`](../campaign-ext/CampaignAgentComponent) uses `OnTick`, `OnStopUsingGameObject`, and the morale hooks to bridge Campaign/Sandbox behavior into a Mission Agent.
-- [`MPPerksAgentComponent`](./MPPerksAgentComponent) uses mount, pickup, weapon-drop, and removal callbacks to maintain perk subscriptions.
-- [`VictoryComponent`](./VictoryComponent) is a short-lived Agent component created by `AgentVictoryLogic`; its timer is checked by the owning Mission logic.
-- [`ScriptedMovementComponent`](./ScriptedMovementComponent) keeps a Mission-local target and updates scripted movement from `OnTick`.
+- [`CommonAIComponent`](../CommonAIComponent) consumes `GetMoraleAddition`, runs AI morale and retreat logic, and cleans mount reservations during removal.
+- [`HumanAIComponent`](../HumanAIComponent) uses tick, retreat, mount, and removal callbacks for human AI and mount reservations.
+- [`CampaignAgentComponent`](../../campaign-ext/CampaignAgentComponent) uses `OnTick`, `OnStopUsingGameObject`, and the morale hooks to bridge Campaign/Sandbox behavior into a Mission Agent.
+- [`MPPerksAgentComponent`](../MPPerksAgentComponent) uses mount, pickup, weapon-drop, and removal callbacks to maintain perk subscriptions.
+- [`VictoryComponent`](../VictoryComponent) is a short-lived Agent component created by `AgentVictoryLogic`; its timer is checked by the owning Mission logic.
+- [`ScriptedMovementComponent`](../ScriptedMovementComponent) keeps a Mission-local target and updates scripted movement from `OnTick`.
 
 There is no save or event-dispatch contract on `AgentComponent` itself. A derived component may subscribe to an Agent event in its constructor, but it must unsubscribe in `OnAgentRemoved` or `OnComponentRemoved` according to the owner that can release it. Do not assume that the base class will unregister anything for you.
 
@@ -213,7 +213,7 @@ This page follows the v1.4.5 `TaleWorlds.MountAndBlade.AgentComponent` and `Agen
 ## See also and bidirectional navigation
 
 - **↑ Parent:** [Mission extension API](../)
-- **↔ Siblings:** [Agent](../mission/Agent) · [Mission](../mission/Mission) · [MissionBehavior](../mission/MissionBehavior) · [MissionLogic](./MissionLogic)
-- **Derived components:** [CommonAIComponent](./CommonAIComponent) · [HumanAIComponent](./HumanAIComponent) · [CampaignAgentComponent](../campaign-ext/CampaignAgentComponent) · [MPPerksAgentComponent](./MPPerksAgentComponent)
-- **Related lifecycle:** [MissionObject](./MissionObject) · [AgentNavigator](../gameplay/AgentNavigator) · [AgentComponentExtensions](./AgentComponentExtensions)
-- **Architecture:** [Crash boundaries](../../architecture/crash-boundary) · [SDK overview](../../architecture/sdk-overview)
+- **↔ Siblings:** [Agent](../../mission/Agent) · [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [MissionLogic](../MissionLogic)
+- **Derived components:** [CommonAIComponent](../CommonAIComponent) · [HumanAIComponent](../HumanAIComponent) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent) · [MPPerksAgentComponent](../MPPerksAgentComponent)
+- **Related lifecycle:** [MissionObject](../MissionObject) · [AgentNavigator](../../gameplay/AgentNavigator) · [AgentComponentExtensions](../AgentComponentExtensions)
+- **Architecture:** [Crash boundaries](../../../architecture/crash-boundary) · [SDK overview](../../../architecture/sdk-overview)

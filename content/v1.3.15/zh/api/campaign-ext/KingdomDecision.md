@@ -378,8 +378,8 @@ if (decision != null && decision.IsAllowed())
 
 ## 依赖图
 
-- [DecisionOutcome](DecisionOutcome) — 决策的可能结果类型
-- [Supporter](Supporter) — 参与投票支持的氏族
+- [DecisionOutcome](../DecisionOutcome/) — 决策的可能结果类型
+- [Supporter](../Supporter/) — 参与投票支持的氏族
 - [Clan](../../campaign/Clan/) — 提案与决策的氏族主体
 - [Kingdom](../../campaign/Kingdom/) — 所属王国
 

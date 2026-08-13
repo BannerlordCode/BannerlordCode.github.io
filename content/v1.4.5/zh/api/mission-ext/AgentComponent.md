@@ -44,10 +44,10 @@ flowchart TD
 
 **不要使用：**
 
-- 行为属于整个场景时；应继承 [`MissionBehavior`](../mission/MissionBehavior) 或 [`MissionLogic`](./MissionLogic)；
-- 状态必须跨存档或跨 Mission 时；应在 [`CampaignBehaviorBase`](../campaign/CampaignBehaviorBase) 中用 `SyncData` 保存；
-- 需要全局模块或战役钩子时；使用 [`MBSubModuleBase`](../core/MBSubModuleBase) 或 Campaign 事件；
-- 只是要从外部观察 Agent 死亡时；用 [`MissionBehavior.OnAgentRemoved`](../mission/MissionBehavior)，因为它能同时提供 affector、`AgentState` 和 `KillingBlow`。
+- 行为属于整个场景时；应继承 [`MissionBehavior`](../../mission/MissionBehavior) 或 [`MissionLogic`](../MissionLogic)；
+- 状态必须跨存档或跨 Mission 时；应在 [`CampaignBehaviorBase`](../../campaign/CampaignBehaviorBase) 中用 `SyncData` 保存；
+- 需要全局模块或战役钩子时；使用 [`MBSubModuleBase`](../../core/MBSubModuleBase) 或 Campaign 事件；
+- 只是要从外部观察 Agent 死亡时；用 [`MissionBehavior.OnAgentRemoved`](../../mission/MissionBehavior)，因为它能同时提供 affector、`AgentState` 和 `KillingBlow`。
 
 添加组件不会使它成为 `MissionBehavior`，不会立刻调用 `Initialize`，也不会按类型去重。如果 mod 添加两个同一具体类型的组件，`GetComponent<T>()` 只返回第一个，但两个实例都会收到 Agent 转发的回调。
 
@@ -55,18 +55,18 @@ flowchart TD
 
 **上游**
 
-- [`Agent`](../mission/Agent) 持有 `_components`，负责添加、移除和转发回调。
-- [`Mission`](../mission/Mission) 持有场景，并决定 Agent 创建、tick、骑乘、命中和移除的阶段。
-- [`MissionLogic`](./MissionLogic) 或其他 [`MissionBehavior`](../mission/MissionBehavior) 是通常的注册边界。
+- [`Agent`](../../mission/Agent) 持有 `_components`，负责添加、移除和转发回调。
+- [`Mission`](../../mission/Mission) 持有场景，并决定 Agent 创建、tick、骑乘、命中和移除的阶段。
+- [`MissionLogic`](../MissionLogic) 或其他 [`MissionBehavior`](../../mission/MissionBehavior) 是通常的注册边界。
 
 **下游**
 
-- [`CommonAIComponent`](./CommonAIComponent) 消费 `GetMoraleAddition`，执行 AI 士气与撤退逻辑，并在移除时清理坐骑预留。
-- [`HumanAIComponent`](./HumanAIComponent) 使用 tick、撤退、骑乘和移除回调处理人类 AI 与坐骑预留。
-- [`CampaignAgentComponent`](../campaign-ext/CampaignAgentComponent) 使用 `OnTick`、`OnStopUsingGameObject` 和士气钩子，把 Campaign/Sandbox 行为桥接到 Mission Agent。
-- [`MPPerksAgentComponent`](./MPPerksAgentComponent) 使用骑乘、拾取、丢武器和移除回调维护 perk 订阅。
-- [`VictoryComponent`](./VictoryComponent) 是 `AgentVictoryLogic` 创建的短寿命组件，其计时器由所属 Mission 逻辑检查。
-- [`ScriptedMovementComponent`](./ScriptedMovementComponent) 持有 Mission 内目标，并在 `OnTick` 中更新 scripted movement。
+- [`CommonAIComponent`](../CommonAIComponent) 消费 `GetMoraleAddition`，执行 AI 士气与撤退逻辑，并在移除时清理坐骑预留。
+- [`HumanAIComponent`](../HumanAIComponent) 使用 tick、撤退、骑乘和移除回调处理人类 AI 与坐骑预留。
+- [`CampaignAgentComponent`](../../campaign-ext/CampaignAgentComponent) 使用 `OnTick`、`OnStopUsingGameObject` 和士气钩子，把 Campaign/Sandbox 行为桥接到 Mission Agent。
+- [`MPPerksAgentComponent`](../MPPerksAgentComponent) 使用骑乘、拾取、丢武器和移除回调维护 perk 订阅。
+- [`VictoryComponent`](../VictoryComponent) 是 `AgentVictoryLogic` 创建的短寿命组件，其计时器由所属 Mission 逻辑检查。
+- [`ScriptedMovementComponent`](../ScriptedMovementComponent) 持有 Mission 内目标，并在 `OnTick` 中更新 scripted movement。
 
 `AgentComponent` 本身没有存档契约，也没有 Campaign 事件分发契约。派生组件可以在构造器中订阅 Agent 事件，但必须根据实际释放者在 `OnAgentRemoved` 或 `OnComponentRemoved` 中取消订阅。不要假设基类会替你解绑。
 
@@ -213,7 +213,7 @@ Mission.Current.AddMissionBehavior(new PickupAuditLogic());
 ## 参见与双向导航
 
 - **↑ Parent：** [Mission 扩展 API](../)
-- **↔ Sibling：** [Agent](../mission/Agent) · [Mission](../mission/Mission) · [MissionBehavior](../mission/MissionBehavior) · [MissionLogic](./MissionLogic)
-- **派生组件：** [CommonAIComponent](./CommonAIComponent) · [HumanAIComponent](./HumanAIComponent) · [CampaignAgentComponent](../campaign-ext/CampaignAgentComponent) · [MPPerksAgentComponent](./MPPerksAgentComponent)
-- **相关生命周期：** [MissionObject](./MissionObject) · [AgentNavigator](../gameplay/AgentNavigator) · [AgentComponentExtensions](./AgentComponentExtensions)
-- **架构：** [崩溃边界](../../architecture/crash-boundary) · [SDK 总览](../../architecture/sdk-overview)
+- **↔ Sibling：** [Agent](../../mission/Agent) · [Mission](../../mission/Mission) · [MissionBehavior](../../mission/MissionBehavior) · [MissionLogic](../MissionLogic)
+- **派生组件：** [CommonAIComponent](../CommonAIComponent) · [HumanAIComponent](../HumanAIComponent) · [CampaignAgentComponent](../../campaign-ext/CampaignAgentComponent) · [MPPerksAgentComponent](../MPPerksAgentComponent)
+- **相关生命周期：** [MissionObject](../MissionObject) · [AgentNavigator](../../gameplay/AgentNavigator) · [AgentComponentExtensions](../AgentComponentExtensions)
+- **架构：** [崩溃边界](../../../architecture/crash-boundary) · [SDK 总览](../../../architecture/sdk-overview)
